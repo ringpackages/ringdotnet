@@ -19,19 +19,19 @@ Class XamlSetTypeConverterEventArgs from XamlSetValueEventArgs
 		return self
 
 	Func getTypeConverter
-		return dnRequest("get",[self,"TypeConverter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeConverter"])
 
 	Func setTypeConverter P1
 		raise("DotNet Error: TypeConverter is a read-only property")
 
 	Func getServiceProvider
-		return dnRequest("get",[self,"ServiceProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceProvider"])
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")
 
 	Func getCultureInfo
-		return dnRequest("get",[self,"CultureInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CultureInfo"])
 
 	Func setCultureInfo P1
 		raise("DotNet Error: CultureInfo is a read-only property")

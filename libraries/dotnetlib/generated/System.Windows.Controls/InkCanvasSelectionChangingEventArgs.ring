@@ -14,16 +14,16 @@ Class InkCanvasSelectionChangingEventArgs from CancelEventArgs
 		return self
 
 	Func SetSelectedElements P1
-		dnRequest("call",[self,"SetSelectedElements",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSelectedElements",P1])
 		return self
 
 	Func GetSelectedElements 
-		return dnRequest("call",[self,"GetSelectedElements"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSelectedElements"])
 
 	Func SetSelectedStrokes P1
-		dnRequest("call",[self,"SetSelectedStrokes",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSelectedStrokes",P1])
 		return self
 
 	Func GetSelectedStrokes 
-		return dnRequest("call",[self,"GetSelectedStrokes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSelectedStrokes"])
 

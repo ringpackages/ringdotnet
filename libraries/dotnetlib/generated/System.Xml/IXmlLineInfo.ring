@@ -17,16 +17,16 @@ Class IXmlLineInfo from DotNetObject
 		return self
 
 	Func HasLineInfo 
-		return dnRequest("call",[self,"HasLineInfo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasLineInfo"])
 
 	Func getLineNumber
-		return dnRequest("get",[self,"LineNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineNumber"])
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		return dnRequest("get",[self,"LinePosition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinePosition"])
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")

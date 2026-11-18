@@ -16,75 +16,75 @@ Class ExpressionPrinter from DotNetObject
 
 	Func AppendLine P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AppendLine",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLine",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AppendLine"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AppendLine"])
 		ok
-		return dnRequest("call",[self,"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
 	Func AppendLine_1 P1
-		return dnRequest("call",[self,"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
 	Func AppendLines_2 P1,P2
-		return dnRequest("call",[self,"AppendLines",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLines",P1,P2])
 
 	Func AppendLines P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AppendLines",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLines",P1])
 		ok
-		return dnRequest("call",[self,"AppendLines",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLines",P1])
 
 	Func Indent 
-		return dnRequest("call",[self,"Indent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Indent"])
 
 	Func Append P1
-		return dnRequest("call",[self,"Append",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
 
 	Func PrintExpression_2 P1,P2
-		return dnRequest("call",[self,"PrintExpression",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"PrintExpression",P1,P2])
 
 	Func PrintExpression P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"PrintExpression",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"PrintExpression",P1])
 		ok
-		return dnRequest("call",[self,"PrintExpression",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PrintExpression",P1])
 
 	Func PrintExpressionDebug P1
-		return dnRequest("call",[self,"PrintExpressionDebug",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PrintExpressionDebug",P1])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func GenerateBinaryOperator P1
-		return dnRequest("call",[self,"GenerateBinaryOperator",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateBinaryOperator",P1])
 
 	Func VisitCollection_2 P1,P2
-		dnRequest("call",[self,"VisitCollection",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"VisitCollection",P1,P2])
 		return self
 
 	Func VisitCollection P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"VisitCollection",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"VisitCollection",P1])
 			return self
 		ok
-		dnRequest("call",[self,"VisitCollection",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"VisitCollection",P1])
 		return self
 
 	Func Visit P1
-		return dnRequest("call",[self,"Visit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
 
 	Func VisitAndConvert P1,P2
-		return dnRequest("call",[self,"VisitAndConvert",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func Print P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"Print",P1])

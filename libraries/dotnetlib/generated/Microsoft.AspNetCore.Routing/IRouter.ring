@@ -14,8 +14,8 @@ Class IRouter from DotNetObject
 		return self
 
 	Func RouteAsync P1
-		return dnRequest("call",[self,"RouteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RouteAsync",P1])
 
 	Func GetVirtualPath P1
-		return dnRequest("call",[self,"GetVirtualPath",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetVirtualPath",P1])
 

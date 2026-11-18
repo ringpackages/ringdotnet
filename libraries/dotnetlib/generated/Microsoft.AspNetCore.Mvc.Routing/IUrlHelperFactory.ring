@@ -14,5 +14,5 @@ Class IUrlHelperFactory from DotNetObject
 		return self
 
 	Func GetUrlHelper P1
-		return dnRequest("call",[self,"GetUrlHelper",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUrlHelper",P1])
 

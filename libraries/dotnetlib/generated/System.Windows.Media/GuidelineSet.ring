@@ -24,17 +24,17 @@ Class GuidelineSet from Animatable
 		return self
 
 	Func getGuidelinesX
-		return dnRequest("get",[self,"GuidelinesX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GuidelinesX"])
 
 	Func setGuidelinesX P1
-		dnRequest("set",[self,"GuidelinesX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GuidelinesX",P1])
 		return self
 
 	Func getGuidelinesY
-		return dnRequest("get",[self,"GuidelinesY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GuidelinesY"])
 
 	Func setGuidelinesY P1
-		dnRequest("set",[self,"GuidelinesY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GuidelinesY",P1])
 		return self
 
 	Func getGuidelinesXProperty

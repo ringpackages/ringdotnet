@@ -28,30 +28,30 @@ Class LocalRedirectResult from ActionResult
 		return self
 
 	Func getPermanent
-		return dnRequest("get",[self,"Permanent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Permanent"])
 
 	Func setPermanent P1
-		dnRequest("set",[self,"Permanent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Permanent",P1])
 		return self
 
 	Func getPreserveMethod
-		return dnRequest("get",[self,"PreserveMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreserveMethod"])
 
 	Func setPreserveMethod P1
-		dnRequest("set",[self,"PreserveMethod",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PreserveMethod",P1])
 		return self
 
 	Func getUrl
-		return dnRequest("get",[self,"Url"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
 
 	Func setUrl P1
-		dnRequest("set",[self,"Url",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Url",P1])
 		return self
 
 	Func getUrlHelper
-		return dnRequest("get",[self,"UrlHelper"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UrlHelper"])
 
 	Func setUrlHelper P1
-		dnRequest("set",[self,"UrlHelper",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UrlHelper",P1])
 		return self
 

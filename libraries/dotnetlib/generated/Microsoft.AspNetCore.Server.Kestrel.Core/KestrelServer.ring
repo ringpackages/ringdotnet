@@ -18,26 +18,26 @@ Class KestrelServer from Object
 		return self
 
 	Func StartAsync P1,P2
-		return dnRequest("call",[self,"StartAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1,P2])
 
 	Func StopAsync P1
-		return dnRequest("call",[self,"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFeatures
-		return dnRequest("get",[self,"Features"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Features"])
 
 	Func setFeatures P1
 		raise("DotNet Error: Features is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")

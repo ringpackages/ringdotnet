@@ -58,180 +58,180 @@ Class DataGridColumn from DependencyObject
 		return self
 
 	Func GetCellContent P1
-		return dnRequest("call",[self,"GetCellContent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCellContent",P1])
 
 	Func OnCopyingCellClipboardContent P1
-		return dnRequest("call",[self,"OnCopyingCellClipboardContent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnCopyingCellClipboardContent",P1])
 
 	Func OnPastingCellClipboardContent P1,P2
-		dnRequest("call",[self,"OnPastingCellClipboardContent",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OnPastingCellClipboardContent",P1,P2])
 		return self
 
 	Func setCopyingCellClipboardContentEvent P1
-		dnRequest("setevent",[self,"CopyingCellClipboardContent",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CopyingCellClipboardContent",dnCallback(P1)])
 		return self
 
 	Func clearCopyingCellClipboardContentEvent
-		dnRequest("clearevent",[self,"CopyingCellClipboardContent"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CopyingCellClipboardContent"])
 		return self
 
 	Func setPastingCellClipboardContentEvent P1
-		dnRequest("setevent",[self,"PastingCellClipboardContent",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PastingCellClipboardContent",dnCallback(P1)])
 		return self
 
 	Func clearPastingCellClipboardContentEvent
-		dnRequest("clearevent",[self,"PastingCellClipboardContent"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PastingCellClipboardContent"])
 		return self
 
 	Func getHeader
-		return dnRequest("get",[self,"Header"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
 
 	Func setHeader P1
-		dnRequest("set",[self,"Header",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Header",P1])
 		return self
 
 	Func getHeaderStyle
-		return dnRequest("get",[self,"HeaderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderStyle"])
 
 	Func setHeaderStyle P1
-		dnRequest("set",[self,"HeaderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderStyle",P1])
 		return self
 
 	Func getHeaderStringFormat
-		return dnRequest("get",[self,"HeaderStringFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderStringFormat"])
 
 	Func setHeaderStringFormat P1
-		dnRequest("set",[self,"HeaderStringFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderStringFormat",P1])
 		return self
 
 	Func getHeaderTemplate
-		return dnRequest("get",[self,"HeaderTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplate"])
 
 	Func setHeaderTemplate P1
-		dnRequest("set",[self,"HeaderTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplate",P1])
 		return self
 
 	Func getHeaderTemplateSelector
-		return dnRequest("get",[self,"HeaderTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplateSelector"])
 
 	Func setHeaderTemplateSelector P1
-		dnRequest("set",[self,"HeaderTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplateSelector",P1])
 		return self
 
 	Func getCellStyle
-		return dnRequest("get",[self,"CellStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellStyle"])
 
 	Func setCellStyle P1
-		dnRequest("set",[self,"CellStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellStyle",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
-		dnRequest("set",[self,"IsReadOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsReadOnly",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
 		return self
 
 	Func getMinWidth
-		return dnRequest("get",[self,"MinWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinWidth"])
 
 	Func setMinWidth P1
-		dnRequest("set",[self,"MinWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinWidth",P1])
 		return self
 
 	Func getMaxWidth
-		return dnRequest("get",[self,"MaxWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxWidth"])
 
 	Func setMaxWidth P1
-		dnRequest("set",[self,"MaxWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxWidth",P1])
 		return self
 
 	Func getActualWidth
-		return dnRequest("get",[self,"ActualWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActualWidth"])
 
 	Func setActualWidth P1
 		raise("DotNet Error: ActualWidth is a read-only property")
 
 	Func getDisplayIndex
-		return dnRequest("get",[self,"DisplayIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayIndex"])
 
 	Func setDisplayIndex P1
-		dnRequest("set",[self,"DisplayIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisplayIndex",P1])
 		return self
 
 	Func getSortMemberPath
-		return dnRequest("get",[self,"SortMemberPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortMemberPath"])
 
 	Func setSortMemberPath P1
-		dnRequest("set",[self,"SortMemberPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SortMemberPath",P1])
 		return self
 
 	Func getCanUserSort
-		return dnRequest("get",[self,"CanUserSort"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUserSort"])
 
 	Func setCanUserSort P1
-		dnRequest("set",[self,"CanUserSort",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanUserSort",P1])
 		return self
 
 	Func getSortDirection
-		return dnRequest("get",[self,"SortDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortDirection"])
 
 	Func setSortDirection P1
-		dnRequest("set",[self,"SortDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SortDirection",P1])
 		return self
 
 	Func getIsAutoGenerated
-		return dnRequest("get",[self,"IsAutoGenerated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAutoGenerated"])
 
 	Func setIsAutoGenerated P1
 		raise("DotNet Error: IsAutoGenerated is a read-only property")
 
 	Func getIsFrozen
-		return dnRequest("get",[self,"IsFrozen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFrozen"])
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")
 
 	Func getCanUserReorder
-		return dnRequest("get",[self,"CanUserReorder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUserReorder"])
 
 	Func setCanUserReorder P1
-		dnRequest("set",[self,"CanUserReorder",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanUserReorder",P1])
 		return self
 
 	Func getDragIndicatorStyle
-		return dnRequest("get",[self,"DragIndicatorStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DragIndicatorStyle"])
 
 	Func setDragIndicatorStyle P1
-		dnRequest("set",[self,"DragIndicatorStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DragIndicatorStyle",P1])
 		return self
 
 	Func getClipboardContentBinding
-		return dnRequest("get",[self,"ClipboardContentBinding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClipboardContentBinding"])
 
 	Func setClipboardContentBinding P1
-		dnRequest("set",[self,"ClipboardContentBinding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClipboardContentBinding",P1])
 		return self
 
 	Func getCanUserResize
-		return dnRequest("get",[self,"CanUserResize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUserResize"])
 
 	Func setCanUserResize P1
-		dnRequest("set",[self,"CanUserResize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanUserResize",P1])
 		return self
 
 	Func getVisibility
-		return dnRequest("get",[self,"Visibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Visibility"])
 
 	Func setVisibility P1
-		dnRequest("set",[self,"Visibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Visibility",P1])
 		return self
 
 	Func getHeaderProperty

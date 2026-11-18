@@ -17,7 +17,7 @@ Class GeometryHitTestParameters from HitTestParameters
 		return self
 
 	Func getHitGeometry
-		return dnRequest("get",[self,"HitGeometry"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HitGeometry"])
 
 	Func setHitGeometry P1
 		raise("DotNet Error: HitGeometry is a read-only property")

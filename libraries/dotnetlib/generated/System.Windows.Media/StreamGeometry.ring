@@ -18,17 +18,17 @@ Class StreamGeometry from Geometry
 		return self
 
 	Func Open 
-		return dnRequest("call",[self,"Open"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Open"])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func getFillRule
-		return dnRequest("get",[self,"FillRule"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FillRule"])
 
 	Func setFillRule P1
-		dnRequest("set",[self,"FillRule",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FillRule",P1])
 		return self
 
 	Func getFillRuleProperty

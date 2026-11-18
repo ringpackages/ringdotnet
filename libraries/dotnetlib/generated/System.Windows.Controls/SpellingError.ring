@@ -16,18 +16,18 @@ Class SpellingError from Object
 		return self
 
 	Func Correct P1
-		dnRequest("call",[self,"Correct",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Correct",P1])
 		return self
 
 	Func IgnoreAll 
-		dnRequest("call",[self,"IgnoreAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"IgnoreAll"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSuggestions
-		return dnRequest("get",[self,"Suggestions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Suggestions"])
 
 	Func setSuggestions P1
 		raise("DotNet Error: Suggestions is a read-only property")

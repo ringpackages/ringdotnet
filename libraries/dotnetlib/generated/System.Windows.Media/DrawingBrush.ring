@@ -22,10 +22,10 @@ Class DrawingBrush from TileBrush
 		return self
 
 	Func getDrawing
-		return dnRequest("get",[self,"Drawing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Drawing"])
 
 	Func setDrawing P1
-		dnRequest("set",[self,"Drawing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Drawing",P1])
 		return self
 
 	Func getDrawingProperty

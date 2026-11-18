@@ -30,7 +30,7 @@ Class VisualStyleInformation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsSupportedByOS
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"IsSupportedByOS"])

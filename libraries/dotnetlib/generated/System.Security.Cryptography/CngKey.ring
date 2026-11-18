@@ -29,28 +29,28 @@ Class CngKey from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Delete 
-		dnRequest("call",[self,"Delete"])
+		dnRequest("call",[new DotNetObject(nHandle),"Delete"])
 		return self
 
 	Func Export P1
-		return dnRequest("call",[self,"Export",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Export",P1])
 
 	Func GetProperty P1,P2
-		return dnRequest("call",[self,"GetProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1,P2])
 
 	Func HasProperty P1,P2
-		return dnRequest("call",[self,"HasProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasProperty",P1,P2])
 
 	Func SetProperty P1
-		dnRequest("call",[self,"SetProperty",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetProperty",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -95,86 +95,86 @@ Class CngKey from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1,P2,P3])
 
 	Func getAlgorithm
-		return dnRequest("get",[self,"Algorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Algorithm"])
 
 	Func setAlgorithm P1
 		raise("DotNet Error: Algorithm is a read-only property")
 
 	Func getAlgorithmGroup
-		return dnRequest("get",[self,"AlgorithmGroup"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AlgorithmGroup"])
 
 	Func setAlgorithmGroup P1
 		raise("DotNet Error: AlgorithmGroup is a read-only property")
 
 	Func getExportPolicy
-		return dnRequest("get",[self,"ExportPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExportPolicy"])
 
 	Func setExportPolicy P1
 		raise("DotNet Error: ExportPolicy is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getIsEphemeral
-		return dnRequest("get",[self,"IsEphemeral"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEphemeral"])
 
 	Func setIsEphemeral P1
 		raise("DotNet Error: IsEphemeral is a read-only property")
 
 	Func getIsMachineKey
-		return dnRequest("get",[self,"IsMachineKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMachineKey"])
 
 	Func setIsMachineKey P1
 		raise("DotNet Error: IsMachineKey is a read-only property")
 
 	Func getKeyName
-		return dnRequest("get",[self,"KeyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyName"])
 
 	Func setKeyName P1
 		raise("DotNet Error: KeyName is a read-only property")
 
 	Func getKeySize
-		return dnRequest("get",[self,"KeySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeySize"])
 
 	Func setKeySize P1
 		raise("DotNet Error: KeySize is a read-only property")
 
 	Func getKeyUsage
-		return dnRequest("get",[self,"KeyUsage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyUsage"])
 
 	Func setKeyUsage P1
 		raise("DotNet Error: KeyUsage is a read-only property")
 
 	Func getParentWindowHandle
-		return dnRequest("get",[self,"ParentWindowHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParentWindowHandle"])
 
 	Func setParentWindowHandle P1
-		dnRequest("set",[self,"ParentWindowHandle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ParentWindowHandle",P1])
 		return self
 
 	Func getProvider
-		return dnRequest("get",[self,"Provider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Provider"])
 
 	Func setProvider P1
 		raise("DotNet Error: Provider is a read-only property")
 
 	Func getProviderHandle
-		return dnRequest("get",[self,"ProviderHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProviderHandle"])
 
 	Func setProviderHandle P1
 		raise("DotNet Error: ProviderHandle is a read-only property")
 
 	Func getUIPolicy
-		return dnRequest("get",[self,"UIPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UIPolicy"])
 
 	Func setUIPolicy P1
 		raise("DotNet Error: UIPolicy is a read-only property")
 
 	Func getUniqueName
-		return dnRequest("get",[self,"UniqueName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UniqueName"])
 
 	Func setUniqueName P1
 		raise("DotNet Error: UniqueName is a read-only property")

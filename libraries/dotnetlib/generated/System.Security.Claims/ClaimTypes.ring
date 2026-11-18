@@ -69,7 +69,7 @@ Class ClaimTypes from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAuthenticationInstant
 		return dnRequest("get",[dnTypeCached('System.Security.Claims.ClaimTypes, System.Security.Claims'),"AuthenticationInstant"])

@@ -14,8 +14,8 @@ Class MarkupExtension from Object
 		return self
 
 	Func ProvideValue P1
-		return dnRequest("call",[self,"ProvideValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ProvideValue",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

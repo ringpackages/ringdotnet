@@ -22,47 +22,47 @@ Class BitmapData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
 		return self
 
 	Func getStride
-		return dnRequest("get",[self,"Stride"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Stride"])
 
 	Func setStride P1
-		dnRequest("set",[self,"Stride",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Stride",P1])
 		return self
 
 	Func getPixelFormat
-		return dnRequest("get",[self,"PixelFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelFormat"])
 
 	Func setPixelFormat P1
-		dnRequest("set",[self,"PixelFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PixelFormat",P1])
 		return self
 
 	Func getScan0
-		return dnRequest("get",[self,"Scan0"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scan0"])
 
 	Func setScan0 P1
-		dnRequest("set",[self,"Scan0",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Scan0",P1])
 		return self
 
 	Func getReserved
-		return dnRequest("get",[self,"Reserved"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Reserved"])
 
 	Func setReserved P1
-		dnRequest("set",[self,"Reserved",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Reserved",P1])
 		return self
 

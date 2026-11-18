@@ -16,15 +16,15 @@ Class IWebProxy from DotNetObject
 		return self
 
 	Func GetProxy P1
-		return dnRequest("call",[self,"GetProxy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProxy",P1])
 
 	Func IsBypassed P1
-		return dnRequest("call",[self,"IsBypassed",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBypassed",P1])
 
 	Func getCredentials
-		return dnRequest("get",[self,"Credentials"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Credentials"])
 
 	Func setCredentials P1
-		dnRequest("set",[self,"Credentials",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
 		return self
 

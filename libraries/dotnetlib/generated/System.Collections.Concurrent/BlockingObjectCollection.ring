@@ -29,84 +29,84 @@ Class BlockingObjectCollection from Object
 
 	Func Add P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Add_2 P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func TryAdd P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryAdd",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAdd",P1])
 		ok
-		return dnRequest("call",[self,"TryAdd",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1])
 
 	Func TryAdd_2 P1,P2
-		return dnRequest("call",[self,"TryAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2])
 
 	Func TryAdd_3 P1,P2,P3
-		return dnRequest("call",[self,"TryAdd",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2,P3])
 
 	Func Take P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Take",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Take",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Take"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Take"])
 		ok
-		return dnRequest("call",[self,"Take",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Take",P1])
 
 	Func Take_1 P1
-		return dnRequest("call",[self,"Take",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Take",P1])
 
 	Func TryTake P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryTake",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryTake",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryTake"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryTake"])
 		ok
-		return dnRequest("call",[self,"TryTake",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryTake",P1])
 
 	Func TryTake_1 P1
-		return dnRequest("call",[self,"TryTake",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryTake",P1])
 
 	Func TryTake_2 P1,P2
-		return dnRequest("call",[self,"TryTake",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryTake",P1,P2])
 
 	Func CompleteAdding 
-		dnRequest("call",[self,"CompleteAdding"])
+		dnRequest("call",[new DotNetObject(nHandle),"CompleteAdding"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[self,"ToArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetConsumingEnumerable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetConsumingEnumerable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetConsumingEnumerable",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetConsumingEnumerable"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetConsumingEnumerable"])
 		ok
-		return dnRequest("call",[self,"GetConsumingEnumerable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConsumingEnumerable",P1])
 
 	Func GetConsumingEnumerable_1 P1
-		return dnRequest("call",[self,"GetConsumingEnumerable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConsumingEnumerable",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func AddToAny P1,P2
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"AddToAny",P1,P2])
@@ -145,25 +145,25 @@ Class BlockingObjectCollection from Object
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1,P2,P3])
 
 	Func getBoundedCapacity
-		return dnRequest("get",[self,"BoundedCapacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BoundedCapacity"])
 
 	Func setBoundedCapacity P1
 		raise("DotNet Error: BoundedCapacity is a read-only property")
 
 	Func getIsAddingCompleted
-		return dnRequest("get",[self,"IsAddingCompleted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAddingCompleted"])
 
 	Func setIsAddingCompleted P1
 		raise("DotNet Error: IsAddingCompleted is a read-only property")
 
 	Func getIsCompleted
-		return dnRequest("get",[self,"IsCompleted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCompleted"])
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

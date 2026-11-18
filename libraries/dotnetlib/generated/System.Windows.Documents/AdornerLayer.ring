@@ -14,34 +14,34 @@ Class AdornerLayer from FrameworkElement
 		return self
 
 	Func Add P1
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Update P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Update",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Update",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Update"])
+			dnRequest("call",[new DotNetObject(nHandle),"Update"])
 		return self
 		ok
-		dnRequest("call",[self,"Update",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 		return self
 
 	Func Update_1 P1
-		dnRequest("call",[self,"Update",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 		return self
 
 	Func GetAdorners P1
-		return dnRequest("call",[self,"GetAdorners",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAdorners",P1])
 
 	Func AdornerHitTest P1
-		return dnRequest("call",[self,"AdornerHitTest",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AdornerHitTest",P1])
 
 	Func GetAdornerLayer P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.AdornerLayer, PresentationFramework'),"GetAdornerLayer",P1])

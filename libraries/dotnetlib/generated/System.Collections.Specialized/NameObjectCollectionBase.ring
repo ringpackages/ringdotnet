@@ -17,27 +17,27 @@ Class NameObjectCollectionBase from Object
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func OnDeserialization P1
-		dnRequest("call",[self,"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnDeserialization",P1])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")

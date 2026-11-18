@@ -15,7 +15,7 @@ Class FontStretch from ValueType
 		return self
 
 	Func ToOpenTypeStretch 
-		return dnRequest("call",[self,"ToOpenTypeStretch"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToOpenTypeStretch"])
 
 	Func FromOpenTypeStretch P1
 		return dnRequest("call",[dnTypeCached('System.Windows.FontStretch, PresentationCore'),"FromOpenTypeStretch",P1])

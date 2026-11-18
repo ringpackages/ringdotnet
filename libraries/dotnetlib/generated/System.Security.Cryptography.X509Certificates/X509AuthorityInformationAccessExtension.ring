@@ -27,11 +27,11 @@ Class X509AuthorityInformationAccessExtension from X509Extension
 		return self
 
 	Func EnumerateUris P1
-		return dnRequest("call",[self,"EnumerateUris",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateUris",P1])
 
 	Func EnumerateCAIssuersUris 
-		return dnRequest("call",[self,"EnumerateCAIssuersUris"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateCAIssuersUris"])
 
 	Func EnumerateOcspUris 
-		return dnRequest("call",[self,"EnumerateOcspUris"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateOcspUris"])
 

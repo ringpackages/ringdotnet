@@ -25,91 +25,91 @@ Class DataGridViewRow from DataGridViewBand
 		return self
 
 	Func AdjustRowHeaderBorderStyle P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"AdjustRowHeaderBorderStyle",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"AdjustRowHeaderBorderStyle",P1,P2,P3,P4,P5,P6])
 
 	Func CreateCells P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"CreateCells",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"CreateCells",P1])
 			return self
 		ok
-		dnRequest("call",[self,"CreateCells",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateCells",P1])
 		return self
 
 	Func CreateCells_2 P1,P2
-		dnRequest("call",[self,"CreateCells",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateCells",P1,P2])
 		return self
 
 	Func GetContextMenuStrip_1 P1
-		return dnRequest("call",[self,"GetContextMenuStrip",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContextMenuStrip",P1])
 
 	Func GetErrorText_1 P1
-		return dnRequest("call",[self,"GetErrorText",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetErrorText",P1])
 
 	Func GetPreferredHeight P1,P2,P3
-		return dnRequest("call",[self,"GetPreferredHeight",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPreferredHeight",P1,P2,P3])
 
 	Func GetState_1 P1
-		return dnRequest("call",[self,"GetState",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetState",P1])
 
 	Func SetValues P1
-		return dnRequest("call",[self,"SetValues",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetValues",P1])
 
 	Func getAccessibilityObject
-		return dnRequest("get",[self,"AccessibilityObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessibilityObject"])
 
 	Func setAccessibilityObject P1
 		raise("DotNet Error: AccessibilityObject is a read-only property")
 
 	Func getCells
-		return dnRequest("get",[self,"Cells"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cells"])
 
 	Func setCells P1
 		raise("DotNet Error: Cells is a read-only property")
 
 	Func getDataBoundItem
-		return dnRequest("get",[self,"DataBoundItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataBoundItem"])
 
 	Func setDataBoundItem P1
 		raise("DotNet Error: DataBoundItem is a read-only property")
 
 	Func getDividerHeight
-		return dnRequest("get",[self,"DividerHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DividerHeight"])
 
 	Func setDividerHeight P1
-		dnRequest("set",[self,"DividerHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DividerHeight",P1])
 		return self
 
 	Func getErrorText
-		return dnRequest("get",[self,"ErrorText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorText"])
 
 	Func setErrorText P1
-		dnRequest("set",[self,"ErrorText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ErrorText",P1])
 		return self
 
 	Func getHeaderCell
-		return dnRequest("get",[self,"HeaderCell"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderCell"])
 
 	Func setHeaderCell P1
-		dnRequest("set",[self,"HeaderCell",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderCell",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
 		return self
 
 	Func getIsNewRow
-		return dnRequest("get",[self,"IsNewRow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNewRow"])
 
 	Func setIsNewRow P1
 		raise("DotNet Error: IsNewRow is a read-only property")
 
 	Func getMinimumHeight
-		return dnRequest("get",[self,"MinimumHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinimumHeight"])
 
 	Func setMinimumHeight P1
-		dnRequest("set",[self,"MinimumHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinimumHeight",P1])
 		return self
 

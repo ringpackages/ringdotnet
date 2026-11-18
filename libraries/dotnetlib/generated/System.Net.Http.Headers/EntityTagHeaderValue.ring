@@ -23,7 +23,7 @@ Class EntityTagHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http'),"Parse",P1])
@@ -32,13 +32,13 @@ Class EntityTagHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
 		raise("DotNet Error: Tag is a read-only property")
 
 	Func getIsWeak
-		return dnRequest("get",[self,"IsWeak"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsWeak"])
 
 	Func setIsWeak P1
 		raise("DotNet Error: IsWeak is a read-only property")

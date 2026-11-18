@@ -14,5 +14,5 @@ Class IAsyncDisposable from DotNetObject
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 

@@ -17,16 +17,16 @@ Class XmlSchemaFacet from XmlSchemaAnnotated
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getIsFixed
-		return dnRequest("get",[self,"IsFixed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFixed"])
 
 	Func setIsFixed P1
-		dnRequest("set",[self,"IsFixed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsFixed",P1])
 		return self
 

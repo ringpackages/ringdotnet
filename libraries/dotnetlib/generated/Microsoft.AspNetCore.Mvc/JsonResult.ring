@@ -24,30 +24,30 @@ Class JsonResult from ActionResult
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 
 	Func getSerializerSettings
-		return dnRequest("get",[self,"SerializerSettings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SerializerSettings"])
 
 	Func setSerializerSettings P1
-		dnRequest("set",[self,"SerializerSettings",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SerializerSettings",P1])
 		return self
 
 	Func getStatusCode
-		return dnRequest("get",[self,"StatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[self,"StatusCode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 

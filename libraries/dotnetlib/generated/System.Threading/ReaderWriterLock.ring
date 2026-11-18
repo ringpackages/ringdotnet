@@ -19,62 +19,62 @@ Class ReaderWriterLock from DotNetObject
 		return self
 
 	Func AnyWritersSince P1
-		return dnRequest("call",[self,"AnyWritersSince",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AnyWritersSince",P1])
 
 	Func AcquireReaderLock P1
-		dnRequest("call",[self,"AcquireReaderLock",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AcquireReaderLock",P1])
 		return self
 
 	Func AcquireWriterLock P1
-		dnRequest("call",[self,"AcquireWriterLock",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AcquireWriterLock",P1])
 		return self
 
 	Func ReleaseReaderLock 
-		dnRequest("call",[self,"ReleaseReaderLock"])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseReaderLock"])
 		return self
 
 	Func ReleaseWriterLock 
-		dnRequest("call",[self,"ReleaseWriterLock"])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseWriterLock"])
 		return self
 
 	Func UpgradeToWriterLock P1
-		return dnRequest("call",[self,"UpgradeToWriterLock",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UpgradeToWriterLock",P1])
 
 	Func DowngradeFromWriterLock P1
-		return dnRequest("call",[self,"DowngradeFromWriterLock",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DowngradeFromWriterLock",P1])
 
 	Func ReleaseLock 
-		return dnRequest("call",[self,"ReleaseLock"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseLock"])
 
 	Func RestoreLock P1
-		return dnRequest("call",[self,"RestoreLock",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RestoreLock",P1])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getIsReaderLockHeld
-		return dnRequest("get",[self,"IsReaderLockHeld"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReaderLockHeld"])
 
 	Func setIsReaderLockHeld P1
 		raise("DotNet Error: IsReaderLockHeld is a read-only property")
 
 	Func getIsWriterLockHeld
-		return dnRequest("get",[self,"IsWriterLockHeld"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsWriterLockHeld"])
 
 	Func setIsWriterLockHeld P1
 		raise("DotNet Error: IsWriterLockHeld is a read-only property")
 
 	Func getWriterSeqNum
-		return dnRequest("get",[self,"WriterSeqNum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WriterSeqNum"])
 
 	Func setWriterSeqNum P1
 		raise("DotNet Error: WriterSeqNum is a read-only property")

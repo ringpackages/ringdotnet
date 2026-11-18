@@ -53,91 +53,91 @@ Class FrameworkPropertyMetadata from UIPropertyMetadata
 		return self
 
 	Func getAffectsMeasure
-		return dnRequest("get",[self,"AffectsMeasure"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AffectsMeasure"])
 
 	Func setAffectsMeasure P1
-		dnRequest("set",[self,"AffectsMeasure",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AffectsMeasure",P1])
 		return self
 
 	Func getAffectsArrange
-		return dnRequest("get",[self,"AffectsArrange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AffectsArrange"])
 
 	Func setAffectsArrange P1
-		dnRequest("set",[self,"AffectsArrange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AffectsArrange",P1])
 		return self
 
 	Func getAffectsParentMeasure
-		return dnRequest("get",[self,"AffectsParentMeasure"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AffectsParentMeasure"])
 
 	Func setAffectsParentMeasure P1
-		dnRequest("set",[self,"AffectsParentMeasure",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AffectsParentMeasure",P1])
 		return self
 
 	Func getAffectsParentArrange
-		return dnRequest("get",[self,"AffectsParentArrange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AffectsParentArrange"])
 
 	Func setAffectsParentArrange P1
-		dnRequest("set",[self,"AffectsParentArrange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AffectsParentArrange",P1])
 		return self
 
 	Func getAffectsRender
-		return dnRequest("get",[self,"AffectsRender"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AffectsRender"])
 
 	Func setAffectsRender P1
-		dnRequest("set",[self,"AffectsRender",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AffectsRender",P1])
 		return self
 
 	Func getInherits
-		return dnRequest("get",[self,"Inherits"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inherits"])
 
 	Func setInherits P1
-		dnRequest("set",[self,"Inherits",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Inherits",P1])
 		return self
 
 	Func getOverridesInheritanceBehavior
-		return dnRequest("get",[self,"OverridesInheritanceBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OverridesInheritanceBehavior"])
 
 	Func setOverridesInheritanceBehavior P1
-		dnRequest("set",[self,"OverridesInheritanceBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OverridesInheritanceBehavior",P1])
 		return self
 
 	Func getIsNotDataBindable
-		return dnRequest("get",[self,"IsNotDataBindable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNotDataBindable"])
 
 	Func setIsNotDataBindable P1
-		dnRequest("set",[self,"IsNotDataBindable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsNotDataBindable",P1])
 		return self
 
 	Func getBindsTwoWayByDefault
-		return dnRequest("get",[self,"BindsTwoWayByDefault"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindsTwoWayByDefault"])
 
 	Func setBindsTwoWayByDefault P1
-		dnRequest("set",[self,"BindsTwoWayByDefault",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BindsTwoWayByDefault",P1])
 		return self
 
 	Func getDefaultUpdateSourceTrigger
-		return dnRequest("get",[self,"DefaultUpdateSourceTrigger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultUpdateSourceTrigger"])
 
 	Func setDefaultUpdateSourceTrigger P1
-		dnRequest("set",[self,"DefaultUpdateSourceTrigger",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultUpdateSourceTrigger",P1])
 		return self
 
 	Func getJournal
-		return dnRequest("get",[self,"Journal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Journal"])
 
 	Func setJournal P1
-		dnRequest("set",[self,"Journal",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Journal",P1])
 		return self
 
 	Func getSubPropertiesDoNotAffectRender
-		return dnRequest("get",[self,"SubPropertiesDoNotAffectRender"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubPropertiesDoNotAffectRender"])
 
 	Func setSubPropertiesDoNotAffectRender P1
-		dnRequest("set",[self,"SubPropertiesDoNotAffectRender",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SubPropertiesDoNotAffectRender",P1])
 		return self
 
 	Func getIsDataBindingAllowed
-		return dnRequest("get",[self,"IsDataBindingAllowed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDataBindingAllowed"])
 
 	Func setIsDataBindingAllowed P1
 		raise("DotNet Error: IsDataBindingAllowed is a read-only property")

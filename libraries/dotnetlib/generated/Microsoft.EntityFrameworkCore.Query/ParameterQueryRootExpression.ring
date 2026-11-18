@@ -21,7 +21,7 @@ Class ParameterQueryRootExpression from QueryRootExpression
 		return self
 
 	Func getParameterExpression
-		return dnRequest("get",[self,"ParameterExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterExpression"])
 
 	Func setParameterExpression P1
 		raise("DotNet Error: ParameterExpression is a read-only property")

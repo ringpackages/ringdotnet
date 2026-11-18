@@ -20,34 +20,34 @@ Class PingReply from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getRoundtripTime
-		return dnRequest("get",[self,"RoundtripTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RoundtripTime"])
 
 	Func setRoundtripTime P1
 		raise("DotNet Error: RoundtripTime is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Buffer"])
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")

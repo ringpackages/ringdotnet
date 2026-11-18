@@ -21,118 +21,118 @@ Class IReadOnlyTypeBase from DotNetObject
 		return self
 
 	Func IsAbstract 
-		return dnRequest("call",[self,"IsAbstract"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAbstract"])
 
 	Func DisplayName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"DisplayName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DisplayName",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"DisplayName"])
+			return dnRequest("call",[new DotNetObject(nHandle),"DisplayName"])
 		ok
-		return dnRequest("call",[self,"DisplayName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisplayName",P1])
 
 	Func DisplayName_1 P1
-		return dnRequest("call",[self,"DisplayName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisplayName",P1])
 
 	Func ShortName 
-		return dnRequest("call",[self,"ShortName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShortName"])
 
 	Func IsAssignableFrom P1
-		return dnRequest("call",[self,"IsAssignableFrom",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAssignableFrom",P1])
 
 	Func IsStrictlyDerivedFrom P1
-		return dnRequest("call",[self,"IsStrictlyDerivedFrom",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsStrictlyDerivedFrom",P1])
 
 	Func FindProperty P1
-		return dnRequest("call",[self,"FindProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindProperty",P1])
 
 	Func FindProperties P1
-		return dnRequest("call",[self,"FindProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindProperties",P1])
 
 	Func FindDeclaredProperty P1
-		return dnRequest("call",[self,"FindDeclaredProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredProperty",P1])
 
 	Func GetProperty P1
-		return dnRequest("call",[self,"GetProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1])
 
 	Func GetDeclaredProperties 
-		return dnRequest("call",[self,"GetDeclaredProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredProperties"])
 
 	Func GetDerivedProperties 
-		return dnRequest("call",[self,"GetDerivedProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedProperties"])
 
 	Func GetProperties 
-		return dnRequest("call",[self,"GetProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties"])
 
 	Func FindComplexProperty P1
-		return dnRequest("call",[self,"FindComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindComplexProperty",P1])
 
 	Func FindDeclaredComplexProperty P1
-		return dnRequest("call",[self,"FindDeclaredComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredComplexProperty",P1])
 
 	Func GetComplexProperties 
-		return dnRequest("call",[self,"GetComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetComplexProperties"])
 
 	Func GetDeclaredComplexProperties 
-		return dnRequest("call",[self,"GetDeclaredComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredComplexProperties"])
 
 	Func GetDerivedComplexProperties 
-		return dnRequest("call",[self,"GetDerivedComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedComplexProperties"])
 
 	Func GetMembers 
-		return dnRequest("call",[self,"GetMembers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMembers"])
 
 	Func GetDeclaredMembers 
-		return dnRequest("call",[self,"GetDeclaredMembers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredMembers"])
 
 	Func FindMember P1
-		return dnRequest("call",[self,"FindMember",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMember",P1])
 
 	Func FindMembersInHierarchy P1
-		return dnRequest("call",[self,"FindMembersInHierarchy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMembersInHierarchy",P1])
 
 	Func GetChangeTrackingStrategy 
-		return dnRequest("call",[self,"GetChangeTrackingStrategy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChangeTrackingStrategy"])
 
 	Func GetPropertyAccessMode 
-		return dnRequest("call",[self,"GetPropertyAccessMode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyAccessMode"])
 
 	Func FindIndexerPropertyInfo 
-		return dnRequest("call",[self,"FindIndexerPropertyInfo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindIndexerPropertyInfo"])
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContainingEntityType
-		return dnRequest("get",[self,"ContainingEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContainingEntityType"])
 
 	Func setContainingEntityType P1
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getClrType
-		return dnRequest("get",[self,"ClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getHasSharedClrType
-		return dnRequest("get",[self,"HasSharedClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasSharedClrType"])
 
 	Func setHasSharedClrType P1
 		raise("DotNet Error: HasSharedClrType is a read-only property")
 
 	Func getIsPropertyBag
-		return dnRequest("get",[self,"IsPropertyBag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPropertyBag"])
 
 	Func setIsPropertyBag P1
 		raise("DotNet Error: IsPropertyBag is a read-only property")

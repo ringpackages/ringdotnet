@@ -50,291 +50,291 @@ Class PropertyGrid from ContainerControl
 		return self
 
 	Func CollapseAllGridItems 
-		dnRequest("call",[self,"CollapseAllGridItems"])
+		dnRequest("call",[new DotNetObject(nHandle),"CollapseAllGridItems"])
 		return self
 
 	Func ExpandAllGridItems 
-		dnRequest("call",[self,"ExpandAllGridItems"])
+		dnRequest("call",[new DotNetObject(nHandle),"ExpandAllGridItems"])
 		return self
 
 	Func RefreshTabs P1
-		dnRequest("call",[self,"RefreshTabs",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RefreshTabs",P1])
 		return self
 
 	Func ResetSelectedProperty 
-		dnRequest("call",[self,"ResetSelectedProperty"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetSelectedProperty"])
 		return self
 
 	Func setPropertyValueChangedEvent P1
-		dnRequest("setevent",[self,"PropertyValueChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PropertyValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyValueChangedEvent
-		dnRequest("clearevent",[self,"PropertyValueChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PropertyValueChanged"])
 		return self
 
 	Func setPropertyTabChangedEvent P1
-		dnRequest("setevent",[self,"PropertyTabChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PropertyTabChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyTabChangedEvent
-		dnRequest("clearevent",[self,"PropertyTabChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PropertyTabChanged"])
 		return self
 
 	Func setPropertySortChangedEvent P1
-		dnRequest("setevent",[self,"PropertySortChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PropertySortChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertySortChangedEvent
-		dnRequest("clearevent",[self,"PropertySortChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PropertySortChanged"])
 		return self
 
 	Func setSelectedGridItemChangedEvent P1
-		dnRequest("setevent",[self,"SelectedGridItemChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedGridItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedGridItemChangedEvent
-		dnRequest("clearevent",[self,"SelectedGridItemChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedGridItemChanged"])
 		return self
 
 	Func setSelectedObjectsChangedEvent P1
-		dnRequest("setevent",[self,"SelectedObjectsChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedObjectsChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedObjectsChangedEvent
-		dnRequest("clearevent",[self,"SelectedObjectsChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedObjectsChanged"])
 		return self
 
 	Func getBrowsableAttributes
-		return dnRequest("get",[self,"BrowsableAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BrowsableAttributes"])
 
 	Func setBrowsableAttributes P1
-		dnRequest("set",[self,"BrowsableAttributes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BrowsableAttributes",P1])
 		return self
 
 	Func getCanShowCommands
-		return dnRequest("get",[self,"CanShowCommands"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanShowCommands"])
 
 	Func setCanShowCommands P1
 		raise("DotNet Error: CanShowCommands is a read-only property")
 
 	Func getCategoryForeColor
-		return dnRequest("get",[self,"CategoryForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CategoryForeColor"])
 
 	Func setCategoryForeColor P1
-		dnRequest("set",[self,"CategoryForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CategoryForeColor",P1])
 		return self
 
 	Func getCommandsBackColor
-		return dnRequest("get",[self,"CommandsBackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandsBackColor"])
 
 	Func setCommandsBackColor P1
-		dnRequest("set",[self,"CommandsBackColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandsBackColor",P1])
 		return self
 
 	Func getCommandsForeColor
-		return dnRequest("get",[self,"CommandsForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandsForeColor"])
 
 	Func setCommandsForeColor P1
-		dnRequest("set",[self,"CommandsForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandsForeColor",P1])
 		return self
 
 	Func getCommandsLinkColor
-		return dnRequest("get",[self,"CommandsLinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandsLinkColor"])
 
 	Func setCommandsLinkColor P1
-		dnRequest("set",[self,"CommandsLinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandsLinkColor",P1])
 		return self
 
 	Func getCommandsActiveLinkColor
-		return dnRequest("get",[self,"CommandsActiveLinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandsActiveLinkColor"])
 
 	Func setCommandsActiveLinkColor P1
-		dnRequest("set",[self,"CommandsActiveLinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandsActiveLinkColor",P1])
 		return self
 
 	Func getCommandsDisabledLinkColor
-		return dnRequest("get",[self,"CommandsDisabledLinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandsDisabledLinkColor"])
 
 	Func setCommandsDisabledLinkColor P1
-		dnRequest("set",[self,"CommandsDisabledLinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandsDisabledLinkColor",P1])
 		return self
 
 	Func getCommandsBorderColor
-		return dnRequest("get",[self,"CommandsBorderColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandsBorderColor"])
 
 	Func setCommandsBorderColor P1
-		dnRequest("set",[self,"CommandsBorderColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandsBorderColor",P1])
 		return self
 
 	Func getCommandsVisible
-		return dnRequest("get",[self,"CommandsVisible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandsVisible"])
 
 	Func setCommandsVisible P1
 		raise("DotNet Error: CommandsVisible is a read-only property")
 
 	Func getCommandsVisibleIfAvailable
-		return dnRequest("get",[self,"CommandsVisibleIfAvailable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandsVisibleIfAvailable"])
 
 	Func setCommandsVisibleIfAvailable P1
-		dnRequest("set",[self,"CommandsVisibleIfAvailable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandsVisibleIfAvailable",P1])
 		return self
 
 	Func getContextMenuDefaultLocation
-		return dnRequest("get",[self,"ContextMenuDefaultLocation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextMenuDefaultLocation"])
 
 	Func setContextMenuDefaultLocation P1
 		raise("DotNet Error: ContextMenuDefaultLocation is a read-only property")
 
 	Func getHelpBackColor
-		return dnRequest("get",[self,"HelpBackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HelpBackColor"])
 
 	Func setHelpBackColor P1
-		dnRequest("set",[self,"HelpBackColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HelpBackColor",P1])
 		return self
 
 	Func getHelpForeColor
-		return dnRequest("get",[self,"HelpForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HelpForeColor"])
 
 	Func setHelpForeColor P1
-		dnRequest("set",[self,"HelpForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HelpForeColor",P1])
 		return self
 
 	Func getHelpBorderColor
-		return dnRequest("get",[self,"HelpBorderColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HelpBorderColor"])
 
 	Func setHelpBorderColor P1
-		dnRequest("set",[self,"HelpBorderColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HelpBorderColor",P1])
 		return self
 
 	Func getHelpVisible
-		return dnRequest("get",[self,"HelpVisible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HelpVisible"])
 
 	Func setHelpVisible P1
-		dnRequest("set",[self,"HelpVisible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HelpVisible",P1])
 		return self
 
 	Func getSelectedItemWithFocusBackColor
-		return dnRequest("get",[self,"SelectedItemWithFocusBackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItemWithFocusBackColor"])
 
 	Func setSelectedItemWithFocusBackColor P1
-		dnRequest("set",[self,"SelectedItemWithFocusBackColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedItemWithFocusBackColor",P1])
 		return self
 
 	Func getSelectedItemWithFocusForeColor
-		return dnRequest("get",[self,"SelectedItemWithFocusForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItemWithFocusForeColor"])
 
 	Func setSelectedItemWithFocusForeColor P1
-		dnRequest("set",[self,"SelectedItemWithFocusForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedItemWithFocusForeColor",P1])
 		return self
 
 	Func getDisabledItemForeColor
-		return dnRequest("get",[self,"DisabledItemForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisabledItemForeColor"])
 
 	Func setDisabledItemForeColor P1
-		dnRequest("set",[self,"DisabledItemForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisabledItemForeColor",P1])
 		return self
 
 	Func getCategorySplitterColor
-		return dnRequest("get",[self,"CategorySplitterColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CategorySplitterColor"])
 
 	Func setCategorySplitterColor P1
-		dnRequest("set",[self,"CategorySplitterColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CategorySplitterColor",P1])
 		return self
 
 	Func getCanShowVisualStyleGlyphs
-		return dnRequest("get",[self,"CanShowVisualStyleGlyphs"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanShowVisualStyleGlyphs"])
 
 	Func setCanShowVisualStyleGlyphs P1
-		dnRequest("set",[self,"CanShowVisualStyleGlyphs",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanShowVisualStyleGlyphs",P1])
 		return self
 
 	Func getLineColor
-		return dnRequest("get",[self,"LineColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineColor"])
 
 	Func setLineColor P1
-		dnRequest("set",[self,"LineColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineColor",P1])
 		return self
 
 	Func getPropertySort
-		return dnRequest("get",[self,"PropertySort"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertySort"])
 
 	Func setPropertySort P1
-		dnRequest("set",[self,"PropertySort",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PropertySort",P1])
 		return self
 
 	Func getPropertyTabs
-		return dnRequest("get",[self,"PropertyTabs"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyTabs"])
 
 	Func setPropertyTabs P1
 		raise("DotNet Error: PropertyTabs is a read-only property")
 
 	Func getSelectedObject
-		return dnRequest("get",[self,"SelectedObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedObject"])
 
 	Func setSelectedObject P1
-		dnRequest("set",[self,"SelectedObject",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedObject",P1])
 		return self
 
 	Func getSelectedObjects
-		return dnRequest("get",[self,"SelectedObjects"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedObjects"])
 
 	Func setSelectedObjects P1
-		dnRequest("set",[self,"SelectedObjects",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedObjects",P1])
 		return self
 
 	Func getSelectedTab
-		return dnRequest("get",[self,"SelectedTab"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedTab"])
 
 	Func setSelectedTab P1
 		raise("DotNet Error: SelectedTab is a read-only property")
 
 	Func getSelectedGridItem
-		return dnRequest("get",[self,"SelectedGridItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedGridItem"])
 
 	Func setSelectedGridItem P1
-		dnRequest("set",[self,"SelectedGridItem",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedGridItem",P1])
 		return self
 
 	Func getLargeButtons
-		return dnRequest("get",[self,"LargeButtons"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LargeButtons"])
 
 	Func setLargeButtons P1
-		dnRequest("set",[self,"LargeButtons",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LargeButtons",P1])
 		return self
 
 	Func getToolbarVisible
-		return dnRequest("get",[self,"ToolbarVisible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToolbarVisible"])
 
 	Func setToolbarVisible P1
-		dnRequest("set",[self,"ToolbarVisible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ToolbarVisible",P1])
 		return self
 
 	Func getViewBackColor
-		return dnRequest("get",[self,"ViewBackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewBackColor"])
 
 	Func setViewBackColor P1
-		dnRequest("set",[self,"ViewBackColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewBackColor",P1])
 		return self
 
 	Func getViewForeColor
-		return dnRequest("get",[self,"ViewForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewForeColor"])
 
 	Func setViewForeColor P1
-		dnRequest("set",[self,"ViewForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewForeColor",P1])
 		return self
 
 	Func getViewBorderColor
-		return dnRequest("get",[self,"ViewBorderColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewBorderColor"])
 
 	Func setViewBorderColor P1
-		dnRequest("set",[self,"ViewBorderColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewBorderColor",P1])
 		return self
 
 	Func getUseCompatibleTextRendering
-		return dnRequest("get",[self,"UseCompatibleTextRendering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseCompatibleTextRendering"])
 
 	Func setUseCompatibleTextRendering P1
-		dnRequest("set",[self,"UseCompatibleTextRendering",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseCompatibleTextRendering",P1])
 		return self
 

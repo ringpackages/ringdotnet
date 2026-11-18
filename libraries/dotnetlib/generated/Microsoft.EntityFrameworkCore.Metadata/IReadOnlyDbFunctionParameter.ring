@@ -20,49 +20,49 @@ Class IReadOnlyDbFunctionParameter from DotNetObject
 		return self
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getFunction
-		return dnRequest("get",[self,"Function"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Function"])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getClrType
-		return dnRequest("get",[self,"ClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getStoreType
-		return dnRequest("get",[self,"StoreType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getPropagatesNullability
-		return dnRequest("get",[self,"PropagatesNullability"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropagatesNullability"])
 
 	Func setPropagatesNullability P1
 		raise("DotNet Error: PropagatesNullability is a read-only property")
 
 	Func getTypeMapping
-		return dnRequest("get",[self,"TypeMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMapping"])
 
 	Func setTypeMapping P1
 		raise("DotNet Error: TypeMapping is a read-only property")

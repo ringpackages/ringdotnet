@@ -17,19 +17,19 @@ Class HttpHeadersNonValidated from ValueType
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func TryGetValues P1
-		return dnRequest("call",[self,"TryGetValues",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValues",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

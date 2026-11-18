@@ -18,22 +18,22 @@ Class OSFeature from FeatureSupport
 		return self
 
 	Func GetVersionPresent P1
-		return dnRequest("call",[self,"GetVersionPresent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetVersionPresent",P1])
 
 	Func IsPresent P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms'),"IsPresent",P1])
 			ok
-			return dnRequest("callnamed",[self,"IsPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsPresent",P1])
 		ok
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms'),"IsPresent",P1])
 		ok
-		return dnRequest("call",[self,"IsPresent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1])
 
 	Func IsPresent_2 P1,P2
-		return dnRequest("call",[self,"IsPresent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1,P2])
 
 	Func getFeature
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms'),"Feature"])

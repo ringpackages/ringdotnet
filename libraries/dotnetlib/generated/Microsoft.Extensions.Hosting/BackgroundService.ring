@@ -16,20 +16,20 @@ Class BackgroundService from Object
 		return self
 
 	Func StartAsync P1
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StopAsync P1
-		return dnRequest("call",[self,"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExecuteTask
-		return dnRequest("get",[self,"ExecuteTask"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExecuteTask"])
 
 	Func setExecuteTask P1
 		raise("DotNet Error: ExecuteTask is a read-only property")

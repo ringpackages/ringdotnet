@@ -21,16 +21,16 @@ Class EncoderParameters from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParam
-		return dnRequest("get",[self,"Param"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Param"])
 
 	Func setParam P1
-		dnRequest("set",[self,"Param",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Param",P1])
 		return self
 

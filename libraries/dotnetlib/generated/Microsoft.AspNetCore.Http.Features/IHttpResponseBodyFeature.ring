@@ -17,38 +17,38 @@ Class IHttpResponseBodyFeature from DotNetObject
 		return self
 
 	Func DisableBuffering 
-		dnRequest("call",[self,"DisableBuffering"])
+		dnRequest("call",[new DotNetObject(nHandle),"DisableBuffering"])
 		return self
 
 	Func StartAsync_1 P1
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"StartAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"StartAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"StartAsync"])
 		ok
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func SendFileAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"SendFileAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendFileAsync",P1,P2,P3,P4])
 
 	Func SendFileAsync P1,P2,P3
-		return dnRequest("call",[self,"SendFileAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendFileAsync",P1,P2,P3])
 
 	Func CompleteAsync 
-		return dnRequest("call",[self,"CompleteAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompleteAsync"])
 
 	Func getStream
-		return dnRequest("get",[self,"Stream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Stream"])
 
 	Func setStream P1
 		raise("DotNet Error: Stream is a read-only property")
 
 	Func getWriter
-		return dnRequest("get",[self,"Writer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Writer"])
 
 	Func setWriter P1
 		raise("DotNet Error: Writer is a read-only property")

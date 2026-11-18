@@ -22,7 +22,7 @@ Class AuthenticationHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http'),"Parse",P1])
@@ -31,13 +31,13 @@ Class AuthenticationHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getParameter
-		return dnRequest("get",[self,"Parameter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameter"])
 
 	Func setParameter P1
 		raise("DotNet Error: Parameter is a read-only property")

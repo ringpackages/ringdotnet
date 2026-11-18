@@ -28,9 +28,9 @@ Class RC2 from SymmetricAlgorithm
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RC2, System.Security.Cryptography'),"Create",P1])
 
 	Func getEffectiveKeySize
-		return dnRequest("get",[self,"EffectiveKeySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EffectiveKeySize"])
 
 	Func setEffectiveKeySize P1
-		dnRequest("set",[self,"EffectiveKeySize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EffectiveKeySize",P1])
 		return self
 

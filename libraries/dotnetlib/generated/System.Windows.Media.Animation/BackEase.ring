@@ -18,10 +18,10 @@ Class BackEase from EasingFunctionBase
 		return self
 
 	Func getAmplitude
-		return dnRequest("get",[self,"Amplitude"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Amplitude"])
 
 	Func setAmplitude P1
-		dnRequest("set",[self,"Amplitude",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Amplitude",P1])
 		return self
 
 	Func getAmplitudeProperty

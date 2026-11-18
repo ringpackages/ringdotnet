@@ -19,39 +19,39 @@ Class TarReader from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func GetNextEntry_1 P1
-		return dnRequest("call",[self,"GetNextEntry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntry",P1])
 
 	Func GetNextEntry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetNextEntry",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNextEntry",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetNextEntry"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntry"])
 		ok
-		return dnRequest("call",[self,"GetNextEntry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntry",P1])
 
 	Func GetNextEntryAsync_2 P1,P2
-		return dnRequest("call",[self,"GetNextEntryAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntryAsync",P1,P2])
 
 	Func GetNextEntryAsync_1 P1
-		return dnRequest("call",[self,"GetNextEntryAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntryAsync",P1])
 
 	Func GetNextEntryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetNextEntryAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNextEntryAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetNextEntryAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntryAsync"])
 		ok
-		return dnRequest("call",[self,"GetNextEntryAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntryAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

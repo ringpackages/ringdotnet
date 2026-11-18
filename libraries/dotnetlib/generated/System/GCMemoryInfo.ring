@@ -32,97 +32,97 @@ Class GCMemoryInfo from ValueType
 		return self
 
 	Func getHighMemoryLoadThresholdBytes
-		return dnRequest("get",[self,"HighMemoryLoadThresholdBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HighMemoryLoadThresholdBytes"])
 
 	Func setHighMemoryLoadThresholdBytes P1
 		raise("DotNet Error: HighMemoryLoadThresholdBytes is a read-only property")
 
 	Func getMemoryLoadBytes
-		return dnRequest("get",[self,"MemoryLoadBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemoryLoadBytes"])
 
 	Func setMemoryLoadBytes P1
 		raise("DotNet Error: MemoryLoadBytes is a read-only property")
 
 	Func getTotalAvailableMemoryBytes
-		return dnRequest("get",[self,"TotalAvailableMemoryBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalAvailableMemoryBytes"])
 
 	Func setTotalAvailableMemoryBytes P1
 		raise("DotNet Error: TotalAvailableMemoryBytes is a read-only property")
 
 	Func getHeapSizeBytes
-		return dnRequest("get",[self,"HeapSizeBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeapSizeBytes"])
 
 	Func setHeapSizeBytes P1
 		raise("DotNet Error: HeapSizeBytes is a read-only property")
 
 	Func getFragmentedBytes
-		return dnRequest("get",[self,"FragmentedBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FragmentedBytes"])
 
 	Func setFragmentedBytes P1
 		raise("DotNet Error: FragmentedBytes is a read-only property")
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getGeneration
-		return dnRequest("get",[self,"Generation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Generation"])
 
 	Func setGeneration P1
 		raise("DotNet Error: Generation is a read-only property")
 
 	Func getCompacted
-		return dnRequest("get",[self,"Compacted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Compacted"])
 
 	Func setCompacted P1
 		raise("DotNet Error: Compacted is a read-only property")
 
 	Func getConcurrent
-		return dnRequest("get",[self,"Concurrent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Concurrent"])
 
 	Func setConcurrent P1
 		raise("DotNet Error: Concurrent is a read-only property")
 
 	Func getTotalCommittedBytes
-		return dnRequest("get",[self,"TotalCommittedBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalCommittedBytes"])
 
 	Func setTotalCommittedBytes P1
 		raise("DotNet Error: TotalCommittedBytes is a read-only property")
 
 	Func getPromotedBytes
-		return dnRequest("get",[self,"PromotedBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PromotedBytes"])
 
 	Func setPromotedBytes P1
 		raise("DotNet Error: PromotedBytes is a read-only property")
 
 	Func getPinnedObjectsCount
-		return dnRequest("get",[self,"PinnedObjectsCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PinnedObjectsCount"])
 
 	Func setPinnedObjectsCount P1
 		raise("DotNet Error: PinnedObjectsCount is a read-only property")
 
 	Func getFinalizationPendingCount
-		return dnRequest("get",[self,"FinalizationPendingCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FinalizationPendingCount"])
 
 	Func setFinalizationPendingCount P1
 		raise("DotNet Error: FinalizationPendingCount is a read-only property")
 
 	Func getPauseDurations
-		return dnRequest("get",[self,"PauseDurations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PauseDurations"])
 
 	Func setPauseDurations P1
 		raise("DotNet Error: PauseDurations is a read-only property")
 
 	Func getPauseTimePercentage
-		return dnRequest("get",[self,"PauseTimePercentage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PauseTimePercentage"])
 
 	Func setPauseTimePercentage P1
 		raise("DotNet Error: PauseTimePercentage is a read-only property")
 
 	Func getGenerationInfo
-		return dnRequest("get",[self,"GenerationInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GenerationInfo"])
 
 	Func setGenerationInfo P1
 		raise("DotNet Error: GenerationInfo is a read-only property")

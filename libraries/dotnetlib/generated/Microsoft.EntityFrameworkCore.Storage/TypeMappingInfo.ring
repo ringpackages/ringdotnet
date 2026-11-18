@@ -62,75 +62,75 @@ Class TypeMappingInfo from ValueType
 		return self
 
 	Func WithConverter P1
-		return dnRequest("call",[self,"WithConverter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithConverter",P1])
 
 	Func getElementTypeMapping
-		return dnRequest("get",[self,"ElementTypeMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementTypeMapping"])
 
 	Func setElementTypeMapping P1
-		dnRequest("set",[self,"ElementTypeMapping",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ElementTypeMapping",P1])
 		return self
 
 	Func getIsKey
-		return dnRequest("get",[self,"IsKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsKey"])
 
 	Func setIsKey P1
-		dnRequest("set",[self,"IsKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsKey",P1])
 		return self
 
 	Func getIsKeyOrIndex
-		return dnRequest("get",[self,"IsKeyOrIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyOrIndex"])
 
 	Func setIsKeyOrIndex P1
-		dnRequest("set",[self,"IsKeyOrIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsKeyOrIndex",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 
 	Func getIsUnicode
-		return dnRequest("get",[self,"IsUnicode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUnicode"])
 
 	Func setIsUnicode P1
-		dnRequest("set",[self,"IsUnicode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsUnicode",P1])
 		return self
 
 	Func getIsRowVersion
-		return dnRequest("get",[self,"IsRowVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRowVersion"])
 
 	Func setIsRowVersion P1
-		dnRequest("set",[self,"IsRowVersion",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsRowVersion",P1])
 		return self
 
 	Func getPrecision
-		return dnRequest("get",[self,"Precision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Precision"])
 
 	Func setPrecision P1
-		dnRequest("set",[self,"Precision",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Precision",P1])
 		return self
 
 	Func getScale
-		return dnRequest("get",[self,"Scale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
 
 	Func setScale P1
-		dnRequest("set",[self,"Scale",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Scale",P1])
 		return self
 
 	Func getClrType
-		return dnRequest("get",[self,"ClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
 
 	Func setClrType P1
-		dnRequest("set",[self,"ClrType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClrType",P1])
 		return self
 
 	Func getJsonValueReaderWriter
-		return dnRequest("get",[self,"JsonValueReaderWriter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"JsonValueReaderWriter"])
 
 	Func setJsonValueReaderWriter P1
-		dnRequest("set",[self,"JsonValueReaderWriter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"JsonValueReaderWriter",P1])
 		return self
 

@@ -22,33 +22,33 @@ Class FeatureCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Get_ 
-		return dnRequest("call",[self,"Get"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Get"])
 
 	Func Set_ P1
-		dnRequest("call",[self,"Set",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Set",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getRevision
-		return dnRequest("get",[self,"Revision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Revision"])
 
 	Func setRevision P1
 		raise("DotNet Error: Revision is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

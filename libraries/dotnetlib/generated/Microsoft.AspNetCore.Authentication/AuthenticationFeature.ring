@@ -18,19 +18,19 @@ Class AuthenticationFeature from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOriginalPathBase
-		return dnRequest("get",[self,"OriginalPathBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalPathBase"])
 
 	Func setOriginalPathBase P1
-		dnRequest("set",[self,"OriginalPathBase",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OriginalPathBase",P1])
 		return self
 
 	Func getOriginalPath
-		return dnRequest("get",[self,"OriginalPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalPath"])
 
 	Func setOriginalPath P1
-		dnRequest("set",[self,"OriginalPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OriginalPath",P1])
 		return self
 

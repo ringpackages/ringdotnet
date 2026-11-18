@@ -17,42 +17,42 @@ Class NavigationEntry from MemberEntry
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Load"])
+			dnRequest("call",[new DotNetObject(nHandle),"Load"])
 		return self
 		ok
-		dnRequest("call",[self,"Load",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func Load_1 P1
-		dnRequest("call",[self,"Load",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func LoadAsync_1 P1
-		return dnRequest("call",[self,"LoadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 
 	Func LoadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"LoadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"LoadAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync"])
 		ok
-		return dnRequest("call",[self,"LoadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 
 	Func LoadAsync_2 P1,P2
-		return dnRequest("call",[self,"LoadAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2])
 
 	Func Query 
-		return dnRequest("call",[self,"Query"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Query"])
 
 	Func getIsLoaded
-		return dnRequest("get",[self,"IsLoaded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLoaded"])
 
 	Func setIsLoaded P1
-		dnRequest("set",[self,"IsLoaded",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsLoaded",P1])
 		return self
 

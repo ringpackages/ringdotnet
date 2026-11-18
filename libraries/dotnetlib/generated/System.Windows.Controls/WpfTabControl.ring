@@ -32,55 +32,55 @@ Class WpfTabControl from Selector
 		return self
 
 	Func getTabStripPlacement
-		return dnRequest("get",[self,"TabStripPlacement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TabStripPlacement"])
 
 	Func setTabStripPlacement P1
-		dnRequest("set",[self,"TabStripPlacement",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TabStripPlacement",P1])
 		return self
 
 	Func getSelectedContent
-		return dnRequest("get",[self,"SelectedContent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedContent"])
 
 	Func setSelectedContent P1
 		raise("DotNet Error: SelectedContent is a read-only property")
 
 	Func getSelectedContentTemplate
-		return dnRequest("get",[self,"SelectedContentTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedContentTemplate"])
 
 	Func setSelectedContentTemplate P1
 		raise("DotNet Error: SelectedContentTemplate is a read-only property")
 
 	Func getSelectedContentTemplateSelector
-		return dnRequest("get",[self,"SelectedContentTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedContentTemplateSelector"])
 
 	Func setSelectedContentTemplateSelector P1
 		raise("DotNet Error: SelectedContentTemplateSelector is a read-only property")
 
 	Func getSelectedContentStringFormat
-		return dnRequest("get",[self,"SelectedContentStringFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedContentStringFormat"])
 
 	Func setSelectedContentStringFormat P1
 		raise("DotNet Error: SelectedContentStringFormat is a read-only property")
 
 	Func getContentTemplate
-		return dnRequest("get",[self,"ContentTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentTemplate"])
 
 	Func setContentTemplate P1
-		dnRequest("set",[self,"ContentTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentTemplate",P1])
 		return self
 
 	Func getContentTemplateSelector
-		return dnRequest("get",[self,"ContentTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentTemplateSelector"])
 
 	Func setContentTemplateSelector P1
-		dnRequest("set",[self,"ContentTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentTemplateSelector",P1])
 		return self
 
 	Func getContentStringFormat
-		return dnRequest("get",[self,"ContentStringFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentStringFormat"])
 
 	Func setContentStringFormat P1
-		dnRequest("set",[self,"ContentStringFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentStringFormat",P1])
 		return self
 
 	Func getTabStripPlacementProperty

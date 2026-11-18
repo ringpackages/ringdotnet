@@ -24,55 +24,55 @@ Class BindingAddress from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http'),"Parse",P1])
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPathBase
-		return dnRequest("get",[self,"PathBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PathBase"])
 
 	Func setPathBase P1
 		raise("DotNet Error: PathBase is a read-only property")
 
 	Func getPort
-		return dnRequest("get",[self,"Port"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getIsUnixPipe
-		return dnRequest("get",[self,"IsUnixPipe"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUnixPipe"])
 
 	Func setIsUnixPipe P1
 		raise("DotNet Error: IsUnixPipe is a read-only property")
 
 	Func getIsNamedPipe
-		return dnRequest("get",[self,"IsNamedPipe"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNamedPipe"])
 
 	Func setIsNamedPipe P1
 		raise("DotNet Error: IsNamedPipe is a read-only property")
 
 	Func getUnixPipePath
-		return dnRequest("get",[self,"UnixPipePath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnixPipePath"])
 
 	Func setUnixPipePath P1
 		raise("DotNet Error: UnixPipePath is a read-only property")
 
 	Func getNamedPipeName
-		return dnRequest("get",[self,"NamedPipeName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NamedPipeName"])
 
 	Func setNamedPipeName P1
 		raise("DotNet Error: NamedPipeName is a read-only property")

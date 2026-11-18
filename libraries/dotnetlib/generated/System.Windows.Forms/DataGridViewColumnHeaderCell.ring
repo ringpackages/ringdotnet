@@ -17,9 +17,9 @@ Class DataGridViewColumnHeaderCell from DataGridViewHeaderCell
 		return self
 
 	Func getSortGlyphDirection
-		return dnRequest("get",[self,"SortGlyphDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortGlyphDirection"])
 
 	Func setSortGlyphDirection P1
-		dnRequest("set",[self,"SortGlyphDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SortGlyphDirection",P1])
 		return self
 

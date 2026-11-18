@@ -19,16 +19,16 @@ Class XNamespace from Object
 		return self
 
 	Func GetName P1
-		return dnRequest("call",[self,"GetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetName",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Get_ P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XNamespace, System.Private.Xml.Linq'),"Get",P1])
 
 	Func getNamespaceName
-		return dnRequest("get",[self,"NamespaceName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NamespaceName"])
 
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")

@@ -26,45 +26,45 @@ Class DataGridCell from ContentControl
 		return self
 
 	Func setSelectedEvent P1
-		dnRequest("setevent",[self,"Selected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Selected",dnCallback(P1)])
 		return self
 
 	Func clearSelectedEvent
-		dnRequest("clearevent",[self,"Selected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Selected"])
 		return self
 
 	Func setUnselectedEvent P1
-		dnRequest("setevent",[self,"Unselected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Unselected",dnCallback(P1)])
 		return self
 
 	Func clearUnselectedEvent
-		dnRequest("clearevent",[self,"Unselected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Unselected"])
 		return self
 
 	Func getColumn
-		return dnRequest("get",[self,"Column"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getIsEditing
-		return dnRequest("get",[self,"IsEditing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEditing"])
 
 	Func setIsEditing P1
-		dnRequest("set",[self,"IsEditing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsEditing",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSelected
-		return dnRequest("get",[self,"IsSelected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
 
 	Func setIsSelected P1
-		dnRequest("set",[self,"IsSelected",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSelected",P1])
 		return self
 
 	Func getColumnProperty

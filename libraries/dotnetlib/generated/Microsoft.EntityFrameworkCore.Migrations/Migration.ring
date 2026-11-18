@@ -20,31 +20,31 @@ Class Migration from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTargetModel
-		return dnRequest("get",[self,"TargetModel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetModel"])
 
 	Func setTargetModel P1
 		raise("DotNet Error: TargetModel is a read-only property")
 
 	Func getUpOperations
-		return dnRequest("get",[self,"UpOperations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpOperations"])
 
 	Func setUpOperations P1
 		raise("DotNet Error: UpOperations is a read-only property")
 
 	Func getDownOperations
-		return dnRequest("get",[self,"DownOperations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DownOperations"])
 
 	Func setDownOperations P1
 		raise("DotNet Error: DownOperations is a read-only property")
 
 	Func getActiveProvider
-		return dnRequest("get",[self,"ActiveProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActiveProvider"])
 
 	Func setActiveProvider P1
-		dnRequest("set",[self,"ActiveProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ActiveProvider",P1])
 		return self
 
 	Func getInitialDatabase

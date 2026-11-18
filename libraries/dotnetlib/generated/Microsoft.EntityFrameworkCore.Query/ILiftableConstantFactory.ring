@@ -14,5 +14,5 @@ Class ILiftableConstantFactory from DotNetObject
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnRequest("call",[self,"CreateLiftableConstant",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateLiftableConstant",P1,P2,P3,P4])
 

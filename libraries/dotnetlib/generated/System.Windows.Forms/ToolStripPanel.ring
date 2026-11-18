@@ -22,77 +22,77 @@ Class ToolStripPanel from ContainerControl
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func Join P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Join",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Join",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Join",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Join",P1])
 		return self
 
 	Func Join_2 P1,P2
-		dnRequest("call",[self,"Join",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Join",P1,P2])
 		return self
 
 	Func Join_3 P1,P2,P3
-		dnRequest("call",[self,"Join",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Join",P1,P2,P3])
 		return self
 
 	Func PointToRow P1
-		return dnRequest("call",[self,"PointToRow",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PointToRow",P1])
 
 	Func setRendererChangedEvent P1
-		dnRequest("setevent",[self,"RendererChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RendererChanged",dnCallback(P1)])
 		return self
 
 	Func clearRendererChangedEvent
-		dnRequest("clearevent",[self,"RendererChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RendererChanged"])
 		return self
 
 	Func getRowMargin
-		return dnRequest("get",[self,"RowMargin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowMargin"])
 
 	Func setRowMargin P1
-		dnRequest("set",[self,"RowMargin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowMargin",P1])
 		return self
 
 	Func getLocked
-		return dnRequest("get",[self,"Locked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Locked"])
 
 	Func setLocked P1
-		dnRequest("set",[self,"Locked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Locked",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[self,"Orientation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[self,"Orientation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
 		return self
 
 	Func getRenderer
-		return dnRequest("get",[self,"Renderer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Renderer"])
 
 	Func setRenderer P1
-		dnRequest("set",[self,"Renderer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Renderer",P1])
 		return self
 
 	Func getRenderMode
-		return dnRequest("get",[self,"RenderMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RenderMode"])
 
 	Func setRenderMode P1
-		dnRequest("set",[self,"RenderMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RenderMode",P1])
 		return self
 
 	Func getRows
-		return dnRequest("get",[self,"Rows"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rows"])
 
 	Func setRows P1
 		raise("DotNet Error: Rows is a read-only property")

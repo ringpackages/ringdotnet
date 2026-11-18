@@ -19,7 +19,7 @@ Class TaskScheduler from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromCurrentSynchronizationContext 
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"FromCurrentSynchronizationContext"])
@@ -33,13 +33,13 @@ Class TaskScheduler from Object
 		return self
 
 	Func getMaximumConcurrencyLevel
-		return dnRequest("get",[self,"MaximumConcurrencyLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaximumConcurrencyLevel"])
 
 	Func setMaximumConcurrencyLevel P1
 		raise("DotNet Error: MaximumConcurrencyLevel is a read-only property")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")

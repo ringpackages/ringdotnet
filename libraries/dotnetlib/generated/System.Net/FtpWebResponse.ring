@@ -24,37 +24,37 @@ Class FtpWebResponse from WebResponse
 		raise("DotNet Error: ContentLength is a read-only property")
 
 	Func getStatusCode
-		return dnRequest("get",[self,"StatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
 
 	Func getStatusDescription
-		return dnRequest("get",[self,"StatusDescription"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusDescription"])
 
 	Func setStatusDescription P1
 		raise("DotNet Error: StatusDescription is a read-only property")
 
 	Func getLastModified
-		return dnRequest("get",[self,"LastModified"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastModified"])
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getBannerMessage
-		return dnRequest("get",[self,"BannerMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BannerMessage"])
 
 	Func setBannerMessage P1
 		raise("DotNet Error: BannerMessage is a read-only property")
 
 	Func getWelcomeMessage
-		return dnRequest("get",[self,"WelcomeMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WelcomeMessage"])
 
 	Func setWelcomeMessage P1
 		raise("DotNet Error: WelcomeMessage is a read-only property")
 
 	Func getExitMessage
-		return dnRequest("get",[self,"ExitMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExitMessage"])
 
 	Func setExitMessage P1
 		raise("DotNet Error: ExitMessage is a read-only property")

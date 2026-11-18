@@ -27,79 +27,79 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 		return self
 
 	Func getBackchannelTimeout
-		return dnRequest("get",[self,"BackchannelTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackchannelTimeout"])
 
 	Func setBackchannelTimeout P1
-		dnRequest("set",[self,"BackchannelTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BackchannelTimeout",P1])
 		return self
 
 	Func getBackchannelHttpHandler
-		return dnRequest("get",[self,"BackchannelHttpHandler"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackchannelHttpHandler"])
 
 	Func setBackchannelHttpHandler P1
-		dnRequest("set",[self,"BackchannelHttpHandler",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BackchannelHttpHandler",P1])
 		return self
 
 	Func getBackchannel
-		return dnRequest("get",[self,"Backchannel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Backchannel"])
 
 	Func setBackchannel P1
-		dnRequest("set",[self,"Backchannel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Backchannel",P1])
 		return self
 
 	Func getDataProtectionProvider
-		return dnRequest("get",[self,"DataProtectionProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataProtectionProvider"])
 
 	Func setDataProtectionProvider P1
-		dnRequest("set",[self,"DataProtectionProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataProtectionProvider",P1])
 		return self
 
 	Func getCallbackPath
-		return dnRequest("get",[self,"CallbackPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CallbackPath"])
 
 	Func setCallbackPath P1
-		dnRequest("set",[self,"CallbackPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CallbackPath",P1])
 		return self
 
 	Func getAccessDeniedPath
-		return dnRequest("get",[self,"AccessDeniedPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessDeniedPath"])
 
 	Func setAccessDeniedPath P1
-		dnRequest("set",[self,"AccessDeniedPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessDeniedPath",P1])
 		return self
 
 	Func getReturnUrlParameter
-		return dnRequest("get",[self,"ReturnUrlParameter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnUrlParameter"])
 
 	Func setReturnUrlParameter P1
-		dnRequest("set",[self,"ReturnUrlParameter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReturnUrlParameter",P1])
 		return self
 
 	Func getSignInScheme
-		return dnRequest("get",[self,"SignInScheme"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SignInScheme"])
 
 	Func setSignInScheme P1
-		dnRequest("set",[self,"SignInScheme",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SignInScheme",P1])
 		return self
 
 	Func getRemoteAuthenticationTimeout
-		return dnRequest("get",[self,"RemoteAuthenticationTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteAuthenticationTimeout"])
 
 	Func setRemoteAuthenticationTimeout P1
-		dnRequest("set",[self,"RemoteAuthenticationTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RemoteAuthenticationTimeout",P1])
 		return self
 
 	Func getSaveTokens
-		return dnRequest("get",[self,"SaveTokens"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SaveTokens"])
 
 	Func setSaveTokens P1
-		dnRequest("set",[self,"SaveTokens",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SaveTokens",P1])
 		return self
 
 	Func getCorrelationCookie
-		return dnRequest("get",[self,"CorrelationCookie"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CorrelationCookie"])
 
 	Func setCorrelationCookie P1
-		dnRequest("set",[self,"CorrelationCookie",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CorrelationCookie",P1])
 		return self
 

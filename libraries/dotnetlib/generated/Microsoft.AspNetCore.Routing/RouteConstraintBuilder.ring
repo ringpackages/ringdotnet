@@ -15,16 +15,16 @@ Class RouteConstraintBuilder from Object
 		return self
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func AddResolvedConstraint P1,P2
-		dnRequest("call",[self,"AddResolvedConstraint",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddResolvedConstraint",P1,P2])
 		return self
 
 	Func SetOptional P1
-		dnRequest("call",[self,"SetOptional",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetOptional",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

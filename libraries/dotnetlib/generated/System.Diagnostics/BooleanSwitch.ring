@@ -21,9 +21,9 @@ Class BooleanSwitch from Switch_
 		return self
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[self,"Enabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
 		return self
 

@@ -24,74 +24,74 @@ Class TextInfo from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func ToLower P1
-		return dnRequest("call",[self,"ToLower",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToLower",P1])
 
 	Func ToUpper P1
-		return dnRequest("call",[self,"ToUpper",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUpper",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ToTitleCase P1
-		return dnRequest("call",[self,"ToTitleCase",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToTitleCase",P1])
 
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.TextInfo, System.Private.CoreLib'),"ReadOnly",P1])
 
 	Func getANSICodePage
-		return dnRequest("get",[self,"ANSICodePage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ANSICodePage"])
 
 	Func setANSICodePage P1
 		raise("DotNet Error: ANSICodePage is a read-only property")
 
 	Func getOEMCodePage
-		return dnRequest("get",[self,"OEMCodePage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OEMCodePage"])
 
 	Func setOEMCodePage P1
 		raise("DotNet Error: OEMCodePage is a read-only property")
 
 	Func getMacCodePage
-		return dnRequest("get",[self,"MacCodePage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MacCodePage"])
 
 	Func setMacCodePage P1
 		raise("DotNet Error: MacCodePage is a read-only property")
 
 	Func getEBCDICCodePage
-		return dnRequest("get",[self,"EBCDICCodePage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EBCDICCodePage"])
 
 	Func setEBCDICCodePage P1
 		raise("DotNet Error: EBCDICCodePage is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[self,"LCID"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LCID"])
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
 
 	Func getCultureName
-		return dnRequest("get",[self,"CultureName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CultureName"])
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getListSeparator
-		return dnRequest("get",[self,"ListSeparator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ListSeparator"])
 
 	Func setListSeparator P1
-		dnRequest("set",[self,"ListSeparator",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ListSeparator",P1])
 		return self
 
 	Func getIsRightToLeft
-		return dnRequest("get",[self,"IsRightToLeft"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRightToLeft"])
 
 	Func setIsRightToLeft P1
 		raise("DotNet Error: IsRightToLeft is a read-only property")

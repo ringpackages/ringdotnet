@@ -26,57 +26,57 @@ Class Overlapped from Object
 
 	Func Pack P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Pack",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Pack",P1])
 		ok
-		return dnRequest("call",[self,"Pack",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Pack",P1])
 
 	Func Pack_2 P1,P2
-		return dnRequest("call",[self,"Pack",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Pack",P1,P2])
 
 	Func UnsafePack P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"UnsafePack",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"UnsafePack",P1])
 		ok
-		return dnRequest("call",[self,"UnsafePack",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UnsafePack",P1])
 
 	Func UnsafePack_2 P1,P2
-		return dnRequest("call",[self,"UnsafePack",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UnsafePack",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAsyncResult
-		return dnRequest("get",[self,"AsyncResult"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AsyncResult"])
 
 	Func setAsyncResult P1
-		dnRequest("set",[self,"AsyncResult",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AsyncResult",P1])
 		return self
 
 	Func getOffsetLow
-		return dnRequest("get",[self,"OffsetLow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetLow"])
 
 	Func setOffsetLow P1
-		dnRequest("set",[self,"OffsetLow",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OffsetLow",P1])
 		return self
 
 	Func getOffsetHigh
-		return dnRequest("get",[self,"OffsetHigh"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetHigh"])
 
 	Func setOffsetHigh P1
-		dnRequest("set",[self,"OffsetHigh",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OffsetHigh",P1])
 		return self
 
 	Func getEventHandle
-		return dnRequest("get",[self,"EventHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EventHandle"])
 
 	Func setEventHandle P1
-		dnRequest("set",[self,"EventHandle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EventHandle",P1])
 		return self
 
 	Func getEventHandleIntPtr
-		return dnRequest("get",[self,"EventHandleIntPtr"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EventHandleIntPtr"])
 
 	Func setEventHandleIntPtr P1
-		dnRequest("set",[self,"EventHandleIntPtr",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EventHandleIntPtr",P1])
 		return self
 

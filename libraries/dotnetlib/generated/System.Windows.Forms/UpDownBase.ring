@@ -21,66 +21,66 @@ Class UpDownBase from ContainerControl
 		return self
 
 	Func DownButton 
-		dnRequest("call",[self,"DownButton"])
+		dnRequest("call",[new DotNetObject(nHandle),"DownButton"])
 		return self
 
 	Func Select_2 P1,P2
-		dnRequest("call",[self,"Select",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
 		return self
 
 	Func UpButton 
-		dnRequest("call",[self,"UpButton"])
+		dnRequest("call",[new DotNetObject(nHandle),"UpButton"])
 		return self
 
 	Func Select P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Select",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Select"])
+			dnRequest("call",[new DotNetObject(nHandle),"Select"])
 		return self
 		ok
 		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
 
 	Func getBorderStyle
-		return dnRequest("get",[self,"BorderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[self,"BorderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
 		return self
 
 	Func getInterceptArrowKeys
-		return dnRequest("get",[self,"InterceptArrowKeys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InterceptArrowKeys"])
 
 	Func setInterceptArrowKeys P1
-		dnRequest("set",[self,"InterceptArrowKeys",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InterceptArrowKeys",P1])
 		return self
 
 	Func getPreferredHeight
-		return dnRequest("get",[self,"PreferredHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreferredHeight"])
 
 	Func setPreferredHeight P1
 		raise("DotNet Error: PreferredHeight is a read-only property")
 
 	Func getReadOnly
-		return dnRequest("get",[self,"ReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
 
 	Func setReadOnly P1
-		dnRequest("set",[self,"ReadOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReadOnly",P1])
 		return self
 
 	Func getTextAlign
-		return dnRequest("get",[self,"TextAlign"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextAlign"])
 
 	Func setTextAlign P1
-		dnRequest("set",[self,"TextAlign",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextAlign",P1])
 		return self
 
 	Func getUpDownAlign
-		return dnRequest("get",[self,"UpDownAlign"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpDownAlign"])
 
 	Func setUpDownAlign P1
-		dnRequest("set",[self,"UpDownAlign",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpDownAlign",P1])
 		return self
 

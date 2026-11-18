@@ -17,13 +17,13 @@ Class TriggerBase from DependencyObject
 		return self
 
 	Func getEnterActions
-		return dnRequest("get",[self,"EnterActions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnterActions"])
 
 	Func setEnterActions P1
 		raise("DotNet Error: EnterActions is a read-only property")
 
 	Func getExitActions
-		return dnRequest("get",[self,"ExitActions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExitActions"])
 
 	Func setExitActions P1
 		raise("DotNet Error: ExitActions is a read-only property")

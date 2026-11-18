@@ -24,17 +24,17 @@ Class ImageDrawing from Drawing
 		return self
 
 	Func getImageSource
-		return dnRequest("get",[self,"ImageSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageSource"])
 
 	Func setImageSource P1
-		dnRequest("set",[self,"ImageSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageSource",P1])
 		return self
 
 	Func getRect
-		return dnRequest("get",[self,"Rect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rect"])
 
 	Func setRect P1
-		dnRequest("set",[self,"Rect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Rect",P1])
 		return self
 
 	Func getImageSourceProperty

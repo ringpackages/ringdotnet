@@ -32,13 +32,13 @@ Class NFloat from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func IsFinite P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"IsFinite",P1])
@@ -338,7 +338,7 @@ Class NFloat from ValueType
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"TanPi",P1])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

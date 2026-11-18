@@ -22,40 +22,40 @@ Class ConcurrentObjectQueue from Object
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[self,"ToArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Enqueue P1
-		dnRequest("call",[self,"Enqueue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Enqueue",P1])
 		return self
 
 	Func TryDequeue 
-		return dnRequest("call",[self,"TryDequeue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryDequeue"])
 
 	Func TryPeek 
-		return dnRequest("call",[self,"TryPeek"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryPeek"])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

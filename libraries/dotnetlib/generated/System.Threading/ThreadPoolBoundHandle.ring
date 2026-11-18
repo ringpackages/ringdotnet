@@ -16,29 +16,29 @@ Class ThreadPoolBoundHandle from Object
 		return self
 
 	Func AllocateNativeOverlapped_3 P1,P2,P3
-		return dnRequest("call",[self,"AllocateNativeOverlapped",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AllocateNativeOverlapped",P1,P2,P3])
 
 	Func UnsafeAllocateNativeOverlapped P1,P2,P3
-		return dnRequest("call",[self,"UnsafeAllocateNativeOverlapped",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UnsafeAllocateNativeOverlapped",P1,P2,P3])
 
 	Func AllocateNativeOverlapped P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AllocateNativeOverlapped",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AllocateNativeOverlapped",P1])
 		ok
-		return dnRequest("call",[self,"AllocateNativeOverlapped",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AllocateNativeOverlapped",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func BindHandle P1
 		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPoolBoundHandle, System.Private.CoreLib'),"BindHandle",P1])
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")

@@ -21,10 +21,10 @@ Class ResponseCookiesFeature from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCookies
-		return dnRequest("get",[self,"Cookies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
 
 	Func setCookies P1
 		raise("DotNet Error: Cookies is a read-only property")

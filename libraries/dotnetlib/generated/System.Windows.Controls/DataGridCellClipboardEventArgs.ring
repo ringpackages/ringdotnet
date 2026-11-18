@@ -19,20 +19,20 @@ Class DataGridCellClipboardEventArgs from EventArgs
 		return self
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
 
 	Func setContent P1
-		dnRequest("set",[self,"Content",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
 		return self
 
 	Func getItem
-		return dnRequest("get",[self,"Item"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getColumn
-		return dnRequest("get",[self,"Column"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")

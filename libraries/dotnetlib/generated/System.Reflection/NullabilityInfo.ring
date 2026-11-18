@@ -20,37 +20,37 @@ Class NullabilityInfo from Object
 		return self
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getReadState
-		return dnRequest("get",[self,"ReadState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReadState"])
 
 	Func setReadState P1
 		raise("DotNet Error: ReadState is a read-only property")
 
 	Func getWriteState
-		return dnRequest("get",[self,"WriteState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WriteState"])
 
 	Func setWriteState P1
 		raise("DotNet Error: WriteState is a read-only property")
 
 	Func getElementType
-		return dnRequest("get",[self,"ElementType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementType"])
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
 
 	Func getGenericTypeArguments
-		return dnRequest("get",[self,"GenericTypeArguments"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GenericTypeArguments"])
 
 	Func setGenericTypeArguments P1
 		raise("DotNet Error: GenericTypeArguments is a read-only property")

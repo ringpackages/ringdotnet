@@ -17,7 +17,7 @@ Class SslStreamCertificateContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Net.Security.SslStreamCertificateContext, System.Net.Security'),"Create",P1,P2,P3])
@@ -29,13 +29,13 @@ Class SslStreamCertificateContext from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Security.SslStreamCertificateContext, System.Net.Security'),"Create",P1,P2])
 
 	Func getTargetCertificate
-		return dnRequest("get",[self,"TargetCertificate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetCertificate"])
 
 	Func setTargetCertificate P1
 		raise("DotNet Error: TargetCertificate is a read-only property")
 
 	Func getIntermediateCertificates
-		return dnRequest("get",[self,"IntermediateCertificates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IntermediateCertificates"])
 
 	Func setIntermediateCertificates P1
 		raise("DotNet Error: IntermediateCertificates is a read-only property")

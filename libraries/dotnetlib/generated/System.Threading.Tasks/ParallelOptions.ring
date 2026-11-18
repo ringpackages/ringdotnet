@@ -19,26 +19,26 @@ Class ParallelOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTaskScheduler
-		return dnRequest("get",[self,"TaskScheduler"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TaskScheduler"])
 
 	Func setTaskScheduler P1
-		dnRequest("set",[self,"TaskScheduler",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TaskScheduler",P1])
 		return self
 
 	Func getMaxDegreeOfParallelism
-		return dnRequest("get",[self,"MaxDegreeOfParallelism"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxDegreeOfParallelism"])
 
 	Func setMaxDegreeOfParallelism P1
-		dnRequest("set",[self,"MaxDegreeOfParallelism",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxDegreeOfParallelism",P1])
 		return self
 
 	Func getCancellationToken
-		return dnRequest("get",[self,"CancellationToken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CancellationToken"])
 
 	Func setCancellationToken P1
-		dnRequest("set",[self,"CancellationToken",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CancellationToken",P1])
 		return self
 

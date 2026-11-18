@@ -33,21 +33,21 @@ Class Attachment from AttachmentBase
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.Attachment, System.Net.Mail'),"CreateAttachmentFromString",P1,P2,P3,P4])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getNameEncoding
-		return dnRequest("get",[self,"NameEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NameEncoding"])
 
 	Func setNameEncoding P1
-		dnRequest("set",[self,"NameEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NameEncoding",P1])
 		return self
 
 	Func getContentDisposition
-		return dnRequest("get",[self,"ContentDisposition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentDisposition"])
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")

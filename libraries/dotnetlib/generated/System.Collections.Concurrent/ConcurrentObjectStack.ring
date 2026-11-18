@@ -22,61 +22,61 @@ Class ConcurrentObjectStack from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Push P1
-		dnRequest("call",[self,"Push",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Push",P1])
 		return self
 
 	Func PushRange P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"PushRange",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"PushRange",P1])
 			return self
 		ok
-		dnRequest("call",[self,"PushRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PushRange",P1])
 		return self
 
 	Func PushRange_3 P1,P2,P3
-		dnRequest("call",[self,"PushRange",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"PushRange",P1,P2,P3])
 		return self
 
 	Func TryPeek 
-		return dnRequest("call",[self,"TryPeek"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryPeek"])
 
 	Func TryPop 
-		return dnRequest("call",[self,"TryPop"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryPop"])
 
 	Func TryPopRange P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryPopRange",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryPopRange",P1])
 		ok
-		return dnRequest("call",[self,"TryPopRange",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryPopRange",P1])
 
 	Func TryPopRange_3 P1,P2,P3
-		return dnRequest("call",[self,"TryPopRange",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryPopRange",P1,P2,P3])
 
 	Func ToArray 
-		return dnRequest("call",[self,"ToArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

@@ -70,105 +70,105 @@ Class Block from TextElement
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Block, PresentationFramework'),"GetLineStackingStrategy",P1])
 
 	Func getSiblingBlocks
-		return dnRequest("get",[self,"SiblingBlocks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SiblingBlocks"])
 
 	Func setSiblingBlocks P1
 		raise("DotNet Error: SiblingBlocks is a read-only property")
 
 	Func getNextBlock
-		return dnRequest("get",[self,"NextBlock"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NextBlock"])
 
 	Func setNextBlock P1
 		raise("DotNet Error: NextBlock is a read-only property")
 
 	Func getPreviousBlock
-		return dnRequest("get",[self,"PreviousBlock"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreviousBlock"])
 
 	Func setPreviousBlock P1
 		raise("DotNet Error: PreviousBlock is a read-only property")
 
 	Func getIsHyphenationEnabled
-		return dnRequest("get",[self,"IsHyphenationEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsHyphenationEnabled"])
 
 	Func setIsHyphenationEnabled P1
-		dnRequest("set",[self,"IsHyphenationEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsHyphenationEnabled",P1])
 		return self
 
 	Func getMargin
-		return dnRequest("get",[self,"Margin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Margin"])
 
 	Func setMargin P1
-		dnRequest("set",[self,"Margin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Margin",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[self,"Padding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[self,"Padding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
 		return self
 
 	Func getBorderThickness
-		return dnRequest("get",[self,"BorderThickness"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderThickness"])
 
 	Func setBorderThickness P1
-		dnRequest("set",[self,"BorderThickness",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderThickness",P1])
 		return self
 
 	Func getBorderBrush
-		return dnRequest("get",[self,"BorderBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderBrush"])
 
 	Func setBorderBrush P1
-		dnRequest("set",[self,"BorderBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderBrush",P1])
 		return self
 
 	Func getTextAlignment
-		return dnRequest("get",[self,"TextAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextAlignment"])
 
 	Func setTextAlignment P1
-		dnRequest("set",[self,"TextAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextAlignment",P1])
 		return self
 
 	Func getFlowDirection
-		return dnRequest("get",[self,"FlowDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FlowDirection"])
 
 	Func setFlowDirection P1
-		dnRequest("set",[self,"FlowDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FlowDirection",P1])
 		return self
 
 	Func getLineHeight
-		return dnRequest("get",[self,"LineHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineHeight"])
 
 	Func setLineHeight P1
-		dnRequest("set",[self,"LineHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineHeight",P1])
 		return self
 
 	Func getLineStackingStrategy
-		return dnRequest("get",[self,"LineStackingStrategy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineStackingStrategy"])
 
 	Func setLineStackingStrategy P1
-		dnRequest("set",[self,"LineStackingStrategy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineStackingStrategy",P1])
 		return self
 
 	Func getBreakPageBefore
-		return dnRequest("get",[self,"BreakPageBefore"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BreakPageBefore"])
 
 	Func setBreakPageBefore P1
-		dnRequest("set",[self,"BreakPageBefore",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BreakPageBefore",P1])
 		return self
 
 	Func getBreakColumnBefore
-		return dnRequest("get",[self,"BreakColumnBefore"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BreakColumnBefore"])
 
 	Func setBreakColumnBefore P1
-		dnRequest("set",[self,"BreakColumnBefore",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BreakColumnBefore",P1])
 		return self
 
 	Func getClearFloaters
-		return dnRequest("get",[self,"ClearFloaters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClearFloaters"])
 
 	Func setClearFloaters P1
-		dnRequest("set",[self,"ClearFloaters",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClearFloaters",P1])
 		return self
 
 	Func getIsHyphenationEnabledProperty

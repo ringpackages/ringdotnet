@@ -18,16 +18,16 @@ Class Char from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func ToString_1 P1
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToString",P1])
 		ok
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func GetTypeCode 
-		return dnRequest("call",[self,"GetTypeCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
 
 	Func IsAscii P1
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAscii",P1])

@@ -17,17 +17,17 @@ Class MemoryMappedViewAccessor from UnmanagedMemoryAccessor
 		return self
 
 	Func Flush 
-		dnRequest("call",[self,"Flush"])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 
 	Func getSafeMemoryMappedViewHandle
-		return dnRequest("get",[self,"SafeMemoryMappedViewHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SafeMemoryMappedViewHandle"])
 
 	Func setSafeMemoryMappedViewHandle P1
 		raise("DotNet Error: SafeMemoryMappedViewHandle is a read-only property")
 
 	Func getPointerOffset
-		return dnRequest("get",[self,"PointerOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PointerOffset"])
 
 	Func setPointerOffset P1
 		raise("DotNet Error: PointerOffset is a read-only property")

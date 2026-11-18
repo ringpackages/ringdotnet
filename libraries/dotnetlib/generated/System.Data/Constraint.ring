@@ -18,23 +18,23 @@ Class Constraint from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConstraintName
-		return dnRequest("get",[self,"ConstraintName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConstraintName"])
 
 	Func setConstraintName P1
-		dnRequest("set",[self,"ConstraintName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ConstraintName",P1])
 		return self
 
 	Func getTable
-		return dnRequest("get",[self,"Table"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getExtendedProperties
-		return dnRequest("get",[self,"ExtendedProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedProperties"])
 
 	Func setExtendedProperties P1
 		raise("DotNet Error: ExtendedProperties is a read-only property")

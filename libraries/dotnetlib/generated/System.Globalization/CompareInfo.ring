@@ -18,82 +18,82 @@ Class CompareInfo from Object
 		return self
 
 	Func Compare P1,P2
-		return dnRequest("call",[self,"Compare",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2])
 
 	Func Compare_3 P1,P2,P3
-		return dnRequest("call",[self,"Compare",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2,P3])
 
 	Func Compare_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"Compare",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2,P3,P4,P5,P6])
 
 	Func Compare_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Compare",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2,P3,P4,P5])
 
 	Func Compare_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Compare",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2,P3,P4])
 
 	Func Compare_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"Compare",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2,P3,P4,P5,P6,P7])
 
 	Func IsPrefix_3 P1,P2,P3
-		return dnRequest("call",[self,"IsPrefix",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsPrefix",P1,P2,P3])
 
 	Func IsPrefix P1,P2
-		return dnRequest("call",[self,"IsPrefix",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsPrefix",P1,P2])
 
 	Func IsSuffix_3 P1,P2,P3
-		return dnRequest("call",[self,"IsSuffix",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsSuffix",P1,P2,P3])
 
 	Func IsSuffix P1,P2
-		return dnRequest("call",[self,"IsSuffix",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsSuffix",P1,P2])
 
 	Func IndexOf P1,P2
-		return dnRequest("call",[self,"IndexOf",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
 
 	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[self,"IndexOf",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
 
 	Func IndexOf_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"IndexOf",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3,P4])
 
 	Func IndexOf_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"IndexOf",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3,P4,P5])
 
 	Func LastIndexOf P1,P2
-		return dnRequest("call",[self,"LastIndexOf",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2])
 
 	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[self,"LastIndexOf",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3])
 
 	Func LastIndexOf_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"LastIndexOf",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3,P4])
 
 	Func LastIndexOf_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"LastIndexOf",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3,P4,P5])
 
 	Func GetSortKey_2 P1,P2
-		return dnRequest("call",[self,"GetSortKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSortKey",P1,P2])
 
 	Func GetSortKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetSortKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetSortKey",P1])
 		ok
-		return dnRequest("call",[self,"GetSortKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSortKey",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetHashCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHashCode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetHashCode"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 		ok
 		raise("DotNet Error: GetHashCode does not take one argument: use GetHashCode(NULL), GetHashCode_N(...) or named arguments")
 
 	Func GetHashCode_2 P1,P2
-		return dnRequest("call",[self,"GetHashCode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1,P2])
 
 	Func GetCompareInfo_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"GetCompareInfo",P1,P2])
@@ -108,19 +108,19 @@ Class CompareInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"IsSortable",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[self,"LCID"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LCID"])
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")

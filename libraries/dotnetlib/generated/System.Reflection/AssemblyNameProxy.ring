@@ -15,5 +15,5 @@ Class AssemblyNameProxy from MarshalByRefObject
 		return self
 
 	Func GetAssemblyName P1
-		return dnRequest("call",[self,"GetAssemblyName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAssemblyName",P1])
 

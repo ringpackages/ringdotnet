@@ -18,13 +18,13 @@ Class WpfScrollEventArgs from RoutedEventArgs
 		return self
 
 	Func getScrollEventType
-		return dnRequest("get",[self,"ScrollEventType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScrollEventType"])
 
 	Func setScrollEventType P1
 		raise("DotNet Error: ScrollEventType is a read-only property")
 
 	Func getNewValue
-		return dnRequest("get",[self,"NewValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewValue"])
 
 	Func setNewValue P1
 		raise("DotNet Error: NewValue is a read-only property")

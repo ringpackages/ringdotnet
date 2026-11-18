@@ -27,10 +27,10 @@ Class BindingInfo from Object
 		return self
 
 	Func TryApplyBindingInfo P1
-		return dnRequest("call",[self,"TryApplyBindingInfo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryApplyBindingInfo",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetBindingInfo P1
 		if dnIsNamed(P1)
@@ -42,51 +42,51 @@ Class BindingInfo from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1,P2])
 
 	Func getBindingSource
-		return dnRequest("get",[self,"BindingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingSource"])
 
 	Func setBindingSource P1
-		dnRequest("set",[self,"BindingSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BindingSource",P1])
 		return self
 
 	Func getBinderModelName
-		return dnRequest("get",[self,"BinderModelName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BinderModelName"])
 
 	Func setBinderModelName P1
-		dnRequest("set",[self,"BinderModelName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BinderModelName",P1])
 		return self
 
 	Func getBinderType
-		return dnRequest("get",[self,"BinderType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BinderType"])
 
 	Func setBinderType P1
-		dnRequest("set",[self,"BinderType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BinderType",P1])
 		return self
 
 	Func getPropertyFilterProvider
-		return dnRequest("get",[self,"PropertyFilterProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyFilterProvider"])
 
 	Func setPropertyFilterProvider P1
-		dnRequest("set",[self,"PropertyFilterProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PropertyFilterProvider",P1])
 		return self
 
 	Func getRequestPredicate
-		return dnRequest("get",[self,"RequestPredicate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestPredicate"])
 
 	Func setRequestPredicate P1
-		dnRequest("set",[self,"RequestPredicate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestPredicate",P1])
 		return self
 
 	Func getEmptyBodyBehavior
-		return dnRequest("get",[self,"EmptyBodyBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EmptyBodyBehavior"])
 
 	Func setEmptyBodyBehavior P1
-		dnRequest("set",[self,"EmptyBodyBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EmptyBodyBehavior",P1])
 		return self
 
 	Func getServiceKey
-		return dnRequest("get",[self,"ServiceKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceKey"])
 
 	Func setServiceKey P1
-		dnRequest("set",[self,"ServiceKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ServiceKey",P1])
 		return self
 

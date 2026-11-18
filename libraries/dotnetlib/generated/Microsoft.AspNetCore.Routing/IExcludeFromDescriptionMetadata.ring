@@ -16,7 +16,7 @@ Class IExcludeFromDescriptionMetadata from DotNetObject
 		return self
 
 	Func getExcludeFromDescription
-		return dnRequest("get",[self,"ExcludeFromDescription"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExcludeFromDescription"])
 
 	Func setExcludeFromDescription P1
 		raise("DotNet Error: ExcludeFromDescription is a read-only property")

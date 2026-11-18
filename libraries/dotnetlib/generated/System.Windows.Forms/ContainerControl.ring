@@ -22,77 +22,77 @@ Class ContainerControl from ScrollableControl
 		return self
 
 	Func PerformAutoScale 
-		dnRequest("call",[self,"PerformAutoScale"])
+		dnRequest("call",[new DotNetObject(nHandle),"PerformAutoScale"])
 		return self
 
 	Func Validate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Validate",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Validate",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Validate"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Validate"])
 		ok
-		return dnRequest("call",[self,"Validate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 
 	Func Validate_1 P1
-		return dnRequest("call",[self,"Validate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 
 	Func ValidateChildren P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ValidateChildren",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ValidateChildren",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ValidateChildren"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ValidateChildren"])
 		ok
-		return dnRequest("call",[self,"ValidateChildren",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidateChildren",P1])
 
 	Func ValidateChildren_1 P1
-		return dnRequest("call",[self,"ValidateChildren",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidateChildren",P1])
 
 	Func setAutoValidateChangedEvent P1
-		dnRequest("setevent",[self,"AutoValidateChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AutoValidateChanged",dnCallback(P1)])
 		return self
 
 	Func clearAutoValidateChangedEvent
-		dnRequest("clearevent",[self,"AutoValidateChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AutoValidateChanged"])
 		return self
 
 	Func getAutoScaleDimensions
-		return dnRequest("get",[self,"AutoScaleDimensions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoScaleDimensions"])
 
 	Func setAutoScaleDimensions P1
-		dnRequest("set",[self,"AutoScaleDimensions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoScaleDimensions",P1])
 		return self
 
 	Func getAutoScaleMode
-		return dnRequest("get",[self,"AutoScaleMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoScaleMode"])
 
 	Func setAutoScaleMode P1
-		dnRequest("set",[self,"AutoScaleMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoScaleMode",P1])
 		return self
 
 	Func getAutoValidate
-		return dnRequest("get",[self,"AutoValidate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoValidate"])
 
 	Func setAutoValidate P1
-		dnRequest("set",[self,"AutoValidate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoValidate",P1])
 		return self
 
 	Func getActiveControl
-		return dnRequest("get",[self,"ActiveControl"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActiveControl"])
 
 	Func setActiveControl P1
-		dnRequest("set",[self,"ActiveControl",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ActiveControl",P1])
 		return self
 
 	Func getCurrentAutoScaleDimensions
-		return dnRequest("get",[self,"CurrentAutoScaleDimensions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentAutoScaleDimensions"])
 
 	Func setCurrentAutoScaleDimensions P1
 		raise("DotNet Error: CurrentAutoScaleDimensions is a read-only property")
 
 	Func getParentForm
-		return dnRequest("get",[self,"ParentForm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParentForm"])
 
 	Func setParentForm P1
 		raise("DotNet Error: ParentForm is a read-only property")

@@ -16,36 +16,36 @@ Class HttpHeaders from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func TryAddWithoutValidation P1,P2
-		return dnRequest("call",[self,"TryAddWithoutValidation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddWithoutValidation",P1,P2])
 
 	Func GetValues P1
-		return dnRequest("call",[self,"GetValues",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValues",P1])
 
 	Func TryGetValues P1
-		return dnRequest("call",[self,"TryGetValues",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValues",P1])
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getNonValidated
-		return dnRequest("get",[self,"NonValidated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NonValidated"])
 
 	Func setNonValidated P1
 		raise("DotNet Error: NonValidated is a read-only property")

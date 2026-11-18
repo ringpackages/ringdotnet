@@ -19,26 +19,26 @@ Class PrinterResolution from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getKind
-		return dnRequest("get",[self,"Kind"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Kind"])
 
 	Func setKind P1
-		dnRequest("set",[self,"Kind",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Kind",P1])
 		return self
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 

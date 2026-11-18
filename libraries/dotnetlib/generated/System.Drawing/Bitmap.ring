@@ -28,101 +28,101 @@ Class Bitmap from Image
 
 	Func GetHbitmap P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetHbitmap",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHbitmap",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetHbitmap"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetHbitmap"])
 		ok
-		return dnRequest("call",[self,"GetHbitmap",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHbitmap",P1])
 
 	Func GetHbitmap_1 P1
-		return dnRequest("call",[self,"GetHbitmap",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHbitmap",P1])
 
 	Func GetHicon 
-		return dnRequest("call",[self,"GetHicon"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHicon"])
 
 	Func Clone_2 P1,P2
-		return dnRequest("call",[self,"Clone",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2])
 
 	Func MakeTransparent P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"MakeTransparent",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"MakeTransparent",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"MakeTransparent"])
+			dnRequest("call",[new DotNetObject(nHandle),"MakeTransparent"])
 		return self
 		ok
-		dnRequest("call",[self,"MakeTransparent",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MakeTransparent",P1])
 		return self
 
 	Func MakeTransparent_1 P1
-		dnRequest("call",[self,"MakeTransparent",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MakeTransparent",P1])
 		return self
 
 	Func LockBits P1,P2,P3
-		return dnRequest("call",[self,"LockBits",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"LockBits",P1,P2,P3])
 
 	Func LockBits_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"LockBits",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"LockBits",P1,P2,P3,P4])
 
 	Func UnlockBits P1
-		dnRequest("call",[self,"UnlockBits",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"UnlockBits",P1])
 		return self
 
 	Func GetPixel P1,P2
-		return dnRequest("call",[self,"GetPixel",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPixel",P1,P2])
 
 	Func SetPixel P1,P2,P3
-		dnRequest("call",[self,"SetPixel",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPixel",P1,P2,P3])
 		return self
 
 	Func SetResolution P1,P2
-		dnRequest("call",[self,"SetResolution",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetResolution",P1,P2])
 		return self
 
 	Func ApplyEffect_2 P1,P2
-		dnRequest("call",[self,"ApplyEffect",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyEffect",P1,P2])
 		return self
 
 	Func ApplyEffect P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ApplyEffect",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyEffect",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ApplyEffect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyEffect",P1])
 		return self
 
 	Func ConvertFormat_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"ConvertFormat",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"ConvertFormat",P1,P2,P3,P4,P5])
 		return self
 
 	Func ConvertFormat_4 P1,P2,P3,P4
-		dnRequest("call",[self,"ConvertFormat",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"ConvertFormat",P1,P2,P3,P4])
 		return self
 
 	Func ConvertFormat_3 P1,P2,P3
-		dnRequest("call",[self,"ConvertFormat",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ConvertFormat",P1,P2,P3])
 		return self
 
 	Func ConvertFormat_2 P1,P2
-		dnRequest("call",[self,"ConvertFormat",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ConvertFormat",P1,P2])
 		return self
 
 	Func ConvertFormat P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ConvertFormat",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertFormat",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ConvertFormat",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ConvertFormat",P1])
 		return self
 
 	Func Clone P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Clone",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Clone",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Clone"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 		ok
 		raise("DotNet Error: Clone does not take one argument: use Clone(NULL), Clone_N(...) or named arguments")
 

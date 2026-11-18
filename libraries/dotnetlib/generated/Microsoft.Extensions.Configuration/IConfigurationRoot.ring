@@ -16,11 +16,11 @@ Class IConfigurationRoot from DotNetObject
 		return self
 
 	Func Reload 
-		dnRequest("call",[self,"Reload"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reload"])
 		return self
 
 	Func getProviders
-		return dnRequest("get",[self,"Providers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Providers"])
 
 	Func setProviders P1
 		raise("DotNet Error: Providers is a read-only property")

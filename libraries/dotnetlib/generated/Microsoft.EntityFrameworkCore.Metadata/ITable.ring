@@ -26,70 +26,70 @@ Class ITable from DotNetObject
 		return self
 
 	Func FindColumn P1
-		return dnRequest("call",[self,"FindColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindColumn",P1])
 
 	Func getEntityTypeMappings
-		return dnRequest("get",[self,"EntityTypeMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityTypeMappings"])
 
 	Func setEntityTypeMappings P1
 		raise("DotNet Error: EntityTypeMappings is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getIsExcludedFromMigrations
-		return dnRequest("get",[self,"IsExcludedFromMigrations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsExcludedFromMigrations"])
 
 	Func setIsExcludedFromMigrations P1
 		raise("DotNet Error: IsExcludedFromMigrations is a read-only property")
 
 	Func getForeignKeyConstraints
-		return dnRequest("get",[self,"ForeignKeyConstraints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeignKeyConstraints"])
 
 	Func setForeignKeyConstraints P1
 		raise("DotNet Error: ForeignKeyConstraints is a read-only property")
 
 	Func getReferencingForeignKeyConstraints
-		return dnRequest("get",[self,"ReferencingForeignKeyConstraints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReferencingForeignKeyConstraints"])
 
 	Func setReferencingForeignKeyConstraints P1
 		raise("DotNet Error: ReferencingForeignKeyConstraints is a read-only property")
 
 	Func getUniqueConstraints
-		return dnRequest("get",[self,"UniqueConstraints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UniqueConstraints"])
 
 	Func setUniqueConstraints P1
 		raise("DotNet Error: UniqueConstraints is a read-only property")
 
 	Func getPrimaryKey
-		return dnRequest("get",[self,"PrimaryKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrimaryKey"])
 
 	Func setPrimaryKey P1
 		raise("DotNet Error: PrimaryKey is a read-only property")
 
 	Func getIndexes
-		return dnRequest("get",[self,"Indexes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Indexes"])
 
 	Func setIndexes P1
 		raise("DotNet Error: Indexes is a read-only property")
 
 	Func getCheckConstraints
-		return dnRequest("get",[self,"CheckConstraints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckConstraints"])
 
 	Func setCheckConstraints P1
 		raise("DotNet Error: CheckConstraints is a read-only property")
 
 	Func getTriggers
-		return dnRequest("get",[self,"Triggers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Triggers"])
 
 	Func setTriggers P1
 		raise("DotNet Error: Triggers is a read-only property")
 
 	Func getComment
-		return dnRequest("get",[self,"Comment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")

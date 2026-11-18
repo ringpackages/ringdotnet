@@ -18,64 +18,64 @@ Class IReadOnlyElementType from DotNetObject
 		return self
 
 	Func GetTypeMapping 
-		return dnRequest("call",[self,"GetTypeMapping"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeMapping"])
 
 	Func FindTypeMapping 
-		return dnRequest("call",[self,"FindTypeMapping"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindTypeMapping"])
 
 	Func GetMaxLength 
-		return dnRequest("call",[self,"GetMaxLength"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxLength"])
 
 	Func GetPrecision 
-		return dnRequest("call",[self,"GetPrecision"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrecision"])
 
 	Func GetScale 
-		return dnRequest("call",[self,"GetScale"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetScale"])
 
 	Func IsUnicode 
-		return dnRequest("call",[self,"IsUnicode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUnicode"])
 
 	Func GetValueConverter 
-		return dnRequest("call",[self,"GetValueConverter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueConverter"])
 
 	Func GetProviderClrType 
-		return dnRequest("call",[self,"GetProviderClrType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProviderClrType"])
 
 	Func GetValueComparer 
-		return dnRequest("call",[self,"GetValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueComparer"])
 
 	Func GetJsonValueReaderWriter 
-		return dnRequest("call",[self,"GetJsonValueReaderWriter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetJsonValueReaderWriter"])
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getCollectionProperty
-		return dnRequest("get",[self,"CollectionProperty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CollectionProperty"])
 
 	Func setCollectionProperty P1
 		raise("DotNet Error: CollectionProperty is a read-only property")
 
 	Func getClrType
-		return dnRequest("get",[self,"ClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")

@@ -28,28 +28,28 @@ Class RoutedEventArgs from EventArgs
 		return self
 
 	Func getRoutedEvent
-		return dnRequest("get",[self,"RoutedEvent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RoutedEvent"])
 
 	Func setRoutedEvent P1
-		dnRequest("set",[self,"RoutedEvent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RoutedEvent",P1])
 		return self
 
 	Func getHandled
-		return dnRequest("get",[self,"Handled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
 
 	Func setHandled P1
-		dnRequest("set",[self,"Handled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Handled",P1])
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
 		return self
 
 	Func getOriginalSource
-		return dnRequest("get",[self,"OriginalSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalSource"])
 
 	Func setOriginalSource P1
 		raise("DotNet Error: OriginalSource is a read-only property")

@@ -20,25 +20,25 @@ Class DataGridPreparingCellForEditEventArgs from EventArgs
 		return self
 
 	Func getColumn
-		return dnRequest("get",[self,"Column"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getRow
-		return dnRequest("get",[self,"Row"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getEditingEventArgs
-		return dnRequest("get",[self,"EditingEventArgs"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditingEventArgs"])
 
 	Func setEditingEventArgs P1
 		raise("DotNet Error: EditingEventArgs is a read-only property")
 
 	Func getEditingElement
-		return dnRequest("get",[self,"EditingElement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditingElement"])
 
 	Func setEditingElement P1
 		raise("DotNet Error: EditingElement is a read-only property")

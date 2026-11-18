@@ -28,61 +28,61 @@ Class HttpRequestMessage from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
-		dnRequest("set",[self,"Version",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Version",P1])
 		return self
 
 	Func getVersionPolicy
-		return dnRequest("get",[self,"VersionPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VersionPolicy"])
 
 	Func setVersionPolicy P1
-		dnRequest("set",[self,"VersionPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VersionPolicy",P1])
 		return self
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
 
 	Func setContent P1
-		dnRequest("set",[self,"Content",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
 		return self
 
 	Func getMethod
-		return dnRequest("get",[self,"Method"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Method"])
 
 	Func setMethod P1
-		dnRequest("set",[self,"Method",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Method",P1])
 		return self
 
 	Func getRequestUri
-		return dnRequest("get",[self,"RequestUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestUri"])
 
 	Func setRequestUri P1
-		dnRequest("set",[self,"RequestUri",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestUri",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")

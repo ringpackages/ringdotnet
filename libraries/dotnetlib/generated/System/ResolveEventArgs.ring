@@ -22,13 +22,13 @@ Class ResolveEventArgs from EventArgs
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getRequestingAssembly
-		return dnRequest("get",[self,"RequestingAssembly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestingAssembly"])
 
 	Func setRequestingAssembly P1
 		raise("DotNet Error: RequestingAssembly is a read-only property")

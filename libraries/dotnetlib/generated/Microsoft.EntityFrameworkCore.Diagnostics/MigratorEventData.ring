@@ -17,7 +17,7 @@ Class MigratorEventData from EventData
 		return self
 
 	Func getMigrator
-		return dnRequest("get",[self,"Migrator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Migrator"])
 
 	Func setMigrator P1
 		raise("DotNet Error: Migrator is a read-only property")

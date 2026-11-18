@@ -31,57 +31,57 @@ Class ListViewSubItem from Object
 		return self
 
 	Func ResetStyle 
-		dnRequest("call",[self,"ResetStyle"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetStyle"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBackColor
-		return dnRequest("get",[self,"BackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
 
 	Func setBackColor P1
-		dnRequest("set",[self,"BackColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BackColor",P1])
 		return self
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getFont
-		return dnRequest("get",[self,"Font"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
 
 	Func setFont P1
-		dnRequest("set",[self,"Font",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Font",P1])
 		return self
 
 	Func getForeColor
-		return dnRequest("get",[self,"ForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
 
 	Func setForeColor P1
-		dnRequest("set",[self,"ForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForeColor",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
-		dnRequest("set",[self,"Text",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 

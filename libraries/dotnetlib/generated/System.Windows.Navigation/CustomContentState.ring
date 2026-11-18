@@ -16,14 +16,14 @@ Class CustomContentState from Object
 		return self
 
 	Func Replay P1,P2
-		dnRequest("call",[self,"Replay",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Replay",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getJournalEntryName
-		return dnRequest("get",[self,"JournalEntryName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"JournalEntryName"])
 
 	Func setJournalEntryName P1
 		raise("DotNet Error: JournalEntryName is a read-only property")

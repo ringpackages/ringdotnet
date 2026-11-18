@@ -14,7 +14,7 @@ Class JsonValue from JsonNode
 		return self
 
 	Func TryGetValue 
-		return dnRequest("call",[self,"TryGetValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue"])
 
 	Func Create_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"Create",P1,P2])

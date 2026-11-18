@@ -18,48 +18,48 @@ Class Visual3D from DependencyObject
 		return self
 
 	Func IsAncestorOf P1
-		return dnRequest("call",[self,"IsAncestorOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAncestorOf",P1])
 
 	Func IsDescendantOf P1
-		return dnRequest("call",[self,"IsDescendantOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDescendantOf",P1])
 
 	Func FindCommonVisualAncestor P1
-		return dnRequest("call",[self,"FindCommonVisualAncestor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindCommonVisualAncestor",P1])
 
 	Func TransformToAncestor P1
-		return dnRequest("call",[self,"TransformToAncestor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformToAncestor",P1])
 
 	Func TransformToDescendant P1
-		return dnRequest("call",[self,"TransformToDescendant",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformToDescendant",P1])
 
 	Func ApplyAnimationClock P1,P2
-		dnRequest("call",[self,"ApplyAnimationClock",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2])
 		return self
 
 	Func ApplyAnimationClock_3 P1,P2,P3
-		dnRequest("call",[self,"ApplyAnimationClock",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2,P3])
 		return self
 
 	Func BeginAnimation P1,P2
-		dnRequest("call",[self,"BeginAnimation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2])
 		return self
 
 	Func BeginAnimation_3 P1,P2,P3
-		dnRequest("call",[self,"BeginAnimation",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2,P3])
 		return self
 
 	Func GetAnimationBaseValue P1
-		return dnRequest("call",[self,"GetAnimationBaseValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func getHasAnimatedProperties
-		return dnRequest("get",[self,"HasAnimatedProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasAnimatedProperties"])
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")

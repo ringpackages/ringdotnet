@@ -23,34 +23,34 @@ Class SoapReflectionImporter from Object
 		return self
 
 	Func IncludeTypes P1
-		dnRequest("call",[self,"IncludeTypes",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"IncludeTypes",P1])
 		return self
 
 	Func IncludeType P1
-		dnRequest("call",[self,"IncludeType",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"IncludeType",P1])
 		return self
 
 	Func ImportTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ImportTypeMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
 		ok
-		return dnRequest("call",[self,"ImportTypeMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
 
 	Func ImportTypeMapping_2 P1,P2
-		return dnRequest("call",[self,"ImportTypeMapping",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1,P2])
 
 	Func ImportMembersMapping P1,P2,P3
-		return dnRequest("call",[self,"ImportMembersMapping",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3])
 
 	Func ImportMembersMapping_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"ImportMembersMapping",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4,P5])
 
 	Func ImportMembersMapping_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"ImportMembersMapping",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4,P5,P6])
 
 	Func ImportMembersMapping_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"ImportMembersMapping",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4,P5,P6,P7])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

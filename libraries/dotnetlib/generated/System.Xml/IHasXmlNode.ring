@@ -14,5 +14,5 @@ Class IHasXmlNode from DotNetObject
 		return self
 
 	Func GetNode 
-		return dnRequest("call",[self,"GetNode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNode"])
 

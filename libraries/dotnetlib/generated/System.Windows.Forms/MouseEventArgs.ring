@@ -22,37 +22,37 @@ Class MouseEventArgs from EventArgs
 		return self
 
 	Func getButton
-		return dnRequest("get",[self,"Button"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Button"])
 
 	Func setButton P1
 		raise("DotNet Error: Button is a read-only property")
 
 	Func getClicks
-		return dnRequest("get",[self,"Clicks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Clicks"])
 
 	Func setClicks P1
 		raise("DotNet Error: Clicks is a read-only property")
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
 		raise("DotNet Error: X is a read-only property")
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
 		raise("DotNet Error: Y is a read-only property")
 
 	Func getDelta
-		return dnRequest("get",[self,"Delta"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Delta"])
 
 	Func setDelta P1
 		raise("DotNet Error: Delta is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")

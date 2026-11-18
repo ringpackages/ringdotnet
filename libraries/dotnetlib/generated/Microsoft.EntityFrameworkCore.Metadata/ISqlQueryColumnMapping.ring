@@ -17,28 +17,28 @@ Class ISqlQueryColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getColumn
-		return dnRequest("get",[self,"Column"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getSqlQueryMapping
-		return dnRequest("get",[self,"SqlQueryMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SqlQueryMapping"])
 
 	Func setSqlQueryMapping P1
 		raise("DotNet Error: SqlQueryMapping is a read-only property")

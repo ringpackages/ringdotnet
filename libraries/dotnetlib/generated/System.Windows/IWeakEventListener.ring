@@ -14,5 +14,5 @@ Class IWeakEventListener from DotNetObject
 		return self
 
 	Func ReceiveWeakEvent P1,P2,P3
-		return dnRequest("call",[self,"ReceiveWeakEvent",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveWeakEvent",P1,P2,P3])
 

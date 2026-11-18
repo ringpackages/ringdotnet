@@ -15,5 +15,5 @@ Class QuerySqlGenerator from SqlExpressionVisitor
 		return self
 
 	Func GetCommand P1
-		return dnRequest("call",[self,"GetCommand",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCommand",P1])
 

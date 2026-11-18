@@ -20,17 +20,17 @@ Class VideoDrawing from Drawing
 		return self
 
 	Func getPlayer
-		return dnRequest("get",[self,"Player"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Player"])
 
 	Func setPlayer P1
-		dnRequest("set",[self,"Player",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Player",P1])
 		return self
 
 	Func getRect
-		return dnRequest("get",[self,"Rect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rect"])
 
 	Func setRect P1
-		dnRequest("set",[self,"Rect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Rect",P1])
 		return self
 
 	Func getPlayerProperty

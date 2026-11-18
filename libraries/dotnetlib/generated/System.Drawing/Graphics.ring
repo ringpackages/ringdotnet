@@ -34,451 +34,451 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func ReleaseHdcInternal P1
-		dnRequest("call",[self,"ReleaseHdcInternal",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHdcInternal",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetHdc 
-		return dnRequest("call",[self,"GetHdc"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHdc"])
 
 	Func ReleaseHdc_1 P1
-		dnRequest("call",[self,"ReleaseHdc",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHdc",P1])
 		return self
 
 	Func ReleaseHdc P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ReleaseHdc",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ReleaseHdc",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"ReleaseHdc"])
+			dnRequest("call",[new DotNetObject(nHandle),"ReleaseHdc"])
 		return self
 		ok
-		dnRequest("call",[self,"ReleaseHdc",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHdc",P1])
 		return self
 
 	Func Flush P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Flush",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Flush",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Flush"])
+			dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 		ok
-		dnRequest("call",[self,"Flush",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush",P1])
 		return self
 
 	Func Flush_1 P1
-		dnRequest("call",[self,"Flush",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush",P1])
 		return self
 
 	Func SetClip_1 P1
-		dnRequest("call",[self,"SetClip",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetClip",P1])
 		return self
 
 	Func SetClip_2 P1,P2
-		dnRequest("call",[self,"SetClip",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetClip",P1,P2])
 		return self
 
 	Func IntersectClip P1
-		dnRequest("call",[self,"IntersectClip",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"IntersectClip",P1])
 		return self
 
 	Func ExcludeClip P1
-		dnRequest("call",[self,"ExcludeClip",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ExcludeClip",P1])
 		return self
 
 	Func ResetClip 
-		dnRequest("call",[self,"ResetClip"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetClip"])
 		return self
 
 	Func TranslateClip P1,P2
-		dnRequest("call",[self,"TranslateClip",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TranslateClip",P1,P2])
 		return self
 
 	Func IsVisible_2 P1,P2
-		return dnRequest("call",[self,"IsVisible",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2])
 
 	Func IsVisible P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsVisible",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsVisible",P1])
 		ok
-		return dnRequest("call",[self,"IsVisible",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1])
 
 	Func IsVisible_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"IsVisible",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2,P3,P4])
 
 	Func ResetTransform 
-		dnRequest("call",[self,"ResetTransform"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetTransform"])
 		return self
 
 	Func MultiplyTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"MultiplyTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 			return self
 		ok
-		dnRequest("call",[self,"MultiplyTransform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 		return self
 
 	Func MultiplyTransform_2 P1,P2
-		dnRequest("call",[self,"MultiplyTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1,P2])
 		return self
 
 	Func TranslateTransform P1,P2
-		dnRequest("call",[self,"TranslateTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2])
 		return self
 
 	Func TranslateTransform_3 P1,P2,P3
-		dnRequest("call",[self,"TranslateTransform",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2,P3])
 		return self
 
 	Func ScaleTransform P1,P2
-		dnRequest("call",[self,"ScaleTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2])
 		return self
 
 	Func ScaleTransform_3 P1,P2,P3
-		dnRequest("call",[self,"ScaleTransform",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2,P3])
 		return self
 
 	Func RotateTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"RotateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"RotateTransform",P1])
 			return self
 		ok
-		dnRequest("call",[self,"RotateTransform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1])
 		return self
 
 	Func RotateTransform_2 P1,P2
-		dnRequest("call",[self,"RotateTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1,P2])
 		return self
 
 	Func DrawArc_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[self,"DrawArc",P1,P2,P3,P4,P5,P6,P7])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawArc",P1,P2,P3,P4,P5,P6,P7])
 		return self
 
 	Func DrawArc P1,P2,P3,P4
-		dnRequest("call",[self,"DrawArc",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawArc",P1,P2,P3,P4])
 		return self
 
 	Func DrawBezier_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dnRequest("call",[self,"DrawBezier",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawBezier",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		return self
 
 	Func DrawBezier P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawBezier",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawBezier",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawRectangle P1,P2
-		dnRequest("call",[self,"DrawRectangle",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawRectangle",P1,P2])
 		return self
 
 	Func DrawRoundedRectangle P1,P2,P3
-		dnRequest("call",[self,"DrawRoundedRectangle",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawRoundedRectangle",P1,P2,P3])
 		return self
 
 	Func DrawRectangle_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawRectangle",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawRectangle",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawRectangles P1,P2
-		dnRequest("call",[self,"DrawRectangles",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawRectangles",P1,P2])
 		return self
 
 	Func DrawEllipse P1,P2
-		dnRequest("call",[self,"DrawEllipse",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawEllipse",P1,P2])
 		return self
 
 	Func DrawEllipse_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawEllipse",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawEllipse",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawPie P1,P2,P3,P4
-		dnRequest("call",[self,"DrawPie",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawPie",P1,P2,P3,P4])
 		return self
 
 	Func DrawPie_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[self,"DrawPie",P1,P2,P3,P4,P5,P6,P7])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawPie",P1,P2,P3,P4,P5,P6,P7])
 		return self
 
 	Func DrawPolygon P1,P2
-		dnRequest("call",[self,"DrawPolygon",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawPolygon",P1,P2])
 		return self
 
 	Func DrawPath P1,P2
-		dnRequest("call",[self,"DrawPath",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawPath",P1,P2])
 		return self
 
 	Func DrawCurve P1,P2
-		dnRequest("call",[self,"DrawCurve",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawCurve",P1,P2])
 		return self
 
 	Func DrawCurve_3 P1,P2,P3
-		dnRequest("call",[self,"DrawCurve",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawCurve",P1,P2,P3])
 		return self
 
 	Func DrawCurve_4 P1,P2,P3,P4
-		dnRequest("call",[self,"DrawCurve",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawCurve",P1,P2,P3,P4])
 		return self
 
 	Func DrawCurve_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawCurve",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawCurve",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawClosedCurve P1,P2
-		dnRequest("call",[self,"DrawClosedCurve",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawClosedCurve",P1,P2])
 		return self
 
 	Func DrawClosedCurve_4 P1,P2,P3,P4
-		dnRequest("call",[self,"DrawClosedCurve",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawClosedCurve",P1,P2,P3,P4])
 		return self
 
 	Func Clear P1
-		dnRequest("call",[self,"Clear",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear",P1])
 		return self
 
 	Func FillRoundedRectangle P1,P2,P3
-		dnRequest("call",[self,"FillRoundedRectangle",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"FillRoundedRectangle",P1,P2,P3])
 		return self
 
 	Func FillRectangle P1,P2
-		dnRequest("call",[self,"FillRectangle",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"FillRectangle",P1,P2])
 		return self
 
 	Func FillRectangle_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"FillRectangle",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"FillRectangle",P1,P2,P3,P4,P5])
 		return self
 
 	Func FillRectangles P1,P2
-		dnRequest("call",[self,"FillRectangles",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"FillRectangles",P1,P2])
 		return self
 
 	Func FillPolygon P1,P2
-		dnRequest("call",[self,"FillPolygon",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"FillPolygon",P1,P2])
 		return self
 
 	Func FillPolygon_3 P1,P2,P3
-		dnRequest("call",[self,"FillPolygon",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"FillPolygon",P1,P2,P3])
 		return self
 
 	Func FillEllipse P1,P2
-		dnRequest("call",[self,"FillEllipse",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"FillEllipse",P1,P2])
 		return self
 
 	Func FillEllipse_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"FillEllipse",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"FillEllipse",P1,P2,P3,P4,P5])
 		return self
 
 	Func FillPie P1,P2,P3,P4
-		dnRequest("call",[self,"FillPie",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"FillPie",P1,P2,P3,P4])
 		return self
 
 	Func FillPie_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[self,"FillPie",P1,P2,P3,P4,P5,P6,P7])
+		dnRequest("call",[new DotNetObject(nHandle),"FillPie",P1,P2,P3,P4,P5,P6,P7])
 		return self
 
 	Func FillClosedCurve P1,P2
-		dnRequest("call",[self,"FillClosedCurve",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"FillClosedCurve",P1,P2])
 		return self
 
 	Func FillClosedCurve_3 P1,P2,P3
-		dnRequest("call",[self,"FillClosedCurve",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"FillClosedCurve",P1,P2,P3])
 		return self
 
 	Func FillClosedCurve_4 P1,P2,P3,P4
-		dnRequest("call",[self,"FillClosedCurve",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"FillClosedCurve",P1,P2,P3,P4])
 		return self
 
 	Func DrawString_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawString",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawString",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawString P1,P2,P3,P4
-		dnRequest("call",[self,"DrawString",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawString",P1,P2,P3,P4])
 		return self
 
 	Func DrawString_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"DrawString",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawString",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func MeasureString_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"MeasureString",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"MeasureString",P1,P2,P3,P4])
 
 	Func MeasureString_3 P1,P2,P3
-		return dnRequest("call",[self,"MeasureString",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"MeasureString",P1,P2,P3])
 
 	Func MeasureString P1,P2
-		return dnRequest("call",[self,"MeasureString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"MeasureString",P1,P2])
 
 	Func MeasureCharacterRanges P1,P2,P3,P4
-		return dnRequest("call",[self,"MeasureCharacterRanges",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"MeasureCharacterRanges",P1,P2,P3,P4])
 
 	Func DrawImage P1,P2
-		dnRequest("call",[self,"DrawImage",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2])
 		return self
 
 	Func DrawImage_3 P1,P2,P3
-		dnRequest("call",[self,"DrawImage",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3])
 		return self
 
 	Func DrawImage_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawImage",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawImageUnscaled P1,P2
-		dnRequest("call",[self,"DrawImageUnscaled",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImageUnscaled",P1,P2])
 		return self
 
 	Func DrawImageUnscaled_3 P1,P2,P3
-		dnRequest("call",[self,"DrawImageUnscaled",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImageUnscaled",P1,P2,P3])
 		return self
 
 	Func DrawImageUnscaled_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawImageUnscaled",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImageUnscaled",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawImageUnscaledAndClipped P1,P2
-		dnRequest("call",[self,"DrawImageUnscaledAndClipped",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImageUnscaledAndClipped",P1,P2])
 		return self
 
 	Func DrawImage_4 P1,P2,P3,P4
-		dnRequest("call",[self,"DrawImage",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3,P4])
 		return self
 
 	Func DrawImage_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"DrawImage",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func DrawImage_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[self,"DrawImage",P1,P2,P3,P4,P5,P6,P7])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3,P4,P5,P6,P7])
 		return self
 
 	Func DrawImage_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[self,"DrawImage",P1,P2,P3,P4,P5,P6,P7,P8])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3,P4,P5,P6,P7,P8])
 		return self
 
 	Func DrawImage_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dnRequest("call",[self,"DrawImage",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		return self
 
 	Func DrawImage_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		dnRequest("call",[self,"DrawImage",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 		return self
 
 	Func DrawLine P1,P2,P3
-		dnRequest("call",[self,"DrawLine",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawLine",P1,P2,P3])
 		return self
 
 	Func DrawLines P1,P2
-		dnRequest("call",[self,"DrawLines",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawLines",P1,P2])
 		return self
 
 	Func DrawLine_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawLine",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawLine",P1,P2,P3,P4,P5])
 		return self
 
 	Func CopyFromScreen P1,P2,P3
-		dnRequest("call",[self,"CopyFromScreen",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyFromScreen",P1,P2,P3])
 		return self
 
 	Func CopyFromScreen_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"CopyFromScreen",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyFromScreen",P1,P2,P3,P4,P5])
 		return self
 
 	Func CopyFromScreen_4 P1,P2,P3,P4
-		dnRequest("call",[self,"CopyFromScreen",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyFromScreen",P1,P2,P3,P4])
 		return self
 
 	Func EnumerateMetafile P1,P2,P3
-		dnRequest("call",[self,"EnumerateMetafile",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"EnumerateMetafile",P1,P2,P3])
 		return self
 
 	Func EnumerateMetafile_4 P1,P2,P3,P4
-		dnRequest("call",[self,"EnumerateMetafile",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"EnumerateMetafile",P1,P2,P3,P4])
 		return self
 
 	Func EnumerateMetafile_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"EnumerateMetafile",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"EnumerateMetafile",P1,P2,P3,P4,P5])
 		return self
 
 	Func EnumerateMetafile_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"EnumerateMetafile",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"EnumerateMetafile",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func TransformPoints P1,P2,P3
-		dnRequest("call",[self,"TransformPoints",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"TransformPoints",P1,P2,P3])
 		return self
 
 	Func CopyFromScreen_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"CopyFromScreen",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyFromScreen",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func GetNearestColor P1
-		return dnRequest("call",[self,"GetNearestColor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNearestColor",P1])
 
 	Func DrawBeziers P1,P2
-		dnRequest("call",[self,"DrawBeziers",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawBeziers",P1,P2])
 		return self
 
 	Func FillPath P1,P2
-		dnRequest("call",[self,"FillPath",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"FillPath",P1,P2])
 		return self
 
 	Func FillRegion P1,P2
-		dnRequest("call",[self,"FillRegion",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"FillRegion",P1,P2])
 		return self
 
 	Func DrawIcon_3 P1,P2,P3
-		dnRequest("call",[self,"DrawIcon",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawIcon",P1,P2,P3])
 		return self
 
 	Func DrawIcon P1,P2
-		dnRequest("call",[self,"DrawIcon",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawIcon",P1,P2])
 		return self
 
 	Func DrawIconUnstretched P1,P2
-		dnRequest("call",[self,"DrawIconUnstretched",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawIconUnstretched",P1,P2])
 		return self
 
 	Func EnumerateMetafile_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[self,"EnumerateMetafile",P1,P2,P3,P4,P5,P6,P7])
+		dnRequest("call",[new DotNetObject(nHandle),"EnumerateMetafile",P1,P2,P3,P4,P5,P6,P7])
 		return self
 
 	Func GetContextInfo 
-		return dnRequest("call",[self,"GetContextInfo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContextInfo"])
 
 	Func Save 
-		return dnRequest("call",[self,"Save"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Save"])
 
 	Func Restore P1
-		dnRequest("call",[self,"Restore",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Restore",P1])
 		return self
 
 	Func BeginContainer_3 P1,P2,P3
-		return dnRequest("call",[self,"BeginContainer",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginContainer",P1,P2,P3])
 
 	Func BeginContainer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"BeginContainer",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginContainer",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"BeginContainer"])
+			return dnRequest("call",[new DotNetObject(nHandle),"BeginContainer"])
 		ok
 		raise("DotNet Error: BeginContainer does not take one argument: use BeginContainer(NULL), BeginContainer_N(...) or named arguments")
 
 	Func EndContainer P1
-		dnRequest("call",[self,"EndContainer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EndContainer",P1])
 		return self
 
 	Func AddMetafileComment P1
-		dnRequest("call",[self,"AddMetafileComment",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddMetafileComment",P1])
 		return self
 
 	Func DrawCachedBitmap P1,P2,P3
-		dnRequest("call",[self,"DrawCachedBitmap",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawCachedBitmap",P1,P2,P3])
 		return self
 
 	Func FromHdc P1
@@ -506,128 +506,128 @@ Class Graphics from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"GetHalftonePalette"])
 
 	Func getClip
-		return dnRequest("get",[self,"Clip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Clip"])
 
 	Func setClip P1
-		dnRequest("set",[self,"Clip",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Clip",P1])
 		return self
 
 	Func getClipBounds
-		return dnRequest("get",[self,"ClipBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClipBounds"])
 
 	Func setClipBounds P1
 		raise("DotNet Error: ClipBounds is a read-only property")
 
 	Func getCompositingMode
-		return dnRequest("get",[self,"CompositingMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompositingMode"])
 
 	Func setCompositingMode P1
-		dnRequest("set",[self,"CompositingMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CompositingMode",P1])
 		return self
 
 	Func getCompositingQuality
-		return dnRequest("get",[self,"CompositingQuality"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompositingQuality"])
 
 	Func setCompositingQuality P1
-		dnRequest("set",[self,"CompositingQuality",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CompositingQuality",P1])
 		return self
 
 	Func getDpiX
-		return dnRequest("get",[self,"DpiX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DpiX"])
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		return dnRequest("get",[self,"DpiY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DpiY"])
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getInterpolationMode
-		return dnRequest("get",[self,"InterpolationMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InterpolationMode"])
 
 	Func setInterpolationMode P1
-		dnRequest("set",[self,"InterpolationMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InterpolationMode",P1])
 		return self
 
 	Func getIsClipEmpty
-		return dnRequest("get",[self,"IsClipEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsClipEmpty"])
 
 	Func setIsClipEmpty P1
 		raise("DotNet Error: IsClipEmpty is a read-only property")
 
 	Func getIsVisibleClipEmpty
-		return dnRequest("get",[self,"IsVisibleClipEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsVisibleClipEmpty"])
 
 	Func setIsVisibleClipEmpty P1
 		raise("DotNet Error: IsVisibleClipEmpty is a read-only property")
 
 	Func getPageScale
-		return dnRequest("get",[self,"PageScale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageScale"])
 
 	Func setPageScale P1
-		dnRequest("set",[self,"PageScale",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PageScale",P1])
 		return self
 
 	Func getPageUnit
-		return dnRequest("get",[self,"PageUnit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageUnit"])
 
 	Func setPageUnit P1
-		dnRequest("set",[self,"PageUnit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PageUnit",P1])
 		return self
 
 	Func getPixelOffsetMode
-		return dnRequest("get",[self,"PixelOffsetMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelOffsetMode"])
 
 	Func setPixelOffsetMode P1
-		dnRequest("set",[self,"PixelOffsetMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PixelOffsetMode",P1])
 		return self
 
 	Func getRenderingOrigin
-		return dnRequest("get",[self,"RenderingOrigin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RenderingOrigin"])
 
 	Func setRenderingOrigin P1
-		dnRequest("set",[self,"RenderingOrigin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RenderingOrigin",P1])
 		return self
 
 	Func getSmoothingMode
-		return dnRequest("get",[self,"SmoothingMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SmoothingMode"])
 
 	Func setSmoothingMode P1
-		dnRequest("set",[self,"SmoothingMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SmoothingMode",P1])
 		return self
 
 	Func getTextContrast
-		return dnRequest("get",[self,"TextContrast"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextContrast"])
 
 	Func setTextContrast P1
-		dnRequest("set",[self,"TextContrast",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextContrast",P1])
 		return self
 
 	Func getTextRenderingHint
-		return dnRequest("get",[self,"TextRenderingHint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextRenderingHint"])
 
 	Func setTextRenderingHint P1
-		dnRequest("set",[self,"TextRenderingHint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextRenderingHint",P1])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func getTransformElements
-		return dnRequest("get",[self,"TransformElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransformElements"])
 
 	Func setTransformElements P1
-		dnRequest("set",[self,"TransformElements",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TransformElements",P1])
 		return self
 
 	Func getVisibleClipBounds
-		return dnRequest("get",[self,"VisibleClipBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VisibleClipBounds"])
 
 	Func setVisibleClipBounds P1
 		raise("DotNet Error: VisibleClipBounds is a read-only property")

@@ -18,7 +18,7 @@ Class AspRangeConditionHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.RangeConditionHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -27,13 +27,13 @@ Class AspRangeConditionHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.RangeConditionHeaderValue, Microsoft.Net.Http.Headers'),"TryParse",P1])
 
 	Func getLastModified
-		return dnRequest("get",[self,"LastModified"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastModified"])
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getEntityTag
-		return dnRequest("get",[self,"EntityTag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityTag"])
 
 	Func setEntityTag P1
 		raise("DotNet Error: EntityTag is a read-only property")

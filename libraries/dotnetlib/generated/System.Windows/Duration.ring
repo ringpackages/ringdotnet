@@ -24,19 +24,19 @@ Class Duration from ValueType
 		return self
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Duration, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Subtract P1
-		return dnRequest("call",[self,"Subtract",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Subtract",P1])
 
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Duration, PresentationCore'),"Compare",P1,P2])
@@ -48,13 +48,13 @@ Class Duration from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Duration, PresentationCore'),"Equals",P1,P2])
 
 	Func getHasTimeSpan
-		return dnRequest("get",[self,"HasTimeSpan"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasTimeSpan"])
 
 	Func setHasTimeSpan P1
 		raise("DotNet Error: HasTimeSpan is a read-only property")
 
 	Func getTimeSpan
-		return dnRequest("get",[self,"TimeSpan"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TimeSpan"])
 
 	Func setTimeSpan P1
 		raise("DotNet Error: TimeSpan is a read-only property")

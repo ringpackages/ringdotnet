@@ -16,61 +16,61 @@ Class IReadOnlyModel from DotNetObject
 		return self
 
 	Func GetChangeTrackingStrategy 
-		return dnRequest("call",[self,"GetChangeTrackingStrategy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChangeTrackingStrategy"])
 
 	Func GetPropertyAccessMode 
-		return dnRequest("call",[self,"GetPropertyAccessMode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyAccessMode"])
 
 	Func GetEmbeddedDiscriminatorName 
-		return dnRequest("call",[self,"GetEmbeddedDiscriminatorName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEmbeddedDiscriminatorName"])
 
 	Func GetProductVersion 
-		return dnRequest("call",[self,"GetProductVersion"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProductVersion"])
 
 	Func IsShared P1
-		return dnRequest("call",[self,"IsShared",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsShared",P1])
 
 	Func GetEntityTypes 
-		return dnRequest("call",[self,"GetEntityTypes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEntityTypes"])
 
 	Func FindEntityType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FindEntityType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindEntityType",P1])
 		ok
-		return dnRequest("call",[self,"FindEntityType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindEntityType",P1])
 
 	Func FindEntityType_3 P1,P2,P3
-		return dnRequest("call",[self,"FindEntityType",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindEntityType",P1,P2,P3])
 
 	Func FindEntityTypes P1
-		return dnRequest("call",[self,"FindEntityTypes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindEntityTypes",P1])
 
 	Func FindLeastDerivedEntityTypes_2 P1,P2
-		return dnRequest("call",[self,"FindLeastDerivedEntityTypes",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindLeastDerivedEntityTypes",P1,P2])
 
 	Func FindLeastDerivedEntityTypes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindLeastDerivedEntityTypes",P1])
 		ok
-		return dnRequest("call",[self,"FindLeastDerivedEntityTypes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindLeastDerivedEntityTypes",P1])
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getModelId
-		return dnRequest("get",[self,"ModelId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelId"])
 
 	Func setModelId P1
 		raise("DotNet Error: ModelId is a read-only property")

@@ -14,53 +14,53 @@ Class DispatcherHooks from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setDispatcherInactiveEvent P1
-		dnRequest("setevent",[self,"DispatcherInactive",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DispatcherInactive",dnCallback(P1)])
 		return self
 
 	Func clearDispatcherInactiveEvent
-		dnRequest("clearevent",[self,"DispatcherInactive"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DispatcherInactive"])
 		return self
 
 	Func setOperationPostedEvent P1
-		dnRequest("setevent",[self,"OperationPosted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"OperationPosted",dnCallback(P1)])
 		return self
 
 	Func clearOperationPostedEvent
-		dnRequest("clearevent",[self,"OperationPosted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"OperationPosted"])
 		return self
 
 	Func setOperationStartedEvent P1
-		dnRequest("setevent",[self,"OperationStarted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"OperationStarted",dnCallback(P1)])
 		return self
 
 	Func clearOperationStartedEvent
-		dnRequest("clearevent",[self,"OperationStarted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"OperationStarted"])
 		return self
 
 	Func setOperationCompletedEvent P1
-		dnRequest("setevent",[self,"OperationCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"OperationCompleted",dnCallback(P1)])
 		return self
 
 	Func clearOperationCompletedEvent
-		dnRequest("clearevent",[self,"OperationCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"OperationCompleted"])
 		return self
 
 	Func setOperationPriorityChangedEvent P1
-		dnRequest("setevent",[self,"OperationPriorityChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"OperationPriorityChanged",dnCallback(P1)])
 		return self
 
 	Func clearOperationPriorityChangedEvent
-		dnRequest("clearevent",[self,"OperationPriorityChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"OperationPriorityChanged"])
 		return self
 
 	Func setOperationAbortedEvent P1
-		dnRequest("setevent",[self,"OperationAborted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"OperationAborted",dnCallback(P1)])
 		return self
 
 	Func clearOperationAbortedEvent
-		dnRequest("clearevent",[self,"OperationAborted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"OperationAborted"])
 		return self
 

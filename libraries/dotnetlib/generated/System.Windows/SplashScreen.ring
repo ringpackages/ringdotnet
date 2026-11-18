@@ -20,20 +20,20 @@ Class SplashScreen from Object
 
 	Func Show P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Show",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Show",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Show",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Show",P1])
 		return self
 
 	Func Show_2 P1,P2
-		dnRequest("call",[self,"Show",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Show",P1,P2])
 		return self
 
 	Func Close P1
-		dnRequest("call",[self,"Close",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Close",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

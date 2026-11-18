@@ -17,88 +17,88 @@ Class IConventionSequence from DotNetObject
 		return self
 
 	Func GetConfigurationSource 
-		return dnRequest("call",[self,"GetConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConfigurationSource"])
 
 	Func SetStartValue_2 P1,P2
-		return dnRequest("call",[self,"SetStartValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetStartValue",P1,P2])
 
 	Func SetStartValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetStartValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetStartValue",P1])
 		ok
-		return dnRequest("call",[self,"SetStartValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetStartValue",P1])
 
 	Func GetStartValueConfigurationSource 
-		return dnRequest("call",[self,"GetStartValueConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStartValueConfigurationSource"])
 
 	Func SetIncrementBy_2 P1,P2
-		return dnRequest("call",[self,"SetIncrementBy",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIncrementBy",P1,P2])
 
 	Func SetIncrementBy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIncrementBy",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIncrementBy",P1])
 		ok
-		return dnRequest("call",[self,"SetIncrementBy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIncrementBy",P1])
 
 	Func GetIncrementByConfigurationSource 
-		return dnRequest("call",[self,"GetIncrementByConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIncrementByConfigurationSource"])
 
 	Func SetMinValue_2 P1,P2
-		return dnRequest("call",[self,"SetMinValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetMinValue",P1,P2])
 
 	Func SetMinValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetMinValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetMinValue",P1])
 		ok
-		return dnRequest("call",[self,"SetMinValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetMinValue",P1])
 
 	Func GetMinValueConfigurationSource 
-		return dnRequest("call",[self,"GetMinValueConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMinValueConfigurationSource"])
 
 	Func SetMaxValue_2 P1,P2
-		return dnRequest("call",[self,"SetMaxValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetMaxValue",P1,P2])
 
 	Func SetMaxValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetMaxValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetMaxValue",P1])
 		ok
-		return dnRequest("call",[self,"SetMaxValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetMaxValue",P1])
 
 	Func GetMaxValueConfigurationSource 
-		return dnRequest("call",[self,"GetMaxValueConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxValueConfigurationSource"])
 
 	Func SetType_2 P1,P2
-		return dnRequest("call",[self,"SetType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetType",P1,P2])
 
 	Func SetType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetType",P1])
 		ok
-		return dnRequest("call",[self,"SetType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetType",P1])
 
 	Func GetTypeConfigurationSource 
-		return dnRequest("call",[self,"GetTypeConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeConfigurationSource"])
 
 	Func SetIsCyclic_2 P1,P2
-		return dnRequest("call",[self,"SetIsCyclic",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsCyclic",P1,P2])
 
 	Func SetIsCyclic P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsCyclic",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsCyclic",P1])
 		ok
-		return dnRequest("call",[self,"SetIsCyclic",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsCyclic",P1])
 
 	Func GetIsCyclicConfigurationSource 
-		return dnRequest("call",[self,"GetIsCyclicConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsCyclicConfigurationSource"])
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")

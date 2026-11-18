@@ -19,15 +19,15 @@ Class QueryBuilder from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func ToQueryString 
-		return dnRequest("call",[self,"ToQueryString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToQueryString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 

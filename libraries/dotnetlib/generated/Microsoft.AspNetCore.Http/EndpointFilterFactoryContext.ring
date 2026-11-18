@@ -18,19 +18,19 @@ Class EndpointFilterFactoryContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMethodInfo
-		return dnRequest("get",[self,"MethodInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MethodInfo"])
 
 	Func setMethodInfo P1
-		dnRequest("set",[self,"MethodInfo",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MethodInfo",P1])
 		return self
 
 	Func getApplicationServices
-		return dnRequest("get",[self,"ApplicationServices"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationServices"])
 
 	Func setApplicationServices P1
-		dnRequest("set",[self,"ApplicationServices",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ApplicationServices",P1])
 		return self
 

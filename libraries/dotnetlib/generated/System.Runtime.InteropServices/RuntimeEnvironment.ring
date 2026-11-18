@@ -16,7 +16,7 @@ Class RuntimeEnvironment from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromGlobalAccessCache P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices'),"FromGlobalAccessCache",P1])

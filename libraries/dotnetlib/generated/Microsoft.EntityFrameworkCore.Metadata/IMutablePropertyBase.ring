@@ -17,23 +17,23 @@ Class IMutablePropertyBase from DotNetObject
 		return self
 
 	Func SetField P1
-		dnRequest("call",[self,"SetField",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetField",P1])
 		return self
 
 	Func SetPropertyAccessMode P1
-		dnRequest("call",[self,"SetPropertyAccessMode",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPropertyAccessMode",P1])
 		return self
 
 	Func getDeclaringType
-		return dnRequest("get",[self,"DeclaringType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringType"])
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getFieldInfo
-		return dnRequest("get",[self,"FieldInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FieldInfo"])
 
 	Func setFieldInfo P1
-		dnRequest("set",[self,"FieldInfo",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FieldInfo",P1])
 		return self
 

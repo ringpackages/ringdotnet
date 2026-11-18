@@ -17,19 +17,19 @@ Class NonRetryingExecutionStrategy from Object
 		return self
 
 	Func Execute P1,P2,P3
-		return dnRequest("call",[self,"Execute",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Execute",P1,P2,P3])
 
 	Func ExecuteAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ExecuteAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2,P3,P4])
 
 	Func ExecuteAsync P1,P2,P3
-		return dnRequest("call",[self,"ExecuteAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRetriesOnFailure
-		return dnRequest("get",[self,"RetriesOnFailure"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RetriesOnFailure"])
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")

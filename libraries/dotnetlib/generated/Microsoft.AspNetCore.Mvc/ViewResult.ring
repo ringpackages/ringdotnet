@@ -23,50 +23,50 @@ Class ViewResult from ActionResult
 		return self
 
 	Func getStatusCode
-		return dnRequest("get",[self,"StatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[self,"StatusCode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
 		return self
 
 	Func getViewName
-		return dnRequest("get",[self,"ViewName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewName"])
 
 	Func setViewName P1
-		dnRequest("set",[self,"ViewName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewName",P1])
 		return self
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getViewData
-		return dnRequest("get",[self,"ViewData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewData"])
 
 	Func setViewData P1
-		dnRequest("set",[self,"ViewData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewData",P1])
 		return self
 
 	Func getTempData
-		return dnRequest("get",[self,"TempData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TempData"])
 
 	Func setTempData P1
-		dnRequest("set",[self,"TempData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TempData",P1])
 		return self
 
 	Func getViewEngine
-		return dnRequest("get",[self,"ViewEngine"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewEngine"])
 
 	Func setViewEngine P1
-		dnRequest("set",[self,"ViewEngine",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewEngine",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 

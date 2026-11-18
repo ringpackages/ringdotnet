@@ -34,6 +34,16 @@ aDotNetClasses = []
 # [.NET type name, namespace] of every generated class (generated/classindex.ring): used to import namespaces on demand
 aDotNetClassIndex = []
 
+# Hash tables (a list used with a text key is a hash table in Ring: an unknown key reads as ""):
+#   aDotNetClassMap[.NET type]   -> the Ring class of the type (registered by the generated files)
+#   aDotNetIndexMap[.NET type]   -> the namespace that has a generated class for the type (built from aDotNetClassIndex)
+#   aDotNetWrapCache[type chain] -> the factory function that wraps objects of that chain ("-" = a plain DotNetObject); cleared on every import
+aDotNetClassMap = []
+aDotNetIndexMap = []
+aDotNetWrapCache = []
+#   aDotNetNameMap[lower case Ring class name] -> its .NET type (used by dnNew("StringBuilder",...))
+aDotNetNameMap = []
+
 # Compiled callbacks: [code, function name] (see dnCallback)
 aDotNetCallbacks = []
 

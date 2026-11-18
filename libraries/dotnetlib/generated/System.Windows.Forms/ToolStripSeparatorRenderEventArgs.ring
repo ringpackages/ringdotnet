@@ -17,7 +17,7 @@ Class ToolStripSeparatorRenderEventArgs from ToolStripItemRenderEventArgs
 		return self
 
 	Func getVertical
-		return dnRequest("get",[self,"Vertical"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Vertical"])
 
 	Func setVertical P1
 		raise("DotNet Error: Vertical is a read-only property")

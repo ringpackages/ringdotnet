@@ -21,34 +21,34 @@ Class TouchPoint from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTouchDevice
-		return dnRequest("get",[self,"TouchDevice"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TouchDevice"])
 
 	Func setTouchDevice P1
 		raise("DotNet Error: TouchDevice is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[self,"Position"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
 
 	Func setPosition P1
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getAction
-		return dnRequest("get",[self,"Action"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Action"])
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")

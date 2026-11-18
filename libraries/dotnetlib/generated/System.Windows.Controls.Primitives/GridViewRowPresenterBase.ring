@@ -17,10 +17,10 @@ Class GridViewRowPresenterBase from FrameworkElement
 		return self
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
-		dnRequest("set",[self,"Columns",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Columns",P1])
 		return self
 
 	Func getColumnsProperty

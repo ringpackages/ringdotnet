@@ -27,27 +27,27 @@ Class BitmapEffectInput from Animatable
 		return self
 
 	Func ShouldSerializeInput 
-		return dnRequest("call",[self,"ShouldSerializeInput"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeInput"])
 
 	Func getInput
-		return dnRequest("get",[self,"Input"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Input"])
 
 	Func setInput P1
-		dnRequest("set",[self,"Input",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Input",P1])
 		return self
 
 	Func getAreaToApplyEffectUnits
-		return dnRequest("get",[self,"AreaToApplyEffectUnits"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreaToApplyEffectUnits"])
 
 	Func setAreaToApplyEffectUnits P1
-		dnRequest("set",[self,"AreaToApplyEffectUnits",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AreaToApplyEffectUnits",P1])
 		return self
 
 	Func getAreaToApplyEffect
-		return dnRequest("get",[self,"AreaToApplyEffect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreaToApplyEffect"])
 
 	Func setAreaToApplyEffect P1
-		dnRequest("set",[self,"AreaToApplyEffect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AreaToApplyEffect",P1])
 		return self
 
 	Func getContextInputSource

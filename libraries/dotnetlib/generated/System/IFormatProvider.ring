@@ -14,5 +14,5 @@ Class IFormatProvider from DotNetObject
 		return self
 
 	Func GetFormat P1
-		return dnRequest("call",[self,"GetFormat",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFormat",P1])
 

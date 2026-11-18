@@ -15,8 +15,8 @@ Class DefaultAuthorizationHandlerContextFactory from Object
 		return self
 
 	Func CreateContext P1,P2,P3
-		return dnRequest("call",[self,"CreateContext",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateContext",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

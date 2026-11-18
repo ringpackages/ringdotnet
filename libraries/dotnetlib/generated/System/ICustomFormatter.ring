@@ -14,5 +14,5 @@ Class ICustomFormatter from DotNetObject
 		return self
 
 	Func Format P1,P2,P3
-		return dnRequest("call",[self,"Format",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Format",P1,P2,P3])
 

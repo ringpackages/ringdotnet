@@ -21,19 +21,19 @@ Class Group from Capture
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Group, System.Text.RegularExpressions'),"Synchronized",P1])
 
 	Func getSuccess
-		return dnRequest("get",[self,"Success"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Success"])
 
 	Func setSuccess P1
 		raise("DotNet Error: Success is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getCaptures
-		return dnRequest("get",[self,"Captures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Captures"])
 
 	Func setCaptures P1
 		raise("DotNet Error: Captures is a read-only property")

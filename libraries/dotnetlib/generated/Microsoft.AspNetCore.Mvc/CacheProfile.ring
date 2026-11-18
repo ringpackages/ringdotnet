@@ -21,40 +21,40 @@ Class CacheProfile from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDuration
-		return dnRequest("get",[self,"Duration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Duration"])
 
 	Func setDuration P1
-		dnRequest("set",[self,"Duration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Duration",P1])
 		return self
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
-		dnRequest("set",[self,"Location",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Location",P1])
 		return self
 
 	Func getNoStore
-		return dnRequest("get",[self,"NoStore"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NoStore"])
 
 	Func setNoStore P1
-		dnRequest("set",[self,"NoStore",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NoStore",P1])
 		return self
 
 	Func getVaryByHeader
-		return dnRequest("get",[self,"VaryByHeader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VaryByHeader"])
 
 	Func setVaryByHeader P1
-		dnRequest("set",[self,"VaryByHeader",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VaryByHeader",P1])
 		return self
 
 	Func getVaryByQueryKeys
-		return dnRequest("get",[self,"VaryByQueryKeys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VaryByQueryKeys"])
 
 	Func setVaryByQueryKeys P1
-		dnRequest("set",[self,"VaryByQueryKeys",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VaryByQueryKeys",P1])
 		return self
 

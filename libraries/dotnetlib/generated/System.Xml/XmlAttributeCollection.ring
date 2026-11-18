@@ -14,28 +14,28 @@ Class XmlAttributeCollection from XmlNamedNodeMap
 		return self
 
 	Func Prepend P1
-		return dnRequest("call",[self,"Prepend",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Prepend",P1])
 
 	Func Append P1
-		return dnRequest("call",[self,"Append",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
 
 	Func InsertBefore P1,P2
-		return dnRequest("call",[self,"InsertBefore",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InsertBefore",P1,P2])
 
 	Func InsertAfter P1,P2
-		return dnRequest("call",[self,"InsertAfter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InsertAfter",P1,P2])
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func RemoveAt P1
-		return dnRequest("call",[self,"RemoveAt",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 
 	Func RemoveAll 
-		dnRequest("call",[self,"RemoveAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAll"])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 

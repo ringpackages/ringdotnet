@@ -14,7 +14,7 @@ Class Help from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ShowHelp P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowHelp",P1,P2])

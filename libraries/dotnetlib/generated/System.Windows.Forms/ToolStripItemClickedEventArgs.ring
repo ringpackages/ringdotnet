@@ -17,7 +17,7 @@ Class ToolStripItemClickedEventArgs from EventArgs
 		return self
 
 	Func getClickedItem
-		return dnRequest("get",[self,"ClickedItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClickedItem"])
 
 	Func setClickedItem P1
 		raise("DotNet Error: ClickedItem is a read-only property")

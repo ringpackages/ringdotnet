@@ -22,57 +22,57 @@ Class BitmapEncoder from DispatcherObject
 		return self
 
 	Func Save P1
-		dnRequest("call",[self,"Save",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapEncoder, PresentationCore'),"Create",P1])
 
 	Func getColorContexts
-		return dnRequest("get",[self,"ColorContexts"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColorContexts"])
 
 	Func setColorContexts P1
-		dnRequest("set",[self,"ColorContexts",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColorContexts",P1])
 		return self
 
 	Func getThumbnail
-		return dnRequest("get",[self,"Thumbnail"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Thumbnail"])
 
 	Func setThumbnail P1
-		dnRequest("set",[self,"Thumbnail",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Thumbnail",P1])
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
-		dnRequest("set",[self,"Metadata",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Metadata",P1])
 		return self
 
 	Func getPreview
-		return dnRequest("get",[self,"Preview"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Preview"])
 
 	Func setPreview P1
-		dnRequest("set",[self,"Preview",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Preview",P1])
 		return self
 
 	Func getCodecInfo
-		return dnRequest("get",[self,"CodecInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CodecInfo"])
 
 	Func setCodecInfo P1
 		raise("DotNet Error: CodecInfo is a read-only property")
 
 	Func getPalette
-		return dnRequest("get",[self,"Palette"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Palette"])
 
 	Func setPalette P1
-		dnRequest("set",[self,"Palette",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Palette",P1])
 		return self
 
 	Func getFrames
-		return dnRequest("get",[self,"Frames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Frames"])
 
 	Func setFrames P1
-		dnRequest("set",[self,"Frames",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Frames",P1])
 		return self
 

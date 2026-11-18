@@ -24,61 +24,61 @@ Class EnumerationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRecurseSubdirectories
-		return dnRequest("get",[self,"RecurseSubdirectories"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecurseSubdirectories"])
 
 	Func setRecurseSubdirectories P1
-		dnRequest("set",[self,"RecurseSubdirectories",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RecurseSubdirectories",P1])
 		return self
 
 	Func getIgnoreInaccessible
-		return dnRequest("get",[self,"IgnoreInaccessible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreInaccessible"])
 
 	Func setIgnoreInaccessible P1
-		dnRequest("set",[self,"IgnoreInaccessible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IgnoreInaccessible",P1])
 		return self
 
 	Func getBufferSize
-		return dnRequest("get",[self,"BufferSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BufferSize"])
 
 	Func setBufferSize P1
-		dnRequest("set",[self,"BufferSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BufferSize",P1])
 		return self
 
 	Func getAttributesToSkip
-		return dnRequest("get",[self,"AttributesToSkip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AttributesToSkip"])
 
 	Func setAttributesToSkip P1
-		dnRequest("set",[self,"AttributesToSkip",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AttributesToSkip",P1])
 		return self
 
 	Func getMatchType
-		return dnRequest("get",[self,"MatchType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MatchType"])
 
 	Func setMatchType P1
-		dnRequest("set",[self,"MatchType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MatchType",P1])
 		return self
 
 	Func getMatchCasing
-		return dnRequest("get",[self,"MatchCasing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MatchCasing"])
 
 	Func setMatchCasing P1
-		dnRequest("set",[self,"MatchCasing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MatchCasing",P1])
 		return self
 
 	Func getMaxRecursionDepth
-		return dnRequest("get",[self,"MaxRecursionDepth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxRecursionDepth"])
 
 	Func setMaxRecursionDepth P1
-		dnRequest("set",[self,"MaxRecursionDepth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxRecursionDepth",P1])
 		return self
 
 	Func getReturnSpecialDirectories
-		return dnRequest("get",[self,"ReturnSpecialDirectories"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnSpecialDirectories"])
 
 	Func setReturnSpecialDirectories P1
-		dnRequest("set",[self,"ReturnSpecialDirectories",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReturnSpecialDirectories",P1])
 		return self
 

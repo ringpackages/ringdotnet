@@ -25,32 +25,32 @@ Class FontFamily from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetName_1 P1
-		return dnRequest("call",[self,"GetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetName",P1])
 
 	Func IsStyleAvailable P1
-		return dnRequest("call",[self,"IsStyleAvailable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsStyleAvailable",P1])
 
 	Func GetEmHeight P1
-		return dnRequest("call",[self,"GetEmHeight",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEmHeight",P1])
 
 	Func GetCellAscent P1
-		return dnRequest("call",[self,"GetCellAscent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCellAscent",P1])
 
 	Func GetCellDescent P1
-		return dnRequest("call",[self,"GetCellDescent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCellDescent",P1])
 
 	Func GetLineSpacing P1
-		return dnRequest("call",[self,"GetLineSpacing",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLineSpacing",P1])
 
 	Func GetFamilies_1 P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.FontFamily, System.Drawing.Common'),"GetFamilies",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

@@ -18,108 +18,108 @@ Class ServiceCollectionMap from Object
 
 	Func TryAddTransient P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryAddTransient",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAddTransient",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryAddTransient"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransient"])
 		ok
-		return dnRequest("call",[self,"TryAddTransient",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransient",P1])
 
 	Func TryAddScoped P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryAddScoped",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAddScoped",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryAddScoped"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryAddScoped"])
 		ok
-		return dnRequest("call",[self,"TryAddScoped",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScoped",P1])
 
 	Func TryAddSingleton P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryAddSingleton",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAddSingleton",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryAddSingleton"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingleton"])
 		ok
-		return dnRequest("call",[self,"TryAddSingleton",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingleton",P1])
 
 	Func TryAddTransient_2 P1,P2
-		return dnRequest("call",[self,"TryAddTransient",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransient",P1,P2])
 
 	Func TryAddScoped_2 P1,P2
-		return dnRequest("call",[self,"TryAddScoped",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScoped",P1,P2])
 
 	Func TryAddSingleton_2 P1,P2
-		return dnRequest("call",[self,"TryAddSingleton",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingleton",P1,P2])
 
 	Func TryAdd P1,P2,P3
-		return dnRequest("call",[self,"TryAdd",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2,P3])
 
 	Func TryAddTransient_1 P1
-		return dnRequest("call",[self,"TryAddTransient",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransient",P1])
 
 	Func TryAddScoped_1 P1
-		return dnRequest("call",[self,"TryAddScoped",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScoped",P1])
 
 	Func TryAddSingleton_1 P1
-		return dnRequest("call",[self,"TryAddSingleton",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingleton",P1])
 
 	Func TryAddTransientEnumerable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryAddTransientEnumerable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAddTransientEnumerable",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryAddTransientEnumerable"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransientEnumerable"])
 		ok
-		return dnRequest("call",[self,"TryAddTransientEnumerable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransientEnumerable",P1])
 
 	Func TryAddScopedEnumerable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryAddScopedEnumerable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAddScopedEnumerable",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryAddScopedEnumerable"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryAddScopedEnumerable"])
 		ok
-		return dnRequest("call",[self,"TryAddScopedEnumerable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScopedEnumerable",P1])
 
 	Func TryAddSingletonEnumerable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryAddSingletonEnumerable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAddSingletonEnumerable",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryAddSingletonEnumerable"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingletonEnumerable"])
 		ok
-		return dnRequest("call",[self,"TryAddSingletonEnumerable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingletonEnumerable",P1])
 
 	Func TryAddTransientEnumerable_2 P1,P2
-		return dnRequest("call",[self,"TryAddTransientEnumerable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransientEnumerable",P1,P2])
 
 	Func TryAddScopedEnumerable_2 P1,P2
-		return dnRequest("call",[self,"TryAddScopedEnumerable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScopedEnumerable",P1,P2])
 
 	Func TryAddSingletonEnumerable_2 P1,P2
-		return dnRequest("call",[self,"TryAddSingletonEnumerable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingletonEnumerable",P1,P2])
 
 	Func TryAddEnumerable P1,P2,P3
-		return dnRequest("call",[self,"TryAddEnumerable",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddEnumerable",P1,P2,P3])
 
 	Func TryAddTransientEnumerable_1 P1
-		return dnRequest("call",[self,"TryAddTransientEnumerable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransientEnumerable",P1])
 
 	Func TryAddScopedEnumerable_1 P1
-		return dnRequest("call",[self,"TryAddScopedEnumerable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScopedEnumerable",P1])
 
 	Func TryAddSingletonEnumerable_1 P1
-		return dnRequest("call",[self,"TryAddSingletonEnumerable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingletonEnumerable",P1])
 
 	Func TryAddEnumerable_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"TryAddEnumerable",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddEnumerable",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getServiceCollection
-		return dnRequest("get",[self,"ServiceCollection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceCollection"])
 
 	Func setServiceCollection P1
 		raise("DotNet Error: ServiceCollection is a read-only property")

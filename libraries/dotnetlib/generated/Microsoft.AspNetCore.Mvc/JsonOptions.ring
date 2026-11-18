@@ -18,17 +18,17 @@ Class JsonOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAllowInputFormatterExceptionMessages
-		return dnRequest("get",[self,"AllowInputFormatterExceptionMessages"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowInputFormatterExceptionMessages"])
 
 	Func setAllowInputFormatterExceptionMessages P1
-		dnRequest("set",[self,"AllowInputFormatterExceptionMessages",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowInputFormatterExceptionMessages",P1])
 		return self
 
 	Func getJsonSerializerOptions
-		return dnRequest("get",[self,"JsonSerializerOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"JsonSerializerOptions"])
 
 	Func setJsonSerializerOptions P1
 		raise("DotNet Error: JsonSerializerOptions is a read-only property")

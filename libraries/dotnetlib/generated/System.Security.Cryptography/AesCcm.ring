@@ -19,27 +19,27 @@ Class AesCcm from Object
 		return self
 
 	Func Encrypt_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"Encrypt",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"Encrypt",P1,P2,P3,P4,P5])
 		return self
 
 	Func Encrypt P1,P2,P3,P4
-		dnRequest("call",[self,"Encrypt",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Encrypt",P1,P2,P3,P4])
 		return self
 
 	Func Decrypt_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"Decrypt",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"Decrypt",P1,P2,P3,P4,P5])
 		return self
 
 	Func Decrypt P1,P2,P3,P4
-		dnRequest("call",[self,"Decrypt",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Decrypt",P1,P2,P3,P4])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getNonceByteSizes
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"NonceByteSizes"])

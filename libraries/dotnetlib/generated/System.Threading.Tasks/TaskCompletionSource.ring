@@ -25,59 +25,59 @@ Class TaskCompletionSource from Object
 		return self
 
 	Func SetException P1
-		dnRequest("call",[self,"SetException",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetException",P1])
 		return self
 
 	Func TrySetException P1
-		return dnRequest("call",[self,"TrySetException",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TrySetException",P1])
 
 	Func SetResult 
-		dnRequest("call",[self,"SetResult"])
+		dnRequest("call",[new DotNetObject(nHandle),"SetResult"])
 		return self
 
 	Func TrySetResult 
-		return dnRequest("call",[self,"TrySetResult"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TrySetResult"])
 
 	Func SetCanceled P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetCanceled",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetCanceled",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"SetCanceled"])
+			dnRequest("call",[new DotNetObject(nHandle),"SetCanceled"])
 		return self
 		ok
-		dnRequest("call",[self,"SetCanceled",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCanceled",P1])
 		return self
 
 	Func SetCanceled_1 P1
-		dnRequest("call",[self,"SetCanceled",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCanceled",P1])
 		return self
 
 	Func TrySetCanceled P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TrySetCanceled",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TrySetCanceled",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TrySetCanceled"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TrySetCanceled"])
 		ok
-		return dnRequest("call",[self,"TrySetCanceled",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TrySetCanceled",P1])
 
 	Func TrySetCanceled_1 P1
-		return dnRequest("call",[self,"TrySetCanceled",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TrySetCanceled",P1])
 
 	Func SetFromTask P1
-		dnRequest("call",[self,"SetFromTask",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFromTask",P1])
 		return self
 
 	Func TrySetFromTask P1
-		return dnRequest("call",[self,"TrySetFromTask",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TrySetFromTask",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTask
-		return dnRequest("get",[self,"Task"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Task"])
 
 	Func setTask P1
 		raise("DotNet Error: Task is a read-only property")

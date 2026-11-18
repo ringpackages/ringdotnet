@@ -17,7 +17,7 @@ Class ForeignKeyEventData from EventData
 		return self
 
 	Func getForeignKey
-		return dnRequest("get",[self,"ForeignKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeignKey"])
 
 	Func setForeignKey P1
 		raise("DotNet Error: ForeignKey is a read-only property")

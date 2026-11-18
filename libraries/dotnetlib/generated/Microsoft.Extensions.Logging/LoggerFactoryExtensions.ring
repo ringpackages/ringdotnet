@@ -14,7 +14,7 @@ Class LoggerFactoryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateLogger P1
 		if dnIsNamed(P1)

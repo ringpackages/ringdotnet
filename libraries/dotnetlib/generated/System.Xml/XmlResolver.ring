@@ -18,22 +18,22 @@ Class XmlResolver from Object
 		return self
 
 	Func GetEntity P1,P2,P3
-		return dnRequest("call",[self,"GetEntity",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEntity",P1,P2,P3])
 
 	Func GetEntityAsync P1,P2,P3
-		return dnRequest("call",[self,"GetEntityAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEntityAsync",P1,P2,P3])
 
 	Func ResolveUri P1,P2
-		return dnRequest("call",[self,"ResolveUri",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveUri",P1,P2])
 
 	Func SupportsType P1,P2
-		return dnRequest("call",[self,"SupportsType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SupportsType",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setCredentials P1
-		dnRequest("set",[self,"Credentials",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
 		return self
 
 	Func getFileSystemResolver

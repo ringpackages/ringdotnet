@@ -76,213 +76,213 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func SetDpi P1
-		dnRequest("call",[self,"SetDpi",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetDpi",P1])
 		return self
 
 	Func getBlocks
-		return dnRequest("get",[self,"Blocks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Blocks"])
 
 	Func setBlocks P1
 		raise("DotNet Error: Blocks is a read-only property")
 
 	Func getContentStart
-		return dnRequest("get",[self,"ContentStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentStart"])
 
 	Func setContentStart P1
 		raise("DotNet Error: ContentStart is a read-only property")
 
 	Func getContentEnd
-		return dnRequest("get",[self,"ContentEnd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentEnd"])
 
 	Func setContentEnd P1
 		raise("DotNet Error: ContentEnd is a read-only property")
 
 	Func getFontFamily
-		return dnRequest("get",[self,"FontFamily"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontFamily"])
 
 	Func setFontFamily P1
-		dnRequest("set",[self,"FontFamily",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontFamily",P1])
 		return self
 
 	Func getFontStyle
-		return dnRequest("get",[self,"FontStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontStyle"])
 
 	Func setFontStyle P1
-		dnRequest("set",[self,"FontStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontStyle",P1])
 		return self
 
 	Func getFontWeight
-		return dnRequest("get",[self,"FontWeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontWeight"])
 
 	Func setFontWeight P1
-		dnRequest("set",[self,"FontWeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontWeight",P1])
 		return self
 
 	Func getFontStretch
-		return dnRequest("get",[self,"FontStretch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontStretch"])
 
 	Func setFontStretch P1
-		dnRequest("set",[self,"FontStretch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontStretch",P1])
 		return self
 
 	Func getFontSize
-		return dnRequest("get",[self,"FontSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontSize"])
 
 	Func setFontSize P1
-		dnRequest("set",[self,"FontSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontSize",P1])
 		return self
 
 	Func getForeground
-		return dnRequest("get",[self,"Foreground"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Foreground"])
 
 	Func setForeground P1
-		dnRequest("set",[self,"Foreground",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Foreground",P1])
 		return self
 
 	Func getBackground
-		return dnRequest("get",[self,"Background"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[self,"Background",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
 		return self
 
 	Func getTextEffects
-		return dnRequest("get",[self,"TextEffects"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextEffects"])
 
 	Func setTextEffects P1
-		dnRequest("set",[self,"TextEffects",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextEffects",P1])
 		return self
 
 	Func getTextAlignment
-		return dnRequest("get",[self,"TextAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextAlignment"])
 
 	Func setTextAlignment P1
-		dnRequest("set",[self,"TextAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextAlignment",P1])
 		return self
 
 	Func getFlowDirection
-		return dnRequest("get",[self,"FlowDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FlowDirection"])
 
 	Func setFlowDirection P1
-		dnRequest("set",[self,"FlowDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FlowDirection",P1])
 		return self
 
 	Func getLineHeight
-		return dnRequest("get",[self,"LineHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineHeight"])
 
 	Func setLineHeight P1
-		dnRequest("set",[self,"LineHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineHeight",P1])
 		return self
 
 	Func getLineStackingStrategy
-		return dnRequest("get",[self,"LineStackingStrategy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineStackingStrategy"])
 
 	Func setLineStackingStrategy P1
-		dnRequest("set",[self,"LineStackingStrategy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineStackingStrategy",P1])
 		return self
 
 	Func getColumnWidth
-		return dnRequest("get",[self,"ColumnWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnWidth"])
 
 	Func setColumnWidth P1
-		dnRequest("set",[self,"ColumnWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnWidth",P1])
 		return self
 
 	Func getColumnGap
-		return dnRequest("get",[self,"ColumnGap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnGap"])
 
 	Func setColumnGap P1
-		dnRequest("set",[self,"ColumnGap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnGap",P1])
 		return self
 
 	Func getIsColumnWidthFlexible
-		return dnRequest("get",[self,"IsColumnWidthFlexible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsColumnWidthFlexible"])
 
 	Func setIsColumnWidthFlexible P1
-		dnRequest("set",[self,"IsColumnWidthFlexible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsColumnWidthFlexible",P1])
 		return self
 
 	Func getColumnRuleWidth
-		return dnRequest("get",[self,"ColumnRuleWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnRuleWidth"])
 
 	Func setColumnRuleWidth P1
-		dnRequest("set",[self,"ColumnRuleWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnRuleWidth",P1])
 		return self
 
 	Func getColumnRuleBrush
-		return dnRequest("get",[self,"ColumnRuleBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnRuleBrush"])
 
 	Func setColumnRuleBrush P1
-		dnRequest("set",[self,"ColumnRuleBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnRuleBrush",P1])
 		return self
 
 	Func getIsOptimalParagraphEnabled
-		return dnRequest("get",[self,"IsOptimalParagraphEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOptimalParagraphEnabled"])
 
 	Func setIsOptimalParagraphEnabled P1
-		dnRequest("set",[self,"IsOptimalParagraphEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsOptimalParagraphEnabled",P1])
 		return self
 
 	Func getPageWidth
-		return dnRequest("get",[self,"PageWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageWidth"])
 
 	Func setPageWidth P1
-		dnRequest("set",[self,"PageWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PageWidth",P1])
 		return self
 
 	Func getMinPageWidth
-		return dnRequest("get",[self,"MinPageWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinPageWidth"])
 
 	Func setMinPageWidth P1
-		dnRequest("set",[self,"MinPageWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinPageWidth",P1])
 		return self
 
 	Func getMaxPageWidth
-		return dnRequest("get",[self,"MaxPageWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxPageWidth"])
 
 	Func setMaxPageWidth P1
-		dnRequest("set",[self,"MaxPageWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxPageWidth",P1])
 		return self
 
 	Func getPageHeight
-		return dnRequest("get",[self,"PageHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageHeight"])
 
 	Func setPageHeight P1
-		dnRequest("set",[self,"PageHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PageHeight",P1])
 		return self
 
 	Func getMinPageHeight
-		return dnRequest("get",[self,"MinPageHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinPageHeight"])
 
 	Func setMinPageHeight P1
-		dnRequest("set",[self,"MinPageHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinPageHeight",P1])
 		return self
 
 	Func getMaxPageHeight
-		return dnRequest("get",[self,"MaxPageHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxPageHeight"])
 
 	Func setMaxPageHeight P1
-		dnRequest("set",[self,"MaxPageHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxPageHeight",P1])
 		return self
 
 	Func getPagePadding
-		return dnRequest("get",[self,"PagePadding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PagePadding"])
 
 	Func setPagePadding P1
-		dnRequest("set",[self,"PagePadding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PagePadding",P1])
 		return self
 
 	Func getTypography
-		return dnRequest("get",[self,"Typography"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Typography"])
 
 	Func setTypography P1
 		raise("DotNet Error: Typography is a read-only property")
 
 	Func getIsHyphenationEnabled
-		return dnRequest("get",[self,"IsHyphenationEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsHyphenationEnabled"])
 
 	Func setIsHyphenationEnabled P1
-		dnRequest("set",[self,"IsHyphenationEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsHyphenationEnabled",P1])
 		return self
 
 	Func getFontFamilyProperty

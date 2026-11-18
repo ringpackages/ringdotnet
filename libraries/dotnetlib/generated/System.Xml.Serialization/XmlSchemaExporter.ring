@@ -15,24 +15,24 @@ Class XmlSchemaExporter from Object
 		return self
 
 	Func ExportTypeMapping P1
-		dnRequest("call",[self,"ExportTypeMapping",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ExportTypeMapping",P1])
 		return self
 
 	Func ExportMembersMapping P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ExportMembersMapping",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ExportMembersMapping",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ExportMembersMapping",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ExportMembersMapping",P1])
 		return self
 
 	Func ExportMembersMapping_2 P1,P2
-		dnRequest("call",[self,"ExportMembersMapping",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ExportMembersMapping",P1,P2])
 		return self
 
 	Func ExportAnyType P1
-		return dnRequest("call",[self,"ExportAnyType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportAnyType",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

@@ -27,73 +27,73 @@ Class ScrollChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func getHorizontalOffset
-		return dnRequest("get",[self,"HorizontalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
 
 	Func setHorizontalOffset P1
 		raise("DotNet Error: HorizontalOffset is a read-only property")
 
 	Func getVerticalOffset
-		return dnRequest("get",[self,"VerticalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
 
 	Func setVerticalOffset P1
 		raise("DotNet Error: VerticalOffset is a read-only property")
 
 	Func getHorizontalChange
-		return dnRequest("get",[self,"HorizontalChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalChange"])
 
 	Func setHorizontalChange P1
 		raise("DotNet Error: HorizontalChange is a read-only property")
 
 	Func getVerticalChange
-		return dnRequest("get",[self,"VerticalChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalChange"])
 
 	Func setVerticalChange P1
 		raise("DotNet Error: VerticalChange is a read-only property")
 
 	Func getViewportWidth
-		return dnRequest("get",[self,"ViewportWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportWidth"])
 
 	Func setViewportWidth P1
 		raise("DotNet Error: ViewportWidth is a read-only property")
 
 	Func getViewportHeight
-		return dnRequest("get",[self,"ViewportHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportHeight"])
 
 	Func setViewportHeight P1
 		raise("DotNet Error: ViewportHeight is a read-only property")
 
 	Func getViewportWidthChange
-		return dnRequest("get",[self,"ViewportWidthChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportWidthChange"])
 
 	Func setViewportWidthChange P1
 		raise("DotNet Error: ViewportWidthChange is a read-only property")
 
 	Func getViewportHeightChange
-		return dnRequest("get",[self,"ViewportHeightChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportHeightChange"])
 
 	Func setViewportHeightChange P1
 		raise("DotNet Error: ViewportHeightChange is a read-only property")
 
 	Func getExtentWidth
-		return dnRequest("get",[self,"ExtentWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentWidth"])
 
 	Func setExtentWidth P1
 		raise("DotNet Error: ExtentWidth is a read-only property")
 
 	Func getExtentHeight
-		return dnRequest("get",[self,"ExtentHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentHeight"])
 
 	Func setExtentHeight P1
 		raise("DotNet Error: ExtentHeight is a read-only property")
 
 	Func getExtentWidthChange
-		return dnRequest("get",[self,"ExtentWidthChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentWidthChange"])
 
 	Func setExtentWidthChange P1
 		raise("DotNet Error: ExtentWidthChange is a read-only property")
 
 	Func getExtentHeightChange
-		return dnRequest("get",[self,"ExtentHeightChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentHeightChange"])
 
 	Func setExtentHeightChange P1
 		raise("DotNet Error: ExtentHeightChange is a read-only property")

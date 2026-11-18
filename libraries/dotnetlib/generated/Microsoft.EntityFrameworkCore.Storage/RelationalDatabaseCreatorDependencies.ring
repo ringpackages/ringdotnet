@@ -25,67 +25,67 @@ Class RelationalDatabaseCreatorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getModelDiffer
-		return dnRequest("get",[self,"ModelDiffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelDiffer"])
 
 	Func setModelDiffer P1
-		dnRequest("set",[self,"ModelDiffer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ModelDiffer",P1])
 		return self
 
 	Func getMigrationsSqlGenerator
-		return dnRequest("get",[self,"MigrationsSqlGenerator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsSqlGenerator"])
 
 	Func setMigrationsSqlGenerator P1
-		dnRequest("set",[self,"MigrationsSqlGenerator",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MigrationsSqlGenerator",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[self,"Connection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
 		return self
 
 	Func getMigrationCommandExecutor
-		return dnRequest("get",[self,"MigrationCommandExecutor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MigrationCommandExecutor"])
 
 	Func setMigrationCommandExecutor P1
-		dnRequest("set",[self,"MigrationCommandExecutor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MigrationCommandExecutor",P1])
 		return self
 
 	Func getSqlGenerationHelper
-		return dnRequest("get",[self,"SqlGenerationHelper"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SqlGenerationHelper"])
 
 	Func setSqlGenerationHelper P1
-		dnRequest("set",[self,"SqlGenerationHelper",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SqlGenerationHelper",P1])
 		return self
 
 	Func getExecutionStrategy
-		return dnRequest("get",[self,"ExecutionStrategy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionStrategy"])
 
 	Func setExecutionStrategy P1
 		raise("DotNet Error: ExecutionStrategy is a read-only property")
 
 	Func getCommandLogger
-		return dnRequest("get",[self,"CommandLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
 
 	Func setCommandLogger P1
-		dnRequest("set",[self,"CommandLogger",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandLogger",P1])
 		return self
 
 	Func getContextOptions
-		return dnRequest("get",[self,"ContextOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextOptions"])
 
 	Func setContextOptions P1
-		dnRequest("set",[self,"ContextOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContextOptions",P1])
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[self,"CurrentContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentContext"])
 
 	Func setCurrentContext P1
-		dnRequest("set",[self,"CurrentContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentContext",P1])
 		return self
 

@@ -17,7 +17,7 @@ Class WebBrowserNavigatedEventArgs from EventArgs
 		return self
 
 	Func getUrl
-		return dnRequest("get",[self,"Url"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
 
 	Func setUrl P1
 		raise("DotNet Error: Url is a read-only property")

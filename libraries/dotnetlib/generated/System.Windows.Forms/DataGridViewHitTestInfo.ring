@@ -21,37 +21,37 @@ Class DataGridViewHitTestInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getColumnIndex
-		return dnRequest("get",[self,"ColumnIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getRowIndex
-		return dnRequest("get",[self,"RowIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getColumnX
-		return dnRequest("get",[self,"ColumnX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnX"])
 
 	Func setColumnX P1
 		raise("DotNet Error: ColumnX is a read-only property")
 
 	Func getRowY
-		return dnRequest("get",[self,"RowY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowY"])
 
 	Func setRowY P1
 		raise("DotNet Error: RowY is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")

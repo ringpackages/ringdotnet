@@ -21,65 +21,65 @@ Class DbDataAdapter from DataAdapter
 		return self
 
 	Func FillSchema_3 P1,P2,P3
-		return dnRequest("call",[self,"FillSchema",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FillSchema",P1,P2,P3])
 
 	Func Fill P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Fill",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Fill",P1])
 		ok
-		return dnRequest("call",[self,"Fill",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1])
 
 	Func Fill_2 P1,P2
-		return dnRequest("call",[self,"Fill",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1,P2])
 
 	Func Fill_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Fill",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1,P2,P3,P4])
 
 	Func Fill_3 P1,P2,P3
-		return dnRequest("call",[self,"Fill",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1,P2,P3])
 
 	Func Update P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Update",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Update",P1])
 		ok
-		return dnRequest("call",[self,"Update",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 
 	Func Update_2 P1,P2
-		return dnRequest("call",[self,"Update",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
 
 	Func getDeleteCommand
-		return dnRequest("get",[self,"DeleteCommand"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeleteCommand"])
 
 	Func setDeleteCommand P1
-		dnRequest("set",[self,"DeleteCommand",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DeleteCommand",P1])
 		return self
 
 	Func getInsertCommand
-		return dnRequest("get",[self,"InsertCommand"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InsertCommand"])
 
 	Func setInsertCommand P1
-		dnRequest("set",[self,"InsertCommand",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InsertCommand",P1])
 		return self
 
 	Func getSelectCommand
-		return dnRequest("get",[self,"SelectCommand"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectCommand"])
 
 	Func setSelectCommand P1
-		dnRequest("set",[self,"SelectCommand",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectCommand",P1])
 		return self
 
 	Func getUpdateBatchSize
-		return dnRequest("get",[self,"UpdateBatchSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpdateBatchSize"])
 
 	Func setUpdateBatchSize P1
-		dnRequest("set",[self,"UpdateBatchSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpdateBatchSize",P1])
 		return self
 
 	Func getUpdateCommand
-		return dnRequest("get",[self,"UpdateCommand"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpdateCommand"])
 
 	Func setUpdateCommand P1
-		dnRequest("set",[self,"UpdateCommand",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpdateCommand",P1])
 		return self
 
 	Func getDefaultSourceTableName

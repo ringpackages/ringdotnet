@@ -33,81 +33,81 @@ Class TaskFactory from Object
 
 	Func StartNew P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"StartNew",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartNew",P1])
 		ok
-		return dnRequest("call",[self,"StartNew",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1])
 
 	Func StartNew_2 P1,P2
-		return dnRequest("call",[self,"StartNew",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1,P2])
 
 	Func StartNew_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"StartNew",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1,P2,P3,P4])
 
 	Func StartNew_3 P1,P2,P3
-		return dnRequest("call",[self,"StartNew",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1,P2,P3])
 
 	Func StartNew_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"StartNew",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1,P2,P3,P4,P5])
 
 	Func FromAsync P1,P2
-		return dnRequest("call",[self,"FromAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2])
 
 	Func FromAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"FromAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3])
 
 	Func FromAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"FromAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3,P4])
 
 	Func FromAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"FromAsync",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3,P4,P5])
 
 	Func FromAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"FromAsync",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3,P4,P5,P6])
 
 	Func FromAsync_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"FromAsync",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3,P4,P5,P6,P7])
 
 	Func ContinueWhenAll P1,P2
-		return dnRequest("call",[self,"ContinueWhenAll",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAll",P1,P2])
 
 	Func ContinueWhenAll_3 P1,P2,P3
-		return dnRequest("call",[self,"ContinueWhenAll",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAll",P1,P2,P3])
 
 	Func ContinueWhenAll_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"ContinueWhenAll",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAll",P1,P2,P3,P4,P5])
 
 	Func ContinueWhenAny P1,P2
-		return dnRequest("call",[self,"ContinueWhenAny",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAny",P1,P2])
 
 	Func ContinueWhenAny_3 P1,P2,P3
-		return dnRequest("call",[self,"ContinueWhenAny",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAny",P1,P2,P3])
 
 	Func ContinueWhenAny_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"ContinueWhenAny",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAny",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCancellationToken
-		return dnRequest("get",[self,"CancellationToken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CancellationToken"])
 
 	Func setCancellationToken P1
 		raise("DotNet Error: CancellationToken is a read-only property")
 
 	Func getScheduler
-		return dnRequest("get",[self,"Scheduler"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scheduler"])
 
 	Func setScheduler P1
 		raise("DotNet Error: Scheduler is a read-only property")
 
 	Func getCreationOptions
-		return dnRequest("get",[self,"CreationOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CreationOptions"])
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getContinuationOptions
-		return dnRequest("get",[self,"ContinuationOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContinuationOptions"])
 
 	Func setContinuationOptions P1
 		raise("DotNet Error: ContinuationOptions is a read-only property")

@@ -24,62 +24,62 @@ Class ICacheEntry from DotNetObject
 		return self
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getAbsoluteExpiration
-		return dnRequest("get",[self,"AbsoluteExpiration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AbsoluteExpiration"])
 
 	Func setAbsoluteExpiration P1
-		dnRequest("set",[self,"AbsoluteExpiration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AbsoluteExpiration",P1])
 		return self
 
 	Func getAbsoluteExpirationRelativeToNow
-		return dnRequest("get",[self,"AbsoluteExpirationRelativeToNow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AbsoluteExpirationRelativeToNow"])
 
 	Func setAbsoluteExpirationRelativeToNow P1
-		dnRequest("set",[self,"AbsoluteExpirationRelativeToNow",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AbsoluteExpirationRelativeToNow",P1])
 		return self
 
 	Func getSlidingExpiration
-		return dnRequest("get",[self,"SlidingExpiration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SlidingExpiration"])
 
 	Func setSlidingExpiration P1
-		dnRequest("set",[self,"SlidingExpiration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SlidingExpiration",P1])
 		return self
 
 	Func getExpirationTokens
-		return dnRequest("get",[self,"ExpirationTokens"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExpirationTokens"])
 
 	Func setExpirationTokens P1
 		raise("DotNet Error: ExpirationTokens is a read-only property")
 
 	Func getPostEvictionCallbacks
-		return dnRequest("get",[self,"PostEvictionCallbacks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PostEvictionCallbacks"])
 
 	Func setPostEvictionCallbacks P1
 		raise("DotNet Error: PostEvictionCallbacks is a read-only property")
 
 	Func getPriority
-		return dnRequest("get",[self,"Priority"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Priority"])
 
 	Func setPriority P1
-		dnRequest("set",[self,"Priority",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Priority",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 

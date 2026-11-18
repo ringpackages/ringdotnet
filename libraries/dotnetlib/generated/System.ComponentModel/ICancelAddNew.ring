@@ -14,10 +14,10 @@ Class ICancelAddNew from DotNetObject
 		return self
 
 	Func CancelNew P1
-		dnRequest("call",[self,"CancelNew",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelNew",P1])
 		return self
 
 	Func EndNew P1
-		dnRequest("call",[self,"EndNew",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EndNew",P1])
 		return self
 

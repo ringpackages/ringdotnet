@@ -23,27 +23,27 @@ Class FormMultipartSection from Object
 
 	Func GetValueAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetValueAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetValueAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetValueAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetValueAsync"])
 		ok
-		return dnRequest("call",[self,"GetValueAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueAsync",P1])
 
 	Func GetValueAsync_1 P1
-		return dnRequest("call",[self,"GetValueAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSection
-		return dnRequest("get",[self,"Section"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Section"])
 
 	Func setSection P1
 		raise("DotNet Error: Section is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

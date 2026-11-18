@@ -23,41 +23,41 @@ Class ToggleButton from WpfButtonBase
 		return self
 
 	Func setCheckedEvent P1
-		dnRequest("setevent",[self,"Checked",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Checked",dnCallback(P1)])
 		return self
 
 	Func clearCheckedEvent
-		dnRequest("clearevent",[self,"Checked"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Checked"])
 		return self
 
 	Func setUncheckedEvent P1
-		dnRequest("setevent",[self,"Unchecked",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Unchecked",dnCallback(P1)])
 		return self
 
 	Func clearUncheckedEvent
-		dnRequest("clearevent",[self,"Unchecked"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Unchecked"])
 		return self
 
 	Func setIndeterminateEvent P1
-		dnRequest("setevent",[self,"Indeterminate",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Indeterminate",dnCallback(P1)])
 		return self
 
 	Func clearIndeterminateEvent
-		dnRequest("clearevent",[self,"Indeterminate"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Indeterminate"])
 		return self
 
 	Func getIsChecked
-		return dnRequest("get",[self,"IsChecked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsChecked"])
 
 	Func setIsChecked P1
-		dnRequest("set",[self,"IsChecked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsChecked",P1])
 		return self
 
 	Func getIsThreeState
-		return dnRequest("get",[self,"IsThreeState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsThreeState"])
 
 	Func setIsThreeState P1
-		dnRequest("set",[self,"IsThreeState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsThreeState",P1])
 		return self
 
 	Func getCheckedEvent

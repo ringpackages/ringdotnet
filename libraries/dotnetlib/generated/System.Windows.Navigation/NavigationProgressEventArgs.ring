@@ -19,25 +19,25 @@ Class NavigationProgressEventArgs from EventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Uri"])
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getBytesRead
-		return dnRequest("get",[self,"BytesRead"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BytesRead"])
 
 	Func setBytesRead P1
 		raise("DotNet Error: BytesRead is a read-only property")
 
 	Func getMaxBytes
-		return dnRequest("get",[self,"MaxBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxBytes"])
 
 	Func setMaxBytes P1
 		raise("DotNet Error: MaxBytes is a read-only property")
 
 	Func getNavigator
-		return dnRequest("get",[self,"Navigator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Navigator"])
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")

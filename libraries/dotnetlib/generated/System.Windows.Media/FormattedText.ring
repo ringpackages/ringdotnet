@@ -47,258 +47,258 @@ Class FormattedText from Object
 
 	Func SetForegroundBrush P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetForegroundBrush",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetForegroundBrush",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetForegroundBrush",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetForegroundBrush",P1])
 		return self
 
 	Func SetForegroundBrush_3 P1,P2,P3
-		dnRequest("call",[self,"SetForegroundBrush",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetForegroundBrush",P1,P2,P3])
 		return self
 
 	Func SetFontFamily P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetFontFamily",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetFontFamily",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetFontFamily",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontFamily",P1])
 		return self
 
 	Func SetFontFamily_3 P1,P2,P3
-		dnRequest("call",[self,"SetFontFamily",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontFamily",P1,P2,P3])
 		return self
 
 	Func SetFontSize P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetFontSize",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetFontSize",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetFontSize",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontSize",P1])
 		return self
 
 	Func SetFontSize_3 P1,P2,P3
-		dnRequest("call",[self,"SetFontSize",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontSize",P1,P2,P3])
 		return self
 
 	Func SetCulture P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetCulture",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetCulture",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetCulture",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCulture",P1])
 		return self
 
 	Func SetCulture_3 P1,P2,P3
-		dnRequest("call",[self,"SetCulture",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCulture",P1,P2,P3])
 		return self
 
 	Func SetNumberSubstitution P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetNumberSubstitution",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetNumberSubstitution",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetNumberSubstitution",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetNumberSubstitution",P1])
 		return self
 
 	Func SetNumberSubstitution_3 P1,P2,P3
-		dnRequest("call",[self,"SetNumberSubstitution",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetNumberSubstitution",P1,P2,P3])
 		return self
 
 	Func SetFontWeight P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetFontWeight",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetFontWeight",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetFontWeight",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontWeight",P1])
 		return self
 
 	Func SetFontWeight_3 P1,P2,P3
-		dnRequest("call",[self,"SetFontWeight",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontWeight",P1,P2,P3])
 		return self
 
 	Func SetFontStyle P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetFontStyle",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetFontStyle",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetFontStyle",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontStyle",P1])
 		return self
 
 	Func SetFontStyle_3 P1,P2,P3
-		dnRequest("call",[self,"SetFontStyle",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontStyle",P1,P2,P3])
 		return self
 
 	Func SetFontStretch P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetFontStretch",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetFontStretch",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetFontStretch",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontStretch",P1])
 		return self
 
 	Func SetFontStretch_3 P1,P2,P3
-		dnRequest("call",[self,"SetFontStretch",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontStretch",P1,P2,P3])
 		return self
 
 	Func SetFontTypeface P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetFontTypeface",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetFontTypeface",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetFontTypeface",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontTypeface",P1])
 		return self
 
 	Func SetFontTypeface_3 P1,P2,P3
-		dnRequest("call",[self,"SetFontTypeface",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFontTypeface",P1,P2,P3])
 		return self
 
 	Func SetTextDecorations P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetTextDecorations",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetTextDecorations",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetTextDecorations",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetTextDecorations",P1])
 		return self
 
 	Func SetTextDecorations_3 P1,P2,P3
-		dnRequest("call",[self,"SetTextDecorations",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetTextDecorations",P1,P2,P3])
 		return self
 
 	Func SetMaxTextWidths P1
-		dnRequest("call",[self,"SetMaxTextWidths",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetMaxTextWidths",P1])
 		return self
 
 	Func GetMaxTextWidths 
-		return dnRequest("call",[self,"GetMaxTextWidths"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxTextWidths"])
 
 	Func BuildHighlightGeometry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"BuildHighlightGeometry",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BuildHighlightGeometry",P1])
 		ok
-		return dnRequest("call",[self,"BuildHighlightGeometry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BuildHighlightGeometry",P1])
 
 	Func BuildGeometry P1
-		return dnRequest("call",[self,"BuildGeometry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BuildGeometry",P1])
 
 	Func BuildHighlightGeometry_3 P1,P2,P3
-		return dnRequest("call",[self,"BuildHighlightGeometry",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"BuildHighlightGeometry",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getPixelsPerDip
-		return dnRequest("get",[self,"PixelsPerDip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelsPerDip"])
 
 	Func setPixelsPerDip P1
-		dnRequest("set",[self,"PixelsPerDip",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PixelsPerDip",P1])
 		return self
 
 	Func getFlowDirection
-		return dnRequest("get",[self,"FlowDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FlowDirection"])
 
 	Func setFlowDirection P1
-		dnRequest("set",[self,"FlowDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FlowDirection",P1])
 		return self
 
 	Func getTextAlignment
-		return dnRequest("get",[self,"TextAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextAlignment"])
 
 	Func setTextAlignment P1
-		dnRequest("set",[self,"TextAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextAlignment",P1])
 		return self
 
 	Func getLineHeight
-		return dnRequest("get",[self,"LineHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineHeight"])
 
 	Func setLineHeight P1
-		dnRequest("set",[self,"LineHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineHeight",P1])
 		return self
 
 	Func getMaxTextWidth
-		return dnRequest("get",[self,"MaxTextWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxTextWidth"])
 
 	Func setMaxTextWidth P1
-		dnRequest("set",[self,"MaxTextWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxTextWidth",P1])
 		return self
 
 	Func getMaxTextHeight
-		return dnRequest("get",[self,"MaxTextHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxTextHeight"])
 
 	Func setMaxTextHeight P1
-		dnRequest("set",[self,"MaxTextHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxTextHeight",P1])
 		return self
 
 	Func getMaxLineCount
-		return dnRequest("get",[self,"MaxLineCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxLineCount"])
 
 	Func setMaxLineCount P1
-		dnRequest("set",[self,"MaxLineCount",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxLineCount",P1])
 		return self
 
 	Func getTrimming
-		return dnRequest("get",[self,"Trimming"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Trimming"])
 
 	Func setTrimming P1
-		dnRequest("set",[self,"Trimming",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Trimming",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getExtent
-		return dnRequest("get",[self,"Extent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Extent"])
 
 	Func setExtent P1
 		raise("DotNet Error: Extent is a read-only property")
 
 	Func getBaseline
-		return dnRequest("get",[self,"Baseline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Baseline"])
 
 	Func setBaseline P1
 		raise("DotNet Error: Baseline is a read-only property")
 
 	Func getOverhangAfter
-		return dnRequest("get",[self,"OverhangAfter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OverhangAfter"])
 
 	Func setOverhangAfter P1
 		raise("DotNet Error: OverhangAfter is a read-only property")
 
 	Func getOverhangLeading
-		return dnRequest("get",[self,"OverhangLeading"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OverhangLeading"])
 
 	Func setOverhangLeading P1
 		raise("DotNet Error: OverhangLeading is a read-only property")
 
 	Func getOverhangTrailing
-		return dnRequest("get",[self,"OverhangTrailing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OverhangTrailing"])
 
 	Func setOverhangTrailing P1
 		raise("DotNet Error: OverhangTrailing is a read-only property")
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getWidthIncludingTrailingWhitespace
-		return dnRequest("get",[self,"WidthIncludingTrailingWhitespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WidthIncludingTrailingWhitespace"])
 
 	Func setWidthIncludingTrailingWhitespace P1
 		raise("DotNet Error: WidthIncludingTrailingWhitespace is a read-only property")
 
 	Func getMinWidth
-		return dnRequest("get",[self,"MinWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinWidth"])
 
 	Func setMinWidth P1
 		raise("DotNet Error: MinWidth is a read-only property")

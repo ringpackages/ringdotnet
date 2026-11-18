@@ -27,65 +27,65 @@ Class TextureBrush from Brush
 		return self
 
 	Func ResetTransform 
-		dnRequest("call",[self,"ResetTransform"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetTransform"])
 		return self
 
 	Func MultiplyTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"MultiplyTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 			return self
 		ok
-		dnRequest("call",[self,"MultiplyTransform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 		return self
 
 	Func MultiplyTransform_2 P1,P2
-		dnRequest("call",[self,"MultiplyTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1,P2])
 		return self
 
 	Func TranslateTransform P1,P2
-		dnRequest("call",[self,"TranslateTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2])
 		return self
 
 	Func TranslateTransform_3 P1,P2,P3
-		dnRequest("call",[self,"TranslateTransform",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2,P3])
 		return self
 
 	Func ScaleTransform P1,P2
-		dnRequest("call",[self,"ScaleTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2])
 		return self
 
 	Func ScaleTransform_3 P1,P2,P3
-		dnRequest("call",[self,"ScaleTransform",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2,P3])
 		return self
 
 	Func RotateTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"RotateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"RotateTransform",P1])
 			return self
 		ok
-		dnRequest("call",[self,"RotateTransform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1])
 		return self
 
 	Func RotateTransform_2 P1,P2
-		dnRequest("call",[self,"RotateTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1,P2])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func getWrapMode
-		return dnRequest("get",[self,"WrapMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WrapMode"])
 
 	Func setWrapMode P1
-		dnRequest("set",[self,"WrapMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WrapMode",P1])
 		return self
 
 	Func getImage
-		return dnRequest("get",[self,"Image"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Image"])
 
 	Func setImage P1
 		raise("DotNet Error: Image is a read-only property")

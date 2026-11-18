@@ -19,30 +19,30 @@ Class ClientWebSocket from WebSocket
 		return self
 
 	Func ConnectAsync P1,P2
-		return dnRequest("call",[self,"ConnectAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2])
 
 	Func ConnectAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"ConnectAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2,P3])
 
 	Func SendAsync P1,P2,P3,P4
-		return dnRequest("call",[self,"SendAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4])
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getHttpStatusCode
-		return dnRequest("get",[self,"HttpStatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpStatusCode"])
 
 	Func setHttpStatusCode P1
 		raise("DotNet Error: HttpStatusCode is a read-only property")
 
 	Func getHttpResponseHeaders
-		return dnRequest("get",[self,"HttpResponseHeaders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpResponseHeaders"])
 
 	Func setHttpResponseHeaders P1
-		dnRequest("set",[self,"HttpResponseHeaders",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HttpResponseHeaders",P1])
 		return self
 

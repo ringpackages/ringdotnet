@@ -17,15 +17,15 @@ Class InkCanvasSelectionEditingEventArgs from CancelEventArgs
 		return self
 
 	Func getOldRectangle
-		return dnRequest("get",[self,"OldRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldRectangle"])
 
 	Func setOldRectangle P1
 		raise("DotNet Error: OldRectangle is a read-only property")
 
 	Func getNewRectangle
-		return dnRequest("get",[self,"NewRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewRectangle"])
 
 	Func setNewRectangle P1
-		dnRequest("set",[self,"NewRectangle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NewRectangle",P1])
 		return self
 

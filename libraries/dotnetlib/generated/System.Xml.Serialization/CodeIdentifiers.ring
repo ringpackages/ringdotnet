@@ -21,47 +21,47 @@ Class CodeIdentifiers from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func MakeRightCase P1
-		return dnRequest("call",[self,"MakeRightCase",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeRightCase",P1])
 
 	Func MakeUnique P1
-		return dnRequest("call",[self,"MakeUnique",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnique",P1])
 
 	Func AddReserved P1
-		dnRequest("call",[self,"AddReserved",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddReserved",P1])
 		return self
 
 	Func RemoveReserved P1
-		dnRequest("call",[self,"RemoveReserved",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveReserved",P1])
 		return self
 
 	Func AddUnique P1,P2
-		return dnRequest("call",[self,"AddUnique",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddUnique",P1,P2])
 
 	Func IsInUse P1
-		return dnRequest("call",[self,"IsInUse",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsInUse",P1])
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func ToArray P1
-		return dnRequest("call",[self,"ToArray",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArray",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUseCamelCasing
-		return dnRequest("get",[self,"UseCamelCasing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseCamelCasing"])
 
 	Func setUseCamelCasing P1
-		dnRequest("set",[self,"UseCamelCasing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseCamelCasing",P1])
 		return self
 

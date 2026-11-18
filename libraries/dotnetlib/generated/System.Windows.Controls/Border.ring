@@ -26,38 +26,38 @@ Class Border from Decorator
 		return self
 
 	Func getBorderThickness
-		return dnRequest("get",[self,"BorderThickness"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderThickness"])
 
 	Func setBorderThickness P1
-		dnRequest("set",[self,"BorderThickness",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderThickness",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[self,"Padding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[self,"Padding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
 		return self
 
 	Func getCornerRadius
-		return dnRequest("get",[self,"CornerRadius"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CornerRadius"])
 
 	Func setCornerRadius P1
-		dnRequest("set",[self,"CornerRadius",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CornerRadius",P1])
 		return self
 
 	Func getBorderBrush
-		return dnRequest("get",[self,"BorderBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderBrush"])
 
 	Func setBorderBrush P1
-		dnRequest("set",[self,"BorderBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderBrush",P1])
 		return self
 
 	Func getBackground
-		return dnRequest("get",[self,"Background"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[self,"Background",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
 		return self
 
 	Func getBorderThicknessProperty

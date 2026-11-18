@@ -24,47 +24,47 @@ Class TraceSource from Object
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Flush 
-		dnRequest("call",[self,"Flush"])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 
 	Func TraceEvent P1,P2
-		dnRequest("call",[self,"TraceEvent",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2])
 		return self
 
 	Func TraceEvent_3 P1,P2,P3
-		dnRequest("call",[self,"TraceEvent",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3])
 		return self
 
 	Func TraceEvent_4 P1,P2,P3,P4
-		dnRequest("call",[self,"TraceEvent",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3,P4])
 		return self
 
 	Func TraceData P1,P2,P3
-		dnRequest("call",[self,"TraceData",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceData",P1,P2,P3])
 		return self
 
 	Func TraceInformation P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"TraceInformation",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"TraceInformation",P1])
 			return self
 		ok
-		dnRequest("call",[self,"TraceInformation",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceInformation",P1])
 		return self
 
 	Func TraceInformation_2 P1,P2
-		dnRequest("call",[self,"TraceInformation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceInformation",P1,P2])
 		return self
 
 	Func TraceTransfer P1,P2,P3
-		dnRequest("call",[self,"TraceTransfer",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceTransfer",P1,P2,P3])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setInitializingEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource'),"Initializing",dnCallback(P1)])
@@ -75,33 +75,33 @@ Class TraceSource from Object
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getDefaultLevel
-		return dnRequest("get",[self,"DefaultLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultLevel"])
 
 	Func setDefaultLevel P1
 		raise("DotNet Error: DefaultLevel is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getListeners
-		return dnRequest("get",[self,"Listeners"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Listeners"])
 
 	Func setListeners P1
 		raise("DotNet Error: Listeners is a read-only property")
 
 	Func getSwitch
-		return dnRequest("get",[self,"Switch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Switch"])
 
 	Func setSwitch P1
-		dnRequest("set",[self,"Switch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Switch",P1])
 		return self
 

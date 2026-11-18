@@ -17,7 +17,7 @@ Class RuntimeFieldHandle from ValueType
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func FromIntPtr P1
@@ -27,7 +27,7 @@ Class RuntimeFieldHandle from ValueType
 		return dnRequest("call",[dnTypeCached('System.RuntimeFieldHandle, System.Private.CoreLib'),"ToIntPtr",P1])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

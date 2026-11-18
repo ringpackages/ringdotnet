@@ -27,22 +27,22 @@ Class KeyGesture from InputGesture
 		return self
 
 	Func GetDisplayStringForCulture P1
-		return dnRequest("call",[self,"GetDisplayStringForCulture",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDisplayStringForCulture",P1])
 
 	Func getModifiers
-		return dnRequest("get",[self,"Modifiers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Modifiers"])
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getDisplayString
-		return dnRequest("get",[self,"DisplayString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayString"])
 
 	Func setDisplayString P1
 		raise("DotNet Error: DisplayString is a read-only property")

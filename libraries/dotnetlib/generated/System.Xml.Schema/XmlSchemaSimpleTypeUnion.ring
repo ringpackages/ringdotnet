@@ -19,20 +19,20 @@ Class XmlSchemaSimpleTypeUnion from XmlSchemaSimpleTypeContent
 		return self
 
 	Func getBaseTypes
-		return dnRequest("get",[self,"BaseTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseTypes"])
 
 	Func setBaseTypes P1
 		raise("DotNet Error: BaseTypes is a read-only property")
 
 	Func getMemberTypes
-		return dnRequest("get",[self,"MemberTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberTypes"])
 
 	Func setMemberTypes P1
-		dnRequest("set",[self,"MemberTypes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MemberTypes",P1])
 		return self
 
 	Func getBaseMemberTypes
-		return dnRequest("get",[self,"BaseMemberTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseMemberTypes"])
 
 	Func setBaseMemberTypes P1
 		raise("DotNet Error: BaseMemberTypes is a read-only property")

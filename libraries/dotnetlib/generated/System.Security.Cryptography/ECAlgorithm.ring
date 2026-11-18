@@ -14,22 +14,22 @@ Class ECAlgorithm from AsymmetricAlgorithm
 		return self
 
 	Func ExportParameters P1
-		return dnRequest("call",[self,"ExportParameters",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportParameters",P1])
 
 	Func ExportExplicitParameters P1
-		return dnRequest("call",[self,"ExportExplicitParameters",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportExplicitParameters",P1])
 
 	Func ImportParameters P1
-		dnRequest("call",[self,"ImportParameters",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ImportParameters",P1])
 		return self
 
 	Func GenerateKey P1
-		dnRequest("call",[self,"GenerateKey",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"GenerateKey",P1])
 		return self
 
 	Func ExportECPrivateKey 
-		return dnRequest("call",[self,"ExportECPrivateKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportECPrivateKey"])
 
 	Func ExportECPrivateKeyPem 
-		return dnRequest("call",[self,"ExportECPrivateKeyPem"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportECPrivateKeyPem"])
 

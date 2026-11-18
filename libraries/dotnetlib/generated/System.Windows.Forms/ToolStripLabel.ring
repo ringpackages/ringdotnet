@@ -42,44 +42,44 @@ Class ToolStripLabel from ToolStripItem
 		return self
 
 	Func getIsLink
-		return dnRequest("get",[self,"IsLink"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLink"])
 
 	Func setIsLink P1
-		dnRequest("set",[self,"IsLink",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsLink",P1])
 		return self
 
 	Func getActiveLinkColor
-		return dnRequest("get",[self,"ActiveLinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActiveLinkColor"])
 
 	Func setActiveLinkColor P1
-		dnRequest("set",[self,"ActiveLinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ActiveLinkColor",P1])
 		return self
 
 	Func getLinkBehavior
-		return dnRequest("get",[self,"LinkBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkBehavior"])
 
 	Func setLinkBehavior P1
-		dnRequest("set",[self,"LinkBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LinkBehavior",P1])
 		return self
 
 	Func getLinkColor
-		return dnRequest("get",[self,"LinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkColor"])
 
 	Func setLinkColor P1
-		dnRequest("set",[self,"LinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LinkColor",P1])
 		return self
 
 	Func getLinkVisited
-		return dnRequest("get",[self,"LinkVisited"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkVisited"])
 
 	Func setLinkVisited P1
-		dnRequest("set",[self,"LinkVisited",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LinkVisited",P1])
 		return self
 
 	Func getVisitedLinkColor
-		return dnRequest("get",[self,"VisitedLinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VisitedLinkColor"])
 
 	Func setVisitedLinkColor P1
-		dnRequest("set",[self,"VisitedLinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VisitedLinkColor",P1])
 		return self
 

@@ -16,19 +16,19 @@ Class XsltContext from XmlNamespaceManager
 		return self
 
 	Func ResolveVariable P1,P2
-		return dnRequest("call",[self,"ResolveVariable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveVariable",P1,P2])
 
 	Func ResolveFunction P1,P2,P3
-		return dnRequest("call",[self,"ResolveFunction",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveFunction",P1,P2,P3])
 
 	Func PreserveWhitespace P1
-		return dnRequest("call",[self,"PreserveWhitespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PreserveWhitespace",P1])
 
 	Func CompareDocument P1,P2
-		return dnRequest("call",[self,"CompareDocument",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareDocument",P1,P2])
 
 	Func getWhitespace
-		return dnRequest("get",[self,"Whitespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Whitespace"])
 
 	Func setWhitespace P1
 		raise("DotNet Error: Whitespace is a read-only property")

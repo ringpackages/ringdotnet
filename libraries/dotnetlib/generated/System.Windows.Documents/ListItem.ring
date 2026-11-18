@@ -41,92 +41,92 @@ Class ListItem from TextElement
 		return self
 
 	Func ShouldSerializeBlocks P1
-		return dnRequest("call",[self,"ShouldSerializeBlocks",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeBlocks",P1])
 
 	Func getList
-		return dnRequest("get",[self,"List"])
+		return dnRequest("get",[new DotNetObject(nHandle),"List"])
 
 	Func setList P1
 		raise("DotNet Error: List is a read-only property")
 
 	Func getBlocks
-		return dnRequest("get",[self,"Blocks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Blocks"])
 
 	Func setBlocks P1
 		raise("DotNet Error: Blocks is a read-only property")
 
 	Func getSiblingListItems
-		return dnRequest("get",[self,"SiblingListItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SiblingListItems"])
 
 	Func setSiblingListItems P1
 		raise("DotNet Error: SiblingListItems is a read-only property")
 
 	Func getNextListItem
-		return dnRequest("get",[self,"NextListItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NextListItem"])
 
 	Func setNextListItem P1
 		raise("DotNet Error: NextListItem is a read-only property")
 
 	Func getPreviousListItem
-		return dnRequest("get",[self,"PreviousListItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreviousListItem"])
 
 	Func setPreviousListItem P1
 		raise("DotNet Error: PreviousListItem is a read-only property")
 
 	Func getMargin
-		return dnRequest("get",[self,"Margin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Margin"])
 
 	Func setMargin P1
-		dnRequest("set",[self,"Margin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Margin",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[self,"Padding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[self,"Padding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
 		return self
 
 	Func getBorderThickness
-		return dnRequest("get",[self,"BorderThickness"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderThickness"])
 
 	Func setBorderThickness P1
-		dnRequest("set",[self,"BorderThickness",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderThickness",P1])
 		return self
 
 	Func getBorderBrush
-		return dnRequest("get",[self,"BorderBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderBrush"])
 
 	Func setBorderBrush P1
-		dnRequest("set",[self,"BorderBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderBrush",P1])
 		return self
 
 	Func getTextAlignment
-		return dnRequest("get",[self,"TextAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextAlignment"])
 
 	Func setTextAlignment P1
-		dnRequest("set",[self,"TextAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextAlignment",P1])
 		return self
 
 	Func getFlowDirection
-		return dnRequest("get",[self,"FlowDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FlowDirection"])
 
 	Func setFlowDirection P1
-		dnRequest("set",[self,"FlowDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FlowDirection",P1])
 		return self
 
 	Func getLineHeight
-		return dnRequest("get",[self,"LineHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineHeight"])
 
 	Func setLineHeight P1
-		dnRequest("set",[self,"LineHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineHeight",P1])
 		return self
 
 	Func getLineStackingStrategy
-		return dnRequest("get",[self,"LineStackingStrategy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineStackingStrategy"])
 
 	Func setLineStackingStrategy P1
-		dnRequest("set",[self,"LineStackingStrategy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineStackingStrategy",P1])
 		return self
 
 	Func getMarginProperty

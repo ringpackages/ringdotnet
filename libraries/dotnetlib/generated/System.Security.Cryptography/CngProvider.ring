@@ -20,10 +20,10 @@ Class CngProvider from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getProvider
-		return dnRequest("get",[self,"Provider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Provider"])
 
 	Func setProvider P1
 		raise("DotNet Error: Provider is a read-only property")

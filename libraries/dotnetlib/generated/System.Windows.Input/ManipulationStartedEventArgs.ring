@@ -18,26 +18,26 @@ Class ManipulationStartedEventArgs from InputEventArgs
 		return self
 
 	Func Complete 
-		dnRequest("call",[self,"Complete"])
+		dnRequest("call",[new DotNetObject(nHandle),"Complete"])
 		return self
 
 	Func Cancel 
-		return dnRequest("call",[self,"Cancel"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
 
 	Func getManipulationContainer
-		return dnRequest("get",[self,"ManipulationContainer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationContainer"])
 
 	Func setManipulationContainer P1
 		raise("DotNet Error: ManipulationContainer is a read-only property")
 
 	Func getManipulationOrigin
-		return dnRequest("get",[self,"ManipulationOrigin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationOrigin"])
 
 	Func setManipulationOrigin P1
 		raise("DotNet Error: ManipulationOrigin is a read-only property")
 
 	Func getManipulators
-		return dnRequest("get",[self,"Manipulators"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Manipulators"])
 
 	Func setManipulators P1
 		raise("DotNet Error: Manipulators is a read-only property")

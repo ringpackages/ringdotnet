@@ -20,106 +20,106 @@ Class CountdownEvent from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Signal P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Signal",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Signal",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Signal"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Signal"])
 		ok
-		return dnRequest("call",[self,"Signal",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Signal",P1])
 
 	Func Signal_1 P1
-		return dnRequest("call",[self,"Signal",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Signal",P1])
 
 	Func AddCount P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AddCount",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddCount",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"AddCount"])
+			dnRequest("call",[new DotNetObject(nHandle),"AddCount"])
 		return self
 		ok
-		dnRequest("call",[self,"AddCount",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddCount",P1])
 		return self
 
 	Func TryAddCount P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryAddCount",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAddCount",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryAddCount"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryAddCount"])
 		ok
-		return dnRequest("call",[self,"TryAddCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddCount",P1])
 
 	Func AddCount_1 P1
-		dnRequest("call",[self,"AddCount",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddCount",P1])
 		return self
 
 	Func TryAddCount_1 P1
-		return dnRequest("call",[self,"TryAddCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddCount",P1])
 
 	Func Reset P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Reset",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Reset",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Reset"])
+			dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 		ok
-		dnRequest("call",[self,"Reset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset",P1])
 		return self
 
 	Func Reset_1 P1
-		dnRequest("call",[self,"Reset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset",P1])
 		return self
 
 	Func Wait P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Wait",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Wait",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Wait"])
+			dnRequest("call",[new DotNetObject(nHandle),"Wait"])
 		return self
 		ok
-		dnRequest("call",[self,"Wait",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 		return self
 
 	Func Wait_1 P1
-		dnRequest("call",[self,"Wait",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 		return self
 
 	Func Wait_2 P1,P2
-		return dnRequest("call",[self,"Wait",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrentCount
-		return dnRequest("get",[self,"CurrentCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentCount"])
 
 	Func setCurrentCount P1
 		raise("DotNet Error: CurrentCount is a read-only property")
 
 	Func getInitialCount
-		return dnRequest("get",[self,"InitialCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialCount"])
 
 	Func setInitialCount P1
 		raise("DotNet Error: InitialCount is a read-only property")
 
 	Func getIsSet
-		return dnRequest("get",[self,"IsSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSet"])
 
 	Func setIsSet P1
 		raise("DotNet Error: IsSet is a read-only property")
 
 	Func getWaitHandle
-		return dnRequest("get",[self,"WaitHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WaitHandle"])
 
 	Func setWaitHandle P1
 		raise("DotNet Error: WaitHandle is a read-only property")

@@ -29,149 +29,149 @@ Class NotifyIcon from Component
 
 	Func ShowBalloonTip P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ShowBalloonTip",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ShowBalloonTip",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ShowBalloonTip",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowBalloonTip",P1])
 		return self
 
 	Func ShowBalloonTip_4 P1,P2,P3,P4
-		dnRequest("call",[self,"ShowBalloonTip",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowBalloonTip",P1,P2,P3,P4])
 		return self
 
 	Func setBalloonTipClickedEvent P1
-		dnRequest("setevent",[self,"BalloonTipClicked",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BalloonTipClicked",dnCallback(P1)])
 		return self
 
 	Func clearBalloonTipClickedEvent
-		dnRequest("clearevent",[self,"BalloonTipClicked"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BalloonTipClicked"])
 		return self
 
 	Func setBalloonTipClosedEvent P1
-		dnRequest("setevent",[self,"BalloonTipClosed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BalloonTipClosed",dnCallback(P1)])
 		return self
 
 	Func clearBalloonTipClosedEvent
-		dnRequest("clearevent",[self,"BalloonTipClosed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BalloonTipClosed"])
 		return self
 
 	Func setBalloonTipShownEvent P1
-		dnRequest("setevent",[self,"BalloonTipShown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BalloonTipShown",dnCallback(P1)])
 		return self
 
 	Func clearBalloonTipShownEvent
-		dnRequest("clearevent",[self,"BalloonTipShown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BalloonTipShown"])
 		return self
 
 	Func setClickEvent P1
-		dnRequest("setevent",[self,"Click",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[self,"Click"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
 		return self
 
 	Func setDoubleClickEvent P1
-		dnRequest("setevent",[self,"DoubleClick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearDoubleClickEvent
-		dnRequest("clearevent",[self,"DoubleClick"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DoubleClick"])
 		return self
 
 	Func setMouseClickEvent P1
-		dnRequest("setevent",[self,"MouseClick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseClick",dnCallback(P1)])
 		return self
 
 	Func clearMouseClickEvent
-		dnRequest("clearevent",[self,"MouseClick"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseClick"])
 		return self
 
 	Func setMouseDoubleClickEvent P1
-		dnRequest("setevent",[self,"MouseDoubleClick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearMouseDoubleClickEvent
-		dnRequest("clearevent",[self,"MouseDoubleClick"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDoubleClick"])
 		return self
 
 	Func setMouseDownEvent P1
-		dnRequest("setevent",[self,"MouseDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseDownEvent
-		dnRequest("clearevent",[self,"MouseDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDown"])
 		return self
 
 	Func setMouseMoveEvent P1
-		dnRequest("setevent",[self,"MouseMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseMove",dnCallback(P1)])
 		return self
 
 	Func clearMouseMoveEvent
-		dnRequest("clearevent",[self,"MouseMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseMove"])
 		return self
 
 	Func setMouseUpEvent P1
-		dnRequest("setevent",[self,"MouseUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseUpEvent
-		dnRequest("clearevent",[self,"MouseUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseUp"])
 		return self
 
 	Func getBalloonTipText
-		return dnRequest("get",[self,"BalloonTipText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BalloonTipText"])
 
 	Func setBalloonTipText P1
-		dnRequest("set",[self,"BalloonTipText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BalloonTipText",P1])
 		return self
 
 	Func getBalloonTipIcon
-		return dnRequest("get",[self,"BalloonTipIcon"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BalloonTipIcon"])
 
 	Func setBalloonTipIcon P1
-		dnRequest("set",[self,"BalloonTipIcon",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BalloonTipIcon",P1])
 		return self
 
 	Func getBalloonTipTitle
-		return dnRequest("get",[self,"BalloonTipTitle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BalloonTipTitle"])
 
 	Func setBalloonTipTitle P1
-		dnRequest("set",[self,"BalloonTipTitle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BalloonTipTitle",P1])
 		return self
 
 	Func getContextMenuStrip
-		return dnRequest("get",[self,"ContextMenuStrip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextMenuStrip"])
 
 	Func setContextMenuStrip P1
-		dnRequest("set",[self,"ContextMenuStrip",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContextMenuStrip",P1])
 		return self
 
 	Func getIcon
-		return dnRequest("get",[self,"Icon"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Icon"])
 
 	Func setIcon P1
-		dnRequest("set",[self,"Icon",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Icon",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
-		dnRequest("set",[self,"Text",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
 		return self
 
 	Func getVisible
-		return dnRequest("get",[self,"Visible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Visible"])
 
 	Func setVisible P1
-		dnRequest("set",[self,"Visible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Visible",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 

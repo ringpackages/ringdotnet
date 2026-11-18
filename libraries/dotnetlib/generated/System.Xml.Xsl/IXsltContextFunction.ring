@@ -19,28 +19,28 @@ Class IXsltContextFunction from DotNetObject
 		return self
 
 	Func Invoke P1,P2,P3
-		return dnRequest("call",[self,"Invoke",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3])
 
 	Func getMinargs
-		return dnRequest("get",[self,"Minargs"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minargs"])
 
 	Func setMinargs P1
 		raise("DotNet Error: Minargs is a read-only property")
 
 	Func getMaxargs
-		return dnRequest("get",[self,"Maxargs"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Maxargs"])
 
 	Func setMaxargs P1
 		raise("DotNet Error: Maxargs is a read-only property")
 
 	Func getReturnType
-		return dnRequest("get",[self,"ReturnType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnType"])
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
 
 	Func getArgTypes
-		return dnRequest("get",[self,"ArgTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ArgTypes"])
 
 	Func setArgTypes P1
 		raise("DotNet Error: ArgTypes is a read-only property")

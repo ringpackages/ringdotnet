@@ -17,37 +17,37 @@ Class CriticalHandle from DotNetObject
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func SetHandleAsInvalid 
-		dnRequest("call",[self,"SetHandleAsInvalid"])
+		dnRequest("call",[new DotNetObject(nHandle),"SetHandleAsInvalid"])
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getIsClosed
-		return dnRequest("get",[self,"IsClosed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsClosed"])
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getIsInvalid
-		return dnRequest("get",[self,"IsInvalid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInvalid"])
 
 	Func setIsInvalid P1
 		raise("DotNet Error: IsInvalid is a read-only property")

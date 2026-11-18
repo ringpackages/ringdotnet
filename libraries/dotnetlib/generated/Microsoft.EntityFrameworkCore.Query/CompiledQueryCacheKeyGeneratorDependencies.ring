@@ -19,26 +19,26 @@ Class CompiledQueryCacheKeyGeneratorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
-		dnRequest("set",[self,"Model",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Model",P1])
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[self,"CurrentContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentContext"])
 
 	Func setCurrentContext P1
-		dnRequest("set",[self,"CurrentContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentContext",P1])
 		return self
 
 	Func getIsRetryingExecutionStrategy
-		return dnRequest("get",[self,"IsRetryingExecutionStrategy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRetryingExecutionStrategy"])
 
 	Func setIsRetryingExecutionStrategy P1
-		dnRequest("set",[self,"IsRetryingExecutionStrategy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsRetryingExecutionStrategy",P1])
 		return self
 

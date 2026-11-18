@@ -17,18 +17,18 @@ Class Adorner from FrameworkElement
 		return self
 
 	Func GetDesiredTransform P1
-		return dnRequest("call",[self,"GetDesiredTransform",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDesiredTransform",P1])
 
 	Func getAdornedElement
-		return dnRequest("get",[self,"AdornedElement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AdornedElement"])
 
 	Func setAdornedElement P1
 		raise("DotNet Error: AdornedElement is a read-only property")
 
 	Func getIsClipEnabled
-		return dnRequest("get",[self,"IsClipEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsClipEnabled"])
 
 	Func setIsClipEnabled P1
-		dnRequest("set",[self,"IsClipEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsClipEnabled",P1])
 		return self
 

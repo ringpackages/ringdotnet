@@ -27,76 +27,76 @@ Class WebSocketContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequestUri
-		return dnRequest("get",[self,"RequestUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestUri"])
 
 	Func setRequestUri P1
 		raise("DotNet Error: RequestUri is a read-only property")
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getOrigin
-		return dnRequest("get",[self,"Origin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Origin"])
 
 	Func setOrigin P1
 		raise("DotNet Error: Origin is a read-only property")
 
 	Func getSecWebSocketProtocols
-		return dnRequest("get",[self,"SecWebSocketProtocols"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecWebSocketProtocols"])
 
 	Func setSecWebSocketProtocols P1
 		raise("DotNet Error: SecWebSocketProtocols is a read-only property")
 
 	Func getSecWebSocketVersion
-		return dnRequest("get",[self,"SecWebSocketVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecWebSocketVersion"])
 
 	Func setSecWebSocketVersion P1
 		raise("DotNet Error: SecWebSocketVersion is a read-only property")
 
 	Func getSecWebSocketKey
-		return dnRequest("get",[self,"SecWebSocketKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecWebSocketKey"])
 
 	Func setSecWebSocketKey P1
 		raise("DotNet Error: SecWebSocketKey is a read-only property")
 
 	Func getCookieCollection
-		return dnRequest("get",[self,"CookieCollection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CookieCollection"])
 
 	Func setCookieCollection P1
 		raise("DotNet Error: CookieCollection is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[self,"User"])
+		return dnRequest("get",[new DotNetObject(nHandle),"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getIsAuthenticated
-		return dnRequest("get",[self,"IsAuthenticated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAuthenticated"])
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getIsLocal
-		return dnRequest("get",[self,"IsLocal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLocal"])
 
 	Func setIsLocal P1
 		raise("DotNet Error: IsLocal is a read-only property")
 
 	Func getIsSecureConnection
-		return dnRequest("get",[self,"IsSecureConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSecureConnection"])
 
 	Func setIsSecureConnection P1
 		raise("DotNet Error: IsSecureConnection is a read-only property")
 
 	Func getWebSocket
-		return dnRequest("get",[self,"WebSocket"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WebSocket"])
 
 	Func setWebSocket P1
 		raise("DotNet Error: WebSocket is a read-only property")

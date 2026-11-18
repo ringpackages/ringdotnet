@@ -22,10 +22,10 @@ Class CngAlgorithmGroup from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAlgorithmGroup
-		return dnRequest("get",[self,"AlgorithmGroup"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AlgorithmGroup"])
 
 	Func setAlgorithmGroup P1
 		raise("DotNet Error: AlgorithmGroup is a read-only property")

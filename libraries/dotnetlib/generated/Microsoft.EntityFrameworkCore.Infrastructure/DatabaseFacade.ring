@@ -21,132 +21,132 @@ Class DatabaseFacade from Object
 		return self
 
 	Func EnsureCreated 
-		return dnRequest("call",[self,"EnsureCreated"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreated"])
 
 	Func EnsureCreatedAsync_1 P1
-		return dnRequest("call",[self,"EnsureCreatedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
 
 	Func EnsureCreatedAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnsureCreatedAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnsureCreatedAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreatedAsync"])
 		ok
-		return dnRequest("call",[self,"EnsureCreatedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
 
 	Func EnsureDeleted 
-		return dnRequest("call",[self,"EnsureDeleted"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeleted"])
 
 	Func EnsureDeletedAsync_1 P1
-		return dnRequest("call",[self,"EnsureDeletedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
 
 	Func EnsureDeletedAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnsureDeletedAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnsureDeletedAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeletedAsync"])
 		ok
-		return dnRequest("call",[self,"EnsureDeletedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
 
 	Func CanConnect 
-		return dnRequest("call",[self,"CanConnect"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConnect"])
 
 	Func CanConnectAsync_1 P1
-		return dnRequest("call",[self,"CanConnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConnectAsync",P1])
 
 	Func CanConnectAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanConnectAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanConnectAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CanConnectAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CanConnectAsync"])
 		ok
-		return dnRequest("call",[self,"CanConnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConnectAsync",P1])
 
 	Func BeginTransaction 
-		return dnRequest("call",[self,"BeginTransaction"])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction"])
 
 	Func BeginTransactionAsync_1 P1
-		return dnRequest("call",[self,"BeginTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
 
 	Func BeginTransactionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"BeginTransactionAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync"])
 		ok
-		return dnRequest("call",[self,"BeginTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
 
 	Func CommitTransaction 
-		dnRequest("call",[self,"CommitTransaction"])
+		dnRequest("call",[new DotNetObject(nHandle),"CommitTransaction"])
 		return self
 
 	Func CommitTransactionAsync_1 P1
-		return dnRequest("call",[self,"CommitTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
 
 	Func CommitTransactionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CommitTransactionAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CommitTransactionAsync"])
 		ok
-		return dnRequest("call",[self,"CommitTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
 
 	Func RollbackTransaction 
-		dnRequest("call",[self,"RollbackTransaction"])
+		dnRequest("call",[new DotNetObject(nHandle),"RollbackTransaction"])
 		return self
 
 	Func RollbackTransactionAsync_1 P1
-		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 
 	Func RollbackTransactionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RollbackTransactionAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync"])
 		ok
-		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 
 	Func CreateExecutionStrategy 
-		return dnRequest("call",[self,"CreateExecutionStrategy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateExecutionStrategy"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrentTransaction
-		return dnRequest("get",[self,"CurrentTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentTransaction"])
 
 	Func setCurrentTransaction P1
 		raise("DotNet Error: CurrentTransaction is a read-only property")
 
 	Func getAutoTransactionsEnabled
-		return dnRequest("get",[self,"AutoTransactionsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoTransactionsEnabled"])
 
 	Func setAutoTransactionsEnabled P1
-		dnRequest("set",[self,"AutoTransactionsEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoTransactionsEnabled",P1])
 		return self
 
 	Func getAutoTransactionBehavior
-		return dnRequest("get",[self,"AutoTransactionBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoTransactionBehavior"])
 
 	Func setAutoTransactionBehavior P1
-		dnRequest("set",[self,"AutoTransactionBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoTransactionBehavior",P1])
 		return self
 
 	Func getAutoSavepointsEnabled
-		return dnRequest("get",[self,"AutoSavepointsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoSavepointsEnabled"])
 
 	Func setAutoSavepointsEnabled P1
-		dnRequest("set",[self,"AutoSavepointsEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoSavepointsEnabled",P1])
 		return self
 
 	Func getProviderName
-		return dnRequest("get",[self,"ProviderName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProviderName"])
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")

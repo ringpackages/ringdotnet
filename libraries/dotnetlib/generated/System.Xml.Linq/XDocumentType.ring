@@ -24,30 +24,30 @@ Class XDocumentType from XNode
 		return self
 
 	Func getInternalSubset
-		return dnRequest("get",[self,"InternalSubset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InternalSubset"])
 
 	Func setInternalSubset P1
-		dnRequest("set",[self,"InternalSubset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InternalSubset",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getPublicId
-		return dnRequest("get",[self,"PublicId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PublicId"])
 
 	Func setPublicId P1
-		dnRequest("set",[self,"PublicId",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PublicId",P1])
 		return self
 
 	Func getSystemId
-		return dnRequest("get",[self,"SystemId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SystemId"])
 
 	Func setSystemId P1
-		dnRequest("set",[self,"SystemId",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SystemId",P1])
 		return self
 

@@ -23,8 +23,8 @@ Class X509SubjectAlternativeNameExtension from X509Extension
 		return self
 
 	Func EnumerateDnsNames 
-		return dnRequest("call",[self,"EnumerateDnsNames"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDnsNames"])
 
 	Func EnumerateIPAddresses 
-		return dnRequest("call",[self,"EnumerateIPAddresses"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateIPAddresses"])
 

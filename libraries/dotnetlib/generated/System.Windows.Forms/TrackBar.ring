@@ -25,101 +25,101 @@ Class TrackBar from Control
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func SetRange P1,P2
-		dnRequest("call",[self,"SetRange",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetRange",P1,P2])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[self,"RightToLeftLayoutChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[self,"RightToLeftLayoutChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
 		return self
 
 	Func setScrollEvent P1
-		dnRequest("setevent",[self,"Scroll",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Scroll",dnCallback(P1)])
 		return self
 
 	Func clearScrollEvent
-		dnRequest("clearevent",[self,"Scroll"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Scroll"])
 		return self
 
 	Func setValueChangedEvent P1
-		dnRequest("setevent",[self,"ValueChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearValueChangedEvent
-		dnRequest("clearevent",[self,"ValueChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ValueChanged"])
 		return self
 
 	Func getLargeChange
-		return dnRequest("get",[self,"LargeChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LargeChange"])
 
 	Func setLargeChange P1
-		dnRequest("set",[self,"LargeChange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LargeChange",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[self,"Maximum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[self,"Maximum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[self,"Minimum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[self,"Minimum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[self,"Orientation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[self,"Orientation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[self,"RightToLeftLayout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[self,"RightToLeftLayout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
 		return self
 
 	Func getSmallChange
-		return dnRequest("get",[self,"SmallChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SmallChange"])
 
 	Func setSmallChange P1
-		dnRequest("set",[self,"SmallChange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SmallChange",P1])
 		return self
 
 	Func getTickStyle
-		return dnRequest("get",[self,"TickStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TickStyle"])
 
 	Func setTickStyle P1
-		dnRequest("set",[self,"TickStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TickStyle",P1])
 		return self
 
 	Func getTickFrequency
-		return dnRequest("get",[self,"TickFrequency"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TickFrequency"])
 
 	Func setTickFrequency P1
-		dnRequest("set",[self,"TickFrequency",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TickFrequency",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 

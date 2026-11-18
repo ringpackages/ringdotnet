@@ -15,10 +15,10 @@ Class RenderTargetBitmap from BitmapSource
 		return self
 
 	Func Render P1
-		dnRequest("call",[self,"Render",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Render",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 

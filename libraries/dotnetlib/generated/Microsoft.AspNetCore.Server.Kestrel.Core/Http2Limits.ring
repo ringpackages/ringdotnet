@@ -24,61 +24,61 @@ Class Http2Limits from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMaxStreamsPerConnection
-		return dnRequest("get",[self,"MaxStreamsPerConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxStreamsPerConnection"])
 
 	Func setMaxStreamsPerConnection P1
-		dnRequest("set",[self,"MaxStreamsPerConnection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxStreamsPerConnection",P1])
 		return self
 
 	Func getHeaderTableSize
-		return dnRequest("get",[self,"HeaderTableSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTableSize"])
 
 	Func setHeaderTableSize P1
-		dnRequest("set",[self,"HeaderTableSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderTableSize",P1])
 		return self
 
 	Func getMaxFrameSize
-		return dnRequest("get",[self,"MaxFrameSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxFrameSize"])
 
 	Func setMaxFrameSize P1
-		dnRequest("set",[self,"MaxFrameSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxFrameSize",P1])
 		return self
 
 	Func getMaxRequestHeaderFieldSize
-		return dnRequest("get",[self,"MaxRequestHeaderFieldSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestHeaderFieldSize"])
 
 	Func setMaxRequestHeaderFieldSize P1
-		dnRequest("set",[self,"MaxRequestHeaderFieldSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestHeaderFieldSize",P1])
 		return self
 
 	Func getInitialConnectionWindowSize
-		return dnRequest("get",[self,"InitialConnectionWindowSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialConnectionWindowSize"])
 
 	Func setInitialConnectionWindowSize P1
-		dnRequest("set",[self,"InitialConnectionWindowSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InitialConnectionWindowSize",P1])
 		return self
 
 	Func getInitialStreamWindowSize
-		return dnRequest("get",[self,"InitialStreamWindowSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialStreamWindowSize"])
 
 	Func setInitialStreamWindowSize P1
-		dnRequest("set",[self,"InitialStreamWindowSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InitialStreamWindowSize",P1])
 		return self
 
 	Func getKeepAlivePingDelay
-		return dnRequest("get",[self,"KeepAlivePingDelay"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlivePingDelay"])
 
 	Func setKeepAlivePingDelay P1
-		dnRequest("set",[self,"KeepAlivePingDelay",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAlivePingDelay",P1])
 		return self
 
 	Func getKeepAlivePingTimeout
-		return dnRequest("get",[self,"KeepAlivePingTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlivePingTimeout"])
 
 	Func setKeepAlivePingTimeout P1
-		dnRequest("set",[self,"KeepAlivePingTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAlivePingTimeout",P1])
 		return self
 

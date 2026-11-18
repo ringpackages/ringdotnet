@@ -22,76 +22,76 @@ Class CaseInsensitiveValueComparer from DotNetObject
 		return self
 
 	Func Equals_2 P1,P2
-		return dnRequest("call",[self,"Equals",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
 
 	Func GetHashCode_1 P1
-		return dnRequest("call",[self,"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
 
 	Func Snapshot P1
-		return dnRequest("call",[self,"Snapshot",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Snapshot",P1])
 
 	Func ExtractEqualsBody P1,P2
-		return dnRequest("call",[self,"ExtractEqualsBody",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExtractEqualsBody",P1,P2])
 
 	Func ExtractHashCodeBody P1
-		return dnRequest("call",[self,"ExtractHashCodeBody",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExtractHashCodeBody",P1])
 
 	Func ExtractSnapshotBody P1
-		return dnRequest("call",[self,"ExtractSnapshotBody",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExtractSnapshotBody",P1])
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetHashCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHashCode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetHashCode"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 		ok
-		return dnRequest("call",[self,"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
 
 	Func getObjectEqualsExpression
-		return dnRequest("get",[self,"ObjectEqualsExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ObjectEqualsExpression"])
 
 	Func setObjectEqualsExpression P1
 		raise("DotNet Error: ObjectEqualsExpression is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getEqualsExpression
-		return dnRequest("get",[self,"EqualsExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EqualsExpression"])
 
 	Func setEqualsExpression P1
 		raise("DotNet Error: EqualsExpression is a read-only property")
 
 	Func getHashCodeExpression
-		return dnRequest("get",[self,"HashCodeExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashCodeExpression"])
 
 	Func setHashCodeExpression P1
 		raise("DotNet Error: HashCodeExpression is a read-only property")
 
 	Func getSnapshotExpression
-		return dnRequest("get",[self,"SnapshotExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SnapshotExpression"])
 
 	Func setSnapshotExpression P1
 		raise("DotNet Error: SnapshotExpression is a read-only property")
 
 	Func getConstructorExpression
-		return dnRequest("get",[self,"ConstructorExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConstructorExpression"])
 
 	Func setConstructorExpression P1
 		raise("DotNet Error: ConstructorExpression is a read-only property")

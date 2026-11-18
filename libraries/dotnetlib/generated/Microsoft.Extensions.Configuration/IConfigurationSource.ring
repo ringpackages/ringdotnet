@@ -14,5 +14,5 @@ Class IConfigurationSource from DotNetObject
 		return self
 
 	Func Build P1
-		return dnRequest("call",[self,"Build",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1])
 

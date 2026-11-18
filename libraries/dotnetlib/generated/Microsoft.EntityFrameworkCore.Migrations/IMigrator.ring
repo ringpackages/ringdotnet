@@ -14,54 +14,54 @@ Class IMigrator from DotNetObject
 		return self
 
 	Func Migrate_1 P1
-		dnRequest("call",[self,"Migrate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Migrate",P1])
 		return self
 
 	Func Migrate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Migrate",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Migrate",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Migrate"])
+			dnRequest("call",[new DotNetObject(nHandle),"Migrate"])
 		return self
 		ok
-		dnRequest("call",[self,"Migrate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Migrate",P1])
 		return self
 
 	Func MigrateAsync_2 P1,P2
-		return dnRequest("call",[self,"MigrateAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"MigrateAsync",P1,P2])
 
 	Func MigrateAsync_1 P1
-		return dnRequest("call",[self,"MigrateAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MigrateAsync",P1])
 
 	Func MigrateAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"MigrateAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"MigrateAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"MigrateAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"MigrateAsync"])
 		ok
-		return dnRequest("call",[self,"MigrateAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MigrateAsync",P1])
 
 	Func GenerateScript_3 P1,P2,P3
-		return dnRequest("call",[self,"GenerateScript",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateScript",P1,P2,P3])
 
 	Func GenerateScript_2 P1,P2
-		return dnRequest("call",[self,"GenerateScript",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateScript",P1,P2])
 
 	Func GenerateScript_1 P1
-		return dnRequest("call",[self,"GenerateScript",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateScript",P1])
 
 	Func GenerateScript P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GenerateScript",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GenerateScript",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GenerateScript"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GenerateScript"])
 		ok
-		return dnRequest("call",[self,"GenerateScript",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateScript",P1])
 
 	Func HasPendingModelChanges 
-		return dnRequest("call",[self,"HasPendingModelChanges"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasPendingModelChanges"])
 

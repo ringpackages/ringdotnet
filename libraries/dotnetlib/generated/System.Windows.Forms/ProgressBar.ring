@@ -22,67 +22,67 @@ Class ProgressBar from Control
 		return self
 
 	Func Increment P1
-		dnRequest("call",[self,"Increment",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Increment",P1])
 		return self
 
 	Func PerformStep 
-		dnRequest("call",[self,"PerformStep"])
+		dnRequest("call",[new DotNetObject(nHandle),"PerformStep"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[self,"RightToLeftLayoutChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[self,"RightToLeftLayoutChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
 		return self
 
 	Func getStyle
-		return dnRequest("get",[self,"Style"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
 
 	Func setStyle P1
-		dnRequest("set",[self,"Style",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Style",P1])
 		return self
 
 	Func getMarqueeAnimationSpeed
-		return dnRequest("get",[self,"MarqueeAnimationSpeed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MarqueeAnimationSpeed"])
 
 	Func setMarqueeAnimationSpeed P1
-		dnRequest("set",[self,"MarqueeAnimationSpeed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MarqueeAnimationSpeed",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[self,"Maximum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[self,"Maximum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[self,"Minimum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[self,"Minimum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[self,"RightToLeftLayout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[self,"RightToLeftLayout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
 		return self
 
 	Func getStep
-		return dnRequest("get",[self,"Step"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Step"])
 
 	Func setStep P1
-		dnRequest("set",[self,"Step",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Step",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 

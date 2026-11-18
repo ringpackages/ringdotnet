@@ -17,7 +17,7 @@ Class UpDownEventArgs from EventArgs
 		return self
 
 	Func getButtonID
-		return dnRequest("get",[self,"ButtonID"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ButtonID"])
 
 	Func setButtonID P1
 		raise("DotNet Error: ButtonID is a read-only property")

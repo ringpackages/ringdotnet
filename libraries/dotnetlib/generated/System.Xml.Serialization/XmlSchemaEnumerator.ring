@@ -17,17 +17,17 @@ Class XmlSchemaEnumerator from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[self,"MoveNext"])
+		return dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Current"])
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")

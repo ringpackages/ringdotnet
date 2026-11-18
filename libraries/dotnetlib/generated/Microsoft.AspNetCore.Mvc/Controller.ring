@@ -19,83 +19,83 @@ Class Controller from ControllerBase
 
 	Func View P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"View",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"View",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"View"])
+			return dnRequest("call",[new DotNetObject(nHandle),"View"])
 		ok
-		return dnRequest("call",[self,"View",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"View",P1])
 
 	Func View_1 P1
-		return dnRequest("call",[self,"View",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"View",P1])
 
 	Func View_2 P1,P2
-		return dnRequest("call",[self,"View",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"View",P1,P2])
 
 	Func PartialView P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"PartialView",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"PartialView",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"PartialView"])
+			return dnRequest("call",[new DotNetObject(nHandle),"PartialView"])
 		ok
-		return dnRequest("call",[self,"PartialView",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PartialView",P1])
 
 	Func PartialView_1 P1
-		return dnRequest("call",[self,"PartialView",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PartialView",P1])
 
 	Func PartialView_2 P1,P2
-		return dnRequest("call",[self,"PartialView",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"PartialView",P1,P2])
 
 	Func ViewComponent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ViewComponent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ViewComponent",P1])
 		ok
-		return dnRequest("call",[self,"ViewComponent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ViewComponent",P1])
 
 	Func ViewComponent_2 P1,P2
-		return dnRequest("call",[self,"ViewComponent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ViewComponent",P1,P2])
 
 	Func Json P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Json",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Json",P1])
 		ok
-		return dnRequest("call",[self,"Json",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Json",P1])
 
 	Func Json_2 P1,P2
-		return dnRequest("call",[self,"Json",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Json",P1,P2])
 
 	Func OnActionExecuting P1
-		dnRequest("call",[self,"OnActionExecuting",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnActionExecuting",P1])
 		return self
 
 	Func OnActionExecuted P1
-		dnRequest("call",[self,"OnActionExecuted",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnActionExecuted",P1])
 		return self
 
 	Func OnActionExecutionAsync P1,P2
-		return dnRequest("call",[self,"OnActionExecutionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnActionExecutionAsync",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func getViewData
-		return dnRequest("get",[self,"ViewData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewData"])
 
 	Func setViewData P1
-		dnRequest("set",[self,"ViewData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewData",P1])
 		return self
 
 	Func getTempData
-		return dnRequest("get",[self,"TempData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TempData"])
 
 	Func setTempData P1
-		dnRequest("set",[self,"TempData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TempData",P1])
 		return self
 
 	Func getViewBag
-		return dnRequest("get",[self,"ViewBag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewBag"])
 
 	Func setViewBag P1
 		raise("DotNet Error: ViewBag is a read-only property")

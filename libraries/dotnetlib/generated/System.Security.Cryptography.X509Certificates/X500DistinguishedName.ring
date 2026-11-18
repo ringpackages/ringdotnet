@@ -21,22 +21,22 @@ Class X500DistinguishedName from AsnEncodedData
 		return self
 
 	Func Decode P1
-		return dnRequest("call",[self,"Decode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Decode",P1])
 
 	Func EnumerateRelativeDistinguishedNames_1 P1
-		return dnRequest("call",[self,"EnumerateRelativeDistinguishedNames",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateRelativeDistinguishedNames",P1])
 
 	Func EnumerateRelativeDistinguishedNames P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnumerateRelativeDistinguishedNames",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateRelativeDistinguishedNames",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnumerateRelativeDistinguishedNames"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnumerateRelativeDistinguishedNames"])
 		ok
-		return dnRequest("call",[self,"EnumerateRelativeDistinguishedNames",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateRelativeDistinguishedNames",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

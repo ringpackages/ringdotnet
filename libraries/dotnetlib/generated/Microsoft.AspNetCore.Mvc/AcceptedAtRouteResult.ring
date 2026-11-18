@@ -23,23 +23,23 @@ Class AcceptedAtRouteResult from ObjectResult
 		return self
 
 	Func getUrlHelper
-		return dnRequest("get",[self,"UrlHelper"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UrlHelper"])
 
 	Func setUrlHelper P1
-		dnRequest("set",[self,"UrlHelper",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UrlHelper",P1])
 		return self
 
 	Func getRouteName
-		return dnRequest("get",[self,"RouteName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteName"])
 
 	Func setRouteName P1
-		dnRequest("set",[self,"RouteName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RouteName",P1])
 		return self
 
 	Func getRouteValues
-		return dnRequest("get",[self,"RouteValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteValues"])
 
 	Func setRouteValues P1
-		dnRequest("set",[self,"RouteValues",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RouteValues",P1])
 		return self
 

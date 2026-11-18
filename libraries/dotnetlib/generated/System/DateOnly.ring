@@ -28,40 +28,40 @@ Class DateOnly from ValueType
 		return self
 
 	Func AddDays P1
-		return dnRequest("call",[self,"AddDays",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddDays",P1])
 
 	Func AddMonths P1
-		return dnRequest("call",[self,"AddMonths",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddMonths",P1])
 
 	Func AddYears P1
-		return dnRequest("call",[self,"AddYears",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddYears",P1])
 
 	Func Deconstruct 
-		return dnRequest("call",[self,"Deconstruct"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
 
 	Func ToDateTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDateTime",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDateTime",P1])
 		ok
-		return dnRequest("call",[self,"ToDateTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDateTime",P1])
 
 	Func ToDateTime_2 P1,P2
-		return dnRequest("call",[self,"ToDateTime",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDateTime",P1,P2])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func ToLongDateString 
-		return dnRequest("call",[self,"ToLongDateString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToLongDateString"])
 
 	Func ToShortDateString 
-		return dnRequest("call",[self,"ToShortDateString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToShortDateString"])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func FromDayNumber P1
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"FromDayNumber",P1])
@@ -109,37 +109,37 @@ Class DateOnly from ValueType
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func getYear
-		return dnRequest("get",[self,"Year"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Year"])
 
 	Func setYear P1
 		raise("DotNet Error: Year is a read-only property")
 
 	Func getMonth
-		return dnRequest("get",[self,"Month"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Month"])
 
 	Func setMonth P1
 		raise("DotNet Error: Month is a read-only property")
 
 	Func getDay
-		return dnRequest("get",[self,"Day"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Day"])
 
 	Func setDay P1
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnRequest("get",[self,"DayOfWeek"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DayOfWeek"])
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
 
 	Func getDayOfYear
-		return dnRequest("get",[self,"DayOfYear"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DayOfYear"])
 
 	Func setDayOfYear P1
 		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getDayNumber
-		return dnRequest("get",[self,"DayNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DayNumber"])
 
 	Func setDayNumber P1
 		raise("DotNet Error: DayNumber is a read-only property")

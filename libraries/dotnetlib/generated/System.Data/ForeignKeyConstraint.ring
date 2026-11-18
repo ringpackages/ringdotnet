@@ -34,41 +34,41 @@ Class ForeignKeyConstraint from Constraint
 		return self
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getAcceptRejectRule
-		return dnRequest("get",[self,"AcceptRejectRule"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptRejectRule"])
 
 	Func setAcceptRejectRule P1
-		dnRequest("set",[self,"AcceptRejectRule",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptRejectRule",P1])
 		return self
 
 	Func getDeleteRule
-		return dnRequest("get",[self,"DeleteRule"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeleteRule"])
 
 	Func setDeleteRule P1
-		dnRequest("set",[self,"DeleteRule",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DeleteRule",P1])
 		return self
 
 	Func getRelatedColumns
-		return dnRequest("get",[self,"RelatedColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelatedColumns"])
 
 	Func setRelatedColumns P1
 		raise("DotNet Error: RelatedColumns is a read-only property")
 
 	Func getRelatedTable
-		return dnRequest("get",[self,"RelatedTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelatedTable"])
 
 	Func setRelatedTable P1
 		raise("DotNet Error: RelatedTable is a read-only property")
 
 	Func getUpdateRule
-		return dnRequest("get",[self,"UpdateRule"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpdateRule"])
 
 	Func setUpdateRule P1
-		dnRequest("set",[self,"UpdateRule",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpdateRule",P1])
 		return self
 

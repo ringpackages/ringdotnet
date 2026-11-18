@@ -20,9 +20,9 @@ Class Vector from Object
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func AsVector4 P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"AsVector4",P1])

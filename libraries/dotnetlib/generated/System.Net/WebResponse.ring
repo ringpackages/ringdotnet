@@ -22,56 +22,56 @@ Class WebResponse from MarshalByRefObject
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetResponseStream 
-		return dnRequest("call",[self,"GetResponseStream"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetResponseStream"])
 
 	Func getContentLength
-		return dnRequest("get",[self,"ContentLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength"])
 
 	Func setContentLength P1
-		dnRequest("set",[self,"ContentLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentLength",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 
 	Func getIsFromCache
-		return dnRequest("get",[self,"IsFromCache"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFromCache"])
 
 	Func setIsFromCache P1
 		raise("DotNet Error: IsFromCache is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dnRequest("get",[self,"IsMutuallyAuthenticated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMutuallyAuthenticated"])
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getResponseUri
-		return dnRequest("get",[self,"ResponseUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResponseUri"])
 
 	Func setResponseUri P1
 		raise("DotNet Error: ResponseUri is a read-only property")
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getSupportsHeaders
-		return dnRequest("get",[self,"SupportsHeaders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsHeaders"])
 
 	Func setSupportsHeaders P1
 		raise("DotNet Error: SupportsHeaders is a read-only property")

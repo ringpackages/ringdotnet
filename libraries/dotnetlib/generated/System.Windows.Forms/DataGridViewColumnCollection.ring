@@ -15,72 +15,72 @@ Class DataGridViewColumnCollection from BaseCollection
 		return self
 
 	Func Add_2 P1,P2
-		return dnRequest("call",[self,"Add",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[self,"AddRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func GetColumnCount P1
-		return dnRequest("call",[self,"GetColumnCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnCount",P1])
 
 	Func GetColumnsWidth P1
-		return dnRequest("call",[self,"GetColumnsWidth",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnsWidth",P1])
 
 	Func GetFirstColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetFirstColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFirstColumn",P1])
 		ok
-		return dnRequest("call",[self,"GetFirstColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstColumn",P1])
 
 	Func GetFirstColumn_2 P1,P2
-		return dnRequest("call",[self,"GetFirstColumn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstColumn",P1,P2])
 
 	Func GetLastColumn P1,P2
-		return dnRequest("call",[self,"GetLastColumn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLastColumn",P1,P2])
 
 	Func GetNextColumn P1,P2,P3
-		return dnRequest("call",[self,"GetNextColumn",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextColumn",P1,P2,P3])
 
 	Func GetPreviousColumn P1,P2,P3
-		return dnRequest("call",[self,"GetPreviousColumn",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPreviousColumn",P1,P2,P3])
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[self,"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[self,"CollectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[self,"CollectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
 		return self
 

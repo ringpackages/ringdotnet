@@ -21,31 +21,31 @@ Class TransactionStartingEventData from DbContextEventData
 		return self
 
 	Func getIsolationLevel
-		return dnRequest("get",[self,"IsolationLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsolationLevel"])
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
 
 	Func getTransactionId
-		return dnRequest("get",[self,"TransactionId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransactionId"])
 
 	Func setTransactionId P1
 		raise("DotNet Error: TransactionId is a read-only property")
 
 	Func getConnectionId
-		return dnRequest("get",[self,"ConnectionId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionId"])
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getIsAsync
-		return dnRequest("get",[self,"IsAsync"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getStartTime
-		return dnRequest("get",[self,"StartTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartTime"])
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")

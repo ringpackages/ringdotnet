@@ -15,7 +15,7 @@ Class FontWeight from ValueType
 		return self
 
 	Func ToOpenTypeWeight 
-		return dnRequest("call",[self,"ToOpenTypeWeight"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToOpenTypeWeight"])
 
 	Func FromOpenTypeWeight P1
 		return dnRequest("call",[dnTypeCached('System.Windows.FontWeight, PresentationCore'),"FromOpenTypeWeight",P1])

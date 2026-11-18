@@ -27,76 +27,76 @@ Class StringPriorityQueue from Object
 		return self
 
 	Func Enqueue P1,P2
-		dnRequest("call",[self,"Enqueue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Enqueue",P1,P2])
 		return self
 
 	Func Peek 
-		return dnRequest("call",[self,"Peek"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Peek"])
 
 	Func Dequeue 
-		return dnRequest("call",[self,"Dequeue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Dequeue"])
 
 	Func DequeueEnqueue P1,P2
-		return dnRequest("call",[self,"DequeueEnqueue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"DequeueEnqueue",P1,P2])
 
 	Func TryDequeue 
-		return dnRequest("call",[self,"TryDequeue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryDequeue"])
 
 	Func TryPeek 
-		return dnRequest("call",[self,"TryPeek"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryPeek"])
 
 	Func EnqueueDequeue P1,P2
-		return dnRequest("call",[self,"EnqueueDequeue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnqueueDequeue",P1,P2])
 
 	Func EnqueueRange P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"EnqueueRange",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"EnqueueRange",P1])
 			return self
 		ok
-		dnRequest("call",[self,"EnqueueRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EnqueueRange",P1])
 		return self
 
 	Func EnqueueRange_2 P1,P2
-		dnRequest("call",[self,"EnqueueRange",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"EnqueueRange",P1,P2])
 		return self
 
 	Func Remove_2 P1,P2
-		return dnRequest("call",[self,"Remove",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 
 	Func Remove P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Remove",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Remove",P1])
 		ok
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[self,"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCapacity",P1])
 
 	Func TrimExcess 
-		dnRequest("call",[self,"TrimExcess"])
+		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getUnorderedItems
-		return dnRequest("get",[self,"UnorderedItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnorderedItems"])
 
 	Func setUnorderedItems P1
 		raise("DotNet Error: UnorderedItems is a read-only property")

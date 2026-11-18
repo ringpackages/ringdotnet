@@ -26,107 +26,107 @@ Class Clock from DispatcherObject
 		return self
 
 	Func setCompletedEvent P1
-		dnRequest("setevent",[self,"Completed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Completed",dnCallback(P1)])
 		return self
 
 	Func clearCompletedEvent
-		dnRequest("clearevent",[self,"Completed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Completed"])
 		return self
 
 	Func setCurrentGlobalSpeedInvalidatedEvent P1
-		dnRequest("setevent",[self,"CurrentGlobalSpeedInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentGlobalSpeedInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentGlobalSpeedInvalidatedEvent
-		dnRequest("clearevent",[self,"CurrentGlobalSpeedInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentGlobalSpeedInvalidated"])
 		return self
 
 	Func setCurrentStateInvalidatedEvent P1
-		dnRequest("setevent",[self,"CurrentStateInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentStateInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentStateInvalidatedEvent
-		dnRequest("clearevent",[self,"CurrentStateInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentStateInvalidated"])
 		return self
 
 	Func setCurrentTimeInvalidatedEvent P1
-		dnRequest("setevent",[self,"CurrentTimeInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentTimeInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentTimeInvalidatedEvent
-		dnRequest("clearevent",[self,"CurrentTimeInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentTimeInvalidated"])
 		return self
 
 	Func setRemoveRequestedEvent P1
-		dnRequest("setevent",[self,"RemoveRequested",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RemoveRequested",dnCallback(P1)])
 		return self
 
 	Func clearRemoveRequestedEvent
-		dnRequest("clearevent",[self,"RemoveRequested"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RemoveRequested"])
 		return self
 
 	Func getController
-		return dnRequest("get",[self,"Controller"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Controller"])
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getCurrentIteration
-		return dnRequest("get",[self,"CurrentIteration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentIteration"])
 
 	Func setCurrentIteration P1
 		raise("DotNet Error: CurrentIteration is a read-only property")
 
 	Func getCurrentGlobalSpeed
-		return dnRequest("get",[self,"CurrentGlobalSpeed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentGlobalSpeed"])
 
 	Func setCurrentGlobalSpeed P1
 		raise("DotNet Error: CurrentGlobalSpeed is a read-only property")
 
 	Func getCurrentProgress
-		return dnRequest("get",[self,"CurrentProgress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentProgress"])
 
 	Func setCurrentProgress P1
 		raise("DotNet Error: CurrentProgress is a read-only property")
 
 	Func getCurrentState
-		return dnRequest("get",[self,"CurrentState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentState"])
 
 	Func setCurrentState P1
 		raise("DotNet Error: CurrentState is a read-only property")
 
 	Func getCurrentTime
-		return dnRequest("get",[self,"CurrentTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentTime"])
 
 	Func setCurrentTime P1
 		raise("DotNet Error: CurrentTime is a read-only property")
 
 	Func getHasControllableRoot
-		return dnRequest("get",[self,"HasControllableRoot"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasControllableRoot"])
 
 	Func setHasControllableRoot P1
 		raise("DotNet Error: HasControllableRoot is a read-only property")
 
 	Func getIsPaused
-		return dnRequest("get",[self,"IsPaused"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPaused"])
 
 	Func setIsPaused P1
 		raise("DotNet Error: IsPaused is a read-only property")
 
 	Func getNaturalDuration
-		return dnRequest("get",[self,"NaturalDuration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NaturalDuration"])
 
 	Func setNaturalDuration P1
 		raise("DotNet Error: NaturalDuration is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getTimeline
-		return dnRequest("get",[self,"Timeline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Timeline"])
 
 	Func setTimeline P1
 		raise("DotNet Error: Timeline is a read-only property")

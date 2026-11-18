@@ -18,13 +18,13 @@ Class InputEventArgs from RoutedEventArgs
 		return self
 
 	Func getDevice
-		return dnRequest("get",[self,"Device"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Device"])
 
 	Func setDevice P1
 		raise("DotNet Error: Device is a read-only property")
 
 	Func getTimestamp
-		return dnRequest("get",[self,"Timestamp"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Timestamp"])
 
 	Func setTimestamp P1
 		raise("DotNet Error: Timestamp is a read-only property")

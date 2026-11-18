@@ -16,7 +16,7 @@ Class OpenWriteCompletedEventArgs from AsyncCompletedEventArgs
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")

@@ -23,37 +23,37 @@ Class ValidateOptionsResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Fail P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"Fail",P1])
 
 	Func getSucceeded
-		return dnRequest("get",[self,"Succeeded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Succeeded"])
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
 
 	Func getSkipped
-		return dnRequest("get",[self,"Skipped"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Skipped"])
 
 	Func setSkipped P1
 		raise("DotNet Error: Skipped is a read-only property")
 
 	Func getFailed
-		return dnRequest("get",[self,"Failed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Failed"])
 
 	Func setFailed P1
 		raise("DotNet Error: Failed is a read-only property")
 
 	Func getFailureMessage
-		return dnRequest("get",[self,"FailureMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FailureMessage"])
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
 
 	Func getFailures
-		return dnRequest("get",[self,"Failures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Failures"])
 
 	Func setFailures P1
 		raise("DotNet Error: Failures is a read-only property")

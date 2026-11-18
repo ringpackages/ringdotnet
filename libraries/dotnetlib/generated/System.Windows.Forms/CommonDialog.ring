@@ -16,33 +16,33 @@ Class CommonDialog from Component
 		return self
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func ShowDialog P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ShowDialog",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ShowDialog",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ShowDialog"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog"])
 		ok
-		return dnRequest("call",[self,"ShowDialog",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog",P1])
 
 	Func ShowDialog_1 P1
-		return dnRequest("call",[self,"ShowDialog",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog",P1])
 
 	Func setHelpRequestEvent P1
-		dnRequest("setevent",[self,"HelpRequest",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"HelpRequest",dnCallback(P1)])
 		return self
 
 	Func clearHelpRequestEvent
-		dnRequest("clearevent",[self,"HelpRequest"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"HelpRequest"])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 

@@ -18,13 +18,13 @@ Class RelationalQueryContext from QueryContext
 		return self
 
 	Func getRelationalQueryStringFactory
-		return dnRequest("get",[self,"RelationalQueryStringFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalQueryStringFactory"])
 
 	Func setRelationalQueryStringFactory P1
 		raise("DotNet Error: RelationalQueryStringFactory is a read-only property")
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")

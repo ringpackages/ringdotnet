@@ -16,22 +16,22 @@ Class IUrlHelper from DotNetObject
 		return self
 
 	Func Action P1
-		return dnRequest("call",[self,"Action",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Action",P1])
 
 	Func Content P1
-		return dnRequest("call",[self,"Content",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Content",P1])
 
 	Func IsLocalUrl P1
-		return dnRequest("call",[self,"IsLocalUrl",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsLocalUrl",P1])
 
 	Func RouteUrl P1
-		return dnRequest("call",[self,"RouteUrl",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RouteUrl",P1])
 
 	Func Link P1,P2
-		return dnRequest("call",[self,"Link",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Link",P1,P2])
 
 	Func getActionContext
-		return dnRequest("get",[self,"ActionContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActionContext"])
 
 	Func setActionContext P1
 		raise("DotNet Error: ActionContext is a read-only property")

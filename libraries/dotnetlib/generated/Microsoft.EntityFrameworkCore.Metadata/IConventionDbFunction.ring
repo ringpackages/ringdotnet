@@ -18,106 +18,106 @@ Class IConventionDbFunction from DotNetObject
 		return self
 
 	Func GetConfigurationSource 
-		return dnRequest("call",[self,"GetConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConfigurationSource"])
 
 	Func SetName_2 P1,P2
-		return dnRequest("call",[self,"SetName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetName",P1,P2])
 
 	Func SetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetName",P1])
 		ok
-		return dnRequest("call",[self,"SetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetName",P1])
 
 	Func GetNameConfigurationSource 
-		return dnRequest("call",[self,"GetNameConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNameConfigurationSource"])
 
 	Func SetSchema_2 P1,P2
-		return dnRequest("call",[self,"SetSchema",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetSchema",P1,P2])
 
 	Func SetSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetSchema",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetSchema",P1])
 		ok
-		return dnRequest("call",[self,"SetSchema",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetSchema",P1])
 
 	Func GetSchemaConfigurationSource 
-		return dnRequest("call",[self,"GetSchemaConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaConfigurationSource"])
 
 	Func SetIsBuiltIn_2 P1,P2
-		return dnRequest("call",[self,"SetIsBuiltIn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsBuiltIn",P1,P2])
 
 	Func SetIsBuiltIn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsBuiltIn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsBuiltIn",P1])
 		ok
-		return dnRequest("call",[self,"SetIsBuiltIn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsBuiltIn",P1])
 
 	Func GetIsBuiltInConfigurationSource 
-		return dnRequest("call",[self,"GetIsBuiltInConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsBuiltInConfigurationSource"])
 
 	Func SetIsNullable_2 P1,P2
-		return dnRequest("call",[self,"SetIsNullable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsNullable",P1,P2])
 
 	Func SetIsNullable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsNullable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsNullable",P1])
 		ok
-		return dnRequest("call",[self,"SetIsNullable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsNullable",P1])
 
 	Func GetIsNullableConfigurationSource 
-		return dnRequest("call",[self,"GetIsNullableConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsNullableConfigurationSource"])
 
 	Func SetStoreType_2 P1,P2
-		return dnRequest("call",[self,"SetStoreType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetStoreType",P1,P2])
 
 	Func SetStoreType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetStoreType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetStoreType",P1])
 		ok
-		return dnRequest("call",[self,"SetStoreType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetStoreType",P1])
 
 	Func GetStoreTypeConfigurationSource 
-		return dnRequest("call",[self,"GetStoreTypeConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStoreTypeConfigurationSource"])
 
 	Func SetTypeMapping_2 P1,P2
-		return dnRequest("call",[self,"SetTypeMapping",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetTypeMapping",P1,P2])
 
 	Func SetTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetTypeMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetTypeMapping",P1])
 		ok
-		return dnRequest("call",[self,"SetTypeMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetTypeMapping",P1])
 
 	Func GetTypeMappingConfigurationSource 
-		return dnRequest("call",[self,"GetTypeMappingConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeMappingConfigurationSource"])
 
 	Func SetTranslation_2 P1,P2
-		return dnRequest("call",[self,"SetTranslation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetTranslation",P1,P2])
 
 	Func SetTranslation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetTranslation",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetTranslation",P1])
 		ok
-		return dnRequest("call",[self,"SetTranslation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetTranslation",P1])
 
 	Func GetTranslationConfigurationSource 
-		return dnRequest("call",[self,"GetTranslationConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTranslationConfigurationSource"])
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")

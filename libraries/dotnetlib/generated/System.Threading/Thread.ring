@@ -36,110 +36,110 @@ Class Thread from DotNetObject
 		return self
 
 	Func GetApartmentState_0 
-		return dnRequest("call",[self,"GetApartmentState"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetApartmentState"])
 
 	Func DisableComObjectEagerCleanup 
-		dnRequest("call",[self,"DisableComObjectEagerCleanup"])
+		dnRequest("call",[new DotNetObject(nHandle),"DisableComObjectEagerCleanup"])
 		return self
 
 	Func Interrupt 
-		dnRequest("call",[self,"Interrupt"])
+		dnRequest("call",[new DotNetObject(nHandle),"Interrupt"])
 		return self
 
 	Func Join_1 P1
-		return dnRequest("call",[self,"Join",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Join",P1])
 
 	Func Start_1 P1
-		dnRequest("call",[self,"Start",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
 		return self
 
 	Func UnsafeStart_1 P1
-		dnRequest("call",[self,"UnsafeStart",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"UnsafeStart",P1])
 		return self
 
 	Func Start P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Start",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Start",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Start"])
+			dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		return self
 		ok
-		dnRequest("call",[self,"Start",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
 		return self
 
 	Func UnsafeStart P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"UnsafeStart",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"UnsafeStart",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"UnsafeStart"])
+			dnRequest("call",[new DotNetObject(nHandle),"UnsafeStart"])
 		return self
 		ok
-		dnRequest("call",[self,"UnsafeStart",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"UnsafeStart",P1])
 		return self
 
 	Func Abort P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Abort",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Abort",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Abort"])
+			dnRequest("call",[new DotNetObject(nHandle),"Abort"])
 		return self
 		ok
-		dnRequest("call",[self,"Abort",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Abort",P1])
 		return self
 
 	Func Abort_1 P1
-		dnRequest("call",[self,"Abort",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Abort",P1])
 		return self
 
 	Func Suspend 
-		dnRequest("call",[self,"Suspend"])
+		dnRequest("call",[new DotNetObject(nHandle),"Suspend"])
 		return self
 
 	Func Resume 
-		dnRequest("call",[self,"Resume"])
+		dnRequest("call",[new DotNetObject(nHandle),"Resume"])
 		return self
 
 	Func SetApartmentState_1 P1
-		dnRequest("call",[self,"SetApartmentState",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetApartmentState",P1])
 		return self
 
 	Func TrySetApartmentState P1
-		return dnRequest("call",[self,"TrySetApartmentState",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TrySetApartmentState",P1])
 
 	Func GetCompressedStack 
-		return dnRequest("call",[self,"GetCompressedStack"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCompressedStack"])
 
 	Func SetCompressedStack P1
-		dnRequest("call",[self,"SetCompressedStack",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCompressedStack",P1])
 		return self
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func Join P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Join",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Join",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Join"])
+			dnRequest("call",[new DotNetObject(nHandle),"Join"])
 		return self
 		ok
-		return dnRequest("call",[self,"Join",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Join",P1])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func SpinWait P1
 		dnRequest("call",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"SpinWait",P1])
@@ -212,75 +212,75 @@ Class Thread from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"GetCurrentProcessorId"])
 
 	Func getManagedThreadId
-		return dnRequest("get",[self,"ManagedThreadId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ManagedThreadId"])
 
 	Func setManagedThreadId P1
 		raise("DotNet Error: ManagedThreadId is a read-only property")
 
 	Func getIsAlive
-		return dnRequest("get",[self,"IsAlive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAlive"])
 
 	Func setIsAlive P1
 		raise("DotNet Error: IsAlive is a read-only property")
 
 	Func getIsBackground
-		return dnRequest("get",[self,"IsBackground"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBackground"])
 
 	Func setIsBackground P1
-		dnRequest("set",[self,"IsBackground",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsBackground",P1])
 		return self
 
 	Func getIsThreadPoolThread
-		return dnRequest("get",[self,"IsThreadPoolThread"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsThreadPoolThread"])
 
 	Func setIsThreadPoolThread P1
 		raise("DotNet Error: IsThreadPoolThread is a read-only property")
 
 	Func getPriority
-		return dnRequest("get",[self,"Priority"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Priority"])
 
 	Func setPriority P1
-		dnRequest("set",[self,"Priority",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Priority",P1])
 		return self
 
 	Func getThreadState
-		return dnRequest("get",[self,"ThreadState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ThreadState"])
 
 	Func setThreadState P1
 		raise("DotNet Error: ThreadState is a read-only property")
 
 	Func getCurrentCulture
-		return dnRequest("get",[self,"CurrentCulture"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentCulture"])
 
 	Func setCurrentCulture P1
-		dnRequest("set",[self,"CurrentCulture",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentCulture",P1])
 		return self
 
 	Func getCurrentUICulture
-		return dnRequest("get",[self,"CurrentUICulture"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentUICulture"])
 
 	Func setCurrentUICulture P1
-		dnRequest("set",[self,"CurrentUICulture",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentUICulture",P1])
 		return self
 
 	Func getExecutionContext
-		return dnRequest("get",[self,"ExecutionContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionContext"])
 
 	Func setExecutionContext P1
 		raise("DotNet Error: ExecutionContext is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getApartmentState
-		return dnRequest("get",[self,"ApartmentState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApartmentState"])
 
 	Func setApartmentState P1
-		dnRequest("set",[self,"ApartmentState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ApartmentState",P1])
 		return self
 
 	Func getCurrentPrincipal

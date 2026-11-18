@@ -14,14 +14,14 @@ Class ReflectionContext from Object
 		return self
 
 	Func MapAssembly P1
-		return dnRequest("call",[self,"MapAssembly",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MapAssembly",P1])
 
 	Func MapType P1
-		return dnRequest("call",[self,"MapType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MapType",P1])
 
 	Func GetTypeForObject P1
-		return dnRequest("call",[self,"GetTypeForObject",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeForObject",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

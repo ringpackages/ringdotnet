@@ -34,121 +34,121 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getIsAbstract
-		return dnRequest("get",[self,"IsAbstract"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAbstract"])
 
 	Func setIsAbstract P1
-		dnRequest("set",[self,"IsAbstract",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsAbstract",P1])
 		return self
 
 	Func getBlock
-		return dnRequest("get",[self,"Block"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Block"])
 
 	Func setBlock P1
-		dnRequest("set",[self,"Block",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Block",P1])
 		return self
 
 	Func getDefaultValue
-		return dnRequest("get",[self,"DefaultValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultValue"])
 
 	Func setDefaultValue P1
-		dnRequest("set",[self,"DefaultValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultValue",P1])
 		return self
 
 	Func getFinal
-		return dnRequest("get",[self,"Final"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Final"])
 
 	Func setFinal P1
-		dnRequest("set",[self,"Final",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Final",P1])
 		return self
 
 	Func getFixedValue
-		return dnRequest("get",[self,"FixedValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FixedValue"])
 
 	Func setFixedValue P1
-		dnRequest("set",[self,"FixedValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FixedValue",P1])
 		return self
 
 	Func getForm
-		return dnRequest("get",[self,"Form"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Form"])
 
 	Func setForm P1
-		dnRequest("set",[self,"Form",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Form",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getIsNillable
-		return dnRequest("get",[self,"IsNillable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNillable"])
 
 	Func setIsNillable P1
-		dnRequest("set",[self,"IsNillable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsNillable",P1])
 		return self
 
 	Func getRefName
-		return dnRequest("get",[self,"RefName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RefName"])
 
 	Func setRefName P1
-		dnRequest("set",[self,"RefName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RefName",P1])
 		return self
 
 	Func getSubstitutionGroup
-		return dnRequest("get",[self,"SubstitutionGroup"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubstitutionGroup"])
 
 	Func setSubstitutionGroup P1
-		dnRequest("set",[self,"SubstitutionGroup",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SubstitutionGroup",P1])
 		return self
 
 	Func getSchemaTypeName
-		return dnRequest("get",[self,"SchemaTypeName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaTypeName"])
 
 	Func setSchemaTypeName P1
-		dnRequest("set",[self,"SchemaTypeName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SchemaTypeName",P1])
 		return self
 
 	Func getSchemaType
-		return dnRequest("get",[self,"SchemaType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaType"])
 
 	Func setSchemaType P1
-		dnRequest("set",[self,"SchemaType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SchemaType",P1])
 		return self
 
 	Func getConstraints
-		return dnRequest("get",[self,"Constraints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Constraints"])
 
 	Func setConstraints P1
 		raise("DotNet Error: Constraints is a read-only property")
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QualifiedName"])
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getElementType
-		return dnRequest("get",[self,"ElementType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementType"])
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
 
 	Func getElementSchemaType
-		return dnRequest("get",[self,"ElementSchemaType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementSchemaType"])
 
 	Func setElementSchemaType P1
 		raise("DotNet Error: ElementSchemaType is a read-only property")
 
 	Func getBlockResolved
-		return dnRequest("get",[self,"BlockResolved"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BlockResolved"])
 
 	Func setBlockResolved P1
 		raise("DotNet Error: BlockResolved is a read-only property")
 
 	Func getFinalResolved
-		return dnRequest("get",[self,"FinalResolved"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FinalResolved"])
 
 	Func setFinalResolved P1
 		raise("DotNet Error: FinalResolved is a read-only property")

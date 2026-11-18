@@ -24,121 +24,121 @@ Class HttpResponse from Object
 		return self
 
 	Func OnStarting_2 P1,P2
-		dnRequest("call",[self,"OnStarting",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OnStarting",P1,P2])
 		return self
 
 	Func OnStarting P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"OnStarting",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"OnStarting",P1])
 			return self
 		ok
-		dnRequest("call",[self,"OnStarting",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnStarting",P1])
 		return self
 
 	Func OnCompleted_2 P1,P2
-		dnRequest("call",[self,"OnCompleted",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OnCompleted",P1,P2])
 		return self
 
 	Func RegisterForDispose P1
-		dnRequest("call",[self,"RegisterForDispose",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterForDispose",P1])
 		return self
 
 	Func RegisterForDisposeAsync P1
-		dnRequest("call",[self,"RegisterForDisposeAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterForDisposeAsync",P1])
 		return self
 
 	Func OnCompleted P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"OnCompleted",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"OnCompleted",P1])
 			return self
 		ok
-		dnRequest("call",[self,"OnCompleted",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnCompleted",P1])
 		return self
 
 	Func Redirect P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Redirect",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Redirect",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Redirect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Redirect",P1])
 		return self
 
 	Func Redirect_2 P1,P2
-		dnRequest("call",[self,"Redirect",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Redirect",P1,P2])
 		return self
 
 	Func StartAsync_1 P1
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"StartAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"StartAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"StartAsync"])
 		ok
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func CompleteAsync 
-		return dnRequest("call",[self,"CompleteAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompleteAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getStatusCode
-		return dnRequest("get",[self,"StatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[self,"StatusCode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getBody
-		return dnRequest("get",[self,"Body"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Body"])
 
 	Func setBody P1
-		dnRequest("set",[self,"Body",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Body",P1])
 		return self
 
 	Func getBodyWriter
-		return dnRequest("get",[self,"BodyWriter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BodyWriter"])
 
 	Func setBodyWriter P1
 		raise("DotNet Error: BodyWriter is a read-only property")
 
 	Func getContentLength
-		return dnRequest("get",[self,"ContentLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength"])
 
 	Func setContentLength P1
-		dnRequest("set",[self,"ContentLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentLength",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 
 	Func getCookies
-		return dnRequest("get",[self,"Cookies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
 
 	Func setCookies P1
 		raise("DotNet Error: Cookies is a read-only property")
 
 	Func getHasStarted
-		return dnRequest("get",[self,"HasStarted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasStarted"])
 
 	Func setHasStarted P1
 		raise("DotNet Error: HasStarted is a read-only property")

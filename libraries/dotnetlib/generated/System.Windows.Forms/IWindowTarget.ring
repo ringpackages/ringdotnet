@@ -14,9 +14,9 @@ Class IWindowTarget from DotNetObject
 		return self
 
 	Func OnHandleChange P1
-		dnRequest("call",[self,"OnHandleChange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnHandleChange",P1])
 		return self
 
 	Func OnMessage P1
-		return dnRequest("call",[self,"OnMessage",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnMessage",P1])
 

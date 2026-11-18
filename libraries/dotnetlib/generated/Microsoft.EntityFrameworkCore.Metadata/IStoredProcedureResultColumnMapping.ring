@@ -18,34 +18,34 @@ Class IStoredProcedureResultColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getStoreResultColumn
-		return dnRequest("get",[self,"StoreResultColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreResultColumn"])
 
 	Func setStoreResultColumn P1
 		raise("DotNet Error: StoreResultColumn is a read-only property")
 
 	Func getResultColumn
-		return dnRequest("get",[self,"ResultColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResultColumn"])
 
 	Func setResultColumn P1
 		raise("DotNet Error: ResultColumn is a read-only property")
 
 	Func getStoredProcedureMapping
-		return dnRequest("get",[self,"StoredProcedureMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedureMapping"])
 
 	Func setStoredProcedureMapping P1
 		raise("DotNet Error: StoredProcedureMapping is a read-only property")

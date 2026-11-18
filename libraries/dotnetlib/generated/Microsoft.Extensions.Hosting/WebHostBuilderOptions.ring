@@ -17,12 +17,12 @@ Class WebHostBuilderOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSuppressEnvironmentConfiguration
-		return dnRequest("get",[self,"SuppressEnvironmentConfiguration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressEnvironmentConfiguration"])
 
 	Func setSuppressEnvironmentConfiguration P1
-		dnRequest("set",[self,"SuppressEnvironmentConfiguration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressEnvironmentConfiguration",P1])
 		return self
 

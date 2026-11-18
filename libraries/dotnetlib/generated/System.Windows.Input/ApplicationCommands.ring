@@ -37,7 +37,7 @@ Class ApplicationCommands from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCut
 		return dnRequest("get",[dnTypeCached('System.Windows.Input.ApplicationCommands, PresentationCore'),"Cut"])

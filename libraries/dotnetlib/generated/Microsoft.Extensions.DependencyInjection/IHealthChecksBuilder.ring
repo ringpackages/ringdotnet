@@ -16,10 +16,10 @@ Class IHealthChecksBuilder from DotNetObject
 		return self
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")

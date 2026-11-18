@@ -20,82 +20,82 @@ Class IPGlobalProperties from Object
 		return self
 
 	Func GetActiveUdpListeners 
-		return dnRequest("call",[self,"GetActiveUdpListeners"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetActiveUdpListeners"])
 
 	Func GetActiveTcpListeners 
-		return dnRequest("call",[self,"GetActiveTcpListeners"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetActiveTcpListeners"])
 
 	Func GetActiveTcpConnections 
-		return dnRequest("call",[self,"GetActiveTcpConnections"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetActiveTcpConnections"])
 
 	Func BeginGetUnicastAddresses P1,P2
-		return dnRequest("call",[self,"BeginGetUnicastAddresses",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginGetUnicastAddresses",P1,P2])
 
 	Func EndGetUnicastAddresses P1
-		return dnRequest("call",[self,"EndGetUnicastAddresses",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndGetUnicastAddresses",P1])
 
 	Func GetTcpIPv4Statistics 
-		return dnRequest("call",[self,"GetTcpIPv4Statistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTcpIPv4Statistics"])
 
 	Func GetTcpIPv6Statistics 
-		return dnRequest("call",[self,"GetTcpIPv6Statistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTcpIPv6Statistics"])
 
 	Func GetUdpIPv4Statistics 
-		return dnRequest("call",[self,"GetUdpIPv4Statistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUdpIPv4Statistics"])
 
 	Func GetUdpIPv6Statistics 
-		return dnRequest("call",[self,"GetUdpIPv6Statistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUdpIPv6Statistics"])
 
 	Func GetIcmpV4Statistics 
-		return dnRequest("call",[self,"GetIcmpV4Statistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIcmpV4Statistics"])
 
 	Func GetIcmpV6Statistics 
-		return dnRequest("call",[self,"GetIcmpV6Statistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIcmpV6Statistics"])
 
 	Func GetIPv4GlobalStatistics 
-		return dnRequest("call",[self,"GetIPv4GlobalStatistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIPv4GlobalStatistics"])
 
 	Func GetIPv6GlobalStatistics 
-		return dnRequest("call",[self,"GetIPv6GlobalStatistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIPv6GlobalStatistics"])
 
 	Func GetUnicastAddresses 
-		return dnRequest("call",[self,"GetUnicastAddresses"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUnicastAddresses"])
 
 	Func GetUnicastAddressesAsync 
-		return dnRequest("call",[self,"GetUnicastAddressesAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUnicastAddressesAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetIPGlobalProperties 
 		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation'),"GetIPGlobalProperties"])
 
 	Func getDhcpScopeName
-		return dnRequest("get",[self,"DhcpScopeName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DhcpScopeName"])
 
 	Func setDhcpScopeName P1
 		raise("DotNet Error: DhcpScopeName is a read-only property")
 
 	Func getDomainName
-		return dnRequest("get",[self,"DomainName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DomainName"])
 
 	Func setDomainName P1
 		raise("DotNet Error: DomainName is a read-only property")
 
 	Func getHostName
-		return dnRequest("get",[self,"HostName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HostName"])
 
 	Func setHostName P1
 		raise("DotNet Error: HostName is a read-only property")
 
 	Func getIsWinsProxy
-		return dnRequest("get",[self,"IsWinsProxy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsWinsProxy"])
 
 	Func setIsWinsProxy P1
 		raise("DotNet Error: IsWinsProxy is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")

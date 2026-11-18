@@ -14,34 +14,34 @@ Class DataRowCollection from InternalDataCollectionBase
 		return self
 
 	Func Add P1
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func InsertAt P1,P2
-		dnRequest("call",[self,"InsertAt",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"InsertAt",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func Find P1
-		return dnRequest("call",[self,"Find",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 

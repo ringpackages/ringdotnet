@@ -14,7 +14,7 @@ Class RandomAccess from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetLength P1
 		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"GetLength",P1])

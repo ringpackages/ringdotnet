@@ -19,22 +19,22 @@ Class ManipulationVelocities from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLinearVelocity
-		return dnRequest("get",[self,"LinearVelocity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinearVelocity"])
 
 	Func setLinearVelocity P1
 		raise("DotNet Error: LinearVelocity is a read-only property")
 
 	Func getAngularVelocity
-		return dnRequest("get",[self,"AngularVelocity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AngularVelocity"])
 
 	Func setAngularVelocity P1
 		raise("DotNet Error: AngularVelocity is a read-only property")
 
 	Func getExpansionVelocity
-		return dnRequest("get",[self,"ExpansionVelocity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExpansionVelocity"])
 
 	Func setExpansionVelocity P1
 		raise("DotNet Error: ExpansionVelocity is a read-only property")

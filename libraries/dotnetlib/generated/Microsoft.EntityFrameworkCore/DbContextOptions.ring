@@ -18,35 +18,35 @@ Class DbContextOptions from Object
 		return self
 
 	Func FindExtension 
-		return dnRequest("call",[self,"FindExtension"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindExtension"])
 
 	Func GetExtension 
-		return dnRequest("call",[self,"GetExtension"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetExtension"])
 
 	Func WithExtension P1
-		return dnRequest("call",[self,"WithExtension",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithExtension",P1])
 
 	Func Freeze 
-		dnRequest("call",[self,"Freeze"])
+		dnRequest("call",[new DotNetObject(nHandle),"Freeze"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExtensions
-		return dnRequest("get",[self,"Extensions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Extensions"])
 
 	Func setExtensions P1
 		raise("DotNet Error: Extensions is a read-only property")
 
 	Func getContextType
-		return dnRequest("get",[self,"ContextType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextType"])
 
 	Func setContextType P1
 		raise("DotNet Error: ContextType is a read-only property")
 
 	Func getIsFrozen
-		return dnRequest("get",[self,"IsFrozen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFrozen"])
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")

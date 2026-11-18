@@ -31,80 +31,80 @@ Class FrameworkElementFactory from Object
 		return self
 
 	Func AppendChild P1
-		dnRequest("call",[self,"AppendChild",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendChild",P1])
 		return self
 
 	Func SetValue P1,P2
-		dnRequest("call",[self,"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
 	Func SetBinding P1,P2
-		dnRequest("call",[self,"SetBinding",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetBinding",P1,P2])
 		return self
 
 	Func SetResourceReference P1,P2
-		dnRequest("call",[self,"SetResourceReference",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetResourceReference",P1,P2])
 		return self
 
 	Func AddHandler P1,P2
-		dnRequest("call",[self,"AddHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2])
 		return self
 
 	Func AddHandler_3 P1,P2,P3
-		dnRequest("call",[self,"AddHandler",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2,P3])
 		return self
 
 	Func RemoveHandler P1,P2
-		dnRequest("call",[self,"RemoveHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveHandler",P1,P2])
 		return self
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
-		dnRequest("set",[self,"Type",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
-		dnRequest("set",[self,"Text",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getIsSealed
-		return dnRequest("get",[self,"IsSealed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSealed"])
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getFirstChild
-		return dnRequest("get",[self,"FirstChild"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstChild"])
 
 	Func setFirstChild P1
 		raise("DotNet Error: FirstChild is a read-only property")
 
 	Func getNextSibling
-		return dnRequest("get",[self,"NextSibling"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NextSibling"])
 
 	Func setNextSibling P1
 		raise("DotNet Error: NextSibling is a read-only property")

@@ -22,16 +22,16 @@ Class ModelError from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getErrorMessage
-		return dnRequest("get",[self,"ErrorMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorMessage"])
 
 	Func setErrorMessage P1
 		raise("DotNet Error: ErrorMessage is a read-only property")

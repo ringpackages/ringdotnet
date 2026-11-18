@@ -18,7 +18,7 @@ Class XName from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Get_ P1
 		if dnIsNamed(P1)
@@ -30,19 +30,19 @@ Class XName from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1,P2])
 
 	Func getLocalName
-		return dnRequest("get",[self,"LocalName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalName"])
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getNamespaceName
-		return dnRequest("get",[self,"NamespaceName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NamespaceName"])
 
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")

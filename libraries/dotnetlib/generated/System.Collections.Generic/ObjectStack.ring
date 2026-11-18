@@ -22,68 +22,68 @@ Class ObjectStack from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"TrimExcess"])
+			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[self,"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
 	Func TrimExcess_1 P1
-		dnRequest("call",[self,"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
 	Func Peek 
-		return dnRequest("call",[self,"Peek"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Peek"])
 
 	Func TryPeek 
-		return dnRequest("call",[self,"TryPeek"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryPeek"])
 
 	Func Pop 
-		return dnRequest("call",[self,"Pop"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Pop"])
 
 	Func TryPop 
-		return dnRequest("call",[self,"TryPop"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryPop"])
 
 	Func Push P1
-		dnRequest("call",[self,"Push",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Push",P1])
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[self,"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCapacity",P1])
 
 	Func ToArray 
-		return dnRequest("call",[self,"ToArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")

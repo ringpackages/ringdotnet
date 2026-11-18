@@ -38,154 +38,154 @@ Class WpfTextBox from WpfTextBoxBase
 		return self
 
 	Func Select P1,P2
-		dnRequest("call",[self,"Select",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func GetCharacterIndexFromPoint P1,P2
-		return dnRequest("call",[self,"GetCharacterIndexFromPoint",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCharacterIndexFromPoint",P1,P2])
 
 	Func GetCharacterIndexFromLineIndex P1
-		return dnRequest("call",[self,"GetCharacterIndexFromLineIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCharacterIndexFromLineIndex",P1])
 
 	Func GetLineIndexFromCharacterIndex P1
-		return dnRequest("call",[self,"GetLineIndexFromCharacterIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLineIndexFromCharacterIndex",P1])
 
 	Func GetLineLength P1
-		return dnRequest("call",[self,"GetLineLength",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLineLength",P1])
 
 	Func GetFirstVisibleLineIndex 
-		return dnRequest("call",[self,"GetFirstVisibleLineIndex"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstVisibleLineIndex"])
 
 	Func GetLastVisibleLineIndex 
-		return dnRequest("call",[self,"GetLastVisibleLineIndex"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLastVisibleLineIndex"])
 
 	Func ScrollToLine P1
-		dnRequest("call",[self,"ScrollToLine",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToLine",P1])
 		return self
 
 	Func GetLineText P1
-		return dnRequest("call",[self,"GetLineText",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLineText",P1])
 
 	Func GetRectFromCharacterIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetRectFromCharacterIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetRectFromCharacterIndex",P1])
 		ok
-		return dnRequest("call",[self,"GetRectFromCharacterIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRectFromCharacterIndex",P1])
 
 	Func GetRectFromCharacterIndex_2 P1,P2
-		return dnRequest("call",[self,"GetRectFromCharacterIndex",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRectFromCharacterIndex",P1,P2])
 
 	Func GetSpellingError P1
-		return dnRequest("call",[self,"GetSpellingError",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSpellingError",P1])
 
 	Func GetSpellingErrorStart P1
-		return dnRequest("call",[self,"GetSpellingErrorStart",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSpellingErrorStart",P1])
 
 	Func GetSpellingErrorLength P1
-		return dnRequest("call",[self,"GetSpellingErrorLength",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSpellingErrorLength",P1])
 
 	Func GetNextSpellingErrorCharacterIndex P1,P2
-		return dnRequest("call",[self,"GetNextSpellingErrorCharacterIndex",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextSpellingErrorCharacterIndex",P1,P2])
 
 	Func ShouldSerializeText P1
-		return dnRequest("call",[self,"ShouldSerializeText",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeText",P1])
 
 	Func getTextWrapping
-		return dnRequest("get",[self,"TextWrapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextWrapping"])
 
 	Func setTextWrapping P1
-		dnRequest("set",[self,"TextWrapping",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextWrapping",P1])
 		return self
 
 	Func getMinLines
-		return dnRequest("get",[self,"MinLines"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinLines"])
 
 	Func setMinLines P1
-		dnRequest("set",[self,"MinLines",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinLines",P1])
 		return self
 
 	Func getMaxLines
-		return dnRequest("get",[self,"MaxLines"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxLines"])
 
 	Func setMaxLines P1
-		dnRequest("set",[self,"MaxLines",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxLines",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
-		dnRequest("set",[self,"Text",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
 		return self
 
 	Func getCharacterCasing
-		return dnRequest("get",[self,"CharacterCasing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CharacterCasing"])
 
 	Func setCharacterCasing P1
-		dnRequest("set",[self,"CharacterCasing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CharacterCasing",P1])
 		return self
 
 	Func getMaxLength
-		return dnRequest("get",[self,"MaxLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxLength"])
 
 	Func setMaxLength P1
-		dnRequest("set",[self,"MaxLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxLength",P1])
 		return self
 
 	Func getTextAlignment
-		return dnRequest("get",[self,"TextAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextAlignment"])
 
 	Func setTextAlignment P1
-		dnRequest("set",[self,"TextAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextAlignment",P1])
 		return self
 
 	Func getSelectedText
-		return dnRequest("get",[self,"SelectedText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedText"])
 
 	Func setSelectedText P1
-		dnRequest("set",[self,"SelectedText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedText",P1])
 		return self
 
 	Func getSelectionLength
-		return dnRequest("get",[self,"SelectionLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionLength"])
 
 	Func setSelectionLength P1
-		dnRequest("set",[self,"SelectionLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionLength",P1])
 		return self
 
 	Func getSelectionStart
-		return dnRequest("get",[self,"SelectionStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionStart"])
 
 	Func setSelectionStart P1
-		dnRequest("set",[self,"SelectionStart",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionStart",P1])
 		return self
 
 	Func getCaretIndex
-		return dnRequest("get",[self,"CaretIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaretIndex"])
 
 	Func setCaretIndex P1
-		dnRequest("set",[self,"CaretIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaretIndex",P1])
 		return self
 
 	Func getLineCount
-		return dnRequest("get",[self,"LineCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineCount"])
 
 	Func setLineCount P1
 		raise("DotNet Error: LineCount is a read-only property")
 
 	Func getTextDecorations
-		return dnRequest("get",[self,"TextDecorations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextDecorations"])
 
 	Func setTextDecorations P1
-		dnRequest("set",[self,"TextDecorations",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextDecorations",P1])
 		return self
 
 	Func getTypography
-		return dnRequest("get",[self,"Typography"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Typography"])
 
 	Func setTypography P1
 		raise("DotNet Error: Typography is a read-only property")

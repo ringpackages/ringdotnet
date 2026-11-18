@@ -14,10 +14,10 @@ Class ISingletonOptions from DotNetObject
 		return self
 
 	Func Initialize P1
-		dnRequest("call",[self,"Initialize",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1])
 		return self
 
 	Func Validate P1
-		dnRequest("call",[self,"Validate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 		return self
 

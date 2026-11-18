@@ -17,9 +17,9 @@ Class DataGridViewCellContextMenuStripNeededEventArgs from DataGridViewCellEvent
 		return self
 
 	Func getContextMenuStrip
-		return dnRequest("get",[self,"ContextMenuStrip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextMenuStrip"])
 
 	Func setContextMenuStrip P1
-		dnRequest("set",[self,"ContextMenuStrip",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContextMenuStrip",P1])
 		return self
 

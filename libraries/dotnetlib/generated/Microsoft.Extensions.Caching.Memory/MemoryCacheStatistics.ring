@@ -20,33 +20,33 @@ Class MemoryCacheStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrentEntryCount
-		return dnRequest("get",[self,"CurrentEntryCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentEntryCount"])
 
 	Func setCurrentEntryCount P1
-		dnRequest("set",[self,"CurrentEntryCount",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentEntryCount",P1])
 		return self
 
 	Func getCurrentEstimatedSize
-		return dnRequest("get",[self,"CurrentEstimatedSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentEstimatedSize"])
 
 	Func setCurrentEstimatedSize P1
-		dnRequest("set",[self,"CurrentEstimatedSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentEstimatedSize",P1])
 		return self
 
 	Func getTotalMisses
-		return dnRequest("get",[self,"TotalMisses"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalMisses"])
 
 	Func setTotalMisses P1
-		dnRequest("set",[self,"TotalMisses",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TotalMisses",P1])
 		return self
 
 	Func getTotalHits
-		return dnRequest("get",[self,"TotalHits"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalHits"])
 
 	Func setTotalHits P1
-		dnRequest("set",[self,"TotalHits",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TotalHits",P1])
 		return self
 

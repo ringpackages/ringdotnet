@@ -24,31 +24,31 @@ Class ValidationError from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRuleInError
-		return dnRequest("get",[self,"RuleInError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RuleInError"])
 
 	Func setRuleInError P1
-		dnRequest("set",[self,"RuleInError",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RuleInError",P1])
 		return self
 
 	Func getErrorContent
-		return dnRequest("get",[self,"ErrorContent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorContent"])
 
 	Func setErrorContent P1
-		dnRequest("set",[self,"ErrorContent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ErrorContent",P1])
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
-		dnRequest("set",[self,"Exception",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Exception",P1])
 		return self
 
 	Func getBindingInError
-		return dnRequest("get",[self,"BindingInError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingInError"])
 
 	Func setBindingInError P1
 		raise("DotNet Error: BindingInError is a read-only property")

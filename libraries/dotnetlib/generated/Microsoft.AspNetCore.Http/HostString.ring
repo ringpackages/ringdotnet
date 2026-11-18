@@ -28,7 +28,7 @@ Class HostString from ValueType
 		return self
 
 	Func ToUriComponent 
-		return dnRequest("call",[self,"ToUriComponent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUriComponent"])
 
 	Func FromUriComponent P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
@@ -37,25 +37,25 @@ Class HostString from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"MatchesAny",P1,P2])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		return dnRequest("get",[self,"HasValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasValue"])
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPort
-		return dnRequest("get",[self,"Port"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")

@@ -50,101 +50,101 @@ Class Slider from RangeBase
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[self,"Orientation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[self,"Orientation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
 		return self
 
 	Func getIsDirectionReversed
-		return dnRequest("get",[self,"IsDirectionReversed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDirectionReversed"])
 
 	Func setIsDirectionReversed P1
-		dnRequest("set",[self,"IsDirectionReversed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsDirectionReversed",P1])
 		return self
 
 	Func getDelay
-		return dnRequest("get",[self,"Delay"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Delay"])
 
 	Func setDelay P1
-		dnRequest("set",[self,"Delay",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Delay",P1])
 		return self
 
 	Func getInterval
-		return dnRequest("get",[self,"Interval"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Interval"])
 
 	Func setInterval P1
-		dnRequest("set",[self,"Interval",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Interval",P1])
 		return self
 
 	Func getAutoToolTipPlacement
-		return dnRequest("get",[self,"AutoToolTipPlacement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoToolTipPlacement"])
 
 	Func setAutoToolTipPlacement P1
-		dnRequest("set",[self,"AutoToolTipPlacement",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoToolTipPlacement",P1])
 		return self
 
 	Func getAutoToolTipPrecision
-		return dnRequest("get",[self,"AutoToolTipPrecision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoToolTipPrecision"])
 
 	Func setAutoToolTipPrecision P1
-		dnRequest("set",[self,"AutoToolTipPrecision",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoToolTipPrecision",P1])
 		return self
 
 	Func getIsSnapToTickEnabled
-		return dnRequest("get",[self,"IsSnapToTickEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSnapToTickEnabled"])
 
 	Func setIsSnapToTickEnabled P1
-		dnRequest("set",[self,"IsSnapToTickEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSnapToTickEnabled",P1])
 		return self
 
 	Func getTickPlacement
-		return dnRequest("get",[self,"TickPlacement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TickPlacement"])
 
 	Func setTickPlacement P1
-		dnRequest("set",[self,"TickPlacement",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TickPlacement",P1])
 		return self
 
 	Func getTickFrequency
-		return dnRequest("get",[self,"TickFrequency"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TickFrequency"])
 
 	Func setTickFrequency P1
-		dnRequest("set",[self,"TickFrequency",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TickFrequency",P1])
 		return self
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Ticks"])
 
 	Func setTicks P1
-		dnRequest("set",[self,"Ticks",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Ticks",P1])
 		return self
 
 	Func getIsSelectionRangeEnabled
-		return dnRequest("get",[self,"IsSelectionRangeEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSelectionRangeEnabled"])
 
 	Func setIsSelectionRangeEnabled P1
-		dnRequest("set",[self,"IsSelectionRangeEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSelectionRangeEnabled",P1])
 		return self
 
 	Func getSelectionStart
-		return dnRequest("get",[self,"SelectionStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionStart"])
 
 	Func setSelectionStart P1
-		dnRequest("set",[self,"SelectionStart",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionStart",P1])
 		return self
 
 	Func getSelectionEnd
-		return dnRequest("get",[self,"SelectionEnd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionEnd"])
 
 	Func setSelectionEnd P1
-		dnRequest("set",[self,"SelectionEnd",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionEnd",P1])
 		return self
 
 	Func getIsMoveToPointEnabled
-		return dnRequest("get",[self,"IsMoveToPointEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMoveToPointEnabled"])
 
 	Func setIsMoveToPointEnabled P1
-		dnRequest("set",[self,"IsMoveToPointEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsMoveToPointEnabled",P1])
 		return self
 
 	Func getIncreaseLarge

@@ -20,39 +20,39 @@ Class DbBatchCommand from Object
 		return self
 
 	Func CreateParameter 
-		return dnRequest("call",[self,"CreateParameter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCommandText
-		return dnRequest("get",[self,"CommandText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandText"])
 
 	Func setCommandText P1
-		dnRequest("set",[self,"CommandText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandText",P1])
 		return self
 
 	Func getCommandType
-		return dnRequest("get",[self,"CommandType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandType"])
 
 	Func setCommandType P1
-		dnRequest("set",[self,"CommandType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandType",P1])
 		return self
 
 	Func getRecordsAffected
-		return dnRequest("get",[self,"RecordsAffected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecordsAffected"])
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getCanCreateParameter
-		return dnRequest("get",[self,"CanCreateParameter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateParameter"])
 
 	Func setCanCreateParameter P1
 		raise("DotNet Error: CanCreateParameter is a read-only property")

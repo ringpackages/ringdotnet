@@ -23,23 +23,23 @@ Class DataGridViewImageCell from DataGridViewCell
 		return self
 
 	Func getDescription
-		return dnRequest("get",[self,"Description"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
 
 	Func setDescription P1
-		dnRequest("set",[self,"Description",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Description",P1])
 		return self
 
 	Func getImageLayout
-		return dnRequest("get",[self,"ImageLayout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageLayout"])
 
 	Func setImageLayout P1
-		dnRequest("set",[self,"ImageLayout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageLayout",P1])
 		return self
 
 	Func getValueIsIcon
-		return dnRequest("get",[self,"ValueIsIcon"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueIsIcon"])
 
 	Func setValueIsIcon P1
-		dnRequest("set",[self,"ValueIsIcon",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValueIsIcon",P1])
 		return self
 

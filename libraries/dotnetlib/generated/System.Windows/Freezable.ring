@@ -17,37 +17,37 @@ Class Freezable from DependencyObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func CloneCurrentValue 
-		return dnRequest("call",[self,"CloneCurrentValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CloneCurrentValue"])
 
 	Func GetAsFrozen 
-		return dnRequest("call",[self,"GetAsFrozen"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAsFrozen"])
 
 	Func GetCurrentValueAsFrozen 
-		return dnRequest("call",[self,"GetCurrentValueAsFrozen"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentValueAsFrozen"])
 
 	Func Freeze 
-		dnRequest("call",[self,"Freeze"])
+		dnRequest("call",[new DotNetObject(nHandle),"Freeze"])
 		return self
 
 	Func setChangedEvent P1
-		dnRequest("setevent",[self,"Changed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Changed",dnCallback(P1)])
 		return self
 
 	Func clearChangedEvent
-		dnRequest("clearevent",[self,"Changed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Changed"])
 		return self
 
 	Func getCanFreeze
-		return dnRequest("get",[self,"CanFreeze"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanFreeze"])
 
 	Func setCanFreeze P1
 		raise("DotNet Error: CanFreeze is a read-only property")
 
 	Func getIsFrozen
-		return dnRequest("get",[self,"IsFrozen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFrozen"])
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")

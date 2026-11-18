@@ -18,19 +18,19 @@ Class PostEvictionCallbackRegistration from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEvictionCallback
-		return dnRequest("get",[self,"EvictionCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EvictionCallback"])
 
 	Func setEvictionCallback P1
-		dnRequest("set",[self,"EvictionCallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EvictionCallback",P1])
 		return self
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
-		dnRequest("set",[self,"State",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"State",P1])
 		return self
 

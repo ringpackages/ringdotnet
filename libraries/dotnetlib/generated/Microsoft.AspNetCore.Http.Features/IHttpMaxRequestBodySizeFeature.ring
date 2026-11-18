@@ -17,15 +17,15 @@ Class IHttpMaxRequestBodySizeFeature from DotNetObject
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getMaxRequestBodySize
-		return dnRequest("get",[self,"MaxRequestBodySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestBodySize"])
 
 	Func setMaxRequestBodySize P1
-		dnRequest("set",[self,"MaxRequestBodySize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestBodySize",P1])
 		return self
 

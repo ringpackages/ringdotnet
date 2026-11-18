@@ -16,19 +16,19 @@ Class IPropertyBase from DotNetObject
 		return self
 
 	Func GetGetter 
-		return dnRequest("call",[self,"GetGetter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGetter"])
 
 	Func GetMemberInfo P1,P2
-		return dnRequest("call",[self,"GetMemberInfo",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMemberInfo",P1,P2])
 
 	Func GetIndex 
-		return dnRequest("call",[self,"GetIndex"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIndex"])
 
 	Func GetCurrentValueComparer 
-		return dnRequest("call",[self,"GetCurrentValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentValueComparer"])
 
 	Func getDeclaringType
-		return dnRequest("get",[self,"DeclaringType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringType"])
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")

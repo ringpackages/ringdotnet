@@ -16,7 +16,7 @@ Class ECDiffieHellmanCngPublicKey from ECDiffieHellmanPublicKey
 		return self
 
 	Func Import_ 
-		return dnRequest("call",[self,"Import"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Import"])
 
 	Func FromXmlString P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellmanCngPublicKey, System.Security.Cryptography'),"FromXmlString",P1])
@@ -25,7 +25,7 @@ Class ECDiffieHellmanCngPublicKey from ECDiffieHellmanPublicKey
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellmanCngPublicKey, System.Security.Cryptography'),"FromByteArray",P1,P2])
 
 	Func getBlobFormat
-		return dnRequest("get",[self,"BlobFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BlobFormat"])
 
 	Func setBlobFormat P1
 		raise("DotNet Error: BlobFormat is a read-only property")

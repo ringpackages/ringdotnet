@@ -18,19 +18,19 @@ Class ColorPalette from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateOptimalPalette P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ColorPalette, System.Drawing.Common'),"CreateOptimalPalette",P1,P2,P3])
 
 	Func getFlags
-		return dnRequest("get",[self,"Flags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Flags"])
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
 
 	Func getEntries
-		return dnRequest("get",[self,"Entries"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Entries"])
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")

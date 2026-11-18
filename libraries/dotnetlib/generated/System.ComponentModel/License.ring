@@ -16,14 +16,14 @@ Class License from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLicenseKey
-		return dnRequest("get",[self,"LicenseKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LicenseKey"])
 
 	Func setLicenseKey P1
 		raise("DotNet Error: LicenseKey is a read-only property")

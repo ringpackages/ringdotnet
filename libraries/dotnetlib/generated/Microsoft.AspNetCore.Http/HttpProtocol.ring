@@ -20,7 +20,7 @@ Class HttpProtocol from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func IsHttp09 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions'),"IsHttp09",P1])

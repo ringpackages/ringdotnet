@@ -17,33 +17,33 @@ Class XmlCharacterData from XmlLinkedNode
 		return self
 
 	Func Substring P1,P2
-		return dnRequest("call",[self,"Substring",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Substring",P1,P2])
 
 	Func AppendData P1
-		dnRequest("call",[self,"AppendData",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendData",P1])
 		return self
 
 	Func InsertData P1,P2
-		dnRequest("call",[self,"InsertData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"InsertData",P1,P2])
 		return self
 
 	Func DeleteData P1,P2
-		dnRequest("call",[self,"DeleteData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DeleteData",P1,P2])
 		return self
 
 	Func ReplaceData P1,P2,P3
-		dnRequest("call",[self,"ReplaceData",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ReplaceData",P1,P2,P3])
 		return self
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
 
 	Func setData P1
-		dnRequest("set",[self,"Data",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Data",P1])
 		return self
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

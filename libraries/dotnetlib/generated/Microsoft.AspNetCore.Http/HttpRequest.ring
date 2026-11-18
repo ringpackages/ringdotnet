@@ -34,146 +34,146 @@ Class HttpRequest from Object
 		return self
 
 	Func ReadFormAsync_1 P1
-		return dnRequest("call",[self,"ReadFormAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 
 	Func ReadFormAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadFormAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadFormAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync"])
 		ok
-		return dnRequest("call",[self,"ReadFormAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getMethod
-		return dnRequest("get",[self,"Method"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Method"])
 
 	Func setMethod P1
-		dnRequest("set",[self,"Method",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Method",P1])
 		return self
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
 
 	Func setScheme P1
-		dnRequest("set",[self,"Scheme",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Scheme",P1])
 		return self
 
 	Func getIsHttps
-		return dnRequest("get",[self,"IsHttps"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsHttps"])
 
 	Func setIsHttps P1
-		dnRequest("set",[self,"IsHttps",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsHttps",P1])
 		return self
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
 
 	Func setHost P1
-		dnRequest("set",[self,"Host",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Host",P1])
 		return self
 
 	Func getPathBase
-		return dnRequest("get",[self,"PathBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PathBase"])
 
 	Func setPathBase P1
-		dnRequest("set",[self,"PathBase",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PathBase",P1])
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
 
 	Func setPath P1
-		dnRequest("set",[self,"Path",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
 		return self
 
 	Func getQueryString
-		return dnRequest("get",[self,"QueryString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryString"])
 
 	Func setQueryString P1
-		dnRequest("set",[self,"QueryString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"QueryString",P1])
 		return self
 
 	Func getQuery
-		return dnRequest("get",[self,"Query"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Query"])
 
 	Func setQuery P1
-		dnRequest("set",[self,"Query",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Query",P1])
 		return self
 
 	Func getProtocol
-		return dnRequest("get",[self,"Protocol"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Protocol"])
 
 	Func setProtocol P1
-		dnRequest("set",[self,"Protocol",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Protocol",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getCookies
-		return dnRequest("get",[self,"Cookies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
 
 	Func setCookies P1
-		dnRequest("set",[self,"Cookies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cookies",P1])
 		return self
 
 	Func getContentLength
-		return dnRequest("get",[self,"ContentLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength"])
 
 	Func setContentLength P1
-		dnRequest("set",[self,"ContentLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentLength",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 
 	Func getBody
-		return dnRequest("get",[self,"Body"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Body"])
 
 	Func setBody P1
-		dnRequest("set",[self,"Body",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Body",P1])
 		return self
 
 	Func getBodyReader
-		return dnRequest("get",[self,"BodyReader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BodyReader"])
 
 	Func setBodyReader P1
 		raise("DotNet Error: BodyReader is a read-only property")
 
 	Func getHasFormContentType
-		return dnRequest("get",[self,"HasFormContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasFormContentType"])
 
 	Func setHasFormContentType P1
 		raise("DotNet Error: HasFormContentType is a read-only property")
 
 	Func getForm
-		return dnRequest("get",[self,"Form"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Form"])
 
 	Func setForm P1
-		dnRequest("set",[self,"Form",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Form",P1])
 		return self
 
 	Func getRouteValues
-		return dnRequest("get",[self,"RouteValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteValues"])
 
 	Func setRouteValues P1
-		dnRequest("set",[self,"RouteValues",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RouteValues",P1])
 		return self
 

@@ -19,27 +19,27 @@ Class ISite from DotNetObject
 		return self
 
 	Func getComponent
-		return dnRequest("get",[self,"Component"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Component"])
 
 	Func setComponent P1
 		raise("DotNet Error: Component is a read-only property")
 
 	Func getContainer
-		return dnRequest("get",[self,"Container"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Container"])
 
 	Func setContainer P1
 		raise("DotNet Error: Container is a read-only property")
 
 	Func getDesignMode
-		return dnRequest("get",[self,"DesignMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DesignMode"])
 
 	Func setDesignMode P1
 		raise("DotNet Error: DesignMode is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 

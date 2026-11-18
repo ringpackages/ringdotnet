@@ -28,105 +28,105 @@ Class XmlnsDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetNamespace P1
-		return dnRequest("call",[self,"GetNamespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNamespace",P1])
 
 	Func GetNamespacePrefixes 
-		return dnRequest("call",[self,"GetNamespacePrefixes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNamespacePrefixes"])
 
 	Func Seal 
-		dnRequest("call",[self,"Seal"])
+		dnRequest("call",[new DotNetObject(nHandle),"Seal"])
 		return self
 
 	Func LookupNamespace P1
-		return dnRequest("call",[self,"LookupNamespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LookupNamespace",P1])
 
 	Func LookupPrefix P1
-		return dnRequest("call",[self,"LookupPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LookupPrefix",P1])
 
 	Func DefaultNamespace 
-		return dnRequest("call",[self,"DefaultNamespace"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DefaultNamespace"])
 
 	Func PushScope 
-		dnRequest("call",[self,"PushScope"])
+		dnRequest("call",[new DotNetObject(nHandle),"PushScope"])
 		return self
 
 	Func PopScope 
-		dnRequest("call",[self,"PopScope"])
+		dnRequest("call",[new DotNetObject(nHandle),"PopScope"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedSize"])
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSynchronized"])
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SyncRoot"])
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getSealed
-		return dnRequest("get",[self,"Sealed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sealed"])
 
 	Func setSealed P1
 		raise("DotNet Error: Sealed is a read-only property")

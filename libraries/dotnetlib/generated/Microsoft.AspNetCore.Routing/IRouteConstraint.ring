@@ -14,5 +14,5 @@ Class IRouteConstraint from DotNetObject
 		return self
 
 	Func Match P1,P2
-		return dnRequest("call",[self,"Match",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Match",P1,P2])
 

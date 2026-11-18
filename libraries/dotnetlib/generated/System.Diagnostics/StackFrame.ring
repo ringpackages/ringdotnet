@@ -29,25 +29,25 @@ Class StackFrame from Object
 		return self
 
 	Func GetMethod 
-		return dnRequest("call",[self,"GetMethod"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod"])
 
 	Func GetNativeOffset 
-		return dnRequest("call",[self,"GetNativeOffset"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNativeOffset"])
 
 	Func GetILOffset 
-		return dnRequest("call",[self,"GetILOffset"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetILOffset"])
 
 	Func GetFileName 
-		return dnRequest("call",[self,"GetFileName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFileName"])
 
 	Func GetFileLineNumber 
-		return dnRequest("call",[self,"GetFileLineNumber"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFileLineNumber"])
 
 	Func GetFileColumnNumber 
-		return dnRequest("call",[self,"GetFileColumnNumber"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFileColumnNumber"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOFFSET_UNKNOWN
 		return dnRequest("get",[dnTypeCached('System.Diagnostics.StackFrame, System.Private.CoreLib'),"OFFSET_UNKNOWN"])

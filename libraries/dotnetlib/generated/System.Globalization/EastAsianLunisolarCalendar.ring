@@ -14,11 +14,11 @@ Class EastAsianLunisolarCalendar from Calendar
 		return self
 
 	Func GetSexagenaryYear P1
-		return dnRequest("call",[self,"GetSexagenaryYear",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSexagenaryYear",P1])
 
 	Func GetCelestialStem P1
-		return dnRequest("call",[self,"GetCelestialStem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCelestialStem",P1])
 
 	Func GetTerrestrialBranch P1
-		return dnRequest("call",[self,"GetTerrestrialBranch",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTerrestrialBranch",P1])
 

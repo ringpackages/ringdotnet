@@ -21,98 +21,98 @@ Class InputManager from DispatcherObject
 		return self
 
 	Func PushMenuMode P1
-		dnRequest("call",[self,"PushMenuMode",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PushMenuMode",P1])
 		return self
 
 	Func PopMenuMode P1
-		dnRequest("call",[self,"PopMenuMode",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PopMenuMode",P1])
 		return self
 
 	Func ProcessInput P1
-		return dnRequest("call",[self,"ProcessInput",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ProcessInput",P1])
 
 	Func setPreProcessInputEvent P1
-		dnRequest("setevent",[self,"PreProcessInput",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreProcessInput",dnCallback(P1)])
 		return self
 
 	Func clearPreProcessInputEvent
-		dnRequest("clearevent",[self,"PreProcessInput"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreProcessInput"])
 		return self
 
 	Func setPreNotifyInputEvent P1
-		dnRequest("setevent",[self,"PreNotifyInput",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreNotifyInput",dnCallback(P1)])
 		return self
 
 	Func clearPreNotifyInputEvent
-		dnRequest("clearevent",[self,"PreNotifyInput"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreNotifyInput"])
 		return self
 
 	Func setPostNotifyInputEvent P1
-		dnRequest("setevent",[self,"PostNotifyInput",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PostNotifyInput",dnCallback(P1)])
 		return self
 
 	Func clearPostNotifyInputEvent
-		dnRequest("clearevent",[self,"PostNotifyInput"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PostNotifyInput"])
 		return self
 
 	Func setPostProcessInputEvent P1
-		dnRequest("setevent",[self,"PostProcessInput",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PostProcessInput",dnCallback(P1)])
 		return self
 
 	Func clearPostProcessInputEvent
-		dnRequest("clearevent",[self,"PostProcessInput"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PostProcessInput"])
 		return self
 
 	Func setEnterMenuModeEvent P1
-		dnRequest("setevent",[self,"EnterMenuMode",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"EnterMenuMode",dnCallback(P1)])
 		return self
 
 	Func clearEnterMenuModeEvent
-		dnRequest("clearevent",[self,"EnterMenuMode"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"EnterMenuMode"])
 		return self
 
 	Func setLeaveMenuModeEvent P1
-		dnRequest("setevent",[self,"LeaveMenuMode",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LeaveMenuMode",dnCallback(P1)])
 		return self
 
 	Func clearLeaveMenuModeEvent
-		dnRequest("clearevent",[self,"LeaveMenuMode"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LeaveMenuMode"])
 		return self
 
 	Func setHitTestInvalidatedAsyncEvent P1
-		dnRequest("setevent",[self,"HitTestInvalidatedAsync",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"HitTestInvalidatedAsync",dnCallback(P1)])
 		return self
 
 	Func clearHitTestInvalidatedAsyncEvent
-		dnRequest("clearevent",[self,"HitTestInvalidatedAsync"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"HitTestInvalidatedAsync"])
 		return self
 
 	Func getInputProviders
-		return dnRequest("get",[self,"InputProviders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InputProviders"])
 
 	Func setInputProviders P1
 		raise("DotNet Error: InputProviders is a read-only property")
 
 	Func getPrimaryKeyboardDevice
-		return dnRequest("get",[self,"PrimaryKeyboardDevice"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrimaryKeyboardDevice"])
 
 	Func setPrimaryKeyboardDevice P1
 		raise("DotNet Error: PrimaryKeyboardDevice is a read-only property")
 
 	Func getPrimaryMouseDevice
-		return dnRequest("get",[self,"PrimaryMouseDevice"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrimaryMouseDevice"])
 
 	Func setPrimaryMouseDevice P1
 		raise("DotNet Error: PrimaryMouseDevice is a read-only property")
 
 	Func getMostRecentInputDevice
-		return dnRequest("get",[self,"MostRecentInputDevice"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MostRecentInputDevice"])
 
 	Func setMostRecentInputDevice P1
 		raise("DotNet Error: MostRecentInputDevice is a read-only property")
 
 	Func getIsInMenuMode
-		return dnRequest("get",[self,"IsInMenuMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInMenuMode"])
 
 	Func setIsInMenuMode P1
 		raise("DotNet Error: IsInMenuMode is a read-only property")

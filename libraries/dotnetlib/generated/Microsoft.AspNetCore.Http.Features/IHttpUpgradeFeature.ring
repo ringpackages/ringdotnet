@@ -16,10 +16,10 @@ Class IHttpUpgradeFeature from DotNetObject
 		return self
 
 	Func UpgradeAsync 
-		return dnRequest("call",[self,"UpgradeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"UpgradeAsync"])
 
 	Func getIsUpgradableRequest
-		return dnRequest("get",[self,"IsUpgradableRequest"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUpgradableRequest"])
 
 	Func setIsUpgradableRequest P1
 		raise("DotNet Error: IsUpgradableRequest is a read-only property")

@@ -23,67 +23,67 @@ Class IColumnBase from DotNetObject
 		return self
 
 	Func FindColumnMapping P1
-		return dnRequest("call",[self,"FindColumnMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindColumnMapping",P1])
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnRequest("get",[self,"StoreType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getProviderClrType
-		return dnRequest("get",[self,"ProviderClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProviderClrType"])
 
 	Func setProviderClrType P1
 		raise("DotNet Error: ProviderClrType is a read-only property")
 
 	Func getStoreTypeMapping
-		return dnRequest("get",[self,"StoreTypeMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreTypeMapping"])
 
 	Func setStoreTypeMapping P1
 		raise("DotNet Error: StoreTypeMapping is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getTable
-		return dnRequest("get",[self,"Table"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getPropertyMappings
-		return dnRequest("get",[self,"PropertyMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyMappings"])
 
 	Func setPropertyMappings P1
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getProviderValueComparer
-		return dnRequest("get",[self,"ProviderValueComparer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProviderValueComparer"])
 
 	Func setProviderValueComparer P1
 		raise("DotNet Error: ProviderValueComparer is a read-only property")

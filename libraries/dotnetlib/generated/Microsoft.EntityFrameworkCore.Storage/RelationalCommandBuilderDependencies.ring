@@ -18,19 +18,19 @@ Class RelationalCommandBuilderDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExceptionDetector
-		return dnRequest("get",[self,"ExceptionDetector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionDetector"])
 
 	Func setExceptionDetector P1
-		dnRequest("set",[self,"ExceptionDetector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExceptionDetector",P1])
 		return self
 
 	Func getTypeMappingSource
-		return dnRequest("get",[self,"TypeMappingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[self,"TypeMappingSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
 		return self
 

@@ -51,237 +51,237 @@ Class Window from ContentControl
 		return self
 
 	Func Show 
-		dnRequest("call",[self,"Show"])
+		dnRequest("call",[new DotNetObject(nHandle),"Show"])
 		return self
 
 	Func Hide 
-		dnRequest("call",[self,"Hide"])
+		dnRequest("call",[new DotNetObject(nHandle),"Hide"])
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func DragMove 
-		dnRequest("call",[self,"DragMove"])
+		dnRequest("call",[new DotNetObject(nHandle),"DragMove"])
 		return self
 
 	Func ShowDialog 
-		return dnRequest("call",[self,"ShowDialog"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog"])
 
 	Func Activate 
-		return dnRequest("call",[self,"Activate"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Activate"])
 
 	Func GetWindow P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Window, PresentationFramework'),"GetWindow",P1])
 
 	Func setSourceInitializedEvent P1
-		dnRequest("setevent",[self,"SourceInitialized",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SourceInitialized",dnCallback(P1)])
 		return self
 
 	Func clearSourceInitializedEvent
-		dnRequest("clearevent",[self,"SourceInitialized"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SourceInitialized"])
 		return self
 
 	Func setDpiChangedEvent P1
-		dnRequest("setevent",[self,"DpiChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DpiChanged",dnCallback(P1)])
 		return self
 
 	Func clearDpiChangedEvent
-		dnRequest("clearevent",[self,"DpiChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DpiChanged"])
 		return self
 
 	Func setActivatedEvent P1
-		dnRequest("setevent",[self,"Activated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Activated",dnCallback(P1)])
 		return self
 
 	Func clearActivatedEvent
-		dnRequest("clearevent",[self,"Activated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Activated"])
 		return self
 
 	Func setDeactivatedEvent P1
-		dnRequest("setevent",[self,"Deactivated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Deactivated",dnCallback(P1)])
 		return self
 
 	Func clearDeactivatedEvent
-		dnRequest("clearevent",[self,"Deactivated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Deactivated"])
 		return self
 
 	Func setStateChangedEvent P1
-		dnRequest("setevent",[self,"StateChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StateChanged",dnCallback(P1)])
 		return self
 
 	Func clearStateChangedEvent
-		dnRequest("clearevent",[self,"StateChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StateChanged"])
 		return self
 
 	Func setLocationChangedEvent P1
-		dnRequest("setevent",[self,"LocationChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LocationChanged",dnCallback(P1)])
 		return self
 
 	Func clearLocationChangedEvent
-		dnRequest("clearevent",[self,"LocationChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LocationChanged"])
 		return self
 
 	Func setClosingEvent P1
-		dnRequest("setevent",[self,"Closing",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Closing",dnCallback(P1)])
 		return self
 
 	Func clearClosingEvent
-		dnRequest("clearevent",[self,"Closing"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Closing"])
 		return self
 
 	Func setClosedEvent P1
-		dnRequest("setevent",[self,"Closed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Closed",dnCallback(P1)])
 		return self
 
 	Func clearClosedEvent
-		dnRequest("clearevent",[self,"Closed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Closed"])
 		return self
 
 	Func setContentRenderedEvent P1
-		dnRequest("setevent",[self,"ContentRendered",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ContentRendered",dnCallback(P1)])
 		return self
 
 	Func clearContentRenderedEvent
-		dnRequest("clearevent",[self,"ContentRendered"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ContentRendered"])
 		return self
 
 	Func getThemeMode
-		return dnRequest("get",[self,"ThemeMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ThemeMode"])
 
 	Func setThemeMode P1
-		dnRequest("set",[self,"ThemeMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ThemeMode",P1])
 		return self
 
 	Func getTaskbarItemInfo
-		return dnRequest("get",[self,"TaskbarItemInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TaskbarItemInfo"])
 
 	Func setTaskbarItemInfo P1
-		dnRequest("set",[self,"TaskbarItemInfo",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TaskbarItemInfo",P1])
 		return self
 
 	Func getAllowsTransparency
-		return dnRequest("get",[self,"AllowsTransparency"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowsTransparency"])
 
 	Func setAllowsTransparency P1
-		dnRequest("set",[self,"AllowsTransparency",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowsTransparency",P1])
 		return self
 
 	Func getTitle
-		return dnRequest("get",[self,"Title"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Title"])
 
 	Func setTitle P1
-		dnRequest("set",[self,"Title",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Title",P1])
 		return self
 
 	Func getIcon
-		return dnRequest("get",[self,"Icon"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Icon"])
 
 	Func setIcon P1
-		dnRequest("set",[self,"Icon",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Icon",P1])
 		return self
 
 	Func getSizeToContent
-		return dnRequest("get",[self,"SizeToContent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SizeToContent"])
 
 	Func setSizeToContent P1
-		dnRequest("set",[self,"SizeToContent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SizeToContent",P1])
 		return self
 
 	Func getTop
-		return dnRequest("get",[self,"Top"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Top"])
 
 	Func setTop P1
-		dnRequest("set",[self,"Top",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Top",P1])
 		return self
 
 	Func getLeft
-		return dnRequest("get",[self,"Left"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Left"])
 
 	Func setLeft P1
-		dnRequest("set",[self,"Left",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Left",P1])
 		return self
 
 	Func getRestoreBounds
-		return dnRequest("get",[self,"RestoreBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RestoreBounds"])
 
 	Func setRestoreBounds P1
 		raise("DotNet Error: RestoreBounds is a read-only property")
 
 	Func getWindowStartupLocation
-		return dnRequest("get",[self,"WindowStartupLocation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WindowStartupLocation"])
 
 	Func setWindowStartupLocation P1
-		dnRequest("set",[self,"WindowStartupLocation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WindowStartupLocation",P1])
 		return self
 
 	Func getShowInTaskbar
-		return dnRequest("get",[self,"ShowInTaskbar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowInTaskbar"])
 
 	Func setShowInTaskbar P1
-		dnRequest("set",[self,"ShowInTaskbar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowInTaskbar",P1])
 		return self
 
 	Func getIsActive
-		return dnRequest("get",[self,"IsActive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsActive"])
 
 	Func setIsActive P1
 		raise("DotNet Error: IsActive is a read-only property")
 
 	Func getOwner
-		return dnRequest("get",[self,"Owner"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Owner"])
 
 	Func setOwner P1
-		dnRequest("set",[self,"Owner",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Owner",P1])
 		return self
 
 	Func getOwnedWindows
-		return dnRequest("get",[self,"OwnedWindows"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OwnedWindows"])
 
 	Func setOwnedWindows P1
 		raise("DotNet Error: OwnedWindows is a read-only property")
 
 	Func getDialogResult
-		return dnRequest("get",[self,"DialogResult"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DialogResult"])
 
 	Func setDialogResult P1
-		dnRequest("set",[self,"DialogResult",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DialogResult",P1])
 		return self
 
 	Func getWindowStyle
-		return dnRequest("get",[self,"WindowStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WindowStyle"])
 
 	Func setWindowStyle P1
-		dnRequest("set",[self,"WindowStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WindowStyle",P1])
 		return self
 
 	Func getWindowState
-		return dnRequest("get",[self,"WindowState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WindowState"])
 
 	Func setWindowState P1
-		dnRequest("set",[self,"WindowState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WindowState",P1])
 		return self
 
 	Func getResizeMode
-		return dnRequest("get",[self,"ResizeMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResizeMode"])
 
 	Func setResizeMode P1
-		dnRequest("set",[self,"ResizeMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ResizeMode",P1])
 		return self
 
 	Func getTopmost
-		return dnRequest("get",[self,"Topmost"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Topmost"])
 
 	Func setTopmost P1
-		dnRequest("set",[self,"Topmost",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Topmost",P1])
 		return self
 
 	Func getShowActivated
-		return dnRequest("get",[self,"ShowActivated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowActivated"])
 
 	Func setShowActivated P1
-		dnRequest("set",[self,"ShowActivated",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowActivated",P1])
 		return self
 
 	Func getTaskbarItemInfoProperty

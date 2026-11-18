@@ -19,90 +19,90 @@ Class XNode from XObject
 		return self
 
 	Func AddAfterSelf P1
-		dnRequest("call",[self,"AddAfterSelf",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddAfterSelf",P1])
 		return self
 
 	Func AddBeforeSelf P1
-		dnRequest("call",[self,"AddBeforeSelf",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddBeforeSelf",P1])
 		return self
 
 	Func Ancestors P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Ancestors",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Ancestors",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Ancestors"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Ancestors"])
 		ok
-		return dnRequest("call",[self,"Ancestors",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ancestors",P1])
 
 	Func Ancestors_1 P1
-		return dnRequest("call",[self,"Ancestors",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ancestors",P1])
 
 	Func CreateReader P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateReader",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateReader",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateReader"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateReader"])
 		ok
-		return dnRequest("call",[self,"CreateReader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateReader",P1])
 
 	Func CreateReader_1 P1
-		return dnRequest("call",[self,"CreateReader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateReader",P1])
 
 	Func NodesAfterSelf 
-		return dnRequest("call",[self,"NodesAfterSelf"])
+		return dnRequest("call",[new DotNetObject(nHandle),"NodesAfterSelf"])
 
 	Func NodesBeforeSelf 
-		return dnRequest("call",[self,"NodesBeforeSelf"])
+		return dnRequest("call",[new DotNetObject(nHandle),"NodesBeforeSelf"])
 
 	Func ElementsAfterSelf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ElementsAfterSelf",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ElementsAfterSelf",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ElementsAfterSelf"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ElementsAfterSelf"])
 		ok
-		return dnRequest("call",[self,"ElementsAfterSelf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ElementsAfterSelf",P1])
 
 	Func ElementsAfterSelf_1 P1
-		return dnRequest("call",[self,"ElementsAfterSelf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ElementsAfterSelf",P1])
 
 	Func ElementsBeforeSelf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ElementsBeforeSelf",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ElementsBeforeSelf",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ElementsBeforeSelf"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ElementsBeforeSelf"])
 		ok
-		return dnRequest("call",[self,"ElementsBeforeSelf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ElementsBeforeSelf",P1])
 
 	Func ElementsBeforeSelf_1 P1
-		return dnRequest("call",[self,"ElementsBeforeSelf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ElementsBeforeSelf",P1])
 
 	Func IsAfter P1
-		return dnRequest("call",[self,"IsAfter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAfter",P1])
 
 	Func IsBefore P1
-		return dnRequest("call",[self,"IsBefore",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBefore",P1])
 
 	Func Remove 
-		dnRequest("call",[self,"Remove"])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove"])
 		return self
 
 	Func ReplaceWith P1
-		dnRequest("call",[self,"ReplaceWith",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReplaceWith",P1])
 		return self
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func WriteTo P1
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func WriteToAsync P1,P2
-		return dnRequest("call",[self,"WriteToAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteToAsync",P1,P2])
 
 	Func CompareDocumentOrder P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"CompareDocumentOrder",P1,P2])
@@ -117,13 +117,13 @@ Class XNode from XObject
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"DeepEquals",P1,P2])
 
 	Func getNextNode
-		return dnRequest("get",[self,"NextNode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NextNode"])
 
 	Func setNextNode P1
 		raise("DotNet Error: NextNode is a read-only property")
 
 	Func getPreviousNode
-		return dnRequest("get",[self,"PreviousNode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreviousNode"])
 
 	Func setPreviousNode P1
 		raise("DotNet Error: PreviousNode is a read-only property")

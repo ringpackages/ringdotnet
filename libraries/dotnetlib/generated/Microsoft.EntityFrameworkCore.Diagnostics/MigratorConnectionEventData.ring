@@ -18,13 +18,13 @@ Class MigratorConnectionEventData from MigratorEventData
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getConnectionId
-		return dnRequest("get",[self,"ConnectionId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionId"])
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")

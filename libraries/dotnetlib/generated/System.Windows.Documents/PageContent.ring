@@ -20,45 +20,45 @@ Class PageContent from FrameworkElement
 		return self
 
 	Func GetPageRoot P1
-		return dnRequest("call",[self,"GetPageRoot",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPageRoot",P1])
 
 	Func GetPageRootAsync P1
-		dnRequest("call",[self,"GetPageRootAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"GetPageRootAsync",P1])
 		return self
 
 	Func GetPageRootAsyncCancel 
-		dnRequest("call",[self,"GetPageRootAsyncCancel"])
+		dnRequest("call",[new DotNetObject(nHandle),"GetPageRootAsyncCancel"])
 		return self
 
 	Func ShouldSerializeChild P1
-		return dnRequest("call",[self,"ShouldSerializeChild",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeChild",P1])
 
 	Func setGetPageRootCompletedEvent P1
-		dnRequest("setevent",[self,"GetPageRootCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GetPageRootCompleted",dnCallback(P1)])
 		return self
 
 	Func clearGetPageRootCompletedEvent
-		dnRequest("clearevent",[self,"GetPageRootCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GetPageRootCompleted"])
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
 		return self
 
 	Func getLinkTargets
-		return dnRequest("get",[self,"LinkTargets"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkTargets"])
 
 	Func setLinkTargets P1
 		raise("DotNet Error: LinkTargets is a read-only property")
 
 	Func getChild
-		return dnRequest("get",[self,"Child"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Child"])
 
 	Func setChild P1
-		dnRequest("set",[self,"Child",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Child",P1])
 		return self
 
 	Func getSourceProperty

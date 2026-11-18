@@ -26,76 +26,76 @@ Class HttpContentHeaders from HttpHeaders
 		return self
 
 	Func getAllow
-		return dnRequest("get",[self,"Allow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Allow"])
 
 	Func setAllow P1
 		raise("DotNet Error: Allow is a read-only property")
 
 	Func getContentDisposition
-		return dnRequest("get",[self,"ContentDisposition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentDisposition"])
 
 	Func setContentDisposition P1
-		dnRequest("set",[self,"ContentDisposition",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentDisposition",P1])
 		return self
 
 	Func getContentEncoding
-		return dnRequest("get",[self,"ContentEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentEncoding"])
 
 	Func setContentEncoding P1
 		raise("DotNet Error: ContentEncoding is a read-only property")
 
 	Func getContentLanguage
-		return dnRequest("get",[self,"ContentLanguage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLanguage"])
 
 	Func setContentLanguage P1
 		raise("DotNet Error: ContentLanguage is a read-only property")
 
 	Func getContentLength
-		return dnRequest("get",[self,"ContentLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength"])
 
 	Func setContentLength P1
-		dnRequest("set",[self,"ContentLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentLength",P1])
 		return self
 
 	Func getContentLocation
-		return dnRequest("get",[self,"ContentLocation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLocation"])
 
 	Func setContentLocation P1
-		dnRequest("set",[self,"ContentLocation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentLocation",P1])
 		return self
 
 	Func getContentMD5
-		return dnRequest("get",[self,"ContentMD5"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentMD5"])
 
 	Func setContentMD5 P1
-		dnRequest("set",[self,"ContentMD5",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentMD5",P1])
 		return self
 
 	Func getContentRange
-		return dnRequest("get",[self,"ContentRange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentRange"])
 
 	Func setContentRange P1
-		dnRequest("set",[self,"ContentRange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentRange",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 
 	Func getExpires
-		return dnRequest("get",[self,"Expires"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expires"])
 
 	Func setExpires P1
-		dnRequest("set",[self,"Expires",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Expires",P1])
 		return self
 
 	Func getLastModified
-		return dnRequest("get",[self,"LastModified"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastModified"])
 
 	Func setLastModified P1
-		dnRequest("set",[self,"LastModified",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LastModified",P1])
 		return self
 

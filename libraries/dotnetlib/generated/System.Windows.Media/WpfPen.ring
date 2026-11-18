@@ -36,59 +36,59 @@ Class WpfPen from Animatable
 		return self
 
 	Func getBrush
-		return dnRequest("get",[self,"Brush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Brush"])
 
 	Func setBrush P1
-		dnRequest("set",[self,"Brush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Brush",P1])
 		return self
 
 	Func getThickness
-		return dnRequest("get",[self,"Thickness"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Thickness"])
 
 	Func setThickness P1
-		dnRequest("set",[self,"Thickness",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Thickness",P1])
 		return self
 
 	Func getStartLineCap
-		return dnRequest("get",[self,"StartLineCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartLineCap"])
 
 	Func setStartLineCap P1
-		dnRequest("set",[self,"StartLineCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StartLineCap",P1])
 		return self
 
 	Func getEndLineCap
-		return dnRequest("get",[self,"EndLineCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EndLineCap"])
 
 	Func setEndLineCap P1
-		dnRequest("set",[self,"EndLineCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EndLineCap",P1])
 		return self
 
 	Func getDashCap
-		return dnRequest("get",[self,"DashCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DashCap"])
 
 	Func setDashCap P1
-		dnRequest("set",[self,"DashCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DashCap",P1])
 		return self
 
 	Func getLineJoin
-		return dnRequest("get",[self,"LineJoin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineJoin"])
 
 	Func setLineJoin P1
-		dnRequest("set",[self,"LineJoin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineJoin",P1])
 		return self
 
 	Func getMiterLimit
-		return dnRequest("get",[self,"MiterLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MiterLimit"])
 
 	Func setMiterLimit P1
-		dnRequest("set",[self,"MiterLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MiterLimit",P1])
 		return self
 
 	Func getDashStyle
-		return dnRequest("get",[self,"DashStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DashStyle"])
 
 	Func setDashStyle P1
-		dnRequest("set",[self,"DashStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DashStyle",P1])
 		return self
 
 	Func getBrushProperty

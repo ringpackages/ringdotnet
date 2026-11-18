@@ -17,7 +17,7 @@ Class DbContextTypeEventData from EventData
 		return self
 
 	Func getContextType
-		return dnRequest("get",[self,"ContextType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextType"])
 
 	Func setContextType P1
 		raise("DotNet Error: ContextType is a read-only property")

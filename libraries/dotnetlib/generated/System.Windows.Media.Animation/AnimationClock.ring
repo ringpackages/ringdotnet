@@ -14,5 +14,5 @@ Class AnimationClock from Clock
 		return self
 
 	Func GetCurrentValue P1,P2
-		return dnRequest("call",[self,"GetCurrentValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentValue",P1,P2])
 

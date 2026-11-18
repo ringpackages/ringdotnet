@@ -21,13 +21,13 @@ Class FileExtensionContentTypeProvider from Object
 		return self
 
 	Func TryGetContentType P1
-		return dnRequest("call",[self,"TryGetContentType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetContentType",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMappings
-		return dnRequest("get",[self,"Mappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mappings"])
 
 	Func setMappings P1
 		raise("DotNet Error: Mappings is a read-only property")

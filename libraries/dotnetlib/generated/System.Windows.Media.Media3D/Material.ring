@@ -14,5 +14,5 @@ Class Material from Animatable
 		return self
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 

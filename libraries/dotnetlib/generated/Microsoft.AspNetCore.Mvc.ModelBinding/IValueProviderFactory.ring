@@ -14,5 +14,5 @@ Class IValueProviderFactory from DotNetObject
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnRequest("call",[self,"CreateValueProviderAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateValueProviderAsync",P1])
 

@@ -17,7 +17,7 @@ Class RelationalGroupByShaperExpression from GroupByShaperExpression
 		return self
 
 	Func getElementSelector
-		return dnRequest("get",[self,"ElementSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementSelector"])
 
 	Func setElementSelector P1
 		raise("DotNet Error: ElementSelector is a read-only property")

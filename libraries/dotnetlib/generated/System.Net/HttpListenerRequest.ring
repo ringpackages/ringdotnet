@@ -44,190 +44,190 @@ Class HttpListenerRequest from Object
 		return self
 
 	Func GetClientCertificate 
-		return dnRequest("call",[self,"GetClientCertificate"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetClientCertificate"])
 
 	Func BeginGetClientCertificate P1,P2
-		return dnRequest("call",[self,"BeginGetClientCertificate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginGetClientCertificate",P1,P2])
 
 	Func GetClientCertificateAsync 
-		return dnRequest("call",[self,"GetClientCertificateAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetClientCertificateAsync"])
 
 	Func EndGetClientCertificate P1
-		return dnRequest("call",[self,"EndGetClientCertificate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndGetClientCertificate",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAcceptTypes
-		return dnRequest("get",[self,"AcceptTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptTypes"])
 
 	Func setAcceptTypes P1
 		raise("DotNet Error: AcceptTypes is a read-only property")
 
 	Func getUserLanguages
-		return dnRequest("get",[self,"UserLanguages"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserLanguages"])
 
 	Func setUserLanguages P1
 		raise("DotNet Error: UserLanguages is a read-only property")
 
 	Func getCookies
-		return dnRequest("get",[self,"Cookies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
 
 	Func setCookies P1
 		raise("DotNet Error: Cookies is a read-only property")
 
 	Func getContentEncoding
-		return dnRequest("get",[self,"ContentEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentEncoding"])
 
 	Func setContentEncoding P1
 		raise("DotNet Error: ContentEncoding is a read-only property")
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getIsLocal
-		return dnRequest("get",[self,"IsLocal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLocal"])
 
 	Func setIsLocal P1
 		raise("DotNet Error: IsLocal is a read-only property")
 
 	Func getIsWebSocketRequest
-		return dnRequest("get",[self,"IsWebSocketRequest"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsWebSocketRequest"])
 
 	Func setIsWebSocketRequest P1
 		raise("DotNet Error: IsWebSocketRequest is a read-only property")
 
 	Func getKeepAlive
-		return dnRequest("get",[self,"KeepAlive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlive"])
 
 	Func setKeepAlive P1
 		raise("DotNet Error: KeepAlive is a read-only property")
 
 	Func getQueryString
-		return dnRequest("get",[self,"QueryString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryString"])
 
 	Func setQueryString P1
 		raise("DotNet Error: QueryString is a read-only property")
 
 	Func getRawUrl
-		return dnRequest("get",[self,"RawUrl"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawUrl"])
 
 	Func setRawUrl P1
 		raise("DotNet Error: RawUrl is a read-only property")
 
 	Func getUserAgent
-		return dnRequest("get",[self,"UserAgent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserAgent"])
 
 	Func setUserAgent P1
 		raise("DotNet Error: UserAgent is a read-only property")
 
 	Func getUserHostAddress
-		return dnRequest("get",[self,"UserHostAddress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserHostAddress"])
 
 	Func setUserHostAddress P1
 		raise("DotNet Error: UserHostAddress is a read-only property")
 
 	Func getUserHostName
-		return dnRequest("get",[self,"UserHostName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserHostName"])
 
 	Func setUserHostName P1
 		raise("DotNet Error: UserHostName is a read-only property")
 
 	Func getUrlReferrer
-		return dnRequest("get",[self,"UrlReferrer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UrlReferrer"])
 
 	Func setUrlReferrer P1
 		raise("DotNet Error: UrlReferrer is a read-only property")
 
 	Func getUrl
-		return dnRequest("get",[self,"Url"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
 
 	Func setUrl P1
 		raise("DotNet Error: Url is a read-only property")
 
 	Func getProtocolVersion
-		return dnRequest("get",[self,"ProtocolVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolVersion"])
 
 	Func setProtocolVersion P1
 		raise("DotNet Error: ProtocolVersion is a read-only property")
 
 	Func getClientCertificateError
-		return dnRequest("get",[self,"ClientCertificateError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificateError"])
 
 	Func setClientCertificateError P1
 		raise("DotNet Error: ClientCertificateError is a read-only property")
 
 	Func getRequestTraceIdentifier
-		return dnRequest("get",[self,"RequestTraceIdentifier"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestTraceIdentifier"])
 
 	Func setRequestTraceIdentifier P1
 		raise("DotNet Error: RequestTraceIdentifier is a read-only property")
 
 	Func getContentLength64
-		return dnRequest("get",[self,"ContentLength64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength64"])
 
 	Func setContentLength64 P1
 		raise("DotNet Error: ContentLength64 is a read-only property")
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getHttpMethod
-		return dnRequest("get",[self,"HttpMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpMethod"])
 
 	Func setHttpMethod P1
 		raise("DotNet Error: HttpMethod is a read-only property")
 
 	Func getInputStream
-		return dnRequest("get",[self,"InputStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InputStream"])
 
 	Func setInputStream P1
 		raise("DotNet Error: InputStream is a read-only property")
 
 	Func getIsAuthenticated
-		return dnRequest("get",[self,"IsAuthenticated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAuthenticated"])
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getIsSecureConnection
-		return dnRequest("get",[self,"IsSecureConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSecureConnection"])
 
 	Func setIsSecureConnection P1
 		raise("DotNet Error: IsSecureConnection is a read-only property")
 
 	Func getServiceName
-		return dnRequest("get",[self,"ServiceName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceName"])
 
 	Func setServiceName P1
 		raise("DotNet Error: ServiceName is a read-only property")
 
 	Func getTransportContext
-		return dnRequest("get",[self,"TransportContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransportContext"])
 
 	Func setTransportContext P1
 		raise("DotNet Error: TransportContext is a read-only property")
 
 	Func getHasEntityBody
-		return dnRequest("get",[self,"HasEntityBody"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasEntityBody"])
 
 	Func setHasEntityBody P1
 		raise("DotNet Error: HasEntityBody is a read-only property")
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteEndPoint"])
 
 	Func setRemoteEndPoint P1
 		raise("DotNet Error: RemoteEndPoint is a read-only property")
 
 	Func getLocalEndPoint
-		return dnRequest("get",[self,"LocalEndPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalEndPoint"])
 
 	Func setLocalEndPoint P1
 		raise("DotNet Error: LocalEndPoint is a read-only property")

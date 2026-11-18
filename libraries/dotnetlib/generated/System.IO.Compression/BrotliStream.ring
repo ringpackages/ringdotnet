@@ -21,7 +21,7 @@ Class BrotliStream from Stream
 		return self
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseStream"])
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")

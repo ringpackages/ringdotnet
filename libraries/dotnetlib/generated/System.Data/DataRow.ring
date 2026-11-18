@@ -20,131 +20,131 @@ Class DataRow from Object
 		return self
 
 	Func AcceptChanges 
-		dnRequest("call",[self,"AcceptChanges"])
+		dnRequest("call",[new DotNetObject(nHandle),"AcceptChanges"])
 		return self
 
 	Func BeginEdit 
-		dnRequest("call",[self,"BeginEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginEdit"])
 		return self
 
 	Func CancelEdit 
-		dnRequest("call",[self,"CancelEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelEdit"])
 		return self
 
 	Func Delete 
-		dnRequest("call",[self,"Delete"])
+		dnRequest("call",[new DotNetObject(nHandle),"Delete"])
 		return self
 
 	Func EndEdit 
-		dnRequest("call",[self,"EndEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndEdit"])
 		return self
 
 	Func SetColumnError P1,P2
-		dnRequest("call",[self,"SetColumnError",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetColumnError",P1,P2])
 		return self
 
 	Func GetColumnError P1
-		return dnRequest("call",[self,"GetColumnError",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnError",P1])
 
 	Func ClearErrors 
-		dnRequest("call",[self,"ClearErrors"])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearErrors"])
 		return self
 
 	Func GetColumnsInError 
-		return dnRequest("call",[self,"GetColumnsInError"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnsInError"])
 
 	Func GetChildRows P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetChildRows",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChildRows",P1])
 		ok
-		return dnRequest("call",[self,"GetChildRows",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChildRows",P1])
 
 	Func GetChildRows_2 P1,P2
-		return dnRequest("call",[self,"GetChildRows",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChildRows",P1,P2])
 
 	Func GetParentRow P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetParentRow",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetParentRow",P1])
 		ok
-		return dnRequest("call",[self,"GetParentRow",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetParentRow",P1])
 
 	Func GetParentRow_2 P1,P2
-		return dnRequest("call",[self,"GetParentRow",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetParentRow",P1,P2])
 
 	Func GetParentRows P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetParentRows",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetParentRows",P1])
 		ok
-		return dnRequest("call",[self,"GetParentRows",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetParentRows",P1])
 
 	Func GetParentRows_2 P1,P2
-		return dnRequest("call",[self,"GetParentRows",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetParentRows",P1,P2])
 
 	Func HasVersion P1
-		return dnRequest("call",[self,"HasVersion",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasVersion",P1])
 
 	Func RejectChanges 
-		dnRequest("call",[self,"RejectChanges"])
+		dnRequest("call",[new DotNetObject(nHandle),"RejectChanges"])
 		return self
 
 	Func SetParentRow P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetParentRow",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetParentRow",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetParentRow",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetParentRow",P1])
 		return self
 
 	Func SetParentRow_2 P1,P2
-		dnRequest("call",[self,"SetParentRow",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetParentRow",P1,P2])
 		return self
 
 	Func SetAdded 
-		dnRequest("call",[self,"SetAdded"])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAdded"])
 		return self
 
 	Func SetModified 
-		dnRequest("call",[self,"SetModified"])
+		dnRequest("call",[new DotNetObject(nHandle),"SetModified"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getRowError
-		return dnRequest("get",[self,"RowError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowError"])
 
 	Func setRowError P1
-		dnRequest("set",[self,"RowError",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowError",P1])
 		return self
 
 	Func getRowState
-		return dnRequest("get",[self,"RowState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowState"])
 
 	Func setRowState P1
 		raise("DotNet Error: RowState is a read-only property")
 
 	Func getTable
-		return dnRequest("get",[self,"Table"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getItemArray
-		return dnRequest("get",[self,"ItemArray"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemArray"])
 
 	Func setItemArray P1
-		dnRequest("set",[self,"ItemArray",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemArray",P1])
 		return self
 
 	Func getHasErrors
-		return dnRequest("get",[self,"HasErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasErrors"])
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")

@@ -21,46 +21,46 @@ Class HttpResponseFeature from Object
 		return self
 
 	Func OnStarting P1,P2
-		dnRequest("call",[self,"OnStarting",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OnStarting",P1,P2])
 		return self
 
 	Func OnCompleted P1,P2
-		dnRequest("call",[self,"OnCompleted",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OnCompleted",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStatusCode
-		return dnRequest("get",[self,"StatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[self,"StatusCode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
 		return self
 
 	Func getReasonPhrase
-		return dnRequest("get",[self,"ReasonPhrase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReasonPhrase"])
 
 	Func setReasonPhrase P1
-		dnRequest("set",[self,"ReasonPhrase",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReasonPhrase",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
-		dnRequest("set",[self,"Headers",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Headers",P1])
 		return self
 
 	Func getBody
-		return dnRequest("get",[self,"Body"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Body"])
 
 	Func setBody P1
-		dnRequest("set",[self,"Body",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Body",P1])
 		return self
 
 	Func getHasStarted
-		return dnRequest("get",[self,"HasStarted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasStarted"])
 
 	Func setHasStarted P1
 		raise("DotNet Error: HasStarted is a read-only property")

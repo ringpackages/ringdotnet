@@ -17,62 +17,62 @@ Class AnnotatableBase from Object
 		return self
 
 	Func GetAnnotations 
-		return dnRequest("call",[self,"GetAnnotations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAnnotations"])
 
 	Func AddAnnotation P1,P2
-		return dnRequest("call",[self,"AddAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddAnnotation",P1,P2])
 
 	Func AddAnnotations P1
-		dnRequest("call",[self,"AddAnnotations",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddAnnotations",P1])
 		return self
 
 	Func SetAnnotation P1,P2
-		dnRequest("call",[self,"SetAnnotation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAnnotation",P1,P2])
 		return self
 
 	Func FindAnnotation P1
-		return dnRequest("call",[self,"FindAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindAnnotation",P1])
 
 	Func GetAnnotation P1
-		return dnRequest("call",[self,"GetAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAnnotation",P1])
 
 	Func RemoveAnnotation P1
-		return dnRequest("call",[self,"RemoveAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAnnotation",P1])
 
 	Func GetRuntimeAnnotations 
-		return dnRequest("call",[self,"GetRuntimeAnnotations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRuntimeAnnotations"])
 
 	Func AddRuntimeAnnotation P1,P2
-		return dnRequest("call",[self,"AddRuntimeAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRuntimeAnnotation",P1,P2])
 
 	Func AddRuntimeAnnotations P1
-		dnRequest("call",[self,"AddRuntimeAnnotations",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRuntimeAnnotations",P1])
 		return self
 
 	Func SetRuntimeAnnotation P1,P2
-		return dnRequest("call",[self,"SetRuntimeAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetRuntimeAnnotation",P1,P2])
 
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
-		return dnRequest("call",[self,"GetOrAddRuntimeAnnotationValue",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrAddRuntimeAnnotationValue",P1,P2,P3])
 
 	Func FindRuntimeAnnotation P1
-		return dnRequest("call",[self,"FindRuntimeAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRuntimeAnnotation",P1])
 
 	Func RemoveRuntimeAnnotation P1
-		return dnRequest("call",[self,"RemoveRuntimeAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveRuntimeAnnotation",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

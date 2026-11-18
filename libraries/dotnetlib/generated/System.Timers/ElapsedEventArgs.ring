@@ -17,7 +17,7 @@ Class ElapsedEventArgs from EventArgs
 		return self
 
 	Func getSignalTime
-		return dnRequest("get",[self,"SignalTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SignalTime"])
 
 	Func setSignalTime P1
 		raise("DotNet Error: SignalTime is a read-only property")

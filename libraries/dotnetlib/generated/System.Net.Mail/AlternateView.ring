@@ -34,15 +34,15 @@ Class AlternateView from AttachmentBase
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail'),"CreateAlternateViewFromString",P1,P2])
 
 	Func getLinkedResources
-		return dnRequest("get",[self,"LinkedResources"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkedResources"])
 
 	Func setLinkedResources P1
 		raise("DotNet Error: LinkedResources is a read-only property")
 
 	Func getBaseUri
-		return dnRequest("get",[self,"BaseUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseUri"])
 
 	Func setBaseUri P1
-		dnRequest("set",[self,"BaseUri",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseUri",P1])
 		return self
 

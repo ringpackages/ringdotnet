@@ -15,47 +15,47 @@ Class MigrationCommandListBuilder from Object
 		return self
 
 	Func GetCommandList 
-		return dnRequest("call",[self,"GetCommandList"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCommandList"])
 
 	Func EndCommand_1 P1
-		return dnRequest("call",[self,"EndCommand",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndCommand",P1])
 
 	Func EndCommand P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EndCommand",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EndCommand",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EndCommand"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EndCommand"])
 		ok
-		return dnRequest("call",[self,"EndCommand",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndCommand",P1])
 
 	Func Append P1
-		return dnRequest("call",[self,"Append",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
 
 	Func AppendLine P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AppendLine",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLine",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AppendLine"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AppendLine"])
 		ok
-		return dnRequest("call",[self,"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
 	Func AppendLine_1 P1
-		return dnRequest("call",[self,"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
 	Func AppendLines P1
-		return dnRequest("call",[self,"AppendLines",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLines",P1])
 
 	Func Indent 
-		return dnRequest("call",[self,"Indent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Indent"])
 
 	Func IncrementIndent 
-		return dnRequest("call",[self,"IncrementIndent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IncrementIndent"])
 
 	Func DecrementIndent 
-		return dnRequest("call",[self,"DecrementIndent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecrementIndent"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

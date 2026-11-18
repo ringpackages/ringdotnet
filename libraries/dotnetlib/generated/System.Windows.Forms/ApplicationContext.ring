@@ -22,35 +22,35 @@ Class ApplicationContext from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func ExitThread 
-		dnRequest("call",[self,"ExitThread"])
+		dnRequest("call",[new DotNetObject(nHandle),"ExitThread"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setThreadExitEvent P1
-		dnRequest("setevent",[self,"ThreadExit",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ThreadExit",dnCallback(P1)])
 		return self
 
 	Func clearThreadExitEvent
-		dnRequest("clearevent",[self,"ThreadExit"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ThreadExit"])
 		return self
 
 	Func getMainForm
-		return dnRequest("get",[self,"MainForm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MainForm"])
 
 	Func setMainForm P1
-		dnRequest("set",[self,"MainForm",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MainForm",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 

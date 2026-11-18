@@ -14,10 +14,10 @@ Class IResourceFilter from DotNetObject
 		return self
 
 	Func OnResourceExecuting P1
-		dnRequest("call",[self,"OnResourceExecuting",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnResourceExecuting",P1])
 		return self
 
 	Func OnResourceExecuted P1
-		dnRequest("call",[self,"OnResourceExecuted",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnResourceExecuted",P1])
 		return self
 

@@ -24,67 +24,67 @@ Class FileServerOptions from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getStaticFileOptions
-		return dnRequest("get",[self,"StaticFileOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StaticFileOptions"])
 
 	Func setStaticFileOptions P1
 		raise("DotNet Error: StaticFileOptions is a read-only property")
 
 	Func getDirectoryBrowserOptions
-		return dnRequest("get",[self,"DirectoryBrowserOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DirectoryBrowserOptions"])
 
 	Func setDirectoryBrowserOptions P1
 		raise("DotNet Error: DirectoryBrowserOptions is a read-only property")
 
 	Func getDefaultFilesOptions
-		return dnRequest("get",[self,"DefaultFilesOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultFilesOptions"])
 
 	Func setDefaultFilesOptions P1
 		raise("DotNet Error: DefaultFilesOptions is a read-only property")
 
 	Func getEnableDirectoryBrowsing
-		return dnRequest("get",[self,"EnableDirectoryBrowsing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableDirectoryBrowsing"])
 
 	Func setEnableDirectoryBrowsing P1
-		dnRequest("set",[self,"EnableDirectoryBrowsing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableDirectoryBrowsing",P1])
 		return self
 
 	Func getEnableDefaultFiles
-		return dnRequest("get",[self,"EnableDefaultFiles"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableDefaultFiles"])
 
 	Func setEnableDefaultFiles P1
-		dnRequest("set",[self,"EnableDefaultFiles",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableDefaultFiles",P1])
 		return self
 
 	Func getRequestPath
-		return dnRequest("get",[self,"RequestPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestPath"])
 
 	Func setRequestPath P1
-		dnRequest("set",[self,"RequestPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestPath",P1])
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileProvider"])
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FileProvider",P1])
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dnRequest("get",[self,"RedirectToAppendTrailingSlash"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RedirectToAppendTrailingSlash"])
 
 	Func setRedirectToAppendTrailingSlash P1
-		dnRequest("set",[self,"RedirectToAppendTrailingSlash",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RedirectToAppendTrailingSlash",P1])
 		return self
 

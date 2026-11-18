@@ -21,43 +21,43 @@ Class Message from ValueType
 		return self
 
 	Func GetLParam_1 P1
-		return dnRequest("call",[self,"GetLParam",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLParam",P1])
 
 	Func Create P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Message, System.Windows.Forms.Primitives'),"Create",P1,P2,P3,P4])
 
 	Func getHWnd
-		return dnRequest("get",[self,"HWnd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HWnd"])
 
 	Func setHWnd P1
-		dnRequest("set",[self,"HWnd",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HWnd",P1])
 		return self
 
 	Func getMsg
-		return dnRequest("get",[self,"Msg"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Msg"])
 
 	Func setMsg P1
-		dnRequest("set",[self,"Msg",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Msg",P1])
 		return self
 
 	Func getWParam
-		return dnRequest("get",[self,"WParam"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WParam"])
 
 	Func setWParam P1
-		dnRequest("set",[self,"WParam",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WParam",P1])
 		return self
 
 	Func getLParam
-		return dnRequest("get",[self,"LParam"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LParam"])
 
 	Func setLParam P1
-		dnRequest("set",[self,"LParam",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LParam",P1])
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Result",P1])
 		return self
 

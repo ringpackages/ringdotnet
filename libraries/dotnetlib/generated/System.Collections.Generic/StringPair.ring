@@ -22,16 +22,16 @@ Class StringPair from ValueType
 		return self
 
 	Func Deconstruct 
-		return dnRequest("call",[self,"Deconstruct"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

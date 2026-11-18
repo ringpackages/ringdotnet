@@ -16,10 +16,10 @@ Class IPrincipal from DotNetObject
 		return self
 
 	Func IsInRole P1
-		return dnRequest("call",[self,"IsInRole",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsInRole",P1])
 
 	Func getIdentity
-		return dnRequest("get",[self,"Identity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Identity"])
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")

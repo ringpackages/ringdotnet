@@ -51,19 +51,19 @@ Class X509BasicConstraintsExtension from X509Extension
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity",P1])
 
 	Func getCertificateAuthority
-		return dnRequest("get",[self,"CertificateAuthority"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CertificateAuthority"])
 
 	Func setCertificateAuthority P1
 		raise("DotNet Error: CertificateAuthority is a read-only property")
 
 	Func getHasPathLengthConstraint
-		return dnRequest("get",[self,"HasPathLengthConstraint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasPathLengthConstraint"])
 
 	Func setHasPathLengthConstraint P1
 		raise("DotNet Error: HasPathLengthConstraint is a read-only property")
 
 	Func getPathLengthConstraint
-		return dnRequest("get",[self,"PathLengthConstraint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PathLengthConstraint"])
 
 	Func setPathLengthConstraint P1
 		raise("DotNet Error: PathLengthConstraint is a read-only property")

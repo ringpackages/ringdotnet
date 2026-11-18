@@ -14,6 +14,6 @@ Class IIdentityResolutionInterceptor from DotNetObject
 		return self
 
 	Func UpdateTrackedInstance P1,P2,P3
-		dnRequest("call",[self,"UpdateTrackedInstance",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"UpdateTrackedInstance",P1,P2,P3])
 		return self
 

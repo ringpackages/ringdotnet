@@ -44,94 +44,94 @@ Class Task from Object
 
 	Func Start P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Start",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Start",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Start"])
+			dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		return self
 		ok
-		dnRequest("call",[self,"Start",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
 		return self
 
 	Func Start_1 P1
-		dnRequest("call",[self,"Start",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
 		return self
 
 	Func RunSynchronously P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"RunSynchronously",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"RunSynchronously",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"RunSynchronously"])
+			dnRequest("call",[new DotNetObject(nHandle),"RunSynchronously"])
 		return self
 		ok
-		dnRequest("call",[self,"RunSynchronously",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RunSynchronously",P1])
 		return self
 
 	Func RunSynchronously_1 P1
-		dnRequest("call",[self,"RunSynchronously",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RunSynchronously",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetAwaiter 
-		return dnRequest("call",[self,"GetAwaiter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAwaiter"])
 
 	Func ConfigureAwait P1
-		return dnRequest("call",[self,"ConfigureAwait",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureAwait",P1])
 
 	Func Wait P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Wait",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Wait",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Wait"])
+			dnRequest("call",[new DotNetObject(nHandle),"Wait"])
 		return self
 		ok
-		return dnRequest("call",[self,"Wait",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 
 	Func Wait_1 P1
-		return dnRequest("call",[self,"Wait",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 
 	Func Wait_2 P1,P2
-		return dnRequest("call",[self,"Wait",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1,P2])
 
 	Func WaitAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WaitAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitAsync",P1])
 		ok
-		return dnRequest("call",[self,"WaitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1])
 
 	Func WaitAsync_2 P1,P2
-		return dnRequest("call",[self,"WaitAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1,P2])
 
 	Func WaitAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"WaitAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1,P2,P3])
 
 	Func ContinueWith P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ContinueWith",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ContinueWith",P1])
 		ok
-		return dnRequest("call",[self,"ContinueWith",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1])
 
 	Func ContinueWith_2 P1,P2
-		return dnRequest("call",[self,"ContinueWith",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1,P2])
 
 	Func ContinueWith_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ContinueWith",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1,P2,P3,P4])
 
 	Func ContinueWith_3 P1,P2,P3
-		return dnRequest("call",[self,"ContinueWith",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1,P2,P3])
 
 	Func ContinueWith_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"ContinueWith",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Yield 
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Yield"])
@@ -207,55 +207,55 @@ Class Task from Object
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenEach",P1])
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getIsCanceled
-		return dnRequest("get",[self,"IsCanceled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCanceled"])
 
 	Func setIsCanceled P1
 		raise("DotNet Error: IsCanceled is a read-only property")
 
 	Func getIsCompleted
-		return dnRequest("get",[self,"IsCompleted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCompleted"])
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getIsCompletedSuccessfully
-		return dnRequest("get",[self,"IsCompletedSuccessfully"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCompletedSuccessfully"])
 
 	Func setIsCompletedSuccessfully P1
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
 
 	Func getCreationOptions
-		return dnRequest("get",[self,"CreationOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CreationOptions"])
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getAsyncState
-		return dnRequest("get",[self,"AsyncState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AsyncState"])
 
 	Func setAsyncState P1
 		raise("DotNet Error: AsyncState is a read-only property")
 
 	Func getIsFaulted
-		return dnRequest("get",[self,"IsFaulted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFaulted"])
 
 	Func setIsFaulted P1
 		raise("DotNet Error: IsFaulted is a read-only property")

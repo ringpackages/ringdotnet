@@ -24,17 +24,17 @@ Class GlyphRunDrawing from Drawing
 		return self
 
 	Func getGlyphRun
-		return dnRequest("get",[self,"GlyphRun"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlyphRun"])
 
 	Func setGlyphRun P1
-		dnRequest("set",[self,"GlyphRun",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GlyphRun",P1])
 		return self
 
 	Func getForegroundBrush
-		return dnRequest("get",[self,"ForegroundBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForegroundBrush"])
 
 	Func setForegroundBrush P1
-		dnRequest("set",[self,"ForegroundBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForegroundBrush",P1])
 		return self
 
 	Func getGlyphRunProperty

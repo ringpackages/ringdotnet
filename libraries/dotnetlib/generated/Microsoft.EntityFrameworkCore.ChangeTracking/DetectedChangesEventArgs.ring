@@ -17,7 +17,7 @@ Class DetectedChangesEventArgs from EventArgs
 		return self
 
 	Func getChangesFound
-		return dnRequest("get",[self,"ChangesFound"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChangesFound"])
 
 	Func setChangesFound P1
 		raise("DotNet Error: ChangesFound is a read-only property")

@@ -17,12 +17,12 @@ Class RequestCookiesFeature from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCookies
-		return dnRequest("get",[self,"Cookies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
 
 	Func setCookies P1
-		dnRequest("set",[self,"Cookies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cookies",P1])
 		return self
 

@@ -42,282 +42,282 @@ Class ToolStripTextBox from ToolStripControlHost
 		return self
 
 	Func AppendText P1
-		dnRequest("call",[self,"AppendText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendText",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func ClearUndo 
-		dnRequest("call",[self,"ClearUndo"])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearUndo"])
 		return self
 
 	Func Copy 
-		dnRequest("call",[self,"Copy"])
+		dnRequest("call",[new DotNetObject(nHandle),"Copy"])
 		return self
 
 	Func Cut 
-		dnRequest("call",[self,"Cut"])
+		dnRequest("call",[new DotNetObject(nHandle),"Cut"])
 		return self
 
 	Func DeselectAll 
-		dnRequest("call",[self,"DeselectAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"DeselectAll"])
 		return self
 
 	Func GetCharFromPosition P1
-		return dnRequest("call",[self,"GetCharFromPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCharFromPosition",P1])
 
 	Func GetCharIndexFromPosition P1
-		return dnRequest("call",[self,"GetCharIndexFromPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCharIndexFromPosition",P1])
 
 	Func GetFirstCharIndexFromLine P1
-		return dnRequest("call",[self,"GetFirstCharIndexFromLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstCharIndexFromLine",P1])
 
 	Func GetFirstCharIndexOfCurrentLine 
-		return dnRequest("call",[self,"GetFirstCharIndexOfCurrentLine"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstCharIndexOfCurrentLine"])
 
 	Func GetLineFromCharIndex P1
-		return dnRequest("call",[self,"GetLineFromCharIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLineFromCharIndex",P1])
 
 	Func GetPositionFromCharIndex P1
-		return dnRequest("call",[self,"GetPositionFromCharIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionFromCharIndex",P1])
 
 	Func Paste 
-		dnRequest("call",[self,"Paste"])
+		dnRequest("call",[new DotNetObject(nHandle),"Paste"])
 		return self
 
 	Func ScrollToCaret 
-		dnRequest("call",[self,"ScrollToCaret"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToCaret"])
 		return self
 
 	Func Select_2 P1,P2
-		dnRequest("call",[self,"Select",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
 		return self
 
 	Func SelectAll 
-		dnRequest("call",[self,"SelectAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
 		return self
 
 	Func Undo 
-		dnRequest("call",[self,"Undo"])
+		dnRequest("call",[new DotNetObject(nHandle),"Undo"])
 		return self
 
 	Func Select P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Select",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Select"])
+			dnRequest("call",[new DotNetObject(nHandle),"Select"])
 		return self
 		ok
 		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
 
 	Func setAcceptsTabChangedEvent P1
-		dnRequest("setevent",[self,"AcceptsTabChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AcceptsTabChanged",dnCallback(P1)])
 		return self
 
 	Func clearAcceptsTabChangedEvent
-		dnRequest("clearevent",[self,"AcceptsTabChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AcceptsTabChanged"])
 		return self
 
 	Func setBorderStyleChangedEvent P1
-		dnRequest("setevent",[self,"BorderStyleChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BorderStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearBorderStyleChangedEvent
-		dnRequest("clearevent",[self,"BorderStyleChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BorderStyleChanged"])
 		return self
 
 	Func setHideSelectionChangedEvent P1
-		dnRequest("setevent",[self,"HideSelectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"HideSelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearHideSelectionChangedEvent
-		dnRequest("clearevent",[self,"HideSelectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"HideSelectionChanged"])
 		return self
 
 	Func setModifiedChangedEvent P1
-		dnRequest("setevent",[self,"ModifiedChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ModifiedChanged",dnCallback(P1)])
 		return self
 
 	Func clearModifiedChangedEvent
-		dnRequest("clearevent",[self,"ModifiedChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ModifiedChanged"])
 		return self
 
 	Func setMultilineChangedEvent P1
-		dnRequest("setevent",[self,"MultilineChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MultilineChanged",dnCallback(P1)])
 		return self
 
 	Func clearMultilineChangedEvent
-		dnRequest("clearevent",[self,"MultilineChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MultilineChanged"])
 		return self
 
 	Func setReadOnlyChangedEvent P1
-		dnRequest("setevent",[self,"ReadOnlyChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ReadOnlyChanged",dnCallback(P1)])
 		return self
 
 	Func clearReadOnlyChangedEvent
-		dnRequest("clearevent",[self,"ReadOnlyChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ReadOnlyChanged"])
 		return self
 
 	Func setTextBoxTextAlignChangedEvent P1
-		dnRequest("setevent",[self,"TextBoxTextAlignChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TextBoxTextAlignChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextBoxTextAlignChangedEvent
-		dnRequest("clearevent",[self,"TextBoxTextAlignChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TextBoxTextAlignChanged"])
 		return self
 
 	Func getTextBox
-		return dnRequest("get",[self,"TextBox"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextBox"])
 
 	Func setTextBox P1
 		raise("DotNet Error: TextBox is a read-only property")
 
 	Func getAcceptsTab
-		return dnRequest("get",[self,"AcceptsTab"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptsTab"])
 
 	Func setAcceptsTab P1
-		dnRequest("set",[self,"AcceptsTab",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptsTab",P1])
 		return self
 
 	Func getAcceptsReturn
-		return dnRequest("get",[self,"AcceptsReturn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptsReturn"])
 
 	Func setAcceptsReturn P1
-		dnRequest("set",[self,"AcceptsReturn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptsReturn",P1])
 		return self
 
 	Func getAutoCompleteCustomSource
-		return dnRequest("get",[self,"AutoCompleteCustomSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteCustomSource"])
 
 	Func setAutoCompleteCustomSource P1
-		dnRequest("set",[self,"AutoCompleteCustomSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteCustomSource",P1])
 		return self
 
 	Func getAutoCompleteMode
-		return dnRequest("get",[self,"AutoCompleteMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteMode"])
 
 	Func setAutoCompleteMode P1
-		dnRequest("set",[self,"AutoCompleteMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteMode",P1])
 		return self
 
 	Func getAutoCompleteSource
-		return dnRequest("get",[self,"AutoCompleteSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteSource"])
 
 	Func setAutoCompleteSource P1
-		dnRequest("set",[self,"AutoCompleteSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteSource",P1])
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[self,"BorderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[self,"BorderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
 		return self
 
 	Func getCanUndo
-		return dnRequest("get",[self,"CanUndo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUndo"])
 
 	Func setCanUndo P1
 		raise("DotNet Error: CanUndo is a read-only property")
 
 	Func getCharacterCasing
-		return dnRequest("get",[self,"CharacterCasing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CharacterCasing"])
 
 	Func setCharacterCasing P1
-		dnRequest("set",[self,"CharacterCasing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CharacterCasing",P1])
 		return self
 
 	Func getHideSelection
-		return dnRequest("get",[self,"HideSelection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HideSelection"])
 
 	Func setHideSelection P1
-		dnRequest("set",[self,"HideSelection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HideSelection",P1])
 		return self
 
 	Func getLines
-		return dnRequest("get",[self,"Lines"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Lines"])
 
 	Func setLines P1
-		dnRequest("set",[self,"Lines",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Lines",P1])
 		return self
 
 	Func getMaxLength
-		return dnRequest("get",[self,"MaxLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxLength"])
 
 	Func setMaxLength P1
-		dnRequest("set",[self,"MaxLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxLength",P1])
 		return self
 
 	Func getModified
-		return dnRequest("get",[self,"Modified"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Modified"])
 
 	Func setModified P1
-		dnRequest("set",[self,"Modified",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Modified",P1])
 		return self
 
 	Func getMultiline
-		return dnRequest("get",[self,"Multiline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Multiline"])
 
 	Func setMultiline P1
-		dnRequest("set",[self,"Multiline",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Multiline",P1])
 		return self
 
 	Func getReadOnly
-		return dnRequest("get",[self,"ReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
 
 	Func setReadOnly P1
-		dnRequest("set",[self,"ReadOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReadOnly",P1])
 		return self
 
 	Func getSelectedText
-		return dnRequest("get",[self,"SelectedText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedText"])
 
 	Func setSelectedText P1
-		dnRequest("set",[self,"SelectedText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedText",P1])
 		return self
 
 	Func getSelectionLength
-		return dnRequest("get",[self,"SelectionLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionLength"])
 
 	Func setSelectionLength P1
-		dnRequest("set",[self,"SelectionLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionLength",P1])
 		return self
 
 	Func getSelectionStart
-		return dnRequest("get",[self,"SelectionStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionStart"])
 
 	Func setSelectionStart P1
-		dnRequest("set",[self,"SelectionStart",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionStart",P1])
 		return self
 
 	Func getShortcutsEnabled
-		return dnRequest("get",[self,"ShortcutsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShortcutsEnabled"])
 
 	Func setShortcutsEnabled P1
-		dnRequest("set",[self,"ShortcutsEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShortcutsEnabled",P1])
 		return self
 
 	Func getTextLength
-		return dnRequest("get",[self,"TextLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextLength"])
 
 	Func setTextLength P1
 		raise("DotNet Error: TextLength is a read-only property")
 
 	Func getTextBoxTextAlign
-		return dnRequest("get",[self,"TextBoxTextAlign"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextBoxTextAlign"])
 
 	Func setTextBoxTextAlign P1
-		dnRequest("set",[self,"TextBoxTextAlign",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextBoxTextAlign",P1])
 		return self
 
 	Func getWordWrap
-		return dnRequest("get",[self,"WordWrap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WordWrap"])
 
 	Func setWordWrap P1
-		dnRequest("set",[self,"WordWrap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WordWrap",P1])
 		return self
 

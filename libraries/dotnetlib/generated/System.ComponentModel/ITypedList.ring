@@ -14,8 +14,8 @@ Class ITypedList from DotNetObject
 		return self
 
 	Func GetListName P1
-		return dnRequest("call",[self,"GetListName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetListName",P1])
 
 	Func GetItemProperties P1
-		return dnRequest("call",[self,"GetItemProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetItemProperties",P1])
 

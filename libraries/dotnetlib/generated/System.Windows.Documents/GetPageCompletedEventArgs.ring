@@ -18,13 +18,13 @@ Class GetPageCompletedEventArgs from AsyncCompletedEventArgs
 		return self
 
 	Func getDocumentPage
-		return dnRequest("get",[self,"DocumentPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentPage"])
 
 	Func setDocumentPage P1
 		raise("DotNet Error: DocumentPage is a read-only property")
 
 	Func getPageNumber
-		return dnRequest("get",[self,"PageNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageNumber"])
 
 	Func setPageNumber P1
 		raise("DotNet Error: PageNumber is a read-only property")

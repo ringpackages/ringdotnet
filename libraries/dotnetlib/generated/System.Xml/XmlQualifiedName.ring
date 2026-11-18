@@ -28,25 +28,25 @@ Class XmlQualifiedName from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ToString_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml'),"ToString",P1,P2])
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")

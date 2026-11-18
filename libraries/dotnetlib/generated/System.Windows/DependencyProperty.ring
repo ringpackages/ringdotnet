@@ -23,33 +23,33 @@ Class DependencyProperty from Object
 		return self
 
 	Func OverrideMetadata P1,P2
-		dnRequest("call",[self,"OverrideMetadata",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OverrideMetadata",P1,P2])
 		return self
 
 	Func OverrideMetadata_3 P1,P2,P3
-		dnRequest("call",[self,"OverrideMetadata",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"OverrideMetadata",P1,P2,P3])
 		return self
 
 	Func GetMetadata P1
-		return dnRequest("call",[self,"GetMetadata",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadata",P1])
 
 	Func AddOwner P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddOwner",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddOwner",P1])
 		ok
-		return dnRequest("call",[self,"AddOwner",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddOwner",P1])
 
 	Func AddOwner_2 P1,P2
-		return dnRequest("call",[self,"AddOwner",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddOwner",P1,P2])
 
 	Func IsValidType P1
-		return dnRequest("call",[self,"IsValidType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsValidType",P1])
 
 	Func IsValidValue P1
-		return dnRequest("call",[self,"IsValidValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsValidValue",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Register P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"Register",P1,P2,P3])
@@ -82,43 +82,43 @@ Class DependencyProperty from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1,P2,P3,P4,P5])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyType
-		return dnRequest("get",[self,"PropertyType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyType"])
 
 	Func setPropertyType P1
 		raise("DotNet Error: PropertyType is a read-only property")
 
 	Func getOwnerType
-		return dnRequest("get",[self,"OwnerType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OwnerType"])
 
 	Func setOwnerType P1
 		raise("DotNet Error: OwnerType is a read-only property")
 
 	Func getDefaultMetadata
-		return dnRequest("get",[self,"DefaultMetadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultMetadata"])
 
 	Func setDefaultMetadata P1
 		raise("DotNet Error: DefaultMetadata is a read-only property")
 
 	Func getValidateValueCallback
-		return dnRequest("get",[self,"ValidateValueCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidateValueCallback"])
 
 	Func setValidateValueCallback P1
 		raise("DotNet Error: ValidateValueCallback is a read-only property")
 
 	Func getGlobalIndex
-		return dnRequest("get",[self,"GlobalIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlobalIndex"])
 
 	Func setGlobalIndex P1
 		raise("DotNet Error: GlobalIndex is a read-only property")
 
 	Func getReadOnly
-		return dnRequest("get",[self,"ReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
 
 	Func setReadOnly P1
 		raise("DotNet Error: ReadOnly is a read-only property")

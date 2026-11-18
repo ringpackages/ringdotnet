@@ -17,7 +17,7 @@ Class GeometryHitTestResult from HitTestResult
 		return self
 
 	Func getIntersectionDetail
-		return dnRequest("get",[self,"IntersectionDetail"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IntersectionDetail"])
 
 	Func setIntersectionDetail P1
 		raise("DotNet Error: IntersectionDetail is a read-only property")

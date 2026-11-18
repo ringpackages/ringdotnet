@@ -22,19 +22,19 @@ Class IPv6MulticastOption from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getGroup
-		return dnRequest("get",[self,"Group"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Group"])
 
 	Func setGroup P1
-		dnRequest("set",[self,"Group",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Group",P1])
 		return self
 
 	Func getInterfaceIndex
-		return dnRequest("get",[self,"InterfaceIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InterfaceIndex"])
 
 	Func setInterfaceIndex P1
-		dnRequest("set",[self,"InterfaceIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InterfaceIndex",P1])
 		return self
 

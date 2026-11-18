@@ -16,19 +16,19 @@ Class GeneralTransform3D from Animatable
 		return self
 
 	Func TryTransform P1
-		return dnRequest("call",[self,"TryTransform",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryTransform",P1])
 
 	Func Transform P1
-		return dnRequest("call",[self,"Transform",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
 
 	Func TransformBounds P1
-		return dnRequest("call",[self,"TransformBounds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformBounds",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getInverse
-		return dnRequest("get",[self,"Inverse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inverse"])
 
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")

@@ -18,51 +18,51 @@ Class HelpProvider from Component
 		return self
 
 	Func CanExtend P1
-		return dnRequest("call",[self,"CanExtend",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanExtend",P1])
 
 	Func GetHelpKeyword P1
-		return dnRequest("call",[self,"GetHelpKeyword",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHelpKeyword",P1])
 
 	Func GetHelpNavigator P1
-		return dnRequest("call",[self,"GetHelpNavigator",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHelpNavigator",P1])
 
 	Func GetHelpString P1
-		return dnRequest("call",[self,"GetHelpString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHelpString",P1])
 
 	Func GetShowHelp P1
-		return dnRequest("call",[self,"GetShowHelp",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetShowHelp",P1])
 
 	Func SetHelpString P1,P2
-		dnRequest("call",[self,"SetHelpString",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetHelpString",P1,P2])
 		return self
 
 	Func SetHelpKeyword P1,P2
-		dnRequest("call",[self,"SetHelpKeyword",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetHelpKeyword",P1,P2])
 		return self
 
 	Func SetHelpNavigator P1,P2
-		dnRequest("call",[self,"SetHelpNavigator",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetHelpNavigator",P1,P2])
 		return self
 
 	Func SetShowHelp P1,P2
-		dnRequest("call",[self,"SetShowHelp",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetShowHelp",P1,P2])
 		return self
 
 	Func ResetShowHelp P1
-		dnRequest("call",[self,"ResetShowHelp",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetShowHelp",P1])
 		return self
 
 	Func getHelpNamespace
-		return dnRequest("get",[self,"HelpNamespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HelpNamespace"])
 
 	Func setHelpNamespace P1
-		dnRequest("set",[self,"HelpNamespace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HelpNamespace",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 

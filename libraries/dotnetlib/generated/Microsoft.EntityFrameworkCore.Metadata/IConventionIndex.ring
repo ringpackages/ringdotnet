@@ -18,46 +18,46 @@ Class IConventionIndex from DotNetObject
 		return self
 
 	Func GetConfigurationSource 
-		return dnRequest("call",[self,"GetConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConfigurationSource"])
 
 	Func SetIsUnique_2 P1,P2
-		return dnRequest("call",[self,"SetIsUnique",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsUnique",P1,P2])
 
 	Func SetIsUnique P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsUnique",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsUnique",P1])
 		ok
-		return dnRequest("call",[self,"SetIsUnique",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsUnique",P1])
 
 	Func GetIsUniqueConfigurationSource 
-		return dnRequest("call",[self,"GetIsUniqueConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsUniqueConfigurationSource"])
 
 	Func SetIsDescending_2 P1,P2
-		return dnRequest("call",[self,"SetIsDescending",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsDescending",P1,P2])
 
 	Func SetIsDescending P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsDescending",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsDescending",P1])
 		ok
-		return dnRequest("call",[self,"SetIsDescending",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsDescending",P1])
 
 	Func GetIsDescendingConfigurationSource 
-		return dnRequest("call",[self,"GetIsDescendingConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsDescendingConfigurationSource"])
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")

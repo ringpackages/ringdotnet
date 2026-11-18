@@ -24,42 +24,42 @@ Class SignatureDescription from Object
 		return self
 
 	Func CreateDeformatter P1
-		return dnRequest("call",[self,"CreateDeformatter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDeformatter",P1])
 
 	Func CreateFormatter P1
-		return dnRequest("call",[self,"CreateFormatter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateFormatter",P1])
 
 	Func CreateDigest 
-		return dnRequest("call",[self,"CreateDigest"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDigest"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getKeyAlgorithm
-		return dnRequest("get",[self,"KeyAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyAlgorithm"])
 
 	Func setKeyAlgorithm P1
-		dnRequest("set",[self,"KeyAlgorithm",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyAlgorithm",P1])
 		return self
 
 	Func getDigestAlgorithm
-		return dnRequest("get",[self,"DigestAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DigestAlgorithm"])
 
 	Func setDigestAlgorithm P1
-		dnRequest("set",[self,"DigestAlgorithm",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DigestAlgorithm",P1])
 		return self
 
 	Func getFormatterAlgorithm
-		return dnRequest("get",[self,"FormatterAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatterAlgorithm"])
 
 	Func setFormatterAlgorithm P1
-		dnRequest("set",[self,"FormatterAlgorithm",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormatterAlgorithm",P1])
 		return self
 
 	Func getDeformatterAlgorithm
-		return dnRequest("get",[self,"DeformatterAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeformatterAlgorithm"])
 
 	Func setDeformatterAlgorithm P1
-		dnRequest("set",[self,"DeformatterAlgorithm",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DeformatterAlgorithm",P1])
 		return self
 

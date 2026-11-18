@@ -25,23 +25,23 @@ Class WpfColor from ValueType
 		return self
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Clamp 
-		dnRequest("call",[self,"Clamp"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clamp"])
 		return self
 
 	Func GetNativeColorValues 
-		return dnRequest("call",[self,"GetNativeColorValues"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNativeColorValues"])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromAValues P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"FromAValues",P1,P2,P3])
@@ -74,64 +74,64 @@ Class WpfColor from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Equals",P1,P2])
 
 	Func getColorContext
-		return dnRequest("get",[self,"ColorContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColorContext"])
 
 	Func setColorContext P1
 		raise("DotNet Error: ColorContext is a read-only property")
 
 	Func getA
-		return dnRequest("get",[self,"A"])
+		return dnRequest("get",[new DotNetObject(nHandle),"A"])
 
 	Func setA P1
-		dnRequest("set",[self,"A",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"A",P1])
 		return self
 
 	Func getR
-		return dnRequest("get",[self,"R"])
+		return dnRequest("get",[new DotNetObject(nHandle),"R"])
 
 	Func setR P1
-		dnRequest("set",[self,"R",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"R",P1])
 		return self
 
 	Func getG
-		return dnRequest("get",[self,"G"])
+		return dnRequest("get",[new DotNetObject(nHandle),"G"])
 
 	Func setG P1
-		dnRequest("set",[self,"G",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"G",P1])
 		return self
 
 	Func getB
-		return dnRequest("get",[self,"B"])
+		return dnRequest("get",[new DotNetObject(nHandle),"B"])
 
 	Func setB P1
-		dnRequest("set",[self,"B",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"B",P1])
 		return self
 
 	Func getScA
-		return dnRequest("get",[self,"ScA"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScA"])
 
 	Func setScA P1
-		dnRequest("set",[self,"ScA",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScA",P1])
 		return self
 
 	Func getScR
-		return dnRequest("get",[self,"ScR"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScR"])
 
 	Func setScR P1
-		dnRequest("set",[self,"ScR",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScR",P1])
 		return self
 
 	Func getScG
-		return dnRequest("get",[self,"ScG"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScG"])
 
 	Func setScG P1
-		dnRequest("set",[self,"ScG",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScG",P1])
 		return self
 
 	Func getScB
-		return dnRequest("get",[self,"ScB"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScB"])
 
 	Func setScB P1
-		dnRequest("set",[self,"ScB",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScB",P1])
 		return self
 

@@ -14,11 +14,11 @@ Class IMigrationsDatabaseLock from DotNetObject
 		return self
 
 	Func ReacquireIfNeeded P1,P2
-		return dnRequest("call",[self,"ReacquireIfNeeded",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReacquireIfNeeded",P1,P2])
 
 	Func ReacquireIfNeededAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"ReacquireIfNeededAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReacquireIfNeededAsync",P1,P2,P3])
 
 	Func ReacquireIfNeededAsync P1,P2
-		return dnRequest("call",[self,"ReacquireIfNeededAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReacquireIfNeededAsync",P1,P2])
 

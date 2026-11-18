@@ -20,30 +20,30 @@ Class WaitForChangedResult from ValueType
 		return self
 
 	Func getChangeType
-		return dnRequest("get",[self,"ChangeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChangeType"])
 
 	Func setChangeType P1
-		dnRequest("set",[self,"ChangeType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ChangeType",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getOldName
-		return dnRequest("get",[self,"OldName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldName"])
 
 	Func setOldName P1
-		dnRequest("set",[self,"OldName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OldName",P1])
 		return self
 
 	Func getTimedOut
-		return dnRequest("get",[self,"TimedOut"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TimedOut"])
 
 	Func setTimedOut P1
-		dnRequest("set",[self,"TimedOut",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TimedOut",P1])
 		return self
 

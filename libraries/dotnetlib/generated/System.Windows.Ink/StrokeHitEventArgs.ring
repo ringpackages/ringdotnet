@@ -16,10 +16,10 @@ Class StrokeHitEventArgs from EventArgs
 		return self
 
 	Func GetPointEraseResults 
-		return dnRequest("call",[self,"GetPointEraseResults"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPointEraseResults"])
 
 	Func getHitStroke
-		return dnRequest("get",[self,"HitStroke"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HitStroke"])
 
 	Func setHitStroke P1
 		raise("DotNet Error: HitStroke is a read-only property")

@@ -14,20 +14,20 @@ Class ObjectModelValidator from Object
 		return self
 
 	Func Validate P1,P2,P3,P4
-		dnRequest("call",[self,"Validate",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2,P3,P4])
 		return self
 
 	Func Validate_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"Validate",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2,P3,P4,P5])
 		return self
 
 	Func Validate_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"Validate",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func GetValidationVisitor P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"GetValidationVisitor",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValidationVisitor",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

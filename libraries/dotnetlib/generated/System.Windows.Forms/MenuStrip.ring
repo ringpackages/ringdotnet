@@ -17,25 +17,25 @@ Class MenuStrip from ToolStrip
 		return self
 
 	Func setMenuActivateEvent P1
-		dnRequest("setevent",[self,"MenuActivate",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MenuActivate",dnCallback(P1)])
 		return self
 
 	Func clearMenuActivateEvent
-		dnRequest("clearevent",[self,"MenuActivate"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MenuActivate"])
 		return self
 
 	Func setMenuDeactivateEvent P1
-		dnRequest("setevent",[self,"MenuDeactivate",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MenuDeactivate",dnCallback(P1)])
 		return self
 
 	Func clearMenuDeactivateEvent
-		dnRequest("clearevent",[self,"MenuDeactivate"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MenuDeactivate"])
 		return self
 
 	Func getMdiWindowListItem
-		return dnRequest("get",[self,"MdiWindowListItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MdiWindowListItem"])
 
 	Func setMdiWindowListItem P1
-		dnRequest("set",[self,"MdiWindowListItem",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MdiWindowListItem",P1])
 		return self
 

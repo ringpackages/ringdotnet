@@ -14,7 +14,7 @@ Class CollectionsMarshal from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func AsSpan P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"AsSpan",P1])

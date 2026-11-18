@@ -22,15 +22,15 @@ Class WpfPoint from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Point, WindowsBase'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Offset P1,P2
-		dnRequest("call",[self,"Offset",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1,P2])
 		return self
 
 	Func Equals_2 P1,P2
@@ -49,16 +49,16 @@ Class WpfPoint from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Point, WindowsBase'),"Multiply",P1,P2])
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 

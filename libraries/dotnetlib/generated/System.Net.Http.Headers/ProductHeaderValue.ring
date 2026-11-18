@@ -22,7 +22,7 @@ Class ProductHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http'),"Parse",P1])
@@ -31,13 +31,13 @@ Class ProductHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

@@ -14,5 +14,5 @@ Class IModelBinderProvider from DotNetObject
 		return self
 
 	Func GetBinder P1
-		return dnRequest("call",[self,"GetBinder",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBinder",P1])
 

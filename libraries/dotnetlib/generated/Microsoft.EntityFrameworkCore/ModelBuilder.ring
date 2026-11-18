@@ -29,88 +29,88 @@ Class ModelBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func Entity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Entity",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Entity",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Entity"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Entity"])
 		ok
-		return dnRequest("call",[self,"Entity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Entity",P1])
 
 	Func SharedTypeEntity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SharedTypeEntity",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SharedTypeEntity",P1])
 		ok
-		return dnRequest("call",[self,"SharedTypeEntity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SharedTypeEntity",P1])
 
 	Func Entity_1 P1
-		return dnRequest("call",[self,"Entity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Entity",P1])
 
 	Func SharedTypeEntity_2 P1,P2
-		return dnRequest("call",[self,"SharedTypeEntity",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SharedTypeEntity",P1,P2])
 
 	Func Entity_2 P1,P2
-		return dnRequest("call",[self,"Entity",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Entity",P1,P2])
 
 	Func SharedTypeEntity_3 P1,P2,P3
-		return dnRequest("call",[self,"SharedTypeEntity",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SharedTypeEntity",P1,P2,P3])
 
 	Func Ignore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Ignore",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Ignore",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Ignore"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Ignore"])
 		ok
-		return dnRequest("call",[self,"Ignore",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ignore",P1])
 
 	Func Ignore_1 P1
-		return dnRequest("call",[self,"Ignore",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ignore",P1])
 
 	Func ApplyConfiguration P1
-		return dnRequest("call",[self,"ApplyConfiguration",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyConfiguration",P1])
 
 	Func ApplyConfigurationsFromAssembly_2 P1,P2
-		return dnRequest("call",[self,"ApplyConfigurationsFromAssembly",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyConfigurationsFromAssembly",P1,P2])
 
 	Func ApplyConfigurationsFromAssembly P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ApplyConfigurationsFromAssembly",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyConfigurationsFromAssembly",P1])
 		ok
-		return dnRequest("call",[self,"ApplyConfigurationsFromAssembly",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyConfigurationsFromAssembly",P1])
 
 	Func Owned P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Owned",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Owned",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Owned"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Owned"])
 		ok
-		return dnRequest("call",[self,"Owned",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Owned",P1])
 
 	Func Owned_1 P1
-		return dnRequest("call",[self,"Owned",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Owned",P1])
 
 	Func HasChangeTrackingStrategy P1
-		return dnRequest("call",[self,"HasChangeTrackingStrategy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasChangeTrackingStrategy",P1])
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsePropertyAccessMode",P1])
 
 	Func HasEmbeddedDiscriminatorName P1
-		return dnRequest("call",[self,"HasEmbeddedDiscriminatorName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasEmbeddedDiscriminatorName",P1])
 
 	Func FinalizeModel 
-		return dnRequest("call",[self,"FinalizeModel"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FinalizeModel"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")

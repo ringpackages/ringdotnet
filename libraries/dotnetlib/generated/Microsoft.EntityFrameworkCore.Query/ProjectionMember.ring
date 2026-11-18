@@ -17,16 +17,16 @@ Class ProjectionMember from Object
 		return self
 
 	Func Append P1
-		return dnRequest("call",[self,"Append",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
 
 	Func Prepend P1
-		return dnRequest("call",[self,"Prepend",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Prepend",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLast
-		return dnRequest("get",[self,"Last"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Last"])
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")

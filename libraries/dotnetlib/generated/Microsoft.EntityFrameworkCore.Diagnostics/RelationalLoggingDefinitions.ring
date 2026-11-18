@@ -95,562 +95,562 @@ Class RelationalLoggingDefinitions from LoggingDefinitions
 		return self
 
 	Func getLogTransactionError
-		return dnRequest("get",[self,"LogTransactionError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogTransactionError"])
 
 	Func setLogTransactionError P1
-		dnRequest("set",[self,"LogTransactionError",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogTransactionError",P1])
 		return self
 
 	Func getLogBoolWithDefaultWarning
-		return dnRequest("get",[self,"LogBoolWithDefaultWarning"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogBoolWithDefaultWarning"])
 
 	Func setLogBoolWithDefaultWarning P1
-		dnRequest("set",[self,"LogBoolWithDefaultWarning",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogBoolWithDefaultWarning",P1])
 		return self
 
 	Func getLogConnectionCreating
-		return dnRequest("get",[self,"LogConnectionCreating"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogConnectionCreating"])
 
 	Func setLogConnectionCreating P1
-		dnRequest("set",[self,"LogConnectionCreating",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogConnectionCreating",P1])
 		return self
 
 	Func getLogConnectionCreated
-		return dnRequest("get",[self,"LogConnectionCreated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogConnectionCreated"])
 
 	Func setLogConnectionCreated P1
-		dnRequest("set",[self,"LogConnectionCreated",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogConnectionCreated",P1])
 		return self
 
 	Func getLogConnectionDisposing
-		return dnRequest("get",[self,"LogConnectionDisposing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogConnectionDisposing"])
 
 	Func setLogConnectionDisposing P1
-		dnRequest("set",[self,"LogConnectionDisposing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogConnectionDisposing",P1])
 		return self
 
 	Func getLogConnectionDisposed
-		return dnRequest("get",[self,"LogConnectionDisposed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogConnectionDisposed"])
 
 	Func setLogConnectionDisposed P1
-		dnRequest("set",[self,"LogConnectionDisposed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogConnectionDisposed",P1])
 		return self
 
 	Func getLogOpeningConnection
-		return dnRequest("get",[self,"LogOpeningConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogOpeningConnection"])
 
 	Func setLogOpeningConnection P1
-		dnRequest("set",[self,"LogOpeningConnection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogOpeningConnection",P1])
 		return self
 
 	Func getLogOpenedConnection
-		return dnRequest("get",[self,"LogOpenedConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogOpenedConnection"])
 
 	Func setLogOpenedConnection P1
-		dnRequest("set",[self,"LogOpenedConnection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogOpenedConnection",P1])
 		return self
 
 	Func getLogClosingConnection
-		return dnRequest("get",[self,"LogClosingConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogClosingConnection"])
 
 	Func setLogClosingConnection P1
-		dnRequest("set",[self,"LogClosingConnection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogClosingConnection",P1])
 		return self
 
 	Func getLogClosingDataReader
-		return dnRequest("get",[self,"LogClosingDataReader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogClosingDataReader"])
 
 	Func setLogClosingDataReader P1
-		dnRequest("set",[self,"LogClosingDataReader",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogClosingDataReader",P1])
 		return self
 
 	Func getLogClosedConnection
-		return dnRequest("get",[self,"LogClosedConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogClosedConnection"])
 
 	Func setLogClosedConnection P1
-		dnRequest("set",[self,"LogClosedConnection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogClosedConnection",P1])
 		return self
 
 	Func getLogConnectionError
-		return dnRequest("get",[self,"LogConnectionError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogConnectionError"])
 
 	Func setLogConnectionError P1
-		dnRequest("set",[self,"LogConnectionError",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogConnectionError",P1])
 		return self
 
 	Func getLogBeginningTransaction
-		return dnRequest("get",[self,"LogBeginningTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogBeginningTransaction"])
 
 	Func setLogBeginningTransaction P1
-		dnRequest("set",[self,"LogBeginningTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogBeginningTransaction",P1])
 		return self
 
 	Func getLogBeganTransaction
-		return dnRequest("get",[self,"LogBeganTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogBeganTransaction"])
 
 	Func setLogBeganTransaction P1
-		dnRequest("set",[self,"LogBeganTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogBeganTransaction",P1])
 		return self
 
 	Func getLogUsingTransaction
-		return dnRequest("get",[self,"LogUsingTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogUsingTransaction"])
 
 	Func setLogUsingTransaction P1
-		dnRequest("set",[self,"LogUsingTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogUsingTransaction",P1])
 		return self
 
 	Func getLogCommittingTransaction
-		return dnRequest("get",[self,"LogCommittingTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogCommittingTransaction"])
 
 	Func setLogCommittingTransaction P1
-		dnRequest("set",[self,"LogCommittingTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogCommittingTransaction",P1])
 		return self
 
 	Func getLogRollingBackTransaction
-		return dnRequest("get",[self,"LogRollingBackTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogRollingBackTransaction"])
 
 	Func setLogRollingBackTransaction P1
-		dnRequest("set",[self,"LogRollingBackTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogRollingBackTransaction",P1])
 		return self
 
 	Func getLogCommittedTransaction
-		return dnRequest("get",[self,"LogCommittedTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogCommittedTransaction"])
 
 	Func setLogCommittedTransaction P1
-		dnRequest("set",[self,"LogCommittedTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogCommittedTransaction",P1])
 		return self
 
 	Func getLogRolledBackTransaction
-		return dnRequest("get",[self,"LogRolledBackTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogRolledBackTransaction"])
 
 	Func setLogRolledBackTransaction P1
-		dnRequest("set",[self,"LogRolledBackTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogRolledBackTransaction",P1])
 		return self
 
 	Func getLogCreatingTransactionSavepoint
-		return dnRequest("get",[self,"LogCreatingTransactionSavepoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogCreatingTransactionSavepoint"])
 
 	Func setLogCreatingTransactionSavepoint P1
-		dnRequest("set",[self,"LogCreatingTransactionSavepoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogCreatingTransactionSavepoint",P1])
 		return self
 
 	Func getLogRollingBackToTransactionSavepoint
-		return dnRequest("get",[self,"LogRollingBackToTransactionSavepoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogRollingBackToTransactionSavepoint"])
 
 	Func setLogRollingBackToTransactionSavepoint P1
-		dnRequest("set",[self,"LogRollingBackToTransactionSavepoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogRollingBackToTransactionSavepoint",P1])
 		return self
 
 	Func getLogCreatedTransactionSavepoint
-		return dnRequest("get",[self,"LogCreatedTransactionSavepoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogCreatedTransactionSavepoint"])
 
 	Func setLogCreatedTransactionSavepoint P1
-		dnRequest("set",[self,"LogCreatedTransactionSavepoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogCreatedTransactionSavepoint",P1])
 		return self
 
 	Func getLogRolledBackToTransactionSavepoint
-		return dnRequest("get",[self,"LogRolledBackToTransactionSavepoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogRolledBackToTransactionSavepoint"])
 
 	Func setLogRolledBackToTransactionSavepoint P1
-		dnRequest("set",[self,"LogRolledBackToTransactionSavepoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogRolledBackToTransactionSavepoint",P1])
 		return self
 
 	Func getLogReleasingTransactionSavepoint
-		return dnRequest("get",[self,"LogReleasingTransactionSavepoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogReleasingTransactionSavepoint"])
 
 	Func setLogReleasingTransactionSavepoint P1
-		dnRequest("set",[self,"LogReleasingTransactionSavepoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogReleasingTransactionSavepoint",P1])
 		return self
 
 	Func getLogReleasedTransactionSavepoint
-		return dnRequest("get",[self,"LogReleasedTransactionSavepoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogReleasedTransactionSavepoint"])
 
 	Func setLogReleasedTransactionSavepoint P1
-		dnRequest("set",[self,"LogReleasedTransactionSavepoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogReleasedTransactionSavepoint",P1])
 		return self
 
 	Func getLogDisposingTransaction
-		return dnRequest("get",[self,"LogDisposingTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogDisposingTransaction"])
 
 	Func setLogDisposingTransaction P1
-		dnRequest("set",[self,"LogDisposingTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogDisposingTransaction",P1])
 		return self
 
 	Func getLogDisposingDataReader
-		return dnRequest("get",[self,"LogDisposingDataReader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogDisposingDataReader"])
 
 	Func setLogDisposingDataReader P1
-		dnRequest("set",[self,"LogDisposingDataReader",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogDisposingDataReader",P1])
 		return self
 
 	Func getLogAmbientTransaction
-		return dnRequest("get",[self,"LogAmbientTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogAmbientTransaction"])
 
 	Func setLogAmbientTransaction P1
-		dnRequest("set",[self,"LogAmbientTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogAmbientTransaction",P1])
 		return self
 
 	Func getLogPossibleUnintendedUseOfEquals
-		return dnRequest("get",[self,"LogPossibleUnintendedUseOfEquals"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogPossibleUnintendedUseOfEquals"])
 
 	Func setLogPossibleUnintendedUseOfEquals P1
-		dnRequest("set",[self,"LogPossibleUnintendedUseOfEquals",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogPossibleUnintendedUseOfEquals",P1])
 		return self
 
 	Func getLogStoredProcedureConcurrencyTokenNotMapped
-		return dnRequest("get",[self,"LogStoredProcedureConcurrencyTokenNotMapped"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogStoredProcedureConcurrencyTokenNotMapped"])
 
 	Func setLogStoredProcedureConcurrencyTokenNotMapped P1
-		dnRequest("set",[self,"LogStoredProcedureConcurrencyTokenNotMapped",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogStoredProcedureConcurrencyTokenNotMapped",P1])
 		return self
 
 	Func getLogGeneratingDown
-		return dnRequest("get",[self,"LogGeneratingDown"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogGeneratingDown"])
 
 	Func setLogGeneratingDown P1
-		dnRequest("set",[self,"LogGeneratingDown",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogGeneratingDown",P1])
 		return self
 
 	Func getLogGeneratingUp
-		return dnRequest("get",[self,"LogGeneratingUp"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogGeneratingUp"])
 
 	Func setLogGeneratingUp P1
-		dnRequest("set",[self,"LogGeneratingUp",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogGeneratingUp",P1])
 		return self
 
 	Func getLogApplyingMigration
-		return dnRequest("get",[self,"LogApplyingMigration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogApplyingMigration"])
 
 	Func setLogApplyingMigration P1
-		dnRequest("set",[self,"LogApplyingMigration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogApplyingMigration",P1])
 		return self
 
 	Func getLogRevertingMigration
-		return dnRequest("get",[self,"LogRevertingMigration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogRevertingMigration"])
 
 	Func setLogRevertingMigration P1
-		dnRequest("set",[self,"LogRevertingMigration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogRevertingMigration",P1])
 		return self
 
 	Func getLogMigrating
-		return dnRequest("get",[self,"LogMigrating"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogMigrating"])
 
 	Func setLogMigrating P1
-		dnRequest("set",[self,"LogMigrating",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogMigrating",P1])
 		return self
 
 	Func getLogNoMigrationsApplied
-		return dnRequest("get",[self,"LogNoMigrationsApplied"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogNoMigrationsApplied"])
 
 	Func setLogNoMigrationsApplied P1
-		dnRequest("set",[self,"LogNoMigrationsApplied",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogNoMigrationsApplied",P1])
 		return self
 
 	Func getLogNoMigrationsFound
-		return dnRequest("get",[self,"LogNoMigrationsFound"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogNoMigrationsFound"])
 
 	Func setLogNoMigrationsFound P1
-		dnRequest("set",[self,"LogNoMigrationsFound",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogNoMigrationsFound",P1])
 		return self
 
 	Func getLogAcquiringMigrationLock
-		return dnRequest("get",[self,"LogAcquiringMigrationLock"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogAcquiringMigrationLock"])
 
 	Func setLogAcquiringMigrationLock P1
-		dnRequest("set",[self,"LogAcquiringMigrationLock",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogAcquiringMigrationLock",P1])
 		return self
 
 	Func getLogMigrationsUserTransaction
-		return dnRequest("get",[self,"LogMigrationsUserTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogMigrationsUserTransaction"])
 
 	Func setLogMigrationsUserTransaction P1
-		dnRequest("set",[self,"LogMigrationsUserTransaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogMigrationsUserTransaction",P1])
 		return self
 
 	Func getLogKeyHasDefaultValue
-		return dnRequest("get",[self,"LogKeyHasDefaultValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogKeyHasDefaultValue"])
 
 	Func setLogKeyHasDefaultValue P1
-		dnRequest("set",[self,"LogKeyHasDefaultValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogKeyHasDefaultValue",P1])
 		return self
 
 	Func getLogCommandCanceled
-		return dnRequest("get",[self,"LogCommandCanceled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogCommandCanceled"])
 
 	Func setLogCommandCanceled P1
-		dnRequest("set",[self,"LogCommandCanceled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogCommandCanceled",P1])
 		return self
 
 	Func getLogCommandCreating
-		return dnRequest("get",[self,"LogCommandCreating"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogCommandCreating"])
 
 	Func setLogCommandCreating P1
-		dnRequest("set",[self,"LogCommandCreating",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogCommandCreating",P1])
 		return self
 
 	Func getLogCommandCreated
-		return dnRequest("get",[self,"LogCommandCreated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogCommandCreated"])
 
 	Func setLogCommandCreated P1
-		dnRequest("set",[self,"LogCommandCreated",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogCommandCreated",P1])
 		return self
 
 	Func getLogCommandInitialized
-		return dnRequest("get",[self,"LogCommandInitialized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogCommandInitialized"])
 
 	Func setLogCommandInitialized P1
-		dnRequest("set",[self,"LogCommandInitialized",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogCommandInitialized",P1])
 		return self
 
 	Func getLogExecutingCommand
-		return dnRequest("get",[self,"LogExecutingCommand"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogExecutingCommand"])
 
 	Func setLogExecutingCommand P1
-		dnRequest("set",[self,"LogExecutingCommand",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogExecutingCommand",P1])
 		return self
 
 	Func getLogExecutedCommand
-		return dnRequest("get",[self,"LogExecutedCommand"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogExecutedCommand"])
 
 	Func setLogExecutedCommand P1
-		dnRequest("set",[self,"LogExecutedCommand",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogExecutedCommand",P1])
 		return self
 
 	Func getLogCommandFailed
-		return dnRequest("get",[self,"LogCommandFailed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogCommandFailed"])
 
 	Func setLogCommandFailed P1
-		dnRequest("set",[self,"LogCommandFailed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogCommandFailed",P1])
 		return self
 
 	Func getLogConnectionErrorAsDebug
-		return dnRequest("get",[self,"LogConnectionErrorAsDebug"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogConnectionErrorAsDebug"])
 
 	Func setLogConnectionErrorAsDebug P1
-		dnRequest("set",[self,"LogConnectionErrorAsDebug",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogConnectionErrorAsDebug",P1])
 		return self
 
 	Func getLogAmbientTransactionEnlisted
-		return dnRequest("get",[self,"LogAmbientTransactionEnlisted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogAmbientTransactionEnlisted"])
 
 	Func setLogAmbientTransactionEnlisted P1
-		dnRequest("set",[self,"LogAmbientTransactionEnlisted",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogAmbientTransactionEnlisted",P1])
 		return self
 
 	Func getLogExplicitTransactionEnlisted
-		return dnRequest("get",[self,"LogExplicitTransactionEnlisted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogExplicitTransactionEnlisted"])
 
 	Func setLogExplicitTransactionEnlisted P1
-		dnRequest("set",[self,"LogExplicitTransactionEnlisted",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogExplicitTransactionEnlisted",P1])
 		return self
 
 	Func getLogBatchSmallerThanMinBatchSize
-		return dnRequest("get",[self,"LogBatchSmallerThanMinBatchSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogBatchSmallerThanMinBatchSize"])
 
 	Func setLogBatchSmallerThanMinBatchSize P1
-		dnRequest("set",[self,"LogBatchSmallerThanMinBatchSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogBatchSmallerThanMinBatchSize",P1])
 		return self
 
 	Func getLogBatchReadyForExecution
-		return dnRequest("get",[self,"LogBatchReadyForExecution"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogBatchReadyForExecution"])
 
 	Func setLogBatchReadyForExecution P1
-		dnRequest("set",[self,"LogBatchReadyForExecution",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogBatchReadyForExecution",P1])
 		return self
 
 	Func getLogMigrationAttributeMissingWarning
-		return dnRequest("get",[self,"LogMigrationAttributeMissingWarning"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogMigrationAttributeMissingWarning"])
 
 	Func setLogMigrationAttributeMissingWarning P1
-		dnRequest("set",[self,"LogMigrationAttributeMissingWarning",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogMigrationAttributeMissingWarning",P1])
 		return self
 
 	Func getLogNamedIndexAllPropertiesNotToMappedToAnyTable
-		return dnRequest("get",[self,"LogNamedIndexAllPropertiesNotToMappedToAnyTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogNamedIndexAllPropertiesNotToMappedToAnyTable"])
 
 	Func setLogNamedIndexAllPropertiesNotToMappedToAnyTable P1
-		dnRequest("set",[self,"LogNamedIndexAllPropertiesNotToMappedToAnyTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogNamedIndexAllPropertiesNotToMappedToAnyTable",P1])
 		return self
 
 	Func getLogUnnamedIndexAllPropertiesNotToMappedToAnyTable
-		return dnRequest("get",[self,"LogUnnamedIndexAllPropertiesNotToMappedToAnyTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogUnnamedIndexAllPropertiesNotToMappedToAnyTable"])
 
 	Func setLogUnnamedIndexAllPropertiesNotToMappedToAnyTable P1
-		dnRequest("set",[self,"LogUnnamedIndexAllPropertiesNotToMappedToAnyTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogUnnamedIndexAllPropertiesNotToMappedToAnyTable",P1])
 		return self
 
 	Func getLogNamedIndexPropertiesBothMappedAndNotMappedToTable
-		return dnRequest("get",[self,"LogNamedIndexPropertiesBothMappedAndNotMappedToTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogNamedIndexPropertiesBothMappedAndNotMappedToTable"])
 
 	Func setLogNamedIndexPropertiesBothMappedAndNotMappedToTable P1
-		dnRequest("set",[self,"LogNamedIndexPropertiesBothMappedAndNotMappedToTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogNamedIndexPropertiesBothMappedAndNotMappedToTable",P1])
 		return self
 
 	Func getLogUnnamedIndexPropertiesBothMappedAndNotMappedToTable
-		return dnRequest("get",[self,"LogUnnamedIndexPropertiesBothMappedAndNotMappedToTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogUnnamedIndexPropertiesBothMappedAndNotMappedToTable"])
 
 	Func setLogUnnamedIndexPropertiesBothMappedAndNotMappedToTable P1
-		dnRequest("set",[self,"LogUnnamedIndexPropertiesBothMappedAndNotMappedToTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogUnnamedIndexPropertiesBothMappedAndNotMappedToTable",P1])
 		return self
 
 	Func getLogNamedIndexPropertiesMappedToNonOverlappingTables
-		return dnRequest("get",[self,"LogNamedIndexPropertiesMappedToNonOverlappingTables"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogNamedIndexPropertiesMappedToNonOverlappingTables"])
 
 	Func setLogNamedIndexPropertiesMappedToNonOverlappingTables P1
-		dnRequest("set",[self,"LogNamedIndexPropertiesMappedToNonOverlappingTables",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogNamedIndexPropertiesMappedToNonOverlappingTables",P1])
 		return self
 
 	Func getLogUnnamedIndexPropertiesMappedToNonOverlappingTables
-		return dnRequest("get",[self,"LogUnnamedIndexPropertiesMappedToNonOverlappingTables"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogUnnamedIndexPropertiesMappedToNonOverlappingTables"])
 
 	Func setLogUnnamedIndexPropertiesMappedToNonOverlappingTables P1
-		dnRequest("set",[self,"LogUnnamedIndexPropertiesMappedToNonOverlappingTables",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogUnnamedIndexPropertiesMappedToNonOverlappingTables",P1])
 		return self
 
 	Func getLogKeyPropertiesNotMappedToTable
-		return dnRequest("get",[self,"LogKeyPropertiesNotMappedToTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogKeyPropertiesNotMappedToTable"])
 
 	Func setLogKeyPropertiesNotMappedToTable P1
-		dnRequest("set",[self,"LogKeyPropertiesNotMappedToTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogKeyPropertiesNotMappedToTable",P1])
 		return self
 
 	Func getLogForeignKeyPropertiesMappedToUnrelatedTables
-		return dnRequest("get",[self,"LogForeignKeyPropertiesMappedToUnrelatedTables"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogForeignKeyPropertiesMappedToUnrelatedTables"])
 
 	Func setLogForeignKeyPropertiesMappedToUnrelatedTables P1
-		dnRequest("set",[self,"LogForeignKeyPropertiesMappedToUnrelatedTables",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogForeignKeyPropertiesMappedToUnrelatedTables",P1])
 		return self
 
 	Func getLogForeignKeyTpcPrincipal
-		return dnRequest("get",[self,"LogForeignKeyTpcPrincipal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogForeignKeyTpcPrincipal"])
 
 	Func setLogForeignKeyTpcPrincipal P1
-		dnRequest("set",[self,"LogForeignKeyTpcPrincipal",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogForeignKeyTpcPrincipal",P1])
 		return self
 
 	Func getLogTpcStoreGeneratedIdentity
-		return dnRequest("get",[self,"LogTpcStoreGeneratedIdentity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogTpcStoreGeneratedIdentity"])
 
 	Func setLogTpcStoreGeneratedIdentity P1
-		dnRequest("set",[self,"LogTpcStoreGeneratedIdentity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogTpcStoreGeneratedIdentity",P1])
 		return self
 
 	Func getLogMultipleCollectionIncludeWarning
-		return dnRequest("get",[self,"LogMultipleCollectionIncludeWarning"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogMultipleCollectionIncludeWarning"])
 
 	Func setLogMultipleCollectionIncludeWarning P1
-		dnRequest("set",[self,"LogMultipleCollectionIncludeWarning",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogMultipleCollectionIncludeWarning",P1])
 		return self
 
 	Func getLogBatchExecutorFailedToRollbackToSavepoint
-		return dnRequest("get",[self,"LogBatchExecutorFailedToRollbackToSavepoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogBatchExecutorFailedToRollbackToSavepoint"])
 
 	Func setLogBatchExecutorFailedToRollbackToSavepoint P1
-		dnRequest("set",[self,"LogBatchExecutorFailedToRollbackToSavepoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogBatchExecutorFailedToRollbackToSavepoint",P1])
 		return self
 
 	Func getLogBatchExecutorFailedToReleaseSavepoint
-		return dnRequest("get",[self,"LogBatchExecutorFailedToReleaseSavepoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogBatchExecutorFailedToReleaseSavepoint"])
 
 	Func setLogBatchExecutorFailedToReleaseSavepoint P1
-		dnRequest("set",[self,"LogBatchExecutorFailedToReleaseSavepoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogBatchExecutorFailedToReleaseSavepoint",P1])
 		return self
 
 	Func getLogOptionalDependentWithoutIdentifyingProperty
-		return dnRequest("get",[self,"LogOptionalDependentWithoutIdentifyingProperty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogOptionalDependentWithoutIdentifyingProperty"])
 
 	Func setLogOptionalDependentWithoutIdentifyingProperty P1
-		dnRequest("set",[self,"LogOptionalDependentWithoutIdentifyingProperty",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogOptionalDependentWithoutIdentifyingProperty",P1])
 		return self
 
 	Func getLogOptionalDependentWithAllNullProperties
-		return dnRequest("get",[self,"LogOptionalDependentWithAllNullProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogOptionalDependentWithAllNullProperties"])
 
 	Func setLogOptionalDependentWithAllNullProperties P1
-		dnRequest("set",[self,"LogOptionalDependentWithAllNullProperties",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogOptionalDependentWithAllNullProperties",P1])
 		return self
 
 	Func getLogOptionalDependentWithAllNullPropertiesSensitive
-		return dnRequest("get",[self,"LogOptionalDependentWithAllNullPropertiesSensitive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogOptionalDependentWithAllNullPropertiesSensitive"])
 
 	Func setLogOptionalDependentWithAllNullPropertiesSensitive P1
-		dnRequest("set",[self,"LogOptionalDependentWithAllNullPropertiesSensitive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogOptionalDependentWithAllNullPropertiesSensitive",P1])
 		return self
 
 	Func getLogDuplicateColumnOrders
-		return dnRequest("get",[self,"LogDuplicateColumnOrders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogDuplicateColumnOrders"])
 
 	Func setLogDuplicateColumnOrders P1
-		dnRequest("set",[self,"LogDuplicateColumnOrders",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogDuplicateColumnOrders",P1])
 		return self
 
 	Func getLogColumnOrderIgnoredWarning
-		return dnRequest("get",[self,"LogColumnOrderIgnoredWarning"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogColumnOrderIgnoredWarning"])
 
 	Func setLogColumnOrderIgnoredWarning P1
-		dnRequest("set",[self,"LogColumnOrderIgnoredWarning",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogColumnOrderIgnoredWarning",P1])
 		return self
 
 	Func getLogPendingModelChanges
-		return dnRequest("get",[self,"LogPendingModelChanges"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogPendingModelChanges"])
 
 	Func setLogPendingModelChanges P1
-		dnRequest("set",[self,"LogPendingModelChanges",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogPendingModelChanges",P1])
 		return self
 
 	Func getLogNonDeterministicModel
-		return dnRequest("get",[self,"LogNonDeterministicModel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogNonDeterministicModel"])
 
 	Func setLogNonDeterministicModel P1
-		dnRequest("set",[self,"LogNonDeterministicModel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogNonDeterministicModel",P1])
 		return self
 
 	Func getLogNoModelSnapshotFound
-		return dnRequest("get",[self,"LogNoModelSnapshotFound"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogNoModelSnapshotFound"])
 
 	Func setLogNoModelSnapshotFound P1
-		dnRequest("set",[self,"LogNoModelSnapshotFound",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogNoModelSnapshotFound",P1])
 		return self
 
 	Func getLogNonTransactionalMigrationOperationWarning
-		return dnRequest("get",[self,"LogNonTransactionalMigrationOperationWarning"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogNonTransactionalMigrationOperationWarning"])
 
 	Func setLogNonTransactionalMigrationOperationWarning P1
-		dnRequest("set",[self,"LogNonTransactionalMigrationOperationWarning",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogNonTransactionalMigrationOperationWarning",P1])
 		return self
 
 	Func getLogExceptionDuringNonQueryOperation
-		return dnRequest("get",[self,"LogExceptionDuringNonQueryOperation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogExceptionDuringNonQueryOperation"])
 
 	Func setLogExceptionDuringNonQueryOperation P1
-		dnRequest("set",[self,"LogExceptionDuringNonQueryOperation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogExceptionDuringNonQueryOperation",P1])
 		return self
 
 	Func getLogExceptionDuringExecuteDelete
-		return dnRequest("get",[self,"LogExceptionDuringExecuteDelete"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogExceptionDuringExecuteDelete"])
 
 	Func setLogExceptionDuringExecuteDelete P1
-		dnRequest("set",[self,"LogExceptionDuringExecuteDelete",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogExceptionDuringExecuteDelete",P1])
 		return self
 
 	Func getLogExceptionDuringExecuteUpdate
-		return dnRequest("get",[self,"LogExceptionDuringExecuteUpdate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogExceptionDuringExecuteUpdate"])
 
 	Func setLogExceptionDuringExecuteUpdate P1
-		dnRequest("set",[self,"LogExceptionDuringExecuteUpdate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogExceptionDuringExecuteUpdate",P1])
 		return self
 
 	Func getLogUnexpectedTrailingResultSetWhenSaving
-		return dnRequest("get",[self,"LogUnexpectedTrailingResultSetWhenSaving"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogUnexpectedTrailingResultSetWhenSaving"])
 
 	Func setLogUnexpectedTrailingResultSetWhenSaving P1
-		dnRequest("set",[self,"LogUnexpectedTrailingResultSetWhenSaving",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogUnexpectedTrailingResultSetWhenSaving",P1])
 		return self
 
 	Func getLogTriggerOnNonRootTphEntity
-		return dnRequest("get",[self,"LogTriggerOnNonRootTphEntity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogTriggerOnNonRootTphEntity"])
 
 	Func setLogTriggerOnNonRootTphEntity P1
-		dnRequest("set",[self,"LogTriggerOnNonRootTphEntity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LogTriggerOnNonRootTphEntity",P1])
 		return self
 

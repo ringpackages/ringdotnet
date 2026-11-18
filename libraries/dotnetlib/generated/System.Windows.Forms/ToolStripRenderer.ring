@@ -14,248 +14,248 @@ Class ToolStripRenderer from Object
 		return self
 
 	Func DrawArrow P1
-		dnRequest("call",[self,"DrawArrow",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawArrow",P1])
 		return self
 
 	Func DrawToolStripBackground P1
-		dnRequest("call",[self,"DrawToolStripBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripBackground",P1])
 		return self
 
 	Func DrawGrip P1
-		dnRequest("call",[self,"DrawGrip",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawGrip",P1])
 		return self
 
 	Func DrawItemBackground P1
-		dnRequest("call",[self,"DrawItemBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawItemBackground",P1])
 		return self
 
 	Func DrawImageMargin P1
-		dnRequest("call",[self,"DrawImageMargin",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImageMargin",P1])
 		return self
 
 	Func DrawLabelBackground P1
-		dnRequest("call",[self,"DrawLabelBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawLabelBackground",P1])
 		return self
 
 	Func DrawButtonBackground P1
-		dnRequest("call",[self,"DrawButtonBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawButtonBackground",P1])
 		return self
 
 	Func DrawToolStripBorder P1
-		dnRequest("call",[self,"DrawToolStripBorder",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripBorder",P1])
 		return self
 
 	Func DrawDropDownButtonBackground P1
-		dnRequest("call",[self,"DrawDropDownButtonBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawDropDownButtonBackground",P1])
 		return self
 
 	Func DrawOverflowButtonBackground P1
-		dnRequest("call",[self,"DrawOverflowButtonBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawOverflowButtonBackground",P1])
 		return self
 
 	Func DrawItemImage P1
-		dnRequest("call",[self,"DrawItemImage",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawItemImage",P1])
 		return self
 
 	Func DrawItemCheck P1
-		dnRequest("call",[self,"DrawItemCheck",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawItemCheck",P1])
 		return self
 
 	Func DrawItemText P1
-		dnRequest("call",[self,"DrawItemText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawItemText",P1])
 		return self
 
 	Func DrawMenuItemBackground P1
-		dnRequest("call",[self,"DrawMenuItemBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawMenuItemBackground",P1])
 		return self
 
 	Func DrawSplitButton P1
-		dnRequest("call",[self,"DrawSplitButton",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawSplitButton",P1])
 		return self
 
 	Func DrawToolStripStatusLabelBackground P1
-		dnRequest("call",[self,"DrawToolStripStatusLabelBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripStatusLabelBackground",P1])
 		return self
 
 	Func DrawStatusStripSizingGrip P1
-		dnRequest("call",[self,"DrawStatusStripSizingGrip",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawStatusStripSizingGrip",P1])
 		return self
 
 	Func DrawSeparator P1
-		dnRequest("call",[self,"DrawSeparator",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawSeparator",P1])
 		return self
 
 	Func DrawToolStripPanelBackground P1
-		dnRequest("call",[self,"DrawToolStripPanelBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripPanelBackground",P1])
 		return self
 
 	Func DrawToolStripContentPanelBackground P1
-		dnRequest("call",[self,"DrawToolStripContentPanelBackground",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripContentPanelBackground",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateDisabledImage P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripRenderer, System.Windows.Forms'),"CreateDisabledImage",P1])
 
 	Func setRenderArrowEvent P1
-		dnRequest("setevent",[self,"RenderArrow",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderArrow",dnCallback(P1)])
 		return self
 
 	Func clearRenderArrowEvent
-		dnRequest("clearevent",[self,"RenderArrow"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderArrow"])
 		return self
 
 	Func setRenderToolStripBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderToolStripBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripBackgroundEvent
-		dnRequest("clearevent",[self,"RenderToolStripBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripBackground"])
 		return self
 
 	Func setRenderToolStripPanelBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderToolStripPanelBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripPanelBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripPanelBackgroundEvent
-		dnRequest("clearevent",[self,"RenderToolStripPanelBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripPanelBackground"])
 		return self
 
 	Func setRenderToolStripContentPanelBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderToolStripContentPanelBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripContentPanelBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripContentPanelBackgroundEvent
-		dnRequest("clearevent",[self,"RenderToolStripContentPanelBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripContentPanelBackground"])
 		return self
 
 	Func setRenderToolStripBorderEvent P1
-		dnRequest("setevent",[self,"RenderToolStripBorder",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripBorder",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripBorderEvent
-		dnRequest("clearevent",[self,"RenderToolStripBorder"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripBorder"])
 		return self
 
 	Func setRenderButtonBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderButtonBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderButtonBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderButtonBackgroundEvent
-		dnRequest("clearevent",[self,"RenderButtonBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderButtonBackground"])
 		return self
 
 	Func setRenderDropDownButtonBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderDropDownButtonBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderDropDownButtonBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderDropDownButtonBackgroundEvent
-		dnRequest("clearevent",[self,"RenderDropDownButtonBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderDropDownButtonBackground"])
 		return self
 
 	Func setRenderOverflowButtonBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderOverflowButtonBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderOverflowButtonBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderOverflowButtonBackgroundEvent
-		dnRequest("clearevent",[self,"RenderOverflowButtonBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderOverflowButtonBackground"])
 		return self
 
 	Func setRenderGripEvent P1
-		dnRequest("setevent",[self,"RenderGrip",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderGrip",dnCallback(P1)])
 		return self
 
 	Func clearRenderGripEvent
-		dnRequest("clearevent",[self,"RenderGrip"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderGrip"])
 		return self
 
 	Func setRenderItemBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderItemBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderItemBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderItemBackgroundEvent
-		dnRequest("clearevent",[self,"RenderItemBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderItemBackground"])
 		return self
 
 	Func setRenderItemImageEvent P1
-		dnRequest("setevent",[self,"RenderItemImage",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderItemImage",dnCallback(P1)])
 		return self
 
 	Func clearRenderItemImageEvent
-		dnRequest("clearevent",[self,"RenderItemImage"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderItemImage"])
 		return self
 
 	Func setRenderItemCheckEvent P1
-		dnRequest("setevent",[self,"RenderItemCheck",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderItemCheck",dnCallback(P1)])
 		return self
 
 	Func clearRenderItemCheckEvent
-		dnRequest("clearevent",[self,"RenderItemCheck"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderItemCheck"])
 		return self
 
 	Func setRenderItemTextEvent P1
-		dnRequest("setevent",[self,"RenderItemText",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderItemText",dnCallback(P1)])
 		return self
 
 	Func clearRenderItemTextEvent
-		dnRequest("clearevent",[self,"RenderItemText"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderItemText"])
 		return self
 
 	Func setRenderImageMarginEvent P1
-		dnRequest("setevent",[self,"RenderImageMargin",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderImageMargin",dnCallback(P1)])
 		return self
 
 	Func clearRenderImageMarginEvent
-		dnRequest("clearevent",[self,"RenderImageMargin"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderImageMargin"])
 		return self
 
 	Func setRenderLabelBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderLabelBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderLabelBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderLabelBackgroundEvent
-		dnRequest("clearevent",[self,"RenderLabelBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderLabelBackground"])
 		return self
 
 	Func setRenderMenuItemBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderMenuItemBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderMenuItemBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderMenuItemBackgroundEvent
-		dnRequest("clearevent",[self,"RenderMenuItemBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderMenuItemBackground"])
 		return self
 
 	Func setRenderToolStripStatusLabelBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderToolStripStatusLabelBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripStatusLabelBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripStatusLabelBackgroundEvent
-		dnRequest("clearevent",[self,"RenderToolStripStatusLabelBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripStatusLabelBackground"])
 		return self
 
 	Func setRenderStatusStripSizingGripEvent P1
-		dnRequest("setevent",[self,"RenderStatusStripSizingGrip",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderStatusStripSizingGrip",dnCallback(P1)])
 		return self
 
 	Func clearRenderStatusStripSizingGripEvent
-		dnRequest("clearevent",[self,"RenderStatusStripSizingGrip"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderStatusStripSizingGrip"])
 		return self
 
 	Func setRenderSplitButtonBackgroundEvent P1
-		dnRequest("setevent",[self,"RenderSplitButtonBackground",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderSplitButtonBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderSplitButtonBackgroundEvent
-		dnRequest("clearevent",[self,"RenderSplitButtonBackground"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderSplitButtonBackground"])
 		return self
 
 	Func setRenderSeparatorEvent P1
-		dnRequest("setevent",[self,"RenderSeparator",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RenderSeparator",dnCallback(P1)])
 		return self
 
 	Func clearRenderSeparatorEvent
-		dnRequest("clearevent",[self,"RenderSeparator"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderSeparator"])
 		return self
 

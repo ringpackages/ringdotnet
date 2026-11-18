@@ -25,100 +25,100 @@ Class RelationalTypeMapping from CoreTypeMapping
 		return self
 
 	Func WithStoreTypeAndSize P1,P2
-		return dnRequest("call",[self,"WithStoreTypeAndSize",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithStoreTypeAndSize",P1,P2])
 
 	Func WithPrecisionAndScale P1,P2
-		return dnRequest("call",[self,"WithPrecisionAndScale",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithPrecisionAndScale",P1,P2])
 
 	Func WithTypeMappingInfo P1
-		return dnRequest("call",[self,"WithTypeMappingInfo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithTypeMappingInfo",P1])
 
 	Func Clone_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"Clone",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func CreateParameter_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"CreateParameter",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter",P1,P2,P3,P4,P5])
 
 	Func CreateParameter_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"CreateParameter",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter",P1,P2,P3,P4])
 
 	Func CreateParameter P1,P2,P3
-		return dnRequest("call",[self,"CreateParameter",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter",P1,P2,P3])
 
 	Func GenerateSqlLiteral P1
-		return dnRequest("call",[self,"GenerateSqlLiteral",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateSqlLiteral",P1])
 
 	Func GenerateProviderValueSqlLiteral P1
-		return dnRequest("call",[self,"GenerateProviderValueSqlLiteral",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateProviderValueSqlLiteral",P1])
 
 	Func GetDataReaderMethod P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
 			ok
-			return dnRequest("callnamed",[self,"GetDataReaderMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataReaderMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetDataReaderMethod"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetDataReaderMethod"])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
 
 	Func CustomizeDataReaderExpression P1
-		return dnRequest("call",[self,"CustomizeDataReaderExpression",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CustomizeDataReaderExpression",P1])
 
 	Func GetDataReaderMethod_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
 
 	Func getStoreTypePostfix
-		return dnRequest("get",[self,"StoreTypePostfix"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreTypePostfix"])
 
 	Func setStoreTypePostfix P1
 		raise("DotNet Error: StoreTypePostfix is a read-only property")
 
 	Func getStoreType
-		return dnRequest("get",[self,"StoreType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getStoreTypeNameBase
-		return dnRequest("get",[self,"StoreTypeNameBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreTypeNameBase"])
 
 	Func setStoreTypeNameBase P1
 		raise("DotNet Error: StoreTypeNameBase is a read-only property")
 
 	Func getDbType
-		return dnRequest("get",[self,"DbType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DbType"])
 
 	Func setDbType P1
 		raise("DotNet Error: DbType is a read-only property")
 
 	Func getIsUnicode
-		return dnRequest("get",[self,"IsUnicode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUnicode"])
 
 	Func setIsUnicode P1
 		raise("DotNet Error: IsUnicode is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getPrecision
-		return dnRequest("get",[self,"Precision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Precision"])
 
 	Func setPrecision P1
 		raise("DotNet Error: Precision is a read-only property")
 
 	Func getScale
-		return dnRequest("get",[self,"Scale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getIsFixedLength
-		return dnRequest("get",[self,"IsFixedLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedLength"])
 
 	Func setIsFixedLength P1
 		raise("DotNet Error: IsFixedLength is a read-only property")

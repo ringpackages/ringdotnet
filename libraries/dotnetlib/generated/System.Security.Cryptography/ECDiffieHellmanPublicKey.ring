@@ -14,24 +14,24 @@ Class ECDiffieHellmanPublicKey from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func ToByteArray 
-		return dnRequest("call",[self,"ToByteArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray"])
 
 	Func ToXmlString 
-		return dnRequest("call",[self,"ToXmlString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToXmlString"])
 
 	Func ExportParameters 
-		return dnRequest("call",[self,"ExportParameters"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportParameters"])
 
 	Func ExportExplicitParameters 
-		return dnRequest("call",[self,"ExportExplicitParameters"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportExplicitParameters"])
 
 	Func ExportSubjectPublicKeyInfo 
-		return dnRequest("call",[self,"ExportSubjectPublicKeyInfo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportSubjectPublicKeyInfo"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

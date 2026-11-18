@@ -15,15 +15,15 @@ Class HostExecutionContextManager from Object
 		return self
 
 	Func Capture 
-		return dnRequest("call",[self,"Capture"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Capture"])
 
 	Func SetHostExecutionContext P1
-		return dnRequest("call",[self,"SetHostExecutionContext",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetHostExecutionContext",P1])
 
 	Func Revert P1
-		dnRequest("call",[self,"Revert",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Revert",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

@@ -16,9 +16,9 @@ Class DelegatingHandler from HttpMessageHandler
 		return self
 
 	Func getInnerHandler
-		return dnRequest("get",[self,"InnerHandler"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InnerHandler"])
 
 	Func setInnerHandler P1
-		dnRequest("set",[self,"InnerHandler",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InnerHandler",P1])
 		return self
 

@@ -28,9 +28,9 @@ Class HMAC from KeyedHashAlgorithm
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMAC, System.Security.Cryptography'),"Create",P1])
 
 	Func getHashName
-		return dnRequest("get",[self,"HashName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashName"])
 
 	Func setHashName P1
-		dnRequest("set",[self,"HashName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HashName",P1])
 		return self
 

@@ -39,22 +39,22 @@ Class MethodBase from MemberInfo
 		return self
 
 	Func GetParameters 
-		return dnRequest("call",[self,"GetParameters"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetParameters"])
 
 	Func GetMethodImplementationFlags_0 
-		return dnRequest("call",[self,"GetMethodImplementationFlags"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMethodImplementationFlags"])
 
 	Func GetMethodBody 
-		return dnRequest("call",[self,"GetMethodBody"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMethodBody"])
 
 	Func GetGenericArguments 
-		return dnRequest("call",[self,"GetGenericArguments"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGenericArguments"])
 
 	Func Invoke P1,P2
-		return dnRequest("call",[self,"Invoke",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2])
 
 	Func Invoke_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Invoke",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3,P4,P5])
 
 	Func GetMethodFromHandle P1
 		if dnIsNamed(P1)
@@ -69,145 +69,145 @@ Class MethodBase from MemberInfo
 		return dnRequest("call",[dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib'),"GetCurrentMethod"])
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getMethodImplementationFlags
-		return dnRequest("get",[self,"MethodImplementationFlags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MethodImplementationFlags"])
 
 	Func setMethodImplementationFlags P1
 		raise("DotNet Error: MethodImplementationFlags is a read-only property")
 
 	Func getCallingConvention
-		return dnRequest("get",[self,"CallingConvention"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CallingConvention"])
 
 	Func setCallingConvention P1
 		raise("DotNet Error: CallingConvention is a read-only property")
 
 	Func getIsAbstract
-		return dnRequest("get",[self,"IsAbstract"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAbstract"])
 
 	Func setIsAbstract P1
 		raise("DotNet Error: IsAbstract is a read-only property")
 
 	Func getIsConstructor
-		return dnRequest("get",[self,"IsConstructor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsConstructor"])
 
 	Func setIsConstructor P1
 		raise("DotNet Error: IsConstructor is a read-only property")
 
 	Func getIsFinal
-		return dnRequest("get",[self,"IsFinal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFinal"])
 
 	Func setIsFinal P1
 		raise("DotNet Error: IsFinal is a read-only property")
 
 	Func getIsHideBySig
-		return dnRequest("get",[self,"IsHideBySig"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsHideBySig"])
 
 	Func setIsHideBySig P1
 		raise("DotNet Error: IsHideBySig is a read-only property")
 
 	Func getIsSpecialName
-		return dnRequest("get",[self,"IsSpecialName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSpecialName"])
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getIsStatic
-		return dnRequest("get",[self,"IsStatic"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsStatic"])
 
 	Func setIsStatic P1
 		raise("DotNet Error: IsStatic is a read-only property")
 
 	Func getIsVirtual
-		return dnRequest("get",[self,"IsVirtual"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsVirtual"])
 
 	Func setIsVirtual P1
 		raise("DotNet Error: IsVirtual is a read-only property")
 
 	Func getIsAssembly
-		return dnRequest("get",[self,"IsAssembly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAssembly"])
 
 	Func setIsAssembly P1
 		raise("DotNet Error: IsAssembly is a read-only property")
 
 	Func getIsFamily
-		return dnRequest("get",[self,"IsFamily"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFamily"])
 
 	Func setIsFamily P1
 		raise("DotNet Error: IsFamily is a read-only property")
 
 	Func getIsFamilyAndAssembly
-		return dnRequest("get",[self,"IsFamilyAndAssembly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFamilyAndAssembly"])
 
 	Func setIsFamilyAndAssembly P1
 		raise("DotNet Error: IsFamilyAndAssembly is a read-only property")
 
 	Func getIsFamilyOrAssembly
-		return dnRequest("get",[self,"IsFamilyOrAssembly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFamilyOrAssembly"])
 
 	Func setIsFamilyOrAssembly P1
 		raise("DotNet Error: IsFamilyOrAssembly is a read-only property")
 
 	Func getIsPrivate
-		return dnRequest("get",[self,"IsPrivate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPrivate"])
 
 	Func setIsPrivate P1
 		raise("DotNet Error: IsPrivate is a read-only property")
 
 	Func getIsPublic
-		return dnRequest("get",[self,"IsPublic"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPublic"])
 
 	Func setIsPublic P1
 		raise("DotNet Error: IsPublic is a read-only property")
 
 	Func getIsConstructedGenericMethod
-		return dnRequest("get",[self,"IsConstructedGenericMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsConstructedGenericMethod"])
 
 	Func setIsConstructedGenericMethod P1
 		raise("DotNet Error: IsConstructedGenericMethod is a read-only property")
 
 	Func getIsGenericMethod
-		return dnRequest("get",[self,"IsGenericMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsGenericMethod"])
 
 	Func setIsGenericMethod P1
 		raise("DotNet Error: IsGenericMethod is a read-only property")
 
 	Func getIsGenericMethodDefinition
-		return dnRequest("get",[self,"IsGenericMethodDefinition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsGenericMethodDefinition"])
 
 	Func setIsGenericMethodDefinition P1
 		raise("DotNet Error: IsGenericMethodDefinition is a read-only property")
 
 	Func getContainsGenericParameters
-		return dnRequest("get",[self,"ContainsGenericParameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContainsGenericParameters"])
 
 	Func setContainsGenericParameters P1
 		raise("DotNet Error: ContainsGenericParameters is a read-only property")
 
 	Func getMethodHandle
-		return dnRequest("get",[self,"MethodHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MethodHandle"])
 
 	Func setMethodHandle P1
 		raise("DotNet Error: MethodHandle is a read-only property")
 
 	Func getIsSecurityCritical
-		return dnRequest("get",[self,"IsSecurityCritical"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSecurityCritical"])
 
 	Func setIsSecurityCritical P1
 		raise("DotNet Error: IsSecurityCritical is a read-only property")
 
 	Func getIsSecuritySafeCritical
-		return dnRequest("get",[self,"IsSecuritySafeCritical"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSecuritySafeCritical"])
 
 	Func setIsSecuritySafeCritical P1
 		raise("DotNet Error: IsSecuritySafeCritical is a read-only property")
 
 	Func getIsSecurityTransparent
-		return dnRequest("get",[self,"IsSecurityTransparent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSecurityTransparent"])
 
 	Func setIsSecurityTransparent P1
 		raise("DotNet Error: IsSecurityTransparent is a read-only property")

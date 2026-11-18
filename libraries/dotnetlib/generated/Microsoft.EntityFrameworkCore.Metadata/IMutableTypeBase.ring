@@ -17,132 +17,132 @@ Class IMutableTypeBase from DotNetObject
 		return self
 
 	Func AddIgnored P1
-		return dnRequest("call",[self,"AddIgnored",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddIgnored",P1])
 
 	Func RemoveIgnored P1
-		return dnRequest("call",[self,"RemoveIgnored",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveIgnored",P1])
 
 	Func IsIgnored P1
-		return dnRequest("call",[self,"IsIgnored",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsIgnored",P1])
 
 	Func GetIgnoredMembers 
-		return dnRequest("call",[self,"GetIgnoredMembers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIgnoredMembers"])
 
 	Func AddProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddProperty",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddProperty",P1])
 		ok
-		return dnRequest("call",[self,"AddProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddProperty",P1])
 
 	Func AddProperty_2 P1,P2
-		return dnRequest("call",[self,"AddProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddProperty",P1,P2])
 
 	Func AddProperty_3 P1,P2,P3
-		return dnRequest("call",[self,"AddProperty",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddProperty",P1,P2,P3])
 
 	Func AddIndexerProperty P1,P2
-		return dnRequest("call",[self,"AddIndexerProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddIndexerProperty",P1,P2])
 
 	Func FindProperty P1
-		return dnRequest("call",[self,"FindProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindProperty",P1])
 
 	Func FindProperties P1
-		return dnRequest("call",[self,"FindProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindProperties",P1])
 
 	Func FindDeclaredProperty P1
-		return dnRequest("call",[self,"FindDeclaredProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredProperty",P1])
 
 	Func GetProperty P1
-		return dnRequest("call",[self,"GetProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1])
 
 	Func GetDeclaredProperties 
-		return dnRequest("call",[self,"GetDeclaredProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredProperties"])
 
 	Func GetDerivedProperties 
-		return dnRequest("call",[self,"GetDerivedProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedProperties"])
 
 	Func GetProperties 
-		return dnRequest("call",[self,"GetProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties"])
 
 	Func RemoveProperty P1
-		return dnRequest("call",[self,"RemoveProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveProperty",P1])
 
 	Func AddComplexProperty_3 P1,P2,P3
-		return dnRequest("call",[self,"AddComplexProperty",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddComplexProperty",P1,P2,P3])
 
 	Func AddComplexProperty_2 P1,P2
-		return dnRequest("call",[self,"AddComplexProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddComplexProperty",P1,P2])
 
 	Func AddComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddComplexProperty",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddComplexProperty",P1])
 		ok
-		return dnRequest("call",[self,"AddComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddComplexProperty",P1])
 
 	Func AddComplexProperty_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"AddComplexProperty",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddComplexProperty",P1,P2,P3,P4,P5])
 
 	Func AddComplexProperty_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AddComplexProperty",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddComplexProperty",P1,P2,P3,P4])
 
 	Func AddComplexProperty_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"AddComplexProperty",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddComplexProperty",P1,P2,P3,P4,P5,P6])
 
 	Func AddComplexIndexerProperty_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"AddComplexIndexerProperty",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddComplexIndexerProperty",P1,P2,P3,P4,P5])
 
 	Func AddComplexIndexerProperty_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AddComplexIndexerProperty",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddComplexIndexerProperty",P1,P2,P3,P4])
 
 	Func AddComplexIndexerProperty P1,P2,P3
-		return dnRequest("call",[self,"AddComplexIndexerProperty",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddComplexIndexerProperty",P1,P2,P3])
 
 	Func FindComplexProperty P1
-		return dnRequest("call",[self,"FindComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindComplexProperty",P1])
 
 	Func FindDeclaredComplexProperty P1
-		return dnRequest("call",[self,"FindDeclaredComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredComplexProperty",P1])
 
 	Func GetDeclaredComplexProperties 
-		return dnRequest("call",[self,"GetDeclaredComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredComplexProperties"])
 
 	Func GetDerivedComplexProperties 
-		return dnRequest("call",[self,"GetDerivedComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedComplexProperties"])
 
 	Func GetComplexProperties 
-		return dnRequest("call",[self,"GetComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetComplexProperties"])
 
 	Func RemoveComplexProperty P1
-		return dnRequest("call",[self,"RemoveComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveComplexProperty",P1])
 
 	Func GetMembers 
-		return dnRequest("call",[self,"GetMembers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMembers"])
 
 	Func GetDeclaredMembers 
-		return dnRequest("call",[self,"GetDeclaredMembers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredMembers"])
 
 	Func FindMember P1
-		return dnRequest("call",[self,"FindMember",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMember",P1])
 
 	Func FindMembersInHierarchy P1
-		return dnRequest("call",[self,"FindMembersInHierarchy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMembersInHierarchy",P1])
 
 	Func SetChangeTrackingStrategy P1
-		dnRequest("call",[self,"SetChangeTrackingStrategy",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetChangeTrackingStrategy",P1])
 		return self
 
 	Func SetPropertyAccessMode P1
-		dnRequest("call",[self,"SetPropertyAccessMode",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPropertyAccessMode",P1])
 		return self
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContainingEntityType
-		return dnRequest("get",[self,"ContainingEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContainingEntityType"])
 
 	Func setContainingEntityType P1
 		raise("DotNet Error: ContainingEntityType is a read-only property")

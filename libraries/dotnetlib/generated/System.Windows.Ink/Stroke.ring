@@ -22,142 +22,142 @@ Class Stroke from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Transform P1,P2
-		dnRequest("call",[self,"Transform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2])
 		return self
 
 	Func GetBezierStylusPoints 
-		return dnRequest("call",[self,"GetBezierStylusPoints"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBezierStylusPoints"])
 
 	Func AddPropertyData P1,P2
-		dnRequest("call",[self,"AddPropertyData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddPropertyData",P1,P2])
 		return self
 
 	Func RemovePropertyData P1
-		dnRequest("call",[self,"RemovePropertyData",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemovePropertyData",P1])
 		return self
 
 	Func GetPropertyData P1
-		return dnRequest("call",[self,"GetPropertyData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyData",P1])
 
 	Func GetPropertyDataIds 
-		return dnRequest("call",[self,"GetPropertyDataIds"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyDataIds"])
 
 	Func ContainsPropertyData P1
-		return dnRequest("call",[self,"ContainsPropertyData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsPropertyData",P1])
 
 	Func GetBounds 
-		return dnRequest("call",[self,"GetBounds"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds"])
 
 	Func Draw P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Draw",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Draw",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Draw",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1])
 		return self
 
 	Func Draw_2 P1,P2
-		dnRequest("call",[self,"Draw",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1,P2])
 		return self
 
 	Func GetClipResult P1
-		return dnRequest("call",[self,"GetClipResult",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetClipResult",P1])
 
 	Func GetEraseResult P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetEraseResult",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetEraseResult",P1])
 		ok
-		return dnRequest("call",[self,"GetEraseResult",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEraseResult",P1])
 
 	Func GetEraseResult_2 P1,P2
-		return dnRequest("call",[self,"GetEraseResult",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEraseResult",P1,P2])
 
 	Func HitTest P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HitTest",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
 		ok
-		return dnRequest("call",[self,"HitTest",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
 
 	Func HitTest_2 P1,P2
-		return dnRequest("call",[self,"HitTest",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
 
 	Func GetGeometry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetGeometry",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetGeometry",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetGeometry"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetGeometry"])
 		ok
-		return dnRequest("call",[self,"GetGeometry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGeometry",P1])
 
 	Func GetGeometry_1 P1
-		return dnRequest("call",[self,"GetGeometry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGeometry",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setDrawingAttributesChangedEvent P1
-		dnRequest("setevent",[self,"DrawingAttributesChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DrawingAttributesChanged",dnCallback(P1)])
 		return self
 
 	Func clearDrawingAttributesChangedEvent
-		dnRequest("clearevent",[self,"DrawingAttributesChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawingAttributesChanged"])
 		return self
 
 	Func setDrawingAttributesReplacedEvent P1
-		dnRequest("setevent",[self,"DrawingAttributesReplaced",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DrawingAttributesReplaced",dnCallback(P1)])
 		return self
 
 	Func clearDrawingAttributesReplacedEvent
-		dnRequest("clearevent",[self,"DrawingAttributesReplaced"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawingAttributesReplaced"])
 		return self
 
 	Func setStylusPointsReplacedEvent P1
-		dnRequest("setevent",[self,"StylusPointsReplaced",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusPointsReplaced",dnCallback(P1)])
 		return self
 
 	Func clearStylusPointsReplacedEvent
-		dnRequest("clearevent",[self,"StylusPointsReplaced"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusPointsReplaced"])
 		return self
 
 	Func setStylusPointsChangedEvent P1
-		dnRequest("setevent",[self,"StylusPointsChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusPointsChanged",dnCallback(P1)])
 		return self
 
 	Func clearStylusPointsChangedEvent
-		dnRequest("clearevent",[self,"StylusPointsChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusPointsChanged"])
 		return self
 
 	Func setPropertyDataChangedEvent P1
-		dnRequest("setevent",[self,"PropertyDataChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PropertyDataChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyDataChangedEvent
-		dnRequest("clearevent",[self,"PropertyDataChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PropertyDataChanged"])
 		return self
 
 	Func setInvalidatedEvent P1
-		dnRequest("setevent",[self,"Invalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Invalidated",dnCallback(P1)])
 		return self
 
 	Func clearInvalidatedEvent
-		dnRequest("clearevent",[self,"Invalidated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Invalidated"])
 		return self
 
 	Func getDrawingAttributes
-		return dnRequest("get",[self,"DrawingAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DrawingAttributes"])
 
 	Func setDrawingAttributes P1
-		dnRequest("set",[self,"DrawingAttributes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DrawingAttributes",P1])
 		return self
 
 	Func getStylusPoints
-		return dnRequest("get",[self,"StylusPoints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylusPoints"])
 
 	Func setStylusPoints P1
-		dnRequest("set",[self,"StylusPoints",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylusPoints",P1])
 		return self
 

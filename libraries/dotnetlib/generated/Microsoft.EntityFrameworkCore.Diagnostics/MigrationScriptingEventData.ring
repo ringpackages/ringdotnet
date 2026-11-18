@@ -19,19 +19,19 @@ Class MigrationScriptingEventData from MigrationEventData
 		return self
 
 	Func getFromMigration
-		return dnRequest("get",[self,"FromMigration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FromMigration"])
 
 	Func setFromMigration P1
 		raise("DotNet Error: FromMigration is a read-only property")
 
 	Func getToMigration
-		return dnRequest("get",[self,"ToMigration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToMigration"])
 
 	Func setToMigration P1
 		raise("DotNet Error: ToMigration is a read-only property")
 
 	Func getIsIdempotent
-		return dnRequest("get",[self,"IsIdempotent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIdempotent"])
 
 	Func setIsIdempotent P1
 		raise("DotNet Error: IsIdempotent is a read-only property")

@@ -28,7 +28,7 @@ Class Condition from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ReceiveMarkupExtension P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Condition, PresentationFramework'),"ReceiveMarkupExtension",P1,P2])
@@ -39,30 +39,30 @@ Class Condition from Object
 		return self
 
 	Func getProperty
-		return dnRequest("get",[self,"Property"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
 
 	Func setProperty P1
-		dnRequest("set",[self,"Property",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Property",P1])
 		return self
 
 	Func getBinding
-		return dnRequest("get",[self,"Binding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Binding"])
 
 	Func setBinding P1
-		dnRequest("set",[self,"Binding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Binding",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getSourceName
-		return dnRequest("get",[self,"SourceName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceName"])
 
 	Func setSourceName P1
-		dnRequest("set",[self,"SourceName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceName",P1])
 		return self
 

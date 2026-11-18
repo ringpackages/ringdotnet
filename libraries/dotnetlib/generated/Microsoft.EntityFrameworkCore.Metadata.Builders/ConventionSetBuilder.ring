@@ -15,29 +15,29 @@ Class ConventionSetBuilder from Object
 		return self
 
 	Func Replace P1
-		dnRequest("call",[self,"Replace",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Replace",P1])
 		return self
 
 	Func Add P1
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Remove_1 P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Remove P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Remove",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Remove",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Remove"])
+			dnRequest("call",[new DotNetObject(nHandle),"Remove"])
 		return self
 		ok
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

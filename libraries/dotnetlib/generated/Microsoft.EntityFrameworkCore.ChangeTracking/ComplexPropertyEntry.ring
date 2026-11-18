@@ -18,19 +18,19 @@ Class ComplexPropertyEntry from MemberEntry
 		return self
 
 	Func Property P1
-		return dnRequest("call",[self,"Property",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Property",P1])
 
 	Func ComplexProperty P1
-		return dnRequest("call",[self,"ComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperty",P1])
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getComplexProperties
-		return dnRequest("get",[self,"ComplexProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ComplexProperties"])
 
 	Func setComplexProperties P1
 		raise("DotNet Error: ComplexProperties is a read-only property")

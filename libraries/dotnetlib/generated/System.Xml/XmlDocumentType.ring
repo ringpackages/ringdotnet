@@ -20,31 +20,31 @@ Class XmlDocumentType from XmlLinkedNode
 		return self
 
 	Func getEntities
-		return dnRequest("get",[self,"Entities"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Entities"])
 
 	Func setEntities P1
 		raise("DotNet Error: Entities is a read-only property")
 
 	Func getNotations
-		return dnRequest("get",[self,"Notations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Notations"])
 
 	Func setNotations P1
 		raise("DotNet Error: Notations is a read-only property")
 
 	Func getPublicId
-		return dnRequest("get",[self,"PublicId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PublicId"])
 
 	Func setPublicId P1
 		raise("DotNet Error: PublicId is a read-only property")
 
 	Func getSystemId
-		return dnRequest("get",[self,"SystemId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SystemId"])
 
 	Func setSystemId P1
 		raise("DotNet Error: SystemId is a read-only property")
 
 	Func getInternalSubset
-		return dnRequest("get",[self,"InternalSubset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InternalSubset"])
 
 	Func setInternalSubset P1
 		raise("DotNet Error: InternalSubset is a read-only property")

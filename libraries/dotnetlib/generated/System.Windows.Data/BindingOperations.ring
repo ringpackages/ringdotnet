@@ -16,7 +16,7 @@ Class BindingOperations from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func SetBinding P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"SetBinding",P1,P2,P3])

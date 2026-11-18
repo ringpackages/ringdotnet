@@ -25,77 +25,77 @@ Class DrawListViewColumnHeaderEventArgs from EventArgs
 		return self
 
 	Func DrawBackground 
-		dnRequest("call",[self,"DrawBackground"])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground"])
 		return self
 
 	Func DrawText P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"DrawText",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawText",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"DrawText"])
+			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[self,"DrawText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
 	Func DrawText_1 P1
-		dnRequest("call",[self,"DrawText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getColumnIndex
-		return dnRequest("get",[self,"ColumnIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getHeader
-		return dnRequest("get",[self,"Header"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
 
 	Func setHeader P1
 		raise("DotNet Error: Header is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getForeColor
-		return dnRequest("get",[self,"ForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
 
 	Func setForeColor P1
 		raise("DotNet Error: ForeColor is a read-only property")
 
 	Func getBackColor
-		return dnRequest("get",[self,"BackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
 
 	Func setBackColor P1
 		raise("DotNet Error: BackColor is a read-only property")
 
 	Func getFont
-		return dnRequest("get",[self,"Font"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
 
 	Func setFont P1
 		raise("DotNet Error: Font is a read-only property")
 
 	Func getDrawDefault
-		return dnRequest("get",[self,"DrawDefault"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DrawDefault"])
 
 	Func setDrawDefault P1
-		dnRequest("set",[self,"DrawDefault",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DrawDefault",P1])
 		return self
 

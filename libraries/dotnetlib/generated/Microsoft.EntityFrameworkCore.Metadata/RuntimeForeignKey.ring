@@ -22,42 +22,42 @@ Class RuntimeForeignKey from RuntimeAnnotatableBase
 		return self
 
 	Func AddNavigation P1,P2
-		dnRequest("call",[self,"AddNavigation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddNavigation",P1,P2])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getPrincipalKey
-		return dnRequest("get",[self,"PrincipalKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalKey"])
 
 	Func setPrincipalKey P1
 		raise("DotNet Error: PrincipalKey is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getPrincipalEntityType
-		return dnRequest("get",[self,"PrincipalEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalEntityType"])
 
 	Func setPrincipalEntityType P1
 		raise("DotNet Error: PrincipalEntityType is a read-only property")
 
 	Func getReferencingSkipNavigations
-		return dnRequest("get",[self,"ReferencingSkipNavigations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReferencingSkipNavigations"])
 
 	Func setReferencingSkipNavigations P1
-		dnRequest("set",[self,"ReferencingSkipNavigations",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReferencingSkipNavigations",P1])
 		return self
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

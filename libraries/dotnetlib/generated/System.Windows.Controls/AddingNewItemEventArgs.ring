@@ -17,9 +17,9 @@ Class AddingNewItemEventArgs from EventArgs
 		return self
 
 	Func getNewItem
-		return dnRequest("get",[self,"NewItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewItem"])
 
 	Func setNewItem P1
-		dnRequest("set",[self,"NewItem",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NewItem",P1])
 		return self
 

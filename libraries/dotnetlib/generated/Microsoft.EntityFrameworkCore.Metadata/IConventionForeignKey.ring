@@ -22,146 +22,146 @@ Class IConventionForeignKey from DotNetObject
 		return self
 
 	Func GetConfigurationSource 
-		return dnRequest("call",[self,"GetConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConfigurationSource"])
 
 	Func SetProperties_3 P1,P2,P3
-		return dnRequest("call",[self,"SetProperties",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetProperties",P1,P2,P3])
 
 	Func SetProperties P1,P2
-		return dnRequest("call",[self,"SetProperties",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetProperties",P1,P2])
 
 	Func GetPropertiesConfigurationSource 
-		return dnRequest("call",[self,"GetPropertiesConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesConfigurationSource"])
 
 	Func GetPrincipalKeyConfigurationSource 
-		return dnRequest("call",[self,"GetPrincipalKeyConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrincipalKeyConfigurationSource"])
 
 	Func GetPrincipalEndConfigurationSource 
-		return dnRequest("call",[self,"GetPrincipalEndConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrincipalEndConfigurationSource"])
 
 	Func SetIsUnique_2 P1,P2
-		return dnRequest("call",[self,"SetIsUnique",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsUnique",P1,P2])
 
 	Func SetIsUnique P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsUnique",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsUnique",P1])
 		ok
-		return dnRequest("call",[self,"SetIsUnique",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsUnique",P1])
 
 	Func GetIsUniqueConfigurationSource 
-		return dnRequest("call",[self,"GetIsUniqueConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsUniqueConfigurationSource"])
 
 	Func SetIsRequired_2 P1,P2
-		return dnRequest("call",[self,"SetIsRequired",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsRequired",P1,P2])
 
 	Func SetIsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsRequired",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsRequired",P1])
 		ok
-		return dnRequest("call",[self,"SetIsRequired",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsRequired",P1])
 
 	Func GetIsRequiredConfigurationSource 
-		return dnRequest("call",[self,"GetIsRequiredConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsRequiredConfigurationSource"])
 
 	Func SetIsRequiredDependent_2 P1,P2
-		return dnRequest("call",[self,"SetIsRequiredDependent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsRequiredDependent",P1,P2])
 
 	Func SetIsRequiredDependent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsRequiredDependent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsRequiredDependent",P1])
 		ok
-		return dnRequest("call",[self,"SetIsRequiredDependent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsRequiredDependent",P1])
 
 	Func GetIsRequiredDependentConfigurationSource 
-		return dnRequest("call",[self,"GetIsRequiredDependentConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsRequiredDependentConfigurationSource"])
 
 	Func SetIsOwnership_2 P1,P2
-		return dnRequest("call",[self,"SetIsOwnership",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsOwnership",P1,P2])
 
 	Func SetIsOwnership P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsOwnership",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsOwnership",P1])
 		ok
-		return dnRequest("call",[self,"SetIsOwnership",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsOwnership",P1])
 
 	Func GetIsOwnershipConfigurationSource 
-		return dnRequest("call",[self,"GetIsOwnershipConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsOwnershipConfigurationSource"])
 
 	Func SetDeleteBehavior_2 P1,P2
-		return dnRequest("call",[self,"SetDeleteBehavior",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetDeleteBehavior",P1,P2])
 
 	Func SetDeleteBehavior P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetDeleteBehavior",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetDeleteBehavior",P1])
 		ok
-		return dnRequest("call",[self,"SetDeleteBehavior",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetDeleteBehavior",P1])
 
 	Func GetDeleteBehaviorConfigurationSource 
-		return dnRequest("call",[self,"GetDeleteBehaviorConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeleteBehaviorConfigurationSource"])
 
 	Func SetDependentToPrincipal_2 P1,P2
-		return dnRequest("call",[self,"SetDependentToPrincipal",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetDependentToPrincipal",P1,P2])
 
 	Func SetDependentToPrincipal P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetDependentToPrincipal",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetDependentToPrincipal",P1])
 		ok
-		return dnRequest("call",[self,"SetDependentToPrincipal",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetDependentToPrincipal",P1])
 
 	Func GetDependentToPrincipalConfigurationSource 
-		return dnRequest("call",[self,"GetDependentToPrincipalConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDependentToPrincipalConfigurationSource"])
 
 	Func SetPrincipalToDependent_2 P1,P2
-		return dnRequest("call",[self,"SetPrincipalToDependent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetPrincipalToDependent",P1,P2])
 
 	Func SetPrincipalToDependent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetPrincipalToDependent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetPrincipalToDependent",P1])
 		ok
-		return dnRequest("call",[self,"SetPrincipalToDependent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetPrincipalToDependent",P1])
 
 	Func GetPrincipalToDependentConfigurationSource 
-		return dnRequest("call",[self,"GetPrincipalToDependentConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrincipalToDependentConfigurationSource"])
 
 	Func GetReferencingSkipNavigations 
-		return dnRequest("call",[self,"GetReferencingSkipNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReferencingSkipNavigations"])
 
 	Func GetRelatedEntityType P1
-		return dnRequest("call",[self,"GetRelatedEntityType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRelatedEntityType",P1])
 
 	Func GetNavigation P1
-		return dnRequest("call",[self,"GetNavigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNavigation",P1])
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func getPrincipalKey
-		return dnRequest("get",[self,"PrincipalKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalKey"])
 
 	Func setPrincipalKey P1
 		raise("DotNet Error: PrincipalKey is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getPrincipalEntityType
-		return dnRequest("get",[self,"PrincipalEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalEntityType"])
 
 	Func setPrincipalEntityType P1
 		raise("DotNet Error: PrincipalEntityType is a read-only property")
 
 	Func getDependentToPrincipal
-		return dnRequest("get",[self,"DependentToPrincipal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DependentToPrincipal"])
 
 	Func getPrincipalToDependent
-		return dnRequest("get",[self,"PrincipalToDependent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalToDependent"])
 

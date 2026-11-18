@@ -18,15 +18,15 @@ Class RetrieveVirtualItemEventArgs from EventArgs
 		return self
 
 	Func getItemIndex
-		return dnRequest("get",[self,"ItemIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemIndex"])
 
 	Func setItemIndex P1
 		raise("DotNet Error: ItemIndex is a read-only property")
 
 	Func getItem
-		return dnRequest("get",[self,"Item"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
 
 	Func setItem P1
-		dnRequest("set",[self,"Item",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Item",P1])
 		return self
 

@@ -16,9 +16,9 @@ Class TemplateKey from ResourceKey
 		return self
 
 	Func getDataType
-		return dnRequest("get",[self,"DataType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataType"])
 
 	Func setDataType P1
-		dnRequest("set",[self,"DataType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataType",P1])
 		return self
 

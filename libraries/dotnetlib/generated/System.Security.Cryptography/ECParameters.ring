@@ -19,27 +19,27 @@ Class ECParameters from ValueType
 		return self
 
 	Func Validate 
-		dnRequest("call",[self,"Validate"])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate"])
 		return self
 
 	Func getQ
-		return dnRequest("get",[self,"Q"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Q"])
 
 	Func setQ P1
-		dnRequest("set",[self,"Q",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Q",P1])
 		return self
 
 	Func getD
-		return dnRequest("get",[self,"D"])
+		return dnRequest("get",[new DotNetObject(nHandle),"D"])
 
 	Func setD P1
-		dnRequest("set",[self,"D",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"D",P1])
 		return self
 
 	Func getCurve
-		return dnRequest("get",[self,"Curve"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Curve"])
 
 	Func setCurve P1
-		dnRequest("set",[self,"Curve",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Curve",P1])
 		return self
 

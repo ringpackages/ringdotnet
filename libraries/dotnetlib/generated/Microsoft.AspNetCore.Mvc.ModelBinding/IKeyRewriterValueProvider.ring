@@ -14,5 +14,5 @@ Class IKeyRewriterValueProvider from DotNetObject
 		return self
 
 	Func Filter 
-		return dnRequest("call",[self,"Filter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Filter"])
 

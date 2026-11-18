@@ -25,68 +25,68 @@ Class NegotiateAuthentication from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetOutgoingBlob P1
-		return dnRequest("call",[self,"GetOutgoingBlob",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOutgoingBlob",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsAuthenticated
-		return dnRequest("get",[self,"IsAuthenticated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAuthenticated"])
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getProtectionLevel
-		return dnRequest("get",[self,"ProtectionLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProtectionLevel"])
 
 	Func setProtectionLevel P1
 		raise("DotNet Error: ProtectionLevel is a read-only property")
 
 	Func getIsSigned
-		return dnRequest("get",[self,"IsSigned"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSigned"])
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsEncrypted
-		return dnRequest("get",[self,"IsEncrypted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEncrypted"])
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dnRequest("get",[self,"IsMutuallyAuthenticated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMutuallyAuthenticated"])
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsServer
-		return dnRequest("get",[self,"IsServer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsServer"])
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")
 
 	Func getPackage
-		return dnRequest("get",[self,"Package"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Package"])
 
 	Func getTargetName
-		return dnRequest("get",[self,"TargetName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetName"])
 
 	Func setTargetName P1
 		raise("DotNet Error: TargetName is a read-only property")
 
 	Func getRemoteIdentity
-		return dnRequest("get",[self,"RemoteIdentity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteIdentity"])
 
 	Func setRemoteIdentity P1
 		raise("DotNet Error: RemoteIdentity is a read-only property")
 
 	Func getImpersonationLevel
-		return dnRequest("get",[self,"ImpersonationLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImpersonationLevel"])
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")

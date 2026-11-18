@@ -16,15 +16,15 @@ Class ISupportInitializeNotification from DotNetObject
 		return self
 
 	Func setInitializedEvent P1
-		dnRequest("setevent",[self,"Initialized",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Initialized",dnCallback(P1)])
 		return self
 
 	Func clearInitializedEvent
-		dnRequest("clearevent",[self,"Initialized"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Initialized"])
 		return self
 
 	Func getIsInitialized
-		return dnRequest("get",[self,"IsInitialized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialized"])
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")

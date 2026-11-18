@@ -14,5 +14,5 @@ Class IFormattable from DotNetObject
 		return self
 
 	Func ToString P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 

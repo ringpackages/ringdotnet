@@ -14,8 +14,8 @@ Class IKeyedServiceProvider from DotNetObject
 		return self
 
 	Func GetKeyedService P1,P2
-		return dnRequest("call",[self,"GetKeyedService",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyedService",P1,P2])
 
 	Func GetRequiredKeyedService P1,P2
-		return dnRequest("call",[self,"GetRequiredKeyedService",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRequiredKeyedService",P1,P2])
 

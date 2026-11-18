@@ -14,5 +14,5 @@ Class IRelationalTypeMappingSourcePlugin from DotNetObject
 		return self
 
 	Func FindMapping P1
-		return dnRequest("call",[self,"FindMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1])
 

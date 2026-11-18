@@ -14,5 +14,5 @@ Class IReflectableType from DotNetObject
 		return self
 
 	Func GetTypeInfo 
-		return dnRequest("call",[self,"GetTypeInfo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeInfo"])
 

@@ -14,7 +14,7 @@ Class ReasonPhrases from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetReasonPhrase P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities'),"GetReasonPhrase",P1])

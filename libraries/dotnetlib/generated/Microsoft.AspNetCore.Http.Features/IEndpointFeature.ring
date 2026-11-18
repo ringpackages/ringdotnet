@@ -16,9 +16,9 @@ Class IEndpointFeature from DotNetObject
 		return self
 
 	Func getEndpoint
-		return dnRequest("get",[self,"Endpoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Endpoint"])
 
 	Func setEndpoint P1
-		dnRequest("set",[self,"Endpoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Endpoint",P1])
 		return self
 

@@ -14,5 +14,5 @@ Class ICloneable from DotNetObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 

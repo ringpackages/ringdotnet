@@ -17,13 +17,13 @@ Class ContextMenuEventArgs from RoutedEventArgs
 		return self
 
 	Func getCursorLeft
-		return dnRequest("get",[self,"CursorLeft"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CursorLeft"])
 
 	Func setCursorLeft P1
 		raise("DotNet Error: CursorLeft is a read-only property")
 
 	Func getCursorTop
-		return dnRequest("get",[self,"CursorTop"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CursorTop"])
 
 	Func setCursorTop P1
 		raise("DotNet Error: CursorTop is a read-only property")

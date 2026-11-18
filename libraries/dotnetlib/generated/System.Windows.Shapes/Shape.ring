@@ -39,92 +39,92 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStretch
-		return dnRequest("get",[self,"Stretch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Stretch"])
 
 	Func setStretch P1
-		dnRequest("set",[self,"Stretch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Stretch",P1])
 		return self
 
 	Func getRenderedGeometry
-		return dnRequest("get",[self,"RenderedGeometry"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RenderedGeometry"])
 
 	Func setRenderedGeometry P1
 		raise("DotNet Error: RenderedGeometry is a read-only property")
 
 	Func getGeometryTransform
-		return dnRequest("get",[self,"GeometryTransform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GeometryTransform"])
 
 	Func setGeometryTransform P1
 		raise("DotNet Error: GeometryTransform is a read-only property")
 
 	Func getFill
-		return dnRequest("get",[self,"Fill"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Fill"])
 
 	Func setFill P1
-		dnRequest("set",[self,"Fill",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Fill",P1])
 		return self
 
 	Func getStroke
-		return dnRequest("get",[self,"Stroke"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Stroke"])
 
 	Func setStroke P1
-		dnRequest("set",[self,"Stroke",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Stroke",P1])
 		return self
 
 	Func getStrokeThickness
-		return dnRequest("get",[self,"StrokeThickness"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrokeThickness"])
 
 	Func setStrokeThickness P1
-		dnRequest("set",[self,"StrokeThickness",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrokeThickness",P1])
 		return self
 
 	Func getStrokeStartLineCap
-		return dnRequest("get",[self,"StrokeStartLineCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrokeStartLineCap"])
 
 	Func setStrokeStartLineCap P1
-		dnRequest("set",[self,"StrokeStartLineCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrokeStartLineCap",P1])
 		return self
 
 	Func getStrokeEndLineCap
-		return dnRequest("get",[self,"StrokeEndLineCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrokeEndLineCap"])
 
 	Func setStrokeEndLineCap P1
-		dnRequest("set",[self,"StrokeEndLineCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrokeEndLineCap",P1])
 		return self
 
 	Func getStrokeDashCap
-		return dnRequest("get",[self,"StrokeDashCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrokeDashCap"])
 
 	Func setStrokeDashCap P1
-		dnRequest("set",[self,"StrokeDashCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrokeDashCap",P1])
 		return self
 
 	Func getStrokeLineJoin
-		return dnRequest("get",[self,"StrokeLineJoin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrokeLineJoin"])
 
 	Func setStrokeLineJoin P1
-		dnRequest("set",[self,"StrokeLineJoin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrokeLineJoin",P1])
 		return self
 
 	Func getStrokeMiterLimit
-		return dnRequest("get",[self,"StrokeMiterLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrokeMiterLimit"])
 
 	Func setStrokeMiterLimit P1
-		dnRequest("set",[self,"StrokeMiterLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrokeMiterLimit",P1])
 		return self
 
 	Func getStrokeDashOffset
-		return dnRequest("get",[self,"StrokeDashOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrokeDashOffset"])
 
 	Func setStrokeDashOffset P1
-		dnRequest("set",[self,"StrokeDashOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrokeDashOffset",P1])
 		return self
 
 	Func getStrokeDashArray
-		return dnRequest("get",[self,"StrokeDashArray"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrokeDashArray"])
 
 	Func setStrokeDashArray P1
-		dnRequest("set",[self,"StrokeDashArray",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrokeDashArray",P1])
 		return self
 
 	Func getStretchProperty

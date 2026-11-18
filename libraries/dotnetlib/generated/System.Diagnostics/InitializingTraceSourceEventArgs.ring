@@ -18,15 +18,15 @@ Class InitializingTraceSourceEventArgs from EventArgs
 		return self
 
 	Func getTraceSource
-		return dnRequest("get",[self,"TraceSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TraceSource"])
 
 	Func setTraceSource P1
 		raise("DotNet Error: TraceSource is a read-only property")
 
 	Func getWasInitialized
-		return dnRequest("get",[self,"WasInitialized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WasInitialized"])
 
 	Func setWasInitialized P1
-		dnRequest("set",[self,"WasInitialized",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WasInitialized",P1])
 		return self
 

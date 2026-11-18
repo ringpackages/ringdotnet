@@ -16,19 +16,19 @@ Class IHttpWebTransportFeature from DotNetObject
 		return self
 
 	Func AcceptAsync_1 P1
-		return dnRequest("call",[self,"AcceptAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync",P1])
 
 	Func AcceptAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AcceptAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AcceptAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync"])
 		ok
-		return dnRequest("call",[self,"AcceptAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync",P1])
 
 	Func getIsWebTransportRequest
-		return dnRequest("get",[self,"IsWebTransportRequest"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsWebTransportRequest"])
 
 	Func setIsWebTransportRequest P1
 		raise("DotNet Error: IsWebTransportRequest is a read-only property")

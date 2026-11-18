@@ -19,19 +19,19 @@ Class ToolStripGripRenderEventArgs from ToolStripRenderEventArgs
 		return self
 
 	Func getGripBounds
-		return dnRequest("get",[self,"GripBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GripBounds"])
 
 	Func setGripBounds P1
 		raise("DotNet Error: GripBounds is a read-only property")
 
 	Func getGripDisplayStyle
-		return dnRequest("get",[self,"GripDisplayStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GripDisplayStyle"])
 
 	Func setGripDisplayStyle P1
 		raise("DotNet Error: GripDisplayStyle is a read-only property")
 
 	Func getGripStyle
-		return dnRequest("get",[self,"GripStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GripStyle"])
 
 	Func setGripStyle P1
 		raise("DotNet Error: GripStyle is a read-only property")

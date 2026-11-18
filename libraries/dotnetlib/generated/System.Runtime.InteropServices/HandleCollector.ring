@@ -24,36 +24,36 @@ Class HandleCollector from Object
 		return self
 
 	Func Add 
-		dnRequest("call",[self,"Add"])
+		dnRequest("call",[new DotNetObject(nHandle),"Add"])
 		return self
 
 	Func Remove 
-		dnRequest("call",[self,"Remove"])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getInitialThreshold
-		return dnRequest("get",[self,"InitialThreshold"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialThreshold"])
 
 	Func setInitialThreshold P1
 		raise("DotNet Error: InitialThreshold is a read-only property")
 
 	Func getMaximumThreshold
-		return dnRequest("get",[self,"MaximumThreshold"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaximumThreshold"])
 
 	Func setMaximumThreshold P1
 		raise("DotNet Error: MaximumThreshold is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

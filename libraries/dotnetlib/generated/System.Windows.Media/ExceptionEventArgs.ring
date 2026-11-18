@@ -16,7 +16,7 @@ Class ExceptionEventArgs from EventArgs
 		return self
 
 	Func getErrorException
-		return dnRequest("get",[self,"ErrorException"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorException"])
 
 	Func setErrorException P1
 		raise("DotNet Error: ErrorException is a read-only property")

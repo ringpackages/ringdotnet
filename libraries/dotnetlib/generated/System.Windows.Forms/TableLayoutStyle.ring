@@ -16,12 +16,12 @@ Class TableLayoutStyle from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSizeType
-		return dnRequest("get",[self,"SizeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SizeType"])
 
 	Func setSizeType P1
-		dnRequest("set",[self,"SizeType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SizeType",P1])
 		return self
 

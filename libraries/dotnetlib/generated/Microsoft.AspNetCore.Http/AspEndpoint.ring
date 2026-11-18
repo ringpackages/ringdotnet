@@ -19,22 +19,22 @@ Class AspEndpoint from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getRequestDelegate
-		return dnRequest("get",[self,"RequestDelegate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestDelegate"])
 
 	Func setRequestDelegate P1
 		raise("DotNet Error: RequestDelegate is a read-only property")

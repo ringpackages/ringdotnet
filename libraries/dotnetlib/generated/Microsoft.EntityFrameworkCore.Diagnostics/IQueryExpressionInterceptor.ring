@@ -14,5 +14,5 @@ Class IQueryExpressionInterceptor from DotNetObject
 		return self
 
 	Func QueryCompilationStarting P1,P2
-		return dnRequest("call",[self,"QueryCompilationStarting",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"QueryCompilationStarting",P1,P2])
 

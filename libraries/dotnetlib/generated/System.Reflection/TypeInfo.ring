@@ -24,79 +24,79 @@ Class TypeInfo from Type
 		return self
 
 	Func AsType 
-		return dnRequest("call",[self,"AsType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AsType"])
 
 	Func GetDeclaredEvent P1
-		return dnRequest("call",[self,"GetDeclaredEvent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredEvent",P1])
 
 	Func GetDeclaredField P1
-		return dnRequest("call",[self,"GetDeclaredField",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredField",P1])
 
 	Func GetDeclaredMethod P1
-		return dnRequest("call",[self,"GetDeclaredMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredMethod",P1])
 
 	Func GetDeclaredNestedType P1
-		return dnRequest("call",[self,"GetDeclaredNestedType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredNestedType",P1])
 
 	Func GetDeclaredProperty P1
-		return dnRequest("call",[self,"GetDeclaredProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredProperty",P1])
 
 	Func GetDeclaredMethods_1 P1
-		return dnRequest("call",[self,"GetDeclaredMethods",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredMethods",P1])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getGenericTypeParameters
-		return dnRequest("get",[self,"GenericTypeParameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GenericTypeParameters"])
 
 	Func setGenericTypeParameters P1
 		raise("DotNet Error: GenericTypeParameters is a read-only property")
 
 	Func getDeclaredConstructors
-		return dnRequest("get",[self,"DeclaredConstructors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredConstructors"])
 
 	Func setDeclaredConstructors P1
 		raise("DotNet Error: DeclaredConstructors is a read-only property")
 
 	Func getDeclaredEvents
-		return dnRequest("get",[self,"DeclaredEvents"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredEvents"])
 
 	Func setDeclaredEvents P1
 		raise("DotNet Error: DeclaredEvents is a read-only property")
 
 	Func getDeclaredFields
-		return dnRequest("get",[self,"DeclaredFields"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredFields"])
 
 	Func setDeclaredFields P1
 		raise("DotNet Error: DeclaredFields is a read-only property")
 
 	Func getDeclaredMembers
-		return dnRequest("get",[self,"DeclaredMembers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredMembers"])
 
 	Func setDeclaredMembers P1
 		raise("DotNet Error: DeclaredMembers is a read-only property")
 
 	Func getDeclaredMethods
-		return dnRequest("get",[self,"DeclaredMethods"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredMethods"])
 
 	Func setDeclaredMethods P1
 		raise("DotNet Error: DeclaredMethods is a read-only property")
 
 	Func getDeclaredNestedTypes
-		return dnRequest("get",[self,"DeclaredNestedTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredNestedTypes"])
 
 	Func setDeclaredNestedTypes P1
 		raise("DotNet Error: DeclaredNestedTypes is a read-only property")
 
 	Func getDeclaredProperties
-		return dnRequest("get",[self,"DeclaredProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredProperties"])
 
 	Func setDeclaredProperties P1
 		raise("DotNet Error: DeclaredProperties is a read-only property")
 
 	Func getImplementedInterfaces
-		return dnRequest("get",[self,"ImplementedInterfaces"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImplementedInterfaces"])
 
 	Func setImplementedInterfaces P1
 		raise("DotNet Error: ImplementedInterfaces is a read-only property")

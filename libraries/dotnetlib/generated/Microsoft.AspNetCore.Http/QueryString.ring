@@ -23,16 +23,16 @@ Class QueryString from ValueType
 		return self
 
 	Func ToUriComponent 
-		return dnRequest("call",[self,"ToUriComponent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUriComponent"])
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func Add_2 P1,P2
-		return dnRequest("call",[self,"Add",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func FromUriComponent P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
@@ -47,13 +47,13 @@ Class QueryString from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		return dnRequest("get",[self,"HasValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasValue"])
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")

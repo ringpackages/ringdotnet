@@ -16,17 +16,17 @@ Class TouchFrameEventArgs from EventArgs
 		return self
 
 	Func GetTouchPoints P1
-		return dnRequest("call",[self,"GetTouchPoints",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTouchPoints",P1])
 
 	Func GetPrimaryTouchPoint P1
-		return dnRequest("call",[self,"GetPrimaryTouchPoint",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrimaryTouchPoint",P1])
 
 	Func SuspendMousePromotionUntilTouchUp 
-		dnRequest("call",[self,"SuspendMousePromotionUntilTouchUp"])
+		dnRequest("call",[new DotNetObject(nHandle),"SuspendMousePromotionUntilTouchUp"])
 		return self
 
 	Func getTimestamp
-		return dnRequest("get",[self,"Timestamp"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Timestamp"])
 
 	Func setTimestamp P1
 		raise("DotNet Error: Timestamp is a read-only property")

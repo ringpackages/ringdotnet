@@ -17,7 +17,7 @@ Class ItemContainerTemplate from DataTemplate
 		return self
 
 	Func getItemContainerTemplateKey
-		return dnRequest("get",[self,"ItemContainerTemplateKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerTemplateKey"])
 
 	Func setItemContainerTemplateKey P1
 		raise("DotNet Error: ItemContainerTemplateKey is a read-only property")

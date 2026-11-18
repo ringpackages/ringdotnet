@@ -14,5 +14,5 @@ Class IInterceptors from DotNetObject
 		return self
 
 	Func Aggregate 
-		return dnRequest("call",[self,"Aggregate"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Aggregate"])
 

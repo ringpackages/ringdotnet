@@ -16,22 +16,22 @@ Class JQueryValueProvider from BindingSourceValueProvider
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnRequest("call",[self,"GetKeysFromPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeysFromPrefix",P1])
 
 	Func Filter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Filter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Filter",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Filter"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Filter"])
 		ok
-		return dnRequest("call",[self,"Filter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Filter",P1])
 
 	Func Filter_1 P1
-		return dnRequest("call",[self,"Filter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Filter",P1])
 
 	Func getCulture
-		return dnRequest("get",[self,"Culture"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")

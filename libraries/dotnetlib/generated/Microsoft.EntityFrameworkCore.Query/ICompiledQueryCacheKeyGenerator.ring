@@ -14,5 +14,5 @@ Class ICompiledQueryCacheKeyGenerator from DotNetObject
 		return self
 
 	Func GenerateCacheKey P1,P2
-		return dnRequest("call",[self,"GenerateCacheKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateCacheKey",P1,P2])
 

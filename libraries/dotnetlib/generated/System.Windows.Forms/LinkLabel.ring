@@ -24,65 +24,65 @@ Class LinkLabel from Label
 		return self
 
 	Func setLinkClickedEvent P1
-		dnRequest("setevent",[self,"LinkClicked",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LinkClicked",dnCallback(P1)])
 		return self
 
 	Func clearLinkClickedEvent
-		dnRequest("clearevent",[self,"LinkClicked"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LinkClicked"])
 		return self
 
 	Func getActiveLinkColor
-		return dnRequest("get",[self,"ActiveLinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActiveLinkColor"])
 
 	Func setActiveLinkColor P1
-		dnRequest("set",[self,"ActiveLinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ActiveLinkColor",P1])
 		return self
 
 	Func getDisabledLinkColor
-		return dnRequest("get",[self,"DisabledLinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisabledLinkColor"])
 
 	Func setDisabledLinkColor P1
-		dnRequest("set",[self,"DisabledLinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisabledLinkColor",P1])
 		return self
 
 	Func getLinkArea
-		return dnRequest("get",[self,"LinkArea"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkArea"])
 
 	Func setLinkArea P1
-		dnRequest("set",[self,"LinkArea",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LinkArea",P1])
 		return self
 
 	Func getLinkBehavior
-		return dnRequest("get",[self,"LinkBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkBehavior"])
 
 	Func setLinkBehavior P1
-		dnRequest("set",[self,"LinkBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LinkBehavior",P1])
 		return self
 
 	Func getLinkColor
-		return dnRequest("get",[self,"LinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkColor"])
 
 	Func setLinkColor P1
-		dnRequest("set",[self,"LinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LinkColor",P1])
 		return self
 
 	Func getLinks
-		return dnRequest("get",[self,"Links"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Links"])
 
 	Func setLinks P1
 		raise("DotNet Error: Links is a read-only property")
 
 	Func getLinkVisited
-		return dnRequest("get",[self,"LinkVisited"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkVisited"])
 
 	Func setLinkVisited P1
-		dnRequest("set",[self,"LinkVisited",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LinkVisited",P1])
 		return self
 
 	Func getVisitedLinkColor
-		return dnRequest("get",[self,"VisitedLinkColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VisitedLinkColor"])
 
 	Func setVisitedLinkColor P1
-		dnRequest("set",[self,"VisitedLinkColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VisitedLinkColor",P1])
 		return self
 

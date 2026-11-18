@@ -17,15 +17,15 @@ Class TlsConnectionFeature from Object
 		return self
 
 	Func GetClientCertificateAsync P1
-		return dnRequest("call",[self,"GetClientCertificateAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetClientCertificateAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getClientCertificate
-		return dnRequest("get",[self,"ClientCertificate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificate"])
 
 	Func setClientCertificate P1
-		dnRequest("set",[self,"ClientCertificate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientCertificate",P1])
 		return self
 

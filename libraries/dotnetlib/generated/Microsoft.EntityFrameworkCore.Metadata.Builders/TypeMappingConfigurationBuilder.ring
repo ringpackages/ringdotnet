@@ -15,47 +15,47 @@ Class TypeMappingConfigurationBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func HasMaxLength P1
-		return dnRequest("call",[self,"HasMaxLength",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMaxLength",P1])
 
 	Func HasSentinel P1
-		return dnRequest("call",[self,"HasSentinel",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSentinel",P1])
 
 	Func HasPrecision_2 P1,P2
-		return dnRequest("call",[self,"HasPrecision",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasPrecision",P1,P2])
 
 	Func HasPrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasPrecision",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasPrecision",P1])
 		ok
-		return dnRequest("call",[self,"HasPrecision",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasPrecision",P1])
 
 	Func IsUnicode_1 P1
-		return dnRequest("call",[self,"IsUnicode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUnicode",P1])
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsUnicode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsUnicode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsUnicode"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsUnicode"])
 		ok
-		return dnRequest("call",[self,"IsUnicode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUnicode",P1])
 
 	Func HasConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasConversion",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasConversion",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasConversion"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasConversion"])
 		ok
-		return dnRequest("call",[self,"HasConversion",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasConversion",P1])
 
 	Func HasConversion_1 P1
-		return dnRequest("call",[self,"HasConversion",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasConversion",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

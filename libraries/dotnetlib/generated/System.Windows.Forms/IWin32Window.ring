@@ -16,7 +16,7 @@ Class IWin32Window from DotNetObject
 		return self
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")

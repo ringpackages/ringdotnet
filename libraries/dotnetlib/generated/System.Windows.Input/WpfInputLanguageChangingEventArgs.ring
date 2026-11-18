@@ -17,9 +17,9 @@ Class WpfInputLanguageChangingEventArgs from InputLanguageEventArgs
 		return self
 
 	Func getRejected
-		return dnRequest("get",[self,"Rejected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rejected"])
 
 	Func setRejected P1
-		dnRequest("set",[self,"Rejected",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Rejected",P1])
 		return self
 

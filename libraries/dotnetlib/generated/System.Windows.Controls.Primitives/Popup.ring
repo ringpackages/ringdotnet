@@ -44,100 +44,100 @@ Class Popup from FrameworkElement
 		return self
 
 	Func setOpenedEvent P1
-		dnRequest("setevent",[self,"Opened",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Opened",dnCallback(P1)])
 		return self
 
 	Func clearOpenedEvent
-		dnRequest("clearevent",[self,"Opened"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Opened"])
 		return self
 
 	Func setClosedEvent P1
-		dnRequest("setevent",[self,"Closed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Closed",dnCallback(P1)])
 		return self
 
 	Func clearClosedEvent
-		dnRequest("clearevent",[self,"Closed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Closed"])
 		return self
 
 	Func getChild
-		return dnRequest("get",[self,"Child"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Child"])
 
 	Func setChild P1
-		dnRequest("set",[self,"Child",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Child",P1])
 		return self
 
 	Func getIsOpen
-		return dnRequest("get",[self,"IsOpen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOpen"])
 
 	Func setIsOpen P1
-		dnRequest("set",[self,"IsOpen",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsOpen",P1])
 		return self
 
 	Func getPlacement
-		return dnRequest("get",[self,"Placement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Placement"])
 
 	Func setPlacement P1
-		dnRequest("set",[self,"Placement",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Placement",P1])
 		return self
 
 	Func getCustomPopupPlacementCallback
-		return dnRequest("get",[self,"CustomPopupPlacementCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CustomPopupPlacementCallback"])
 
 	Func setCustomPopupPlacementCallback P1
-		dnRequest("set",[self,"CustomPopupPlacementCallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CustomPopupPlacementCallback",P1])
 		return self
 
 	Func getStaysOpen
-		return dnRequest("get",[self,"StaysOpen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StaysOpen"])
 
 	Func setStaysOpen P1
-		dnRequest("set",[self,"StaysOpen",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StaysOpen",P1])
 		return self
 
 	Func getHorizontalOffset
-		return dnRequest("get",[self,"HorizontalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
 
 	Func setHorizontalOffset P1
-		dnRequest("set",[self,"HorizontalOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HorizontalOffset",P1])
 		return self
 
 	Func getVerticalOffset
-		return dnRequest("get",[self,"VerticalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
 
 	Func setVerticalOffset P1
-		dnRequest("set",[self,"VerticalOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VerticalOffset",P1])
 		return self
 
 	Func getPlacementTarget
-		return dnRequest("get",[self,"PlacementTarget"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PlacementTarget"])
 
 	Func setPlacementTarget P1
-		dnRequest("set",[self,"PlacementTarget",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PlacementTarget",P1])
 		return self
 
 	Func getPlacementRectangle
-		return dnRequest("get",[self,"PlacementRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PlacementRectangle"])
 
 	Func setPlacementRectangle P1
-		dnRequest("set",[self,"PlacementRectangle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PlacementRectangle",P1])
 		return self
 
 	Func getPopupAnimation
-		return dnRequest("get",[self,"PopupAnimation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PopupAnimation"])
 
 	Func setPopupAnimation P1
-		dnRequest("set",[self,"PopupAnimation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PopupAnimation",P1])
 		return self
 
 	Func getAllowsTransparency
-		return dnRequest("get",[self,"AllowsTransparency"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowsTransparency"])
 
 	Func setAllowsTransparency P1
-		dnRequest("set",[self,"AllowsTransparency",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowsTransparency",P1])
 		return self
 
 	Func getHasDropShadow
-		return dnRequest("get",[self,"HasDropShadow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasDropShadow"])
 
 	Func setHasDropShadow P1
 		raise("DotNet Error: HasDropShadow is a read-only property")

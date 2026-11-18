@@ -14,8 +14,8 @@ Class IMigrationsModelDiffer from DotNetObject
 		return self
 
 	Func HasDifferences P1,P2
-		return dnRequest("call",[self,"HasDifferences",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasDifferences",P1,P2])
 
 	Func GetDifferences P1,P2
-		return dnRequest("call",[self,"GetDifferences",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDifferences",P1,P2])
 

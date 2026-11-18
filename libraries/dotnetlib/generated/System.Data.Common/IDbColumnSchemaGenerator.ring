@@ -14,5 +14,5 @@ Class IDbColumnSchemaGenerator from DotNetObject
 		return self
 
 	Func GetColumnSchema 
-		return dnRequest("call",[self,"GetColumnSchema"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnSchema"])
 

@@ -27,81 +27,81 @@ Class CookieBuilder from Object
 
 	Func Build P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Build",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Build",P1])
 		ok
-		return dnRequest("call",[self,"Build",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1])
 
 	Func Build_2 P1,P2
-		return dnRequest("call",[self,"Build",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
 
 	Func setPath P1
-		dnRequest("set",[self,"Path",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
 		return self
 
 	Func getDomain
-		return dnRequest("get",[self,"Domain"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Domain"])
 
 	Func setDomain P1
-		dnRequest("set",[self,"Domain",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Domain",P1])
 		return self
 
 	Func getHttpOnly
-		return dnRequest("get",[self,"HttpOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpOnly"])
 
 	Func setHttpOnly P1
-		dnRequest("set",[self,"HttpOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HttpOnly",P1])
 		return self
 
 	Func getSameSite
-		return dnRequest("get",[self,"SameSite"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SameSite"])
 
 	Func setSameSite P1
-		dnRequest("set",[self,"SameSite",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SameSite",P1])
 		return self
 
 	Func getSecurePolicy
-		return dnRequest("get",[self,"SecurePolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecurePolicy"])
 
 	Func setSecurePolicy P1
-		dnRequest("set",[self,"SecurePolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SecurePolicy",P1])
 		return self
 
 	Func getExpiration
-		return dnRequest("get",[self,"Expiration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expiration"])
 
 	Func setExpiration P1
-		dnRequest("set",[self,"Expiration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Expiration",P1])
 		return self
 
 	Func getMaxAge
-		return dnRequest("get",[self,"MaxAge"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxAge"])
 
 	Func setMaxAge P1
-		dnRequest("set",[self,"MaxAge",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxAge",P1])
 		return self
 
 	Func getIsEssential
-		return dnRequest("get",[self,"IsEssential"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEssential"])
 
 	Func setIsEssential P1
-		dnRequest("set",[self,"IsEssential",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsEssential",P1])
 		return self
 
 	Func getExtensions
-		return dnRequest("get",[self,"Extensions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Extensions"])
 
 	Func setExtensions P1
 		raise("DotNet Error: Extensions is a read-only property")

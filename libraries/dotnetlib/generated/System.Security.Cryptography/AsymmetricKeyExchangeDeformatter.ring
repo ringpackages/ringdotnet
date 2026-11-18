@@ -16,19 +16,19 @@ Class AsymmetricKeyExchangeDeformatter from Object
 		return self
 
 	Func SetKey P1
-		dnRequest("call",[self,"SetKey",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetKey",P1])
 		return self
 
 	Func DecryptKeyExchange P1
-		return dnRequest("call",[self,"DecryptKeyExchange",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecryptKeyExchange",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
-		dnRequest("set",[self,"Parameters",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Parameters",P1])
 		return self
 

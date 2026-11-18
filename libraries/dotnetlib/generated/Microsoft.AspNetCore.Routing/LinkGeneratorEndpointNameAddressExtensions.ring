@@ -14,7 +14,7 @@ Class LinkGeneratorEndpointNameAddressExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetPathByName_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByName",P1,P2,P3,P4,P5,P6,P7])

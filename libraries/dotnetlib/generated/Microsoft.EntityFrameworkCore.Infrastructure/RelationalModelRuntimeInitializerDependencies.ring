@@ -18,19 +18,19 @@ Class RelationalModelRuntimeInitializerDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRelationalModelDependencies
-		return dnRequest("get",[self,"RelationalModelDependencies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalModelDependencies"])
 
 	Func setRelationalModelDependencies P1
-		dnRequest("set",[self,"RelationalModelDependencies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RelationalModelDependencies",P1])
 		return self
 
 	Func getRelationalAnnotationProvider
-		return dnRequest("get",[self,"RelationalAnnotationProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalAnnotationProvider"])
 
 	Func setRelationalAnnotationProvider P1
-		dnRequest("set",[self,"RelationalAnnotationProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RelationalAnnotationProvider",P1])
 		return self
 

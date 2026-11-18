@@ -27,105 +27,105 @@ Class ClientWebSocketOptions from Object
 		return self
 
 	Func SetRequestHeader P1,P2
-		dnRequest("call",[self,"SetRequestHeader",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetRequestHeader",P1,P2])
 		return self
 
 	Func AddSubProtocol P1
-		dnRequest("call",[self,"AddSubProtocol",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddSubProtocol",P1])
 		return self
 
 	Func SetBuffer P1,P2
-		dnRequest("call",[self,"SetBuffer",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1,P2])
 		return self
 
 	Func SetBuffer_3 P1,P2,P3
-		dnRequest("call",[self,"SetBuffer",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1,P2,P3])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpVersion
-		return dnRequest("get",[self,"HttpVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpVersion"])
 
 	Func setHttpVersion P1
-		dnRequest("set",[self,"HttpVersion",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HttpVersion",P1])
 		return self
 
 	Func getHttpVersionPolicy
-		return dnRequest("get",[self,"HttpVersionPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpVersionPolicy"])
 
 	Func setHttpVersionPolicy P1
-		dnRequest("set",[self,"HttpVersionPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HttpVersionPolicy",P1])
 		return self
 
 	Func getUseDefaultCredentials
-		return dnRequest("get",[self,"UseDefaultCredentials"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseDefaultCredentials"])
 
 	Func setUseDefaultCredentials P1
-		dnRequest("set",[self,"UseDefaultCredentials",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseDefaultCredentials",P1])
 		return self
 
 	Func getCredentials
-		return dnRequest("get",[self,"Credentials"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Credentials"])
 
 	Func setCredentials P1
-		dnRequest("set",[self,"Credentials",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
 		return self
 
 	Func getProxy
-		return dnRequest("get",[self,"Proxy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Proxy"])
 
 	Func setProxy P1
-		dnRequest("set",[self,"Proxy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Proxy",P1])
 		return self
 
 	Func getClientCertificates
-		return dnRequest("get",[self,"ClientCertificates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificates"])
 
 	Func setClientCertificates P1
-		dnRequest("set",[self,"ClientCertificates",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientCertificates",P1])
 		return self
 
 	Func getRemoteCertificateValidationCallback
-		return dnRequest("get",[self,"RemoteCertificateValidationCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteCertificateValidationCallback"])
 
 	Func setRemoteCertificateValidationCallback P1
-		dnRequest("set",[self,"RemoteCertificateValidationCallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RemoteCertificateValidationCallback",P1])
 		return self
 
 	Func getCookies
-		return dnRequest("get",[self,"Cookies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
 
 	Func setCookies P1
-		dnRequest("set",[self,"Cookies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cookies",P1])
 		return self
 
 	Func getKeepAliveInterval
-		return dnRequest("get",[self,"KeepAliveInterval"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveInterval"])
 
 	Func setKeepAliveInterval P1
-		dnRequest("set",[self,"KeepAliveInterval",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveInterval",P1])
 		return self
 
 	Func getKeepAliveTimeout
-		return dnRequest("get",[self,"KeepAliveTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveTimeout"])
 
 	Func setKeepAliveTimeout P1
-		dnRequest("set",[self,"KeepAliveTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveTimeout",P1])
 		return self
 
 	Func getDangerousDeflateOptions
-		return dnRequest("get",[self,"DangerousDeflateOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DangerousDeflateOptions"])
 
 	Func setDangerousDeflateOptions P1
-		dnRequest("set",[self,"DangerousDeflateOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DangerousDeflateOptions",P1])
 		return self
 
 	Func getCollectHttpResponseDetails
-		return dnRequest("get",[self,"CollectHttpResponseDetails"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CollectHttpResponseDetails"])
 
 	Func setCollectHttpResponseDetails P1
-		dnRequest("set",[self,"CollectHttpResponseDetails",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CollectHttpResponseDetails",P1])
 		return self
 

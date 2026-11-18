@@ -30,97 +30,97 @@ Class IColumn from DotNetObject
 		return self
 
 	Func TryGetDefaultValue 
-		return dnRequest("call",[self,"TryGetDefaultValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetDefaultValue"])
 
 	Func FindColumnMapping P1
-		return dnRequest("call",[self,"FindColumnMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindColumnMapping",P1])
 
 	Func getTable
-		return dnRequest("get",[self,"Table"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getPropertyMappings
-		return dnRequest("get",[self,"PropertyMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyMappings"])
 
 	Func setPropertyMappings P1
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getMaxLength
-		return dnRequest("get",[self,"MaxLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxLength"])
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
 
 	Func getPrecision
-		return dnRequest("get",[self,"Precision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Precision"])
 
 	Func setPrecision P1
 		raise("DotNet Error: Precision is a read-only property")
 
 	Func getScale
-		return dnRequest("get",[self,"Scale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getIsUnicode
-		return dnRequest("get",[self,"IsUnicode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUnicode"])
 
 	Func setIsUnicode P1
 		raise("DotNet Error: IsUnicode is a read-only property")
 
 	Func getIsFixedLength
-		return dnRequest("get",[self,"IsFixedLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedLength"])
 
 	Func setIsFixedLength P1
 		raise("DotNet Error: IsFixedLength is a read-only property")
 
 	Func getIsRowVersion
-		return dnRequest("get",[self,"IsRowVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRowVersion"])
 
 	Func setIsRowVersion P1
 		raise("DotNet Error: IsRowVersion is a read-only property")
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getDefaultValue
-		return dnRequest("get",[self,"DefaultValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultValue"])
 
 	Func setDefaultValue P1
 		raise("DotNet Error: DefaultValue is a read-only property")
 
 	Func getDefaultValueSql
-		return dnRequest("get",[self,"DefaultValueSql"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultValueSql"])
 
 	Func setDefaultValueSql P1
 		raise("DotNet Error: DefaultValueSql is a read-only property")
 
 	Func getComputedColumnSql
-		return dnRequest("get",[self,"ComputedColumnSql"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ComputedColumnSql"])
 
 	Func setComputedColumnSql P1
 		raise("DotNet Error: ComputedColumnSql is a read-only property")
 
 	Func getIsStored
-		return dnRequest("get",[self,"IsStored"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsStored"])
 
 	Func setIsStored P1
 		raise("DotNet Error: IsStored is a read-only property")
 
 	Func getComment
-		return dnRequest("get",[self,"Comment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")
 
 	Func getCollation
-		return dnRequest("get",[self,"Collation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Collation"])
 
 	Func setCollation P1
 		raise("DotNet Error: Collation is a read-only property")

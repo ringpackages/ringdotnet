@@ -22,19 +22,19 @@ Class SqlXml from Object
 		return self
 
 	Func CreateReader 
-		return dnRequest("call",[self,"CreateReader"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateReader"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlXml, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

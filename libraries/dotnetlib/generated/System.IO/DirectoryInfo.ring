@@ -18,130 +18,130 @@ Class DirectoryInfo from FileSystemInfo
 		return self
 
 	Func CreateSubdirectory P1
-		return dnRequest("call",[self,"CreateSubdirectory",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubdirectory",P1])
 
 	Func Create 
-		dnRequest("call",[self,"Create"])
+		dnRequest("call",[new DotNetObject(nHandle),"Create"])
 		return self
 
 	Func GetFiles P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetFiles",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFiles",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetFiles"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetFiles"])
 		ok
-		return dnRequest("call",[self,"GetFiles",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1])
 
 	Func GetFiles_1 P1
-		return dnRequest("call",[self,"GetFiles",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1])
 
 	Func GetFiles_2 P1,P2
-		return dnRequest("call",[self,"GetFiles",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1,P2])
 
 	Func GetFileSystemInfos P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetFileSystemInfos",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFileSystemInfos",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetFileSystemInfos"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos"])
 		ok
-		return dnRequest("call",[self,"GetFileSystemInfos",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos",P1])
 
 	Func GetFileSystemInfos_1 P1
-		return dnRequest("call",[self,"GetFileSystemInfos",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos",P1])
 
 	Func GetFileSystemInfos_2 P1,P2
-		return dnRequest("call",[self,"GetFileSystemInfos",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos",P1,P2])
 
 	Func GetDirectories P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetDirectories",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDirectories",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetDirectories"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetDirectories"])
 		ok
-		return dnRequest("call",[self,"GetDirectories",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectories",P1])
 
 	Func GetDirectories_1 P1
-		return dnRequest("call",[self,"GetDirectories",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectories",P1])
 
 	Func GetDirectories_2 P1,P2
-		return dnRequest("call",[self,"GetDirectories",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectories",P1,P2])
 
 	Func EnumerateDirectories P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnumerateDirectories",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateDirectories",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnumerateDirectories"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories"])
 		ok
-		return dnRequest("call",[self,"EnumerateDirectories",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories",P1])
 
 	Func EnumerateDirectories_1 P1
-		return dnRequest("call",[self,"EnumerateDirectories",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories",P1])
 
 	Func EnumerateDirectories_2 P1,P2
-		return dnRequest("call",[self,"EnumerateDirectories",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories",P1,P2])
 
 	Func EnumerateFiles P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnumerateFiles",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateFiles",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnumerateFiles"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFiles"])
 		ok
-		return dnRequest("call",[self,"EnumerateFiles",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFiles",P1])
 
 	Func EnumerateFiles_1 P1
-		return dnRequest("call",[self,"EnumerateFiles",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFiles",P1])
 
 	Func EnumerateFiles_2 P1,P2
-		return dnRequest("call",[self,"EnumerateFiles",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFiles",P1,P2])
 
 	Func EnumerateFileSystemInfos P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnumerateFileSystemInfos",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnumerateFileSystemInfos"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos"])
 		ok
-		return dnRequest("call",[self,"EnumerateFileSystemInfos",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1])
 
 	Func EnumerateFileSystemInfos_1 P1
-		return dnRequest("call",[self,"EnumerateFileSystemInfos",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1])
 
 	Func EnumerateFileSystemInfos_2 P1,P2
-		return dnRequest("call",[self,"EnumerateFileSystemInfos",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1,P2])
 
 	Func MoveTo P1
-		dnRequest("call",[self,"MoveTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1])
 		return self
 
 	Func Delete P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Delete",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Delete",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Delete"])
+			dnRequest("call",[new DotNetObject(nHandle),"Delete"])
 		return self
 		ok
-		dnRequest("call",[self,"Delete",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Delete",P1])
 		return self
 
 	Func Delete_1 P1
-		dnRequest("call",[self,"Delete",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Delete",P1])
 		return self
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getRoot
-		return dnRequest("get",[self,"Root"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Root"])
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")

@@ -15,17 +15,17 @@ Class WarningsConfigurationBuilder from Object
 		return self
 
 	Func Default P1
-		return dnRequest("call",[self,"Default",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Default",P1])
 
 	Func Throw P1
-		return dnRequest("call",[self,"Throw",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Throw",P1])
 
 	Func Log P1
-		return dnRequest("call",[self,"Log",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Log",P1])
 
 	Func Ignore P1
-		return dnRequest("call",[self,"Ignore",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ignore",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

@@ -16,169 +16,169 @@ Class TypeConverter from Object
 
 	Func CanConvertFrom P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanConvertFrom",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanConvertFrom",P1])
 		ok
-		return dnRequest("call",[self,"CanConvertFrom",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertFrom",P1])
 
 	Func CanConvertFrom_2 P1,P2
-		return dnRequest("call",[self,"CanConvertFrom",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertFrom",P1,P2])
 
 	Func CanConvertTo P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanConvertTo",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanConvertTo",P1])
 		ok
-		return dnRequest("call",[self,"CanConvertTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertTo",P1])
 
 	Func CanConvertTo_2 P1,P2
-		return dnRequest("call",[self,"CanConvertTo",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertTo",P1,P2])
 
 	Func ConvertFrom P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ConvertFrom",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertFrom",P1])
 		ok
-		return dnRequest("call",[self,"ConvertFrom",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFrom",P1])
 
 	Func ConvertFrom_3 P1,P2,P3
-		return dnRequest("call",[self,"ConvertFrom",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFrom",P1,P2,P3])
 
 	Func ConvertFromInvariantString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ConvertFromInvariantString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertFromInvariantString",P1])
 		ok
-		return dnRequest("call",[self,"ConvertFromInvariantString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromInvariantString",P1])
 
 	Func ConvertFromInvariantString_2 P1,P2
-		return dnRequest("call",[self,"ConvertFromInvariantString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromInvariantString",P1,P2])
 
 	Func ConvertFromString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ConvertFromString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertFromString",P1])
 		ok
-		return dnRequest("call",[self,"ConvertFromString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromString",P1])
 
 	Func ConvertFromString_2 P1,P2
-		return dnRequest("call",[self,"ConvertFromString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromString",P1,P2])
 
 	Func ConvertFromString_3 P1,P2,P3
-		return dnRequest("call",[self,"ConvertFromString",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromString",P1,P2,P3])
 
 	Func ConvertTo P1,P2
-		return dnRequest("call",[self,"ConvertTo",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertTo",P1,P2])
 
 	Func ConvertTo_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ConvertTo",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertTo",P1,P2,P3,P4])
 
 	Func ConvertToInvariantString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ConvertToInvariantString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertToInvariantString",P1])
 		ok
-		return dnRequest("call",[self,"ConvertToInvariantString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToInvariantString",P1])
 
 	Func ConvertToInvariantString_2 P1,P2
-		return dnRequest("call",[self,"ConvertToInvariantString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToInvariantString",P1,P2])
 
 	Func ConvertToString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ConvertToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertToString",P1])
 		ok
-		return dnRequest("call",[self,"ConvertToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToString",P1])
 
 	Func ConvertToString_2 P1,P2
-		return dnRequest("call",[self,"ConvertToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToString",P1,P2])
 
 	Func ConvertToString_3 P1,P2,P3
-		return dnRequest("call",[self,"ConvertToString",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToString",P1,P2,P3])
 
 	Func CreateInstance P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateInstance",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateInstance",P1])
 		ok
-		return dnRequest("call",[self,"CreateInstance",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1])
 
 	Func CreateInstance_2 P1,P2
-		return dnRequest("call",[self,"CreateInstance",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2])
 
 	Func GetCreateInstanceSupported P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCreateInstanceSupported",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCreateInstanceSupported",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetCreateInstanceSupported"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetCreateInstanceSupported"])
 		ok
-		return dnRequest("call",[self,"GetCreateInstanceSupported",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCreateInstanceSupported",P1])
 
 	Func GetCreateInstanceSupported_1 P1
-		return dnRequest("call",[self,"GetCreateInstanceSupported",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCreateInstanceSupported",P1])
 
 	Func GetProperties P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetProperties",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetProperties",P1])
 		ok
-		return dnRequest("call",[self,"GetProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
 
 	Func GetProperties_2 P1,P2
-		return dnRequest("call",[self,"GetProperties",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1,P2])
 
 	Func GetProperties_3 P1,P2,P3
-		return dnRequest("call",[self,"GetProperties",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1,P2,P3])
 
 	Func GetPropertiesSupported P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetPropertiesSupported",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetPropertiesSupported",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetPropertiesSupported"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesSupported"])
 		ok
-		return dnRequest("call",[self,"GetPropertiesSupported",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesSupported",P1])
 
 	Func GetPropertiesSupported_1 P1
-		return dnRequest("call",[self,"GetPropertiesSupported",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesSupported",P1])
 
 	Func GetStandardValues P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetStandardValues",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStandardValues",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetStandardValues"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValues"])
 		ok
-		return dnRequest("call",[self,"GetStandardValues",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValues",P1])
 
 	Func GetStandardValues_1 P1
-		return dnRequest("call",[self,"GetStandardValues",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValues",P1])
 
 	Func GetStandardValuesExclusive P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetStandardValuesExclusive",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStandardValuesExclusive",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetStandardValuesExclusive"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesExclusive"])
 		ok
-		return dnRequest("call",[self,"GetStandardValuesExclusive",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesExclusive",P1])
 
 	Func GetStandardValuesExclusive_1 P1
-		return dnRequest("call",[self,"GetStandardValuesExclusive",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesExclusive",P1])
 
 	Func GetStandardValuesSupported P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetStandardValuesSupported",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStandardValuesSupported",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetStandardValuesSupported"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesSupported"])
 		ok
-		return dnRequest("call",[self,"GetStandardValuesSupported",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesSupported",P1])
 
 	Func GetStandardValuesSupported_1 P1
-		return dnRequest("call",[self,"GetStandardValuesSupported",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesSupported",P1])
 
 	Func IsValid P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsValid",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsValid",P1])
 		ok
-		return dnRequest("call",[self,"IsValid",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsValid",P1])
 
 	Func IsValid_2 P1,P2
-		return dnRequest("call",[self,"IsValid",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsValid",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

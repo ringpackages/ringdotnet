@@ -19,19 +19,19 @@ Class ExecutionStrategyEventData from EventData
 		return self
 
 	Func getExceptionsEncountered
-		return dnRequest("get",[self,"ExceptionsEncountered"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionsEncountered"])
 
 	Func setExceptionsEncountered P1
 		raise("DotNet Error: ExceptionsEncountered is a read-only property")
 
 	Func getDelay
-		return dnRequest("get",[self,"Delay"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Delay"])
 
 	Func setDelay P1
 		raise("DotNet Error: Delay is a read-only property")
 
 	Func getIsAsync
-		return dnRequest("get",[self,"IsAsync"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")

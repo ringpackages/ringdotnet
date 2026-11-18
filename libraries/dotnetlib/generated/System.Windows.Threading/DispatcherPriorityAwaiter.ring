@@ -17,15 +17,15 @@ Class DispatcherPriorityAwaiter from ValueType
 		return self
 
 	Func GetResult 
-		dnRequest("call",[self,"GetResult"])
+		dnRequest("call",[new DotNetObject(nHandle),"GetResult"])
 		return self
 
 	Func OnCompleted P1
-		dnRequest("call",[self,"OnCompleted",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnCompleted",P1])
 		return self
 
 	Func getIsCompleted
-		return dnRequest("get",[self,"IsCompleted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCompleted"])
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")

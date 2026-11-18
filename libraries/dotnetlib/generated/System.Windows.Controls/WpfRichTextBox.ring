@@ -25,45 +25,45 @@ Class WpfRichTextBox from WpfTextBoxBase
 		return self
 
 	Func GetPositionFromPoint P1,P2
-		return dnRequest("call",[self,"GetPositionFromPoint",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionFromPoint",P1,P2])
 
 	Func GetSpellingError P1
-		return dnRequest("call",[self,"GetSpellingError",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSpellingError",P1])
 
 	Func GetSpellingErrorRange P1
-		return dnRequest("call",[self,"GetSpellingErrorRange",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSpellingErrorRange",P1])
 
 	Func GetNextSpellingErrorPosition P1,P2
-		return dnRequest("call",[self,"GetNextSpellingErrorPosition",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextSpellingErrorPosition",P1,P2])
 
 	Func ShouldSerializeDocument 
-		return dnRequest("call",[self,"ShouldSerializeDocument"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeDocument"])
 
 	Func getDocument
-		return dnRequest("get",[self,"Document"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[self,"Document",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
 		return self
 
 	Func getIsDocumentEnabled
-		return dnRequest("get",[self,"IsDocumentEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDocumentEnabled"])
 
 	Func setIsDocumentEnabled P1
-		dnRequest("set",[self,"IsDocumentEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsDocumentEnabled",P1])
 		return self
 
 	Func getSelection
-		return dnRequest("get",[self,"Selection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Selection"])
 
 	Func setSelection P1
 		raise("DotNet Error: Selection is a read-only property")
 
 	Func getCaretPosition
-		return dnRequest("get",[self,"CaretPosition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaretPosition"])
 
 	Func setCaretPosition P1
-		dnRequest("set",[self,"CaretPosition",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaretPosition",P1])
 		return self
 
 	Func getIsDocumentEnabledProperty

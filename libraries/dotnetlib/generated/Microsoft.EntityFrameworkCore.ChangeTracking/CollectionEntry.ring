@@ -15,5 +15,5 @@ Class CollectionEntry from NavigationEntry
 		return self
 
 	Func FindEntry P1
-		return dnRequest("call",[self,"FindEntry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindEntry",P1])
 

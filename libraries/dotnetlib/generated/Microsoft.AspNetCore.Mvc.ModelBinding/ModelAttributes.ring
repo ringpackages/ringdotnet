@@ -19,7 +19,7 @@ Class ModelAttributes from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetAttributesForProperty P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForProperty",P1,P2])
@@ -40,25 +40,25 @@ Class ModelAttributes from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForParameter",P1,P2])
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getPropertyAttributes
-		return dnRequest("get",[self,"PropertyAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyAttributes"])
 
 	Func setPropertyAttributes P1
 		raise("DotNet Error: PropertyAttributes is a read-only property")
 
 	Func getParameterAttributes
-		return dnRequest("get",[self,"ParameterAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterAttributes"])
 
 	Func setParameterAttributes P1
 		raise("DotNet Error: ParameterAttributes is a read-only property")
 
 	Func getTypeAttributes
-		return dnRequest("get",[self,"TypeAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeAttributes"])
 
 	Func setTypeAttributes P1
 		raise("DotNet Error: TypeAttributes is a read-only property")

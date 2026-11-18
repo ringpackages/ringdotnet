@@ -16,9 +16,9 @@ Class IHttpActivityFeature from DotNetObject
 		return self
 
 	Func getActivity
-		return dnRequest("get",[self,"Activity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Activity"])
 
 	Func setActivity P1
-		dnRequest("set",[self,"Activity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Activity",P1])
 		return self
 

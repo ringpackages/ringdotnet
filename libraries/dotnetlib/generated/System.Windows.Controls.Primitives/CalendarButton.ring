@@ -20,13 +20,13 @@ Class CalendarButton from WpfButton
 		return self
 
 	Func getHasSelectedDays
-		return dnRequest("get",[self,"HasSelectedDays"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasSelectedDays"])
 
 	Func setHasSelectedDays P1
 		raise("DotNet Error: HasSelectedDays is a read-only property")
 
 	Func getIsInactive
-		return dnRequest("get",[self,"IsInactive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInactive"])
 
 	Func setIsInactive P1
 		raise("DotNet Error: IsInactive is a read-only property")

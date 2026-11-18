@@ -21,27 +21,27 @@ Class CryptoStream from Stream
 		return self
 
 	Func FlushFinalBlock 
-		dnRequest("call",[self,"FlushFinalBlock"])
+		dnRequest("call",[new DotNetObject(nHandle),"FlushFinalBlock"])
 		return self
 
 	Func FlushFinalBlockAsync_1 P1
-		return dnRequest("call",[self,"FlushFinalBlockAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FlushFinalBlockAsync",P1])
 
 	Func FlushFinalBlockAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FlushFinalBlockAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FlushFinalBlockAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"FlushFinalBlockAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"FlushFinalBlockAsync"])
 		ok
-		return dnRequest("call",[self,"FlushFinalBlockAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FlushFinalBlockAsync",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func getHasFlushedFinalBlock
-		return dnRequest("get",[self,"HasFlushedFinalBlock"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasFlushedFinalBlock"])
 
 	Func setHasFlushedFinalBlock P1
 		raise("DotNet Error: HasFlushedFinalBlock is a read-only property")

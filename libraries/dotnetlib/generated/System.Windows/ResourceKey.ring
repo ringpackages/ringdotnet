@@ -16,7 +16,7 @@ Class ResourceKey from MarkupExtension
 		return self
 
 	Func getAssembly
-		return dnRequest("get",[self,"Assembly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Assembly"])
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")

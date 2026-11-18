@@ -23,7 +23,7 @@ Class MediaTypeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http'),"Parse",P1])
@@ -32,22 +32,22 @@ Class MediaTypeHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getCharSet
-		return dnRequest("get",[self,"CharSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CharSet"])
 
 	Func setCharSet P1
-		dnRequest("set",[self,"CharSet",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CharSet",P1])
 		return self
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getMediaType
-		return dnRequest("get",[self,"MediaType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MediaType"])
 
 	Func setMediaType P1
-		dnRequest("set",[self,"MediaType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MediaType",P1])
 		return self
 

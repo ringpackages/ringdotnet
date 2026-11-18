@@ -14,47 +14,47 @@ Class IDatabaseCreator from DotNetObject
 		return self
 
 	Func EnsureDeleted 
-		return dnRequest("call",[self,"EnsureDeleted"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeleted"])
 
 	Func EnsureDeletedAsync_1 P1
-		return dnRequest("call",[self,"EnsureDeletedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
 
 	Func EnsureDeletedAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnsureDeletedAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnsureDeletedAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeletedAsync"])
 		ok
-		return dnRequest("call",[self,"EnsureDeletedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
 
 	Func EnsureCreated 
-		return dnRequest("call",[self,"EnsureCreated"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreated"])
 
 	Func EnsureCreatedAsync_1 P1
-		return dnRequest("call",[self,"EnsureCreatedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
 
 	Func EnsureCreatedAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnsureCreatedAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnsureCreatedAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreatedAsync"])
 		ok
-		return dnRequest("call",[self,"EnsureCreatedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
 
 	Func CanConnect 
-		return dnRequest("call",[self,"CanConnect"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConnect"])
 
 	Func CanConnectAsync_1 P1
-		return dnRequest("call",[self,"CanConnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConnectAsync",P1])
 
 	Func CanConnectAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanConnectAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanConnectAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CanConnectAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CanConnectAsync"])
 		ok
-		return dnRequest("call",[self,"CanConnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConnectAsync",P1])
 

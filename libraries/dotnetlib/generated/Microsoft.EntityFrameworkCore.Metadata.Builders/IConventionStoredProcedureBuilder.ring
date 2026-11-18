@@ -16,169 +16,169 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		return self
 
 	Func HasAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2,P3])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func HasNonNullAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2,P3])
 
 	Func HasNonNullAnnotation P1,P2
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2])
 
 	Func HasNoAnnotation_2 P1,P2
-		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 		ok
-		return dnRequest("call",[self,"HasNoAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 
 	Func HasName_2 P1,P2
-		return dnRequest("call",[self,"HasName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasName",P1,P2])
 
 	Func HasName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasName",P1])
 		ok
-		return dnRequest("call",[self,"HasName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasName",P1])
 
 	Func HasName_3 P1,P2,P3
-		return dnRequest("call",[self,"HasName",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasName",P1,P2,P3])
 
 	Func CanSetName_2 P1,P2
-		return dnRequest("call",[self,"CanSetName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetName",P1,P2])
 
 	Func CanSetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetName",P1])
 		ok
-		return dnRequest("call",[self,"CanSetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetName",P1])
 
 	Func HasSchema_2 P1,P2
-		return dnRequest("call",[self,"HasSchema",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSchema",P1,P2])
 
 	Func HasSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasSchema",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasSchema",P1])
 		ok
-		return dnRequest("call",[self,"HasSchema",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSchema",P1])
 
 	Func CanSetSchema_2 P1,P2
-		return dnRequest("call",[self,"CanSetSchema",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetSchema",P1,P2])
 
 	Func CanSetSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetSchema",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetSchema",P1])
 		ok
-		return dnRequest("call",[self,"CanSetSchema",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetSchema",P1])
 
 	Func HasParameter_2 P1,P2
-		return dnRequest("call",[self,"HasParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameter",P1,P2])
 
 	Func HasParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasParameter",P1])
 		ok
-		return dnRequest("call",[self,"HasParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameter",P1])
 
 	Func CanHaveParameter_2 P1,P2
-		return dnRequest("call",[self,"CanHaveParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveParameter",P1,P2])
 
 	Func CanHaveParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanHaveParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanHaveParameter",P1])
 		ok
-		return dnRequest("call",[self,"CanHaveParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveParameter",P1])
 
 	Func HasOriginalValueParameter_2 P1,P2
-		return dnRequest("call",[self,"HasOriginalValueParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasOriginalValueParameter",P1,P2])
 
 	Func HasOriginalValueParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasOriginalValueParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasOriginalValueParameter",P1])
 		ok
-		return dnRequest("call",[self,"HasOriginalValueParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasOriginalValueParameter",P1])
 
 	Func CanHaveOriginalValueParameter_2 P1,P2
-		return dnRequest("call",[self,"CanHaveOriginalValueParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveOriginalValueParameter",P1,P2])
 
 	Func CanHaveOriginalValueParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanHaveOriginalValueParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanHaveOriginalValueParameter",P1])
 		ok
-		return dnRequest("call",[self,"CanHaveOriginalValueParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveOriginalValueParameter",P1])
 
 	Func HasRowsAffectedParameter_1 P1
-		return dnRequest("call",[self,"HasRowsAffectedParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedParameter",P1])
 
 	Func HasRowsAffectedParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasRowsAffectedParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasRowsAffectedParameter",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasRowsAffectedParameter"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedParameter"])
 		ok
-		return dnRequest("call",[self,"HasRowsAffectedParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedParameter",P1])
 
 	Func CanHaveRowsAffectedParameter_1 P1
-		return dnRequest("call",[self,"CanHaveRowsAffectedParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveRowsAffectedParameter",P1])
 
 	Func CanHaveRowsAffectedParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanHaveRowsAffectedParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanHaveRowsAffectedParameter",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CanHaveRowsAffectedParameter"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CanHaveRowsAffectedParameter"])
 		ok
-		return dnRequest("call",[self,"CanHaveRowsAffectedParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveRowsAffectedParameter",P1])
 
 	Func HasResultColumn_2 P1,P2
-		return dnRequest("call",[self,"HasResultColumn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasResultColumn",P1,P2])
 
 	Func HasResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasResultColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasResultColumn",P1])
 		ok
-		return dnRequest("call",[self,"HasResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasResultColumn",P1])
 
 	Func CanHaveResultColumn_2 P1,P2
-		return dnRequest("call",[self,"CanHaveResultColumn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveResultColumn",P1,P2])
 
 	Func CanHaveResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanHaveResultColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanHaveResultColumn",P1])
 		ok
-		return dnRequest("call",[self,"CanHaveResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveResultColumn",P1])
 
 	Func HasRowsAffectedResultColumn_1 P1
-		return dnRequest("call",[self,"HasRowsAffectedResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedResultColumn",P1])
 
 	Func HasRowsAffectedResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasRowsAffectedResultColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasRowsAffectedResultColumn",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasRowsAffectedResultColumn"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedResultColumn"])
 		ok
-		return dnRequest("call",[self,"HasRowsAffectedResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedResultColumn",P1])
 
 	Func CanHaveRowsAffectedResultColumn_1 P1
-		return dnRequest("call",[self,"CanHaveRowsAffectedResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveRowsAffectedResultColumn",P1])
 
 	Func CanHaveRowsAffectedResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanHaveRowsAffectedResultColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanHaveRowsAffectedResultColumn",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CanHaveRowsAffectedResultColumn"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CanHaveRowsAffectedResultColumn"])
 		ok
-		return dnRequest("call",[self,"CanHaveRowsAffectedResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanHaveRowsAffectedResultColumn",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

@@ -24,31 +24,31 @@ Class DataGridTemplateColumn from DataGridColumn
 		return self
 
 	Func getCellTemplate
-		return dnRequest("get",[self,"CellTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellTemplate"])
 
 	Func setCellTemplate P1
-		dnRequest("set",[self,"CellTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellTemplate",P1])
 		return self
 
 	Func getCellTemplateSelector
-		return dnRequest("get",[self,"CellTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellTemplateSelector"])
 
 	Func setCellTemplateSelector P1
-		dnRequest("set",[self,"CellTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellTemplateSelector",P1])
 		return self
 
 	Func getCellEditingTemplate
-		return dnRequest("get",[self,"CellEditingTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellEditingTemplate"])
 
 	Func setCellEditingTemplate P1
-		dnRequest("set",[self,"CellEditingTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellEditingTemplate",P1])
 		return self
 
 	Func getCellEditingTemplateSelector
-		return dnRequest("get",[self,"CellEditingTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellEditingTemplateSelector"])
 
 	Func setCellEditingTemplateSelector P1
-		dnRequest("set",[self,"CellEditingTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellEditingTemplateSelector",P1])
 		return self
 
 	Func getCellTemplateProperty

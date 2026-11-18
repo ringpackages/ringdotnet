@@ -23,64 +23,64 @@ Class IForeignKeyConstraint from DotNetObject
 		return self
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getMappedForeignKeys
-		return dnRequest("get",[self,"MappedForeignKeys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MappedForeignKeys"])
 
 	Func setMappedForeignKeys P1
 		raise("DotNet Error: MappedForeignKeys is a read-only property")
 
 	Func getTable
-		return dnRequest("get",[self,"Table"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getPrincipalTable
-		return dnRequest("get",[self,"PrincipalTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalTable"])
 
 	Func setPrincipalTable P1
 		raise("DotNet Error: PrincipalTable is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getPrincipalColumns
-		return dnRequest("get",[self,"PrincipalColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalColumns"])
 
 	Func setPrincipalColumns P1
 		raise("DotNet Error: PrincipalColumns is a read-only property")
 
 	Func getPrincipalUniqueConstraint
-		return dnRequest("get",[self,"PrincipalUniqueConstraint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalUniqueConstraint"])
 
 	Func setPrincipalUniqueConstraint P1
 		raise("DotNet Error: PrincipalUniqueConstraint is a read-only property")
 
 	Func getOnDeleteAction
-		return dnRequest("get",[self,"OnDeleteAction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OnDeleteAction"])
 
 	Func setOnDeleteAction P1
 		raise("DotNet Error: OnDeleteAction is a read-only property")

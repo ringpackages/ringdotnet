@@ -17,12 +17,12 @@ Class RelationalQueryCompilationContextDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSqlAliasManagerFactory
-		return dnRequest("get",[self,"SqlAliasManagerFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SqlAliasManagerFactory"])
 
 	Func setSqlAliasManagerFactory P1
-		dnRequest("set",[self,"SqlAliasManagerFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SqlAliasManagerFactory",P1])
 		return self
 

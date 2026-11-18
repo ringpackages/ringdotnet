@@ -16,7 +16,7 @@ Class IRequestPredicateProvider from DotNetObject
 		return self
 
 	Func getRequestPredicate
-		return dnRequest("get",[self,"RequestPredicate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestPredicate"])
 
 	Func setRequestPredicate P1
 		raise("DotNet Error: RequestPredicate is a read-only property")

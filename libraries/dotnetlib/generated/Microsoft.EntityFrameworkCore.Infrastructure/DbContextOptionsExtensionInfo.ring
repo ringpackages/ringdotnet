@@ -18,32 +18,32 @@ Class DbContextOptionsExtensionInfo from Object
 		return self
 
 	Func GetServiceProviderHashCode 
-		return dnRequest("call",[self,"GetServiceProviderHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetServiceProviderHashCode"])
 
 	Func ShouldUseSameServiceProvider P1
-		return dnRequest("call",[self,"ShouldUseSameServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldUseSameServiceProvider",P1])
 
 	Func PopulateDebugInfo P1
-		dnRequest("call",[self,"PopulateDebugInfo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PopulateDebugInfo",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExtension
-		return dnRequest("get",[self,"Extension"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Extension"])
 
 	Func setExtension P1
 		raise("DotNet Error: Extension is a read-only property")
 
 	Func getIsDatabaseProvider
-		return dnRequest("get",[self,"IsDatabaseProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDatabaseProvider"])
 
 	Func setIsDatabaseProvider P1
 		raise("DotNet Error: IsDatabaseProvider is a read-only property")
 
 	Func getLogFragment
-		return dnRequest("get",[self,"LogFragment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogFragment"])
 
 	Func setLogFragment P1
 		raise("DotNet Error: LogFragment is a read-only property")

@@ -23,52 +23,52 @@ Class SemaphoreSlim from Object
 
 	Func Wait P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Wait",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Wait",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Wait"])
+			dnRequest("call",[new DotNetObject(nHandle),"Wait"])
 		return self
 		ok
-		dnRequest("call",[self,"Wait",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 		return self
 
 	Func Wait_1 P1
-		dnRequest("call",[self,"Wait",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 		return self
 
 	Func Wait_2 P1,P2
-		return dnRequest("call",[self,"Wait",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1,P2])
 
 	Func WaitAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WaitAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WaitAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync"])
 		ok
-		return dnRequest("call",[self,"WaitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1])
 
 	Func WaitAsync_1 P1
-		return dnRequest("call",[self,"WaitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1])
 
 	Func WaitAsync_2 P1,P2
-		return dnRequest("call",[self,"WaitAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrentCount
-		return dnRequest("get",[self,"CurrentCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentCount"])
 
 	Func setCurrentCount P1
 		raise("DotNet Error: CurrentCount is a read-only property")
 
 	Func getAvailableWaitHandle
-		return dnRequest("get",[self,"AvailableWaitHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AvailableWaitHandle"])
 
 	Func setAvailableWaitHandle P1
 		raise("DotNet Error: AvailableWaitHandle is a read-only property")

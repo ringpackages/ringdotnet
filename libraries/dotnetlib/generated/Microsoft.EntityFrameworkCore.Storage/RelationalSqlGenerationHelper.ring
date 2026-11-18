@@ -22,95 +22,95 @@ Class RelationalSqlGenerationHelper from Object
 
 	Func GenerateParameterName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GenerateParameterName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GenerateParameterName",P1])
 		ok
-		return dnRequest("call",[self,"GenerateParameterName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterName",P1])
 
 	Func GenerateParameterName_2 P1,P2
-		dnRequest("call",[self,"GenerateParameterName",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterName",P1,P2])
 		return self
 
 	Func GenerateParameterNamePlaceholder P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GenerateParameterNamePlaceholder",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GenerateParameterNamePlaceholder",P1])
 		ok
-		return dnRequest("call",[self,"GenerateParameterNamePlaceholder",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterNamePlaceholder",P1])
 
 	Func GenerateParameterNamePlaceholder_2 P1,P2
-		dnRequest("call",[self,"GenerateParameterNamePlaceholder",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterNamePlaceholder",P1,P2])
 		return self
 
 	Func EscapeIdentifier P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EscapeIdentifier",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EscapeIdentifier",P1])
 		ok
-		return dnRequest("call",[self,"EscapeIdentifier",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EscapeIdentifier",P1])
 
 	Func EscapeIdentifier_2 P1,P2
-		dnRequest("call",[self,"EscapeIdentifier",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"EscapeIdentifier",P1,P2])
 		return self
 
 	Func DelimitIdentifier P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"DelimitIdentifier",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DelimitIdentifier",P1])
 		ok
-		return dnRequest("call",[self,"DelimitIdentifier",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DelimitIdentifier",P1])
 
 	Func DelimitIdentifier_2 P1,P2
-		dnRequest("call",[self,"DelimitIdentifier",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DelimitIdentifier",P1,P2])
 		return self
 
 	Func DelimitIdentifier_3 P1,P2,P3
-		dnRequest("call",[self,"DelimitIdentifier",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DelimitIdentifier",P1,P2,P3])
 		return self
 
 	Func EscapeJsonPathElement P1
-		return dnRequest("call",[self,"EscapeJsonPathElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EscapeJsonPathElement",P1])
 
 	Func DelimitJsonPathElement P1
-		return dnRequest("call",[self,"DelimitJsonPathElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DelimitJsonPathElement",P1])
 
 	Func GenerateComment P1
-		return dnRequest("call",[self,"GenerateComment",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateComment",P1])
 
 	Func GenerateCreateSavepointStatement P1
-		return dnRequest("call",[self,"GenerateCreateSavepointStatement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateCreateSavepointStatement",P1])
 
 	Func GenerateRollbackToSavepointStatement P1
-		return dnRequest("call",[self,"GenerateRollbackToSavepointStatement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateRollbackToSavepointStatement",P1])
 
 	Func GenerateReleaseSavepointStatement P1
-		return dnRequest("call",[self,"GenerateReleaseSavepointStatement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateReleaseSavepointStatement",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStatementTerminator
-		return dnRequest("get",[self,"StatementTerminator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatementTerminator"])
 
 	Func setStatementTerminator P1
 		raise("DotNet Error: StatementTerminator is a read-only property")
 
 	Func getBatchTerminator
-		return dnRequest("get",[self,"BatchTerminator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BatchTerminator"])
 
 	Func setBatchTerminator P1
 		raise("DotNet Error: BatchTerminator is a read-only property")
 
 	Func getStartTransactionStatement
-		return dnRequest("get",[self,"StartTransactionStatement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartTransactionStatement"])
 
 	Func setStartTransactionStatement P1
 		raise("DotNet Error: StartTransactionStatement is a read-only property")
 
 	Func getCommitTransactionStatement
-		return dnRequest("get",[self,"CommitTransactionStatement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommitTransactionStatement"])
 
 	Func setCommitTransactionStatement P1
 		raise("DotNet Error: CommitTransactionStatement is a read-only property")
 
 	Func getSingleLineCommentToken
-		return dnRequest("get",[self,"SingleLineCommentToken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SingleLineCommentToken"])
 
 	Func setSingleLineCommentToken P1
 		raise("DotNet Error: SingleLineCommentToken is a read-only property")

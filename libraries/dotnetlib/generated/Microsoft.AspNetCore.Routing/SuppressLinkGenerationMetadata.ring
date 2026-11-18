@@ -17,10 +17,10 @@ Class SuppressLinkGenerationMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSuppressLinkGeneration
-		return dnRequest("get",[self,"SuppressLinkGeneration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressLinkGeneration"])
 
 	Func setSuppressLinkGeneration P1
 		raise("DotNet Error: SuppressLinkGeneration is a read-only property")

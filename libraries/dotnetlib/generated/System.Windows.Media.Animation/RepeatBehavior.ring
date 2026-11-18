@@ -29,36 +29,36 @@ Class RepeatBehavior from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Equals_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"Equals",P1,P2])
 
 	Func getHasCount
-		return dnRequest("get",[self,"HasCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasCount"])
 
 	Func setHasCount P1
 		raise("DotNet Error: HasCount is a read-only property")
 
 	Func getHasDuration
-		return dnRequest("get",[self,"HasDuration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasDuration"])
 
 	Func setHasDuration P1
 		raise("DotNet Error: HasDuration is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getDuration
-		return dnRequest("get",[self,"Duration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Duration"])
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")

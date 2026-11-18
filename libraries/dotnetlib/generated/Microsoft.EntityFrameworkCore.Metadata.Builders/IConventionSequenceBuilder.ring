@@ -16,136 +16,136 @@ Class IConventionSequenceBuilder from DotNetObject
 		return self
 
 	Func HasAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2,P3])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func HasNonNullAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2,P3])
 
 	Func HasNonNullAnnotation P1,P2
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2])
 
 	Func HasNoAnnotation_2 P1,P2
-		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 		ok
-		return dnRequest("call",[self,"HasNoAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 
 	Func HasType_2 P1,P2
-		return dnRequest("call",[self,"HasType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasType",P1,P2])
 
 	Func HasType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasType",P1])
 		ok
-		return dnRequest("call",[self,"HasType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasType",P1])
 
 	Func CanSetType_2 P1,P2
-		return dnRequest("call",[self,"CanSetType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetType",P1,P2])
 
 	Func CanSetType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetType",P1])
 		ok
-		return dnRequest("call",[self,"CanSetType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetType",P1])
 
 	Func IncrementsBy_2 P1,P2
-		return dnRequest("call",[self,"IncrementsBy",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IncrementsBy",P1,P2])
 
 	Func IncrementsBy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IncrementsBy",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IncrementsBy",P1])
 		ok
-		return dnRequest("call",[self,"IncrementsBy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IncrementsBy",P1])
 
 	Func CanSetIncrementsBy_2 P1,P2
-		return dnRequest("call",[self,"CanSetIncrementsBy",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIncrementsBy",P1,P2])
 
 	Func CanSetIncrementsBy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetIncrementsBy",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetIncrementsBy",P1])
 		ok
-		return dnRequest("call",[self,"CanSetIncrementsBy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIncrementsBy",P1])
 
 	Func StartsAt_2 P1,P2
-		return dnRequest("call",[self,"StartsAt",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartsAt",P1,P2])
 
 	Func StartsAt P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"StartsAt",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartsAt",P1])
 		ok
-		return dnRequest("call",[self,"StartsAt",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartsAt",P1])
 
 	Func CanSetStartsAt_2 P1,P2
-		return dnRequest("call",[self,"CanSetStartsAt",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetStartsAt",P1,P2])
 
 	Func CanSetStartsAt P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetStartsAt",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetStartsAt",P1])
 		ok
-		return dnRequest("call",[self,"CanSetStartsAt",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetStartsAt",P1])
 
 	Func HasMax_2 P1,P2
-		return dnRequest("call",[self,"HasMax",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMax",P1,P2])
 
 	Func HasMax P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasMax",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasMax",P1])
 		ok
-		return dnRequest("call",[self,"HasMax",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMax",P1])
 
 	Func CanSetMax_2 P1,P2
-		return dnRequest("call",[self,"CanSetMax",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetMax",P1,P2])
 
 	Func CanSetMax P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetMax",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetMax",P1])
 		ok
-		return dnRequest("call",[self,"CanSetMax",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetMax",P1])
 
 	Func HasMin_2 P1,P2
-		return dnRequest("call",[self,"HasMin",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMin",P1,P2])
 
 	Func HasMin P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasMin",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasMin",P1])
 		ok
-		return dnRequest("call",[self,"HasMin",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMin",P1])
 
 	Func CanSetMin_2 P1,P2
-		return dnRequest("call",[self,"CanSetMin",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetMin",P1,P2])
 
 	Func CanSetMin P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetMin",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetMin",P1])
 		ok
-		return dnRequest("call",[self,"CanSetMin",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetMin",P1])
 
 	Func IsCyclic_2 P1,P2
-		return dnRequest("call",[self,"IsCyclic",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsCyclic",P1,P2])
 
 	Func IsCyclic P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsCyclic",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsCyclic",P1])
 		ok
-		return dnRequest("call",[self,"IsCyclic",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsCyclic",P1])
 
 	Func CanSetIsCyclic_2 P1,P2
-		return dnRequest("call",[self,"CanSetIsCyclic",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsCyclic",P1,P2])
 
 	Func CanSetIsCyclic P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetIsCyclic",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetIsCyclic",P1])
 		ok
-		return dnRequest("call",[self,"CanSetIsCyclic",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsCyclic",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

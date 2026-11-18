@@ -18,34 +18,34 @@ Class IReadOnlyEntityTypeMappingFragment from DotNetObject
 		return self
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getStoreObject
-		return dnRequest("get",[self,"StoreObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreObject"])
 
 	Func setStoreObject P1
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getIsTableExcludedFromMigrations
-		return dnRequest("get",[self,"IsTableExcludedFromMigrations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsTableExcludedFromMigrations"])
 
 	Func setIsTableExcludedFromMigrations P1
 		raise("DotNet Error: IsTableExcludedFromMigrations is a read-only property")

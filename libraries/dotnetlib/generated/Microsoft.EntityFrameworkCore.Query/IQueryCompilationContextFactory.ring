@@ -14,8 +14,8 @@ Class IQueryCompilationContextFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[self,"Create",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
 
 	Func CreatePrecompiled P1,P2
-		return dnRequest("call",[self,"CreatePrecompiled",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatePrecompiled",P1,P2])
 

@@ -30,57 +30,57 @@ Class RelationalOptionsExtension from Object
 		return self
 
 	Func WithConnectionString P1
-		return dnRequest("call",[self,"WithConnectionString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithConnectionString",P1])
 
 	Func WithConnection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WithConnection",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithConnection",P1])
 		ok
-		return dnRequest("call",[self,"WithConnection",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithConnection",P1])
 
 	Func WithConnection_2 P1,P2
-		return dnRequest("call",[self,"WithConnection",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithConnection",P1,P2])
 
 	Func WithCommandTimeout P1
-		return dnRequest("call",[self,"WithCommandTimeout",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithCommandTimeout",P1])
 
 	Func WithMaxBatchSize P1
-		return dnRequest("call",[self,"WithMaxBatchSize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithMaxBatchSize",P1])
 
 	Func WithMinBatchSize P1
-		return dnRequest("call",[self,"WithMinBatchSize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithMinBatchSize",P1])
 
 	Func WithUseRelationalNulls P1
-		return dnRequest("call",[self,"WithUseRelationalNulls",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithUseRelationalNulls",P1])
 
 	Func WithUseQuerySplittingBehavior P1
-		return dnRequest("call",[self,"WithUseQuerySplittingBehavior",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithUseQuerySplittingBehavior",P1])
 
 	Func WithMigrationsAssembly P1
-		return dnRequest("call",[self,"WithMigrationsAssembly",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithMigrationsAssembly",P1])
 
 	Func WithMigrationsHistoryTableName P1
-		return dnRequest("call",[self,"WithMigrationsHistoryTableName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithMigrationsHistoryTableName",P1])
 
 	Func WithMigrationsHistoryTableSchema P1
-		return dnRequest("call",[self,"WithMigrationsHistoryTableSchema",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithMigrationsHistoryTableSchema",P1])
 
 	Func WithExecutionStrategyFactory P1
-		return dnRequest("call",[self,"WithExecutionStrategyFactory",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithExecutionStrategyFactory",P1])
 
 	Func WithParameterizedCollectionTranslationMode P1
-		return dnRequest("call",[self,"WithParameterizedCollectionTranslationMode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithParameterizedCollectionTranslationMode",P1])
 
 	Func ApplyServices P1
-		dnRequest("call",[self,"ApplyServices",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyServices",P1])
 		return self
 
 	Func Validate P1
-		dnRequest("call",[self,"Validate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Extract P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational'),"Extract",P1])
@@ -89,91 +89,91 @@ Class RelationalOptionsExtension from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational'),"WithDefaultWarningConfiguration",P1])
 
 	Func getInfo
-		return dnRequest("get",[self,"Info"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Info"])
 
 	Func setInfo P1
 		raise("DotNet Error: Info is a read-only property")
 
 	Func getConnectionString
-		return dnRequest("get",[self,"ConnectionString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionString"])
 
 	Func setConnectionString P1
 		raise("DotNet Error: ConnectionString is a read-only property")
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getIsConnectionOwned
-		return dnRequest("get",[self,"IsConnectionOwned"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsConnectionOwned"])
 
 	Func setIsConnectionOwned P1
 		raise("DotNet Error: IsConnectionOwned is a read-only property")
 
 	Func getCommandTimeout
-		return dnRequest("get",[self,"CommandTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandTimeout"])
 
 	Func setCommandTimeout P1
 		raise("DotNet Error: CommandTimeout is a read-only property")
 
 	Func getMaxBatchSize
-		return dnRequest("get",[self,"MaxBatchSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxBatchSize"])
 
 	Func setMaxBatchSize P1
 		raise("DotNet Error: MaxBatchSize is a read-only property")
 
 	Func getMinBatchSize
-		return dnRequest("get",[self,"MinBatchSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinBatchSize"])
 
 	Func setMinBatchSize P1
 		raise("DotNet Error: MinBatchSize is a read-only property")
 
 	Func getUseRelationalNulls
-		return dnRequest("get",[self,"UseRelationalNulls"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseRelationalNulls"])
 
 	Func setUseRelationalNulls P1
 		raise("DotNet Error: UseRelationalNulls is a read-only property")
 
 	Func getQuerySplittingBehavior
-		return dnRequest("get",[self,"QuerySplittingBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QuerySplittingBehavior"])
 
 	Func setQuerySplittingBehavior P1
 		raise("DotNet Error: QuerySplittingBehavior is a read-only property")
 
 	Func getMigrationsAssembly
-		return dnRequest("get",[self,"MigrationsAssembly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsAssembly"])
 
 	Func setMigrationsAssembly P1
 		raise("DotNet Error: MigrationsAssembly is a read-only property")
 
 	Func getMigrationsAssemblyObject
-		return dnRequest("get",[self,"MigrationsAssemblyObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsAssemblyObject"])
 
 	Func setMigrationsAssemblyObject P1
 		raise("DotNet Error: MigrationsAssemblyObject is a read-only property")
 
 	Func getMigrationsHistoryTableName
-		return dnRequest("get",[self,"MigrationsHistoryTableName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsHistoryTableName"])
 
 	Func setMigrationsHistoryTableName P1
 		raise("DotNet Error: MigrationsHistoryTableName is a read-only property")
 
 	Func getMigrationsHistoryTableSchema
-		return dnRequest("get",[self,"MigrationsHistoryTableSchema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsHistoryTableSchema"])
 
 	Func setMigrationsHistoryTableSchema P1
 		raise("DotNet Error: MigrationsHistoryTableSchema is a read-only property")
 
 	Func getExecutionStrategyFactory
-		return dnRequest("get",[self,"ExecutionStrategyFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionStrategyFactory"])
 
 	Func setExecutionStrategyFactory P1
 		raise("DotNet Error: ExecutionStrategyFactory is a read-only property")
 
 	Func getParameterizedCollectionTranslationMode
-		return dnRequest("get",[self,"ParameterizedCollectionTranslationMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterizedCollectionTranslationMode"])
 
 	Func setParameterizedCollectionTranslationMode P1
 		raise("DotNet Error: ParameterizedCollectionTranslationMode is a read-only property")

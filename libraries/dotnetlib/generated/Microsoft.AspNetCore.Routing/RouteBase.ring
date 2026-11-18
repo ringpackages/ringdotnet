@@ -20,40 +20,40 @@ Class RouteBase from Object
 		return self
 
 	Func RouteAsync P1
-		return dnRequest("call",[self,"RouteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RouteAsync",P1])
 
 	Func GetVirtualPath P1
-		return dnRequest("call",[self,"GetVirtualPath",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetVirtualPath",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConstraints
-		return dnRequest("get",[self,"Constraints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Constraints"])
 
 	Func setConstraints P1
 		raise("DotNet Error: Constraints is a read-only property")
 
 	Func getDataTokens
-		return dnRequest("get",[self,"DataTokens"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataTokens"])
 
 	Func setDataTokens P1
 		raise("DotNet Error: DataTokens is a read-only property")
 
 	Func getDefaults
-		return dnRequest("get",[self,"Defaults"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Defaults"])
 
 	Func setDefaults P1
 		raise("DotNet Error: Defaults is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getParsedTemplate
-		return dnRequest("get",[self,"ParsedTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParsedTemplate"])
 
 	Func setParsedTemplate P1
 		raise("DotNet Error: ParsedTemplate is a read-only property")

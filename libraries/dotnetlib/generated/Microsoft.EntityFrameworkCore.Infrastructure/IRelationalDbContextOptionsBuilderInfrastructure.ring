@@ -16,7 +16,7 @@ Class IRelationalDbContextOptionsBuilderInfrastructure from DotNetObject
 		return self
 
 	Func getOptionsBuilder
-		return dnRequest("get",[self,"OptionsBuilder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OptionsBuilder"])
 
 	Func setOptionsBuilder P1
 		raise("DotNet Error: OptionsBuilder is a read-only property")

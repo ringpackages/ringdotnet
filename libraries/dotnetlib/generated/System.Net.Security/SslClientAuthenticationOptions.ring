@@ -29,96 +29,96 @@ Class SslClientAuthenticationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAllowRenegotiation
-		return dnRequest("get",[self,"AllowRenegotiation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowRenegotiation"])
 
 	Func setAllowRenegotiation P1
-		dnRequest("set",[self,"AllowRenegotiation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowRenegotiation",P1])
 		return self
 
 	Func getAllowTlsResume
-		return dnRequest("get",[self,"AllowTlsResume"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowTlsResume"])
 
 	Func setAllowTlsResume P1
-		dnRequest("set",[self,"AllowTlsResume",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowTlsResume",P1])
 		return self
 
 	Func getLocalCertificateSelectionCallback
-		return dnRequest("get",[self,"LocalCertificateSelectionCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalCertificateSelectionCallback"])
 
 	Func setLocalCertificateSelectionCallback P1
-		dnRequest("set",[self,"LocalCertificateSelectionCallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LocalCertificateSelectionCallback",P1])
 		return self
 
 	Func getRemoteCertificateValidationCallback
-		return dnRequest("get",[self,"RemoteCertificateValidationCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteCertificateValidationCallback"])
 
 	Func setRemoteCertificateValidationCallback P1
-		dnRequest("set",[self,"RemoteCertificateValidationCallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RemoteCertificateValidationCallback",P1])
 		return self
 
 	Func getApplicationProtocols
-		return dnRequest("get",[self,"ApplicationProtocols"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationProtocols"])
 
 	Func setApplicationProtocols P1
-		dnRequest("set",[self,"ApplicationProtocols",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ApplicationProtocols",P1])
 		return self
 
 	Func getTargetHost
-		return dnRequest("get",[self,"TargetHost"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetHost"])
 
 	Func setTargetHost P1
-		dnRequest("set",[self,"TargetHost",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TargetHost",P1])
 		return self
 
 	Func getClientCertificates
-		return dnRequest("get",[self,"ClientCertificates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificates"])
 
 	Func setClientCertificates P1
-		dnRequest("set",[self,"ClientCertificates",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientCertificates",P1])
 		return self
 
 	Func getClientCertificateContext
-		return dnRequest("get",[self,"ClientCertificateContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificateContext"])
 
 	Func setClientCertificateContext P1
-		dnRequest("set",[self,"ClientCertificateContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientCertificateContext",P1])
 		return self
 
 	Func getCertificateRevocationCheckMode
-		return dnRequest("get",[self,"CertificateRevocationCheckMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CertificateRevocationCheckMode"])
 
 	Func setCertificateRevocationCheckMode P1
-		dnRequest("set",[self,"CertificateRevocationCheckMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CertificateRevocationCheckMode",P1])
 		return self
 
 	Func getEncryptionPolicy
-		return dnRequest("get",[self,"EncryptionPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EncryptionPolicy"])
 
 	Func setEncryptionPolicy P1
-		dnRequest("set",[self,"EncryptionPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EncryptionPolicy",P1])
 		return self
 
 	Func getEnabledSslProtocols
-		return dnRequest("get",[self,"EnabledSslProtocols"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnabledSslProtocols"])
 
 	Func setEnabledSslProtocols P1
-		dnRequest("set",[self,"EnabledSslProtocols",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnabledSslProtocols",P1])
 		return self
 
 	Func getCipherSuitesPolicy
-		return dnRequest("get",[self,"CipherSuitesPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CipherSuitesPolicy"])
 
 	Func setCipherSuitesPolicy P1
-		dnRequest("set",[self,"CipherSuitesPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CipherSuitesPolicy",P1])
 		return self
 
 	Func getCertificateChainPolicy
-		return dnRequest("get",[self,"CertificateChainPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CertificateChainPolicy"])
 
 	Func setCertificateChainPolicy P1
-		dnRequest("set",[self,"CertificateChainPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CertificateChainPolicy",P1])
 		return self
 

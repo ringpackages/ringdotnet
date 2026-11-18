@@ -15,28 +15,28 @@ Class EventHandlerList from Object
 		return self
 
 	Func AddHandler P1,P2
-		dnRequest("call",[self,"AddHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2])
 		return self
 
 	Func AddHandlers P1
-		dnRequest("call",[self,"AddHandlers",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddHandlers",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func RemoveHandler P1,P2
-		dnRequest("call",[self,"RemoveHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveHandler",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 

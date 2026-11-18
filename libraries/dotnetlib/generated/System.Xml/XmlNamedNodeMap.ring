@@ -17,36 +17,36 @@ Class XmlNamedNodeMap from Object
 
 	Func GetNamedItem P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetNamedItem",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNamedItem",P1])
 		ok
-		return dnRequest("call",[self,"GetNamedItem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNamedItem",P1])
 
 	Func SetNamedItem P1
-		return dnRequest("call",[self,"SetNamedItem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetNamedItem",P1])
 
 	Func RemoveNamedItem P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RemoveNamedItem",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RemoveNamedItem",P1])
 		ok
-		return dnRequest("call",[self,"RemoveNamedItem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveNamedItem",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Item",P1])
 
 	Func GetNamedItem_2 P1,P2
-		return dnRequest("call",[self,"GetNamedItem",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNamedItem",P1,P2])
 
 	Func RemoveNamedItem_2 P1,P2
-		return dnRequest("call",[self,"RemoveNamedItem",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveNamedItem",P1,P2])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

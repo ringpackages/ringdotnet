@@ -19,19 +19,19 @@ Class ConnectionCreatingEventData from DbContextEventData
 		return self
 
 	Func getConnectionString
-		return dnRequest("get",[self,"ConnectionString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionString"])
 
 	Func setConnectionString P1
 		raise("DotNet Error: ConnectionString is a read-only property")
 
 	Func getConnectionId
-		return dnRequest("get",[self,"ConnectionId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionId"])
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getStartTime
-		return dnRequest("get",[self,"StartTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartTime"])
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")

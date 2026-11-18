@@ -15,47 +15,47 @@ Class ConstraintCollection from InternalDataCollectionBase
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Add_3 P1,P2,P3
-		return dnRequest("call",[self,"Add",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 
 	Func AddRange P1
-		dnRequest("call",[self,"AddRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
 	Func CanRemove P1
-		return dnRequest("call",[self,"CanRemove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanRemove",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[self,"CollectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[self,"CollectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
 		return self
 

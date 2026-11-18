@@ -18,23 +18,23 @@ Class IAuthorizeData from DotNetObject
 		return self
 
 	Func getPolicy
-		return dnRequest("get",[self,"Policy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Policy"])
 
 	Func setPolicy P1
-		dnRequest("set",[self,"Policy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Policy",P1])
 		return self
 
 	Func getRoles
-		return dnRequest("get",[self,"Roles"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Roles"])
 
 	Func setRoles P1
-		dnRequest("set",[self,"Roles",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Roles",P1])
 		return self
 
 	Func getAuthenticationSchemes
-		return dnRequest("get",[self,"AuthenticationSchemes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationSchemes"])
 
 	Func setAuthenticationSchemes P1
-		dnRequest("set",[self,"AuthenticationSchemes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationSchemes",P1])
 		return self
 

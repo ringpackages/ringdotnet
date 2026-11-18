@@ -23,29 +23,29 @@ Class DefaultHttpContext from HttpContext
 		return self
 
 	Func Initialize P1
-		dnRequest("call",[self,"Initialize",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1])
 		return self
 
 	Func Uninitialize 
-		dnRequest("call",[self,"Uninitialize"])
+		dnRequest("call",[new DotNetObject(nHandle),"Uninitialize"])
 		return self
 
 	Func getFormOptions
-		return dnRequest("get",[self,"FormOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormOptions"])
 
 	Func setFormOptions P1
-		dnRequest("set",[self,"FormOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormOptions",P1])
 		return self
 
 	Func getServiceScopeFactory
-		return dnRequest("get",[self,"ServiceScopeFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceScopeFactory"])
 
 	Func setServiceScopeFactory P1
-		dnRequest("set",[self,"ServiceScopeFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ServiceScopeFactory",P1])
 		return self
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")

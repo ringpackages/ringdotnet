@@ -23,21 +23,21 @@ Class AccessKeyPressedEventArgs from RoutedEventArgs
 		return self
 
 	Func getScope
-		return dnRequest("get",[self,"Scope"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scope"])
 
 	Func setScope P1
-		dnRequest("set",[self,"Scope",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Scope",P1])
 		return self
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
 
 	Func setTarget P1
-		dnRequest("set",[self,"Target",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Target",P1])
 		return self
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")

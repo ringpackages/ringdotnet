@@ -17,13 +17,13 @@ Class AuthenticationHandlerProvider from Object
 		return self
 
 	Func GetHandlerAsync P1,P2
-		return dnRequest("call",[self,"GetHandlerAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHandlerAsync",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSchemes
-		return dnRequest("get",[self,"Schemes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schemes"])
 
 	Func setSchemes P1
 		raise("DotNet Error: Schemes is a read-only property")

@@ -24,51 +24,51 @@ Class PreviewKeyDownEventArgs from EventArgs
 		return self
 
 	Func getKeyData
-		return dnRequest("get",[self,"KeyData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyData"])
 
 	Func setKeyData P1
 		raise("DotNet Error: KeyData is a read-only property")
 
 	Func getAlt
-		return dnRequest("get",[self,"Alt"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Alt"])
 
 	Func setAlt P1
 		raise("DotNet Error: Alt is a read-only property")
 
 	Func getControl
-		return dnRequest("get",[self,"Control"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getKeyCode
-		return dnRequest("get",[self,"KeyCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyCode"])
 
 	Func setKeyCode P1
 		raise("DotNet Error: KeyCode is a read-only property")
 
 	Func getKeyValue
-		return dnRequest("get",[self,"KeyValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyValue"])
 
 	Func setKeyValue P1
 		raise("DotNet Error: KeyValue is a read-only property")
 
 	Func getModifiers
-		return dnRequest("get",[self,"Modifiers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Modifiers"])
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
 
 	Func getShift
-		return dnRequest("get",[self,"Shift"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Shift"])
 
 	Func setShift P1
 		raise("DotNet Error: Shift is a read-only property")
 
 	Func getIsInputKey
-		return dnRequest("get",[self,"IsInputKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInputKey"])
 
 	Func setIsInputKey P1
-		dnRequest("set",[self,"IsInputKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsInputKey",P1])
 		return self
 

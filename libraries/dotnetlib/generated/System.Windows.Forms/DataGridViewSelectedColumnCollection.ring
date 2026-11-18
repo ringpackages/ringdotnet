@@ -14,16 +14,16 @@ Class DataGridViewSelectedColumnCollection from BaseCollection
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[self,"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 

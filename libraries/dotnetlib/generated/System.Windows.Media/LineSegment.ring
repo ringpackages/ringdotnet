@@ -22,10 +22,10 @@ Class LineSegment from PathSegment
 		return self
 
 	Func getPoint
-		return dnRequest("get",[self,"Point"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Point"])
 
 	Func setPoint P1
-		dnRequest("set",[self,"Point",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Point",P1])
 		return self
 
 	Func getPointProperty

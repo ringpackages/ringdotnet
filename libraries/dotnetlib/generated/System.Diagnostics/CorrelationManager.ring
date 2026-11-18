@@ -18,37 +18,37 @@ Class CorrelationManager from Object
 
 	Func StartLogicalOperation P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"StartLogicalOperation",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"StartLogicalOperation",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"StartLogicalOperation"])
+			dnRequest("call",[new DotNetObject(nHandle),"StartLogicalOperation"])
 		return self
 		ok
-		dnRequest("call",[self,"StartLogicalOperation",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"StartLogicalOperation",P1])
 		return self
 
 	Func StopLogicalOperation 
-		dnRequest("call",[self,"StopLogicalOperation"])
+		dnRequest("call",[new DotNetObject(nHandle),"StopLogicalOperation"])
 		return self
 
 	Func StartLogicalOperation_1 P1
-		dnRequest("call",[self,"StartLogicalOperation",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"StartLogicalOperation",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLogicalOperationStack
-		return dnRequest("get",[self,"LogicalOperationStack"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogicalOperationStack"])
 
 	Func setLogicalOperationStack P1
 		raise("DotNet Error: LogicalOperationStack is a read-only property")
 
 	Func getActivityId
-		return dnRequest("get",[self,"ActivityId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActivityId"])
 
 	Func setActivityId P1
-		dnRequest("set",[self,"ActivityId",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ActivityId",P1])
 		return self
 

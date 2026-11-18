@@ -46,62 +46,62 @@ Class InkCanvas from FrameworkElement
 		return self
 
 	Func GetEnabledGestures 
-		return dnRequest("call",[self,"GetEnabledGestures"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnabledGestures"])
 
 	Func SetEnabledGestures P1
-		dnRequest("call",[self,"SetEnabledGestures",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetEnabledGestures",P1])
 		return self
 
 	Func GetSelectionBounds 
-		return dnRequest("call",[self,"GetSelectionBounds"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSelectionBounds"])
 
 	Func GetSelectedElements 
-		return dnRequest("call",[self,"GetSelectedElements"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSelectedElements"])
 
 	Func GetSelectedStrokes 
-		return dnRequest("call",[self,"GetSelectedStrokes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSelectedStrokes"])
 
 	Func Select P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Select",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Select",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Select",P1])
 		return self
 
 	Func Select_2 P1,P2
-		dnRequest("call",[self,"Select",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
 		return self
 
 	Func HitTestSelection P1
-		return dnRequest("call",[self,"HitTestSelection",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HitTestSelection",P1])
 
 	Func CopySelection 
-		dnRequest("call",[self,"CopySelection"])
+		dnRequest("call",[new DotNetObject(nHandle),"CopySelection"])
 		return self
 
 	Func CutSelection 
-		dnRequest("call",[self,"CutSelection"])
+		dnRequest("call",[new DotNetObject(nHandle),"CutSelection"])
 		return self
 
 	Func Paste P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Paste",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Paste",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Paste"])
+			dnRequest("call",[new DotNetObject(nHandle),"Paste"])
 		return self
 		ok
-		dnRequest("call",[self,"Paste",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
 		return self
 
 	Func Paste_1 P1
-		dnRequest("call",[self,"Paste",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
 		return self
 
 	Func CanPaste 
-		return dnRequest("call",[self,"CanPaste"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanPaste"])
 
 	Func GetTop P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.InkCanvas, PresentationFramework'),"GetTop",P1])
@@ -132,218 +132,218 @@ Class InkCanvas from FrameworkElement
 		return self
 
 	Func setStrokeCollectedEvent P1
-		dnRequest("setevent",[self,"StrokeCollected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StrokeCollected",dnCallback(P1)])
 		return self
 
 	Func clearStrokeCollectedEvent
-		dnRequest("clearevent",[self,"StrokeCollected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StrokeCollected"])
 		return self
 
 	Func setGestureEvent P1
-		dnRequest("setevent",[self,"Gesture",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Gesture",dnCallback(P1)])
 		return self
 
 	Func clearGestureEvent
-		dnRequest("clearevent",[self,"Gesture"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Gesture"])
 		return self
 
 	Func setStrokesReplacedEvent P1
-		dnRequest("setevent",[self,"StrokesReplaced",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StrokesReplaced",dnCallback(P1)])
 		return self
 
 	Func clearStrokesReplacedEvent
-		dnRequest("clearevent",[self,"StrokesReplaced"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StrokesReplaced"])
 		return self
 
 	Func setDefaultDrawingAttributesReplacedEvent P1
-		dnRequest("setevent",[self,"DefaultDrawingAttributesReplaced",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DefaultDrawingAttributesReplaced",dnCallback(P1)])
 		return self
 
 	Func clearDefaultDrawingAttributesReplacedEvent
-		dnRequest("clearevent",[self,"DefaultDrawingAttributesReplaced"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DefaultDrawingAttributesReplaced"])
 		return self
 
 	Func setActiveEditingModeChangedEvent P1
-		dnRequest("setevent",[self,"ActiveEditingModeChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ActiveEditingModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearActiveEditingModeChangedEvent
-		dnRequest("clearevent",[self,"ActiveEditingModeChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ActiveEditingModeChanged"])
 		return self
 
 	Func setEditingModeChangedEvent P1
-		dnRequest("setevent",[self,"EditingModeChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"EditingModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearEditingModeChangedEvent
-		dnRequest("clearevent",[self,"EditingModeChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"EditingModeChanged"])
 		return self
 
 	Func setEditingModeInvertedChangedEvent P1
-		dnRequest("setevent",[self,"EditingModeInvertedChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"EditingModeInvertedChanged",dnCallback(P1)])
 		return self
 
 	Func clearEditingModeInvertedChangedEvent
-		dnRequest("clearevent",[self,"EditingModeInvertedChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"EditingModeInvertedChanged"])
 		return self
 
 	Func setSelectionMovingEvent P1
-		dnRequest("setevent",[self,"SelectionMoving",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionMoving",dnCallback(P1)])
 		return self
 
 	Func clearSelectionMovingEvent
-		dnRequest("clearevent",[self,"SelectionMoving"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionMoving"])
 		return self
 
 	Func setSelectionMovedEvent P1
-		dnRequest("setevent",[self,"SelectionMoved",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionMoved",dnCallback(P1)])
 		return self
 
 	Func clearSelectionMovedEvent
-		dnRequest("clearevent",[self,"SelectionMoved"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionMoved"])
 		return self
 
 	Func setStrokeErasingEvent P1
-		dnRequest("setevent",[self,"StrokeErasing",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StrokeErasing",dnCallback(P1)])
 		return self
 
 	Func clearStrokeErasingEvent
-		dnRequest("clearevent",[self,"StrokeErasing"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StrokeErasing"])
 		return self
 
 	Func setStrokeErasedEvent P1
-		dnRequest("setevent",[self,"StrokeErased",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StrokeErased",dnCallback(P1)])
 		return self
 
 	Func clearStrokeErasedEvent
-		dnRequest("clearevent",[self,"StrokeErased"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StrokeErased"])
 		return self
 
 	Func setSelectionResizingEvent P1
-		dnRequest("setevent",[self,"SelectionResizing",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionResizing",dnCallback(P1)])
 		return self
 
 	Func clearSelectionResizingEvent
-		dnRequest("clearevent",[self,"SelectionResizing"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionResizing"])
 		return self
 
 	Func setSelectionResizedEvent P1
-		dnRequest("setevent",[self,"SelectionResized",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionResized",dnCallback(P1)])
 		return self
 
 	Func clearSelectionResizedEvent
-		dnRequest("clearevent",[self,"SelectionResized"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionResized"])
 		return self
 
 	Func setSelectionChangingEvent P1
-		dnRequest("setevent",[self,"SelectionChanging",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionChanging",dnCallback(P1)])
 		return self
 
 	Func clearSelectionChangingEvent
-		dnRequest("clearevent",[self,"SelectionChanging"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionChanging"])
 		return self
 
 	Func setSelectionChangedEvent P1
-		dnRequest("setevent",[self,"SelectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectionChangedEvent
-		dnRequest("clearevent",[self,"SelectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionChanged"])
 		return self
 
 	Func getBackground
-		return dnRequest("get",[self,"Background"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[self,"Background",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
 		return self
 
 	Func getStrokes
-		return dnRequest("get",[self,"Strokes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Strokes"])
 
 	Func setStrokes P1
-		dnRequest("set",[self,"Strokes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Strokes",P1])
 		return self
 
 	Func getIsGestureRecognizerAvailable
-		return dnRequest("get",[self,"IsGestureRecognizerAvailable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsGestureRecognizerAvailable"])
 
 	Func setIsGestureRecognizerAvailable P1
 		raise("DotNet Error: IsGestureRecognizerAvailable is a read-only property")
 
 	Func getChildren
-		return dnRequest("get",[self,"Children"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getDefaultDrawingAttributes
-		return dnRequest("get",[self,"DefaultDrawingAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultDrawingAttributes"])
 
 	Func setDefaultDrawingAttributes P1
-		dnRequest("set",[self,"DefaultDrawingAttributes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultDrawingAttributes",P1])
 		return self
 
 	Func getEraserShape
-		return dnRequest("get",[self,"EraserShape"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EraserShape"])
 
 	Func setEraserShape P1
-		dnRequest("set",[self,"EraserShape",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EraserShape",P1])
 		return self
 
 	Func getActiveEditingMode
-		return dnRequest("get",[self,"ActiveEditingMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActiveEditingMode"])
 
 	Func setActiveEditingMode P1
 		raise("DotNet Error: ActiveEditingMode is a read-only property")
 
 	Func getEditingMode
-		return dnRequest("get",[self,"EditingMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditingMode"])
 
 	Func setEditingMode P1
-		dnRequest("set",[self,"EditingMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EditingMode",P1])
 		return self
 
 	Func getEditingModeInverted
-		return dnRequest("get",[self,"EditingModeInverted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditingModeInverted"])
 
 	Func setEditingModeInverted P1
-		dnRequest("set",[self,"EditingModeInverted",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EditingModeInverted",P1])
 		return self
 
 	Func getUseCustomCursor
-		return dnRequest("get",[self,"UseCustomCursor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseCustomCursor"])
 
 	Func setUseCustomCursor P1
-		dnRequest("set",[self,"UseCustomCursor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseCustomCursor",P1])
 		return self
 
 	Func getMoveEnabled
-		return dnRequest("get",[self,"MoveEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MoveEnabled"])
 
 	Func setMoveEnabled P1
-		dnRequest("set",[self,"MoveEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MoveEnabled",P1])
 		return self
 
 	Func getResizeEnabled
-		return dnRequest("get",[self,"ResizeEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResizeEnabled"])
 
 	Func setResizeEnabled P1
-		dnRequest("set",[self,"ResizeEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ResizeEnabled",P1])
 		return self
 
 	Func getDefaultStylusPointDescription
-		return dnRequest("get",[self,"DefaultStylusPointDescription"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultStylusPointDescription"])
 
 	Func setDefaultStylusPointDescription P1
-		dnRequest("set",[self,"DefaultStylusPointDescription",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultStylusPointDescription",P1])
 		return self
 
 	Func getPreferredPasteFormats
-		return dnRequest("get",[self,"PreferredPasteFormats"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreferredPasteFormats"])
 
 	Func setPreferredPasteFormats P1
-		dnRequest("set",[self,"PreferredPasteFormats",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PreferredPasteFormats",P1])
 		return self
 
 	Func getBackgroundProperty

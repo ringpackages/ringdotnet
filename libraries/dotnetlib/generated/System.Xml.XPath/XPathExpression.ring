@@ -17,22 +17,22 @@ Class XPathExpression from Object
 		return self
 
 	Func AddSort_2 P1,P2
-		dnRequest("call",[self,"AddSort",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddSort",P1,P2])
 		return self
 
 	Func AddSort P1,P2,P3,P4,P5
-		dnRequest("call",[self,"AddSort",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"AddSort",P1,P2,P3,P4,P5])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func SetContext P1
-		dnRequest("call",[self,"SetContext",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetContext",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Compile P1
 		if dnIsNamed(P1)
@@ -44,13 +44,13 @@ Class XPathExpression from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1,P2])
 
 	Func getExpression
-		return dnRequest("get",[self,"Expression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expression"])
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getReturnType
-		return dnRequest("get",[self,"ReturnType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnType"])
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")

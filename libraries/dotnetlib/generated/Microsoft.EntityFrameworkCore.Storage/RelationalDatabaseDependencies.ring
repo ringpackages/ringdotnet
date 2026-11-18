@@ -19,26 +19,26 @@ Class RelationalDatabaseDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBatchPreparer
-		return dnRequest("get",[self,"BatchPreparer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BatchPreparer"])
 
 	Func setBatchPreparer P1
-		dnRequest("set",[self,"BatchPreparer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BatchPreparer",P1])
 		return self
 
 	Func getBatchExecutor
-		return dnRequest("get",[self,"BatchExecutor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BatchExecutor"])
 
 	Func setBatchExecutor P1
-		dnRequest("set",[self,"BatchExecutor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BatchExecutor",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[self,"Connection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
 		return self
 

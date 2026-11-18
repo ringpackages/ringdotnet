@@ -16,7 +16,7 @@ Class NetworkAvailabilityEventArgs from EventArgs
 		return self
 
 	Func getIsAvailable
-		return dnRequest("get",[self,"IsAvailable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAvailable"])
 
 	Func setIsAvailable P1
 		raise("DotNet Error: IsAvailable is a read-only property")

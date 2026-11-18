@@ -24,30 +24,30 @@ Class AdjustableArrowCap from CustomLineCap
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
 		return self
 
 	Func getMiddleInset
-		return dnRequest("get",[self,"MiddleInset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MiddleInset"])
 
 	Func setMiddleInset P1
-		dnRequest("set",[self,"MiddleInset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MiddleInset",P1])
 		return self
 
 	Func getFilled
-		return dnRequest("get",[self,"Filled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filled"])
 
 	Func setFilled P1
-		dnRequest("set",[self,"Filled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Filled",P1])
 		return self
 

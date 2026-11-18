@@ -28,17 +28,17 @@ Class Icon from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func ToBitmap 
-		return dnRequest("call",[self,"ToBitmap"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToBitmap"])
 
 	Func Save P1
-		dnRequest("call",[self,"Save",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
 	Func ExtractAssociatedIcon P1
@@ -54,25 +54,25 @@ Class Icon from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Drawing.Icon, System.Drawing.Common'),"ExtractIcon",P1,P2])
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")

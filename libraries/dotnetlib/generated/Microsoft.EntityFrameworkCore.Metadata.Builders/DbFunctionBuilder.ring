@@ -15,23 +15,23 @@ Class DbFunctionBuilder from DbFunctionBuilderBase
 		return self
 
 	Func IsNullable_1 P1
-		return dnRequest("call",[self,"IsNullable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsNullable",P1])
 
 	Func IsNullable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsNullable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsNullable",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsNullable"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsNullable"])
 		ok
-		return dnRequest("call",[self,"IsNullable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsNullable",P1])
 
 	Func HasStoreType P1
-		return dnRequest("call",[self,"HasStoreType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasStoreType",P1])
 
 	Func HasTranslation P1
-		return dnRequest("call",[self,"HasTranslation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasTranslation",P1])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 

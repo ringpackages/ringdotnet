@@ -19,26 +19,26 @@ Class RelationalShapedQueryCompilingExpressionVisitorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getQuerySqlGeneratorFactory
-		return dnRequest("get",[self,"QuerySqlGeneratorFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QuerySqlGeneratorFactory"])
 
 	Func setQuerySqlGeneratorFactory P1
-		dnRequest("set",[self,"QuerySqlGeneratorFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"QuerySqlGeneratorFactory",P1])
 		return self
 
 	Func getRelationalParameterBasedSqlProcessorFactory
-		return dnRequest("get",[self,"RelationalParameterBasedSqlProcessorFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalParameterBasedSqlProcessorFactory"])
 
 	Func setRelationalParameterBasedSqlProcessorFactory P1
-		dnRequest("set",[self,"RelationalParameterBasedSqlProcessorFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RelationalParameterBasedSqlProcessorFactory",P1])
 		return self
 
 	Func getRelationalLiftableConstantFactory
-		return dnRequest("get",[self,"RelationalLiftableConstantFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalLiftableConstantFactory"])
 
 	Func setRelationalLiftableConstantFactory P1
-		dnRequest("set",[self,"RelationalLiftableConstantFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RelationalLiftableConstantFactory",P1])
 		return self
 

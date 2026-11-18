@@ -15,10 +15,10 @@ Class AsyncFlowControl from ValueType
 		return self
 
 	Func Undo 
-		dnRequest("call",[self,"Undo"])
+		dnRequest("call",[new DotNetObject(nHandle),"Undo"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 

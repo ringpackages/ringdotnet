@@ -22,59 +22,59 @@ Class EventDescriptorCollection from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Find P1,P2
-		return dnRequest("call",[self,"Find",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[self,"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Sort P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Sort",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Sort",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Sort"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Sort"])
 		ok
-		return dnRequest("call",[self,"Sort",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
 
 	Func Sort_1 P1
-		return dnRequest("call",[self,"Sort",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
 
 	Func Sort_2 P1,P2
-		return dnRequest("call",[self,"Sort",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

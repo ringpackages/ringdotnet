@@ -19,24 +19,24 @@ Class HostBuilderContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHostingEnvironment
-		return dnRequest("get",[self,"HostingEnvironment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HostingEnvironment"])
 
 	Func setHostingEnvironment P1
-		dnRequest("set",[self,"HostingEnvironment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HostingEnvironment",P1])
 		return self
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Configuration"])
 
 	Func setConfiguration P1
-		dnRequest("set",[self,"Configuration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Configuration",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

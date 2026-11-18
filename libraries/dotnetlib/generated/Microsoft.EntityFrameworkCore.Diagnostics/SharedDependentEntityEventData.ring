@@ -18,13 +18,13 @@ Class SharedDependentEntityEventData from EventData
 		return self
 
 	Func getFirstEntityType
-		return dnRequest("get",[self,"FirstEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstEntityType"])
 
 	Func setFirstEntityType P1
 		raise("DotNet Error: FirstEntityType is a read-only property")
 
 	Func getSecondEntityType
-		return dnRequest("get",[self,"SecondEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecondEntityType"])
 
 	Func setSecondEntityType P1
 		raise("DotNet Error: SecondEntityType is a read-only property")

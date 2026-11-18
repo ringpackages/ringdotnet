@@ -33,70 +33,70 @@ Class StringFormat from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func SetMeasurableCharacterRanges P1
-		dnRequest("call",[self,"SetMeasurableCharacterRanges",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetMeasurableCharacterRanges",P1])
 		return self
 
 	Func SetTabStops P1,P2
-		dnRequest("call",[self,"SetTabStops",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetTabStops",P1,P2])
 		return self
 
 	Func GetTabStops 
-		return dnRequest("call",[self,"GetTabStops"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTabStops"])
 
 	Func SetDigitSubstitution P1,P2
-		dnRequest("call",[self,"SetDigitSubstitution",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetDigitSubstitution",P1,P2])
 		return self
 
 	Func getFormatFlags
-		return dnRequest("get",[self,"FormatFlags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatFlags"])
 
 	Func setFormatFlags P1
-		dnRequest("set",[self,"FormatFlags",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormatFlags",P1])
 		return self
 
 	Func getAlignment
-		return dnRequest("get",[self,"Alignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Alignment"])
 
 	Func setAlignment P1
-		dnRequest("set",[self,"Alignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Alignment",P1])
 		return self
 
 	Func getLineAlignment
-		return dnRequest("get",[self,"LineAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineAlignment"])
 
 	Func setLineAlignment P1
-		dnRequest("set",[self,"LineAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineAlignment",P1])
 		return self
 
 	Func getHotkeyPrefix
-		return dnRequest("get",[self,"HotkeyPrefix"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HotkeyPrefix"])
 
 	Func setHotkeyPrefix P1
-		dnRequest("set",[self,"HotkeyPrefix",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HotkeyPrefix",P1])
 		return self
 
 	Func getTrimming
-		return dnRequest("get",[self,"Trimming"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Trimming"])
 
 	Func setTrimming P1
-		dnRequest("set",[self,"Trimming",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Trimming",P1])
 		return self
 
 	Func getDigitSubstitutionMethod
-		return dnRequest("get",[self,"DigitSubstitutionMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DigitSubstitutionMethod"])
 
 	Func setDigitSubstitutionMethod P1
 		raise("DotNet Error: DigitSubstitutionMethod is a read-only property")
 
 	Func getDigitSubstitutionLanguage
-		return dnRequest("get",[self,"DigitSubstitutionLanguage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DigitSubstitutionLanguage"])
 
 	Func setDigitSubstitutionLanguage P1
 		raise("DotNet Error: DigitSubstitutionLanguage is a read-only property")

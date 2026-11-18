@@ -22,61 +22,61 @@ Class DrawToolTipEventArgs from EventArgs
 		return self
 
 	Func DrawBackground 
-		dnRequest("call",[self,"DrawBackground"])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground"])
 		return self
 
 	Func DrawText P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"DrawText",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawText",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"DrawText"])
+			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[self,"DrawText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
 	Func DrawText_1 P1
-		dnRequest("call",[self,"DrawText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
 	Func DrawBorder 
-		dnRequest("call",[self,"DrawBorder"])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawBorder"])
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getAssociatedWindow
-		return dnRequest("get",[self,"AssociatedWindow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AssociatedWindow"])
 
 	Func setAssociatedWindow P1
 		raise("DotNet Error: AssociatedWindow is a read-only property")
 
 	Func getAssociatedControl
-		return dnRequest("get",[self,"AssociatedControl"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AssociatedControl"])
 
 	Func setAssociatedControl P1
 		raise("DotNet Error: AssociatedControl is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getToolTipText
-		return dnRequest("get",[self,"ToolTipText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipText"])
 
 	Func setToolTipText P1
 		raise("DotNet Error: ToolTipText is a read-only property")
 
 	Func getFont
-		return dnRequest("get",[self,"Font"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
 
 	Func setFont P1
 		raise("DotNet Error: Font is a read-only property")

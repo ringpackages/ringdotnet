@@ -19,96 +19,96 @@ Class Region from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func ReleaseHrgn P1
-		dnRequest("call",[self,"ReleaseHrgn",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHrgn",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func MakeInfinite 
-		dnRequest("call",[self,"MakeInfinite"])
+		dnRequest("call",[new DotNetObject(nHandle),"MakeInfinite"])
 		return self
 
 	Func MakeEmpty 
-		dnRequest("call",[self,"MakeEmpty"])
+		dnRequest("call",[new DotNetObject(nHandle),"MakeEmpty"])
 		return self
 
 	Func Intersect P1
-		dnRequest("call",[self,"Intersect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Intersect",P1])
 		return self
 
 	Func Union P1
-		dnRequest("call",[self,"Union",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Union",P1])
 		return self
 
 	Func Xor P1
-		dnRequest("call",[self,"Xor",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Xor",P1])
 		return self
 
 	Func Exclude P1
-		dnRequest("call",[self,"Exclude",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Exclude",P1])
 		return self
 
 	Func Complement P1
-		dnRequest("call",[self,"Complement",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Complement",P1])
 		return self
 
 	Func Translate P1,P2
-		dnRequest("call",[self,"Translate",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2])
 		return self
 
 	Func Transform P1
-		dnRequest("call",[self,"Transform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func GetBounds P1
-		return dnRequest("call",[self,"GetBounds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
 
 	Func GetHrgn P1
-		return dnRequest("call",[self,"GetHrgn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHrgn",P1])
 
 	Func IsEmpty P1
-		return dnRequest("call",[self,"IsEmpty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEmpty",P1])
 
 	Func IsInfinite P1
-		return dnRequest("call",[self,"IsInfinite",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsInfinite",P1])
 
 	Func Equals_2 P1,P2
-		return dnRequest("call",[self,"Equals",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
 
 	Func GetRegionData 
-		return dnRequest("call",[self,"GetRegionData"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRegionData"])
 
 	Func IsVisible_2 P1,P2
-		return dnRequest("call",[self,"IsVisible",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2])
 
 	Func IsVisible P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsVisible",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsVisible",P1])
 		ok
-		return dnRequest("call",[self,"IsVisible",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1])
 
 	Func IsVisible_3 P1,P2,P3
-		return dnRequest("call",[self,"IsVisible",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2,P3])
 
 	Func IsVisible_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"IsVisible",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2,P3,P4])
 
 	Func IsVisible_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"IsVisible",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2,P3,P4,P5])
 
 	Func GetRegionScans P1
-		return dnRequest("call",[self,"GetRegionScans",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRegionScans",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromHrgn P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Region, System.Drawing.Common'),"FromHrgn",P1])

@@ -17,7 +17,7 @@ Class MigrationColumnOperationEventData from EventData
 		return self
 
 	Func getColumnOperation
-		return dnRequest("get",[self,"ColumnOperation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnOperation"])
 
 	Func setColumnOperation P1
 		raise("DotNet Error: ColumnOperation is a read-only property")

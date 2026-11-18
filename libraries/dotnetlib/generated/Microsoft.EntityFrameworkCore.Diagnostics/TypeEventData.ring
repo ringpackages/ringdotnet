@@ -17,7 +17,7 @@ Class TypeEventData from EventData
 		return self
 
 	Func getClrType
-		return dnRequest("get",[self,"ClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")

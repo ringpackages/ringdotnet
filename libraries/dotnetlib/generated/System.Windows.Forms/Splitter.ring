@@ -20,46 +20,46 @@ Class Splitter from Control
 		return self
 
 	Func setSplitterMovingEvent P1
-		dnRequest("setevent",[self,"SplitterMoving",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SplitterMoving",dnCallback(P1)])
 		return self
 
 	Func clearSplitterMovingEvent
-		dnRequest("clearevent",[self,"SplitterMoving"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SplitterMoving"])
 		return self
 
 	Func setSplitterMovedEvent P1
-		dnRequest("setevent",[self,"SplitterMoved",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SplitterMoved",dnCallback(P1)])
 		return self
 
 	Func clearSplitterMovedEvent
-		dnRequest("clearevent",[self,"SplitterMoved"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SplitterMoved"])
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[self,"BorderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[self,"BorderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
 		return self
 
 	Func getMinExtra
-		return dnRequest("get",[self,"MinExtra"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinExtra"])
 
 	Func setMinExtra P1
-		dnRequest("set",[self,"MinExtra",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinExtra",P1])
 		return self
 
 	Func getMinSize
-		return dnRequest("get",[self,"MinSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinSize"])
 
 	Func setMinSize P1
-		dnRequest("set",[self,"MinSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinSize",P1])
 		return self
 
 	Func getSplitPosition
-		return dnRequest("get",[self,"SplitPosition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SplitPosition"])
 
 	Func setSplitPosition P1
-		dnRequest("set",[self,"SplitPosition",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SplitPosition",P1])
 		return self
 

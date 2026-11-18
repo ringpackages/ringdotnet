@@ -15,27 +15,27 @@ Class ConstructorInvoker from Object
 
 	Func Invoke P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Invoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Invoke",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Invoke"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Invoke"])
 		ok
-		return dnRequest("call",[self,"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
 
 	Func Invoke_1 P1
-		return dnRequest("call",[self,"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
 
 	Func Invoke_2 P1,P2
-		return dnRequest("call",[self,"Invoke",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2])
 
 	Func Invoke_3 P1,P2,P3
-		return dnRequest("call",[self,"Invoke",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3])
 
 	Func Invoke_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Invoke",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.ConstructorInvoker, System.Private.CoreLib'),"Create",P1])

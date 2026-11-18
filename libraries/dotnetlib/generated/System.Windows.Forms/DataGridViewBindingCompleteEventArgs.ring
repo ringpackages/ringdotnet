@@ -17,7 +17,7 @@ Class DataGridViewBindingCompleteEventArgs from EventArgs
 		return self
 
 	Func getListChangedType
-		return dnRequest("get",[self,"ListChangedType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ListChangedType"])
 
 	Func setListChangedType P1
 		raise("DotNet Error: ListChangedType is a read-only property")

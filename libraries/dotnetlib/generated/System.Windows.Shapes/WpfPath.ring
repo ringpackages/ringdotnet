@@ -18,10 +18,10 @@ Class WpfPath from Shape
 		return self
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
 
 	Func setData P1
-		dnRequest("set",[self,"Data",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Data",P1])
 		return self
 
 	Func getDataProperty

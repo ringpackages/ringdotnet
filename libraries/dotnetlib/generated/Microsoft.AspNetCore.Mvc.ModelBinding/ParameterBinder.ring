@@ -15,11 +15,11 @@ Class ParameterBinder from Object
 		return self
 
 	Func BindModelAsync P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"BindModelAsync",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindModelAsync",P1,P2,P3,P4,P5,P6])
 
 	Func BindModelAsync_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"BindModelAsync",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindModelAsync",P1,P2,P3,P4,P5,P6,P7])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

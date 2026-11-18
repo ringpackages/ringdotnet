@@ -17,12 +17,12 @@ Class WindowsFormsSection from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getJitDebugging
-		return dnRequest("get",[self,"JitDebugging"])
+		return dnRequest("get",[new DotNetObject(nHandle),"JitDebugging"])
 
 	Func setJitDebugging P1
-		dnRequest("set",[self,"JitDebugging",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"JitDebugging",P1])
 		return self
 

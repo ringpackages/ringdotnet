@@ -17,41 +17,41 @@ Class IWebHost from DotNetObject
 		return self
 
 	Func Start 
-		dnRequest("call",[self,"Start"])
+		dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		return self
 
 	Func StartAsync_1 P1
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"StartAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"StartAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"StartAsync"])
 		ok
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StopAsync_1 P1
-		return dnRequest("call",[self,"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func StopAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"StopAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StopAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"StopAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"StopAsync"])
 		ok
-		return dnRequest("call",[self,"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func getServerFeatures
-		return dnRequest("get",[self,"ServerFeatures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServerFeatures"])
 
 	Func setServerFeatures P1
 		raise("DotNet Error: ServerFeatures is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")

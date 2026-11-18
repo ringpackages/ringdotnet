@@ -14,5 +14,5 @@ Class IQueryingEnumerable from DotNetObject
 		return self
 
 	Func ToQueryString 
-		return dnRequest("call",[self,"ToQueryString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToQueryString"])
 

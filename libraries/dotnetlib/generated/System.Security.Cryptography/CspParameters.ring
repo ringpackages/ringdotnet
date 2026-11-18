@@ -35,54 +35,54 @@ Class CspParameters from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFlags
-		return dnRequest("get",[self,"Flags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Flags"])
 
 	Func setFlags P1
-		dnRequest("set",[self,"Flags",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Flags",P1])
 		return self
 
 	Func getKeyPassword
-		return dnRequest("get",[self,"KeyPassword"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyPassword"])
 
 	Func setKeyPassword P1
-		dnRequest("set",[self,"KeyPassword",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyPassword",P1])
 		return self
 
 	Func getParentWindowHandle
-		return dnRequest("get",[self,"ParentWindowHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParentWindowHandle"])
 
 	Func setParentWindowHandle P1
-		dnRequest("set",[self,"ParentWindowHandle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ParentWindowHandle",P1])
 		return self
 
 	Func getProviderType
-		return dnRequest("get",[self,"ProviderType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProviderType"])
 
 	Func setProviderType P1
-		dnRequest("set",[self,"ProviderType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProviderType",P1])
 		return self
 
 	Func getProviderName
-		return dnRequest("get",[self,"ProviderName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProviderName"])
 
 	Func setProviderName P1
-		dnRequest("set",[self,"ProviderName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProviderName",P1])
 		return self
 
 	Func getKeyContainerName
-		return dnRequest("get",[self,"KeyContainerName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyContainerName"])
 
 	Func setKeyContainerName P1
-		dnRequest("set",[self,"KeyContainerName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyContainerName",P1])
 		return self
 
 	Func getKeyNumber
-		return dnRequest("get",[self,"KeyNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyNumber"])
 
 	Func setKeyNumber P1
-		dnRequest("set",[self,"KeyNumber",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyNumber",P1])
 		return self
 

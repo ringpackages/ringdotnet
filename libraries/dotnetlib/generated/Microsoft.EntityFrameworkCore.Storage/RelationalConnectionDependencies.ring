@@ -23,54 +23,54 @@ Class RelationalConnectionDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContextOptions
-		return dnRequest("get",[self,"ContextOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextOptions"])
 
 	Func setContextOptions P1
-		dnRequest("set",[self,"ContextOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContextOptions",P1])
 		return self
 
 	Func getTransactionLogger
-		return dnRequest("get",[self,"TransactionLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransactionLogger"])
 
 	Func setTransactionLogger P1
-		dnRequest("set",[self,"TransactionLogger",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TransactionLogger",P1])
 		return self
 
 	Func getConnectionLogger
-		return dnRequest("get",[self,"ConnectionLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionLogger"])
 
 	Func setConnectionLogger P1
-		dnRequest("set",[self,"ConnectionLogger",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ConnectionLogger",P1])
 		return self
 
 	Func getConnectionStringResolver
-		return dnRequest("get",[self,"ConnectionStringResolver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionStringResolver"])
 
 	Func setConnectionStringResolver P1
-		dnRequest("set",[self,"ConnectionStringResolver",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ConnectionStringResolver",P1])
 		return self
 
 	Func getRelationalTransactionFactory
-		return dnRequest("get",[self,"RelationalTransactionFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalTransactionFactory"])
 
 	Func setRelationalTransactionFactory P1
-		dnRequest("set",[self,"RelationalTransactionFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RelationalTransactionFactory",P1])
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[self,"CurrentContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentContext"])
 
 	Func setCurrentContext P1
-		dnRequest("set",[self,"CurrentContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentContext",P1])
 		return self
 
 	Func getRelationalCommandBuilderFactory
-		return dnRequest("get",[self,"RelationalCommandBuilderFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalCommandBuilderFactory"])
 
 	Func setRelationalCommandBuilderFactory P1
-		dnRequest("set",[self,"RelationalCommandBuilderFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RelationalCommandBuilderFactory",P1])
 		return self
 

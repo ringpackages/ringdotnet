@@ -22,17 +22,17 @@ Class Section from Block
 		return self
 
 	Func ShouldSerializeBlocks P1
-		return dnRequest("call",[self,"ShouldSerializeBlocks",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeBlocks",P1])
 
 	Func getHasTrailingParagraphBreakOnPaste
-		return dnRequest("get",[self,"HasTrailingParagraphBreakOnPaste"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasTrailingParagraphBreakOnPaste"])
 
 	Func setHasTrailingParagraphBreakOnPaste P1
-		dnRequest("set",[self,"HasTrailingParagraphBreakOnPaste",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HasTrailingParagraphBreakOnPaste",P1])
 		return self
 
 	Func getBlocks
-		return dnRequest("get",[self,"Blocks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Blocks"])
 
 	Func setBlocks P1
 		raise("DotNet Error: Blocks is a read-only property")

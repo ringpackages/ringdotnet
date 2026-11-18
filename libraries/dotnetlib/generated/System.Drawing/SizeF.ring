@@ -24,13 +24,13 @@ Class SizeF from ValueType
 		return self
 
 	Func ToVector2 
-		return dnRequest("call",[self,"ToVector2"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToVector2"])
 
 	Func ToPointF 
-		return dnRequest("call",[self,"ToPointF"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToPointF"])
 
 	Func ToSize 
-		return dnRequest("call",[self,"ToSize"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSize"])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.SizeF, System.Drawing.Primitives'),"Add",P1,P2])
@@ -39,23 +39,23 @@ Class SizeF from ValueType
 		return dnRequest("call",[dnTypeCached('System.Drawing.SizeF, System.Drawing.Primitives'),"Subtract",P1,P2])
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
 		return self
 
 	Func getEmpty

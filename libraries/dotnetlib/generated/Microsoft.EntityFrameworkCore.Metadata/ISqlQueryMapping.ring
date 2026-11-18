@@ -18,20 +18,20 @@ Class ISqlQueryMapping from DotNetObject
 		return self
 
 	Func getIsDefaultSqlQueryMapping
-		return dnRequest("get",[self,"IsDefaultSqlQueryMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDefaultSqlQueryMapping"])
 
 	Func setIsDefaultSqlQueryMapping P1
-		dnRequest("set",[self,"IsDefaultSqlQueryMapping",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsDefaultSqlQueryMapping",P1])
 		return self
 
 	Func getSqlQuery
-		return dnRequest("get",[self,"SqlQuery"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SqlQuery"])
 
 	Func setSqlQuery P1
 		raise("DotNet Error: SqlQuery is a read-only property")
 
 	Func getColumnMappings
-		return dnRequest("get",[self,"ColumnMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnMappings"])
 
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")

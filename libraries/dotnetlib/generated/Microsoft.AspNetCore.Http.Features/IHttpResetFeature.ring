@@ -14,6 +14,6 @@ Class IHttpResetFeature from DotNetObject
 		return self
 
 	Func Reset P1
-		dnRequest("call",[self,"Reset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset",P1])
 		return self
 

@@ -14,55 +14,55 @@ Class ISaveChangesInterceptor from DotNetObject
 		return self
 
 	Func SavingChanges P1,P2
-		return dnRequest("call",[self,"SavingChanges",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SavingChanges",P1,P2])
 
 	Func SavedChanges P1,P2
-		return dnRequest("call",[self,"SavedChanges",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SavedChanges",P1,P2])
 
 	Func SaveChangesFailed P1
-		dnRequest("call",[self,"SaveChangesFailed",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SaveChangesFailed",P1])
 		return self
 
 	Func SavingChangesAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"SavingChangesAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SavingChangesAsync",P1,P2,P3])
 
 	Func SavingChangesAsync P1,P2
-		return dnRequest("call",[self,"SavingChangesAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SavingChangesAsync",P1,P2])
 
 	Func SavedChangesAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"SavedChangesAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SavedChangesAsync",P1,P2,P3])
 
 	Func SavedChangesAsync P1,P2
-		return dnRequest("call",[self,"SavedChangesAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SavedChangesAsync",P1,P2])
 
 	Func SaveChangesFailedAsync_2 P1,P2
-		return dnRequest("call",[self,"SaveChangesFailedAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesFailedAsync",P1,P2])
 
 	Func SaveChangesFailedAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SaveChangesFailedAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChangesFailedAsync",P1])
 		ok
-		return dnRequest("call",[self,"SaveChangesFailedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesFailedAsync",P1])
 
 	Func SaveChangesCanceled P1
-		dnRequest("call",[self,"SaveChangesCanceled",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SaveChangesCanceled",P1])
 		return self
 
 	Func SaveChangesCanceledAsync_2 P1,P2
-		return dnRequest("call",[self,"SaveChangesCanceledAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesCanceledAsync",P1,P2])
 
 	Func SaveChangesCanceledAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SaveChangesCanceledAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChangesCanceledAsync",P1])
 		ok
-		return dnRequest("call",[self,"SaveChangesCanceledAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesCanceledAsync",P1])
 
 	Func ThrowingConcurrencyException P1,P2
-		return dnRequest("call",[self,"ThrowingConcurrencyException",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ThrowingConcurrencyException",P1,P2])
 
 	Func ThrowingConcurrencyExceptionAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"ThrowingConcurrencyExceptionAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ThrowingConcurrencyExceptionAsync",P1,P2,P3])
 
 	Func ThrowingConcurrencyExceptionAsync P1,P2
-		return dnRequest("call",[self,"ThrowingConcurrencyExceptionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ThrowingConcurrencyExceptionAsync",P1,P2])
 

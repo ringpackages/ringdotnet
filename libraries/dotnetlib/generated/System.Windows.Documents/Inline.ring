@@ -24,42 +24,42 @@ Class Inline from TextElement
 		return self
 
 	Func getSiblingInlines
-		return dnRequest("get",[self,"SiblingInlines"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SiblingInlines"])
 
 	Func setSiblingInlines P1
 		raise("DotNet Error: SiblingInlines is a read-only property")
 
 	Func getNextInline
-		return dnRequest("get",[self,"NextInline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NextInline"])
 
 	Func setNextInline P1
 		raise("DotNet Error: NextInline is a read-only property")
 
 	Func getPreviousInline
-		return dnRequest("get",[self,"PreviousInline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreviousInline"])
 
 	Func setPreviousInline P1
 		raise("DotNet Error: PreviousInline is a read-only property")
 
 	Func getBaselineAlignment
-		return dnRequest("get",[self,"BaselineAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaselineAlignment"])
 
 	Func setBaselineAlignment P1
-		dnRequest("set",[self,"BaselineAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaselineAlignment",P1])
 		return self
 
 	Func getTextDecorations
-		return dnRequest("get",[self,"TextDecorations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextDecorations"])
 
 	Func setTextDecorations P1
-		dnRequest("set",[self,"TextDecorations",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextDecorations",P1])
 		return self
 
 	Func getFlowDirection
-		return dnRequest("get",[self,"FlowDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FlowDirection"])
 
 	Func setFlowDirection P1
-		dnRequest("set",[self,"FlowDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FlowDirection",P1])
 		return self
 
 	Func getBaselineAlignmentProperty

@@ -21,31 +21,31 @@ Class ValueSource from ValueType
 		return self
 
 	Func getBaseValueSource
-		return dnRequest("get",[self,"BaseValueSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseValueSource"])
 
 	Func setBaseValueSource P1
 		raise("DotNet Error: BaseValueSource is a read-only property")
 
 	Func getIsExpression
-		return dnRequest("get",[self,"IsExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsExpression"])
 
 	Func setIsExpression P1
 		raise("DotNet Error: IsExpression is a read-only property")
 
 	Func getIsAnimated
-		return dnRequest("get",[self,"IsAnimated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAnimated"])
 
 	Func setIsAnimated P1
 		raise("DotNet Error: IsAnimated is a read-only property")
 
 	Func getIsCoerced
-		return dnRequest("get",[self,"IsCoerced"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCoerced"])
 
 	Func setIsCoerced P1
 		raise("DotNet Error: IsCoerced is a read-only property")
 
 	Func getIsCurrent
-		return dnRequest("get",[self,"IsCurrent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCurrent"])
 
 	Func setIsCurrent P1
 		raise("DotNet Error: IsCurrent is a read-only property")

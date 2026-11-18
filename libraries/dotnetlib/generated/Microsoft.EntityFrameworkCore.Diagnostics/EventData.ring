@@ -19,22 +19,22 @@ Class EventData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEventId
-		return dnRequest("get",[self,"EventId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EventId"])
 
 	Func setEventId P1
 		raise("DotNet Error: EventId is a read-only property")
 
 	Func getLogLevel
-		return dnRequest("get",[self,"LogLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogLevel"])
 
 	Func setLogLevel P1
 		raise("DotNet Error: LogLevel is a read-only property")
 
 	Func getEventIdCode
-		return dnRequest("get",[self,"EventIdCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EventIdCode"])
 
 	Func setEventIdCode P1
 		raise("DotNet Error: EventIdCode is a read-only property")

@@ -20,26 +20,26 @@ Class ListBoxItem from ContentControl
 		return self
 
 	Func setSelectedEvent P1
-		dnRequest("setevent",[self,"Selected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Selected",dnCallback(P1)])
 		return self
 
 	Func clearSelectedEvent
-		dnRequest("clearevent",[self,"Selected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Selected"])
 		return self
 
 	Func setUnselectedEvent P1
-		dnRequest("setevent",[self,"Unselected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Unselected",dnCallback(P1)])
 		return self
 
 	Func clearUnselectedEvent
-		dnRequest("clearevent",[self,"Unselected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Unselected"])
 		return self
 
 	Func getIsSelected
-		return dnRequest("get",[self,"IsSelected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
 
 	Func setIsSelected P1
-		dnRequest("set",[self,"IsSelected",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSelected",P1])
 		return self
 
 	Func getIsSelectedProperty

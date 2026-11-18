@@ -17,178 +17,178 @@ Class IEntityType from DotNetObject
 		return self
 
 	Func FindDiscriminatorProperty 
-		return dnRequest("call",[self,"FindDiscriminatorProperty"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDiscriminatorProperty"])
 
 	Func GetRootType 
-		return dnRequest("call",[self,"GetRootType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRootType"])
 
 	Func GetAllBaseTypes 
-		return dnRequest("call",[self,"GetAllBaseTypes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAllBaseTypes"])
 
 	Func GetAllBaseTypesInclusive 
-		return dnRequest("call",[self,"GetAllBaseTypesInclusive"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAllBaseTypesInclusive"])
 
 	Func GetAllBaseTypesAscending 
-		return dnRequest("call",[self,"GetAllBaseTypesAscending"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAllBaseTypesAscending"])
 
 	Func GetAllBaseTypesInclusiveAscending 
-		return dnRequest("call",[self,"GetAllBaseTypesInclusiveAscending"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAllBaseTypesInclusiveAscending"])
 
 	Func GetDerivedTypes 
-		return dnRequest("call",[self,"GetDerivedTypes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedTypes"])
 
 	Func GetDerivedTypesInclusive 
-		return dnRequest("call",[self,"GetDerivedTypesInclusive"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedTypesInclusive"])
 
 	Func GetDirectlyDerivedTypes 
-		return dnRequest("call",[self,"GetDirectlyDerivedTypes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectlyDerivedTypes"])
 
 	Func GetConcreteDerivedTypesInclusive 
-		return dnRequest("call",[self,"GetConcreteDerivedTypesInclusive"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConcreteDerivedTypesInclusive"])
 
 	Func FindKey P1
-		return dnRequest("call",[self,"FindKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindKey",P1])
 
 	Func FindClosestCommonParent P1
-		return dnRequest("call",[self,"FindClosestCommonParent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindClosestCommonParent",P1])
 
 	Func LeastDerivedType P1
-		return dnRequest("call",[self,"LeastDerivedType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LeastDerivedType",P1])
 
 	Func FindPrimaryKey 
-		return dnRequest("call",[self,"FindPrimaryKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindPrimaryKey"])
 
 	Func GetDeclaredKeys 
-		return dnRequest("call",[self,"GetDeclaredKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredKeys"])
 
 	Func GetKeys 
-		return dnRequest("call",[self,"GetKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeys"])
 
 	Func FindForeignKey P1,P2,P3
-		return dnRequest("call",[self,"FindForeignKey",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindForeignKey",P1,P2,P3])
 
 	Func FindForeignKeys P1
-		return dnRequest("call",[self,"FindForeignKeys",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindForeignKeys",P1])
 
 	Func FindDeclaredForeignKeys P1
-		return dnRequest("call",[self,"FindDeclaredForeignKeys",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredForeignKeys",P1])
 
 	Func GetDeclaredForeignKeys 
-		return dnRequest("call",[self,"GetDeclaredForeignKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredForeignKeys"])
 
 	Func GetDerivedForeignKeys 
-		return dnRequest("call",[self,"GetDerivedForeignKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedForeignKeys"])
 
 	Func GetForeignKeys 
-		return dnRequest("call",[self,"GetForeignKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetForeignKeys"])
 
 	Func GetReferencingForeignKeys 
-		return dnRequest("call",[self,"GetReferencingForeignKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReferencingForeignKeys"])
 
 	Func GetDeclaredReferencingForeignKeys 
-		return dnRequest("call",[self,"GetDeclaredReferencingForeignKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredReferencingForeignKeys"])
 
 	Func FindOwnership 
-		return dnRequest("call",[self,"FindOwnership"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindOwnership"])
 
 	Func FindNavigation P1
-		return dnRequest("call",[self,"FindNavigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindNavigation",P1])
 
 	Func FindDeclaredNavigation P1
-		return dnRequest("call",[self,"FindDeclaredNavigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredNavigation",P1])
 
 	Func GetDeclaredNavigations 
-		return dnRequest("call",[self,"GetDeclaredNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredNavigations"])
 
 	Func GetDerivedNavigations 
-		return dnRequest("call",[self,"GetDerivedNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedNavigations"])
 
 	Func GetNavigationsInHierarchy 
-		return dnRequest("call",[self,"GetNavigationsInHierarchy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNavigationsInHierarchy"])
 
 	Func GetNavigations 
-		return dnRequest("call",[self,"GetNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNavigations"])
 
 	Func FindSkipNavigation P1
-		return dnRequest("call",[self,"FindSkipNavigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindSkipNavigation",P1])
 
 	Func FindDeclaredSkipNavigation P1
-		return dnRequest("call",[self,"FindDeclaredSkipNavigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredSkipNavigation",P1])
 
 	Func GetDeclaredSkipNavigations 
-		return dnRequest("call",[self,"GetDeclaredSkipNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredSkipNavigations"])
 
 	Func GetDerivedSkipNavigations 
-		return dnRequest("call",[self,"GetDerivedSkipNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedSkipNavigations"])
 
 	Func GetSkipNavigations 
-		return dnRequest("call",[self,"GetSkipNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSkipNavigations"])
 
 	Func FindIndex P1
-		return dnRequest("call",[self,"FindIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1])
 
 	Func GetDeclaredIndexes 
-		return dnRequest("call",[self,"GetDeclaredIndexes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredIndexes"])
 
 	Func GetDerivedIndexes 
-		return dnRequest("call",[self,"GetDerivedIndexes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedIndexes"])
 
 	Func GetIndexes 
-		return dnRequest("call",[self,"GetIndexes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIndexes"])
 
 	Func FindProperty P1
-		return dnRequest("call",[self,"FindProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindProperty",P1])
 
 	Func FindProperties P1
-		return dnRequest("call",[self,"FindProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindProperties",P1])
 
 	Func GetProperty P1
-		return dnRequest("call",[self,"GetProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1])
 
 	Func FindDeclaredProperty P1
-		return dnRequest("call",[self,"FindDeclaredProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredProperty",P1])
 
 	Func GetDeclaredProperties 
-		return dnRequest("call",[self,"GetDeclaredProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredProperties"])
 
 	Func GetDerivedProperties 
-		return dnRequest("call",[self,"GetDerivedProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedProperties"])
 
 	Func GetProperties 
-		return dnRequest("call",[self,"GetProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties"])
 
 	Func GetForeignKeyProperties 
-		return dnRequest("call",[self,"GetForeignKeyProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetForeignKeyProperties"])
 
 	Func GetValueGeneratingProperties 
-		return dnRequest("call",[self,"GetValueGeneratingProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueGeneratingProperties"])
 
 	Func FindServiceProperty P1
-		return dnRequest("call",[self,"FindServiceProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindServiceProperty",P1])
 
 	Func GetDeclaredServiceProperties 
-		return dnRequest("call",[self,"GetDeclaredServiceProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredServiceProperties"])
 
 	Func GetDerivedServiceProperties 
-		return dnRequest("call",[self,"GetDerivedServiceProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedServiceProperties"])
 
 	Func GetServiceProperties 
-		return dnRequest("call",[self,"GetServiceProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetServiceProperties"])
 
 	Func FindDeclaredTrigger P1
-		return dnRequest("call",[self,"FindDeclaredTrigger",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredTrigger",P1])
 
 	Func GetDeclaredTriggers 
-		return dnRequest("call",[self,"GetDeclaredTriggers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredTriggers"])
 
 	Func getBaseType
-		return dnRequest("get",[self,"BaseType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseType"])
 
 	Func setBaseType P1
 		raise("DotNet Error: BaseType is a read-only property")
 
 	Func getServiceOnlyConstructorBinding
-		return dnRequest("get",[self,"ServiceOnlyConstructorBinding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceOnlyConstructorBinding"])
 
 	Func setServiceOnlyConstructorBinding P1
 		raise("DotNet Error: ServiceOnlyConstructorBinding is a read-only property")

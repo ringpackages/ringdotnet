@@ -26,25 +26,25 @@ Class SqlGuid from ValueType
 		return self
 
 	Func ToByteArray 
-		return dnRequest("call",[self,"ToByteArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray"])
 
 	Func ToSqlString 
-		return dnRequest("call",[self,"ToSqlString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
 
 	Func ToSqlBinary 
-		return dnRequest("call",[self,"ToSqlBinary"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBinary"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"Parse",P1])
@@ -71,10 +71,10 @@ Class SqlGuid from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

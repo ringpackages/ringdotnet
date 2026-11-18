@@ -14,6 +14,6 @@ Class IDataGridColumnStyleEditingNotificationService from DotNetObject
 		return self
 
 	Func ColumnStartedEditing P1
-		dnRequest("call",[self,"ColumnStartedEditing",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ColumnStartedEditing",P1])
 		return self
 

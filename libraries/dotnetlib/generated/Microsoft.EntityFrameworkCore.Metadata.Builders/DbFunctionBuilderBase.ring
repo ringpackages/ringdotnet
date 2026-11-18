@@ -16,37 +16,37 @@ Class DbFunctionBuilderBase from Object
 		return self
 
 	Func HasName P1
-		return dnRequest("call",[self,"HasName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasName",P1])
 
 	Func HasSchema P1
-		return dnRequest("call",[self,"HasSchema",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSchema",P1])
 
 	Func IsBuiltIn_1 P1
-		return dnRequest("call",[self,"IsBuiltIn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBuiltIn",P1])
 
 	Func IsBuiltIn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsBuiltIn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsBuiltIn",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsBuiltIn"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsBuiltIn"])
 		ok
-		return dnRequest("call",[self,"IsBuiltIn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBuiltIn",P1])
 
 	Func HasParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasParameter",P1])
 		ok
-		return dnRequest("call",[self,"HasParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameter",P1])
 
 	Func HasParameter_2 P1,P2
-		return dnRequest("call",[self,"HasParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameter",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

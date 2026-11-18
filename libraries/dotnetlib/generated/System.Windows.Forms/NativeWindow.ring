@@ -17,29 +17,29 @@ Class NativeWindow from MarshalByRefObject
 		return self
 
 	Func AssignHandle P1
-		dnRequest("call",[self,"AssignHandle",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AssignHandle",P1])
 		return self
 
 	Func CreateHandle P1
-		dnRequest("call",[self,"CreateHandle",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateHandle",P1])
 		return self
 
 	Func DefWndProc P1
-		return dnRequest("call",[self,"DefWndProc",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DefWndProc",P1])
 
 	Func DestroyHandle 
-		dnRequest("call",[self,"DestroyHandle"])
+		dnRequest("call",[new DotNetObject(nHandle),"DestroyHandle"])
 		return self
 
 	Func ReleaseHandle 
-		dnRequest("call",[self,"ReleaseHandle"])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHandle"])
 		return self
 
 	Func FromHandle P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.NativeWindow, System.Windows.Forms'),"FromHandle",P1])
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")

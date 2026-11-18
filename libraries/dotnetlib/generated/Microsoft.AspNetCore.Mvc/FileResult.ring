@@ -20,36 +20,36 @@ Class FileResult from ActionResult
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getFileDownloadName
-		return dnRequest("get",[self,"FileDownloadName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileDownloadName"])
 
 	Func setFileDownloadName P1
-		dnRequest("set",[self,"FileDownloadName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FileDownloadName",P1])
 		return self
 
 	Func getLastModified
-		return dnRequest("get",[self,"LastModified"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastModified"])
 
 	Func setLastModified P1
-		dnRequest("set",[self,"LastModified",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LastModified",P1])
 		return self
 
 	Func getEntityTag
-		return dnRequest("get",[self,"EntityTag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityTag"])
 
 	Func setEntityTag P1
-		dnRequest("set",[self,"EntityTag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EntityTag",P1])
 		return self
 
 	Func getEnableRangeProcessing
-		return dnRequest("get",[self,"EnableRangeProcessing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableRangeProcessing"])
 
 	Func setEnableRangeProcessing P1
-		dnRequest("set",[self,"EnableRangeProcessing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableRangeProcessing",P1])
 		return self
 

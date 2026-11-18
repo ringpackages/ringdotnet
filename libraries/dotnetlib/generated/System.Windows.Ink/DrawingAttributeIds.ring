@@ -22,7 +22,7 @@ Class DrawingAttributeIds from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getColor
 		return dnRequest("get",[dnTypeCached('System.Windows.Ink.DrawingAttributeIds, PresentationCore'),"Color"])

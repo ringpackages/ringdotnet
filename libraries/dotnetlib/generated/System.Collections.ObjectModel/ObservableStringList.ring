@@ -19,14 +19,14 @@ Class ObservableStringList from StringCollectionList
 		return self
 
 	Func Move P1,P2
-		dnRequest("call",[self,"Move",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Move",P1,P2])
 		return self
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[self,"CollectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[self,"CollectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
 		return self
 

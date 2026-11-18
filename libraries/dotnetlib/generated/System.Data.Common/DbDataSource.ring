@@ -16,50 +16,50 @@ Class DbDataSource from Object
 		return self
 
 	Func CreateConnection 
-		return dnRequest("call",[self,"CreateConnection"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateConnection"])
 
 	Func OpenConnection 
-		return dnRequest("call",[self,"OpenConnection"])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenConnection"])
 
 	Func OpenConnectionAsync_1 P1
-		return dnRequest("call",[self,"OpenConnectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenConnectionAsync",P1])
 
 	Func OpenConnectionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"OpenConnectionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenConnectionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"OpenConnectionAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"OpenConnectionAsync"])
 		ok
-		return dnRequest("call",[self,"OpenConnectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenConnectionAsync",P1])
 
 	Func CreateCommand_1 P1
-		return dnRequest("call",[self,"CreateCommand",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand",P1])
 
 	Func CreateCommand P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateCommand",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateCommand",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateCommand"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand"])
 		ok
-		return dnRequest("call",[self,"CreateCommand",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand",P1])
 
 	Func CreateBatch 
-		return dnRequest("call",[self,"CreateBatch"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateBatch"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConnectionString
-		return dnRequest("get",[self,"ConnectionString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionString"])
 
 	Func setConnectionString P1
 		raise("DotNet Error: ConnectionString is a read-only property")

@@ -137,934 +137,934 @@ Class ContentElement from DependencyObject
 		return self
 
 	Func ApplyAnimationClock P1,P2
-		dnRequest("call",[self,"ApplyAnimationClock",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2])
 		return self
 
 	Func ApplyAnimationClock_3 P1,P2,P3
-		dnRequest("call",[self,"ApplyAnimationClock",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2,P3])
 		return self
 
 	Func BeginAnimation P1,P2
-		dnRequest("call",[self,"BeginAnimation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2])
 		return self
 
 	Func BeginAnimation_3 P1,P2,P3
-		dnRequest("call",[self,"BeginAnimation",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2,P3])
 		return self
 
 	Func GetAnimationBaseValue P1
-		return dnRequest("call",[self,"GetAnimationBaseValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
 
 	Func ShouldSerializeInputBindings 
-		return dnRequest("call",[self,"ShouldSerializeInputBindings"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeInputBindings"])
 
 	Func ShouldSerializeCommandBindings 
-		return dnRequest("call",[self,"ShouldSerializeCommandBindings"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeCommandBindings"])
 
 	Func RaiseEvent P1
-		dnRequest("call",[self,"RaiseEvent",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RaiseEvent",P1])
 		return self
 
 	Func AddHandler P1,P2
-		dnRequest("call",[self,"AddHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2])
 		return self
 
 	Func AddHandler_3 P1,P2,P3
-		dnRequest("call",[self,"AddHandler",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2,P3])
 		return self
 
 	Func RemoveHandler P1,P2
-		dnRequest("call",[self,"RemoveHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveHandler",P1,P2])
 		return self
 
 	Func AddToEventRoute P1,P2
-		dnRequest("call",[self,"AddToEventRoute",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddToEventRoute",P1,P2])
 		return self
 
 	Func CaptureMouse 
-		return dnRequest("call",[self,"CaptureMouse"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CaptureMouse"])
 
 	Func ReleaseMouseCapture 
-		dnRequest("call",[self,"ReleaseMouseCapture"])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseMouseCapture"])
 		return self
 
 	Func CaptureStylus 
-		return dnRequest("call",[self,"CaptureStylus"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CaptureStylus"])
 
 	Func ReleaseStylusCapture 
-		dnRequest("call",[self,"ReleaseStylusCapture"])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseStylusCapture"])
 		return self
 
 	Func Focus 
-		return dnRequest("call",[self,"Focus"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Focus"])
 
 	Func MoveFocus P1
-		return dnRequest("call",[self,"MoveFocus",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MoveFocus",P1])
 
 	Func PredictFocus P1
-		return dnRequest("call",[self,"PredictFocus",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PredictFocus",P1])
 
 	Func CaptureTouch P1
-		return dnRequest("call",[self,"CaptureTouch",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CaptureTouch",P1])
 
 	Func ReleaseTouchCapture P1
-		return dnRequest("call",[self,"ReleaseTouchCapture",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseTouchCapture",P1])
 
 	Func ReleaseAllTouchCaptures 
-		dnRequest("call",[self,"ReleaseAllTouchCaptures"])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseAllTouchCaptures"])
 		return self
 
 	Func setPreviewMouseDownEvent P1
-		dnRequest("setevent",[self,"PreviewMouseDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewMouseDown",dnCallback(P1)])
 		return self
 
 	Func clearPreviewMouseDownEvent
-		dnRequest("clearevent",[self,"PreviewMouseDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewMouseDown"])
 		return self
 
 	Func setMouseDownEvent P1
-		dnRequest("setevent",[self,"MouseDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseDownEvent
-		dnRequest("clearevent",[self,"MouseDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDown"])
 		return self
 
 	Func setPreviewMouseUpEvent P1
-		dnRequest("setevent",[self,"PreviewMouseUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewMouseUp",dnCallback(P1)])
 		return self
 
 	Func clearPreviewMouseUpEvent
-		dnRequest("clearevent",[self,"PreviewMouseUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewMouseUp"])
 		return self
 
 	Func setMouseUpEvent P1
-		dnRequest("setevent",[self,"MouseUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseUpEvent
-		dnRequest("clearevent",[self,"MouseUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseUp"])
 		return self
 
 	Func setPreviewMouseLeftButtonDownEvent P1
-		dnRequest("setevent",[self,"PreviewMouseLeftButtonDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewMouseLeftButtonDown",dnCallback(P1)])
 		return self
 
 	Func clearPreviewMouseLeftButtonDownEvent
-		dnRequest("clearevent",[self,"PreviewMouseLeftButtonDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewMouseLeftButtonDown"])
 		return self
 
 	Func setMouseLeftButtonDownEvent P1
-		dnRequest("setevent",[self,"MouseLeftButtonDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseLeftButtonDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseLeftButtonDownEvent
-		dnRequest("clearevent",[self,"MouseLeftButtonDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseLeftButtonDown"])
 		return self
 
 	Func setPreviewMouseLeftButtonUpEvent P1
-		dnRequest("setevent",[self,"PreviewMouseLeftButtonUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewMouseLeftButtonUp",dnCallback(P1)])
 		return self
 
 	Func clearPreviewMouseLeftButtonUpEvent
-		dnRequest("clearevent",[self,"PreviewMouseLeftButtonUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewMouseLeftButtonUp"])
 		return self
 
 	Func setMouseLeftButtonUpEvent P1
-		dnRequest("setevent",[self,"MouseLeftButtonUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseLeftButtonUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseLeftButtonUpEvent
-		dnRequest("clearevent",[self,"MouseLeftButtonUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseLeftButtonUp"])
 		return self
 
 	Func setPreviewMouseRightButtonDownEvent P1
-		dnRequest("setevent",[self,"PreviewMouseRightButtonDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewMouseRightButtonDown",dnCallback(P1)])
 		return self
 
 	Func clearPreviewMouseRightButtonDownEvent
-		dnRequest("clearevent",[self,"PreviewMouseRightButtonDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewMouseRightButtonDown"])
 		return self
 
 	Func setMouseRightButtonDownEvent P1
-		dnRequest("setevent",[self,"MouseRightButtonDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseRightButtonDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseRightButtonDownEvent
-		dnRequest("clearevent",[self,"MouseRightButtonDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseRightButtonDown"])
 		return self
 
 	Func setPreviewMouseRightButtonUpEvent P1
-		dnRequest("setevent",[self,"PreviewMouseRightButtonUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewMouseRightButtonUp",dnCallback(P1)])
 		return self
 
 	Func clearPreviewMouseRightButtonUpEvent
-		dnRequest("clearevent",[self,"PreviewMouseRightButtonUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewMouseRightButtonUp"])
 		return self
 
 	Func setMouseRightButtonUpEvent P1
-		dnRequest("setevent",[self,"MouseRightButtonUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseRightButtonUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseRightButtonUpEvent
-		dnRequest("clearevent",[self,"MouseRightButtonUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseRightButtonUp"])
 		return self
 
 	Func setPreviewMouseMoveEvent P1
-		dnRequest("setevent",[self,"PreviewMouseMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewMouseMove",dnCallback(P1)])
 		return self
 
 	Func clearPreviewMouseMoveEvent
-		dnRequest("clearevent",[self,"PreviewMouseMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewMouseMove"])
 		return self
 
 	Func setMouseMoveEvent P1
-		dnRequest("setevent",[self,"MouseMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseMove",dnCallback(P1)])
 		return self
 
 	Func clearMouseMoveEvent
-		dnRequest("clearevent",[self,"MouseMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseMove"])
 		return self
 
 	Func setPreviewMouseWheelEvent P1
-		dnRequest("setevent",[self,"PreviewMouseWheel",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewMouseWheel",dnCallback(P1)])
 		return self
 
 	Func clearPreviewMouseWheelEvent
-		dnRequest("clearevent",[self,"PreviewMouseWheel"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewMouseWheel"])
 		return self
 
 	Func setMouseWheelEvent P1
-		dnRequest("setevent",[self,"MouseWheel",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseWheel",dnCallback(P1)])
 		return self
 
 	Func clearMouseWheelEvent
-		dnRequest("clearevent",[self,"MouseWheel"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseWheel"])
 		return self
 
 	Func setMouseEnterEvent P1
-		dnRequest("setevent",[self,"MouseEnter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseEnter",dnCallback(P1)])
 		return self
 
 	Func clearMouseEnterEvent
-		dnRequest("clearevent",[self,"MouseEnter"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseEnter"])
 		return self
 
 	Func setMouseLeaveEvent P1
-		dnRequest("setevent",[self,"MouseLeave",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseLeave",dnCallback(P1)])
 		return self
 
 	Func clearMouseLeaveEvent
-		dnRequest("clearevent",[self,"MouseLeave"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseLeave"])
 		return self
 
 	Func setGotMouseCaptureEvent P1
-		dnRequest("setevent",[self,"GotMouseCapture",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GotMouseCapture",dnCallback(P1)])
 		return self
 
 	Func clearGotMouseCaptureEvent
-		dnRequest("clearevent",[self,"GotMouseCapture"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GotMouseCapture"])
 		return self
 
 	Func setLostMouseCaptureEvent P1
-		dnRequest("setevent",[self,"LostMouseCapture",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LostMouseCapture",dnCallback(P1)])
 		return self
 
 	Func clearLostMouseCaptureEvent
-		dnRequest("clearevent",[self,"LostMouseCapture"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LostMouseCapture"])
 		return self
 
 	Func setQueryCursorEvent P1
-		dnRequest("setevent",[self,"QueryCursor",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"QueryCursor",dnCallback(P1)])
 		return self
 
 	Func clearQueryCursorEvent
-		dnRequest("clearevent",[self,"QueryCursor"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"QueryCursor"])
 		return self
 
 	Func setPreviewStylusDownEvent P1
-		dnRequest("setevent",[self,"PreviewStylusDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewStylusDown",dnCallback(P1)])
 		return self
 
 	Func clearPreviewStylusDownEvent
-		dnRequest("clearevent",[self,"PreviewStylusDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewStylusDown"])
 		return self
 
 	Func setStylusDownEvent P1
-		dnRequest("setevent",[self,"StylusDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusDown",dnCallback(P1)])
 		return self
 
 	Func clearStylusDownEvent
-		dnRequest("clearevent",[self,"StylusDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusDown"])
 		return self
 
 	Func setPreviewStylusUpEvent P1
-		dnRequest("setevent",[self,"PreviewStylusUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewStylusUp",dnCallback(P1)])
 		return self
 
 	Func clearPreviewStylusUpEvent
-		dnRequest("clearevent",[self,"PreviewStylusUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewStylusUp"])
 		return self
 
 	Func setStylusUpEvent P1
-		dnRequest("setevent",[self,"StylusUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusUp",dnCallback(P1)])
 		return self
 
 	Func clearStylusUpEvent
-		dnRequest("clearevent",[self,"StylusUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusUp"])
 		return self
 
 	Func setPreviewStylusMoveEvent P1
-		dnRequest("setevent",[self,"PreviewStylusMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewStylusMove",dnCallback(P1)])
 		return self
 
 	Func clearPreviewStylusMoveEvent
-		dnRequest("clearevent",[self,"PreviewStylusMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewStylusMove"])
 		return self
 
 	Func setStylusMoveEvent P1
-		dnRequest("setevent",[self,"StylusMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusMove",dnCallback(P1)])
 		return self
 
 	Func clearStylusMoveEvent
-		dnRequest("clearevent",[self,"StylusMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusMove"])
 		return self
 
 	Func setPreviewStylusInAirMoveEvent P1
-		dnRequest("setevent",[self,"PreviewStylusInAirMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewStylusInAirMove",dnCallback(P1)])
 		return self
 
 	Func clearPreviewStylusInAirMoveEvent
-		dnRequest("clearevent",[self,"PreviewStylusInAirMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewStylusInAirMove"])
 		return self
 
 	Func setStylusInAirMoveEvent P1
-		dnRequest("setevent",[self,"StylusInAirMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusInAirMove",dnCallback(P1)])
 		return self
 
 	Func clearStylusInAirMoveEvent
-		dnRequest("clearevent",[self,"StylusInAirMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusInAirMove"])
 		return self
 
 	Func setStylusEnterEvent P1
-		dnRequest("setevent",[self,"StylusEnter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusEnter",dnCallback(P1)])
 		return self
 
 	Func clearStylusEnterEvent
-		dnRequest("clearevent",[self,"StylusEnter"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusEnter"])
 		return self
 
 	Func setStylusLeaveEvent P1
-		dnRequest("setevent",[self,"StylusLeave",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusLeave",dnCallback(P1)])
 		return self
 
 	Func clearStylusLeaveEvent
-		dnRequest("clearevent",[self,"StylusLeave"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusLeave"])
 		return self
 
 	Func setPreviewStylusInRangeEvent P1
-		dnRequest("setevent",[self,"PreviewStylusInRange",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewStylusInRange",dnCallback(P1)])
 		return self
 
 	Func clearPreviewStylusInRangeEvent
-		dnRequest("clearevent",[self,"PreviewStylusInRange"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewStylusInRange"])
 		return self
 
 	Func setStylusInRangeEvent P1
-		dnRequest("setevent",[self,"StylusInRange",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusInRange",dnCallback(P1)])
 		return self
 
 	Func clearStylusInRangeEvent
-		dnRequest("clearevent",[self,"StylusInRange"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusInRange"])
 		return self
 
 	Func setPreviewStylusOutOfRangeEvent P1
-		dnRequest("setevent",[self,"PreviewStylusOutOfRange",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewStylusOutOfRange",dnCallback(P1)])
 		return self
 
 	Func clearPreviewStylusOutOfRangeEvent
-		dnRequest("clearevent",[self,"PreviewStylusOutOfRange"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewStylusOutOfRange"])
 		return self
 
 	Func setStylusOutOfRangeEvent P1
-		dnRequest("setevent",[self,"StylusOutOfRange",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusOutOfRange",dnCallback(P1)])
 		return self
 
 	Func clearStylusOutOfRangeEvent
-		dnRequest("clearevent",[self,"StylusOutOfRange"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusOutOfRange"])
 		return self
 
 	Func setPreviewStylusSystemGestureEvent P1
-		dnRequest("setevent",[self,"PreviewStylusSystemGesture",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewStylusSystemGesture",dnCallback(P1)])
 		return self
 
 	Func clearPreviewStylusSystemGestureEvent
-		dnRequest("clearevent",[self,"PreviewStylusSystemGesture"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewStylusSystemGesture"])
 		return self
 
 	Func setStylusSystemGestureEvent P1
-		dnRequest("setevent",[self,"StylusSystemGesture",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusSystemGesture",dnCallback(P1)])
 		return self
 
 	Func clearStylusSystemGestureEvent
-		dnRequest("clearevent",[self,"StylusSystemGesture"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusSystemGesture"])
 		return self
 
 	Func setGotStylusCaptureEvent P1
-		dnRequest("setevent",[self,"GotStylusCapture",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GotStylusCapture",dnCallback(P1)])
 		return self
 
 	Func clearGotStylusCaptureEvent
-		dnRequest("clearevent",[self,"GotStylusCapture"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GotStylusCapture"])
 		return self
 
 	Func setLostStylusCaptureEvent P1
-		dnRequest("setevent",[self,"LostStylusCapture",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LostStylusCapture",dnCallback(P1)])
 		return self
 
 	Func clearLostStylusCaptureEvent
-		dnRequest("clearevent",[self,"LostStylusCapture"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LostStylusCapture"])
 		return self
 
 	Func setStylusButtonDownEvent P1
-		dnRequest("setevent",[self,"StylusButtonDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusButtonDown",dnCallback(P1)])
 		return self
 
 	Func clearStylusButtonDownEvent
-		dnRequest("clearevent",[self,"StylusButtonDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusButtonDown"])
 		return self
 
 	Func setStylusButtonUpEvent P1
-		dnRequest("setevent",[self,"StylusButtonUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StylusButtonUp",dnCallback(P1)])
 		return self
 
 	Func clearStylusButtonUpEvent
-		dnRequest("clearevent",[self,"StylusButtonUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StylusButtonUp"])
 		return self
 
 	Func setPreviewStylusButtonDownEvent P1
-		dnRequest("setevent",[self,"PreviewStylusButtonDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewStylusButtonDown",dnCallback(P1)])
 		return self
 
 	Func clearPreviewStylusButtonDownEvent
-		dnRequest("clearevent",[self,"PreviewStylusButtonDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewStylusButtonDown"])
 		return self
 
 	Func setPreviewStylusButtonUpEvent P1
-		dnRequest("setevent",[self,"PreviewStylusButtonUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewStylusButtonUp",dnCallback(P1)])
 		return self
 
 	Func clearPreviewStylusButtonUpEvent
-		dnRequest("clearevent",[self,"PreviewStylusButtonUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewStylusButtonUp"])
 		return self
 
 	Func setPreviewKeyDownEvent P1
-		dnRequest("setevent",[self,"PreviewKeyDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewKeyDown",dnCallback(P1)])
 		return self
 
 	Func clearPreviewKeyDownEvent
-		dnRequest("clearevent",[self,"PreviewKeyDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewKeyDown"])
 		return self
 
 	Func setKeyDownEvent P1
-		dnRequest("setevent",[self,"KeyDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"KeyDown",dnCallback(P1)])
 		return self
 
 	Func clearKeyDownEvent
-		dnRequest("clearevent",[self,"KeyDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyDown"])
 		return self
 
 	Func setPreviewKeyUpEvent P1
-		dnRequest("setevent",[self,"PreviewKeyUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewKeyUp",dnCallback(P1)])
 		return self
 
 	Func clearPreviewKeyUpEvent
-		dnRequest("clearevent",[self,"PreviewKeyUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewKeyUp"])
 		return self
 
 	Func setKeyUpEvent P1
-		dnRequest("setevent",[self,"KeyUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"KeyUp",dnCallback(P1)])
 		return self
 
 	Func clearKeyUpEvent
-		dnRequest("clearevent",[self,"KeyUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyUp"])
 		return self
 
 	Func setPreviewGotKeyboardFocusEvent P1
-		dnRequest("setevent",[self,"PreviewGotKeyboardFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewGotKeyboardFocus",dnCallback(P1)])
 		return self
 
 	Func clearPreviewGotKeyboardFocusEvent
-		dnRequest("clearevent",[self,"PreviewGotKeyboardFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewGotKeyboardFocus"])
 		return self
 
 	Func setGotKeyboardFocusEvent P1
-		dnRequest("setevent",[self,"GotKeyboardFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GotKeyboardFocus",dnCallback(P1)])
 		return self
 
 	Func clearGotKeyboardFocusEvent
-		dnRequest("clearevent",[self,"GotKeyboardFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GotKeyboardFocus"])
 		return self
 
 	Func setPreviewLostKeyboardFocusEvent P1
-		dnRequest("setevent",[self,"PreviewLostKeyboardFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewLostKeyboardFocus",dnCallback(P1)])
 		return self
 
 	Func clearPreviewLostKeyboardFocusEvent
-		dnRequest("clearevent",[self,"PreviewLostKeyboardFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewLostKeyboardFocus"])
 		return self
 
 	Func setLostKeyboardFocusEvent P1
-		dnRequest("setevent",[self,"LostKeyboardFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LostKeyboardFocus",dnCallback(P1)])
 		return self
 
 	Func clearLostKeyboardFocusEvent
-		dnRequest("clearevent",[self,"LostKeyboardFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LostKeyboardFocus"])
 		return self
 
 	Func setPreviewTextInputEvent P1
-		dnRequest("setevent",[self,"PreviewTextInput",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewTextInput",dnCallback(P1)])
 		return self
 
 	Func clearPreviewTextInputEvent
-		dnRequest("clearevent",[self,"PreviewTextInput"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewTextInput"])
 		return self
 
 	Func setTextInputEvent P1
-		dnRequest("setevent",[self,"TextInput",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TextInput",dnCallback(P1)])
 		return self
 
 	Func clearTextInputEvent
-		dnRequest("clearevent",[self,"TextInput"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TextInput"])
 		return self
 
 	Func setPreviewQueryContinueDragEvent P1
-		dnRequest("setevent",[self,"PreviewQueryContinueDrag",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewQueryContinueDrag",dnCallback(P1)])
 		return self
 
 	Func clearPreviewQueryContinueDragEvent
-		dnRequest("clearevent",[self,"PreviewQueryContinueDrag"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewQueryContinueDrag"])
 		return self
 
 	Func setQueryContinueDragEvent P1
-		dnRequest("setevent",[self,"QueryContinueDrag",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"QueryContinueDrag",dnCallback(P1)])
 		return self
 
 	Func clearQueryContinueDragEvent
-		dnRequest("clearevent",[self,"QueryContinueDrag"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"QueryContinueDrag"])
 		return self
 
 	Func setPreviewGiveFeedbackEvent P1
-		dnRequest("setevent",[self,"PreviewGiveFeedback",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewGiveFeedback",dnCallback(P1)])
 		return self
 
 	Func clearPreviewGiveFeedbackEvent
-		dnRequest("clearevent",[self,"PreviewGiveFeedback"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewGiveFeedback"])
 		return self
 
 	Func setGiveFeedbackEvent P1
-		dnRequest("setevent",[self,"GiveFeedback",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GiveFeedback",dnCallback(P1)])
 		return self
 
 	Func clearGiveFeedbackEvent
-		dnRequest("clearevent",[self,"GiveFeedback"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GiveFeedback"])
 		return self
 
 	Func setPreviewDragEnterEvent P1
-		dnRequest("setevent",[self,"PreviewDragEnter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewDragEnter",dnCallback(P1)])
 		return self
 
 	Func clearPreviewDragEnterEvent
-		dnRequest("clearevent",[self,"PreviewDragEnter"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewDragEnter"])
 		return self
 
 	Func setDragEnterEvent P1
-		dnRequest("setevent",[self,"DragEnter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DragEnter",dnCallback(P1)])
 		return self
 
 	Func clearDragEnterEvent
-		dnRequest("clearevent",[self,"DragEnter"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DragEnter"])
 		return self
 
 	Func setPreviewDragOverEvent P1
-		dnRequest("setevent",[self,"PreviewDragOver",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewDragOver",dnCallback(P1)])
 		return self
 
 	Func clearPreviewDragOverEvent
-		dnRequest("clearevent",[self,"PreviewDragOver"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewDragOver"])
 		return self
 
 	Func setDragOverEvent P1
-		dnRequest("setevent",[self,"DragOver",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DragOver",dnCallback(P1)])
 		return self
 
 	Func clearDragOverEvent
-		dnRequest("clearevent",[self,"DragOver"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DragOver"])
 		return self
 
 	Func setPreviewDragLeaveEvent P1
-		dnRequest("setevent",[self,"PreviewDragLeave",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewDragLeave",dnCallback(P1)])
 		return self
 
 	Func clearPreviewDragLeaveEvent
-		dnRequest("clearevent",[self,"PreviewDragLeave"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewDragLeave"])
 		return self
 
 	Func setDragLeaveEvent P1
-		dnRequest("setevent",[self,"DragLeave",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DragLeave",dnCallback(P1)])
 		return self
 
 	Func clearDragLeaveEvent
-		dnRequest("clearevent",[self,"DragLeave"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DragLeave"])
 		return self
 
 	Func setPreviewDropEvent P1
-		dnRequest("setevent",[self,"PreviewDrop",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewDrop",dnCallback(P1)])
 		return self
 
 	Func clearPreviewDropEvent
-		dnRequest("clearevent",[self,"PreviewDrop"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewDrop"])
 		return self
 
 	Func setDropEvent P1
-		dnRequest("setevent",[self,"Drop",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Drop",dnCallback(P1)])
 		return self
 
 	Func clearDropEvent
-		dnRequest("clearevent",[self,"Drop"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Drop"])
 		return self
 
 	Func setPreviewTouchDownEvent P1
-		dnRequest("setevent",[self,"PreviewTouchDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewTouchDown",dnCallback(P1)])
 		return self
 
 	Func clearPreviewTouchDownEvent
-		dnRequest("clearevent",[self,"PreviewTouchDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewTouchDown"])
 		return self
 
 	Func setTouchDownEvent P1
-		dnRequest("setevent",[self,"TouchDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TouchDown",dnCallback(P1)])
 		return self
 
 	Func clearTouchDownEvent
-		dnRequest("clearevent",[self,"TouchDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TouchDown"])
 		return self
 
 	Func setPreviewTouchMoveEvent P1
-		dnRequest("setevent",[self,"PreviewTouchMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewTouchMove",dnCallback(P1)])
 		return self
 
 	Func clearPreviewTouchMoveEvent
-		dnRequest("clearevent",[self,"PreviewTouchMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewTouchMove"])
 		return self
 
 	Func setTouchMoveEvent P1
-		dnRequest("setevent",[self,"TouchMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TouchMove",dnCallback(P1)])
 		return self
 
 	Func clearTouchMoveEvent
-		dnRequest("clearevent",[self,"TouchMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TouchMove"])
 		return self
 
 	Func setPreviewTouchUpEvent P1
-		dnRequest("setevent",[self,"PreviewTouchUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewTouchUp",dnCallback(P1)])
 		return self
 
 	Func clearPreviewTouchUpEvent
-		dnRequest("clearevent",[self,"PreviewTouchUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewTouchUp"])
 		return self
 
 	Func setTouchUpEvent P1
-		dnRequest("setevent",[self,"TouchUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TouchUp",dnCallback(P1)])
 		return self
 
 	Func clearTouchUpEvent
-		dnRequest("clearevent",[self,"TouchUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TouchUp"])
 		return self
 
 	Func setGotTouchCaptureEvent P1
-		dnRequest("setevent",[self,"GotTouchCapture",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GotTouchCapture",dnCallback(P1)])
 		return self
 
 	Func clearGotTouchCaptureEvent
-		dnRequest("clearevent",[self,"GotTouchCapture"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GotTouchCapture"])
 		return self
 
 	Func setLostTouchCaptureEvent P1
-		dnRequest("setevent",[self,"LostTouchCapture",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LostTouchCapture",dnCallback(P1)])
 		return self
 
 	Func clearLostTouchCaptureEvent
-		dnRequest("clearevent",[self,"LostTouchCapture"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LostTouchCapture"])
 		return self
 
 	Func setTouchEnterEvent P1
-		dnRequest("setevent",[self,"TouchEnter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TouchEnter",dnCallback(P1)])
 		return self
 
 	Func clearTouchEnterEvent
-		dnRequest("clearevent",[self,"TouchEnter"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TouchEnter"])
 		return self
 
 	Func setTouchLeaveEvent P1
-		dnRequest("setevent",[self,"TouchLeave",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TouchLeave",dnCallback(P1)])
 		return self
 
 	Func clearTouchLeaveEvent
-		dnRequest("clearevent",[self,"TouchLeave"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TouchLeave"])
 		return self
 
 	Func setIsMouseDirectlyOverChangedEvent P1
-		dnRequest("setevent",[self,"IsMouseDirectlyOverChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsMouseDirectlyOverChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsMouseDirectlyOverChangedEvent
-		dnRequest("clearevent",[self,"IsMouseDirectlyOverChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsMouseDirectlyOverChanged"])
 		return self
 
 	Func setIsKeyboardFocusWithinChangedEvent P1
-		dnRequest("setevent",[self,"IsKeyboardFocusWithinChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsKeyboardFocusWithinChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsKeyboardFocusWithinChangedEvent
-		dnRequest("clearevent",[self,"IsKeyboardFocusWithinChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsKeyboardFocusWithinChanged"])
 		return self
 
 	Func setIsMouseCapturedChangedEvent P1
-		dnRequest("setevent",[self,"IsMouseCapturedChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsMouseCapturedChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsMouseCapturedChangedEvent
-		dnRequest("clearevent",[self,"IsMouseCapturedChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsMouseCapturedChanged"])
 		return self
 
 	Func setIsMouseCaptureWithinChangedEvent P1
-		dnRequest("setevent",[self,"IsMouseCaptureWithinChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsMouseCaptureWithinChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsMouseCaptureWithinChangedEvent
-		dnRequest("clearevent",[self,"IsMouseCaptureWithinChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsMouseCaptureWithinChanged"])
 		return self
 
 	Func setIsStylusDirectlyOverChangedEvent P1
-		dnRequest("setevent",[self,"IsStylusDirectlyOverChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsStylusDirectlyOverChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsStylusDirectlyOverChangedEvent
-		dnRequest("clearevent",[self,"IsStylusDirectlyOverChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsStylusDirectlyOverChanged"])
 		return self
 
 	Func setIsStylusCapturedChangedEvent P1
-		dnRequest("setevent",[self,"IsStylusCapturedChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsStylusCapturedChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsStylusCapturedChangedEvent
-		dnRequest("clearevent",[self,"IsStylusCapturedChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsStylusCapturedChanged"])
 		return self
 
 	Func setIsStylusCaptureWithinChangedEvent P1
-		dnRequest("setevent",[self,"IsStylusCaptureWithinChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsStylusCaptureWithinChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsStylusCaptureWithinChangedEvent
-		dnRequest("clearevent",[self,"IsStylusCaptureWithinChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsStylusCaptureWithinChanged"])
 		return self
 
 	Func setIsKeyboardFocusedChangedEvent P1
-		dnRequest("setevent",[self,"IsKeyboardFocusedChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsKeyboardFocusedChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsKeyboardFocusedChangedEvent
-		dnRequest("clearevent",[self,"IsKeyboardFocusedChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsKeyboardFocusedChanged"])
 		return self
 
 	Func setGotFocusEvent P1
-		dnRequest("setevent",[self,"GotFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GotFocus",dnCallback(P1)])
 		return self
 
 	Func clearGotFocusEvent
-		dnRequest("clearevent",[self,"GotFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GotFocus"])
 		return self
 
 	Func setLostFocusEvent P1
-		dnRequest("setevent",[self,"LostFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LostFocus",dnCallback(P1)])
 		return self
 
 	Func clearLostFocusEvent
-		dnRequest("clearevent",[self,"LostFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LostFocus"])
 		return self
 
 	Func setIsEnabledChangedEvent P1
-		dnRequest("setevent",[self,"IsEnabledChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsEnabledChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsEnabledChangedEvent
-		dnRequest("clearevent",[self,"IsEnabledChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsEnabledChanged"])
 		return self
 
 	Func setFocusableChangedEvent P1
-		dnRequest("setevent",[self,"FocusableChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"FocusableChanged",dnCallback(P1)])
 		return self
 
 	Func clearFocusableChangedEvent
-		dnRequest("clearevent",[self,"FocusableChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"FocusableChanged"])
 		return self
 
 	Func getHasAnimatedProperties
-		return dnRequest("get",[self,"HasAnimatedProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasAnimatedProperties"])
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
 
 	Func getInputBindings
-		return dnRequest("get",[self,"InputBindings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InputBindings"])
 
 	Func setInputBindings P1
 		raise("DotNet Error: InputBindings is a read-only property")
 
 	Func getCommandBindings
-		return dnRequest("get",[self,"CommandBindings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandBindings"])
 
 	Func setCommandBindings P1
 		raise("DotNet Error: CommandBindings is a read-only property")
 
 	Func getIsMouseDirectlyOver
-		return dnRequest("get",[self,"IsMouseDirectlyOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseDirectlyOver"])
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseOver
-		return dnRequest("get",[self,"IsMouseOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseOver"])
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsStylusOver
-		return dnRequest("get",[self,"IsStylusOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusOver"])
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dnRequest("get",[self,"IsKeyboardFocusWithin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyboardFocusWithin"])
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsMouseCaptured
-		return dnRequest("get",[self,"IsMouseCaptured"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseCaptured"])
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsMouseCaptureWithin
-		return dnRequest("get",[self,"IsMouseCaptureWithin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseCaptureWithin"])
 
 	Func setIsMouseCaptureWithin P1
 		raise("DotNet Error: IsMouseCaptureWithin is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dnRequest("get",[self,"IsStylusDirectlyOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusDirectlyOver"])
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dnRequest("get",[self,"IsStylusCaptured"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusCaptured"])
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsStylusCaptureWithin
-		return dnRequest("get",[self,"IsStylusCaptureWithin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusCaptureWithin"])
 
 	Func setIsStylusCaptureWithin P1
 		raise("DotNet Error: IsStylusCaptureWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dnRequest("get",[self,"IsKeyboardFocused"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyboardFocused"])
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsFocused
-		return dnRequest("get",[self,"IsFocused"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFocused"])
 
 	Func setIsFocused P1
 		raise("DotNet Error: IsFocused is a read-only property")
 
 	Func getIsEnabled
-		return dnRequest("get",[self,"IsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEnabled"])
 
 	Func setIsEnabled P1
-		dnRequest("set",[self,"IsEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsEnabled",P1])
 		return self
 
 	Func getFocusable
-		return dnRequest("get",[self,"Focusable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Focusable"])
 
 	Func setFocusable P1
-		dnRequest("set",[self,"Focusable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Focusable",P1])
 		return self
 
 	Func getIsInputMethodEnabled
-		return dnRequest("get",[self,"IsInputMethodEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInputMethodEnabled"])
 
 	Func setIsInputMethodEnabled P1
 		raise("DotNet Error: IsInputMethodEnabled is a read-only property")
 
 	Func getAllowDrop
-		return dnRequest("get",[self,"AllowDrop"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowDrop"])
 
 	Func setAllowDrop P1
-		dnRequest("set",[self,"AllowDrop",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowDrop",P1])
 		return self
 
 	Func getAreAnyTouchesOver
-		return dnRequest("get",[self,"AreAnyTouchesOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreAnyTouchesOver"])
 
 	Func setAreAnyTouchesOver P1
 		raise("DotNet Error: AreAnyTouchesOver is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOver
-		return dnRequest("get",[self,"AreAnyTouchesDirectlyOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreAnyTouchesDirectlyOver"])
 
 	Func setAreAnyTouchesDirectlyOver P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOver is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithin
-		return dnRequest("get",[self,"AreAnyTouchesCapturedWithin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreAnyTouchesCapturedWithin"])
 
 	Func setAreAnyTouchesCapturedWithin P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithin is a read-only property")
 
 	Func getAreAnyTouchesCaptured
-		return dnRequest("get",[self,"AreAnyTouchesCaptured"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreAnyTouchesCaptured"])
 
 	Func setAreAnyTouchesCaptured P1
 		raise("DotNet Error: AreAnyTouchesCaptured is a read-only property")
 
 	Func getTouchesCaptured
-		return dnRequest("get",[self,"TouchesCaptured"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TouchesCaptured"])
 
 	Func setTouchesCaptured P1
 		raise("DotNet Error: TouchesCaptured is a read-only property")
 
 	Func getTouchesCapturedWithin
-		return dnRequest("get",[self,"TouchesCapturedWithin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TouchesCapturedWithin"])
 
 	Func setTouchesCapturedWithin P1
 		raise("DotNet Error: TouchesCapturedWithin is a read-only property")
 
 	Func getTouchesOver
-		return dnRequest("get",[self,"TouchesOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TouchesOver"])
 
 	Func setTouchesOver P1
 		raise("DotNet Error: TouchesOver is a read-only property")
 
 	Func getTouchesDirectlyOver
-		return dnRequest("get",[self,"TouchesDirectlyOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TouchesDirectlyOver"])
 
 	Func setTouchesDirectlyOver P1
 		raise("DotNet Error: TouchesDirectlyOver is a read-only property")

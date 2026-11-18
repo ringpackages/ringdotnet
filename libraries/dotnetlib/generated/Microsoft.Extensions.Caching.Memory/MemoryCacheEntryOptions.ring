@@ -23,52 +23,52 @@ Class MemoryCacheEntryOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAbsoluteExpiration
-		return dnRequest("get",[self,"AbsoluteExpiration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AbsoluteExpiration"])
 
 	Func setAbsoluteExpiration P1
-		dnRequest("set",[self,"AbsoluteExpiration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AbsoluteExpiration",P1])
 		return self
 
 	Func getAbsoluteExpirationRelativeToNow
-		return dnRequest("get",[self,"AbsoluteExpirationRelativeToNow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AbsoluteExpirationRelativeToNow"])
 
 	Func setAbsoluteExpirationRelativeToNow P1
-		dnRequest("set",[self,"AbsoluteExpirationRelativeToNow",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AbsoluteExpirationRelativeToNow",P1])
 		return self
 
 	Func getSlidingExpiration
-		return dnRequest("get",[self,"SlidingExpiration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SlidingExpiration"])
 
 	Func setSlidingExpiration P1
-		dnRequest("set",[self,"SlidingExpiration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SlidingExpiration",P1])
 		return self
 
 	Func getExpirationTokens
-		return dnRequest("get",[self,"ExpirationTokens"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExpirationTokens"])
 
 	Func setExpirationTokens P1
 		raise("DotNet Error: ExpirationTokens is a read-only property")
 
 	Func getPostEvictionCallbacks
-		return dnRequest("get",[self,"PostEvictionCallbacks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PostEvictionCallbacks"])
 
 	Func setPostEvictionCallbacks P1
 		raise("DotNet Error: PostEvictionCallbacks is a read-only property")
 
 	Func getPriority
-		return dnRequest("get",[self,"Priority"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Priority"])
 
 	Func setPriority P1
-		dnRequest("set",[self,"Priority",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Priority",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 

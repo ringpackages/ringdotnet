@@ -27,82 +27,82 @@ Class CreateParams from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getClassName
-		return dnRequest("get",[self,"ClassName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClassName"])
 
 	Func setClassName P1
-		dnRequest("set",[self,"ClassName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClassName",P1])
 		return self
 
 	Func getCaption
-		return dnRequest("get",[self,"Caption"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Caption"])
 
 	Func setCaption P1
-		dnRequest("set",[self,"Caption",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Caption",P1])
 		return self
 
 	Func getStyle
-		return dnRequest("get",[self,"Style"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
 
 	Func setStyle P1
-		dnRequest("set",[self,"Style",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Style",P1])
 		return self
 
 	Func getExStyle
-		return dnRequest("get",[self,"ExStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExStyle"])
 
 	Func setExStyle P1
-		dnRequest("set",[self,"ExStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExStyle",P1])
 		return self
 
 	Func getClassStyle
-		return dnRequest("get",[self,"ClassStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClassStyle"])
 
 	Func setClassStyle P1
-		dnRequest("set",[self,"ClassStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClassStyle",P1])
 		return self
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
 		return self
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
-		dnRequest("set",[self,"Parent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Parent",P1])
 		return self
 
 	Func getParam
-		return dnRequest("get",[self,"Param"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Param"])
 
 	Func setParam P1
-		dnRequest("set",[self,"Param",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Param",P1])
 		return self
 

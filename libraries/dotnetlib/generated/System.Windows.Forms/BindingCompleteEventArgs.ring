@@ -33,31 +33,31 @@ Class BindingCompleteEventArgs from CancelEventArgs
 		return self
 
 	Func getBinding
-		return dnRequest("get",[self,"Binding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Binding"])
 
 	Func setBinding P1
 		raise("DotNet Error: Binding is a read-only property")
 
 	Func getBindingCompleteState
-		return dnRequest("get",[self,"BindingCompleteState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingCompleteState"])
 
 	Func setBindingCompleteState P1
 		raise("DotNet Error: BindingCompleteState is a read-only property")
 
 	Func getBindingCompleteContext
-		return dnRequest("get",[self,"BindingCompleteContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingCompleteContext"])
 
 	Func setBindingCompleteContext P1
 		raise("DotNet Error: BindingCompleteContext is a read-only property")
 
 	Func getErrorText
-		return dnRequest("get",[self,"ErrorText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorText"])
 
 	Func setErrorText P1
 		raise("DotNet Error: ErrorText is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")

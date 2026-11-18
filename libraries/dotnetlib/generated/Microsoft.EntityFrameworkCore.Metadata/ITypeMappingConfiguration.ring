@@ -16,25 +16,25 @@ Class ITypeMappingConfiguration from DotNetObject
 		return self
 
 	Func GetMaxLength 
-		return dnRequest("call",[self,"GetMaxLength"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxLength"])
 
 	Func GetPrecision 
-		return dnRequest("call",[self,"GetPrecision"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrecision"])
 
 	Func GetScale 
-		return dnRequest("call",[self,"GetScale"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetScale"])
 
 	Func IsUnicode 
-		return dnRequest("call",[self,"IsUnicode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUnicode"])
 
 	Func GetValueConverter 
-		return dnRequest("call",[self,"GetValueConverter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueConverter"])
 
 	Func GetProviderClrType 
-		return dnRequest("call",[self,"GetProviderClrType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProviderClrType"])
 
 	Func getClrType
-		return dnRequest("get",[self,"ClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")

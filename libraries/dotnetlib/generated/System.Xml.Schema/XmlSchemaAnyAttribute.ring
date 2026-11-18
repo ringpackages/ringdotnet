@@ -18,16 +18,16 @@ Class XmlSchemaAnyAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
 
 	Func setNamespace P1
-		dnRequest("set",[self,"Namespace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Namespace",P1])
 		return self
 
 	Func getProcessContents
-		return dnRequest("get",[self,"ProcessContents"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProcessContents"])
 
 	Func setProcessContents P1
-		dnRequest("set",[self,"ProcessContents",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProcessContents",P1])
 		return self
 

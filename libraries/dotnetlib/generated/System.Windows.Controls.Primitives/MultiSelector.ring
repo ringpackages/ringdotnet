@@ -16,15 +16,15 @@ Class MultiSelector from Selector
 		return self
 
 	Func SelectAll 
-		dnRequest("call",[self,"SelectAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
 		return self
 
 	Func UnselectAll 
-		dnRequest("call",[self,"UnselectAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"UnselectAll"])
 		return self
 
 	Func getSelectedItems
-		return dnRequest("get",[self,"SelectedItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItems"])
 
 	Func setSelectedItems P1
 		raise("DotNet Error: SelectedItems is a read-only property")

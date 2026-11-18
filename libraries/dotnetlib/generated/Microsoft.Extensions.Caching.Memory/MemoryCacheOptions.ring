@@ -23,54 +23,54 @@ Class MemoryCacheOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getClock
-		return dnRequest("get",[self,"Clock"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Clock"])
 
 	Func setClock P1
-		dnRequest("set",[self,"Clock",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Clock",P1])
 		return self
 
 	Func getExpirationScanFrequency
-		return dnRequest("get",[self,"ExpirationScanFrequency"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExpirationScanFrequency"])
 
 	Func setExpirationScanFrequency P1
-		dnRequest("set",[self,"ExpirationScanFrequency",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExpirationScanFrequency",P1])
 		return self
 
 	Func getSizeLimit
-		return dnRequest("get",[self,"SizeLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SizeLimit"])
 
 	Func setSizeLimit P1
-		dnRequest("set",[self,"SizeLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SizeLimit",P1])
 		return self
 
 	Func getCompactOnMemoryPressure
-		return dnRequest("get",[self,"CompactOnMemoryPressure"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompactOnMemoryPressure"])
 
 	Func setCompactOnMemoryPressure P1
-		dnRequest("set",[self,"CompactOnMemoryPressure",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CompactOnMemoryPressure",P1])
 		return self
 
 	Func getCompactionPercentage
-		return dnRequest("get",[self,"CompactionPercentage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompactionPercentage"])
 
 	Func setCompactionPercentage P1
-		dnRequest("set",[self,"CompactionPercentage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CompactionPercentage",P1])
 		return self
 
 	Func getTrackLinkedCacheEntries
-		return dnRequest("get",[self,"TrackLinkedCacheEntries"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TrackLinkedCacheEntries"])
 
 	Func setTrackLinkedCacheEntries P1
-		dnRequest("set",[self,"TrackLinkedCacheEntries",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TrackLinkedCacheEntries",P1])
 		return self
 
 	Func getTrackStatistics
-		return dnRequest("get",[self,"TrackStatistics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TrackStatistics"])
 
 	Func setTrackStatistics P1
-		dnRequest("set",[self,"TrackStatistics",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TrackStatistics",P1])
 		return self
 

@@ -15,29 +15,29 @@ Class CollectionNavigationBuilder from Object
 		return self
 
 	Func WithOne_1 P1
-		return dnRequest("call",[self,"WithOne",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithOne",P1])
 
 	Func WithOne P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WithOne",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithOne",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WithOne"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WithOne"])
 		ok
-		return dnRequest("call",[self,"WithOne",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithOne",P1])
 
 	Func WithMany_1 P1
-		return dnRequest("call",[self,"WithMany",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithMany",P1])
 
 	Func WithMany P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WithMany",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithMany",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WithMany"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WithMany"])
 		ok
-		return dnRequest("call",[self,"WithMany",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithMany",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

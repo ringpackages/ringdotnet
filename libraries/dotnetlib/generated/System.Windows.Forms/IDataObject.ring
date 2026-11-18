@@ -14,48 +14,48 @@ Class IDataObject from DotNetObject
 		return self
 
 	Func GetData_2 P1,P2
-		return dnRequest("call",[self,"GetData",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1,P2])
 
 	Func GetData P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetData",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetData",P1])
 		ok
-		return dnRequest("call",[self,"GetData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
 
 	Func GetDataPresent_2 P1,P2
-		return dnRequest("call",[self,"GetDataPresent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1,P2])
 
 	Func GetDataPresent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetDataPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataPresent",P1])
 		ok
-		return dnRequest("call",[self,"GetDataPresent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1])
 
 	Func GetFormats_1 P1
-		return dnRequest("call",[self,"GetFormats",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
 
 	Func GetFormats P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetFormats",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFormats",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetFormats"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetFormats"])
 		ok
-		return dnRequest("call",[self,"GetFormats",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
 
 	Func SetData_3 P1,P2,P3
-		dnRequest("call",[self,"SetData",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2,P3])
 		return self
 
 	Func SetData_2 P1,P2
-		dnRequest("call",[self,"SetData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2])
 		return self
 
 	Func SetData P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetData",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetData",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetData",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1])
 		return self
 

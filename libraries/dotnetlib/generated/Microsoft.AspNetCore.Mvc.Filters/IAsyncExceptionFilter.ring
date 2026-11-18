@@ -14,5 +14,5 @@ Class IAsyncExceptionFilter from DotNetObject
 		return self
 
 	Func OnExceptionAsync P1
-		return dnRequest("call",[self,"OnExceptionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnExceptionAsync",P1])
 

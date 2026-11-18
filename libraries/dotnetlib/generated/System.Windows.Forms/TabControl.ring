@@ -31,173 +31,173 @@ Class TabControl from Control
 		return self
 
 	Func DeselectTab P1
-		dnRequest("call",[self,"DeselectTab",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DeselectTab",P1])
 		return self
 
 	Func GetControl P1
-		return dnRequest("call",[self,"GetControl",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetControl",P1])
 
 	Func GetTabRect P1
-		return dnRequest("call",[self,"GetTabRect",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTabRect",P1])
 
 	Func SelectTab P1
-		dnRequest("call",[self,"SelectTab",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SelectTab",P1])
 		return self
 
 	Func setDrawItemEvent P1
-		dnRequest("setevent",[self,"DrawItem",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DrawItem",dnCallback(P1)])
 		return self
 
 	Func clearDrawItemEvent
-		dnRequest("clearevent",[self,"DrawItem"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawItem"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[self,"RightToLeftLayoutChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[self,"RightToLeftLayoutChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
 		return self
 
 	Func setSelectedIndexChangedEvent P1
-		dnRequest("setevent",[self,"SelectedIndexChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedIndexChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedIndexChangedEvent
-		dnRequest("clearevent",[self,"SelectedIndexChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedIndexChanged"])
 		return self
 
 	Func setSelectingEvent P1
-		dnRequest("setevent",[self,"Selecting",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Selecting",dnCallback(P1)])
 		return self
 
 	Func clearSelectingEvent
-		dnRequest("clearevent",[self,"Selecting"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Selecting"])
 		return self
 
 	Func setSelectedEvent P1
-		dnRequest("setevent",[self,"Selected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Selected",dnCallback(P1)])
 		return self
 
 	Func clearSelectedEvent
-		dnRequest("clearevent",[self,"Selected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Selected"])
 		return self
 
 	Func setDeselectingEvent P1
-		dnRequest("setevent",[self,"Deselecting",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Deselecting",dnCallback(P1)])
 		return self
 
 	Func clearDeselectingEvent
-		dnRequest("clearevent",[self,"Deselecting"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Deselecting"])
 		return self
 
 	Func setDeselectedEvent P1
-		dnRequest("setevent",[self,"Deselected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Deselected",dnCallback(P1)])
 		return self
 
 	Func clearDeselectedEvent
-		dnRequest("clearevent",[self,"Deselected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Deselected"])
 		return self
 
 	Func getAlignment
-		return dnRequest("get",[self,"Alignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Alignment"])
 
 	Func setAlignment P1
-		dnRequest("set",[self,"Alignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Alignment",P1])
 		return self
 
 	Func getAppearance
-		return dnRequest("get",[self,"Appearance"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Appearance"])
 
 	Func setAppearance P1
-		dnRequest("set",[self,"Appearance",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Appearance",P1])
 		return self
 
 	Func getDrawMode
-		return dnRequest("get",[self,"DrawMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DrawMode"])
 
 	Func setDrawMode P1
-		dnRequest("set",[self,"DrawMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DrawMode",P1])
 		return self
 
 	Func getHotTrack
-		return dnRequest("get",[self,"HotTrack"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HotTrack"])
 
 	Func setHotTrack P1
-		dnRequest("set",[self,"HotTrack",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HotTrack",P1])
 		return self
 
 	Func getImageList
-		return dnRequest("get",[self,"ImageList"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageList"])
 
 	Func setImageList P1
-		dnRequest("set",[self,"ImageList",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageList",P1])
 		return self
 
 	Func getItemSize
-		return dnRequest("get",[self,"ItemSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemSize"])
 
 	Func setItemSize P1
-		dnRequest("set",[self,"ItemSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemSize",P1])
 		return self
 
 	Func getMultiline
-		return dnRequest("get",[self,"Multiline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Multiline"])
 
 	Func setMultiline P1
-		dnRequest("set",[self,"Multiline",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Multiline",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[self,"RightToLeftLayout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[self,"RightToLeftLayout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
 		return self
 
 	Func getRowCount
-		return dnRequest("get",[self,"RowCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowCount"])
 
 	Func setRowCount P1
 		raise("DotNet Error: RowCount is a read-only property")
 
 	Func getSelectedIndex
-		return dnRequest("get",[self,"SelectedIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedIndex"])
 
 	Func setSelectedIndex P1
-		dnRequest("set",[self,"SelectedIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedIndex",P1])
 		return self
 
 	Func getSelectedTab
-		return dnRequest("get",[self,"SelectedTab"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedTab"])
 
 	Func setSelectedTab P1
-		dnRequest("set",[self,"SelectedTab",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedTab",P1])
 		return self
 
 	Func getSizeMode
-		return dnRequest("get",[self,"SizeMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SizeMode"])
 
 	Func setSizeMode P1
-		dnRequest("set",[self,"SizeMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SizeMode",P1])
 		return self
 
 	Func getShowToolTips
-		return dnRequest("get",[self,"ShowToolTips"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowToolTips"])
 
 	Func setShowToolTips P1
-		dnRequest("set",[self,"ShowToolTips",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowToolTips",P1])
 		return self
 
 	Func getTabCount
-		return dnRequest("get",[self,"TabCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TabCount"])
 
 	Func setTabCount P1
 		raise("DotNet Error: TabCount is a read-only property")
 
 	Func getTabPages
-		return dnRequest("get",[self,"TabPages"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TabPages"])
 
 	Func setTabPages P1
 		raise("DotNet Error: TabPages is a read-only property")

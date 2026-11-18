@@ -20,50 +20,50 @@ Class RadioButton from ButtonBase
 		return self
 
 	Func PerformClick 
-		dnRequest("call",[self,"PerformClick"])
+		dnRequest("call",[new DotNetObject(nHandle),"PerformClick"])
 		return self
 
 	Func setAppearanceChangedEvent P1
-		dnRequest("setevent",[self,"AppearanceChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AppearanceChanged",dnCallback(P1)])
 		return self
 
 	Func clearAppearanceChangedEvent
-		dnRequest("clearevent",[self,"AppearanceChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AppearanceChanged"])
 		return self
 
 	Func setCheckedChangedEvent P1
-		dnRequest("setevent",[self,"CheckedChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CheckedChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckedChangedEvent
-		dnRequest("clearevent",[self,"CheckedChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckedChanged"])
 		return self
 
 	Func getAutoCheck
-		return dnRequest("get",[self,"AutoCheck"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoCheck"])
 
 	Func setAutoCheck P1
-		dnRequest("set",[self,"AutoCheck",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoCheck",P1])
 		return self
 
 	Func getAppearance
-		return dnRequest("get",[self,"Appearance"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Appearance"])
 
 	Func setAppearance P1
-		dnRequest("set",[self,"Appearance",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Appearance",P1])
 		return self
 
 	Func getCheckAlign
-		return dnRequest("get",[self,"CheckAlign"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckAlign"])
 
 	Func setCheckAlign P1
-		dnRequest("set",[self,"CheckAlign",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckAlign",P1])
 		return self
 
 	Func getChecked
-		return dnRequest("get",[self,"Checked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Checked"])
 
 	Func setChecked P1
-		dnRequest("set",[self,"Checked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Checked",P1])
 		return self
 

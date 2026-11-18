@@ -19,10 +19,10 @@ Class TextDecorationCollectionConverter from TypeConverter
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.TextDecorationCollectionConverter, PresentationCore'),"ConvertFromString",P1])
 			ok
-			return dnRequest("callnamed",[self,"ConvertFromString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertFromString",P1])
 		ok
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Windows.TextDecorationCollectionConverter, PresentationCore'),"ConvertFromString",P1])
 		ok
-		return dnRequest("call",[self,"ConvertFromString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromString",P1])
 

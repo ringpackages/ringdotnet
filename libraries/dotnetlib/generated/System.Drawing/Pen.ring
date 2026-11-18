@@ -37,175 +37,175 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func SetLineCap P1,P2,P3
-		dnRequest("call",[self,"SetLineCap",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetLineCap",P1,P2,P3])
 		return self
 
 	Func ResetTransform 
-		dnRequest("call",[self,"ResetTransform"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetTransform"])
 		return self
 
 	Func MultiplyTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"MultiplyTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 			return self
 		ok
-		dnRequest("call",[self,"MultiplyTransform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 		return self
 
 	Func MultiplyTransform_2 P1,P2
-		dnRequest("call",[self,"MultiplyTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1,P2])
 		return self
 
 	Func TranslateTransform P1,P2
-		dnRequest("call",[self,"TranslateTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2])
 		return self
 
 	Func TranslateTransform_3 P1,P2,P3
-		dnRequest("call",[self,"TranslateTransform",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2,P3])
 		return self
 
 	Func ScaleTransform P1,P2
-		dnRequest("call",[self,"ScaleTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2])
 		return self
 
 	Func ScaleTransform_3 P1,P2,P3
-		dnRequest("call",[self,"ScaleTransform",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2,P3])
 		return self
 
 	Func RotateTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"RotateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"RotateTransform",P1])
 			return self
 		ok
-		dnRequest("call",[self,"RotateTransform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1])
 		return self
 
 	Func RotateTransform_2 P1,P2
-		dnRequest("call",[self,"RotateTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1,P2])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
 		return self
 
 	Func getStartCap
-		return dnRequest("get",[self,"StartCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartCap"])
 
 	Func setStartCap P1
-		dnRequest("set",[self,"StartCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StartCap",P1])
 		return self
 
 	Func getEndCap
-		return dnRequest("get",[self,"EndCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EndCap"])
 
 	Func setEndCap P1
-		dnRequest("set",[self,"EndCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EndCap",P1])
 		return self
 
 	Func getCustomStartCap
-		return dnRequest("get",[self,"CustomStartCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CustomStartCap"])
 
 	Func setCustomStartCap P1
-		dnRequest("set",[self,"CustomStartCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CustomStartCap",P1])
 		return self
 
 	Func getCustomEndCap
-		return dnRequest("get",[self,"CustomEndCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CustomEndCap"])
 
 	Func setCustomEndCap P1
-		dnRequest("set",[self,"CustomEndCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CustomEndCap",P1])
 		return self
 
 	Func getDashCap
-		return dnRequest("get",[self,"DashCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DashCap"])
 
 	Func setDashCap P1
-		dnRequest("set",[self,"DashCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DashCap",P1])
 		return self
 
 	Func getLineJoin
-		return dnRequest("get",[self,"LineJoin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineJoin"])
 
 	Func setLineJoin P1
-		dnRequest("set",[self,"LineJoin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineJoin",P1])
 		return self
 
 	Func getMiterLimit
-		return dnRequest("get",[self,"MiterLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MiterLimit"])
 
 	Func setMiterLimit P1
-		dnRequest("set",[self,"MiterLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MiterLimit",P1])
 		return self
 
 	Func getAlignment
-		return dnRequest("get",[self,"Alignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Alignment"])
 
 	Func setAlignment P1
-		dnRequest("set",[self,"Alignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Alignment",P1])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func getPenType
-		return dnRequest("get",[self,"PenType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PenType"])
 
 	Func setPenType P1
 		raise("DotNet Error: PenType is a read-only property")
 
 	Func getColor
-		return dnRequest("get",[self,"Color"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
 
 	Func setColor P1
-		dnRequest("set",[self,"Color",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
 		return self
 
 	Func getBrush
-		return dnRequest("get",[self,"Brush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Brush"])
 
 	Func setBrush P1
-		dnRequest("set",[self,"Brush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Brush",P1])
 		return self
 
 	Func getDashStyle
-		return dnRequest("get",[self,"DashStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DashStyle"])
 
 	Func setDashStyle P1
-		dnRequest("set",[self,"DashStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DashStyle",P1])
 		return self
 
 	Func getDashOffset
-		return dnRequest("get",[self,"DashOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DashOffset"])
 
 	Func setDashOffset P1
-		dnRequest("set",[self,"DashOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DashOffset",P1])
 		return self
 
 	Func getDashPattern
-		return dnRequest("get",[self,"DashPattern"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DashPattern"])
 
 	Func setDashPattern P1
-		dnRequest("set",[self,"DashPattern",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DashPattern",P1])
 		return self
 
 	Func getCompoundArray
-		return dnRequest("get",[self,"CompoundArray"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompoundArray"])
 
 	Func setCompoundArray P1
-		dnRequest("set",[self,"CompoundArray",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CompoundArray",P1])
 		return self
 

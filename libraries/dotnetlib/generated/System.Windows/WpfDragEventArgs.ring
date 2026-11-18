@@ -19,30 +19,30 @@ Class WpfDragEventArgs from RoutedEventArgs
 		return self
 
 	Func GetPosition P1
-		return dnRequest("call",[self,"GetPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPosition",P1])
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")
 
 	Func getKeyStates
-		return dnRequest("get",[self,"KeyStates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyStates"])
 
 	Func setKeyStates P1
 		raise("DotNet Error: KeyStates is a read-only property")
 
 	Func getAllowedEffects
-		return dnRequest("get",[self,"AllowedEffects"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowedEffects"])
 
 	Func setAllowedEffects P1
 		raise("DotNet Error: AllowedEffects is a read-only property")
 
 	Func getEffects
-		return dnRequest("get",[self,"Effects"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Effects"])
 
 	Func setEffects P1
-		dnRequest("set",[self,"Effects",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Effects",P1])
 		return self
 

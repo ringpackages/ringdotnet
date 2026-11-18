@@ -23,100 +23,100 @@ Class TcpListener from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dnRequest("call",[self,"AllowNatTraversal",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AllowNatTraversal",P1])
 		return self
 
 	Func Start P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Start",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Start",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Start"])
+			dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		return self
 		ok
-		dnRequest("call",[self,"Start",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
 		return self
 
 	Func Start_1 P1
-		dnRequest("call",[self,"Start",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
 		return self
 
 	Func Stop 
-		dnRequest("call",[self,"Stop"])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Pending 
-		return dnRequest("call",[self,"Pending"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Pending"])
 
 	Func AcceptSocket 
-		return dnRequest("call",[self,"AcceptSocket"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptSocket"])
 
 	Func AcceptTcpClient 
-		return dnRequest("call",[self,"AcceptTcpClient"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptTcpClient"])
 
 	Func BeginAcceptSocket P1,P2
-		return dnRequest("call",[self,"BeginAcceptSocket",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAcceptSocket",P1,P2])
 
 	Func EndAcceptSocket P1
-		return dnRequest("call",[self,"EndAcceptSocket",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndAcceptSocket",P1])
 
 	Func BeginAcceptTcpClient P1,P2
-		return dnRequest("call",[self,"BeginAcceptTcpClient",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAcceptTcpClient",P1,P2])
 
 	Func EndAcceptTcpClient P1
-		return dnRequest("call",[self,"EndAcceptTcpClient",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndAcceptTcpClient",P1])
 
 	Func AcceptSocketAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AcceptSocketAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptSocketAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AcceptSocketAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AcceptSocketAsync"])
 		ok
-		return dnRequest("call",[self,"AcceptSocketAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptSocketAsync",P1])
 
 	Func AcceptSocketAsync_1 P1
-		return dnRequest("call",[self,"AcceptSocketAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptSocketAsync",P1])
 
 	Func AcceptTcpClientAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AcceptTcpClientAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptTcpClientAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AcceptTcpClientAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AcceptTcpClientAsync"])
 		ok
-		return dnRequest("call",[self,"AcceptTcpClientAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptTcpClientAsync",P1])
 
 	Func AcceptTcpClientAsync_1 P1
-		return dnRequest("call",[self,"AcceptTcpClientAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptTcpClientAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.TcpListener, System.Net.Sockets'),"Create",P1])
 
 	Func getServer
-		return dnRequest("get",[self,"Server"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Server"])
 
 	Func setServer P1
 		raise("DotNet Error: Server is a read-only property")
 
 	Func getLocalEndpoint
-		return dnRequest("get",[self,"LocalEndpoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalEndpoint"])
 
 	Func setLocalEndpoint P1
 		raise("DotNet Error: LocalEndpoint is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[self,"ExclusiveAddressUse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExclusiveAddressUse"])
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[self,"ExclusiveAddressUse",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExclusiveAddressUse",P1])
 		return self
 

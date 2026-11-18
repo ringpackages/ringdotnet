@@ -15,5 +15,5 @@ Class TableValuedFunctionBuilder from DbFunctionBuilderBase
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 

@@ -23,79 +23,79 @@ Class UnmanagedMemoryAccessor from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func ReadBoolean P1
-		return dnRequest("call",[self,"ReadBoolean",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadBoolean",P1])
 
 	Func ReadByte P1
-		return dnRequest("call",[self,"ReadByte",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadByte",P1])
 
 	Func ReadChar P1
-		return dnRequest("call",[self,"ReadChar",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadChar",P1])
 
 	Func ReadInt16 P1
-		return dnRequest("call",[self,"ReadInt16",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt16",P1])
 
 	Func ReadInt32 P1
-		return dnRequest("call",[self,"ReadInt32",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt32",P1])
 
 	Func ReadInt64 P1
-		return dnRequest("call",[self,"ReadInt64",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt64",P1])
 
 	Func ReadDecimal P1
-		return dnRequest("call",[self,"ReadDecimal",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadDecimal",P1])
 
 	Func ReadSingle P1
-		return dnRequest("call",[self,"ReadSingle",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadSingle",P1])
 
 	Func ReadDouble P1
-		return dnRequest("call",[self,"ReadDouble",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadDouble",P1])
 
 	Func ReadSByte P1
-		return dnRequest("call",[self,"ReadSByte",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadSByte",P1])
 
 	Func ReadUInt16 P1
-		return dnRequest("call",[self,"ReadUInt16",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt16",P1])
 
 	Func ReadUInt32 P1
-		return dnRequest("call",[self,"ReadUInt32",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt32",P1])
 
 	Func ReadUInt64 P1
-		return dnRequest("call",[self,"ReadUInt64",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt64",P1])
 
 	Func Read P1
-		return dnRequest("call",[self,"Read",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1])
 
 	Func ReadArray P1,P2,P3,P4
-		return dnRequest("call",[self,"ReadArray",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadArray",P1,P2,P3,P4])
 
 	Func Write P1,P2
-		dnRequest("call",[self,"Write",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2])
 		return self
 
 	Func WriteArray P1,P2,P3,P4
-		dnRequest("call",[self,"WriteArray",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteArray",P1,P2,P3,P4])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getCanRead
-		return dnRequest("get",[self,"CanRead"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanRead"])
 
 	Func setCanRead P1
 		raise("DotNet Error: CanRead is a read-only property")
 
 	Func getCanWrite
-		return dnRequest("get",[self,"CanWrite"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanWrite"])
 
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")

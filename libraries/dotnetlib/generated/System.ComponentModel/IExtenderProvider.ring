@@ -14,5 +14,5 @@ Class IExtenderProvider from DotNetObject
 		return self
 
 	Func CanExtend P1
-		return dnRequest("call",[self,"CanExtend",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanExtend",P1])
 

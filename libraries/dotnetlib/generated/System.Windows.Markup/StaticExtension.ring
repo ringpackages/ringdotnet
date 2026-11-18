@@ -22,16 +22,16 @@ Class StaticExtension from MarkupExtension
 		return self
 
 	Func getMember
-		return dnRequest("get",[self,"Member"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Member"])
 
 	Func setMember P1
-		dnRequest("set",[self,"Member",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Member",P1])
 		return self
 
 	Func getMemberType
-		return dnRequest("get",[self,"MemberType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberType"])
 
 	Func setMemberType P1
-		dnRequest("set",[self,"MemberType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MemberType",P1])
 		return self
 

@@ -40,25 +40,25 @@ Class X509AuthorityKeyIdentifierExtension from X509Extension
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"CreateFromCertificate",P1,P2,P3])
 
 	Func getKeyIdentifier
-		return dnRequest("get",[self,"KeyIdentifier"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyIdentifier"])
 
 	Func setKeyIdentifier P1
 		raise("DotNet Error: KeyIdentifier is a read-only property")
 
 	Func getNamedIssuer
-		return dnRequest("get",[self,"NamedIssuer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NamedIssuer"])
 
 	Func setNamedIssuer P1
 		raise("DotNet Error: NamedIssuer is a read-only property")
 
 	Func getRawIssuer
-		return dnRequest("get",[self,"RawIssuer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawIssuer"])
 
 	Func setRawIssuer P1
 		raise("DotNet Error: RawIssuer is a read-only property")
 
 	Func getSerialNumber
-		return dnRequest("get",[self,"SerialNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SerialNumber"])
 
 	Func setSerialNumber P1
 		raise("DotNet Error: SerialNumber is a read-only property")

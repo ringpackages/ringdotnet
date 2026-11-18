@@ -17,13 +17,13 @@ Class Camera from Animatable
 		return self
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func getTransformProperty

@@ -17,16 +17,16 @@ Class FormattableString from Object
 		return self
 
 	Func GetArguments 
-		return dnRequest("call",[self,"GetArguments"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetArguments"])
 
 	Func GetArgument P1
-		return dnRequest("call",[self,"GetArgument",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetArgument",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Invariant P1
 		return dnRequest("call",[dnTypeCached('System.FormattableString, System.Private.CoreLib'),"Invariant",P1])
@@ -35,13 +35,13 @@ Class FormattableString from Object
 		return dnRequest("call",[dnTypeCached('System.FormattableString, System.Private.CoreLib'),"CurrentCulture",P1])
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getArgumentCount
-		return dnRequest("get",[self,"ArgumentCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ArgumentCount"])
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")

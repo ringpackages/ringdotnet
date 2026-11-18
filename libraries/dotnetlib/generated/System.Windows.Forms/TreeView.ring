@@ -45,371 +45,371 @@ Class TreeView from Control
 		return self
 
 	Func BeginUpdate 
-		dnRequest("call",[self,"BeginUpdate"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginUpdate"])
 		return self
 
 	Func CollapseAll 
-		dnRequest("call",[self,"CollapseAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"CollapseAll"])
 		return self
 
 	Func EndUpdate 
-		dnRequest("call",[self,"EndUpdate"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndUpdate"])
 		return self
 
 	Func ExpandAll 
-		dnRequest("call",[self,"ExpandAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"ExpandAll"])
 		return self
 
 	Func HitTest P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HitTest",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
 		ok
-		return dnRequest("call",[self,"HitTest",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
 
 	Func HitTest_2 P1,P2
-		return dnRequest("call",[self,"HitTest",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
 
 	Func GetNodeCount P1
-		return dnRequest("call",[self,"GetNodeCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNodeCount",P1])
 
 	Func GetNodeAt P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetNodeAt",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNodeAt",P1])
 		ok
-		return dnRequest("call",[self,"GetNodeAt",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNodeAt",P1])
 
 	Func GetNodeAt_2 P1,P2
-		return dnRequest("call",[self,"GetNodeAt",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNodeAt",P1,P2])
 
 	Func Sort 
-		dnRequest("call",[self,"Sort"])
+		dnRequest("call",[new DotNetObject(nHandle),"Sort"])
 		return self
 
 	Func setBeforeLabelEditEvent P1
-		dnRequest("setevent",[self,"BeforeLabelEdit",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeLabelEdit",dnCallback(P1)])
 		return self
 
 	Func clearBeforeLabelEditEvent
-		dnRequest("clearevent",[self,"BeforeLabelEdit"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeLabelEdit"])
 		return self
 
 	Func setAfterLabelEditEvent P1
-		dnRequest("setevent",[self,"AfterLabelEdit",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AfterLabelEdit",dnCallback(P1)])
 		return self
 
 	Func clearAfterLabelEditEvent
-		dnRequest("clearevent",[self,"AfterLabelEdit"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterLabelEdit"])
 		return self
 
 	Func setBeforeCheckEvent P1
-		dnRequest("setevent",[self,"BeforeCheck",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeCheck",dnCallback(P1)])
 		return self
 
 	Func clearBeforeCheckEvent
-		dnRequest("clearevent",[self,"BeforeCheck"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeCheck"])
 		return self
 
 	Func setAfterCheckEvent P1
-		dnRequest("setevent",[self,"AfterCheck",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AfterCheck",dnCallback(P1)])
 		return self
 
 	Func clearAfterCheckEvent
-		dnRequest("clearevent",[self,"AfterCheck"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterCheck"])
 		return self
 
 	Func setBeforeCollapseEvent P1
-		dnRequest("setevent",[self,"BeforeCollapse",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeCollapse",dnCallback(P1)])
 		return self
 
 	Func clearBeforeCollapseEvent
-		dnRequest("clearevent",[self,"BeforeCollapse"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeCollapse"])
 		return self
 
 	Func setAfterCollapseEvent P1
-		dnRequest("setevent",[self,"AfterCollapse",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AfterCollapse",dnCallback(P1)])
 		return self
 
 	Func clearAfterCollapseEvent
-		dnRequest("clearevent",[self,"AfterCollapse"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterCollapse"])
 		return self
 
 	Func setBeforeExpandEvent P1
-		dnRequest("setevent",[self,"BeforeExpand",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeExpand",dnCallback(P1)])
 		return self
 
 	Func clearBeforeExpandEvent
-		dnRequest("clearevent",[self,"BeforeExpand"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeExpand"])
 		return self
 
 	Func setAfterExpandEvent P1
-		dnRequest("setevent",[self,"AfterExpand",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AfterExpand",dnCallback(P1)])
 		return self
 
 	Func clearAfterExpandEvent
-		dnRequest("clearevent",[self,"AfterExpand"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterExpand"])
 		return self
 
 	Func setDrawNodeEvent P1
-		dnRequest("setevent",[self,"DrawNode",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DrawNode",dnCallback(P1)])
 		return self
 
 	Func clearDrawNodeEvent
-		dnRequest("clearevent",[self,"DrawNode"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawNode"])
 		return self
 
 	Func setItemDragEvent P1
-		dnRequest("setevent",[self,"ItemDrag",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ItemDrag",dnCallback(P1)])
 		return self
 
 	Func clearItemDragEvent
-		dnRequest("clearevent",[self,"ItemDrag"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemDrag"])
 		return self
 
 	Func setNodeMouseHoverEvent P1
-		dnRequest("setevent",[self,"NodeMouseHover",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NodeMouseHover",dnCallback(P1)])
 		return self
 
 	Func clearNodeMouseHoverEvent
-		dnRequest("clearevent",[self,"NodeMouseHover"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeMouseHover"])
 		return self
 
 	Func setBeforeSelectEvent P1
-		dnRequest("setevent",[self,"BeforeSelect",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeSelect",dnCallback(P1)])
 		return self
 
 	Func clearBeforeSelectEvent
-		dnRequest("clearevent",[self,"BeforeSelect"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeSelect"])
 		return self
 
 	Func setAfterSelectEvent P1
-		dnRequest("setevent",[self,"AfterSelect",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AfterSelect",dnCallback(P1)])
 		return self
 
 	Func clearAfterSelectEvent
-		dnRequest("clearevent",[self,"AfterSelect"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterSelect"])
 		return self
 
 	Func setNodeMouseClickEvent P1
-		dnRequest("setevent",[self,"NodeMouseClick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NodeMouseClick",dnCallback(P1)])
 		return self
 
 	Func clearNodeMouseClickEvent
-		dnRequest("clearevent",[self,"NodeMouseClick"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeMouseClick"])
 		return self
 
 	Func setNodeMouseDoubleClickEvent P1
-		dnRequest("setevent",[self,"NodeMouseDoubleClick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NodeMouseDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearNodeMouseDoubleClickEvent
-		dnRequest("clearevent",[self,"NodeMouseDoubleClick"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeMouseDoubleClick"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[self,"RightToLeftLayoutChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[self,"RightToLeftLayoutChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[self,"BorderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[self,"BorderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
 		return self
 
 	Func getCheckBoxes
-		return dnRequest("get",[self,"CheckBoxes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckBoxes"])
 
 	Func setCheckBoxes P1
-		dnRequest("set",[self,"CheckBoxes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckBoxes",P1])
 		return self
 
 	Func getFullRowSelect
-		return dnRequest("get",[self,"FullRowSelect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FullRowSelect"])
 
 	Func setFullRowSelect P1
-		dnRequest("set",[self,"FullRowSelect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FullRowSelect",P1])
 		return self
 
 	Func getHideSelection
-		return dnRequest("get",[self,"HideSelection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HideSelection"])
 
 	Func setHideSelection P1
-		dnRequest("set",[self,"HideSelection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HideSelection",P1])
 		return self
 
 	Func getHotTracking
-		return dnRequest("get",[self,"HotTracking"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HotTracking"])
 
 	Func setHotTracking P1
-		dnRequest("set",[self,"HotTracking",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HotTracking",P1])
 		return self
 
 	Func getImageIndex
-		return dnRequest("get",[self,"ImageIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageIndex"])
 
 	Func setImageIndex P1
-		dnRequest("set",[self,"ImageIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageIndex",P1])
 		return self
 
 	Func getImageKey
-		return dnRequest("get",[self,"ImageKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageKey"])
 
 	Func setImageKey P1
-		dnRequest("set",[self,"ImageKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageKey",P1])
 		return self
 
 	Func getImageList
-		return dnRequest("get",[self,"ImageList"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageList"])
 
 	Func setImageList P1
-		dnRequest("set",[self,"ImageList",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageList",P1])
 		return self
 
 	Func getStateImageList
-		return dnRequest("get",[self,"StateImageList"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StateImageList"])
 
 	Func setStateImageList P1
-		dnRequest("set",[self,"StateImageList",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StateImageList",P1])
 		return self
 
 	Func getIndent
-		return dnRequest("get",[self,"Indent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Indent"])
 
 	Func setIndent P1
-		dnRequest("set",[self,"Indent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Indent",P1])
 		return self
 
 	Func getItemHeight
-		return dnRequest("get",[self,"ItemHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemHeight"])
 
 	Func setItemHeight P1
-		dnRequest("set",[self,"ItemHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemHeight",P1])
 		return self
 
 	Func getLabelEdit
-		return dnRequest("get",[self,"LabelEdit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LabelEdit"])
 
 	Func setLabelEdit P1
-		dnRequest("set",[self,"LabelEdit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LabelEdit",P1])
 		return self
 
 	Func getLineColor
-		return dnRequest("get",[self,"LineColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineColor"])
 
 	Func setLineColor P1
-		dnRequest("set",[self,"LineColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineColor",P1])
 		return self
 
 	Func getNodes
-		return dnRequest("get",[self,"Nodes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Nodes"])
 
 	Func setNodes P1
 		raise("DotNet Error: Nodes is a read-only property")
 
 	Func getDrawMode
-		return dnRequest("get",[self,"DrawMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DrawMode"])
 
 	Func setDrawMode P1
-		dnRequest("set",[self,"DrawMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DrawMode",P1])
 		return self
 
 	Func getPathSeparator
-		return dnRequest("get",[self,"PathSeparator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PathSeparator"])
 
 	Func setPathSeparator P1
-		dnRequest("set",[self,"PathSeparator",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PathSeparator",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[self,"RightToLeftLayout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[self,"RightToLeftLayout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
 		return self
 
 	Func getScrollable
-		return dnRequest("get",[self,"Scrollable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scrollable"])
 
 	Func setScrollable P1
-		dnRequest("set",[self,"Scrollable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Scrollable",P1])
 		return self
 
 	Func getSelectedImageIndex
-		return dnRequest("get",[self,"SelectedImageIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedImageIndex"])
 
 	Func setSelectedImageIndex P1
-		dnRequest("set",[self,"SelectedImageIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedImageIndex",P1])
 		return self
 
 	Func getSelectedImageKey
-		return dnRequest("get",[self,"SelectedImageKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedImageKey"])
 
 	Func setSelectedImageKey P1
-		dnRequest("set",[self,"SelectedImageKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedImageKey",P1])
 		return self
 
 	Func getSelectedNode
-		return dnRequest("get",[self,"SelectedNode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedNode"])
 
 	Func setSelectedNode P1
-		dnRequest("set",[self,"SelectedNode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedNode",P1])
 		return self
 
 	Func getShowLines
-		return dnRequest("get",[self,"ShowLines"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowLines"])
 
 	Func setShowLines P1
-		dnRequest("set",[self,"ShowLines",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowLines",P1])
 		return self
 
 	Func getShowNodeToolTips
-		return dnRequest("get",[self,"ShowNodeToolTips"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowNodeToolTips"])
 
 	Func setShowNodeToolTips P1
-		dnRequest("set",[self,"ShowNodeToolTips",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowNodeToolTips",P1])
 		return self
 
 	Func getShowPlusMinus
-		return dnRequest("get",[self,"ShowPlusMinus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowPlusMinus"])
 
 	Func setShowPlusMinus P1
-		dnRequest("set",[self,"ShowPlusMinus",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowPlusMinus",P1])
 		return self
 
 	Func getShowRootLines
-		return dnRequest("get",[self,"ShowRootLines"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowRootLines"])
 
 	Func setShowRootLines P1
-		dnRequest("set",[self,"ShowRootLines",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowRootLines",P1])
 		return self
 
 	Func getSorted
-		return dnRequest("get",[self,"Sorted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sorted"])
 
 	Func setSorted P1
-		dnRequest("set",[self,"Sorted",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Sorted",P1])
 		return self
 
 	Func getTreeViewNodeSorter
-		return dnRequest("get",[self,"TreeViewNodeSorter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TreeViewNodeSorter"])
 
 	Func setTreeViewNodeSorter P1
-		dnRequest("set",[self,"TreeViewNodeSorter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TreeViewNodeSorter",P1])
 		return self
 
 	Func getTopNode
-		return dnRequest("get",[self,"TopNode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TopNode"])
 
 	Func setTopNode P1
-		dnRequest("set",[self,"TopNode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TopNode",P1])
 		return self
 
 	Func getVisibleCount
-		return dnRequest("get",[self,"VisibleCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VisibleCount"])
 
 	Func setVisibleCount P1
 		raise("DotNet Error: VisibleCount is a read-only property")

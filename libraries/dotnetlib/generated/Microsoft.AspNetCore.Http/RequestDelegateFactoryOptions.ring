@@ -21,40 +21,40 @@ Class RequestDelegateFactoryOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getServiceProvider
-		return dnRequest("get",[self,"ServiceProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceProvider"])
 
 	Func setServiceProvider P1
-		dnRequest("set",[self,"ServiceProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ServiceProvider",P1])
 		return self
 
 	Func getRouteParameterNames
-		return dnRequest("get",[self,"RouteParameterNames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteParameterNames"])
 
 	Func setRouteParameterNames P1
-		dnRequest("set",[self,"RouteParameterNames",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RouteParameterNames",P1])
 		return self
 
 	Func getThrowOnBadRequest
-		return dnRequest("get",[self,"ThrowOnBadRequest"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ThrowOnBadRequest"])
 
 	Func setThrowOnBadRequest P1
-		dnRequest("set",[self,"ThrowOnBadRequest",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ThrowOnBadRequest",P1])
 		return self
 
 	Func getDisableInferBodyFromParameters
-		return dnRequest("get",[self,"DisableInferBodyFromParameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisableInferBodyFromParameters"])
 
 	Func setDisableInferBodyFromParameters P1
-		dnRequest("set",[self,"DisableInferBodyFromParameters",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisableInferBodyFromParameters",P1])
 		return self
 
 	Func getEndpointBuilder
-		return dnRequest("get",[self,"EndpointBuilder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EndpointBuilder"])
 
 	Func setEndpointBuilder P1
-		dnRequest("set",[self,"EndpointBuilder",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EndpointBuilder",P1])
 		return self
 

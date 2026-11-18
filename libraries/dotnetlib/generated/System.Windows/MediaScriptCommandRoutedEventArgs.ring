@@ -17,13 +17,13 @@ Class MediaScriptCommandRoutedEventArgs from RoutedEventArgs
 		return self
 
 	Func getParameterType
-		return dnRequest("get",[self,"ParameterType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterType"])
 
 	Func setParameterType P1
 		raise("DotNet Error: ParameterType is a read-only property")
 
 	Func getParameterValue
-		return dnRequest("get",[self,"ParameterValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterValue"])
 
 	Func setParameterValue P1
 		raise("DotNet Error: ParameterValue is a read-only property")

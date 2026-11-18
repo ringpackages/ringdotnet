@@ -22,49 +22,49 @@ Class PipeAuditRule from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getPipeAccessRights
-		return dnRequest("get",[self,"PipeAccessRights"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PipeAccessRights"])
 
 	Func setPipeAccessRights P1
 		raise("DotNet Error: PipeAccessRights is a read-only property")
 
 	Func getAuditFlags
-		return dnRequest("get",[self,"AuditFlags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuditFlags"])
 
 	Func setAuditFlags P1
 		raise("DotNet Error: AuditFlags is a read-only property")
 
 	Func getIdentityReference
-		return dnRequest("get",[self,"IdentityReference"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IdentityReference"])
 
 	Func setIdentityReference P1
 		raise("DotNet Error: IdentityReference is a read-only property")
 
 	Func getIsInherited
-		return dnRequest("get",[self,"IsInherited"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInherited"])
 
 	Func setIsInherited P1
 		raise("DotNet Error: IsInherited is a read-only property")
 
 	Func getInheritanceFlags
-		return dnRequest("get",[self,"InheritanceFlags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InheritanceFlags"])
 
 	Func setInheritanceFlags P1
 		raise("DotNet Error: InheritanceFlags is a read-only property")
 
 	Func getPropagationFlags
-		return dnRequest("get",[self,"PropagationFlags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropagationFlags"])
 
 	Func setPropagationFlags P1
 		raise("DotNet Error: PropagationFlags is a read-only property")

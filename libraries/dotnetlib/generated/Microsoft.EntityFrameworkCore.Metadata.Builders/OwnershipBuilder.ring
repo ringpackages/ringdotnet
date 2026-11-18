@@ -15,11 +15,11 @@ Class OwnershipBuilder from RelationshipBuilderBase
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func HasForeignKey P1
-		return dnRequest("call",[self,"HasForeignKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasForeignKey",P1])
 
 	Func HasPrincipalKey P1
-		return dnRequest("call",[self,"HasPrincipalKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasPrincipalKey",P1])
 

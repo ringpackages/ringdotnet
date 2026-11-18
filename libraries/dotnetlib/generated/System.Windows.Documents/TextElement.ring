@@ -78,87 +78,87 @@ Class TextElement from FrameworkContentElement
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"GetForeground",P1])
 
 	Func getElementStart
-		return dnRequest("get",[self,"ElementStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementStart"])
 
 	Func setElementStart P1
 		raise("DotNet Error: ElementStart is a read-only property")
 
 	Func getContentStart
-		return dnRequest("get",[self,"ContentStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentStart"])
 
 	Func setContentStart P1
 		raise("DotNet Error: ContentStart is a read-only property")
 
 	Func getContentEnd
-		return dnRequest("get",[self,"ContentEnd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentEnd"])
 
 	Func setContentEnd P1
 		raise("DotNet Error: ContentEnd is a read-only property")
 
 	Func getElementEnd
-		return dnRequest("get",[self,"ElementEnd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementEnd"])
 
 	Func setElementEnd P1
 		raise("DotNet Error: ElementEnd is a read-only property")
 
 	Func getFontFamily
-		return dnRequest("get",[self,"FontFamily"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontFamily"])
 
 	Func setFontFamily P1
-		dnRequest("set",[self,"FontFamily",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontFamily",P1])
 		return self
 
 	Func getFontStyle
-		return dnRequest("get",[self,"FontStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontStyle"])
 
 	Func setFontStyle P1
-		dnRequest("set",[self,"FontStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontStyle",P1])
 		return self
 
 	Func getFontWeight
-		return dnRequest("get",[self,"FontWeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontWeight"])
 
 	Func setFontWeight P1
-		dnRequest("set",[self,"FontWeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontWeight",P1])
 		return self
 
 	Func getFontStretch
-		return dnRequest("get",[self,"FontStretch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontStretch"])
 
 	Func setFontStretch P1
-		dnRequest("set",[self,"FontStretch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontStretch",P1])
 		return self
 
 	Func getFontSize
-		return dnRequest("get",[self,"FontSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontSize"])
 
 	Func setFontSize P1
-		dnRequest("set",[self,"FontSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontSize",P1])
 		return self
 
 	Func getForeground
-		return dnRequest("get",[self,"Foreground"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Foreground"])
 
 	Func setForeground P1
-		dnRequest("set",[self,"Foreground",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Foreground",P1])
 		return self
 
 	Func getBackground
-		return dnRequest("get",[self,"Background"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[self,"Background",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
 		return self
 
 	Func getTextEffects
-		return dnRequest("get",[self,"TextEffects"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextEffects"])
 
 	Func setTextEffects P1
-		dnRequest("set",[self,"TextEffects",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextEffects",P1])
 		return self
 
 	Func getTypography
-		return dnRequest("get",[self,"Typography"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Typography"])
 
 	Func setTypography P1
 		raise("DotNet Error: Typography is a read-only property")

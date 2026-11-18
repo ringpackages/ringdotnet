@@ -22,49 +22,49 @@ Class WebApplicationBuilder from Object
 		return self
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEnvironment
-		return dnRequest("get",[self,"Environment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Environment"])
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Configuration"])
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
 
 	Func getLogging
-		return dnRequest("get",[self,"Logging"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Logging"])
 
 	Func setLogging P1
 		raise("DotNet Error: Logging is a read-only property")
 
 	Func getMetrics
-		return dnRequest("get",[self,"Metrics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metrics"])
 
 	Func setMetrics P1
 		raise("DotNet Error: Metrics is a read-only property")
 
 	Func getWebHost
-		return dnRequest("get",[self,"WebHost"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WebHost"])
 
 	Func setWebHost P1
 		raise("DotNet Error: WebHost is a read-only property")
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")

@@ -14,7 +14,7 @@ Class IdentityApiEndpointRouteBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func MapIdentityApi P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Identity'),"MapIdentityApi",P1])

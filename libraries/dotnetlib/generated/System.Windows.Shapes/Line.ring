@@ -24,31 +24,31 @@ Class Line from Shape
 		return self
 
 	Func getX1
-		return dnRequest("get",[self,"X1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X1"])
 
 	Func setX1 P1
-		dnRequest("set",[self,"X1",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X1",P1])
 		return self
 
 	Func getY1
-		return dnRequest("get",[self,"Y1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y1"])
 
 	Func setY1 P1
-		dnRequest("set",[self,"Y1",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y1",P1])
 		return self
 
 	Func getX2
-		return dnRequest("get",[self,"X2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X2"])
 
 	Func setX2 P1
-		dnRequest("set",[self,"X2",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X2",P1])
 		return self
 
 	Func getY2
-		return dnRequest("get",[self,"Y2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y2"])
 
 	Func setY2 P1
-		dnRequest("set",[self,"Y2",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y2",P1])
 		return self
 
 	Func getX1Property

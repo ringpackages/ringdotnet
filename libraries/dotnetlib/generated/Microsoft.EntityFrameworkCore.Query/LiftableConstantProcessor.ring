@@ -17,31 +17,31 @@ Class LiftableConstantProcessor from DotNetObject
 		return self
 
 	Func InlineConstants P1,P2
-		return dnRequest("call",[self,"InlineConstants",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InlineConstants",P1,P2])
 
 	Func LiftConstants P1,P2,P3
-		return dnRequest("call",[self,"LiftConstants",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"LiftConstants",P1,P2,P3])
 
 	Func Visit P1
-		return dnRequest("call",[self,"Visit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
 
 	Func VisitAndConvert P1,P2
-		return dnRequest("call",[self,"VisitAndConvert",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getLiftedConstants
-		return dnRequest("get",[self,"LiftedConstants"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LiftedConstants"])
 
 	Func setLiftedConstants P1
 		raise("DotNet Error: LiftedConstants is a read-only property")

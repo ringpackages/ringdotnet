@@ -19,28 +19,28 @@ Class Capture from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getValueSpan
-		return dnRequest("get",[self,"ValueSpan"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueSpan"])
 
 	Func setValueSpan P1
 		raise("DotNet Error: ValueSpan is a read-only property")

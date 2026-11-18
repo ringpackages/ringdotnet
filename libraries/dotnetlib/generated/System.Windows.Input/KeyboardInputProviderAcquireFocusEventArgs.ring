@@ -17,7 +17,7 @@ Class KeyboardInputProviderAcquireFocusEventArgs from KeyboardEventArgs
 		return self
 
 	Func getFocusAcquired
-		return dnRequest("get",[self,"FocusAcquired"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FocusAcquired"])
 
 	Func setFocusAcquired P1
 		raise("DotNet Error: FocusAcquired is a read-only property")

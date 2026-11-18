@@ -465,7 +465,7 @@ func buildPlan cTypeName, nForceInit
 		if aMethod[2]
 			cTarget = "dnTypeCached('" + cTypeName + "')"
 		else
-			cTarget = "self"
+			cTarget = "new DotNetObject(nHandle)"
 		ok
 		cReq = '"call",[' + cTarget + ',"' + cName + '"'
 		if nArity > 0
@@ -494,7 +494,7 @@ func buildPlan cTypeName, nForceInit
 			cB += "		if nHandle = 0" + nl
 			cB += "			" + returnCode(cStaticReq,aStaticRec[3],aStaticRec[5])
 			cB += "		ok" + nl
-			cReq = '"call",[self,"' + cName + '"'
+			cReq = '"call",[new DotNetObject(nHandle),"' + cName + '"'
 			if nArity > 0
 				cReq += "," + paraList(nArity)
 			ok
@@ -510,12 +510,12 @@ func buildPlan cTypeName, nForceInit
 	if len(aIndexer) = 3
 		if find(aNames,"item") = 0
 			cB = "	Func Item P1" + nl
-			cB += "		" + returnCode('"call",[self,"get_Item",P1]',aIndexer[2],0) + nl
+			cB += "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0) + nl
 			aBlocks + ["item",cB]
 		ok
 		if aIndexer[3] and find(aNames,"setitem") = 0
 			cB = "	Func SetItem P1,P2" + nl
-			cB += '		dnRequest("call",[self,"set_Item",P1,P2])' + nl
+			cB += '		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])' + nl
 			cB += "		return self" + nl + nl
 			aBlocks + ["setitem",cB]
 		ok
@@ -529,7 +529,7 @@ func buildPlan cTypeName, nForceInit
 		if aEvent[2]
 			cTarget = "dnTypeCached('" + cTypeName + "')"
 		else
-			cTarget = "self"
+			cTarget = "new DotNetObject(nHandle)"
 		ok
 		if find(aNames,lower("set" + cName + "Event")) = 0
 			aNames + lower("set" + cName + "Event")
@@ -550,7 +550,7 @@ func buildPlan cTypeName, nForceInit
 		if aMember[4]
 			cTarget = "dnTypeCached('" + cTypeName + "')"
 		else
-			cTarget = "self"
+			cTarget = "new DotNetObject(nHandle)"
 		ok
 		if aMember[2] and (find(aNames,lower("get" + cName)) = 0)
 			aNames + lower("get" + cName)
@@ -646,11 +646,11 @@ func arityCall aFiMethods, cFiName, cFiType, nFiArity, cFiOperation, cFiIndent
 		cFiCode += cFiIndent + "if nHandle = 0" + nl
 		cFiCode += cFiIndent + "	" + returnCode('"' + cFiOperation + '",[' + cFiStaticTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5])
 		cFiCode += cFiIndent + "ok" + nl
-		cFiTarget = "self"
+		cFiTarget = "new DotNetObject(nHandle)"
 	but lFiStatic
 		cFiTarget = cFiStaticTarget
 	else
-		cFiTarget = "self"
+		cFiTarget = "new DotNetObject(nHandle)"
 	ok
 	if lFiInstance
 		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiInstanceRec[3],aFiInstanceRec[5])
@@ -674,7 +674,7 @@ func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
 	if aDiFamily[2] and not aDiFamily[3]
 		cDiTarget = "dnTypeCached('" + cDiType + "')"
 	else
-		cDiTarget = "self"
+		cDiTarget = "new DotNetObject(nHandle)"
 	ok
 	if aDiFamily[2] and aDiFamily[3]
 		cDiB += "			if nHandle = 0" + nl

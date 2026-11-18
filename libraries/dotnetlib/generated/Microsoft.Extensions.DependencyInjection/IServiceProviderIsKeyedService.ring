@@ -14,5 +14,5 @@ Class IServiceProviderIsKeyedService from DotNetObject
 		return self
 
 	Func IsKeyedService P1,P2
-		return dnRequest("call",[self,"IsKeyedService",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsKeyedService",P1,P2])
 

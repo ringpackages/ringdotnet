@@ -22,10 +22,10 @@ Class DirectionalLight from Light
 		return self
 
 	Func getDirection
-		return dnRequest("get",[self,"Direction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
 
 	Func setDirection P1
-		dnRequest("set",[self,"Direction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Direction",P1])
 		return self
 
 	Func getDirectionProperty

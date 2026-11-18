@@ -25,87 +25,87 @@ Class BitArray from Object
 		return self
 
 	Func Get_ P1
-		return dnRequest("call",[self,"Get",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Get",P1])
 
 	Func Set_ P1,P2
-		dnRequest("call",[self,"Set",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Set",P1,P2])
 		return self
 
 	Func SetAll P1
-		dnRequest("call",[self,"SetAll",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAll",P1])
 		return self
 
 	Func And_ P1
-		return dnRequest("call",[self,"And",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"And",P1])
 
 	Func Or_ P1
-		return dnRequest("call",[self,"Or",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Or",P1])
 
 	Func Xor P1
-		return dnRequest("call",[self,"Xor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Xor",P1])
 
 	Func Not_ 
-		return dnRequest("call",[self,"Not"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Not"])
 
 	Func RightShift P1
-		return dnRequest("call",[self,"RightShift",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RightShift",P1])
 
 	Func LeftShift P1
-		return dnRequest("call",[self,"LeftShift",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LeftShift",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func HasAllSet 
-		return dnRequest("call",[self,"HasAllSet"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAllSet"])
 
 	Func HasAnySet 
-		return dnRequest("call",[self,"HasAnySet"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnySet"])
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
-		dnRequest("set",[self,"Length",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Length",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SyncRoot"])
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSynchronized"])
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

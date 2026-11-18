@@ -17,19 +17,19 @@ Class IPv6InterfaceProperties from Object
 		return self
 
 	Func GetScopeId P1
-		return dnRequest("call",[self,"GetScopeId",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetScopeId",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getMtu
-		return dnRequest("get",[self,"Mtu"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mtu"])
 
 	Func setMtu P1
 		raise("DotNet Error: Mtu is a read-only property")

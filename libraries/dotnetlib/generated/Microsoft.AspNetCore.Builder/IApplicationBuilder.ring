@@ -18,29 +18,29 @@ Class IApplicationBuilder from DotNetObject
 		return self
 
 	Func Use P1
-		return dnRequest("call",[self,"Use",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Use",P1])
 
 	Func New_ 
-		return dnRequest("call",[self,"New"])
+		return dnRequest("call",[new DotNetObject(nHandle),"New"])
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func getApplicationServices
-		return dnRequest("get",[self,"ApplicationServices"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationServices"])
 
 	Func setApplicationServices P1
-		dnRequest("set",[self,"ApplicationServices",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ApplicationServices",P1])
 		return self
 
 	Func getServerFeatures
-		return dnRequest("get",[self,"ServerFeatures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServerFeatures"])
 
 	Func setServerFeatures P1
 		raise("DotNet Error: ServerFeatures is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

@@ -39,27 +39,27 @@ Class Vector2 from ValueType
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[self,"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
 	Func CopyTo_2 P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Length 
-		return dnRequest("call",[self,"Length"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Length"])
 
 	Func LengthSquared 
-		return dnRequest("call",[self,"LengthSquared"])
+		return dnRequest("call",[new DotNetObject(nHandle),"LengthSquared"])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Abs P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Abs",P1])
@@ -200,24 +200,24 @@ Class Vector2 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Truncate",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 
 	Func getE

@@ -17,11 +17,11 @@ Class RuntimeMethodHandle from ValueType
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func GetFunctionPointer 
-		return dnRequest("call",[self,"GetFunctionPointer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFunctionPointer"])
 
 	Func FromIntPtr P1
 		return dnRequest("call",[dnTypeCached('System.RuntimeMethodHandle, System.Private.CoreLib'),"FromIntPtr",P1])
@@ -30,7 +30,7 @@ Class RuntimeMethodHandle from ValueType
 		return dnRequest("call",[dnTypeCached('System.RuntimeMethodHandle, System.Private.CoreLib'),"ToIntPtr",P1])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

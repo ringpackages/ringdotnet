@@ -22,19 +22,19 @@ Class Blend from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFactors
-		return dnRequest("get",[self,"Factors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Factors"])
 
 	Func setFactors P1
-		dnRequest("set",[self,"Factors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Factors",P1])
 		return self
 
 	Func getPositions
-		return dnRequest("get",[self,"Positions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Positions"])
 
 	Func setPositions P1
-		dnRequest("set",[self,"Positions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Positions",P1])
 		return self
 

@@ -15,12 +15,12 @@ Class DefaultHttpContextFactory from Object
 		return self
 
 	Func Create P1
-		return dnRequest("call",[self,"Create",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
 
 	Func Dispose P1
-		dnRequest("call",[self,"Dispose",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

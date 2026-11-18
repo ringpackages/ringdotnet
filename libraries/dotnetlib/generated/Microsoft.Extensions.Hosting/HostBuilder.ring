@@ -17,28 +17,28 @@ Class HostBuilder from Object
 		return self
 
 	Func ConfigureHostConfiguration P1
-		return dnRequest("call",[self,"ConfigureHostConfiguration",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureHostConfiguration",P1])
 
 	Func ConfigureAppConfiguration P1
-		return dnRequest("call",[self,"ConfigureAppConfiguration",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureAppConfiguration",P1])
 
 	Func ConfigureServices P1
-		return dnRequest("call",[self,"ConfigureServices",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
 
 	Func UseServiceProviderFactory P1
-		return dnRequest("call",[self,"UseServiceProviderFactory",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseServiceProviderFactory",P1])
 
 	Func ConfigureContainer P1
-		return dnRequest("call",[self,"ConfigureContainer",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureContainer",P1])
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

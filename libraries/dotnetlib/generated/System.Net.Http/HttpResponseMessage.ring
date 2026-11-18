@@ -28,64 +28,64 @@ Class HttpResponseMessage from Object
 		return self
 
 	Func EnsureSuccessStatusCode 
-		return dnRequest("call",[self,"EnsureSuccessStatusCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureSuccessStatusCode"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
-		dnRequest("set",[self,"Version",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Version",P1])
 		return self
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
 
 	Func setContent P1
-		dnRequest("set",[self,"Content",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
 		return self
 
 	Func getStatusCode
-		return dnRequest("get",[self,"StatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[self,"StatusCode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
 		return self
 
 	Func getReasonPhrase
-		return dnRequest("get",[self,"ReasonPhrase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReasonPhrase"])
 
 	Func setReasonPhrase P1
-		dnRequest("set",[self,"ReasonPhrase",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReasonPhrase",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getTrailingHeaders
-		return dnRequest("get",[self,"TrailingHeaders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TrailingHeaders"])
 
 	Func setTrailingHeaders P1
 		raise("DotNet Error: TrailingHeaders is a read-only property")
 
 	Func getRequestMessage
-		return dnRequest("get",[self,"RequestMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestMessage"])
 
 	Func setRequestMessage P1
-		dnRequest("set",[self,"RequestMessage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestMessage",P1])
 		return self
 
 	Func getIsSuccessStatusCode
-		return dnRequest("get",[self,"IsSuccessStatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSuccessStatusCode"])
 
 	Func setIsSuccessStatusCode P1
 		raise("DotNet Error: IsSuccessStatusCode is a read-only property")

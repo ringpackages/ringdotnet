@@ -17,12 +17,12 @@ Class RelationalQueryTranslationPreprocessorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRelationalTypeMappingSource
-		return dnRequest("get",[self,"RelationalTypeMappingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalTypeMappingSource"])
 
 	Func setRelationalTypeMappingSource P1
-		dnRequest("set",[self,"RelationalTypeMappingSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RelationalTypeMappingSource",P1])
 		return self
 

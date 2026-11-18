@@ -14,5 +14,5 @@ Class ICollectionModelBinder from DotNetObject
 		return self
 
 	Func CanCreateInstance P1
-		return dnRequest("call",[self,"CanCreateInstance",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanCreateInstance",P1])
 

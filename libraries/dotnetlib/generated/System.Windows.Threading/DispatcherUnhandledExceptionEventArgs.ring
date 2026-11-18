@@ -17,15 +17,15 @@ Class DispatcherUnhandledExceptionEventArgs from DispatcherEventArgs
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[self,"Handled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
 
 	Func setHandled P1
-		dnRequest("set",[self,"Handled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Handled",P1])
 		return self
 

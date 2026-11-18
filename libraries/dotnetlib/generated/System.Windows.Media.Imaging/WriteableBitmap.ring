@@ -22,40 +22,40 @@ Class WriteableBitmap from BitmapSource
 		return self
 
 	Func AddDirtyRect P1
-		dnRequest("call",[self,"AddDirtyRect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddDirtyRect",P1])
 		return self
 
 	Func Lock 
-		dnRequest("call",[self,"Lock"])
+		dnRequest("call",[new DotNetObject(nHandle),"Lock"])
 		return self
 
 	Func TryLock P1
-		return dnRequest("call",[self,"TryLock",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryLock",P1])
 
 	Func Unlock 
-		dnRequest("call",[self,"Unlock"])
+		dnRequest("call",[new DotNetObject(nHandle),"Unlock"])
 		return self
 
 	Func WritePixels_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"WritePixels",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"WritePixels",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func WritePixels_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"WritePixels",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"WritePixels",P1,P2,P3,P4,P5])
 		return self
 
 	Func WritePixels P1,P2,P3,P4
-		dnRequest("call",[self,"WritePixels",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"WritePixels",P1,P2,P3,P4])
 		return self
 
 	Func getBackBuffer
-		return dnRequest("get",[self,"BackBuffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackBuffer"])
 
 	Func setBackBuffer P1
 		raise("DotNet Error: BackBuffer is a read-only property")
 
 	Func getBackBufferStride
-		return dnRequest("get",[self,"BackBufferStride"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackBufferStride"])
 
 	Func setBackBufferStride P1
 		raise("DotNet Error: BackBufferStride is a read-only property")

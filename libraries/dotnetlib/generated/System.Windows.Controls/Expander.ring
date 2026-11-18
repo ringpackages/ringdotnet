@@ -22,33 +22,33 @@ Class Expander from HeaderedContentControl
 		return self
 
 	Func setExpandedEvent P1
-		dnRequest("setevent",[self,"Expanded",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Expanded",dnCallback(P1)])
 		return self
 
 	Func clearExpandedEvent
-		dnRequest("clearevent",[self,"Expanded"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Expanded"])
 		return self
 
 	Func setCollapsedEvent P1
-		dnRequest("setevent",[self,"Collapsed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Collapsed",dnCallback(P1)])
 		return self
 
 	Func clearCollapsedEvent
-		dnRequest("clearevent",[self,"Collapsed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Collapsed"])
 		return self
 
 	Func getExpandDirection
-		return dnRequest("get",[self,"ExpandDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExpandDirection"])
 
 	Func setExpandDirection P1
-		dnRequest("set",[self,"ExpandDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExpandDirection",P1])
 		return self
 
 	Func getIsExpanded
-		return dnRequest("get",[self,"IsExpanded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsExpanded"])
 
 	Func setIsExpanded P1
-		dnRequest("set",[self,"IsExpanded",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsExpanded",P1])
 		return self
 
 	Func getExpandDirectionProperty

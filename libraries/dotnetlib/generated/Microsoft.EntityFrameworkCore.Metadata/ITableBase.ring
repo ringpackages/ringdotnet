@@ -23,76 +23,76 @@ Class ITableBase from DotNetObject
 		return self
 
 	Func FindColumn P1
-		return dnRequest("call",[self,"FindColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindColumn",P1])
 
 	Func GetRowInternalForeignKeys P1
-		return dnRequest("call",[self,"GetRowInternalForeignKeys",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRowInternalForeignKeys",P1])
 
 	Func GetReferencingRowInternalForeignKeys P1
-		return dnRequest("call",[self,"GetReferencingRowInternalForeignKeys",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReferencingRowInternalForeignKeys",P1])
 
 	Func IsOptional P1
-		return dnRequest("call",[self,"IsOptional",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsOptional",P1])
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnRequest("get",[self,"SchemaQualifiedName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaQualifiedName"])
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getIsShared
-		return dnRequest("get",[self,"IsShared"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsShared"])
 
 	Func setIsShared P1
 		raise("DotNet Error: IsShared is a read-only property")
 
 	Func getEntityTypeMappings
-		return dnRequest("get",[self,"EntityTypeMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityTypeMappings"])
 
 	Func setEntityTypeMappings P1
 		raise("DotNet Error: EntityTypeMappings is a read-only property")
 
 	Func getComplexTypeMappings
-		return dnRequest("get",[self,"ComplexTypeMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ComplexTypeMappings"])
 
 	Func setComplexTypeMappings P1
 		raise("DotNet Error: ComplexTypeMappings is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")

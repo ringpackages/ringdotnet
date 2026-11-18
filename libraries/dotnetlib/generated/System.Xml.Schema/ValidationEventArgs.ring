@@ -18,19 +18,19 @@ Class ValidationEventArgs from EventArgs
 		return self
 
 	Func getSeverity
-		return dnRequest("get",[self,"Severity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Severity"])
 
 	Func setSeverity P1
 		raise("DotNet Error: Severity is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getMessage
-		return dnRequest("get",[self,"Message"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Message"])
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")

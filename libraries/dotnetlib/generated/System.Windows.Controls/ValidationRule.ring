@@ -17,25 +17,25 @@ Class ValidationRule from Object
 		return self
 
 	Func Validate P1,P2
-		return dnRequest("call",[self,"Validate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2])
 
 	Func Validate_3 P1,P2,P3
-		return dnRequest("call",[self,"Validate",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getValidationStep
-		return dnRequest("get",[self,"ValidationStep"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidationStep"])
 
 	Func setValidationStep P1
-		dnRequest("set",[self,"ValidationStep",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidationStep",P1])
 		return self
 
 	Func getValidatesOnTargetUpdated
-		return dnRequest("get",[self,"ValidatesOnTargetUpdated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidatesOnTargetUpdated"])
 
 	Func setValidatesOnTargetUpdated P1
-		dnRequest("set",[self,"ValidatesOnTargetUpdated",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidatesOnTargetUpdated",P1])
 		return self
 

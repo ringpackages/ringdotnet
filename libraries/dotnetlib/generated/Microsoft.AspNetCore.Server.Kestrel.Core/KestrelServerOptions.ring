@@ -28,187 +28,187 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ConfigureEndpointDefaults P1
-		dnRequest("call",[self,"ConfigureEndpointDefaults",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ConfigureEndpointDefaults",P1])
 		return self
 
 	Func ConfigureHttpsDefaults P1
-		dnRequest("call",[self,"ConfigureHttpsDefaults",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ConfigureHttpsDefaults",P1])
 		return self
 
 	Func Configure P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Configure",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Configure",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Configure"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Configure"])
 		ok
-		return dnRequest("call",[self,"Configure",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
 
 	Func Configure_1 P1
-		return dnRequest("call",[self,"Configure",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
 
 	Func Configure_2 P1,P2
-		return dnRequest("call",[self,"Configure",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Configure",P1,P2])
 
 	Func Listen_2 P1,P2
-		dnRequest("call",[self,"Listen",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Listen",P1,P2])
 		return self
 
 	Func Listen_3 P1,P2,P3
-		dnRequest("call",[self,"Listen",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Listen",P1,P2,P3])
 		return self
 
 	Func Listen P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Listen",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Listen",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Listen",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Listen",P1])
 		return self
 
 	Func ListenLocalhost P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ListenLocalhost",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenLocalhost",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ListenLocalhost",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenLocalhost",P1])
 		return self
 
 	Func ListenLocalhost_2 P1,P2
-		dnRequest("call",[self,"ListenLocalhost",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenLocalhost",P1,P2])
 		return self
 
 	Func ListenAnyIP P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ListenAnyIP",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenAnyIP",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ListenAnyIP",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenAnyIP",P1])
 		return self
 
 	Func ListenAnyIP_2 P1,P2
-		dnRequest("call",[self,"ListenAnyIP",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenAnyIP",P1,P2])
 		return self
 
 	Func ListenUnixSocket P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ListenUnixSocket",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenUnixSocket",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ListenUnixSocket",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenUnixSocket",P1])
 		return self
 
 	Func ListenUnixSocket_2 P1,P2
-		dnRequest("call",[self,"ListenUnixSocket",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenUnixSocket",P1,P2])
 		return self
 
 	Func ListenHandle P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ListenHandle",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenHandle",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ListenHandle",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenHandle",P1])
 		return self
 
 	Func ListenHandle_2 P1,P2
-		dnRequest("call",[self,"ListenHandle",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenHandle",P1,P2])
 		return self
 
 	Func ListenNamedPipe P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ListenNamedPipe",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenNamedPipe",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ListenNamedPipe",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenNamedPipe",P1])
 		return self
 
 	Func ListenNamedPipe_2 P1,P2
-		dnRequest("call",[self,"ListenNamedPipe",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ListenNamedPipe",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAllowHostHeaderOverride
-		return dnRequest("get",[self,"AllowHostHeaderOverride"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowHostHeaderOverride"])
 
 	Func setAllowHostHeaderOverride P1
-		dnRequest("set",[self,"AllowHostHeaderOverride",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowHostHeaderOverride",P1])
 		return self
 
 	Func getAddServerHeader
-		return dnRequest("get",[self,"AddServerHeader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddServerHeader"])
 
 	Func setAddServerHeader P1
-		dnRequest("set",[self,"AddServerHeader",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AddServerHeader",P1])
 		return self
 
 	Func getAllowResponseHeaderCompression
-		return dnRequest("get",[self,"AllowResponseHeaderCompression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowResponseHeaderCompression"])
 
 	Func setAllowResponseHeaderCompression P1
-		dnRequest("set",[self,"AllowResponseHeaderCompression",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowResponseHeaderCompression",P1])
 		return self
 
 	Func getAllowSynchronousIO
-		return dnRequest("get",[self,"AllowSynchronousIO"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowSynchronousIO"])
 
 	Func setAllowSynchronousIO P1
-		dnRequest("set",[self,"AllowSynchronousIO",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowSynchronousIO",P1])
 		return self
 
 	Func getAllowAlternateSchemes
-		return dnRequest("get",[self,"AllowAlternateSchemes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowAlternateSchemes"])
 
 	Func setAllowAlternateSchemes P1
-		dnRequest("set",[self,"AllowAlternateSchemes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowAlternateSchemes",P1])
 		return self
 
 	Func getDisableStringReuse
-		return dnRequest("get",[self,"DisableStringReuse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisableStringReuse"])
 
 	Func setDisableStringReuse P1
-		dnRequest("set",[self,"DisableStringReuse",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisableStringReuse",P1])
 		return self
 
 	Func getEnableAltSvc
-		return dnRequest("get",[self,"EnableAltSvc"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableAltSvc"])
 
 	Func setEnableAltSvc P1
-		dnRequest("set",[self,"EnableAltSvc",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableAltSvc",P1])
 		return self
 
 	Func getRequestHeaderEncodingSelector
-		return dnRequest("get",[self,"RequestHeaderEncodingSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestHeaderEncodingSelector"])
 
 	Func setRequestHeaderEncodingSelector P1
-		dnRequest("set",[self,"RequestHeaderEncodingSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestHeaderEncodingSelector",P1])
 		return self
 
 	Func getResponseHeaderEncodingSelector
-		return dnRequest("get",[self,"ResponseHeaderEncodingSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResponseHeaderEncodingSelector"])
 
 	Func setResponseHeaderEncodingSelector P1
-		dnRequest("set",[self,"ResponseHeaderEncodingSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ResponseHeaderEncodingSelector",P1])
 		return self
 
 	Func getApplicationServices
-		return dnRequest("get",[self,"ApplicationServices"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationServices"])
 
 	Func setApplicationServices P1
-		dnRequest("set",[self,"ApplicationServices",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ApplicationServices",P1])
 		return self
 
 	Func getLimits
-		return dnRequest("get",[self,"Limits"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Limits"])
 
 	Func setLimits P1
 		raise("DotNet Error: Limits is a read-only property")
 
 	Func getConfigurationLoader
-		return dnRequest("get",[self,"ConfigurationLoader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConfigurationLoader"])
 
 	Func setConfigurationLoader P1
-		dnRequest("set",[self,"ConfigurationLoader",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ConfigurationLoader",P1])
 		return self
 

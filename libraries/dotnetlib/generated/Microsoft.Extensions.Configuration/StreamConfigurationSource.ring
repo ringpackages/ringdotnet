@@ -16,15 +16,15 @@ Class StreamConfigurationSource from Object
 		return self
 
 	Func Build P1
-		return dnRequest("call",[self,"Build",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStream
-		return dnRequest("get",[self,"Stream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Stream"])
 
 	Func setStream P1
-		dnRequest("set",[self,"Stream",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Stream",P1])
 		return self
 

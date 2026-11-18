@@ -16,10 +16,10 @@ Class IIntellisenseBuilder from DotNetObject
 		return self
 
 	Func Show P1,P2,P3
-		return dnRequest("call",[self,"Show",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Show",P1,P2,P3])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

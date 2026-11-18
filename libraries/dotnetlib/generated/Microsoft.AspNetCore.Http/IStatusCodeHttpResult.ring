@@ -16,7 +16,7 @@ Class IStatusCodeHttpResult from DotNetObject
 		return self
 
 	Func getStatusCode
-		return dnRequest("get",[self,"StatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")

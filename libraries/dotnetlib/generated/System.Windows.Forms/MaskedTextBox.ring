@@ -43,202 +43,202 @@ Class MaskedTextBox from TextBoxBase
 		return self
 
 	Func ValidateText 
-		return dnRequest("call",[self,"ValidateText"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidateText"])
 
 	Func setIsOverwriteModeChangedEvent P1
-		dnRequest("setevent",[self,"IsOverwriteModeChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"IsOverwriteModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsOverwriteModeChangedEvent
-		dnRequest("clearevent",[self,"IsOverwriteModeChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"IsOverwriteModeChanged"])
 		return self
 
 	Func setMaskChangedEvent P1
-		dnRequest("setevent",[self,"MaskChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MaskChanged",dnCallback(P1)])
 		return self
 
 	Func clearMaskChangedEvent
-		dnRequest("clearevent",[self,"MaskChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MaskChanged"])
 		return self
 
 	Func setMaskInputRejectedEvent P1
-		dnRequest("setevent",[self,"MaskInputRejected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MaskInputRejected",dnCallback(P1)])
 		return self
 
 	Func clearMaskInputRejectedEvent
-		dnRequest("clearevent",[self,"MaskInputRejected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MaskInputRejected"])
 		return self
 
 	Func setTextAlignChangedEvent P1
-		dnRequest("setevent",[self,"TextAlignChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TextAlignChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextAlignChangedEvent
-		dnRequest("clearevent",[self,"TextAlignChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TextAlignChanged"])
 		return self
 
 	Func setTypeValidationCompletedEvent P1
-		dnRequest("setevent",[self,"TypeValidationCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TypeValidationCompleted",dnCallback(P1)])
 		return self
 
 	Func clearTypeValidationCompletedEvent
-		dnRequest("clearevent",[self,"TypeValidationCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TypeValidationCompleted"])
 		return self
 
 	Func getAllowPromptAsInput
-		return dnRequest("get",[self,"AllowPromptAsInput"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowPromptAsInput"])
 
 	Func setAllowPromptAsInput P1
-		dnRequest("set",[self,"AllowPromptAsInput",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowPromptAsInput",P1])
 		return self
 
 	Func getAsciiOnly
-		return dnRequest("get",[self,"AsciiOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AsciiOnly"])
 
 	Func setAsciiOnly P1
-		dnRequest("set",[self,"AsciiOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AsciiOnly",P1])
 		return self
 
 	Func getBeepOnError
-		return dnRequest("get",[self,"BeepOnError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BeepOnError"])
 
 	Func setBeepOnError P1
-		dnRequest("set",[self,"BeepOnError",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BeepOnError",P1])
 		return self
 
 	Func getCulture
-		return dnRequest("get",[self,"Culture"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
 
 	Func setCulture P1
-		dnRequest("set",[self,"Culture",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Culture",P1])
 		return self
 
 	Func getCutCopyMaskFormat
-		return dnRequest("get",[self,"CutCopyMaskFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CutCopyMaskFormat"])
 
 	Func setCutCopyMaskFormat P1
-		dnRequest("set",[self,"CutCopyMaskFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CutCopyMaskFormat",P1])
 		return self
 
 	Func getFormatProvider
-		return dnRequest("get",[self,"FormatProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatProvider"])
 
 	Func setFormatProvider P1
-		dnRequest("set",[self,"FormatProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormatProvider",P1])
 		return self
 
 	Func getHidePromptOnLeave
-		return dnRequest("get",[self,"HidePromptOnLeave"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HidePromptOnLeave"])
 
 	Func setHidePromptOnLeave P1
-		dnRequest("set",[self,"HidePromptOnLeave",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HidePromptOnLeave",P1])
 		return self
 
 	Func getInsertKeyMode
-		return dnRequest("get",[self,"InsertKeyMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InsertKeyMode"])
 
 	Func setInsertKeyMode P1
-		dnRequest("set",[self,"InsertKeyMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InsertKeyMode",P1])
 		return self
 
 	Func getIsOverwriteMode
-		return dnRequest("get",[self,"IsOverwriteMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOverwriteMode"])
 
 	Func setIsOverwriteMode P1
 		raise("DotNet Error: IsOverwriteMode is a read-only property")
 
 	Func getMask
-		return dnRequest("get",[self,"Mask"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mask"])
 
 	Func setMask P1
-		dnRequest("set",[self,"Mask",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Mask",P1])
 		return self
 
 	Func getMaskCompleted
-		return dnRequest("get",[self,"MaskCompleted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaskCompleted"])
 
 	Func setMaskCompleted P1
 		raise("DotNet Error: MaskCompleted is a read-only property")
 
 	Func getMaskFull
-		return dnRequest("get",[self,"MaskFull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaskFull"])
 
 	Func setMaskFull P1
 		raise("DotNet Error: MaskFull is a read-only property")
 
 	Func getMaskedTextProvider
-		return dnRequest("get",[self,"MaskedTextProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaskedTextProvider"])
 
 	Func setMaskedTextProvider P1
 		raise("DotNet Error: MaskedTextProvider is a read-only property")
 
 	Func getPasswordChar
-		return dnRequest("get",[self,"PasswordChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PasswordChar"])
 
 	Func setPasswordChar P1
-		dnRequest("set",[self,"PasswordChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PasswordChar",P1])
 		return self
 
 	Func getPromptChar
-		return dnRequest("get",[self,"PromptChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PromptChar"])
 
 	Func setPromptChar P1
-		dnRequest("set",[self,"PromptChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PromptChar",P1])
 		return self
 
 	Func getRejectInputOnFirstFailure
-		return dnRequest("get",[self,"RejectInputOnFirstFailure"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RejectInputOnFirstFailure"])
 
 	Func setRejectInputOnFirstFailure P1
-		dnRequest("set",[self,"RejectInputOnFirstFailure",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RejectInputOnFirstFailure",P1])
 		return self
 
 	Func getResetOnPrompt
-		return dnRequest("get",[self,"ResetOnPrompt"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResetOnPrompt"])
 
 	Func setResetOnPrompt P1
-		dnRequest("set",[self,"ResetOnPrompt",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ResetOnPrompt",P1])
 		return self
 
 	Func getResetOnSpace
-		return dnRequest("get",[self,"ResetOnSpace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResetOnSpace"])
 
 	Func setResetOnSpace P1
-		dnRequest("set",[self,"ResetOnSpace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ResetOnSpace",P1])
 		return self
 
 	Func getSkipLiterals
-		return dnRequest("get",[self,"SkipLiterals"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SkipLiterals"])
 
 	Func setSkipLiterals P1
-		dnRequest("set",[self,"SkipLiterals",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SkipLiterals",P1])
 		return self
 
 	Func getTextAlign
-		return dnRequest("get",[self,"TextAlign"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextAlign"])
 
 	Func setTextAlign P1
-		dnRequest("set",[self,"TextAlign",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextAlign",P1])
 		return self
 
 	Func getTextMaskFormat
-		return dnRequest("get",[self,"TextMaskFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextMaskFormat"])
 
 	Func setTextMaskFormat P1
-		dnRequest("set",[self,"TextMaskFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextMaskFormat",P1])
 		return self
 
 	Func getUseSystemPasswordChar
-		return dnRequest("get",[self,"UseSystemPasswordChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseSystemPasswordChar"])
 
 	Func setUseSystemPasswordChar P1
-		dnRequest("set",[self,"UseSystemPasswordChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseSystemPasswordChar",P1])
 		return self
 
 	Func getValidatingType
-		return dnRequest("get",[self,"ValidatingType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidatingType"])
 
 	Func setValidatingType P1
-		dnRequest("set",[self,"ValidatingType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidatingType",P1])
 		return self
 

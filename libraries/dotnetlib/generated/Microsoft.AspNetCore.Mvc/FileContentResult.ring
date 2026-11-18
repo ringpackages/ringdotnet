@@ -17,9 +17,9 @@ Class FileContentResult from FileResult
 		return self
 
 	Func getFileContents
-		return dnRequest("get",[self,"FileContents"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileContents"])
 
 	Func setFileContents P1
-		dnRequest("set",[self,"FileContents",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FileContents",P1])
 		return self
 

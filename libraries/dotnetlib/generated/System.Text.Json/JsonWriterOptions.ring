@@ -23,51 +23,51 @@ Class JsonWriterOptions from ValueType
 		return self
 
 	Func getEncoder
-		return dnRequest("get",[self,"Encoder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Encoder"])
 
 	Func setEncoder P1
-		dnRequest("set",[self,"Encoder",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Encoder",P1])
 		return self
 
 	Func getIndented
-		return dnRequest("get",[self,"Indented"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Indented"])
 
 	Func setIndented P1
-		dnRequest("set",[self,"Indented",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Indented",P1])
 		return self
 
 	Func getIndentCharacter
-		return dnRequest("get",[self,"IndentCharacter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IndentCharacter"])
 
 	Func setIndentCharacter P1
-		dnRequest("set",[self,"IndentCharacter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IndentCharacter",P1])
 		return self
 
 	Func getIndentSize
-		return dnRequest("get",[self,"IndentSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IndentSize"])
 
 	Func setIndentSize P1
-		dnRequest("set",[self,"IndentSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IndentSize",P1])
 		return self
 
 	Func getMaxDepth
-		return dnRequest("get",[self,"MaxDepth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxDepth"])
 
 	Func setMaxDepth P1
-		dnRequest("set",[self,"MaxDepth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxDepth",P1])
 		return self
 
 	Func getSkipValidation
-		return dnRequest("get",[self,"SkipValidation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SkipValidation"])
 
 	Func setSkipValidation P1
-		dnRequest("set",[self,"SkipValidation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SkipValidation",P1])
 		return self
 
 	Func getNewLine
-		return dnRequest("get",[self,"NewLine"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewLine"])
 
 	Func setNewLine P1
-		dnRequest("set",[self,"NewLine",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NewLine",P1])
 		return self
 

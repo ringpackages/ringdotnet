@@ -23,145 +23,145 @@ Class ChangeTracker from Object
 		return self
 
 	Func Entries 
-		return dnRequest("call",[self,"Entries"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Entries"])
 
 	Func HasChanges 
-		return dnRequest("call",[self,"HasChanges"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasChanges"])
 
 	Func DetectChanges 
-		dnRequest("call",[self,"DetectChanges"])
+		dnRequest("call",[new DotNetObject(nHandle),"DetectChanges"])
 		return self
 
 	Func AcceptAllChanges 
-		dnRequest("call",[self,"AcceptAllChanges"])
+		dnRequest("call",[new DotNetObject(nHandle),"AcceptAllChanges"])
 		return self
 
 	Func TrackGraph P1,P2
-		dnRequest("call",[self,"TrackGraph",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TrackGraph",P1,P2])
 		return self
 
 	Func TrackGraph_3 P1,P2,P3
-		dnRequest("call",[self,"TrackGraph",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"TrackGraph",P1,P2,P3])
 		return self
 
 	Func CascadeChanges 
-		dnRequest("call",[self,"CascadeChanges"])
+		dnRequest("call",[new DotNetObject(nHandle),"CascadeChanges"])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setTrackingEvent P1
-		dnRequest("setevent",[self,"Tracking",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Tracking",dnCallback(P1)])
 		return self
 
 	Func clearTrackingEvent
-		dnRequest("clearevent",[self,"Tracking"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Tracking"])
 		return self
 
 	Func setTrackedEvent P1
-		dnRequest("setevent",[self,"Tracked",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Tracked",dnCallback(P1)])
 		return self
 
 	Func clearTrackedEvent
-		dnRequest("clearevent",[self,"Tracked"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Tracked"])
 		return self
 
 	Func setStateChangingEvent P1
-		dnRequest("setevent",[self,"StateChanging",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StateChanging",dnCallback(P1)])
 		return self
 
 	Func clearStateChangingEvent
-		dnRequest("clearevent",[self,"StateChanging"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StateChanging"])
 		return self
 
 	Func setStateChangedEvent P1
-		dnRequest("setevent",[self,"StateChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StateChanged",dnCallback(P1)])
 		return self
 
 	Func clearStateChangedEvent
-		dnRequest("clearevent",[self,"StateChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StateChanged"])
 		return self
 
 	Func setDetectingEntityChangesEvent P1
-		dnRequest("setevent",[self,"DetectingEntityChanges",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DetectingEntityChanges",dnCallback(P1)])
 		return self
 
 	Func clearDetectingEntityChangesEvent
-		dnRequest("clearevent",[self,"DetectingEntityChanges"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DetectingEntityChanges"])
 		return self
 
 	Func setDetectedEntityChangesEvent P1
-		dnRequest("setevent",[self,"DetectedEntityChanges",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DetectedEntityChanges",dnCallback(P1)])
 		return self
 
 	Func clearDetectedEntityChangesEvent
-		dnRequest("clearevent",[self,"DetectedEntityChanges"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DetectedEntityChanges"])
 		return self
 
 	Func setDetectingAllChangesEvent P1
-		dnRequest("setevent",[self,"DetectingAllChanges",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DetectingAllChanges",dnCallback(P1)])
 		return self
 
 	Func clearDetectingAllChangesEvent
-		dnRequest("clearevent",[self,"DetectingAllChanges"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DetectingAllChanges"])
 		return self
 
 	Func setDetectedAllChangesEvent P1
-		dnRequest("setevent",[self,"DetectedAllChanges",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DetectedAllChanges",dnCallback(P1)])
 		return self
 
 	Func clearDetectedAllChangesEvent
-		dnRequest("clearevent",[self,"DetectedAllChanges"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DetectedAllChanges"])
 		return self
 
 	Func getAutoDetectChangesEnabled
-		return dnRequest("get",[self,"AutoDetectChangesEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoDetectChangesEnabled"])
 
 	Func setAutoDetectChangesEnabled P1
-		dnRequest("set",[self,"AutoDetectChangesEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoDetectChangesEnabled",P1])
 		return self
 
 	Func getLazyLoadingEnabled
-		return dnRequest("get",[self,"LazyLoadingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LazyLoadingEnabled"])
 
 	Func setLazyLoadingEnabled P1
-		dnRequest("set",[self,"LazyLoadingEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LazyLoadingEnabled",P1])
 		return self
 
 	Func getQueryTrackingBehavior
-		return dnRequest("get",[self,"QueryTrackingBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryTrackingBehavior"])
 
 	Func setQueryTrackingBehavior P1
-		dnRequest("set",[self,"QueryTrackingBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"QueryTrackingBehavior",P1])
 		return self
 
 	Func getDeleteOrphansTiming
-		return dnRequest("get",[self,"DeleteOrphansTiming"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeleteOrphansTiming"])
 
 	Func setDeleteOrphansTiming P1
-		dnRequest("set",[self,"DeleteOrphansTiming",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DeleteOrphansTiming",P1])
 		return self
 
 	Func getCascadeDeleteTiming
-		return dnRequest("get",[self,"CascadeDeleteTiming"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CascadeDeleteTiming"])
 
 	Func setCascadeDeleteTiming P1
-		dnRequest("set",[self,"CascadeDeleteTiming",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CascadeDeleteTiming",P1])
 		return self
 
 	Func getContext
-		return dnRequest("get",[self,"Context"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

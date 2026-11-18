@@ -52,58 +52,58 @@ Class SqlString from ValueType
 		return self
 
 	Func GetUnicodeBytes 
-		return dnRequest("call",[self,"GetUnicodeBytes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUnicodeBytes"])
 
 	Func GetNonUnicodeBytes 
-		return dnRequest("call",[self,"GetNonUnicodeBytes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNonUnicodeBytes"])
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[self,"ToSqlBoolean"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[self,"ToSqlByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
 
 	Func ToSqlDateTime 
-		return dnRequest("call",[self,"ToSqlDateTime"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDateTime"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[self,"ToSqlDouble"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[self,"ToSqlInt16"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[self,"ToSqlInt32"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[self,"ToSqlInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[self,"ToSqlMoney"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[self,"ToSqlDecimal"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[self,"ToSqlSingle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
 
 	Func ToSqlGuid 
-		return dnRequest("call",[self,"ToSqlGuid"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlGuid"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Concat P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Concat",P1,P2])
@@ -136,34 +136,34 @@ Class SqlString from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[self,"LCID"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LCID"])
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
 
 	Func getCultureInfo
-		return dnRequest("get",[self,"CultureInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CultureInfo"])
 
 	Func setCultureInfo P1
 		raise("DotNet Error: CultureInfo is a read-only property")
 
 	Func getCompareInfo
-		return dnRequest("get",[self,"CompareInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompareInfo"])
 
 	Func setCompareInfo P1
 		raise("DotNet Error: CompareInfo is a read-only property")
 
 	Func getSqlCompareOptions
-		return dnRequest("get",[self,"SqlCompareOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SqlCompareOptions"])
 
 	Func setSqlCompareOptions P1
 		raise("DotNet Error: SqlCompareOptions is a read-only property")

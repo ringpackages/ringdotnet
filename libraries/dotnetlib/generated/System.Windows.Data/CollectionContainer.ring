@@ -18,13 +18,13 @@ Class CollectionContainer from DependencyObject
 		return self
 
 	Func ShouldSerializeCollection 
-		return dnRequest("call",[self,"ShouldSerializeCollection"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeCollection"])
 
 	Func getCollection
-		return dnRequest("get",[self,"Collection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Collection"])
 
 	Func setCollection P1
-		dnRequest("set",[self,"Collection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Collection",P1])
 		return self
 
 	Func getCollectionProperty

@@ -16,17 +16,17 @@ Class IContentHost from DotNetObject
 		return self
 
 	Func InputHitTest P1
-		return dnRequest("call",[self,"InputHitTest",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"InputHitTest",P1])
 
 	Func GetRectangles P1
-		return dnRequest("call",[self,"GetRectangles",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRectangles",P1])
 
 	Func OnChildDesiredSizeChanged P1
-		dnRequest("call",[self,"OnChildDesiredSizeChanged",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnChildDesiredSizeChanged",P1])
 		return self
 
 	Func getHostedElements
-		return dnRequest("get",[self,"HostedElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HostedElements"])
 
 	Func setHostedElements P1
 		raise("DotNet Error: HostedElements is a read-only property")

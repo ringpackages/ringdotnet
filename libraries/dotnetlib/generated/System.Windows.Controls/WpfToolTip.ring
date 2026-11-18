@@ -38,89 +38,89 @@ Class WpfToolTip from ContentControl
 		return self
 
 	Func setOpenedEvent P1
-		dnRequest("setevent",[self,"Opened",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Opened",dnCallback(P1)])
 		return self
 
 	Func clearOpenedEvent
-		dnRequest("clearevent",[self,"Opened"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Opened"])
 		return self
 
 	Func setClosedEvent P1
-		dnRequest("setevent",[self,"Closed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Closed",dnCallback(P1)])
 		return self
 
 	Func clearClosedEvent
-		dnRequest("clearevent",[self,"Closed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Closed"])
 		return self
 
 	Func getHorizontalOffset
-		return dnRequest("get",[self,"HorizontalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
 
 	Func setHorizontalOffset P1
-		dnRequest("set",[self,"HorizontalOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HorizontalOffset",P1])
 		return self
 
 	Func getVerticalOffset
-		return dnRequest("get",[self,"VerticalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
 
 	Func setVerticalOffset P1
-		dnRequest("set",[self,"VerticalOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VerticalOffset",P1])
 		return self
 
 	Func getIsOpen
-		return dnRequest("get",[self,"IsOpen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOpen"])
 
 	Func setIsOpen P1
-		dnRequest("set",[self,"IsOpen",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsOpen",P1])
 		return self
 
 	Func getHasDropShadow
-		return dnRequest("get",[self,"HasDropShadow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasDropShadow"])
 
 	Func setHasDropShadow P1
-		dnRequest("set",[self,"HasDropShadow",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HasDropShadow",P1])
 		return self
 
 	Func getPlacementTarget
-		return dnRequest("get",[self,"PlacementTarget"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PlacementTarget"])
 
 	Func setPlacementTarget P1
-		dnRequest("set",[self,"PlacementTarget",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PlacementTarget",P1])
 		return self
 
 	Func getPlacementRectangle
-		return dnRequest("get",[self,"PlacementRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PlacementRectangle"])
 
 	Func setPlacementRectangle P1
-		dnRequest("set",[self,"PlacementRectangle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PlacementRectangle",P1])
 		return self
 
 	Func getPlacement
-		return dnRequest("get",[self,"Placement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Placement"])
 
 	Func setPlacement P1
-		dnRequest("set",[self,"Placement",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Placement",P1])
 		return self
 
 	Func getCustomPopupPlacementCallback
-		return dnRequest("get",[self,"CustomPopupPlacementCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CustomPopupPlacementCallback"])
 
 	Func setCustomPopupPlacementCallback P1
-		dnRequest("set",[self,"CustomPopupPlacementCallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CustomPopupPlacementCallback",P1])
 		return self
 
 	Func getStaysOpen
-		return dnRequest("get",[self,"StaysOpen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StaysOpen"])
 
 	Func setStaysOpen P1
-		dnRequest("set",[self,"StaysOpen",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StaysOpen",P1])
 		return self
 
 	Func getShowsToolTipOnKeyboardFocus
-		return dnRequest("get",[self,"ShowsToolTipOnKeyboardFocus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowsToolTipOnKeyboardFocus"])
 
 	Func setShowsToolTipOnKeyboardFocus P1
-		dnRequest("set",[self,"ShowsToolTipOnKeyboardFocus",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowsToolTipOnKeyboardFocus",P1])
 		return self
 
 	Func getHorizontalOffsetProperty

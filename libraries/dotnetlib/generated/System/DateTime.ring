@@ -69,109 +69,109 @@ Class DateTime from ValueType
 		return self
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func AddDays P1
-		return dnRequest("call",[self,"AddDays",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddDays",P1])
 
 	Func AddHours P1
-		return dnRequest("call",[self,"AddHours",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddHours",P1])
 
 	Func AddMilliseconds P1
-		return dnRequest("call",[self,"AddMilliseconds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddMilliseconds",P1])
 
 	Func AddMicroseconds P1
-		return dnRequest("call",[self,"AddMicroseconds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddMicroseconds",P1])
 
 	Func AddMinutes P1
-		return dnRequest("call",[self,"AddMinutes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddMinutes",P1])
 
 	Func AddMonths P1
-		return dnRequest("call",[self,"AddMonths",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddMonths",P1])
 
 	Func AddSeconds P1
-		return dnRequest("call",[self,"AddSeconds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddSeconds",P1])
 
 	Func AddTicks P1
-		return dnRequest("call",[self,"AddTicks",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddTicks",P1])
 
 	Func AddYears P1
-		return dnRequest("call",[self,"AddYears",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddYears",P1])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func IsDaylightSavingTime 
-		return dnRequest("call",[self,"IsDaylightSavingTime"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDaylightSavingTime"])
 
 	Func ToBinary 
-		return dnRequest("call",[self,"ToBinary"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToBinary"])
 
 	Func Subtract P1
-		return dnRequest("call",[self,"Subtract",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Subtract",P1])
 
 	Func ToOADate 
-		return dnRequest("call",[self,"ToOADate"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToOADate"])
 
 	Func ToFileTime 
-		return dnRequest("call",[self,"ToFileTime"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToFileTime"])
 
 	Func ToFileTimeUtc 
-		return dnRequest("call",[self,"ToFileTimeUtc"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToFileTimeUtc"])
 
 	Func ToLocalTime 
-		return dnRequest("call",[self,"ToLocalTime"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToLocalTime"])
 
 	Func ToLongDateString 
-		return dnRequest("call",[self,"ToLongDateString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToLongDateString"])
 
 	Func ToLongTimeString 
-		return dnRequest("call",[self,"ToLongTimeString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToLongTimeString"])
 
 	Func ToShortDateString 
-		return dnRequest("call",[self,"ToShortDateString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToShortDateString"])
 
 	Func ToShortTimeString 
-		return dnRequest("call",[self,"ToShortTimeString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToShortTimeString"])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func ToUniversalTime 
-		return dnRequest("call",[self,"ToUniversalTime"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUniversalTime"])
 
 	Func Deconstruct 
-		return dnRequest("call",[self,"Deconstruct"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
 
 	Func GetDateTimeFormats P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetDateTimeFormats",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDateTimeFormats",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetDateTimeFormats"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetDateTimeFormats"])
 		ok
-		return dnRequest("call",[self,"GetDateTimeFormats",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTimeFormats",P1])
 
 	Func GetDateTimeFormats_1 P1
-		return dnRequest("call",[self,"GetDateTimeFormats",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTimeFormats",P1])
 
 	Func GetDateTimeFormats_2 P1,P2
-		return dnRequest("call",[self,"GetDateTimeFormats",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTimeFormats",P1,P2])
 
 	Func GetTypeCode 
-		return dnRequest("call",[self,"GetTypeCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
 
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Compare",P1,P2])
@@ -234,91 +234,91 @@ Class DateTime from ValueType
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func getDate
-		return dnRequest("get",[self,"Date"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Date"])
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getDay
-		return dnRequest("get",[self,"Day"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Day"])
 
 	Func setDay P1
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnRequest("get",[self,"DayOfWeek"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DayOfWeek"])
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
 
 	Func getDayOfYear
-		return dnRequest("get",[self,"DayOfYear"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DayOfYear"])
 
 	Func setDayOfYear P1
 		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getHour
-		return dnRequest("get",[self,"Hour"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Hour"])
 
 	Func setHour P1
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getKind
-		return dnRequest("get",[self,"Kind"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Kind"])
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getMillisecond
-		return dnRequest("get",[self,"Millisecond"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Millisecond"])
 
 	Func setMillisecond P1
 		raise("DotNet Error: Millisecond is a read-only property")
 
 	Func getMicrosecond
-		return dnRequest("get",[self,"Microsecond"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Microsecond"])
 
 	Func setMicrosecond P1
 		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
-		return dnRequest("get",[self,"Nanosecond"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Nanosecond"])
 
 	Func setNanosecond P1
 		raise("DotNet Error: Nanosecond is a read-only property")
 
 	Func getMinute
-		return dnRequest("get",[self,"Minute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minute"])
 
 	Func setMinute P1
 		raise("DotNet Error: Minute is a read-only property")
 
 	Func getMonth
-		return dnRequest("get",[self,"Month"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Month"])
 
 	Func setMonth P1
 		raise("DotNet Error: Month is a read-only property")
 
 	Func getSecond
-		return dnRequest("get",[self,"Second"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Second"])
 
 	Func setSecond P1
 		raise("DotNet Error: Second is a read-only property")
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Ticks"])
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getTimeOfDay
-		return dnRequest("get",[self,"TimeOfDay"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TimeOfDay"])
 
 	Func setTimeOfDay P1
 		raise("DotNet Error: TimeOfDay is a read-only property")
 
 	Func getYear
-		return dnRequest("get",[self,"Year"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Year"])
 
 	Func setYear P1
 		raise("DotNet Error: Year is a read-only property")

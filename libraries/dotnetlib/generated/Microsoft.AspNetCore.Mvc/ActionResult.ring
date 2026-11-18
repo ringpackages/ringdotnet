@@ -14,12 +14,12 @@ Class ActionResult from Object
 		return self
 
 	Func ExecuteResultAsync P1
-		return dnRequest("call",[self,"ExecuteResultAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteResultAsync",P1])
 
 	Func ExecuteResult P1
-		dnRequest("call",[self,"ExecuteResult",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ExecuteResult",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

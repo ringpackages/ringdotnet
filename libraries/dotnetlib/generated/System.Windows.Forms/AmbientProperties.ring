@@ -20,33 +20,33 @@ Class AmbientProperties from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBackColor
-		return dnRequest("get",[self,"BackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
 
 	Func setBackColor P1
-		dnRequest("set",[self,"BackColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BackColor",P1])
 		return self
 
 	Func getCursor
-		return dnRequest("get",[self,"Cursor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cursor"])
 
 	Func setCursor P1
-		dnRequest("set",[self,"Cursor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cursor",P1])
 		return self
 
 	Func getFont
-		return dnRequest("get",[self,"Font"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
 
 	Func setFont P1
-		dnRequest("set",[self,"Font",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Font",P1])
 		return self
 
 	Func getForeColor
-		return dnRequest("get",[self,"ForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
 
 	Func setForeColor P1
-		dnRequest("set",[self,"ForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForeColor",P1])
 		return self
 

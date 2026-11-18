@@ -16,7 +16,7 @@ Class InkCanvasStrokeErasingEventArgs from CancelEventArgs
 		return self
 
 	Func getStroke
-		return dnRequest("get",[self,"Stroke"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Stroke"])
 
 	Func setStroke P1
 		raise("DotNet Error: Stroke is a read-only property")

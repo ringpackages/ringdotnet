@@ -14,5 +14,5 @@ Class ITimer from DotNetObject
 		return self
 
 	Func Change P1,P2
-		return dnRequest("call",[self,"Change",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Change",P1,P2])
 

@@ -26,17 +26,17 @@ Class IPEndPoint from EndPoint
 		return dnRequest("call",[dnTypeCached('System.Net.IPEndPoint, System.Net.Primitives'),"Parse",P1])
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
 
 	Func setAddress P1
-		dnRequest("set",[self,"Address",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Address",P1])
 		return self
 
 	Func getPort
-		return dnRequest("get",[self,"Port"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
 
 	Func setPort P1
-		dnRequest("set",[self,"Port",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Port",P1])
 		return self
 
 	Func getMinPort

@@ -17,20 +17,20 @@ Class LicenseContext from Object
 		return self
 
 	Func GetSavedLicenseKey P1,P2
-		return dnRequest("call",[self,"GetSavedLicenseKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSavedLicenseKey",P1,P2])
 
 	Func GetService P1
-		return dnRequest("call",[self,"GetService",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetService",P1])
 
 	Func SetSavedLicenseKey P1,P2
-		dnRequest("call",[self,"SetSavedLicenseKey",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSavedLicenseKey",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUsageMode
-		return dnRequest("get",[self,"UsageMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UsageMode"])
 
 	Func setUsageMode P1
 		raise("DotNet Error: UsageMode is a read-only property")

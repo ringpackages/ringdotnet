@@ -22,16 +22,16 @@ Class ComponentResourceKey from ResourceKey
 		return self
 
 	Func getTypeInTargetAssembly
-		return dnRequest("get",[self,"TypeInTargetAssembly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeInTargetAssembly"])
 
 	Func setTypeInTargetAssembly P1
-		dnRequest("set",[self,"TypeInTargetAssembly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeInTargetAssembly",P1])
 		return self
 
 	Func getResourceId
-		return dnRequest("get",[self,"ResourceId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResourceId"])
 
 	Func setResourceId P1
-		dnRequest("set",[self,"ResourceId",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ResourceId",P1])
 		return self
 

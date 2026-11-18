@@ -33,32 +33,32 @@ Class AssemblyName from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func GetPublicKey 
-		return dnRequest("call",[self,"GetPublicKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPublicKey"])
 
 	Func SetPublicKey P1
-		dnRequest("call",[self,"SetPublicKey",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPublicKey",P1])
 		return self
 
 	Func GetPublicKeyToken 
-		return dnRequest("call",[self,"GetPublicKeyToken"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPublicKeyToken"])
 
 	Func SetPublicKeyToken P1
-		dnRequest("call",[self,"SetPublicKeyToken",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPublicKeyToken",P1])
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func OnDeserialization P1
-		dnRequest("call",[self,"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetAssemblyName P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.AssemblyName, System.Private.CoreLib'),"GetAssemblyName",P1])
@@ -67,90 +67,90 @@ Class AssemblyName from Object
 		return dnRequest("call",[dnTypeCached('System.Reflection.AssemblyName, System.Private.CoreLib'),"ReferenceMatchesDefinition",P1,P2])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
-		dnRequest("set",[self,"Version",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Version",P1])
 		return self
 
 	Func getCultureInfo
-		return dnRequest("get",[self,"CultureInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CultureInfo"])
 
 	Func setCultureInfo P1
-		dnRequest("set",[self,"CultureInfo",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CultureInfo",P1])
 		return self
 
 	Func getCultureName
-		return dnRequest("get",[self,"CultureName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CultureName"])
 
 	Func setCultureName P1
-		dnRequest("set",[self,"CultureName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CultureName",P1])
 		return self
 
 	Func getCodeBase
-		return dnRequest("get",[self,"CodeBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CodeBase"])
 
 	Func setCodeBase P1
-		dnRequest("set",[self,"CodeBase",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CodeBase",P1])
 		return self
 
 	Func getEscapedCodeBase
-		return dnRequest("get",[self,"EscapedCodeBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EscapedCodeBase"])
 
 	Func setEscapedCodeBase P1
 		raise("DotNet Error: EscapedCodeBase is a read-only property")
 
 	Func getProcessorArchitecture
-		return dnRequest("get",[self,"ProcessorArchitecture"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProcessorArchitecture"])
 
 	Func setProcessorArchitecture P1
-		dnRequest("set",[self,"ProcessorArchitecture",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProcessorArchitecture",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 
 	Func getFlags
-		return dnRequest("get",[self,"Flags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Flags"])
 
 	Func setFlags P1
-		dnRequest("set",[self,"Flags",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Flags",P1])
 		return self
 
 	Func getHashAlgorithm
-		return dnRequest("get",[self,"HashAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
-		dnRequest("set",[self,"HashAlgorithm",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HashAlgorithm",P1])
 		return self
 
 	Func getVersionCompatibility
-		return dnRequest("get",[self,"VersionCompatibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VersionCompatibility"])
 
 	Func setVersionCompatibility P1
-		dnRequest("set",[self,"VersionCompatibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VersionCompatibility",P1])
 		return self
 
 	Func getKeyPair
-		return dnRequest("get",[self,"KeyPair"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyPair"])
 
 	Func setKeyPair P1
-		dnRequest("set",[self,"KeyPair",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyPair",P1])
 		return self
 
 	Func getFullName
-		return dnRequest("get",[self,"FullName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FullName"])
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")

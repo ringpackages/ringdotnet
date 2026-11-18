@@ -14,5 +14,5 @@ Class IStartupFilter from DotNetObject
 		return self
 
 	Func Configure P1
-		return dnRequest("call",[self,"Configure",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
 

@@ -22,13 +22,13 @@ Class LinkLabelLinkClickedEventArgs from EventArgs
 		return self
 
 	Func getLink
-		return dnRequest("get",[self,"Link"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Link"])
 
 	Func setLink P1
 		raise("DotNet Error: Link is a read-only property")
 
 	Func getButton
-		return dnRequest("get",[self,"Button"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Button"])
 
 	Func setButton P1
 		raise("DotNet Error: Button is a read-only property")

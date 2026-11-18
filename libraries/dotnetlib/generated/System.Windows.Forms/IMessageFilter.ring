@@ -14,5 +14,5 @@ Class IMessageFilter from DotNetObject
 		return self
 
 	Func PreFilterMessage P1
-		return dnRequest("call",[self,"PreFilterMessage",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PreFilterMessage",P1])
 

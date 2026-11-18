@@ -48,230 +48,230 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func AddRange_2 P1,P2
-		dnRequest("call",[self,"AddRange",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1,P2])
 		return self
 
 	Func AddRange P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AddRange",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddRange",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AddRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
 	Func AddRange_3 P1,P2,P3
-		dnRequest("call",[self,"AddRange",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1,P2,P3])
 		return self
 
 	Func getAccept
-		return dnRequest("get",[self,"Accept"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Accept"])
 
 	Func setAccept P1
-		dnRequest("set",[self,"Accept",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Accept",P1])
 		return self
 
 	Func getAllowReadStreamBuffering
-		return dnRequest("get",[self,"AllowReadStreamBuffering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowReadStreamBuffering"])
 
 	Func setAllowReadStreamBuffering P1
-		dnRequest("set",[self,"AllowReadStreamBuffering",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowReadStreamBuffering",P1])
 		return self
 
 	Func getMaximumResponseHeadersLength
-		return dnRequest("get",[self,"MaximumResponseHeadersLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaximumResponseHeadersLength"])
 
 	Func setMaximumResponseHeadersLength P1
-		dnRequest("set",[self,"MaximumResponseHeadersLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaximumResponseHeadersLength",P1])
 		return self
 
 	Func getMaximumAutomaticRedirections
-		return dnRequest("get",[self,"MaximumAutomaticRedirections"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaximumAutomaticRedirections"])
 
 	Func setMaximumAutomaticRedirections P1
-		dnRequest("set",[self,"MaximumAutomaticRedirections",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaximumAutomaticRedirections",P1])
 		return self
 
 	Func getContinueTimeout
-		return dnRequest("get",[self,"ContinueTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContinueTimeout"])
 
 	Func setContinueTimeout P1
-		dnRequest("set",[self,"ContinueTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContinueTimeout",P1])
 		return self
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getUserAgent
-		return dnRequest("get",[self,"UserAgent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserAgent"])
 
 	Func setUserAgent P1
-		dnRequest("set",[self,"UserAgent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UserAgent",P1])
 		return self
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
 
 	Func setHost P1
-		dnRequest("set",[self,"Host",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Host",P1])
 		return self
 
 	Func getPipelined
-		return dnRequest("get",[self,"Pipelined"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Pipelined"])
 
 	Func setPipelined P1
-		dnRequest("set",[self,"Pipelined",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Pipelined",P1])
 		return self
 
 	Func getReferer
-		return dnRequest("get",[self,"Referer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Referer"])
 
 	Func setReferer P1
-		dnRequest("set",[self,"Referer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Referer",P1])
 		return self
 
 	Func getMediaType
-		return dnRequest("get",[self,"MediaType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MediaType"])
 
 	Func setMediaType P1
-		dnRequest("set",[self,"MediaType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MediaType",P1])
 		return self
 
 	Func getTransferEncoding
-		return dnRequest("get",[self,"TransferEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransferEncoding"])
 
 	Func setTransferEncoding P1
-		dnRequest("set",[self,"TransferEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TransferEncoding",P1])
 		return self
 
 	Func getKeepAlive
-		return dnRequest("get",[self,"KeepAlive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlive"])
 
 	Func setKeepAlive P1
-		dnRequest("set",[self,"KeepAlive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAlive",P1])
 		return self
 
 	Func getUnsafeAuthenticatedConnectionSharing
-		return dnRequest("get",[self,"UnsafeAuthenticatedConnectionSharing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnsafeAuthenticatedConnectionSharing"])
 
 	Func setUnsafeAuthenticatedConnectionSharing P1
-		dnRequest("set",[self,"UnsafeAuthenticatedConnectionSharing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UnsafeAuthenticatedConnectionSharing",P1])
 		return self
 
 	Func getAutomaticDecompression
-		return dnRequest("get",[self,"AutomaticDecompression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutomaticDecompression"])
 
 	Func setAutomaticDecompression P1
-		dnRequest("set",[self,"AutomaticDecompression",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutomaticDecompression",P1])
 		return self
 
 	Func getAllowWriteStreamBuffering
-		return dnRequest("get",[self,"AllowWriteStreamBuffering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowWriteStreamBuffering"])
 
 	Func setAllowWriteStreamBuffering P1
-		dnRequest("set",[self,"AllowWriteStreamBuffering",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowWriteStreamBuffering",P1])
 		return self
 
 	Func getAllowAutoRedirect
-		return dnRequest("get",[self,"AllowAutoRedirect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowAutoRedirect"])
 
 	Func setAllowAutoRedirect P1
-		dnRequest("set",[self,"AllowAutoRedirect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowAutoRedirect",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[self,"Connection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
 		return self
 
 	Func getExpect
-		return dnRequest("get",[self,"Expect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expect"])
 
 	Func setExpect P1
-		dnRequest("set",[self,"Expect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Expect",P1])
 		return self
 
 	Func getIfModifiedSince
-		return dnRequest("get",[self,"IfModifiedSince"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IfModifiedSince"])
 
 	Func setIfModifiedSince P1
-		dnRequest("set",[self,"IfModifiedSince",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IfModifiedSince",P1])
 		return self
 
 	Func getDate
-		return dnRequest("get",[self,"Date"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Date"])
 
 	Func setDate P1
-		dnRequest("set",[self,"Date",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Date",P1])
 		return self
 
 	Func getSendChunked
-		return dnRequest("get",[self,"SendChunked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SendChunked"])
 
 	Func setSendChunked P1
-		dnRequest("set",[self,"SendChunked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SendChunked",P1])
 		return self
 
 	Func getContinueDelegate
-		return dnRequest("get",[self,"ContinueDelegate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContinueDelegate"])
 
 	Func setContinueDelegate P1
-		dnRequest("set",[self,"ContinueDelegate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContinueDelegate",P1])
 		return self
 
 	Func getServicePoint
-		return dnRequest("get",[self,"ServicePoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServicePoint"])
 
 	Func setServicePoint P1
 		raise("DotNet Error: ServicePoint is a read-only property")
 
 	Func getServerCertificateValidationCallback
-		return dnRequest("get",[self,"ServerCertificateValidationCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServerCertificateValidationCallback"])
 
 	Func setServerCertificateValidationCallback P1
-		dnRequest("set",[self,"ServerCertificateValidationCallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ServerCertificateValidationCallback",P1])
 		return self
 
 	Func getClientCertificates
-		return dnRequest("get",[self,"ClientCertificates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificates"])
 
 	Func setClientCertificates P1
-		dnRequest("set",[self,"ClientCertificates",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientCertificates",P1])
 		return self
 
 	Func getProtocolVersion
-		return dnRequest("get",[self,"ProtocolVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolVersion"])
 
 	Func setProtocolVersion P1
-		dnRequest("set",[self,"ProtocolVersion",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProtocolVersion",P1])
 		return self
 
 	Func getReadWriteTimeout
-		return dnRequest("get",[self,"ReadWriteTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReadWriteTimeout"])
 
 	Func setReadWriteTimeout P1
-		dnRequest("set",[self,"ReadWriteTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReadWriteTimeout",P1])
 		return self
 
 	Func getCookieContainer
-		return dnRequest("get",[self,"CookieContainer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CookieContainer"])
 
 	Func setCookieContainer P1
-		dnRequest("set",[self,"CookieContainer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CookieContainer",P1])
 		return self
 
 	Func getHaveResponse
-		return dnRequest("get",[self,"HaveResponse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HaveResponse"])
 
 	Func setHaveResponse P1
 		raise("DotNet Error: HaveResponse is a read-only property")
 
 	Func getSupportsCookieContainer
-		return dnRequest("get",[self,"SupportsCookieContainer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsCookieContainer"])
 
 	Func setSupportsCookieContainer P1
 		raise("DotNet Error: SupportsCookieContainer is a read-only property")

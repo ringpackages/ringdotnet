@@ -22,10 +22,10 @@ Class ImageBrush from TileBrush
 		return self
 
 	Func getImageSource
-		return dnRequest("get",[self,"ImageSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageSource"])
 
 	Func setImageSource P1
-		dnRequest("set",[self,"ImageSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageSource",P1])
 		return self
 
 	Func getImageSourceProperty

@@ -14,21 +14,21 @@ Class BindingsCollection from BaseCollection
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func setCollectionChangingEvent P1
-		dnRequest("setevent",[self,"CollectionChanging",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanging",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangingEvent
-		dnRequest("clearevent",[self,"CollectionChanging"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanging"])
 		return self
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[self,"CollectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[self,"CollectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
 		return self
 

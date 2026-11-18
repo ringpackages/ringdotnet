@@ -17,19 +17,19 @@ Class IAuthenticationModule from DotNetObject
 		return self
 
 	Func Authenticate P1,P2,P3
-		return dnRequest("call",[self,"Authenticate",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Authenticate",P1,P2,P3])
 
 	Func PreAuthenticate P1,P2
-		return dnRequest("call",[self,"PreAuthenticate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"PreAuthenticate",P1,P2])
 
 	Func getCanPreAuthenticate
-		return dnRequest("get",[self,"CanPreAuthenticate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanPreAuthenticate"])
 
 	Func setCanPreAuthenticate P1
 		raise("DotNet Error: CanPreAuthenticate is a read-only property")
 
 	Func getAuthenticationType
-		return dnRequest("get",[self,"AuthenticationType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationType"])
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")

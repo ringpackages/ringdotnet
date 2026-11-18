@@ -45,19 +45,19 @@ Class SqlDateTime from ValueType
 		return self
 
 	Func ToSqlString 
-		return dnRequest("call",[self,"ToSqlString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Parse",P1])
@@ -90,22 +90,22 @@ Class SqlDateTime from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getDayTicks
-		return dnRequest("get",[self,"DayTicks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DayTicks"])
 
 	Func setDayTicks P1
 		raise("DotNet Error: DayTicks is a read-only property")
 
 	Func getTimeTicks
-		return dnRequest("get",[self,"TimeTicks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TimeTicks"])
 
 	Func setTimeTicks P1
 		raise("DotNet Error: TimeTicks is a read-only property")

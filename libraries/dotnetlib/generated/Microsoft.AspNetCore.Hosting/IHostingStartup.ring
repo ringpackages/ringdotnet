@@ -14,6 +14,6 @@ Class IHostingStartup from DotNetObject
 		return self
 
 	Func Configure P1
-		dnRequest("call",[self,"Configure",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
 		return self
 

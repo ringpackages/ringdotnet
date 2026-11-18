@@ -25,39 +25,39 @@ Class PaperSize from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
 		return self
 
 	Func getKind
-		return dnRequest("get",[self,"Kind"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Kind"])
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getPaperName
-		return dnRequest("get",[self,"PaperName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PaperName"])
 
 	Func setPaperName P1
-		dnRequest("set",[self,"PaperName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PaperName",P1])
 		return self
 
 	Func getRawKind
-		return dnRequest("get",[self,"RawKind"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawKind"])
 
 	Func setRawKind P1
-		dnRequest("set",[self,"RawKind",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RawKind",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
 		return self
 

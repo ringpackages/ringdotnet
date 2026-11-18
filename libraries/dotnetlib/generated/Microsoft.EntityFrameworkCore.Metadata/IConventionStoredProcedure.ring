@@ -19,127 +19,127 @@ Class IConventionStoredProcedure from DotNetObject
 		return self
 
 	Func GetConfigurationSource 
-		return dnRequest("call",[self,"GetConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConfigurationSource"])
 
 	Func SetName_2 P1,P2
-		return dnRequest("call",[self,"SetName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetName",P1,P2])
 
 	Func SetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetName",P1])
 		ok
-		return dnRequest("call",[self,"SetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetName",P1])
 
 	Func GetNameConfigurationSource 
-		return dnRequest("call",[self,"GetNameConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNameConfigurationSource"])
 
 	Func SetSchema_2 P1,P2
-		return dnRequest("call",[self,"SetSchema",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetSchema",P1,P2])
 
 	Func SetSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetSchema",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetSchema",P1])
 		ok
-		return dnRequest("call",[self,"SetSchema",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetSchema",P1])
 
 	Func GetSchemaConfigurationSource 
-		return dnRequest("call",[self,"GetSchemaConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaConfigurationSource"])
 
 	Func FindParameter P1
-		return dnRequest("call",[self,"FindParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindParameter",P1])
 
 	Func AddParameter_2 P1,P2
-		return dnRequest("call",[self,"AddParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1,P2])
 
 	Func AddParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddParameter",P1])
 		ok
-		return dnRequest("call",[self,"AddParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1])
 
 	Func FindOriginalValueParameter P1
-		return dnRequest("call",[self,"FindOriginalValueParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindOriginalValueParameter",P1])
 
 	Func AddOriginalValueParameter_2 P1,P2
-		return dnRequest("call",[self,"AddOriginalValueParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddOriginalValueParameter",P1,P2])
 
 	Func AddOriginalValueParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddOriginalValueParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddOriginalValueParameter",P1])
 		ok
-		return dnRequest("call",[self,"AddOriginalValueParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddOriginalValueParameter",P1])
 
 	Func FindRowsAffectedParameter 
-		return dnRequest("call",[self,"FindRowsAffectedParameter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRowsAffectedParameter"])
 
 	Func AddRowsAffectedParameter_1 P1
-		return dnRequest("call",[self,"AddRowsAffectedParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRowsAffectedParameter",P1])
 
 	Func AddRowsAffectedParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddRowsAffectedParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddRowsAffectedParameter",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AddRowsAffectedParameter"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AddRowsAffectedParameter"])
 		ok
-		return dnRequest("call",[self,"AddRowsAffectedParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRowsAffectedParameter",P1])
 
 	Func FindResultColumn P1
-		return dnRequest("call",[self,"FindResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindResultColumn",P1])
 
 	Func AddResultColumn_2 P1,P2
-		return dnRequest("call",[self,"AddResultColumn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddResultColumn",P1,P2])
 
 	Func AddResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddResultColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddResultColumn",P1])
 		ok
-		return dnRequest("call",[self,"AddResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddResultColumn",P1])
 
 	Func FindRowsAffectedResultColumn 
-		return dnRequest("call",[self,"FindRowsAffectedResultColumn"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRowsAffectedResultColumn"])
 
 	Func AddRowsAffectedResultColumn_1 P1
-		return dnRequest("call",[self,"AddRowsAffectedResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRowsAffectedResultColumn",P1])
 
 	Func AddRowsAffectedResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddRowsAffectedResultColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddRowsAffectedResultColumn",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AddRowsAffectedResultColumn"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AddRowsAffectedResultColumn"])
 		ok
-		return dnRequest("call",[self,"AddRowsAffectedResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRowsAffectedResultColumn",P1])
 
 	Func SetIsRowsAffectedReturned_2 P1,P2
-		return dnRequest("call",[self,"SetIsRowsAffectedReturned",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsRowsAffectedReturned",P1,P2])
 
 	Func SetIsRowsAffectedReturned P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsRowsAffectedReturned",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsRowsAffectedReturned",P1])
 		ok
-		return dnRequest("call",[self,"SetIsRowsAffectedReturned",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsRowsAffectedReturned",P1])
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getResultColumns
-		return dnRequest("get",[self,"ResultColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResultColumns"])
 
 	Func setResultColumns P1
 		raise("DotNet Error: ResultColumns is a read-only property")

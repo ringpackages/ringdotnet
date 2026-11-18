@@ -18,42 +18,42 @@ Class DataSourceProvider from Object
 		return self
 
 	Func InitialLoad 
-		dnRequest("call",[self,"InitialLoad"])
+		dnRequest("call",[new DotNetObject(nHandle),"InitialLoad"])
 		return self
 
 	Func Refresh 
-		dnRequest("call",[self,"Refresh"])
+		dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
 		return self
 
 	Func DeferRefresh 
-		return dnRequest("call",[self,"DeferRefresh"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeferRefresh"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setDataChangedEvent P1
-		dnRequest("setevent",[self,"DataChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DataChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataChangedEvent
-		dnRequest("clearevent",[self,"DataChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DataChanged"])
 		return self
 
 	Func getIsInitialLoadEnabled
-		return dnRequest("get",[self,"IsInitialLoadEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialLoadEnabled"])
 
 	Func setIsInitialLoadEnabled P1
-		dnRequest("set",[self,"IsInitialLoadEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsInitialLoadEnabled",P1])
 		return self
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")
 
 	Func getError
-		return dnRequest("get",[self,"Error"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Error"])
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")

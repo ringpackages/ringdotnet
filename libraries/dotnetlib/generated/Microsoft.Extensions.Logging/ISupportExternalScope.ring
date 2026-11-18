@@ -14,6 +14,6 @@ Class ISupportExternalScope from DotNetObject
 		return self
 
 	Func SetScopeProvider P1
-		dnRequest("call",[self,"SetScopeProvider",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetScopeProvider",P1])
 		return self
 

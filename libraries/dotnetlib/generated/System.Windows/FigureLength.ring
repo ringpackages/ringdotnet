@@ -31,43 +31,43 @@ Class FigureLength from ValueType
 		return self
 
 	Func getIsAbsolute
-		return dnRequest("get",[self,"IsAbsolute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAbsolute"])
 
 	Func setIsAbsolute P1
 		raise("DotNet Error: IsAbsolute is a read-only property")
 
 	Func getIsAuto
-		return dnRequest("get",[self,"IsAuto"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAuto"])
 
 	Func setIsAuto P1
 		raise("DotNet Error: IsAuto is a read-only property")
 
 	Func getIsColumn
-		return dnRequest("get",[self,"IsColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsColumn"])
 
 	Func setIsColumn P1
 		raise("DotNet Error: IsColumn is a read-only property")
 
 	Func getIsContent
-		return dnRequest("get",[self,"IsContent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsContent"])
 
 	Func setIsContent P1
 		raise("DotNet Error: IsContent is a read-only property")
 
 	Func getIsPage
-		return dnRequest("get",[self,"IsPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPage"])
 
 	Func setIsPage P1
 		raise("DotNet Error: IsPage is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getFigureUnitType
-		return dnRequest("get",[self,"FigureUnitType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FigureUnitType"])
 
 	Func setFigureUnitType P1
 		raise("DotNet Error: FigureUnitType is a read-only property")

@@ -17,22 +17,22 @@ Class X500RelativeDistinguishedName from Object
 		return self
 
 	Func GetSingleElementType 
-		return dnRequest("call",[self,"GetSingleElementType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSingleElementType"])
 
 	Func GetSingleElementValue 
-		return dnRequest("call",[self,"GetSingleElementValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSingleElementValue"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRawData
-		return dnRequest("get",[self,"RawData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawData"])
 
 	Func setRawData P1
 		raise("DotNet Error: RawData is a read-only property")
 
 	Func getHasMultipleElements
-		return dnRequest("get",[self,"HasMultipleElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasMultipleElements"])
 
 	Func setHasMultipleElements P1
 		raise("DotNet Error: HasMultipleElements is a read-only property")

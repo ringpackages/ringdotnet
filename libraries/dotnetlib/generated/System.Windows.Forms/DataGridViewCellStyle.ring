@@ -36,121 +36,121 @@ Class DataGridViewCellStyle from Object
 		return self
 
 	Func ApplyStyle P1
-		dnRequest("call",[self,"ApplyStyle",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyStyle",P1])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAlignment
-		return dnRequest("get",[self,"Alignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Alignment"])
 
 	Func setAlignment P1
-		dnRequest("set",[self,"Alignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Alignment",P1])
 		return self
 
 	Func getBackColor
-		return dnRequest("get",[self,"BackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
 
 	Func setBackColor P1
-		dnRequest("set",[self,"BackColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BackColor",P1])
 		return self
 
 	Func getDataSourceNullValue
-		return dnRequest("get",[self,"DataSourceNullValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataSourceNullValue"])
 
 	Func setDataSourceNullValue P1
-		dnRequest("set",[self,"DataSourceNullValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataSourceNullValue",P1])
 		return self
 
 	Func getFont
-		return dnRequest("get",[self,"Font"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
 
 	Func setFont P1
-		dnRequest("set",[self,"Font",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Font",P1])
 		return self
 
 	Func getForeColor
-		return dnRequest("get",[self,"ForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
 
 	Func setForeColor P1
-		dnRequest("set",[self,"ForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForeColor",P1])
 		return self
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
 
 	Func setFormat P1
-		dnRequest("set",[self,"Format",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Format",P1])
 		return self
 
 	Func getFormatProvider
-		return dnRequest("get",[self,"FormatProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatProvider"])
 
 	Func setFormatProvider P1
-		dnRequest("set",[self,"FormatProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormatProvider",P1])
 		return self
 
 	Func getIsDataSourceNullValueDefault
-		return dnRequest("get",[self,"IsDataSourceNullValueDefault"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDataSourceNullValueDefault"])
 
 	Func setIsDataSourceNullValueDefault P1
 		raise("DotNet Error: IsDataSourceNullValueDefault is a read-only property")
 
 	Func getIsFormatProviderDefault
-		return dnRequest("get",[self,"IsFormatProviderDefault"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFormatProviderDefault"])
 
 	Func setIsFormatProviderDefault P1
 		raise("DotNet Error: IsFormatProviderDefault is a read-only property")
 
 	Func getIsNullValueDefault
-		return dnRequest("get",[self,"IsNullValueDefault"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullValueDefault"])
 
 	Func setIsNullValueDefault P1
 		raise("DotNet Error: IsNullValueDefault is a read-only property")
 
 	Func getNullValue
-		return dnRequest("get",[self,"NullValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NullValue"])
 
 	Func setNullValue P1
-		dnRequest("set",[self,"NullValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NullValue",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[self,"Padding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[self,"Padding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
 		return self
 
 	Func getSelectionBackColor
-		return dnRequest("get",[self,"SelectionBackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionBackColor"])
 
 	Func setSelectionBackColor P1
-		dnRequest("set",[self,"SelectionBackColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionBackColor",P1])
 		return self
 
 	Func getSelectionForeColor
-		return dnRequest("get",[self,"SelectionForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionForeColor"])
 
 	Func setSelectionForeColor P1
-		dnRequest("set",[self,"SelectionForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionForeColor",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 
 	Func getWrapMode
-		return dnRequest("get",[self,"WrapMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WrapMode"])
 
 	Func setWrapMode P1
-		dnRequest("set",[self,"WrapMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WrapMode",P1])
 		return self
 

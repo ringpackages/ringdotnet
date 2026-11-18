@@ -23,19 +23,19 @@ Class BindingMemberInfo from ValueType
 		return self
 
 	Func getBindingPath
-		return dnRequest("get",[self,"BindingPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingPath"])
 
 	Func setBindingPath P1
 		raise("DotNet Error: BindingPath is a read-only property")
 
 	Func getBindingField
-		return dnRequest("get",[self,"BindingField"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingField"])
 
 	Func setBindingField P1
 		raise("DotNet Error: BindingField is a read-only property")
 
 	Func getBindingMember
-		return dnRequest("get",[self,"BindingMember"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingMember"])
 
 	Func setBindingMember P1
 		raise("DotNet Error: BindingMember is a read-only property")

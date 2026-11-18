@@ -25,9 +25,9 @@ Class InlineUIContainer from Inline
 		return self
 
 	Func getChild
-		return dnRequest("get",[self,"Child"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Child"])
 
 	Func setChild P1
-		dnRequest("set",[self,"Child",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Child",P1])
 		return self
 

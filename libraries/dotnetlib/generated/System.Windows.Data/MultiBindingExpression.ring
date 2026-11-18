@@ -17,13 +17,13 @@ Class MultiBindingExpression from BindingExpressionBase
 		return self
 
 	Func getParentMultiBinding
-		return dnRequest("get",[self,"ParentMultiBinding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParentMultiBinding"])
 
 	Func setParentMultiBinding P1
 		raise("DotNet Error: ParentMultiBinding is a read-only property")
 
 	Func getBindingExpressions
-		return dnRequest("get",[self,"BindingExpressions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingExpressions"])
 
 	Func setBindingExpressions P1
 		raise("DotNet Error: BindingExpressions is a read-only property")

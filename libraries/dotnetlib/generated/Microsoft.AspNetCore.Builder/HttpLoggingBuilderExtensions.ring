@@ -14,7 +14,7 @@ Class HttpLoggingBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func UseHttpLogging P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging'),"UseHttpLogging",P1])

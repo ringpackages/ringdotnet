@@ -19,19 +19,19 @@ Class RuntimeTrigger from RuntimeAnnotatableBase
 		return self
 
 	Func getModelName
-		return dnRequest("get",[self,"ModelName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelName"])
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

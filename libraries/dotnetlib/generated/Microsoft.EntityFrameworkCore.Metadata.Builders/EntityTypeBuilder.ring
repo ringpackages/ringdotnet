@@ -17,151 +17,151 @@ Class EntityTypeBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func HasBaseType P1
-		return dnRequest("call",[self,"HasBaseType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasBaseType",P1])
 
 	Func HasKey P1
-		return dnRequest("call",[self,"HasKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasKey",P1])
 
 	Func HasAlternateKey P1
-		return dnRequest("call",[self,"HasAlternateKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAlternateKey",P1])
 
 	Func HasNoKey 
-		return dnRequest("call",[self,"HasNoKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoKey"])
 
 	Func Property P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Property",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Property",P1])
 		ok
-		return dnRequest("call",[self,"Property",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Property",P1])
 
 	Func Property_2 P1,P2
-		return dnRequest("call",[self,"Property",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Property",P1,P2])
 
 	Func PrimitiveCollection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"PrimitiveCollection",P1])
 		ok
-		return dnRequest("call",[self,"PrimitiveCollection",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PrimitiveCollection",P1])
 
 	Func PrimitiveCollection_2 P1,P2
-		return dnRequest("call",[self,"PrimitiveCollection",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"PrimitiveCollection",P1,P2])
 
 	Func IndexerProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IndexerProperty",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexerProperty",P1])
 		ok
-		return dnRequest("call",[self,"IndexerProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexerProperty",P1])
 
 	Func IndexerProperty_2 P1,P2
-		return dnRequest("call",[self,"IndexerProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexerProperty",P1,P2])
 
 	Func ComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ComplexProperty",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ComplexProperty",P1])
 		ok
-		return dnRequest("call",[self,"ComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperty",P1])
 
 	Func ComplexProperty_2 P1,P2
-		return dnRequest("call",[self,"ComplexProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperty",P1,P2])
 
 	Func ComplexProperty_3 P1,P2,P3
-		return dnRequest("call",[self,"ComplexProperty",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperty",P1,P2,P3])
 
 	Func ComplexProperty_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ComplexProperty",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperty",P1,P2,P3,P4])
 
 	Func Navigation P1
-		return dnRequest("call",[self,"Navigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Navigation",P1])
 
 	Func Ignore P1
-		return dnRequest("call",[self,"Ignore",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ignore",P1])
 
 	Func HasQueryFilter P1
-		return dnRequest("call",[self,"HasQueryFilter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasQueryFilter",P1])
 
 	Func HasIndex P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasIndex",P1])
 		ok
-		return dnRequest("call",[self,"HasIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasIndex",P1])
 
 	Func HasIndex_2 P1,P2
-		return dnRequest("call",[self,"HasIndex",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasIndex",P1,P2])
 
 	Func OwnsOne P1,P2
-		return dnRequest("call",[self,"OwnsOne",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OwnsOne",P1,P2])
 
 	Func OwnsOne_3 P1,P2,P3
-		return dnRequest("call",[self,"OwnsOne",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"OwnsOne",P1,P2,P3])
 
 	Func OwnsOne_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"OwnsOne",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"OwnsOne",P1,P2,P3,P4])
 
 	Func OwnsMany P1,P2
-		return dnRequest("call",[self,"OwnsMany",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OwnsMany",P1,P2])
 
 	Func OwnsMany_3 P1,P2,P3
-		return dnRequest("call",[self,"OwnsMany",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"OwnsMany",P1,P2,P3])
 
 	Func OwnsMany_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"OwnsMany",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"OwnsMany",P1,P2,P3,P4])
 
 	Func HasOne_2 P1,P2
-		return dnRequest("call",[self,"HasOne",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasOne",P1,P2])
 
 	Func HasOne P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasOne",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasOne",P1])
 		ok
-		return dnRequest("call",[self,"HasOne",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasOne",P1])
 
 	Func HasMany_2 P1,P2
-		return dnRequest("call",[self,"HasMany",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMany",P1,P2])
 
 	Func HasMany P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasMany",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasMany",P1])
 		ok
-		return dnRequest("call",[self,"HasMany",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMany",P1])
 
 	Func HasChangeTrackingStrategy P1
-		return dnRequest("call",[self,"HasChangeTrackingStrategy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasChangeTrackingStrategy",P1])
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsePropertyAccessMode",P1])
 
 	Func HasData P1
-		return dnRequest("call",[self,"HasData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasData",P1])
 
 	Func HasDiscriminator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasDiscriminator",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasDiscriminator",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasDiscriminator"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasDiscriminator"])
 		ok
-		return dnRequest("call",[self,"HasDiscriminator",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasDiscriminator",P1])
 
 	Func HasDiscriminator_2 P1,P2
-		return dnRequest("call",[self,"HasDiscriminator",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasDiscriminator",P1,P2])
 
 	Func HasDiscriminator_1 P1
-		return dnRequest("call",[self,"HasDiscriminator",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasDiscriminator",P1])
 
 	Func HasNoDiscriminator 
-		return dnRequest("call",[self,"HasNoDiscriminator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoDiscriminator"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func HasTrigger P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder, Microsoft.EntityFrameworkCore'),"HasTrigger",P1,P2])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

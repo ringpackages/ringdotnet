@@ -21,40 +21,40 @@ Class AttributeRouteInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTemplate
-		return dnRequest("get",[self,"Template"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Template"])
 
 	Func setTemplate P1
-		dnRequest("set",[self,"Template",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Template",P1])
 		return self
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
 
 	Func setOrder P1
-		dnRequest("set",[self,"Order",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Order",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getSuppressLinkGeneration
-		return dnRequest("get",[self,"SuppressLinkGeneration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressLinkGeneration"])
 
 	Func setSuppressLinkGeneration P1
-		dnRequest("set",[self,"SuppressLinkGeneration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressLinkGeneration",P1])
 		return self
 
 	Func getSuppressPathMatching
-		return dnRequest("get",[self,"SuppressPathMatching"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressPathMatching"])
 
 	Func setSuppressPathMatching P1
-		dnRequest("set",[self,"SuppressPathMatching",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressPathMatching",P1])
 		return self
 

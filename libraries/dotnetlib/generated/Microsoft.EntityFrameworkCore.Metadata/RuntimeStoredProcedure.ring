@@ -18,20 +18,20 @@ Class RuntimeStoredProcedure from AnnotatableBase
 		return self
 
 	Func AddParameter P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"AddParameter",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1,P2,P3,P4,P5])
 
 	Func AddResultColumn P1,P2,P3
-		return dnRequest("call",[self,"AddResultColumn",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddResultColumn",P1,P2,P3])
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
-		dnRequest("set",[self,"EntityType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EntityType",P1])
 		return self
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

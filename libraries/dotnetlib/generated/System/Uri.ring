@@ -63,25 +63,25 @@ Class Uri from Object
 		return self
 
 	Func GetLeftPart P1
-		return dnRequest("call",[self,"GetLeftPart",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLeftPart",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func MakeRelativeUri P1
-		return dnRequest("call",[self,"MakeRelativeUri",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeRelativeUri",P1])
 
 	Func MakeRelative P1
-		return dnRequest("call",[self,"MakeRelative",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeRelative",P1])
 
 	Func GetComponents P1,P2
-		return dnRequest("call",[self,"GetComponents",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetComponents",P1,P2])
 
 	Func IsWellFormedOriginalString 
-		return dnRequest("call",[self,"IsWellFormedOriginalString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsWellFormedOriginalString"])
 
 	Func IsBaseOf P1
-		return dnRequest("call",[self,"IsBaseOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBaseOf",P1])
 
 	Func CheckHostName P1
 		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"CheckHostName",P1])
@@ -123,133 +123,133 @@ Class Uri from Object
 		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"EscapeDataString",P1])
 
 	Func getAbsolutePath
-		return dnRequest("get",[self,"AbsolutePath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AbsolutePath"])
 
 	Func setAbsolutePath P1
 		raise("DotNet Error: AbsolutePath is a read-only property")
 
 	Func getAbsoluteUri
-		return dnRequest("get",[self,"AbsoluteUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AbsoluteUri"])
 
 	Func setAbsoluteUri P1
 		raise("DotNet Error: AbsoluteUri is a read-only property")
 
 	Func getLocalPath
-		return dnRequest("get",[self,"LocalPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalPath"])
 
 	Func setLocalPath P1
 		raise("DotNet Error: LocalPath is a read-only property")
 
 	Func getAuthority
-		return dnRequest("get",[self,"Authority"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Authority"])
 
 	Func setAuthority P1
 		raise("DotNet Error: Authority is a read-only property")
 
 	Func getHostNameType
-		return dnRequest("get",[self,"HostNameType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HostNameType"])
 
 	Func setHostNameType P1
 		raise("DotNet Error: HostNameType is a read-only property")
 
 	Func getIsDefaultPort
-		return dnRequest("get",[self,"IsDefaultPort"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDefaultPort"])
 
 	Func setIsDefaultPort P1
 		raise("DotNet Error: IsDefaultPort is a read-only property")
 
 	Func getIsFile
-		return dnRequest("get",[self,"IsFile"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFile"])
 
 	Func setIsFile P1
 		raise("DotNet Error: IsFile is a read-only property")
 
 	Func getIsLoopback
-		return dnRequest("get",[self,"IsLoopback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLoopback"])
 
 	Func setIsLoopback P1
 		raise("DotNet Error: IsLoopback is a read-only property")
 
 	Func getPathAndQuery
-		return dnRequest("get",[self,"PathAndQuery"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PathAndQuery"])
 
 	Func setPathAndQuery P1
 		raise("DotNet Error: PathAndQuery is a read-only property")
 
 	Func getSegments
-		return dnRequest("get",[self,"Segments"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Segments"])
 
 	Func setSegments P1
 		raise("DotNet Error: Segments is a read-only property")
 
 	Func getIsUnc
-		return dnRequest("get",[self,"IsUnc"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUnc"])
 
 	Func setIsUnc P1
 		raise("DotNet Error: IsUnc is a read-only property")
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPort
-		return dnRequest("get",[self,"Port"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")
 
 	Func getQuery
-		return dnRequest("get",[self,"Query"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Query"])
 
 	Func setQuery P1
 		raise("DotNet Error: Query is a read-only property")
 
 	Func getFragment
-		return dnRequest("get",[self,"Fragment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Fragment"])
 
 	Func setFragment P1
 		raise("DotNet Error: Fragment is a read-only property")
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOriginalString
-		return dnRequest("get",[self,"OriginalString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalString"])
 
 	Func setOriginalString P1
 		raise("DotNet Error: OriginalString is a read-only property")
 
 	Func getDnsSafeHost
-		return dnRequest("get",[self,"DnsSafeHost"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DnsSafeHost"])
 
 	Func setDnsSafeHost P1
 		raise("DotNet Error: DnsSafeHost is a read-only property")
 
 	Func getIdnHost
-		return dnRequest("get",[self,"IdnHost"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IdnHost"])
 
 	Func setIdnHost P1
 		raise("DotNet Error: IdnHost is a read-only property")
 
 	Func getIsAbsoluteUri
-		return dnRequest("get",[self,"IsAbsoluteUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAbsoluteUri"])
 
 	Func setIsAbsoluteUri P1
 		raise("DotNet Error: IsAbsoluteUri is a read-only property")
 
 	Func getUserEscaped
-		return dnRequest("get",[self,"UserEscaped"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserEscaped"])
 
 	Func setUserEscaped P1
 		raise("DotNet Error: UserEscaped is a read-only property")
 
 	Func getUserInfo
-		return dnRequest("get",[self,"UserInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserInfo"])
 
 	Func setUserInfo P1
 		raise("DotNet Error: UserInfo is a read-only property")

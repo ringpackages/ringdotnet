@@ -17,9 +17,9 @@ Class AuthorizationFilterContext from FilterContext
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Result",P1])
 		return self
 

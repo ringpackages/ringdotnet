@@ -16,49 +16,49 @@ Class IConventionDiscriminatorBuilder from DotNetObject
 		return self
 
 	Func IsComplete_2 P1,P2
-		return dnRequest("call",[self,"IsComplete",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsComplete",P1,P2])
 
 	Func IsComplete P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsComplete",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsComplete",P1])
 		ok
-		return dnRequest("call",[self,"IsComplete",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsComplete",P1])
 
 	Func CanSetIsComplete_2 P1,P2
-		return dnRequest("call",[self,"CanSetIsComplete",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsComplete",P1,P2])
 
 	Func CanSetIsComplete P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetIsComplete",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetIsComplete",P1])
 		ok
-		return dnRequest("call",[self,"CanSetIsComplete",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsComplete",P1])
 
 	Func HasValue_2 P1,P2
-		return dnRequest("call",[self,"HasValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasValue",P1,P2])
 
 	Func HasValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasValue",P1])
 		ok
-		return dnRequest("call",[self,"HasValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasValue",P1])
 
 	Func HasValue_3 P1,P2,P3
-		return dnRequest("call",[self,"HasValue",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasValue",P1,P2,P3])
 
 	Func CanSetValue_2 P1,P2
-		return dnRequest("call",[self,"CanSetValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetValue",P1,P2])
 
 	Func CanSetValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetValue",P1])
 		ok
-		return dnRequest("call",[self,"CanSetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetValue",P1])
 
 	Func CanSetValue_3 P1,P2,P3
-		return dnRequest("call",[self,"CanSetValue",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetValue",P1,P2,P3])
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")

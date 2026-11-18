@@ -24,64 +24,64 @@ Class GridItem from Object
 		return self
 
 	Func Select 
-		return dnRequest("call",[self,"Select"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Select"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 
 	Func getGridItems
-		return dnRequest("get",[self,"GridItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GridItems"])
 
 	Func setGridItems P1
 		raise("DotNet Error: GridItems is a read-only property")
 
 	Func getGridItemType
-		return dnRequest("get",[self,"GridItemType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GridItemType"])
 
 	Func setGridItemType P1
 		raise("DotNet Error: GridItemType is a read-only property")
 
 	Func getLabel
-		return dnRequest("get",[self,"Label"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Label"])
 
 	Func setLabel P1
 		raise("DotNet Error: Label is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getPropertyDescriptor
-		return dnRequest("get",[self,"PropertyDescriptor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyDescriptor"])
 
 	Func setPropertyDescriptor P1
 		raise("DotNet Error: PropertyDescriptor is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getExpandable
-		return dnRequest("get",[self,"Expandable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expandable"])
 
 	Func setExpandable P1
 		raise("DotNet Error: Expandable is a read-only property")
 
 	Func getExpanded
-		return dnRequest("get",[self,"Expanded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expanded"])
 
 	Func setExpanded P1
-		dnRequest("set",[self,"Expanded",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Expanded",P1])
 		return self
 

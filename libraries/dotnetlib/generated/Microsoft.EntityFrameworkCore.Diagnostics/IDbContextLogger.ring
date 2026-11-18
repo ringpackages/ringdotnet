@@ -14,9 +14,9 @@ Class IDbContextLogger from DotNetObject
 		return self
 
 	Func Log P1
-		dnRequest("call",[self,"Log",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Log",P1])
 		return self
 
 	Func ShouldLog P1,P2
-		return dnRequest("call",[self,"ShouldLog",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLog",P1,P2])
 

@@ -17,7 +17,7 @@ Class AppContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetData P1
 		return dnRequest("call",[dnTypeCached('System.AppContext, System.Private.CoreLib'),"GetData",P1])

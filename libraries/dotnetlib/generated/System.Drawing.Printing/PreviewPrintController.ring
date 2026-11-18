@@ -17,12 +17,12 @@ Class PreviewPrintController from PrintController
 		return self
 
 	Func GetPreviewPageInfo 
-		return dnRequest("call",[self,"GetPreviewPageInfo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPreviewPageInfo"])
 
 	Func getUseAntiAlias
-		return dnRequest("get",[self,"UseAntiAlias"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseAntiAlias"])
 
 	Func setUseAntiAlias P1
-		dnRequest("set",[self,"UseAntiAlias",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseAntiAlias",P1])
 		return self
 

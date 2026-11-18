@@ -26,7 +26,7 @@ Class ImageCodecInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetImageDecoders 
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common'),"GetImageDecoders"])
@@ -35,79 +35,79 @@ Class ImageCodecInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common'),"GetImageEncoders"])
 
 	Func getClsid
-		return dnRequest("get",[self,"Clsid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Clsid"])
 
 	Func setClsid P1
-		dnRequest("set",[self,"Clsid",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Clsid",P1])
 		return self
 
 	Func getFormatID
-		return dnRequest("get",[self,"FormatID"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatID"])
 
 	Func setFormatID P1
-		dnRequest("set",[self,"FormatID",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormatID",P1])
 		return self
 
 	Func getCodecName
-		return dnRequest("get",[self,"CodecName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CodecName"])
 
 	Func setCodecName P1
-		dnRequest("set",[self,"CodecName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CodecName",P1])
 		return self
 
 	Func getDllName
-		return dnRequest("get",[self,"DllName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DllName"])
 
 	Func setDllName P1
-		dnRequest("set",[self,"DllName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DllName",P1])
 		return self
 
 	Func getFormatDescription
-		return dnRequest("get",[self,"FormatDescription"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatDescription"])
 
 	Func setFormatDescription P1
-		dnRequest("set",[self,"FormatDescription",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormatDescription",P1])
 		return self
 
 	Func getFilenameExtension
-		return dnRequest("get",[self,"FilenameExtension"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FilenameExtension"])
 
 	Func setFilenameExtension P1
-		dnRequest("set",[self,"FilenameExtension",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FilenameExtension",P1])
 		return self
 
 	Func getMimeType
-		return dnRequest("get",[self,"MimeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MimeType"])
 
 	Func setMimeType P1
-		dnRequest("set",[self,"MimeType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MimeType",P1])
 		return self
 
 	Func getFlags
-		return dnRequest("get",[self,"Flags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Flags"])
 
 	Func setFlags P1
-		dnRequest("set",[self,"Flags",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Flags",P1])
 		return self
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
-		dnRequest("set",[self,"Version",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Version",P1])
 		return self
 
 	Func getSignaturePatterns
-		return dnRequest("get",[self,"SignaturePatterns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SignaturePatterns"])
 
 	Func setSignaturePatterns P1
-		dnRequest("set",[self,"SignaturePatterns",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SignaturePatterns",P1])
 		return self
 
 	Func getSignatureMasks
-		return dnRequest("get",[self,"SignatureMasks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SignatureMasks"])
 
 	Func setSignatureMasks P1
-		dnRequest("set",[self,"SignatureMasks",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SignatureMasks",P1])
 		return self
 

@@ -19,25 +19,25 @@ Class EntityEntryGraphNode from Object
 		return self
 
 	Func CreateNode P1,P2,P3
-		return dnRequest("call",[self,"CreateNode",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateNode",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSourceEntry
-		return dnRequest("get",[self,"SourceEntry"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceEntry"])
 
 	Func setSourceEntry P1
 		raise("DotNet Error: SourceEntry is a read-only property")
 
 	Func getInboundNavigation
-		return dnRequest("get",[self,"InboundNavigation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InboundNavigation"])
 
 	Func setInboundNavigation P1
 		raise("DotNet Error: InboundNavigation is a read-only property")
 
 	Func getEntry
-		return dnRequest("get",[self,"Entry"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Entry"])
 
 	Func setEntry P1
 		raise("DotNet Error: Entry is a read-only property")

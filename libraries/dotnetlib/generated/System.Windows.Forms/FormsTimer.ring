@@ -23,39 +23,39 @@ Class FormsTimer from Component
 		return self
 
 	Func Start 
-		dnRequest("call",[self,"Start"])
+		dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		return self
 
 	Func Stop 
-		dnRequest("call",[self,"Stop"])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
 		return self
 
 	Func setTickEvent P1
-		dnRequest("setevent",[self,"Tick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Tick",dnCallback(P1)])
 		return self
 
 	Func clearTickEvent
-		dnRequest("clearevent",[self,"Tick"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Tick"])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[self,"Enabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
 		return self
 
 	Func getInterval
-		return dnRequest("get",[self,"Interval"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Interval"])
 
 	Func setInterval P1
-		dnRequest("set",[self,"Interval",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Interval",P1])
 		return self
 

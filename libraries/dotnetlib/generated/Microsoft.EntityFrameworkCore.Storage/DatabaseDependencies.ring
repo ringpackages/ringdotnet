@@ -19,24 +19,24 @@ Class DatabaseDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getQueryCompilationContextFactory
-		return dnRequest("get",[self,"QueryCompilationContextFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryCompilationContextFactory"])
 
 	Func setQueryCompilationContextFactory P1
-		dnRequest("set",[self,"QueryCompilationContextFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"QueryCompilationContextFactory",P1])
 		return self
 
 	Func getUpdateAdapterFactory
-		return dnRequest("get",[self,"UpdateAdapterFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpdateAdapterFactory"])
 
 	Func setUpdateAdapterFactory P1
-		dnRequest("set",[self,"UpdateAdapterFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpdateAdapterFactory",P1])
 		return self
 
 	Func getLogger
-		return dnRequest("get",[self,"Logger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")

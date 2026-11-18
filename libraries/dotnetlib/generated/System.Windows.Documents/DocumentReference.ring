@@ -18,17 +18,17 @@ Class DocumentReference from FrameworkElement
 		return self
 
 	Func GetDocument P1
-		return dnRequest("call",[self,"GetDocument",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDocument",P1])
 
 	Func SetDocument P1
-		dnRequest("call",[self,"SetDocument",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetDocument",P1])
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
 		return self
 
 	Func getSourceProperty

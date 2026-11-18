@@ -15,5 +15,5 @@ Class DataGridColumnHeadersPresenter from ItemsControl
 		return self
 
 	Func ContainerFromElement P1
-		return dnRequest("call",[self,"ContainerFromElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainerFromElement",P1])
 

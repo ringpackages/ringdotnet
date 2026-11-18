@@ -22,47 +22,47 @@ Class HostApplicationBuilderSettings from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDisableDefaults
-		return dnRequest("get",[self,"DisableDefaults"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisableDefaults"])
 
 	Func setDisableDefaults P1
-		dnRequest("set",[self,"DisableDefaults",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisableDefaults",P1])
 		return self
 
 	Func getArgs
-		return dnRequest("get",[self,"Args"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Args"])
 
 	Func setArgs P1
-		dnRequest("set",[self,"Args",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Args",P1])
 		return self
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Configuration"])
 
 	Func setConfiguration P1
-		dnRequest("set",[self,"Configuration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Configuration",P1])
 		return self
 
 	Func getEnvironmentName
-		return dnRequest("get",[self,"EnvironmentName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnvironmentName"])
 
 	Func setEnvironmentName P1
-		dnRequest("set",[self,"EnvironmentName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnvironmentName",P1])
 		return self
 
 	Func getApplicationName
-		return dnRequest("get",[self,"ApplicationName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationName"])
 
 	Func setApplicationName P1
-		dnRequest("set",[self,"ApplicationName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ApplicationName",P1])
 		return self
 
 	Func getContentRootPath
-		return dnRequest("get",[self,"ContentRootPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentRootPath"])
 
 	Func setContentRootPath P1
-		dnRequest("set",[self,"ContentRootPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentRootPath",P1])
 		return self
 

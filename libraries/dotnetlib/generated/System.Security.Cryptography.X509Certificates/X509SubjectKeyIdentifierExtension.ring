@@ -26,13 +26,13 @@ Class X509SubjectKeyIdentifierExtension from X509Extension
 		return self
 
 	Func getSubjectKeyIdentifier
-		return dnRequest("get",[self,"SubjectKeyIdentifier"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubjectKeyIdentifier"])
 
 	Func setSubjectKeyIdentifier P1
 		raise("DotNet Error: SubjectKeyIdentifier is a read-only property")
 
 	Func getSubjectKeyIdentifierBytes
-		return dnRequest("get",[self,"SubjectKeyIdentifierBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubjectKeyIdentifierBytes"])
 
 	Func setSubjectKeyIdentifierBytes P1
 		raise("DotNet Error: SubjectKeyIdentifierBytes is a read-only property")

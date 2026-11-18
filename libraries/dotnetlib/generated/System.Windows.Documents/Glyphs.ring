@@ -40,90 +40,90 @@ Class Glyphs from FrameworkElement
 		return self
 
 	Func ToGlyphRun 
-		return dnRequest("call",[self,"ToGlyphRun"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToGlyphRun"])
 
 	Func getFill
-		return dnRequest("get",[self,"Fill"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Fill"])
 
 	Func setFill P1
-		dnRequest("set",[self,"Fill",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Fill",P1])
 		return self
 
 	Func getIndices
-		return dnRequest("get",[self,"Indices"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Indices"])
 
 	Func setIndices P1
-		dnRequest("set",[self,"Indices",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Indices",P1])
 		return self
 
 	Func getUnicodeString
-		return dnRequest("get",[self,"UnicodeString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnicodeString"])
 
 	Func setUnicodeString P1
-		dnRequest("set",[self,"UnicodeString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UnicodeString",P1])
 		return self
 
 	Func getCaretStops
-		return dnRequest("get",[self,"CaretStops"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaretStops"])
 
 	Func setCaretStops P1
-		dnRequest("set",[self,"CaretStops",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaretStops",P1])
 		return self
 
 	Func getFontRenderingEmSize
-		return dnRequest("get",[self,"FontRenderingEmSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontRenderingEmSize"])
 
 	Func setFontRenderingEmSize P1
-		dnRequest("set",[self,"FontRenderingEmSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontRenderingEmSize",P1])
 		return self
 
 	Func getOriginX
-		return dnRequest("get",[self,"OriginX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginX"])
 
 	Func setOriginX P1
-		dnRequest("set",[self,"OriginX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OriginX",P1])
 		return self
 
 	Func getOriginY
-		return dnRequest("get",[self,"OriginY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginY"])
 
 	Func setOriginY P1
-		dnRequest("set",[self,"OriginY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OriginY",P1])
 		return self
 
 	Func getFontUri
-		return dnRequest("get",[self,"FontUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontUri"])
 
 	Func setFontUri P1
-		dnRequest("set",[self,"FontUri",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontUri",P1])
 		return self
 
 	Func getStyleSimulations
-		return dnRequest("get",[self,"StyleSimulations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StyleSimulations"])
 
 	Func setStyleSimulations P1
-		dnRequest("set",[self,"StyleSimulations",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StyleSimulations",P1])
 		return self
 
 	Func getIsSideways
-		return dnRequest("get",[self,"IsSideways"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSideways"])
 
 	Func setIsSideways P1
-		dnRequest("set",[self,"IsSideways",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSideways",P1])
 		return self
 
 	Func getBidiLevel
-		return dnRequest("get",[self,"BidiLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BidiLevel"])
 
 	Func setBidiLevel P1
-		dnRequest("set",[self,"BidiLevel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BidiLevel",P1])
 		return self
 
 	Func getDeviceFontName
-		return dnRequest("get",[self,"DeviceFontName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeviceFontName"])
 
 	Func setDeviceFontName P1
-		dnRequest("set",[self,"DeviceFontName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DeviceFontName",P1])
 		return self
 
 	Func getFillProperty

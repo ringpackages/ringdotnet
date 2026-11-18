@@ -22,26 +22,26 @@ Class AsnEncodedData from Object
 		return self
 
 	Func CopyFrom P1
-		dnRequest("call",[self,"CopyFrom",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyFrom",P1])
 		return self
 
 	Func Format P1
-		return dnRequest("call",[self,"Format",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Format",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOid
-		return dnRequest("get",[self,"Oid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Oid"])
 
 	Func setOid P1
-		dnRequest("set",[self,"Oid",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Oid",P1])
 		return self
 
 	Func getRawData
-		return dnRequest("get",[self,"RawData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawData"])
 
 	Func setRawData P1
-		dnRequest("set",[self,"RawData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RawData",P1])
 		return self
 

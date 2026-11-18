@@ -16,25 +16,25 @@ Class IConventionServicePropertyBuilder from DotNetObject
 		return self
 
 	Func HasParameterBinding_2 P1,P2
-		return dnRequest("call",[self,"HasParameterBinding",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameterBinding",P1,P2])
 
 	Func HasParameterBinding P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasParameterBinding",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasParameterBinding",P1])
 		ok
-		return dnRequest("call",[self,"HasParameterBinding",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameterBinding",P1])
 
 	Func CanSetParameterBinding_2 P1,P2
-		return dnRequest("call",[self,"CanSetParameterBinding",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetParameterBinding",P1,P2])
 
 	Func CanSetParameterBinding P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetParameterBinding",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetParameterBinding",P1])
 		ok
-		return dnRequest("call",[self,"CanSetParameterBinding",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetParameterBinding",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

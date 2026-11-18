@@ -17,55 +17,55 @@ Class IConventionAnnotatable from DotNetObject
 		return self
 
 	Func GetAnnotations 
-		return dnRequest("call",[self,"GetAnnotations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAnnotations"])
 
 	Func AddAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"AddAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddAnnotation",P1,P2,P3])
 
 	Func AddAnnotation P1,P2
-		return dnRequest("call",[self,"AddAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddAnnotation",P1,P2])
 
 	Func SetAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"SetAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetAnnotation",P1,P2,P3])
 
 	Func SetAnnotation P1,P2
-		return dnRequest("call",[self,"SetAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetAnnotation",P1,P2])
 
 	Func FindAnnotation P1
-		return dnRequest("call",[self,"FindAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindAnnotation",P1])
 
 	Func RemoveAnnotation P1
-		return dnRequest("call",[self,"RemoveAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAnnotation",P1])
 
 	Func GetAnnotation P1
-		return dnRequest("call",[self,"GetAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAnnotation",P1])
 
 	Func AddAnnotations_2 P1,P2
-		dnRequest("call",[self,"AddAnnotations",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddAnnotations",P1,P2])
 		return self
 
 	Func AddAnnotations P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AddAnnotations",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddAnnotations",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AddAnnotations",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddAnnotations",P1])
 		return self
 
 	Func SetOrRemoveAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"SetOrRemoveAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetOrRemoveAnnotation",P1,P2,P3])
 
 	Func SetOrRemoveAnnotation P1,P2
-		return dnRequest("call",[self,"SetOrRemoveAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetOrRemoveAnnotation",P1,P2])
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getIsInModel
-		return dnRequest("get",[self,"IsInModel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInModel"])
 
 	Func setIsInModel P1
 		raise("DotNet Error: IsInModel is a read-only property")

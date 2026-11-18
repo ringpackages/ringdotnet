@@ -18,22 +18,22 @@ Class LocalVariableInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLocalType
-		return dnRequest("get",[self,"LocalType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalType"])
 
 	Func setLocalType P1
 		raise("DotNet Error: LocalType is a read-only property")
 
 	Func getLocalIndex
-		return dnRequest("get",[self,"LocalIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalIndex"])
 
 	Func setLocalIndex P1
 		raise("DotNet Error: LocalIndex is a read-only property")
 
 	Func getIsPinned
-		return dnRequest("get",[self,"IsPinned"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPinned"])
 
 	Func setIsPinned P1
 		raise("DotNet Error: IsPinned is a read-only property")

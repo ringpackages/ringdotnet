@@ -14,8 +14,8 @@ Class ItemContainerTemplateSelector from Object
 		return self
 
 	Func SelectTemplate P1,P2
-		return dnRequest("call",[self,"SelectTemplate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SelectTemplate",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

@@ -14,17 +14,17 @@ Class IAuthenticationService from DotNetObject
 		return self
 
 	Func AuthenticateAsync P1,P2
-		return dnRequest("call",[self,"AuthenticateAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsync",P1,P2])
 
 	Func ChallengeAsync P1,P2,P3
-		return dnRequest("call",[self,"ChallengeAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ChallengeAsync",P1,P2,P3])
 
 	Func ForbidAsync P1,P2,P3
-		return dnRequest("call",[self,"ForbidAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ForbidAsync",P1,P2,P3])
 
 	Func SignInAsync P1,P2,P3,P4
-		return dnRequest("call",[self,"SignInAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignInAsync",P1,P2,P3,P4])
 
 	Func SignOutAsync P1,P2,P3
-		return dnRequest("call",[self,"SignOutAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignOutAsync",P1,P2,P3])
 

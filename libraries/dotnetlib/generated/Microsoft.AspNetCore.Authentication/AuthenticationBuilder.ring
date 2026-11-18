@@ -17,22 +17,22 @@ Class AuthenticationBuilder from Object
 		return self
 
 	Func AddScheme_3 P1,P2,P3
-		return dnRequest("call",[self,"AddScheme",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddScheme",P1,P2,P3])
 
 	Func AddScheme P1,P2
-		return dnRequest("call",[self,"AddScheme",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddScheme",P1,P2])
 
 	Func AddRemoteScheme P1,P2,P3
-		return dnRequest("call",[self,"AddRemoteScheme",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRemoteScheme",P1,P2,P3])
 
 	Func AddPolicyScheme P1,P2,P3
-		return dnRequest("call",[self,"AddPolicyScheme",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddPolicyScheme",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")

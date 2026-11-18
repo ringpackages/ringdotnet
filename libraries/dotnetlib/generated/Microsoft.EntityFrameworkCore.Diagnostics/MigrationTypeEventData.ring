@@ -17,7 +17,7 @@ Class MigrationTypeEventData from EventData
 		return self
 
 	Func getMigrationType
-		return dnRequest("get",[self,"MigrationType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MigrationType"])
 
 	Func setMigrationType P1
 		raise("DotNet Error: MigrationType is a read-only property")

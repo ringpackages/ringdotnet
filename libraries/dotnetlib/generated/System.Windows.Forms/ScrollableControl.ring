@@ -23,63 +23,63 @@ Class ScrollableControl from Control
 		return self
 
 	Func ScrollControlIntoView P1
-		dnRequest("call",[self,"ScrollControlIntoView",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollControlIntoView",P1])
 		return self
 
 	Func SetAutoScrollMargin_2 P1,P2
-		dnRequest("call",[self,"SetAutoScrollMargin",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAutoScrollMargin",P1,P2])
 		return self
 
 	Func setScrollEvent P1
-		dnRequest("setevent",[self,"Scroll",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Scroll",dnCallback(P1)])
 		return self
 
 	Func clearScrollEvent
-		dnRequest("clearevent",[self,"Scroll"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Scroll"])
 		return self
 
 	Func getAutoScroll
-		return dnRequest("get",[self,"AutoScroll"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoScroll"])
 
 	Func setAutoScroll P1
-		dnRequest("set",[self,"AutoScroll",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoScroll",P1])
 		return self
 
 	Func getAutoScrollMargin
-		return dnRequest("get",[self,"AutoScrollMargin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoScrollMargin"])
 
 	Func setAutoScrollMargin P1
-		dnRequest("set",[self,"AutoScrollMargin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoScrollMargin",P1])
 		return self
 
 	Func getAutoScrollPosition
-		return dnRequest("get",[self,"AutoScrollPosition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoScrollPosition"])
 
 	Func setAutoScrollPosition P1
-		dnRequest("set",[self,"AutoScrollPosition",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoScrollPosition",P1])
 		return self
 
 	Func getAutoScrollMinSize
-		return dnRequest("get",[self,"AutoScrollMinSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoScrollMinSize"])
 
 	Func setAutoScrollMinSize P1
-		dnRequest("set",[self,"AutoScrollMinSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoScrollMinSize",P1])
 		return self
 
 	Func getHorizontalScroll
-		return dnRequest("get",[self,"HorizontalScroll"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalScroll"])
 
 	Func setHorizontalScroll P1
 		raise("DotNet Error: HorizontalScroll is a read-only property")
 
 	Func getVerticalScroll
-		return dnRequest("get",[self,"VerticalScroll"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalScroll"])
 
 	Func setVerticalScroll P1
 		raise("DotNet Error: VerticalScroll is a read-only property")
 
 	Func getDockPadding
-		return dnRequest("get",[self,"DockPadding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DockPadding"])
 
 	Func setDockPadding P1
 		raise("DotNet Error: DockPadding is a read-only property")

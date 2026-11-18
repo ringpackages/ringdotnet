@@ -18,13 +18,13 @@ Class MergeFailedEventArgs from EventArgs
 		return self
 
 	Func getTable
-		return dnRequest("get",[self,"Table"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getConflict
-		return dnRequest("get",[self,"Conflict"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Conflict"])
 
 	Func setConflict P1
 		raise("DotNet Error: Conflict is a read-only property")

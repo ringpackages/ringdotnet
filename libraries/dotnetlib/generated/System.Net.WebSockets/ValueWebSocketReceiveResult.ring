@@ -23,19 +23,19 @@ Class ValueWebSocketReceiveResult from ValueType
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEndOfMessage
-		return dnRequest("get",[self,"EndOfMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EndOfMessage"])
 
 	Func setEndOfMessage P1
 		raise("DotNet Error: EndOfMessage is a read-only property")
 
 	Func getMessageType
-		return dnRequest("get",[self,"MessageType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MessageType"])
 
 	Func setMessageType P1
 		raise("DotNet Error: MessageType is a read-only property")

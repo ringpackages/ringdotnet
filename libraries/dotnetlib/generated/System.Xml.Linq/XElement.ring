@@ -29,99 +29,99 @@ Class XElement from XContainer
 
 	Func Save P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Save",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Save",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Save",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
 	Func Save_2 P1,P2
-		dnRequest("call",[self,"Save",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
 		return self
 
 	Func AncestorsAndSelf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AncestorsAndSelf",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AncestorsAndSelf",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AncestorsAndSelf"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AncestorsAndSelf"])
 		ok
-		return dnRequest("call",[self,"AncestorsAndSelf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AncestorsAndSelf",P1])
 
 	Func AncestorsAndSelf_1 P1
-		return dnRequest("call",[self,"AncestorsAndSelf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AncestorsAndSelf",P1])
 
 	Func Attribute P1
-		return dnRequest("call",[self,"Attribute",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Attribute",P1])
 
 	Func Attributes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Attributes",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Attributes",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Attributes"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Attributes"])
 		ok
-		return dnRequest("call",[self,"Attributes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Attributes",P1])
 
 	Func Attributes_1 P1
-		return dnRequest("call",[self,"Attributes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Attributes",P1])
 
 	Func DescendantNodesAndSelf 
-		return dnRequest("call",[self,"DescendantNodesAndSelf"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DescendantNodesAndSelf"])
 
 	Func DescendantsAndSelf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"DescendantsAndSelf",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DescendantsAndSelf",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"DescendantsAndSelf"])
+			return dnRequest("call",[new DotNetObject(nHandle),"DescendantsAndSelf"])
 		ok
-		return dnRequest("call",[self,"DescendantsAndSelf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DescendantsAndSelf",P1])
 
 	Func DescendantsAndSelf_1 P1
-		return dnRequest("call",[self,"DescendantsAndSelf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DescendantsAndSelf",P1])
 
 	Func GetDefaultNamespace 
-		return dnRequest("call",[self,"GetDefaultNamespace"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultNamespace"])
 
 	Func GetNamespaceOfPrefix P1
-		return dnRequest("call",[self,"GetNamespaceOfPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNamespaceOfPrefix",P1])
 
 	Func GetPrefixOfNamespace P1
-		return dnRequest("call",[self,"GetPrefixOfNamespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrefixOfNamespace",P1])
 
 	Func RemoveAll 
-		dnRequest("call",[self,"RemoveAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAll"])
 		return self
 
 	Func RemoveAttributes 
-		dnRequest("call",[self,"RemoveAttributes"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAttributes"])
 		return self
 
 	Func ReplaceAll P1
-		dnRequest("call",[self,"ReplaceAll",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReplaceAll",P1])
 		return self
 
 	Func ReplaceAttributes P1
-		dnRequest("call",[self,"ReplaceAttributes",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReplaceAttributes",P1])
 		return self
 
 	Func SaveAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"SaveAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2,P3])
 
 	Func SaveAsync P1,P2
-		return dnRequest("call",[self,"SaveAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2])
 
 	Func SetAttributeValue P1,P2
-		dnRequest("call",[self,"SetAttributeValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAttributeValue",P1,P2])
 		return self
 
 	Func SetElementValue P1,P2
-		dnRequest("call",[self,"SetElementValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetElementValue",P1,P2])
 		return self
 
 	Func SetValue_1 P1
-		dnRequest("call",[self,"SetValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1])
 		return self
 
 	Func Load_ P1
@@ -146,47 +146,47 @@ Class XElement from XContainer
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1,P2])
 
 	Func getFirstAttribute
-		return dnRequest("get",[self,"FirstAttribute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstAttribute"])
 
 	Func setFirstAttribute P1
 		raise("DotNet Error: FirstAttribute is a read-only property")
 
 	Func getHasAttributes
-		return dnRequest("get",[self,"HasAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasAttributes"])
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
 
 	Func getHasElements
-		return dnRequest("get",[self,"HasElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasElements"])
 
 	Func setHasElements P1
 		raise("DotNet Error: HasElements is a read-only property")
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getLastAttribute
-		return dnRequest("get",[self,"LastAttribute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastAttribute"])
 
 	Func setLastAttribute P1
 		raise("DotNet Error: LastAttribute is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getEmptySequence

@@ -18,10 +18,10 @@ Class GridViewRowPresenter from GridViewRowPresenterBase
 		return self
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
 
 	Func setContent P1
-		dnRequest("set",[self,"Content",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
 		return self
 
 	Func getContentProperty

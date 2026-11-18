@@ -18,62 +18,62 @@ Class JsonNode from Object
 		return self
 
 	Func AsArray 
-		return dnRequest("call",[self,"AsArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AsArray"])
 
 	Func AsObject 
-		return dnRequest("call",[self,"AsObject"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AsObject"])
 
 	Func AsValue 
-		return dnRequest("call",[self,"AsValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AsValue"])
 
 	Func GetPath 
-		return dnRequest("call",[self,"GetPath"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPath"])
 
 	Func GetValue 
-		return dnRequest("call",[self,"GetValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue"])
 
 	Func DeepClone 
-		return dnRequest("call",[self,"DeepClone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeepClone"])
 
 	Func GetValueKind 
-		return dnRequest("call",[self,"GetValueKind"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueKind"])
 
 	Func GetPropertyName 
-		return dnRequest("call",[self,"GetPropertyName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyName"])
 
 	Func GetElementIndex 
-		return dnRequest("call",[self,"GetElementIndex"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementIndex"])
 
 	Func ReplaceWith P1
-		dnRequest("call",[self,"ReplaceWith",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReplaceWith",P1])
 		return self
 
 	Func ToJsonString_1 P1
-		return dnRequest("call",[self,"ToJsonString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToJsonString",P1])
 
 	Func ToJsonString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToJsonString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToJsonString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToJsonString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToJsonString"])
 		ok
-		return dnRequest("call",[self,"ToJsonString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToJsonString",P1])
 
 	Func WriteTo_2 P1,P2
-		dnRequest("call",[self,"WriteTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1,P2])
 		return self
 
 	Func WriteTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"WriteTo",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteTo",P1])
 			return self
 		ok
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func DeepEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"DeepEquals",P1,P2])
@@ -106,26 +106,26 @@ Class JsonNode from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getRoot
-		return dnRequest("get",[self,"Root"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Root"])
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")

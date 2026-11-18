@@ -14,20 +14,20 @@ Class RelationalTypeMappingSource from TypeMappingSourceBase
 		return self
 
 	Func FindMapping_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"FindMapping",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func FindMapping_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"FindMapping",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func FindMapping_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"FindMapping",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6,P7])
 
 	Func FindMapping_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"FindMapping",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6])
 
 	Func FindMapping_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"FindMapping",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5])
 
 	Func FindMapping_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"FindMapping",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4])
 

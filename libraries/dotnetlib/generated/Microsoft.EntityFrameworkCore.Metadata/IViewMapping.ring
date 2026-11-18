@@ -17,13 +17,13 @@ Class IViewMapping from DotNetObject
 		return self
 
 	Func getView
-		return dnRequest("get",[self,"View"])
+		return dnRequest("get",[new DotNetObject(nHandle),"View"])
 
 	Func setView P1
 		raise("DotNet Error: View is a read-only property")
 
 	Func getColumnMappings
-		return dnRequest("get",[self,"ColumnMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnMappings"])
 
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")

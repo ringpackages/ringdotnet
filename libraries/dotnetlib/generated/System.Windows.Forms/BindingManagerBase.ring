@@ -20,102 +20,102 @@ Class BindingManagerBase from Object
 		return self
 
 	Func GetItemProperties 
-		return dnRequest("call",[self,"GetItemProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetItemProperties"])
 
 	Func CancelCurrentEdit 
-		dnRequest("call",[self,"CancelCurrentEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelCurrentEdit"])
 		return self
 
 	Func EndCurrentEdit 
-		dnRequest("call",[self,"EndCurrentEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndCurrentEdit"])
 		return self
 
 	Func AddNew 
-		dnRequest("call",[self,"AddNew"])
+		dnRequest("call",[new DotNetObject(nHandle),"AddNew"])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func SuspendBinding 
-		dnRequest("call",[self,"SuspendBinding"])
+		dnRequest("call",[new DotNetObject(nHandle),"SuspendBinding"])
 		return self
 
 	Func ResumeBinding 
-		dnRequest("call",[self,"ResumeBinding"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResumeBinding"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setBindingCompleteEvent P1
-		dnRequest("setevent",[self,"BindingComplete",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BindingComplete",dnCallback(P1)])
 		return self
 
 	Func clearBindingCompleteEvent
-		dnRequest("clearevent",[self,"BindingComplete"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BindingComplete"])
 		return self
 
 	Func setCurrentChangedEvent P1
-		dnRequest("setevent",[self,"CurrentChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentChangedEvent
-		dnRequest("clearevent",[self,"CurrentChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentChanged"])
 		return self
 
 	Func setCurrentItemChangedEvent P1
-		dnRequest("setevent",[self,"CurrentItemChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentItemChangedEvent
-		dnRequest("clearevent",[self,"CurrentItemChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentItemChanged"])
 		return self
 
 	Func setDataErrorEvent P1
-		dnRequest("setevent",[self,"DataError",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DataError",dnCallback(P1)])
 		return self
 
 	Func clearDataErrorEvent
-		dnRequest("clearevent",[self,"DataError"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DataError"])
 		return self
 
 	Func setPositionChangedEvent P1
-		dnRequest("setevent",[self,"PositionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PositionChanged",dnCallback(P1)])
 		return self
 
 	Func clearPositionChangedEvent
-		dnRequest("clearevent",[self,"PositionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PositionChanged"])
 		return self
 
 	Func getBindings
-		return dnRequest("get",[self,"Bindings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bindings"])
 
 	Func setBindings P1
 		raise("DotNet Error: Bindings is a read-only property")
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Current"])
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[self,"Position"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[self,"Position",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
 		return self
 
 	Func getIsBindingSuspended
-		return dnRequest("get",[self,"IsBindingSuspended"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBindingSuspended"])
 
 	Func setIsBindingSuspended P1
 		raise("DotNet Error: IsBindingSuspended is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

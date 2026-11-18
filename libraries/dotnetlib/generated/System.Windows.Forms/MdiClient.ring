@@ -17,11 +17,11 @@ Class MdiClient from Control
 		return self
 
 	Func LayoutMdi P1
-		dnRequest("call",[self,"LayoutMdi",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"LayoutMdi",P1])
 		return self
 
 	Func getMdiChildren
-		return dnRequest("get",[self,"MdiChildren"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MdiChildren"])
 
 	Func setMdiChildren P1
 		raise("DotNet Error: MdiChildren is a read-only property")

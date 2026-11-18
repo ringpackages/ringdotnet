@@ -23,49 +23,49 @@ Class UnicastIPAddressInformation from IPAddressInformation
 		return self
 
 	Func getAddressPreferredLifetime
-		return dnRequest("get",[self,"AddressPreferredLifetime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddressPreferredLifetime"])
 
 	Func setAddressPreferredLifetime P1
 		raise("DotNet Error: AddressPreferredLifetime is a read-only property")
 
 	Func getAddressValidLifetime
-		return dnRequest("get",[self,"AddressValidLifetime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddressValidLifetime"])
 
 	Func setAddressValidLifetime P1
 		raise("DotNet Error: AddressValidLifetime is a read-only property")
 
 	Func getDhcpLeaseLifetime
-		return dnRequest("get",[self,"DhcpLeaseLifetime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DhcpLeaseLifetime"])
 
 	Func setDhcpLeaseLifetime P1
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
 
 	Func getDuplicateAddressDetectionState
-		return dnRequest("get",[self,"DuplicateAddressDetectionState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DuplicateAddressDetectionState"])
 
 	Func setDuplicateAddressDetectionState P1
 		raise("DotNet Error: DuplicateAddressDetectionState is a read-only property")
 
 	Func getPrefixOrigin
-		return dnRequest("get",[self,"PrefixOrigin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrefixOrigin"])
 
 	Func setPrefixOrigin P1
 		raise("DotNet Error: PrefixOrigin is a read-only property")
 
 	Func getSuffixOrigin
-		return dnRequest("get",[self,"SuffixOrigin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuffixOrigin"])
 
 	Func setSuffixOrigin P1
 		raise("DotNet Error: SuffixOrigin is a read-only property")
 
 	Func getIPv4Mask
-		return dnRequest("get",[self,"IPv4Mask"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IPv4Mask"])
 
 	Func setIPv4Mask P1
 		raise("DotNet Error: IPv4Mask is a read-only property")
 
 	Func getPrefixLength
-		return dnRequest("get",[self,"PrefixLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrefixLength"])
 
 	Func setPrefixLength P1
 		raise("DotNet Error: PrefixLength is a read-only property")

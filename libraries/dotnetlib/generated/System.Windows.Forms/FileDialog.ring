@@ -37,162 +37,162 @@ Class FileDialog from CommonDialog
 		return self
 
 	Func setFileOkEvent P1
-		dnRequest("setevent",[self,"FileOk",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"FileOk",dnCallback(P1)])
 		return self
 
 	Func clearFileOkEvent
-		dnRequest("clearevent",[self,"FileOk"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"FileOk"])
 		return self
 
 	Func getAddExtension
-		return dnRequest("get",[self,"AddExtension"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddExtension"])
 
 	Func setAddExtension P1
-		dnRequest("set",[self,"AddExtension",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AddExtension",P1])
 		return self
 
 	Func getAddToRecent
-		return dnRequest("get",[self,"AddToRecent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddToRecent"])
 
 	Func setAddToRecent P1
-		dnRequest("set",[self,"AddToRecent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AddToRecent",P1])
 		return self
 
 	Func getCheckFileExists
-		return dnRequest("get",[self,"CheckFileExists"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckFileExists"])
 
 	Func setCheckFileExists P1
-		dnRequest("set",[self,"CheckFileExists",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckFileExists",P1])
 		return self
 
 	Func getCheckPathExists
-		return dnRequest("get",[self,"CheckPathExists"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckPathExists"])
 
 	Func setCheckPathExists P1
-		dnRequest("set",[self,"CheckPathExists",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckPathExists",P1])
 		return self
 
 	Func getClientGuid
-		return dnRequest("get",[self,"ClientGuid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientGuid"])
 
 	Func setClientGuid P1
-		dnRequest("set",[self,"ClientGuid",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientGuid",P1])
 		return self
 
 	Func getDefaultExt
-		return dnRequest("get",[self,"DefaultExt"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultExt"])
 
 	Func setDefaultExt P1
-		dnRequest("set",[self,"DefaultExt",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultExt",P1])
 		return self
 
 	Func getDereferenceLinks
-		return dnRequest("get",[self,"DereferenceLinks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DereferenceLinks"])
 
 	Func setDereferenceLinks P1
-		dnRequest("set",[self,"DereferenceLinks",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DereferenceLinks",P1])
 		return self
 
 	Func getFileName
-		return dnRequest("get",[self,"FileName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileName"])
 
 	Func setFileName P1
-		dnRequest("set",[self,"FileName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FileName",P1])
 		return self
 
 	Func getFileNames
-		return dnRequest("get",[self,"FileNames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileNames"])
 
 	Func setFileNames P1
 		raise("DotNet Error: FileNames is a read-only property")
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[self,"Filter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
 		return self
 
 	Func getFilterIndex
-		return dnRequest("get",[self,"FilterIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FilterIndex"])
 
 	Func setFilterIndex P1
-		dnRequest("set",[self,"FilterIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FilterIndex",P1])
 		return self
 
 	Func getInitialDirectory
-		return dnRequest("get",[self,"InitialDirectory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialDirectory"])
 
 	Func setInitialDirectory P1
-		dnRequest("set",[self,"InitialDirectory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InitialDirectory",P1])
 		return self
 
 	Func getRestoreDirectory
-		return dnRequest("get",[self,"RestoreDirectory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RestoreDirectory"])
 
 	Func setRestoreDirectory P1
-		dnRequest("set",[self,"RestoreDirectory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RestoreDirectory",P1])
 		return self
 
 	Func getShowHelp
-		return dnRequest("get",[self,"ShowHelp"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowHelp"])
 
 	Func setShowHelp P1
-		dnRequest("set",[self,"ShowHelp",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowHelp",P1])
 		return self
 
 	Func getShowHiddenFiles
-		return dnRequest("get",[self,"ShowHiddenFiles"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowHiddenFiles"])
 
 	Func setShowHiddenFiles P1
-		dnRequest("set",[self,"ShowHiddenFiles",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowHiddenFiles",P1])
 		return self
 
 	Func getSupportMultiDottedExtensions
-		return dnRequest("get",[self,"SupportMultiDottedExtensions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportMultiDottedExtensions"])
 
 	Func setSupportMultiDottedExtensions P1
-		dnRequest("set",[self,"SupportMultiDottedExtensions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SupportMultiDottedExtensions",P1])
 		return self
 
 	Func getTitle
-		return dnRequest("get",[self,"Title"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Title"])
 
 	Func setTitle P1
-		dnRequest("set",[self,"Title",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Title",P1])
 		return self
 
 	Func getValidateNames
-		return dnRequest("get",[self,"ValidateNames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidateNames"])
 
 	Func setValidateNames P1
-		dnRequest("set",[self,"ValidateNames",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidateNames",P1])
 		return self
 
 	Func getCustomPlaces
-		return dnRequest("get",[self,"CustomPlaces"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CustomPlaces"])
 
 	Func setCustomPlaces P1
 		raise("DotNet Error: CustomPlaces is a read-only property")
 
 	Func getAutoUpgradeEnabled
-		return dnRequest("get",[self,"AutoUpgradeEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoUpgradeEnabled"])
 
 	Func setAutoUpgradeEnabled P1
-		dnRequest("set",[self,"AutoUpgradeEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoUpgradeEnabled",P1])
 		return self
 
 	Func getOkRequiresInteraction
-		return dnRequest("get",[self,"OkRequiresInteraction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OkRequiresInteraction"])
 
 	Func setOkRequiresInteraction P1
-		dnRequest("set",[self,"OkRequiresInteraction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OkRequiresInteraction",P1])
 		return self
 
 	Func getShowPinnedPlaces
-		return dnRequest("get",[self,"ShowPinnedPlaces"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowPinnedPlaces"])
 
 	Func setShowPinnedPlaces P1
-		dnRequest("set",[self,"ShowPinnedPlaces",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowPinnedPlaces",P1])
 		return self
 

@@ -26,38 +26,38 @@ Class BevelBitmapEffect from BitmapEffect
 		return self
 
 	Func getBevelWidth
-		return dnRequest("get",[self,"BevelWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BevelWidth"])
 
 	Func setBevelWidth P1
-		dnRequest("set",[self,"BevelWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BevelWidth",P1])
 		return self
 
 	Func getRelief
-		return dnRequest("get",[self,"Relief"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Relief"])
 
 	Func setRelief P1
-		dnRequest("set",[self,"Relief",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Relief",P1])
 		return self
 
 	Func getLightAngle
-		return dnRequest("get",[self,"LightAngle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LightAngle"])
 
 	Func setLightAngle P1
-		dnRequest("set",[self,"LightAngle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LightAngle",P1])
 		return self
 
 	Func getSmoothness
-		return dnRequest("get",[self,"Smoothness"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Smoothness"])
 
 	Func setSmoothness P1
-		dnRequest("set",[self,"Smoothness",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Smoothness",P1])
 		return self
 
 	Func getEdgeProfile
-		return dnRequest("get",[self,"EdgeProfile"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EdgeProfile"])
 
 	Func setEdgeProfile P1
-		dnRequest("set",[self,"EdgeProfile",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EdgeProfile",P1])
 		return self
 
 	Func getBevelWidthProperty

@@ -19,30 +19,30 @@ Class XmlSchemaParticle from XmlSchemaAnnotated
 		return self
 
 	Func getMinOccursString
-		return dnRequest("get",[self,"MinOccursString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinOccursString"])
 
 	Func setMinOccursString P1
-		dnRequest("set",[self,"MinOccursString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinOccursString",P1])
 		return self
 
 	Func getMaxOccursString
-		return dnRequest("get",[self,"MaxOccursString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxOccursString"])
 
 	Func setMaxOccursString P1
-		dnRequest("set",[self,"MaxOccursString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxOccursString",P1])
 		return self
 
 	Func getMinOccurs
-		return dnRequest("get",[self,"MinOccurs"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinOccurs"])
 
 	Func setMinOccurs P1
-		dnRequest("set",[self,"MinOccurs",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinOccurs",P1])
 		return self
 
 	Func getMaxOccurs
-		return dnRequest("get",[self,"MaxOccurs"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxOccurs"])
 
 	Func setMaxOccurs P1
-		dnRequest("set",[self,"MaxOccurs",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxOccurs",P1])
 		return self
 

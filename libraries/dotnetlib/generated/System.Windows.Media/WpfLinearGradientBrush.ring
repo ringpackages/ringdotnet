@@ -36,17 +36,17 @@ Class WpfLinearGradientBrush from GradientBrush
 		return self
 
 	Func getStartPoint
-		return dnRequest("get",[self,"StartPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartPoint"])
 
 	Func setStartPoint P1
-		dnRequest("set",[self,"StartPoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StartPoint",P1])
 		return self
 
 	Func getEndPoint
-		return dnRequest("get",[self,"EndPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EndPoint"])
 
 	Func setEndPoint P1
-		dnRequest("set",[self,"EndPoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EndPoint",P1])
 		return self
 
 	Func getStartPointProperty

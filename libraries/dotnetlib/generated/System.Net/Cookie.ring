@@ -42,102 +42,102 @@ Class Cookie from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getComment
-		return dnRequest("get",[self,"Comment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
 
 	Func setComment P1
-		dnRequest("set",[self,"Comment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Comment",P1])
 		return self
 
 	Func getCommentUri
-		return dnRequest("get",[self,"CommentUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommentUri"])
 
 	Func setCommentUri P1
-		dnRequest("set",[self,"CommentUri",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommentUri",P1])
 		return self
 
 	Func getHttpOnly
-		return dnRequest("get",[self,"HttpOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpOnly"])
 
 	Func setHttpOnly P1
-		dnRequest("set",[self,"HttpOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HttpOnly",P1])
 		return self
 
 	Func getDiscard
-		return dnRequest("get",[self,"Discard"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Discard"])
 
 	Func setDiscard P1
-		dnRequest("set",[self,"Discard",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Discard",P1])
 		return self
 
 	Func getDomain
-		return dnRequest("get",[self,"Domain"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Domain"])
 
 	Func setDomain P1
-		dnRequest("set",[self,"Domain",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Domain",P1])
 		return self
 
 	Func getExpired
-		return dnRequest("get",[self,"Expired"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expired"])
 
 	Func setExpired P1
-		dnRequest("set",[self,"Expired",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Expired",P1])
 		return self
 
 	Func getExpires
-		return dnRequest("get",[self,"Expires"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expires"])
 
 	Func setExpires P1
-		dnRequest("set",[self,"Expires",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Expires",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
 
 	Func setPath P1
-		dnRequest("set",[self,"Path",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
 		return self
 
 	Func getPort
-		return dnRequest("get",[self,"Port"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
 
 	Func setPort P1
-		dnRequest("set",[self,"Port",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Port",P1])
 		return self
 
 	Func getSecure
-		return dnRequest("get",[self,"Secure"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Secure"])
 
 	Func setSecure P1
-		dnRequest("set",[self,"Secure",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Secure",P1])
 		return self
 
 	Func getTimeStamp
-		return dnRequest("get",[self,"TimeStamp"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TimeStamp"])
 
 	Func setTimeStamp P1
 		raise("DotNet Error: TimeStamp is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
-		dnRequest("set",[self,"Version",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Version",P1])
 		return self
 

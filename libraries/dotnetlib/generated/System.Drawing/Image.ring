@@ -29,69 +29,69 @@ Class Image from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Save P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Save",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Save",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Save",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
 	Func Save_2 P1,P2
-		dnRequest("call",[self,"Save",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
 		return self
 
 	Func Save_3 P1,P2,P3
-		dnRequest("call",[self,"Save",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2,P3])
 		return self
 
 	Func SaveAdd P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SaveAdd",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SaveAdd",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SaveAdd",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SaveAdd",P1])
 		return self
 
 	Func SaveAdd_2 P1,P2
-		dnRequest("call",[self,"SaveAdd",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SaveAdd",P1,P2])
 		return self
 
 	Func GetBounds P1
-		return dnRequest("call",[self,"GetBounds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
 
 	Func GetThumbnailImage P1,P2,P3,P4
-		return dnRequest("call",[self,"GetThumbnailImage",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetThumbnailImage",P1,P2,P3,P4])
 
 	Func GetFrameCount P1
-		return dnRequest("call",[self,"GetFrameCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFrameCount",P1])
 
 	Func GetPropertyItem P1
-		return dnRequest("call",[self,"GetPropertyItem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyItem",P1])
 
 	Func SelectActiveFrame P1,P2
-		return dnRequest("call",[self,"SelectActiveFrame",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SelectActiveFrame",P1,P2])
 
 	Func SetPropertyItem P1
-		dnRequest("call",[self,"SetPropertyItem",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPropertyItem",P1])
 		return self
 
 	Func RotateFlip P1
-		dnRequest("call",[self,"RotateFlip",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateFlip",P1])
 		return self
 
 	Func RemovePropertyItem P1
-		dnRequest("call",[self,"RemovePropertyItem",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemovePropertyItem",P1])
 		return self
 
 	Func GetEncoderParameterList P1
-		return dnRequest("call",[self,"GetEncoderParameterList",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoderParameterList",P1])
 
 	Func FromFile P1
 		if dnIsNamed(P1)
@@ -136,87 +136,87 @@ Class Image from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"IsAlphaPixelFormat",P1])
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 
 	Func getPhysicalDimension
-		return dnRequest("get",[self,"PhysicalDimension"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PhysicalDimension"])
 
 	Func setPhysicalDimension P1
 		raise("DotNet Error: PhysicalDimension is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getHorizontalResolution
-		return dnRequest("get",[self,"HorizontalResolution"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalResolution"])
 
 	Func setHorizontalResolution P1
 		raise("DotNet Error: HorizontalResolution is a read-only property")
 
 	Func getVerticalResolution
-		return dnRequest("get",[self,"VerticalResolution"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalResolution"])
 
 	Func setVerticalResolution P1
 		raise("DotNet Error: VerticalResolution is a read-only property")
 
 	Func getFlags
-		return dnRequest("get",[self,"Flags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Flags"])
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
 
 	Func getRawFormat
-		return dnRequest("get",[self,"RawFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawFormat"])
 
 	Func setRawFormat P1
 		raise("DotNet Error: RawFormat is a read-only property")
 
 	Func getPixelFormat
-		return dnRequest("get",[self,"PixelFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelFormat"])
 
 	Func setPixelFormat P1
 		raise("DotNet Error: PixelFormat is a read-only property")
 
 	Func getPropertyIdList
-		return dnRequest("get",[self,"PropertyIdList"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyIdList"])
 
 	Func setPropertyIdList P1
 		raise("DotNet Error: PropertyIdList is a read-only property")
 
 	Func getPropertyItems
-		return dnRequest("get",[self,"PropertyItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyItems"])
 
 	Func setPropertyItems P1
 		raise("DotNet Error: PropertyItems is a read-only property")
 
 	Func getPalette
-		return dnRequest("get",[self,"Palette"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Palette"])
 
 	Func setPalette P1
-		dnRequest("set",[self,"Palette",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Palette",P1])
 		return self
 
 	Func getFrameDimensionsList
-		return dnRequest("get",[self,"FrameDimensionsList"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FrameDimensionsList"])
 
 	Func setFrameDimensionsList P1
 		raise("DotNet Error: FrameDimensionsList is a read-only property")

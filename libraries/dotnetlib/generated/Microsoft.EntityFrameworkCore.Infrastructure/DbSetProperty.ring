@@ -23,22 +23,22 @@ Class DbSetProperty from ValueType
 		return self
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getSetter
-		return dnRequest("get",[self,"Setter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Setter"])
 
 	Func setSetter P1
 		raise("DotNet Error: Setter is a read-only property")

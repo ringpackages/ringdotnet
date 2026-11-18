@@ -16,9 +16,9 @@ Class IUriContext from DotNetObject
 		return self
 
 	Func getBaseUri
-		return dnRequest("get",[self,"BaseUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseUri"])
 
 	Func setBaseUri P1
-		dnRequest("set",[self,"BaseUri",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseUri",P1])
 		return self
 

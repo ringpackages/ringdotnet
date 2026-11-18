@@ -19,19 +19,19 @@ Class TableLayoutCellPaintEventArgs from PaintEventArgs
 		return self
 
 	Func getCellBounds
-		return dnRequest("get",[self,"CellBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellBounds"])
 
 	Func setCellBounds P1
 		raise("DotNet Error: CellBounds is a read-only property")
 
 	Func getColumn
-		return dnRequest("get",[self,"Column"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getRow
-		return dnRequest("get",[self,"Row"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")

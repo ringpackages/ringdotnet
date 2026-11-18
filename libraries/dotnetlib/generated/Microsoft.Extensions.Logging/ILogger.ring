@@ -14,12 +14,12 @@ Class ILogger from DotNetObject
 		return self
 
 	Func Log P1,P2,P3,P4,P5
-		dnRequest("call",[self,"Log",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"Log",P1,P2,P3,P4,P5])
 		return self
 
 	Func IsEnabled P1
-		return dnRequest("call",[self,"IsEnabled",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEnabled",P1])
 
 	Func BeginScope P1
-		return dnRequest("call",[self,"BeginScope",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginScope",P1])
 

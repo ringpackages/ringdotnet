@@ -21,15 +21,15 @@ Class PixelFormatChannelMask from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.PixelFormatChannelMask, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Equals_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.PixelFormatChannelMask, PresentationCore'),"Equals",P1,P2])
 
 	Func getMask
-		return dnRequest("get",[self,"Mask"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mask"])
 
 	Func setMask P1
 		raise("DotNet Error: Mask is a read-only property")

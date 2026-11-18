@@ -17,13 +17,13 @@ Class DataTransferEventArgs from RoutedEventArgs
 		return self
 
 	Func getTargetObject
-		return dnRequest("get",[self,"TargetObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetObject"])
 
 	Func setTargetObject P1
 		raise("DotNet Error: TargetObject is a read-only property")
 
 	Func getProperty
-		return dnRequest("get",[self,"Property"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")

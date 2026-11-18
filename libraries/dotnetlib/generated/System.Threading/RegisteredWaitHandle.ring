@@ -14,5 +14,5 @@ Class RegisteredWaitHandle from MarshalByRefObject
 		return self
 
 	Func Unregister P1
-		return dnRequest("call",[self,"Unregister",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Unregister",P1])
 

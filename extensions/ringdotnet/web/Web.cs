@@ -128,8 +128,14 @@ namespace RingDotNet
 		{
 			if (app != null)
 			{
-				app.StopAsync().GetAwaiter().GetResult();
-				app.DisposeAsync().AsTask().GetAwaiter().GetResult();
+				/* Run on the thread pool: when the Ring thread has a Windows Forms synchronization context (desktop and web together),
+				   waiting for the shutdown on that thread would block the continuations that have to run on it */
+				Microsoft.AspNetCore.Builder.WebApplication running = app;
+				System.Threading.Tasks.Task.Run(async () =>
+				{
+					await running.StopAsync();
+					await running.DisposeAsync();
+				}).GetAwaiter().GetResult();
 				app = null;
 			}
 		}

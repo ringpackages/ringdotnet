@@ -17,47 +17,47 @@ Class ClockController from DispatcherObject
 		return self
 
 	Func Begin 
-		dnRequest("call",[self,"Begin"])
+		dnRequest("call",[new DotNetObject(nHandle),"Begin"])
 		return self
 
 	Func SkipToFill 
-		dnRequest("call",[self,"SkipToFill"])
+		dnRequest("call",[new DotNetObject(nHandle),"SkipToFill"])
 		return self
 
 	Func Pause 
-		dnRequest("call",[self,"Pause"])
+		dnRequest("call",[new DotNetObject(nHandle),"Pause"])
 		return self
 
 	Func Resume 
-		dnRequest("call",[self,"Resume"])
+		dnRequest("call",[new DotNetObject(nHandle),"Resume"])
 		return self
 
 	Func Seek P1,P2
-		dnRequest("call",[self,"Seek",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Seek",P1,P2])
 		return self
 
 	Func SeekAlignedToLastTick P1,P2
-		dnRequest("call",[self,"SeekAlignedToLastTick",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SeekAlignedToLastTick",P1,P2])
 		return self
 
 	Func Stop 
-		dnRequest("call",[self,"Stop"])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
 		return self
 
 	Func Remove 
-		dnRequest("call",[self,"Remove"])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove"])
 		return self
 
 	Func getClock
-		return dnRequest("get",[self,"Clock"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Clock"])
 
 	Func setClock P1
 		raise("DotNet Error: Clock is a read-only property")
 
 	Func getSpeedRatio
-		return dnRequest("get",[self,"SpeedRatio"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SpeedRatio"])
 
 	Func setSpeedRatio P1
-		dnRequest("set",[self,"SpeedRatio",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SpeedRatio",P1])
 		return self
 

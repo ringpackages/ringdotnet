@@ -16,14 +16,14 @@ Class ICspAsymmetricAlgorithm from DotNetObject
 		return self
 
 	Func ExportCspBlob P1
-		return dnRequest("call",[self,"ExportCspBlob",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportCspBlob",P1])
 
 	Func ImportCspBlob P1
-		dnRequest("call",[self,"ImportCspBlob",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ImportCspBlob",P1])
 		return self
 
 	Func getCspKeyContainerInfo
-		return dnRequest("get",[self,"CspKeyContainerInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CspKeyContainerInfo"])
 
 	Func setCspKeyContainerInfo P1
 		raise("DotNet Error: CspKeyContainerInfo is a read-only property")

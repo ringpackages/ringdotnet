@@ -42,7 +42,7 @@ Class ClaimValueTypes from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBase64Binary
 		return dnRequest("get",[dnTypeCached('System.Security.Claims.ClaimValueTypes, System.Security.Claims'),"Base64Binary"])

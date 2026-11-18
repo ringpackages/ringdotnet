@@ -15,13 +15,13 @@ Class IFeatureSupport from DotNetObject
 
 	Func IsPresent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsPresent",P1])
 		ok
-		return dnRequest("call",[self,"IsPresent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1])
 
 	Func IsPresent_2 P1,P2
-		return dnRequest("call",[self,"IsPresent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1,P2])
 
 	Func GetVersionPresent P1
-		return dnRequest("call",[self,"GetVersionPresent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetVersionPresent",P1])
 

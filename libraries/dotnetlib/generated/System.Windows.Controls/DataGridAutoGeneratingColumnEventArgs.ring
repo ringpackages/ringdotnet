@@ -21,34 +21,34 @@ Class DataGridAutoGeneratingColumnEventArgs from EventArgs
 		return self
 
 	Func getColumn
-		return dnRequest("get",[self,"Column"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
 
 	Func setColumn P1
-		dnRequest("set",[self,"Column",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Column",P1])
 		return self
 
 	Func getPropertyName
-		return dnRequest("get",[self,"PropertyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyName"])
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getPropertyType
-		return dnRequest("get",[self,"PropertyType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyType"])
 
 	Func setPropertyType P1
 		raise("DotNet Error: PropertyType is a read-only property")
 
 	Func getPropertyDescriptor
-		return dnRequest("get",[self,"PropertyDescriptor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyDescriptor"])
 
 	Func setPropertyDescriptor P1
 		raise("DotNet Error: PropertyDescriptor is a read-only property")
 
 	Func getCancel
-		return dnRequest("get",[self,"Cancel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cancel"])
 
 	Func setCancel P1
-		dnRequest("set",[self,"Cancel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cancel",P1])
 		return self
 

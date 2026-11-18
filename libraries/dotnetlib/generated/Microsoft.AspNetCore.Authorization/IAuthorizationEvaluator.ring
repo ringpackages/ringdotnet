@@ -14,5 +14,5 @@ Class IAuthorizationEvaluator from DotNetObject
 		return self
 
 	Func Evaluate P1
-		return dnRequest("call",[self,"Evaluate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Evaluate",P1])
 

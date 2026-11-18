@@ -36,49 +36,49 @@ Class FileStream from Stream
 		return self
 
 	Func Lock P1,P2
-		dnRequest("call",[self,"Lock",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Lock",P1,P2])
 		return self
 
 	Func Unlock P1,P2
-		dnRequest("call",[self,"Unlock",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Unlock",P1,P2])
 		return self
 
 	Func Flush P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Flush",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Flush",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Flush"])
+			dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 		ok
-		dnRequest("call",[self,"Flush",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush",P1])
 		return self
 
 	Func Flush_1 P1
-		dnRequest("call",[self,"Flush",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush",P1])
 		return self
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getSafeFileHandle
-		return dnRequest("get",[self,"SafeFileHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SafeFileHandle"])
 
 	Func setSafeFileHandle P1
 		raise("DotNet Error: SafeFileHandle is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIsAsync
-		return dnRequest("get",[self,"IsAsync"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")

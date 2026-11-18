@@ -18,19 +18,19 @@ Class BinderOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBindNonPublicProperties
-		return dnRequest("get",[self,"BindNonPublicProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindNonPublicProperties"])
 
 	Func setBindNonPublicProperties P1
-		dnRequest("set",[self,"BindNonPublicProperties",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BindNonPublicProperties",P1])
 		return self
 
 	Func getErrorOnUnknownConfiguration
-		return dnRequest("get",[self,"ErrorOnUnknownConfiguration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorOnUnknownConfiguration"])
 
 	Func setErrorOnUnknownConfiguration P1
-		dnRequest("set",[self,"ErrorOnUnknownConfiguration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ErrorOnUnknownConfiguration",P1])
 		return self
 

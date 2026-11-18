@@ -25,76 +25,76 @@ Class IReadOnlySequence from DotNetObject
 		return self
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getModelSchema
-		return dnRequest("get",[self,"ModelSchema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelSchema"])
 
 	Func setModelSchema P1
 		raise("DotNet Error: ModelSchema is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getStartValue
-		return dnRequest("get",[self,"StartValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartValue"])
 
 	Func setStartValue P1
 		raise("DotNet Error: StartValue is a read-only property")
 
 	Func getIncrementBy
-		return dnRequest("get",[self,"IncrementBy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IncrementBy"])
 
 	Func setIncrementBy P1
 		raise("DotNet Error: IncrementBy is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[self,"MinValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinValue"])
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[self,"MaxValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxValue"])
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getIsCyclic
-		return dnRequest("get",[self,"IsCyclic"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCyclic"])
 
 	Func setIsCyclic P1
 		raise("DotNet Error: IsCyclic is a read-only property")

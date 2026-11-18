@@ -18,16 +18,16 @@ Class PreviewPageInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getImage
-		return dnRequest("get",[self,"Image"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Image"])
 
 	Func setImage P1
 		raise("DotNet Error: Image is a read-only property")
 
 	Func getPhysicalSize
-		return dnRequest("get",[self,"PhysicalSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PhysicalSize"])
 
 	Func setPhysicalSize P1
 		raise("DotNet Error: PhysicalSize is a read-only property")

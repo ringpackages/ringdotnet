@@ -14,6 +14,6 @@ Class IStartupValidator from DotNetObject
 		return self
 
 	Func Validate 
-		dnRequest("call",[self,"Validate"])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate"])
 		return self
 

@@ -14,5 +14,5 @@ Class IEasingFunction from DotNetObject
 		return self
 
 	Func Ease P1
-		return dnRequest("call",[self,"Ease",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ease",P1])
 

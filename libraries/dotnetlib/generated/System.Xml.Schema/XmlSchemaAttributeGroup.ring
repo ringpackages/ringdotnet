@@ -21,33 +21,33 @@ Class XmlSchemaAttributeGroup from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[self,"AnyAttribute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AnyAttribute"])
 
 	Func setAnyAttribute P1
-		dnRequest("set",[self,"AnyAttribute",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AnyAttribute",P1])
 		return self
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QualifiedName"])
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getRedefinedAttributeGroup
-		return dnRequest("get",[self,"RedefinedAttributeGroup"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RedefinedAttributeGroup"])
 
 	Func setRedefinedAttributeGroup P1
 		raise("DotNet Error: RedefinedAttributeGroup is a read-only property")

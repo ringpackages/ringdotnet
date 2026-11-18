@@ -18,13 +18,13 @@ Class MaskInputRejectedEventArgs from EventArgs
 		return self
 
 	Func getPosition
-		return dnRequest("get",[self,"Position"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
 
 	Func setPosition P1
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getRejectionHint
-		return dnRequest("get",[self,"RejectionHint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RejectionHint"])
 
 	Func setRejectionHint P1
 		raise("DotNet Error: RejectionHint is a read-only property")

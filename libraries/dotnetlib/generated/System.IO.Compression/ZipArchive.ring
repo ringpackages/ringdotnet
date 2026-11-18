@@ -32,38 +32,38 @@ Class ZipArchive from Object
 
 	Func CreateEntry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateEntry",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateEntry",P1])
 		ok
-		return dnRequest("call",[self,"CreateEntry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntry",P1])
 
 	Func CreateEntry_2 P1,P2
-		return dnRequest("call",[self,"CreateEntry",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntry",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetEntry P1
-		return dnRequest("call",[self,"GetEntry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEntry",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getComment
-		return dnRequest("get",[self,"Comment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
 
 	Func setComment P1
-		dnRequest("set",[self,"Comment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Comment",P1])
 		return self
 
 	Func getEntries
-		return dnRequest("get",[self,"Entries"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Entries"])
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")

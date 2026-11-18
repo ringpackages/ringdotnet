@@ -31,117 +31,117 @@ Class BitmapMetadata from ImageMetadata
 		return self
 
 	Func SetQuery P1,P2
-		dnRequest("call",[self,"SetQuery",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetQuery",P1,P2])
 		return self
 
 	Func GetQuery P1
-		return dnRequest("call",[self,"GetQuery",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetQuery",P1])
 
 	Func RemoveQuery P1
-		dnRequest("call",[self,"RemoveQuery",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveQuery",P1])
 		return self
 
 	Func ContainsQuery P1
-		return dnRequest("call",[self,"ContainsQuery",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsQuery",P1])
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedSize"])
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getAuthor
-		return dnRequest("get",[self,"Author"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Author"])
 
 	Func setAuthor P1
-		dnRequest("set",[self,"Author",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Author",P1])
 		return self
 
 	Func getTitle
-		return dnRequest("get",[self,"Title"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Title"])
 
 	Func setTitle P1
-		dnRequest("set",[self,"Title",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Title",P1])
 		return self
 
 	Func getRating
-		return dnRequest("get",[self,"Rating"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rating"])
 
 	Func setRating P1
-		dnRequest("set",[self,"Rating",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Rating",P1])
 		return self
 
 	Func getSubject
-		return dnRequest("get",[self,"Subject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Subject"])
 
 	Func setSubject P1
-		dnRequest("set",[self,"Subject",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Subject",P1])
 		return self
 
 	Func getComment
-		return dnRequest("get",[self,"Comment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
 
 	Func setComment P1
-		dnRequest("set",[self,"Comment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Comment",P1])
 		return self
 
 	Func getDateTaken
-		return dnRequest("get",[self,"DateTaken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DateTaken"])
 
 	Func setDateTaken P1
-		dnRequest("set",[self,"DateTaken",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DateTaken",P1])
 		return self
 
 	Func getApplicationName
-		return dnRequest("get",[self,"ApplicationName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationName"])
 
 	Func setApplicationName P1
-		dnRequest("set",[self,"ApplicationName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ApplicationName",P1])
 		return self
 
 	Func getCopyright
-		return dnRequest("get",[self,"Copyright"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Copyright"])
 
 	Func setCopyright P1
-		dnRequest("set",[self,"Copyright",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Copyright",P1])
 		return self
 
 	Func getCameraManufacturer
-		return dnRequest("get",[self,"CameraManufacturer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CameraManufacturer"])
 
 	Func setCameraManufacturer P1
-		dnRequest("set",[self,"CameraManufacturer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CameraManufacturer",P1])
 		return self
 
 	Func getCameraModel
-		return dnRequest("get",[self,"CameraModel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CameraModel"])
 
 	Func setCameraModel P1
-		dnRequest("set",[self,"CameraModel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CameraModel",P1])
 		return self
 
 	Func getKeywords
-		return dnRequest("get",[self,"Keywords"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keywords"])
 
 	Func setKeywords P1
-		dnRequest("set",[self,"Keywords",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Keywords",P1])
 		return self
 

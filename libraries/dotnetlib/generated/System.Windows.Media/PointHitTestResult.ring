@@ -17,7 +17,7 @@ Class PointHitTestResult from HitTestResult
 		return self
 
 	Func getPointHit
-		return dnRequest("get",[self,"PointHit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PointHit"])
 
 	Func setPointHit P1
 		raise("DotNet Error: PointHit is a read-only property")

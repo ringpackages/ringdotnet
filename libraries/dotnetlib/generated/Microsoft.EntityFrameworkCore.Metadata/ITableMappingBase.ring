@@ -21,52 +21,52 @@ Class ITableMappingBase from DotNetObject
 		return self
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getTypeBase
-		return dnRequest("get",[self,"TypeBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeBase"])
 
 	Func setTypeBase P1
 		raise("DotNet Error: TypeBase is a read-only property")
 
 	Func getTable
-		return dnRequest("get",[self,"Table"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getColumnMappings
-		return dnRequest("get",[self,"ColumnMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnMappings"])
 
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
 	Func getIsSharedTablePrincipal
-		return dnRequest("get",[self,"IsSharedTablePrincipal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSharedTablePrincipal"])
 
 	Func setIsSharedTablePrincipal P1
 		raise("DotNet Error: IsSharedTablePrincipal is a read-only property")
 
 	Func getIsSplitEntityTypePrincipal
-		return dnRequest("get",[self,"IsSplitEntityTypePrincipal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSplitEntityTypePrincipal"])
 
 	Func setIsSplitEntityTypePrincipal P1
 		raise("DotNet Error: IsSplitEntityTypePrincipal is a read-only property")
 
 	Func getIncludesDerivedTypes
-		return dnRequest("get",[self,"IncludesDerivedTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IncludesDerivedTypes"])
 
 	Func setIncludesDerivedTypes P1
 		raise("DotNet Error: IncludesDerivedTypes is a read-only property")

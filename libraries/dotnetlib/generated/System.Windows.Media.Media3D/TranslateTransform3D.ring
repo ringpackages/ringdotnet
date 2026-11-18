@@ -30,24 +30,24 @@ Class TranslateTransform3D from AffineTransform3D
 		return self
 
 	Func getOffsetX
-		return dnRequest("get",[self,"OffsetX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetX"])
 
 	Func setOffsetX P1
-		dnRequest("set",[self,"OffsetX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OffsetX",P1])
 		return self
 
 	Func getOffsetY
-		return dnRequest("get",[self,"OffsetY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetY"])
 
 	Func setOffsetY P1
-		dnRequest("set",[self,"OffsetY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OffsetY",P1])
 		return self
 
 	Func getOffsetZ
-		return dnRequest("get",[self,"OffsetZ"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetZ"])
 
 	Func setOffsetZ P1
-		dnRequest("set",[self,"OffsetZ",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OffsetZ",P1])
 		return self
 
 	Func getOffsetXProperty

@@ -22,50 +22,50 @@ Class IDataParameter from DotNetObject
 		return self
 
 	Func getDbType
-		return dnRequest("get",[self,"DbType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DbType"])
 
 	Func setDbType P1
-		dnRequest("set",[self,"DbType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DbType",P1])
 		return self
 
 	Func getDirection
-		return dnRequest("get",[self,"Direction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
 
 	Func setDirection P1
-		dnRequest("set",[self,"Direction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Direction",P1])
 		return self
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getParameterName
-		return dnRequest("get",[self,"ParameterName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterName"])
 
 	Func setParameterName P1
-		dnRequest("set",[self,"ParameterName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ParameterName",P1])
 		return self
 
 	Func getSourceColumn
-		return dnRequest("get",[self,"SourceColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceColumn"])
 
 	Func setSourceColumn P1
-		dnRequest("set",[self,"SourceColumn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceColumn",P1])
 		return self
 
 	Func getSourceVersion
-		return dnRequest("get",[self,"SourceVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceVersion"])
 
 	Func setSourceVersion P1
-		dnRequest("set",[self,"SourceVersion",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceVersion",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 

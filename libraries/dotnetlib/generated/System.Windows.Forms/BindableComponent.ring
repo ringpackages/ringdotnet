@@ -17,22 +17,22 @@ Class BindableComponent from Component
 		return self
 
 	Func setBindingContextChangedEvent P1
-		dnRequest("setevent",[self,"BindingContextChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BindingContextChanged",dnCallback(P1)])
 		return self
 
 	Func clearBindingContextChangedEvent
-		dnRequest("clearevent",[self,"BindingContextChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BindingContextChanged"])
 		return self
 
 	Func getBindingContext
-		return dnRequest("get",[self,"BindingContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingContext"])
 
 	Func setBindingContext P1
-		dnRequest("set",[self,"BindingContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BindingContext",P1])
 		return self
 
 	Func getDataBindings
-		return dnRequest("get",[self,"DataBindings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataBindings"])
 
 	Func setDataBindings P1
 		raise("DotNet Error: DataBindings is a read-only property")

@@ -19,24 +19,24 @@ Class HostExecutionContext from Object
 		return self
 
 	Func CreateCopy 
-		return dnRequest("call",[self,"CreateCopy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateCopy"])
 
 	Func Dispose P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Dispose",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Dispose",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Dispose"])
+			dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 		ok
-		dnRequest("call",[self,"Dispose",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose",P1])
 		return self
 
 	Func Dispose_1 P1
-		dnRequest("call",[self,"Dispose",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

@@ -14,8 +14,8 @@ Class MaskGenerationMethod from Object
 		return self
 
 	Func GenerateMask P1,P2
-		return dnRequest("call",[self,"GenerateMask",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateMask",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

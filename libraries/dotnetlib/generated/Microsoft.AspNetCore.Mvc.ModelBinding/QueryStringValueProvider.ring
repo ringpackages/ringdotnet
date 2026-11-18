@@ -17,10 +17,10 @@ Class QueryStringValueProvider from BindingSourceValueProvider
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnRequest("call",[self,"GetKeysFromPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeysFromPrefix",P1])
 
 	Func getCulture
-		return dnRequest("get",[self,"Culture"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")

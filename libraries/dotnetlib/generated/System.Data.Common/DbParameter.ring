@@ -26,83 +26,83 @@ Class DbParameter from MarshalByRefObject
 		return self
 
 	Func ResetDbType 
-		dnRequest("call",[self,"ResetDbType"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetDbType"])
 		return self
 
 	Func getDbType
-		return dnRequest("get",[self,"DbType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DbType"])
 
 	Func setDbType P1
-		dnRequest("set",[self,"DbType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DbType",P1])
 		return self
 
 	Func getDirection
-		return dnRequest("get",[self,"Direction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
 
 	Func setDirection P1
-		dnRequest("set",[self,"Direction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Direction",P1])
 		return self
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
-		dnRequest("set",[self,"IsNullable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsNullable",P1])
 		return self
 
 	Func getParameterName
-		return dnRequest("get",[self,"ParameterName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterName"])
 
 	Func setParameterName P1
-		dnRequest("set",[self,"ParameterName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ParameterName",P1])
 		return self
 
 	Func getPrecision
-		return dnRequest("get",[self,"Precision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Precision"])
 
 	Func setPrecision P1
-		dnRequest("set",[self,"Precision",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Precision",P1])
 		return self
 
 	Func getScale
-		return dnRequest("get",[self,"Scale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
 
 	Func setScale P1
-		dnRequest("set",[self,"Scale",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Scale",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 
 	Func getSourceColumn
-		return dnRequest("get",[self,"SourceColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceColumn"])
 
 	Func setSourceColumn P1
-		dnRequest("set",[self,"SourceColumn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceColumn",P1])
 		return self
 
 	Func getSourceColumnNullMapping
-		return dnRequest("get",[self,"SourceColumnNullMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceColumnNullMapping"])
 
 	Func setSourceColumnNullMapping P1
-		dnRequest("set",[self,"SourceColumnNullMapping",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceColumnNullMapping",P1])
 		return self
 
 	Func getSourceVersion
-		return dnRequest("get",[self,"SourceVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceVersion"])
 
 	Func setSourceVersion P1
-		dnRequest("set",[self,"SourceVersion",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceVersion",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 

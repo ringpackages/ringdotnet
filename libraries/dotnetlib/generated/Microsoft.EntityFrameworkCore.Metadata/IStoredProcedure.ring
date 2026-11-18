@@ -20,49 +20,49 @@ Class IStoredProcedure from DotNetObject
 		return self
 
 	Func FindParameter P1
-		return dnRequest("call",[self,"FindParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindParameter",P1])
 
 	Func FindOriginalValueParameter P1
-		return dnRequest("call",[self,"FindOriginalValueParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindOriginalValueParameter",P1])
 
 	Func FindRowsAffectedParameter 
-		return dnRequest("call",[self,"FindRowsAffectedParameter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRowsAffectedParameter"])
 
 	Func FindResultColumn P1
-		return dnRequest("call",[self,"FindResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindResultColumn",P1])
 
 	Func FindRowsAffectedResultColumn 
-		return dnRequest("call",[self,"FindRowsAffectedResultColumn"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRowsAffectedResultColumn"])
 
 	Func GetStoreIdentifier 
-		return dnRequest("call",[self,"GetStoreIdentifier"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStoreIdentifier"])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getStoreStoredProcedure
-		return dnRequest("get",[self,"StoreStoredProcedure"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreStoredProcedure"])
 
 	Func setStoreStoredProcedure P1
 		raise("DotNet Error: StoreStoredProcedure is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getResultColumns
-		return dnRequest("get",[self,"ResultColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResultColumns"])
 
 	Func setResultColumns P1
 		raise("DotNet Error: ResultColumns is a read-only property")

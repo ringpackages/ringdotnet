@@ -25,38 +25,38 @@ Class ProjectionCamera from Camera
 		return self
 
 	Func getNearPlaneDistance
-		return dnRequest("get",[self,"NearPlaneDistance"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NearPlaneDistance"])
 
 	Func setNearPlaneDistance P1
-		dnRequest("set",[self,"NearPlaneDistance",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NearPlaneDistance",P1])
 		return self
 
 	Func getFarPlaneDistance
-		return dnRequest("get",[self,"FarPlaneDistance"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FarPlaneDistance"])
 
 	Func setFarPlaneDistance P1
-		dnRequest("set",[self,"FarPlaneDistance",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FarPlaneDistance",P1])
 		return self
 
 	Func getPosition
-		return dnRequest("get",[self,"Position"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[self,"Position",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
 		return self
 
 	Func getLookDirection
-		return dnRequest("get",[self,"LookDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LookDirection"])
 
 	Func setLookDirection P1
-		dnRequest("set",[self,"LookDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LookDirection",P1])
 		return self
 
 	Func getUpDirection
-		return dnRequest("get",[self,"UpDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpDirection"])
 
 	Func setUpDirection P1
-		dnRequest("set",[self,"UpDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpDirection",P1])
 		return self
 
 	Func getNearPlaneDistanceProperty

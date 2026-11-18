@@ -15,8 +15,8 @@ Class ModelBinderFactory from Object
 		return self
 
 	Func CreateBinder P1
-		return dnRequest("call",[self,"CreateBinder",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateBinder",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

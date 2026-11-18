@@ -20,25 +20,25 @@ Class XmlSchemaRedefine from XmlSchemaExternal
 		return self
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getAttributeGroups
-		return dnRequest("get",[self,"AttributeGroups"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AttributeGroups"])
 
 	Func setAttributeGroups P1
 		raise("DotNet Error: AttributeGroups is a read-only property")
 
 	Func getSchemaTypes
-		return dnRequest("get",[self,"SchemaTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaTypes"])
 
 	Func setSchemaTypes P1
 		raise("DotNet Error: SchemaTypes is a read-only property")
 
 	Func getGroups
-		return dnRequest("get",[self,"Groups"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Groups"])
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")

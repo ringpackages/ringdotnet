@@ -45,14 +45,14 @@ Class BitVector32 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"ToString",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")

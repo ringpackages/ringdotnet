@@ -25,68 +25,68 @@ Class ShapedQueryCompilingExpressionVisitorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEntityMaterializerSource
-		return dnRequest("get",[self,"EntityMaterializerSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityMaterializerSource"])
 
 	Func setEntityMaterializerSource P1
-		dnRequest("set",[self,"EntityMaterializerSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EntityMaterializerSource",P1])
 		return self
 
 	Func getTypeMappingSource
-		return dnRequest("get",[self,"TypeMappingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[self,"TypeMappingSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
 		return self
 
 	Func getMemoryCache
-		return dnRequest("get",[self,"MemoryCache"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemoryCache"])
 
 	Func setMemoryCache P1
-		dnRequest("set",[self,"MemoryCache",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MemoryCache",P1])
 		return self
 
 	Func getCoreSingletonOptions
-		return dnRequest("get",[self,"CoreSingletonOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CoreSingletonOptions"])
 
 	Func setCoreSingletonOptions P1
-		dnRequest("set",[self,"CoreSingletonOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CoreSingletonOptions",P1])
 		return self
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
-		dnRequest("set",[self,"Model",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Model",P1])
 		return self
 
 	Func getLiftableConstantFactory
-		return dnRequest("get",[self,"LiftableConstantFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LiftableConstantFactory"])
 
 	Func setLiftableConstantFactory P1
-		dnRequest("set",[self,"LiftableConstantFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LiftableConstantFactory",P1])
 		return self
 
 	Func getQueryLogger
-		return dnRequest("get",[self,"QueryLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryLogger"])
 
 	Func setQueryLogger P1
-		dnRequest("set",[self,"QueryLogger",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"QueryLogger",P1])
 		return self
 
 	Func getSingletonInterceptors
-		return dnRequest("get",[self,"SingletonInterceptors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SingletonInterceptors"])
 
 	Func setSingletonInterceptors P1
-		dnRequest("set",[self,"SingletonInterceptors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SingletonInterceptors",P1])
 		return self
 
 	Func getContextServices
-		return dnRequest("get",[self,"ContextServices"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextServices"])
 
 	Func setContextServices P1
-		dnRequest("set",[self,"ContextServices",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContextServices",P1])
 		return self
 

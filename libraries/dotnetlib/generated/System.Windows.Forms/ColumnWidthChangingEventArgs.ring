@@ -22,15 +22,15 @@ Class ColumnWidthChangingEventArgs from CancelEventArgs
 		return self
 
 	Func getColumnIndex
-		return dnRequest("get",[self,"ColumnIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getNewWidth
-		return dnRequest("get",[self,"NewWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewWidth"])
 
 	Func setNewWidth P1
-		dnRequest("set",[self,"NewWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NewWidth",P1])
 		return self
 

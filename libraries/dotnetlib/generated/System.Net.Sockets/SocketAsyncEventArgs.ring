@@ -39,147 +39,147 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func SetBuffer P1,P2
-		dnRequest("call",[self,"SetBuffer",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1,P2])
 		return self
 
 	Func SetBuffer_3 P1,P2,P3
-		dnRequest("call",[self,"SetBuffer",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1,P2,P3])
 		return self
 
 	Func SetBuffer_1 P1
-		dnRequest("call",[self,"SetBuffer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func setCompletedEvent P1
-		dnRequest("setevent",[self,"Completed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Completed",dnCallback(P1)])
 		return self
 
 	Func clearCompletedEvent
-		dnRequest("clearevent",[self,"Completed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Completed"])
 		return self
 
 	Func getAcceptSocket
-		return dnRequest("get",[self,"AcceptSocket"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptSocket"])
 
 	Func setAcceptSocket P1
-		dnRequest("set",[self,"AcceptSocket",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptSocket",P1])
 		return self
 
 	Func getConnectSocket
-		return dnRequest("get",[self,"ConnectSocket"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectSocket"])
 
 	Func setConnectSocket P1
 		raise("DotNet Error: ConnectSocket is a read-only property")
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Buffer"])
 
 	Func getMemoryBuffer
-		return dnRequest("get",[self,"MemoryBuffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemoryBuffer"])
 
 	Func setMemoryBuffer P1
 		raise("DotNet Error: MemoryBuffer is a read-only property")
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSendPacketsFlags
-		return dnRequest("get",[self,"SendPacketsFlags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SendPacketsFlags"])
 
 	Func setSendPacketsFlags P1
-		dnRequest("set",[self,"SendPacketsFlags",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SendPacketsFlags",P1])
 		return self
 
 	Func getBufferList
-		return dnRequest("get",[self,"BufferList"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BufferList"])
 
 	Func setBufferList P1
-		dnRequest("set",[self,"BufferList",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BufferList",P1])
 		return self
 
 	Func getBytesTransferred
-		return dnRequest("get",[self,"BytesTransferred"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BytesTransferred"])
 
 	Func setBytesTransferred P1
 		raise("DotNet Error: BytesTransferred is a read-only property")
 
 	Func getDisconnectReuseSocket
-		return dnRequest("get",[self,"DisconnectReuseSocket"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisconnectReuseSocket"])
 
 	Func setDisconnectReuseSocket P1
-		dnRequest("set",[self,"DisconnectReuseSocket",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisconnectReuseSocket",P1])
 		return self
 
 	Func getLastOperation
-		return dnRequest("get",[self,"LastOperation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastOperation"])
 
 	Func setLastOperation P1
 		raise("DotNet Error: LastOperation is a read-only property")
 
 	Func getReceiveMessageFromPacketInfo
-		return dnRequest("get",[self,"ReceiveMessageFromPacketInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReceiveMessageFromPacketInfo"])
 
 	Func setReceiveMessageFromPacketInfo P1
 		raise("DotNet Error: ReceiveMessageFromPacketInfo is a read-only property")
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteEndPoint"])
 
 	Func setRemoteEndPoint P1
-		dnRequest("set",[self,"RemoteEndPoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RemoteEndPoint",P1])
 		return self
 
 	Func getSendPacketsElements
-		return dnRequest("get",[self,"SendPacketsElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SendPacketsElements"])
 
 	Func setSendPacketsElements P1
-		dnRequest("set",[self,"SendPacketsElements",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SendPacketsElements",P1])
 		return self
 
 	Func getSendPacketsSendSize
-		return dnRequest("get",[self,"SendPacketsSendSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SendPacketsSendSize"])
 
 	Func setSendPacketsSendSize P1
-		dnRequest("set",[self,"SendPacketsSendSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SendPacketsSendSize",P1])
 		return self
 
 	Func getSocketError
-		return dnRequest("get",[self,"SocketError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SocketError"])
 
 	Func setSocketError P1
-		dnRequest("set",[self,"SocketError",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SocketError",P1])
 		return self
 
 	Func getConnectByNameError
-		return dnRequest("get",[self,"ConnectByNameError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectByNameError"])
 
 	Func setConnectByNameError P1
 		raise("DotNet Error: ConnectByNameError is a read-only property")
 
 	Func getSocketFlags
-		return dnRequest("get",[self,"SocketFlags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SocketFlags"])
 
 	Func setSocketFlags P1
-		dnRequest("set",[self,"SocketFlags",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SocketFlags",P1])
 		return self
 
 	Func getUserToken
-		return dnRequest("get",[self,"UserToken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserToken"])
 
 	Func setUserToken P1
-		dnRequest("set",[self,"UserToken",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UserToken",P1])
 		return self
 

@@ -16,18 +16,18 @@ Class HashCode from ValueType
 
 	Func Add P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Add_2 P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func ToHashCode 
-		return dnRequest("call",[self,"ToHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToHashCode"])
 
 	Func Combine P1
 		if dnIsNamed(P1)

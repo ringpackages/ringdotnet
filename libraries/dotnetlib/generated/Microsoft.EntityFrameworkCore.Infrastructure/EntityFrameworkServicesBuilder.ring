@@ -17,31 +17,31 @@ Class EntityFrameworkServicesBuilder from Object
 		return self
 
 	Func TryAddProviderSpecificServices P1
-		return dnRequest("call",[self,"TryAddProviderSpecificServices",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddProviderSpecificServices",P1])
 
 	Func TryAddCoreServices 
-		return dnRequest("call",[self,"TryAddCoreServices"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddCoreServices"])
 
 	Func TryAdd P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryAdd",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAdd",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryAdd"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryAdd"])
 		ok
-		return dnRequest("call",[self,"TryAdd",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1])
 
 	Func TryAdd_2 P1,P2
-		return dnRequest("call",[self,"TryAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2])
 
 	Func TryAdd_1 P1
-		return dnRequest("call",[self,"TryAdd",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1])
 
 	Func TryAdd_3 P1,P2,P3
-		return dnRequest("call",[self,"TryAdd",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCoreServices
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkServicesBuilder, Microsoft.EntityFrameworkCore'),"CoreServices"])

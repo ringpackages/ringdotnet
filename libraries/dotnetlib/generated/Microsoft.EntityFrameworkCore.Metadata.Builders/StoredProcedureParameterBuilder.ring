@@ -17,22 +17,22 @@ Class StoredProcedureParameterBuilder from Object
 		return self
 
 	Func HasName P1
-		return dnRequest("call",[self,"HasName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasName",P1])
 
 	Func IsInputOutput 
-		return dnRequest("call",[self,"IsInputOutput"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsInputOutput"])
 
 	Func IsOutput 
-		return dnRequest("call",[self,"IsOutput"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsOutput"])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

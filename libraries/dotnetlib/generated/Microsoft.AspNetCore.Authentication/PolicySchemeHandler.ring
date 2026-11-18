@@ -22,43 +22,43 @@ Class PolicySchemeHandler from DotNetObject
 		return self
 
 	Func SignInAsync P1,P2
-		return dnRequest("call",[self,"SignInAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignInAsync",P1,P2])
 
 	Func SignOutAsync P1
-		return dnRequest("call",[self,"SignOutAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignOutAsync",P1])
 
 	Func InitializeAsync P1,P2
-		return dnRequest("call",[self,"InitializeAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InitializeAsync",P1,P2])
 
 	Func AuthenticateAsync 
-		return dnRequest("call",[self,"AuthenticateAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsync"])
 
 	Func ChallengeAsync P1
-		return dnRequest("call",[self,"ChallengeAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ChallengeAsync",P1])
 
 	Func ForbidAsync P1
-		return dnRequest("call",[self,"ForbidAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ForbidAsync",P1])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getScheme
-		return dnRequest("get",[self,"Scheme"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")

@@ -19,5 +19,5 @@ Class ECDiffieHellmanOpenSsl from ECDiffieHellman
 		return self
 
 	Func DuplicateKeyHandle 
-		return dnRequest("call",[self,"DuplicateKeyHandle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DuplicateKeyHandle"])
 

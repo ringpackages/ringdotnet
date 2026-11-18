@@ -16,78 +16,78 @@ Class TextReader from MarshalByRefObject
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Peek 
-		return dnRequest("call",[self,"Peek"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Peek"])
 
 	Func Read P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Read",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Read",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Read"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Read"])
 		ok
 		raise("DotNet Error: Read does not take one argument: use Read(NULL), Read_N(...) or named arguments")
 
 	Func Read_3 P1,P2,P3
-		return dnRequest("call",[self,"Read",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1,P2,P3])
 
 	Func ReadToEnd 
-		return dnRequest("call",[self,"ReadToEnd"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadToEnd"])
 
 	Func ReadBlock P1,P2,P3
-		return dnRequest("call",[self,"ReadBlock",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadBlock",P1,P2,P3])
 
 	Func ReadLine 
-		return dnRequest("call",[self,"ReadLine"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadLine"])
 
 	Func ReadLineAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadLineAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadLineAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadLineAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadLineAsync"])
 		ok
-		return dnRequest("call",[self,"ReadLineAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadLineAsync",P1])
 
 	Func ReadLineAsync_1 P1
-		return dnRequest("call",[self,"ReadLineAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadLineAsync",P1])
 
 	Func ReadToEndAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadToEndAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadToEndAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadToEndAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadToEndAsync"])
 		ok
-		return dnRequest("call",[self,"ReadToEndAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadToEndAsync",P1])
 
 	Func ReadToEndAsync_1 P1
-		return dnRequest("call",[self,"ReadToEndAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadToEndAsync",P1])
 
 	Func ReadAsync P1,P2,P3
-		return dnRequest("call",[self,"ReadAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2,P3])
 
 	Func ReadAsync_2 P1,P2
-		return dnRequest("call",[self,"ReadAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2])
 
 	Func ReadAsync_1 P1
-		return dnRequest("call",[self,"ReadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
 
 	Func ReadBlockAsync P1,P2,P3
-		return dnRequest("call",[self,"ReadBlockAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadBlockAsync",P1,P2,P3])
 
 	Func ReadBlockAsync_2 P1,P2
-		return dnRequest("call",[self,"ReadBlockAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadBlockAsync",P1,P2])
 
 	Func ReadBlockAsync_1 P1
-		return dnRequest("call",[self,"ReadBlockAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadBlockAsync",P1])
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.IO.TextReader, System.Private.CoreLib'),"Synchronized",P1])

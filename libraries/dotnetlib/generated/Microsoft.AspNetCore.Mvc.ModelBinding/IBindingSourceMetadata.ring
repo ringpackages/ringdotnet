@@ -16,7 +16,7 @@ Class IBindingSourceMetadata from DotNetObject
 		return self
 
 	Func getBindingSource
-		return dnRequest("get",[self,"BindingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingSource"])
 
 	Func setBindingSource P1
 		raise("DotNet Error: BindingSource is a read-only property")

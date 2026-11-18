@@ -22,13 +22,13 @@ Class TextChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func getUndoAction
-		return dnRequest("get",[self,"UndoAction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UndoAction"])
 
 	Func setUndoAction P1
 		raise("DotNet Error: UndoAction is a read-only property")
 
 	Func getChanges
-		return dnRequest("get",[self,"Changes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Changes"])
 
 	Func setChanges P1
 		raise("DotNet Error: Changes is a read-only property")

@@ -18,20 +18,20 @@ Class JsonProperty from ValueType
 		return self
 
 	Func NameEquals P1
-		return dnRequest("call",[self,"NameEquals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NameEquals",P1])
 
 	Func WriteTo P1
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

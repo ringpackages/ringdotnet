@@ -15,5 +15,5 @@ Class InitializingSwitchEventArgs from EventArgs
 		return self
 
 	Func getSwitch
-		return dnRequest("get",[self,"Switch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Switch"])
 

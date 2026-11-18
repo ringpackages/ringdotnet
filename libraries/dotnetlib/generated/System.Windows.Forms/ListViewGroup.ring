@@ -37,94 +37,94 @@ Class ListViewGroup from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHeader
-		return dnRequest("get",[self,"Header"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
 
 	Func setHeader P1
-		dnRequest("set",[self,"Header",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Header",P1])
 		return self
 
 	Func getHeaderAlignment
-		return dnRequest("get",[self,"HeaderAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderAlignment"])
 
 	Func setHeaderAlignment P1
-		dnRequest("set",[self,"HeaderAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderAlignment",P1])
 		return self
 
 	Func getFooter
-		return dnRequest("get",[self,"Footer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Footer"])
 
 	Func setFooter P1
-		dnRequest("set",[self,"Footer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Footer",P1])
 		return self
 
 	Func getFooterAlignment
-		return dnRequest("get",[self,"FooterAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FooterAlignment"])
 
 	Func setFooterAlignment P1
-		dnRequest("set",[self,"FooterAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FooterAlignment",P1])
 		return self
 
 	Func getCollapsedState
-		return dnRequest("get",[self,"CollapsedState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CollapsedState"])
 
 	Func setCollapsedState P1
-		dnRequest("set",[self,"CollapsedState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CollapsedState",P1])
 		return self
 
 	Func getSubtitle
-		return dnRequest("get",[self,"Subtitle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Subtitle"])
 
 	Func setSubtitle P1
-		dnRequest("set",[self,"Subtitle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Subtitle",P1])
 		return self
 
 	Func getTaskLink
-		return dnRequest("get",[self,"TaskLink"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TaskLink"])
 
 	Func setTaskLink P1
-		dnRequest("set",[self,"TaskLink",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TaskLink",P1])
 		return self
 
 	Func getTitleImageIndex
-		return dnRequest("get",[self,"TitleImageIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TitleImageIndex"])
 
 	Func setTitleImageIndex P1
-		dnRequest("set",[self,"TitleImageIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TitleImageIndex",P1])
 		return self
 
 	Func getTitleImageKey
-		return dnRequest("get",[self,"TitleImageKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TitleImageKey"])
 
 	Func setTitleImageKey P1
-		dnRequest("set",[self,"TitleImageKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TitleImageKey",P1])
 		return self
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getListView
-		return dnRequest("get",[self,"ListView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ListView"])
 
 	Func setListView P1
 		raise("DotNet Error: ListView is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 

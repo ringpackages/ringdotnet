@@ -19,25 +19,25 @@ Class PaperSource from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getKind
-		return dnRequest("get",[self,"Kind"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Kind"])
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getRawKind
-		return dnRequest("get",[self,"RawKind"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawKind"])
 
 	Func setRawKind P1
-		dnRequest("set",[self,"RawKind",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RawKind",P1])
 		return self
 
 	Func getSourceName
-		return dnRequest("get",[self,"SourceName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceName"])
 
 	Func setSourceName P1
-		dnRequest("set",[self,"SourceName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceName",P1])
 		return self
 

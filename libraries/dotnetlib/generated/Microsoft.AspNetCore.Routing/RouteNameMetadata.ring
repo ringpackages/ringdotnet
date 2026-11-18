@@ -17,10 +17,10 @@ Class RouteNameMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRouteName
-		return dnRequest("get",[self,"RouteName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteName"])
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")

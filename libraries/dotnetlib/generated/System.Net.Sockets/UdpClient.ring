@@ -31,151 +31,151 @@ Class UdpClient from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dnRequest("call",[self,"AllowNatTraversal",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AllowNatTraversal",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func BeginSend P1,P2,P3,P4
-		return dnRequest("call",[self,"BeginSend",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginSend",P1,P2,P3,P4])
 
 	Func BeginSend_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"BeginSend",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginSend",P1,P2,P3,P4,P5,P6])
 
 	Func BeginSend_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"BeginSend",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginSend",P1,P2,P3,P4,P5])
 
 	Func EndSend P1
-		return dnRequest("call",[self,"EndSend",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndSend",P1])
 
 	Func BeginReceive P1,P2
-		return dnRequest("call",[self,"BeginReceive",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginReceive",P1,P2])
 
 	Func EndReceive P1,P2
-		return dnRequest("call",[self,"EndReceive",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndReceive",P1,P2])
 
 	Func JoinMulticastGroup P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"JoinMulticastGroup",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"JoinMulticastGroup",P1])
 			return self
 		ok
-		dnRequest("call",[self,"JoinMulticastGroup",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"JoinMulticastGroup",P1])
 		return self
 
 	Func JoinMulticastGroup_2 P1,P2
-		dnRequest("call",[self,"JoinMulticastGroup",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"JoinMulticastGroup",P1,P2])
 		return self
 
 	Func DropMulticastGroup P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"DropMulticastGroup",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DropMulticastGroup",P1])
 			return self
 		ok
-		dnRequest("call",[self,"DropMulticastGroup",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DropMulticastGroup",P1])
 		return self
 
 	Func DropMulticastGroup_2 P1,P2
-		dnRequest("call",[self,"DropMulticastGroup",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DropMulticastGroup",P1,P2])
 		return self
 
 	Func SendAsync P1,P2
-		return dnRequest("call",[self,"SendAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2])
 
 	Func SendAsync_1 P1
-		return dnRequest("call",[self,"SendAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1])
 
 	Func SendAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"SendAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4])
 
 	Func SendAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"SendAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3])
 
 	Func ReceiveAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReceiveAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReceiveAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReceiveAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReceiveAsync"])
 		ok
-		return dnRequest("call",[self,"ReceiveAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveAsync",P1])
 
 	Func ReceiveAsync_1 P1
-		return dnRequest("call",[self,"ReceiveAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveAsync",P1])
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Connect P1,P2
-		dnRequest("call",[self,"Connect",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1,P2])
 		return self
 
 	Func Connect_1 P1
-		dnRequest("call",[self,"Connect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1])
 		return self
 
 	Func Receive P1
-		return dnRequest("call",[self,"Receive",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Receive",P1])
 
 	Func Send_3 P1,P2,P3
-		return dnRequest("call",[self,"Send",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3])
 
 	Func Send_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Send",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3,P4])
 
 	Func Send P1,P2
-		return dnRequest("call",[self,"Send",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAvailable
-		return dnRequest("get",[self,"Available"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Available"])
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
 
 	Func getClient
-		return dnRequest("get",[self,"Client"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Client"])
 
 	Func setClient P1
-		dnRequest("set",[self,"Client",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Client",P1])
 		return self
 
 	Func getTtl
-		return dnRequest("get",[self,"Ttl"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Ttl"])
 
 	Func setTtl P1
-		dnRequest("set",[self,"Ttl",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Ttl",P1])
 		return self
 
 	Func getDontFragment
-		return dnRequest("get",[self,"DontFragment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DontFragment"])
 
 	Func setDontFragment P1
-		dnRequest("set",[self,"DontFragment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DontFragment",P1])
 		return self
 
 	Func getMulticastLoopback
-		return dnRequest("get",[self,"MulticastLoopback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MulticastLoopback"])
 
 	Func setMulticastLoopback P1
-		dnRequest("set",[self,"MulticastLoopback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MulticastLoopback",P1])
 		return self
 
 	Func getEnableBroadcast
-		return dnRequest("get",[self,"EnableBroadcast"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableBroadcast"])
 
 	Func setEnableBroadcast P1
-		dnRequest("set",[self,"EnableBroadcast",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableBroadcast",P1])
 		return self
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[self,"ExclusiveAddressUse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExclusiveAddressUse"])
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[self,"ExclusiveAddressUse",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExclusiveAddressUse",P1])
 		return self
 

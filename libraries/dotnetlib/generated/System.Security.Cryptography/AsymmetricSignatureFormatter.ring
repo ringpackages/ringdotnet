@@ -14,16 +14,16 @@ Class AsymmetricSignatureFormatter from Object
 		return self
 
 	Func SetKey P1
-		dnRequest("call",[self,"SetKey",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetKey",P1])
 		return self
 
 	Func SetHashAlgorithm P1
-		dnRequest("call",[self,"SetHashAlgorithm",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetHashAlgorithm",P1])
 		return self
 
 	Func CreateSignature P1
-		return dnRequest("call",[self,"CreateSignature",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSignature",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

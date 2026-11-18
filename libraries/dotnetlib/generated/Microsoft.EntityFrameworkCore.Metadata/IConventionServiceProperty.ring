@@ -17,25 +17,25 @@ Class IConventionServiceProperty from DotNetObject
 		return self
 
 	Func SetParameterBinding_2 P1,P2
-		return dnRequest("call",[self,"SetParameterBinding",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetParameterBinding",P1,P2])
 
 	Func SetParameterBinding P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetParameterBinding",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetParameterBinding",P1])
 		ok
-		return dnRequest("call",[self,"SetParameterBinding",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetParameterBinding",P1])
 
 	Func GetParameterBindingConfigurationSource 
-		return dnRequest("call",[self,"GetParameterBindingConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetParameterBindingConfigurationSource"])
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")

@@ -15,40 +15,40 @@ Class AuthenticationSchemeProvider from Object
 		return self
 
 	Func GetDefaultAuthenticateSchemeAsync 
-		return dnRequest("call",[self,"GetDefaultAuthenticateSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultAuthenticateSchemeAsync"])
 
 	Func GetDefaultChallengeSchemeAsync 
-		return dnRequest("call",[self,"GetDefaultChallengeSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultChallengeSchemeAsync"])
 
 	Func GetDefaultForbidSchemeAsync 
-		return dnRequest("call",[self,"GetDefaultForbidSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultForbidSchemeAsync"])
 
 	Func GetDefaultSignInSchemeAsync 
-		return dnRequest("call",[self,"GetDefaultSignInSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultSignInSchemeAsync"])
 
 	Func GetDefaultSignOutSchemeAsync 
-		return dnRequest("call",[self,"GetDefaultSignOutSchemeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultSignOutSchemeAsync"])
 
 	Func GetSchemeAsync P1
-		return dnRequest("call",[self,"GetSchemeAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemeAsync",P1])
 
 	Func GetRequestHandlerSchemesAsync 
-		return dnRequest("call",[self,"GetRequestHandlerSchemesAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRequestHandlerSchemesAsync"])
 
 	Func TryAddScheme P1
-		return dnRequest("call",[self,"TryAddScheme",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScheme",P1])
 
 	Func AddScheme P1
-		dnRequest("call",[self,"AddScheme",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddScheme",P1])
 		return self
 
 	Func RemoveScheme P1
-		dnRequest("call",[self,"RemoveScheme",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveScheme",P1])
 		return self
 
 	Func GetAllSchemesAsync 
-		return dnRequest("call",[self,"GetAllSchemesAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAllSchemesAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

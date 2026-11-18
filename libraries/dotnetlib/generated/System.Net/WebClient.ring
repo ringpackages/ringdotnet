@@ -28,383 +28,383 @@ Class WebClient from Component
 		return self
 
 	Func DownloadData P1
-		return dnRequest("call",[self,"DownloadData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DownloadData",P1])
 
 	Func DownloadFile P1,P2
-		dnRequest("call",[self,"DownloadFile",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DownloadFile",P1,P2])
 		return self
 
 	Func OpenRead P1
-		return dnRequest("call",[self,"OpenRead",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenRead",P1])
 
 	Func OpenWrite P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"OpenWrite",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenWrite",P1])
 		ok
-		return dnRequest("call",[self,"OpenWrite",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenWrite",P1])
 
 	Func OpenWrite_2 P1,P2
-		return dnRequest("call",[self,"OpenWrite",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenWrite",P1,P2])
 
 	Func UploadData P1,P2
-		return dnRequest("call",[self,"UploadData",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadData",P1,P2])
 
 	Func UploadData_3 P1,P2,P3
-		return dnRequest("call",[self,"UploadData",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadData",P1,P2,P3])
 
 	Func UploadFile P1,P2
-		return dnRequest("call",[self,"UploadFile",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadFile",P1,P2])
 
 	Func UploadFile_3 P1,P2,P3
-		return dnRequest("call",[self,"UploadFile",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadFile",P1,P2,P3])
 
 	Func UploadValues P1,P2
-		return dnRequest("call",[self,"UploadValues",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadValues",P1,P2])
 
 	Func UploadValues_3 P1,P2,P3
-		return dnRequest("call",[self,"UploadValues",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadValues",P1,P2,P3])
 
 	Func UploadString P1,P2
-		return dnRequest("call",[self,"UploadString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadString",P1,P2])
 
 	Func UploadString_3 P1,P2,P3
-		return dnRequest("call",[self,"UploadString",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadString",P1,P2,P3])
 
 	Func DownloadString P1
-		return dnRequest("call",[self,"DownloadString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DownloadString",P1])
 
 	Func OpenReadAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"OpenReadAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"OpenReadAsync",P1])
 			return self
 		ok
-		dnRequest("call",[self,"OpenReadAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OpenReadAsync",P1])
 		return self
 
 	Func OpenReadAsync_2 P1,P2
-		dnRequest("call",[self,"OpenReadAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OpenReadAsync",P1,P2])
 		return self
 
 	Func OpenWriteAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"OpenWriteAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"OpenWriteAsync",P1])
 			return self
 		ok
-		dnRequest("call",[self,"OpenWriteAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OpenWriteAsync",P1])
 		return self
 
 	Func OpenWriteAsync_2 P1,P2
-		dnRequest("call",[self,"OpenWriteAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OpenWriteAsync",P1,P2])
 		return self
 
 	Func OpenWriteAsync_3 P1,P2,P3
-		dnRequest("call",[self,"OpenWriteAsync",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"OpenWriteAsync",P1,P2,P3])
 		return self
 
 	Func DownloadStringAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"DownloadStringAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DownloadStringAsync",P1])
 			return self
 		ok
-		dnRequest("call",[self,"DownloadStringAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DownloadStringAsync",P1])
 		return self
 
 	Func DownloadStringAsync_2 P1,P2
-		dnRequest("call",[self,"DownloadStringAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DownloadStringAsync",P1,P2])
 		return self
 
 	Func DownloadDataAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"DownloadDataAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DownloadDataAsync",P1])
 			return self
 		ok
-		dnRequest("call",[self,"DownloadDataAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DownloadDataAsync",P1])
 		return self
 
 	Func DownloadDataAsync_2 P1,P2
-		dnRequest("call",[self,"DownloadDataAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DownloadDataAsync",P1,P2])
 		return self
 
 	Func DownloadFileAsync P1,P2
-		dnRequest("call",[self,"DownloadFileAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DownloadFileAsync",P1,P2])
 		return self
 
 	Func DownloadFileAsync_3 P1,P2,P3
-		dnRequest("call",[self,"DownloadFileAsync",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DownloadFileAsync",P1,P2,P3])
 		return self
 
 	Func UploadStringAsync P1,P2
-		dnRequest("call",[self,"UploadStringAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadStringAsync",P1,P2])
 		return self
 
 	Func UploadStringAsync_3 P1,P2,P3
-		dnRequest("call",[self,"UploadStringAsync",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadStringAsync",P1,P2,P3])
 		return self
 
 	Func UploadStringAsync_4 P1,P2,P3,P4
-		dnRequest("call",[self,"UploadStringAsync",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadStringAsync",P1,P2,P3,P4])
 		return self
 
 	Func UploadDataAsync P1,P2
-		dnRequest("call",[self,"UploadDataAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadDataAsync",P1,P2])
 		return self
 
 	Func UploadDataAsync_3 P1,P2,P3
-		dnRequest("call",[self,"UploadDataAsync",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadDataAsync",P1,P2,P3])
 		return self
 
 	Func UploadDataAsync_4 P1,P2,P3,P4
-		dnRequest("call",[self,"UploadDataAsync",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadDataAsync",P1,P2,P3,P4])
 		return self
 
 	Func UploadFileAsync P1,P2
-		dnRequest("call",[self,"UploadFileAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadFileAsync",P1,P2])
 		return self
 
 	Func UploadFileAsync_3 P1,P2,P3
-		dnRequest("call",[self,"UploadFileAsync",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadFileAsync",P1,P2,P3])
 		return self
 
 	Func UploadFileAsync_4 P1,P2,P3,P4
-		dnRequest("call",[self,"UploadFileAsync",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadFileAsync",P1,P2,P3,P4])
 		return self
 
 	Func UploadValuesAsync P1,P2
-		dnRequest("call",[self,"UploadValuesAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadValuesAsync",P1,P2])
 		return self
 
 	Func UploadValuesAsync_3 P1,P2,P3
-		dnRequest("call",[self,"UploadValuesAsync",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadValuesAsync",P1,P2,P3])
 		return self
 
 	Func UploadValuesAsync_4 P1,P2,P3,P4
-		dnRequest("call",[self,"UploadValuesAsync",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"UploadValuesAsync",P1,P2,P3,P4])
 		return self
 
 	Func CancelAsync 
-		dnRequest("call",[self,"CancelAsync"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelAsync"])
 		return self
 
 	Func DownloadStringTaskAsync P1
-		return dnRequest("call",[self,"DownloadStringTaskAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DownloadStringTaskAsync",P1])
 
 	Func OpenReadTaskAsync P1
-		return dnRequest("call",[self,"OpenReadTaskAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenReadTaskAsync",P1])
 
 	Func OpenWriteTaskAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"OpenWriteTaskAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenWriteTaskAsync",P1])
 		ok
-		return dnRequest("call",[self,"OpenWriteTaskAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenWriteTaskAsync",P1])
 
 	Func OpenWriteTaskAsync_2 P1,P2
-		return dnRequest("call",[self,"OpenWriteTaskAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenWriteTaskAsync",P1,P2])
 
 	Func UploadStringTaskAsync P1,P2
-		return dnRequest("call",[self,"UploadStringTaskAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadStringTaskAsync",P1,P2])
 
 	Func UploadStringTaskAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"UploadStringTaskAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadStringTaskAsync",P1,P2,P3])
 
 	Func DownloadDataTaskAsync P1
-		return dnRequest("call",[self,"DownloadDataTaskAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DownloadDataTaskAsync",P1])
 
 	Func DownloadFileTaskAsync P1,P2
-		return dnRequest("call",[self,"DownloadFileTaskAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"DownloadFileTaskAsync",P1,P2])
 
 	Func UploadDataTaskAsync P1,P2
-		return dnRequest("call",[self,"UploadDataTaskAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadDataTaskAsync",P1,P2])
 
 	Func UploadDataTaskAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"UploadDataTaskAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadDataTaskAsync",P1,P2,P3])
 
 	Func UploadFileTaskAsync P1,P2
-		return dnRequest("call",[self,"UploadFileTaskAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadFileTaskAsync",P1,P2])
 
 	Func UploadFileTaskAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"UploadFileTaskAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadFileTaskAsync",P1,P2,P3])
 
 	Func UploadValuesTaskAsync P1,P2
-		return dnRequest("call",[self,"UploadValuesTaskAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadValuesTaskAsync",P1,P2])
 
 	Func UploadValuesTaskAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"UploadValuesTaskAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UploadValuesTaskAsync",P1,P2,P3])
 
 	Func setDownloadStringCompletedEvent P1
-		dnRequest("setevent",[self,"DownloadStringCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadStringCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadStringCompletedEvent
-		dnRequest("clearevent",[self,"DownloadStringCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadStringCompleted"])
 		return self
 
 	Func setDownloadDataCompletedEvent P1
-		dnRequest("setevent",[self,"DownloadDataCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadDataCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadDataCompletedEvent
-		dnRequest("clearevent",[self,"DownloadDataCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadDataCompleted"])
 		return self
 
 	Func setDownloadFileCompletedEvent P1
-		dnRequest("setevent",[self,"DownloadFileCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadFileCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadFileCompletedEvent
-		dnRequest("clearevent",[self,"DownloadFileCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadFileCompleted"])
 		return self
 
 	Func setUploadStringCompletedEvent P1
-		dnRequest("setevent",[self,"UploadStringCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UploadStringCompleted",dnCallback(P1)])
 		return self
 
 	Func clearUploadStringCompletedEvent
-		dnRequest("clearevent",[self,"UploadStringCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadStringCompleted"])
 		return self
 
 	Func setUploadDataCompletedEvent P1
-		dnRequest("setevent",[self,"UploadDataCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UploadDataCompleted",dnCallback(P1)])
 		return self
 
 	Func clearUploadDataCompletedEvent
-		dnRequest("clearevent",[self,"UploadDataCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadDataCompleted"])
 		return self
 
 	Func setUploadFileCompletedEvent P1
-		dnRequest("setevent",[self,"UploadFileCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UploadFileCompleted",dnCallback(P1)])
 		return self
 
 	Func clearUploadFileCompletedEvent
-		dnRequest("clearevent",[self,"UploadFileCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadFileCompleted"])
 		return self
 
 	Func setUploadValuesCompletedEvent P1
-		dnRequest("setevent",[self,"UploadValuesCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UploadValuesCompleted",dnCallback(P1)])
 		return self
 
 	Func clearUploadValuesCompletedEvent
-		dnRequest("clearevent",[self,"UploadValuesCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadValuesCompleted"])
 		return self
 
 	Func setOpenReadCompletedEvent P1
-		dnRequest("setevent",[self,"OpenReadCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"OpenReadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearOpenReadCompletedEvent
-		dnRequest("clearevent",[self,"OpenReadCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"OpenReadCompleted"])
 		return self
 
 	Func setOpenWriteCompletedEvent P1
-		dnRequest("setevent",[self,"OpenWriteCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"OpenWriteCompleted",dnCallback(P1)])
 		return self
 
 	Func clearOpenWriteCompletedEvent
-		dnRequest("clearevent",[self,"OpenWriteCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"OpenWriteCompleted"])
 		return self
 
 	Func setDownloadProgressChangedEvent P1
-		dnRequest("setevent",[self,"DownloadProgressChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadProgressChanged",dnCallback(P1)])
 		return self
 
 	Func clearDownloadProgressChangedEvent
-		dnRequest("clearevent",[self,"DownloadProgressChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadProgressChanged"])
 		return self
 
 	Func setUploadProgressChangedEvent P1
-		dnRequest("setevent",[self,"UploadProgressChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UploadProgressChanged",dnCallback(P1)])
 		return self
 
 	Func clearUploadProgressChangedEvent
-		dnRequest("clearevent",[self,"UploadProgressChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadProgressChanged"])
 		return self
 
 	Func setWriteStreamClosedEvent P1
-		dnRequest("setevent",[self,"WriteStreamClosed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"WriteStreamClosed",dnCallback(P1)])
 		return self
 
 	Func clearWriteStreamClosedEvent
-		dnRequest("clearevent",[self,"WriteStreamClosed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"WriteStreamClosed"])
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[self,"Encoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
 
 	Func setEncoding P1
-		dnRequest("set",[self,"Encoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Encoding",P1])
 		return self
 
 	Func getBaseAddress
-		return dnRequest("get",[self,"BaseAddress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseAddress"])
 
 	Func setBaseAddress P1
-		dnRequest("set",[self,"BaseAddress",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseAddress",P1])
 		return self
 
 	Func getCredentials
-		return dnRequest("get",[self,"Credentials"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Credentials"])
 
 	Func setCredentials P1
-		dnRequest("set",[self,"Credentials",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
 		return self
 
 	Func getUseDefaultCredentials
-		return dnRequest("get",[self,"UseDefaultCredentials"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseDefaultCredentials"])
 
 	Func setUseDefaultCredentials P1
-		dnRequest("set",[self,"UseDefaultCredentials",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseDefaultCredentials",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
-		dnRequest("set",[self,"Headers",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Headers",P1])
 		return self
 
 	Func getQueryString
-		return dnRequest("get",[self,"QueryString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryString"])
 
 	Func setQueryString P1
-		dnRequest("set",[self,"QueryString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"QueryString",P1])
 		return self
 
 	Func getResponseHeaders
-		return dnRequest("get",[self,"ResponseHeaders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResponseHeaders"])
 
 	Func setResponseHeaders P1
 		raise("DotNet Error: ResponseHeaders is a read-only property")
 
 	Func getProxy
-		return dnRequest("get",[self,"Proxy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Proxy"])
 
 	Func setProxy P1
-		dnRequest("set",[self,"Proxy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Proxy",P1])
 		return self
 
 	Func getCachePolicy
-		return dnRequest("get",[self,"CachePolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CachePolicy"])
 
 	Func setCachePolicy P1
-		dnRequest("set",[self,"CachePolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CachePolicy",P1])
 		return self
 
 	Func getIsBusy
-		return dnRequest("get",[self,"IsBusy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBusy"])
 
 	Func setIsBusy P1
 		raise("DotNet Error: IsBusy is a read-only property")
 
 	Func getAllowReadStreamBuffering
-		return dnRequest("get",[self,"AllowReadStreamBuffering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowReadStreamBuffering"])
 
 	Func setAllowReadStreamBuffering P1
-		dnRequest("set",[self,"AllowReadStreamBuffering",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowReadStreamBuffering",P1])
 		return self
 
 	Func getAllowWriteStreamBuffering
-		return dnRequest("get",[self,"AllowWriteStreamBuffering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowWriteStreamBuffering"])
 
 	Func setAllowWriteStreamBuffering P1
-		dnRequest("set",[self,"AllowWriteStreamBuffering",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowWriteStreamBuffering",P1])
 		return self
 

@@ -22,54 +22,54 @@ Class ScrollProperties from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[self,"Enabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
 		return self
 
 	Func getLargeChange
-		return dnRequest("get",[self,"LargeChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LargeChange"])
 
 	Func setLargeChange P1
-		dnRequest("set",[self,"LargeChange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LargeChange",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[self,"Maximum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[self,"Maximum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[self,"Minimum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[self,"Minimum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
 		return self
 
 	Func getSmallChange
-		return dnRequest("get",[self,"SmallChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SmallChange"])
 
 	Func setSmallChange P1
-		dnRequest("set",[self,"SmallChange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SmallChange",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getVisible
-		return dnRequest("get",[self,"Visible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Visible"])
 
 	Func setVisible P1
-		dnRequest("set",[self,"Visible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Visible",P1])
 		return self
 

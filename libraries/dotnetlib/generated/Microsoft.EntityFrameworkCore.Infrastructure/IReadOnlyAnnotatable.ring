@@ -14,26 +14,26 @@ Class IReadOnlyAnnotatable from DotNetObject
 		return self
 
 	Func FindAnnotation P1
-		return dnRequest("call",[self,"FindAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindAnnotation",P1])
 
 	Func GetAnnotations 
-		return dnRequest("call",[self,"GetAnnotations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAnnotations"])
 
 	Func GetAnnotation P1
-		return dnRequest("call",[self,"GetAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAnnotation",P1])
 
 	Func AnnotationsToDebugString_1 P1
-		return dnRequest("call",[self,"AnnotationsToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AnnotationsToDebugString",P1])
 
 	Func AnnotationsToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AnnotationsToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AnnotationsToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AnnotationsToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AnnotationsToDebugString"])
 		ok
-		return dnRequest("call",[self,"AnnotationsToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AnnotationsToDebugString",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 

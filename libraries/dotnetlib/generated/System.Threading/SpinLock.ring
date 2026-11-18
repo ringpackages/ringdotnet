@@ -23,47 +23,47 @@ Class SpinLock from ValueType
 		return self
 
 	Func Enter P1
-		return dnRequest("call",[self,"Enter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Enter",P1])
 
 	Func TryEnter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryEnter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryEnter",P1])
 		ok
-		return dnRequest("call",[self,"TryEnter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryEnter",P1])
 
 	Func TryEnter_2 P1,P2
-		return dnRequest("call",[self,"TryEnter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryEnter",P1,P2])
 
 	Func Exit_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Exit",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Exit",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Exit"])
+			dnRequest("call",[new DotNetObject(nHandle),"Exit"])
 		return self
 		ok
-		dnRequest("call",[self,"Exit",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Exit",P1])
 		return self
 
 	Func Exit_1 P1
-		dnRequest("call",[self,"Exit",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Exit",P1])
 		return self
 
 	Func getIsHeld
-		return dnRequest("get",[self,"IsHeld"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsHeld"])
 
 	Func setIsHeld P1
 		raise("DotNet Error: IsHeld is a read-only property")
 
 	Func getIsHeldByCurrentThread
-		return dnRequest("get",[self,"IsHeldByCurrentThread"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsHeldByCurrentThread"])
 
 	Func setIsHeldByCurrentThread P1
 		raise("DotNet Error: IsHeldByCurrentThread is a read-only property")
 
 	Func getIsThreadOwnerTrackingEnabled
-		return dnRequest("get",[self,"IsThreadOwnerTrackingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsThreadOwnerTrackingEnabled"])
 
 	Func setIsThreadOwnerTrackingEnabled P1
 		raise("DotNet Error: IsThreadOwnerTrackingEnabled is a read-only property")

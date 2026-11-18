@@ -16,12 +16,12 @@ Class RegionData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
 
 	Func setData P1
-		dnRequest("set",[self,"Data",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Data",P1])
 		return self
 

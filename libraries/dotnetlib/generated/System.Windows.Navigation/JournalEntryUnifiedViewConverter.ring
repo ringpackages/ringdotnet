@@ -17,13 +17,13 @@ Class JournalEntryUnifiedViewConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnRequest("call",[self,"Convert",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3,P4])
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnRequest("call",[self,"ConvertBack",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertBack",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetJournalEntryPosition P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"GetJournalEntryPosition",P1])

@@ -20,65 +20,65 @@ Class Dispatcher from Object
 		return self
 
 	Func CheckAccess 
-		return dnRequest("call",[self,"CheckAccess"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CheckAccess"])
 
 	Func VerifyAccess 
-		dnRequest("call",[self,"VerifyAccess"])
+		dnRequest("call",[new DotNetObject(nHandle),"VerifyAccess"])
 		return self
 
 	Func BeginInvokeShutdown P1
-		dnRequest("call",[self,"BeginInvokeShutdown",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInvokeShutdown",P1])
 		return self
 
 	Func InvokeShutdown 
-		dnRequest("call",[self,"InvokeShutdown"])
+		dnRequest("call",[new DotNetObject(nHandle),"InvokeShutdown"])
 		return self
 
 	Func BeginInvoke P1,P2
-		return dnRequest("call",[self,"BeginInvoke",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1,P2])
 
 	Func BeginInvoke_3 P1,P2,P3
-		return dnRequest("call",[self,"BeginInvoke",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1,P2,P3])
 
 	Func BeginInvoke_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"BeginInvoke",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1,P2,P3,P4])
 
 	Func Invoke_1 P1
-		dnRequest("call",[self,"Invoke",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
 		return self
 
 	Func Invoke P1,P2
-		dnRequest("call",[self,"Invoke",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2])
 		return self
 
 	Func Invoke_3 P1,P2,P3
-		dnRequest("call",[self,"Invoke",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3])
 		return self
 
 	Func Invoke_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Invoke",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3,P4])
 		return self
 
 	Func InvokeAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"InvokeAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"InvokeAsync",P1])
 		ok
-		return dnRequest("call",[self,"InvokeAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"InvokeAsync",P1])
 
 	Func InvokeAsync_2 P1,P2
-		return dnRequest("call",[self,"InvokeAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InvokeAsync",P1,P2])
 
 	Func InvokeAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"InvokeAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"InvokeAsync",P1,P2,P3])
 
 	Func Invoke_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Invoke",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3,P4,P5])
 
 	Func DisableProcessing 
-		return dnRequest("call",[self,"DisableProcessing"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisableProcessing"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromThread P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"FromThread",P1])
@@ -112,57 +112,57 @@ Class Dispatcher from Object
 		return self
 
 	Func setShutdownStartedEvent P1
-		dnRequest("setevent",[self,"ShutdownStarted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ShutdownStarted",dnCallback(P1)])
 		return self
 
 	Func clearShutdownStartedEvent
-		dnRequest("clearevent",[self,"ShutdownStarted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ShutdownStarted"])
 		return self
 
 	Func setShutdownFinishedEvent P1
-		dnRequest("setevent",[self,"ShutdownFinished",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ShutdownFinished",dnCallback(P1)])
 		return self
 
 	Func clearShutdownFinishedEvent
-		dnRequest("clearevent",[self,"ShutdownFinished"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ShutdownFinished"])
 		return self
 
 	Func setUnhandledExceptionFilterEvent P1
-		dnRequest("setevent",[self,"UnhandledExceptionFilter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UnhandledExceptionFilter",dnCallback(P1)])
 		return self
 
 	Func clearUnhandledExceptionFilterEvent
-		dnRequest("clearevent",[self,"UnhandledExceptionFilter"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UnhandledExceptionFilter"])
 		return self
 
 	Func setUnhandledExceptionEvent P1
-		dnRequest("setevent",[self,"UnhandledException",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UnhandledException",dnCallback(P1)])
 		return self
 
 	Func clearUnhandledExceptionEvent
-		dnRequest("clearevent",[self,"UnhandledException"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UnhandledException"])
 		return self
 
 	Func getThread
-		return dnRequest("get",[self,"Thread"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Thread"])
 
 	Func setThread P1
 		raise("DotNet Error: Thread is a read-only property")
 
 	Func getHasShutdownStarted
-		return dnRequest("get",[self,"HasShutdownStarted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasShutdownStarted"])
 
 	Func setHasShutdownStarted P1
 		raise("DotNet Error: HasShutdownStarted is a read-only property")
 
 	Func getHasShutdownFinished
-		return dnRequest("get",[self,"HasShutdownFinished"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasShutdownFinished"])
 
 	Func setHasShutdownFinished P1
 		raise("DotNet Error: HasShutdownFinished is a read-only property")
 
 	Func getHooks
-		return dnRequest("get",[self,"Hooks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Hooks"])
 
 	Func setHooks P1
 		raise("DotNet Error: Hooks is a read-only property")

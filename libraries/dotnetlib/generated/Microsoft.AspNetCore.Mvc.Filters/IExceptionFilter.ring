@@ -14,6 +14,6 @@ Class IExceptionFilter from DotNetObject
 		return self
 
 	Func OnException P1
-		dnRequest("call",[self,"OnException",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnException",P1])
 		return self
 

@@ -14,5 +14,5 @@ Class ISqlAliasManagerFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnRequest("call",[self,"Create"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
 

@@ -16,7 +16,7 @@ Class IRaiseItemChangedEvents from DotNetObject
 		return self
 
 	Func getRaisesItemChangedEvents
-		return dnRequest("get",[self,"RaisesItemChangedEvents"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RaisesItemChangedEvents"])
 
 	Func setRaisesItemChangedEvents P1
 		raise("DotNet Error: RaisesItemChangedEvents is a read-only property")

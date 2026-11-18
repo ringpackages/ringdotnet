@@ -21,37 +21,37 @@ Class ProcessModule from Component
 		return self
 
 	Func getModuleName
-		return dnRequest("get",[self,"ModuleName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModuleName"])
 
 	Func setModuleName P1
 		raise("DotNet Error: ModuleName is a read-only property")
 
 	Func getFileName
-		return dnRequest("get",[self,"FileName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileName"])
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
 
 	Func getBaseAddress
-		return dnRequest("get",[self,"BaseAddress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseAddress"])
 
 	Func setBaseAddress P1
 		raise("DotNet Error: BaseAddress is a read-only property")
 
 	Func getModuleMemorySize
-		return dnRequest("get",[self,"ModuleMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModuleMemorySize"])
 
 	Func setModuleMemorySize P1
 		raise("DotNet Error: ModuleMemorySize is a read-only property")
 
 	Func getEntryPointAddress
-		return dnRequest("get",[self,"EntryPointAddress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntryPointAddress"])
 
 	Func setEntryPointAddress P1
 		raise("DotNet Error: EntryPointAddress is a read-only property")
 
 	Func getFileVersionInfo
-		return dnRequest("get",[self,"FileVersionInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileVersionInfo"])
 
 	Func setFileVersionInfo P1
 		raise("DotNet Error: FileVersionInfo is a read-only property")

@@ -42,80 +42,80 @@ Class StickyNoteControl from WpfControl
 		return self
 
 	Func getAuthor
-		return dnRequest("get",[self,"Author"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Author"])
 
 	Func setAuthor P1
 		raise("DotNet Error: Author is a read-only property")
 
 	Func getIsExpanded
-		return dnRequest("get",[self,"IsExpanded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsExpanded"])
 
 	Func setIsExpanded P1
-		dnRequest("set",[self,"IsExpanded",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsExpanded",P1])
 		return self
 
 	Func getIsActive
-		return dnRequest("get",[self,"IsActive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsActive"])
 
 	Func setIsActive P1
 		raise("DotNet Error: IsActive is a read-only property")
 
 	Func getIsMouseOverAnchor
-		return dnRequest("get",[self,"IsMouseOverAnchor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseOverAnchor"])
 
 	Func setIsMouseOverAnchor P1
 		raise("DotNet Error: IsMouseOverAnchor is a read-only property")
 
 	Func getCaptionFontFamily
-		return dnRequest("get",[self,"CaptionFontFamily"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaptionFontFamily"])
 
 	Func setCaptionFontFamily P1
-		dnRequest("set",[self,"CaptionFontFamily",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaptionFontFamily",P1])
 		return self
 
 	Func getCaptionFontSize
-		return dnRequest("get",[self,"CaptionFontSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaptionFontSize"])
 
 	Func setCaptionFontSize P1
-		dnRequest("set",[self,"CaptionFontSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaptionFontSize",P1])
 		return self
 
 	Func getCaptionFontStretch
-		return dnRequest("get",[self,"CaptionFontStretch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaptionFontStretch"])
 
 	Func setCaptionFontStretch P1
-		dnRequest("set",[self,"CaptionFontStretch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaptionFontStretch",P1])
 		return self
 
 	Func getCaptionFontStyle
-		return dnRequest("get",[self,"CaptionFontStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaptionFontStyle"])
 
 	Func setCaptionFontStyle P1
-		dnRequest("set",[self,"CaptionFontStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaptionFontStyle",P1])
 		return self
 
 	Func getCaptionFontWeight
-		return dnRequest("get",[self,"CaptionFontWeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaptionFontWeight"])
 
 	Func setCaptionFontWeight P1
-		dnRequest("set",[self,"CaptionFontWeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaptionFontWeight",P1])
 		return self
 
 	Func getPenWidth
-		return dnRequest("get",[self,"PenWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PenWidth"])
 
 	Func setPenWidth P1
-		dnRequest("set",[self,"PenWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PenWidth",P1])
 		return self
 
 	Func getStickyNoteType
-		return dnRequest("get",[self,"StickyNoteType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StickyNoteType"])
 
 	Func setStickyNoteType P1
 		raise("DotNet Error: StickyNoteType is a read-only property")
 
 	Func getAnchorInfo
-		return dnRequest("get",[self,"AnchorInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AnchorInfo"])
 
 	Func setAnchorInfo P1
 		raise("DotNet Error: AnchorInfo is a read-only property")

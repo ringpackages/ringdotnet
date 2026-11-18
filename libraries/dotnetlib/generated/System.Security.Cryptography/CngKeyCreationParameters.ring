@@ -23,53 +23,53 @@ Class CngKeyCreationParameters from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExportPolicy
-		return dnRequest("get",[self,"ExportPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExportPolicy"])
 
 	Func setExportPolicy P1
-		dnRequest("set",[self,"ExportPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExportPolicy",P1])
 		return self
 
 	Func getKeyCreationOptions
-		return dnRequest("get",[self,"KeyCreationOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyCreationOptions"])
 
 	Func setKeyCreationOptions P1
-		dnRequest("set",[self,"KeyCreationOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyCreationOptions",P1])
 		return self
 
 	Func getKeyUsage
-		return dnRequest("get",[self,"KeyUsage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyUsage"])
 
 	Func setKeyUsage P1
-		dnRequest("set",[self,"KeyUsage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyUsage",P1])
 		return self
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getParentWindowHandle
-		return dnRequest("get",[self,"ParentWindowHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParentWindowHandle"])
 
 	Func setParentWindowHandle P1
-		dnRequest("set",[self,"ParentWindowHandle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ParentWindowHandle",P1])
 		return self
 
 	Func getProvider
-		return dnRequest("get",[self,"Provider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Provider"])
 
 	Func setProvider P1
-		dnRequest("set",[self,"Provider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Provider",P1])
 		return self
 
 	Func getUIPolicy
-		return dnRequest("get",[self,"UIPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UIPolicy"])
 
 	Func setUIPolicy P1
-		dnRequest("set",[self,"UIPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UIPolicy",P1])
 		return self
 

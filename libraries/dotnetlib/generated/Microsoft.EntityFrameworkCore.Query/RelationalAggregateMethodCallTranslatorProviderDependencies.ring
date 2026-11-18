@@ -19,26 +19,26 @@ Class RelationalAggregateMethodCallTranslatorProviderDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSqlExpressionFactory
-		return dnRequest("get",[self,"SqlExpressionFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SqlExpressionFactory"])
 
 	Func setSqlExpressionFactory P1
-		dnRequest("set",[self,"SqlExpressionFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SqlExpressionFactory",P1])
 		return self
 
 	Func getPlugins
-		return dnRequest("get",[self,"Plugins"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Plugins"])
 
 	Func setPlugins P1
-		dnRequest("set",[self,"Plugins",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Plugins",P1])
 		return self
 
 	Func getRelationalTypeMappingSource
-		return dnRequest("get",[self,"RelationalTypeMappingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalTypeMappingSource"])
 
 	Func setRelationalTypeMappingSource P1
-		dnRequest("set",[self,"RelationalTypeMappingSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RelationalTypeMappingSource",P1])
 		return self
 

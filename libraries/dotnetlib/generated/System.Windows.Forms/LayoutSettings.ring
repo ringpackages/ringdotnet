@@ -16,10 +16,10 @@ Class LayoutSettings from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLayoutEngine
-		return dnRequest("get",[self,"LayoutEngine"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LayoutEngine"])
 
 	Func setLayoutEngine P1
 		raise("DotNet Error: LayoutEngine is a read-only property")

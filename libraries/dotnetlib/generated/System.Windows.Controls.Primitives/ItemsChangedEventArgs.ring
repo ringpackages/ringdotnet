@@ -20,31 +20,31 @@ Class ItemsChangedEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnRequest("get",[self,"Action"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Action"])
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[self,"Position"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
 
 	Func setPosition P1
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getOldPosition
-		return dnRequest("get",[self,"OldPosition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldPosition"])
 
 	Func setOldPosition P1
 		raise("DotNet Error: OldPosition is a read-only property")
 
 	Func getItemCount
-		return dnRequest("get",[self,"ItemCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemCount"])
 
 	Func setItemCount P1
 		raise("DotNet Error: ItemCount is a read-only property")
 
 	Func getItemUICount
-		return dnRequest("get",[self,"ItemUICount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemUICount"])
 
 	Func setItemUICount P1
 		raise("DotNet Error: ItemUICount is a read-only property")

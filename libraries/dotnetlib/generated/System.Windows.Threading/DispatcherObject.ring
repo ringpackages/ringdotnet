@@ -16,17 +16,17 @@ Class DispatcherObject from Object
 		return self
 
 	Func CheckAccess 
-		return dnRequest("call",[self,"CheckAccess"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CheckAccess"])
 
 	Func VerifyAccess 
-		dnRequest("call",[self,"VerifyAccess"])
+		dnRequest("call",[new DotNetObject(nHandle),"VerifyAccess"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDispatcher
-		return dnRequest("get",[self,"Dispatcher"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Dispatcher"])
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")

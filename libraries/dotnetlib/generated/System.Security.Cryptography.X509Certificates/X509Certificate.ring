@@ -32,104 +32,104 @@ Class X509Certificate from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Export P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Export",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Export",P1])
 		ok
-		return dnRequest("call",[self,"Export",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Export",P1])
 
 	Func Export_2 P1,P2
-		return dnRequest("call",[self,"Export",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Export",P1,P2])
 
 	Func GetRawCertDataString 
-		return dnRequest("call",[self,"GetRawCertDataString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRawCertDataString"])
 
 	Func GetCertHash P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCertHash",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCertHash",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetCertHash"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetCertHash"])
 		ok
-		return dnRequest("call",[self,"GetCertHash",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCertHash",P1])
 
 	Func GetCertHash_1 P1
-		return dnRequest("call",[self,"GetCertHash",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCertHash",P1])
 
 	Func GetCertHashString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCertHashString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCertHashString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetCertHashString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetCertHashString"])
 		ok
-		return dnRequest("call",[self,"GetCertHashString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCertHashString",P1])
 
 	Func GetCertHashString_1 P1
-		return dnRequest("call",[self,"GetCertHashString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCertHashString",P1])
 
 	Func GetEffectiveDateString 
-		return dnRequest("call",[self,"GetEffectiveDateString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEffectiveDateString"])
 
 	Func GetExpirationDateString 
-		return dnRequest("call",[self,"GetExpirationDateString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetExpirationDateString"])
 
 	Func GetFormat 
-		return dnRequest("call",[self,"GetFormat"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFormat"])
 
 	Func GetPublicKeyString 
-		return dnRequest("call",[self,"GetPublicKeyString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPublicKeyString"])
 
 	Func GetRawCertData 
-		return dnRequest("call",[self,"GetRawCertData"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRawCertData"])
 
 	Func GetKeyAlgorithm 
-		return dnRequest("call",[self,"GetKeyAlgorithm"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyAlgorithm"])
 
 	Func GetKeyAlgorithmParameters 
-		return dnRequest("call",[self,"GetKeyAlgorithmParameters"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyAlgorithmParameters"])
 
 	Func GetKeyAlgorithmParametersString 
-		return dnRequest("call",[self,"GetKeyAlgorithmParametersString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyAlgorithmParametersString"])
 
 	Func GetPublicKey 
-		return dnRequest("call",[self,"GetPublicKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPublicKey"])
 
 	Func GetSerialNumber 
-		return dnRequest("call",[self,"GetSerialNumber"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSerialNumber"])
 
 	Func GetSerialNumberString 
-		return dnRequest("call",[self,"GetSerialNumberString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSerialNumberString"])
 
 	Func GetName 
-		return dnRequest("call",[self,"GetName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetName"])
 
 	Func GetIssuerName 
-		return dnRequest("call",[self,"GetIssuerName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIssuerName"])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Import_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Import",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Import",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Import",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Import",P1])
 		return self
 
 	Func Import_3 P1,P2,P3
-		dnRequest("call",[self,"Import",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Import",P1,P2,P3])
 		return self
 
 	Func CreateFromCertFile P1
@@ -139,25 +139,25 @@ Class X509Certificate from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography'),"CreateFromSignedFile",P1])
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getIssuer
-		return dnRequest("get",[self,"Issuer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Issuer"])
 
 	Func setIssuer P1
 		raise("DotNet Error: Issuer is a read-only property")
 
 	Func getSubject
-		return dnRequest("get",[self,"Subject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Subject"])
 
 	Func setSubject P1
 		raise("DotNet Error: Subject is a read-only property")
 
 	Func getSerialNumberBytes
-		return dnRequest("get",[self,"SerialNumberBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SerialNumberBytes"])
 
 	Func setSerialNumberBytes P1
 		raise("DotNet Error: SerialNumberBytes is a read-only property")

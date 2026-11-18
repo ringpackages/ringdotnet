@@ -18,13 +18,13 @@ Class StateChangeEventArgs from EventArgs
 		return self
 
 	Func getCurrentState
-		return dnRequest("get",[self,"CurrentState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentState"])
 
 	Func setCurrentState P1
 		raise("DotNet Error: CurrentState is a read-only property")
 
 	Func getOriginalState
-		return dnRequest("get",[self,"OriginalState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalState"])
 
 	Func setOriginalState P1
 		raise("DotNet Error: OriginalState is a read-only property")

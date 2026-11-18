@@ -14,5 +14,5 @@ Class IEnumerableValueProvider from DotNetObject
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnRequest("call",[self,"GetKeysFromPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeysFromPrefix",P1])
 

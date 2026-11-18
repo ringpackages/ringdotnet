@@ -15,11 +15,11 @@ Class ModelSource from Object
 		return self
 
 	Func GetModel P1,P2,P3
-		return dnRequest("call",[self,"GetModel",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetModel",P1,P2,P3])
 
 	Func CreateModel P1,P2,P3
-		return dnRequest("call",[self,"CreateModel",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateModel",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

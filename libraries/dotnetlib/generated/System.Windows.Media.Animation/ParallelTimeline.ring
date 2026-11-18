@@ -30,10 +30,10 @@ Class ParallelTimeline from TimelineGroup
 		return self
 
 	Func getSlipBehavior
-		return dnRequest("get",[self,"SlipBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SlipBehavior"])
 
 	Func setSlipBehavior P1
-		dnRequest("set",[self,"SlipBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SlipBehavior",P1])
 		return self
 
 	Func getSlipBehaviorProperty

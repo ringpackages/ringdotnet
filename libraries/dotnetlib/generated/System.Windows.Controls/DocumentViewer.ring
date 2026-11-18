@@ -54,182 +54,182 @@ Class DocumentViewer from DocumentViewerBase
 		return self
 
 	Func ViewThumbnails 
-		dnRequest("call",[self,"ViewThumbnails"])
+		dnRequest("call",[new DotNetObject(nHandle),"ViewThumbnails"])
 		return self
 
 	Func FitToWidth 
-		dnRequest("call",[self,"FitToWidth"])
+		dnRequest("call",[new DotNetObject(nHandle),"FitToWidth"])
 		return self
 
 	Func FitToHeight 
-		dnRequest("call",[self,"FitToHeight"])
+		dnRequest("call",[new DotNetObject(nHandle),"FitToHeight"])
 		return self
 
 	Func FitToMaxPagesAcross P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"FitToMaxPagesAcross",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"FitToMaxPagesAcross",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"FitToMaxPagesAcross"])
+			dnRequest("call",[new DotNetObject(nHandle),"FitToMaxPagesAcross"])
 		return self
 		ok
-		dnRequest("call",[self,"FitToMaxPagesAcross",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"FitToMaxPagesAcross",P1])
 		return self
 
 	Func FitToMaxPagesAcross_1 P1
-		dnRequest("call",[self,"FitToMaxPagesAcross",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"FitToMaxPagesAcross",P1])
 		return self
 
 	Func Find 
-		dnRequest("call",[self,"Find"])
+		dnRequest("call",[new DotNetObject(nHandle),"Find"])
 		return self
 
 	Func ScrollPageUp 
-		dnRequest("call",[self,"ScrollPageUp"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollPageUp"])
 		return self
 
 	Func ScrollPageDown 
-		dnRequest("call",[self,"ScrollPageDown"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollPageDown"])
 		return self
 
 	Func ScrollPageLeft 
-		dnRequest("call",[self,"ScrollPageLeft"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollPageLeft"])
 		return self
 
 	Func ScrollPageRight 
-		dnRequest("call",[self,"ScrollPageRight"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollPageRight"])
 		return self
 
 	Func MoveUp 
-		dnRequest("call",[self,"MoveUp"])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveUp"])
 		return self
 
 	Func MoveDown 
-		dnRequest("call",[self,"MoveDown"])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveDown"])
 		return self
 
 	Func MoveLeft 
-		dnRequest("call",[self,"MoveLeft"])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveLeft"])
 		return self
 
 	Func MoveRight 
-		dnRequest("call",[self,"MoveRight"])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveRight"])
 		return self
 
 	Func IncreaseZoom 
-		dnRequest("call",[self,"IncreaseZoom"])
+		dnRequest("call",[new DotNetObject(nHandle),"IncreaseZoom"])
 		return self
 
 	Func DecreaseZoom 
-		dnRequest("call",[self,"DecreaseZoom"])
+		dnRequest("call",[new DotNetObject(nHandle),"DecreaseZoom"])
 		return self
 
 	Func getHorizontalOffset
-		return dnRequest("get",[self,"HorizontalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
 
 	Func setHorizontalOffset P1
-		dnRequest("set",[self,"HorizontalOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HorizontalOffset",P1])
 		return self
 
 	Func getVerticalOffset
-		return dnRequest("get",[self,"VerticalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
 
 	Func setVerticalOffset P1
-		dnRequest("set",[self,"VerticalOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VerticalOffset",P1])
 		return self
 
 	Func getExtentWidth
-		return dnRequest("get",[self,"ExtentWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentWidth"])
 
 	Func setExtentWidth P1
 		raise("DotNet Error: ExtentWidth is a read-only property")
 
 	Func getExtentHeight
-		return dnRequest("get",[self,"ExtentHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentHeight"])
 
 	Func setExtentHeight P1
 		raise("DotNet Error: ExtentHeight is a read-only property")
 
 	Func getViewportWidth
-		return dnRequest("get",[self,"ViewportWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportWidth"])
 
 	Func setViewportWidth P1
 		raise("DotNet Error: ViewportWidth is a read-only property")
 
 	Func getViewportHeight
-		return dnRequest("get",[self,"ViewportHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportHeight"])
 
 	Func setViewportHeight P1
 		raise("DotNet Error: ViewportHeight is a read-only property")
 
 	Func getShowPageBorders
-		return dnRequest("get",[self,"ShowPageBorders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowPageBorders"])
 
 	Func setShowPageBorders P1
-		dnRequest("set",[self,"ShowPageBorders",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowPageBorders",P1])
 		return self
 
 	Func getZoom
-		return dnRequest("get",[self,"Zoom"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Zoom"])
 
 	Func setZoom P1
-		dnRequest("set",[self,"Zoom",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Zoom",P1])
 		return self
 
 	Func getMaxPagesAcross
-		return dnRequest("get",[self,"MaxPagesAcross"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxPagesAcross"])
 
 	Func setMaxPagesAcross P1
-		dnRequest("set",[self,"MaxPagesAcross",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxPagesAcross",P1])
 		return self
 
 	Func getVerticalPageSpacing
-		return dnRequest("get",[self,"VerticalPageSpacing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalPageSpacing"])
 
 	Func setVerticalPageSpacing P1
-		dnRequest("set",[self,"VerticalPageSpacing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VerticalPageSpacing",P1])
 		return self
 
 	Func getHorizontalPageSpacing
-		return dnRequest("get",[self,"HorizontalPageSpacing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalPageSpacing"])
 
 	Func setHorizontalPageSpacing P1
-		dnRequest("set",[self,"HorizontalPageSpacing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HorizontalPageSpacing",P1])
 		return self
 
 	Func getCanMoveUp
-		return dnRequest("get",[self,"CanMoveUp"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanMoveUp"])
 
 	Func setCanMoveUp P1
 		raise("DotNet Error: CanMoveUp is a read-only property")
 
 	Func getCanMoveDown
-		return dnRequest("get",[self,"CanMoveDown"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanMoveDown"])
 
 	Func setCanMoveDown P1
 		raise("DotNet Error: CanMoveDown is a read-only property")
 
 	Func getCanMoveLeft
-		return dnRequest("get",[self,"CanMoveLeft"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanMoveLeft"])
 
 	Func setCanMoveLeft P1
 		raise("DotNet Error: CanMoveLeft is a read-only property")
 
 	Func getCanMoveRight
-		return dnRequest("get",[self,"CanMoveRight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanMoveRight"])
 
 	Func setCanMoveRight P1
 		raise("DotNet Error: CanMoveRight is a read-only property")
 
 	Func getCanIncreaseZoom
-		return dnRequest("get",[self,"CanIncreaseZoom"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanIncreaseZoom"])
 
 	Func setCanIncreaseZoom P1
 		raise("DotNet Error: CanIncreaseZoom is a read-only property")
 
 	Func getCanDecreaseZoom
-		return dnRequest("get",[self,"CanDecreaseZoom"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanDecreaseZoom"])
 
 	Func setCanDecreaseZoom P1
 		raise("DotNet Error: CanDecreaseZoom is a read-only property")

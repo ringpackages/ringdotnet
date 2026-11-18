@@ -25,90 +25,90 @@ Class BinaryReader from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func PeekChar 
-		return dnRequest("call",[self,"PeekChar"])
+		return dnRequest("call",[new DotNetObject(nHandle),"PeekChar"])
 
 	Func Read P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Read",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Read",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Read"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Read"])
 		ok
 		raise("DotNet Error: Read does not take one argument: use Read(NULL), Read_N(...) or named arguments")
 
 	Func ReadByte 
-		return dnRequest("call",[self,"ReadByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadByte"])
 
 	Func ReadSByte 
-		return dnRequest("call",[self,"ReadSByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadSByte"])
 
 	Func ReadBoolean 
-		return dnRequest("call",[self,"ReadBoolean"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadBoolean"])
 
 	Func ReadChar 
-		return dnRequest("call",[self,"ReadChar"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadChar"])
 
 	Func ReadInt16 
-		return dnRequest("call",[self,"ReadInt16"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt16"])
 
 	Func ReadUInt16 
-		return dnRequest("call",[self,"ReadUInt16"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt16"])
 
 	Func ReadInt32 
-		return dnRequest("call",[self,"ReadInt32"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt32"])
 
 	Func ReadUInt32 
-		return dnRequest("call",[self,"ReadUInt32"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt32"])
 
 	Func ReadInt64 
-		return dnRequest("call",[self,"ReadInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt64"])
 
 	Func ReadUInt64 
-		return dnRequest("call",[self,"ReadUInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt64"])
 
 	Func ReadHalf 
-		return dnRequest("call",[self,"ReadHalf"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadHalf"])
 
 	Func ReadSingle 
-		return dnRequest("call",[self,"ReadSingle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadSingle"])
 
 	Func ReadDouble 
-		return dnRequest("call",[self,"ReadDouble"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadDouble"])
 
 	Func ReadDecimal 
-		return dnRequest("call",[self,"ReadDecimal"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadDecimal"])
 
 	Func ReadString 
-		return dnRequest("call",[self,"ReadString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadString"])
 
 	Func Read_3 P1,P2,P3
-		return dnRequest("call",[self,"Read",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1,P2,P3])
 
 	Func ReadChars P1
-		return dnRequest("call",[self,"ReadChars",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadChars",P1])
 
 	Func ReadBytes P1
-		return dnRequest("call",[self,"ReadBytes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadBytes",P1])
 
 	Func Read7BitEncodedInt 
-		return dnRequest("call",[self,"Read7BitEncodedInt"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read7BitEncodedInt"])
 
 	Func Read7BitEncodedInt64 
-		return dnRequest("call",[self,"Read7BitEncodedInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read7BitEncodedInt64"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseStream"])
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")

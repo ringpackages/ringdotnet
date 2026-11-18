@@ -31,26 +31,26 @@ Class PropertyMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDefaultValue
-		return dnRequest("get",[self,"DefaultValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultValue"])
 
 	Func setDefaultValue P1
-		dnRequest("set",[self,"DefaultValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultValue",P1])
 		return self
 
 	Func getPropertyChangedCallback
-		return dnRequest("get",[self,"PropertyChangedCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyChangedCallback"])
 
 	Func setPropertyChangedCallback P1
-		dnRequest("set",[self,"PropertyChangedCallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PropertyChangedCallback",P1])
 		return self
 
 	Func getCoerceValueCallback
-		return dnRequest("get",[self,"CoerceValueCallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CoerceValueCallback"])
 
 	Func setCoerceValueCallback P1
-		dnRequest("set",[self,"CoerceValueCallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CoerceValueCallback",P1])
 		return self
 

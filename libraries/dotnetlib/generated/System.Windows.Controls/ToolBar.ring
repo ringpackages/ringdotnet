@@ -46,34 +46,34 @@ Class ToolBar from HeaderedItemsControl
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ToolBar, PresentationFramework'),"GetOverflowMode",P1])
 
 	Func getOrientation
-		return dnRequest("get",[self,"Orientation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
 
 	Func setOrientation P1
 		raise("DotNet Error: Orientation is a read-only property")
 
 	Func getBand
-		return dnRequest("get",[self,"Band"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Band"])
 
 	Func setBand P1
-		dnRequest("set",[self,"Band",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Band",P1])
 		return self
 
 	Func getBandIndex
-		return dnRequest("get",[self,"BandIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BandIndex"])
 
 	Func setBandIndex P1
-		dnRequest("set",[self,"BandIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BandIndex",P1])
 		return self
 
 	Func getIsOverflowOpen
-		return dnRequest("get",[self,"IsOverflowOpen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOverflowOpen"])
 
 	Func setIsOverflowOpen P1
-		dnRequest("set",[self,"IsOverflowOpen",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsOverflowOpen",P1])
 		return self
 
 	Func getHasOverflowItems
-		return dnRequest("get",[self,"HasOverflowItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasOverflowItems"])
 
 	Func setHasOverflowItems P1
 		raise("DotNet Error: HasOverflowItems is a read-only property")

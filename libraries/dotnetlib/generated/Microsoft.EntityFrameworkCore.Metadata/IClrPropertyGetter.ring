@@ -14,14 +14,14 @@ Class IClrPropertyGetter from DotNetObject
 		return self
 
 	Func GetClrValueUsingContainingEntity P1
-		return dnRequest("call",[self,"GetClrValueUsingContainingEntity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetClrValueUsingContainingEntity",P1])
 
 	Func HasSentinelUsingContainingEntity P1
-		return dnRequest("call",[self,"HasSentinelUsingContainingEntity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSentinelUsingContainingEntity",P1])
 
 	Func GetClrValue P1
-		return dnRequest("call",[self,"GetClrValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetClrValue",P1])
 
 	Func HasSentinel P1
-		return dnRequest("call",[self,"HasSentinel",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSentinel",P1])
 

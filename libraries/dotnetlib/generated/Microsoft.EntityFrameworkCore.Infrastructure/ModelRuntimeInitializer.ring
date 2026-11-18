@@ -15,17 +15,17 @@ Class ModelRuntimeInitializer from Object
 		return self
 
 	Func Initialize_3 P1,P2,P3
-		return dnRequest("call",[self,"Initialize",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1,P2,P3])
 
 	Func Initialize_2 P1,P2
-		return dnRequest("call",[self,"Initialize",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1,P2])
 
 	Func Initialize P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Initialize",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Initialize",P1])
 		ok
-		return dnRequest("call",[self,"Initialize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

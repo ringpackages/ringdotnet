@@ -34,24 +34,24 @@ Class CombinedGeometry from Geometry
 		return self
 
 	Func getGeometryCombineMode
-		return dnRequest("get",[self,"GeometryCombineMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GeometryCombineMode"])
 
 	Func setGeometryCombineMode P1
-		dnRequest("set",[self,"GeometryCombineMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GeometryCombineMode",P1])
 		return self
 
 	Func getGeometry1
-		return dnRequest("get",[self,"Geometry1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Geometry1"])
 
 	Func setGeometry1 P1
-		dnRequest("set",[self,"Geometry1",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Geometry1",P1])
 		return self
 
 	Func getGeometry2
-		return dnRequest("get",[self,"Geometry2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Geometry2"])
 
 	Func setGeometry2 P1
-		dnRequest("set",[self,"Geometry2",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Geometry2",P1])
 		return self
 
 	Func getGeometryCombineModeProperty

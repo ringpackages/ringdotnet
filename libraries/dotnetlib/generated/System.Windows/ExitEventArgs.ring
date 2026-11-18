@@ -16,9 +16,9 @@ Class ExitEventArgs from EventArgs
 		return self
 
 	Func getApplicationExitCode
-		return dnRequest("get",[self,"ApplicationExitCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationExitCode"])
 
 	Func setApplicationExitCode P1
-		dnRequest("set",[self,"ApplicationExitCode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ApplicationExitCode",P1])
 		return self
 

@@ -17,7 +17,7 @@ Class DependencyInjectionMethodParameterBinding from DependencyInjectionParamete
 		return self
 
 	Func getMethod
-		return dnRequest("get",[self,"Method"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Method"])
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")

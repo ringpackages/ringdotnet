@@ -16,9 +16,9 @@ Class IServiceProvidersFeature from DotNetObject
 		return self
 
 	Func getRequestServices
-		return dnRequest("get",[self,"RequestServices"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestServices"])
 
 	Func setRequestServices P1
-		dnRequest("set",[self,"RequestServices",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestServices",P1])
 		return self
 

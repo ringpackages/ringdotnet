@@ -14,6 +14,6 @@ Class IClrPropertySetter from DotNetObject
 		return self
 
 	Func SetClrValue P1,P2
-		dnRequest("call",[self,"SetClrValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetClrValue",P1,P2])
 		return self
 

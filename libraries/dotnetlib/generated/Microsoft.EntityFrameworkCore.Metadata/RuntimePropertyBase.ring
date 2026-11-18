@@ -18,43 +18,43 @@ Class RuntimePropertyBase from RuntimeAnnotatableBase
 		return self
 
 	Func SetPropertyIndexes P1,P2,P3,P4,P5
-		dnRequest("call",[self,"SetPropertyIndexes",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPropertyIndexes",P1,P2,P3,P4,P5])
 		return self
 
 	Func SetAccessors P1,P2,P3,P4,P5
-		dnRequest("call",[self,"SetAccessors",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAccessors",P1,P2,P3,P4,P5])
 		return self
 
 	Func SetMaterializationSetter P1
-		dnRequest("call",[self,"SetMaterializationSetter",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetMaterializationSetter",P1])
 		return self
 
 	Func SetSetter P1
-		dnRequest("call",[self,"SetSetter",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSetter",P1])
 		return self
 
 	Func SetGetter P1,P2,P3,P4
-		dnRequest("call",[self,"SetGetter",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"SetGetter",P1,P2,P3,P4])
 		return self
 
 	Func SetCurrentValueComparer P1
-		dnRequest("call",[self,"SetCurrentValueComparer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCurrentValueComparer",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDeclaringType
-		return dnRequest("get",[self,"DeclaringType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringType"])
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getSentinel
-		return dnRequest("get",[self,"Sentinel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sentinel"])
 
 	Func setSentinel P1
 		raise("DotNet Error: Sentinel is a read-only property")

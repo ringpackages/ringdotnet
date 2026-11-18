@@ -15,8 +15,8 @@ Class HtmlDirectoryFormatter from Object
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnRequest("call",[self,"GenerateContentAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateContentAsync",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

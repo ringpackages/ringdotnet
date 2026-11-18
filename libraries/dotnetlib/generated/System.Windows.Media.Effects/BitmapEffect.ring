@@ -14,5 +14,5 @@ Class BitmapEffect from Animatable
 		return self
 
 	Func GetOutput P1
-		return dnRequest("call",[self,"GetOutput",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOutput",P1])
 

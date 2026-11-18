@@ -18,25 +18,25 @@ Class EndpointMetadataCollection from Object
 		return self
 
 	Func GetMetadata 
-		return dnRequest("call",[self,"GetMetadata"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadata"])
 
 	Func GetOrderedMetadata 
-		return dnRequest("call",[self,"GetOrderedMetadata"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrderedMetadata"])
 
 	Func GetRequiredMetadata 
-		return dnRequest("call",[self,"GetRequiredMetadata"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRequiredMetadata"])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

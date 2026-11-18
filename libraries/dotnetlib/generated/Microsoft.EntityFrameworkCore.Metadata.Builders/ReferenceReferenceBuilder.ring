@@ -15,26 +15,26 @@ Class ReferenceReferenceBuilder from InvertibleRelationshipBuilderBase
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func HasForeignKey P1,P2
-		return dnRequest("call",[self,"HasForeignKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasForeignKey",P1,P2])
 
 	Func HasPrincipalKey P1,P2
-		return dnRequest("call",[self,"HasPrincipalKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasPrincipalKey",P1,P2])
 
 	Func IsRequired_1 P1
-		return dnRequest("call",[self,"IsRequired",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsRequired",P1])
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsRequired",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsRequired",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsRequired"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsRequired"])
 		ok
-		return dnRequest("call",[self,"IsRequired",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsRequired",P1])
 
 	Func OnDelete P1
-		return dnRequest("call",[self,"OnDelete",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnDelete",P1])
 

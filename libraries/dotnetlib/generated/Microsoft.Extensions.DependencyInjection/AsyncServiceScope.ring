@@ -21,14 +21,14 @@ Class AsyncServiceScope from ValueType
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func getServiceProvider
-		return dnRequest("get",[self,"ServiceProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceProvider"])
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")

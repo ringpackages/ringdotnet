@@ -17,10 +17,10 @@ Class DefinitionBase from FrameworkContentElement
 		return self
 
 	Func getSharedSizeGroup
-		return dnRequest("get",[self,"SharedSizeGroup"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SharedSizeGroup"])
 
 	Func setSharedSizeGroup P1
-		dnRequest("set",[self,"SharedSizeGroup",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SharedSizeGroup",P1])
 		return self
 
 	Func getSharedSizeGroupProperty

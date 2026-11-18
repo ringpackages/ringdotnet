@@ -20,30 +20,30 @@ Class CreatedAtActionResult from ObjectResult
 		return self
 
 	Func getUrlHelper
-		return dnRequest("get",[self,"UrlHelper"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UrlHelper"])
 
 	Func setUrlHelper P1
-		dnRequest("set",[self,"UrlHelper",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UrlHelper",P1])
 		return self
 
 	Func getActionName
-		return dnRequest("get",[self,"ActionName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActionName"])
 
 	Func setActionName P1
-		dnRequest("set",[self,"ActionName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ActionName",P1])
 		return self
 
 	Func getControllerName
-		return dnRequest("get",[self,"ControllerName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ControllerName"])
 
 	Func setControllerName P1
-		dnRequest("set",[self,"ControllerName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ControllerName",P1])
 		return self
 
 	Func getRouteValues
-		return dnRequest("get",[self,"RouteValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteValues"])
 
 	Func setRouteValues P1
-		dnRequest("set",[self,"RouteValues",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RouteValues",P1])
 		return self
 

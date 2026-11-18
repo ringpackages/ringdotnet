@@ -14,5 +14,5 @@ Class IAuthorizationMiddlewareResultHandler from DotNetObject
 		return self
 
 	Func HandleAsync P1,P2,P3,P4
-		return dnRequest("call",[self,"HandleAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"HandleAsync",P1,P2,P3,P4])
 

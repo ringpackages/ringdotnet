@@ -41,93 +41,93 @@ Class ToolStripSplitButton from ToolStripDropDownItem
 		return self
 
 	Func OnButtonDoubleClick P1
-		dnRequest("call",[self,"OnButtonDoubleClick",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnButtonDoubleClick",P1])
 		return self
 
 	Func PerformButtonClick 
-		dnRequest("call",[self,"PerformButtonClick"])
+		dnRequest("call",[new DotNetObject(nHandle),"PerformButtonClick"])
 		return self
 
 	Func ResetDropDownButtonWidth 
-		dnRequest("call",[self,"ResetDropDownButtonWidth"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetDropDownButtonWidth"])
 		return self
 
 	Func setButtonClickEvent P1
-		dnRequest("setevent",[self,"ButtonClick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ButtonClick",dnCallback(P1)])
 		return self
 
 	Func clearButtonClickEvent
-		dnRequest("clearevent",[self,"ButtonClick"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ButtonClick"])
 		return self
 
 	Func setButtonDoubleClickEvent P1
-		dnRequest("setevent",[self,"ButtonDoubleClick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ButtonDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearButtonDoubleClickEvent
-		dnRequest("clearevent",[self,"ButtonDoubleClick"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ButtonDoubleClick"])
 		return self
 
 	Func setDefaultItemChangedEvent P1
-		dnRequest("setevent",[self,"DefaultItemChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DefaultItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearDefaultItemChangedEvent
-		dnRequest("clearevent",[self,"DefaultItemChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DefaultItemChanged"])
 		return self
 
 	Func getButtonBounds
-		return dnRequest("get",[self,"ButtonBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ButtonBounds"])
 
 	Func setButtonBounds P1
 		raise("DotNet Error: ButtonBounds is a read-only property")
 
 	Func getButtonPressed
-		return dnRequest("get",[self,"ButtonPressed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ButtonPressed"])
 
 	Func setButtonPressed P1
 		raise("DotNet Error: ButtonPressed is a read-only property")
 
 	Func getButtonSelected
-		return dnRequest("get",[self,"ButtonSelected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ButtonSelected"])
 
 	Func setButtonSelected P1
 		raise("DotNet Error: ButtonSelected is a read-only property")
 
 	Func getDefaultItem
-		return dnRequest("get",[self,"DefaultItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultItem"])
 
 	Func setDefaultItem P1
-		dnRequest("set",[self,"DefaultItem",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultItem",P1])
 		return self
 
 	Func getDropDownButtonBounds
-		return dnRequest("get",[self,"DropDownButtonBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DropDownButtonBounds"])
 
 	Func setDropDownButtonBounds P1
 		raise("DotNet Error: DropDownButtonBounds is a read-only property")
 
 	Func getDropDownButtonPressed
-		return dnRequest("get",[self,"DropDownButtonPressed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DropDownButtonPressed"])
 
 	Func setDropDownButtonPressed P1
 		raise("DotNet Error: DropDownButtonPressed is a read-only property")
 
 	Func getDropDownButtonSelected
-		return dnRequest("get",[self,"DropDownButtonSelected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DropDownButtonSelected"])
 
 	Func setDropDownButtonSelected P1
 		raise("DotNet Error: DropDownButtonSelected is a read-only property")
 
 	Func getDropDownButtonWidth
-		return dnRequest("get",[self,"DropDownButtonWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DropDownButtonWidth"])
 
 	Func setDropDownButtonWidth P1
-		dnRequest("set",[self,"DropDownButtonWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DropDownButtonWidth",P1])
 		return self
 
 	Func getSplitterBounds
-		return dnRequest("get",[self,"SplitterBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SplitterBounds"])
 
 	Func setSplitterBounds P1
 		raise("DotNet Error: SplitterBounds is a read-only property")

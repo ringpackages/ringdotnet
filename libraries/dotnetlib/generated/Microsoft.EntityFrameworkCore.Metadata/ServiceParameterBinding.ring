@@ -18,21 +18,21 @@ Class ServiceParameterBinding from ParameterBinding
 
 	Func BindToParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"BindToParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BindToParameter",P1])
 		ok
-		return dnRequest("call",[self,"BindToParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindToParameter",P1])
 
 	Func BindToParameter_2 P1,P2
-		return dnRequest("call",[self,"BindToParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindToParameter",P1,P2])
 
 	Func getServiceType
-		return dnRequest("get",[self,"ServiceType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceType"])
 
 	Func setServiceType P1
 		raise("DotNet Error: ServiceType is a read-only property")
 
 	Func getServiceDelegate
-		return dnRequest("get",[self,"ServiceDelegate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceDelegate"])
 
 	Func setServiceDelegate P1
 		raise("DotNet Error: ServiceDelegate is a read-only property")

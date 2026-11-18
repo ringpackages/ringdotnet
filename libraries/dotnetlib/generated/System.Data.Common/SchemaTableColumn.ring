@@ -32,7 +32,7 @@ Class SchemaTableColumn from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getColumnName
 		return dnRequest("get",[dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common'),"ColumnName"])

@@ -30,142 +30,142 @@ Class EntityEntry from Object
 		return self
 
 	Func DetectChanges 
-		dnRequest("call",[self,"DetectChanges"])
+		dnRequest("call",[new DotNetObject(nHandle),"DetectChanges"])
 		return self
 
 	Func Member P1
-		return dnRequest("call",[self,"Member",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Member",P1])
 
 	Func Navigation P1
-		return dnRequest("call",[self,"Navigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Navigation",P1])
 
 	Func Property P1
-		return dnRequest("call",[self,"Property",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Property",P1])
 
 	Func ComplexProperty P1
-		return dnRequest("call",[self,"ComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperty",P1])
 
 	Func Reference P1
-		return dnRequest("call",[self,"Reference",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Reference",P1])
 
 	Func Collection P1
-		return dnRequest("call",[self,"Collection",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Collection",P1])
 
 	Func GetDatabaseValues 
-		return dnRequest("call",[self,"GetDatabaseValues"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDatabaseValues"])
 
 	Func GetDatabaseValuesAsync_1 P1
-		return dnRequest("call",[self,"GetDatabaseValuesAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDatabaseValuesAsync",P1])
 
 	Func GetDatabaseValuesAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetDatabaseValuesAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDatabaseValuesAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetDatabaseValuesAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetDatabaseValuesAsync"])
 		ok
-		return dnRequest("call",[self,"GetDatabaseValuesAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDatabaseValuesAsync",P1])
 
 	Func Reload 
-		dnRequest("call",[self,"Reload"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reload"])
 		return self
 
 	Func ReloadAsync_1 P1
-		return dnRequest("call",[self,"ReloadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReloadAsync",P1])
 
 	Func ReloadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReloadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReloadAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReloadAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReloadAsync"])
 		ok
-		return dnRequest("call",[self,"ReloadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReloadAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEntity
-		return dnRequest("get",[self,"Entity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Entity"])
 
 	Func setEntity P1
 		raise("DotNet Error: Entity is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
-		dnRequest("set",[self,"State",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"State",P1])
 		return self
 
 	Func getContext
-		return dnRequest("get",[self,"Context"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getMembers
-		return dnRequest("get",[self,"Members"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Members"])
 
 	Func setMembers P1
 		raise("DotNet Error: Members is a read-only property")
 
 	Func getNavigations
-		return dnRequest("get",[self,"Navigations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Navigations"])
 
 	Func setNavigations P1
 		raise("DotNet Error: Navigations is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getComplexProperties
-		return dnRequest("get",[self,"ComplexProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ComplexProperties"])
 
 	Func setComplexProperties P1
 		raise("DotNet Error: ComplexProperties is a read-only property")
 
 	Func getReferences
-		return dnRequest("get",[self,"References"])
+		return dnRequest("get",[new DotNetObject(nHandle),"References"])
 
 	Func setReferences P1
 		raise("DotNet Error: References is a read-only property")
 
 	Func getCollections
-		return dnRequest("get",[self,"Collections"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Collections"])
 
 	Func setCollections P1
 		raise("DotNet Error: Collections is a read-only property")
 
 	Func getIsKeySet
-		return dnRequest("get",[self,"IsKeySet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsKeySet"])
 
 	Func setIsKeySet P1
 		raise("DotNet Error: IsKeySet is a read-only property")
 
 	Func getCurrentValues
-		return dnRequest("get",[self,"CurrentValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentValues"])
 
 	Func setCurrentValues P1
 		raise("DotNet Error: CurrentValues is a read-only property")
 
 	Func getOriginalValues
-		return dnRequest("get",[self,"OriginalValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalValues"])
 
 	Func setOriginalValues P1
 		raise("DotNet Error: OriginalValues is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

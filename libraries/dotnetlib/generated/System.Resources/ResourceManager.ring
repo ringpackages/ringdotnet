@@ -29,60 +29,60 @@ Class ResourceManager from Object
 		return self
 
 	Func ReleaseAllResources 
-		dnRequest("call",[self,"ReleaseAllResources"])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseAllResources"])
 		return self
 
 	Func GetResourceSet P1,P2,P3
-		return dnRequest("call",[self,"GetResourceSet",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetResourceSet",P1,P2,P3])
 
 	Func GetString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetString",P1])
 		ok
-		return dnRequest("call",[self,"GetString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
 
 	Func GetString_2 P1,P2
-		return dnRequest("call",[self,"GetString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1,P2])
 
 	Func GetObject P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetObject",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetObject",P1])
 		ok
-		return dnRequest("call",[self,"GetObject",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1])
 
 	Func GetObject_2 P1,P2
-		return dnRequest("call",[self,"GetObject",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1,P2])
 
 	Func GetStream P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetStream",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStream",P1])
 		ok
-		return dnRequest("call",[self,"GetStream",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStream",P1])
 
 	Func GetStream_2 P1,P2
-		return dnRequest("call",[self,"GetStream",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStream",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateFileBasedResourceManager P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib'),"CreateFileBasedResourceManager",P1,P2,P3])
 
 	Func getBaseName
-		return dnRequest("get",[self,"BaseName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseName"])
 
 	Func setBaseName P1
 		raise("DotNet Error: BaseName is a read-only property")
 
 	Func getIgnoreCase
-		return dnRequest("get",[self,"IgnoreCase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreCase"])
 
 	Func setIgnoreCase P1
-		dnRequest("set",[self,"IgnoreCase",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IgnoreCase",P1])
 		return self
 
 	Func getResourceSetType
-		return dnRequest("get",[self,"ResourceSetType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResourceSetType"])
 
 	Func setResourceSetType P1
 		raise("DotNet Error: ResourceSetType is a read-only property")

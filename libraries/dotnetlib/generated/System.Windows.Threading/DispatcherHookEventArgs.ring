@@ -18,13 +18,13 @@ Class DispatcherHookEventArgs from EventArgs
 		return self
 
 	Func getDispatcher
-		return dnRequest("get",[self,"Dispatcher"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Dispatcher"])
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getOperation
-		return dnRequest("get",[self,"Operation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Operation"])
 
 	Func setOperation P1
 		raise("DotNet Error: Operation is a read-only property")

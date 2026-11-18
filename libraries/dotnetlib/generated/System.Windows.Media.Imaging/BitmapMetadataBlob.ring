@@ -15,8 +15,8 @@ Class BitmapMetadataBlob from Object
 		return self
 
 	Func GetBlobValue 
-		return dnRequest("call",[self,"GetBlobValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBlobValue"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

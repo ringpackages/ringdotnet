@@ -17,15 +17,15 @@ Class IBindableComponent from DotNetObject
 		return self
 
 	Func getDataBindings
-		return dnRequest("get",[self,"DataBindings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataBindings"])
 
 	Func setDataBindings P1
 		raise("DotNet Error: DataBindings is a read-only property")
 
 	Func getBindingContext
-		return dnRequest("get",[self,"BindingContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingContext"])
 
 	Func setBindingContext P1
-		dnRequest("set",[self,"BindingContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BindingContext",P1])
 		return self
 

@@ -32,137 +32,137 @@ Class HttpClient from HttpMessageInvoker
 
 	Func GetStringAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetStringAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStringAsync",P1])
 		ok
-		return dnRequest("call",[self,"GetStringAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStringAsync",P1])
 
 	Func GetStringAsync_2 P1,P2
-		return dnRequest("call",[self,"GetStringAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStringAsync",P1,P2])
 
 	Func GetByteArrayAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetByteArrayAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetByteArrayAsync",P1])
 		ok
-		return dnRequest("call",[self,"GetByteArrayAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetByteArrayAsync",P1])
 
 	Func GetByteArrayAsync_2 P1,P2
-		return dnRequest("call",[self,"GetByteArrayAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetByteArrayAsync",P1,P2])
 
 	Func GetStreamAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetStreamAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStreamAsync",P1])
 		ok
-		return dnRequest("call",[self,"GetStreamAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStreamAsync",P1])
 
 	Func GetStreamAsync_2 P1,P2
-		return dnRequest("call",[self,"GetStreamAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStreamAsync",P1,P2])
 
 	Func GetAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAsync",P1])
 		ok
-		return dnRequest("call",[self,"GetAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAsync",P1])
 
 	Func GetAsync_2 P1,P2
-		return dnRequest("call",[self,"GetAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAsync",P1,P2])
 
 	Func GetAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"GetAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAsync",P1,P2,P3])
 
 	Func PostAsync P1,P2
-		return dnRequest("call",[self,"PostAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"PostAsync",P1,P2])
 
 	Func PostAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"PostAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"PostAsync",P1,P2,P3])
 
 	Func PutAsync P1,P2
-		return dnRequest("call",[self,"PutAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"PutAsync",P1,P2])
 
 	Func PutAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"PutAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"PutAsync",P1,P2,P3])
 
 	Func PatchAsync P1,P2
-		return dnRequest("call",[self,"PatchAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"PatchAsync",P1,P2])
 
 	Func PatchAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"PatchAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"PatchAsync",P1,P2,P3])
 
 	Func DeleteAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"DeleteAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteAsync",P1])
 		ok
-		return dnRequest("call",[self,"DeleteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeleteAsync",P1])
 
 	Func DeleteAsync_2 P1,P2
-		return dnRequest("call",[self,"DeleteAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeleteAsync",P1,P2])
 
 	Func Send P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Send",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Send",P1])
 		ok
-		return dnRequest("call",[self,"Send",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1])
 
 	Func Send_2 P1,P2
-		return dnRequest("call",[self,"Send",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2])
 
 	Func Send_3 P1,P2,P3
-		return dnRequest("call",[self,"Send",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3])
 
 	Func SendAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SendAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendAsync",P1])
 		ok
-		return dnRequest("call",[self,"SendAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1])
 
 	Func SendAsync_2 P1,P2
-		return dnRequest("call",[self,"SendAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2])
 
 	Func SendAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"SendAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3])
 
 	Func CancelPendingRequests 
-		dnRequest("call",[self,"CancelPendingRequests"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelPendingRequests"])
 		return self
 
 	Func getDefaultRequestHeaders
-		return dnRequest("get",[self,"DefaultRequestHeaders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultRequestHeaders"])
 
 	Func setDefaultRequestHeaders P1
 		raise("DotNet Error: DefaultRequestHeaders is a read-only property")
 
 	Func getDefaultRequestVersion
-		return dnRequest("get",[self,"DefaultRequestVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultRequestVersion"])
 
 	Func setDefaultRequestVersion P1
-		dnRequest("set",[self,"DefaultRequestVersion",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultRequestVersion",P1])
 		return self
 
 	Func getDefaultVersionPolicy
-		return dnRequest("get",[self,"DefaultVersionPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultVersionPolicy"])
 
 	Func setDefaultVersionPolicy P1
-		dnRequest("set",[self,"DefaultVersionPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultVersionPolicy",P1])
 		return self
 
 	Func getBaseAddress
-		return dnRequest("get",[self,"BaseAddress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseAddress"])
 
 	Func setBaseAddress P1
-		dnRequest("set",[self,"BaseAddress",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseAddress",P1])
 		return self
 
 	Func getTimeout
-		return dnRequest("get",[self,"Timeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Timeout"])
 
 	Func setTimeout P1
-		dnRequest("set",[self,"Timeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Timeout",P1])
 		return self
 
 	Func getMaxResponseContentBufferSize
-		return dnRequest("get",[self,"MaxResponseContentBufferSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxResponseContentBufferSize"])
 
 	Func setMaxResponseContentBufferSize P1
-		dnRequest("set",[self,"MaxResponseContentBufferSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxResponseContentBufferSize",P1])
 		return self
 
 	Func getDefaultProxy

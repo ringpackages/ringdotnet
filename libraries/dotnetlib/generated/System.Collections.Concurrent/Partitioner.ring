@@ -14,7 +14,7 @@ Class Partitioner from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"Create",P1,P2])

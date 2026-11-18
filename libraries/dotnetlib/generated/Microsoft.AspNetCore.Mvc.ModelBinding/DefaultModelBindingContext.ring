@@ -20,9 +20,9 @@ Class DefaultModelBindingContext from ModelBindingContext
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.DefaultModelBindingContext, Microsoft.AspNetCore.Mvc.Core'),"CreateBindingContext",P1,P2,P3,P4,P5])
 
 	Func getOriginalValueProvider
-		return dnRequest("get",[self,"OriginalValueProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalValueProvider"])
 
 	Func setOriginalValueProvider P1
-		dnRequest("set",[self,"OriginalValueProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OriginalValueProvider",P1])
 		return self
 

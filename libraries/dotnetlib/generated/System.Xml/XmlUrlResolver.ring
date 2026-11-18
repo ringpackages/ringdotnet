@@ -18,10 +18,10 @@ Class XmlUrlResolver from XmlResolver
 		return self
 
 	Func setProxy P1
-		dnRequest("set",[self,"Proxy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Proxy",P1])
 		return self
 
 	Func setCachePolicy P1
-		dnRequest("set",[self,"CachePolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CachePolicy",P1])
 		return self
 

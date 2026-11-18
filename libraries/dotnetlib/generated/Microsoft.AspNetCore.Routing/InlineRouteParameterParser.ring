@@ -14,7 +14,7 @@ Class InlineRouteParameterParser from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ParseRouteParameter P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.InlineRouteParameterParser, Microsoft.AspNetCore.Routing'),"ParseRouteParameter",P1])

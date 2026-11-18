@@ -17,7 +17,7 @@ Class NavigateEventArgs from EventArgs
 		return self
 
 	Func getForward
-		return dnRequest("get",[self,"Forward"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Forward"])
 
 	Func setForward P1
 		raise("DotNet Error: Forward is a read-only property")

@@ -46,200 +46,200 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func BeginAuthenticateAsClient P1,P2,P3
-		return dnRequest("call",[self,"BeginAuthenticateAsClient",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1,P2,P3])
 
 	Func BeginAuthenticateAsClient_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"BeginAuthenticateAsClient",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1,P2,P3,P4,P5])
 
 	Func BeginAuthenticateAsClient_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"BeginAuthenticateAsClient",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1,P2,P3,P4,P5,P6])
 
 	Func EndAuthenticateAsClient P1
-		dnRequest("call",[self,"EndAuthenticateAsClient",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EndAuthenticateAsClient",P1])
 		return self
 
 	Func BeginAuthenticateAsServer P1,P2,P3
-		return dnRequest("call",[self,"BeginAuthenticateAsServer",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsServer",P1,P2,P3])
 
 	Func BeginAuthenticateAsServer_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"BeginAuthenticateAsServer",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsServer",P1,P2,P3,P4,P5])
 
 	Func BeginAuthenticateAsServer_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"BeginAuthenticateAsServer",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsServer",P1,P2,P3,P4,P5,P6])
 
 	Func EndAuthenticateAsServer P1
-		dnRequest("call",[self,"EndAuthenticateAsServer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EndAuthenticateAsServer",P1])
 		return self
 
 	Func AuthenticateAsClient P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AuthenticateAsClient",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsClient",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AuthenticateAsClient",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient",P1])
 		return self
 
 	Func AuthenticateAsClient_3 P1,P2,P3
-		dnRequest("call",[self,"AuthenticateAsClient",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient",P1,P2,P3])
 		return self
 
 	Func AuthenticateAsClient_4 P1,P2,P3,P4
-		dnRequest("call",[self,"AuthenticateAsClient",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient",P1,P2,P3,P4])
 		return self
 
 	Func AuthenticateAsServer P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AuthenticateAsServer",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsServer",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AuthenticateAsServer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer",P1])
 		return self
 
 	Func AuthenticateAsServer_3 P1,P2,P3
-		dnRequest("call",[self,"AuthenticateAsServer",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer",P1,P2,P3])
 		return self
 
 	Func AuthenticateAsServer_4 P1,P2,P3,P4
-		dnRequest("call",[self,"AuthenticateAsServer",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer",P1,P2,P3,P4])
 		return self
 
 	Func AuthenticateAsClientAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AuthenticateAsClientAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1])
 		ok
-		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1])
 
 	Func AuthenticateAsClientAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1,P2,P3])
 
 	Func AuthenticateAsClientAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1,P2,P3,P4])
 
 	Func AuthenticateAsClientAsync_2 P1,P2
-		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1,P2])
 
 	Func AuthenticateAsServerAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AuthenticateAsServerAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1])
 		ok
-		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1])
 
 	Func AuthenticateAsServerAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1,P2,P3])
 
 	Func AuthenticateAsServerAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1,P2,P3,P4])
 
 	Func AuthenticateAsServerAsync_2 P1,P2
-		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1,P2])
 
 	Func ShutdownAsync 
-		return dnRequest("call",[self,"ShutdownAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShutdownAsync"])
 
 	Func NegotiateClientCertificateAsync_1 P1
-		return dnRequest("call",[self,"NegotiateClientCertificateAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NegotiateClientCertificateAsync",P1])
 
 	Func NegotiateClientCertificateAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"NegotiateClientCertificateAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NegotiateClientCertificateAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"NegotiateClientCertificateAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"NegotiateClientCertificateAsync"])
 		ok
-		return dnRequest("call",[self,"NegotiateClientCertificateAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NegotiateClientCertificateAsync",P1])
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Write",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Write",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Write",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
 		return self
 
 	Func Write_3 P1,P2,P3
-		dnRequest("call",[self,"Write",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3])
 		return self
 
 	Func getTransportContext
-		return dnRequest("get",[self,"TransportContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransportContext"])
 
 	Func setTransportContext P1
 		raise("DotNet Error: TransportContext is a read-only property")
 
 	Func getSslProtocol
-		return dnRequest("get",[self,"SslProtocol"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SslProtocol"])
 
 	Func setSslProtocol P1
 		raise("DotNet Error: SslProtocol is a read-only property")
 
 	Func getCheckCertRevocationStatus
-		return dnRequest("get",[self,"CheckCertRevocationStatus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckCertRevocationStatus"])
 
 	Func setCheckCertRevocationStatus P1
 		raise("DotNet Error: CheckCertRevocationStatus is a read-only property")
 
 	Func getLocalCertificate
-		return dnRequest("get",[self,"LocalCertificate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalCertificate"])
 
 	Func setLocalCertificate P1
 		raise("DotNet Error: LocalCertificate is a read-only property")
 
 	Func getRemoteCertificate
-		return dnRequest("get",[self,"RemoteCertificate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteCertificate"])
 
 	Func setRemoteCertificate P1
 		raise("DotNet Error: RemoteCertificate is a read-only property")
 
 	Func getNegotiatedApplicationProtocol
-		return dnRequest("get",[self,"NegotiatedApplicationProtocol"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NegotiatedApplicationProtocol"])
 
 	Func setNegotiatedApplicationProtocol P1
 		raise("DotNet Error: NegotiatedApplicationProtocol is a read-only property")
 
 	Func getNegotiatedCipherSuite
-		return dnRequest("get",[self,"NegotiatedCipherSuite"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NegotiatedCipherSuite"])
 
 	Func setNegotiatedCipherSuite P1
 		raise("DotNet Error: NegotiatedCipherSuite is a read-only property")
 
 	Func getCipherAlgorithm
-		return dnRequest("get",[self,"CipherAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CipherAlgorithm"])
 
 	Func setCipherAlgorithm P1
 		raise("DotNet Error: CipherAlgorithm is a read-only property")
 
 	Func getCipherStrength
-		return dnRequest("get",[self,"CipherStrength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CipherStrength"])
 
 	Func setCipherStrength P1
 		raise("DotNet Error: CipherStrength is a read-only property")
 
 	Func getHashAlgorithm
-		return dnRequest("get",[self,"HashAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getHashStrength
-		return dnRequest("get",[self,"HashStrength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashStrength"])
 
 	Func setHashStrength P1
 		raise("DotNet Error: HashStrength is a read-only property")
 
 	Func getKeyExchangeAlgorithm
-		return dnRequest("get",[self,"KeyExchangeAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyExchangeAlgorithm"])
 
 	Func setKeyExchangeAlgorithm P1
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")
 
 	Func getKeyExchangeStrength
-		return dnRequest("get",[self,"KeyExchangeStrength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyExchangeStrength"])
 
 	Func setKeyExchangeStrength P1
 		raise("DotNet Error: KeyExchangeStrength is a read-only property")
 
 	Func getTargetHostName
-		return dnRequest("get",[self,"TargetHostName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetHostName"])
 
 	Func setTargetHostName P1
 		raise("DotNet Error: TargetHostName is a read-only property")

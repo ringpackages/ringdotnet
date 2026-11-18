@@ -15,11 +15,11 @@ Class PrefixContainer from Object
 		return self
 
 	Func ContainsPrefix P1
-		return dnRequest("call",[self,"ContainsPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsPrefix",P1])
 
 	Func GetKeysFromPrefix P1
-		return dnRequest("call",[self,"GetKeysFromPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeysFromPrefix",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

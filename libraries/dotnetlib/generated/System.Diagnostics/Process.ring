@@ -66,26 +66,26 @@ Class Process from Component
 		return self
 
 	Func CloseMainWindow 
-		return dnRequest("call",[self,"CloseMainWindow"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CloseMainWindow"])
 
 	Func WaitForInputIdle P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WaitForInputIdle",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitForInputIdle",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WaitForInputIdle"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WaitForInputIdle"])
 		ok
-		return dnRequest("call",[self,"WaitForInputIdle",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForInputIdle",P1])
 
 	Func WaitForInputIdle_1 P1
-		return dnRequest("call",[self,"WaitForInputIdle",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForInputIdle",P1])
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Refresh 
-		dnRequest("call",[self,"Refresh"])
+		dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
 		return self
 
 	Func Start P1
@@ -93,68 +93,68 @@ Class Process from Component
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1])
 			ok
-			return dnRequest("callnamed",[self,"Start",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Start",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Start"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1])
 
 	Func WaitForExit P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WaitForExit",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitForExit",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"WaitForExit"])
+			dnRequest("call",[new DotNetObject(nHandle),"WaitForExit"])
 		return self
 		ok
-		return dnRequest("call",[self,"WaitForExit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForExit",P1])
 
 	Func WaitForExit_1 P1
-		return dnRequest("call",[self,"WaitForExit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForExit",P1])
 
 	Func WaitForExitAsync_1 P1
-		return dnRequest("call",[self,"WaitForExitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForExitAsync",P1])
 
 	Func WaitForExitAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WaitForExitAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitForExitAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WaitForExitAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WaitForExitAsync"])
 		ok
-		return dnRequest("call",[self,"WaitForExitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForExitAsync",P1])
 
 	Func BeginOutputReadLine 
-		dnRequest("call",[self,"BeginOutputReadLine"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginOutputReadLine"])
 		return self
 
 	Func BeginErrorReadLine 
-		dnRequest("call",[self,"BeginErrorReadLine"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginErrorReadLine"])
 		return self
 
 	Func CancelOutputRead 
-		dnRequest("call",[self,"CancelOutputRead"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelOutputRead"])
 		return self
 
 	Func CancelErrorRead 
-		dnRequest("call",[self,"CancelErrorRead"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelErrorRead"])
 		return self
 
 	Func Kill P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Kill",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Kill",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Kill"])
+			dnRequest("call",[new DotNetObject(nHandle),"Kill"])
 		return self
 		ok
-		dnRequest("call",[self,"Kill",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Kill",P1])
 		return self
 
 	Func Kill_1 P1
-		dnRequest("call",[self,"Kill",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Kill",P1])
 		return self
 
 	Func GetProcessById_2 P1,P2
@@ -211,333 +211,333 @@ Class Process from Component
 		return self
 
 	Func setOutputDataReceivedEvent P1
-		dnRequest("setevent",[self,"OutputDataReceived",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"OutputDataReceived",dnCallback(P1)])
 		return self
 
 	Func clearOutputDataReceivedEvent
-		dnRequest("clearevent",[self,"OutputDataReceived"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"OutputDataReceived"])
 		return self
 
 	Func setErrorDataReceivedEvent P1
-		dnRequest("setevent",[self,"ErrorDataReceived",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ErrorDataReceived",dnCallback(P1)])
 		return self
 
 	Func clearErrorDataReceivedEvent
-		dnRequest("clearevent",[self,"ErrorDataReceived"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ErrorDataReceived"])
 		return self
 
 	Func setExitedEvent P1
-		dnRequest("setevent",[self,"Exited",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Exited",dnCallback(P1)])
 		return self
 
 	Func clearExitedEvent
-		dnRequest("clearevent",[self,"Exited"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Exited"])
 		return self
 
 	Func getSafeHandle
-		return dnRequest("get",[self,"SafeHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SafeHandle"])
 
 	Func setSafeHandle P1
 		raise("DotNet Error: SafeHandle is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getBasePriority
-		return dnRequest("get",[self,"BasePriority"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BasePriority"])
 
 	Func setBasePriority P1
 		raise("DotNet Error: BasePriority is a read-only property")
 
 	Func getExitCode
-		return dnRequest("get",[self,"ExitCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExitCode"])
 
 	Func setExitCode P1
 		raise("DotNet Error: ExitCode is a read-only property")
 
 	Func getHasExited
-		return dnRequest("get",[self,"HasExited"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasExited"])
 
 	Func setHasExited P1
 		raise("DotNet Error: HasExited is a read-only property")
 
 	Func getStartTime
-		return dnRequest("get",[self,"StartTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartTime"])
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
 
 	Func getExitTime
-		return dnRequest("get",[self,"ExitTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExitTime"])
 
 	Func setExitTime P1
 		raise("DotNet Error: ExitTime is a read-only property")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getMachineName
-		return dnRequest("get",[self,"MachineName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MachineName"])
 
 	Func setMachineName P1
 		raise("DotNet Error: MachineName is a read-only property")
 
 	Func getMaxWorkingSet
-		return dnRequest("get",[self,"MaxWorkingSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxWorkingSet"])
 
 	Func setMaxWorkingSet P1
-		dnRequest("set",[self,"MaxWorkingSet",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxWorkingSet",P1])
 		return self
 
 	Func getMinWorkingSet
-		return dnRequest("get",[self,"MinWorkingSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinWorkingSet"])
 
 	Func setMinWorkingSet P1
-		dnRequest("set",[self,"MinWorkingSet",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinWorkingSet",P1])
 		return self
 
 	Func getModules
-		return dnRequest("get",[self,"Modules"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Modules"])
 
 	Func setModules P1
 		raise("DotNet Error: Modules is a read-only property")
 
 	Func getNonpagedSystemMemorySize64
-		return dnRequest("get",[self,"NonpagedSystemMemorySize64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NonpagedSystemMemorySize64"])
 
 	Func setNonpagedSystemMemorySize64 P1
 		raise("DotNet Error: NonpagedSystemMemorySize64 is a read-only property")
 
 	Func getNonpagedSystemMemorySize
-		return dnRequest("get",[self,"NonpagedSystemMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NonpagedSystemMemorySize"])
 
 	Func setNonpagedSystemMemorySize P1
 		raise("DotNet Error: NonpagedSystemMemorySize is a read-only property")
 
 	Func getPagedMemorySize64
-		return dnRequest("get",[self,"PagedMemorySize64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PagedMemorySize64"])
 
 	Func setPagedMemorySize64 P1
 		raise("DotNet Error: PagedMemorySize64 is a read-only property")
 
 	Func getPagedMemorySize
-		return dnRequest("get",[self,"PagedMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PagedMemorySize"])
 
 	Func setPagedMemorySize P1
 		raise("DotNet Error: PagedMemorySize is a read-only property")
 
 	Func getPagedSystemMemorySize64
-		return dnRequest("get",[self,"PagedSystemMemorySize64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PagedSystemMemorySize64"])
 
 	Func setPagedSystemMemorySize64 P1
 		raise("DotNet Error: PagedSystemMemorySize64 is a read-only property")
 
 	Func getPagedSystemMemorySize
-		return dnRequest("get",[self,"PagedSystemMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PagedSystemMemorySize"])
 
 	Func setPagedSystemMemorySize P1
 		raise("DotNet Error: PagedSystemMemorySize is a read-only property")
 
 	Func getPeakPagedMemorySize64
-		return dnRequest("get",[self,"PeakPagedMemorySize64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PeakPagedMemorySize64"])
 
 	Func setPeakPagedMemorySize64 P1
 		raise("DotNet Error: PeakPagedMemorySize64 is a read-only property")
 
 	Func getPeakPagedMemorySize
-		return dnRequest("get",[self,"PeakPagedMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PeakPagedMemorySize"])
 
 	Func setPeakPagedMemorySize P1
 		raise("DotNet Error: PeakPagedMemorySize is a read-only property")
 
 	Func getPeakWorkingSet64
-		return dnRequest("get",[self,"PeakWorkingSet64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PeakWorkingSet64"])
 
 	Func setPeakWorkingSet64 P1
 		raise("DotNet Error: PeakWorkingSet64 is a read-only property")
 
 	Func getPeakWorkingSet
-		return dnRequest("get",[self,"PeakWorkingSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PeakWorkingSet"])
 
 	Func setPeakWorkingSet P1
 		raise("DotNet Error: PeakWorkingSet is a read-only property")
 
 	Func getPeakVirtualMemorySize64
-		return dnRequest("get",[self,"PeakVirtualMemorySize64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PeakVirtualMemorySize64"])
 
 	Func setPeakVirtualMemorySize64 P1
 		raise("DotNet Error: PeakVirtualMemorySize64 is a read-only property")
 
 	Func getPeakVirtualMemorySize
-		return dnRequest("get",[self,"PeakVirtualMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PeakVirtualMemorySize"])
 
 	Func setPeakVirtualMemorySize P1
 		raise("DotNet Error: PeakVirtualMemorySize is a read-only property")
 
 	Func getPriorityBoostEnabled
-		return dnRequest("get",[self,"PriorityBoostEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PriorityBoostEnabled"])
 
 	Func setPriorityBoostEnabled P1
-		dnRequest("set",[self,"PriorityBoostEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PriorityBoostEnabled",P1])
 		return self
 
 	Func getPriorityClass
-		return dnRequest("get",[self,"PriorityClass"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PriorityClass"])
 
 	Func setPriorityClass P1
-		dnRequest("set",[self,"PriorityClass",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PriorityClass",P1])
 		return self
 
 	Func getPrivateMemorySize64
-		return dnRequest("get",[self,"PrivateMemorySize64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrivateMemorySize64"])
 
 	Func setPrivateMemorySize64 P1
 		raise("DotNet Error: PrivateMemorySize64 is a read-only property")
 
 	Func getPrivateMemorySize
-		return dnRequest("get",[self,"PrivateMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrivateMemorySize"])
 
 	Func setPrivateMemorySize P1
 		raise("DotNet Error: PrivateMemorySize is a read-only property")
 
 	Func getProcessorAffinity
-		return dnRequest("get",[self,"ProcessorAffinity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProcessorAffinity"])
 
 	Func setProcessorAffinity P1
-		dnRequest("set",[self,"ProcessorAffinity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProcessorAffinity",P1])
 		return self
 
 	Func getSessionId
-		return dnRequest("get",[self,"SessionId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SessionId"])
 
 	Func setSessionId P1
 		raise("DotNet Error: SessionId is a read-only property")
 
 	Func getStartInfo
-		return dnRequest("get",[self,"StartInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartInfo"])
 
 	Func setStartInfo P1
-		dnRequest("set",[self,"StartInfo",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StartInfo",P1])
 		return self
 
 	Func getThreads
-		return dnRequest("get",[self,"Threads"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Threads"])
 
 	Func setThreads P1
 		raise("DotNet Error: Threads is a read-only property")
 
 	Func getHandleCount
-		return dnRequest("get",[self,"HandleCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HandleCount"])
 
 	Func setHandleCount P1
 		raise("DotNet Error: HandleCount is a read-only property")
 
 	Func getVirtualMemorySize64
-		return dnRequest("get",[self,"VirtualMemorySize64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VirtualMemorySize64"])
 
 	Func setVirtualMemorySize64 P1
 		raise("DotNet Error: VirtualMemorySize64 is a read-only property")
 
 	Func getVirtualMemorySize
-		return dnRequest("get",[self,"VirtualMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VirtualMemorySize"])
 
 	Func setVirtualMemorySize P1
 		raise("DotNet Error: VirtualMemorySize is a read-only property")
 
 	Func getEnableRaisingEvents
-		return dnRequest("get",[self,"EnableRaisingEvents"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableRaisingEvents"])
 
 	Func setEnableRaisingEvents P1
-		dnRequest("set",[self,"EnableRaisingEvents",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableRaisingEvents",P1])
 		return self
 
 	Func getStandardInput
-		return dnRequest("get",[self,"StandardInput"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StandardInput"])
 
 	Func setStandardInput P1
 		raise("DotNet Error: StandardInput is a read-only property")
 
 	Func getStandardOutput
-		return dnRequest("get",[self,"StandardOutput"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StandardOutput"])
 
 	Func setStandardOutput P1
 		raise("DotNet Error: StandardOutput is a read-only property")
 
 	Func getStandardError
-		return dnRequest("get",[self,"StandardError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StandardError"])
 
 	Func setStandardError P1
 		raise("DotNet Error: StandardError is a read-only property")
 
 	Func getWorkingSet64
-		return dnRequest("get",[self,"WorkingSet64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WorkingSet64"])
 
 	Func setWorkingSet64 P1
 		raise("DotNet Error: WorkingSet64 is a read-only property")
 
 	Func getWorkingSet
-		return dnRequest("get",[self,"WorkingSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WorkingSet"])
 
 	Func setWorkingSet P1
 		raise("DotNet Error: WorkingSet is a read-only property")
 
 	Func getSynchronizingObject
-		return dnRequest("get",[self,"SynchronizingObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SynchronizingObject"])
 
 	Func setSynchronizingObject P1
-		dnRequest("set",[self,"SynchronizingObject",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SynchronizingObject",P1])
 		return self
 
 	Func getMainModule
-		return dnRequest("get",[self,"MainModule"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MainModule"])
 
 	Func setMainModule P1
 		raise("DotNet Error: MainModule is a read-only property")
 
 	Func getPrivilegedProcessorTime
-		return dnRequest("get",[self,"PrivilegedProcessorTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrivilegedProcessorTime"])
 
 	Func setPrivilegedProcessorTime P1
 		raise("DotNet Error: PrivilegedProcessorTime is a read-only property")
 
 	Func getTotalProcessorTime
-		return dnRequest("get",[self,"TotalProcessorTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalProcessorTime"])
 
 	Func setTotalProcessorTime P1
 		raise("DotNet Error: TotalProcessorTime is a read-only property")
 
 	Func getUserProcessorTime
-		return dnRequest("get",[self,"UserProcessorTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserProcessorTime"])
 
 	Func setUserProcessorTime P1
 		raise("DotNet Error: UserProcessorTime is a read-only property")
 
 	Func getProcessName
-		return dnRequest("get",[self,"ProcessName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProcessName"])
 
 	Func setProcessName P1
 		raise("DotNet Error: ProcessName is a read-only property")
 
 	Func getMainWindowHandle
-		return dnRequest("get",[self,"MainWindowHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MainWindowHandle"])
 
 	Func setMainWindowHandle P1
 		raise("DotNet Error: MainWindowHandle is a read-only property")
 
 	Func getMainWindowTitle
-		return dnRequest("get",[self,"MainWindowTitle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MainWindowTitle"])
 
 	Func setMainWindowTitle P1
 		raise("DotNet Error: MainWindowTitle is a read-only property")
 
 	Func getResponding
-		return dnRequest("get",[self,"Responding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Responding"])
 
 	Func setResponding P1
 		raise("DotNet Error: Responding is a read-only property")

@@ -16,7 +16,7 @@ Class AdornerHitTestResult from PointHitTestResult
 		return self
 
 	Func getAdorner
-		return dnRequest("get",[self,"Adorner"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Adorner"])
 
 	Func setAdorner P1
 		raise("DotNet Error: Adorner is a read-only property")

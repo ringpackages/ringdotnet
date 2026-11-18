@@ -24,57 +24,57 @@ Class ViewComponentResult from ActionResult
 		return self
 
 	Func getArguments
-		return dnRequest("get",[self,"Arguments"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Arguments"])
 
 	Func setArguments P1
-		dnRequest("set",[self,"Arguments",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Arguments",P1])
 		return self
 
 	Func getStatusCode
-		return dnRequest("get",[self,"StatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[self,"StatusCode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
 		return self
 
 	Func getViewComponentName
-		return dnRequest("get",[self,"ViewComponentName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewComponentName"])
 
 	Func setViewComponentName P1
-		dnRequest("set",[self,"ViewComponentName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewComponentName",P1])
 		return self
 
 	Func getViewComponentType
-		return dnRequest("get",[self,"ViewComponentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewComponentType"])
 
 	Func setViewComponentType P1
-		dnRequest("set",[self,"ViewComponentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewComponentType",P1])
 		return self
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getViewData
-		return dnRequest("get",[self,"ViewData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewData"])
 
 	Func setViewData P1
-		dnRequest("set",[self,"ViewData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewData",P1])
 		return self
 
 	Func getTempData
-		return dnRequest("get",[self,"TempData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TempData"])
 
 	Func setTempData P1
-		dnRequest("set",[self,"TempData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TempData",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 

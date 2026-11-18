@@ -18,13 +18,13 @@ Class WebBrowserNavigatingEventArgs from CancelEventArgs
 		return self
 
 	Func getUrl
-		return dnRequest("get",[self,"Url"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
 
 	Func setUrl P1
 		raise("DotNet Error: Url is a read-only property")
 
 	Func getTargetFrameName
-		return dnRequest("get",[self,"TargetFrameName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetFrameName"])
 
 	Func setTargetFrameName P1
 		raise("DotNet Error: TargetFrameName is a read-only property")

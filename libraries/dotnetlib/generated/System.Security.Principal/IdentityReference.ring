@@ -16,16 +16,16 @@ Class IdentityReference from Object
 		return self
 
 	Func IsValidTargetType P1
-		return dnRequest("call",[self,"IsValidTargetType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsValidTargetType",P1])
 
 	Func Translate P1
-		return dnRequest("call",[self,"Translate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

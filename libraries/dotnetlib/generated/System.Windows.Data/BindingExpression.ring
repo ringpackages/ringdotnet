@@ -19,25 +19,25 @@ Class BindingExpression from BindingExpressionBase
 		return self
 
 	Func getParentBinding
-		return dnRequest("get",[self,"ParentBinding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParentBinding"])
 
 	Func setParentBinding P1
 		raise("DotNet Error: ParentBinding is a read-only property")
 
 	Func getDataItem
-		return dnRequest("get",[self,"DataItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataItem"])
 
 	Func setDataItem P1
 		raise("DotNet Error: DataItem is a read-only property")
 
 	Func getResolvedSource
-		return dnRequest("get",[self,"ResolvedSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResolvedSource"])
 
 	Func setResolvedSource P1
 		raise("DotNet Error: ResolvedSource is a read-only property")
 
 	Func getResolvedSourcePropertyName
-		return dnRequest("get",[self,"ResolvedSourcePropertyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResolvedSourcePropertyName"])
 
 	Func setResolvedSourcePropertyName P1
 		raise("DotNet Error: ResolvedSourcePropertyName is a read-only property")

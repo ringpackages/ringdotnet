@@ -25,109 +25,109 @@ Class SymmetricAlgorithm from Object
 
 	Func CreateDecryptor P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateDecryptor",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateDecryptor",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateDecryptor"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateDecryptor"])
 		ok
 		raise("DotNet Error: CreateDecryptor does not take one argument: use CreateDecryptor(NULL), CreateDecryptor_N(...) or named arguments")
 
 	Func CreateDecryptor_2 P1,P2
-		return dnRequest("call",[self,"CreateDecryptor",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDecryptor",P1,P2])
 
 	Func CreateEncryptor P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateEncryptor",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateEncryptor",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateEncryptor"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateEncryptor"])
 		ok
 		raise("DotNet Error: CreateEncryptor does not take one argument: use CreateEncryptor(NULL), CreateEncryptor_N(...) or named arguments")
 
 	Func CreateEncryptor_2 P1,P2
-		return dnRequest("call",[self,"CreateEncryptor",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateEncryptor",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func GenerateIV 
-		dnRequest("call",[self,"GenerateIV"])
+		dnRequest("call",[new DotNetObject(nHandle),"GenerateIV"])
 		return self
 
 	Func GenerateKey 
-		dnRequest("call",[self,"GenerateKey"])
+		dnRequest("call",[new DotNetObject(nHandle),"GenerateKey"])
 		return self
 
 	Func ValidKeySize P1
-		return dnRequest("call",[self,"ValidKeySize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidKeySize",P1])
 
 	Func GetCiphertextLengthEcb P1,P2
-		return dnRequest("call",[self,"GetCiphertextLengthEcb",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthEcb",P1,P2])
 
 	Func GetCiphertextLengthCbc_2 P1,P2
-		return dnRequest("call",[self,"GetCiphertextLengthCbc",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthCbc",P1,P2])
 
 	Func GetCiphertextLengthCbc P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCiphertextLengthCbc",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCiphertextLengthCbc",P1])
 		ok
-		return dnRequest("call",[self,"GetCiphertextLengthCbc",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthCbc",P1])
 
 	Func GetCiphertextLengthCfb_3 P1,P2,P3
-		return dnRequest("call",[self,"GetCiphertextLengthCfb",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthCfb",P1,P2,P3])
 
 	Func GetCiphertextLengthCfb_2 P1,P2
-		return dnRequest("call",[self,"GetCiphertextLengthCfb",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthCfb",P1,P2])
 
 	Func GetCiphertextLengthCfb P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCiphertextLengthCfb",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCiphertextLengthCfb",P1])
 		ok
-		return dnRequest("call",[self,"GetCiphertextLengthCfb",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthCfb",P1])
 
 	Func DecryptEcb P1,P2
-		return dnRequest("call",[self,"DecryptEcb",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecryptEcb",P1,P2])
 
 	Func EncryptEcb P1,P2
-		return dnRequest("call",[self,"EncryptEcb",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EncryptEcb",P1,P2])
 
 	Func DecryptCbc_3 P1,P2,P3
-		return dnRequest("call",[self,"DecryptCbc",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCbc",P1,P2,P3])
 
 	Func DecryptCbc P1,P2
-		return dnRequest("call",[self,"DecryptCbc",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCbc",P1,P2])
 
 	Func EncryptCbc_3 P1,P2,P3
-		return dnRequest("call",[self,"EncryptCbc",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCbc",P1,P2,P3])
 
 	Func EncryptCbc P1,P2
-		return dnRequest("call",[self,"EncryptCbc",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCbc",P1,P2])
 
 	Func DecryptCfb_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"DecryptCfb",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCfb",P1,P2,P3,P4])
 
 	Func DecryptCfb_3 P1,P2,P3
-		return dnRequest("call",[self,"DecryptCfb",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCfb",P1,P2,P3])
 
 	Func DecryptCfb P1,P2
-		return dnRequest("call",[self,"DecryptCfb",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCfb",P1,P2])
 
 	Func EncryptCfb_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"EncryptCfb",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCfb",P1,P2,P3,P4])
 
 	Func EncryptCfb_3 P1,P2,P3
-		return dnRequest("call",[self,"EncryptCfb",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCfb",P1,P2,P3])
 
 	Func EncryptCfb P1,P2
-		return dnRequest("call",[self,"EncryptCfb",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCfb",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -142,63 +142,63 @@ Class SymmetricAlgorithm from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getFeedbackSize
-		return dnRequest("get",[self,"FeedbackSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FeedbackSize"])
 
 	Func setFeedbackSize P1
-		dnRequest("set",[self,"FeedbackSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FeedbackSize",P1])
 		return self
 
 	Func getBlockSize
-		return dnRequest("get",[self,"BlockSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BlockSize"])
 
 	Func setBlockSize P1
-		dnRequest("set",[self,"BlockSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BlockSize",P1])
 		return self
 
 	Func getIV
-		return dnRequest("get",[self,"IV"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IV"])
 
 	Func setIV P1
-		dnRequest("set",[self,"IV",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IV",P1])
 		return self
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
-		dnRequest("set",[self,"Key",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Key",P1])
 		return self
 
 	Func getKeySize
-		return dnRequest("get",[self,"KeySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeySize"])
 
 	Func setKeySize P1
-		dnRequest("set",[self,"KeySize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeySize",P1])
 		return self
 
 	Func getLegalBlockSizes
-		return dnRequest("get",[self,"LegalBlockSizes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LegalBlockSizes"])
 
 	Func setLegalBlockSizes P1
 		raise("DotNet Error: LegalBlockSizes is a read-only property")
 
 	Func getLegalKeySizes
-		return dnRequest("get",[self,"LegalKeySizes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LegalKeySizes"])
 
 	Func setLegalKeySizes P1
 		raise("DotNet Error: LegalKeySizes is a read-only property")
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[self,"Mode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[self,"Padding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[self,"Padding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
 		return self
 

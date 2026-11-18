@@ -24,42 +24,42 @@ Class DefaultFilesOptions from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getDefaultFileNames
-		return dnRequest("get",[self,"DefaultFileNames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultFileNames"])
 
 	Func setDefaultFileNames P1
-		dnRequest("set",[self,"DefaultFileNames",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultFileNames",P1])
 		return self
 
 	Func getRequestPath
-		return dnRequest("get",[self,"RequestPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestPath"])
 
 	Func setRequestPath P1
-		dnRequest("set",[self,"RequestPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestPath",P1])
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileProvider"])
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FileProvider",P1])
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dnRequest("get",[self,"RedirectToAppendTrailingSlash"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RedirectToAppendTrailingSlash"])
 
 	Func setRedirectToAppendTrailingSlash P1
-		dnRequest("set",[self,"RedirectToAppendTrailingSlash",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RedirectToAppendTrailingSlash",P1])
 		return self
 

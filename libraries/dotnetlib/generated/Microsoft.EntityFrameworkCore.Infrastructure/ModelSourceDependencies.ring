@@ -19,26 +19,26 @@ Class ModelSourceDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getModelCustomizer
-		return dnRequest("get",[self,"ModelCustomizer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelCustomizer"])
 
 	Func setModelCustomizer P1
-		dnRequest("set",[self,"ModelCustomizer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ModelCustomizer",P1])
 		return self
 
 	Func getModelCacheKeyFactory
-		return dnRequest("get",[self,"ModelCacheKeyFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelCacheKeyFactory"])
 
 	Func setModelCacheKeyFactory P1
-		dnRequest("set",[self,"ModelCacheKeyFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ModelCacheKeyFactory",P1])
 		return self
 
 	Func getMemoryCache
-		return dnRequest("get",[self,"MemoryCache"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemoryCache"])
 
 	Func setMemoryCache P1
-		dnRequest("set",[self,"MemoryCache",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MemoryCache",P1])
 		return self
 

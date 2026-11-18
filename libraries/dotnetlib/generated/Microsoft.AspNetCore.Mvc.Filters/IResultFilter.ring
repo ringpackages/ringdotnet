@@ -14,10 +14,10 @@ Class IResultFilter from DotNetObject
 		return self
 
 	Func OnResultExecuting P1
-		dnRequest("call",[self,"OnResultExecuting",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnResultExecuting",P1])
 		return self
 
 	Func OnResultExecuted P1
-		dnRequest("call",[self,"OnResultExecuted",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnResultExecuted",P1])
 		return self
 

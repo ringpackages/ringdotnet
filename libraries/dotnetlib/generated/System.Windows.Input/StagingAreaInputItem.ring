@@ -16,17 +16,17 @@ Class StagingAreaInputItem from Object
 		return self
 
 	Func GetData P1
-		return dnRequest("call",[self,"GetData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
 
 	Func SetData P1,P2
-		dnRequest("call",[self,"SetData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getInput
-		return dnRequest("get",[self,"Input"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Input"])
 
 	Func setInput P1
 		raise("DotNet Error: Input is a read-only property")

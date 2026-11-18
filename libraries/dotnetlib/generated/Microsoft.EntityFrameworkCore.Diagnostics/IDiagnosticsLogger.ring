@@ -21,50 +21,50 @@ Class IDiagnosticsLogger from DotNetObject
 		return self
 
 	Func ShouldLogSensitiveData 
-		return dnRequest("call",[self,"ShouldLogSensitiveData"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogSensitiveData"])
 
 	Func ShouldLog P1
-		return dnRequest("call",[self,"ShouldLog",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLog",P1])
 
 	Func DispatchEventData P1,P2,P3,P4
-		dnRequest("call",[self,"DispatchEventData",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DispatchEventData",P1,P2,P3,P4])
 		return self
 
 	Func NeedsEventData P1
-		return dnRequest("call",[self,"NeedsEventData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NeedsEventData",P1])
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getDefinitions
-		return dnRequest("get",[self,"Definitions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Definitions"])
 
 	Func setDefinitions P1
 		raise("DotNet Error: Definitions is a read-only property")
 
 	Func getLogger
-		return dnRequest("get",[self,"Logger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getDiagnosticSource
-		return dnRequest("get",[self,"DiagnosticSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DiagnosticSource"])
 
 	Func setDiagnosticSource P1
 		raise("DotNet Error: DiagnosticSource is a read-only property")
 
 	Func getDbContextLogger
-		return dnRequest("get",[self,"DbContextLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DbContextLogger"])
 
 	Func setDbContextLogger P1
 		raise("DotNet Error: DbContextLogger is a read-only property")
 
 	Func getInterceptors
-		return dnRequest("get",[self,"Interceptors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Interceptors"])
 
 	Func setInterceptors P1
 		raise("DotNet Error: Interceptors is a read-only property")

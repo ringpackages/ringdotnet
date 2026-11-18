@@ -23,43 +23,43 @@ Class CommandCorrelatedEventData from DbContextEventData
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getCommandId
-		return dnRequest("get",[self,"CommandId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandId"])
 
 	Func setCommandId P1
 		raise("DotNet Error: CommandId is a read-only property")
 
 	Func getConnectionId
-		return dnRequest("get",[self,"ConnectionId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionId"])
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getExecuteMethod
-		return dnRequest("get",[self,"ExecuteMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExecuteMethod"])
 
 	Func setExecuteMethod P1
 		raise("DotNet Error: ExecuteMethod is a read-only property")
 
 	Func getIsAsync
-		return dnRequest("get",[self,"IsAsync"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getStartTime
-		return dnRequest("get",[self,"StartTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartTime"])
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
 
 	Func getCommandSource
-		return dnRequest("get",[self,"CommandSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandSource"])
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")

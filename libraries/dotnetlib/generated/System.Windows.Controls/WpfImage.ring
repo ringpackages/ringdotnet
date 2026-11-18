@@ -24,40 +24,40 @@ Class WpfImage from FrameworkElement
 		return self
 
 	Func setImageFailedEvent P1
-		dnRequest("setevent",[self,"ImageFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ImageFailed",dnCallback(P1)])
 		return self
 
 	Func clearImageFailedEvent
-		dnRequest("clearevent",[self,"ImageFailed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ImageFailed"])
 		return self
 
 	Func setDpiChangedEvent P1
-		dnRequest("setevent",[self,"DpiChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DpiChanged",dnCallback(P1)])
 		return self
 
 	Func clearDpiChangedEvent
-		dnRequest("clearevent",[self,"DpiChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DpiChanged"])
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
 		return self
 
 	Func getStretch
-		return dnRequest("get",[self,"Stretch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Stretch"])
 
 	Func setStretch P1
-		dnRequest("set",[self,"Stretch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Stretch",P1])
 		return self
 
 	Func getStretchDirection
-		return dnRequest("get",[self,"StretchDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StretchDirection"])
 
 	Func setStretchDirection P1
-		dnRequest("set",[self,"StretchDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StretchDirection",P1])
 		return self
 
 	Func getSourceProperty

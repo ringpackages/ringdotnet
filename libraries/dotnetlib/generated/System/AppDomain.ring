@@ -31,131 +31,131 @@ Class AppDomain from MarshalByRefObject
 		return self
 
 	Func SetDynamicBase P1
-		dnRequest("call",[self,"SetDynamicBase",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetDynamicBase",P1])
 		return self
 
 	Func ApplyPolicy P1
-		return dnRequest("call",[self,"ApplyPolicy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyPolicy",P1])
 
 	Func ExecuteAssembly P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteAssembly",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteAssembly",P1])
 		ok
-		return dnRequest("call",[self,"ExecuteAssembly",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAssembly",P1])
 
 	Func ExecuteAssembly_2 P1,P2
-		return dnRequest("call",[self,"ExecuteAssembly",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAssembly",P1,P2])
 
 	Func ExecuteAssembly_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ExecuteAssembly",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAssembly",P1,P2,P3,P4])
 
 	Func ExecuteAssemblyByName_2 P1,P2
-		return dnRequest("call",[self,"ExecuteAssemblyByName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAssemblyByName",P1,P2])
 
 	Func ExecuteAssemblyByName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteAssemblyByName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteAssemblyByName",P1])
 		ok
-		return dnRequest("call",[self,"ExecuteAssemblyByName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAssemblyByName",P1])
 
 	Func GetData P1
-		return dnRequest("call",[self,"GetData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
 
 	Func SetData P1,P2
-		dnRequest("call",[self,"SetData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2])
 		return self
 
 	Func IsCompatibilitySwitchSet P1
-		return dnRequest("call",[self,"IsCompatibilitySwitchSet",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsCompatibilitySwitchSet",P1])
 
 	Func IsDefaultAppDomain 
-		return dnRequest("call",[self,"IsDefaultAppDomain"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDefaultAppDomain"])
 
 	Func IsFinalizingForUnload 
-		return dnRequest("call",[self,"IsFinalizingForUnload"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsFinalizingForUnload"])
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Load",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
 		ok
-		return dnRequest("call",[self,"Load",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 
 	Func Load_2 P1,P2
-		return dnRequest("call",[self,"Load",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
 
 	Func ReflectionOnlyGetAssemblies 
-		return dnRequest("call",[self,"ReflectionOnlyGetAssemblies"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReflectionOnlyGetAssemblies"])
 
 	Func AppendPrivatePath P1
-		dnRequest("call",[self,"AppendPrivatePath",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendPrivatePath",P1])
 		return self
 
 	Func ClearPrivatePath 
-		dnRequest("call",[self,"ClearPrivatePath"])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearPrivatePath"])
 		return self
 
 	Func ClearShadowCopyPath 
-		dnRequest("call",[self,"ClearShadowCopyPath"])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearShadowCopyPath"])
 		return self
 
 	Func SetCachePath P1
-		dnRequest("call",[self,"SetCachePath",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCachePath",P1])
 		return self
 
 	Func SetShadowCopyFiles 
-		dnRequest("call",[self,"SetShadowCopyFiles"])
+		dnRequest("call",[new DotNetObject(nHandle),"SetShadowCopyFiles"])
 		return self
 
 	Func SetShadowCopyPath P1
-		dnRequest("call",[self,"SetShadowCopyPath",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetShadowCopyPath",P1])
 		return self
 
 	Func GetAssemblies 
-		return dnRequest("call",[self,"GetAssemblies"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAssemblies"])
 
 	Func SetPrincipalPolicy P1
-		dnRequest("call",[self,"SetPrincipalPolicy",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPrincipalPolicy",P1])
 		return self
 
 	Func SetThreadPrincipal P1
-		dnRequest("call",[self,"SetThreadPrincipal",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetThreadPrincipal",P1])
 		return self
 
 	Func CreateInstance P1,P2
-		return dnRequest("call",[self,"CreateInstance",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2])
 
 	Func CreateInstance_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"CreateInstance",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func CreateInstance_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateInstance",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2,P3])
 
 	Func CreateInstanceAndUnwrap P1,P2
-		return dnRequest("call",[self,"CreateInstanceAndUnwrap",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceAndUnwrap",P1,P2])
 
 	Func CreateInstanceAndUnwrap_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"CreateInstanceAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func CreateInstanceAndUnwrap_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateInstanceAndUnwrap",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceAndUnwrap",P1,P2,P3])
 
 	Func CreateInstanceFrom P1,P2
-		return dnRequest("call",[self,"CreateInstanceFrom",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFrom",P1,P2])
 
 	Func CreateInstanceFrom_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"CreateInstanceFrom",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFrom",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func CreateInstanceFrom_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateInstanceFrom",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFrom",P1,P2,P3])
 
 	Func CreateInstanceFromAndUnwrap P1,P2
-		return dnRequest("call",[self,"CreateInstanceFromAndUnwrap",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFromAndUnwrap",P1,P2])
 
 	Func CreateInstanceFromAndUnwrap_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"CreateInstanceFromAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFromAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func CreateInstanceFromAndUnwrap_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateInstanceFromAndUnwrap",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFromAndUnwrap",P1,P2,P3])
 
 	Func CreateDomain P1
 		return dnRequest("call",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"CreateDomain",P1])
@@ -168,148 +168,148 @@ Class AppDomain from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"GetCurrentThreadId"])
 
 	Func setUnhandledExceptionEvent P1
-		dnRequest("setevent",[self,"UnhandledException",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UnhandledException",dnCallback(P1)])
 		return self
 
 	Func clearUnhandledExceptionEvent
-		dnRequest("clearevent",[self,"UnhandledException"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UnhandledException"])
 		return self
 
 	Func setDomainUnloadEvent P1
-		dnRequest("setevent",[self,"DomainUnload",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DomainUnload",dnCallback(P1)])
 		return self
 
 	Func clearDomainUnloadEvent
-		dnRequest("clearevent",[self,"DomainUnload"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DomainUnload"])
 		return self
 
 	Func setFirstChanceExceptionEvent P1
-		dnRequest("setevent",[self,"FirstChanceException",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"FirstChanceException",dnCallback(P1)])
 		return self
 
 	Func clearFirstChanceExceptionEvent
-		dnRequest("clearevent",[self,"FirstChanceException"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"FirstChanceException"])
 		return self
 
 	Func setProcessExitEvent P1
-		dnRequest("setevent",[self,"ProcessExit",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ProcessExit",dnCallback(P1)])
 		return self
 
 	Func clearProcessExitEvent
-		dnRequest("clearevent",[self,"ProcessExit"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ProcessExit"])
 		return self
 
 	Func setAssemblyLoadEvent P1
-		dnRequest("setevent",[self,"AssemblyLoad",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AssemblyLoad",dnCallback(P1)])
 		return self
 
 	Func clearAssemblyLoadEvent
-		dnRequest("clearevent",[self,"AssemblyLoad"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AssemblyLoad"])
 		return self
 
 	Func setAssemblyResolveEvent P1
-		dnRequest("setevent",[self,"AssemblyResolve",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AssemblyResolve",dnCallback(P1)])
 		return self
 
 	Func clearAssemblyResolveEvent
-		dnRequest("clearevent",[self,"AssemblyResolve"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AssemblyResolve"])
 		return self
 
 	Func setReflectionOnlyAssemblyResolveEvent P1
-		dnRequest("setevent",[self,"ReflectionOnlyAssemblyResolve",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ReflectionOnlyAssemblyResolve",dnCallback(P1)])
 		return self
 
 	Func clearReflectionOnlyAssemblyResolveEvent
-		dnRequest("clearevent",[self,"ReflectionOnlyAssemblyResolve"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ReflectionOnlyAssemblyResolve"])
 		return self
 
 	Func setTypeResolveEvent P1
-		dnRequest("setevent",[self,"TypeResolve",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TypeResolve",dnCallback(P1)])
 		return self
 
 	Func clearTypeResolveEvent
-		dnRequest("clearevent",[self,"TypeResolve"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TypeResolve"])
 		return self
 
 	Func setResourceResolveEvent P1
-		dnRequest("setevent",[self,"ResourceResolve",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ResourceResolve",dnCallback(P1)])
 		return self
 
 	Func clearResourceResolveEvent
-		dnRequest("clearevent",[self,"ResourceResolve"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ResourceResolve"])
 		return self
 
 	Func getBaseDirectory
-		return dnRequest("get",[self,"BaseDirectory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseDirectory"])
 
 	Func setBaseDirectory P1
 		raise("DotNet Error: BaseDirectory is a read-only property")
 
 	Func getRelativeSearchPath
-		return dnRequest("get",[self,"RelativeSearchPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelativeSearchPath"])
 
 	Func setRelativeSearchPath P1
 		raise("DotNet Error: RelativeSearchPath is a read-only property")
 
 	Func getSetupInformation
-		return dnRequest("get",[self,"SetupInformation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SetupInformation"])
 
 	Func setSetupInformation P1
 		raise("DotNet Error: SetupInformation is a read-only property")
 
 	Func getPermissionSet
-		return dnRequest("get",[self,"PermissionSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PermissionSet"])
 
 	Func setPermissionSet P1
 		raise("DotNet Error: PermissionSet is a read-only property")
 
 	Func getDynamicDirectory
-		return dnRequest("get",[self,"DynamicDirectory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DynamicDirectory"])
 
 	Func setDynamicDirectory P1
 		raise("DotNet Error: DynamicDirectory is a read-only property")
 
 	Func getFriendlyName
-		return dnRequest("get",[self,"FriendlyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FriendlyName"])
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsFullyTrusted
-		return dnRequest("get",[self,"IsFullyTrusted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFullyTrusted"])
 
 	Func setIsFullyTrusted P1
 		raise("DotNet Error: IsFullyTrusted is a read-only property")
 
 	Func getIsHomogenous
-		return dnRequest("get",[self,"IsHomogenous"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsHomogenous"])
 
 	Func setIsHomogenous P1
 		raise("DotNet Error: IsHomogenous is a read-only property")
 
 	Func getMonitoringSurvivedMemorySize
-		return dnRequest("get",[self,"MonitoringSurvivedMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MonitoringSurvivedMemorySize"])
 
 	Func setMonitoringSurvivedMemorySize P1
 		raise("DotNet Error: MonitoringSurvivedMemorySize is a read-only property")
 
 	Func getMonitoringTotalAllocatedMemorySize
-		return dnRequest("get",[self,"MonitoringTotalAllocatedMemorySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MonitoringTotalAllocatedMemorySize"])
 
 	Func setMonitoringTotalAllocatedMemorySize P1
 		raise("DotNet Error: MonitoringTotalAllocatedMemorySize is a read-only property")
 
 	Func getShadowCopyFiles
-		return dnRequest("get",[self,"ShadowCopyFiles"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShadowCopyFiles"])
 
 	Func getMonitoringTotalProcessorTime
-		return dnRequest("get",[self,"MonitoringTotalProcessorTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MonitoringTotalProcessorTime"])
 
 	Func setMonitoringTotalProcessorTime P1
 		raise("DotNet Error: MonitoringTotalProcessorTime is a read-only property")

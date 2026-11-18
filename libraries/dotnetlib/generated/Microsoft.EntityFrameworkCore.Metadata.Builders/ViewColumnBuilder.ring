@@ -17,16 +17,16 @@ Class ViewColumnBuilder from Object
 		return self
 
 	Func HasColumnName P1
-		return dnRequest("call",[self,"HasColumnName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasColumnName",P1])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOverrides
-		return dnRequest("get",[self,"Overrides"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Overrides"])
 
 	Func setOverrides P1
 		raise("DotNet Error: Overrides is a read-only property")

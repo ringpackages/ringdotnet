@@ -30,99 +30,99 @@ Class FolderBrowserDialog from CommonDialog
 		return self
 
 	Func getAddToRecent
-		return dnRequest("get",[self,"AddToRecent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddToRecent"])
 
 	Func setAddToRecent P1
-		dnRequest("set",[self,"AddToRecent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AddToRecent",P1])
 		return self
 
 	Func getAutoUpgradeEnabled
-		return dnRequest("get",[self,"AutoUpgradeEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoUpgradeEnabled"])
 
 	Func setAutoUpgradeEnabled P1
-		dnRequest("set",[self,"AutoUpgradeEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoUpgradeEnabled",P1])
 		return self
 
 	Func getMultiselect
-		return dnRequest("get",[self,"Multiselect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Multiselect"])
 
 	Func setMultiselect P1
-		dnRequest("set",[self,"Multiselect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Multiselect",P1])
 		return self
 
 	Func getOkRequiresInteraction
-		return dnRequest("get",[self,"OkRequiresInteraction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OkRequiresInteraction"])
 
 	Func setOkRequiresInteraction P1
-		dnRequest("set",[self,"OkRequiresInteraction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OkRequiresInteraction",P1])
 		return self
 
 	Func getShowHiddenFiles
-		return dnRequest("get",[self,"ShowHiddenFiles"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowHiddenFiles"])
 
 	Func setShowHiddenFiles P1
-		dnRequest("set",[self,"ShowHiddenFiles",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowHiddenFiles",P1])
 		return self
 
 	Func getShowPinnedPlaces
-		return dnRequest("get",[self,"ShowPinnedPlaces"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowPinnedPlaces"])
 
 	Func setShowPinnedPlaces P1
-		dnRequest("set",[self,"ShowPinnedPlaces",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowPinnedPlaces",P1])
 		return self
 
 	Func getShowNewFolderButton
-		return dnRequest("get",[self,"ShowNewFolderButton"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowNewFolderButton"])
 
 	Func setShowNewFolderButton P1
-		dnRequest("set",[self,"ShowNewFolderButton",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowNewFolderButton",P1])
 		return self
 
 	Func getClientGuid
-		return dnRequest("get",[self,"ClientGuid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientGuid"])
 
 	Func setClientGuid P1
-		dnRequest("set",[self,"ClientGuid",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientGuid",P1])
 		return self
 
 	Func getSelectedPath
-		return dnRequest("get",[self,"SelectedPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedPath"])
 
 	Func setSelectedPath P1
-		dnRequest("set",[self,"SelectedPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedPath",P1])
 		return self
 
 	Func getSelectedPaths
-		return dnRequest("get",[self,"SelectedPaths"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedPaths"])
 
 	Func setSelectedPaths P1
 		raise("DotNet Error: SelectedPaths is a read-only property")
 
 	Func getInitialDirectory
-		return dnRequest("get",[self,"InitialDirectory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialDirectory"])
 
 	Func setInitialDirectory P1
-		dnRequest("set",[self,"InitialDirectory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InitialDirectory",P1])
 		return self
 
 	Func getRootFolder
-		return dnRequest("get",[self,"RootFolder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RootFolder"])
 
 	Func setRootFolder P1
-		dnRequest("set",[self,"RootFolder",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RootFolder",P1])
 		return self
 
 	Func getDescription
-		return dnRequest("get",[self,"Description"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
 
 	Func setDescription P1
-		dnRequest("set",[self,"Description",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Description",P1])
 		return self
 
 	Func getUseDescriptionForTitle
-		return dnRequest("get",[self,"UseDescriptionForTitle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseDescriptionForTitle"])
 
 	Func setUseDescriptionForTitle P1
-		dnRequest("set",[self,"UseDescriptionForTitle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseDescriptionForTitle",P1])
 		return self
 

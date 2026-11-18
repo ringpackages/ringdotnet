@@ -58,178 +58,178 @@ Class ListViewItem from Object
 		return self
 
 	Func BeginEdit 
-		dnRequest("call",[self,"BeginEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginEdit"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func EnsureVisible 
-		dnRequest("call",[self,"EnsureVisible"])
+		dnRequest("call",[new DotNetObject(nHandle),"EnsureVisible"])
 		return self
 
 	Func FindNearestItem P1
-		return dnRequest("call",[self,"FindNearestItem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindNearestItem",P1])
 
 	Func GetBounds_1 P1
-		return dnRequest("call",[self,"GetBounds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
 
 	Func GetSubItemAt P1,P2
-		return dnRequest("call",[self,"GetSubItemAt",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSubItemAt",P1,P2])
 
 	Func Remove 
-		dnRequest("call",[self,"Remove"])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBackColor
-		return dnRequest("get",[self,"BackColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
 
 	Func setBackColor P1
-		dnRequest("set",[self,"BackColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BackColor",P1])
 		return self
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getChecked
-		return dnRequest("get",[self,"Checked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Checked"])
 
 	Func setChecked P1
-		dnRequest("set",[self,"Checked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Checked",P1])
 		return self
 
 	Func getFocused
-		return dnRequest("get",[self,"Focused"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Focused"])
 
 	Func setFocused P1
-		dnRequest("set",[self,"Focused",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Focused",P1])
 		return self
 
 	Func getFont
-		return dnRequest("get",[self,"Font"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
 
 	Func setFont P1
-		dnRequest("set",[self,"Font",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Font",P1])
 		return self
 
 	Func getForeColor
-		return dnRequest("get",[self,"ForeColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
 
 	Func setForeColor P1
-		dnRequest("set",[self,"ForeColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForeColor",P1])
 		return self
 
 	Func getGroup
-		return dnRequest("get",[self,"Group"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Group"])
 
 	Func setGroup P1
-		dnRequest("set",[self,"Group",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Group",P1])
 		return self
 
 	Func getImageIndex
-		return dnRequest("get",[self,"ImageIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageIndex"])
 
 	Func setImageIndex P1
-		dnRequest("set",[self,"ImageIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageIndex",P1])
 		return self
 
 	Func getImageKey
-		return dnRequest("get",[self,"ImageKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageKey"])
 
 	Func setImageKey P1
-		dnRequest("set",[self,"ImageKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageKey",P1])
 		return self
 
 	Func getImageList
-		return dnRequest("get",[self,"ImageList"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageList"])
 
 	Func setImageList P1
 		raise("DotNet Error: ImageList is a read-only property")
 
 	Func getIndentCount
-		return dnRequest("get",[self,"IndentCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IndentCount"])
 
 	Func setIndentCount P1
-		dnRequest("set",[self,"IndentCount",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IndentCount",P1])
 		return self
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getListView
-		return dnRequest("get",[self,"ListView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ListView"])
 
 	Func setListView P1
 		raise("DotNet Error: ListView is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getPosition
-		return dnRequest("get",[self,"Position"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[self,"Position",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
 		return self
 
 	Func getSelected
-		return dnRequest("get",[self,"Selected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Selected"])
 
 	Func setSelected P1
-		dnRequest("set",[self,"Selected",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Selected",P1])
 		return self
 
 	Func getStateImageIndex
-		return dnRequest("get",[self,"StateImageIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StateImageIndex"])
 
 	Func setStateImageIndex P1
-		dnRequest("set",[self,"StateImageIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StateImageIndex",P1])
 		return self
 
 	Func getSubItems
-		return dnRequest("get",[self,"SubItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubItems"])
 
 	Func setSubItems P1
 		raise("DotNet Error: SubItems is a read-only property")
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
-		dnRequest("set",[self,"Text",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
 		return self
 
 	Func getToolTipText
-		return dnRequest("get",[self,"ToolTipText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipText"])
 
 	Func setToolTipText P1
-		dnRequest("set",[self,"ToolTipText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ToolTipText",P1])
 		return self
 
 	Func getUseItemStyleForSubItems
-		return dnRequest("get",[self,"UseItemStyleForSubItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseItemStyleForSubItems"])
 
 	Func setUseItemStyleForSubItems P1
-		dnRequest("set",[self,"UseItemStyleForSubItems",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseItemStyleForSubItems",P1])
 		return self
 

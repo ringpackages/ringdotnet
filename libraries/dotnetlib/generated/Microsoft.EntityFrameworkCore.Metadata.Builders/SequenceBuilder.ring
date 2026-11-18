@@ -17,37 +17,37 @@ Class SequenceBuilder from Object
 		return self
 
 	Func IncrementsBy P1
-		return dnRequest("call",[self,"IncrementsBy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IncrementsBy",P1])
 
 	Func StartsAt P1
-		return dnRequest("call",[self,"StartsAt",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartsAt",P1])
 
 	Func HasMax P1
-		return dnRequest("call",[self,"HasMax",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMax",P1])
 
 	Func HasMin P1
-		return dnRequest("call",[self,"HasMin",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMin",P1])
 
 	Func IsCyclic_1 P1
-		return dnRequest("call",[self,"IsCyclic",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsCyclic",P1])
 
 	Func IsCyclic P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsCyclic",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsCyclic",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsCyclic"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsCyclic"])
 		ok
-		return dnRequest("call",[self,"IsCyclic",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsCyclic",P1])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

@@ -23,85 +23,85 @@ Class IRelationalModel from DotNetObject
 		return self
 
 	Func FindTable P1,P2
-		return dnRequest("call",[self,"FindTable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindTable",P1,P2])
 
 	Func FindDefaultTable P1
-		return dnRequest("call",[self,"FindDefaultTable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDefaultTable",P1])
 
 	Func FindView P1,P2
-		return dnRequest("call",[self,"FindView",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindView",P1,P2])
 
 	Func FindQuery P1
-		return dnRequest("call",[self,"FindQuery",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindQuery",P1])
 
 	Func FindSequence P1,P2
-		return dnRequest("call",[self,"FindSequence",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindSequence",P1,P2])
 
 	Func FindFunction P1,P2,P3
-		return dnRequest("call",[self,"FindFunction",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindFunction",P1,P2,P3])
 
 	Func FindStoredProcedure P1,P2
-		return dnRequest("call",[self,"FindStoredProcedure",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindStoredProcedure",P1,P2])
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getTables
-		return dnRequest("get",[self,"Tables"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tables"])
 
 	Func setTables P1
 		raise("DotNet Error: Tables is a read-only property")
 
 	Func getViews
-		return dnRequest("get",[self,"Views"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Views"])
 
 	Func setViews P1
 		raise("DotNet Error: Views is a read-only property")
 
 	Func getQueries
-		return dnRequest("get",[self,"Queries"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Queries"])
 
 	Func setQueries P1
 		raise("DotNet Error: Queries is a read-only property")
 
 	Func getSequences
-		return dnRequest("get",[self,"Sequences"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sequences"])
 
 	Func setSequences P1
 		raise("DotNet Error: Sequences is a read-only property")
 
 	Func getFunctions
-		return dnRequest("get",[self,"Functions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Functions"])
 
 	Func setFunctions P1
 		raise("DotNet Error: Functions is a read-only property")
 
 	Func getStoredProcedures
-		return dnRequest("get",[self,"StoredProcedures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedures"])
 
 	Func setStoredProcedures P1
 		raise("DotNet Error: StoredProcedures is a read-only property")
 
 	Func getCollation
-		return dnRequest("get",[self,"Collation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Collation"])
 
 	Func setCollation P1
 		raise("DotNet Error: Collation is a read-only property")

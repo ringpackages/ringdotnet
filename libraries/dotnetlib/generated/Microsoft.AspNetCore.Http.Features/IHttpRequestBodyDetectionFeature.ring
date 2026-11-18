@@ -16,7 +16,7 @@ Class IHttpRequestBodyDetectionFeature from DotNetObject
 		return self
 
 	Func getCanHaveBody
-		return dnRequest("get",[self,"CanHaveBody"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanHaveBody"])
 
 	Func setCanHaveBody P1
 		raise("DotNet Error: CanHaveBody is a read-only property")

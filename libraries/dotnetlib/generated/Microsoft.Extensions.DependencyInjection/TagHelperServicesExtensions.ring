@@ -14,7 +14,7 @@ Class TagHelperServicesExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func AddCacheTagHelper P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers'),"AddCacheTagHelper",P1])

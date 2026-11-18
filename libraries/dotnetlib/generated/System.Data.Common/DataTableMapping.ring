@@ -27,31 +27,31 @@ Class DataTableMapping from MarshalByRefObject
 		return self
 
 	Func GetDataColumn P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"GetDataColumn",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataColumn",P1,P2,P3,P4,P5])
 
 	Func GetColumnMappingBySchemaAction P1,P2
-		return dnRequest("call",[self,"GetColumnMappingBySchemaAction",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnMappingBySchemaAction",P1,P2])
 
 	Func GetDataTableBySchemaAction P1,P2
-		return dnRequest("call",[self,"GetDataTableBySchemaAction",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataTableBySchemaAction",P1,P2])
 
 	Func getColumnMappings
-		return dnRequest("get",[self,"ColumnMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnMappings"])
 
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
 	Func getDataSetTable
-		return dnRequest("get",[self,"DataSetTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataSetTable"])
 
 	Func setDataSetTable P1
-		dnRequest("set",[self,"DataSetTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataSetTable",P1])
 		return self
 
 	Func getSourceTable
-		return dnRequest("get",[self,"SourceTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceTable"])
 
 	Func setSourceTable P1
-		dnRequest("set",[self,"SourceTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceTable",P1])
 		return self
 

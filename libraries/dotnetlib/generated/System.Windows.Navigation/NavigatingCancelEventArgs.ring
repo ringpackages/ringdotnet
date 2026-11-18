@@ -24,56 +24,56 @@ Class NavigatingCancelEventArgs from CancelEventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Uri"])
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
 
 	Func setContent P1
 		raise("DotNet Error: Content is a read-only property")
 
 	Func getTargetContentState
-		return dnRequest("get",[self,"TargetContentState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetContentState"])
 
 	Func setTargetContentState P1
 		raise("DotNet Error: TargetContentState is a read-only property")
 
 	Func getContentStateToSave
-		return dnRequest("get",[self,"ContentStateToSave"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentStateToSave"])
 
 	Func setContentStateToSave P1
-		dnRequest("set",[self,"ContentStateToSave",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentStateToSave",P1])
 		return self
 
 	Func getExtraData
-		return dnRequest("get",[self,"ExtraData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtraData"])
 
 	Func setExtraData P1
 		raise("DotNet Error: ExtraData is a read-only property")
 
 	Func getNavigationMode
-		return dnRequest("get",[self,"NavigationMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NavigationMode"])
 
 	Func setNavigationMode P1
 		raise("DotNet Error: NavigationMode is a read-only property")
 
 	Func getWebRequest
-		return dnRequest("get",[self,"WebRequest"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WebRequest"])
 
 	Func setWebRequest P1
 		raise("DotNet Error: WebRequest is a read-only property")
 
 	Func getIsNavigationInitiator
-		return dnRequest("get",[self,"IsNavigationInitiator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNavigationInitiator"])
 
 	Func setIsNavigationInitiator P1
 		raise("DotNet Error: IsNavigationInitiator is a read-only property")
 
 	Func getNavigator
-		return dnRequest("get",[self,"Navigator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Navigator"])
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")

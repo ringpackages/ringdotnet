@@ -17,7 +17,7 @@ Class ExpressionEventData from EventData
 		return self
 
 	Func getExpression
-		return dnRequest("get",[self,"Expression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expression"])
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")

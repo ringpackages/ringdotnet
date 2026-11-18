@@ -31,38 +31,38 @@ Class InputMethod from DispatcherObject
 
 	Func ShowConfigureUI P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ShowConfigureUI",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ShowConfigureUI",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"ShowConfigureUI"])
+			dnRequest("call",[new DotNetObject(nHandle),"ShowConfigureUI"])
 		return self
 		ok
-		dnRequest("call",[self,"ShowConfigureUI",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowConfigureUI",P1])
 		return self
 
 	Func ShowConfigureUI_1 P1
-		dnRequest("call",[self,"ShowConfigureUI",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowConfigureUI",P1])
 		return self
 
 	Func ShowRegisterWordUI P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ShowRegisterWordUI",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ShowRegisterWordUI",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"ShowRegisterWordUI"])
+			dnRequest("call",[new DotNetObject(nHandle),"ShowRegisterWordUI"])
 		return self
 		ok
-		dnRequest("call",[self,"ShowRegisterWordUI",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowRegisterWordUI",P1])
 		return self
 
 	Func ShowRegisterWordUI_1 P1
-		dnRequest("call",[self,"ShowRegisterWordUI",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowRegisterWordUI",P1])
 		return self
 
 	Func ShowRegisterWordUI_2 P1,P2
-		dnRequest("call",[self,"ShowRegisterWordUI",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowRegisterWordUI",P1,P2])
 		return self
 
 	Func SetIsInputMethodEnabled P1,P2
@@ -108,63 +108,63 @@ Class InputMethod from DispatcherObject
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.InputMethod, PresentationCore'),"GetInputScope",P1])
 
 	Func setStateChangedEvent P1
-		dnRequest("setevent",[self,"StateChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StateChanged",dnCallback(P1)])
 		return self
 
 	Func clearStateChangedEvent
-		dnRequest("clearevent",[self,"StateChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StateChanged"])
 		return self
 
 	Func getImeState
-		return dnRequest("get",[self,"ImeState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImeState"])
 
 	Func setImeState P1
-		dnRequest("set",[self,"ImeState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImeState",P1])
 		return self
 
 	Func getMicrophoneState
-		return dnRequest("get",[self,"MicrophoneState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MicrophoneState"])
 
 	Func setMicrophoneState P1
-		dnRequest("set",[self,"MicrophoneState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MicrophoneState",P1])
 		return self
 
 	Func getHandwritingState
-		return dnRequest("get",[self,"HandwritingState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HandwritingState"])
 
 	Func setHandwritingState P1
-		dnRequest("set",[self,"HandwritingState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HandwritingState",P1])
 		return self
 
 	Func getSpeechMode
-		return dnRequest("get",[self,"SpeechMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SpeechMode"])
 
 	Func setSpeechMode P1
-		dnRequest("set",[self,"SpeechMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SpeechMode",P1])
 		return self
 
 	Func getImeConversionMode
-		return dnRequest("get",[self,"ImeConversionMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImeConversionMode"])
 
 	Func setImeConversionMode P1
-		dnRequest("set",[self,"ImeConversionMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImeConversionMode",P1])
 		return self
 
 	Func getImeSentenceMode
-		return dnRequest("get",[self,"ImeSentenceMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImeSentenceMode"])
 
 	Func setImeSentenceMode P1
-		dnRequest("set",[self,"ImeSentenceMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImeSentenceMode",P1])
 		return self
 
 	Func getCanShowConfigurationUI
-		return dnRequest("get",[self,"CanShowConfigurationUI"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanShowConfigurationUI"])
 
 	Func setCanShowConfigurationUI P1
 		raise("DotNet Error: CanShowConfigurationUI is a read-only property")
 
 	Func getCanShowRegisterWordUI
-		return dnRequest("get",[self,"CanShowRegisterWordUI"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanShowRegisterWordUI"])
 
 	Func setCanShowRegisterWordUI P1
 		raise("DotNet Error: CanShowRegisterWordUI is a read-only property")

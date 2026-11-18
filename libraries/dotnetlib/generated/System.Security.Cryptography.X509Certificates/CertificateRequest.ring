@@ -26,39 +26,39 @@ Class CertificateRequest from Object
 
 	Func CreateSigningRequest P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateSigningRequest",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSigningRequest",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateSigningRequest"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequest"])
 		ok
-		return dnRequest("call",[self,"CreateSigningRequest",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequest",P1])
 
 	Func CreateSigningRequest_1 P1
-		return dnRequest("call",[self,"CreateSigningRequest",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequest",P1])
 
 	Func CreateSigningRequestPem P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateSigningRequestPem",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSigningRequestPem",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateSigningRequestPem"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequestPem"])
 		ok
-		return dnRequest("call",[self,"CreateSigningRequestPem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequestPem",P1])
 
 	Func CreateSigningRequestPem_1 P1
-		return dnRequest("call",[self,"CreateSigningRequestPem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequestPem",P1])
 
 	Func CreateSelfSigned P1,P2
-		return dnRequest("call",[self,"CreateSelfSigned",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSelfSigned",P1,P2])
 
 	Func Create P1,P2,P3,P4
-		return dnRequest("call",[self,"Create",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1,P2,P3,P4])
 
 	Func Create_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Create",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func LoadSigningRequestPem_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequestPem",P1,P2,P3,P4])
@@ -79,31 +79,31 @@ Class CertificateRequest from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1,P2])
 
 	Func getSubjectName
-		return dnRequest("get",[self,"SubjectName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubjectName"])
 
 	Func setSubjectName P1
 		raise("DotNet Error: SubjectName is a read-only property")
 
 	Func getCertificateExtensions
-		return dnRequest("get",[self,"CertificateExtensions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CertificateExtensions"])
 
 	Func setCertificateExtensions P1
 		raise("DotNet Error: CertificateExtensions is a read-only property")
 
 	Func getOtherRequestAttributes
-		return dnRequest("get",[self,"OtherRequestAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OtherRequestAttributes"])
 
 	Func setOtherRequestAttributes P1
 		raise("DotNet Error: OtherRequestAttributes is a read-only property")
 
 	Func getPublicKey
-		return dnRequest("get",[self,"PublicKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PublicKey"])
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")
 
 	Func getHashAlgorithm
-		return dnRequest("get",[self,"HashAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
 		raise("DotNet Error: HashAlgorithm is a read-only property")

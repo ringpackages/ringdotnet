@@ -14,7 +14,7 @@ Class RandomNumberGenerator from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetBytes P1
@@ -22,24 +22,24 @@ Class RandomNumberGenerator from Object
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetBytes",P1])
 			ok
-			return dnRequest("callnamed",[self,"GetBytes",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetBytes",P1])
 		ok
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetBytes",P1])
 		ok
-		dnRequest("call",[self,"GetBytes",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1])
 		return self
 
 	Func GetBytes_3 P1,P2,P3
-		dnRequest("call",[self,"GetBytes",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3])
 		return self
 
 	Func GetNonZeroBytes P1
-		dnRequest("call",[self,"GetNonZeroBytes",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"GetNonZeroBytes",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)

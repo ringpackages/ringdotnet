@@ -38,80 +38,80 @@ Class TickBar from FrameworkElement
 		return self
 
 	Func getFill
-		return dnRequest("get",[self,"Fill"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Fill"])
 
 	Func setFill P1
-		dnRequest("set",[self,"Fill",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Fill",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[self,"Minimum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[self,"Minimum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[self,"Maximum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[self,"Maximum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
 		return self
 
 	Func getSelectionStart
-		return dnRequest("get",[self,"SelectionStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionStart"])
 
 	Func setSelectionStart P1
-		dnRequest("set",[self,"SelectionStart",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionStart",P1])
 		return self
 
 	Func getSelectionEnd
-		return dnRequest("get",[self,"SelectionEnd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionEnd"])
 
 	Func setSelectionEnd P1
-		dnRequest("set",[self,"SelectionEnd",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionEnd",P1])
 		return self
 
 	Func getIsSelectionRangeEnabled
-		return dnRequest("get",[self,"IsSelectionRangeEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSelectionRangeEnabled"])
 
 	Func setIsSelectionRangeEnabled P1
-		dnRequest("set",[self,"IsSelectionRangeEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSelectionRangeEnabled",P1])
 		return self
 
 	Func getTickFrequency
-		return dnRequest("get",[self,"TickFrequency"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TickFrequency"])
 
 	Func setTickFrequency P1
-		dnRequest("set",[self,"TickFrequency",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TickFrequency",P1])
 		return self
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Ticks"])
 
 	Func setTicks P1
-		dnRequest("set",[self,"Ticks",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Ticks",P1])
 		return self
 
 	Func getIsDirectionReversed
-		return dnRequest("get",[self,"IsDirectionReversed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDirectionReversed"])
 
 	Func setIsDirectionReversed P1
-		dnRequest("set",[self,"IsDirectionReversed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsDirectionReversed",P1])
 		return self
 
 	Func getPlacement
-		return dnRequest("get",[self,"Placement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Placement"])
 
 	Func setPlacement P1
-		dnRequest("set",[self,"Placement",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Placement",P1])
 		return self
 
 	Func getReservedSpace
-		return dnRequest("get",[self,"ReservedSpace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReservedSpace"])
 
 	Func setReservedSpace P1
-		dnRequest("set",[self,"ReservedSpace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReservedSpace",P1])
 		return self
 
 	Func getFillProperty

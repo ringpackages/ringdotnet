@@ -19,25 +19,25 @@ Class UploadProgressChangedEventArgs from ProgressChangedEventArgs
 		return self
 
 	Func getBytesReceived
-		return dnRequest("get",[self,"BytesReceived"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BytesReceived"])
 
 	Func setBytesReceived P1
 		raise("DotNet Error: BytesReceived is a read-only property")
 
 	Func getTotalBytesToReceive
-		return dnRequest("get",[self,"TotalBytesToReceive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalBytesToReceive"])
 
 	Func setTotalBytesToReceive P1
 		raise("DotNet Error: TotalBytesToReceive is a read-only property")
 
 	Func getBytesSent
-		return dnRequest("get",[self,"BytesSent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BytesSent"])
 
 	Func setBytesSent P1
 		raise("DotNet Error: BytesSent is a read-only property")
 
 	Func getTotalBytesToSend
-		return dnRequest("get",[self,"TotalBytesToSend"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalBytesToSend"])
 
 	Func setTotalBytesToSend P1
 		raise("DotNet Error: TotalBytesToSend is a read-only property")

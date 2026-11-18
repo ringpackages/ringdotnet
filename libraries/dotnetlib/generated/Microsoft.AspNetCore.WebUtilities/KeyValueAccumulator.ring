@@ -19,26 +19,26 @@ Class KeyValueAccumulator from ValueType
 		return self
 
 	Func Append P1,P2
-		dnRequest("call",[self,"Append",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Append",P1,P2])
 		return self
 
 	Func GetResults 
-		return dnRequest("call",[self,"GetResults"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetResults"])
 
 	Func getHasValues
-		return dnRequest("get",[self,"HasValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasValues"])
 
 	Func setHasValues P1
 		raise("DotNet Error: HasValues is a read-only property")
 
 	Func getKeyCount
-		return dnRequest("get",[self,"KeyCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyCount"])
 
 	Func setKeyCount P1
 		raise("DotNet Error: KeyCount is a read-only property")
 
 	Func getValueCount
-		return dnRequest("get",[self,"ValueCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueCount"])
 
 	Func setValueCount P1
 		raise("DotNet Error: ValueCount is a read-only property")

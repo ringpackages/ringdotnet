@@ -20,108 +20,108 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func AddSchema P1
-		dnRequest("call",[self,"AddSchema",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddSchema",P1])
 		return self
 
 	Func Initialize P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Initialize",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Initialize",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Initialize"])
+			dnRequest("call",[new DotNetObject(nHandle),"Initialize"])
 		return self
 		ok
-		dnRequest("call",[self,"Initialize",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1])
 		return self
 
 	Func Initialize_1 P1
-		dnRequest("call",[self,"Initialize",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1])
 		return self
 
 	Func ValidateElement P1,P2,P3
-		dnRequest("call",[self,"ValidateElement",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ValidateElement",P1,P2,P3])
 		return self
 
 	Func ValidateElement_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[self,"ValidateElement",P1,P2,P3,P4,P5,P6,P7])
+		dnRequest("call",[new DotNetObject(nHandle),"ValidateElement",P1,P2,P3,P4,P5,P6,P7])
 		return self
 
 	Func ValidateAttribute P1,P2,P3,P4
-		return dnRequest("call",[self,"ValidateAttribute",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidateAttribute",P1,P2,P3,P4])
 
 	Func GetUnspecifiedDefaultAttributes P1
-		dnRequest("call",[self,"GetUnspecifiedDefaultAttributes",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"GetUnspecifiedDefaultAttributes",P1])
 		return self
 
 	Func ValidateEndOfAttributes P1
-		dnRequest("call",[self,"ValidateEndOfAttributes",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ValidateEndOfAttributes",P1])
 		return self
 
 	Func ValidateText P1
-		dnRequest("call",[self,"ValidateText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ValidateText",P1])
 		return self
 
 	Func ValidateWhitespace P1
-		dnRequest("call",[self,"ValidateWhitespace",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ValidateWhitespace",P1])
 		return self
 
 	Func ValidateEndElement P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ValidateEndElement",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ValidateEndElement",P1])
 		ok
-		return dnRequest("call",[self,"ValidateEndElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidateEndElement",P1])
 
 	Func ValidateEndElement_2 P1,P2
-		return dnRequest("call",[self,"ValidateEndElement",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidateEndElement",P1,P2])
 
 	Func SkipToEndElement P1
-		dnRequest("call",[self,"SkipToEndElement",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SkipToEndElement",P1])
 		return self
 
 	Func EndValidation 
-		dnRequest("call",[self,"EndValidation"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndValidation"])
 		return self
 
 	Func GetExpectedParticles 
-		return dnRequest("call",[self,"GetExpectedParticles"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetExpectedParticles"])
 
 	Func GetExpectedAttributes 
-		return dnRequest("call",[self,"GetExpectedAttributes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetExpectedAttributes"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setValidationEventHandlerEvent P1
-		dnRequest("setevent",[self,"ValidationEventHandler",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ValidationEventHandler",dnCallback(P1)])
 		return self
 
 	Func clearValidationEventHandlerEvent
-		dnRequest("clearevent",[self,"ValidationEventHandler"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ValidationEventHandler"])
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
 		return self
 
 	Func getLineInfoProvider
-		return dnRequest("get",[self,"LineInfoProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineInfoProvider"])
 
 	Func setLineInfoProvider P1
-		dnRequest("set",[self,"LineInfoProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineInfoProvider",P1])
 		return self
 
 	Func getSourceUri
-		return dnRequest("get",[self,"SourceUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceUri"])
 
 	Func setSourceUri P1
-		dnRequest("set",[self,"SourceUri",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceUri",P1])
 		return self
 
 	Func getValidationEventSender
-		return dnRequest("get",[self,"ValidationEventSender"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidationEventSender"])
 
 	Func setValidationEventSender P1
-		dnRequest("set",[self,"ValidationEventSender",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidationEventSender",P1])
 		return self
 

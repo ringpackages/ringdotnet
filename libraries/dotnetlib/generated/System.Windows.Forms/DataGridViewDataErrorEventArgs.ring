@@ -19,21 +19,21 @@ Class DataGridViewDataErrorEventArgs from DataGridViewCellCancelEventArgs
 		return self
 
 	Func getContext
-		return dnRequest("get",[self,"Context"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getThrowException
-		return dnRequest("get",[self,"ThrowException"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ThrowException"])
 
 	Func setThrowException P1
-		dnRequest("set",[self,"ThrowException",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ThrowException",P1])
 		return self
 

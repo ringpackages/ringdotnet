@@ -20,43 +20,43 @@ Class X509Certificate2Collection from X509CertificateCollection
 
 	Func Export P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Export",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Export",P1])
 		ok
-		return dnRequest("call",[self,"Export",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Export",P1])
 
 	Func Export_2 P1,P2
-		return dnRequest("call",[self,"Export",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Export",P1,P2])
 
 	Func Find P1,P2,P3
-		return dnRequest("call",[self,"Find",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2,P3])
 
 	Func Import_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Import",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Import",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Import",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Import",P1])
 		return self
 
 	Func Import_3 P1,P2,P3
-		dnRequest("call",[self,"Import",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Import",P1,P2,P3])
 		return self
 
 	Func Import_2 P1,P2
-		dnRequest("call",[self,"Import",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Import",P1,P2])
 		return self
 
 	Func RemoveRange P1
-		dnRequest("call",[self,"RemoveRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveRange",P1])
 		return self
 
 	Func ImportFromPemFile P1
-		dnRequest("call",[self,"ImportFromPemFile",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ImportFromPemFile",P1])
 		return self
 
 	Func ExportPkcs7Pem 
-		return dnRequest("call",[self,"ExportPkcs7Pem"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportPkcs7Pem"])
 
 	Func ExportCertificatePems 
-		return dnRequest("call",[self,"ExportCertificatePems"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportCertificatePems"])
 

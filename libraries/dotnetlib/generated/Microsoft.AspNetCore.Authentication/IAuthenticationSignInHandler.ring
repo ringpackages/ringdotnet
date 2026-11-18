@@ -14,5 +14,5 @@ Class IAuthenticationSignInHandler from DotNetObject
 		return self
 
 	Func SignInAsync P1,P2
-		return dnRequest("call",[self,"SignInAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignInAsync",P1,P2])
 

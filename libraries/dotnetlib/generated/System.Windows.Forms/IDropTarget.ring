@@ -14,18 +14,18 @@ Class IDropTarget from DotNetObject
 		return self
 
 	Func OnDragEnter P1
-		dnRequest("call",[self,"OnDragEnter",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnDragEnter",P1])
 		return self
 
 	Func OnDragLeave P1
-		dnRequest("call",[self,"OnDragLeave",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnDragLeave",P1])
 		return self
 
 	Func OnDragDrop P1
-		dnRequest("call",[self,"OnDragDrop",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnDragDrop",P1])
 		return self
 
 	Func OnDragOver P1
-		dnRequest("call",[self,"OnDragOver",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnDragOver",P1])
 		return self
 

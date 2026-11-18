@@ -18,23 +18,23 @@ Class FlowLayoutPanel from Panel
 		return self
 
 	Func GetFlowBreak P1
-		return dnRequest("call",[self,"GetFlowBreak",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFlowBreak",P1])
 
 	Func SetFlowBreak P1,P2
-		dnRequest("call",[self,"SetFlowBreak",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFlowBreak",P1,P2])
 		return self
 
 	Func getFlowDirection
-		return dnRequest("get",[self,"FlowDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FlowDirection"])
 
 	Func setFlowDirection P1
-		dnRequest("set",[self,"FlowDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FlowDirection",P1])
 		return self
 
 	Func getWrapContents
-		return dnRequest("get",[self,"WrapContents"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WrapContents"])
 
 	Func setWrapContents P1
-		dnRequest("set",[self,"WrapContents",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WrapContents",P1])
 		return self
 

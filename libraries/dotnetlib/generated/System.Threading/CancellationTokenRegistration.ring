@@ -17,17 +17,17 @@ Class CancellationTokenRegistration from ValueType
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Unregister 
-		return dnRequest("call",[self,"Unregister"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Unregister"])
 
 	Func getToken
-		return dnRequest("get",[self,"Token"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Token"])
 
 	Func setToken P1
 		raise("DotNet Error: Token is a read-only property")

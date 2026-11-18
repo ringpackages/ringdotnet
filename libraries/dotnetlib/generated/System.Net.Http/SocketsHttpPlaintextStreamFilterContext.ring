@@ -18,22 +18,22 @@ Class SocketsHttpPlaintextStreamFilterContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPlaintextStream
-		return dnRequest("get",[self,"PlaintextStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PlaintextStream"])
 
 	Func setPlaintextStream P1
 		raise("DotNet Error: PlaintextStream is a read-only property")
 
 	Func getNegotiatedHttpVersion
-		return dnRequest("get",[self,"NegotiatedHttpVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NegotiatedHttpVersion"])
 
 	Func setNegotiatedHttpVersion P1
 		raise("DotNet Error: NegotiatedHttpVersion is a read-only property")
 
 	Func getInitialRequestMessage
-		return dnRequest("get",[self,"InitialRequestMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialRequestMessage"])
 
 	Func setInitialRequestMessage P1
 		raise("DotNet Error: InitialRequestMessage is a read-only property")

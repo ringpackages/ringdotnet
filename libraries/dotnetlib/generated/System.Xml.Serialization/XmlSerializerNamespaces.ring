@@ -21,17 +21,17 @@ Class XmlSerializerNamespaces from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[self,"ToArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

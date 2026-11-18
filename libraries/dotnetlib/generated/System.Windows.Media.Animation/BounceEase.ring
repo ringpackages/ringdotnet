@@ -20,17 +20,17 @@ Class BounceEase from EasingFunctionBase
 		return self
 
 	Func getBounces
-		return dnRequest("get",[self,"Bounces"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounces"])
 
 	Func setBounces P1
-		dnRequest("set",[self,"Bounces",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Bounces",P1])
 		return self
 
 	Func getBounciness
-		return dnRequest("get",[self,"Bounciness"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounciness"])
 
 	Func setBounciness P1
-		dnRequest("set",[self,"Bounciness",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Bounciness",P1])
 		return self
 
 	Func getBouncesProperty

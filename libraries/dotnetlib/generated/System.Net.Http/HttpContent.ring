@@ -17,92 +17,92 @@ Class HttpContent from Object
 
 	Func ReadAsStringAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadAsStringAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsStringAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadAsStringAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStringAsync"])
 		ok
-		return dnRequest("call",[self,"ReadAsStringAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStringAsync",P1])
 
 	Func ReadAsStringAsync_1 P1
-		return dnRequest("call",[self,"ReadAsStringAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStringAsync",P1])
 
 	Func ReadAsByteArrayAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadAsByteArrayAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsByteArrayAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadAsByteArrayAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadAsByteArrayAsync"])
 		ok
-		return dnRequest("call",[self,"ReadAsByteArrayAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsByteArrayAsync",P1])
 
 	Func ReadAsByteArrayAsync_1 P1
-		return dnRequest("call",[self,"ReadAsByteArrayAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsByteArrayAsync",P1])
 
 	Func ReadAsStream P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadAsStream",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsStream",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadAsStream"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStream"])
 		ok
-		return dnRequest("call",[self,"ReadAsStream",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStream",P1])
 
 	Func ReadAsStream_1 P1
-		return dnRequest("call",[self,"ReadAsStream",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStream",P1])
 
 	Func ReadAsStreamAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadAsStreamAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsStreamAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadAsStreamAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStreamAsync"])
 		ok
-		return dnRequest("call",[self,"ReadAsStreamAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStreamAsync",P1])
 
 	Func ReadAsStreamAsync_1 P1
-		return dnRequest("call",[self,"ReadAsStreamAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStreamAsync",P1])
 
 	Func CopyTo P1,P2,P3
-		dnRequest("call",[self,"CopyTo",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3])
 		return self
 
 	Func CopyToAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CopyToAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CopyToAsync",P1])
 		ok
-		return dnRequest("call",[self,"CopyToAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1])
 
 	Func CopyToAsync_2 P1,P2
-		return dnRequest("call",[self,"CopyToAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2])
 
 	Func CopyToAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"CopyToAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2,P3])
 
 	Func LoadIntoBufferAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"LoadIntoBufferAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadIntoBufferAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"LoadIntoBufferAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"LoadIntoBufferAsync"])
 		ok
-		return dnRequest("call",[self,"LoadIntoBufferAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadIntoBufferAsync",P1])
 
 	Func LoadIntoBufferAsync_1 P1
-		return dnRequest("call",[self,"LoadIntoBufferAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadIntoBufferAsync",P1])
 
 	Func LoadIntoBufferAsync_2 P1,P2
-		return dnRequest("call",[self,"LoadIntoBufferAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadIntoBufferAsync",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")

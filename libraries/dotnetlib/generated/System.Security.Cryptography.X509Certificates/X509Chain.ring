@@ -25,49 +25,49 @@ Class X509Chain from Object
 		return self
 
 	Func Build P1
-		return dnRequest("call",[self,"Build",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create 
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography'),"Create"])
 
 	Func getChainElements
-		return dnRequest("get",[self,"ChainElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChainElements"])
 
 	Func setChainElements P1
 		raise("DotNet Error: ChainElements is a read-only property")
 
 	Func getChainPolicy
-		return dnRequest("get",[self,"ChainPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChainPolicy"])
 
 	Func setChainPolicy P1
-		dnRequest("set",[self,"ChainPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ChainPolicy",P1])
 		return self
 
 	Func getChainStatus
-		return dnRequest("get",[self,"ChainStatus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChainStatus"])
 
 	Func setChainStatus P1
 		raise("DotNet Error: ChainStatus is a read-only property")
 
 	Func getChainContext
-		return dnRequest("get",[self,"ChainContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChainContext"])
 
 	Func setChainContext P1
 		raise("DotNet Error: ChainContext is a read-only property")
 
 	Func getSafeHandle
-		return dnRequest("get",[self,"SafeHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SafeHandle"])
 
 	Func setSafeHandle P1
 		raise("DotNet Error: SafeHandle is a read-only property")

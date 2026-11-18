@@ -15,8 +15,8 @@ Class StyleSelector from Object
 		return self
 
 	Func SelectStyle P1,P2
-		return dnRequest("call",[self,"SelectStyle",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SelectStyle",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

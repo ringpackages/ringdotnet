@@ -24,17 +24,17 @@ Class EmissiveMaterial from Material
 		return self
 
 	Func getColor
-		return dnRequest("get",[self,"Color"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
 
 	Func setColor P1
-		dnRequest("set",[self,"Color",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
 		return self
 
 	Func getBrush
-		return dnRequest("get",[self,"Brush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Brush"])
 
 	Func setBrush P1
-		dnRequest("set",[self,"Brush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Brush",P1])
 		return self
 
 	Func getColorProperty

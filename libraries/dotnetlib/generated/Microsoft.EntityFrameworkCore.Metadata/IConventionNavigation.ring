@@ -20,41 +20,41 @@ Class IConventionNavigation from DotNetObject
 		return self
 
 	Func SetInverse_2 P1,P2
-		return dnRequest("call",[self,"SetInverse",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetInverse",P1,P2])
 
 	Func SetInverse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetInverse",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetInverse",P1])
 		ok
-		return dnRequest("call",[self,"SetInverse",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetInverse",P1])
 
 	Func GetInverseConfigurationSource 
-		return dnRequest("call",[self,"GetInverseConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetInverseConfigurationSource"])
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getTargetEntityType
-		return dnRequest("get",[self,"TargetEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetEntityType"])
 
 	Func setTargetEntityType P1
 		raise("DotNet Error: TargetEntityType is a read-only property")
 
 	Func getForeignKey
-		return dnRequest("get",[self,"ForeignKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeignKey"])
 
 	Func setForeignKey P1
 		raise("DotNet Error: ForeignKey is a read-only property")
 
 	Func getInverse
-		return dnRequest("get",[self,"Inverse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inverse"])
 

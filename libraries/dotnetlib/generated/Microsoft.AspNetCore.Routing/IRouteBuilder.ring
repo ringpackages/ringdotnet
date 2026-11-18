@@ -19,29 +19,29 @@ Class IRouteBuilder from DotNetObject
 		return self
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func getApplicationBuilder
-		return dnRequest("get",[self,"ApplicationBuilder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationBuilder"])
 
 	Func setApplicationBuilder P1
 		raise("DotNet Error: ApplicationBuilder is a read-only property")
 
 	Func getDefaultHandler
-		return dnRequest("get",[self,"DefaultHandler"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultHandler"])
 
 	Func setDefaultHandler P1
-		dnRequest("set",[self,"DefaultHandler",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultHandler",P1])
 		return self
 
 	Func getServiceProvider
-		return dnRequest("get",[self,"ServiceProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceProvider"])
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")
 
 	Func getRoutes
-		return dnRequest("get",[self,"Routes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Routes"])
 
 	Func setRoutes P1
 		raise("DotNet Error: Routes is a read-only property")

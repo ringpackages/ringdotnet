@@ -56,144 +56,144 @@ Class MenuItem from HeaderedItemsControl
 		return self
 
 	Func setClickEvent P1
-		dnRequest("setevent",[self,"Click",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[self,"Click"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
 		return self
 
 	Func setCheckedEvent P1
-		dnRequest("setevent",[self,"Checked",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Checked",dnCallback(P1)])
 		return self
 
 	Func clearCheckedEvent
-		dnRequest("clearevent",[self,"Checked"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Checked"])
 		return self
 
 	Func setUncheckedEvent P1
-		dnRequest("setevent",[self,"Unchecked",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Unchecked",dnCallback(P1)])
 		return self
 
 	Func clearUncheckedEvent
-		dnRequest("clearevent",[self,"Unchecked"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Unchecked"])
 		return self
 
 	Func setSubmenuOpenedEvent P1
-		dnRequest("setevent",[self,"SubmenuOpened",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SubmenuOpened",dnCallback(P1)])
 		return self
 
 	Func clearSubmenuOpenedEvent
-		dnRequest("clearevent",[self,"SubmenuOpened"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SubmenuOpened"])
 		return self
 
 	Func setSubmenuClosedEvent P1
-		dnRequest("setevent",[self,"SubmenuClosed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SubmenuClosed",dnCallback(P1)])
 		return self
 
 	Func clearSubmenuClosedEvent
-		dnRequest("clearevent",[self,"SubmenuClosed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SubmenuClosed"])
 		return self
 
 	Func getCommand
-		return dnRequest("get",[self,"Command"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
 
 	Func setCommand P1
-		dnRequest("set",[self,"Command",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Command",P1])
 		return self
 
 	Func getCommandParameter
-		return dnRequest("get",[self,"CommandParameter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandParameter"])
 
 	Func setCommandParameter P1
-		dnRequest("set",[self,"CommandParameter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandParameter",P1])
 		return self
 
 	Func getCommandTarget
-		return dnRequest("get",[self,"CommandTarget"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandTarget"])
 
 	Func setCommandTarget P1
-		dnRequest("set",[self,"CommandTarget",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandTarget",P1])
 		return self
 
 	Func getIsSubmenuOpen
-		return dnRequest("get",[self,"IsSubmenuOpen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSubmenuOpen"])
 
 	Func setIsSubmenuOpen P1
-		dnRequest("set",[self,"IsSubmenuOpen",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSubmenuOpen",P1])
 		return self
 
 	Func getRole
-		return dnRequest("get",[self,"Role"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Role"])
 
 	Func setRole P1
 		raise("DotNet Error: Role is a read-only property")
 
 	Func getIsCheckable
-		return dnRequest("get",[self,"IsCheckable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCheckable"])
 
 	Func setIsCheckable P1
-		dnRequest("set",[self,"IsCheckable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsCheckable",P1])
 		return self
 
 	Func getIsPressed
-		return dnRequest("get",[self,"IsPressed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPressed"])
 
 	Func setIsPressed P1
 		raise("DotNet Error: IsPressed is a read-only property")
 
 	Func getIsHighlighted
-		return dnRequest("get",[self,"IsHighlighted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsHighlighted"])
 
 	Func setIsHighlighted P1
 		raise("DotNet Error: IsHighlighted is a read-only property")
 
 	Func getIsChecked
-		return dnRequest("get",[self,"IsChecked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsChecked"])
 
 	Func setIsChecked P1
-		dnRequest("set",[self,"IsChecked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsChecked",P1])
 		return self
 
 	Func getStaysOpenOnClick
-		return dnRequest("get",[self,"StaysOpenOnClick"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StaysOpenOnClick"])
 
 	Func setStaysOpenOnClick P1
-		dnRequest("set",[self,"StaysOpenOnClick",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StaysOpenOnClick",P1])
 		return self
 
 	Func getInputGestureText
-		return dnRequest("get",[self,"InputGestureText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InputGestureText"])
 
 	Func setInputGestureText P1
-		dnRequest("set",[self,"InputGestureText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InputGestureText",P1])
 		return self
 
 	Func getIcon
-		return dnRequest("get",[self,"Icon"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Icon"])
 
 	Func setIcon P1
-		dnRequest("set",[self,"Icon",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Icon",P1])
 		return self
 
 	Func getIsSuspendingPopupAnimation
-		return dnRequest("get",[self,"IsSuspendingPopupAnimation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSuspendingPopupAnimation"])
 
 	Func setIsSuspendingPopupAnimation P1
 		raise("DotNet Error: IsSuspendingPopupAnimation is a read-only property")
 
 	Func getItemContainerTemplateSelector
-		return dnRequest("get",[self,"ItemContainerTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerTemplateSelector"])
 
 	Func setItemContainerTemplateSelector P1
-		dnRequest("set",[self,"ItemContainerTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemContainerTemplateSelector",P1])
 		return self
 
 	Func getUsesItemContainerTemplate
-		return dnRequest("get",[self,"UsesItemContainerTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UsesItemContainerTemplate"])
 
 	Func setUsesItemContainerTemplate P1
-		dnRequest("set",[self,"UsesItemContainerTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UsesItemContainerTemplate",P1])
 		return self
 
 	Func getTopLevelItemTemplateKey

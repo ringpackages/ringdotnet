@@ -17,7 +17,7 @@ Class DataReaderClosingEventData from DataReaderEventData
 		return self
 
 	Func getIsAsync
-		return dnRequest("get",[self,"IsAsync"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")

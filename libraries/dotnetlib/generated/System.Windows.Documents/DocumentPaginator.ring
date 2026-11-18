@@ -19,92 +19,92 @@ Class DocumentPaginator from Object
 		return self
 
 	Func GetPage P1
-		return dnRequest("call",[self,"GetPage",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPage",P1])
 
 	Func GetPageAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"GetPageAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"GetPageAsync",P1])
 			return self
 		ok
-		dnRequest("call",[self,"GetPageAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"GetPageAsync",P1])
 		return self
 
 	Func GetPageAsync_2 P1,P2
-		dnRequest("call",[self,"GetPageAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetPageAsync",P1,P2])
 		return self
 
 	Func ComputePageCount 
-		dnRequest("call",[self,"ComputePageCount"])
+		dnRequest("call",[new DotNetObject(nHandle),"ComputePageCount"])
 		return self
 
 	Func ComputePageCountAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ComputePageCountAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ComputePageCountAsync",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"ComputePageCountAsync"])
+			dnRequest("call",[new DotNetObject(nHandle),"ComputePageCountAsync"])
 		return self
 		ok
-		dnRequest("call",[self,"ComputePageCountAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ComputePageCountAsync",P1])
 		return self
 
 	Func ComputePageCountAsync_1 P1
-		dnRequest("call",[self,"ComputePageCountAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ComputePageCountAsync",P1])
 		return self
 
 	Func CancelAsync P1
-		dnRequest("call",[self,"CancelAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelAsync",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setGetPageCompletedEvent P1
-		dnRequest("setevent",[self,"GetPageCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GetPageCompleted",dnCallback(P1)])
 		return self
 
 	Func clearGetPageCompletedEvent
-		dnRequest("clearevent",[self,"GetPageCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GetPageCompleted"])
 		return self
 
 	Func setComputePageCountCompletedEvent P1
-		dnRequest("setevent",[self,"ComputePageCountCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ComputePageCountCompleted",dnCallback(P1)])
 		return self
 
 	Func clearComputePageCountCompletedEvent
-		dnRequest("clearevent",[self,"ComputePageCountCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ComputePageCountCompleted"])
 		return self
 
 	Func setPagesChangedEvent P1
-		dnRequest("setevent",[self,"PagesChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PagesChanged",dnCallback(P1)])
 		return self
 
 	Func clearPagesChangedEvent
-		dnRequest("clearevent",[self,"PagesChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PagesChanged"])
 		return self
 
 	Func getIsPageCountValid
-		return dnRequest("get",[self,"IsPageCountValid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPageCountValid"])
 
 	Func setIsPageCountValid P1
 		raise("DotNet Error: IsPageCountValid is a read-only property")
 
 	Func getPageCount
-		return dnRequest("get",[self,"PageCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageCount"])
 
 	Func setPageCount P1
 		raise("DotNet Error: PageCount is a read-only property")
 
 	Func getPageSize
-		return dnRequest("get",[self,"PageSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageSize"])
 
 	Func setPageSize P1
-		dnRequest("set",[self,"PageSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PageSize",P1])
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")

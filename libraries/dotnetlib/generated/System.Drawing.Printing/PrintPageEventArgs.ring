@@ -22,39 +22,39 @@ Class PrintPageEventArgs from EventArgs
 		return self
 
 	Func getCancel
-		return dnRequest("get",[self,"Cancel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cancel"])
 
 	Func setCancel P1
-		dnRequest("set",[self,"Cancel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cancel",P1])
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getHasMorePages
-		return dnRequest("get",[self,"HasMorePages"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasMorePages"])
 
 	Func setHasMorePages P1
-		dnRequest("set",[self,"HasMorePages",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HasMorePages",P1])
 		return self
 
 	Func getMarginBounds
-		return dnRequest("get",[self,"MarginBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MarginBounds"])
 
 	Func setMarginBounds P1
 		raise("DotNet Error: MarginBounds is a read-only property")
 
 	Func getPageBounds
-		return dnRequest("get",[self,"PageBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageBounds"])
 
 	Func setPageBounds P1
 		raise("DotNet Error: PageBounds is a read-only property")
 
 	Func getPageSettings
-		return dnRequest("get",[self,"PageSettings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageSettings"])
 
 	Func setPageSettings P1
 		raise("DotNet Error: PageSettings is a read-only property")

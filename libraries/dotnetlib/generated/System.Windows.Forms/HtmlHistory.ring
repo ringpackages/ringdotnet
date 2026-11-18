@@ -17,32 +17,32 @@ Class HtmlHistory from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Back P1
-		dnRequest("call",[self,"Back",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Back",P1])
 		return self
 
 	Func Forward P1
-		dnRequest("call",[self,"Forward",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Forward",P1])
 		return self
 
 	Func Go P1
-		dnRequest("call",[self,"Go",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Go",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getDomHistory
-		return dnRequest("get",[self,"DomHistory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DomHistory"])
 
 	Func setDomHistory P1
 		raise("DotNet Error: DomHistory is a read-only property")

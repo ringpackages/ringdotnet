@@ -38,107 +38,107 @@ Class QueryCompilationContext from Object
 		return self
 
 	Func AddTag P1
-		dnRequest("call",[self,"AddTag",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddTag",P1])
 		return self
 
 	Func CreateQueryExecutor P1
-		return dnRequest("call",[self,"CreateQueryExecutor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateQueryExecutor",P1])
 
 	Func CreateQueryExecutorExpression P1
-		return dnRequest("call",[self,"CreateQueryExecutorExpression",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateQueryExecutorExpression",P1])
 
 	Func RegisterRuntimeParameter P1,P2
-		return dnRequest("call",[self,"RegisterRuntimeParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RegisterRuntimeParameter",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParametersToConstantize
-		return dnRequest("get",[self,"ParametersToConstantize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParametersToConstantize"])
 
 	Func setParametersToConstantize P1
 		raise("DotNet Error: ParametersToConstantize is a read-only property")
 
 	Func getParametersToNotConstantize
-		return dnRequest("get",[self,"ParametersToNotConstantize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParametersToNotConstantize"])
 
 	Func setParametersToNotConstantize P1
 		raise("DotNet Error: ParametersToNotConstantize is a read-only property")
 
 	Func getIsAsync
-		return dnRequest("get",[self,"IsAsync"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContextOptions
-		return dnRequest("get",[self,"ContextOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextOptions"])
 
 	Func setContextOptions P1
 		raise("DotNet Error: ContextOptions is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnRequest("get",[self,"QueryTrackingBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryTrackingBehavior"])
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
 
 	Func getIsBuffering
-		return dnRequest("get",[self,"IsBuffering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBuffering"])
 
 	Func setIsBuffering P1
 		raise("DotNet Error: IsBuffering is a read-only property")
 
 	Func getIsPrecompiling
-		return dnRequest("get",[self,"IsPrecompiling"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPrecompiling"])
 
 	Func setIsPrecompiling P1
 		raise("DotNet Error: IsPrecompiling is a read-only property")
 
 	Func getIgnoreQueryFilters
-		return dnRequest("get",[self,"IgnoreQueryFilters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreQueryFilters"])
 
 	Func setIgnoreQueryFilters P1
 		raise("DotNet Error: IgnoreQueryFilters is a read-only property")
 
 	Func getIgnoreAutoIncludes
-		return dnRequest("get",[self,"IgnoreAutoIncludes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreAutoIncludes"])
 
 	Func setIgnoreAutoIncludes P1
 		raise("DotNet Error: IgnoreAutoIncludes is a read-only property")
 
 	Func getTags
-		return dnRequest("get",[self,"Tags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tags"])
 
 	Func setTags P1
 		raise("DotNet Error: Tags is a read-only property")
 
 	Func getLogger
-		return dnRequest("get",[self,"Logger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getContextType
-		return dnRequest("get",[self,"ContextType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextType"])
 
 	Func setContextType P1
 		raise("DotNet Error: ContextType is a read-only property")
 
 	Func getNonNullableReferenceTypeParameters
-		return dnRequest("get",[self,"NonNullableReferenceTypeParameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NonNullableReferenceTypeParameters"])
 
 	Func setNonNullableReferenceTypeParameters P1
 		raise("DotNet Error: NonNullableReferenceTypeParameters is a read-only property")
 
 	Func getSupportsPrecompiledQuery
-		return dnRequest("get",[self,"SupportsPrecompiledQuery"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsPrecompiledQuery"])
 
 	Func setSupportsPrecompiledQuery P1
 		raise("DotNet Error: SupportsPrecompiledQuery is a read-only property")

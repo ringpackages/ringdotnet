@@ -14,8 +14,8 @@ Class IProblemDetailsWriter from DotNetObject
 		return self
 
 	Func WriteAsync P1
-		return dnRequest("call",[self,"WriteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1])
 
 	Func CanWrite P1
-		return dnRequest("call",[self,"CanWrite",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanWrite",P1])
 

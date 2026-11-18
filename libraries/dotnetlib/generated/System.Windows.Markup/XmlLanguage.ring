@@ -17,19 +17,19 @@ Class XmlLanguage from Object
 		return self
 
 	Func GetEquivalentCulture 
-		return dnRequest("call",[self,"GetEquivalentCulture"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEquivalentCulture"])
 
 	Func GetSpecificCulture 
-		return dnRequest("call",[self,"GetSpecificCulture"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSpecificCulture"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetLanguage P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XmlLanguage, PresentationCore'),"GetLanguage",P1])
 
 	Func getIetfLanguageTag
-		return dnRequest("get",[self,"IetfLanguageTag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IetfLanguageTag"])
 
 	Func setIetfLanguageTag P1
 		raise("DotNet Error: IetfLanguageTag is a read-only property")

@@ -21,7 +21,7 @@ Class SpellCheck from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func SetIsEnabled_2 P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.SpellCheck, PresentationFramework'),"SetIsEnabled",P1,P2])
@@ -38,21 +38,21 @@ Class SpellCheck from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.SpellCheck, PresentationFramework'),"GetCustomDictionaries",P1])
 
 	Func getIsEnabled
-		return dnRequest("get",[self,"IsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEnabled"])
 
 	Func setIsEnabled P1
-		dnRequest("set",[self,"IsEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsEnabled",P1])
 		return self
 
 	Func getSpellingReform
-		return dnRequest("get",[self,"SpellingReform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SpellingReform"])
 
 	Func setSpellingReform P1
-		dnRequest("set",[self,"SpellingReform",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SpellingReform",P1])
 		return self
 
 	Func getCustomDictionaries
-		return dnRequest("get",[self,"CustomDictionaries"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CustomDictionaries"])
 
 	Func setCustomDictionaries P1
 		raise("DotNet Error: CustomDictionaries is a read-only property")

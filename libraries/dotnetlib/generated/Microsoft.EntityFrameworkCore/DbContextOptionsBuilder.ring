@@ -22,127 +22,127 @@ Class DbContextOptionsBuilder from Object
 		return self
 
 	Func UseModel P1
-		return dnRequest("call",[self,"UseModel",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseModel",P1])
 
 	Func UseLoggerFactory P1
-		return dnRequest("call",[self,"UseLoggerFactory",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseLoggerFactory",P1])
 
 	Func LogTo_3 P1,P2,P3
-		return dnRequest("call",[self,"LogTo",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"LogTo",P1,P2,P3])
 
 	Func LogTo_2 P1,P2
-		return dnRequest("call",[self,"LogTo",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LogTo",P1,P2])
 
 	Func LogTo P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"LogTo",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"LogTo",P1])
 		ok
-		return dnRequest("call",[self,"LogTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LogTo",P1])
 
 	Func LogTo_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"LogTo",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"LogTo",P1,P2,P3,P4])
 
 	Func EnableThreadSafetyChecks_1 P1
-		return dnRequest("call",[self,"EnableThreadSafetyChecks",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableThreadSafetyChecks",P1])
 
 	Func EnableThreadSafetyChecks P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnableThreadSafetyChecks",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnableThreadSafetyChecks",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnableThreadSafetyChecks"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnableThreadSafetyChecks"])
 		ok
-		return dnRequest("call",[self,"EnableThreadSafetyChecks",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableThreadSafetyChecks",P1])
 
 	Func EnableDetailedErrors_1 P1
-		return dnRequest("call",[self,"EnableDetailedErrors",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableDetailedErrors",P1])
 
 	Func EnableDetailedErrors P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnableDetailedErrors",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnableDetailedErrors",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnableDetailedErrors"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnableDetailedErrors"])
 		ok
-		return dnRequest("call",[self,"EnableDetailedErrors",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableDetailedErrors",P1])
 
 	Func UseMemoryCache P1
-		return dnRequest("call",[self,"UseMemoryCache",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseMemoryCache",P1])
 
 	Func UseInternalServiceProvider P1
-		return dnRequest("call",[self,"UseInternalServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseInternalServiceProvider",P1])
 
 	Func UseApplicationServiceProvider P1
-		return dnRequest("call",[self,"UseApplicationServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseApplicationServiceProvider",P1])
 
 	Func UseRootApplicationServiceProvider_1 P1
-		return dnRequest("call",[self,"UseRootApplicationServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseRootApplicationServiceProvider",P1])
 
 	Func UseRootApplicationServiceProvider P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"UseRootApplicationServiceProvider",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"UseRootApplicationServiceProvider",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"UseRootApplicationServiceProvider"])
+			return dnRequest("call",[new DotNetObject(nHandle),"UseRootApplicationServiceProvider"])
 		ok
-		return dnRequest("call",[self,"UseRootApplicationServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseRootApplicationServiceProvider",P1])
 
 	Func EnableSensitiveDataLogging_1 P1
-		return dnRequest("call",[self,"EnableSensitiveDataLogging",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableSensitiveDataLogging",P1])
 
 	Func EnableSensitiveDataLogging P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnableSensitiveDataLogging",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnableSensitiveDataLogging",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnableSensitiveDataLogging"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnableSensitiveDataLogging"])
 		ok
-		return dnRequest("call",[self,"EnableSensitiveDataLogging",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableSensitiveDataLogging",P1])
 
 	Func EnableServiceProviderCaching_1 P1
-		return dnRequest("call",[self,"EnableServiceProviderCaching",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableServiceProviderCaching",P1])
 
 	Func EnableServiceProviderCaching P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnableServiceProviderCaching",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnableServiceProviderCaching",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnableServiceProviderCaching"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnableServiceProviderCaching"])
 		ok
-		return dnRequest("call",[self,"EnableServiceProviderCaching",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableServiceProviderCaching",P1])
 
 	Func UseQueryTrackingBehavior P1
-		return dnRequest("call",[self,"UseQueryTrackingBehavior",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseQueryTrackingBehavior",P1])
 
 	Func ConfigureWarnings P1
-		return dnRequest("call",[self,"ConfigureWarnings",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureWarnings",P1])
 
 	Func ReplaceService 
-		return dnRequest("call",[self,"ReplaceService"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReplaceService"])
 
 	Func AddInterceptors P1
-		return dnRequest("call",[self,"AddInterceptors",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddInterceptors",P1])
 
 	Func ConfigureLoggingCacheTime P1
-		return dnRequest("call",[self,"ConfigureLoggingCacheTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureLoggingCacheTime",P1])
 
 	Func UseSeeding P1
-		return dnRequest("call",[self,"UseSeeding",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseSeeding",P1])
 
 	Func UseAsyncSeeding P1
-		return dnRequest("call",[self,"UseAsyncSeeding",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseAsyncSeeding",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getIsConfigured
-		return dnRequest("get",[self,"IsConfigured"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsConfigured"])
 
 	Func setIsConfigured P1
 		raise("DotNet Error: IsConfigured is a read-only property")

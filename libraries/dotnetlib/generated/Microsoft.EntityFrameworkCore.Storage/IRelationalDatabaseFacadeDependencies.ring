@@ -18,19 +18,19 @@ Class IRelationalDatabaseFacadeDependencies from DotNetObject
 		return self
 
 	Func getRelationalConnection
-		return dnRequest("get",[self,"RelationalConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalConnection"])
 
 	Func setRelationalConnection P1
 		raise("DotNet Error: RelationalConnection is a read-only property")
 
 	Func getRawSqlCommandBuilder
-		return dnRequest("get",[self,"RawSqlCommandBuilder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawSqlCommandBuilder"])
 
 	Func setRawSqlCommandBuilder P1
 		raise("DotNet Error: RawSqlCommandBuilder is a read-only property")
 
 	Func getCommandLogger
-		return dnRequest("get",[self,"CommandLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
 
 	Func setCommandLogger P1
 		raise("DotNet Error: CommandLogger is a read-only property")

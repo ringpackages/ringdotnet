@@ -19,26 +19,26 @@ Class DoubleAnimationUsingKeyFrames from DoubleAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		return dnRequest("call",[self,"ShouldSerializeKeyFrames"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
-		return dnRequest("get",[self,"KeyFrames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyFrames"])
 
 	Func setKeyFrames P1
-		dnRequest("set",[self,"KeyFrames",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyFrames",P1])
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAdditive"])
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsAdditive",P1])
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCumulative"])
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsCumulative",P1])
 		return self
 

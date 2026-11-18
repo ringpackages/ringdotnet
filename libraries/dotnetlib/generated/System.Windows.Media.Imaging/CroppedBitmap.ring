@@ -24,25 +24,25 @@ Class CroppedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
 		return self
 
 	Func getSourceRect
-		return dnRequest("get",[self,"SourceRect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceRect"])
 
 	Func setSourceRect P1
-		dnRequest("set",[self,"SourceRect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceRect",P1])
 		return self
 
 	Func getSourceProperty

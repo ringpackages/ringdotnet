@@ -15,8 +15,8 @@ Class DefaultAuthorizationService from Object
 		return self
 
 	Func AuthorizeAsync P1,P2,P3
-		return dnRequest("call",[self,"AuthorizeAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthorizeAsync",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

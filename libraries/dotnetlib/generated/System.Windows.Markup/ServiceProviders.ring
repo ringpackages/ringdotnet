@@ -15,12 +15,12 @@ Class ServiceProviders from Object
 		return self
 
 	Func GetService P1
-		return dnRequest("call",[self,"GetService",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetService",P1])
 
 	Func AddService P1,P2
-		dnRequest("call",[self,"AddService",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddService",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

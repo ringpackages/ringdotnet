@@ -21,25 +21,25 @@ Class InputLanguage from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromCulture P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"FromCulture",P1])
 
 	Func getCulture
-		return dnRequest("get",[self,"Culture"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getLayoutName
-		return dnRequest("get",[self,"LayoutName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LayoutName"])
 
 	Func setLayoutName P1
 		raise("DotNet Error: LayoutName is a read-only property")

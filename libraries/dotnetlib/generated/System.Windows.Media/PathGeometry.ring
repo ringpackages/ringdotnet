@@ -28,31 +28,31 @@ Class PathGeometry from Geometry
 		return self
 
 	Func AddGeometry P1
-		dnRequest("call",[self,"AddGeometry",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddGeometry",P1])
 		return self
 
 	Func GetPointAtFractionLength P1
-		return dnRequest("call",[self,"GetPointAtFractionLength",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPointAtFractionLength",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func CreateFromGeometry P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.PathGeometry, PresentationCore'),"CreateFromGeometry",P1])
 
 	Func getFillRule
-		return dnRequest("get",[self,"FillRule"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FillRule"])
 
 	Func setFillRule P1
-		dnRequest("set",[self,"FillRule",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FillRule",P1])
 		return self
 
 	Func getFigures
-		return dnRequest("get",[self,"Figures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Figures"])
 
 	Func setFigures P1
-		dnRequest("set",[self,"Figures",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Figures",P1])
 		return self
 
 	Func getFillRuleProperty

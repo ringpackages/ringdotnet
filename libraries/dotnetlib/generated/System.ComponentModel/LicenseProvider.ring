@@ -14,8 +14,8 @@ Class LicenseProvider from Object
 		return self
 
 	Func GetLicense P1,P2,P3,P4
-		return dnRequest("call",[self,"GetLicense",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLicense",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

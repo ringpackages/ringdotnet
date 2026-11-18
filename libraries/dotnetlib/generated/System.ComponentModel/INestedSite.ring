@@ -16,7 +16,7 @@ Class INestedSite from DotNetObject
 		return self
 
 	Func getFullName
-		return dnRequest("get",[self,"FullName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FullName"])
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")

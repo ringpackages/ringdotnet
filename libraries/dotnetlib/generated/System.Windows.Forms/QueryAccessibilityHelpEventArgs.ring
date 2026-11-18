@@ -23,23 +23,23 @@ Class QueryAccessibilityHelpEventArgs from EventArgs
 		return self
 
 	Func getHelpNamespace
-		return dnRequest("get",[self,"HelpNamespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HelpNamespace"])
 
 	Func setHelpNamespace P1
-		dnRequest("set",[self,"HelpNamespace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HelpNamespace",P1])
 		return self
 
 	Func getHelpString
-		return dnRequest("get",[self,"HelpString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HelpString"])
 
 	Func setHelpString P1
-		dnRequest("set",[self,"HelpString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HelpString",P1])
 		return self
 
 	Func getHelpKeyword
-		return dnRequest("get",[self,"HelpKeyword"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HelpKeyword"])
 
 	Func setHelpKeyword P1
-		dnRequest("set",[self,"HelpKeyword",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HelpKeyword",P1])
 		return self
 

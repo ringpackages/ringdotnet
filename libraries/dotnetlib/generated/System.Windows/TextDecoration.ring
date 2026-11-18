@@ -30,38 +30,38 @@ Class TextDecoration from Animatable
 		return self
 
 	Func getPen
-		return dnRequest("get",[self,"Pen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Pen"])
 
 	Func setPen P1
-		dnRequest("set",[self,"Pen",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Pen",P1])
 		return self
 
 	Func getPenOffset
-		return dnRequest("get",[self,"PenOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PenOffset"])
 
 	Func setPenOffset P1
-		dnRequest("set",[self,"PenOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PenOffset",P1])
 		return self
 
 	Func getPenOffsetUnit
-		return dnRequest("get",[self,"PenOffsetUnit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PenOffsetUnit"])
 
 	Func setPenOffsetUnit P1
-		dnRequest("set",[self,"PenOffsetUnit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PenOffsetUnit",P1])
 		return self
 
 	Func getPenThicknessUnit
-		return dnRequest("get",[self,"PenThicknessUnit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PenThicknessUnit"])
 
 	Func setPenThicknessUnit P1
-		dnRequest("set",[self,"PenThicknessUnit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PenThicknessUnit",P1])
 		return self
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
-		dnRequest("set",[self,"Location",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Location",P1])
 		return self
 
 	Func getPenProperty

@@ -25,60 +25,60 @@ Class ToolStripContainer from ContainerControl
 		return self
 
 	Func getBottomToolStripPanel
-		return dnRequest("get",[self,"BottomToolStripPanel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BottomToolStripPanel"])
 
 	Func setBottomToolStripPanel P1
 		raise("DotNet Error: BottomToolStripPanel is a read-only property")
 
 	Func getBottomToolStripPanelVisible
-		return dnRequest("get",[self,"BottomToolStripPanelVisible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BottomToolStripPanelVisible"])
 
 	Func setBottomToolStripPanelVisible P1
-		dnRequest("set",[self,"BottomToolStripPanelVisible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BottomToolStripPanelVisible",P1])
 		return self
 
 	Func getContentPanel
-		return dnRequest("get",[self,"ContentPanel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentPanel"])
 
 	Func setContentPanel P1
 		raise("DotNet Error: ContentPanel is a read-only property")
 
 	Func getLeftToolStripPanel
-		return dnRequest("get",[self,"LeftToolStripPanel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LeftToolStripPanel"])
 
 	Func setLeftToolStripPanel P1
 		raise("DotNet Error: LeftToolStripPanel is a read-only property")
 
 	Func getLeftToolStripPanelVisible
-		return dnRequest("get",[self,"LeftToolStripPanelVisible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LeftToolStripPanelVisible"])
 
 	Func setLeftToolStripPanelVisible P1
-		dnRequest("set",[self,"LeftToolStripPanelVisible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LeftToolStripPanelVisible",P1])
 		return self
 
 	Func getRightToolStripPanel
-		return dnRequest("get",[self,"RightToolStripPanel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightToolStripPanel"])
 
 	Func setRightToolStripPanel P1
 		raise("DotNet Error: RightToolStripPanel is a read-only property")
 
 	Func getRightToolStripPanelVisible
-		return dnRequest("get",[self,"RightToolStripPanelVisible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightToolStripPanelVisible"])
 
 	Func setRightToolStripPanelVisible P1
-		dnRequest("set",[self,"RightToolStripPanelVisible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RightToolStripPanelVisible",P1])
 		return self
 
 	Func getTopToolStripPanel
-		return dnRequest("get",[self,"TopToolStripPanel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TopToolStripPanel"])
 
 	Func setTopToolStripPanel P1
 		raise("DotNet Error: TopToolStripPanel is a read-only property")
 
 	Func getTopToolStripPanelVisible
-		return dnRequest("get",[self,"TopToolStripPanelVisible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TopToolStripPanelVisible"])
 
 	Func setTopToolStripPanelVisible P1
-		dnRequest("set",[self,"TopToolStripPanelVisible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TopToolStripPanelVisible",P1])
 		return self
 

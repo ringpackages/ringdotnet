@@ -16,7 +16,7 @@ Class DownloadProgressEventArgs from EventArgs
 		return self
 
 	Func getProgress
-		return dnRequest("get",[self,"Progress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Progress"])
 
 	Func setProgress P1
 		raise("DotNet Error: Progress is a read-only property")

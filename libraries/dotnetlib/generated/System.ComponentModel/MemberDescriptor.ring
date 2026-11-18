@@ -22,46 +22,46 @@ Class MemberDescriptor from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getCategory
-		return dnRequest("get",[self,"Category"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Category"])
 
 	Func setCategory P1
 		raise("DotNet Error: Category is a read-only property")
 
 	Func getDescription
-		return dnRequest("get",[self,"Description"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getIsBrowsable
-		return dnRequest("get",[self,"IsBrowsable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBrowsable"])
 
 	Func setIsBrowsable P1
 		raise("DotNet Error: IsBrowsable is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDesignTimeOnly
-		return dnRequest("get",[self,"DesignTimeOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DesignTimeOnly"])
 
 	Func setDesignTimeOnly P1
 		raise("DotNet Error: DesignTimeOnly is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")

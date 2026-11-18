@@ -27,23 +27,23 @@ Class SignInResult from ActionResult
 		return self
 
 	Func getAuthenticationScheme
-		return dnRequest("get",[self,"AuthenticationScheme"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationScheme"])
 
 	Func setAuthenticationScheme P1
-		dnRequest("set",[self,"AuthenticationScheme",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationScheme",P1])
 		return self
 
 	Func getPrincipal
-		return dnRequest("get",[self,"Principal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Principal"])
 
 	Func setPrincipal P1
-		dnRequest("set",[self,"Principal",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Principal",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
-		dnRequest("set",[self,"Properties",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Properties",P1])
 		return self
 

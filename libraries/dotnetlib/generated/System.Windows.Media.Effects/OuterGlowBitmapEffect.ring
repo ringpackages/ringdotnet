@@ -24,31 +24,31 @@ Class OuterGlowBitmapEffect from BitmapEffect
 		return self
 
 	Func getGlowColor
-		return dnRequest("get",[self,"GlowColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlowColor"])
 
 	Func setGlowColor P1
-		dnRequest("set",[self,"GlowColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GlowColor",P1])
 		return self
 
 	Func getGlowSize
-		return dnRequest("get",[self,"GlowSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlowSize"])
 
 	Func setGlowSize P1
-		dnRequest("set",[self,"GlowSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GlowSize",P1])
 		return self
 
 	Func getNoise
-		return dnRequest("get",[self,"Noise"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Noise"])
 
 	Func setNoise P1
-		dnRequest("set",[self,"Noise",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Noise",P1])
 		return self
 
 	Func getOpacity
-		return dnRequest("get",[self,"Opacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Opacity"])
 
 	Func setOpacity P1
-		dnRequest("set",[self,"Opacity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Opacity",P1])
 		return self
 
 	Func getGlowColorProperty

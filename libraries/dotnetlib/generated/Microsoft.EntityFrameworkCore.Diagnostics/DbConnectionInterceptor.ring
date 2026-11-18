@@ -14,66 +14,66 @@ Class DbConnectionInterceptor from Object
 		return self
 
 	Func ConnectionCreating P1,P2
-		return dnRequest("call",[self,"ConnectionCreating",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionCreating",P1,P2])
 
 	Func ConnectionCreated P1,P2
-		return dnRequest("call",[self,"ConnectionCreated",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionCreated",P1,P2])
 
 	Func ConnectionOpening P1,P2,P3
-		return dnRequest("call",[self,"ConnectionOpening",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpening",P1,P2,P3])
 
 	Func ConnectionOpeningAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ConnectionOpeningAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpeningAsync",P1,P2,P3,P4])
 
 	Func ConnectionOpeningAsync P1,P2,P3
-		return dnRequest("call",[self,"ConnectionOpeningAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpeningAsync",P1,P2,P3])
 
 	Func ConnectionOpened P1,P2
-		dnRequest("call",[self,"ConnectionOpened",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpened",P1,P2])
 		return self
 
 	Func ConnectionOpenedAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"ConnectionOpenedAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2,P3])
 
 	Func ConnectionOpenedAsync P1,P2
-		return dnRequest("call",[self,"ConnectionOpenedAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2])
 
 	Func ConnectionClosing P1,P2,P3
-		return dnRequest("call",[self,"ConnectionClosing",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosing",P1,P2,P3])
 
 	Func ConnectionClosingAsync P1,P2,P3
-		return dnRequest("call",[self,"ConnectionClosingAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosingAsync",P1,P2,P3])
 
 	Func ConnectionClosed P1,P2
-		dnRequest("call",[self,"ConnectionClosed",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosed",P1,P2])
 		return self
 
 	Func ConnectionClosedAsync P1,P2
-		return dnRequest("call",[self,"ConnectionClosedAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosedAsync",P1,P2])
 
 	Func ConnectionDisposing P1,P2,P3
-		return dnRequest("call",[self,"ConnectionDisposing",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionDisposing",P1,P2,P3])
 
 	Func ConnectionDisposingAsync P1,P2,P3
-		return dnRequest("call",[self,"ConnectionDisposingAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionDisposingAsync",P1,P2,P3])
 
 	Func ConnectionDisposed P1,P2
-		dnRequest("call",[self,"ConnectionDisposed",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ConnectionDisposed",P1,P2])
 		return self
 
 	Func ConnectionDisposedAsync P1,P2
-		return dnRequest("call",[self,"ConnectionDisposedAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionDisposedAsync",P1,P2])
 
 	Func ConnectionFailed P1,P2
-		dnRequest("call",[self,"ConnectionFailed",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ConnectionFailed",P1,P2])
 		return self
 
 	Func ConnectionFailedAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"ConnectionFailedAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionFailedAsync",P1,P2,P3])
 
 	Func ConnectionFailedAsync P1,P2
-		return dnRequest("call",[self,"ConnectionFailedAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionFailedAsync",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

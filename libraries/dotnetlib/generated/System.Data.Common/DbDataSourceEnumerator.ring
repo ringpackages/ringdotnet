@@ -14,8 +14,8 @@ Class DbDataSourceEnumerator from Object
 		return self
 
 	Func GetDataSources 
-		return dnRequest("call",[self,"GetDataSources"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataSources"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

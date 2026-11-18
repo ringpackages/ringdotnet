@@ -23,19 +23,19 @@ Class FragmentString from ValueType
 		return self
 
 	Func ToUriComponent 
-		return dnRequest("call",[self,"ToUriComponent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUriComponent"])
 
 	Func FromUriComponent P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		return dnRequest("get",[self,"HasValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasValue"])
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")

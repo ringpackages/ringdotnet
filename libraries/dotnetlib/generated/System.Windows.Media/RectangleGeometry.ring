@@ -34,24 +34,24 @@ Class RectangleGeometry from Geometry
 		return self
 
 	Func getRadiusX
-		return dnRequest("get",[self,"RadiusX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RadiusX"])
 
 	Func setRadiusX P1
-		dnRequest("set",[self,"RadiusX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RadiusX",P1])
 		return self
 
 	Func getRadiusY
-		return dnRequest("get",[self,"RadiusY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RadiusY"])
 
 	Func setRadiusY P1
-		dnRequest("set",[self,"RadiusY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RadiusY",P1])
 		return self
 
 	Func getRect
-		return dnRequest("get",[self,"Rect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rect"])
 
 	Func setRect P1
-		dnRequest("set",[self,"Rect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Rect",P1])
 		return self
 
 	Func getRadiusXProperty

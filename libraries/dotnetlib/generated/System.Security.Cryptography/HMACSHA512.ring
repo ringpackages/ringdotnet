@@ -35,10 +35,10 @@ Class HMACSHA512 from HMAC
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
 
 	Func getProduceLegacyHmacValues
-		return dnRequest("get",[self,"ProduceLegacyHmacValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProduceLegacyHmacValues"])
 
 	Func setProduceLegacyHmacValues P1
-		dnRequest("set",[self,"ProduceLegacyHmacValues",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProduceLegacyHmacValues",P1])
 		return self
 
 	Func getHashSizeInBits

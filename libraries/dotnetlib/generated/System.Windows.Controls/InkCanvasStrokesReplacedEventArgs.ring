@@ -17,13 +17,13 @@ Class InkCanvasStrokesReplacedEventArgs from EventArgs
 		return self
 
 	Func getNewStrokes
-		return dnRequest("get",[self,"NewStrokes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewStrokes"])
 
 	Func setNewStrokes P1
 		raise("DotNet Error: NewStrokes is a read-only property")
 
 	Func getPreviousStrokes
-		return dnRequest("get",[self,"PreviousStrokes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreviousStrokes"])
 
 	Func setPreviousStrokes P1
 		raise("DotNet Error: PreviousStrokes is a read-only property")

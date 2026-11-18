@@ -18,16 +18,16 @@ Class TreeViewHitTestInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getNode
-		return dnRequest("get",[self,"Node"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Node"])
 
 	Func setNode P1
 		raise("DotNet Error: Node is a read-only property")

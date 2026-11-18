@@ -17,12 +17,12 @@ Class LogDefineOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSkipEnabledCheck
-		return dnRequest("get",[self,"SkipEnabledCheck"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SkipEnabledCheck"])
 
 	Func setSkipEnabledCheck P1
-		dnRequest("set",[self,"SkipEnabledCheck",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SkipEnabledCheck",P1])
 		return self
 

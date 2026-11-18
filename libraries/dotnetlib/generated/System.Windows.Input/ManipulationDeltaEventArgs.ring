@@ -22,58 +22,58 @@ Class ManipulationDeltaEventArgs from InputEventArgs
 		return self
 
 	Func ReportBoundaryFeedback P1
-		dnRequest("call",[self,"ReportBoundaryFeedback",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReportBoundaryFeedback",P1])
 		return self
 
 	Func Complete 
-		dnRequest("call",[self,"Complete"])
+		dnRequest("call",[new DotNetObject(nHandle),"Complete"])
 		return self
 
 	Func StartInertia 
-		dnRequest("call",[self,"StartInertia"])
+		dnRequest("call",[new DotNetObject(nHandle),"StartInertia"])
 		return self
 
 	Func Cancel 
-		return dnRequest("call",[self,"Cancel"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
 
 	Func getIsInertial
-		return dnRequest("get",[self,"IsInertial"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInertial"])
 
 	Func setIsInertial P1
 		raise("DotNet Error: IsInertial is a read-only property")
 
 	Func getManipulationContainer
-		return dnRequest("get",[self,"ManipulationContainer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationContainer"])
 
 	Func setManipulationContainer P1
 		raise("DotNet Error: ManipulationContainer is a read-only property")
 
 	Func getManipulationOrigin
-		return dnRequest("get",[self,"ManipulationOrigin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationOrigin"])
 
 	Func setManipulationOrigin P1
 		raise("DotNet Error: ManipulationOrigin is a read-only property")
 
 	Func getCumulativeManipulation
-		return dnRequest("get",[self,"CumulativeManipulation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CumulativeManipulation"])
 
 	Func setCumulativeManipulation P1
 		raise("DotNet Error: CumulativeManipulation is a read-only property")
 
 	Func getDeltaManipulation
-		return dnRequest("get",[self,"DeltaManipulation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeltaManipulation"])
 
 	Func setDeltaManipulation P1
 		raise("DotNet Error: DeltaManipulation is a read-only property")
 
 	Func getVelocities
-		return dnRequest("get",[self,"Velocities"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Velocities"])
 
 	Func setVelocities P1
 		raise("DotNet Error: Velocities is a read-only property")
 
 	Func getManipulators
-		return dnRequest("get",[self,"Manipulators"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Manipulators"])
 
 	Func setManipulators P1
 		raise("DotNet Error: Manipulators is a read-only property")

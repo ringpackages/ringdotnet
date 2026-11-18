@@ -23,125 +23,125 @@ Class ListControl from Control
 		return self
 
 	Func GetItemText P1
-		return dnRequest("call",[self,"GetItemText",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetItemText",P1])
 
 	Func setDataSourceChangedEvent P1
-		dnRequest("setevent",[self,"DataSourceChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DataSourceChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataSourceChangedEvent
-		dnRequest("clearevent",[self,"DataSourceChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DataSourceChanged"])
 		return self
 
 	Func setDisplayMemberChangedEvent P1
-		dnRequest("setevent",[self,"DisplayMemberChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DisplayMemberChanged",dnCallback(P1)])
 		return self
 
 	Func clearDisplayMemberChangedEvent
-		dnRequest("clearevent",[self,"DisplayMemberChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DisplayMemberChanged"])
 		return self
 
 	Func setFormatEvent P1
-		dnRequest("setevent",[self,"Format",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Format",dnCallback(P1)])
 		return self
 
 	Func clearFormatEvent
-		dnRequest("clearevent",[self,"Format"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Format"])
 		return self
 
 	Func setFormatInfoChangedEvent P1
-		dnRequest("setevent",[self,"FormatInfoChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"FormatInfoChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormatInfoChangedEvent
-		dnRequest("clearevent",[self,"FormatInfoChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"FormatInfoChanged"])
 		return self
 
 	Func setFormatStringChangedEvent P1
-		dnRequest("setevent",[self,"FormatStringChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"FormatStringChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormatStringChangedEvent
-		dnRequest("clearevent",[self,"FormatStringChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"FormatStringChanged"])
 		return self
 
 	Func setFormattingEnabledChangedEvent P1
-		dnRequest("setevent",[self,"FormattingEnabledChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"FormattingEnabledChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormattingEnabledChangedEvent
-		dnRequest("clearevent",[self,"FormattingEnabledChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"FormattingEnabledChanged"])
 		return self
 
 	Func setValueMemberChangedEvent P1
-		dnRequest("setevent",[self,"ValueMemberChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ValueMemberChanged",dnCallback(P1)])
 		return self
 
 	Func clearValueMemberChangedEvent
-		dnRequest("clearevent",[self,"ValueMemberChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ValueMemberChanged"])
 		return self
 
 	Func setSelectedValueChangedEvent P1
-		dnRequest("setevent",[self,"SelectedValueChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedValueChangedEvent
-		dnRequest("clearevent",[self,"SelectedValueChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedValueChanged"])
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[self,"DataSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
 
 	Func setDataSource P1
-		dnRequest("set",[self,"DataSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataSource",P1])
 		return self
 
 	Func getDisplayMember
-		return dnRequest("get",[self,"DisplayMember"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayMember"])
 
 	Func setDisplayMember P1
-		dnRequest("set",[self,"DisplayMember",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisplayMember",P1])
 		return self
 
 	Func getFormatInfo
-		return dnRequest("get",[self,"FormatInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatInfo"])
 
 	Func setFormatInfo P1
-		dnRequest("set",[self,"FormatInfo",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormatInfo",P1])
 		return self
 
 	Func getFormatString
-		return dnRequest("get",[self,"FormatString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatString"])
 
 	Func setFormatString P1
-		dnRequest("set",[self,"FormatString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormatString",P1])
 		return self
 
 	Func getFormattingEnabled
-		return dnRequest("get",[self,"FormattingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormattingEnabled"])
 
 	Func setFormattingEnabled P1
-		dnRequest("set",[self,"FormattingEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormattingEnabled",P1])
 		return self
 
 	Func getValueMember
-		return dnRequest("get",[self,"ValueMember"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueMember"])
 
 	Func setValueMember P1
-		dnRequest("set",[self,"ValueMember",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValueMember",P1])
 		return self
 
 	Func getSelectedIndex
-		return dnRequest("get",[self,"SelectedIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedIndex"])
 
 	Func setSelectedIndex P1
-		dnRequest("set",[self,"SelectedIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedIndex",P1])
 		return self
 
 	Func getSelectedValue
-		return dnRequest("get",[self,"SelectedValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValue"])
 
 	Func setSelectedValue P1
-		dnRequest("set",[self,"SelectedValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedValue",P1])
 		return self
 

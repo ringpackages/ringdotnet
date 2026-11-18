@@ -33,62 +33,62 @@ Class X509Store from Object
 		return self
 
 	Func Open P1
-		dnRequest("call",[self,"Open",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Open",P1])
 		return self
 
 	Func Add P1
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[self,"AddRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func RemoveRange P1
-		dnRequest("call",[self,"RemoveRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveRange",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStoreHandle
-		return dnRequest("get",[self,"StoreHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreHandle"])
 
 	Func setStoreHandle P1
 		raise("DotNet Error: StoreHandle is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getCertificates
-		return dnRequest("get",[self,"Certificates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Certificates"])
 
 	Func setCertificates P1
 		raise("DotNet Error: Certificates is a read-only property")
 
 	Func getIsOpen
-		return dnRequest("get",[self,"IsOpen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOpen"])
 
 	Func setIsOpen P1
 		raise("DotNet Error: IsOpen is a read-only property")

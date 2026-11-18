@@ -22,16 +22,16 @@ Class TableLayoutPanelCellPosition from ValueType
 		return self
 
 	Func getRow
-		return dnRequest("get",[self,"Row"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
 
 	Func setRow P1
-		dnRequest("set",[self,"Row",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Row",P1])
 		return self
 
 	Func getColumn
-		return dnRequest("get",[self,"Column"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
 
 	Func setColumn P1
-		dnRequest("set",[self,"Column",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Column",P1])
 		return self
 

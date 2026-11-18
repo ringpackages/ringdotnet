@@ -32,57 +32,57 @@ Class CookieContainer from Object
 
 	Func Add P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Add_2 P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func GetCookies P1
-		return dnRequest("call",[self,"GetCookies",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCookies",P1])
 
 	Func GetAllCookies 
-		return dnRequest("call",[self,"GetAllCookies"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAllCookies"])
 
 	Func GetCookieHeader P1
-		return dnRequest("call",[self,"GetCookieHeader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCookieHeader",P1])
 
 	Func SetCookies P1,P2
-		dnRequest("call",[self,"SetCookies",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCookies",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Capacity",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getMaxCookieSize
-		return dnRequest("get",[self,"MaxCookieSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxCookieSize"])
 
 	Func setMaxCookieSize P1
-		dnRequest("set",[self,"MaxCookieSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxCookieSize",P1])
 		return self
 
 	Func getPerDomainCapacity
-		return dnRequest("get",[self,"PerDomainCapacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PerDomainCapacity"])
 
 	Func setPerDomainCapacity P1
-		dnRequest("set",[self,"PerDomainCapacity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PerDomainCapacity",P1])
 		return self
 
 	Func getDefaultCookieLimit

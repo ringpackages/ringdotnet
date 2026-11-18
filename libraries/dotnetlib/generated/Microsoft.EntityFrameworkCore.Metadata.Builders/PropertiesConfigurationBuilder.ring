@@ -15,53 +15,53 @@ Class PropertiesConfigurationBuilder from Object
 		return self
 
 	Func HaveAnnotation P1,P2
-		return dnRequest("call",[self,"HaveAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HaveAnnotation",P1,P2])
 
 	Func HaveMaxLength P1
-		return dnRequest("call",[self,"HaveMaxLength",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HaveMaxLength",P1])
 
 	Func HaveSentinel P1
-		return dnRequest("call",[self,"HaveSentinel",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HaveSentinel",P1])
 
 	Func HavePrecision_2 P1,P2
-		return dnRequest("call",[self,"HavePrecision",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HavePrecision",P1,P2])
 
 	Func HavePrecision P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HavePrecision",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HavePrecision",P1])
 		ok
-		return dnRequest("call",[self,"HavePrecision",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HavePrecision",P1])
 
 	Func AreUnicode_1 P1
-		return dnRequest("call",[self,"AreUnicode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AreUnicode",P1])
 
 	Func AreUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AreUnicode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AreUnicode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AreUnicode"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AreUnicode"])
 		ok
-		return dnRequest("call",[self,"AreUnicode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AreUnicode",P1])
 
 	Func HaveConversion P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HaveConversion",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HaveConversion",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HaveConversion"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HaveConversion"])
 		ok
-		return dnRequest("call",[self,"HaveConversion",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HaveConversion",P1])
 
 	Func HaveConversion_1 P1
-		return dnRequest("call",[self,"HaveConversion",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HaveConversion",P1])
 
 	Func HaveConversion_2 P1,P2
-		return dnRequest("call",[self,"HaveConversion",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HaveConversion",P1,P2])
 
 	Func HaveConversion_3 P1,P2,P3
-		return dnRequest("call",[self,"HaveConversion",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HaveConversion",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

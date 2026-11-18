@@ -16,13 +16,13 @@ Class SqliteDataReader from DbDataReader
 		return self
 
 	Func GetDateTimeOffset P1
-		return dnRequest("call",[self,"GetDateTimeOffset",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTimeOffset",P1])
 
 	Func GetTimeSpan P1
-		return dnRequest("call",[self,"GetTimeSpan",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTimeSpan",P1])
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")

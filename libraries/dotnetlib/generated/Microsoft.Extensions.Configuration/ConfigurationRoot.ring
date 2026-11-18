@@ -17,34 +17,34 @@ Class ConfigurationRoot from Object
 		return self
 
 	Func GetChildren 
-		return dnRequest("call",[self,"GetChildren"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChildren"])
 
 	Func GetReloadToken 
-		return dnRequest("call",[self,"GetReloadToken"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReloadToken"])
 
 	Func GetSection P1
-		return dnRequest("call",[self,"GetSection",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSection",P1])
 
 	Func Reload 
-		dnRequest("call",[self,"Reload"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reload"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getProviders
-		return dnRequest("get",[self,"Providers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Providers"])
 
 	Func setProviders P1
 		raise("DotNet Error: Providers is a read-only property")

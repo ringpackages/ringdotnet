@@ -16,10 +16,10 @@ Class IListSource from DotNetObject
 		return self
 
 	Func GetList 
-		return dnRequest("call",[self,"GetList"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetList"])
 
 	Func getContainsListCollection
-		return dnRequest("get",[self,"ContainsListCollection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContainsListCollection"])
 
 	Func setContainsListCollection P1
 		raise("DotNet Error: ContainsListCollection is a read-only property")

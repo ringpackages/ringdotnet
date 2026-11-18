@@ -46,118 +46,118 @@ Class DataGridRow from WpfControl
 		return self
 
 	Func GetIndex 
-		return dnRequest("call",[self,"GetIndex"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIndex"])
 
 	Func GetRowContainingElement P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.DataGridRow, PresentationFramework'),"GetRowContainingElement",P1])
 
 	Func setSelectedEvent P1
-		dnRequest("setevent",[self,"Selected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Selected",dnCallback(P1)])
 		return self
 
 	Func clearSelectedEvent
-		dnRequest("clearevent",[self,"Selected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Selected"])
 		return self
 
 	Func setUnselectedEvent P1
-		dnRequest("setevent",[self,"Unselected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Unselected",dnCallback(P1)])
 		return self
 
 	Func clearUnselectedEvent
-		dnRequest("clearevent",[self,"Unselected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Unselected"])
 		return self
 
 	Func getItem
-		return dnRequest("get",[self,"Item"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
 
 	Func setItem P1
-		dnRequest("set",[self,"Item",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Item",P1])
 		return self
 
 	Func getItemsPanel
-		return dnRequest("get",[self,"ItemsPanel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemsPanel"])
 
 	Func setItemsPanel P1
-		dnRequest("set",[self,"ItemsPanel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemsPanel",P1])
 		return self
 
 	Func getHeader
-		return dnRequest("get",[self,"Header"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
 
 	Func setHeader P1
-		dnRequest("set",[self,"Header",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Header",P1])
 		return self
 
 	Func getHeaderStyle
-		return dnRequest("get",[self,"HeaderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderStyle"])
 
 	Func setHeaderStyle P1
-		dnRequest("set",[self,"HeaderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderStyle",P1])
 		return self
 
 	Func getHeaderTemplate
-		return dnRequest("get",[self,"HeaderTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplate"])
 
 	Func setHeaderTemplate P1
-		dnRequest("set",[self,"HeaderTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplate",P1])
 		return self
 
 	Func getHeaderTemplateSelector
-		return dnRequest("get",[self,"HeaderTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplateSelector"])
 
 	Func setHeaderTemplateSelector P1
-		dnRequest("set",[self,"HeaderTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplateSelector",P1])
 		return self
 
 	Func getValidationErrorTemplate
-		return dnRequest("get",[self,"ValidationErrorTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidationErrorTemplate"])
 
 	Func setValidationErrorTemplate P1
-		dnRequest("set",[self,"ValidationErrorTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidationErrorTemplate",P1])
 		return self
 
 	Func getDetailsTemplate
-		return dnRequest("get",[self,"DetailsTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DetailsTemplate"])
 
 	Func setDetailsTemplate P1
-		dnRequest("set",[self,"DetailsTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DetailsTemplate",P1])
 		return self
 
 	Func getDetailsTemplateSelector
-		return dnRequest("get",[self,"DetailsTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DetailsTemplateSelector"])
 
 	Func setDetailsTemplateSelector P1
-		dnRequest("set",[self,"DetailsTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DetailsTemplateSelector",P1])
 		return self
 
 	Func getDetailsVisibility
-		return dnRequest("get",[self,"DetailsVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DetailsVisibility"])
 
 	Func setDetailsVisibility P1
-		dnRequest("set",[self,"DetailsVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DetailsVisibility",P1])
 		return self
 
 	Func getAlternationIndex
-		return dnRequest("get",[self,"AlternationIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AlternationIndex"])
 
 	Func setAlternationIndex P1
 		raise("DotNet Error: AlternationIndex is a read-only property")
 
 	Func getIsSelected
-		return dnRequest("get",[self,"IsSelected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
 
 	Func setIsSelected P1
-		dnRequest("set",[self,"IsSelected",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSelected",P1])
 		return self
 
 	Func getIsEditing
-		return dnRequest("get",[self,"IsEditing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEditing"])
 
 	Func setIsEditing P1
 		raise("DotNet Error: IsEditing is a read-only property")
 
 	Func getIsNewItem
-		return dnRequest("get",[self,"IsNewItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNewItem"])
 
 	Func setIsNewItem P1
 		raise("DotNet Error: IsNewItem is a read-only property")

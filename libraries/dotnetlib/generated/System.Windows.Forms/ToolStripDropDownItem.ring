@@ -20,73 +20,73 @@ Class ToolStripDropDownItem from ToolStripItem
 		return self
 
 	Func HideDropDown 
-		dnRequest("call",[self,"HideDropDown"])
+		dnRequest("call",[new DotNetObject(nHandle),"HideDropDown"])
 		return self
 
 	Func ShowDropDown 
-		dnRequest("call",[self,"ShowDropDown"])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowDropDown"])
 		return self
 
 	Func setDropDownClosedEvent P1
-		dnRequest("setevent",[self,"DropDownClosed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownClosed",dnCallback(P1)])
 		return self
 
 	Func clearDropDownClosedEvent
-		dnRequest("clearevent",[self,"DropDownClosed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownClosed"])
 		return self
 
 	Func setDropDownOpeningEvent P1
-		dnRequest("setevent",[self,"DropDownOpening",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownOpening",dnCallback(P1)])
 		return self
 
 	Func clearDropDownOpeningEvent
-		dnRequest("clearevent",[self,"DropDownOpening"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownOpening"])
 		return self
 
 	Func setDropDownOpenedEvent P1
-		dnRequest("setevent",[self,"DropDownOpened",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownOpened",dnCallback(P1)])
 		return self
 
 	Func clearDropDownOpenedEvent
-		dnRequest("clearevent",[self,"DropDownOpened"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownOpened"])
 		return self
 
 	Func setDropDownItemClickedEvent P1
-		dnRequest("setevent",[self,"DropDownItemClicked",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownItemClicked",dnCallback(P1)])
 		return self
 
 	Func clearDropDownItemClickedEvent
-		dnRequest("clearevent",[self,"DropDownItemClicked"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownItemClicked"])
 		return self
 
 	Func getDropDown
-		return dnRequest("get",[self,"DropDown"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DropDown"])
 
 	Func setDropDown P1
-		dnRequest("set",[self,"DropDown",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DropDown",P1])
 		return self
 
 	Func getDropDownDirection
-		return dnRequest("get",[self,"DropDownDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DropDownDirection"])
 
 	Func setDropDownDirection P1
-		dnRequest("set",[self,"DropDownDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DropDownDirection",P1])
 		return self
 
 	Func getDropDownItems
-		return dnRequest("get",[self,"DropDownItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DropDownItems"])
 
 	Func setDropDownItems P1
 		raise("DotNet Error: DropDownItems is a read-only property")
 
 	Func getHasDropDownItems
-		return dnRequest("get",[self,"HasDropDownItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasDropDownItems"])
 
 	Func setHasDropDownItems P1
 		raise("DotNet Error: HasDropDownItems is a read-only property")
 
 	Func getHasDropDown
-		return dnRequest("get",[self,"HasDropDown"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasDropDown"])
 
 	Func setHasDropDown P1
 		raise("DotNet Error: HasDropDown is a read-only property")

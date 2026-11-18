@@ -18,31 +18,31 @@ Class XmlSchemaObjectTable from Object
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getNames
-		return dnRequest("get",[self,"Names"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Names"])
 
 	Func setNames P1
 		raise("DotNet Error: Names is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")

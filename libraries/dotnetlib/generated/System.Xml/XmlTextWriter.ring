@@ -26,43 +26,43 @@ Class XmlTextWriter from XmlWriter
 		return self
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseStream"])
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
 
 	Func getNamespaces
-		return dnRequest("get",[self,"Namespaces"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Namespaces"])
 
 	Func setNamespaces P1
-		dnRequest("set",[self,"Namespaces",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Namespaces",P1])
 		return self
 
 	Func getFormatting
-		return dnRequest("get",[self,"Formatting"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Formatting"])
 
 	Func setFormatting P1
-		dnRequest("set",[self,"Formatting",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Formatting",P1])
 		return self
 
 	Func getIndentation
-		return dnRequest("get",[self,"Indentation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Indentation"])
 
 	Func setIndentation P1
-		dnRequest("set",[self,"Indentation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Indentation",P1])
 		return self
 
 	Func getIndentChar
-		return dnRequest("get",[self,"IndentChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IndentChar"])
 
 	Func setIndentChar P1
-		dnRequest("set",[self,"IndentChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IndentChar",P1])
 		return self
 
 	Func getQuoteChar
-		return dnRequest("get",[self,"QuoteChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QuoteChar"])
 
 	Func setQuoteChar P1
-		dnRequest("set",[self,"QuoteChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"QuoteChar",P1])
 		return self
 

@@ -19,22 +19,22 @@ Class ManifestResourceInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getReferencedAssembly
-		return dnRequest("get",[self,"ReferencedAssembly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReferencedAssembly"])
 
 	Func setReferencedAssembly P1
 		raise("DotNet Error: ReferencedAssembly is a read-only property")
 
 	Func getFileName
-		return dnRequest("get",[self,"FileName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileName"])
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
 
 	Func getResourceLocation
-		return dnRequest("get",[self,"ResourceLocation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResourceLocation"])
 
 	Func setResourceLocation P1
 		raise("DotNet Error: ResourceLocation is a read-only property")

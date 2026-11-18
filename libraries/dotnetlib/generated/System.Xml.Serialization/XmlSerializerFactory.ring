@@ -15,20 +15,20 @@ Class XmlSerializerFactory from Object
 		return self
 
 	Func CreateSerializer_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"CreateSerializer",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSerializer",P1,P2,P3,P4,P5])
 
 	Func CreateSerializer_2 P1,P2
-		return dnRequest("call",[self,"CreateSerializer",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSerializer",P1,P2])
 
 	Func CreateSerializer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateSerializer",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSerializer",P1])
 		ok
-		return dnRequest("call",[self,"CreateSerializer",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSerializer",P1])
 
 	Func CreateSerializer_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"CreateSerializer",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSerializer",P1,P2,P3,P4,P5,P6])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

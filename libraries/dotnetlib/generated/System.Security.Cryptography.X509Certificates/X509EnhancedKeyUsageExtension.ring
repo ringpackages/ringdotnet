@@ -21,7 +21,7 @@ Class X509EnhancedKeyUsageExtension from X509Extension
 		return self
 
 	Func getEnhancedKeyUsages
-		return dnRequest("get",[self,"EnhancedKeyUsages"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnhancedKeyUsages"])
 
 	Func setEnhancedKeyUsages P1
 		raise("DotNet Error: EnhancedKeyUsages is a read-only property")

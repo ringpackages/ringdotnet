@@ -14,14 +14,14 @@ Class IHostedLifecycleService from DotNetObject
 		return self
 
 	Func StartingAsync P1
-		return dnRequest("call",[self,"StartingAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartingAsync",P1])
 
 	Func StartedAsync P1
-		return dnRequest("call",[self,"StartedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartedAsync",P1])
 
 	Func StoppingAsync P1
-		return dnRequest("call",[self,"StoppingAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StoppingAsync",P1])
 
 	Func StoppedAsync P1
-		return dnRequest("call",[self,"StoppedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StoppedAsync",P1])
 

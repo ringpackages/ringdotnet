@@ -22,16 +22,16 @@ Class GnuTarEntry from PosixTarEntry
 		return self
 
 	Func getAccessTime
-		return dnRequest("get",[self,"AccessTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessTime"])
 
 	Func setAccessTime P1
-		dnRequest("set",[self,"AccessTime",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessTime",P1])
 		return self
 
 	Func getChangeTime
-		return dnRequest("get",[self,"ChangeTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChangeTime"])
 
 	Func setChangeTime P1
-		dnRequest("set",[self,"ChangeTime",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ChangeTime",P1])
 		return self
 

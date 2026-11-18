@@ -39,360 +39,360 @@ Class HtmlElement from Object
 		return self
 
 	Func AppendChild P1
-		return dnRequest("call",[self,"AppendChild",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendChild",P1])
 
 	Func AttachEventHandler P1,P2
-		dnRequest("call",[self,"AttachEventHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AttachEventHandler",P1,P2])
 		return self
 
 	Func DetachEventHandler P1,P2
-		dnRequest("call",[self,"DetachEventHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DetachEventHandler",P1,P2])
 		return self
 
 	Func Focus 
-		dnRequest("call",[self,"Focus"])
+		dnRequest("call",[new DotNetObject(nHandle),"Focus"])
 		return self
 
 	Func GetAttribute P1
-		return dnRequest("call",[self,"GetAttribute",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAttribute",P1])
 
 	Func GetElementsByTagName P1
-		return dnRequest("call",[self,"GetElementsByTagName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1])
 
 	Func InsertAdjacentElement P1,P2
-		return dnRequest("call",[self,"InsertAdjacentElement",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InsertAdjacentElement",P1,P2])
 
 	Func InvokeMember P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"InvokeMember",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"InvokeMember",P1])
 		ok
-		return dnRequest("call",[self,"InvokeMember",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1])
 
 	Func InvokeMember_2 P1,P2
-		return dnRequest("call",[self,"InvokeMember",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1,P2])
 
 	Func RemoveFocus 
-		dnRequest("call",[self,"RemoveFocus"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveFocus"])
 		return self
 
 	Func RaiseEvent P1
-		dnRequest("call",[self,"RaiseEvent",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RaiseEvent",P1])
 		return self
 
 	Func ScrollIntoView P1
-		dnRequest("call",[self,"ScrollIntoView",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollIntoView",P1])
 		return self
 
 	Func SetAttribute P1,P2
-		dnRequest("call",[self,"SetAttribute",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAttribute",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setClickEvent P1
-		dnRequest("setevent",[self,"Click",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[self,"Click"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
 		return self
 
 	Func setDoubleClickEvent P1
-		dnRequest("setevent",[self,"DoubleClick",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearDoubleClickEvent
-		dnRequest("clearevent",[self,"DoubleClick"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DoubleClick"])
 		return self
 
 	Func setDragEvent P1
-		dnRequest("setevent",[self,"Drag",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Drag",dnCallback(P1)])
 		return self
 
 	Func clearDragEvent
-		dnRequest("clearevent",[self,"Drag"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Drag"])
 		return self
 
 	Func setDragEndEvent P1
-		dnRequest("setevent",[self,"DragEnd",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DragEnd",dnCallback(P1)])
 		return self
 
 	Func clearDragEndEvent
-		dnRequest("clearevent",[self,"DragEnd"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DragEnd"])
 		return self
 
 	Func setDragLeaveEvent P1
-		dnRequest("setevent",[self,"DragLeave",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DragLeave",dnCallback(P1)])
 		return self
 
 	Func clearDragLeaveEvent
-		dnRequest("clearevent",[self,"DragLeave"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DragLeave"])
 		return self
 
 	Func setDragOverEvent P1
-		dnRequest("setevent",[self,"DragOver",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DragOver",dnCallback(P1)])
 		return self
 
 	Func clearDragOverEvent
-		dnRequest("clearevent",[self,"DragOver"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DragOver"])
 		return self
 
 	Func setFocusingEvent P1
-		dnRequest("setevent",[self,"Focusing",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Focusing",dnCallback(P1)])
 		return self
 
 	Func clearFocusingEvent
-		dnRequest("clearevent",[self,"Focusing"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Focusing"])
 		return self
 
 	Func setGotFocusEvent P1
-		dnRequest("setevent",[self,"GotFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GotFocus",dnCallback(P1)])
 		return self
 
 	Func clearGotFocusEvent
-		dnRequest("clearevent",[self,"GotFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GotFocus"])
 		return self
 
 	Func setLosingFocusEvent P1
-		dnRequest("setevent",[self,"LosingFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LosingFocus",dnCallback(P1)])
 		return self
 
 	Func clearLosingFocusEvent
-		dnRequest("clearevent",[self,"LosingFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LosingFocus"])
 		return self
 
 	Func setLostFocusEvent P1
-		dnRequest("setevent",[self,"LostFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LostFocus",dnCallback(P1)])
 		return self
 
 	Func clearLostFocusEvent
-		dnRequest("clearevent",[self,"LostFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LostFocus"])
 		return self
 
 	Func setKeyDownEvent P1
-		dnRequest("setevent",[self,"KeyDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"KeyDown",dnCallback(P1)])
 		return self
 
 	Func clearKeyDownEvent
-		dnRequest("clearevent",[self,"KeyDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyDown"])
 		return self
 
 	Func setKeyPressEvent P1
-		dnRequest("setevent",[self,"KeyPress",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"KeyPress",dnCallback(P1)])
 		return self
 
 	Func clearKeyPressEvent
-		dnRequest("clearevent",[self,"KeyPress"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyPress"])
 		return self
 
 	Func setKeyUpEvent P1
-		dnRequest("setevent",[self,"KeyUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"KeyUp",dnCallback(P1)])
 		return self
 
 	Func clearKeyUpEvent
-		dnRequest("clearevent",[self,"KeyUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyUp"])
 		return self
 
 	Func setMouseMoveEvent P1
-		dnRequest("setevent",[self,"MouseMove",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseMove",dnCallback(P1)])
 		return self
 
 	Func clearMouseMoveEvent
-		dnRequest("clearevent",[self,"MouseMove"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseMove"])
 		return self
 
 	Func setMouseDownEvent P1
-		dnRequest("setevent",[self,"MouseDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseDownEvent
-		dnRequest("clearevent",[self,"MouseDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDown"])
 		return self
 
 	Func setMouseOverEvent P1
-		dnRequest("setevent",[self,"MouseOver",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseOver",dnCallback(P1)])
 		return self
 
 	Func clearMouseOverEvent
-		dnRequest("clearevent",[self,"MouseOver"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseOver"])
 		return self
 
 	Func setMouseUpEvent P1
-		dnRequest("setevent",[self,"MouseUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseUpEvent
-		dnRequest("clearevent",[self,"MouseUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseUp"])
 		return self
 
 	Func setMouseEnterEvent P1
-		dnRequest("setevent",[self,"MouseEnter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseEnter",dnCallback(P1)])
 		return self
 
 	Func clearMouseEnterEvent
-		dnRequest("clearevent",[self,"MouseEnter"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseEnter"])
 		return self
 
 	Func setMouseLeaveEvent P1
-		dnRequest("setevent",[self,"MouseLeave",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MouseLeave",dnCallback(P1)])
 		return self
 
 	Func clearMouseLeaveEvent
-		dnRequest("clearevent",[self,"MouseLeave"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseLeave"])
 		return self
 
 	Func getAll
-		return dnRequest("get",[self,"All"])
+		return dnRequest("get",[new DotNetObject(nHandle),"All"])
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
 
 	Func getChildren
-		return dnRequest("get",[self,"Children"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getCanHaveChildren
-		return dnRequest("get",[self,"CanHaveChildren"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanHaveChildren"])
 
 	Func setCanHaveChildren P1
 		raise("DotNet Error: CanHaveChildren is a read-only property")
 
 	Func getClientRectangle
-		return dnRequest("get",[self,"ClientRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientRectangle"])
 
 	Func setClientRectangle P1
 		raise("DotNet Error: ClientRectangle is a read-only property")
 
 	Func getDocument
-		return dnRequest("get",[self,"Document"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
 
 	Func setDocument P1
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[self,"Enabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
 		return self
 
 	Func getFirstChild
-		return dnRequest("get",[self,"FirstChild"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstChild"])
 
 	Func setFirstChild P1
 		raise("DotNet Error: FirstChild is a read-only property")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
-		dnRequest("set",[self,"Id",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Id",P1])
 		return self
 
 	Func getInnerHtml
-		return dnRequest("get",[self,"InnerHtml"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InnerHtml"])
 
 	Func setInnerHtml P1
-		dnRequest("set",[self,"InnerHtml",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InnerHtml",P1])
 		return self
 
 	Func getInnerText
-		return dnRequest("get",[self,"InnerText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InnerText"])
 
 	Func setInnerText P1
-		dnRequest("set",[self,"InnerText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InnerText",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getNextSibling
-		return dnRequest("get",[self,"NextSibling"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NextSibling"])
 
 	Func setNextSibling P1
 		raise("DotNet Error: NextSibling is a read-only property")
 
 	Func getOffsetRectangle
-		return dnRequest("get",[self,"OffsetRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetRectangle"])
 
 	Func setOffsetRectangle P1
 		raise("DotNet Error: OffsetRectangle is a read-only property")
 
 	Func getOffsetParent
-		return dnRequest("get",[self,"OffsetParent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetParent"])
 
 	Func setOffsetParent P1
 		raise("DotNet Error: OffsetParent is a read-only property")
 
 	Func getOuterHtml
-		return dnRequest("get",[self,"OuterHtml"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OuterHtml"])
 
 	Func setOuterHtml P1
-		dnRequest("set",[self,"OuterHtml",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OuterHtml",P1])
 		return self
 
 	Func getOuterText
-		return dnRequest("get",[self,"OuterText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OuterText"])
 
 	Func setOuterText P1
-		dnRequest("set",[self,"OuterText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OuterText",P1])
 		return self
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getScrollRectangle
-		return dnRequest("get",[self,"ScrollRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScrollRectangle"])
 
 	Func setScrollRectangle P1
 		raise("DotNet Error: ScrollRectangle is a read-only property")
 
 	Func getScrollLeft
-		return dnRequest("get",[self,"ScrollLeft"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScrollLeft"])
 
 	Func setScrollLeft P1
-		dnRequest("set",[self,"ScrollLeft",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScrollLeft",P1])
 		return self
 
 	Func getScrollTop
-		return dnRequest("get",[self,"ScrollTop"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScrollTop"])
 
 	Func setScrollTop P1
-		dnRequest("set",[self,"ScrollTop",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScrollTop",P1])
 		return self
 
 	Func getStyle
-		return dnRequest("get",[self,"Style"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
 
 	Func setStyle P1
-		dnRequest("set",[self,"Style",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Style",P1])
 		return self
 
 	Func getTagName
-		return dnRequest("get",[self,"TagName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TagName"])
 
 	Func setTagName P1
 		raise("DotNet Error: TagName is a read-only property")
 
 	Func getTabIndex
-		return dnRequest("get",[self,"TabIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TabIndex"])
 
 	Func setTabIndex P1
-		dnRequest("set",[self,"TabIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TabIndex",P1])
 		return self
 
 	Func getDomElement
-		return dnRequest("get",[self,"DomElement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DomElement"])
 
 	Func setDomElement P1
 		raise("DotNet Error: DomElement is a read-only property")

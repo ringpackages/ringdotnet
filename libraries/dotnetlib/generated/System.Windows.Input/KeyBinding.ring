@@ -28,17 +28,17 @@ Class KeyBinding from InputBinding
 		return self
 
 	Func getModifiers
-		return dnRequest("get",[self,"Modifiers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Modifiers"])
 
 	Func setModifiers P1
-		dnRequest("set",[self,"Modifiers",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Modifiers",P1])
 		return self
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
-		dnRequest("set",[self,"Key",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Key",P1])
 		return self
 
 	Func getModifiersProperty

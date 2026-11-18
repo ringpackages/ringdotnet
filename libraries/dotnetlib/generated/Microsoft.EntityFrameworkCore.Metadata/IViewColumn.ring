@@ -17,16 +17,16 @@ Class IViewColumn from DotNetObject
 		return self
 
 	Func FindColumnMapping P1
-		return dnRequest("call",[self,"FindColumnMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindColumnMapping",P1])
 
 	Func getView
-		return dnRequest("get",[self,"View"])
+		return dnRequest("get",[new DotNetObject(nHandle),"View"])
 
 	Func setView P1
 		raise("DotNet Error: View is a read-only property")
 
 	Func getPropertyMappings
-		return dnRequest("get",[self,"PropertyMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyMappings"])
 
 	Func setPropertyMappings P1
 		raise("DotNet Error: PropertyMappings is a read-only property")

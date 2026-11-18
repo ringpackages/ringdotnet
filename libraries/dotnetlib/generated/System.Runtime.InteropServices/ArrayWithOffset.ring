@@ -19,8 +19,8 @@ Class ArrayWithOffset from ValueType
 		return self
 
 	Func GetArray 
-		return dnRequest("call",[self,"GetArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetArray"])
 
 	Func GetOffset 
-		return dnRequest("call",[self,"GetOffset"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOffset"])
 

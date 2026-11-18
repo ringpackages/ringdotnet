@@ -30,129 +30,129 @@ Class SplitContainer from ContainerControl
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func OnSplitterMoving P1
-		dnRequest("call",[self,"OnSplitterMoving",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnSplitterMoving",P1])
 		return self
 
 	Func OnSplitterMoved P1
-		dnRequest("call",[self,"OnSplitterMoved",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnSplitterMoved",P1])
 		return self
 
 	Func setSplitterMovingEvent P1
-		dnRequest("setevent",[self,"SplitterMoving",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SplitterMoving",dnCallback(P1)])
 		return self
 
 	Func clearSplitterMovingEvent
-		dnRequest("clearevent",[self,"SplitterMoving"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SplitterMoving"])
 		return self
 
 	Func setSplitterMovedEvent P1
-		dnRequest("setevent",[self,"SplitterMoved",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SplitterMoved",dnCallback(P1)])
 		return self
 
 	Func clearSplitterMovedEvent
-		dnRequest("clearevent",[self,"SplitterMoved"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SplitterMoved"])
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[self,"BorderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[self,"BorderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
 		return self
 
 	Func getFixedPanel
-		return dnRequest("get",[self,"FixedPanel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FixedPanel"])
 
 	Func setFixedPanel P1
-		dnRequest("set",[self,"FixedPanel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FixedPanel",P1])
 		return self
 
 	Func getIsSplitterFixed
-		return dnRequest("get",[self,"IsSplitterFixed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSplitterFixed"])
 
 	Func setIsSplitterFixed P1
-		dnRequest("set",[self,"IsSplitterFixed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSplitterFixed",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[self,"Orientation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[self,"Orientation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
 		return self
 
 	Func getPanel1
-		return dnRequest("get",[self,"Panel1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Panel1"])
 
 	Func setPanel1 P1
 		raise("DotNet Error: Panel1 is a read-only property")
 
 	Func getPanel1Collapsed
-		return dnRequest("get",[self,"Panel1Collapsed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Panel1Collapsed"])
 
 	Func setPanel1Collapsed P1
-		dnRequest("set",[self,"Panel1Collapsed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Panel1Collapsed",P1])
 		return self
 
 	Func getPanel2Collapsed
-		return dnRequest("get",[self,"Panel2Collapsed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Panel2Collapsed"])
 
 	Func setPanel2Collapsed P1
-		dnRequest("set",[self,"Panel2Collapsed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Panel2Collapsed",P1])
 		return self
 
 	Func getPanel1MinSize
-		return dnRequest("get",[self,"Panel1MinSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Panel1MinSize"])
 
 	Func setPanel1MinSize P1
-		dnRequest("set",[self,"Panel1MinSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Panel1MinSize",P1])
 		return self
 
 	Func getPanel2
-		return dnRequest("get",[self,"Panel2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Panel2"])
 
 	Func setPanel2 P1
 		raise("DotNet Error: Panel2 is a read-only property")
 
 	Func getPanel2MinSize
-		return dnRequest("get",[self,"Panel2MinSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Panel2MinSize"])
 
 	Func setPanel2MinSize P1
-		dnRequest("set",[self,"Panel2MinSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Panel2MinSize",P1])
 		return self
 
 	Func getSplitterDistance
-		return dnRequest("get",[self,"SplitterDistance"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SplitterDistance"])
 
 	Func setSplitterDistance P1
-		dnRequest("set",[self,"SplitterDistance",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SplitterDistance",P1])
 		return self
 
 	Func getSplitterIncrement
-		return dnRequest("get",[self,"SplitterIncrement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SplitterIncrement"])
 
 	Func setSplitterIncrement P1
-		dnRequest("set",[self,"SplitterIncrement",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SplitterIncrement",P1])
 		return self
 
 	Func getSplitterRectangle
-		return dnRequest("get",[self,"SplitterRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SplitterRectangle"])
 
 	Func setSplitterRectangle P1
 		raise("DotNet Error: SplitterRectangle is a read-only property")
 
 	Func getSplitterWidth
-		return dnRequest("get",[self,"SplitterWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SplitterWidth"])
 
 	Func setSplitterWidth P1
-		dnRequest("set",[self,"SplitterWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SplitterWidth",P1])
 		return self
 

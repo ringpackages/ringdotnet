@@ -16,7 +16,7 @@ Class XmlSchemaGroupBase from XmlSchemaParticle
 		return self
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")

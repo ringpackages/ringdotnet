@@ -18,13 +18,13 @@ Class KeyboardFocusChangedEventArgs from KeyboardEventArgs
 		return self
 
 	Func getOldFocus
-		return dnRequest("get",[self,"OldFocus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldFocus"])
 
 	Func setOldFocus P1
 		raise("DotNet Error: OldFocus is a read-only property")
 
 	Func getNewFocus
-		return dnRequest("get",[self,"NewFocus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewFocus"])
 
 	Func setNewFocus P1
 		raise("DotNet Error: NewFocus is a read-only property")

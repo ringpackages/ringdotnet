@@ -22,7 +22,7 @@ Class Range from ValueType
 		return self
 
 	Func GetOffsetAndLength P1
-		return dnRequest("call",[self,"GetOffsetAndLength",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOffsetAndLength",P1])
 
 	Func StartAt P1
 		return dnRequest("call",[dnTypeCached('System.Range, System.Private.CoreLib'),"StartAt",P1])
@@ -31,13 +31,13 @@ Class Range from ValueType
 		return dnRequest("call",[dnTypeCached('System.Range, System.Private.CoreLib'),"EndAt",P1])
 
 	Func getStart
-		return dnRequest("get",[self,"Start"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Start"])
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnRequest("get",[self,"End"])
+		return dnRequest("get",[new DotNetObject(nHandle),"End"])
 
 	Func getAll
 		return dnRequest("get",[dnTypeCached('System.Range, System.Private.CoreLib'),"All"])

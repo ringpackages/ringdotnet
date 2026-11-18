@@ -14,72 +14,72 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		return self
 
 	Func ConnectionCreating P1,P2
-		return dnRequest("call",[self,"ConnectionCreating",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionCreating",P1,P2])
 
 	Func ConnectionCreated P1,P2,P3
-		return dnRequest("call",[self,"ConnectionCreated",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionCreated",P1,P2,P3])
 
 	Func ConnectionDisposing P1,P2
-		return dnRequest("call",[self,"ConnectionDisposing",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionDisposing",P1,P2])
 
 	Func ConnectionDisposingAsync P1,P2
-		return dnRequest("call",[self,"ConnectionDisposingAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionDisposingAsync",P1,P2])
 
 	Func ConnectionDisposed P1,P2,P3
-		dnRequest("call",[self,"ConnectionDisposed",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ConnectionDisposed",P1,P2,P3])
 		return self
 
 	Func ConnectionDisposedAsync P1,P2,P3
-		return dnRequest("call",[self,"ConnectionDisposedAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionDisposedAsync",P1,P2,P3])
 
 	Func ConnectionOpening P1,P2
-		return dnRequest("call",[self,"ConnectionOpening",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpening",P1,P2])
 
 	Func ConnectionOpeningAsync P1,P2,P3
-		return dnRequest("call",[self,"ConnectionOpeningAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpeningAsync",P1,P2,P3])
 
 	Func ConnectionOpened P1,P2,P3
-		dnRequest("call",[self,"ConnectionOpened",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpened",P1,P2,P3])
 		return self
 
 	Func ConnectionOpenedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ConnectionOpenedAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2,P3,P4])
 
 	Func ConnectionOpenedAsync P1,P2,P3
-		return dnRequest("call",[self,"ConnectionOpenedAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2,P3])
 
 	Func ConnectionClosing P1,P2
-		return dnRequest("call",[self,"ConnectionClosing",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosing",P1,P2])
 
 	Func ConnectionClosingAsync P1,P2
-		return dnRequest("call",[self,"ConnectionClosingAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosingAsync",P1,P2])
 
 	Func ConnectionClosed P1,P2,P3
-		dnRequest("call",[self,"ConnectionClosed",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosed",P1,P2,P3])
 		return self
 
 	Func ConnectionClosedAsync P1,P2,P3
-		return dnRequest("call",[self,"ConnectionClosedAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosedAsync",P1,P2,P3])
 
 	Func ConnectionError P1,P2,P3,P4,P5
-		dnRequest("call",[self,"ConnectionError",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"ConnectionError",P1,P2,P3,P4,P5])
 		return self
 
 	Func ConnectionErrorAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"ConnectionErrorAsync",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionErrorAsync",P1,P2,P3,P4,P5,P6])
 
 	Func ConnectionErrorAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"ConnectionErrorAsync",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionErrorAsync",P1,P2,P3,P4,P5])
 
 	Func ShouldLogConnectionCreate P1
-		return dnRequest("call",[self,"ShouldLogConnectionCreate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogConnectionCreate",P1])
 
 	Func ShouldLogConnectionDispose P1
-		return dnRequest("call",[self,"ShouldLogConnectionDispose",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogConnectionDispose",P1])
 
 	Func ShouldLogConnectionOpen P1
-		return dnRequest("call",[self,"ShouldLogConnectionOpen",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogConnectionOpen",P1])
 
 	Func ShouldLogConnectionClose P1
-		return dnRequest("call",[self,"ShouldLogConnectionClose",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogConnectionClose",P1])
 

@@ -57,38 +57,38 @@ Class RuntimeDbFunction from AnnotatableBase
 		return self
 
 	Func AddParameter_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"AddParameter",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1,P2,P3,P4,P5])
 
 	Func AddParameter P1,P2,P3,P4
-		return dnRequest("call",[self,"AddParameter",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1,P2,P3,P4])
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getModelName
-		return dnRequest("get",[self,"ModelName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelName"])
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getTypeMapping
-		return dnRequest("get",[self,"TypeMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMapping"])
 
 	Func setTypeMapping P1
-		dnRequest("set",[self,"TypeMapping",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeMapping",P1])
 		return self
 
 	Func getStoreFunction
-		return dnRequest("get",[self,"StoreFunction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreFunction"])
 
 	Func setStoreFunction P1
 		raise("DotNet Error: StoreFunction is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

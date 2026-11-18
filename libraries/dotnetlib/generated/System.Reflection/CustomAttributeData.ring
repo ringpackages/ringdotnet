@@ -19,31 +19,31 @@ Class CustomAttributeData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetCustomAttributes P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.CustomAttributeData, System.Private.CoreLib'),"GetCustomAttributes",P1])
 
 	Func getAttributeType
-		return dnRequest("get",[self,"AttributeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AttributeType"])
 
 	Func setAttributeType P1
 		raise("DotNet Error: AttributeType is a read-only property")
 
 	Func getConstructor
-		return dnRequest("get",[self,"Constructor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Constructor"])
 
 	Func setConstructor P1
 		raise("DotNet Error: Constructor is a read-only property")
 
 	Func getConstructorArguments
-		return dnRequest("get",[self,"ConstructorArguments"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConstructorArguments"])
 
 	Func setConstructorArguments P1
 		raise("DotNet Error: ConstructorArguments is a read-only property")
 
 	Func getNamedArguments
-		return dnRequest("get",[self,"NamedArguments"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NamedArguments"])
 
 	Func setNamedArguments P1
 		raise("DotNet Error: NamedArguments is a read-only property")

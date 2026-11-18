@@ -22,169 +22,169 @@ Class Calendar from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func AddMilliseconds P1,P2
-		return dnRequest("call",[self,"AddMilliseconds",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddMilliseconds",P1,P2])
 
 	Func AddDays P1,P2
-		return dnRequest("call",[self,"AddDays",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddDays",P1,P2])
 
 	Func AddHours P1,P2
-		return dnRequest("call",[self,"AddHours",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddHours",P1,P2])
 
 	Func AddMinutes P1,P2
-		return dnRequest("call",[self,"AddMinutes",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddMinutes",P1,P2])
 
 	Func AddMonths P1,P2
-		return dnRequest("call",[self,"AddMonths",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddMonths",P1,P2])
 
 	Func AddSeconds P1,P2
-		return dnRequest("call",[self,"AddSeconds",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddSeconds",P1,P2])
 
 	Func AddWeeks P1,P2
-		return dnRequest("call",[self,"AddWeeks",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddWeeks",P1,P2])
 
 	Func AddYears P1,P2
-		return dnRequest("call",[self,"AddYears",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddYears",P1,P2])
 
 	Func GetDayOfMonth P1
-		return dnRequest("call",[self,"GetDayOfMonth",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDayOfMonth",P1])
 
 	Func GetDayOfWeek P1
-		return dnRequest("call",[self,"GetDayOfWeek",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDayOfWeek",P1])
 
 	Func GetDayOfYear P1
-		return dnRequest("call",[self,"GetDayOfYear",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDayOfYear",P1])
 
 	Func GetDaysInMonth P1,P2
-		return dnRequest("call",[self,"GetDaysInMonth",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDaysInMonth",P1,P2])
 
 	Func GetDaysInMonth_3 P1,P2,P3
-		return dnRequest("call",[self,"GetDaysInMonth",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDaysInMonth",P1,P2,P3])
 
 	Func GetDaysInYear P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetDaysInYear",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDaysInYear",P1])
 		ok
-		return dnRequest("call",[self,"GetDaysInYear",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDaysInYear",P1])
 
 	Func GetDaysInYear_2 P1,P2
-		return dnRequest("call",[self,"GetDaysInYear",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDaysInYear",P1,P2])
 
 	Func GetEra P1
-		return dnRequest("call",[self,"GetEra",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEra",P1])
 
 	Func GetHour P1
-		return dnRequest("call",[self,"GetHour",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHour",P1])
 
 	Func GetMilliseconds P1
-		return dnRequest("call",[self,"GetMilliseconds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMilliseconds",P1])
 
 	Func GetMinute P1
-		return dnRequest("call",[self,"GetMinute",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMinute",P1])
 
 	Func GetMonth P1
-		return dnRequest("call",[self,"GetMonth",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMonth",P1])
 
 	Func GetMonthsInYear P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetMonthsInYear",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetMonthsInYear",P1])
 		ok
-		return dnRequest("call",[self,"GetMonthsInYear",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMonthsInYear",P1])
 
 	Func GetMonthsInYear_2 P1,P2
-		return dnRequest("call",[self,"GetMonthsInYear",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMonthsInYear",P1,P2])
 
 	Func GetSecond P1
-		return dnRequest("call",[self,"GetSecond",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSecond",P1])
 
 	Func GetWeekOfYear P1,P2,P3
-		return dnRequest("call",[self,"GetWeekOfYear",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetWeekOfYear",P1,P2,P3])
 
 	Func GetYear P1
-		return dnRequest("call",[self,"GetYear",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetYear",P1])
 
 	Func IsLeapDay P1,P2,P3
-		return dnRequest("call",[self,"IsLeapDay",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsLeapDay",P1,P2,P3])
 
 	Func IsLeapDay_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"IsLeapDay",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsLeapDay",P1,P2,P3,P4])
 
 	Func IsLeapMonth P1,P2
-		return dnRequest("call",[self,"IsLeapMonth",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsLeapMonth",P1,P2])
 
 	Func IsLeapMonth_3 P1,P2,P3
-		return dnRequest("call",[self,"IsLeapMonth",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsLeapMonth",P1,P2,P3])
 
 	Func GetLeapMonth P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetLeapMonth",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetLeapMonth",P1])
 		ok
-		return dnRequest("call",[self,"GetLeapMonth",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLeapMonth",P1])
 
 	Func GetLeapMonth_2 P1,P2
-		return dnRequest("call",[self,"GetLeapMonth",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLeapMonth",P1,P2])
 
 	Func IsLeapYear P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsLeapYear",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsLeapYear",P1])
 		ok
-		return dnRequest("call",[self,"IsLeapYear",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsLeapYear",P1])
 
 	Func IsLeapYear_2 P1,P2
-		return dnRequest("call",[self,"IsLeapYear",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsLeapYear",P1,P2])
 
 	Func ToDateTime P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"ToDateTime",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDateTime",P1,P2,P3,P4,P5,P6,P7])
 
 	Func ToDateTime_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"ToDateTime",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDateTime",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func ToFourDigitYear P1
-		return dnRequest("call",[self,"ToFourDigitYear",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToFourDigitYear",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib'),"ReadOnly",P1])
 
 	Func getMinSupportedDateTime
-		return dnRequest("get",[self,"MinSupportedDateTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinSupportedDateTime"])
 
 	Func setMinSupportedDateTime P1
 		raise("DotNet Error: MinSupportedDateTime is a read-only property")
 
 	Func getMaxSupportedDateTime
-		return dnRequest("get",[self,"MaxSupportedDateTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxSupportedDateTime"])
 
 	Func setMaxSupportedDateTime P1
 		raise("DotNet Error: MaxSupportedDateTime is a read-only property")
 
 	Func getAlgorithmType
-		return dnRequest("get",[self,"AlgorithmType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AlgorithmType"])
 
 	Func setAlgorithmType P1
 		raise("DotNet Error: AlgorithmType is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEras
-		return dnRequest("get",[self,"Eras"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Eras"])
 
 	Func setEras P1
 		raise("DotNet Error: Eras is a read-only property")
 
 	Func getTwoDigitYearMax
-		return dnRequest("get",[self,"TwoDigitYearMax"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TwoDigitYearMax"])
 
 	Func setTwoDigitYearMax P1
-		dnRequest("set",[self,"TwoDigitYearMax",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TwoDigitYearMax",P1])
 		return self
 
 	Func getCurrentEra

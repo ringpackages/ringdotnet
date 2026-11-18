@@ -22,79 +22,79 @@ Class IDbCommand from DotNetObject
 		return self
 
 	Func Prepare 
-		dnRequest("call",[self,"Prepare"])
+		dnRequest("call",[new DotNetObject(nHandle),"Prepare"])
 		return self
 
 	Func Cancel 
-		dnRequest("call",[self,"Cancel"])
+		dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
 		return self
 
 	Func CreateParameter 
-		return dnRequest("call",[self,"CreateParameter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter"])
 
 	Func ExecuteNonQuery 
-		return dnRequest("call",[self,"ExecuteNonQuery"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery"])
 
 	Func ExecuteReader P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteReader",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteReader",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ExecuteReader"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader"])
 		ok
-		return dnRequest("call",[self,"ExecuteReader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
 
 	Func ExecuteReader_1 P1
-		return dnRequest("call",[self,"ExecuteReader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
 
 	Func ExecuteScalar 
-		return dnRequest("call",[self,"ExecuteScalar"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar"])
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[self,"Connection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
 		return self
 
 	Func getTransaction
-		return dnRequest("get",[self,"Transaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transaction"])
 
 	Func setTransaction P1
-		dnRequest("set",[self,"Transaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transaction",P1])
 		return self
 
 	Func getCommandText
-		return dnRequest("get",[self,"CommandText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandText"])
 
 	Func setCommandText P1
-		dnRequest("set",[self,"CommandText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandText",P1])
 		return self
 
 	Func getCommandTimeout
-		return dnRequest("get",[self,"CommandTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandTimeout"])
 
 	Func setCommandTimeout P1
-		dnRequest("set",[self,"CommandTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandTimeout",P1])
 		return self
 
 	Func getCommandType
-		return dnRequest("get",[self,"CommandType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandType"])
 
 	Func setCommandType P1
-		dnRequest("set",[self,"CommandType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommandType",P1])
 		return self
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getUpdatedRowSource
-		return dnRequest("get",[self,"UpdatedRowSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpdatedRowSource"])
 
 	Func setUpdatedRowSource P1
-		dnRequest("set",[self,"UpdatedRowSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpdatedRowSource",P1])
 		return self
 

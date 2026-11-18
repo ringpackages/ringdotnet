@@ -19,17 +19,17 @@ Class BulletDecorator from Decorator
 		return self
 
 	Func getBackground
-		return dnRequest("get",[self,"Background"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[self,"Background",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
 		return self
 
 	Func getBullet
-		return dnRequest("get",[self,"Bullet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bullet"])
 
 	Func setBullet P1
-		dnRequest("set",[self,"Bullet",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Bullet",P1])
 		return self
 
 	Func getBackgroundProperty

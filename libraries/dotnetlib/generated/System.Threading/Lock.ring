@@ -17,33 +17,33 @@ Class Lock from Object
 		return self
 
 	Func Enter 
-		dnRequest("call",[self,"Enter"])
+		dnRequest("call",[new DotNetObject(nHandle),"Enter"])
 		return self
 
 	Func EnterScope 
-		return dnRequest("call",[self,"EnterScope"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnterScope"])
 
 	Func TryEnter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryEnter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryEnter",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"TryEnter"])
+			return dnRequest("call",[new DotNetObject(nHandle),"TryEnter"])
 		ok
-		return dnRequest("call",[self,"TryEnter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryEnter",P1])
 
 	Func TryEnter_1 P1
-		return dnRequest("call",[self,"TryEnter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryEnter",P1])
 
 	Func Exit_ 
-		dnRequest("call",[self,"Exit"])
+		dnRequest("call",[new DotNetObject(nHandle),"Exit"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsHeldByCurrentThread
-		return dnRequest("get",[self,"IsHeldByCurrentThread"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsHeldByCurrentThread"])
 
 	Func setIsHeldByCurrentThread P1
 		raise("DotNet Error: IsHeldByCurrentThread is a read-only property")

@@ -14,5 +14,5 @@ Class IModelBinderFactory from DotNetObject
 		return self
 
 	Func CreateBinder P1
-		return dnRequest("call",[self,"CreateBinder",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateBinder",P1])
 

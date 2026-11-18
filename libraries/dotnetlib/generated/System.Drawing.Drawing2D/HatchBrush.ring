@@ -23,19 +23,19 @@ Class HatchBrush from Brush
 		return self
 
 	Func getHatchStyle
-		return dnRequest("get",[self,"HatchStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HatchStyle"])
 
 	Func setHatchStyle P1
 		raise("DotNet Error: HatchStyle is a read-only property")
 
 	Func getForegroundColor
-		return dnRequest("get",[self,"ForegroundColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForegroundColor"])
 
 	Func setForegroundColor P1
 		raise("DotNet Error: ForegroundColor is a read-only property")
 
 	Func getBackgroundColor
-		return dnRequest("get",[self,"BackgroundColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackgroundColor"])
 
 	Func setBackgroundColor P1
 		raise("DotNet Error: BackgroundColor is a read-only property")

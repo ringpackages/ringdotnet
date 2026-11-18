@@ -23,43 +23,43 @@ Class MigrationCommand from Object
 		return self
 
 	Func ExecuteNonQuery_2 P1,P2
-		return dnRequest("call",[self,"ExecuteNonQuery",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1,P2])
 
 	Func ExecuteNonQuery P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteNonQuery",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQuery",P1])
 		ok
-		return dnRequest("call",[self,"ExecuteNonQuery",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1])
 
 	Func ExecuteNonQueryAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3])
 
 	Func ExecuteNonQueryAsync_2 P1,P2
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2])
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
 		ok
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTransactionSuppressed
-		return dnRequest("get",[self,"TransactionSuppressed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransactionSuppressed"])
 
 	Func setTransactionSuppressed P1
 		raise("DotNet Error: TransactionSuppressed is a read-only property")
 
 	Func getCommandText
-		return dnRequest("get",[self,"CommandText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandText"])
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
 
 	Func getCommandLogger
-		return dnRequest("get",[self,"CommandLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
 
 	Func setCommandLogger P1
 		raise("DotNet Error: CommandLogger is a read-only property")

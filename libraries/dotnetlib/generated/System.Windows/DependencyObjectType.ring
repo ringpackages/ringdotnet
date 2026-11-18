@@ -19,37 +19,37 @@ Class DependencyObjectType from Object
 		return self
 
 	Func IsInstanceOfType P1
-		return dnRequest("call",[self,"IsInstanceOfType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsInstanceOfType",P1])
 
 	Func IsSubclassOf P1
-		return dnRequest("call",[self,"IsSubclassOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsSubclassOf",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromSystemType P1
 		return dnRequest("call",[dnTypeCached('System.Windows.DependencyObjectType, WindowsBase'),"FromSystemType",P1])
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getSystemType
-		return dnRequest("get",[self,"SystemType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SystemType"])
 
 	Func setSystemType P1
 		raise("DotNet Error: SystemType is a read-only property")
 
 	Func getBaseType
-		return dnRequest("get",[self,"BaseType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseType"])
 
 	Func setBaseType P1
 		raise("DotNet Error: BaseType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

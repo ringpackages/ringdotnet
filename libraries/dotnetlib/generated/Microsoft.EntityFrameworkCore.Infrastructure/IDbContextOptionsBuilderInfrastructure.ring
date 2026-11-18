@@ -14,6 +14,6 @@ Class IDbContextOptionsBuilderInfrastructure from DotNetObject
 		return self
 
 	Func AddOrUpdateExtension P1
-		dnRequest("call",[self,"AddOrUpdateExtension",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddOrUpdateExtension",P1])
 		return self
 

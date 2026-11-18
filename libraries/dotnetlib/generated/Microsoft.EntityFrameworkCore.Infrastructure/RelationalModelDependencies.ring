@@ -20,33 +20,33 @@ Class RelationalModelDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRowKeyValueFactoryFactory
-		return dnRequest("get",[self,"RowKeyValueFactoryFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowKeyValueFactoryFactory"])
 
 	Func setRowKeyValueFactoryFactory P1
-		dnRequest("set",[self,"RowKeyValueFactoryFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowKeyValueFactoryFactory",P1])
 		return self
 
 	Func getRowForeignKeyValueFactoryFactory
-		return dnRequest("get",[self,"RowForeignKeyValueFactoryFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowForeignKeyValueFactoryFactory"])
 
 	Func setRowForeignKeyValueFactoryFactory P1
-		dnRequest("set",[self,"RowForeignKeyValueFactoryFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowForeignKeyValueFactoryFactory",P1])
 		return self
 
 	Func getRowIndexValueFactoryFactory
-		return dnRequest("get",[self,"RowIndexValueFactoryFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowIndexValueFactoryFactory"])
 
 	Func setRowIndexValueFactoryFactory P1
-		dnRequest("set",[self,"RowIndexValueFactoryFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowIndexValueFactoryFactory",P1])
 		return self
 
 	Func getValueConverterSelector
-		return dnRequest("get",[self,"ValueConverterSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueConverterSelector"])
 
 	Func setValueConverterSelector P1
-		dnRequest("set",[self,"ValueConverterSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValueConverterSelector",P1])
 		return self
 

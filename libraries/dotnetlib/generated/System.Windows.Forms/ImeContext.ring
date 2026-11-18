@@ -14,7 +14,7 @@ Class ImeContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Disable P1
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ImeContext, System.Windows.Forms'),"Disable",P1])

@@ -14,7 +14,7 @@ Class ZipFileExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateEntryFromFile P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"CreateEntryFromFile",P1,P2,P3])

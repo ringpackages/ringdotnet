@@ -24,63 +24,63 @@ Class IMutableDbFunction from DotNetObject
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
 
 	Func setSchema P1
-		dnRequest("set",[self,"Schema",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Schema",P1])
 		return self
 
 	Func getIsBuiltIn
-		return dnRequest("get",[self,"IsBuiltIn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBuiltIn"])
 
 	Func setIsBuiltIn P1
-		dnRequest("set",[self,"IsBuiltIn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsBuiltIn",P1])
 		return self
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
-		dnRequest("set",[self,"IsNullable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsNullable",P1])
 		return self
 
 	Func getStoreType
-		return dnRequest("get",[self,"StoreType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
 
 	Func setStoreType P1
-		dnRequest("set",[self,"StoreType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StoreType",P1])
 		return self
 
 	Func getTypeMapping
-		return dnRequest("get",[self,"TypeMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMapping"])
 
 	Func setTypeMapping P1
-		dnRequest("set",[self,"TypeMapping",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeMapping",P1])
 		return self
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getTranslation
-		return dnRequest("get",[self,"Translation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Translation"])
 
 	Func setTranslation P1
-		dnRequest("set",[self,"Translation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Translation",P1])
 		return self
 

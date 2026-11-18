@@ -19,24 +19,24 @@ Class LoggerFilterOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCaptureScopes
-		return dnRequest("get",[self,"CaptureScopes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaptureScopes"])
 
 	Func setCaptureScopes P1
-		dnRequest("set",[self,"CaptureScopes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaptureScopes",P1])
 		return self
 
 	Func getMinLevel
-		return dnRequest("get",[self,"MinLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinLevel"])
 
 	Func setMinLevel P1
-		dnRequest("set",[self,"MinLevel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinLevel",P1])
 		return self
 
 	Func getRules
-		return dnRequest("get",[self,"Rules"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rules"])
 
 	Func setRules P1
 		raise("DotNet Error: Rules is a read-only property")

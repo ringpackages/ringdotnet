@@ -34,24 +34,24 @@ Class EllipseGeometry from Geometry
 		return self
 
 	Func getRadiusX
-		return dnRequest("get",[self,"RadiusX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RadiusX"])
 
 	Func setRadiusX P1
-		dnRequest("set",[self,"RadiusX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RadiusX",P1])
 		return self
 
 	Func getRadiusY
-		return dnRequest("get",[self,"RadiusY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RadiusY"])
 
 	Func setRadiusY P1
-		dnRequest("set",[self,"RadiusY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RadiusY",P1])
 		return self
 
 	Func getCenter
-		return dnRequest("get",[self,"Center"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Center"])
 
 	Func setCenter P1
-		dnRequest("set",[self,"Center",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Center",P1])
 		return self
 
 	Func getRadiusXProperty

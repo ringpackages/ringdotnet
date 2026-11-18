@@ -18,15 +18,15 @@ Class ConstructorInfo from MethodBase
 
 	Func Invoke P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Invoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Invoke",P1])
 		ok
-		return dnRequest("call",[self,"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
 
 	Func Invoke_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Invoke",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3,P4])
 
 	Func Invoke_2 P1,P2
-		return dnRequest("call",[self,"Invoke",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2])
 
 	Func getConstructorName
 		return dnRequest("get",[dnTypeCached('System.Reflection.ConstructorInfo, System.Private.CoreLib'),"ConstructorName"])

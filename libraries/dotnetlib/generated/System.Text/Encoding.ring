@@ -38,88 +38,88 @@ Class Encoding from Object
 		return self
 
 	Func GetPreamble_0 
-		return dnRequest("call",[self,"GetPreamble"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPreamble"])
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func GetByteCount P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetByteCount",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetByteCount",P1])
 		ok
-		return dnRequest("call",[self,"GetByteCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1])
 
 	Func GetByteCount_3 P1,P2,P3
-		return dnRequest("call",[self,"GetByteCount",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1,P2,P3])
 
 	Func GetBytes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetBytes",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetBytes",P1])
 		ok
-		return dnRequest("call",[self,"GetBytes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1])
 
 	Func GetBytes_3 P1,P2,P3
-		return dnRequest("call",[self,"GetBytes",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3])
 
 	Func GetBytes_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"GetBytes",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3,P4,P5])
 
 	Func GetCharCount P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCharCount",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCharCount",P1])
 		ok
-		return dnRequest("call",[self,"GetCharCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCharCount",P1])
 
 	Func GetCharCount_3 P1,P2,P3
-		return dnRequest("call",[self,"GetCharCount",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCharCount",P1,P2,P3])
 
 	Func GetChars P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetChars",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChars",P1])
 		ok
-		return dnRequest("call",[self,"GetChars",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1])
 
 	Func GetChars_3 P1,P2,P3
-		return dnRequest("call",[self,"GetChars",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1,P2,P3])
 
 	Func GetChars_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"GetChars",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1,P2,P3,P4,P5])
 
 	Func IsAlwaysNormalized P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsAlwaysNormalized",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsAlwaysNormalized",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsAlwaysNormalized"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsAlwaysNormalized"])
 		ok
-		return dnRequest("call",[self,"IsAlwaysNormalized",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAlwaysNormalized",P1])
 
 	Func IsAlwaysNormalized_1 P1
-		return dnRequest("call",[self,"IsAlwaysNormalized",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAlwaysNormalized",P1])
 
 	Func GetDecoder 
-		return dnRequest("call",[self,"GetDecoder"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDecoder"])
 
 	Func GetEncoder 
-		return dnRequest("call",[self,"GetEncoder"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoder"])
 
 	Func GetMaxByteCount P1
-		return dnRequest("call",[self,"GetMaxByteCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxByteCount",P1])
 
 	Func GetMaxCharCount P1
-		return dnRequest("call",[self,"GetMaxCharCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxCharCount",P1])
 
 	Func GetString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetString",P1])
 		ok
-		return dnRequest("call",[self,"GetString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
 
 	Func GetString_3 P1,P2,P3
-		return dnRequest("call",[self,"GetString",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Convert P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Convert",P1,P2,P3])
@@ -150,93 +150,93 @@ Class Encoding from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1,P2,P3])
 
 	Func getPreamble
-		return dnRequest("get",[self,"Preamble"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Preamble"])
 
 	Func setPreamble P1
 		raise("DotNet Error: Preamble is a read-only property")
 
 	Func getBodyName
-		return dnRequest("get",[self,"BodyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BodyName"])
 
 	Func setBodyName P1
 		raise("DotNet Error: BodyName is a read-only property")
 
 	Func getEncodingName
-		return dnRequest("get",[self,"EncodingName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EncodingName"])
 
 	Func setEncodingName P1
 		raise("DotNet Error: EncodingName is a read-only property")
 
 	Func getHeaderName
-		return dnRequest("get",[self,"HeaderName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderName"])
 
 	Func setHeaderName P1
 		raise("DotNet Error: HeaderName is a read-only property")
 
 	Func getWebName
-		return dnRequest("get",[self,"WebName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WebName"])
 
 	Func setWebName P1
 		raise("DotNet Error: WebName is a read-only property")
 
 	Func getWindowsCodePage
-		return dnRequest("get",[self,"WindowsCodePage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WindowsCodePage"])
 
 	Func setWindowsCodePage P1
 		raise("DotNet Error: WindowsCodePage is a read-only property")
 
 	Func getIsBrowserDisplay
-		return dnRequest("get",[self,"IsBrowserDisplay"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBrowserDisplay"])
 
 	Func setIsBrowserDisplay P1
 		raise("DotNet Error: IsBrowserDisplay is a read-only property")
 
 	Func getIsBrowserSave
-		return dnRequest("get",[self,"IsBrowserSave"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBrowserSave"])
 
 	Func setIsBrowserSave P1
 		raise("DotNet Error: IsBrowserSave is a read-only property")
 
 	Func getIsMailNewsDisplay
-		return dnRequest("get",[self,"IsMailNewsDisplay"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMailNewsDisplay"])
 
 	Func setIsMailNewsDisplay P1
 		raise("DotNet Error: IsMailNewsDisplay is a read-only property")
 
 	Func getIsMailNewsSave
-		return dnRequest("get",[self,"IsMailNewsSave"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMailNewsSave"])
 
 	Func setIsMailNewsSave P1
 		raise("DotNet Error: IsMailNewsSave is a read-only property")
 
 	Func getIsSingleByte
-		return dnRequest("get",[self,"IsSingleByte"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSingleByte"])
 
 	Func setIsSingleByte P1
 		raise("DotNet Error: IsSingleByte is a read-only property")
 
 	Func getEncoderFallback
-		return dnRequest("get",[self,"EncoderFallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EncoderFallback"])
 
 	Func setEncoderFallback P1
-		dnRequest("set",[self,"EncoderFallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EncoderFallback",P1])
 		return self
 
 	Func getDecoderFallback
-		return dnRequest("get",[self,"DecoderFallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DecoderFallback"])
 
 	Func setDecoderFallback P1
-		dnRequest("set",[self,"DecoderFallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DecoderFallback",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCodePage
-		return dnRequest("get",[self,"CodePage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CodePage"])
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")

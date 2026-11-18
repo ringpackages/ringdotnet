@@ -35,24 +35,24 @@ Class Rect3D from ValueType
 
 	Func Contains P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Contains",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
 		ok
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Contains_3 P1,P2,P3
-		return dnRequest("call",[self,"Contains",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2,P3])
 
 	Func IntersectsWith P1
-		return dnRequest("call",[self,"IntersectsWith",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IntersectsWith",P1])
 
 	Func Intersect P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Intersect",P1])
 			ok
-			return dnRequest("callnamed",[self,"Intersect",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Intersect",P1])
 		ok
-		dnRequest("call",[self,"Intersect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Intersect",P1])
 		return self
 
 	Func Union P1
@@ -60,9 +60,9 @@ Class Rect3D from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Union",P1])
 			ok
-			return dnRequest("callnamed",[self,"Union",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Union",P1])
 		ok
-		dnRequest("call",[self,"Union",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Union",P1])
 		return self
 
 	Func Offset P1
@@ -70,13 +70,13 @@ Class Rect3D from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Offset",P1])
 			ok
-			return dnRequest("callnamed",[self,"Offset",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Offset",P1])
 		ok
-		dnRequest("call",[self,"Offset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1])
 		return self
 
 	Func Offset_3 P1,P2,P3
-		dnRequest("call",[self,"Offset",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1,P2,P3])
 		return self
 
 	Func Equals P1
@@ -84,12 +84,12 @@ Class Rect3D from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Intersect_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Intersect",P1,P2])
@@ -110,65 +110,65 @@ Class Rect3D from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Parse",P1])
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
-		dnRequest("set",[self,"Location",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Location",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 
 	Func getSizeX
-		return dnRequest("get",[self,"SizeX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SizeX"])
 
 	Func setSizeX P1
-		dnRequest("set",[self,"SizeX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SizeX",P1])
 		return self
 
 	Func getSizeY
-		return dnRequest("get",[self,"SizeY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SizeY"])
 
 	Func setSizeY P1
-		dnRequest("set",[self,"SizeY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SizeY",P1])
 		return self
 
 	Func getSizeZ
-		return dnRequest("get",[self,"SizeZ"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SizeZ"])
 
 	Func setSizeZ P1
-		dnRequest("set",[self,"SizeZ",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SizeZ",P1])
 		return self
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 
 	Func getZ
-		return dnRequest("get",[self,"Z"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Z"])
 
 	Func setZ P1
-		dnRequest("set",[self,"Z",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Z",P1])
 		return self
 
 	Func getEmpty

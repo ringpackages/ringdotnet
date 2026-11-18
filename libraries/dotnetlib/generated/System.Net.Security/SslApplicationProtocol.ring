@@ -24,7 +24,7 @@ Class SslApplicationProtocol from ValueType
 		return self
 
 	Func getProtocol
-		return dnRequest("get",[self,"Protocol"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Protocol"])
 
 	Func setProtocol P1
 		raise("DotNet Error: Protocol is a read-only property")

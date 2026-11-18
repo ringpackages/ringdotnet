@@ -17,9 +17,9 @@ Class XmlSchemaKeyref from XmlSchemaIdentityConstraint
 		return self
 
 	Func getRefer
-		return dnRequest("get",[self,"Refer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Refer"])
 
 	Func setRefer P1
-		dnRequest("set",[self,"Refer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Refer",P1])
 		return self
 

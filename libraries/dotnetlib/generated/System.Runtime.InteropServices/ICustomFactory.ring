@@ -14,5 +14,5 @@ Class ICustomFactory from DotNetObject
 		return self
 
 	Func CreateInstance P1
-		return dnRequest("call",[self,"CreateInstance",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1])
 

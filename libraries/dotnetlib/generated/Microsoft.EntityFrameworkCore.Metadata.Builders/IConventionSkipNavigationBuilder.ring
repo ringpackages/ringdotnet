@@ -16,79 +16,79 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 		return self
 
 	Func HasForeignKey_2 P1,P2
-		return dnRequest("call",[self,"HasForeignKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasForeignKey",P1,P2])
 
 	Func HasForeignKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasForeignKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasForeignKey",P1])
 		ok
-		return dnRequest("call",[self,"HasForeignKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasForeignKey",P1])
 
 	Func CanSetForeignKey_2 P1,P2
-		return dnRequest("call",[self,"CanSetForeignKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetForeignKey",P1,P2])
 
 	Func CanSetForeignKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetForeignKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetForeignKey",P1])
 		ok
-		return dnRequest("call",[self,"CanSetForeignKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetForeignKey",P1])
 
 	Func HasInverse_2 P1,P2
-		return dnRequest("call",[self,"HasInverse",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasInverse",P1,P2])
 
 	Func HasInverse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasInverse",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasInverse",P1])
 		ok
-		return dnRequest("call",[self,"HasInverse",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasInverse",P1])
 
 	Func CanSetInverse_2 P1,P2
-		return dnRequest("call",[self,"CanSetInverse",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetInverse",P1,P2])
 
 	Func CanSetInverse P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetInverse",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetInverse",P1])
 		ok
-		return dnRequest("call",[self,"CanSetInverse",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetInverse",P1])
 
 	Func CanSetAutoInclude_2 P1,P2
-		return dnRequest("call",[self,"CanSetAutoInclude",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetAutoInclude",P1,P2])
 
 	Func CanSetAutoInclude P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetAutoInclude",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetAutoInclude",P1])
 		ok
-		return dnRequest("call",[self,"CanSetAutoInclude",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetAutoInclude",P1])
 
 	Func AutoInclude_2 P1,P2
-		return dnRequest("call",[self,"AutoInclude",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AutoInclude",P1,P2])
 
 	Func AutoInclude P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AutoInclude",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AutoInclude",P1])
 		ok
-		return dnRequest("call",[self,"AutoInclude",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AutoInclude",P1])
 
 	Func CanSetLazyLoadingEnabled_2 P1,P2
-		return dnRequest("call",[self,"CanSetLazyLoadingEnabled",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetLazyLoadingEnabled",P1,P2])
 
 	Func CanSetLazyLoadingEnabled P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetLazyLoadingEnabled",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetLazyLoadingEnabled",P1])
 		ok
-		return dnRequest("call",[self,"CanSetLazyLoadingEnabled",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetLazyLoadingEnabled",P1])
 
 	Func EnableLazyLoading_2 P1,P2
-		return dnRequest("call",[self,"EnableLazyLoading",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableLazyLoading",P1,P2])
 
 	Func EnableLazyLoading P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnableLazyLoading",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnableLazyLoading",P1])
 		ok
-		return dnRequest("call",[self,"EnableLazyLoading",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableLazyLoading",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

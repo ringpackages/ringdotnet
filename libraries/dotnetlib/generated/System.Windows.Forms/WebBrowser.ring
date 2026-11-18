@@ -37,300 +37,300 @@ Class WebBrowser from WebBrowserBase
 		return self
 
 	Func GoBack 
-		return dnRequest("call",[self,"GoBack"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GoBack"])
 
 	Func GoForward 
-		return dnRequest("call",[self,"GoForward"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GoForward"])
 
 	Func GoHome 
-		dnRequest("call",[self,"GoHome"])
+		dnRequest("call",[new DotNetObject(nHandle),"GoHome"])
 		return self
 
 	Func GoSearch 
-		dnRequest("call",[self,"GoSearch"])
+		dnRequest("call",[new DotNetObject(nHandle),"GoSearch"])
 		return self
 
 	Func Navigate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Navigate",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Navigate",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Navigate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
 		return self
 
 	Func Navigate_2 P1,P2
-		dnRequest("call",[self,"Navigate",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2])
 		return self
 
 	Func Navigate_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Navigate",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2,P3,P4])
 		return self
 
 	Func Print 
-		dnRequest("call",[self,"Print"])
+		dnRequest("call",[new DotNetObject(nHandle),"Print"])
 		return self
 
 	Func Refresh P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Refresh",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Refresh",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Refresh"])
+			dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
 		return self
 		ok
-		dnRequest("call",[self,"Refresh",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Refresh",P1])
 		return self
 
 	Func Refresh_1 P1
-		dnRequest("call",[self,"Refresh",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Refresh",P1])
 		return self
 
 	Func ShowPageSetupDialog 
-		dnRequest("call",[self,"ShowPageSetupDialog"])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowPageSetupDialog"])
 		return self
 
 	Func ShowPrintDialog 
-		dnRequest("call",[self,"ShowPrintDialog"])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowPrintDialog"])
 		return self
 
 	Func ShowPrintPreviewDialog 
-		dnRequest("call",[self,"ShowPrintPreviewDialog"])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowPrintPreviewDialog"])
 		return self
 
 	Func ShowPropertiesDialog 
-		dnRequest("call",[self,"ShowPropertiesDialog"])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowPropertiesDialog"])
 		return self
 
 	Func ShowSaveAsDialog 
-		dnRequest("call",[self,"ShowSaveAsDialog"])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowSaveAsDialog"])
 		return self
 
 	Func Stop 
-		dnRequest("call",[self,"Stop"])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
 		return self
 
 	Func setCanGoBackChangedEvent P1
-		dnRequest("setevent",[self,"CanGoBackChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CanGoBackChanged",dnCallback(P1)])
 		return self
 
 	Func clearCanGoBackChangedEvent
-		dnRequest("clearevent",[self,"CanGoBackChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CanGoBackChanged"])
 		return self
 
 	Func setCanGoForwardChangedEvent P1
-		dnRequest("setevent",[self,"CanGoForwardChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CanGoForwardChanged",dnCallback(P1)])
 		return self
 
 	Func clearCanGoForwardChangedEvent
-		dnRequest("clearevent",[self,"CanGoForwardChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CanGoForwardChanged"])
 		return self
 
 	Func setDocumentCompletedEvent P1
-		dnRequest("setevent",[self,"DocumentCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DocumentCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDocumentCompletedEvent
-		dnRequest("clearevent",[self,"DocumentCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DocumentCompleted"])
 		return self
 
 	Func setDocumentTitleChangedEvent P1
-		dnRequest("setevent",[self,"DocumentTitleChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DocumentTitleChanged",dnCallback(P1)])
 		return self
 
 	Func clearDocumentTitleChangedEvent
-		dnRequest("clearevent",[self,"DocumentTitleChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DocumentTitleChanged"])
 		return self
 
 	Func setEncryptionLevelChangedEvent P1
-		dnRequest("setevent",[self,"EncryptionLevelChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"EncryptionLevelChanged",dnCallback(P1)])
 		return self
 
 	Func clearEncryptionLevelChangedEvent
-		dnRequest("clearevent",[self,"EncryptionLevelChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"EncryptionLevelChanged"])
 		return self
 
 	Func setFileDownloadEvent P1
-		dnRequest("setevent",[self,"FileDownload",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"FileDownload",dnCallback(P1)])
 		return self
 
 	Func clearFileDownloadEvent
-		dnRequest("clearevent",[self,"FileDownload"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"FileDownload"])
 		return self
 
 	Func setNavigatedEvent P1
-		dnRequest("setevent",[self,"Navigated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Navigated",dnCallback(P1)])
 		return self
 
 	Func clearNavigatedEvent
-		dnRequest("clearevent",[self,"Navigated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigated"])
 		return self
 
 	Func setNavigatingEvent P1
-		dnRequest("setevent",[self,"Navigating",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Navigating",dnCallback(P1)])
 		return self
 
 	Func clearNavigatingEvent
-		dnRequest("clearevent",[self,"Navigating"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigating"])
 		return self
 
 	Func setNewWindowEvent P1
-		dnRequest("setevent",[self,"NewWindow",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NewWindow",dnCallback(P1)])
 		return self
 
 	Func clearNewWindowEvent
-		dnRequest("clearevent",[self,"NewWindow"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NewWindow"])
 		return self
 
 	Func setProgressChangedEvent P1
-		dnRequest("setevent",[self,"ProgressChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ProgressChanged",dnCallback(P1)])
 		return self
 
 	Func clearProgressChangedEvent
-		dnRequest("clearevent",[self,"ProgressChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ProgressChanged"])
 		return self
 
 	Func setStatusTextChangedEvent P1
-		dnRequest("setevent",[self,"StatusTextChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StatusTextChanged",dnCallback(P1)])
 		return self
 
 	Func clearStatusTextChangedEvent
-		dnRequest("clearevent",[self,"StatusTextChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StatusTextChanged"])
 		return self
 
 	Func getAllowNavigation
-		return dnRequest("get",[self,"AllowNavigation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowNavigation"])
 
 	Func setAllowNavigation P1
-		dnRequest("set",[self,"AllowNavigation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowNavigation",P1])
 		return self
 
 	Func getAllowWebBrowserDrop
-		return dnRequest("get",[self,"AllowWebBrowserDrop"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowWebBrowserDrop"])
 
 	Func setAllowWebBrowserDrop P1
-		dnRequest("set",[self,"AllowWebBrowserDrop",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowWebBrowserDrop",P1])
 		return self
 
 	Func getScriptErrorsSuppressed
-		return dnRequest("get",[self,"ScriptErrorsSuppressed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScriptErrorsSuppressed"])
 
 	Func setScriptErrorsSuppressed P1
-		dnRequest("set",[self,"ScriptErrorsSuppressed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScriptErrorsSuppressed",P1])
 		return self
 
 	Func getWebBrowserShortcutsEnabled
-		return dnRequest("get",[self,"WebBrowserShortcutsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WebBrowserShortcutsEnabled"])
 
 	Func setWebBrowserShortcutsEnabled P1
-		dnRequest("set",[self,"WebBrowserShortcutsEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WebBrowserShortcutsEnabled",P1])
 		return self
 
 	Func getCanGoBack
-		return dnRequest("get",[self,"CanGoBack"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanGoBack"])
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")
 
 	Func getCanGoForward
-		return dnRequest("get",[self,"CanGoForward"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanGoForward"])
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getDocument
-		return dnRequest("get",[self,"Document"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
 
 	Func setDocument P1
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getDocumentStream
-		return dnRequest("get",[self,"DocumentStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentStream"])
 
 	Func setDocumentStream P1
-		dnRequest("set",[self,"DocumentStream",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DocumentStream",P1])
 		return self
 
 	Func getDocumentText
-		return dnRequest("get",[self,"DocumentText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentText"])
 
 	Func setDocumentText P1
-		dnRequest("set",[self,"DocumentText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DocumentText",P1])
 		return self
 
 	Func getDocumentTitle
-		return dnRequest("get",[self,"DocumentTitle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentTitle"])
 
 	Func setDocumentTitle P1
 		raise("DotNet Error: DocumentTitle is a read-only property")
 
 	Func getDocumentType
-		return dnRequest("get",[self,"DocumentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentType"])
 
 	Func setDocumentType P1
 		raise("DotNet Error: DocumentType is a read-only property")
 
 	Func getEncryptionLevel
-		return dnRequest("get",[self,"EncryptionLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EncryptionLevel"])
 
 	Func setEncryptionLevel P1
 		raise("DotNet Error: EncryptionLevel is a read-only property")
 
 	Func getIsBusy
-		return dnRequest("get",[self,"IsBusy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBusy"])
 
 	Func setIsBusy P1
 		raise("DotNet Error: IsBusy is a read-only property")
 
 	Func getIsOffline
-		return dnRequest("get",[self,"IsOffline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOffline"])
 
 	Func setIsOffline P1
 		raise("DotNet Error: IsOffline is a read-only property")
 
 	Func getIsWebBrowserContextMenuEnabled
-		return dnRequest("get",[self,"IsWebBrowserContextMenuEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsWebBrowserContextMenuEnabled"])
 
 	Func setIsWebBrowserContextMenuEnabled P1
-		dnRequest("set",[self,"IsWebBrowserContextMenuEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsWebBrowserContextMenuEnabled",P1])
 		return self
 
 	Func getObjectForScripting
-		return dnRequest("get",[self,"ObjectForScripting"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ObjectForScripting"])
 
 	Func setObjectForScripting P1
-		dnRequest("set",[self,"ObjectForScripting",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ObjectForScripting",P1])
 		return self
 
 	Func getReadyState
-		return dnRequest("get",[self,"ReadyState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReadyState"])
 
 	Func setReadyState P1
 		raise("DotNet Error: ReadyState is a read-only property")
 
 	Func getStatusText
-		return dnRequest("get",[self,"StatusText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusText"])
 
 	Func setStatusText P1
 		raise("DotNet Error: StatusText is a read-only property")
 
 	Func getUrl
-		return dnRequest("get",[self,"Url"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
 
 	Func setUrl P1
-		dnRequest("set",[self,"Url",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Url",P1])
 		return self
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getScrollBarsEnabled
-		return dnRequest("get",[self,"ScrollBarsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScrollBarsEnabled"])
 
 	Func setScrollBarsEnabled P1
-		dnRequest("set",[self,"ScrollBarsEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScrollBarsEnabled",P1])
 		return self
 

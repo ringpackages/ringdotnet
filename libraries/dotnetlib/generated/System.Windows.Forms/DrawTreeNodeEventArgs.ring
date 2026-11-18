@@ -21,33 +21,33 @@ Class DrawTreeNodeEventArgs from EventArgs
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getNode
-		return dnRequest("get",[self,"Node"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Node"])
 
 	Func setNode P1
 		raise("DotNet Error: Node is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getDrawDefault
-		return dnRequest("get",[self,"DrawDefault"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DrawDefault"])
 
 	Func setDrawDefault P1
-		dnRequest("set",[self,"DrawDefault",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DrawDefault",P1])
 		return self
 

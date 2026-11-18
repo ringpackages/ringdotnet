@@ -26,7 +26,7 @@ Class Oid from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromFriendlyName P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Oid, System.Security.Cryptography'),"FromFriendlyName",P1,P2])
@@ -35,16 +35,16 @@ Class Oid from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Oid, System.Security.Cryptography'),"FromOidValue",P1,P2])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getFriendlyName
-		return dnRequest("get",[self,"FriendlyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FriendlyName"])
 
 	Func setFriendlyName P1
-		dnRequest("set",[self,"FriendlyName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FriendlyName",P1])
 		return self
 

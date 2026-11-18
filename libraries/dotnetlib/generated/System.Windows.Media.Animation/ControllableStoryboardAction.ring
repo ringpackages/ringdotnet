@@ -16,9 +16,9 @@ Class ControllableStoryboardAction from TriggerAction
 		return self
 
 	Func getBeginStoryboardName
-		return dnRequest("get",[self,"BeginStoryboardName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BeginStoryboardName"])
 
 	Func setBeginStoryboardName P1
-		dnRequest("set",[self,"BeginStoryboardName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BeginStoryboardName",P1])
 		return self
 

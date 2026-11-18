@@ -19,25 +19,25 @@ Class XamlSetValueEventArgs from EventArgs
 		return self
 
 	Func CallBase 
-		dnRequest("call",[self,"CallBase"])
+		dnRequest("call",[new DotNetObject(nHandle),"CallBase"])
 		return self
 
 	Func getMember
-		return dnRequest("get",[self,"Member"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Member"])
 
 	Func setMember P1
 		raise("DotNet Error: Member is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[self,"Handled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
 
 	Func setHandled P1
-		dnRequest("set",[self,"Handled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Handled",P1])
 		return self
 

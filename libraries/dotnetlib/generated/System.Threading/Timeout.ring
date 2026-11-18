@@ -17,7 +17,7 @@ Class Timeout from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getInfiniteTimeSpan
 		return dnRequest("get",[dnTypeCached('System.Threading.Timeout, System.Private.CoreLib'),"InfiniteTimeSpan"])

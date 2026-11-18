@@ -21,9 +21,9 @@ Class QueryCursorEventArgs from WpfMouseEventArgs
 		return self
 
 	Func getCursor
-		return dnRequest("get",[self,"Cursor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cursor"])
 
 	Func setCursor P1
-		dnRequest("set",[self,"Cursor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cursor",P1])
 		return self
 

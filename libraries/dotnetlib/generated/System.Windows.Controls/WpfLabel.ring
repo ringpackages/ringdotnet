@@ -18,10 +18,10 @@ Class WpfLabel from ContentControl
 		return self
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
 
 	Func setTarget P1
-		dnRequest("set",[self,"Target",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Target",P1])
 		return self
 
 	Func getTargetProperty

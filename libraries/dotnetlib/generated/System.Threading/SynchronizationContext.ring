@@ -17,32 +17,32 @@ Class SynchronizationContext from Object
 		return self
 
 	Func IsWaitNotificationRequired 
-		return dnRequest("call",[self,"IsWaitNotificationRequired"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsWaitNotificationRequired"])
 
 	Func Send P1,P2
-		dnRequest("call",[self,"Send",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2])
 		return self
 
 	Func Post P1,P2
-		dnRequest("call",[self,"Post",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Post",P1,P2])
 		return self
 
 	Func OperationStarted 
-		dnRequest("call",[self,"OperationStarted"])
+		dnRequest("call",[new DotNetObject(nHandle),"OperationStarted"])
 		return self
 
 	Func OperationCompleted 
-		dnRequest("call",[self,"OperationCompleted"])
+		dnRequest("call",[new DotNetObject(nHandle),"OperationCompleted"])
 		return self
 
 	Func Wait P1,P2,P3
-		return dnRequest("call",[self,"Wait",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1,P2,P3])
 
 	Func CreateCopy 
-		return dnRequest("call",[self,"CreateCopy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateCopy"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func SetSynchronizationContext P1
 		dnRequest("call",[dnTypeCached('System.Threading.SynchronizationContext, System.Private.CoreLib'),"SetSynchronizationContext",P1])

@@ -18,13 +18,13 @@ Class NotFoundDirectoryContents from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExists
-		return dnRequest("get",[self,"Exists"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exists"])
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")

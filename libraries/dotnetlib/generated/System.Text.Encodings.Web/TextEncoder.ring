@@ -16,27 +16,27 @@ Class TextEncoder from Object
 		return self
 
 	Func WillEncode P1
-		return dnRequest("call",[self,"WillEncode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WillEncode",P1])
 
 	Func Encode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Encode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Encode",P1])
 		ok
-		return dnRequest("call",[self,"Encode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Encode",P1])
 
 	Func Encode_2 P1,P2
-		dnRequest("call",[self,"Encode",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Encode",P1,P2])
 		return self
 
 	Func Encode_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Encode",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Encode",P1,P2,P3,P4])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMaxOutputCharactersPerInputCharacter
-		return dnRequest("get",[self,"MaxOutputCharactersPerInputCharacter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxOutputCharactersPerInputCharacter"])
 
 	Func setMaxOutputCharactersPerInputCharacter P1
 		raise("DotNet Error: MaxOutputCharactersPerInputCharacter is a read-only property")

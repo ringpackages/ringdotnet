@@ -21,91 +21,91 @@ Class FileInfo from FileSystemInfo
 
 	Func Open P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Open",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Open",P1])
 		ok
-		return dnRequest("call",[self,"Open",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1])
 
 	Func OpenText 
-		return dnRequest("call",[self,"OpenText"])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenText"])
 
 	Func CreateText 
-		return dnRequest("call",[self,"CreateText"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateText"])
 
 	Func AppendText 
-		return dnRequest("call",[self,"AppendText"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendText"])
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CopyTo",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CopyTo",P1])
 		ok
-		return dnRequest("call",[self,"CopyTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 
 	Func CopyTo_2 P1,P2
-		return dnRequest("call",[self,"CopyTo",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 
 	Func Create 
-		return dnRequest("call",[self,"Create"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
 
 	Func Open_2 P1,P2
-		return dnRequest("call",[self,"Open",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1,P2])
 
 	Func Open_3 P1,P2,P3
-		return dnRequest("call",[self,"Open",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1,P2,P3])
 
 	Func OpenRead 
-		return dnRequest("call",[self,"OpenRead"])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenRead"])
 
 	Func OpenWrite 
-		return dnRequest("call",[self,"OpenWrite"])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenWrite"])
 
 	Func MoveTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"MoveTo",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"MoveTo",P1])
 			return self
 		ok
-		dnRequest("call",[self,"MoveTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1])
 		return self
 
 	Func MoveTo_2 P1,P2
-		dnRequest("call",[self,"MoveTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1,P2])
 		return self
 
 	Func Replace P1,P2
-		return dnRequest("call",[self,"Replace",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2])
 
 	Func Replace_3 P1,P2,P3
-		return dnRequest("call",[self,"Replace",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3])
 
 	Func Decrypt 
-		dnRequest("call",[self,"Decrypt"])
+		dnRequest("call",[new DotNetObject(nHandle),"Decrypt"])
 		return self
 
 	Func Encrypt 
-		dnRequest("call",[self,"Encrypt"])
+		dnRequest("call",[new DotNetObject(nHandle),"Encrypt"])
 		return self
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getDirectoryName
-		return dnRequest("get",[self,"DirectoryName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DirectoryName"])
 
 	Func setDirectoryName P1
 		raise("DotNet Error: DirectoryName is a read-only property")
 
 	Func getDirectory
-		return dnRequest("get",[self,"Directory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Directory"])
 
 	Func setDirectory P1
 		raise("DotNet Error: Directory is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
-		dnRequest("set",[self,"IsReadOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsReadOnly",P1])
 		return self
 

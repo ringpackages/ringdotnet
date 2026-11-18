@@ -14,6 +14,6 @@ Class IRevertibleChangeTracking from DotNetObject
 		return self
 
 	Func RejectChanges 
-		dnRequest("call",[self,"RejectChanges"])
+		dnRequest("call",[new DotNetObject(nHandle),"RejectChanges"])
 		return self
 

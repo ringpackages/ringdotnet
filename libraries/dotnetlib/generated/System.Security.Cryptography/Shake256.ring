@@ -17,31 +17,31 @@ Class Shake256 from Object
 		return self
 
 	Func AppendData P1
-		dnRequest("call",[self,"AppendData",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendData",P1])
 		return self
 
 	Func GetHashAndReset P1
-		return dnRequest("call",[self,"GetHashAndReset",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashAndReset",P1])
 
 	Func GetCurrentHash P1
-		return dnRequest("call",[self,"GetCurrentHash",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentHash",P1])
 
 	Func Read P1
-		return dnRequest("call",[self,"Read",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1])
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"HashData",P1,P2])

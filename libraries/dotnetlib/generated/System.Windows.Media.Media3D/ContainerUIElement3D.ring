@@ -17,7 +17,7 @@ Class ContainerUIElement3D from UIElement3D
 		return self
 
 	Func getChildren
-		return dnRequest("get",[self,"Children"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")

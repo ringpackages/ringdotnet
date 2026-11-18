@@ -16,15 +16,15 @@ Class JsonDocument from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func WriteTo P1
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"Parse",P1,P2])
@@ -48,7 +48,7 @@ Class JsonDocument from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1])
 
 	Func getRootElement
-		return dnRequest("get",[self,"RootElement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RootElement"])
 
 	Func setRootElement P1
 		raise("DotNet Error: RootElement is a read-only property")

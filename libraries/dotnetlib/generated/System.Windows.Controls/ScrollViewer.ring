@@ -55,71 +55,71 @@ Class ScrollViewer from ContentControl
 		return self
 
 	Func LineUp 
-		dnRequest("call",[self,"LineUp"])
+		dnRequest("call",[new DotNetObject(nHandle),"LineUp"])
 		return self
 
 	Func LineDown 
-		dnRequest("call",[self,"LineDown"])
+		dnRequest("call",[new DotNetObject(nHandle),"LineDown"])
 		return self
 
 	Func LineLeft 
-		dnRequest("call",[self,"LineLeft"])
+		dnRequest("call",[new DotNetObject(nHandle),"LineLeft"])
 		return self
 
 	Func LineRight 
-		dnRequest("call",[self,"LineRight"])
+		dnRequest("call",[new DotNetObject(nHandle),"LineRight"])
 		return self
 
 	Func PageUp 
-		dnRequest("call",[self,"PageUp"])
+		dnRequest("call",[new DotNetObject(nHandle),"PageUp"])
 		return self
 
 	Func PageDown 
-		dnRequest("call",[self,"PageDown"])
+		dnRequest("call",[new DotNetObject(nHandle),"PageDown"])
 		return self
 
 	Func PageLeft 
-		dnRequest("call",[self,"PageLeft"])
+		dnRequest("call",[new DotNetObject(nHandle),"PageLeft"])
 		return self
 
 	Func PageRight 
-		dnRequest("call",[self,"PageRight"])
+		dnRequest("call",[new DotNetObject(nHandle),"PageRight"])
 		return self
 
 	Func ScrollToLeftEnd 
-		dnRequest("call",[self,"ScrollToLeftEnd"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToLeftEnd"])
 		return self
 
 	Func ScrollToRightEnd 
-		dnRequest("call",[self,"ScrollToRightEnd"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToRightEnd"])
 		return self
 
 	Func ScrollToHome 
-		dnRequest("call",[self,"ScrollToHome"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToHome"])
 		return self
 
 	Func ScrollToEnd 
-		dnRequest("call",[self,"ScrollToEnd"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToEnd"])
 		return self
 
 	Func ScrollToTop 
-		dnRequest("call",[self,"ScrollToTop"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToTop"])
 		return self
 
 	Func ScrollToBottom 
-		dnRequest("call",[self,"ScrollToBottom"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToBottom"])
 		return self
 
 	Func ScrollToHorizontalOffset P1
-		dnRequest("call",[self,"ScrollToHorizontalOffset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToHorizontalOffset",P1])
 		return self
 
 	Func ScrollToVerticalOffset P1
-		dnRequest("call",[self,"ScrollToVerticalOffset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToVerticalOffset",P1])
 		return self
 
 	Func InvalidateScrollInfo 
-		dnRequest("call",[self,"InvalidateScrollInfo"])
+		dnRequest("call",[new DotNetObject(nHandle),"InvalidateScrollInfo"])
 		return self
 
 	Func SetCanContentScroll_2 P1,P2
@@ -172,132 +172,132 @@ Class ScrollViewer from ContentControl
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"GetPanningRatio",P1])
 
 	Func setScrollChangedEvent P1
-		dnRequest("setevent",[self,"ScrollChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ScrollChanged",dnCallback(P1)])
 		return self
 
 	Func clearScrollChangedEvent
-		dnRequest("clearevent",[self,"ScrollChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ScrollChanged"])
 		return self
 
 	Func getCanContentScroll
-		return dnRequest("get",[self,"CanContentScroll"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanContentScroll"])
 
 	Func setCanContentScroll P1
-		dnRequest("set",[self,"CanContentScroll",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanContentScroll",P1])
 		return self
 
 	Func getHorizontalScrollBarVisibility
-		return dnRequest("get",[self,"HorizontalScrollBarVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalScrollBarVisibility"])
 
 	Func setHorizontalScrollBarVisibility P1
-		dnRequest("set",[self,"HorizontalScrollBarVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HorizontalScrollBarVisibility",P1])
 		return self
 
 	Func getVerticalScrollBarVisibility
-		return dnRequest("get",[self,"VerticalScrollBarVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalScrollBarVisibility"])
 
 	Func setVerticalScrollBarVisibility P1
-		dnRequest("set",[self,"VerticalScrollBarVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VerticalScrollBarVisibility",P1])
 		return self
 
 	Func getComputedHorizontalScrollBarVisibility
-		return dnRequest("get",[self,"ComputedHorizontalScrollBarVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ComputedHorizontalScrollBarVisibility"])
 
 	Func setComputedHorizontalScrollBarVisibility P1
 		raise("DotNet Error: ComputedHorizontalScrollBarVisibility is a read-only property")
 
 	Func getComputedVerticalScrollBarVisibility
-		return dnRequest("get",[self,"ComputedVerticalScrollBarVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ComputedVerticalScrollBarVisibility"])
 
 	Func setComputedVerticalScrollBarVisibility P1
 		raise("DotNet Error: ComputedVerticalScrollBarVisibility is a read-only property")
 
 	Func getHorizontalOffset
-		return dnRequest("get",[self,"HorizontalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
 
 	Func setHorizontalOffset P1
 		raise("DotNet Error: HorizontalOffset is a read-only property")
 
 	Func getVerticalOffset
-		return dnRequest("get",[self,"VerticalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
 
 	Func setVerticalOffset P1
 		raise("DotNet Error: VerticalOffset is a read-only property")
 
 	Func getExtentWidth
-		return dnRequest("get",[self,"ExtentWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentWidth"])
 
 	Func setExtentWidth P1
 		raise("DotNet Error: ExtentWidth is a read-only property")
 
 	Func getExtentHeight
-		return dnRequest("get",[self,"ExtentHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentHeight"])
 
 	Func setExtentHeight P1
 		raise("DotNet Error: ExtentHeight is a read-only property")
 
 	Func getScrollableWidth
-		return dnRequest("get",[self,"ScrollableWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScrollableWidth"])
 
 	Func setScrollableWidth P1
 		raise("DotNet Error: ScrollableWidth is a read-only property")
 
 	Func getScrollableHeight
-		return dnRequest("get",[self,"ScrollableHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScrollableHeight"])
 
 	Func setScrollableHeight P1
 		raise("DotNet Error: ScrollableHeight is a read-only property")
 
 	Func getViewportWidth
-		return dnRequest("get",[self,"ViewportWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportWidth"])
 
 	Func setViewportWidth P1
 		raise("DotNet Error: ViewportWidth is a read-only property")
 
 	Func getViewportHeight
-		return dnRequest("get",[self,"ViewportHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportHeight"])
 
 	Func setViewportHeight P1
 		raise("DotNet Error: ViewportHeight is a read-only property")
 
 	Func getContentVerticalOffset
-		return dnRequest("get",[self,"ContentVerticalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentVerticalOffset"])
 
 	Func setContentVerticalOffset P1
 		raise("DotNet Error: ContentVerticalOffset is a read-only property")
 
 	Func getContentHorizontalOffset
-		return dnRequest("get",[self,"ContentHorizontalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentHorizontalOffset"])
 
 	Func setContentHorizontalOffset P1
 		raise("DotNet Error: ContentHorizontalOffset is a read-only property")
 
 	Func getIsDeferredScrollingEnabled
-		return dnRequest("get",[self,"IsDeferredScrollingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDeferredScrollingEnabled"])
 
 	Func setIsDeferredScrollingEnabled P1
-		dnRequest("set",[self,"IsDeferredScrollingEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsDeferredScrollingEnabled",P1])
 		return self
 
 	Func getPanningMode
-		return dnRequest("get",[self,"PanningMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PanningMode"])
 
 	Func setPanningMode P1
-		dnRequest("set",[self,"PanningMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PanningMode",P1])
 		return self
 
 	Func getPanningDeceleration
-		return dnRequest("get",[self,"PanningDeceleration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PanningDeceleration"])
 
 	Func setPanningDeceleration P1
-		dnRequest("set",[self,"PanningDeceleration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PanningDeceleration",P1])
 		return self
 
 	Func getPanningRatio
-		return dnRequest("get",[self,"PanningRatio"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PanningRatio"])
 
 	Func setPanningRatio P1
-		dnRequest("set",[self,"PanningRatio",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PanningRatio",P1])
 		return self
 
 	Func getCanContentScrollProperty

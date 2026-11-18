@@ -16,28 +16,28 @@ Class IConventionKeyBuilder from DotNetObject
 		return self
 
 	Func HasAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2,P3])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func HasNonNullAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2,P3])
 
 	Func HasNonNullAnnotation P1,P2
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2])
 
 	Func HasNoAnnotation_2 P1,P2
-		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 		ok
-		return dnRequest("call",[self,"HasNoAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

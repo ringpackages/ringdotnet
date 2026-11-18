@@ -20,113 +20,113 @@ Class IMutableProperty from DotNetObject
 		return self
 
 	Func FindFirstPrincipal 
-		return dnRequest("call",[self,"FindFirstPrincipal"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindFirstPrincipal"])
 
 	Func GetPrincipals 
-		return dnRequest("call",[self,"GetPrincipals"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrincipals"])
 
 	Func GetContainingForeignKeys 
-		return dnRequest("call",[self,"GetContainingForeignKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContainingForeignKeys"])
 
 	Func GetContainingIndexes 
-		return dnRequest("call",[self,"GetContainingIndexes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContainingIndexes"])
 
 	Func FindContainingPrimaryKey 
-		return dnRequest("call",[self,"FindContainingPrimaryKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindContainingPrimaryKey"])
 
 	Func GetContainingKeys 
-		return dnRequest("call",[self,"GetContainingKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContainingKeys"])
 
 	Func SetMaxLength P1
-		dnRequest("call",[self,"SetMaxLength",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetMaxLength",P1])
 		return self
 
 	Func SetPrecision P1
-		dnRequest("call",[self,"SetPrecision",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPrecision",P1])
 		return self
 
 	Func SetScale P1
-		dnRequest("call",[self,"SetScale",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetScale",P1])
 		return self
 
 	Func SetIsUnicode P1
-		dnRequest("call",[self,"SetIsUnicode",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetIsUnicode",P1])
 		return self
 
 	Func SetBeforeSaveBehavior P1
-		dnRequest("call",[self,"SetBeforeSaveBehavior",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetBeforeSaveBehavior",P1])
 		return self
 
 	Func SetAfterSaveBehavior P1
-		dnRequest("call",[self,"SetAfterSaveBehavior",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAfterSaveBehavior",P1])
 		return self
 
 	Func SetValueGeneratorFactory P1
-		dnRequest("call",[self,"SetValueGeneratorFactory",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValueGeneratorFactory",P1])
 		return self
 
 	Func SetValueConverter P1
-		dnRequest("call",[self,"SetValueConverter",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValueConverter",P1])
 		return self
 
 	Func SetProviderClrType P1
-		dnRequest("call",[self,"SetProviderClrType",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetProviderClrType",P1])
 		return self
 
 	Func SetTypeMapping P1
-		dnRequest("call",[self,"SetTypeMapping",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetTypeMapping",P1])
 		return self
 
 	Func SetValueComparer P1
-		dnRequest("call",[self,"SetValueComparer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValueComparer",P1])
 		return self
 
 	Func SetProviderValueComparer P1
-		dnRequest("call",[self,"SetProviderValueComparer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetProviderValueComparer",P1])
 		return self
 
 	Func SetJsonValueReaderWriterType P1
-		dnRequest("call",[self,"SetJsonValueReaderWriterType",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetJsonValueReaderWriterType",P1])
 		return self
 
 	Func GetElementType 
-		return dnRequest("call",[self,"GetElementType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementType"])
 
 	Func SetElementType P1
-		dnRequest("call",[self,"SetElementType",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1])
 		return self
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
-		dnRequest("set",[self,"IsNullable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsNullable",P1])
 		return self
 
 	Func getValueGenerated
-		return dnRequest("get",[self,"ValueGenerated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueGenerated"])
 
 	Func setValueGenerated P1
-		dnRequest("set",[self,"ValueGenerated",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValueGenerated",P1])
 		return self
 
 	Func getIsConcurrencyToken
-		return dnRequest("get",[self,"IsConcurrencyToken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsConcurrencyToken"])
 
 	Func setIsConcurrencyToken P1
-		dnRequest("set",[self,"IsConcurrencyToken",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsConcurrencyToken",P1])
 		return self
 
 	Func getSentinel
-		return dnRequest("get",[self,"Sentinel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sentinel"])
 
 	Func setSentinel P1
-		dnRequest("set",[self,"Sentinel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Sentinel",P1])
 		return self
 

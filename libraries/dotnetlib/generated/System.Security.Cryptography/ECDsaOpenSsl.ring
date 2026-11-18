@@ -19,5 +19,5 @@ Class ECDsaOpenSsl from ECDsa
 		return self
 
 	Func DuplicateKeyHandle 
-		return dnRequest("call",[self,"DuplicateKeyHandle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DuplicateKeyHandle"])
 

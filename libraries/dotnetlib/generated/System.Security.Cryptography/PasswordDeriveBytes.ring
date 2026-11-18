@@ -31,26 +31,26 @@ Class PasswordDeriveBytes from DeriveBytes
 		return self
 
 	Func CryptDeriveKey P1,P2,P3,P4
-		return dnRequest("call",[self,"CryptDeriveKey",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CryptDeriveKey",P1,P2,P3,P4])
 
 	Func getHashName
-		return dnRequest("get",[self,"HashName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashName"])
 
 	Func setHashName P1
-		dnRequest("set",[self,"HashName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HashName",P1])
 		return self
 
 	Func getIterationCount
-		return dnRequest("get",[self,"IterationCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IterationCount"])
 
 	Func setIterationCount P1
-		dnRequest("set",[self,"IterationCount",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IterationCount",P1])
 		return self
 
 	Func getSalt
-		return dnRequest("get",[self,"Salt"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Salt"])
 
 	Func setSalt P1
-		dnRequest("set",[self,"Salt",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Salt",P1])
 		return self
 

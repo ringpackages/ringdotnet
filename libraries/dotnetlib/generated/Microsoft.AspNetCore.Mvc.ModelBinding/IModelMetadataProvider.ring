@@ -14,8 +14,8 @@ Class IModelMetadataProvider from DotNetObject
 		return self
 
 	Func GetMetadataForType P1
-		return dnRequest("call",[self,"GetMetadataForType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForType",P1])
 
 	Func GetMetadataForProperties P1
-		return dnRequest("call",[self,"GetMetadataForProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForProperties",P1])
 

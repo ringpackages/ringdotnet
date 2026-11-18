@@ -19,16 +19,16 @@ Class ValidationResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsValid
-		return dnRequest("get",[self,"IsValid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsValid"])
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getErrorContent
-		return dnRequest("get",[self,"ErrorContent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorContent"])
 
 	Func setErrorContent P1
 		raise("DotNet Error: ErrorContent is a read-only property")

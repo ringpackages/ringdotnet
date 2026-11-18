@@ -19,42 +19,42 @@ Class IdnMapping from Object
 
 	Func GetAscii P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetAscii",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAscii",P1])
 		ok
-		return dnRequest("call",[self,"GetAscii",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAscii",P1])
 
 	Func GetAscii_2 P1,P2
-		return dnRequest("call",[self,"GetAscii",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAscii",P1,P2])
 
 	Func GetAscii_3 P1,P2,P3
-		return dnRequest("call",[self,"GetAscii",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAscii",P1,P2,P3])
 
 	Func GetUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetUnicode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetUnicode",P1])
 		ok
-		return dnRequest("call",[self,"GetUnicode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUnicode",P1])
 
 	Func GetUnicode_2 P1,P2
-		return dnRequest("call",[self,"GetUnicode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUnicode",P1,P2])
 
 	Func GetUnicode_3 P1,P2,P3
-		return dnRequest("call",[self,"GetUnicode",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUnicode",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAllowUnassigned
-		return dnRequest("get",[self,"AllowUnassigned"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowUnassigned"])
 
 	Func setAllowUnassigned P1
-		dnRequest("set",[self,"AllowUnassigned",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowUnassigned",P1])
 		return self
 
 	Func getUseStd3AsciiRules
-		return dnRequest("get",[self,"UseStd3AsciiRules"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseStd3AsciiRules"])
 
 	Func setUseStd3AsciiRules P1
-		dnRequest("set",[self,"UseStd3AsciiRules",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseStd3AsciiRules",P1])
 		return self
 

@@ -26,84 +26,84 @@ Class DataGridViewRowPrePaintEventArgs from HandledEventArgs
 		return self
 
 	Func DrawFocus P1,P2
-		dnRequest("call",[self,"DrawFocus",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawFocus",P1,P2])
 		return self
 
 	Func PaintCells P1,P2
-		dnRequest("call",[self,"PaintCells",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"PaintCells",P1,P2])
 		return self
 
 	Func PaintCellsBackground P1,P2
-		dnRequest("call",[self,"PaintCellsBackground",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"PaintCellsBackground",P1,P2])
 		return self
 
 	Func PaintCellsContent P1
-		dnRequest("call",[self,"PaintCellsContent",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PaintCellsContent",P1])
 		return self
 
 	Func PaintHeader P1
-		dnRequest("call",[self,"PaintHeader",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PaintHeader",P1])
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getClipBounds
-		return dnRequest("get",[self,"ClipBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClipBounds"])
 
 	Func setClipBounds P1
-		dnRequest("set",[self,"ClipBounds",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClipBounds",P1])
 		return self
 
 	Func getRowBounds
-		return dnRequest("get",[self,"RowBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowBounds"])
 
 	Func setRowBounds P1
 		raise("DotNet Error: RowBounds is a read-only property")
 
 	Func getRowIndex
-		return dnRequest("get",[self,"RowIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getErrorText
-		return dnRequest("get",[self,"ErrorText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorText"])
 
 	Func setErrorText P1
 		raise("DotNet Error: ErrorText is a read-only property")
 
 	Func getInheritedRowStyle
-		return dnRequest("get",[self,"InheritedRowStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InheritedRowStyle"])
 
 	Func setInheritedRowStyle P1
 		raise("DotNet Error: InheritedRowStyle is a read-only property")
 
 	Func getIsFirstDisplayedRow
-		return dnRequest("get",[self,"IsFirstDisplayedRow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFirstDisplayedRow"])
 
 	Func setIsFirstDisplayedRow P1
 		raise("DotNet Error: IsFirstDisplayedRow is a read-only property")
 
 	Func getIsLastVisibleRow
-		return dnRequest("get",[self,"IsLastVisibleRow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLastVisibleRow"])
 
 	Func setIsLastVisibleRow P1
 		raise("DotNet Error: IsLastVisibleRow is a read-only property")
 
 	Func getPaintParts
-		return dnRequest("get",[self,"PaintParts"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PaintParts"])
 
 	Func setPaintParts P1
-		dnRequest("set",[self,"PaintParts",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PaintParts",P1])
 		return self
 

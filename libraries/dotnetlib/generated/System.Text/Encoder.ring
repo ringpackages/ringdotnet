@@ -17,30 +17,30 @@ Class Encoder from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func GetByteCount P1,P2,P3,P4
-		return dnRequest("call",[self,"GetByteCount",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1,P2,P3,P4])
 
 	Func GetBytes P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"GetBytes",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3,P4,P5,P6])
 
 	Func Convert P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"Convert",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3,P4,P5,P6,P7])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFallback
-		return dnRequest("get",[self,"Fallback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Fallback"])
 
 	Func setFallback P1
-		dnRequest("set",[self,"Fallback",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Fallback",P1])
 		return self
 
 	Func getFallbackBuffer
-		return dnRequest("get",[self,"FallbackBuffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FallbackBuffer"])
 
 	Func setFallbackBuffer P1
 		raise("DotNet Error: FallbackBuffer is a read-only property")

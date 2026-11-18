@@ -16,7 +16,7 @@ Class IContentTypeHttpResult from DotNetObject
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")

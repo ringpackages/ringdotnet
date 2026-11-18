@@ -18,16 +18,16 @@ Class SortVersion from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFullVersion
-		return dnRequest("get",[self,"FullVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FullVersion"])
 
 	Func setFullVersion P1
 		raise("DotNet Error: FullVersion is a read-only property")
 
 	Func getSortId
-		return dnRequest("get",[self,"SortId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortId"])
 
 	Func setSortId P1
 		raise("DotNet Error: SortId is a read-only property")

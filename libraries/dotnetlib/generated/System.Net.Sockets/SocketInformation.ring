@@ -18,16 +18,16 @@ Class SocketInformation from ValueType
 		return self
 
 	Func getProtocolInformation
-		return dnRequest("get",[self,"ProtocolInformation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolInformation"])
 
 	Func setProtocolInformation P1
-		dnRequest("set",[self,"ProtocolInformation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProtocolInformation",P1])
 		return self
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
-		dnRequest("set",[self,"Options",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Options",P1])
 		return self
 

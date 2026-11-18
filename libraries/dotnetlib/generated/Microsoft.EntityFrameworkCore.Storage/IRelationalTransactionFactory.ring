@@ -14,5 +14,5 @@ Class IRelationalTransactionFactory from DotNetObject
 		return self
 
 	Func Create P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Create",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1,P2,P3,P4,P5])
 

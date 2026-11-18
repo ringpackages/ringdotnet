@@ -17,28 +17,28 @@ Class IConventionCheckConstraint from DotNetObject
 		return self
 
 	Func GetConfigurationSource 
-		return dnRequest("call",[self,"GetConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConfigurationSource"])
 
 	Func SetName_2 P1,P2
-		return dnRequest("call",[self,"SetName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetName",P1,P2])
 
 	Func SetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetName",P1])
 		ok
-		return dnRequest("call",[self,"SetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetName",P1])
 
 	Func GetNameConfigurationSource 
-		return dnRequest("call",[self,"GetNameConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNameConfigurationSource"])
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")

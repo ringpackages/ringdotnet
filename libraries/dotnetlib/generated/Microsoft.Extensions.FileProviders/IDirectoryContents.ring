@@ -16,7 +16,7 @@ Class IDirectoryContents from DotNetObject
 		return self
 
 	Func getExists
-		return dnRequest("get",[self,"Exists"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exists"])
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")

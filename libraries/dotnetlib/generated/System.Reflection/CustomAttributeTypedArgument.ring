@@ -26,13 +26,13 @@ Class CustomAttributeTypedArgument from ValueType
 		return self
 
 	Func getArgumentType
-		return dnRequest("get",[self,"ArgumentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ArgumentType"])
 
 	Func setArgumentType P1
 		raise("DotNet Error: ArgumentType is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

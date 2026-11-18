@@ -17,7 +17,7 @@ Class ListViewGroupEventArgs from EventArgs
 		return self
 
 	Func getGroupIndex
-		return dnRequest("get",[self,"GroupIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GroupIndex"])
 
 	Func setGroupIndex P1
 		raise("DotNet Error: GroupIndex is a read-only property")

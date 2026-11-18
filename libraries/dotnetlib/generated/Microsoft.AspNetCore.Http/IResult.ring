@@ -14,5 +14,5 @@ Class IResult from DotNetObject
 		return self
 
 	Func ExecuteAsync P1
-		return dnRequest("call",[self,"ExecuteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1])
 

@@ -14,8 +14,8 @@ Class IHostedService from DotNetObject
 		return self
 
 	Func StartAsync P1
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StopAsync P1
-		return dnRequest("call",[self,"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 

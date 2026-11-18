@@ -28,35 +28,35 @@ Class DSACryptoServiceProvider from DSA
 		return self
 
 	Func ExportCspBlob P1
-		return dnRequest("call",[self,"ExportCspBlob",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportCspBlob",P1])
 
 	Func ImportCspBlob P1
-		dnRequest("call",[self,"ImportCspBlob",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ImportCspBlob",P1])
 		return self
 
 	Func SignData P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SignData",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignData",P1])
 		ok
-		return dnRequest("call",[self,"SignData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1])
 
 	Func VerifyData P1,P2
-		return dnRequest("call",[self,"VerifyData",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2])
 
 	Func SignHash P1,P2
-		return dnRequest("call",[self,"SignHash",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignHash",P1,P2])
 
 	Func VerifyHash P1,P2,P3
-		return dnRequest("call",[self,"VerifyHash",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyHash",P1,P2,P3])
 
 	Func SignData_2 P1,P2
-		return dnRequest("call",[self,"SignData",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2])
 
 	Func VerifyData_3 P1,P2,P3
-		return dnRequest("call",[self,"VerifyData",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3])
 
 	Func getCspKeyContainerInfo
-		return dnRequest("get",[self,"CspKeyContainerInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CspKeyContainerInfo"])
 
 	Func setCspKeyContainerInfo P1
 		raise("DotNet Error: CspKeyContainerInfo is a read-only property")
@@ -65,14 +65,14 @@ Class DSACryptoServiceProvider from DSA
 		raise("DotNet Error: KeySize is a read-only property")
 
 	Func getPersistKeyInCsp
-		return dnRequest("get",[self,"PersistKeyInCsp"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PersistKeyInCsp"])
 
 	Func setPersistKeyInCsp P1
-		dnRequest("set",[self,"PersistKeyInCsp",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PersistKeyInCsp",P1])
 		return self
 
 	Func getPublicOnly
-		return dnRequest("get",[self,"PublicOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PublicOnly"])
 
 	Func setPublicOnly P1
 		raise("DotNet Error: PublicOnly is a read-only property")

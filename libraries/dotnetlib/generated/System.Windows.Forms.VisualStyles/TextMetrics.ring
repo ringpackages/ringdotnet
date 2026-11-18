@@ -36,142 +36,142 @@ Class TextMetrics from ValueType
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
 		return self
 
 	Func getAscent
-		return dnRequest("get",[self,"Ascent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Ascent"])
 
 	Func setAscent P1
-		dnRequest("set",[self,"Ascent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Ascent",P1])
 		return self
 
 	Func getDescent
-		return dnRequest("get",[self,"Descent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Descent"])
 
 	Func setDescent P1
-		dnRequest("set",[self,"Descent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Descent",P1])
 		return self
 
 	Func getInternalLeading
-		return dnRequest("get",[self,"InternalLeading"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InternalLeading"])
 
 	Func setInternalLeading P1
-		dnRequest("set",[self,"InternalLeading",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InternalLeading",P1])
 		return self
 
 	Func getExternalLeading
-		return dnRequest("get",[self,"ExternalLeading"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExternalLeading"])
 
 	Func setExternalLeading P1
-		dnRequest("set",[self,"ExternalLeading",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExternalLeading",P1])
 		return self
 
 	Func getAverageCharWidth
-		return dnRequest("get",[self,"AverageCharWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AverageCharWidth"])
 
 	Func setAverageCharWidth P1
-		dnRequest("set",[self,"AverageCharWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AverageCharWidth",P1])
 		return self
 
 	Func getMaxCharWidth
-		return dnRequest("get",[self,"MaxCharWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxCharWidth"])
 
 	Func setMaxCharWidth P1
-		dnRequest("set",[self,"MaxCharWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxCharWidth",P1])
 		return self
 
 	Func getWeight
-		return dnRequest("get",[self,"Weight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Weight"])
 
 	Func setWeight P1
-		dnRequest("set",[self,"Weight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Weight",P1])
 		return self
 
 	Func getOverhang
-		return dnRequest("get",[self,"Overhang"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Overhang"])
 
 	Func setOverhang P1
-		dnRequest("set",[self,"Overhang",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Overhang",P1])
 		return self
 
 	Func getDigitizedAspectX
-		return dnRequest("get",[self,"DigitizedAspectX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DigitizedAspectX"])
 
 	Func setDigitizedAspectX P1
-		dnRequest("set",[self,"DigitizedAspectX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DigitizedAspectX",P1])
 		return self
 
 	Func getDigitizedAspectY
-		return dnRequest("get",[self,"DigitizedAspectY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DigitizedAspectY"])
 
 	Func setDigitizedAspectY P1
-		dnRequest("set",[self,"DigitizedAspectY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DigitizedAspectY",P1])
 		return self
 
 	Func getFirstChar
-		return dnRequest("get",[self,"FirstChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstChar"])
 
 	Func setFirstChar P1
-		dnRequest("set",[self,"FirstChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FirstChar",P1])
 		return self
 
 	Func getLastChar
-		return dnRequest("get",[self,"LastChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastChar"])
 
 	Func setLastChar P1
-		dnRequest("set",[self,"LastChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LastChar",P1])
 		return self
 
 	Func getDefaultChar
-		return dnRequest("get",[self,"DefaultChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultChar"])
 
 	Func setDefaultChar P1
-		dnRequest("set",[self,"DefaultChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultChar",P1])
 		return self
 
 	Func getBreakChar
-		return dnRequest("get",[self,"BreakChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BreakChar"])
 
 	Func setBreakChar P1
-		dnRequest("set",[self,"BreakChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BreakChar",P1])
 		return self
 
 	Func getItalic
-		return dnRequest("get",[self,"Italic"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Italic"])
 
 	Func setItalic P1
-		dnRequest("set",[self,"Italic",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Italic",P1])
 		return self
 
 	Func getUnderlined
-		return dnRequest("get",[self,"Underlined"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Underlined"])
 
 	Func setUnderlined P1
-		dnRequest("set",[self,"Underlined",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Underlined",P1])
 		return self
 
 	Func getStruckOut
-		return dnRequest("get",[self,"StruckOut"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StruckOut"])
 
 	Func setStruckOut P1
-		dnRequest("set",[self,"StruckOut",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StruckOut",P1])
 		return self
 
 	Func getPitchAndFamily
-		return dnRequest("get",[self,"PitchAndFamily"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PitchAndFamily"])
 
 	Func setPitchAndFamily P1
-		dnRequest("set",[self,"PitchAndFamily",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PitchAndFamily",P1])
 		return self
 
 	Func getCharSet
-		return dnRequest("get",[self,"CharSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CharSet"])
 
 	Func setCharSet P1
-		dnRequest("set",[self,"CharSet",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CharSet",P1])
 		return self
 

@@ -14,10 +14,10 @@ Class IActionFilter from DotNetObject
 		return self
 
 	Func OnActionExecuting P1
-		dnRequest("call",[self,"OnActionExecuting",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnActionExecuting",P1])
 		return self
 
 	Func OnActionExecuted P1
-		dnRequest("call",[self,"OnActionExecuted",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnActionExecuted",P1])
 		return self
 

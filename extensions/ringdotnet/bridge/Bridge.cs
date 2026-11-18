@@ -160,16 +160,23 @@ namespace RingDotNet
 		}
 
 		/* Type names Ring can wrap the object with: its type, then its base types */
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<Type, string> TypeChains = new System.Collections.Concurrent.ConcurrentDictionary<Type, string>();
+
 		private static string TypeChain(object value)
+		{
+			return TypeChains.GetOrAdd(value.GetType(), BuildTypeChain);
+		}
+
+		private static string BuildTypeChain(Type type)
 		{
 			StringBuilder sb = new StringBuilder();
 			int count = 0;
-			for (Type t = value.GetType(); t != null && t != typeof(object) && count < 8; t = t.BaseType, count++)
+			for (Type t = type; t != null && t != typeof(object) && count < 8; t = t.BaseType, count++)
 			{
 				sb.Append('|').Append(t.FullName ?? t.Name);
 			}
 			/* then the interfaces (a class that is not generated can still be wrapped as ICryptoTransform, IDisposable...) */
-			foreach (Type i in value.GetType().GetInterfaces())
+			foreach (Type i in type.GetInterfaces())
 			{
 				if (i.IsVisible && count++ < 40)
 				{
@@ -1119,8 +1126,9 @@ namespace RingDotNet
 			{
 				if (ut.IsEnum)
 				{
-					try { result = Enum.Parse(ut, s, true); score = 2; return true; }
-					catch (Exception) { return false; }
+					/* TryParse: a text that is not a name of this enum is common while overloads are compared, and an exception is slow */
+					if (Enum.TryParse(ut, s, true, out object parsed)) { result = parsed; score = 2; return true; }
+					return false;
 				}
 				if (ut == typeof(char) && s.Length == 1)
 				{
@@ -1204,6 +1212,23 @@ namespace RingDotNet
 		}
 
 		/* User defined implicit conversions (string --> XName, string --> PathString ...) */
+		/* The op_Implicit methods of a type (with one parameter): found once, because GetMethods copies a big array on every call */
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<Type, MethodInfo[]> ImplicitCache =
+			new System.Collections.Concurrent.ConcurrentDictionary<Type, MethodInfo[]>();
+
+		private static MethodInfo[] ImplicitOperators(Type owner)
+		{
+			return ImplicitCache.GetOrAdd(owner, type =>
+			{
+				List<MethodInfo> list = new List<MethodInfo>();
+				foreach (MethodInfo m in type.GetMethods(BindingFlags.Public | BindingFlags.Static))
+				{
+					if (m.Name == "op_Implicit" && m.GetParameters().Length == 1) list.Add(m);
+				}
+				return list.ToArray();
+			});
+		}
+
 		private static bool TryImplicit(object v, Type target, out object result, out int score)
 		{
 			result = null;
@@ -1211,11 +1236,10 @@ namespace RingDotNet
 			Type from = v.GetType();
 			foreach (Type owner in new[] { target, from })
 			{
-				foreach (MethodInfo m in owner.GetMethods(BindingFlags.Public | BindingFlags.Static))
+				foreach (MethodInfo m in ImplicitOperators(owner))
 				{
-					if (m.Name != "op_Implicit" || !target.IsAssignableFrom(m.ReturnType)) continue;
-					ParameterInfo[] ps = m.GetParameters();
-					if (ps.Length != 1) continue;
+					if (!target.IsAssignableFrom(m.ReturnType)) continue;
+					ParameterInfo[] ps = ShapeOf(m).Parameters;
 					object arg = null;
 					bool usable = ps[0].ParameterType.IsAssignableFrom(from);
 					if (usable)
@@ -1238,6 +1262,32 @@ namespace RingDotNet
 		}
 
 		/* Choose the best overload; returns the converted arguments */
+		/* The parameters of a method and how many of them an argument list has to fill: found once (GetParameters copies its array on every call) */
+		private sealed class ParamShape
+		{
+			public ParameterInfo[] Parameters;
+			public int Required;
+			public int Inputs;
+		}
+
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<MethodBase, ParamShape> Shapes =
+			new System.Collections.Concurrent.ConcurrentDictionary<MethodBase, ParamShape>();
+
+		private static ParamShape ShapeOf(MethodBase m)
+		{
+			return Shapes.GetOrAdd(m, method =>
+			{
+				ParamShape shape = new ParamShape { Parameters = method.GetParameters() };
+				foreach (ParameterInfo p in shape.Parameters)
+				{
+					if (IsOutOnly(p)) continue;
+					shape.Inputs++;
+					if (!p.IsOptional) shape.Required++;
+				}
+				return shape;
+			});
+		}
+
 		private static MethodBase Pick(IEnumerable<MethodBase> candidates, object[] args, out object[] converted)
 		{
 			MethodBase best = null;
@@ -1258,15 +1308,9 @@ namespace RingDotNet
 				{
 					continue;
 				}
-				ParameterInfo[] ps = m.GetParameters();
-				int required = 0, inputs = 0;
-				foreach (ParameterInfo p in ps)
-				{
-					if (IsOutOnly(p)) continue;
-					inputs++;
-					if (!p.IsOptional) required++;
-				}
-				if (args.Length < required || args.Length > inputs)
+				ParamShape shape = ShapeOf(m);
+				ParameterInfo[] ps = shape.Parameters;
+				if (args.Length < shape.Required || args.Length > shape.Inputs)
 				{
 					continue;
 				}
@@ -1361,7 +1405,16 @@ namespace RingDotNet
 			}
 		}
 
+		/* The methods of a type that have a name: found once (the reflection arrays are copied on every call) */
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<(Type, string, BindingFlags), MethodInfo[]> MethodCache =
+			new System.Collections.Concurrent.ConcurrentDictionary<(Type, string, BindingFlags), MethodInfo[]>();
+
 		private static IEnumerable<MethodInfo> MethodsNamed(Type t, string name, BindingFlags flags)
+		{
+			return MethodCache.GetOrAdd((t, name, flags), key => FindMethodsNamed(key.Item1, key.Item2, key.Item3));
+		}
+
+		private static MethodInfo[] FindMethodsNamed(Type t, string name, BindingFlags flags)
 		{
 			List<MethodInfo> found = new List<MethodInfo>();
 			foreach (MethodInfo m in t.GetMethods(flags))
@@ -1375,7 +1428,7 @@ namespace RingDotNet
 					if (string.Equals(m.Name, name, StringComparison.OrdinalIgnoreCase)) found.Add(m);
 				}
 			}
-			return found;
+			return found.ToArray();
 		}
 
 		private static object CreateInstance(Type t, object[] args)

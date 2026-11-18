@@ -18,22 +18,22 @@ Class TextChange from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getAddedLength
-		return dnRequest("get",[self,"AddedLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddedLength"])
 
 	Func setAddedLength P1
 		raise("DotNet Error: AddedLength is a read-only property")
 
 	Func getRemovedLength
-		return dnRequest("get",[self,"RemovedLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemovedLength"])
 
 	Func setRemovedLength P1
 		raise("DotNet Error: RemovedLength is a read-only property")

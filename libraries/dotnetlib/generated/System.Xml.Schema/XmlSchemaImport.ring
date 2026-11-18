@@ -18,16 +18,16 @@ Class XmlSchemaImport from XmlSchemaExternal
 		return self
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
 
 	Func setNamespace P1
-		dnRequest("set",[self,"Namespace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Namespace",P1])
 		return self
 
 	Func getAnnotation
-		return dnRequest("get",[self,"Annotation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Annotation"])
 
 	Func setAnnotation P1
-		dnRequest("set",[self,"Annotation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Annotation",P1])
 		return self
 

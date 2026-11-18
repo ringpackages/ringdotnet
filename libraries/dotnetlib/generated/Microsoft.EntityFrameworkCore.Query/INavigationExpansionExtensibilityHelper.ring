@@ -14,12 +14,12 @@ Class INavigationExpansionExtensibilityHelper from DotNetObject
 		return self
 
 	Func CreateQueryRoot P1,P2
-		return dnRequest("call",[self,"CreateQueryRoot",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateQueryRoot",P1,P2])
 
 	Func ValidateQueryRootCreation P1,P2
-		dnRequest("call",[self,"ValidateQueryRootCreation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ValidateQueryRootCreation",P1,P2])
 		return self
 
 	Func AreQueryRootsCompatible P1,P2
-		return dnRequest("call",[self,"AreQueryRootsCompatible",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AreQueryRootsCompatible",P1,P2])
 

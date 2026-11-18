@@ -20,61 +20,61 @@ Class RelationalDataReader from Object
 		return self
 
 	Func Initialize P1,P2,P3,P4,P5
-		dnRequest("call",[self,"Initialize",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1,P2,P3,P4,P5])
 		return self
 
 	Func Read 
-		return dnRequest("call",[self,"Read"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read"])
 
 	Func ReadAsync_1 P1
-		return dnRequest("call",[self,"ReadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
 
 	Func ReadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync"])
 		ok
-		return dnRequest("call",[self,"ReadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func CloseAsync 
-		return dnRequest("call",[self,"CloseAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CloseAsync"])
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRelationalConnection
-		return dnRequest("get",[self,"RelationalConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalConnection"])
 
 	Func setRelationalConnection P1
 		raise("DotNet Error: RelationalConnection is a read-only property")
 
 	Func getDbDataReader
-		return dnRequest("get",[self,"DbDataReader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DbDataReader"])
 
 	Func setDbDataReader P1
 		raise("DotNet Error: DbDataReader is a read-only property")
 
 	Func getDbCommand
-		return dnRequest("get",[self,"DbCommand"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DbCommand"])
 
 	Func setDbCommand P1
 		raise("DotNet Error: DbCommand is a read-only property")
 
 	Func getCommandId
-		return dnRequest("get",[self,"CommandId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandId"])
 
 	Func setCommandId P1
 		raise("DotNet Error: CommandId is a read-only property")

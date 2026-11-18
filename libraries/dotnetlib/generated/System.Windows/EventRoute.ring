@@ -15,22 +15,22 @@ Class EventRoute from Object
 		return self
 
 	Func Add P1,P2,P3
-		dnRequest("call",[self,"Add",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 		return self
 
 	Func PushBranchNode P1,P2
-		dnRequest("call",[self,"PushBranchNode",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"PushBranchNode",P1,P2])
 		return self
 
 	Func PopBranchNode 
-		return dnRequest("call",[self,"PopBranchNode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"PopBranchNode"])
 
 	Func PeekBranchNode 
-		return dnRequest("call",[self,"PeekBranchNode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"PeekBranchNode"])
 
 	Func PeekBranchSource 
-		return dnRequest("call",[self,"PeekBranchSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"PeekBranchSource"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

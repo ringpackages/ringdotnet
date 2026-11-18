@@ -16,16 +16,16 @@ Class EndPoint from Object
 		return self
 
 	Func Serialize 
-		return dnRequest("call",[self,"Serialize"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Serialize"])
 
 	Func Create P1
-		return dnRequest("call",[self,"Create",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAddressFamily
-		return dnRequest("get",[self,"AddressFamily"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddressFamily"])
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")

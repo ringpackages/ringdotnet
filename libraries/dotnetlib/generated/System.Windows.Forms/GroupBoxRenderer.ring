@@ -16,7 +16,7 @@ Class GroupBoxRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func IsBackgroundPartiallyTransparent P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"IsBackgroundPartiallyTransparent",P1])

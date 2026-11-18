@@ -17,16 +17,16 @@ Class IXmlTextParser from DotNetObject
 		return self
 
 	Func getNormalized
-		return dnRequest("get",[self,"Normalized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Normalized"])
 
 	Func setNormalized P1
-		dnRequest("set",[self,"Normalized",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Normalized",P1])
 		return self
 
 	Func getWhitespaceHandling
-		return dnRequest("get",[self,"WhitespaceHandling"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WhitespaceHandling"])
 
 	Func setWhitespaceHandling P1
-		dnRequest("set",[self,"WhitespaceHandling",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WhitespaceHandling",P1])
 		return self
 

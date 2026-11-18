@@ -20,29 +20,29 @@ Class XmlSchemaComplexContentRestriction from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnRequest("get",[self,"BaseTypeName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseTypeName"])
 
 	Func setBaseTypeName P1
-		dnRequest("set",[self,"BaseTypeName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseTypeName",P1])
 		return self
 
 	Func getParticle
-		return dnRequest("get",[self,"Particle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Particle"])
 
 	Func setParticle P1
-		dnRequest("set",[self,"Particle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Particle",P1])
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[self,"AnyAttribute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AnyAttribute"])
 
 	Func setAnyAttribute P1
-		dnRequest("set",[self,"AnyAttribute",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AnyAttribute",P1])
 		return self
 

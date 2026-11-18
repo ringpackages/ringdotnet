@@ -30,104 +30,104 @@ Class MultiBinding from BindingBase
 		return self
 
 	Func ShouldSerializeBindings 
-		return dnRequest("call",[self,"ShouldSerializeBindings"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeBindings"])
 
 	Func ShouldSerializeValidationRules 
-		return dnRequest("call",[self,"ShouldSerializeValidationRules"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeValidationRules"])
 
 	Func getBindings
-		return dnRequest("get",[self,"Bindings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bindings"])
 
 	Func setBindings P1
 		raise("DotNet Error: Bindings is a read-only property")
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[self,"Mode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
 		return self
 
 	Func getUpdateSourceTrigger
-		return dnRequest("get",[self,"UpdateSourceTrigger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpdateSourceTrigger"])
 
 	Func setUpdateSourceTrigger P1
-		dnRequest("set",[self,"UpdateSourceTrigger",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpdateSourceTrigger",P1])
 		return self
 
 	Func getNotifyOnSourceUpdated
-		return dnRequest("get",[self,"NotifyOnSourceUpdated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NotifyOnSourceUpdated"])
 
 	Func setNotifyOnSourceUpdated P1
-		dnRequest("set",[self,"NotifyOnSourceUpdated",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NotifyOnSourceUpdated",P1])
 		return self
 
 	Func getNotifyOnTargetUpdated
-		return dnRequest("get",[self,"NotifyOnTargetUpdated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NotifyOnTargetUpdated"])
 
 	Func setNotifyOnTargetUpdated P1
-		dnRequest("set",[self,"NotifyOnTargetUpdated",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NotifyOnTargetUpdated",P1])
 		return self
 
 	Func getNotifyOnValidationError
-		return dnRequest("get",[self,"NotifyOnValidationError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NotifyOnValidationError"])
 
 	Func setNotifyOnValidationError P1
-		dnRequest("set",[self,"NotifyOnValidationError",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NotifyOnValidationError",P1])
 		return self
 
 	Func getConverter
-		return dnRequest("get",[self,"Converter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Converter"])
 
 	Func setConverter P1
-		dnRequest("set",[self,"Converter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Converter",P1])
 		return self
 
 	Func getConverterParameter
-		return dnRequest("get",[self,"ConverterParameter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConverterParameter"])
 
 	Func setConverterParameter P1
-		dnRequest("set",[self,"ConverterParameter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ConverterParameter",P1])
 		return self
 
 	Func getConverterCulture
-		return dnRequest("get",[self,"ConverterCulture"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConverterCulture"])
 
 	Func setConverterCulture P1
-		dnRequest("set",[self,"ConverterCulture",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ConverterCulture",P1])
 		return self
 
 	Func getValidationRules
-		return dnRequest("get",[self,"ValidationRules"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidationRules"])
 
 	Func setValidationRules P1
 		raise("DotNet Error: ValidationRules is a read-only property")
 
 	Func getUpdateSourceExceptionFilter
-		return dnRequest("get",[self,"UpdateSourceExceptionFilter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpdateSourceExceptionFilter"])
 
 	Func setUpdateSourceExceptionFilter P1
-		dnRequest("set",[self,"UpdateSourceExceptionFilter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpdateSourceExceptionFilter",P1])
 		return self
 
 	Func getValidatesOnExceptions
-		return dnRequest("get",[self,"ValidatesOnExceptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidatesOnExceptions"])
 
 	Func setValidatesOnExceptions P1
-		dnRequest("set",[self,"ValidatesOnExceptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidatesOnExceptions",P1])
 		return self
 
 	Func getValidatesOnDataErrors
-		return dnRequest("get",[self,"ValidatesOnDataErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidatesOnDataErrors"])
 
 	Func setValidatesOnDataErrors P1
-		dnRequest("set",[self,"ValidatesOnDataErrors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidatesOnDataErrors",P1])
 		return self
 
 	Func getValidatesOnNotifyDataErrors
-		return dnRequest("get",[self,"ValidatesOnNotifyDataErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidatesOnNotifyDataErrors"])
 
 	Func setValidatesOnNotifyDataErrors P1
-		dnRequest("set",[self,"ValidatesOnNotifyDataErrors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidatesOnNotifyDataErrors",P1])
 		return self
 

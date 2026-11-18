@@ -17,13 +17,13 @@ Class WpfDpiChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func getOldDpi
-		return dnRequest("get",[self,"OldDpi"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldDpi"])
 
 	Func setOldDpi P1
 		raise("DotNet Error: OldDpi is a read-only property")
 
 	Func getNewDpi
-		return dnRequest("get",[self,"NewDpi"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewDpi"])
 
 	Func setNewDpi P1
 		raise("DotNet Error: NewDpi is a read-only property")

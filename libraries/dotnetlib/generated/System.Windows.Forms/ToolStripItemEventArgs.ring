@@ -17,7 +17,7 @@ Class ToolStripItemEventArgs from EventArgs
 		return self
 
 	Func getItem
-		return dnRequest("get",[self,"Item"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")

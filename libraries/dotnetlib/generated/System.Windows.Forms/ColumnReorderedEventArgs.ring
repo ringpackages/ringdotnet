@@ -19,19 +19,19 @@ Class ColumnReorderedEventArgs from CancelEventArgs
 		return self
 
 	Func getOldDisplayIndex
-		return dnRequest("get",[self,"OldDisplayIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldDisplayIndex"])
 
 	Func setOldDisplayIndex P1
 		raise("DotNet Error: OldDisplayIndex is a read-only property")
 
 	Func getNewDisplayIndex
-		return dnRequest("get",[self,"NewDisplayIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewDisplayIndex"])
 
 	Func setNewDisplayIndex P1
 		raise("DotNet Error: NewDisplayIndex is a read-only property")
 
 	Func getHeader
-		return dnRequest("get",[self,"Header"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
 
 	Func setHeader P1
 		raise("DotNet Error: Header is a read-only property")

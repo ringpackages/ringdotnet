@@ -24,73 +24,73 @@ Class NumericUpDown from UpDownBase
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func setValueChangedEvent P1
-		dnRequest("setevent",[self,"ValueChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearValueChangedEvent
-		dnRequest("clearevent",[self,"ValueChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ValueChanged"])
 		return self
 
 	Func getAccelerations
-		return dnRequest("get",[self,"Accelerations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Accelerations"])
 
 	Func setAccelerations P1
 		raise("DotNet Error: Accelerations is a read-only property")
 
 	Func getDecimalPlaces
-		return dnRequest("get",[self,"DecimalPlaces"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DecimalPlaces"])
 
 	Func setDecimalPlaces P1
-		dnRequest("set",[self,"DecimalPlaces",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DecimalPlaces",P1])
 		return self
 
 	Func getHexadecimal
-		return dnRequest("get",[self,"Hexadecimal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Hexadecimal"])
 
 	Func setHexadecimal P1
-		dnRequest("set",[self,"Hexadecimal",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Hexadecimal",P1])
 		return self
 
 	Func getIncrement
-		return dnRequest("get",[self,"Increment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Increment"])
 
 	Func setIncrement P1
-		dnRequest("set",[self,"Increment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Increment",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[self,"Maximum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[self,"Maximum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[self,"Minimum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[self,"Minimum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
 		return self
 
 	Func getThousandsSeparator
-		return dnRequest("get",[self,"ThousandsSeparator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ThousandsSeparator"])
 
 	Func setThousandsSeparator P1
-		dnRequest("set",[self,"ThousandsSeparator",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ThousandsSeparator",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 

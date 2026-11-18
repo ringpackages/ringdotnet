@@ -20,43 +20,43 @@ Class BindingBase from MarkupExtension
 		return self
 
 	Func ShouldSerializeFallbackValue 
-		return dnRequest("call",[self,"ShouldSerializeFallbackValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeFallbackValue"])
 
 	Func ShouldSerializeTargetNullValue 
-		return dnRequest("call",[self,"ShouldSerializeTargetNullValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeTargetNullValue"])
 
 	Func getFallbackValue
-		return dnRequest("get",[self,"FallbackValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FallbackValue"])
 
 	Func setFallbackValue P1
-		dnRequest("set",[self,"FallbackValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FallbackValue",P1])
 		return self
 
 	Func getStringFormat
-		return dnRequest("get",[self,"StringFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StringFormat"])
 
 	Func setStringFormat P1
-		dnRequest("set",[self,"StringFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StringFormat",P1])
 		return self
 
 	Func getTargetNullValue
-		return dnRequest("get",[self,"TargetNullValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetNullValue"])
 
 	Func setTargetNullValue P1
-		dnRequest("set",[self,"TargetNullValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TargetNullValue",P1])
 		return self
 
 	Func getBindingGroupName
-		return dnRequest("get",[self,"BindingGroupName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingGroupName"])
 
 	Func setBindingGroupName P1
-		dnRequest("set",[self,"BindingGroupName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BindingGroupName",P1])
 		return self
 
 	Func getDelay
-		return dnRequest("get",[self,"Delay"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Delay"])
 
 	Func setDelay P1
-		dnRequest("set",[self,"Delay",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Delay",P1])
 		return self
 

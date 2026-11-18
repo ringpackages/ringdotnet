@@ -25,109 +25,109 @@ Class ResourceDictionary from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func RegisterName P1,P2
-		dnRequest("call",[self,"RegisterName",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterName",P1,P2])
 		return self
 
 	Func UnregisterName P1
-		dnRequest("call",[self,"UnregisterName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"UnregisterName",P1])
 		return self
 
 	Func FindName P1
-		return dnRequest("call",[self,"FindName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindName",P1])
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getMergedDictionaries
-		return dnRequest("get",[self,"MergedDictionaries"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MergedDictionaries"])
 
 	Func setMergedDictionaries P1
 		raise("DotNet Error: MergedDictionaries is a read-only property")
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
 		return self
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedSize"])
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getInvalidatesImplicitDataTemplateResources
-		return dnRequest("get",[self,"InvalidatesImplicitDataTemplateResources"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InvalidatesImplicitDataTemplateResources"])
 
 	Func setInvalidatesImplicitDataTemplateResources P1
-		dnRequest("set",[self,"InvalidatesImplicitDataTemplateResources",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InvalidatesImplicitDataTemplateResources",P1])
 		return self
 
 	Func getDeferrableContent
-		return dnRequest("get",[self,"DeferrableContent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeferrableContent"])
 
 	Func setDeferrableContent P1
-		dnRequest("set",[self,"DeferrableContent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DeferrableContent",P1])
 		return self
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

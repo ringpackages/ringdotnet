@@ -22,25 +22,25 @@ Class ArrayExtension from MarkupExtension
 		return self
 
 	Func AddChild P1
-		dnRequest("call",[self,"AddChild",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddChild",P1])
 		return self
 
 	Func AddText P1
-		dnRequest("call",[self,"AddText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddText",P1])
 		return self
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
-		dnRequest("set",[self,"Type",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
 		return self
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")

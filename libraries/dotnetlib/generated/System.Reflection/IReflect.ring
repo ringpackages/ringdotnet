@@ -16,40 +16,40 @@ Class IReflect from DotNetObject
 		return self
 
 	Func GetMethod_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"GetMethod",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod",P1,P2,P3,P4,P5])
 
 	Func GetMethod P1,P2
-		return dnRequest("call",[self,"GetMethod",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod",P1,P2])
 
 	Func GetMethods P1
-		return dnRequest("call",[self,"GetMethods",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMethods",P1])
 
 	Func GetField P1,P2
-		return dnRequest("call",[self,"GetField",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetField",P1,P2])
 
 	Func GetFields P1
-		return dnRequest("call",[self,"GetFields",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFields",P1])
 
 	Func GetProperty P1,P2
-		return dnRequest("call",[self,"GetProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1,P2])
 
 	Func GetProperty_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"GetProperty",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1,P2,P3,P4,P5,P6])
 
 	Func GetProperties P1
-		return dnRequest("call",[self,"GetProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
 
 	Func GetMember P1,P2
-		return dnRequest("call",[self,"GetMember",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMember",P1,P2])
 
 	Func GetMembers P1
-		return dnRequest("call",[self,"GetMembers",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMembers",P1])
 
 	Func InvokeMember P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func getUnderlyingSystemType
-		return dnRequest("get",[self,"UnderlyingSystemType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnderlyingSystemType"])
 
 	Func setUnderlyingSystemType P1
 		raise("DotNet Error: UnderlyingSystemType is a read-only property")

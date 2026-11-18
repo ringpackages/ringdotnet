@@ -20,52 +20,52 @@ Class IDbConnection from DotNetObject
 
 	Func BeginTransaction P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"BeginTransaction",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginTransaction",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"BeginTransaction"])
+			return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction"])
 		ok
-		return dnRequest("call",[self,"BeginTransaction",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
 
 	Func BeginTransaction_1 P1
-		return dnRequest("call",[self,"BeginTransaction",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func ChangeDatabase P1
-		dnRequest("call",[self,"ChangeDatabase",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ChangeDatabase",P1])
 		return self
 
 	Func CreateCommand 
-		return dnRequest("call",[self,"CreateCommand"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand"])
 
 	Func Open 
-		dnRequest("call",[self,"Open"])
+		dnRequest("call",[new DotNetObject(nHandle),"Open"])
 		return self
 
 	Func getConnectionString
-		return dnRequest("get",[self,"ConnectionString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionString"])
 
 	Func setConnectionString P1
-		dnRequest("set",[self,"ConnectionString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ConnectionString",P1])
 		return self
 
 	Func getConnectionTimeout
-		return dnRequest("get",[self,"ConnectionTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionTimeout"])
 
 	Func setConnectionTimeout P1
 		raise("DotNet Error: ConnectionTimeout is a read-only property")
 
 	Func getDatabase
-		return dnRequest("get",[self,"Database"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Database"])
 
 	Func setDatabase P1
 		raise("DotNet Error: Database is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")

@@ -36,30 +36,30 @@ Class ToolStripStatusLabel from ToolStripLabel
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[self,"BorderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[self,"BorderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
 		return self
 
 	Func getBorderSides
-		return dnRequest("get",[self,"BorderSides"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderSides"])
 
 	Func setBorderSides P1
-		dnRequest("set",[self,"BorderSides",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderSides",P1])
 		return self
 
 	Func getSpring
-		return dnRequest("get",[self,"Spring"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Spring"])
 
 	Func setSpring P1
-		dnRequest("set",[self,"Spring",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Spring",P1])
 		return self
 
 	Func getLiveSetting
-		return dnRequest("get",[self,"LiveSetting"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LiveSetting"])
 
 	Func setLiveSetting P1
-		dnRequest("set",[self,"LiveSetting",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LiveSetting",P1])
 		return self
 

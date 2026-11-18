@@ -14,8 +14,8 @@ Class IAsyncPageFilter from DotNetObject
 		return self
 
 	Func OnPageHandlerSelectionAsync P1
-		return dnRequest("call",[self,"OnPageHandlerSelectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnPageHandlerSelectionAsync",P1])
 
 	Func OnPageHandlerExecutionAsync P1,P2
-		return dnRequest("call",[self,"OnPageHandlerExecutionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnPageHandlerExecutionAsync",P1,P2])
 

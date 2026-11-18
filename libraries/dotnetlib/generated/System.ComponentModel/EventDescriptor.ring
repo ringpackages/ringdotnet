@@ -18,27 +18,27 @@ Class EventDescriptor from MemberDescriptor
 		return self
 
 	Func AddEventHandler P1,P2
-		dnRequest("call",[self,"AddEventHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddEventHandler",P1,P2])
 		return self
 
 	Func RemoveEventHandler P1,P2
-		dnRequest("call",[self,"RemoveEventHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveEventHandler",P1,P2])
 		return self
 
 	Func getComponentType
-		return dnRequest("get",[self,"ComponentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ComponentType"])
 
 	Func setComponentType P1
 		raise("DotNet Error: ComponentType is a read-only property")
 
 	Func getEventType
-		return dnRequest("get",[self,"EventType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EventType"])
 
 	Func setEventType P1
 		raise("DotNet Error: EventType is a read-only property")
 
 	Func getIsMulticast
-		return dnRequest("get",[self,"IsMulticast"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMulticast"])
 
 	Func setIsMulticast P1
 		raise("DotNet Error: IsMulticast is a read-only property")

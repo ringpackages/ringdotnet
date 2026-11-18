@@ -18,46 +18,46 @@ Class XmlNamespaceManager from Object
 		return self
 
 	Func PushScope 
-		dnRequest("call",[self,"PushScope"])
+		dnRequest("call",[new DotNetObject(nHandle),"PushScope"])
 		return self
 
 	Func PopScope 
-		return dnRequest("call",[self,"PopScope"])
+		return dnRequest("call",[new DotNetObject(nHandle),"PopScope"])
 
 	Func AddNamespace P1,P2
-		dnRequest("call",[self,"AddNamespace",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddNamespace",P1,P2])
 		return self
 
 	Func RemoveNamespace P1,P2
-		dnRequest("call",[self,"RemoveNamespace",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveNamespace",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func GetNamespacesInScope P1
-		return dnRequest("call",[self,"GetNamespacesInScope",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNamespacesInScope",P1])
 
 	Func LookupNamespace P1
-		return dnRequest("call",[self,"LookupNamespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LookupNamespace",P1])
 
 	Func LookupPrefix P1
-		return dnRequest("call",[self,"LookupPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LookupPrefix",P1])
 
 	Func HasNamespace P1
-		return dnRequest("call",[self,"HasNamespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNamespace",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NameTable"])
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getDefaultNamespace
-		return dnRequest("get",[self,"DefaultNamespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultNamespace"])
 
 	Func setDefaultNamespace P1
 		raise("DotNet Error: DefaultNamespace is a read-only property")

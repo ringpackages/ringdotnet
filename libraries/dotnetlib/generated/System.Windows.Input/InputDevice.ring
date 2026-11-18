@@ -17,13 +17,13 @@ Class InputDevice from DispatcherObject
 		return self
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getActiveSource
-		return dnRequest("get",[self,"ActiveSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActiveSource"])
 
 	Func setActiveSource P1
 		raise("DotNet Error: ActiveSource is a read-only property")

@@ -27,131 +27,131 @@ Class HttpListenerResponse from Object
 		return self
 
 	Func AddHeader P1,P2
-		dnRequest("call",[self,"AddHeader",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddHeader",P1,P2])
 		return self
 
 	Func AppendHeader P1,P2
-		dnRequest("call",[self,"AppendHeader",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendHeader",P1,P2])
 		return self
 
 	Func AppendCookie P1
-		dnRequest("call",[self,"AppendCookie",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendCookie",P1])
 		return self
 
 	Func Redirect P1
-		dnRequest("call",[self,"Redirect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Redirect",P1])
 		return self
 
 	Func SetCookie P1
-		dnRequest("call",[self,"SetCookie",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCookie",P1])
 		return self
 
 	Func CopyFrom P1
-		dnRequest("call",[self,"CopyFrom",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyFrom",P1])
 		return self
 
 	Func Abort 
-		dnRequest("call",[self,"Abort"])
+		dnRequest("call",[new DotNetObject(nHandle),"Abort"])
 		return self
 
 	Func Close P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Close",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Close",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Close"])
+			dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 		ok
 		raise("DotNet Error: Close does not take one argument: use Close(NULL), Close_N(...) or named arguments")
 
 	Func Close_2 P1,P2
-		dnRequest("call",[self,"Close",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Close",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
-		dnRequest("set",[self,"Headers",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Headers",P1])
 		return self
 
 	Func getContentEncoding
-		return dnRequest("get",[self,"ContentEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentEncoding"])
 
 	Func setContentEncoding P1
-		dnRequest("set",[self,"ContentEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentEncoding",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 
 	Func getSendChunked
-		return dnRequest("get",[self,"SendChunked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SendChunked"])
 
 	Func setSendChunked P1
-		dnRequest("set",[self,"SendChunked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SendChunked",P1])
 		return self
 
 	Func getContentLength64
-		return dnRequest("get",[self,"ContentLength64"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength64"])
 
 	Func setContentLength64 P1
-		dnRequest("set",[self,"ContentLength64",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentLength64",P1])
 		return self
 
 	Func getCookies
-		return dnRequest("get",[self,"Cookies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
 
 	Func setCookies P1
-		dnRequest("set",[self,"Cookies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cookies",P1])
 		return self
 
 	Func getKeepAlive
-		return dnRequest("get",[self,"KeepAlive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlive"])
 
 	Func setKeepAlive P1
-		dnRequest("set",[self,"KeepAlive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAlive",P1])
 		return self
 
 	Func getOutputStream
-		return dnRequest("get",[self,"OutputStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OutputStream"])
 
 	Func setOutputStream P1
 		raise("DotNet Error: OutputStream is a read-only property")
 
 	Func getRedirectLocation
-		return dnRequest("get",[self,"RedirectLocation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RedirectLocation"])
 
 	Func setRedirectLocation P1
-		dnRequest("set",[self,"RedirectLocation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RedirectLocation",P1])
 		return self
 
 	Func getStatusDescription
-		return dnRequest("get",[self,"StatusDescription"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusDescription"])
 
 	Func setStatusDescription P1
-		dnRequest("set",[self,"StatusDescription",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StatusDescription",P1])
 		return self
 
 	Func getStatusCode
-		return dnRequest("get",[self,"StatusCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[self,"StatusCode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
 		return self
 
 	Func getProtocolVersion
-		return dnRequest("get",[self,"ProtocolVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolVersion"])
 
 	Func setProtocolVersion P1
-		dnRequest("set",[self,"ProtocolVersion",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProtocolVersion",P1])
 		return self
 

@@ -14,5 +14,5 @@ Class IParameterBindingFactories from DotNetObject
 		return self
 
 	Func FindFactory P1,P2
-		return dnRequest("call",[self,"FindFactory",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindFactory",P1,P2])
 

@@ -14,23 +14,23 @@ Class Database from Object
 		return self
 
 	Func SaveChanges P1
-		return dnRequest("call",[self,"SaveChanges",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChanges",P1])
 
 	Func SaveChangesAsync_2 P1,P2
-		return dnRequest("call",[self,"SaveChangesAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1,P2])
 
 	Func SaveChangesAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SaveChangesAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChangesAsync",P1])
 		ok
-		return dnRequest("call",[self,"SaveChangesAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1])
 
 	Func CompileQuery P1,P2
-		return dnRequest("call",[self,"CompileQuery",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompileQuery",P1,P2])
 
 	Func CompileQueryExpression P1,P2,P3
-		return dnRequest("call",[self,"CompileQueryExpression",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompileQueryExpression",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

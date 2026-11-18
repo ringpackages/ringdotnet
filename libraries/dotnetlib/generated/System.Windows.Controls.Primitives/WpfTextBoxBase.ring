@@ -56,266 +56,266 @@ Class WpfTextBoxBase from WpfControl
 		return self
 
 	Func AppendText P1
-		dnRequest("call",[self,"AppendText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendText",P1])
 		return self
 
 	Func Copy 
-		dnRequest("call",[self,"Copy"])
+		dnRequest("call",[new DotNetObject(nHandle),"Copy"])
 		return self
 
 	Func Cut 
-		dnRequest("call",[self,"Cut"])
+		dnRequest("call",[new DotNetObject(nHandle),"Cut"])
 		return self
 
 	Func Paste 
-		dnRequest("call",[self,"Paste"])
+		dnRequest("call",[new DotNetObject(nHandle),"Paste"])
 		return self
 
 	Func SelectAll 
-		dnRequest("call",[self,"SelectAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
 		return self
 
 	Func LineLeft 
-		dnRequest("call",[self,"LineLeft"])
+		dnRequest("call",[new DotNetObject(nHandle),"LineLeft"])
 		return self
 
 	Func LineRight 
-		dnRequest("call",[self,"LineRight"])
+		dnRequest("call",[new DotNetObject(nHandle),"LineRight"])
 		return self
 
 	Func PageLeft 
-		dnRequest("call",[self,"PageLeft"])
+		dnRequest("call",[new DotNetObject(nHandle),"PageLeft"])
 		return self
 
 	Func PageRight 
-		dnRequest("call",[self,"PageRight"])
+		dnRequest("call",[new DotNetObject(nHandle),"PageRight"])
 		return self
 
 	Func LineUp 
-		dnRequest("call",[self,"LineUp"])
+		dnRequest("call",[new DotNetObject(nHandle),"LineUp"])
 		return self
 
 	Func LineDown 
-		dnRequest("call",[self,"LineDown"])
+		dnRequest("call",[new DotNetObject(nHandle),"LineDown"])
 		return self
 
 	Func PageUp 
-		dnRequest("call",[self,"PageUp"])
+		dnRequest("call",[new DotNetObject(nHandle),"PageUp"])
 		return self
 
 	Func PageDown 
-		dnRequest("call",[self,"PageDown"])
+		dnRequest("call",[new DotNetObject(nHandle),"PageDown"])
 		return self
 
 	Func ScrollToHome 
-		dnRequest("call",[self,"ScrollToHome"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToHome"])
 		return self
 
 	Func ScrollToEnd 
-		dnRequest("call",[self,"ScrollToEnd"])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToEnd"])
 		return self
 
 	Func ScrollToHorizontalOffset P1
-		dnRequest("call",[self,"ScrollToHorizontalOffset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToHorizontalOffset",P1])
 		return self
 
 	Func ScrollToVerticalOffset P1
-		dnRequest("call",[self,"ScrollToVerticalOffset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollToVerticalOffset",P1])
 		return self
 
 	Func Undo 
-		return dnRequest("call",[self,"Undo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Undo"])
 
 	Func Redo 
-		return dnRequest("call",[self,"Redo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Redo"])
 
 	Func LockCurrentUndoUnit 
-		dnRequest("call",[self,"LockCurrentUndoUnit"])
+		dnRequest("call",[new DotNetObject(nHandle),"LockCurrentUndoUnit"])
 		return self
 
 	Func BeginChange 
-		dnRequest("call",[self,"BeginChange"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginChange"])
 		return self
 
 	Func EndChange 
-		dnRequest("call",[self,"EndChange"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndChange"])
 		return self
 
 	Func DeclareChangeBlock 
-		return dnRequest("call",[self,"DeclareChangeBlock"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeclareChangeBlock"])
 
 	Func setTextChangedEvent P1
-		dnRequest("setevent",[self,"TextChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TextChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextChangedEvent
-		dnRequest("clearevent",[self,"TextChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TextChanged"])
 		return self
 
 	Func setSelectionChangedEvent P1
-		dnRequest("setevent",[self,"SelectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectionChangedEvent
-		dnRequest("clearevent",[self,"SelectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionChanged"])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
-		dnRequest("set",[self,"IsReadOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsReadOnly",P1])
 		return self
 
 	Func getIsReadOnlyCaretVisible
-		return dnRequest("get",[self,"IsReadOnlyCaretVisible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnlyCaretVisible"])
 
 	Func setIsReadOnlyCaretVisible P1
-		dnRequest("set",[self,"IsReadOnlyCaretVisible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsReadOnlyCaretVisible",P1])
 		return self
 
 	Func getAcceptsReturn
-		return dnRequest("get",[self,"AcceptsReturn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptsReturn"])
 
 	Func setAcceptsReturn P1
-		dnRequest("set",[self,"AcceptsReturn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptsReturn",P1])
 		return self
 
 	Func getAcceptsTab
-		return dnRequest("get",[self,"AcceptsTab"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptsTab"])
 
 	Func setAcceptsTab P1
-		dnRequest("set",[self,"AcceptsTab",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptsTab",P1])
 		return self
 
 	Func getSpellCheck
-		return dnRequest("get",[self,"SpellCheck"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SpellCheck"])
 
 	Func setSpellCheck P1
 		raise("DotNet Error: SpellCheck is a read-only property")
 
 	Func getHorizontalScrollBarVisibility
-		return dnRequest("get",[self,"HorizontalScrollBarVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalScrollBarVisibility"])
 
 	Func setHorizontalScrollBarVisibility P1
-		dnRequest("set",[self,"HorizontalScrollBarVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HorizontalScrollBarVisibility",P1])
 		return self
 
 	Func getVerticalScrollBarVisibility
-		return dnRequest("get",[self,"VerticalScrollBarVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalScrollBarVisibility"])
 
 	Func setVerticalScrollBarVisibility P1
-		dnRequest("set",[self,"VerticalScrollBarVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VerticalScrollBarVisibility",P1])
 		return self
 
 	Func getExtentWidth
-		return dnRequest("get",[self,"ExtentWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentWidth"])
 
 	Func setExtentWidth P1
 		raise("DotNet Error: ExtentWidth is a read-only property")
 
 	Func getExtentHeight
-		return dnRequest("get",[self,"ExtentHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtentHeight"])
 
 	Func setExtentHeight P1
 		raise("DotNet Error: ExtentHeight is a read-only property")
 
 	Func getViewportWidth
-		return dnRequest("get",[self,"ViewportWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportWidth"])
 
 	Func setViewportWidth P1
 		raise("DotNet Error: ViewportWidth is a read-only property")
 
 	Func getViewportHeight
-		return dnRequest("get",[self,"ViewportHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewportHeight"])
 
 	Func setViewportHeight P1
 		raise("DotNet Error: ViewportHeight is a read-only property")
 
 	Func getHorizontalOffset
-		return dnRequest("get",[self,"HorizontalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
 
 	Func setHorizontalOffset P1
 		raise("DotNet Error: HorizontalOffset is a read-only property")
 
 	Func getVerticalOffset
-		return dnRequest("get",[self,"VerticalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
 
 	Func setVerticalOffset P1
 		raise("DotNet Error: VerticalOffset is a read-only property")
 
 	Func getCanUndo
-		return dnRequest("get",[self,"CanUndo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUndo"])
 
 	Func setCanUndo P1
 		raise("DotNet Error: CanUndo is a read-only property")
 
 	Func getCanRedo
-		return dnRequest("get",[self,"CanRedo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanRedo"])
 
 	Func setCanRedo P1
 		raise("DotNet Error: CanRedo is a read-only property")
 
 	Func getIsUndoEnabled
-		return dnRequest("get",[self,"IsUndoEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUndoEnabled"])
 
 	Func setIsUndoEnabled P1
-		dnRequest("set",[self,"IsUndoEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsUndoEnabled",P1])
 		return self
 
 	Func getUndoLimit
-		return dnRequest("get",[self,"UndoLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UndoLimit"])
 
 	Func setUndoLimit P1
-		dnRequest("set",[self,"UndoLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UndoLimit",P1])
 		return self
 
 	Func getAutoWordSelection
-		return dnRequest("get",[self,"AutoWordSelection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoWordSelection"])
 
 	Func setAutoWordSelection P1
-		dnRequest("set",[self,"AutoWordSelection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoWordSelection",P1])
 		return self
 
 	Func getSelectionBrush
-		return dnRequest("get",[self,"SelectionBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionBrush"])
 
 	Func setSelectionBrush P1
-		dnRequest("set",[self,"SelectionBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionBrush",P1])
 		return self
 
 	Func getSelectionTextBrush
-		return dnRequest("get",[self,"SelectionTextBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionTextBrush"])
 
 	Func setSelectionTextBrush P1
-		dnRequest("set",[self,"SelectionTextBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionTextBrush",P1])
 		return self
 
 	Func getSelectionOpacity
-		return dnRequest("get",[self,"SelectionOpacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionOpacity"])
 
 	Func setSelectionOpacity P1
-		dnRequest("set",[self,"SelectionOpacity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionOpacity",P1])
 		return self
 
 	Func getCaretBrush
-		return dnRequest("get",[self,"CaretBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaretBrush"])
 
 	Func setCaretBrush P1
-		dnRequest("set",[self,"CaretBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaretBrush",P1])
 		return self
 
 	Func getIsSelectionActive
-		return dnRequest("get",[self,"IsSelectionActive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSelectionActive"])
 
 	Func setIsSelectionActive P1
 		raise("DotNet Error: IsSelectionActive is a read-only property")
 
 	Func getIsInactiveSelectionHighlightEnabled
-		return dnRequest("get",[self,"IsInactiveSelectionHighlightEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInactiveSelectionHighlightEnabled"])
 
 	Func setIsInactiveSelectionHighlightEnabled P1
-		dnRequest("set",[self,"IsInactiveSelectionHighlightEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsInactiveSelectionHighlightEnabled",P1])
 		return self
 
 	Func getIsReadOnlyProperty

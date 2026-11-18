@@ -27,7 +27,7 @@ aDotNetManifest = [
 	  :types = [ ["System.Text.StringBuilder","StringBuilder",1] ] ],
 
 	[ :namespace = "System.IO",
-	  :assemblies = ["System.Private.CoreLib","System.IO.FileSystem.Watcher","System.Runtime"],
+	  :assemblies = ["System.Private.CoreLib","System.IO.FileSystem.Watcher","System.Runtime","System.IO.FileSystem.DriveInfo"],
 	  :all = true ],
 
 	[ :namespace = "System.IO.Compression",
@@ -101,7 +101,7 @@ aDotNetManifest = [
 
 	[ :namespace = "System.Diagnostics",
 	  :uses = ["System.IO","System.Collections.Specialized"],
-	  :assemblies = ["System.Diagnostics.Process","System.Private.CoreLib","System.ComponentModel.Primitives","System.Diagnostics.StackTrace","System.Diagnostics.TraceSource"],
+	  :assemblies = ["System.Diagnostics.Process","System.Private.CoreLib","System.ComponentModel.Primitives","System.Diagnostics.StackTrace","System.Diagnostics.TraceSource","System.Diagnostics.FileVersionInfo","System.Diagnostics.DiagnosticSource","System.Diagnostics.TextWriterTraceListener"],
 	  :all = true ],
 
 	[ :namespace = "System.Xml",
@@ -160,7 +160,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.ComponentModel",
-	  :assemblies = ["System.ComponentModel.Primitives","System.ComponentModel.TypeConverter","System.ComponentModel","System.Private.CoreLib","System.ComponentModel.EventBasedAsync"],
+	  :assemblies = ["System.ComponentModel.Primitives","System.ComponentModel.TypeConverter","System.ComponentModel","System.Private.CoreLib","System.ComponentModel.EventBasedAsync","System.ObjectModel"],
 	  :uses = ["System.Collections.Specialized"],
 	  :all = true ],
 
@@ -754,6 +754,27 @@ aDotNetManifest = [
 	  :data = true,
 	  :prefix = "Ef",
 	  :uses = ["System.Data.Common"],
-	  :all = true ]
+	  :all = true ],
 
+	[ :namespace = "System.Net.Http.Json",
+	  :assemblies = ["System.Net.Http.Json"],
+	  :uses = ["System.Net.Http","System.IO"],
+	  :all = true ],
+
+	[ :namespace = "System.Linq.Expressions",
+	  :assemblies = ["System.Linq.Expressions"],
+	  :all = true ],
+
+	[ :namespace = "System.Transactions",
+	  :assemblies = ["System.Transactions.Local"],
+	  :all = true ],
+
+	[ :namespace = "System.ComponentModel.DataAnnotations",
+	  :assemblies = ["System.ComponentModel.Annotations"],
+	  :all = true ],
+
+	[ :namespace = "System.Runtime.Serialization",
+	  :assemblies = ["System.Runtime.Serialization.Primitives","System.Runtime.Serialization.Xml","System.Runtime.Serialization.Json"],
+	  :uses = ["System.IO"],
+	  :all = true ]
 ]

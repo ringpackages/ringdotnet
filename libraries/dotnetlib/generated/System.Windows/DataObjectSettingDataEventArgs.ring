@@ -18,13 +18,13 @@ Class DataObjectSettingDataEventArgs from DataObjectEventArgs
 		return self
 
 	Func getDataObject
-		return dnRequest("get",[self,"DataObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataObject"])
 
 	Func setDataObject P1
 		raise("DotNet Error: DataObject is a read-only property")
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")

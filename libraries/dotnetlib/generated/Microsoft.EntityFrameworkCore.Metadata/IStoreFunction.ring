@@ -21,40 +21,40 @@ Class IStoreFunction from DotNetObject
 		return self
 
 	Func FindColumn P1
-		return dnRequest("call",[self,"FindColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindColumn",P1])
 
 	Func getDbFunctions
-		return dnRequest("get",[self,"DbFunctions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DbFunctions"])
 
 	Func setDbFunctions P1
 		raise("DotNet Error: DbFunctions is a read-only property")
 
 	Func getIsBuiltIn
-		return dnRequest("get",[self,"IsBuiltIn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBuiltIn"])
 
 	Func setIsBuiltIn P1
 		raise("DotNet Error: IsBuiltIn is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getReturnType
-		return dnRequest("get",[self,"ReturnType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnType"])
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
 
 	Func getEntityTypeMappings
-		return dnRequest("get",[self,"EntityTypeMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityTypeMappings"])
 
 	Func setEntityTypeMappings P1
 		raise("DotNet Error: EntityTypeMappings is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")

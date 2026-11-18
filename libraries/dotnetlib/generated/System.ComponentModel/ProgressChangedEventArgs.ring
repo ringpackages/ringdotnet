@@ -18,13 +18,13 @@ Class ProgressChangedEventArgs from EventArgs
 		return self
 
 	Func getProgressPercentage
-		return dnRequest("get",[self,"ProgressPercentage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProgressPercentage"])
 
 	Func setProgressPercentage P1
 		raise("DotNet Error: ProgressPercentage is a read-only property")
 
 	Func getUserState
-		return dnRequest("get",[self,"UserState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserState"])
 
 	Func setUserState P1
 		raise("DotNet Error: UserState is a read-only property")

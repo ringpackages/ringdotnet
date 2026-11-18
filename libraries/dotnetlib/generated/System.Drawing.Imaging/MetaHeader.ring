@@ -23,57 +23,57 @@ Class MetaHeader from Object
 		return self
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
-		dnRequest("set",[self,"Type",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
 		return self
 
 	Func getHeaderSize
-		return dnRequest("get",[self,"HeaderSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderSize"])
 
 	Func setHeaderSize P1
-		dnRequest("set",[self,"HeaderSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderSize",P1])
 		return self
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
-		dnRequest("set",[self,"Version",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Version",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 
 	Func getNoObjects
-		return dnRequest("get",[self,"NoObjects"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NoObjects"])
 
 	Func setNoObjects P1
-		dnRequest("set",[self,"NoObjects",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NoObjects",P1])
 		return self
 
 	Func getMaxRecord
-		return dnRequest("get",[self,"MaxRecord"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxRecord"])
 
 	Func setMaxRecord P1
-		dnRequest("set",[self,"MaxRecord",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxRecord",P1])
 		return self
 
 	Func getNoParameters
-		return dnRequest("get",[self,"NoParameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NoParameters"])
 
 	Func setNoParameters P1
-		dnRequest("set",[self,"NoParameters",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NoParameters",P1])
 		return self
 

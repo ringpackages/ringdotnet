@@ -25,27 +25,27 @@ Class CalendarDateRange from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setPropertyChangedEvent P1
-		dnRequest("setevent",[self,"PropertyChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PropertyChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyChangedEvent
-		dnRequest("clearevent",[self,"PropertyChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PropertyChanged"])
 		return self
 
 	Func getEnd
-		return dnRequest("get",[self,"End"])
+		return dnRequest("get",[new DotNetObject(nHandle),"End"])
 
 	Func setEnd P1
-		dnRequest("set",[self,"End",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"End",P1])
 		return self
 
 	Func getStart
-		return dnRequest("get",[self,"Start"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Start"])
 
 	Func setStart P1
-		dnRequest("set",[self,"Start",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Start",P1])
 		return self
 

@@ -14,5 +14,5 @@ Class IAuthorizationHandler from DotNetObject
 		return self
 
 	Func HandleAsync P1
-		return dnRequest("call",[self,"HandleAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HandleAsync",P1])
 

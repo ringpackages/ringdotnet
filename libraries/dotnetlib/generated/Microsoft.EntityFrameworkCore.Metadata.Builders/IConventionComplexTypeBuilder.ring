@@ -16,76 +16,76 @@ Class IConventionComplexTypeBuilder from DotNetObject
 		return self
 
 	Func HasAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2,P3])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func HasNonNullAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2,P3])
 
 	Func HasNonNullAnnotation P1,P2
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2])
 
 	Func HasNoAnnotation_2 P1,P2
-		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 		ok
-		return dnRequest("call",[self,"HasNoAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 
 	Func RemoveUnusedImplicitProperties P1
-		return dnRequest("call",[self,"RemoveUnusedImplicitProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveUnusedImplicitProperties",P1])
 
 	Func HasNoProperty_2 P1,P2
-		return dnRequest("call",[self,"HasNoProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoProperty",P1,P2])
 
 	Func HasNoProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasNoProperty",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasNoProperty",P1])
 		ok
-		return dnRequest("call",[self,"HasNoProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoProperty",P1])
 
 	Func HasNoComplexProperty_2 P1,P2
-		return dnRequest("call",[self,"HasNoComplexProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoComplexProperty",P1,P2])
 
 	Func HasNoComplexProperty P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasNoComplexProperty",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasNoComplexProperty",P1])
 		ok
-		return dnRequest("call",[self,"HasNoComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoComplexProperty",P1])
 
 	Func Ignore_2 P1,P2
-		return dnRequest("call",[self,"Ignore",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ignore",P1,P2])
 
 	Func Ignore P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Ignore",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Ignore",P1])
 		ok
-		return dnRequest("call",[self,"Ignore",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ignore",P1])
 
 	Func HasChangeTrackingStrategy_2 P1,P2
-		return dnRequest("call",[self,"HasChangeTrackingStrategy",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasChangeTrackingStrategy",P1,P2])
 
 	Func HasChangeTrackingStrategy P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasChangeTrackingStrategy",P1])
 		ok
-		return dnRequest("call",[self,"HasChangeTrackingStrategy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasChangeTrackingStrategy",P1])
 
 	Func UsePropertyAccessMode_2 P1,P2
-		return dnRequest("call",[self,"UsePropertyAccessMode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsePropertyAccessMode",P1,P2])
 
 	Func UsePropertyAccessMode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"UsePropertyAccessMode",P1])
 		ok
-		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsePropertyAccessMode",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

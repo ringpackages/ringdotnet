@@ -16,17 +16,17 @@ Class IComponent from DotNetObject
 		return self
 
 	Func setDisposedEvent P1
-		dnRequest("setevent",[self,"Disposed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Disposed",dnCallback(P1)])
 		return self
 
 	Func clearDisposedEvent
-		dnRequest("clearevent",[self,"Disposed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Disposed"])
 		return self
 
 	Func getSite
-		return dnRequest("get",[self,"Site"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Site"])
 
 	Func setSite P1
-		dnRequest("set",[self,"Site",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Site",P1])
 		return self
 

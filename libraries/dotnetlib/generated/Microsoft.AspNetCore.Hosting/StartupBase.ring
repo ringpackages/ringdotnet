@@ -14,16 +14,16 @@ Class StartupBase from Object
 		return self
 
 	Func Configure P1
-		dnRequest("call",[self,"Configure",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
 		return self
 
 	Func ConfigureServices P1
-		dnRequest("call",[self,"ConfigureServices",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
 		return self
 
 	Func CreateServiceProvider P1
-		return dnRequest("call",[self,"CreateServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateServiceProvider",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

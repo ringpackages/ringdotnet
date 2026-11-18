@@ -19,11 +19,11 @@ Class XmlImplementation from Object
 		return self
 
 	Func HasFeature P1,P2
-		return dnRequest("call",[self,"HasFeature",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasFeature",P1,P2])
 
 	Func CreateDocument 
-		return dnRequest("call",[self,"CreateDocument"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDocument"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

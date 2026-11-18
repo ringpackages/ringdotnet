@@ -14,6 +14,6 @@ Class IDesignTimeMvcBuilderConfiguration from DotNetObject
 		return self
 
 	Func ConfigureMvc P1
-		dnRequest("call",[self,"ConfigureMvc",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ConfigureMvc",P1])
 		return self
 

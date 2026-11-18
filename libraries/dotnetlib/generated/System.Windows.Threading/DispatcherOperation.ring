@@ -20,69 +20,69 @@ Class DispatcherOperation from Object
 		return self
 
 	Func GetAwaiter 
-		return dnRequest("call",[self,"GetAwaiter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAwaiter"])
 
 	Func Wait P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Wait",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Wait",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Wait"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Wait"])
 		ok
-		return dnRequest("call",[self,"Wait",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 
 	Func Wait_1 P1
-		return dnRequest("call",[self,"Wait",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 
 	Func Abort 
-		return dnRequest("call",[self,"Abort"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Abort"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setAbortedEvent P1
-		dnRequest("setevent",[self,"Aborted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Aborted",dnCallback(P1)])
 		return self
 
 	Func clearAbortedEvent
-		dnRequest("clearevent",[self,"Aborted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Aborted"])
 		return self
 
 	Func setCompletedEvent P1
-		dnRequest("setevent",[self,"Completed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Completed",dnCallback(P1)])
 		return self
 
 	Func clearCompletedEvent
-		dnRequest("clearevent",[self,"Completed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Completed"])
 		return self
 
 	Func getDispatcher
-		return dnRequest("get",[self,"Dispatcher"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Dispatcher"])
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getPriority
-		return dnRequest("get",[self,"Priority"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Priority"])
 
 	Func setPriority P1
-		dnRequest("set",[self,"Priority",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Priority",P1])
 		return self
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getTask
-		return dnRequest("get",[self,"Task"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Task"])
 
 	Func setTask P1
 		raise("DotNet Error: Task is a read-only property")
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")

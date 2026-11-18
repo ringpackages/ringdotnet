@@ -18,64 +18,64 @@ Class IndentedStringBuilder from Object
 		return self
 
 	Func Append P1
-		return dnRequest("call",[self,"Append",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
 
 	Func AppendLine P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AppendLine",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLine",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AppendLine"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AppendLine"])
 		ok
-		return dnRequest("call",[self,"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
 	Func AppendLine_1 P1
-		return dnRequest("call",[self,"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
 	Func AppendLines_2 P1,P2
-		return dnRequest("call",[self,"AppendLines",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLines",P1,P2])
 
 	Func AppendLines P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AppendLines",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLines",P1])
 		ok
-		return dnRequest("call",[self,"AppendLines",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLines",P1])
 
 	Func AppendJoin_2 P1,P2
-		return dnRequest("call",[self,"AppendJoin",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendJoin",P1,P2])
 
 	Func AppendJoin P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AppendJoin",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendJoin",P1])
 		ok
-		return dnRequest("call",[self,"AppendJoin",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendJoin",P1])
 
 	Func Clear 
-		return dnRequest("call",[self,"Clear"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 
 	Func IncrementIndent 
-		return dnRequest("call",[self,"IncrementIndent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IncrementIndent"])
 
 	Func DecrementIndent 
-		return dnRequest("call",[self,"DecrementIndent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecrementIndent"])
 
 	Func Indent 
-		return dnRequest("call",[self,"Indent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Indent"])
 
 	Func SuspendIndent 
-		return dnRequest("call",[self,"SuspendIndent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"SuspendIndent"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIndentCount
-		return dnRequest("get",[self,"IndentCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IndentCount"])
 
 	Func setIndentCount P1
 		raise("DotNet Error: IndentCount is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

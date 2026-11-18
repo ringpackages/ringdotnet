@@ -18,43 +18,43 @@ Class ModuleHandle from ValueType
 		return self
 
 	Func GetRuntimeTypeHandleFromMetadataToken P1
-		return dnRequest("call",[self,"GetRuntimeTypeHandleFromMetadataToken",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRuntimeTypeHandleFromMetadataToken",P1])
 
 	Func ResolveTypeHandle P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ResolveTypeHandle",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ResolveTypeHandle",P1])
 		ok
-		return dnRequest("call",[self,"ResolveTypeHandle",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveTypeHandle",P1])
 
 	Func ResolveTypeHandle_3 P1,P2,P3
-		return dnRequest("call",[self,"ResolveTypeHandle",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveTypeHandle",P1,P2,P3])
 
 	Func GetRuntimeMethodHandleFromMetadataToken P1
-		return dnRequest("call",[self,"GetRuntimeMethodHandleFromMetadataToken",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRuntimeMethodHandleFromMetadataToken",P1])
 
 	Func ResolveMethodHandle P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ResolveMethodHandle",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ResolveMethodHandle",P1])
 		ok
-		return dnRequest("call",[self,"ResolveMethodHandle",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveMethodHandle",P1])
 
 	Func ResolveMethodHandle_3 P1,P2,P3
-		return dnRequest("call",[self,"ResolveMethodHandle",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveMethodHandle",P1,P2,P3])
 
 	Func GetRuntimeFieldHandleFromMetadataToken P1
-		return dnRequest("call",[self,"GetRuntimeFieldHandleFromMetadataToken",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRuntimeFieldHandleFromMetadataToken",P1])
 
 	Func ResolveFieldHandle P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ResolveFieldHandle",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ResolveFieldHandle",P1])
 		ok
-		return dnRequest("call",[self,"ResolveFieldHandle",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveFieldHandle",P1])
 
 	Func ResolveFieldHandle_3 P1,P2,P3
-		return dnRequest("call",[self,"ResolveFieldHandle",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveFieldHandle",P1,P2,P3])
 
 	Func getMDStreamVersion
-		return dnRequest("get",[self,"MDStreamVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MDStreamVersion"])
 
 	Func setMDStreamVersion P1
 		raise("DotNet Error: MDStreamVersion is a read-only property")

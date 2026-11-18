@@ -19,22 +19,22 @@ Class PbeParameters from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEncryptionAlgorithm
-		return dnRequest("get",[self,"EncryptionAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EncryptionAlgorithm"])
 
 	Func setEncryptionAlgorithm P1
 		raise("DotNet Error: EncryptionAlgorithm is a read-only property")
 
 	Func getHashAlgorithm
-		return dnRequest("get",[self,"HashAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getIterationCount
-		return dnRequest("get",[self,"IterationCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IterationCount"])
 
 	Func setIterationCount P1
 		raise("DotNet Error: IterationCount is a read-only property")

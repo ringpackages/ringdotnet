@@ -1,9 +1,15 @@
 #!/bin/sh
 # Runs the RingDotNet tests (samples/UsingDotNet/tests/test_*.ring) and the non-interactive samples; fails on any error.
-# Usage: samples/UsingDotNet/tests/run.sh [path to ring]     (needs ring.dll on the PATH; the package bin folder is added)
+# Usage: samples/UsingDotNet/tests/run.sh [path to ring] [--quick]     (needs ring.dll on the PATH; the package bin folder is added)
+#   --quick   only the tests and the introduction samples (about a minute); without it everything runs (about ten minutes)
 HERE="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$HERE/../../.."
-RING="${1:-ring}"
+RING=ring
+QUICK=0
+for ARG in "$@"; do
+	if [ "$ARG" = "--quick" ]; then QUICK=1; else RING="$ARG"; fi
+done
+START=$(date +%s)
 unset RING_HOME
 PATH="$ROOT/bin:$PATH"
 FAILED=0
@@ -19,6 +25,11 @@ run() {
 }
 for f in "$HERE"/test_*.ring; do run "$HERE" "$(basename "$f")"; done
 for f in "$HERE"/../introduction/test*.ring; do run "$HERE/../introduction" "$(basename "$f")"; done
+if [ "$QUICK" = "1" ]; then
+	echo "$FAILED failed (quick: tests and introduction samples only, $(( $(date +%s) - START )) seconds)"
+	[ "$FAILED" = "0" ]
+	exit $?
+fi
 # small Windows Forms samples: each one runs itself too
 for f in "$HERE"/../Forms/*.ring; do
 	DIR=$(dirname "$f")

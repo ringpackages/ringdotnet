@@ -18,19 +18,19 @@ Class XmlEntity from XmlNode
 		return self
 
 	Func getPublicId
-		return dnRequest("get",[self,"PublicId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PublicId"])
 
 	Func setPublicId P1
 		raise("DotNet Error: PublicId is a read-only property")
 
 	Func getSystemId
-		return dnRequest("get",[self,"SystemId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SystemId"])
 
 	Func setSystemId P1
 		raise("DotNet Error: SystemId is a read-only property")
 
 	Func getNotationName
-		return dnRequest("get",[self,"NotationName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NotationName"])
 
 	Func setNotationName P1
 		raise("DotNet Error: NotationName is a read-only property")

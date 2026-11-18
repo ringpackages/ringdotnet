@@ -37,34 +37,34 @@ Class CngUIPolicy from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getProtectionLevel
-		return dnRequest("get",[self,"ProtectionLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProtectionLevel"])
 
 	Func setProtectionLevel P1
 		raise("DotNet Error: ProtectionLevel is a read-only property")
 
 	Func getFriendlyName
-		return dnRequest("get",[self,"FriendlyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FriendlyName"])
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getDescription
-		return dnRequest("get",[self,"Description"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getUseContext
-		return dnRequest("get",[self,"UseContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseContext"])
 
 	Func setUseContext P1
 		raise("DotNet Error: UseContext is a read-only property")
 
 	Func getCreationTitle
-		return dnRequest("get",[self,"CreationTitle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CreationTitle"])
 
 	Func setCreationTitle P1
 		raise("DotNet Error: CreationTitle is a read-only property")

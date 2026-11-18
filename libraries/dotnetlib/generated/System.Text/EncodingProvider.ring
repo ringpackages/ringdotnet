@@ -15,16 +15,16 @@ Class EncodingProvider from Object
 
 	Func GetEncoding P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetEncoding",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetEncoding",P1])
 		ok
-		return dnRequest("call",[self,"GetEncoding",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoding",P1])
 
 	Func GetEncoding_3 P1,P2,P3
-		return dnRequest("call",[self,"GetEncoding",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoding",P1,P2,P3])
 
 	Func GetEncodings 
-		return dnRequest("call",[self,"GetEncodings"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEncodings"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

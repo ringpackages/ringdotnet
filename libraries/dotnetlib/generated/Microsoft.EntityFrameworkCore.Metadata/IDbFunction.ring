@@ -18,19 +18,19 @@ Class IDbFunction from DotNetObject
 		return self
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getStoreFunction
-		return dnRequest("get",[self,"StoreFunction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreFunction"])
 
 	Func setStoreFunction P1
 		raise("DotNet Error: StoreFunction is a read-only property")

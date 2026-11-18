@@ -18,27 +18,27 @@ Class FeatureSupport from Object
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"IsPresent",P1])
 			ok
-			return dnRequest("callnamed",[self,"IsPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsPresent",P1])
 		ok
-		return dnRequest("call",[self,"IsPresent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1])
 
 	Func IsPresent_2 P1,P2
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"IsPresent",P1,P2])
 		ok
-		return dnRequest("call",[self,"IsPresent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1,P2])
 
 	Func GetVersionPresent P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"GetVersionPresent",P1])
 			ok
-			return dnRequest("callnamed",[self,"GetVersionPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetVersionPresent",P1])
 		ok
-		return dnRequest("call",[self,"GetVersionPresent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetVersionPresent",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func IsPresent_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"IsPresent",P1,P2,P3])

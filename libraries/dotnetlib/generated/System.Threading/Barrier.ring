@@ -23,58 +23,58 @@ Class Barrier from Object
 		return self
 
 	Func AddParticipant 
-		return dnRequest("call",[self,"AddParticipant"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddParticipant"])
 
 	Func AddParticipants P1
-		return dnRequest("call",[self,"AddParticipants",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddParticipants",P1])
 
 	Func RemoveParticipant 
-		dnRequest("call",[self,"RemoveParticipant"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveParticipant"])
 		return self
 
 	Func RemoveParticipants P1
-		dnRequest("call",[self,"RemoveParticipants",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveParticipants",P1])
 		return self
 
 	Func SignalAndWait P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SignalAndWait",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignalAndWait",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"SignalAndWait"])
+			dnRequest("call",[new DotNetObject(nHandle),"SignalAndWait"])
 		return self
 		ok
-		dnRequest("call",[self,"SignalAndWait",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SignalAndWait",P1])
 		return self
 
 	Func SignalAndWait_1 P1
-		dnRequest("call",[self,"SignalAndWait",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SignalAndWait",P1])
 		return self
 
 	Func SignalAndWait_2 P1,P2
-		return dnRequest("call",[self,"SignalAndWait",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignalAndWait",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParticipantsRemaining
-		return dnRequest("get",[self,"ParticipantsRemaining"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParticipantsRemaining"])
 
 	Func setParticipantsRemaining P1
 		raise("DotNet Error: ParticipantsRemaining is a read-only property")
 
 	Func getParticipantCount
-		return dnRequest("get",[self,"ParticipantCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParticipantCount"])
 
 	Func setParticipantCount P1
 		raise("DotNet Error: ParticipantCount is a read-only property")
 
 	Func getCurrentPhaseNumber
-		return dnRequest("get",[self,"CurrentPhaseNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentPhaseNumber"])
 
 	Func setCurrentPhaseNumber P1
 		raise("DotNet Error: CurrentPhaseNumber is a read-only property")

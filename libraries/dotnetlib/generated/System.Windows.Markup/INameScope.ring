@@ -14,13 +14,13 @@ Class INameScope from DotNetObject
 		return self
 
 	Func RegisterName P1,P2
-		dnRequest("call",[self,"RegisterName",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterName",P1,P2])
 		return self
 
 	Func UnregisterName P1
-		dnRequest("call",[self,"UnregisterName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"UnregisterName",P1])
 		return self
 
 	Func FindName P1
-		return dnRequest("call",[self,"FindName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindName",P1])
 

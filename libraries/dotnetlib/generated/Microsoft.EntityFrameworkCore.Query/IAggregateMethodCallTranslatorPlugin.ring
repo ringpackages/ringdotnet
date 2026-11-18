@@ -16,7 +16,7 @@ Class IAggregateMethodCallTranslatorPlugin from DotNetObject
 		return self
 
 	Func getTranslators
-		return dnRequest("get",[self,"Translators"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Translators"])
 
 	Func setTranslators P1
 		raise("DotNet Error: Translators is a read-only property")

@@ -17,12 +17,12 @@ Class HttpRequestIdentifierFeature from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTraceIdentifier
-		return dnRequest("get",[self,"TraceIdentifier"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TraceIdentifier"])
 
 	Func setTraceIdentifier P1
-		dnRequest("set",[self,"TraceIdentifier",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TraceIdentifier",P1])
 		return self
 

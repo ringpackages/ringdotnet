@@ -16,37 +16,37 @@ Class IConventionDbFunctionParameter from DotNetObject
 		return self
 
 	Func GetConfigurationSource 
-		return dnRequest("call",[self,"GetConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConfigurationSource"])
 
 	Func SetStoreType_2 P1,P2
-		return dnRequest("call",[self,"SetStoreType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetStoreType",P1,P2])
 
 	Func SetStoreType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetStoreType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetStoreType",P1])
 		ok
-		return dnRequest("call",[self,"SetStoreType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetStoreType",P1])
 
 	Func GetStoreTypeConfigurationSource 
-		return dnRequest("call",[self,"GetStoreTypeConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStoreTypeConfigurationSource"])
 
 	Func SetTypeMapping_2 P1,P2
-		return dnRequest("call",[self,"SetTypeMapping",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetTypeMapping",P1,P2])
 
 	Func SetTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetTypeMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetTypeMapping",P1])
 		ok
-		return dnRequest("call",[self,"SetTypeMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetTypeMapping",P1])
 
 	Func GetTypeMappingConfigurationSource 
-		return dnRequest("call",[self,"GetTypeMappingConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeMappingConfigurationSource"])
 
 	Func getFunction
-		return dnRequest("get",[self,"Function"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Function"])
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")

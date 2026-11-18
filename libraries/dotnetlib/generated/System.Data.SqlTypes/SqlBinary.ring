@@ -23,19 +23,19 @@ Class SqlBinary from ValueType
 		return self
 
 	Func ToSqlGuid 
-		return dnRequest("call",[self,"ToSqlGuid"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlGuid"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Add",P1,P2])
@@ -68,19 +68,19 @@ Class SqlBinary from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"WrapBytes",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

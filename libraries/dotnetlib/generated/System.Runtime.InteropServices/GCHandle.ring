@@ -18,11 +18,11 @@ Class GCHandle from ValueType
 		return self
 
 	Func Free 
-		dnRequest("call",[self,"Free"])
+		dnRequest("call",[new DotNetObject(nHandle),"Free"])
 		return self
 
 	Func AddrOfPinnedObject 
-		return dnRequest("call",[self,"AddrOfPinnedObject"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddrOfPinnedObject"])
 
 	Func Alloc P1
 		if dnIsNamed(P1)
@@ -40,14 +40,14 @@ Class GCHandle from ValueType
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"ToIntPtr",P1])
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
 
 	Func setTarget P1
-		dnRequest("set",[self,"Target",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Target",P1])
 		return self
 
 	Func getIsAllocated
-		return dnRequest("get",[self,"IsAllocated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAllocated"])
 
 	Func setIsAllocated P1
 		raise("DotNet Error: IsAllocated is a read-only property")

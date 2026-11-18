@@ -18,13 +18,13 @@ Class UnhandledExceptionEventArgs from EventArgs
 		return self
 
 	Func getExceptionObject
-		return dnRequest("get",[self,"ExceptionObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionObject"])
 
 	Func setExceptionObject P1
 		raise("DotNet Error: ExceptionObject is a read-only property")
 
 	Func getIsTerminating
-		return dnRequest("get",[self,"IsTerminating"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsTerminating"])
 
 	Func setIsTerminating P1
 		raise("DotNet Error: IsTerminating is a read-only property")

@@ -20,100 +20,100 @@ Class Geometry from Animatable
 		return self
 
 	Func GetRenderBounds_3 P1,P2,P3
-		return dnRequest("call",[self,"GetRenderBounds",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRenderBounds",P1,P2,P3])
 
 	Func GetRenderBounds P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetRenderBounds",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetRenderBounds",P1])
 		ok
-		return dnRequest("call",[self,"GetRenderBounds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRenderBounds",P1])
 
 	Func ShouldSerializeTransform 
-		return dnRequest("call",[self,"ShouldSerializeTransform"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeTransform"])
 
 	Func GetArea_2 P1,P2
-		return dnRequest("call",[self,"GetArea",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetArea",P1,P2])
 
 	Func GetArea P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetArea",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetArea",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetArea"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetArea"])
 		ok
 		raise("DotNet Error: GetArea does not take one argument: use GetArea(NULL), GetArea_N(...) or named arguments")
 
 	Func IsEmpty 
-		return dnRequest("call",[self,"IsEmpty"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func MayHaveCurves 
-		return dnRequest("call",[self,"MayHaveCurves"])
+		return dnRequest("call",[new DotNetObject(nHandle),"MayHaveCurves"])
 
 	Func FillContains_3 P1,P2,P3
-		return dnRequest("call",[self,"FillContains",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FillContains",P1,P2,P3])
 
 	Func FillContains P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FillContains",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FillContains",P1])
 		ok
-		return dnRequest("call",[self,"FillContains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FillContains",P1])
 
 	Func StrokeContains_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"StrokeContains",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"StrokeContains",P1,P2,P3,P4])
 
 	Func StrokeContains P1,P2
-		return dnRequest("call",[self,"StrokeContains",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"StrokeContains",P1,P2])
 
 	Func FillContainsWithDetail_3 P1,P2,P3
-		return dnRequest("call",[self,"FillContainsWithDetail",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FillContainsWithDetail",P1,P2,P3])
 
 	Func FillContainsWithDetail P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FillContainsWithDetail",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FillContainsWithDetail",P1])
 		ok
-		return dnRequest("call",[self,"FillContainsWithDetail",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FillContainsWithDetail",P1])
 
 	Func StrokeContainsWithDetail_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"StrokeContainsWithDetail",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"StrokeContainsWithDetail",P1,P2,P3,P4])
 
 	Func StrokeContainsWithDetail P1,P2
-		return dnRequest("call",[self,"StrokeContainsWithDetail",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"StrokeContainsWithDetail",P1,P2])
 
 	Func GetFlattenedPathGeometry_2 P1,P2
-		return dnRequest("call",[self,"GetFlattenedPathGeometry",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedPathGeometry",P1,P2])
 
 	Func GetFlattenedPathGeometry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetFlattenedPathGeometry",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFlattenedPathGeometry",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetFlattenedPathGeometry"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedPathGeometry"])
 		ok
 		raise("DotNet Error: GetFlattenedPathGeometry does not take one argument: use GetFlattenedPathGeometry(NULL), GetFlattenedPathGeometry_N(...) or named arguments")
 
 	Func GetWidenedPathGeometry_3 P1,P2,P3
-		return dnRequest("call",[self,"GetWidenedPathGeometry",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetWidenedPathGeometry",P1,P2,P3])
 
 	Func GetWidenedPathGeometry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetWidenedPathGeometry",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetWidenedPathGeometry",P1])
 		ok
-		return dnRequest("call",[self,"GetWidenedPathGeometry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetWidenedPathGeometry",P1])
 
 	Func GetOutlinedPathGeometry_2 P1,P2
-		return dnRequest("call",[self,"GetOutlinedPathGeometry",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOutlinedPathGeometry",P1,P2])
 
 	Func GetOutlinedPathGeometry P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetOutlinedPathGeometry",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetOutlinedPathGeometry",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetOutlinedPathGeometry"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetOutlinedPathGeometry"])
 		ok
 		raise("DotNet Error: GetOutlinedPathGeometry does not take one argument: use GetOutlinedPathGeometry(NULL), GetOutlinedPathGeometry_N(...) or named arguments")
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Combine_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Combine",P1,P2,P3,P4,P5,P6])
@@ -125,16 +125,16 @@ Class Geometry from Animatable
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Parse",P1])
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func getEmpty

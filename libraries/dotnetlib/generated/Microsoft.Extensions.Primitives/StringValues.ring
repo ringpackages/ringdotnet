@@ -22,19 +22,19 @@ Class StringValues from ValueType
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[self,"ToArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func IsNullOrEmpty P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"IsNullOrEmpty",P1])
@@ -46,10 +46,10 @@ Class StringValues from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"Equals",P1,P2])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

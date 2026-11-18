@@ -17,19 +17,19 @@ Class CompositeFormat from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Text.CompositeFormat, System.Private.CoreLib'),"Parse",P1])
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getMinimumArgumentCount
-		return dnRequest("get",[self,"MinimumArgumentCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinimumArgumentCount"])
 
 	Func setMinimumArgumentCount P1
 		raise("DotNet Error: MinimumArgumentCount is a read-only property")

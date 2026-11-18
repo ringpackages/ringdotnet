@@ -53,268 +53,268 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func ShouldSerializeStyle 
-		return dnRequest("call",[self,"ShouldSerializeStyle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeStyle"])
 
 	Func ShouldSerializeResources 
-		return dnRequest("call",[self,"ShouldSerializeResources"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeResources"])
 
 	Func FindResource P1
-		return dnRequest("call",[self,"FindResource",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindResource",P1])
 
 	Func TryFindResource P1
-		return dnRequest("call",[self,"TryFindResource",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryFindResource",P1])
 
 	Func SetResourceReference P1,P2
-		dnRequest("call",[self,"SetResourceReference",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetResourceReference",P1,P2])
 		return self
 
 	Func BeginStoryboard P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"BeginStoryboard",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"BeginStoryboard",P1])
 			return self
 		ok
-		dnRequest("call",[self,"BeginStoryboard",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1])
 		return self
 
 	Func BeginStoryboard_2 P1,P2
-		dnRequest("call",[self,"BeginStoryboard",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1,P2])
 		return self
 
 	Func BeginStoryboard_3 P1,P2,P3
-		dnRequest("call",[self,"BeginStoryboard",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1,P2,P3])
 		return self
 
 	Func BringIntoView 
-		dnRequest("call",[self,"BringIntoView"])
+		dnRequest("call",[new DotNetObject(nHandle),"BringIntoView"])
 		return self
 
 	Func GetBindingExpression P1
-		return dnRequest("call",[self,"GetBindingExpression",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBindingExpression",P1])
 
 	Func SetBinding P1,P2
-		return dnRequest("call",[self,"SetBinding",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetBinding",P1,P2])
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func RegisterName P1,P2
-		dnRequest("call",[self,"RegisterName",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterName",P1,P2])
 		return self
 
 	Func UnregisterName P1
-		dnRequest("call",[self,"UnregisterName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"UnregisterName",P1])
 		return self
 
 	Func FindName P1
-		return dnRequest("call",[self,"FindName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindName",P1])
 
 	Func UpdateDefaultStyle 
-		dnRequest("call",[self,"UpdateDefaultStyle"])
+		dnRequest("call",[new DotNetObject(nHandle),"UpdateDefaultStyle"])
 		return self
 
 	Func setTargetUpdatedEvent P1
-		dnRequest("setevent",[self,"TargetUpdated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TargetUpdated",dnCallback(P1)])
 		return self
 
 	Func clearTargetUpdatedEvent
-		dnRequest("clearevent",[self,"TargetUpdated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TargetUpdated"])
 		return self
 
 	Func setSourceUpdatedEvent P1
-		dnRequest("setevent",[self,"SourceUpdated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SourceUpdated",dnCallback(P1)])
 		return self
 
 	Func clearSourceUpdatedEvent
-		dnRequest("clearevent",[self,"SourceUpdated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SourceUpdated"])
 		return self
 
 	Func setDataContextChangedEvent P1
-		dnRequest("setevent",[self,"DataContextChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DataContextChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataContextChangedEvent
-		dnRequest("clearevent",[self,"DataContextChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DataContextChanged"])
 		return self
 
 	Func setInitializedEvent P1
-		dnRequest("setevent",[self,"Initialized",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Initialized",dnCallback(P1)])
 		return self
 
 	Func clearInitializedEvent
-		dnRequest("clearevent",[self,"Initialized"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Initialized"])
 		return self
 
 	Func setLoadedEvent P1
-		dnRequest("setevent",[self,"Loaded",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Loaded",dnCallback(P1)])
 		return self
 
 	Func clearLoadedEvent
-		dnRequest("clearevent",[self,"Loaded"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Loaded"])
 		return self
 
 	Func setUnloadedEvent P1
-		dnRequest("setevent",[self,"Unloaded",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Unloaded",dnCallback(P1)])
 		return self
 
 	Func clearUnloadedEvent
-		dnRequest("clearevent",[self,"Unloaded"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Unloaded"])
 		return self
 
 	Func setToolTipOpeningEvent P1
-		dnRequest("setevent",[self,"ToolTipOpening",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ToolTipOpening",dnCallback(P1)])
 		return self
 
 	Func clearToolTipOpeningEvent
-		dnRequest("clearevent",[self,"ToolTipOpening"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ToolTipOpening"])
 		return self
 
 	Func setToolTipClosingEvent P1
-		dnRequest("setevent",[self,"ToolTipClosing",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ToolTipClosing",dnCallback(P1)])
 		return self
 
 	Func clearToolTipClosingEvent
-		dnRequest("clearevent",[self,"ToolTipClosing"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ToolTipClosing"])
 		return self
 
 	Func setContextMenuOpeningEvent P1
-		dnRequest("setevent",[self,"ContextMenuOpening",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ContextMenuOpening",dnCallback(P1)])
 		return self
 
 	Func clearContextMenuOpeningEvent
-		dnRequest("clearevent",[self,"ContextMenuOpening"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ContextMenuOpening"])
 		return self
 
 	Func setContextMenuClosingEvent P1
-		dnRequest("setevent",[self,"ContextMenuClosing",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ContextMenuClosing",dnCallback(P1)])
 		return self
 
 	Func clearContextMenuClosingEvent
-		dnRequest("clearevent",[self,"ContextMenuClosing"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ContextMenuClosing"])
 		return self
 
 	Func getStyle
-		return dnRequest("get",[self,"Style"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
 
 	Func setStyle P1
-		dnRequest("set",[self,"Style",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Style",P1])
 		return self
 
 	Func getOverridesDefaultStyle
-		return dnRequest("get",[self,"OverridesDefaultStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OverridesDefaultStyle"])
 
 	Func setOverridesDefaultStyle P1
-		dnRequest("set",[self,"OverridesDefaultStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OverridesDefaultStyle",P1])
 		return self
 
 	Func getTemplatedParent
-		return dnRequest("get",[self,"TemplatedParent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TemplatedParent"])
 
 	Func setTemplatedParent P1
 		raise("DotNet Error: TemplatedParent is a read-only property")
 
 	Func getResources
-		return dnRequest("get",[self,"Resources"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Resources"])
 
 	Func setResources P1
-		dnRequest("set",[self,"Resources",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Resources",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 
 	Func getLanguage
-		return dnRequest("get",[self,"Language"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Language"])
 
 	Func setLanguage P1
-		dnRequest("set",[self,"Language",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Language",P1])
 		return self
 
 	Func getFocusVisualStyle
-		return dnRequest("get",[self,"FocusVisualStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FocusVisualStyle"])
 
 	Func setFocusVisualStyle P1
-		dnRequest("set",[self,"FocusVisualStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FocusVisualStyle",P1])
 		return self
 
 	Func getCursor
-		return dnRequest("get",[self,"Cursor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cursor"])
 
 	Func setCursor P1
-		dnRequest("set",[self,"Cursor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cursor",P1])
 		return self
 
 	Func getForceCursor
-		return dnRequest("get",[self,"ForceCursor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForceCursor"])
 
 	Func setForceCursor P1
-		dnRequest("set",[self,"ForceCursor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForceCursor",P1])
 		return self
 
 	Func getInputScope
-		return dnRequest("get",[self,"InputScope"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InputScope"])
 
 	Func setInputScope P1
-		dnRequest("set",[self,"InputScope",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InputScope",P1])
 		return self
 
 	Func getDataContext
-		return dnRequest("get",[self,"DataContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataContext"])
 
 	Func setDataContext P1
-		dnRequest("set",[self,"DataContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataContext",P1])
 		return self
 
 	Func getBindingGroup
-		return dnRequest("get",[self,"BindingGroup"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingGroup"])
 
 	Func setBindingGroup P1
-		dnRequest("set",[self,"BindingGroup",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BindingGroup",P1])
 		return self
 
 	Func getIsInitialized
-		return dnRequest("get",[self,"IsInitialized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialized"])
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getIsLoaded
-		return dnRequest("get",[self,"IsLoaded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLoaded"])
 
 	Func setIsLoaded P1
 		raise("DotNet Error: IsLoaded is a read-only property")
 
 	Func getToolTip
-		return dnRequest("get",[self,"ToolTip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToolTip"])
 
 	Func setToolTip P1
-		dnRequest("set",[self,"ToolTip",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ToolTip",P1])
 		return self
 
 	Func getContextMenu
-		return dnRequest("get",[self,"ContextMenu"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextMenu"])
 
 	Func setContextMenu P1
-		dnRequest("set",[self,"ContextMenu",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContextMenu",P1])
 		return self
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")

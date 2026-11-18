@@ -18,19 +18,19 @@ Class SoapSchemaMember from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMemberType
-		return dnRequest("get",[self,"MemberType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberType"])
 
 	Func setMemberType P1
-		dnRequest("set",[self,"MemberType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MemberType",P1])
 		return self
 
 	Func getMemberName
-		return dnRequest("get",[self,"MemberName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberName"])
 
 	Func setMemberName P1
-		dnRequest("set",[self,"MemberName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MemberName",P1])
 		return self
 

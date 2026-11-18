@@ -22,11 +22,11 @@ Class BitmapSource from ImageSource
 		return self
 
 	Func CopyPixels_4 P1,P2,P3,P4
-		dnRequest("call",[self,"CopyPixels",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyPixels",P1,P2,P3,P4])
 		return self
 
 	Func CopyPixels P1,P2,P3
-		dnRequest("call",[self,"CopyPixels",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyPixels",P1,P2,P3])
 		return self
 
 	Func Create P1,P2,P3,P4,P5,P6,P7,P8
@@ -36,75 +36,75 @@ Class BitmapSource from ImageSource
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSource, PresentationCore'),"Create",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func setDownloadCompletedEvent P1
-		dnRequest("setevent",[self,"DownloadCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadCompletedEvent
-		dnRequest("clearevent",[self,"DownloadCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadCompleted"])
 		return self
 
 	Func setDownloadProgressEvent P1
-		dnRequest("setevent",[self,"DownloadProgress",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadProgress",dnCallback(P1)])
 		return self
 
 	Func clearDownloadProgressEvent
-		dnRequest("clearevent",[self,"DownloadProgress"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadProgress"])
 		return self
 
 	Func setDownloadFailedEvent P1
-		dnRequest("setevent",[self,"DownloadFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadFailed",dnCallback(P1)])
 		return self
 
 	Func clearDownloadFailedEvent
-		dnRequest("clearevent",[self,"DownloadFailed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadFailed"])
 		return self
 
 	Func setDecodeFailedEvent P1
-		dnRequest("setevent",[self,"DecodeFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DecodeFailed",dnCallback(P1)])
 		return self
 
 	Func clearDecodeFailedEvent
-		dnRequest("clearevent",[self,"DecodeFailed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DecodeFailed"])
 		return self
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getPixelWidth
-		return dnRequest("get",[self,"PixelWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelWidth"])
 
 	Func setPixelWidth P1
 		raise("DotNet Error: PixelWidth is a read-only property")
 
 	Func getPixelHeight
-		return dnRequest("get",[self,"PixelHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelHeight"])
 
 	Func setPixelHeight P1
 		raise("DotNet Error: PixelHeight is a read-only property")
 
 	Func getDpiX
-		return dnRequest("get",[self,"DpiX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DpiX"])
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		return dnRequest("get",[self,"DpiY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DpiY"])
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getPalette
-		return dnRequest("get",[self,"Palette"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Palette"])
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getIsDownloading
-		return dnRequest("get",[self,"IsDownloading"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDownloading"])
 
 	Func setIsDownloading P1
 		raise("DotNet Error: IsDownloading is a read-only property")

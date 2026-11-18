@@ -18,13 +18,13 @@ Class ColumnsEventData from EventData
 		return self
 
 	Func getStoreObject
-		return dnRequest("get",[self,"StoreObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreObject"])
 
 	Func setStoreObject P1
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")

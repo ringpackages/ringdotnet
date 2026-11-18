@@ -25,34 +25,34 @@ Class WebSocketReceiveResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEndOfMessage
-		return dnRequest("get",[self,"EndOfMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EndOfMessage"])
 
 	Func setEndOfMessage P1
 		raise("DotNet Error: EndOfMessage is a read-only property")
 
 	Func getMessageType
-		return dnRequest("get",[self,"MessageType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MessageType"])
 
 	Func setMessageType P1
 		raise("DotNet Error: MessageType is a read-only property")
 
 	Func getCloseStatus
-		return dnRequest("get",[self,"CloseStatus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CloseStatus"])
 
 	Func setCloseStatus P1
 		raise("DotNet Error: CloseStatus is a read-only property")
 
 	Func getCloseStatusDescription
-		return dnRequest("get",[self,"CloseStatusDescription"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CloseStatusDescription"])
 
 	Func setCloseStatusDescription P1
 		raise("DotNet Error: CloseStatusDescription is a read-only property")

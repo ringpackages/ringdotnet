@@ -21,7 +21,7 @@ Class SafeEvpPKeyHandle from SafeHandle
 		return self
 
 	Func DuplicateHandle 
-		return dnRequest("call",[self,"DuplicateHandle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DuplicateHandle"])
 
 	Func OpenPrivateKeyFromEngine P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography'),"OpenPrivateKeyFromEngine",P1,P2])

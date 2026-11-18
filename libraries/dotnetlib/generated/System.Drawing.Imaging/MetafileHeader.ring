@@ -25,91 +25,91 @@ Class MetafileHeader from Object
 		return self
 
 	Func IsWmf 
-		return dnRequest("call",[self,"IsWmf"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsWmf"])
 
 	Func IsWmfPlaceable 
-		return dnRequest("call",[self,"IsWmfPlaceable"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsWmfPlaceable"])
 
 	Func IsEmf 
-		return dnRequest("call",[self,"IsEmf"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEmf"])
 
 	Func IsEmfOrEmfPlus 
-		return dnRequest("call",[self,"IsEmfOrEmfPlus"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEmfOrEmfPlus"])
 
 	Func IsEmfPlus 
-		return dnRequest("call",[self,"IsEmfPlus"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEmfPlus"])
 
 	Func IsEmfPlusDual 
-		return dnRequest("call",[self,"IsEmfPlusDual"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEmfPlusDual"])
 
 	Func IsEmfPlusOnly 
-		return dnRequest("call",[self,"IsEmfPlusOnly"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEmfPlusOnly"])
 
 	Func IsDisplay 
-		return dnRequest("call",[self,"IsDisplay"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDisplay"])
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getMetafileSize
-		return dnRequest("get",[self,"MetafileSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MetafileSize"])
 
 	Func setMetafileSize P1
 		raise("DotNet Error: MetafileSize is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getDpiX
-		return dnRequest("get",[self,"DpiX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DpiX"])
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		return dnRequest("get",[self,"DpiY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DpiY"])
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getWmfHeader
-		return dnRequest("get",[self,"WmfHeader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WmfHeader"])
 
 	Func setWmfHeader P1
 		raise("DotNet Error: WmfHeader is a read-only property")
 
 	Func getEmfPlusHeaderSize
-		return dnRequest("get",[self,"EmfPlusHeaderSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EmfPlusHeaderSize"])
 
 	Func setEmfPlusHeaderSize P1
 		raise("DotNet Error: EmfPlusHeaderSize is a read-only property")
 
 	Func getLogicalDpiX
-		return dnRequest("get",[self,"LogicalDpiX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogicalDpiX"])
 
 	Func setLogicalDpiX P1
 		raise("DotNet Error: LogicalDpiX is a read-only property")
 
 	Func getLogicalDpiY
-		return dnRequest("get",[self,"LogicalDpiY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogicalDpiY"])
 
 	Func setLogicalDpiY P1
 		raise("DotNet Error: LogicalDpiY is a read-only property")

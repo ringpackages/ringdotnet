@@ -20,30 +20,30 @@ Class JsonReaderOptions from ValueType
 		return self
 
 	Func getCommentHandling
-		return dnRequest("get",[self,"CommentHandling"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommentHandling"])
 
 	Func setCommentHandling P1
-		dnRequest("set",[self,"CommentHandling",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CommentHandling",P1])
 		return self
 
 	Func getMaxDepth
-		return dnRequest("get",[self,"MaxDepth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxDepth"])
 
 	Func setMaxDepth P1
-		dnRequest("set",[self,"MaxDepth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxDepth",P1])
 		return self
 
 	Func getAllowTrailingCommas
-		return dnRequest("get",[self,"AllowTrailingCommas"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowTrailingCommas"])
 
 	Func setAllowTrailingCommas P1
-		dnRequest("set",[self,"AllowTrailingCommas",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowTrailingCommas",P1])
 		return self
 
 	Func getAllowMultipleValues
-		return dnRequest("get",[self,"AllowMultipleValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowMultipleValues"])
 
 	Func setAllowMultipleValues P1
-		dnRequest("set",[self,"AllowMultipleValues",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowMultipleValues",P1])
 		return self
 

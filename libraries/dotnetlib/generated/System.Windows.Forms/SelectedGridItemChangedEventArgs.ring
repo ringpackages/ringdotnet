@@ -18,13 +18,13 @@ Class SelectedGridItemChangedEventArgs from EventArgs
 		return self
 
 	Func getOldSelection
-		return dnRequest("get",[self,"OldSelection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldSelection"])
 
 	Func setOldSelection P1
 		raise("DotNet Error: OldSelection is a read-only property")
 
 	Func getNewSelection
-		return dnRequest("get",[self,"NewSelection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewSelection"])
 
 	Func setNewSelection P1
 		raise("DotNet Error: NewSelection is a read-only property")

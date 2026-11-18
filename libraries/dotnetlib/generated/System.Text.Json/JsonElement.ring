@@ -17,140 +17,140 @@ Class JsonElement from ValueType
 		return self
 
 	Func GetArrayLength 
-		return dnRequest("call",[self,"GetArrayLength"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetArrayLength"])
 
 	Func GetPropertyCount 
-		return dnRequest("call",[self,"GetPropertyCount"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyCount"])
 
 	Func GetProperty P1
-		return dnRequest("call",[self,"GetProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1])
 
 	Func TryGetProperty P1
-		return dnRequest("call",[self,"TryGetProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetProperty",P1])
 
 	Func GetBoolean 
-		return dnRequest("call",[self,"GetBoolean"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBoolean"])
 
 	Func GetString 
-		return dnRequest("call",[self,"GetString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetString"])
 
 	Func TryGetBytesFromBase64 
-		return dnRequest("call",[self,"TryGetBytesFromBase64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetBytesFromBase64"])
 
 	Func GetBytesFromBase64 
-		return dnRequest("call",[self,"GetBytesFromBase64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBytesFromBase64"])
 
 	Func TryGetSByte 
-		return dnRequest("call",[self,"TryGetSByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetSByte"])
 
 	Func GetSByte 
-		return dnRequest("call",[self,"GetSByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSByte"])
 
 	Func TryGetByte 
-		return dnRequest("call",[self,"TryGetByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetByte"])
 
 	Func GetByte 
-		return dnRequest("call",[self,"GetByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetByte"])
 
 	Func TryGetInt16 
-		return dnRequest("call",[self,"TryGetInt16"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetInt16"])
 
 	Func GetInt16 
-		return dnRequest("call",[self,"GetInt16"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetInt16"])
 
 	Func TryGetUInt16 
-		return dnRequest("call",[self,"TryGetUInt16"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetUInt16"])
 
 	Func GetUInt16 
-		return dnRequest("call",[self,"GetUInt16"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUInt16"])
 
 	Func TryGetInt32 
-		return dnRequest("call",[self,"TryGetInt32"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetInt32"])
 
 	Func GetInt32 
-		return dnRequest("call",[self,"GetInt32"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetInt32"])
 
 	Func TryGetUInt32 
-		return dnRequest("call",[self,"TryGetUInt32"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetUInt32"])
 
 	Func GetUInt32 
-		return dnRequest("call",[self,"GetUInt32"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUInt32"])
 
 	Func TryGetInt64 
-		return dnRequest("call",[self,"TryGetInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetInt64"])
 
 	Func GetInt64 
-		return dnRequest("call",[self,"GetInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetInt64"])
 
 	Func TryGetUInt64 
-		return dnRequest("call",[self,"TryGetUInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetUInt64"])
 
 	Func GetUInt64 
-		return dnRequest("call",[self,"GetUInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUInt64"])
 
 	Func TryGetDouble 
-		return dnRequest("call",[self,"TryGetDouble"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetDouble"])
 
 	Func GetDouble 
-		return dnRequest("call",[self,"GetDouble"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDouble"])
 
 	Func TryGetSingle 
-		return dnRequest("call",[self,"TryGetSingle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetSingle"])
 
 	Func GetSingle 
-		return dnRequest("call",[self,"GetSingle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSingle"])
 
 	Func TryGetDecimal 
-		return dnRequest("call",[self,"TryGetDecimal"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetDecimal"])
 
 	Func GetDecimal 
-		return dnRequest("call",[self,"GetDecimal"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDecimal"])
 
 	Func TryGetDateTime 
-		return dnRequest("call",[self,"TryGetDateTime"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetDateTime"])
 
 	Func GetDateTime 
-		return dnRequest("call",[self,"GetDateTime"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTime"])
 
 	Func TryGetDateTimeOffset 
-		return dnRequest("call",[self,"TryGetDateTimeOffset"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetDateTimeOffset"])
 
 	Func GetDateTimeOffset 
-		return dnRequest("call",[self,"GetDateTimeOffset"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTimeOffset"])
 
 	Func TryGetGuid 
-		return dnRequest("call",[self,"TryGetGuid"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetGuid"])
 
 	Func GetGuid 
-		return dnRequest("call",[self,"GetGuid"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGuid"])
 
 	Func GetRawText 
-		return dnRequest("call",[self,"GetRawText"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRawText"])
 
 	Func ValueEquals P1
-		return dnRequest("call",[self,"ValueEquals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValueEquals",P1])
 
 	Func WriteTo P1
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func EnumerateArray 
-		return dnRequest("call",[self,"EnumerateArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateArray"])
 
 	Func EnumerateObject 
-		return dnRequest("call",[self,"EnumerateObject"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateObject"])
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func DeepEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonElement, System.Text.Json'),"DeepEquals",P1,P2])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getValueKind
-		return dnRequest("get",[self,"ValueKind"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueKind"])
 
 	Func setValueKind P1
 		raise("DotNet Error: ValueKind is a read-only property")

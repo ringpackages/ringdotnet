@@ -18,85 +18,85 @@ Class ITypeBase from DotNetObject
 		return self
 
 	Func FindProperty P1
-		return dnRequest("call",[self,"FindProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindProperty",P1])
 
 	Func FindProperties P1
-		return dnRequest("call",[self,"FindProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindProperties",P1])
 
 	Func GetProperty P1
-		return dnRequest("call",[self,"GetProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1])
 
 	Func FindDeclaredProperty P1
-		return dnRequest("call",[self,"FindDeclaredProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredProperty",P1])
 
 	Func GetDeclaredProperties 
-		return dnRequest("call",[self,"GetDeclaredProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredProperties"])
 
 	Func GetDerivedProperties 
-		return dnRequest("call",[self,"GetDerivedProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedProperties"])
 
 	Func GetProperties 
-		return dnRequest("call",[self,"GetProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties"])
 
 	Func FindComplexProperty P1
-		return dnRequest("call",[self,"FindComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindComplexProperty",P1])
 
 	Func FindDeclaredComplexProperty P1
-		return dnRequest("call",[self,"FindDeclaredComplexProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindDeclaredComplexProperty",P1])
 
 	Func GetComplexProperties 
-		return dnRequest("call",[self,"GetComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetComplexProperties"])
 
 	Func GetDeclaredComplexProperties 
-		return dnRequest("call",[self,"GetDeclaredComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredComplexProperties"])
 
 	Func GetDerivedComplexProperties 
-		return dnRequest("call",[self,"GetDerivedComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDerivedComplexProperties"])
 
 	Func GetMembers 
-		return dnRequest("call",[self,"GetMembers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMembers"])
 
 	Func GetDeclaredMembers 
-		return dnRequest("call",[self,"GetDeclaredMembers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredMembers"])
 
 	Func FindMember P1
-		return dnRequest("call",[self,"FindMember",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMember",P1])
 
 	Func FindMembersInHierarchy P1
-		return dnRequest("call",[self,"FindMembersInHierarchy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMembersInHierarchy",P1])
 
 	Func GetSnapshottableMembers 
-		return dnRequest("call",[self,"GetSnapshottableMembers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSnapshottableMembers"])
 
 	Func GetPropertiesInHierarchy 
-		return dnRequest("call",[self,"GetPropertiesInHierarchy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesInHierarchy"])
 
 	Func GetFlattenedProperties 
-		return dnRequest("call",[self,"GetFlattenedProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedProperties"])
 
 	Func GetFlattenedComplexProperties 
-		return dnRequest("call",[self,"GetFlattenedComplexProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedComplexProperties"])
 
 	Func GetFlattenedDeclaredProperties 
-		return dnRequest("call",[self,"GetFlattenedDeclaredProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedDeclaredProperties"])
 
 	Func GetFlattenedPropertiesInHierarchy 
-		return dnRequest("call",[self,"GetFlattenedPropertiesInHierarchy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedPropertiesInHierarchy"])
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContainingEntityType
-		return dnRequest("get",[self,"ContainingEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContainingEntityType"])
 
 	Func setContainingEntityType P1
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getConstructorBinding
-		return dnRequest("get",[self,"ConstructorBinding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConstructorBinding"])
 
 	Func setConstructorBinding P1
 		raise("DotNet Error: ConstructorBinding is a read-only property")

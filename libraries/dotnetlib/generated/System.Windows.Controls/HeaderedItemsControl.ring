@@ -26,40 +26,40 @@ Class HeaderedItemsControl from ItemsControl
 		return self
 
 	Func ContainerFromElement P1
-		return dnRequest("call",[self,"ContainerFromElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainerFromElement",P1])
 
 	Func getHeader
-		return dnRequest("get",[self,"Header"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
 
 	Func setHeader P1
-		dnRequest("set",[self,"Header",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Header",P1])
 		return self
 
 	Func getHasHeader
-		return dnRequest("get",[self,"HasHeader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasHeader"])
 
 	Func setHasHeader P1
 		raise("DotNet Error: HasHeader is a read-only property")
 
 	Func getHeaderTemplate
-		return dnRequest("get",[self,"HeaderTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplate"])
 
 	Func setHeaderTemplate P1
-		dnRequest("set",[self,"HeaderTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplate",P1])
 		return self
 
 	Func getHeaderTemplateSelector
-		return dnRequest("get",[self,"HeaderTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplateSelector"])
 
 	Func setHeaderTemplateSelector P1
-		dnRequest("set",[self,"HeaderTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplateSelector",P1])
 		return self
 
 	Func getHeaderStringFormat
-		return dnRequest("get",[self,"HeaderStringFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderStringFormat"])
 
 	Func setHeaderStringFormat P1
-		dnRequest("set",[self,"HeaderStringFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderStringFormat",P1])
 		return self
 
 	Func getHeaderProperty

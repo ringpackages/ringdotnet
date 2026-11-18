@@ -18,14 +18,14 @@ Class UnobservedTaskExceptionEventArgs from EventArgs
 		return self
 
 	Func SetObserved 
-		dnRequest("call",[self,"SetObserved"])
+		dnRequest("call",[new DotNetObject(nHandle),"SetObserved"])
 		return self
 
 	Func getObserved
-		return dnRequest("get",[self,"Observed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Observed"])
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")

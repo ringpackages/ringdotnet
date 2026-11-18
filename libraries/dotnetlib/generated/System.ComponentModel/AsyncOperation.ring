@@ -17,28 +17,28 @@ Class AsyncOperation from Object
 		return self
 
 	Func Post P1,P2
-		dnRequest("call",[self,"Post",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Post",P1,P2])
 		return self
 
 	Func PostOperationCompleted P1,P2
-		dnRequest("call",[self,"PostOperationCompleted",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"PostOperationCompleted",P1,P2])
 		return self
 
 	Func OperationCompleted 
-		dnRequest("call",[self,"OperationCompleted"])
+		dnRequest("call",[new DotNetObject(nHandle),"OperationCompleted"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUserSuppliedState
-		return dnRequest("get",[self,"UserSuppliedState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserSuppliedState"])
 
 	Func setUserSuppliedState P1
 		raise("DotNet Error: UserSuppliedState is a read-only property")
 
 	Func getSynchronizationContext
-		return dnRequest("get",[self,"SynchronizationContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SynchronizationContext"])
 
 	Func setSynchronizationContext P1
 		raise("DotNet Error: SynchronizationContext is a read-only property")

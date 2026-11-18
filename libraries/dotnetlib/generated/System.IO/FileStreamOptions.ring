@@ -23,54 +23,54 @@ Class FileStreamOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMode
-		return dnRequest("get",[self,"Mode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[self,"Mode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
 		return self
 
 	Func getAccess
-		return dnRequest("get",[self,"Access"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Access"])
 
 	Func setAccess P1
-		dnRequest("set",[self,"Access",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Access",P1])
 		return self
 
 	Func getShare
-		return dnRequest("get",[self,"Share"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Share"])
 
 	Func setShare P1
-		dnRequest("set",[self,"Share",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Share",P1])
 		return self
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
-		dnRequest("set",[self,"Options",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Options",P1])
 		return self
 
 	Func getPreallocationSize
-		return dnRequest("get",[self,"PreallocationSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreallocationSize"])
 
 	Func setPreallocationSize P1
-		dnRequest("set",[self,"PreallocationSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PreallocationSize",P1])
 		return self
 
 	Func getBufferSize
-		return dnRequest("get",[self,"BufferSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BufferSize"])
 
 	Func setBufferSize P1
-		dnRequest("set",[self,"BufferSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BufferSize",P1])
 		return self
 
 	Func getUnixCreateMode
-		return dnRequest("get",[self,"UnixCreateMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnixCreateMode"])
 
 	Func setUnixCreateMode P1
-		dnRequest("set",[self,"UnixCreateMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UnixCreateMode",P1])
 		return self
 

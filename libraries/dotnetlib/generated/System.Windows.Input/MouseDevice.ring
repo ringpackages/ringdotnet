@@ -24,72 +24,72 @@ Class MouseDevice from InputDevice
 
 	Func Capture P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Capture",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Capture",P1])
 		ok
-		return dnRequest("call",[self,"Capture",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1])
 
 	Func Capture_2 P1,P2
-		return dnRequest("call",[self,"Capture",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1,P2])
 
 	Func SetCursor P1
-		return dnRequest("call",[self,"SetCursor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetCursor",P1])
 
 	Func GetPosition P1
-		return dnRequest("call",[self,"GetPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPosition",P1])
 
 	Func Synchronize 
-		dnRequest("call",[self,"Synchronize"])
+		dnRequest("call",[new DotNetObject(nHandle),"Synchronize"])
 		return self
 
 	Func UpdateCursor 
-		dnRequest("call",[self,"UpdateCursor"])
+		dnRequest("call",[new DotNetObject(nHandle),"UpdateCursor"])
 		return self
 
 	Func getDirectlyOver
-		return dnRequest("get",[self,"DirectlyOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DirectlyOver"])
 
 	Func setDirectlyOver P1
 		raise("DotNet Error: DirectlyOver is a read-only property")
 
 	Func getCaptured
-		return dnRequest("get",[self,"Captured"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Captured"])
 
 	Func setCaptured P1
 		raise("DotNet Error: Captured is a read-only property")
 
 	Func getOverrideCursor
-		return dnRequest("get",[self,"OverrideCursor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OverrideCursor"])
 
 	Func setOverrideCursor P1
-		dnRequest("set",[self,"OverrideCursor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OverrideCursor",P1])
 		return self
 
 	Func getLeftButton
-		return dnRequest("get",[self,"LeftButton"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LeftButton"])
 
 	Func setLeftButton P1
 		raise("DotNet Error: LeftButton is a read-only property")
 
 	Func getRightButton
-		return dnRequest("get",[self,"RightButton"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightButton"])
 
 	Func setRightButton P1
 		raise("DotNet Error: RightButton is a read-only property")
 
 	Func getMiddleButton
-		return dnRequest("get",[self,"MiddleButton"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MiddleButton"])
 
 	Func setMiddleButton P1
 		raise("DotNet Error: MiddleButton is a read-only property")
 
 	Func getXButton1
-		return dnRequest("get",[self,"XButton1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XButton1"])
 
 	Func setXButton1 P1
 		raise("DotNet Error: XButton1 is a read-only property")
 
 	Func getXButton2
-		return dnRequest("get",[self,"XButton2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XButton2"])
 
 	Func setXButton2 P1
 		raise("DotNet Error: XButton2 is a read-only property")

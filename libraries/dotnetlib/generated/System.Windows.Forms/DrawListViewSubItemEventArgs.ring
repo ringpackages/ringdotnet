@@ -25,81 +25,81 @@ Class DrawListViewSubItemEventArgs from EventArgs
 		return self
 
 	Func DrawBackground 
-		dnRequest("call",[self,"DrawBackground"])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground"])
 		return self
 
 	Func DrawFocusRectangle P1
-		dnRequest("call",[self,"DrawFocusRectangle",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawFocusRectangle",P1])
 		return self
 
 	Func DrawText P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"DrawText",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawText",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"DrawText"])
+			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[self,"DrawText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
 	Func DrawText_1 P1
-		dnRequest("call",[self,"DrawText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getItem
-		return dnRequest("get",[self,"Item"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getSubItem
-		return dnRequest("get",[self,"SubItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubItem"])
 
 	Func setSubItem P1
 		raise("DotNet Error: SubItem is a read-only property")
 
 	Func getItemIndex
-		return dnRequest("get",[self,"ItemIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemIndex"])
 
 	Func setItemIndex P1
 		raise("DotNet Error: ItemIndex is a read-only property")
 
 	Func getColumnIndex
-		return dnRequest("get",[self,"ColumnIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getHeader
-		return dnRequest("get",[self,"Header"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
 
 	Func setHeader P1
 		raise("DotNet Error: Header is a read-only property")
 
 	Func getItemState
-		return dnRequest("get",[self,"ItemState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemState"])
 
 	Func setItemState P1
 		raise("DotNet Error: ItemState is a read-only property")
 
 	Func getDrawDefault
-		return dnRequest("get",[self,"DrawDefault"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DrawDefault"])
 
 	Func setDrawDefault P1
-		dnRequest("set",[self,"DrawDefault",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DrawDefault",P1])
 		return self
 

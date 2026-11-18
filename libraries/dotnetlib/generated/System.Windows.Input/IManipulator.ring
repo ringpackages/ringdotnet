@@ -16,22 +16,22 @@ Class IManipulator from DotNetObject
 		return self
 
 	Func GetPosition P1
-		return dnRequest("call",[self,"GetPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPosition",P1])
 
 	Func ManipulationEnded P1
-		dnRequest("call",[self,"ManipulationEnded",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ManipulationEnded",P1])
 		return self
 
 	Func setUpdatedEvent P1
-		dnRequest("setevent",[self,"Updated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Updated",dnCallback(P1)])
 		return self
 
 	Func clearUpdatedEvent
-		dnRequest("clearevent",[self,"Updated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Updated"])
 		return self
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")

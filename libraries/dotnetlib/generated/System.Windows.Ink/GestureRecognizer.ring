@@ -21,21 +21,21 @@ Class GestureRecognizer from DependencyObject
 		return self
 
 	Func SetEnabledGestures P1
-		dnRequest("call",[self,"SetEnabledGestures",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetEnabledGestures",P1])
 		return self
 
 	Func GetEnabledGestures 
-		return dnRequest("call",[self,"GetEnabledGestures"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnabledGestures"])
 
 	Func Recognize P1
-		return dnRequest("call",[self,"Recognize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Recognize",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func getIsRecognizerAvailable
-		return dnRequest("get",[self,"IsRecognizerAvailable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRecognizerAvailable"])
 
 	Func setIsRecognizerAvailable P1
 		raise("DotNet Error: IsRecognizerAvailable is a read-only property")

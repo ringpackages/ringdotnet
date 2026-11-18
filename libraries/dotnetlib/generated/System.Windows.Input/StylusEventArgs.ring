@@ -19,31 +19,31 @@ Class StylusEventArgs from InputEventArgs
 		return self
 
 	Func GetPosition P1
-		return dnRequest("call",[self,"GetPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPosition",P1])
 
 	Func GetStylusPoints P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetStylusPoints",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStylusPoints",P1])
 		ok
-		return dnRequest("call",[self,"GetStylusPoints",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStylusPoints",P1])
 
 	Func GetStylusPoints_2 P1,P2
-		return dnRequest("call",[self,"GetStylusPoints",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStylusPoints",P1,P2])
 
 	Func getStylusDevice
-		return dnRequest("get",[self,"StylusDevice"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylusDevice"])
 
 	Func setStylusDevice P1
 		raise("DotNet Error: StylusDevice is a read-only property")
 
 	Func getInAir
-		return dnRequest("get",[self,"InAir"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InAir"])
 
 	Func setInAir P1
 		raise("DotNet Error: InAir is a read-only property")
 
 	Func getInverted
-		return dnRequest("get",[self,"Inverted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inverted"])
 
 	Func setInverted P1
 		raise("DotNet Error: Inverted is a read-only property")

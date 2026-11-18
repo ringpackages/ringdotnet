@@ -16,25 +16,25 @@ Class IConventionComplexPropertyBuilder from DotNetObject
 		return self
 
 	Func IsRequired_2 P1,P2
-		return dnRequest("call",[self,"IsRequired",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsRequired",P1,P2])
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsRequired",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsRequired",P1])
 		ok
-		return dnRequest("call",[self,"IsRequired",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsRequired",P1])
 
 	Func CanSetIsRequired_2 P1,P2
-		return dnRequest("call",[self,"CanSetIsRequired",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsRequired",P1,P2])
 
 	Func CanSetIsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetIsRequired",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetIsRequired",P1])
 		ok
-		return dnRequest("call",[self,"CanSetIsRequired",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsRequired",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

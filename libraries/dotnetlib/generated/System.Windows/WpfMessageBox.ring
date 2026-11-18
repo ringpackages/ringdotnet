@@ -14,7 +14,7 @@ Class WpfMessageBox from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Show_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1,P2,P3,P4,P5,P6])

@@ -17,9 +17,9 @@ Class PKCS1MaskGenerationMethod from MaskGenerationMethod
 		return self
 
 	Func getHashName
-		return dnRequest("get",[self,"HashName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashName"])
 
 	Func setHashName P1
-		dnRequest("set",[self,"HashName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HashName",P1])
 		return self
 

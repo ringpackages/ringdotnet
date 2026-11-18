@@ -32,111 +32,111 @@ Class ContainerVisual from Visual
 
 	Func HitTest P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HitTest",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
 		ok
-		return dnRequest("call",[self,"HitTest",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
 
 	Func HitTest_3 P1,P2,P3
-		dnRequest("call",[self,"HitTest",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2,P3])
 		return self
 
 	Func getChildren
-		return dnRequest("get",[self,"Children"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getClip
-		return dnRequest("get",[self,"Clip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Clip"])
 
 	Func setClip P1
-		dnRequest("set",[self,"Clip",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Clip",P1])
 		return self
 
 	Func getOpacity
-		return dnRequest("get",[self,"Opacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Opacity"])
 
 	Func setOpacity P1
-		dnRequest("set",[self,"Opacity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Opacity",P1])
 		return self
 
 	Func getOpacityMask
-		return dnRequest("get",[self,"OpacityMask"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OpacityMask"])
 
 	Func setOpacityMask P1
-		dnRequest("set",[self,"OpacityMask",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OpacityMask",P1])
 		return self
 
 	Func getCacheMode
-		return dnRequest("get",[self,"CacheMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CacheMode"])
 
 	Func setCacheMode P1
-		dnRequest("set",[self,"CacheMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CacheMode",P1])
 		return self
 
 	Func getBitmapEffect
-		return dnRequest("get",[self,"BitmapEffect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BitmapEffect"])
 
 	Func setBitmapEffect P1
-		dnRequest("set",[self,"BitmapEffect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BitmapEffect",P1])
 		return self
 
 	Func getBitmapEffectInput
-		return dnRequest("get",[self,"BitmapEffectInput"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BitmapEffectInput"])
 
 	Func setBitmapEffectInput P1
-		dnRequest("set",[self,"BitmapEffectInput",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BitmapEffectInput",P1])
 		return self
 
 	Func getEffect
-		return dnRequest("get",[self,"Effect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Effect"])
 
 	Func setEffect P1
-		dnRequest("set",[self,"Effect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Effect",P1])
 		return self
 
 	Func getXSnappingGuidelines
-		return dnRequest("get",[self,"XSnappingGuidelines"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XSnappingGuidelines"])
 
 	Func setXSnappingGuidelines P1
-		dnRequest("set",[self,"XSnappingGuidelines",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XSnappingGuidelines",P1])
 		return self
 
 	Func getYSnappingGuidelines
-		return dnRequest("get",[self,"YSnappingGuidelines"])
+		return dnRequest("get",[new DotNetObject(nHandle),"YSnappingGuidelines"])
 
 	Func setYSnappingGuidelines P1
-		dnRequest("set",[self,"YSnappingGuidelines",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"YSnappingGuidelines",P1])
 		return self
 
 	Func getContentBounds
-		return dnRequest("get",[self,"ContentBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentBounds"])
 
 	Func setContentBounds P1
 		raise("DotNet Error: ContentBounds is a read-only property")
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
 
 	Func setOffset P1
-		dnRequest("set",[self,"Offset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Offset",P1])
 		return self
 
 	Func getDescendantBounds
-		return dnRequest("get",[self,"DescendantBounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DescendantBounds"])
 
 	Func setDescendantBounds P1
 		raise("DotNet Error: DescendantBounds is a read-only property")

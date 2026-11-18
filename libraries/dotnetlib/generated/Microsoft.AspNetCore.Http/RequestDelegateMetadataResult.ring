@@ -17,12 +17,12 @@ Class RequestDelegateMetadataResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEndpointMetadata
-		return dnRequest("get",[self,"EndpointMetadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EndpointMetadata"])
 
 	Func setEndpointMetadata P1
-		dnRequest("set",[self,"EndpointMetadata",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EndpointMetadata",P1])
 		return self
 

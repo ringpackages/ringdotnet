@@ -19,26 +19,26 @@ Class ExecutionStrategyDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
-		dnRequest("set",[self,"Options",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Options",P1])
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[self,"CurrentContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentContext"])
 
 	Func setCurrentContext P1
-		dnRequest("set",[self,"CurrentContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentContext",P1])
 		return self
 
 	Func getLogger
-		return dnRequest("get",[self,"Logger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
 
 	Func setLogger P1
-		dnRequest("set",[self,"Logger",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Logger",P1])
 		return self
 

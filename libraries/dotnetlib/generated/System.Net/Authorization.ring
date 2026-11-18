@@ -29,37 +29,37 @@ Class Authorization from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMessage
-		return dnRequest("get",[self,"Message"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Message"])
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
 
 	Func getConnectionGroupId
-		return dnRequest("get",[self,"ConnectionGroupId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionGroupId"])
 
 	Func setConnectionGroupId P1
 		raise("DotNet Error: ConnectionGroupId is a read-only property")
 
 	Func getComplete
-		return dnRequest("get",[self,"Complete"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Complete"])
 
 	Func setComplete P1
 		raise("DotNet Error: Complete is a read-only property")
 
 	Func getProtectionRealm
-		return dnRequest("get",[self,"ProtectionRealm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProtectionRealm"])
 
 	Func setProtectionRealm P1
-		dnRequest("set",[self,"ProtectionRealm",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProtectionRealm",P1])
 		return self
 
 	Func getMutuallyAuthenticated
-		return dnRequest("get",[self,"MutuallyAuthenticated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MutuallyAuthenticated"])
 
 	Func setMutuallyAuthenticated P1
-		dnRequest("set",[self,"MutuallyAuthenticated",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MutuallyAuthenticated",P1])
 		return self
 

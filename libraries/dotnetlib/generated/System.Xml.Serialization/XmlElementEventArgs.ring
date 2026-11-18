@@ -20,31 +20,31 @@ Class XmlElementEventArgs from EventArgs
 		return self
 
 	Func getObjectBeingDeserialized
-		return dnRequest("get",[self,"ObjectBeingDeserialized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ObjectBeingDeserialized"])
 
 	Func setObjectBeingDeserialized P1
 		raise("DotNet Error: ObjectBeingDeserialized is a read-only property")
 
 	Func getElement
-		return dnRequest("get",[self,"Element"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Element"])
 
 	Func setElement P1
 		raise("DotNet Error: Element is a read-only property")
 
 	Func getLineNumber
-		return dnRequest("get",[self,"LineNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineNumber"])
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		return dnRequest("get",[self,"LinePosition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinePosition"])
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
 
 	Func getExpectedElements
-		return dnRequest("get",[self,"ExpectedElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExpectedElements"])
 
 	Func setExpectedElements P1
 		raise("DotNet Error: ExpectedElements is a read-only property")

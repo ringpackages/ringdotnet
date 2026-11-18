@@ -14,7 +14,7 @@ Class RelationalExecutionStrategyExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ExecuteInTransaction P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransaction",P1,P2,P3,P4])

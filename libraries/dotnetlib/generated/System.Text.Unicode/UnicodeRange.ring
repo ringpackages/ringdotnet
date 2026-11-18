@@ -18,19 +18,19 @@ Class UnicodeRange from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Unicode.UnicodeRange, System.Text.Encodings.Web'),"Create",P1,P2])
 
 	Func getFirstCodePoint
-		return dnRequest("get",[self,"FirstCodePoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstCodePoint"])
 
 	Func setFirstCodePoint P1
 		raise("DotNet Error: FirstCodePoint is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

@@ -14,11 +14,11 @@ Class IXmlNamespaceResolver from DotNetObject
 		return self
 
 	Func GetNamespacesInScope P1
-		return dnRequest("call",[self,"GetNamespacesInScope",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNamespacesInScope",P1])
 
 	Func LookupNamespace P1
-		return dnRequest("call",[self,"LookupNamespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LookupNamespace",P1])
 
 	Func LookupPrefix P1
-		return dnRequest("call",[self,"LookupPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LookupPrefix",P1])
 

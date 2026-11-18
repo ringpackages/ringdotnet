@@ -21,35 +21,35 @@ Class XmlSchemaSimpleContentRestriction from XmlSchemaContent
 		return self
 
 	Func getBaseTypeName
-		return dnRequest("get",[self,"BaseTypeName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseTypeName"])
 
 	Func setBaseTypeName P1
-		dnRequest("set",[self,"BaseTypeName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseTypeName",P1])
 		return self
 
 	Func getBaseType
-		return dnRequest("get",[self,"BaseType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseType"])
 
 	Func setBaseType P1
-		dnRequest("set",[self,"BaseType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseType",P1])
 		return self
 
 	Func getFacets
-		return dnRequest("get",[self,"Facets"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Facets"])
 
 	Func setFacets P1
 		raise("DotNet Error: Facets is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[self,"AnyAttribute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AnyAttribute"])
 
 	Func setAnyAttribute P1
-		dnRequest("set",[self,"AnyAttribute",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AnyAttribute",P1])
 		return self
 

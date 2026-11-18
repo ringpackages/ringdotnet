@@ -15,11 +15,11 @@ Class QueryTranslationPreprocessor from Object
 		return self
 
 	Func Process P1
-		return dnRequest("call",[self,"Process",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Process",P1])
 
 	Func NormalizeQueryableMethod P1
-		return dnRequest("call",[self,"NormalizeQueryableMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NormalizeQueryableMethod",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

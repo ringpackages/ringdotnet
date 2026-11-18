@@ -19,19 +19,19 @@ Class AsyncCompletedEventArgs from EventArgs
 		return self
 
 	Func getCancelled
-		return dnRequest("get",[self,"Cancelled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cancelled"])
 
 	Func setCancelled P1
 		raise("DotNet Error: Cancelled is a read-only property")
 
 	Func getError
-		return dnRequest("get",[self,"Error"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Error"])
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")
 
 	Func getUserState
-		return dnRequest("get",[self,"UserState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserState"])
 
 	Func setUserState P1
 		raise("DotNet Error: UserState is a read-only property")

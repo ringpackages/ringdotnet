@@ -27,19 +27,19 @@ Class DataGridCellInfo from ValueType
 		return self
 
 	Func getItem
-		return dnRequest("get",[self,"Item"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getColumn
-		return dnRequest("get",[self,"Column"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getIsValid
-		return dnRequest("get",[self,"IsValid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsValid"])
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")

@@ -14,16 +14,16 @@ Class TableLayoutColumnStyleCollection from TableLayoutStyleCollection
 		return self
 
 	Func Insert P1,P2
-		dnRequest("call",[self,"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 

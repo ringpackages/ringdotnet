@@ -18,19 +18,19 @@ Class LingerOption from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[self,"Enabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
 		return self
 
 	Func getLingerTime
-		return dnRequest("get",[self,"LingerTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LingerTime"])
 
 	Func setLingerTime P1
-		dnRequest("set",[self,"LingerTime",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LingerTime",P1])
 		return self
 

@@ -16,10 +16,10 @@ Class MatcherPolicy from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")

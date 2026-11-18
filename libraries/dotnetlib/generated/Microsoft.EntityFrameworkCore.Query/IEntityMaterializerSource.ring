@@ -14,14 +14,14 @@ Class IEntityMaterializerSource from DotNetObject
 		return self
 
 	Func CreateMaterializeExpression_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateMaterializeExpression",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateMaterializeExpression",P1,P2,P3])
 
 	Func CreateMaterializeExpression P1,P2
-		return dnRequest("call",[self,"CreateMaterializeExpression",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateMaterializeExpression",P1,P2])
 
 	Func GetMaterializer P1
-		return dnRequest("call",[self,"GetMaterializer",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaterializer",P1])
 
 	Func GetEmptyMaterializer P1
-		return dnRequest("call",[self,"GetEmptyMaterializer",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEmptyMaterializer",P1])
 

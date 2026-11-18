@@ -20,34 +20,34 @@ Class PowerStatus from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPowerLineStatus
-		return dnRequest("get",[self,"PowerLineStatus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PowerLineStatus"])
 
 	Func setPowerLineStatus P1
 		raise("DotNet Error: PowerLineStatus is a read-only property")
 
 	Func getBatteryChargeStatus
-		return dnRequest("get",[self,"BatteryChargeStatus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BatteryChargeStatus"])
 
 	Func setBatteryChargeStatus P1
 		raise("DotNet Error: BatteryChargeStatus is a read-only property")
 
 	Func getBatteryFullLifetime
-		return dnRequest("get",[self,"BatteryFullLifetime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BatteryFullLifetime"])
 
 	Func setBatteryFullLifetime P1
 		raise("DotNet Error: BatteryFullLifetime is a read-only property")
 
 	Func getBatteryLifePercent
-		return dnRequest("get",[self,"BatteryLifePercent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BatteryLifePercent"])
 
 	Func setBatteryLifePercent P1
 		raise("DotNet Error: BatteryLifePercent is a read-only property")
 
 	Func getBatteryLifeRemaining
-		return dnRequest("get",[self,"BatteryLifeRemaining"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BatteryLifeRemaining"])
 
 	Func setBatteryLifeRemaining P1
 		raise("DotNet Error: BatteryLifeRemaining is a read-only property")

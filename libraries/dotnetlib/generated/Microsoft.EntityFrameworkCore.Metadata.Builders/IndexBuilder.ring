@@ -17,28 +17,28 @@ Class IndexBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func IsUnique_1 P1
-		return dnRequest("call",[self,"IsUnique",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUnique",P1])
 
 	Func IsUnique P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsUnique",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsUnique",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsUnique"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsUnique"])
 		ok
-		return dnRequest("call",[self,"IsUnique",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUnique",P1])
 
 	Func IsDescending P1
-		return dnRequest("call",[self,"IsDescending",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDescending",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

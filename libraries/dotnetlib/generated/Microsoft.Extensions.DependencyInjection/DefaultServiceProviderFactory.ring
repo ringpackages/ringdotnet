@@ -19,11 +19,11 @@ Class DefaultServiceProviderFactory from Object
 		return self
 
 	Func CreateBuilder P1
-		return dnRequest("call",[self,"CreateBuilder",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateBuilder",P1])
 
 	Func CreateServiceProvider P1
-		return dnRequest("call",[self,"CreateServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateServiceProvider",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

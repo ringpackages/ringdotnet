@@ -18,16 +18,16 @@ Class Transform3D from GeneralTransform3D
 		return self
 
 	Func GetValue_1 P1
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func getIsAffine
-		return dnRequest("get",[self,"IsAffine"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAffine"])
 
 	Func setIsAffine P1
 		raise("DotNet Error: IsAffine is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func getIdentity
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Media3D.Transform3D, PresentationCore'),"Identity"])

@@ -14,7 +14,7 @@ Class Volatile from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Read P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Volatile, System.Private.CoreLib'),"Read",P1])

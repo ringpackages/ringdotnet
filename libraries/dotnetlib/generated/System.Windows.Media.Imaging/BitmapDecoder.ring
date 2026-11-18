@@ -23,7 +23,7 @@ Class BitmapDecoder from DispatcherObject
 		return self
 
 	Func CreateInPlaceBitmapMetadataWriter 
-		return dnRequest("call",[self,"CreateInPlaceBitmapMetadataWriter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInPlaceBitmapMetadataWriter"])
 
 	Func Create P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"Create",P1,P2,P3])
@@ -32,73 +32,73 @@ Class BitmapDecoder from DispatcherObject
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"Create",P1,P2,P3,P4])
 
 	Func setDownloadCompletedEvent P1
-		dnRequest("setevent",[self,"DownloadCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadCompletedEvent
-		dnRequest("clearevent",[self,"DownloadCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadCompleted"])
 		return self
 
 	Func setDownloadProgressEvent P1
-		dnRequest("setevent",[self,"DownloadProgress",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadProgress",dnCallback(P1)])
 		return self
 
 	Func clearDownloadProgressEvent
-		dnRequest("clearevent",[self,"DownloadProgress"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadProgress"])
 		return self
 
 	Func setDownloadFailedEvent P1
-		dnRequest("setevent",[self,"DownloadFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadFailed",dnCallback(P1)])
 		return self
 
 	Func clearDownloadFailedEvent
-		dnRequest("clearevent",[self,"DownloadFailed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadFailed"])
 		return self
 
 	Func getPalette
-		return dnRequest("get",[self,"Palette"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Palette"])
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getColorContexts
-		return dnRequest("get",[self,"ColorContexts"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColorContexts"])
 
 	Func setColorContexts P1
 		raise("DotNet Error: ColorContexts is a read-only property")
 
 	Func getThumbnail
-		return dnRequest("get",[self,"Thumbnail"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Thumbnail"])
 
 	Func setThumbnail P1
 		raise("DotNet Error: Thumbnail is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getCodecInfo
-		return dnRequest("get",[self,"CodecInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CodecInfo"])
 
 	Func setCodecInfo P1
 		raise("DotNet Error: CodecInfo is a read-only property")
 
 	Func getFrames
-		return dnRequest("get",[self,"Frames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Frames"])
 
 	Func setFrames P1
 		raise("DotNet Error: Frames is a read-only property")
 
 	Func getPreview
-		return dnRequest("get",[self,"Preview"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Preview"])
 
 	Func setPreview P1
 		raise("DotNet Error: Preview is a read-only property")
 
 	Func getIsDownloading
-		return dnRequest("get",[self,"IsDownloading"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDownloading"])
 
 	Func setIsDownloading P1
 		raise("DotNet Error: IsDownloading is a read-only property")

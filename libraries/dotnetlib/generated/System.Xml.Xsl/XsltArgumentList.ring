@@ -15,37 +15,37 @@ Class XsltArgumentList from Object
 		return self
 
 	Func GetParam P1,P2
-		return dnRequest("call",[self,"GetParam",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetParam",P1,P2])
 
 	Func GetExtensionObject P1
-		return dnRequest("call",[self,"GetExtensionObject",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetExtensionObject",P1])
 
 	Func AddParam P1,P2,P3
-		dnRequest("call",[self,"AddParam",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AddParam",P1,P2,P3])
 		return self
 
 	Func AddExtensionObject P1,P2
-		dnRequest("call",[self,"AddExtensionObject",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddExtensionObject",P1,P2])
 		return self
 
 	Func RemoveParam P1,P2
-		return dnRequest("call",[self,"RemoveParam",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveParam",P1,P2])
 
 	Func RemoveExtensionObject P1
-		return dnRequest("call",[self,"RemoveExtensionObject",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveExtensionObject",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setXsltMessageEncounteredEvent P1
-		dnRequest("setevent",[self,"XsltMessageEncountered",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"XsltMessageEncountered",dnCallback(P1)])
 		return self
 
 	Func clearXsltMessageEncounteredEvent
-		dnRequest("clearevent",[self,"XsltMessageEncountered"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"XsltMessageEncountered"])
 		return self
 

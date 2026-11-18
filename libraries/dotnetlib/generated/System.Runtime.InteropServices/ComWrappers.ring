@@ -14,19 +14,19 @@ Class ComWrappers from Object
 		return self
 
 	Func GetOrCreateComInterfaceForObject P1,P2
-		return dnRequest("call",[self,"GetOrCreateComInterfaceForObject",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrCreateComInterfaceForObject",P1,P2])
 
 	Func GetOrCreateObjectForComInstance P1,P2
-		return dnRequest("call",[self,"GetOrCreateObjectForComInstance",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrCreateObjectForComInstance",P1,P2])
 
 	Func GetOrRegisterObjectForComInstance P1,P2,P3
-		return dnRequest("call",[self,"GetOrRegisterObjectForComInstance",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrRegisterObjectForComInstance",P1,P2,P3])
 
 	Func GetOrRegisterObjectForComInstance_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"GetOrRegisterObjectForComInstance",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrRegisterObjectForComInstance",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func TryGetComInstance P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"TryGetComInstance",P1])

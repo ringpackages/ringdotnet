@@ -28,104 +28,104 @@ Class ViewComponent from Object
 		return self
 
 	Func Content P1
-		return dnRequest("call",[self,"Content",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Content",P1])
 
 	Func View P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"View",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"View",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"View"])
+			return dnRequest("call",[new DotNetObject(nHandle),"View"])
 		ok
-		return dnRequest("call",[self,"View",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"View",P1])
 
 	Func View_1 P1
-		return dnRequest("call",[self,"View",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"View",P1])
 
 	Func View_2 P1,P2
-		return dnRequest("call",[self,"View",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"View",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRequest
-		return dnRequest("get",[self,"Request"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Request"])
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[self,"User"])
+		return dnRequest("get",[new DotNetObject(nHandle),"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getUserClaimsPrincipal
-		return dnRequest("get",[self,"UserClaimsPrincipal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserClaimsPrincipal"])
 
 	Func setUserClaimsPrincipal P1
 		raise("DotNet Error: UserClaimsPrincipal is a read-only property")
 
 	Func getRouteData
-		return dnRequest("get",[self,"RouteData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteData"])
 
 	Func setRouteData P1
 		raise("DotNet Error: RouteData is a read-only property")
 
 	Func getViewBag
-		return dnRequest("get",[self,"ViewBag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewBag"])
 
 	Func setViewBag P1
 		raise("DotNet Error: ViewBag is a read-only property")
 
 	Func getModelState
-		return dnRequest("get",[self,"ModelState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelState"])
 
 	Func setModelState P1
 		raise("DotNet Error: ModelState is a read-only property")
 
 	Func getUrl
-		return dnRequest("get",[self,"Url"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
 
 	Func setUrl P1
-		dnRequest("set",[self,"Url",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Url",P1])
 		return self
 
 	Func getViewComponentContext
-		return dnRequest("get",[self,"ViewComponentContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewComponentContext"])
 
 	Func setViewComponentContext P1
-		dnRequest("set",[self,"ViewComponentContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewComponentContext",P1])
 		return self
 
 	Func getViewContext
-		return dnRequest("get",[self,"ViewContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewContext"])
 
 	Func setViewContext P1
 		raise("DotNet Error: ViewContext is a read-only property")
 
 	Func getViewData
-		return dnRequest("get",[self,"ViewData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewData"])
 
 	Func setViewData P1
 		raise("DotNet Error: ViewData is a read-only property")
 
 	Func getTempData
-		return dnRequest("get",[self,"TempData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TempData"])
 
 	Func setTempData P1
 		raise("DotNet Error: TempData is a read-only property")
 
 	Func getViewEngine
-		return dnRequest("get",[self,"ViewEngine"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ViewEngine"])
 
 	Func setViewEngine P1
-		dnRequest("set",[self,"ViewEngine",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ViewEngine",P1])
 		return self
 

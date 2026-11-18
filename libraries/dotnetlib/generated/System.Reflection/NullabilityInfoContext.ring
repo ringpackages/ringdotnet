@@ -15,8 +15,8 @@ Class NullabilityInfoContext from Object
 		return self
 
 	Func Create P1
-		return dnRequest("call",[self,"Create",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

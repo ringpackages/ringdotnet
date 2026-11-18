@@ -14,134 +14,134 @@ Class IDbTransactionInterceptor from DotNetObject
 		return self
 
 	Func TransactionStarting P1,P2,P3
-		return dnRequest("call",[self,"TransactionStarting",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStarting",P1,P2,P3])
 
 	Func TransactionStarted P1,P2,P3
-		return dnRequest("call",[self,"TransactionStarted",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStarted",P1,P2,P3])
 
 	Func TransactionStartingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"TransactionStartingAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartingAsync",P1,P2,P3,P4])
 
 	Func TransactionStartingAsync P1,P2,P3
-		return dnRequest("call",[self,"TransactionStartingAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartingAsync",P1,P2,P3])
 
 	Func TransactionStartedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"TransactionStartedAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartedAsync",P1,P2,P3,P4])
 
 	Func TransactionStartedAsync P1,P2,P3
-		return dnRequest("call",[self,"TransactionStartedAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartedAsync",P1,P2,P3])
 
 	Func TransactionUsed P1,P2,P3
-		return dnRequest("call",[self,"TransactionUsed",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionUsed",P1,P2,P3])
 
 	Func TransactionUsedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"TransactionUsedAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionUsedAsync",P1,P2,P3,P4])
 
 	Func TransactionUsedAsync P1,P2,P3
-		return dnRequest("call",[self,"TransactionUsedAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionUsedAsync",P1,P2,P3])
 
 	Func TransactionCommitting P1,P2,P3
-		return dnRequest("call",[self,"TransactionCommitting",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommitting",P1,P2,P3])
 
 	Func TransactionCommitted P1,P2
-		dnRequest("call",[self,"TransactionCommitted",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TransactionCommitted",P1,P2])
 		return self
 
 	Func TransactionCommittingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"TransactionCommittingAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittingAsync",P1,P2,P3,P4])
 
 	Func TransactionCommittingAsync P1,P2,P3
-		return dnRequest("call",[self,"TransactionCommittingAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittingAsync",P1,P2,P3])
 
 	Func TransactionCommittedAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"TransactionCommittedAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittedAsync",P1,P2,P3])
 
 	Func TransactionCommittedAsync P1,P2
-		return dnRequest("call",[self,"TransactionCommittedAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittedAsync",P1,P2])
 
 	Func TransactionRollingBack P1,P2,P3
-		return dnRequest("call",[self,"TransactionRollingBack",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRollingBack",P1,P2,P3])
 
 	Func TransactionRolledBack P1,P2
-		dnRequest("call",[self,"TransactionRolledBack",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TransactionRolledBack",P1,P2])
 		return self
 
 	Func TransactionRollingBackAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"TransactionRollingBackAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRollingBackAsync",P1,P2,P3,P4])
 
 	Func TransactionRollingBackAsync P1,P2,P3
-		return dnRequest("call",[self,"TransactionRollingBackAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRollingBackAsync",P1,P2,P3])
 
 	Func TransactionRolledBackAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"TransactionRolledBackAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRolledBackAsync",P1,P2,P3])
 
 	Func TransactionRolledBackAsync P1,P2
-		return dnRequest("call",[self,"TransactionRolledBackAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRolledBackAsync",P1,P2])
 
 	Func CreatingSavepoint P1,P2,P3
-		return dnRequest("call",[self,"CreatingSavepoint",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatingSavepoint",P1,P2,P3])
 
 	Func CreatedSavepoint P1,P2
-		dnRequest("call",[self,"CreatedSavepoint",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CreatedSavepoint",P1,P2])
 		return self
 
 	Func CreatingSavepointAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"CreatingSavepointAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatingSavepointAsync",P1,P2,P3,P4])
 
 	Func CreatingSavepointAsync P1,P2,P3
-		return dnRequest("call",[self,"CreatingSavepointAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatingSavepointAsync",P1,P2,P3])
 
 	Func CreatedSavepointAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"CreatedSavepointAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatedSavepointAsync",P1,P2,P3])
 
 	Func CreatedSavepointAsync P1,P2
-		return dnRequest("call",[self,"CreatedSavepointAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatedSavepointAsync",P1,P2])
 
 	Func RollingBackToSavepoint P1,P2,P3
-		return dnRequest("call",[self,"RollingBackToSavepoint",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollingBackToSavepoint",P1,P2,P3])
 
 	Func RolledBackToSavepoint P1,P2
-		dnRequest("call",[self,"RolledBackToSavepoint",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RolledBackToSavepoint",P1,P2])
 		return self
 
 	Func RollingBackToSavepointAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"RollingBackToSavepointAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollingBackToSavepointAsync",P1,P2,P3,P4])
 
 	Func RollingBackToSavepointAsync P1,P2,P3
-		return dnRequest("call",[self,"RollingBackToSavepointAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollingBackToSavepointAsync",P1,P2,P3])
 
 	Func RolledBackToSavepointAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"RolledBackToSavepointAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RolledBackToSavepointAsync",P1,P2,P3])
 
 	Func RolledBackToSavepointAsync P1,P2
-		return dnRequest("call",[self,"RolledBackToSavepointAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RolledBackToSavepointAsync",P1,P2])
 
 	Func ReleasingSavepoint P1,P2,P3
-		return dnRequest("call",[self,"ReleasingSavepoint",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleasingSavepoint",P1,P2,P3])
 
 	Func ReleasedSavepoint P1,P2
-		dnRequest("call",[self,"ReleasedSavepoint",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleasedSavepoint",P1,P2])
 		return self
 
 	Func ReleasingSavepointAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ReleasingSavepointAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleasingSavepointAsync",P1,P2,P3,P4])
 
 	Func ReleasingSavepointAsync P1,P2,P3
-		return dnRequest("call",[self,"ReleasingSavepointAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleasingSavepointAsync",P1,P2,P3])
 
 	Func ReleasedSavepointAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"ReleasedSavepointAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleasedSavepointAsync",P1,P2,P3])
 
 	Func ReleasedSavepointAsync P1,P2
-		return dnRequest("call",[self,"ReleasedSavepointAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleasedSavepointAsync",P1,P2])
 
 	Func TransactionFailed P1,P2
-		dnRequest("call",[self,"TransactionFailed",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TransactionFailed",P1,P2])
 		return self
 
 	Func TransactionFailedAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"TransactionFailedAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionFailedAsync",P1,P2,P3])
 
 	Func TransactionFailedAsync P1,P2
-		return dnRequest("call",[self,"TransactionFailedAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransactionFailedAsync",P1,P2])
 

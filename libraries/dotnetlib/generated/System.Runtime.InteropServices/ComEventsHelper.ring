@@ -14,7 +14,7 @@ Class ComEventsHelper from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Combine P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.ComEventsHelper, System.Private.CoreLib'),"Combine",P1,P2,P3,P4])

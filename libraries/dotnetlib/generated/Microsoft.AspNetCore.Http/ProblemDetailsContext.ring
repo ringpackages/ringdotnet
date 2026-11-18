@@ -20,33 +20,33 @@ Class ProblemDetailsContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
 
 	Func setHttpContext P1
-		dnRequest("set",[self,"HttpContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HttpContext",P1])
 		return self
 
 	Func getAdditionalMetadata
-		return dnRequest("get",[self,"AdditionalMetadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AdditionalMetadata"])
 
 	Func setAdditionalMetadata P1
-		dnRequest("set",[self,"AdditionalMetadata",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AdditionalMetadata",P1])
 		return self
 
 	Func getProblemDetails
-		return dnRequest("get",[self,"ProblemDetails"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProblemDetails"])
 
 	Func setProblemDetails P1
-		dnRequest("set",[self,"ProblemDetails",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProblemDetails",P1])
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
-		dnRequest("set",[self,"Exception",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Exception",P1])
 		return self
 

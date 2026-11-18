@@ -22,46 +22,46 @@ Class ExceptionHandlingClause from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFlags
-		return dnRequest("get",[self,"Flags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Flags"])
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
 
 	Func getTryOffset
-		return dnRequest("get",[self,"TryOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TryOffset"])
 
 	Func setTryOffset P1
 		raise("DotNet Error: TryOffset is a read-only property")
 
 	Func getTryLength
-		return dnRequest("get",[self,"TryLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TryLength"])
 
 	Func setTryLength P1
 		raise("DotNet Error: TryLength is a read-only property")
 
 	Func getHandlerOffset
-		return dnRequest("get",[self,"HandlerOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HandlerOffset"])
 
 	Func setHandlerOffset P1
 		raise("DotNet Error: HandlerOffset is a read-only property")
 
 	Func getHandlerLength
-		return dnRequest("get",[self,"HandlerLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HandlerLength"])
 
 	Func setHandlerLength P1
 		raise("DotNet Error: HandlerLength is a read-only property")
 
 	Func getFilterOffset
-		return dnRequest("get",[self,"FilterOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FilterOffset"])
 
 	Func setFilterOffset P1
 		raise("DotNet Error: FilterOffset is a read-only property")
 
 	Func getCatchType
-		return dnRequest("get",[self,"CatchType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CatchType"])
 
 	Func setCatchType P1
 		raise("DotNet Error: CatchType is a read-only property")

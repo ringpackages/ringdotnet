@@ -14,8 +14,8 @@ Class IValueProvider from DotNetObject
 		return self
 
 	Func ContainsPrefix P1
-		return dnRequest("call",[self,"ContainsPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsPrefix",P1])
 
 	Func GetValue P1
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 

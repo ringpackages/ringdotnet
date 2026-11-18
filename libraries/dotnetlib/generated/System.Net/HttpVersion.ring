@@ -20,7 +20,7 @@ Class HttpVersion from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUnknown
 		return dnRequest("get",[dnTypeCached('System.Net.HttpVersion, System.Net.Primitives'),"Unknown"])

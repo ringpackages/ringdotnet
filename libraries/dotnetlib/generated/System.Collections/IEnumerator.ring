@@ -16,14 +16,14 @@ Class IEnumerator from DotNetObject
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[self,"MoveNext"])
+		return dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Current"])
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")

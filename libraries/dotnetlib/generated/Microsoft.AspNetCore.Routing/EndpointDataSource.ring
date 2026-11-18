@@ -16,16 +16,16 @@ Class EndpointDataSource from Object
 		return self
 
 	Func GetChangeToken 
-		return dnRequest("call",[self,"GetChangeToken"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChangeToken"])
 
 	Func GetGroupedEndpoints P1
-		return dnRequest("call",[self,"GetGroupedEndpoints",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGroupedEndpoints",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEndpoints
-		return dnRequest("get",[self,"Endpoints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Endpoints"])
 
 	Func setEndpoints P1
 		raise("DotNet Error: Endpoints is a read-only property")

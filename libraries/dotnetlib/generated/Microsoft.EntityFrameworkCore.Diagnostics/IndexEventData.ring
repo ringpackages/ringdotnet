@@ -19,19 +19,19 @@ Class IndexEventData from EventData
 		return self
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyNames
-		return dnRequest("get",[self,"PropertyNames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyNames"])
 
 	Func setPropertyNames P1
 		raise("DotNet Error: PropertyNames is a read-only property")

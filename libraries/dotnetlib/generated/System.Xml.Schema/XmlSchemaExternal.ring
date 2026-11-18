@@ -19,30 +19,30 @@ Class XmlSchemaExternal from XmlSchemaObject
 		return self
 
 	Func getSchemaLocation
-		return dnRequest("get",[self,"SchemaLocation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaLocation"])
 
 	Func setSchemaLocation P1
-		dnRequest("set",[self,"SchemaLocation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SchemaLocation",P1])
 		return self
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
 
 	Func setSchema P1
-		dnRequest("set",[self,"Schema",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Schema",P1])
 		return self
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
-		dnRequest("set",[self,"Id",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Id",P1])
 		return self
 
 	Func getUnhandledAttributes
-		return dnRequest("get",[self,"UnhandledAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnhandledAttributes"])
 
 	Func setUnhandledAttributes P1
-		dnRequest("set",[self,"UnhandledAttributes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UnhandledAttributes",P1])
 		return self
 

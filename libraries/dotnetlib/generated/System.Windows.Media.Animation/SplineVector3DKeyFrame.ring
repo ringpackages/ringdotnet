@@ -30,10 +30,10 @@ Class SplineVector3DKeyFrame from Vector3DKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[self,"KeySpline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeySpline"])
 
 	Func setKeySpline P1
-		dnRequest("set",[self,"KeySpline",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeySpline",P1])
 		return self
 
 	Func getKeySplineProperty

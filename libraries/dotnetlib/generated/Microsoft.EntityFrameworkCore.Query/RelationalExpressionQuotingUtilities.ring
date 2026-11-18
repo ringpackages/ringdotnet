@@ -14,7 +14,7 @@ Class RelationalExpressionQuotingUtilities from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func QuoteOrNull P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"QuoteOrNull",P1])

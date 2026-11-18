@@ -19,22 +19,22 @@ Class DataObjectPastingEventArgs from DataObjectEventArgs
 		return self
 
 	Func getSourceDataObject
-		return dnRequest("get",[self,"SourceDataObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceDataObject"])
 
 	Func setSourceDataObject P1
 		raise("DotNet Error: SourceDataObject is a read-only property")
 
 	Func getDataObject
-		return dnRequest("get",[self,"DataObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataObject"])
 
 	Func setDataObject P1
-		dnRequest("set",[self,"DataObject",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataObject",P1])
 		return self
 
 	Func getFormatToApply
-		return dnRequest("get",[self,"FormatToApply"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatToApply"])
 
 	Func setFormatToApply P1
-		dnRequest("set",[self,"FormatToApply",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FormatToApply",P1])
 		return self
 

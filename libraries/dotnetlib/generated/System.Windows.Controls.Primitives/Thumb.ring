@@ -21,35 +21,35 @@ Class Thumb from WpfControl
 		return self
 
 	Func CancelDrag 
-		dnRequest("call",[self,"CancelDrag"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelDrag"])
 		return self
 
 	Func setDragStartedEvent P1
-		dnRequest("setevent",[self,"DragStarted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DragStarted",dnCallback(P1)])
 		return self
 
 	Func clearDragStartedEvent
-		dnRequest("clearevent",[self,"DragStarted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DragStarted"])
 		return self
 
 	Func setDragDeltaEvent P1
-		dnRequest("setevent",[self,"DragDelta",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DragDelta",dnCallback(P1)])
 		return self
 
 	Func clearDragDeltaEvent
-		dnRequest("clearevent",[self,"DragDelta"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DragDelta"])
 		return self
 
 	Func setDragCompletedEvent P1
-		dnRequest("setevent",[self,"DragCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DragCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDragCompletedEvent
-		dnRequest("clearevent",[self,"DragCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DragCompleted"])
 		return self
 
 	Func getIsDragging
-		return dnRequest("get",[self,"IsDragging"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDragging"])
 
 	Func setIsDragging P1
 		raise("DotNet Error: IsDragging is a read-only property")

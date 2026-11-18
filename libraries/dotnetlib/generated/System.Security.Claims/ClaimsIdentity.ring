@@ -48,95 +48,95 @@ Class ClaimsIdentity from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func AddClaim P1
-		dnRequest("call",[self,"AddClaim",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddClaim",P1])
 		return self
 
 	Func AddClaims P1
-		dnRequest("call",[self,"AddClaims",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddClaims",P1])
 		return self
 
 	Func TryRemoveClaim P1
-		return dnRequest("call",[self,"TryRemoveClaim",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryRemoveClaim",P1])
 
 	Func RemoveClaim P1
-		dnRequest("call",[self,"RemoveClaim",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveClaim",P1])
 		return self
 
 	Func FindAll P1
-		return dnRequest("call",[self,"FindAll",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindAll",P1])
 
 	Func FindFirst P1
-		return dnRequest("call",[self,"FindFirst",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindFirst",P1])
 
 	Func HasClaim_1 P1
-		return dnRequest("call",[self,"HasClaim",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasClaim",P1])
 
 	Func HasClaim P1,P2
-		return dnRequest("call",[self,"HasClaim",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasClaim",P1,P2])
 
 	Func WriteTo P1
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAuthenticationType
-		return dnRequest("get",[self,"AuthenticationType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationType"])
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")
 
 	Func getIsAuthenticated
-		return dnRequest("get",[self,"IsAuthenticated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAuthenticated"])
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getActor
-		return dnRequest("get",[self,"Actor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Actor"])
 
 	Func setActor P1
-		dnRequest("set",[self,"Actor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Actor",P1])
 		return self
 
 	Func getBootstrapContext
-		return dnRequest("get",[self,"BootstrapContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BootstrapContext"])
 
 	Func setBootstrapContext P1
-		dnRequest("set",[self,"BootstrapContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BootstrapContext",P1])
 		return self
 
 	Func getClaims
-		return dnRequest("get",[self,"Claims"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Claims"])
 
 	Func setClaims P1
 		raise("DotNet Error: Claims is a read-only property")
 
 	Func getLabel
-		return dnRequest("get",[self,"Label"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Label"])
 
 	Func setLabel P1
-		dnRequest("set",[self,"Label",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Label",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getNameClaimType
-		return dnRequest("get",[self,"NameClaimType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NameClaimType"])
 
 	Func setNameClaimType P1
 		raise("DotNet Error: NameClaimType is a read-only property")
 
 	Func getRoleClaimType
-		return dnRequest("get",[self,"RoleClaimType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RoleClaimType"])
 
 	Func setRoleClaimType P1
 		raise("DotNet Error: RoleClaimType is a read-only property")

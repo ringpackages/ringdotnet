@@ -30,25 +30,25 @@ Class Decimal from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
-		return dnRequest("call",[self,"GetTypeCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
 
 	Func FromOACurrency P1
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"FromOACurrency",P1])
@@ -216,7 +216,7 @@ Class Decimal from ValueType
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func getScale
-		return dnRequest("get",[self,"Scale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")

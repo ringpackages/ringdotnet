@@ -45,37 +45,37 @@ Class TimeOnly from ValueType
 		return self
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func AddHours P1
-		return dnRequest("call",[self,"AddHours",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddHours",P1])
 
 	Func AddMinutes P1
-		return dnRequest("call",[self,"AddMinutes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddMinutes",P1])
 
 	Func IsBetween P1,P2
-		return dnRequest("call",[self,"IsBetween",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBetween",P1,P2])
 
 	Func Deconstruct 
-		return dnRequest("call",[self,"Deconstruct"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
 
 	Func ToTimeSpan 
-		return dnRequest("call",[self,"ToTimeSpan"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToTimeSpan"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func ToLongTimeString 
-		return dnRequest("call",[self,"ToLongTimeString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToLongTimeString"])
 
 	Func ToShortTimeString 
-		return dnRequest("call",[self,"ToShortTimeString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToShortTimeString"])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func FromTimeSpan P1
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"FromTimeSpan",P1])
@@ -123,43 +123,43 @@ Class TimeOnly from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func getHour
-		return dnRequest("get",[self,"Hour"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Hour"])
 
 	Func setHour P1
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getMinute
-		return dnRequest("get",[self,"Minute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minute"])
 
 	Func setMinute P1
 		raise("DotNet Error: Minute is a read-only property")
 
 	Func getSecond
-		return dnRequest("get",[self,"Second"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Second"])
 
 	Func setSecond P1
 		raise("DotNet Error: Second is a read-only property")
 
 	Func getMillisecond
-		return dnRequest("get",[self,"Millisecond"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Millisecond"])
 
 	Func setMillisecond P1
 		raise("DotNet Error: Millisecond is a read-only property")
 
 	Func getMicrosecond
-		return dnRequest("get",[self,"Microsecond"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Microsecond"])
 
 	Func setMicrosecond P1
 		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
-		return dnRequest("get",[self,"Nanosecond"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Nanosecond"])
 
 	Func setNanosecond P1
 		raise("DotNet Error: Nanosecond is a read-only property")
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Ticks"])
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")

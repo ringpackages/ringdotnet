@@ -24,25 +24,25 @@ Class ListChangedEventArgs from EventArgs
 		return self
 
 	Func getListChangedType
-		return dnRequest("get",[self,"ListChangedType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ListChangedType"])
 
 	Func setListChangedType P1
 		raise("DotNet Error: ListChangedType is a read-only property")
 
 	Func getNewIndex
-		return dnRequest("get",[self,"NewIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewIndex"])
 
 	Func setNewIndex P1
 		raise("DotNet Error: NewIndex is a read-only property")
 
 	Func getOldIndex
-		return dnRequest("get",[self,"OldIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldIndex"])
 
 	Func setOldIndex P1
 		raise("DotNet Error: OldIndex is a read-only property")
 
 	Func getPropertyDescriptor
-		return dnRequest("get",[self,"PropertyDescriptor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyDescriptor"])
 
 	Func setPropertyDescriptor P1
 		raise("DotNet Error: PropertyDescriptor is a read-only property")

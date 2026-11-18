@@ -14,5 +14,5 @@ Class IContentTypeProvider from DotNetObject
 		return self
 
 	Func TryGetContentType P1
-		return dnRequest("call",[self,"TryGetContentType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetContentType",P1])
 

@@ -18,16 +18,16 @@ Class StylusPointProperty from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsButton
-		return dnRequest("get",[self,"IsButton"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsButton"])
 
 	Func setIsButton P1
 		raise("DotNet Error: IsButton is a read-only property")

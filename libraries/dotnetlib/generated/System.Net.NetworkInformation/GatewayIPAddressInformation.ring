@@ -16,10 +16,10 @@ Class GatewayIPAddressInformation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")

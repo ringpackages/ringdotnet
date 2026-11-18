@@ -17,23 +17,23 @@ Class BufferedGraphicsContext from Object
 		return self
 
 	Func Allocate P1,P2
-		return dnRequest("call",[self,"Allocate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Allocate",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Invalidate 
-		dnRequest("call",[self,"Invalidate"])
+		dnRequest("call",[new DotNetObject(nHandle),"Invalidate"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMaximumBuffer
-		return dnRequest("get",[self,"MaximumBuffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaximumBuffer"])
 
 	Func setMaximumBuffer P1
-		dnRequest("set",[self,"MaximumBuffer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaximumBuffer",P1])
 		return self
 

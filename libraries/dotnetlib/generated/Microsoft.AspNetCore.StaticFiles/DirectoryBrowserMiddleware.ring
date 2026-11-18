@@ -19,8 +19,8 @@ Class DirectoryBrowserMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[self,"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

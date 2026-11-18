@@ -20,33 +20,33 @@ Class WebSocketDeflateOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getClientMaxWindowBits
-		return dnRequest("get",[self,"ClientMaxWindowBits"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientMaxWindowBits"])
 
 	Func setClientMaxWindowBits P1
-		dnRequest("set",[self,"ClientMaxWindowBits",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientMaxWindowBits",P1])
 		return self
 
 	Func getClientContextTakeover
-		return dnRequest("get",[self,"ClientContextTakeover"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientContextTakeover"])
 
 	Func setClientContextTakeover P1
-		dnRequest("set",[self,"ClientContextTakeover",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientContextTakeover",P1])
 		return self
 
 	Func getServerMaxWindowBits
-		return dnRequest("get",[self,"ServerMaxWindowBits"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServerMaxWindowBits"])
 
 	Func setServerMaxWindowBits P1
-		dnRequest("set",[self,"ServerMaxWindowBits",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ServerMaxWindowBits",P1])
 		return self
 
 	Func getServerContextTakeover
-		return dnRequest("get",[self,"ServerContextTakeover"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServerContextTakeover"])
 
 	Func setServerContextTakeover P1
-		dnRequest("set",[self,"ServerContextTakeover",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ServerContextTakeover",P1])
 		return self
 

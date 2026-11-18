@@ -27,35 +27,35 @@ Class DocumentViewerBase from WpfControl
 		return self
 
 	Func PreviousPage 
-		dnRequest("call",[self,"PreviousPage"])
+		dnRequest("call",[new DotNetObject(nHandle),"PreviousPage"])
 		return self
 
 	Func NextPage 
-		dnRequest("call",[self,"NextPage"])
+		dnRequest("call",[new DotNetObject(nHandle),"NextPage"])
 		return self
 
 	Func FirstPage 
-		dnRequest("call",[self,"FirstPage"])
+		dnRequest("call",[new DotNetObject(nHandle),"FirstPage"])
 		return self
 
 	Func LastPage 
-		dnRequest("call",[self,"LastPage"])
+		dnRequest("call",[new DotNetObject(nHandle),"LastPage"])
 		return self
 
 	Func GoToPage P1
-		dnRequest("call",[self,"GoToPage",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"GoToPage",P1])
 		return self
 
 	Func Print 
-		dnRequest("call",[self,"Print"])
+		dnRequest("call",[new DotNetObject(nHandle),"Print"])
 		return self
 
 	Func CancelPrint 
-		dnRequest("call",[self,"CancelPrint"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelPrint"])
 		return self
 
 	Func CanGoToPage P1
-		return dnRequest("call",[self,"CanGoToPage",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanGoToPage",P1])
 
 	Func GetIsMasterPage P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework'),"GetIsMasterPage",P1])
@@ -65,46 +65,46 @@ Class DocumentViewerBase from WpfControl
 		return self
 
 	Func setPageViewsChangedEvent P1
-		dnRequest("setevent",[self,"PageViewsChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PageViewsChanged",dnCallback(P1)])
 		return self
 
 	Func clearPageViewsChangedEvent
-		dnRequest("clearevent",[self,"PageViewsChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PageViewsChanged"])
 		return self
 
 	Func getDocument
-		return dnRequest("get",[self,"Document"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[self,"Document",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
 		return self
 
 	Func getPageCount
-		return dnRequest("get",[self,"PageCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageCount"])
 
 	Func setPageCount P1
 		raise("DotNet Error: PageCount is a read-only property")
 
 	Func getMasterPageNumber
-		return dnRequest("get",[self,"MasterPageNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MasterPageNumber"])
 
 	Func setMasterPageNumber P1
 		raise("DotNet Error: MasterPageNumber is a read-only property")
 
 	Func getCanGoToPreviousPage
-		return dnRequest("get",[self,"CanGoToPreviousPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanGoToPreviousPage"])
 
 	Func setCanGoToPreviousPage P1
 		raise("DotNet Error: CanGoToPreviousPage is a read-only property")
 
 	Func getCanGoToNextPage
-		return dnRequest("get",[self,"CanGoToNextPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanGoToNextPage"])
 
 	Func setCanGoToNextPage P1
 		raise("DotNet Error: CanGoToNextPage is a read-only property")
 
 	Func getPageViews
-		return dnRequest("get",[self,"PageViews"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageViews"])
 
 	Func setPageViews P1
 		raise("DotNet Error: PageViews is a read-only property")

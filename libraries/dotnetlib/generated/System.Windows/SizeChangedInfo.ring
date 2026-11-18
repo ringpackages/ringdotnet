@@ -20,28 +20,28 @@ Class SizeChangedInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPreviousSize
-		return dnRequest("get",[self,"PreviousSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreviousSize"])
 
 	Func setPreviousSize P1
 		raise("DotNet Error: PreviousSize is a read-only property")
 
 	Func getNewSize
-		return dnRequest("get",[self,"NewSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewSize"])
 
 	Func setNewSize P1
 		raise("DotNet Error: NewSize is a read-only property")
 
 	Func getWidthChanged
-		return dnRequest("get",[self,"WidthChanged"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WidthChanged"])
 
 	Func setWidthChanged P1
 		raise("DotNet Error: WidthChanged is a read-only property")
 
 	Func getHeightChanged
-		return dnRequest("get",[self,"HeightChanged"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeightChanged"])
 
 	Func setHeightChanged P1
 		raise("DotNet Error: HeightChanged is a read-only property")

@@ -15,12 +15,12 @@ Class ParameterNameGenerator from Object
 		return self
 
 	Func GenerateNext 
-		return dnRequest("call",[self,"GenerateNext"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateNext"])
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

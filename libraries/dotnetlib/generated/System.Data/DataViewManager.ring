@@ -23,33 +23,33 @@ Class DataViewManager from MarshalByValueComponent
 		return self
 
 	Func CreateDataView P1
-		return dnRequest("call",[self,"CreateDataView",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataView",P1])
 
 	Func setListChangedEvent P1
-		dnRequest("setevent",[self,"ListChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ListChanged",dnCallback(P1)])
 		return self
 
 	Func clearListChangedEvent
-		dnRequest("clearevent",[self,"ListChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ListChanged"])
 		return self
 
 	Func getDataSet
-		return dnRequest("get",[self,"DataSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataSet"])
 
 	Func setDataSet P1
-		dnRequest("set",[self,"DataSet",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataSet",P1])
 		return self
 
 	Func getDataViewSettings
-		return dnRequest("get",[self,"DataViewSettings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataViewSettings"])
 
 	Func setDataViewSettings P1
 		raise("DotNet Error: DataViewSettings is a read-only property")
 
 	Func getDataViewSettingCollectionString
-		return dnRequest("get",[self,"DataViewSettingCollectionString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataViewSettingCollectionString"])
 
 	Func setDataViewSettingCollectionString P1
-		dnRequest("set",[self,"DataViewSettingCollectionString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataViewSettingCollectionString",P1])
 		return self
 

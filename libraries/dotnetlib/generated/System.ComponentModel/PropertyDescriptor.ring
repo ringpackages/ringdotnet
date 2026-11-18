@@ -23,92 +23,92 @@ Class PropertyDescriptor from MemberDescriptor
 		return self
 
 	Func AddValueChanged P1,P2
-		dnRequest("call",[self,"AddValueChanged",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddValueChanged",P1,P2])
 		return self
 
 	Func CanResetValue P1
-		return dnRequest("call",[self,"CanResetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanResetValue",P1])
 
 	Func GetChildProperties P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetChildProperties",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChildProperties",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetChildProperties"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetChildProperties"])
 		ok
-		return dnRequest("call",[self,"GetChildProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChildProperties",P1])
 
 	Func GetChildProperties_1 P1
-		return dnRequest("call",[self,"GetChildProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChildProperties",P1])
 
 	Func GetChildProperties_2 P1,P2
-		return dnRequest("call",[self,"GetChildProperties",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChildProperties",P1,P2])
 
 	Func GetEditor P1
-		return dnRequest("call",[self,"GetEditor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEditor",P1])
 
 	Func GetValue P1
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func RemoveValueChanged P1,P2
-		dnRequest("call",[self,"RemoveValueChanged",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveValueChanged",P1,P2])
 		return self
 
 	Func ResetValue P1
-		dnRequest("call",[self,"ResetValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetValue",P1])
 		return self
 
 	Func SetValue P1,P2
-		dnRequest("call",[self,"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
 	Func ShouldSerializeValue P1
-		return dnRequest("call",[self,"ShouldSerializeValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeValue",P1])
 
 	Func getComponentType
-		return dnRequest("get",[self,"ComponentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ComponentType"])
 
 	Func setComponentType P1
 		raise("DotNet Error: ComponentType is a read-only property")
 
 	Func getConverter
-		return dnRequest("get",[self,"Converter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Converter"])
 
 	Func setConverter P1
 		raise("DotNet Error: Converter is a read-only property")
 
 	Func getConverterFromRegisteredType
-		return dnRequest("get",[self,"ConverterFromRegisteredType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConverterFromRegisteredType"])
 
 	Func setConverterFromRegisteredType P1
 		raise("DotNet Error: ConverterFromRegisteredType is a read-only property")
 
 	Func getIsLocalizable
-		return dnRequest("get",[self,"IsLocalizable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLocalizable"])
 
 	Func setIsLocalizable P1
 		raise("DotNet Error: IsLocalizable is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getSerializationVisibility
-		return dnRequest("get",[self,"SerializationVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SerializationVisibility"])
 
 	Func setSerializationVisibility P1
 		raise("DotNet Error: SerializationVisibility is a read-only property")
 
 	Func getPropertyType
-		return dnRequest("get",[self,"PropertyType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyType"])
 
 	Func setPropertyType P1
 		raise("DotNet Error: PropertyType is a read-only property")
 
 	Func getSupportsChangeEvents
-		return dnRequest("get",[self,"SupportsChangeEvents"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsChangeEvents"])
 
 	Func setSupportsChangeEvents P1
 		raise("DotNet Error: SupportsChangeEvents is a read-only property")

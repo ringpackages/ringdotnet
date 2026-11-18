@@ -14,5 +14,5 @@ Class IXPathNavigable from DotNetObject
 		return self
 
 	Func CreateNavigator 
-		return dnRequest("call",[self,"CreateNavigator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateNavigator"])
 

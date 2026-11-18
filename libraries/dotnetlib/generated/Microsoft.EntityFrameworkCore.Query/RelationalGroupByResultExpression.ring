@@ -23,67 +23,67 @@ Class RelationalGroupByResultExpression from DotNetObject
 		return self
 
 	Func Update P1,P2,P3
-		return dnRequest("call",[self,"Update",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3])
 
 	Func Reduce 
-		return dnRequest("call",[self,"Reduce"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
 
 	Func ReduceAndCheck 
-		return dnRequest("call",[self,"ReduceAndCheck"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
 
 	Func ReduceExtensions 
-		return dnRequest("call",[self,"ReduceExtensions"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getKeyIdentifier
-		return dnRequest("get",[self,"KeyIdentifier"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyIdentifier"])
 
 	Func setKeyIdentifier P1
 		raise("DotNet Error: KeyIdentifier is a read-only property")
 
 	Func getKeyIdentifierValueComparers
-		return dnRequest("get",[self,"KeyIdentifierValueComparers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyIdentifierValueComparers"])
 
 	Func setKeyIdentifierValueComparers P1
 		raise("DotNet Error: KeyIdentifierValueComparers is a read-only property")
 
 	Func getKeyShaper
-		return dnRequest("get",[self,"KeyShaper"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyShaper"])
 
 	Func setKeyShaper P1
 		raise("DotNet Error: KeyShaper is a read-only property")
 
 	Func getElementShaper
-		return dnRequest("get",[self,"ElementShaper"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementShaper"])
 
 	Func setElementShaper P1
 		raise("DotNet Error: ElementShaper is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getCanReduce
-		return dnRequest("get",[self,"CanReduce"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
 
 	Func setCanReduce P1
 		raise("DotNet Error: CanReduce is a read-only property")

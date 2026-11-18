@@ -23,7 +23,7 @@ Class WpfPanel from FrameworkElement
 		return self
 
 	Func ShouldSerializeChildren 
-		return dnRequest("call",[self,"ShouldSerializeChildren"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeChildren"])
 
 	Func SetZIndex P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.Panel, PresentationFramework'),"SetZIndex",P1,P2])
@@ -33,33 +33,33 @@ Class WpfPanel from FrameworkElement
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.Panel, PresentationFramework'),"GetZIndex",P1])
 
 	Func getBackground
-		return dnRequest("get",[self,"Background"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[self,"Background",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
 		return self
 
 	Func getChildren
-		return dnRequest("get",[self,"Children"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getIsItemsHost
-		return dnRequest("get",[self,"IsItemsHost"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsItemsHost"])
 
 	Func setIsItemsHost P1
-		dnRequest("set",[self,"IsItemsHost",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsItemsHost",P1])
 		return self
 
 	Func getLogicalOrientationPublic
-		return dnRequest("get",[self,"LogicalOrientationPublic"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogicalOrientationPublic"])
 
 	Func setLogicalOrientationPublic P1
 		raise("DotNet Error: LogicalOrientationPublic is a read-only property")
 
 	Func getHasLogicalOrientationPublic
-		return dnRequest("get",[self,"HasLogicalOrientationPublic"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasLogicalOrientationPublic"])
 
 	Func setHasLogicalOrientationPublic P1
 		raise("DotNet Error: HasLogicalOrientationPublic is a read-only property")

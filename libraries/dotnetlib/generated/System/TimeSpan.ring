@@ -76,40 +76,40 @@ Class TimeSpan from ValueType
 		return self
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Duration 
-		return dnRequest("call",[self,"Duration"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Duration"])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Negate 
-		return dnRequest("call",[self,"Negate"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Negate"])
 
 	Func Subtract P1
-		return dnRequest("call",[self,"Subtract",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Subtract",P1])
 
 	Func Multiply P1
-		return dnRequest("call",[self,"Multiply",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1])
 
 	Func Divide P1
-		return dnRequest("call",[self,"Divide",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Divide",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Compare",P1,P2])
@@ -229,91 +229,91 @@ Class TimeSpan from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Ticks"])
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getDays
-		return dnRequest("get",[self,"Days"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Days"])
 
 	Func setDays P1
 		raise("DotNet Error: Days is a read-only property")
 
 	Func getHours
-		return dnRequest("get",[self,"Hours"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Hours"])
 
 	Func setHours P1
 		raise("DotNet Error: Hours is a read-only property")
 
 	Func getMilliseconds
-		return dnRequest("get",[self,"Milliseconds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Milliseconds"])
 
 	Func setMilliseconds P1
 		raise("DotNet Error: Milliseconds is a read-only property")
 
 	Func getMicroseconds
-		return dnRequest("get",[self,"Microseconds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Microseconds"])
 
 	Func setMicroseconds P1
 		raise("DotNet Error: Microseconds is a read-only property")
 
 	Func getNanoseconds
-		return dnRequest("get",[self,"Nanoseconds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Nanoseconds"])
 
 	Func setNanoseconds P1
 		raise("DotNet Error: Nanoseconds is a read-only property")
 
 	Func getMinutes
-		return dnRequest("get",[self,"Minutes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minutes"])
 
 	Func setMinutes P1
 		raise("DotNet Error: Minutes is a read-only property")
 
 	Func getSeconds
-		return dnRequest("get",[self,"Seconds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Seconds"])
 
 	Func setSeconds P1
 		raise("DotNet Error: Seconds is a read-only property")
 
 	Func getTotalDays
-		return dnRequest("get",[self,"TotalDays"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalDays"])
 
 	Func setTotalDays P1
 		raise("DotNet Error: TotalDays is a read-only property")
 
 	Func getTotalHours
-		return dnRequest("get",[self,"TotalHours"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalHours"])
 
 	Func setTotalHours P1
 		raise("DotNet Error: TotalHours is a read-only property")
 
 	Func getTotalMilliseconds
-		return dnRequest("get",[self,"TotalMilliseconds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalMilliseconds"])
 
 	Func setTotalMilliseconds P1
 		raise("DotNet Error: TotalMilliseconds is a read-only property")
 
 	Func getTotalMicroseconds
-		return dnRequest("get",[self,"TotalMicroseconds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalMicroseconds"])
 
 	Func setTotalMicroseconds P1
 		raise("DotNet Error: TotalMicroseconds is a read-only property")
 
 	Func getTotalNanoseconds
-		return dnRequest("get",[self,"TotalNanoseconds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalNanoseconds"])
 
 	Func setTotalNanoseconds P1
 		raise("DotNet Error: TotalNanoseconds is a read-only property")
 
 	Func getTotalMinutes
-		return dnRequest("get",[self,"TotalMinutes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalMinutes"])
 
 	Func setTotalMinutes P1
 		raise("DotNet Error: TotalMinutes is a read-only property")
 
 	Func getTotalSeconds
-		return dnRequest("get",[self,"TotalSeconds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalSeconds"])
 
 	Func setTotalSeconds P1
 		raise("DotNet Error: TotalSeconds is a read-only property")

@@ -19,71 +19,71 @@ Class TextRange from Object
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Select P1,P2
-		dnRequest("call",[self,"Select",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
 		return self
 
 	Func ApplyPropertyValue P1,P2
-		dnRequest("call",[self,"ApplyPropertyValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyPropertyValue",P1,P2])
 		return self
 
 	Func ClearAllProperties 
-		dnRequest("call",[self,"ClearAllProperties"])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearAllProperties"])
 		return self
 
 	Func GetPropertyValue P1
-		return dnRequest("call",[self,"GetPropertyValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyValue",P1])
 
 	Func CanSave P1
-		return dnRequest("call",[self,"CanSave",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSave",P1])
 
 	Func CanLoad P1
-		return dnRequest("call",[self,"CanLoad",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanLoad",P1])
 
 	Func Save P1,P2
-		dnRequest("call",[self,"Save",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
 		return self
 
 	Func Save_3 P1,P2,P3
-		dnRequest("call",[self,"Save",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2,P3])
 		return self
 
 	Func Load_ P1,P2
-		dnRequest("call",[self,"Load",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setChangedEvent P1
-		dnRequest("setevent",[self,"Changed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Changed",dnCallback(P1)])
 		return self
 
 	Func clearChangedEvent
-		dnRequest("clearevent",[self,"Changed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Changed"])
 		return self
 
 	Func getStart
-		return dnRequest("get",[self,"Start"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Start"])
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnRequest("get",[self,"End"])
+		return dnRequest("get",[new DotNetObject(nHandle),"End"])
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
-		dnRequest("set",[self,"Text",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
 		return self
 

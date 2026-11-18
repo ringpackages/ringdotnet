@@ -33,84 +33,84 @@ Class ConcurrentObjectDictionary from Object
 		return self
 
 	Func GetAlternateLookup 
-		return dnRequest("call",[self,"GetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAlternateLookup"])
 
 	Func TryGetAlternateLookup 
-		return dnRequest("call",[self,"TryGetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetAlternateLookup"])
 
 	Func TryAdd P1,P2
-		return dnRequest("call",[self,"TryAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2])
 
 	Func ContainsKey P1
-		return dnRequest("call",[self,"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
 
 	Func TryRemove P1
-		return dnRequest("call",[self,"TryRemove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryRemove",P1])
 
 	Func TryGetValue P1
-		return dnRequest("call",[self,"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
 
 	Func TryUpdate P1,P2,P3
-		return dnRequest("call",[self,"TryUpdate",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdate",P1,P2,P3])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[self,"ToArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func GetOrAdd P1,P2
-		return dnRequest("call",[self,"GetOrAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrAdd",P1,P2])
 
 	Func GetOrAdd_3 P1,P2,P3
-		return dnRequest("call",[self,"GetOrAdd",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrAdd",P1,P2,P3])
 
 	Func AddOrUpdate_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AddOrUpdate",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddOrUpdate",P1,P2,P3,P4])
 
 	Func AddOrUpdate P1,P2,P3
-		return dnRequest("call",[self,"AddOrUpdate",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddOrUpdate",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")

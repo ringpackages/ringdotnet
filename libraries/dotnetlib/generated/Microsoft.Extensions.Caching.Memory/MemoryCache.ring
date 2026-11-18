@@ -22,41 +22,41 @@ Class MemoryCache from Object
 		return self
 
 	Func CreateEntry P1
-		return dnRequest("call",[self,"CreateEntry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntry",P1])
 
 	Func TryGetValue P1
-		return dnRequest("call",[self,"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func GetCurrentStatistics 
-		return dnRequest("call",[self,"GetCurrentStatistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentStatistics"])
 
 	Func Compact P1
-		dnRequest("call",[self,"Compact",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Compact",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")

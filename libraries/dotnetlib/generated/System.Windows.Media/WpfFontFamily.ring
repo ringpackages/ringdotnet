@@ -31,52 +31,52 @@ Class WpfFontFamily from Object
 		return self
 
 	Func GetTypefaces 
-		return dnRequest("call",[self,"GetTypefaces"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypefaces"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFamilyNames
-		return dnRequest("get",[self,"FamilyNames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FamilyNames"])
 
 	Func setFamilyNames P1
 		raise("DotNet Error: FamilyNames is a read-only property")
 
 	Func getFamilyTypefaces
-		return dnRequest("get",[self,"FamilyTypefaces"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FamilyTypefaces"])
 
 	Func setFamilyTypefaces P1
 		raise("DotNet Error: FamilyTypefaces is a read-only property")
 
 	Func getFamilyMaps
-		return dnRequest("get",[self,"FamilyMaps"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FamilyMaps"])
 
 	Func setFamilyMaps P1
 		raise("DotNet Error: FamilyMaps is a read-only property")
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")
 
 	Func getBaseUri
-		return dnRequest("get",[self,"BaseUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseUri"])
 
 	Func setBaseUri P1
 		raise("DotNet Error: BaseUri is a read-only property")
 
 	Func getBaseline
-		return dnRequest("get",[self,"Baseline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Baseline"])
 
 	Func setBaseline P1
-		dnRequest("set",[self,"Baseline",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Baseline",P1])
 		return self
 
 	Func getLineSpacing
-		return dnRequest("get",[self,"LineSpacing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineSpacing"])
 
 	Func setLineSpacing P1
-		dnRequest("set",[self,"LineSpacing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineSpacing",P1])
 		return self
 

@@ -18,27 +18,27 @@ Class WebSocketManager from Object
 
 	Func AcceptWebSocketAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AcceptWebSocketAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AcceptWebSocketAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync"])
 		ok
-		return dnRequest("call",[self,"AcceptWebSocketAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1])
 
 	Func AcceptWebSocketAsync_1 P1
-		return dnRequest("call",[self,"AcceptWebSocketAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsWebSocketRequest
-		return dnRequest("get",[self,"IsWebSocketRequest"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsWebSocketRequest"])
 
 	Func setIsWebSocketRequest P1
 		raise("DotNet Error: IsWebSocketRequest is a read-only property")
 
 	Func getWebSocketRequestedProtocols
-		return dnRequest("get",[self,"WebSocketRequestedProtocols"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WebSocketRequestedProtocols"])
 
 	Func setWebSocketRequestedProtocols P1
 		raise("DotNet Error: WebSocketRequestedProtocols is a read-only property")

@@ -17,12 +17,12 @@ Class EvaluatableExpressionFilterDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPlugins
-		return dnRequest("get",[self,"Plugins"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Plugins"])
 
 	Func setPlugins P1
-		dnRequest("set",[self,"Plugins",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Plugins",P1])
 		return self
 

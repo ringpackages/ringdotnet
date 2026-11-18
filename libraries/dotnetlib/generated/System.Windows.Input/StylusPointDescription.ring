@@ -21,19 +21,19 @@ Class StylusPointDescription from Object
 		return self
 
 	Func HasProperty P1
-		return dnRequest("call",[self,"HasProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasProperty",P1])
 
 	Func GetPropertyInfo P1
-		return dnRequest("call",[self,"GetPropertyInfo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyInfo",P1])
 
 	Func GetStylusPointProperties 
-		return dnRequest("call",[self,"GetStylusPointProperties"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStylusPointProperties"])
 
 	Func IsSubsetOf P1
-		return dnRequest("call",[self,"IsSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsSubsetOf",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func AreCompatible P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.StylusPointDescription, PresentationCore'),"AreCompatible",P1,P2])
@@ -42,7 +42,7 @@ Class StylusPointDescription from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.StylusPointDescription, PresentationCore'),"GetCommonDescription",P1,P2])
 
 	Func getPropertyCount
-		return dnRequest("get",[self,"PropertyCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyCount"])
 
 	Func setPropertyCount P1
 		raise("DotNet Error: PropertyCount is a read-only property")

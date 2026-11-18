@@ -17,25 +17,25 @@ Class IConventionComplexProperty from DotNetObject
 		return self
 
 	Func SetIsNullable_2 P1,P2
-		return dnRequest("call",[self,"SetIsNullable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsNullable",P1,P2])
 
 	Func SetIsNullable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetIsNullable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetIsNullable",P1])
 		ok
-		return dnRequest("call",[self,"SetIsNullable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetIsNullable",P1])
 
 	Func GetIsNullableConfigurationSource 
-		return dnRequest("call",[self,"GetIsNullableConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsNullableConfigurationSource"])
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getComplexType
-		return dnRequest("get",[self,"ComplexType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ComplexType"])
 
 	Func setComplexType P1
 		raise("DotNet Error: ComplexType is a read-only property")

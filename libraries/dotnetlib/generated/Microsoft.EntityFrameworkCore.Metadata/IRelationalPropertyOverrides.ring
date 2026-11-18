@@ -16,7 +16,7 @@ Class IRelationalPropertyOverrides from DotNetObject
 		return self
 
 	Func getProperty
-		return dnRequest("get",[self,"Property"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")

@@ -17,51 +17,51 @@ Class IMutableElementType from DotNetObject
 		return self
 
 	Func SetMaxLength P1
-		dnRequest("call",[self,"SetMaxLength",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetMaxLength",P1])
 		return self
 
 	Func SetPrecision P1
-		dnRequest("call",[self,"SetPrecision",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPrecision",P1])
 		return self
 
 	Func SetScale P1
-		dnRequest("call",[self,"SetScale",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetScale",P1])
 		return self
 
 	Func SetIsUnicode P1
-		dnRequest("call",[self,"SetIsUnicode",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetIsUnicode",P1])
 		return self
 
 	Func SetValueConverter P1
-		dnRequest("call",[self,"SetValueConverter",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValueConverter",P1])
 		return self
 
 	Func SetProviderClrType P1
-		dnRequest("call",[self,"SetProviderClrType",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetProviderClrType",P1])
 		return self
 
 	Func SetTypeMapping P1
-		dnRequest("call",[self,"SetTypeMapping",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetTypeMapping",P1])
 		return self
 
 	Func SetValueComparer P1
-		dnRequest("call",[self,"SetValueComparer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValueComparer",P1])
 		return self
 
 	Func SetJsonValueReaderWriterType P1
-		dnRequest("call",[self,"SetJsonValueReaderWriterType",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetJsonValueReaderWriterType",P1])
 		return self
 
 	Func getCollectionProperty
-		return dnRequest("get",[self,"CollectionProperty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CollectionProperty"])
 
 	Func setCollectionProperty P1
 		raise("DotNet Error: CollectionProperty is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
-		dnRequest("set",[self,"IsNullable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsNullable",P1])
 		return self
 

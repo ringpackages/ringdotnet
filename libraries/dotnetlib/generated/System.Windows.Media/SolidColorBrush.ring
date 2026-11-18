@@ -25,10 +25,10 @@ Class SolidColorBrush from WpfBrush
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.SolidColorBrush, PresentationCore'),"DeserializeFrom",P1])
 
 	Func getColor
-		return dnRequest("get",[self,"Color"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
 
 	Func setColor P1
-		dnRequest("set",[self,"Color",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
 		return self
 
 	Func getColorProperty

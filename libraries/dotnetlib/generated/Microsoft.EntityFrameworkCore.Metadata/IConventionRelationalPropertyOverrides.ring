@@ -17,40 +17,40 @@ Class IConventionRelationalPropertyOverrides from DotNetObject
 		return self
 
 	Func GetConfigurationSource 
-		return dnRequest("call",[self,"GetConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConfigurationSource"])
 
 	Func SetColumnName_2 P1,P2
-		return dnRequest("call",[self,"SetColumnName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetColumnName",P1,P2])
 
 	Func SetColumnName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetColumnName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetColumnName",P1])
 		ok
-		return dnRequest("call",[self,"SetColumnName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetColumnName",P1])
 
 	Func RemoveColumnNameOverride_1 P1
-		return dnRequest("call",[self,"RemoveColumnNameOverride",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveColumnNameOverride",P1])
 
 	Func RemoveColumnNameOverride P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RemoveColumnNameOverride",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RemoveColumnNameOverride",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RemoveColumnNameOverride"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RemoveColumnNameOverride"])
 		ok
-		return dnRequest("call",[self,"RemoveColumnNameOverride",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveColumnNameOverride",P1])
 
 	Func GetColumnNameConfigurationSource 
-		return dnRequest("call",[self,"GetColumnNameConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnNameConfigurationSource"])
 
 	Func getProperty
-		return dnRequest("get",[self,"Property"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")

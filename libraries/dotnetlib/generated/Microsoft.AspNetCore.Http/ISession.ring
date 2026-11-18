@@ -18,58 +18,58 @@ Class ISession from DotNetObject
 		return self
 
 	Func LoadAsync_1 P1
-		return dnRequest("call",[self,"LoadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 
 	Func LoadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"LoadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"LoadAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync"])
 		ok
-		return dnRequest("call",[self,"LoadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 
 	Func CommitAsync_1 P1
-		return dnRequest("call",[self,"CommitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
 
 	Func CommitAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CommitAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CommitAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync"])
 		ok
-		return dnRequest("call",[self,"CommitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
 
 	Func TryGetValue P1
-		return dnRequest("call",[self,"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
 
 	Func Set_ P1,P2
-		dnRequest("call",[self,"Set",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Set",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func getIsAvailable
-		return dnRequest("get",[self,"IsAvailable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAvailable"])
 
 	Func setIsAvailable P1
 		raise("DotNet Error: IsAvailable is a read-only property")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")

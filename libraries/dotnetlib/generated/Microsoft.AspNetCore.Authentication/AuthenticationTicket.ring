@@ -23,25 +23,25 @@ Class AuthenticationTicket from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAuthenticationScheme
-		return dnRequest("get",[self,"AuthenticationScheme"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationScheme"])
 
 	Func setAuthenticationScheme P1
 		raise("DotNet Error: AuthenticationScheme is a read-only property")
 
 	Func getPrincipal
-		return dnRequest("get",[self,"Principal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Principal"])
 
 	Func setPrincipal P1
 		raise("DotNet Error: Principal is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

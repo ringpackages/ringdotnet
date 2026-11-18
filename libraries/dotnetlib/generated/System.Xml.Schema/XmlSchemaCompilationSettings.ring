@@ -17,12 +17,12 @@ Class XmlSchemaCompilationSettings from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEnableUpaCheck
-		return dnRequest("get",[self,"EnableUpaCheck"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableUpaCheck"])
 
 	Func setEnableUpaCheck P1
-		dnRequest("set",[self,"EnableUpaCheck",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableUpaCheck",P1])
 		return self
 

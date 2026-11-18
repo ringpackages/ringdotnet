@@ -22,41 +22,41 @@ Class ECDsaCng from ECDsa
 		return self
 
 	Func FromXmlString_2 P1,P2
-		dnRequest("call",[self,"FromXmlString",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"FromXmlString",P1,P2])
 		return self
 
 	Func SignData P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SignData",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignData",P1])
 		ok
-		return dnRequest("call",[self,"SignData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1])
 
 	Func VerifyData P1,P2
-		return dnRequest("call",[self,"VerifyData",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2])
 
 	Func SignData_2 P1,P2
-		return dnRequest("call",[self,"SignData",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2])
 
 	Func VerifyData_3 P1,P2,P3
-		return dnRequest("call",[self,"VerifyData",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3])
 
 	Func FromXmlString P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"FromXmlString",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"FromXmlString",P1])
 			return self
 		ok
-		dnRequest("call",[self,"FromXmlString",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"FromXmlString",P1])
 		return self
 
 	Func getHashAlgorithm
-		return dnRequest("get",[self,"HashAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
-		dnRequest("set",[self,"HashAlgorithm",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HashAlgorithm",P1])
 		return self
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")

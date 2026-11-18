@@ -17,16 +17,16 @@ Class SocketsHttpConnectionContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDnsEndPoint
-		return dnRequest("get",[self,"DnsEndPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DnsEndPoint"])
 
 	Func setDnsEndPoint P1
 		raise("DotNet Error: DnsEndPoint is a read-only property")
 
 	Func getInitialRequestMessage
-		return dnRequest("get",[self,"InitialRequestMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialRequestMessage"])
 
 	Func setInitialRequestMessage P1
 		raise("DotNet Error: InitialRequestMessage is a read-only property")

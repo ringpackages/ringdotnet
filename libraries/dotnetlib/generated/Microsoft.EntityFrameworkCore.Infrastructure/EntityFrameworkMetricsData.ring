@@ -14,7 +14,7 @@ Class EntityFrameworkMetricsData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ReportDbContextInitializing 
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore'),"ReportDbContextInitializing"])

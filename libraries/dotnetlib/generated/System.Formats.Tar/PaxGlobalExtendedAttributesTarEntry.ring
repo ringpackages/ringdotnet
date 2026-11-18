@@ -17,7 +17,7 @@ Class PaxGlobalExtendedAttributesTarEntry from PosixTarEntry
 		return self
 
 	Func getGlobalExtendedAttributes
-		return dnRequest("get",[self,"GlobalExtendedAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlobalExtendedAttributes"])
 
 	Func setGlobalExtendedAttributes P1
 		raise("DotNet Error: GlobalExtendedAttributes is a read-only property")

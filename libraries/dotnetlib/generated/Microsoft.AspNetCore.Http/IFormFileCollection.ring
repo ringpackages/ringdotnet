@@ -14,11 +14,11 @@ Class IFormFileCollection from DotNetObject
 		return self
 
 	Func GetFile P1
-		return dnRequest("call",[self,"GetFile",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFile",P1])
 
 	Func GetFiles P1
-		return dnRequest("call",[self,"GetFiles",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 

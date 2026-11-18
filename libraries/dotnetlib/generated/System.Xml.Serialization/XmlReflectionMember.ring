@@ -22,47 +22,47 @@ Class XmlReflectionMember from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMemberType
-		return dnRequest("get",[self,"MemberType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberType"])
 
 	Func setMemberType P1
-		dnRequest("set",[self,"MemberType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MemberType",P1])
 		return self
 
 	Func getXmlAttributes
-		return dnRequest("get",[self,"XmlAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XmlAttributes"])
 
 	Func setXmlAttributes P1
-		dnRequest("set",[self,"XmlAttributes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlAttributes",P1])
 		return self
 
 	Func getSoapAttributes
-		return dnRequest("get",[self,"SoapAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SoapAttributes"])
 
 	Func setSoapAttributes P1
-		dnRequest("set",[self,"SoapAttributes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SoapAttributes",P1])
 		return self
 
 	Func getMemberName
-		return dnRequest("get",[self,"MemberName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberName"])
 
 	Func setMemberName P1
-		dnRequest("set",[self,"MemberName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MemberName",P1])
 		return self
 
 	Func getIsReturnValue
-		return dnRequest("get",[self,"IsReturnValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReturnValue"])
 
 	Func setIsReturnValue P1
-		dnRequest("set",[self,"IsReturnValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsReturnValue",P1])
 		return self
 
 	Func getOverrideIsNullable
-		return dnRequest("get",[self,"OverrideIsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OverrideIsNullable"])
 
 	Func setOverrideIsNullable P1
-		dnRequest("set",[self,"OverrideIsNullable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OverrideIsNullable",P1])
 		return self
 

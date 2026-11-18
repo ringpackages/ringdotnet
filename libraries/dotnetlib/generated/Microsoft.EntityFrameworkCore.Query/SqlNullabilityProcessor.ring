@@ -15,8 +15,8 @@ Class SqlNullabilityProcessor from Object
 		return self
 
 	Func Process P1,P2
-		return dnRequest("call",[self,"Process",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Process",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

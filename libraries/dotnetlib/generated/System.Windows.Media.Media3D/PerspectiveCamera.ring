@@ -22,10 +22,10 @@ Class PerspectiveCamera from ProjectionCamera
 		return self
 
 	Func getFieldOfView
-		return dnRequest("get",[self,"FieldOfView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FieldOfView"])
 
 	Func setFieldOfView P1
-		dnRequest("set",[self,"FieldOfView",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FieldOfView",P1])
 		return self
 
 	Func getFieldOfViewProperty

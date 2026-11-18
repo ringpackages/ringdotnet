@@ -18,13 +18,13 @@ Class CommandEventData from CommandCorrelatedEventData
 		return self
 
 	Func getCommand
-		return dnRequest("get",[self,"Command"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getLogParameterValues
-		return dnRequest("get",[self,"LogParameterValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogParameterValues"])
 
 	Func setLogParameterValues P1
 		raise("DotNet Error: LogParameterValues is a read-only property")

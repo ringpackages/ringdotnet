@@ -16,9 +16,9 @@ Class IRequestCookiesFeature from DotNetObject
 		return self
 
 	Func getCookies
-		return dnRequest("get",[self,"Cookies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
 
 	Func setCookies P1
-		dnRequest("set",[self,"Cookies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cookies",P1])
 		return self
 

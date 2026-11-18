@@ -14,5 +14,5 @@ Class IAdHocMapper from DotNetObject
 		return self
 
 	Func GetOrAddEntityType P1
-		return dnRequest("call",[self,"GetOrAddEntityType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrAddEntityType",P1])
 

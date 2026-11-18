@@ -31,96 +31,96 @@ Class StringSegment from ValueType
 
 	Func AsSpan P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AsSpan",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AsSpan",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AsSpan"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AsSpan"])
 		ok
-		return dnRequest("call",[self,"AsSpan",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AsSpan",P1])
 
 	Func AsSpan_1 P1
-		return dnRequest("call",[self,"AsSpan",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AsSpan",P1])
 
 	Func AsSpan_2 P1,P2
-		return dnRequest("call",[self,"AsSpan",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AsSpan",P1,P2])
 
 	Func AsMemory 
-		return dnRequest("call",[self,"AsMemory"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AsMemory"])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Equals_2 P1,P2
-		return dnRequest("call",[self,"Equals",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
 
 	Func StartsWith P1,P2
-		return dnRequest("call",[self,"StartsWith",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartsWith",P1,P2])
 
 	Func EndsWith P1,P2
-		return dnRequest("call",[self,"EndsWith",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndsWith",P1,P2])
 
 	Func Substring P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Substring",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Substring",P1])
 		ok
-		return dnRequest("call",[self,"Substring",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Substring",P1])
 
 	Func Substring_2 P1,P2
-		return dnRequest("call",[self,"Substring",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Substring",P1,P2])
 
 	Func Subsegment P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Subsegment",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Subsegment",P1])
 		ok
-		return dnRequest("call",[self,"Subsegment",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Subsegment",P1])
 
 	Func Subsegment_2 P1,P2
-		return dnRequest("call",[self,"Subsegment",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Subsegment",P1,P2])
 
 	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[self,"IndexOf",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
 
 	Func IndexOf_2 P1,P2
-		return dnRequest("call",[self,"IndexOf",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexOf",P1])
 		ok
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func IndexOfAny_3 P1,P2,P3
-		return dnRequest("call",[self,"IndexOfAny",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfAny",P1,P2,P3])
 
 	Func IndexOfAny_2 P1,P2
-		return dnRequest("call",[self,"IndexOfAny",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfAny",P1,P2])
 
 	Func IndexOfAny P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IndexOfAny",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexOfAny",P1])
 		ok
-		return dnRequest("call",[self,"IndexOfAny",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfAny",P1])
 
 	Func LastIndexOf P1
-		return dnRequest("call",[self,"LastIndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1])
 
 	Func Trim 
-		return dnRequest("call",[self,"Trim"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Trim"])
 
 	Func TrimStart 
-		return dnRequest("call",[self,"TrimStart"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TrimStart"])
 
 	Func TrimEnd 
-		return dnRequest("call",[self,"TrimEnd"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TrimEnd"])
 
 	Func Split P1
-		return dnRequest("call",[self,"Split",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1])
 
 	Func Compare P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"Compare",P1,P2,P3])
@@ -132,34 +132,34 @@ Class StringSegment from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"IsNullOrEmpty",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Buffer"])
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		return dnRequest("get",[self,"HasValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasValue"])
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")

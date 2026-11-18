@@ -15,11 +15,11 @@ Class ServiceParameterBindingFactory from Object
 		return self
 
 	Func CanBind P1,P2
-		return dnRequest("call",[self,"CanBind",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanBind",P1,P2])
 
 	Func Bind P1,P2,P3
-		return dnRequest("call",[self,"Bind",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Bind",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

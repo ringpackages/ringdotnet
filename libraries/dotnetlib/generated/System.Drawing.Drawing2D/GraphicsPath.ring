@@ -33,266 +33,266 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func StartFigure 
-		dnRequest("call",[self,"StartFigure"])
+		dnRequest("call",[new DotNetObject(nHandle),"StartFigure"])
 		return self
 
 	Func CloseFigure 
-		dnRequest("call",[self,"CloseFigure"])
+		dnRequest("call",[new DotNetObject(nHandle),"CloseFigure"])
 		return self
 
 	Func CloseAllFigures 
-		dnRequest("call",[self,"CloseAllFigures"])
+		dnRequest("call",[new DotNetObject(nHandle),"CloseAllFigures"])
 		return self
 
 	Func SetMarkers 
-		dnRequest("call",[self,"SetMarkers"])
+		dnRequest("call",[new DotNetObject(nHandle),"SetMarkers"])
 		return self
 
 	Func ClearMarkers 
-		dnRequest("call",[self,"ClearMarkers"])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearMarkers"])
 		return self
 
 	Func Reverse 
-		dnRequest("call",[self,"Reverse"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reverse"])
 		return self
 
 	Func GetLastPoint 
-		return dnRequest("call",[self,"GetLastPoint"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLastPoint"])
 
 	Func IsVisible_2 P1,P2
-		return dnRequest("call",[self,"IsVisible",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2])
 
 	Func IsVisible P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsVisible",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsVisible",P1])
 		ok
-		return dnRequest("call",[self,"IsVisible",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1])
 
 	Func IsVisible_3 P1,P2,P3
-		return dnRequest("call",[self,"IsVisible",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2,P3])
 
 	Func IsOutlineVisible_3 P1,P2,P3
-		return dnRequest("call",[self,"IsOutlineVisible",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsOutlineVisible",P1,P2,P3])
 
 	Func IsOutlineVisible P1,P2
-		return dnRequest("call",[self,"IsOutlineVisible",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsOutlineVisible",P1,P2])
 
 	Func IsOutlineVisible_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"IsOutlineVisible",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsOutlineVisible",P1,P2,P3,P4])
 
 	Func AddLine P1,P2
-		dnRequest("call",[self,"AddLine",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddLine",P1,P2])
 		return self
 
 	Func AddLine_4 P1,P2,P3,P4
-		dnRequest("call",[self,"AddLine",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"AddLine",P1,P2,P3,P4])
 		return self
 
 	Func AddLines P1
-		dnRequest("call",[self,"AddLines",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddLines",P1])
 		return self
 
 	Func AddArc P1,P2,P3
-		dnRequest("call",[self,"AddArc",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AddArc",P1,P2,P3])
 		return self
 
 	Func AddArc_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"AddArc",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"AddArc",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func AddBezier P1,P2,P3,P4
-		dnRequest("call",[self,"AddBezier",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"AddBezier",P1,P2,P3,P4])
 		return self
 
 	Func AddBezier_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[self,"AddBezier",P1,P2,P3,P4,P5,P6,P7,P8])
+		dnRequest("call",[new DotNetObject(nHandle),"AddBezier",P1,P2,P3,P4,P5,P6,P7,P8])
 		return self
 
 	Func AddBeziers P1
-		dnRequest("call",[self,"AddBeziers",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddBeziers",P1])
 		return self
 
 	Func AddCurve P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AddCurve",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddCurve",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AddCurve",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddCurve",P1])
 		return self
 
 	Func AddCurve_2 P1,P2
-		dnRequest("call",[self,"AddCurve",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddCurve",P1,P2])
 		return self
 
 	Func AddCurve_4 P1,P2,P3,P4
-		dnRequest("call",[self,"AddCurve",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"AddCurve",P1,P2,P3,P4])
 		return self
 
 	Func AddClosedCurve P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AddClosedCurve",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddClosedCurve",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AddClosedCurve",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddClosedCurve",P1])
 		return self
 
 	Func AddClosedCurve_2 P1,P2
-		dnRequest("call",[self,"AddClosedCurve",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddClosedCurve",P1,P2])
 		return self
 
 	Func AddRectangle P1
-		dnRequest("call",[self,"AddRectangle",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRectangle",P1])
 		return self
 
 	Func AddRectangles P1
-		dnRequest("call",[self,"AddRectangles",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRectangles",P1])
 		return self
 
 	Func AddRoundedRectangle P1,P2
-		dnRequest("call",[self,"AddRoundedRectangle",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRoundedRectangle",P1,P2])
 		return self
 
 	Func AddEllipse P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AddEllipse",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddEllipse",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AddEllipse",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddEllipse",P1])
 		return self
 
 	Func AddEllipse_4 P1,P2,P3,P4
-		dnRequest("call",[self,"AddEllipse",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"AddEllipse",P1,P2,P3,P4])
 		return self
 
 	Func AddPie P1,P2,P3
-		dnRequest("call",[self,"AddPie",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AddPie",P1,P2,P3])
 		return self
 
 	Func AddPie_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"AddPie",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"AddPie",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func AddPolygon P1
-		dnRequest("call",[self,"AddPolygon",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddPolygon",P1])
 		return self
 
 	Func AddPath P1,P2
-		dnRequest("call",[self,"AddPath",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddPath",P1,P2])
 		return self
 
 	Func AddString P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"AddString",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"AddString",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func Transform P1
-		dnRequest("call",[self,"Transform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func GetBounds P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetBounds",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetBounds",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetBounds"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetBounds"])
 		ok
-		return dnRequest("call",[self,"GetBounds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
 
 	Func GetBounds_1 P1
-		return dnRequest("call",[self,"GetBounds",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
 
 	Func GetBounds_2 P1,P2
-		return dnRequest("call",[self,"GetBounds",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1,P2])
 
 	Func Flatten P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Flatten",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Flatten",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Flatten"])
+			dnRequest("call",[new DotNetObject(nHandle),"Flatten"])
 		return self
 		ok
-		dnRequest("call",[self,"Flatten",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Flatten",P1])
 		return self
 
 	Func Flatten_1 P1
-		dnRequest("call",[self,"Flatten",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Flatten",P1])
 		return self
 
 	Func Flatten_2 P1,P2
-		dnRequest("call",[self,"Flatten",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Flatten",P1,P2])
 		return self
 
 	Func Widen P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Widen",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Widen",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Widen",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Widen",P1])
 		return self
 
 	Func Widen_2 P1,P2
-		dnRequest("call",[self,"Widen",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Widen",P1,P2])
 		return self
 
 	Func Widen_3 P1,P2,P3
-		dnRequest("call",[self,"Widen",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Widen",P1,P2,P3])
 		return self
 
 	Func Warp P1,P2
-		dnRequest("call",[self,"Warp",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Warp",P1,P2])
 		return self
 
 	Func Warp_3 P1,P2,P3
-		dnRequest("call",[self,"Warp",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Warp",P1,P2,P3])
 		return self
 
 	Func Warp_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Warp",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Warp",P1,P2,P3,P4])
 		return self
 
 	Func Warp_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"Warp",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"Warp",P1,P2,P3,P4,P5])
 		return self
 
 	Func getFillMode
-		return dnRequest("get",[self,"FillMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FillMode"])
 
 	Func setFillMode P1
-		dnRequest("set",[self,"FillMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FillMode",P1])
 		return self
 
 	Func getPathData
-		return dnRequest("get",[self,"PathData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PathData"])
 
 	Func setPathData P1
 		raise("DotNet Error: PathData is a read-only property")
 
 	Func getPointCount
-		return dnRequest("get",[self,"PointCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PointCount"])
 
 	Func setPointCount P1
 		raise("DotNet Error: PointCount is a read-only property")
 
 	Func getPathTypes
-		return dnRequest("get",[self,"PathTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PathTypes"])
 
 	Func setPathTypes P1
 		raise("DotNet Error: PathTypes is a read-only property")
 
 	Func getPathPoints
-		return dnRequest("get",[self,"PathPoints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PathPoints"])
 
 	Func setPathPoints P1
 		raise("DotNet Error: PathPoints is a read-only property")

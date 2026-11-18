@@ -14,13 +14,13 @@ Class ControllerActionEndpointConventionBuilder from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Finally P1
-		dnRequest("call",[self,"Finally",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Finally",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

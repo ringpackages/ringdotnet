@@ -15,16 +15,16 @@ Class TypeMappingSourceBase from Object
 
 	Func FindMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FindMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindMapping",P1])
 		ok
-		return dnRequest("call",[self,"FindMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1])
 
 	Func FindMapping_3 P1,P2,P3
-		return dnRequest("call",[self,"FindMapping",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3])
 
 	Func FindMapping_2 P1,P2
-		return dnRequest("call",[self,"FindMapping",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

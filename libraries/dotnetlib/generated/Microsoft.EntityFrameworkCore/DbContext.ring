@@ -21,170 +21,170 @@ Class DbContext from Object
 
 	Func Set_ P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Set",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Set",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Set"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Set"])
 		ok
-		return dnRequest("call",[self,"Set",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Set",P1])
 
 	Func Set_1 P1
-		return dnRequest("call",[self,"Set",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Set",P1])
 
 	Func SaveChanges P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SaveChanges",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChanges",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"SaveChanges"])
+			return dnRequest("call",[new DotNetObject(nHandle),"SaveChanges"])
 		ok
-		return dnRequest("call",[self,"SaveChanges",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChanges",P1])
 
 	Func SaveChanges_1 P1
-		return dnRequest("call",[self,"SaveChanges",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChanges",P1])
 
 	Func SaveChangesAsync_1 P1
-		return dnRequest("call",[self,"SaveChangesAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1])
 
 	Func SaveChangesAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SaveChangesAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChangesAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"SaveChangesAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync"])
 		ok
-		return dnRequest("call",[self,"SaveChangesAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1])
 
 	Func SaveChangesAsync_2 P1,P2
-		return dnRequest("call",[self,"SaveChangesAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Entry P1
-		return dnRequest("call",[self,"Entry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Entry",P1])
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func AddAsync_2 P1,P2
-		return dnRequest("call",[self,"AddAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddAsync",P1,P2])
 
 	Func AddAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddAsync",P1])
 		ok
-		return dnRequest("call",[self,"AddAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddAsync",P1])
 
 	Func Attach P1
-		return dnRequest("call",[self,"Attach",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Attach",P1])
 
 	Func Update P1
-		return dnRequest("call",[self,"Update",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func AddRange P1
-		dnRequest("call",[self,"AddRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
 	Func AddRangeAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AddRangeAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddRangeAsync",P1])
 		ok
-		return dnRequest("call",[self,"AddRangeAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRangeAsync",P1])
 
 	Func AttachRange P1
-		dnRequest("call",[self,"AttachRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AttachRange",P1])
 		return self
 
 	Func UpdateRange P1
-		dnRequest("call",[self,"UpdateRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"UpdateRange",P1])
 		return self
 
 	Func RemoveRange P1
-		dnRequest("call",[self,"RemoveRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveRange",P1])
 		return self
 
 	Func AddRangeAsync_2 P1,P2
-		return dnRequest("call",[self,"AddRangeAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRangeAsync",P1,P2])
 
 	Func Find_2 P1,P2
-		return dnRequest("call",[self,"Find",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
 
 	Func FindAsync_2 P1,P2
-		return dnRequest("call",[self,"FindAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindAsync",P1,P2])
 
 	Func FindAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"FindAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindAsync",P1,P2,P3])
 
 	Func Find P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Find",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Find",P1])
 		ok
-		return dnRequest("call",[self,"Find",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1])
 
 	Func FindAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FindAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindAsync",P1])
 		ok
-		return dnRequest("call",[self,"FindAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindAsync",P1])
 
 	Func FromExpression P1
-		return dnRequest("call",[self,"FromExpression",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FromExpression",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setSavingChangesEvent P1
-		dnRequest("setevent",[self,"SavingChanges",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SavingChanges",dnCallback(P1)])
 		return self
 
 	Func clearSavingChangesEvent
-		dnRequest("clearevent",[self,"SavingChanges"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SavingChanges"])
 		return self
 
 	Func setSavedChangesEvent P1
-		dnRequest("setevent",[self,"SavedChanges",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SavedChanges",dnCallback(P1)])
 		return self
 
 	Func clearSavedChangesEvent
-		dnRequest("clearevent",[self,"SavedChanges"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SavedChanges"])
 		return self
 
 	Func setSaveChangesFailedEvent P1
-		dnRequest("setevent",[self,"SaveChangesFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SaveChangesFailed",dnCallback(P1)])
 		return self
 
 	Func clearSaveChangesFailedEvent
-		dnRequest("clearevent",[self,"SaveChangesFailed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SaveChangesFailed"])
 		return self
 
 	Func getDatabase
-		return dnRequest("get",[self,"Database"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Database"])
 
 	Func setDatabase P1
 		raise("DotNet Error: Database is a read-only property")
 
 	Func getChangeTracker
-		return dnRequest("get",[self,"ChangeTracker"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChangeTracker"])
 
 	Func setChangeTracker P1
 		raise("DotNet Error: ChangeTracker is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContextId
-		return dnRequest("get",[self,"ContextId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextId"])
 
 	Func setContextId P1
 		raise("DotNet Error: ContextId is a read-only property")

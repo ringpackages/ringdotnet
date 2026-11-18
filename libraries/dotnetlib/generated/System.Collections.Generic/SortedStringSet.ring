@@ -28,85 +28,85 @@ Class SortedStringSet from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[self,"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
 	Func CopyTo_2 P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func CopyTo_3 P1,P2,P3
-		dnRequest("call",[self,"CopyTo",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func UnionWith P1
-		dnRequest("call",[self,"UnionWith",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"UnionWith",P1])
 		return self
 
 	Func IntersectWith P1
-		dnRequest("call",[self,"IntersectWith",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"IntersectWith",P1])
 		return self
 
 	Func ExceptWith P1
-		dnRequest("call",[self,"ExceptWith",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ExceptWith",P1])
 		return self
 
 	Func SymmetricExceptWith P1
-		dnRequest("call",[self,"SymmetricExceptWith",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SymmetricExceptWith",P1])
 		return self
 
 	Func IsSubsetOf P1
-		return dnRequest("call",[self,"IsSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsSubsetOf",P1])
 
 	Func IsProperSubsetOf P1
-		return dnRequest("call",[self,"IsProperSubsetOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsProperSubsetOf",P1])
 
 	Func IsSupersetOf P1
-		return dnRequest("call",[self,"IsSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsSupersetOf",P1])
 
 	Func IsProperSupersetOf P1
-		return dnRequest("call",[self,"IsProperSupersetOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsProperSupersetOf",P1])
 
 	Func SetEquals P1
-		return dnRequest("call",[self,"SetEquals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetEquals",P1])
 
 	Func Overlaps P1
-		return dnRequest("call",[self,"Overlaps",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Overlaps",P1])
 
 	Func RemoveWhere P1
-		return dnRequest("call",[self,"RemoveWhere",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveWhere",P1])
 
 	Func Reverse 
-		return dnRequest("call",[self,"Reverse"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Reverse"])
 
 	Func GetViewBetween P1,P2
-		return dnRequest("call",[self,"GetViewBetween",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetViewBetween",P1,P2])
 
 	Func TryGetValue P1
-		return dnRequest("call",[self,"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateSetComparer P1
 		if dnIsNamed(P1)
@@ -121,25 +121,25 @@ Class SortedStringSet from Object
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getMin
-		return dnRequest("get",[self,"Min"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Min"])
 
 	Func setMin P1
 		raise("DotNet Error: Min is a read-only property")
 
 	Func getMax
-		return dnRequest("get",[self,"Max"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Max"])
 
 	Func setMax P1
 		raise("DotNet Error: Max is a read-only property")

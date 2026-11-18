@@ -22,33 +22,33 @@ Class BufferedReadStream from Stream
 
 	Func EnsureBuffered P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnsureBuffered",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureBuffered",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnsureBuffered"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnsureBuffered"])
 		ok
-		return dnRequest("call",[self,"EnsureBuffered",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureBuffered",P1])
 
 	Func EnsureBufferedAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnsureBufferedAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureBufferedAsync",P1])
 		ok
-		return dnRequest("call",[self,"EnsureBufferedAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureBufferedAsync",P1])
 
 	Func EnsureBuffered_1 P1
-		return dnRequest("call",[self,"EnsureBuffered",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureBuffered",P1])
 
 	Func EnsureBufferedAsync_2 P1,P2
-		return dnRequest("call",[self,"EnsureBufferedAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureBufferedAsync",P1,P2])
 
 	Func ReadLine P1
-		return dnRequest("call",[self,"ReadLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadLine",P1])
 
 	Func ReadLineAsync P1,P2
-		return dnRequest("call",[self,"ReadLineAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadLineAsync",P1,P2])
 
 	Func getBufferedData
-		return dnRequest("get",[self,"BufferedData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BufferedData"])
 
 	Func setBufferedData P1
 		raise("DotNet Error: BufferedData is a read-only property")

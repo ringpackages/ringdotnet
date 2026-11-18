@@ -15,5 +15,5 @@ Class TableTriggerBuilder from TriggerBuilder
 		return self
 
 	Func HasDatabaseName P1
-		return dnRequest("call",[self,"HasDatabaseName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasDatabaseName",P1])
 

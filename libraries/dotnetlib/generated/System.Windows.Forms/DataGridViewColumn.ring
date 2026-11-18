@@ -38,136 +38,136 @@ Class DataGridViewColumn from DataGridViewBand
 		return self
 
 	Func GetPreferredWidth P1,P2
-		return dnRequest("call",[self,"GetPreferredWidth",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPreferredWidth",P1,P2])
 
 	Func setDisposedEvent P1
-		dnRequest("setevent",[self,"Disposed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Disposed",dnCallback(P1)])
 		return self
 
 	Func clearDisposedEvent
-		dnRequest("clearevent",[self,"Disposed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Disposed"])
 		return self
 
 	Func getAutoSizeMode
-		return dnRequest("get",[self,"AutoSizeMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoSizeMode"])
 
 	Func setAutoSizeMode P1
-		dnRequest("set",[self,"AutoSizeMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoSizeMode",P1])
 		return self
 
 	Func getCellTemplate
-		return dnRequest("get",[self,"CellTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellTemplate"])
 
 	Func setCellTemplate P1
-		dnRequest("set",[self,"CellTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellTemplate",P1])
 		return self
 
 	Func getCellType
-		return dnRequest("get",[self,"CellType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellType"])
 
 	Func setCellType P1
 		raise("DotNet Error: CellType is a read-only property")
 
 	Func getDataPropertyName
-		return dnRequest("get",[self,"DataPropertyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataPropertyName"])
 
 	Func setDataPropertyName P1
-		dnRequest("set",[self,"DataPropertyName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataPropertyName",P1])
 		return self
 
 	Func getDisplayIndex
-		return dnRequest("get",[self,"DisplayIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayIndex"])
 
 	Func setDisplayIndex P1
-		dnRequest("set",[self,"DisplayIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisplayIndex",P1])
 		return self
 
 	Func getDividerWidth
-		return dnRequest("get",[self,"DividerWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DividerWidth"])
 
 	Func setDividerWidth P1
-		dnRequest("set",[self,"DividerWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DividerWidth",P1])
 		return self
 
 	Func getFillWeight
-		return dnRequest("get",[self,"FillWeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FillWeight"])
 
 	Func setFillWeight P1
-		dnRequest("set",[self,"FillWeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FillWeight",P1])
 		return self
 
 	Func getHeaderCell
-		return dnRequest("get",[self,"HeaderCell"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderCell"])
 
 	Func setHeaderCell P1
-		dnRequest("set",[self,"HeaderCell",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderCell",P1])
 		return self
 
 	Func getHeaderText
-		return dnRequest("get",[self,"HeaderText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderText"])
 
 	Func setHeaderText P1
-		dnRequest("set",[self,"HeaderText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderText",P1])
 		return self
 
 	Func getInheritedAutoSizeMode
-		return dnRequest("get",[self,"InheritedAutoSizeMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InheritedAutoSizeMode"])
 
 	Func setInheritedAutoSizeMode P1
 		raise("DotNet Error: InheritedAutoSizeMode is a read-only property")
 
 	Func getIsDataBound
-		return dnRequest("get",[self,"IsDataBound"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDataBound"])
 
 	Func setIsDataBound P1
 		raise("DotNet Error: IsDataBound is a read-only property")
 
 	Func getMinimumWidth
-		return dnRequest("get",[self,"MinimumWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinimumWidth"])
 
 	Func setMinimumWidth P1
-		dnRequest("set",[self,"MinimumWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinimumWidth",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getSite
-		return dnRequest("get",[self,"Site"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Site"])
 
 	Func setSite P1
-		dnRequest("set",[self,"Site",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Site",P1])
 		return self
 
 	Func getSortMode
-		return dnRequest("get",[self,"SortMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortMode"])
 
 	Func setSortMode P1
-		dnRequest("set",[self,"SortMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SortMode",P1])
 		return self
 
 	Func getToolTipText
-		return dnRequest("get",[self,"ToolTipText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipText"])
 
 	Func setToolTipText P1
-		dnRequest("set",[self,"ToolTipText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ToolTipText",P1])
 		return self
 
 	Func getValueType
-		return dnRequest("get",[self,"ValueType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueType"])
 
 	Func setValueType P1
-		dnRequest("set",[self,"ValueType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValueType",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
 		return self
 

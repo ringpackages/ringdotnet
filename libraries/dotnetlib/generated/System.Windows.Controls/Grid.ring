@@ -25,10 +25,10 @@ Class Grid from WpfPanel
 		return self
 
 	Func ShouldSerializeColumnDefinitions 
-		return dnRequest("call",[self,"ShouldSerializeColumnDefinitions"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeColumnDefinitions"])
 
 	Func ShouldSerializeRowDefinitions 
-		return dnRequest("call",[self,"ShouldSerializeRowDefinitions"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeRowDefinitions"])
 
 	Func SetColumn P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.Grid, PresentationFramework'),"SetColumn",P1,P2])
@@ -66,20 +66,20 @@ Class Grid from WpfPanel
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.Grid, PresentationFramework'),"GetIsSharedSizeScope",P1])
 
 	Func getShowGridLines
-		return dnRequest("get",[self,"ShowGridLines"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowGridLines"])
 
 	Func setShowGridLines P1
-		dnRequest("set",[self,"ShowGridLines",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowGridLines",P1])
 		return self
 
 	Func getColumnDefinitions
-		return dnRequest("get",[self,"ColumnDefinitions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnDefinitions"])
 
 	Func setColumnDefinitions P1
 		raise("DotNet Error: ColumnDefinitions is a read-only property")
 
 	Func getRowDefinitions
-		return dnRequest("get",[self,"RowDefinitions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowDefinitions"])
 
 	Func setRowDefinitions P1
 		raise("DotNet Error: RowDefinitions is a read-only property")

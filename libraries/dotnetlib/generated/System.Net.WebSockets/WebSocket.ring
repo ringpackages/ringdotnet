@@ -20,30 +20,30 @@ Class WebSocket from Object
 		return self
 
 	Func Abort 
-		dnRequest("call",[self,"Abort"])
+		dnRequest("call",[new DotNetObject(nHandle),"Abort"])
 		return self
 
 	Func CloseAsync P1,P2,P3
-		return dnRequest("call",[self,"CloseAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CloseAsync",P1,P2,P3])
 
 	Func CloseOutputAsync P1,P2,P3
-		return dnRequest("call",[self,"CloseOutputAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CloseOutputAsync",P1,P2,P3])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func ReceiveAsync P1,P2
-		return dnRequest("call",[self,"ReceiveAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveAsync",P1,P2])
 
 	Func SendAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"SendAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4])
 
 	Func SendAsync P1,P2,P3
-		return dnRequest("call",[self,"SendAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateClientBuffer P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateClientBuffer",P1,P2])
@@ -68,25 +68,25 @@ Class WebSocket from Object
 		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateClientWebSocket",P1,P2,P3,P4,P5,P6,P7])
 
 	Func getCloseStatus
-		return dnRequest("get",[self,"CloseStatus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CloseStatus"])
 
 	Func setCloseStatus P1
 		raise("DotNet Error: CloseStatus is a read-only property")
 
 	Func getCloseStatusDescription
-		return dnRequest("get",[self,"CloseStatusDescription"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CloseStatusDescription"])
 
 	Func setCloseStatusDescription P1
 		raise("DotNet Error: CloseStatusDescription is a read-only property")
 
 	Func getSubProtocol
-		return dnRequest("get",[self,"SubProtocol"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubProtocol"])
 
 	Func setSubProtocol P1
 		raise("DotNet Error: SubProtocol is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")

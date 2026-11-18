@@ -15,29 +15,29 @@ Class DelegateStartup from DotNetObject
 		return self
 
 	Func Configure P1
-		dnRequest("call",[self,"Configure",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
 		return self
 
 	Func CreateServiceProvider P1
-		return dnRequest("call",[self,"CreateServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateServiceProvider",P1])
 
 	Func ConfigureContainer P1
-		dnRequest("call",[self,"ConfigureContainer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ConfigureContainer",P1])
 		return self
 
 	Func ConfigureServices P1
-		dnRequest("call",[self,"ConfigureServices",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 

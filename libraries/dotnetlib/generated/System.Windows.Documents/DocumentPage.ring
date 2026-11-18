@@ -25,40 +25,40 @@ Class DocumentPage from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setPageDestroyedEvent P1
-		dnRequest("setevent",[self,"PageDestroyed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PageDestroyed",dnCallback(P1)])
 		return self
 
 	Func clearPageDestroyedEvent
-		dnRequest("clearevent",[self,"PageDestroyed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PageDestroyed"])
 		return self
 
 	Func getVisual
-		return dnRequest("get",[self,"Visual"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Visual"])
 
 	Func setVisual P1
 		raise("DotNet Error: Visual is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getBleedBox
-		return dnRequest("get",[self,"BleedBox"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BleedBox"])
 
 	Func setBleedBox P1
 		raise("DotNet Error: BleedBox is a read-only property")
 
 	Func getContentBox
-		return dnRequest("get",[self,"ContentBox"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentBox"])
 
 	Func setContentBox P1
 		raise("DotNet Error: ContentBox is a read-only property")

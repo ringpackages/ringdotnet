@@ -30,61 +30,61 @@ Class FormReader from Object
 		return self
 
 	Func ReadNextPair 
-		return dnRequest("call",[self,"ReadNextPair"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadNextPair"])
 
 	Func ReadNextPairAsync_1 P1
-		return dnRequest("call",[self,"ReadNextPairAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadNextPairAsync",P1])
 
 	Func ReadNextPairAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadNextPairAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadNextPairAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadNextPairAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadNextPairAsync"])
 		ok
-		return dnRequest("call",[self,"ReadNextPairAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadNextPairAsync",P1])
 
 	Func ReadForm 
-		return dnRequest("call",[self,"ReadForm"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadForm"])
 
 	Func ReadFormAsync_1 P1
-		return dnRequest("call",[self,"ReadFormAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 
 	Func ReadFormAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadFormAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadFormAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync"])
 		ok
-		return dnRequest("call",[self,"ReadFormAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getValueCountLimit
-		return dnRequest("get",[self,"ValueCountLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueCountLimit"])
 
 	Func setValueCountLimit P1
-		dnRequest("set",[self,"ValueCountLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValueCountLimit",P1])
 		return self
 
 	Func getKeyLengthLimit
-		return dnRequest("get",[self,"KeyLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyLengthLimit"])
 
 	Func setKeyLengthLimit P1
-		dnRequest("set",[self,"KeyLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyLengthLimit",P1])
 		return self
 
 	Func getValueLengthLimit
-		return dnRequest("get",[self,"ValueLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueLengthLimit"])
 
 	Func setValueLengthLimit P1
-		dnRequest("set",[self,"ValueLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValueLengthLimit",P1])
 		return self
 
 	Func getDefaultValueCountLimit

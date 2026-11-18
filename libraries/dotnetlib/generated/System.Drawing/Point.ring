@@ -24,15 +24,15 @@ Class Point from ValueType
 		return self
 
 	Func Offset_2 P1,P2
-		dnRequest("call",[self,"Offset",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1,P2])
 		return self
 
 	Func Offset P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Offset",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Offset",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Offset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1])
 		return self
 
 	Func Add P1,P2
@@ -51,23 +51,23 @@ Class Point from ValueType
 		return dnRequest("call",[dnTypeCached('System.Drawing.Point, System.Drawing.Primitives'),"Round",P1])
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 
 	Func getEmpty

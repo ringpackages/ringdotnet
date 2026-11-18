@@ -25,7 +25,7 @@ Class SystemIcons from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetStockIcon_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common'),"GetStockIcon",P1,P2])

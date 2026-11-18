@@ -14,27 +14,27 @@ Class IMutableAnnotatable from DotNetObject
 		return self
 
 	Func AddAnnotation P1,P2
-		return dnRequest("call",[self,"AddAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddAnnotation",P1,P2])
 
 	Func SetAnnotation P1,P2
-		dnRequest("call",[self,"SetAnnotation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAnnotation",P1,P2])
 		return self
 
 	Func RemoveAnnotation P1
-		return dnRequest("call",[self,"RemoveAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAnnotation",P1])
 
 	Func AddAnnotations P1
-		dnRequest("call",[self,"AddAnnotations",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddAnnotations",P1])
 		return self
 
 	Func SetOrRemoveAnnotation P1,P2
-		dnRequest("call",[self,"SetOrRemoveAnnotation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetOrRemoveAnnotation",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 

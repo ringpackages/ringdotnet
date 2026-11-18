@@ -19,22 +19,22 @@ Class AuthenticationScheme from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getHandlerType
-		return dnRequest("get",[self,"HandlerType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HandlerType"])
 
 	Func setHandlerType P1
 		raise("DotNet Error: HandlerType is a read-only property")

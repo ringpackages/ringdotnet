@@ -18,23 +18,23 @@ Class ConfigurationReloadToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnRequest("call",[self,"RegisterChangeCallback",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RegisterChangeCallback",P1,P2])
 
 	Func OnReload 
-		dnRequest("call",[self,"OnReload"])
+		dnRequest("call",[new DotNetObject(nHandle),"OnReload"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getActiveChangeCallbacks
-		return dnRequest("get",[self,"ActiveChangeCallbacks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActiveChangeCallbacks"])
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
 
 	Func getHasChanged
-		return dnRequest("get",[self,"HasChanged"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasChanged"])
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")

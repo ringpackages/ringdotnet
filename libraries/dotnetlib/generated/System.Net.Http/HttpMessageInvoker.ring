@@ -19,15 +19,15 @@ Class HttpMessageInvoker from Object
 		return self
 
 	Func Send P1,P2
-		return dnRequest("call",[self,"Send",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2])
 
 	Func SendAsync P1,P2
-		return dnRequest("call",[self,"SendAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

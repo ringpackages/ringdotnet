@@ -19,19 +19,19 @@ Class ListViewItemSelectionChangedEventArgs from EventArgs
 		return self
 
 	Func getItem
-		return dnRequest("get",[self,"Item"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getItemIndex
-		return dnRequest("get",[self,"ItemIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemIndex"])
 
 	Func setItemIndex P1
 		raise("DotNet Error: ItemIndex is a read-only property")
 
 	Func getIsSelected
-		return dnRequest("get",[self,"IsSelected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
 
 	Func setIsSelected P1
 		raise("DotNet Error: IsSelected is a read-only property")

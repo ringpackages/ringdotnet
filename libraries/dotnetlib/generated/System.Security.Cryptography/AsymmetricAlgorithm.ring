@@ -19,34 +19,34 @@ Class AsymmetricAlgorithm from Object
 		return self
 
 	Func FromXmlString P1
-		dnRequest("call",[self,"FromXmlString",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"FromXmlString",P1])
 		return self
 
 	Func ToXmlString P1
-		return dnRequest("call",[self,"ToXmlString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToXmlString",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func ExportPkcs8PrivateKey 
-		return dnRequest("call",[self,"ExportPkcs8PrivateKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportPkcs8PrivateKey"])
 
 	Func ExportSubjectPublicKeyInfo 
-		return dnRequest("call",[self,"ExportSubjectPublicKeyInfo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportSubjectPublicKeyInfo"])
 
 	Func ExportPkcs8PrivateKeyPem 
-		return dnRequest("call",[self,"ExportPkcs8PrivateKeyPem"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportPkcs8PrivateKeyPem"])
 
 	Func ExportSubjectPublicKeyInfoPem 
-		return dnRequest("call",[self,"ExportSubjectPublicKeyInfoPem"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportSubjectPublicKeyInfoPem"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -61,26 +61,26 @@ Class AsymmetricAlgorithm from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getKeySize
-		return dnRequest("get",[self,"KeySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeySize"])
 
 	Func setKeySize P1
-		dnRequest("set",[self,"KeySize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeySize",P1])
 		return self
 
 	Func getLegalKeySizes
-		return dnRequest("get",[self,"LegalKeySizes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LegalKeySizes"])
 
 	Func setLegalKeySizes P1
 		raise("DotNet Error: LegalKeySizes is a read-only property")
 
 	Func getSignatureAlgorithm
-		return dnRequest("get",[self,"SignatureAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SignatureAlgorithm"])
 
 	Func setSignatureAlgorithm P1
 		raise("DotNet Error: SignatureAlgorithm is a read-only property")
 
 	Func getKeyExchangeAlgorithm
-		return dnRequest("get",[self,"KeyExchangeAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyExchangeAlgorithm"])
 
 	Func setKeyExchangeAlgorithm P1
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")

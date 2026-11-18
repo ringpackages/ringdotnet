@@ -16,14 +16,14 @@ Class FontCollection from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFamilies
-		return dnRequest("get",[self,"Families"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Families"])
 
 	Func setFamilies P1
 		raise("DotNet Error: Families is a read-only property")

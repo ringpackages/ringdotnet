@@ -39,65 +39,65 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 		return self
 
 	Func setCheckedChangedEvent P1
-		dnRequest("setevent",[self,"CheckedChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CheckedChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckedChangedEvent
-		dnRequest("clearevent",[self,"CheckedChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckedChanged"])
 		return self
 
 	Func setCheckStateChangedEvent P1
-		dnRequest("setevent",[self,"CheckStateChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CheckStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckStateChangedEvent
-		dnRequest("clearevent",[self,"CheckStateChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckStateChanged"])
 		return self
 
 	Func getChecked
-		return dnRequest("get",[self,"Checked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Checked"])
 
 	Func setChecked P1
-		dnRequest("set",[self,"Checked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Checked",P1])
 		return self
 
 	Func getCheckOnClick
-		return dnRequest("get",[self,"CheckOnClick"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckOnClick"])
 
 	Func setCheckOnClick P1
-		dnRequest("set",[self,"CheckOnClick",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckOnClick",P1])
 		return self
 
 	Func getCheckState
-		return dnRequest("get",[self,"CheckState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckState"])
 
 	Func setCheckState P1
-		dnRequest("set",[self,"CheckState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckState",P1])
 		return self
 
 	Func getShortcutKeys
-		return dnRequest("get",[self,"ShortcutKeys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShortcutKeys"])
 
 	Func setShortcutKeys P1
-		dnRequest("set",[self,"ShortcutKeys",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShortcutKeys",P1])
 		return self
 
 	Func getShortcutKeyDisplayString
-		return dnRequest("get",[self,"ShortcutKeyDisplayString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShortcutKeyDisplayString"])
 
 	Func setShortcutKeyDisplayString P1
-		dnRequest("set",[self,"ShortcutKeyDisplayString",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShortcutKeyDisplayString",P1])
 		return self
 
 	Func getShowShortcutKeys
-		return dnRequest("get",[self,"ShowShortcutKeys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowShortcutKeys"])
 
 	Func setShowShortcutKeys P1
-		dnRequest("set",[self,"ShowShortcutKeys",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowShortcutKeys",P1])
 		return self
 
 	Func getIsMdiWindowListEntry
-		return dnRequest("get",[self,"IsMdiWindowListEntry"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMdiWindowListEntry"])
 
 	Func setIsMdiWindowListEntry P1
 		raise("DotNet Error: IsMdiWindowListEntry is a read-only property")

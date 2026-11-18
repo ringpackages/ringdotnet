@@ -20,10 +20,10 @@ Class DataGridCheckBoxColumn from DataGridBoundColumn
 		return self
 
 	Func getIsThreeState
-		return dnRequest("get",[self,"IsThreeState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsThreeState"])
 
 	Func setIsThreeState P1
-		dnRequest("set",[self,"IsThreeState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsThreeState",P1])
 		return self
 
 	Func getDefaultElementStyle

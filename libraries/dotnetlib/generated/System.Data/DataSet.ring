@@ -34,253 +34,253 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func AcceptChanges 
-		dnRequest("call",[self,"AcceptChanges"])
+		dnRequest("call",[new DotNetObject(nHandle),"AcceptChanges"])
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Copy 
-		return dnRequest("call",[self,"Copy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Copy"])
 
 	Func GetChanges P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetChanges",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChanges",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetChanges"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetChanges"])
 		ok
-		return dnRequest("call",[self,"GetChanges",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChanges",P1])
 
 	Func GetChanges_1 P1
-		return dnRequest("call",[self,"GetChanges",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChanges",P1])
 
 	Func GetXml 
-		return dnRequest("call",[self,"GetXml"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetXml"])
 
 	Func GetXmlSchema 
-		return dnRequest("call",[self,"GetXmlSchema"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetXmlSchema"])
 
 	Func HasChanges P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasChanges",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasChanges",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasChanges"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasChanges"])
 		ok
-		return dnRequest("call",[self,"HasChanges",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasChanges",P1])
 
 	Func HasChanges_1 P1
-		return dnRequest("call",[self,"HasChanges",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasChanges",P1])
 
 	Func InferXmlSchema P1,P2
-		dnRequest("call",[self,"InferXmlSchema",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"InferXmlSchema",P1,P2])
 		return self
 
 	Func ReadXmlSchema P1
-		dnRequest("call",[self,"ReadXmlSchema",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReadXmlSchema",P1])
 		return self
 
 	Func WriteXmlSchema P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"WriteXmlSchema",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteXmlSchema",P1])
 			return self
 		ok
-		dnRequest("call",[self,"WriteXmlSchema",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteXmlSchema",P1])
 		return self
 
 	Func WriteXmlSchema_2 P1,P2
-		dnRequest("call",[self,"WriteXmlSchema",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteXmlSchema",P1,P2])
 		return self
 
 	Func ReadXml P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadXml",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadXml",P1])
 		ok
-		return dnRequest("call",[self,"ReadXml",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadXml",P1])
 
 	Func ReadXml_2 P1,P2
-		return dnRequest("call",[self,"ReadXml",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadXml",P1,P2])
 
 	Func WriteXml P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"WriteXml",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteXml",P1])
 			return self
 		ok
-		dnRequest("call",[self,"WriteXml",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteXml",P1])
 		return self
 
 	Func WriteXml_2 P1,P2
-		dnRequest("call",[self,"WriteXml",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteXml",P1,P2])
 		return self
 
 	Func Merge P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Merge",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Merge",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Merge",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1])
 		return self
 
 	Func Merge_2 P1,P2
-		dnRequest("call",[self,"Merge",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1,P2])
 		return self
 
 	Func Merge_3 P1,P2,P3
-		dnRequest("call",[self,"Merge",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1,P2,P3])
 		return self
 
 	Func RejectChanges 
-		dnRequest("call",[self,"RejectChanges"])
+		dnRequest("call",[new DotNetObject(nHandle),"RejectChanges"])
 		return self
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Load_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Load",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2,P3,P4])
 		return self
 
 	Func Load_ P1,P2,P3
-		dnRequest("call",[self,"Load",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2,P3])
 		return self
 
 	Func CreateDataReader P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateDataReader",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateDataReader",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateDataReader"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateDataReader"])
 		ok
-		return dnRequest("call",[self,"CreateDataReader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataReader",P1])
 
 	Func CreateDataReader_1 P1
-		return dnRequest("call",[self,"CreateDataReader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataReader",P1])
 
 	Func GetDataSetSchema P1
 		return dnRequest("call",[dnTypeCached('System.Data.DataSet, System.Data.Common'),"GetDataSetSchema",P1])
 
 	Func setMergeFailedEvent P1
-		dnRequest("setevent",[self,"MergeFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MergeFailed",dnCallback(P1)])
 		return self
 
 	Func clearMergeFailedEvent
-		dnRequest("clearevent",[self,"MergeFailed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MergeFailed"])
 		return self
 
 	Func setInitializedEvent P1
-		dnRequest("setevent",[self,"Initialized",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Initialized",dnCallback(P1)])
 		return self
 
 	Func clearInitializedEvent
-		dnRequest("clearevent",[self,"Initialized"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Initialized"])
 		return self
 
 	Func getRemotingFormat
-		return dnRequest("get",[self,"RemotingFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemotingFormat"])
 
 	Func setRemotingFormat P1
-		dnRequest("set",[self,"RemotingFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RemotingFormat",P1])
 		return self
 
 	Func getSchemaSerializationMode
-		return dnRequest("get",[self,"SchemaSerializationMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaSerializationMode"])
 
 	Func setSchemaSerializationMode P1
-		dnRequest("set",[self,"SchemaSerializationMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SchemaSerializationMode",P1])
 		return self
 
 	Func getCaseSensitive
-		return dnRequest("get",[self,"CaseSensitive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaseSensitive"])
 
 	Func setCaseSensitive P1
-		dnRequest("set",[self,"CaseSensitive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaseSensitive",P1])
 		return self
 
 	Func getDefaultViewManager
-		return dnRequest("get",[self,"DefaultViewManager"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultViewManager"])
 
 	Func setDefaultViewManager P1
 		raise("DotNet Error: DefaultViewManager is a read-only property")
 
 	Func getEnforceConstraints
-		return dnRequest("get",[self,"EnforceConstraints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnforceConstraints"])
 
 	Func setEnforceConstraints P1
-		dnRequest("set",[self,"EnforceConstraints",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnforceConstraints",P1])
 		return self
 
 	Func getDataSetName
-		return dnRequest("get",[self,"DataSetName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataSetName"])
 
 	Func setDataSetName P1
-		dnRequest("set",[self,"DataSetName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataSetName",P1])
 		return self
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
 
 	Func setNamespace P1
-		dnRequest("set",[self,"Namespace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Namespace",P1])
 		return self
 
 	Func getPrefix
-		return dnRequest("get",[self,"Prefix"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Prefix"])
 
 	Func setPrefix P1
-		dnRequest("set",[self,"Prefix",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Prefix",P1])
 		return self
 
 	Func getExtendedProperties
-		return dnRequest("get",[self,"ExtendedProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedProperties"])
 
 	Func setExtendedProperties P1
 		raise("DotNet Error: ExtendedProperties is a read-only property")
 
 	Func getHasErrors
-		return dnRequest("get",[self,"HasErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasErrors"])
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")
 
 	Func getIsInitialized
-		return dnRequest("get",[self,"IsInitialized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialized"])
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getLocale
-		return dnRequest("get",[self,"Locale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Locale"])
 
 	Func setLocale P1
-		dnRequest("set",[self,"Locale",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Locale",P1])
 		return self
 
 	Func getRelations
-		return dnRequest("get",[self,"Relations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Relations"])
 
 	Func setRelations P1
 		raise("DotNet Error: Relations is a read-only property")
 
 	Func getTables
-		return dnRequest("get",[self,"Tables"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tables"])
 
 	Func setTables P1
 		raise("DotNet Error: Tables is a read-only property")

@@ -27,90 +27,90 @@ Class WpfPrintDialog from Object
 		return self
 
 	Func ShowDialog 
-		return dnRequest("call",[self,"ShowDialog"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog"])
 
 	Func PrintVisual P1,P2
-		dnRequest("call",[self,"PrintVisual",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"PrintVisual",P1,P2])
 		return self
 
 	Func PrintDocument P1,P2
-		dnRequest("call",[self,"PrintDocument",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"PrintDocument",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPageRangeSelection
-		return dnRequest("get",[self,"PageRangeSelection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageRangeSelection"])
 
 	Func setPageRangeSelection P1
-		dnRequest("set",[self,"PageRangeSelection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PageRangeSelection",P1])
 		return self
 
 	Func getPageRange
-		return dnRequest("get",[self,"PageRange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageRange"])
 
 	Func setPageRange P1
-		dnRequest("set",[self,"PageRange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PageRange",P1])
 		return self
 
 	Func getUserPageRangeEnabled
-		return dnRequest("get",[self,"UserPageRangeEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserPageRangeEnabled"])
 
 	Func setUserPageRangeEnabled P1
-		dnRequest("set",[self,"UserPageRangeEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UserPageRangeEnabled",P1])
 		return self
 
 	Func getSelectedPagesEnabled
-		return dnRequest("get",[self,"SelectedPagesEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedPagesEnabled"])
 
 	Func setSelectedPagesEnabled P1
-		dnRequest("set",[self,"SelectedPagesEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedPagesEnabled",P1])
 		return self
 
 	Func getCurrentPageEnabled
-		return dnRequest("get",[self,"CurrentPageEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentPageEnabled"])
 
 	Func setCurrentPageEnabled P1
-		dnRequest("set",[self,"CurrentPageEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentPageEnabled",P1])
 		return self
 
 	Func getMinPage
-		return dnRequest("get",[self,"MinPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinPage"])
 
 	Func setMinPage P1
-		dnRequest("set",[self,"MinPage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinPage",P1])
 		return self
 
 	Func getMaxPage
-		return dnRequest("get",[self,"MaxPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxPage"])
 
 	Func setMaxPage P1
-		dnRequest("set",[self,"MaxPage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxPage",P1])
 		return self
 
 	Func getPrintQueue
-		return dnRequest("get",[self,"PrintQueue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrintQueue"])
 
 	Func setPrintQueue P1
-		dnRequest("set",[self,"PrintQueue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrintQueue",P1])
 		return self
 
 	Func getPrintTicket
-		return dnRequest("get",[self,"PrintTicket"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrintTicket"])
 
 	Func setPrintTicket P1
-		dnRequest("set",[self,"PrintTicket",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrintTicket",P1])
 		return self
 
 	Func getPrintableAreaWidth
-		return dnRequest("get",[self,"PrintableAreaWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrintableAreaWidth"])
 
 	Func setPrintableAreaWidth P1
 		raise("DotNet Error: PrintableAreaWidth is a read-only property")
 
 	Func getPrintableAreaHeight
-		return dnRequest("get",[self,"PrintableAreaHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrintableAreaHeight"])
 
 	Func setPrintableAreaHeight P1
 		raise("DotNet Error: PrintableAreaHeight is a read-only property")

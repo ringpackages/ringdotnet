@@ -14,6 +14,6 @@ Class IModelValidator from DotNetObject
 		return self
 
 	Func Validate P1,P2
-		dnRequest("call",[self,"Validate",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2])
 		return self
 

@@ -21,38 +21,38 @@ Class MultipartSection from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentDisposition
-		return dnRequest("get",[self,"ContentDisposition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentDisposition"])
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")
 
 	Func getHeaders
-		return dnRequest("get",[self,"Headers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
 
 	Func setHeaders P1
-		dnRequest("set",[self,"Headers",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Headers",P1])
 		return self
 
 	Func getBody
-		return dnRequest("get",[self,"Body"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Body"])
 
 	Func setBody P1
-		dnRequest("set",[self,"Body",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Body",P1])
 		return self
 
 	Func getBaseStreamOffset
-		return dnRequest("get",[self,"BaseStreamOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseStreamOffset"])
 
 	Func setBaseStreamOffset P1
-		dnRequest("set",[self,"BaseStreamOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseStreamOffset",P1])
 		return self
 

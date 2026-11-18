@@ -14,53 +14,53 @@ Class DSA from AsymmetricAlgorithm
 		return self
 
 	Func ExportParameters P1
-		return dnRequest("call",[self,"ExportParameters",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportParameters",P1])
 
 	Func ImportParameters P1
-		dnRequest("call",[self,"ImportParameters",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ImportParameters",P1])
 		return self
 
 	Func CreateSignature P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateSignature",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSignature",P1])
 		ok
-		return dnRequest("call",[self,"CreateSignature",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSignature",P1])
 
 	Func VerifySignature P1,P2
-		return dnRequest("call",[self,"VerifySignature",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifySignature",P1,P2])
 
 	Func SignData P1,P2
-		return dnRequest("call",[self,"SignData",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2])
 
 	Func SignData_3 P1,P2,P3
-		return dnRequest("call",[self,"SignData",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3])
 
 	Func SignData_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"SignData",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3,P4])
 
 	Func SignData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"SignData",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3,P4,P5])
 
 	Func VerifyData P1,P2,P3
-		return dnRequest("call",[self,"VerifyData",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3])
 
 	Func VerifyData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"VerifyData",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4,P5])
 
 	Func VerifyData_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"VerifyData",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4,P5,P6])
 
 	Func CreateSignature_2 P1,P2
-		return dnRequest("call",[self,"CreateSignature",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSignature",P1,P2])
 
 	Func VerifyData_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"VerifyData",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4])
 
 	Func VerifySignature_3 P1,P2,P3
-		return dnRequest("call",[self,"VerifySignature",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifySignature",P1,P2,P3])
 
 	Func GetMaxSignatureSize P1
-		return dnRequest("call",[self,"GetMaxSignatureSize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxSignatureSize",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create",P1])

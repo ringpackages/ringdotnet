@@ -22,16 +22,16 @@ Class TaskDialogFootnote from TaskDialogControl
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
-		dnRequest("set",[self,"Text",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
 		return self
 
 	Func getIcon
-		return dnRequest("get",[self,"Icon"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Icon"])
 
 	Func setIcon P1
-		dnRequest("set",[self,"Icon",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Icon",P1])
 		return self
 

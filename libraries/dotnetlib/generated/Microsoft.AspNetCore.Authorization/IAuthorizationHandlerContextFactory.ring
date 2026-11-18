@@ -14,5 +14,5 @@ Class IAuthorizationHandlerContextFactory from DotNetObject
 		return self
 
 	Func CreateContext P1,P2,P3
-		return dnRequest("call",[self,"CreateContext",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateContext",P1,P2,P3])
 

@@ -18,23 +18,23 @@ Class IDbDataParameter from DotNetObject
 		return self
 
 	Func getPrecision
-		return dnRequest("get",[self,"Precision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Precision"])
 
 	Func setPrecision P1
-		dnRequest("set",[self,"Precision",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Precision",P1])
 		return self
 
 	Func getScale
-		return dnRequest("get",[self,"Scale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
 
 	Func setScale P1
-		dnRequest("set",[self,"Scale",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Scale",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 

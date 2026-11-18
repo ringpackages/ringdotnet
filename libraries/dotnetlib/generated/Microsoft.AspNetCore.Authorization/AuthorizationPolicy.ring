@@ -18,7 +18,7 @@ Class AuthorizationPolicy from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Combine P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"Combine",P1])
@@ -30,13 +30,13 @@ Class AuthorizationPolicy from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"CombineAsync",P1,P2,P3])
 
 	Func getRequirements
-		return dnRequest("get",[self,"Requirements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Requirements"])
 
 	Func setRequirements P1
 		raise("DotNet Error: Requirements is a read-only property")
 
 	Func getAuthenticationSchemes
-		return dnRequest("get",[self,"AuthenticationSchemes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationSchemes"])
 
 	Func setAuthenticationSchemes P1
 		raise("DotNet Error: AuthenticationSchemes is a read-only property")

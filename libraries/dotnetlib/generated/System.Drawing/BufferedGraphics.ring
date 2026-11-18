@@ -16,30 +16,30 @@ Class BufferedGraphics from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Render_1 P1
-		dnRequest("call",[self,"Render",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Render",P1])
 		return self
 
 	Func Render P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Render",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Render",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Render"])
+			dnRequest("call",[new DotNetObject(nHandle),"Render"])
 		return self
 		ok
-		dnRequest("call",[self,"Render",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Render",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")

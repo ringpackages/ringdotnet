@@ -14,44 +14,44 @@ Class LinkGenerator from Object
 		return self
 
 	Func GetPathByAddress_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"GetPathByAddress",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3,P4,P5,P6,P7])
 
 	Func GetPathByAddress_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"GetPathByAddress",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3,P4,P5,P6])
 
 	Func GetPathByAddress_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"GetPathByAddress",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3,P4,P5])
 
 	Func GetPathByAddress_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"GetPathByAddress",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3,P4])
 
 	Func GetPathByAddress_3 P1,P2,P3
-		return dnRequest("call",[self,"GetPathByAddress",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3])
 
 	Func GetPathByAddress P1,P2
-		return dnRequest("call",[self,"GetPathByAddress",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2])
 
 	Func GetUriByAddress_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"GetUriByAddress",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func GetUriByAddress_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"GetUriByAddress",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func GetUriByAddress_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"GetUriByAddress",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5,P6,P7])
 
 	Func GetUriByAddress_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"GetUriByAddress",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5,P6])
 
 	Func GetUriByAddress_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"GetUriByAddress",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5])
 
 	Func GetUriByAddress_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"GetUriByAddress",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4])
 
 	Func GetUriByAddress P1,P2,P3
-		return dnRequest("call",[self,"GetUriByAddress",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

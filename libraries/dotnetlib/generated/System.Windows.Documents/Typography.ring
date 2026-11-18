@@ -101,7 +101,7 @@ Class Typography from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func SetStandardLigatures_2 P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStandardLigatures",P1,P2])
@@ -405,304 +405,304 @@ Class Typography from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticAlternates",P1])
 
 	Func getStandardLigatures
-		return dnRequest("get",[self,"StandardLigatures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StandardLigatures"])
 
 	Func setStandardLigatures P1
-		dnRequest("set",[self,"StandardLigatures",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StandardLigatures",P1])
 		return self
 
 	Func getContextualLigatures
-		return dnRequest("get",[self,"ContextualLigatures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextualLigatures"])
 
 	Func setContextualLigatures P1
-		dnRequest("set",[self,"ContextualLigatures",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContextualLigatures",P1])
 		return self
 
 	Func getDiscretionaryLigatures
-		return dnRequest("get",[self,"DiscretionaryLigatures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DiscretionaryLigatures"])
 
 	Func setDiscretionaryLigatures P1
-		dnRequest("set",[self,"DiscretionaryLigatures",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DiscretionaryLigatures",P1])
 		return self
 
 	Func getHistoricalLigatures
-		return dnRequest("get",[self,"HistoricalLigatures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HistoricalLigatures"])
 
 	Func setHistoricalLigatures P1
-		dnRequest("set",[self,"HistoricalLigatures",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HistoricalLigatures",P1])
 		return self
 
 	Func getAnnotationAlternates
-		return dnRequest("get",[self,"AnnotationAlternates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AnnotationAlternates"])
 
 	Func setAnnotationAlternates P1
-		dnRequest("set",[self,"AnnotationAlternates",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AnnotationAlternates",P1])
 		return self
 
 	Func getContextualAlternates
-		return dnRequest("get",[self,"ContextualAlternates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextualAlternates"])
 
 	Func setContextualAlternates P1
-		dnRequest("set",[self,"ContextualAlternates",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContextualAlternates",P1])
 		return self
 
 	Func getHistoricalForms
-		return dnRequest("get",[self,"HistoricalForms"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HistoricalForms"])
 
 	Func setHistoricalForms P1
-		dnRequest("set",[self,"HistoricalForms",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HistoricalForms",P1])
 		return self
 
 	Func getKerning
-		return dnRequest("get",[self,"Kerning"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Kerning"])
 
 	Func setKerning P1
-		dnRequest("set",[self,"Kerning",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Kerning",P1])
 		return self
 
 	Func getCapitalSpacing
-		return dnRequest("get",[self,"CapitalSpacing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CapitalSpacing"])
 
 	Func setCapitalSpacing P1
-		dnRequest("set",[self,"CapitalSpacing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CapitalSpacing",P1])
 		return self
 
 	Func getCaseSensitiveForms
-		return dnRequest("get",[self,"CaseSensitiveForms"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaseSensitiveForms"])
 
 	Func setCaseSensitiveForms P1
-		dnRequest("set",[self,"CaseSensitiveForms",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CaseSensitiveForms",P1])
 		return self
 
 	Func getStylisticSet1
-		return dnRequest("get",[self,"StylisticSet1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet1"])
 
 	Func setStylisticSet1 P1
-		dnRequest("set",[self,"StylisticSet1",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet1",P1])
 		return self
 
 	Func getStylisticSet2
-		return dnRequest("get",[self,"StylisticSet2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet2"])
 
 	Func setStylisticSet2 P1
-		dnRequest("set",[self,"StylisticSet2",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet2",P1])
 		return self
 
 	Func getStylisticSet3
-		return dnRequest("get",[self,"StylisticSet3"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet3"])
 
 	Func setStylisticSet3 P1
-		dnRequest("set",[self,"StylisticSet3",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet3",P1])
 		return self
 
 	Func getStylisticSet4
-		return dnRequest("get",[self,"StylisticSet4"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet4"])
 
 	Func setStylisticSet4 P1
-		dnRequest("set",[self,"StylisticSet4",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet4",P1])
 		return self
 
 	Func getStylisticSet5
-		return dnRequest("get",[self,"StylisticSet5"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet5"])
 
 	Func setStylisticSet5 P1
-		dnRequest("set",[self,"StylisticSet5",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet5",P1])
 		return self
 
 	Func getStylisticSet6
-		return dnRequest("get",[self,"StylisticSet6"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet6"])
 
 	Func setStylisticSet6 P1
-		dnRequest("set",[self,"StylisticSet6",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet6",P1])
 		return self
 
 	Func getStylisticSet7
-		return dnRequest("get",[self,"StylisticSet7"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet7"])
 
 	Func setStylisticSet7 P1
-		dnRequest("set",[self,"StylisticSet7",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet7",P1])
 		return self
 
 	Func getStylisticSet8
-		return dnRequest("get",[self,"StylisticSet8"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet8"])
 
 	Func setStylisticSet8 P1
-		dnRequest("set",[self,"StylisticSet8",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet8",P1])
 		return self
 
 	Func getStylisticSet9
-		return dnRequest("get",[self,"StylisticSet9"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet9"])
 
 	Func setStylisticSet9 P1
-		dnRequest("set",[self,"StylisticSet9",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet9",P1])
 		return self
 
 	Func getStylisticSet10
-		return dnRequest("get",[self,"StylisticSet10"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet10"])
 
 	Func setStylisticSet10 P1
-		dnRequest("set",[self,"StylisticSet10",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet10",P1])
 		return self
 
 	Func getStylisticSet11
-		return dnRequest("get",[self,"StylisticSet11"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet11"])
 
 	Func setStylisticSet11 P1
-		dnRequest("set",[self,"StylisticSet11",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet11",P1])
 		return self
 
 	Func getStylisticSet12
-		return dnRequest("get",[self,"StylisticSet12"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet12"])
 
 	Func setStylisticSet12 P1
-		dnRequest("set",[self,"StylisticSet12",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet12",P1])
 		return self
 
 	Func getStylisticSet13
-		return dnRequest("get",[self,"StylisticSet13"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet13"])
 
 	Func setStylisticSet13 P1
-		dnRequest("set",[self,"StylisticSet13",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet13",P1])
 		return self
 
 	Func getStylisticSet14
-		return dnRequest("get",[self,"StylisticSet14"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet14"])
 
 	Func setStylisticSet14 P1
-		dnRequest("set",[self,"StylisticSet14",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet14",P1])
 		return self
 
 	Func getStylisticSet15
-		return dnRequest("get",[self,"StylisticSet15"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet15"])
 
 	Func setStylisticSet15 P1
-		dnRequest("set",[self,"StylisticSet15",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet15",P1])
 		return self
 
 	Func getStylisticSet16
-		return dnRequest("get",[self,"StylisticSet16"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet16"])
 
 	Func setStylisticSet16 P1
-		dnRequest("set",[self,"StylisticSet16",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet16",P1])
 		return self
 
 	Func getStylisticSet17
-		return dnRequest("get",[self,"StylisticSet17"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet17"])
 
 	Func setStylisticSet17 P1
-		dnRequest("set",[self,"StylisticSet17",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet17",P1])
 		return self
 
 	Func getStylisticSet18
-		return dnRequest("get",[self,"StylisticSet18"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet18"])
 
 	Func setStylisticSet18 P1
-		dnRequest("set",[self,"StylisticSet18",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet18",P1])
 		return self
 
 	Func getStylisticSet19
-		return dnRequest("get",[self,"StylisticSet19"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet19"])
 
 	Func setStylisticSet19 P1
-		dnRequest("set",[self,"StylisticSet19",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet19",P1])
 		return self
 
 	Func getStylisticSet20
-		return dnRequest("get",[self,"StylisticSet20"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticSet20"])
 
 	Func setStylisticSet20 P1
-		dnRequest("set",[self,"StylisticSet20",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticSet20",P1])
 		return self
 
 	Func getFraction
-		return dnRequest("get",[self,"Fraction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Fraction"])
 
 	Func setFraction P1
-		dnRequest("set",[self,"Fraction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Fraction",P1])
 		return self
 
 	Func getSlashedZero
-		return dnRequest("get",[self,"SlashedZero"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SlashedZero"])
 
 	Func setSlashedZero P1
-		dnRequest("set",[self,"SlashedZero",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SlashedZero",P1])
 		return self
 
 	Func getMathematicalGreek
-		return dnRequest("get",[self,"MathematicalGreek"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MathematicalGreek"])
 
 	Func setMathematicalGreek P1
-		dnRequest("set",[self,"MathematicalGreek",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MathematicalGreek",P1])
 		return self
 
 	Func getEastAsianExpertForms
-		return dnRequest("get",[self,"EastAsianExpertForms"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EastAsianExpertForms"])
 
 	Func setEastAsianExpertForms P1
-		dnRequest("set",[self,"EastAsianExpertForms",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EastAsianExpertForms",P1])
 		return self
 
 	Func getVariants
-		return dnRequest("get",[self,"Variants"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Variants"])
 
 	Func setVariants P1
-		dnRequest("set",[self,"Variants",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Variants",P1])
 		return self
 
 	Func getCapitals
-		return dnRequest("get",[self,"Capitals"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Capitals"])
 
 	Func setCapitals P1
-		dnRequest("set",[self,"Capitals",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Capitals",P1])
 		return self
 
 	Func getNumeralStyle
-		return dnRequest("get",[self,"NumeralStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NumeralStyle"])
 
 	Func setNumeralStyle P1
-		dnRequest("set",[self,"NumeralStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NumeralStyle",P1])
 		return self
 
 	Func getNumeralAlignment
-		return dnRequest("get",[self,"NumeralAlignment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NumeralAlignment"])
 
 	Func setNumeralAlignment P1
-		dnRequest("set",[self,"NumeralAlignment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NumeralAlignment",P1])
 		return self
 
 	Func getEastAsianWidths
-		return dnRequest("get",[self,"EastAsianWidths"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EastAsianWidths"])
 
 	Func setEastAsianWidths P1
-		dnRequest("set",[self,"EastAsianWidths",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EastAsianWidths",P1])
 		return self
 
 	Func getEastAsianLanguage
-		return dnRequest("get",[self,"EastAsianLanguage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EastAsianLanguage"])
 
 	Func setEastAsianLanguage P1
-		dnRequest("set",[self,"EastAsianLanguage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EastAsianLanguage",P1])
 		return self
 
 	Func getStandardSwashes
-		return dnRequest("get",[self,"StandardSwashes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StandardSwashes"])
 
 	Func setStandardSwashes P1
-		dnRequest("set",[self,"StandardSwashes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StandardSwashes",P1])
 		return self
 
 	Func getContextualSwashes
-		return dnRequest("get",[self,"ContextualSwashes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContextualSwashes"])
 
 	Func setContextualSwashes P1
-		dnRequest("set",[self,"ContextualSwashes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContextualSwashes",P1])
 		return self
 
 	Func getStylisticAlternates
-		return dnRequest("get",[self,"StylisticAlternates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylisticAlternates"])
 
 	Func setStylisticAlternates P1
-		dnRequest("set",[self,"StylisticAlternates",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StylisticAlternates",P1])
 		return self
 
 	Func getStandardLigaturesProperty

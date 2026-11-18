@@ -28,45 +28,45 @@ Class DropShadowBitmapEffect from BitmapEffect
 		return self
 
 	Func getShadowDepth
-		return dnRequest("get",[self,"ShadowDepth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShadowDepth"])
 
 	Func setShadowDepth P1
-		dnRequest("set",[self,"ShadowDepth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShadowDepth",P1])
 		return self
 
 	Func getColor
-		return dnRequest("get",[self,"Color"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
 
 	Func setColor P1
-		dnRequest("set",[self,"Color",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
 		return self
 
 	Func getDirection
-		return dnRequest("get",[self,"Direction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
 
 	Func setDirection P1
-		dnRequest("set",[self,"Direction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Direction",P1])
 		return self
 
 	Func getNoise
-		return dnRequest("get",[self,"Noise"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Noise"])
 
 	Func setNoise P1
-		dnRequest("set",[self,"Noise",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Noise",P1])
 		return self
 
 	Func getOpacity
-		return dnRequest("get",[self,"Opacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Opacity"])
 
 	Func setOpacity P1
-		dnRequest("set",[self,"Opacity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Opacity",P1])
 		return self
 
 	Func getSoftness
-		return dnRequest("get",[self,"Softness"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Softness"])
 
 	Func setSoftness P1
-		dnRequest("set",[self,"Softness",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Softness",P1])
 		return self
 
 	Func getShadowDepthProperty

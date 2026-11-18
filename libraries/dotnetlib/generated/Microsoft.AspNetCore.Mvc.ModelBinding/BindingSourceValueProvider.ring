@@ -14,14 +14,14 @@ Class BindingSourceValueProvider from Object
 		return self
 
 	Func ContainsPrefix P1
-		return dnRequest("call",[self,"ContainsPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsPrefix",P1])
 
 	Func GetValue P1
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func Filter P1
-		return dnRequest("call",[self,"Filter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Filter",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

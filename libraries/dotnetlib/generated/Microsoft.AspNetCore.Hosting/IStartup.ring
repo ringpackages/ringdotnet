@@ -14,9 +14,9 @@ Class IStartup from DotNetObject
 		return self
 
 	Func ConfigureServices P1
-		return dnRequest("call",[self,"ConfigureServices",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
 
 	Func Configure P1
-		dnRequest("call",[self,"Configure",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
 		return self
 

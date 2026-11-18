@@ -19,22 +19,22 @@ Class XmlSchemaAnnotation from XmlSchemaObject
 		return self
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
-		dnRequest("set",[self,"Id",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Id",P1])
 		return self
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getUnhandledAttributes
-		return dnRequest("get",[self,"UnhandledAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnhandledAttributes"])
 
 	Func setUnhandledAttributes P1
-		dnRequest("set",[self,"UnhandledAttributes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UnhandledAttributes",P1])
 		return self
 

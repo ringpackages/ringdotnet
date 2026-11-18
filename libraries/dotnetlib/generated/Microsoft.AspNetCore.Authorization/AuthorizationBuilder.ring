@@ -17,28 +17,28 @@ Class AuthorizationBuilder from Object
 		return self
 
 	Func SetInvokeHandlersAfterFailure P1
-		return dnRequest("call",[self,"SetInvokeHandlersAfterFailure",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetInvokeHandlersAfterFailure",P1])
 
 	Func SetDefaultPolicy P1
-		return dnRequest("call",[self,"SetDefaultPolicy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetDefaultPolicy",P1])
 
 	Func SetFallbackPolicy P1
-		return dnRequest("call",[self,"SetFallbackPolicy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetFallbackPolicy",P1])
 
 	Func AddPolicy P1,P2
-		return dnRequest("call",[self,"AddPolicy",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddPolicy",P1,P2])
 
 	Func AddDefaultPolicy P1,P2
-		return dnRequest("call",[self,"AddDefaultPolicy",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddDefaultPolicy",P1,P2])
 
 	Func AddFallbackPolicy P1,P2
-		return dnRequest("call",[self,"AddFallbackPolicy",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddFallbackPolicy",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")

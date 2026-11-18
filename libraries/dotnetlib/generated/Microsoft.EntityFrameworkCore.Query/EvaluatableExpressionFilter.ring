@@ -15,8 +15,8 @@ Class EvaluatableExpressionFilter from Object
 		return self
 
 	Func IsEvaluatableExpression P1,P2
-		return dnRequest("call",[self,"IsEvaluatableExpression",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEvaluatableExpression",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

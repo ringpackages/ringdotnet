@@ -18,10 +18,10 @@ Class WpfRadioButton from ToggleButton
 		return self
 
 	Func getGroupName
-		return dnRequest("get",[self,"GroupName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GroupName"])
 
 	Func setGroupName P1
-		dnRequest("set",[self,"GroupName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GroupName",P1])
 		return self
 
 	Func getGroupNameProperty

@@ -18,16 +18,16 @@ Class ValueProviderFactoryContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getActionContext
-		return dnRequest("get",[self,"ActionContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActionContext"])
 
 	Func setActionContext P1
 		raise("DotNet Error: ActionContext is a read-only property")
 
 	Func getValueProviders
-		return dnRequest("get",[self,"ValueProviders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueProviders"])
 
 	Func setValueProviders P1
 		raise("DotNet Error: ValueProviders is a read-only property")

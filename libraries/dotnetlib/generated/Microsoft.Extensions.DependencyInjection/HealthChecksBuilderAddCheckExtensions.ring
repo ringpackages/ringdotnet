@@ -14,7 +14,7 @@ Class HealthChecksBuilderAddCheckExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func AddCheck_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddCheck",P1,P2,P3,P4,P5])

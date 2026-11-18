@@ -14,7 +14,7 @@ Class EndpointRoutingApplicationBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func UseRouting P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing'),"UseRouting",P1])

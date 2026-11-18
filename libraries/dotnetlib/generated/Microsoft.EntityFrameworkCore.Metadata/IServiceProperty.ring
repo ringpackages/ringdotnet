@@ -17,13 +17,13 @@ Class IServiceProperty from DotNetObject
 		return self
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getParameterBinding
-		return dnRequest("get",[self,"ParameterBinding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterBinding"])
 
 	Func setParameterBinding P1
 		raise("DotNet Error: ParameterBinding is a read-only property")

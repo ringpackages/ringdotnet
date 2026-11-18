@@ -19,27 +19,27 @@ Class FillErrorEventArgs from EventArgs
 		return self
 
 	Func getContinue
-		return dnRequest("get",[self,"Continue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Continue"])
 
 	Func setContinue P1
-		dnRequest("set",[self,"Continue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Continue",P1])
 		return self
 
 	Func getDataTable
-		return dnRequest("get",[self,"DataTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataTable"])
 
 	Func setDataTable P1
 		raise("DotNet Error: DataTable is a read-only property")
 
 	Func getErrors
-		return dnRequest("get",[self,"Errors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Errors"])
 
 	Func setErrors P1
-		dnRequest("set",[self,"Errors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Errors",P1])
 		return self
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")

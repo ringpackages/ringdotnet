@@ -18,13 +18,13 @@ Class Boolean from ValueType
 		return self
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func GetTypeCode 
-		return dnRequest("call",[self,"GetTypeCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Boolean, System.Private.CoreLib'),"Parse",P1])

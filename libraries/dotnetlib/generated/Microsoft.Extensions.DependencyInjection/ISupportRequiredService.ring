@@ -14,5 +14,5 @@ Class ISupportRequiredService from DotNetObject
 		return self
 
 	Func GetRequiredService P1
-		return dnRequest("call",[self,"GetRequiredService",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRequiredService",P1])
 

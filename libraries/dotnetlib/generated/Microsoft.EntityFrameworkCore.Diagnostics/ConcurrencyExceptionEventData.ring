@@ -17,7 +17,7 @@ Class ConcurrencyExceptionEventData from DbContextErrorEventData
 		return self
 
 	Func getEntries
-		return dnRequest("get",[self,"Entries"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Entries"])
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")

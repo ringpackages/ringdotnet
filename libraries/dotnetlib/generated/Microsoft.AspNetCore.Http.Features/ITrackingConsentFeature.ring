@@ -18,30 +18,30 @@ Class ITrackingConsentFeature from DotNetObject
 		return self
 
 	Func GrantConsent 
-		dnRequest("call",[self,"GrantConsent"])
+		dnRequest("call",[new DotNetObject(nHandle),"GrantConsent"])
 		return self
 
 	Func WithdrawConsent 
-		dnRequest("call",[self,"WithdrawConsent"])
+		dnRequest("call",[new DotNetObject(nHandle),"WithdrawConsent"])
 		return self
 
 	Func CreateConsentCookie 
-		return dnRequest("call",[self,"CreateConsentCookie"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateConsentCookie"])
 
 	Func getIsConsentNeeded
-		return dnRequest("get",[self,"IsConsentNeeded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsConsentNeeded"])
 
 	Func setIsConsentNeeded P1
 		raise("DotNet Error: IsConsentNeeded is a read-only property")
 
 	Func getHasConsent
-		return dnRequest("get",[self,"HasConsent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasConsent"])
 
 	Func setHasConsent P1
 		raise("DotNet Error: HasConsent is a read-only property")
 
 	Func getCanTrack
-		return dnRequest("get",[self,"CanTrack"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanTrack"])
 
 	Func setCanTrack P1
 		raise("DotNet Error: CanTrack is a read-only property")

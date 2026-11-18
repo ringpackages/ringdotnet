@@ -34,53 +34,53 @@ Class StylusPoint from ValueType
 		return self
 
 	Func HasProperty P1
-		return dnRequest("call",[self,"HasProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasProperty",P1])
 
 	Func GetPropertyValue P1
-		return dnRequest("call",[self,"GetPropertyValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyValue",P1])
 
 	Func SetPropertyValue P1,P2
-		dnRequest("call",[self,"SetPropertyValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPropertyValue",P1,P2])
 		return self
 
 	Func ToPoint 
-		return dnRequest("call",[self,"ToPoint"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToPoint"])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Input.StylusPoint, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Equals_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.StylusPoint, PresentationCore'),"Equals",P1,P2])
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 
 	Func getPressureFactor
-		return dnRequest("get",[self,"PressureFactor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PressureFactor"])
 
 	Func setPressureFactor P1
-		dnRequest("set",[self,"PressureFactor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PressureFactor",P1])
 		return self
 
 	Func getDescription
-		return dnRequest("get",[self,"Description"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")

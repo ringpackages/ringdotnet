@@ -14,5 +14,5 @@ Class IBindingSourceValueProvider from DotNetObject
 		return self
 
 	Func Filter P1
-		return dnRequest("call",[self,"Filter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Filter",P1])
 

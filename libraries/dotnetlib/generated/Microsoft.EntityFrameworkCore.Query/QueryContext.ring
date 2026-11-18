@@ -23,83 +23,83 @@ Class QueryContext from Object
 		return self
 
 	Func SetNavigationIsLoaded P1,P2
-		dnRequest("call",[self,"SetNavigationIsLoaded",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetNavigationIsLoaded",P1,P2])
 		return self
 
 	Func AddParameter P1,P2
-		dnRequest("call",[self,"AddParameter",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1,P2])
 		return self
 
 	Func InitializeStateManager_1 P1
-		dnRequest("call",[self,"InitializeStateManager",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"InitializeStateManager",P1])
 		return self
 
 	Func InitializeStateManager P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"InitializeStateManager",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"InitializeStateManager",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"InitializeStateManager"])
+			dnRequest("call",[new DotNetObject(nHandle),"InitializeStateManager"])
 		return self
 		ok
-		dnRequest("call",[self,"InitializeStateManager",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"InitializeStateManager",P1])
 		return self
 
 	Func TryGetEntry P1,P2,P3
-		return dnRequest("call",[self,"TryGetEntry",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetEntry",P1,P2,P3])
 
 	Func StartTracking P1,P2,P3
-		return dnRequest("call",[self,"StartTracking",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartTracking",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContext
-		return dnRequest("get",[self,"Context"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getExecutionStrategy
-		return dnRequest("get",[self,"ExecutionStrategy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionStrategy"])
 
 	Func setExecutionStrategy P1
 		raise("DotNet Error: ExecutionStrategy is a read-only property")
 
 	Func getConcurrencyDetector
-		return dnRequest("get",[self,"ConcurrencyDetector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConcurrencyDetector"])
 
 	Func setConcurrencyDetector P1
 		raise("DotNet Error: ConcurrencyDetector is a read-only property")
 
 	Func getExceptionDetector
-		return dnRequest("get",[self,"ExceptionDetector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionDetector"])
 
 	Func setExceptionDetector P1
 		raise("DotNet Error: ExceptionDetector is a read-only property")
 
 	Func getCancellationToken
-		return dnRequest("get",[self,"CancellationToken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CancellationToken"])
 
 	Func setCancellationToken P1
-		dnRequest("set",[self,"CancellationToken",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CancellationToken",P1])
 		return self
 
 	Func getCommandLogger
-		return dnRequest("get",[self,"CommandLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
 
 	Func setCommandLogger P1
 		raise("DotNet Error: CommandLogger is a read-only property")
 
 	Func getQueryLogger
-		return dnRequest("get",[self,"QueryLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryLogger"])
 
 	Func setQueryLogger P1
 		raise("DotNet Error: QueryLogger is a read-only property")
 
 	Func getParameterValues
-		return dnRequest("get",[self,"ParameterValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterValues"])
 
 	Func setParameterValues P1
 		raise("DotNet Error: ParameterValues is a read-only property")

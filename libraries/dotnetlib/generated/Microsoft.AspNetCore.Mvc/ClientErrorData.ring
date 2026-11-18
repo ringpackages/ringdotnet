@@ -18,19 +18,19 @@ Class ClientErrorData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLink
-		return dnRequest("get",[self,"Link"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Link"])
 
 	Func setLink P1
-		dnRequest("set",[self,"Link",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Link",P1])
 		return self
 
 	Func getTitle
-		return dnRequest("get",[self,"Title"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Title"])
 
 	Func setTitle P1
-		dnRequest("set",[self,"Title",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Title",P1])
 		return self
 

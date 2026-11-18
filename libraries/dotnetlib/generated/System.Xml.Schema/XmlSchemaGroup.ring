@@ -19,21 +19,21 @@ Class XmlSchemaGroup from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getParticle
-		return dnRequest("get",[self,"Particle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Particle"])
 
 	Func setParticle P1
-		dnRequest("set",[self,"Particle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Particle",P1])
 		return self
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QualifiedName"])
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")

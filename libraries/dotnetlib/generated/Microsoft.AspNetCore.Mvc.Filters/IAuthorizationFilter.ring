@@ -14,6 +14,6 @@ Class IAuthorizationFilter from DotNetObject
 		return self
 
 	Func OnAuthorization P1
-		dnRequest("call",[self,"OnAuthorization",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnAuthorization",P1])
 		return self
 

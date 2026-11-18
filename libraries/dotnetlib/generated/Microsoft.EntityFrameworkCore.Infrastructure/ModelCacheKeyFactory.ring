@@ -16,13 +16,13 @@ Class ModelCacheKeyFactory from Object
 
 	Func Create P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Create",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Create",P1])
 		ok
-		return dnRequest("call",[self,"Create",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
 
 	Func Create_2 P1,P2
-		return dnRequest("call",[self,"Create",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

@@ -28,97 +28,97 @@ Class AuthenticationSchemeOptions from Object
 
 	Func Validate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Validate",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Validate",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Validate"])
+			dnRequest("call",[new DotNetObject(nHandle),"Validate"])
 		return self
 		ok
-		dnRequest("call",[self,"Validate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 		return self
 
 	Func Validate_1 P1
-		dnRequest("call",[self,"Validate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getClaimsIssuer
-		return dnRequest("get",[self,"ClaimsIssuer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClaimsIssuer"])
 
 	Func setClaimsIssuer P1
-		dnRequest("set",[self,"ClaimsIssuer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClaimsIssuer",P1])
 		return self
 
 	Func getEvents
-		return dnRequest("get",[self,"Events"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Events"])
 
 	Func setEvents P1
-		dnRequest("set",[self,"Events",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Events",P1])
 		return self
 
 	Func getEventsType
-		return dnRequest("get",[self,"EventsType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EventsType"])
 
 	Func setEventsType P1
-		dnRequest("set",[self,"EventsType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EventsType",P1])
 		return self
 
 	Func getForwardDefault
-		return dnRequest("get",[self,"ForwardDefault"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForwardDefault"])
 
 	Func setForwardDefault P1
-		dnRequest("set",[self,"ForwardDefault",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForwardDefault",P1])
 		return self
 
 	Func getForwardAuthenticate
-		return dnRequest("get",[self,"ForwardAuthenticate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForwardAuthenticate"])
 
 	Func setForwardAuthenticate P1
-		dnRequest("set",[self,"ForwardAuthenticate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForwardAuthenticate",P1])
 		return self
 
 	Func getForwardChallenge
-		return dnRequest("get",[self,"ForwardChallenge"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForwardChallenge"])
 
 	Func setForwardChallenge P1
-		dnRequest("set",[self,"ForwardChallenge",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForwardChallenge",P1])
 		return self
 
 	Func getForwardForbid
-		return dnRequest("get",[self,"ForwardForbid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForwardForbid"])
 
 	Func setForwardForbid P1
-		dnRequest("set",[self,"ForwardForbid",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForwardForbid",P1])
 		return self
 
 	Func getForwardSignIn
-		return dnRequest("get",[self,"ForwardSignIn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForwardSignIn"])
 
 	Func setForwardSignIn P1
-		dnRequest("set",[self,"ForwardSignIn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForwardSignIn",P1])
 		return self
 
 	Func getForwardSignOut
-		return dnRequest("get",[self,"ForwardSignOut"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForwardSignOut"])
 
 	Func setForwardSignOut P1
-		dnRequest("set",[self,"ForwardSignOut",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForwardSignOut",P1])
 		return self
 
 	Func getForwardDefaultSelector
-		return dnRequest("get",[self,"ForwardDefaultSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForwardDefaultSelector"])
 
 	Func setForwardDefaultSelector P1
-		dnRequest("set",[self,"ForwardDefaultSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForwardDefaultSelector",P1])
 		return self
 
 	Func getTimeProvider
-		return dnRequest("get",[self,"TimeProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TimeProvider"])
 
 	Func setTimeProvider P1
-		dnRequest("set",[self,"TimeProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TimeProvider",P1])
 		return self
 

@@ -16,23 +16,23 @@ Class DecoderFallbackBuffer from Object
 		return self
 
 	Func Fallback P1,P2
-		return dnRequest("call",[self,"Fallback",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Fallback",P1,P2])
 
 	Func GetNextChar 
-		return dnRequest("call",[self,"GetNextChar"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextChar"])
 
 	Func MovePrevious 
-		return dnRequest("call",[self,"MovePrevious"])
+		return dnRequest("call",[new DotNetObject(nHandle),"MovePrevious"])
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRemaining
-		return dnRequest("get",[self,"Remaining"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Remaining"])
 
 	Func setRemaining P1
 		raise("DotNet Error: Remaining is a read-only property")

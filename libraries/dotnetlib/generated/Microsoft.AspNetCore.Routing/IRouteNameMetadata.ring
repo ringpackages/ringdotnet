@@ -16,7 +16,7 @@ Class IRouteNameMetadata from DotNetObject
 		return self
 
 	Func getRouteName
-		return dnRequest("get",[self,"RouteName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteName"])
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")

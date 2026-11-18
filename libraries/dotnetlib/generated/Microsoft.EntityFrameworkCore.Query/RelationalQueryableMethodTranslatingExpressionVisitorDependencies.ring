@@ -20,33 +20,33 @@ Class RelationalQueryableMethodTranslatingExpressionVisitorDependencies from Obj
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRelationalSqlTranslatingExpressionVisitorFactory
-		return dnRequest("get",[self,"RelationalSqlTranslatingExpressionVisitorFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalSqlTranslatingExpressionVisitorFactory"])
 
 	Func setRelationalSqlTranslatingExpressionVisitorFactory P1
-		dnRequest("set",[self,"RelationalSqlTranslatingExpressionVisitorFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RelationalSqlTranslatingExpressionVisitorFactory",P1])
 		return self
 
 	Func getSqlExpressionFactory
-		return dnRequest("get",[self,"SqlExpressionFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SqlExpressionFactory"])
 
 	Func setSqlExpressionFactory P1
-		dnRequest("set",[self,"SqlExpressionFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SqlExpressionFactory",P1])
 		return self
 
 	Func getTypeMappingSource
-		return dnRequest("get",[self,"TypeMappingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[self,"TypeMappingSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
 		return self
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
-		dnRequest("set",[self,"Model",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Model",P1])
 		return self
 

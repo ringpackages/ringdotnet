@@ -18,16 +18,16 @@ Class SocketReceiveFromResult from ValueType
 		return self
 
 	Func getReceivedBytes
-		return dnRequest("get",[self,"ReceivedBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedBytes"])
 
 	Func setReceivedBytes P1
-		dnRequest("set",[self,"ReceivedBytes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReceivedBytes",P1])
 		return self
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteEndPoint"])
 
 	Func setRemoteEndPoint P1
-		dnRequest("set",[self,"RemoteEndPoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RemoteEndPoint",P1])
 		return self
 

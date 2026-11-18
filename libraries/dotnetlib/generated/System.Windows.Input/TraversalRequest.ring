@@ -18,17 +18,17 @@ Class TraversalRequest from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getWrapped
-		return dnRequest("get",[self,"Wrapped"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Wrapped"])
 
 	Func setWrapped P1
-		dnRequest("set",[self,"Wrapped",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Wrapped",P1])
 		return self
 
 	Func getFocusNavigationDirection
-		return dnRequest("get",[self,"FocusNavigationDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FocusNavigationDirection"])
 
 	Func setFocusNavigationDirection P1
 		raise("DotNet Error: FocusNavigationDirection is a read-only property")

@@ -19,19 +19,19 @@ Class DragCompletedEventArgs from RoutedEventArgs
 		return self
 
 	Func getHorizontalChange
-		return dnRequest("get",[self,"HorizontalChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalChange"])
 
 	Func setHorizontalChange P1
 		raise("DotNet Error: HorizontalChange is a read-only property")
 
 	Func getVerticalChange
-		return dnRequest("get",[self,"VerticalChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalChange"])
 
 	Func setVerticalChange P1
 		raise("DotNet Error: VerticalChange is a read-only property")
 
 	Func getCanceled
-		return dnRequest("get",[self,"Canceled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Canceled"])
 
 	Func setCanceled P1
 		raise("DotNet Error: Canceled is a read-only property")

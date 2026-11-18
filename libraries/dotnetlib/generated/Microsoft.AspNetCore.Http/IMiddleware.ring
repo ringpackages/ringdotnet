@@ -14,5 +14,5 @@ Class IMiddleware from DotNetObject
 		return self
 
 	Func InvokeAsync P1,P2
-		return dnRequest("call",[self,"InvokeAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InvokeAsync",P1,P2])
 

@@ -14,5 +14,5 @@ Class IAsyncAuthorizationFilter from DotNetObject
 		return self
 
 	Func OnAuthorizationAsync P1
-		return dnRequest("call",[self,"OnAuthorizationAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnAuthorizationAsync",P1])
 

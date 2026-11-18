@@ -17,17 +17,17 @@ Class TaskDialogControl from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 
 	Func getBoundPage
-		return dnRequest("get",[self,"BoundPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BoundPage"])
 
 	Func setBoundPage P1
 		raise("DotNet Error: BoundPage is a read-only property")

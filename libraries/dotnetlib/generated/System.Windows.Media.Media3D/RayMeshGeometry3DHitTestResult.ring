@@ -22,43 +22,43 @@ Class RayMeshGeometry3DHitTestResult from RayHitTestResult
 		return self
 
 	Func getVertexIndex1
-		return dnRequest("get",[self,"VertexIndex1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VertexIndex1"])
 
 	Func setVertexIndex1 P1
 		raise("DotNet Error: VertexIndex1 is a read-only property")
 
 	Func getVertexIndex2
-		return dnRequest("get",[self,"VertexIndex2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VertexIndex2"])
 
 	Func setVertexIndex2 P1
 		raise("DotNet Error: VertexIndex2 is a read-only property")
 
 	Func getVertexIndex3
-		return dnRequest("get",[self,"VertexIndex3"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VertexIndex3"])
 
 	Func setVertexIndex3 P1
 		raise("DotNet Error: VertexIndex3 is a read-only property")
 
 	Func getVertexWeight1
-		return dnRequest("get",[self,"VertexWeight1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VertexWeight1"])
 
 	Func setVertexWeight1 P1
 		raise("DotNet Error: VertexWeight1 is a read-only property")
 
 	Func getVertexWeight2
-		return dnRequest("get",[self,"VertexWeight2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VertexWeight2"])
 
 	Func setVertexWeight2 P1
 		raise("DotNet Error: VertexWeight2 is a read-only property")
 
 	Func getVertexWeight3
-		return dnRequest("get",[self,"VertexWeight3"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VertexWeight3"])
 
 	Func setVertexWeight3 P1
 		raise("DotNet Error: VertexWeight3 is a read-only property")
 
 	Func getMeshHit
-		return dnRequest("get",[self,"MeshHit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MeshHit"])
 
 	Func setMeshHit P1
 		raise("DotNet Error: MeshHit is a read-only property")

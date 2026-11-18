@@ -22,10 +22,10 @@ Class MouseBinding from InputBinding
 		return self
 
 	Func getMouseAction
-		return dnRequest("get",[self,"MouseAction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MouseAction"])
 
 	Func setMouseAction P1
-		dnRequest("set",[self,"MouseAction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MouseAction",P1])
 		return self
 
 	Func getMouseActionProperty

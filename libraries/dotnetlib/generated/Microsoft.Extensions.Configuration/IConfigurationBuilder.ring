@@ -17,19 +17,19 @@ Class IConfigurationBuilder from DotNetObject
 		return self
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getSources
-		return dnRequest("get",[self,"Sources"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sources"])
 
 	Func setSources P1
 		raise("DotNet Error: Sources is a read-only property")

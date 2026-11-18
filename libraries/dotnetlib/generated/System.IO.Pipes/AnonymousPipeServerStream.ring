@@ -29,14 +29,14 @@ Class AnonymousPipeServerStream from PipeStream
 		return self
 
 	Func GetClientHandleAsString 
-		return dnRequest("call",[self,"GetClientHandleAsString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetClientHandleAsString"])
 
 	Func DisposeLocalCopyOfClientHandle 
-		dnRequest("call",[self,"DisposeLocalCopyOfClientHandle"])
+		dnRequest("call",[new DotNetObject(nHandle),"DisposeLocalCopyOfClientHandle"])
 		return self
 
 	Func getClientSafePipeHandle
-		return dnRequest("get",[self,"ClientSafePipeHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientSafePipeHandle"])
 
 	Func setClientSafePipeHandle P1
 		raise("DotNet Error: ClientSafePipeHandle is a read-only property")

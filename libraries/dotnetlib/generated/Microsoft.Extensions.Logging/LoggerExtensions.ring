@@ -14,7 +14,7 @@ Class LoggerExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func LogDebug_5 P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"LogDebug",P1,P2,P3,P4,P5])

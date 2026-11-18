@@ -17,27 +17,27 @@ Class ConfigurationManager from Object
 		return self
 
 	Func GetSection P1
-		return dnRequest("call",[self,"GetSection",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSection",P1])
 
 	Func GetChildren 
-		return dnRequest("call",[self,"GetChildren"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChildren"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getSources
-		return dnRequest("get",[self,"Sources"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sources"])
 
 	Func setSources P1
 		raise("DotNet Error: Sources is a read-only property")

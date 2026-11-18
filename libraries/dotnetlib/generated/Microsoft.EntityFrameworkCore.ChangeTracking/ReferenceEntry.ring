@@ -17,7 +17,7 @@ Class ReferenceEntry from NavigationEntry
 		return self
 
 	Func getTargetEntry
-		return dnRequest("get",[self,"TargetEntry"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetEntry"])
 
 	Func setTargetEntry P1
 		raise("DotNet Error: TargetEntry is a read-only property")

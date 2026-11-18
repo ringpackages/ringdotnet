@@ -18,22 +18,22 @@ Class ITableMapping from DotNetObject
 		return self
 
 	Func getColumnMappings
-		return dnRequest("get",[self,"ColumnMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnMappings"])
 
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
 	Func getDataSetTable
-		return dnRequest("get",[self,"DataSetTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataSetTable"])
 
 	Func setDataSetTable P1
-		dnRequest("set",[self,"DataSetTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataSetTable",P1])
 		return self
 
 	Func getSourceTable
-		return dnRequest("get",[self,"SourceTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceTable"])
 
 	Func setSourceTable P1
-		dnRequest("set",[self,"SourceTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceTable",P1])
 		return self
 

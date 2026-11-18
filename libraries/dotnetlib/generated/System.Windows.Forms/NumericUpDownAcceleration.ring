@@ -18,19 +18,19 @@ Class NumericUpDownAcceleration from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSeconds
-		return dnRequest("get",[self,"Seconds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Seconds"])
 
 	Func setSeconds P1
-		dnRequest("set",[self,"Seconds",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Seconds",P1])
 		return self
 
 	Func getIncrement
-		return dnRequest("get",[self,"Increment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Increment"])
 
 	Func setIncrement P1
-		dnRequest("set",[self,"Increment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Increment",P1])
 		return self
 

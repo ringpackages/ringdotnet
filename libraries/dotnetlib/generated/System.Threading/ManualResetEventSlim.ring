@@ -27,52 +27,52 @@ Class ManualResetEventSlim from Object
 		return self
 
 	Func Set_ 
-		dnRequest("call",[self,"Set"])
+		dnRequest("call",[new DotNetObject(nHandle),"Set"])
 		return self
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Wait P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Wait",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Wait",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Wait"])
+			dnRequest("call",[new DotNetObject(nHandle),"Wait"])
 		return self
 		ok
-		dnRequest("call",[self,"Wait",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 		return self
 
 	Func Wait_1 P1
-		dnRequest("call",[self,"Wait",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 		return self
 
 	Func Wait_2 P1,P2
-		return dnRequest("call",[self,"Wait",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getWaitHandle
-		return dnRequest("get",[self,"WaitHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WaitHandle"])
 
 	Func setWaitHandle P1
 		raise("DotNet Error: WaitHandle is a read-only property")
 
 	Func getIsSet
-		return dnRequest("get",[self,"IsSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSet"])
 
 	Func setIsSet P1
 		raise("DotNet Error: IsSet is a read-only property")
 
 	Func getSpinCount
-		return dnRequest("get",[self,"SpinCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SpinCount"])
 
 	Func setSpinCount P1
 		raise("DotNet Error: SpinCount is a read-only property")

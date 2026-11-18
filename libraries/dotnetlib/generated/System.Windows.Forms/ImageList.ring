@@ -28,75 +28,75 @@ Class ImageList from Component
 		return self
 
 	Func Draw P1,P2,P3
-		dnRequest("call",[self,"Draw",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1,P2,P3])
 		return self
 
 	Func Draw_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Draw",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1,P2,P3,P4])
 		return self
 
 	Func Draw_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"Draw",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func setRecreateHandleEvent P1
-		dnRequest("setevent",[self,"RecreateHandle",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RecreateHandle",dnCallback(P1)])
 		return self
 
 	Func clearRecreateHandleEvent
-		dnRequest("clearevent",[self,"RecreateHandle"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RecreateHandle"])
 		return self
 
 	Func getColorDepth
-		return dnRequest("get",[self,"ColorDepth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColorDepth"])
 
 	Func setColorDepth P1
-		dnRequest("set",[self,"ColorDepth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColorDepth",P1])
 		return self
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getHandleCreated
-		return dnRequest("get",[self,"HandleCreated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HandleCreated"])
 
 	Func setHandleCreated P1
 		raise("DotNet Error: HandleCreated is a read-only property")
 
 	Func getImages
-		return dnRequest("get",[self,"Images"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Images"])
 
 	Func setImages P1
 		raise("DotNet Error: Images is a read-only property")
 
 	Func getImageSize
-		return dnRequest("get",[self,"ImageSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageSize"])
 
 	Func setImageSize P1
-		dnRequest("set",[self,"ImageSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageSize",P1])
 		return self
 
 	Func getImageStream
-		return dnRequest("get",[self,"ImageStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageStream"])
 
 	Func setImageStream P1
-		dnRequest("set",[self,"ImageStream",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageStream",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[self,"Tag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
 		return self
 
 	Func getTransparentColor
-		return dnRequest("get",[self,"TransparentColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransparentColor"])
 
 	Func setTransparentColor P1
-		dnRequest("set",[self,"TransparentColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TransparentColor",P1])
 		return self
 

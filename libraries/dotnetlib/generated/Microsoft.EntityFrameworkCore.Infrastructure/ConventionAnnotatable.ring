@@ -14,11 +14,11 @@ Class ConventionAnnotatable from Annotatable
 		return self
 
 	Func AddAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"AddAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddAnnotation",P1,P2,P3])
 
 	Func SetAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"SetAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetAnnotation",P1,P2,P3])
 
 	Func SetOrRemoveAnnotation P1,P2,P3
-		return dnRequest("call",[self,"SetOrRemoveAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetOrRemoveAnnotation",P1,P2,P3])
 

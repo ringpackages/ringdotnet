@@ -15,27 +15,27 @@ Class DebugProvider from Object
 		return self
 
 	Func Fail P1,P2
-		dnRequest("call",[self,"Fail",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Fail",P1,P2])
 		return self
 
 	Func Write P1
-		dnRequest("call",[self,"Write",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
 		return self
 
 	Func WriteLine P1
-		dnRequest("call",[self,"WriteLine",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1])
 		return self
 
 	Func OnIndentLevelChanged P1
-		dnRequest("call",[self,"OnIndentLevelChanged",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnIndentLevelChanged",P1])
 		return self
 
 	Func OnIndentSizeChanged P1
-		dnRequest("call",[self,"OnIndentSizeChanged",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnIndentSizeChanged",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FailCore P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('System.Diagnostics.DebugProvider, System.Private.CoreLib'),"FailCore",P1,P2,P3,P4])

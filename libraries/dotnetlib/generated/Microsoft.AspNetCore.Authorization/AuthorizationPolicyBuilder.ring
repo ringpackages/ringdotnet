@@ -18,52 +18,52 @@ Class AuthorizationPolicyBuilder from Object
 		return self
 
 	Func AddAuthenticationSchemes P1
-		return dnRequest("call",[self,"AddAuthenticationSchemes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddAuthenticationSchemes",P1])
 
 	Func AddRequirements P1
-		return dnRequest("call",[self,"AddRequirements",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRequirements",P1])
 
 	Func Combine P1
-		return dnRequest("call",[self,"Combine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Combine",P1])
 
 	Func RequireClaim_2 P1,P2
-		return dnRequest("call",[self,"RequireClaim",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RequireClaim",P1,P2])
 
 	Func RequireClaim P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RequireClaim",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RequireClaim",P1])
 		ok
-		return dnRequest("call",[self,"RequireClaim",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RequireClaim",P1])
 
 	Func RequireRole P1
-		return dnRequest("call",[self,"RequireRole",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RequireRole",P1])
 
 	Func RequireUserName P1
-		return dnRequest("call",[self,"RequireUserName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RequireUserName",P1])
 
 	Func RequireAuthenticatedUser 
-		return dnRequest("call",[self,"RequireAuthenticatedUser"])
+		return dnRequest("call",[new DotNetObject(nHandle),"RequireAuthenticatedUser"])
 
 	Func RequireAssertion P1
-		return dnRequest("call",[self,"RequireAssertion",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RequireAssertion",P1])
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequirements
-		return dnRequest("get",[self,"Requirements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Requirements"])
 
 	Func setRequirements P1
-		dnRequest("set",[self,"Requirements",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Requirements",P1])
 		return self
 
 	Func getAuthenticationSchemes
-		return dnRequest("get",[self,"AuthenticationSchemes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationSchemes"])
 
 	Func setAuthenticationSchemes P1
-		dnRequest("set",[self,"AuthenticationSchemes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationSchemes",P1])
 		return self
 

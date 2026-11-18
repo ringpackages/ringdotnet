@@ -19,26 +19,26 @@ Class InertiaTranslationBehavior from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getInitialVelocity
-		return dnRequest("get",[self,"InitialVelocity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialVelocity"])
 
 	Func setInitialVelocity P1
-		dnRequest("set",[self,"InitialVelocity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InitialVelocity",P1])
 		return self
 
 	Func getDesiredDeceleration
-		return dnRequest("get",[self,"DesiredDeceleration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DesiredDeceleration"])
 
 	Func setDesiredDeceleration P1
-		dnRequest("set",[self,"DesiredDeceleration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DesiredDeceleration",P1])
 		return self
 
 	Func getDesiredDisplacement
-		return dnRequest("get",[self,"DesiredDisplacement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DesiredDisplacement"])
 
 	Func setDesiredDisplacement P1
-		dnRequest("set",[self,"DesiredDisplacement",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DesiredDisplacement",P1])
 		return self
 

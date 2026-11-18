@@ -49,176 +49,176 @@ Class ProcessStartInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getArguments
-		return dnRequest("get",[self,"Arguments"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Arguments"])
 
 	Func setArguments P1
-		dnRequest("set",[self,"Arguments",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Arguments",P1])
 		return self
 
 	Func getArgumentList
-		return dnRequest("get",[self,"ArgumentList"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ArgumentList"])
 
 	Func setArgumentList P1
 		raise("DotNet Error: ArgumentList is a read-only property")
 
 	Func getCreateNoWindow
-		return dnRequest("get",[self,"CreateNoWindow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CreateNoWindow"])
 
 	Func setCreateNoWindow P1
-		dnRequest("set",[self,"CreateNoWindow",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CreateNoWindow",P1])
 		return self
 
 	Func getEnvironmentVariables
-		return dnRequest("get",[self,"EnvironmentVariables"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnvironmentVariables"])
 
 	Func setEnvironmentVariables P1
 		raise("DotNet Error: EnvironmentVariables is a read-only property")
 
 	Func getEnvironment
-		return dnRequest("get",[self,"Environment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Environment"])
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getRedirectStandardInput
-		return dnRequest("get",[self,"RedirectStandardInput"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RedirectStandardInput"])
 
 	Func setRedirectStandardInput P1
-		dnRequest("set",[self,"RedirectStandardInput",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RedirectStandardInput",P1])
 		return self
 
 	Func getRedirectStandardOutput
-		return dnRequest("get",[self,"RedirectStandardOutput"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RedirectStandardOutput"])
 
 	Func setRedirectStandardOutput P1
-		dnRequest("set",[self,"RedirectStandardOutput",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RedirectStandardOutput",P1])
 		return self
 
 	Func getRedirectStandardError
-		return dnRequest("get",[self,"RedirectStandardError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RedirectStandardError"])
 
 	Func setRedirectStandardError P1
-		dnRequest("set",[self,"RedirectStandardError",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RedirectStandardError",P1])
 		return self
 
 	Func getStandardInputEncoding
-		return dnRequest("get",[self,"StandardInputEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StandardInputEncoding"])
 
 	Func setStandardInputEncoding P1
-		dnRequest("set",[self,"StandardInputEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StandardInputEncoding",P1])
 		return self
 
 	Func getStandardErrorEncoding
-		return dnRequest("get",[self,"StandardErrorEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StandardErrorEncoding"])
 
 	Func setStandardErrorEncoding P1
-		dnRequest("set",[self,"StandardErrorEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StandardErrorEncoding",P1])
 		return self
 
 	Func getStandardOutputEncoding
-		return dnRequest("get",[self,"StandardOutputEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StandardOutputEncoding"])
 
 	Func setStandardOutputEncoding P1
-		dnRequest("set",[self,"StandardOutputEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StandardOutputEncoding",P1])
 		return self
 
 	Func getFileName
-		return dnRequest("get",[self,"FileName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileName"])
 
 	Func setFileName P1
-		dnRequest("set",[self,"FileName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FileName",P1])
 		return self
 
 	Func getWorkingDirectory
-		return dnRequest("get",[self,"WorkingDirectory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WorkingDirectory"])
 
 	Func setWorkingDirectory P1
-		dnRequest("set",[self,"WorkingDirectory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WorkingDirectory",P1])
 		return self
 
 	Func getErrorDialog
-		return dnRequest("get",[self,"ErrorDialog"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorDialog"])
 
 	Func setErrorDialog P1
-		dnRequest("set",[self,"ErrorDialog",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ErrorDialog",P1])
 		return self
 
 	Func getErrorDialogParentHandle
-		return dnRequest("get",[self,"ErrorDialogParentHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorDialogParentHandle"])
 
 	Func setErrorDialogParentHandle P1
-		dnRequest("set",[self,"ErrorDialogParentHandle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ErrorDialogParentHandle",P1])
 		return self
 
 	Func getUserName
-		return dnRequest("get",[self,"UserName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserName"])
 
 	Func setUserName P1
-		dnRequest("set",[self,"UserName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UserName",P1])
 		return self
 
 	Func getVerb
-		return dnRequest("get",[self,"Verb"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Verb"])
 
 	Func setVerb P1
-		dnRequest("set",[self,"Verb",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Verb",P1])
 		return self
 
 	Func getWindowStyle
-		return dnRequest("get",[self,"WindowStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WindowStyle"])
 
 	Func setWindowStyle P1
-		dnRequest("set",[self,"WindowStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WindowStyle",P1])
 		return self
 
 	Func getPasswordInClearText
-		return dnRequest("get",[self,"PasswordInClearText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PasswordInClearText"])
 
 	Func setPasswordInClearText P1
-		dnRequest("set",[self,"PasswordInClearText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PasswordInClearText",P1])
 		return self
 
 	Func getDomain
-		return dnRequest("get",[self,"Domain"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Domain"])
 
 	Func setDomain P1
-		dnRequest("set",[self,"Domain",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Domain",P1])
 		return self
 
 	Func getLoadUserProfile
-		return dnRequest("get",[self,"LoadUserProfile"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LoadUserProfile"])
 
 	Func setLoadUserProfile P1
-		dnRequest("set",[self,"LoadUserProfile",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LoadUserProfile",P1])
 		return self
 
 	Func getUseCredentialsForNetworkingOnly
-		return dnRequest("get",[self,"UseCredentialsForNetworkingOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseCredentialsForNetworkingOnly"])
 
 	Func setUseCredentialsForNetworkingOnly P1
-		dnRequest("set",[self,"UseCredentialsForNetworkingOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseCredentialsForNetworkingOnly",P1])
 		return self
 
 	Func getPassword
-		return dnRequest("get",[self,"Password"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Password"])
 
 	Func setPassword P1
-		dnRequest("set",[self,"Password",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Password",P1])
 		return self
 
 	Func getVerbs
-		return dnRequest("get",[self,"Verbs"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Verbs"])
 
 	Func setVerbs P1
 		raise("DotNet Error: Verbs is a read-only property")
 
 	Func getUseShellExecute
-		return dnRequest("get",[self,"UseShellExecute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseShellExecute"])
 
 	Func setUseShellExecute P1
-		dnRequest("set",[self,"UseShellExecute",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseShellExecute",P1])
 		return self
 

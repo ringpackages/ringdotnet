@@ -15,11 +15,11 @@ Class SqlAliasManager from Object
 		return self
 
 	Func GenerateTableAlias P1
-		return dnRequest("call",[self,"GenerateTableAlias",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateTableAlias",P1])
 
 	Func PostprocessAliases P1
-		return dnRequest("call",[self,"PostprocessAliases",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PostprocessAliases",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

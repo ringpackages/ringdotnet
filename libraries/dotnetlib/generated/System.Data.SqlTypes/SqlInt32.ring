@@ -25,43 +25,43 @@ Class SqlInt32 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[self,"ToSqlBoolean"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[self,"ToSqlByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[self,"ToSqlDouble"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[self,"ToSqlInt16"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[self,"ToSqlInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[self,"ToSqlMoney"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[self,"ToSqlDecimal"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[self,"ToSqlSingle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[self,"ToSqlString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Parse",P1])
@@ -118,10 +118,10 @@ Class SqlInt32 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

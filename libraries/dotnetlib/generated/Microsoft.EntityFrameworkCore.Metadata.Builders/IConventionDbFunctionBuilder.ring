@@ -16,163 +16,163 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		return self
 
 	Func HasAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2,P3])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func HasNonNullAnnotation_3 P1,P2,P3
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2,P3])
 
 	Func HasNonNullAnnotation P1,P2
-		return dnRequest("call",[self,"HasNonNullAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNonNullAnnotation",P1,P2])
 
 	Func HasNoAnnotation_2 P1,P2
-		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 		ok
-		return dnRequest("call",[self,"HasNoAnnotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasNoAnnotation",P1])
 
 	Func HasName_2 P1,P2
-		return dnRequest("call",[self,"HasName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasName",P1,P2])
 
 	Func HasName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasName",P1])
 		ok
-		return dnRequest("call",[self,"HasName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasName",P1])
 
 	Func CanSetName_2 P1,P2
-		return dnRequest("call",[self,"CanSetName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetName",P1,P2])
 
 	Func CanSetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetName",P1])
 		ok
-		return dnRequest("call",[self,"CanSetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetName",P1])
 
 	Func HasSchema_2 P1,P2
-		return dnRequest("call",[self,"HasSchema",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSchema",P1,P2])
 
 	Func HasSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasSchema",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasSchema",P1])
 		ok
-		return dnRequest("call",[self,"HasSchema",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSchema",P1])
 
 	Func CanSetSchema_2 P1,P2
-		return dnRequest("call",[self,"CanSetSchema",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetSchema",P1,P2])
 
 	Func CanSetSchema P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetSchema",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetSchema",P1])
 		ok
-		return dnRequest("call",[self,"CanSetSchema",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetSchema",P1])
 
 	Func IsBuiltIn_2 P1,P2
-		return dnRequest("call",[self,"IsBuiltIn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBuiltIn",P1,P2])
 
 	Func IsBuiltIn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsBuiltIn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsBuiltIn",P1])
 		ok
-		return dnRequest("call",[self,"IsBuiltIn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBuiltIn",P1])
 
 	Func CanSetIsBuiltIn_2 P1,P2
-		return dnRequest("call",[self,"CanSetIsBuiltIn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsBuiltIn",P1,P2])
 
 	Func CanSetIsBuiltIn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetIsBuiltIn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetIsBuiltIn",P1])
 		ok
-		return dnRequest("call",[self,"CanSetIsBuiltIn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsBuiltIn",P1])
 
 	Func IsNullable_2 P1,P2
-		return dnRequest("call",[self,"IsNullable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsNullable",P1,P2])
 
 	Func IsNullable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsNullable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsNullable",P1])
 		ok
-		return dnRequest("call",[self,"IsNullable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsNullable",P1])
 
 	Func CanSetIsNullable_2 P1,P2
-		return dnRequest("call",[self,"CanSetIsNullable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsNullable",P1,P2])
 
 	Func CanSetIsNullable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetIsNullable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetIsNullable",P1])
 		ok
-		return dnRequest("call",[self,"CanSetIsNullable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetIsNullable",P1])
 
 	Func HasStoreType_2 P1,P2
-		return dnRequest("call",[self,"HasStoreType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasStoreType",P1,P2])
 
 	Func HasStoreType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasStoreType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasStoreType",P1])
 		ok
-		return dnRequest("call",[self,"HasStoreType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasStoreType",P1])
 
 	Func CanSetStoreType_2 P1,P2
-		return dnRequest("call",[self,"CanSetStoreType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetStoreType",P1,P2])
 
 	Func CanSetStoreType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetStoreType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetStoreType",P1])
 		ok
-		return dnRequest("call",[self,"CanSetStoreType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetStoreType",P1])
 
 	Func HasTypeMapping_2 P1,P2
-		return dnRequest("call",[self,"HasTypeMapping",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasTypeMapping",P1,P2])
 
 	Func HasTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasTypeMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasTypeMapping",P1])
 		ok
-		return dnRequest("call",[self,"HasTypeMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasTypeMapping",P1])
 
 	Func CanSetTypeMapping_2 P1,P2
-		return dnRequest("call",[self,"CanSetTypeMapping",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetTypeMapping",P1,P2])
 
 	Func CanSetTypeMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetTypeMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetTypeMapping",P1])
 		ok
-		return dnRequest("call",[self,"CanSetTypeMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetTypeMapping",P1])
 
 	Func HasTranslation_2 P1,P2
-		return dnRequest("call",[self,"HasTranslation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasTranslation",P1,P2])
 
 	Func HasTranslation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasTranslation",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasTranslation",P1])
 		ok
-		return dnRequest("call",[self,"HasTranslation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasTranslation",P1])
 
 	Func CanSetTranslation_2 P1,P2
-		return dnRequest("call",[self,"CanSetTranslation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetTranslation",P1,P2])
 
 	Func CanSetTranslation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CanSetTranslation",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanSetTranslation",P1])
 		ok
-		return dnRequest("call",[self,"CanSetTranslation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanSetTranslation",P1])
 
 	Func HasParameter_2 P1,P2
-		return dnRequest("call",[self,"HasParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameter",P1,P2])
 
 	Func HasParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasParameter",P1])
 		ok
-		return dnRequest("call",[self,"HasParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameter",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

@@ -14,5 +14,5 @@ Class IProvideCustomContentState from DotNetObject
 		return self
 
 	Func GetContentState 
-		return dnRequest("call",[self,"GetContentState"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContentState"])
 

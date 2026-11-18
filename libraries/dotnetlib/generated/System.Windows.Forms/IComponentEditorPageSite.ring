@@ -14,9 +14,9 @@ Class IComponentEditorPageSite from DotNetObject
 		return self
 
 	Func GetControl 
-		return dnRequest("call",[self,"GetControl"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetControl"])
 
 	Func SetDirty 
-		dnRequest("call",[self,"SetDirty"])
+		dnRequest("call",[new DotNetObject(nHandle),"SetDirty"])
 		return self
 

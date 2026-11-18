@@ -14,14 +14,14 @@ Class IEditableObject from DotNetObject
 		return self
 
 	Func BeginEdit 
-		dnRequest("call",[self,"BeginEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginEdit"])
 		return self
 
 	Func EndEdit 
-		dnRequest("call",[self,"EndEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndEdit"])
 		return self
 
 	Func CancelEdit 
-		dnRequest("call",[self,"CancelEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelEdit"])
 		return self
 

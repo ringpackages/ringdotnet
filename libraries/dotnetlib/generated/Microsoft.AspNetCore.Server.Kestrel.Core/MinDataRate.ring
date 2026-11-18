@@ -18,16 +18,16 @@ Class MinDataRate from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBytesPerSecond
-		return dnRequest("get",[self,"BytesPerSecond"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BytesPerSecond"])
 
 	Func setBytesPerSecond P1
 		raise("DotNet Error: BytesPerSecond is a read-only property")
 
 	Func getGracePeriod
-		return dnRequest("get",[self,"GracePeriod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GracePeriod"])
 
 	Func setGracePeriod P1
 		raise("DotNet Error: GracePeriod is a read-only property")

@@ -28,21 +28,21 @@ Class XDocument from XContainer
 
 	Func Save P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Save",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Save",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Save",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
 	Func Save_2 P1,P2
-		dnRequest("call",[self,"Save",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
 		return self
 
 	Func SaveAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"SaveAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2,P3])
 
 	Func SaveAsync P1,P2
-		return dnRequest("call",[self,"SaveAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2])
 
 	Func Load_ P1
 		if dnIsNamed(P1)
@@ -66,20 +66,20 @@ Class XDocument from XContainer
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1,P2])
 
 	Func getDeclaration
-		return dnRequest("get",[self,"Declaration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Declaration"])
 
 	Func setDeclaration P1
-		dnRequest("set",[self,"Declaration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Declaration",P1])
 		return self
 
 	Func getDocumentType
-		return dnRequest("get",[self,"DocumentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentType"])
 
 	Func setDocumentType P1
 		raise("DotNet Error: DocumentType is a read-only property")
 
 	Func getRoot
-		return dnRequest("get",[self,"Root"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Root"])
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")

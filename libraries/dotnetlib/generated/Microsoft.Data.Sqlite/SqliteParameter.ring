@@ -29,13 +29,13 @@ Class SqliteParameter from DbParameter
 		return self
 
 	Func ResetSqliteType 
-		dnRequest("call",[self,"ResetSqliteType"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetSqliteType"])
 		return self
 
 	Func getSqliteType
-		return dnRequest("get",[self,"SqliteType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SqliteType"])
 
 	Func setSqliteType P1
-		dnRequest("set",[self,"SqliteType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SqliteType",P1])
 		return self
 

@@ -20,37 +20,37 @@ Class MethodBody from Object
 		return self
 
 	Func GetILAsByteArray 
-		return dnRequest("call",[self,"GetILAsByteArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetILAsByteArray"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLocalSignatureMetadataToken
-		return dnRequest("get",[self,"LocalSignatureMetadataToken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalSignatureMetadataToken"])
 
 	Func setLocalSignatureMetadataToken P1
 		raise("DotNet Error: LocalSignatureMetadataToken is a read-only property")
 
 	Func getLocalVariables
-		return dnRequest("get",[self,"LocalVariables"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalVariables"])
 
 	Func setLocalVariables P1
 		raise("DotNet Error: LocalVariables is a read-only property")
 
 	Func getMaxStackSize
-		return dnRequest("get",[self,"MaxStackSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxStackSize"])
 
 	Func setMaxStackSize P1
 		raise("DotNet Error: MaxStackSize is a read-only property")
 
 	Func getInitLocals
-		return dnRequest("get",[self,"InitLocals"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitLocals"])
 
 	Func setInitLocals P1
 		raise("DotNet Error: InitLocals is a read-only property")
 
 	Func getExceptionHandlingClauses
-		return dnRequest("get",[self,"ExceptionHandlingClauses"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionHandlingClauses"])
 
 	Func setExceptionHandlingClauses P1
 		raise("DotNet Error: ExceptionHandlingClauses is a read-only property")

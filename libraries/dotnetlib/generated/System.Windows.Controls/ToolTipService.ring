@@ -31,7 +31,7 @@ Class ToolTipService from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetToolTip P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ToolTipService, PresentationFramework'),"GetToolTip",P1])

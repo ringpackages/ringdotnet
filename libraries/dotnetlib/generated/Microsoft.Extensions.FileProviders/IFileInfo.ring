@@ -21,40 +21,40 @@ Class IFileInfo from DotNetObject
 		return self
 
 	Func CreateReadStream 
-		return dnRequest("call",[self,"CreateReadStream"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateReadStream"])
 
 	Func getExists
-		return dnRequest("get",[self,"Exists"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exists"])
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getPhysicalPath
-		return dnRequest("get",[self,"PhysicalPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PhysicalPath"])
 
 	Func setPhysicalPath P1
 		raise("DotNet Error: PhysicalPath is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getLastModified
-		return dnRequest("get",[self,"LastModified"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastModified"])
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getIsDirectory
-		return dnRequest("get",[self,"IsDirectory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDirectory"])
 
 	Func setIsDirectory P1
 		raise("DotNet Error: IsDirectory is a read-only property")

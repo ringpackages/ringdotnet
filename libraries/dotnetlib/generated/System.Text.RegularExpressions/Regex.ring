@@ -29,115 +29,115 @@ Class Regex from Object
 		return self
 
 	Func GetGroupNames 
-		return dnRequest("call",[self,"GetGroupNames"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGroupNames"])
 
 	Func GetGroupNumbers 
-		return dnRequest("call",[self,"GetGroupNumbers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGroupNumbers"])
 
 	Func GroupNameFromNumber P1
-		return dnRequest("call",[self,"GroupNameFromNumber",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GroupNameFromNumber",P1])
 
 	Func GroupNumberFromName P1
-		return dnRequest("call",[self,"GroupNumberFromName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GroupNumberFromName",P1])
 
 	Func Count P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Count",P1])
 			ok
-			return dnRequest("callnamed",[self,"Count",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Count",P1])
 		ok
-		return dnRequest("call",[self,"Count",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Count",P1])
 
 	Func IsMatch P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"IsMatch",P1])
 			ok
-			return dnRequest("callnamed",[self,"IsMatch",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsMatch",P1])
 		ok
-		return dnRequest("call",[self,"IsMatch",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsMatch",P1])
 
 	Func IsMatch_2 P1,P2
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"IsMatch",P1,P2])
 		ok
-		return dnRequest("call",[self,"IsMatch",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsMatch",P1,P2])
 
 	Func Match P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1])
 			ok
-			return dnRequest("callnamed",[self,"Match",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Match",P1])
 		ok
-		return dnRequest("call",[self,"Match",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Match",P1])
 
 	Func Match_2 P1,P2
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1,P2])
 		ok
-		return dnRequest("call",[self,"Match",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Match",P1,P2])
 
 	Func Match_3 P1,P2,P3
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1,P2,P3])
 		ok
-		return dnRequest("call",[self,"Match",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Match",P1,P2,P3])
 
 	Func Matches P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Matches",P1])
 			ok
-			return dnRequest("callnamed",[self,"Matches",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Matches",P1])
 		ok
-		return dnRequest("call",[self,"Matches",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Matches",P1])
 
 	Func Matches_2 P1,P2
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Matches",P1,P2])
 		ok
-		return dnRequest("call",[self,"Matches",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Matches",P1,P2])
 
 	Func Replace P1,P2
-		return dnRequest("call",[self,"Replace",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2])
 
 	Func Replace_3 P1,P2,P3
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1,P2,P3])
 		ok
-		return dnRequest("call",[self,"Replace",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3])
 
 	Func Replace_4 P1,P2,P3,P4
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1,P2,P3,P4])
 		ok
-		return dnRequest("call",[self,"Replace",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3,P4])
 
 	Func Split P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1])
 			ok
-			return dnRequest("callnamed",[self,"Split",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Split",P1])
 		ok
-		return dnRequest("call",[self,"Split",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1])
 
 	Func Split_2 P1,P2
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2])
 		ok
-		return dnRequest("call",[self,"Split",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1,P2])
 
 	Func Split_3 P1,P2,P3
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2,P3])
 		ok
-		return dnRequest("call",[self,"Split",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CompileToAssembly P1,P2
 		dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"CompileToAssembly",P1,P2])
@@ -188,19 +188,19 @@ Class Regex from Object
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2,P3,P4])
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getRightToLeft
-		return dnRequest("get",[self,"RightToLeft"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeft"])
 
 	Func setRightToLeft P1
 		raise("DotNet Error: RightToLeft is a read-only property")
 
 	Func getMatchTimeout
-		return dnRequest("get",[self,"MatchTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MatchTimeout"])
 
 	Func setMatchTimeout P1
 		raise("DotNet Error: MatchTimeout is a read-only property")

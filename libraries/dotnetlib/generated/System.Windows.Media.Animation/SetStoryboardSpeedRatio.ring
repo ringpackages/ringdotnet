@@ -17,9 +17,9 @@ Class SetStoryboardSpeedRatio from ControllableStoryboardAction
 		return self
 
 	Func getSpeedRatio
-		return dnRequest("get",[self,"SpeedRatio"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SpeedRatio"])
 
 	Func setSpeedRatio P1
-		dnRequest("set",[self,"SpeedRatio",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SpeedRatio",P1])
 		return self
 

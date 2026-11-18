@@ -23,19 +23,19 @@ Class MouseButtonEventArgs from WpfMouseEventArgs
 		return self
 
 	Func getChangedButton
-		return dnRequest("get",[self,"ChangedButton"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChangedButton"])
 
 	Func setChangedButton P1
 		raise("DotNet Error: ChangedButton is a read-only property")
 
 	Func getButtonState
-		return dnRequest("get",[self,"ButtonState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ButtonState"])
 
 	Func setButtonState P1
 		raise("DotNet Error: ButtonState is a read-only property")
 
 	Func getClickCount
-		return dnRequest("get",[self,"ClickCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClickCount"])
 
 	Func setClickCount P1
 		raise("DotNet Error: ClickCount is a read-only property")

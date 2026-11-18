@@ -15,14 +15,14 @@ Class RouteHandler from Object
 		return self
 
 	Func GetRequestHandler P1,P2
-		return dnRequest("call",[self,"GetRequestHandler",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRequestHandler",P1,P2])
 
 	Func GetVirtualPath P1
-		return dnRequest("call",[self,"GetVirtualPath",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetVirtualPath",P1])
 
 	Func RouteAsync P1
-		return dnRequest("call",[self,"RouteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RouteAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

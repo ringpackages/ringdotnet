@@ -14,5 +14,5 @@ Class IXamlTypeResolver from DotNetObject
 		return self
 
 	Func Resolve P1
-		return dnRequest("call",[self,"Resolve",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Resolve",P1])
 

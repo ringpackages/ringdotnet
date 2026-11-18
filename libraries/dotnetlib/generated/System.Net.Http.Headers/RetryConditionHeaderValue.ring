@@ -18,7 +18,7 @@ Class RetryConditionHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.RetryConditionHeaderValue, System.Net.Http'),"Parse",P1])
@@ -27,13 +27,13 @@ Class RetryConditionHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.RetryConditionHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getDate
-		return dnRequest("get",[self,"Date"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Date"])
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getDelta
-		return dnRequest("get",[self,"Delta"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Delta"])
 
 	Func setDelta P1
 		raise("DotNet Error: Delta is a read-only property")

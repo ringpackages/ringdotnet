@@ -19,19 +19,19 @@ Class FileSystemEventArgs from EventArgs
 		return self
 
 	Func getChangeType
-		return dnRequest("get",[self,"ChangeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChangeType"])
 
 	Func setChangeType P1
 		raise("DotNet Error: ChangeType is a read-only property")
 
 	Func getFullPath
-		return dnRequest("get",[self,"FullPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FullPath"])
 
 	Func setFullPath P1
 		raise("DotNet Error: FullPath is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

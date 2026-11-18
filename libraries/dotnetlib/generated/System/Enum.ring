@@ -14,19 +14,19 @@ Class Enum from ValueType
 		return self
 
 	Func HasFlag P1
-		return dnRequest("call",[self,"HasFlag",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasFlag",P1])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
-		return dnRequest("call",[self,"GetTypeCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
 
 	Func GetName P1
 		if dnIsNamed(P1)

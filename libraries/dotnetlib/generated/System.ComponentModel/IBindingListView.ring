@@ -19,34 +19,34 @@ Class IBindingListView from DotNetObject
 		return self
 
 	Func ApplySort P1
-		dnRequest("call",[self,"ApplySort",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplySort",P1])
 		return self
 
 	Func RemoveFilter 
-		dnRequest("call",[self,"RemoveFilter"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveFilter"])
 		return self
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[self,"Filter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
 		return self
 
 	Func getSortDescriptions
-		return dnRequest("get",[self,"SortDescriptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortDescriptions"])
 
 	Func setSortDescriptions P1
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getSupportsAdvancedSorting
-		return dnRequest("get",[self,"SupportsAdvancedSorting"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsAdvancedSorting"])
 
 	Func setSupportsAdvancedSorting P1
 		raise("DotNet Error: SupportsAdvancedSorting is a read-only property")
 
 	Func getSupportsFiltering
-		return dnRequest("get",[self,"SupportsFiltering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsFiltering"])
 
 	Func setSupportsFiltering P1
 		raise("DotNet Error: SupportsFiltering is a read-only property")

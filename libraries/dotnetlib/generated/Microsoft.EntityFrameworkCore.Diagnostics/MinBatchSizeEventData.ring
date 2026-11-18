@@ -17,7 +17,7 @@ Class MinBatchSizeEventData from BatchEventData
 		return self
 
 	Func getMinBatchSize
-		return dnRequest("get",[self,"MinBatchSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinBatchSize"])
 
 	Func setMinBatchSize P1
 		raise("DotNet Error: MinBatchSize is a read-only property")

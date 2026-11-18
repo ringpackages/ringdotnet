@@ -21,20 +21,20 @@ Class StatusBar from ItemsControl
 		return self
 
 	Func ContainerFromElement P1
-		return dnRequest("call",[self,"ContainerFromElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainerFromElement",P1])
 
 	Func getItemContainerTemplateSelector
-		return dnRequest("get",[self,"ItemContainerTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerTemplateSelector"])
 
 	Func setItemContainerTemplateSelector P1
-		dnRequest("set",[self,"ItemContainerTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemContainerTemplateSelector",P1])
 		return self
 
 	Func getUsesItemContainerTemplate
-		return dnRequest("get",[self,"UsesItemContainerTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UsesItemContainerTemplate"])
 
 	Func setUsesItemContainerTemplate P1
-		dnRequest("set",[self,"UsesItemContainerTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UsesItemContainerTemplate",P1])
 		return self
 
 	Func getSeparatorStyleKey

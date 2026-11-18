@@ -14,6 +14,6 @@ Class IThreadPoolWorkItem from DotNetObject
 		return self
 
 	Func Execute 
-		dnRequest("call",[self,"Execute"])
+		dnRequest("call",[new DotNetObject(nHandle),"Execute"])
 		return self
 

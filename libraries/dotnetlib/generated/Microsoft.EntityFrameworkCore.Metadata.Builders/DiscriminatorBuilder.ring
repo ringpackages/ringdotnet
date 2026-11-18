@@ -15,26 +15,26 @@ Class DiscriminatorBuilder from Object
 		return self
 
 	Func IsComplete_1 P1
-		return dnRequest("call",[self,"IsComplete",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsComplete",P1])
 
 	Func IsComplete P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsComplete",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsComplete",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsComplete"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsComplete"])
 		ok
-		return dnRequest("call",[self,"IsComplete",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsComplete",P1])
 
 	Func HasValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasValue",P1])
 		ok
-		return dnRequest("call",[self,"HasValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasValue",P1])
 
 	Func HasValue_2 P1,P2
-		return dnRequest("call",[self,"HasValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasValue",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

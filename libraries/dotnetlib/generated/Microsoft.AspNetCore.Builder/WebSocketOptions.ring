@@ -20,31 +20,31 @@ Class WebSocketOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getKeepAliveInterval
-		return dnRequest("get",[self,"KeepAliveInterval"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveInterval"])
 
 	Func setKeepAliveInterval P1
-		dnRequest("set",[self,"KeepAliveInterval",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveInterval",P1])
 		return self
 
 	Func getKeepAliveTimeout
-		return dnRequest("get",[self,"KeepAliveTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveTimeout"])
 
 	Func setKeepAliveTimeout P1
-		dnRequest("set",[self,"KeepAliveTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveTimeout",P1])
 		return self
 
 	Func getReceiveBufferSize
-		return dnRequest("get",[self,"ReceiveBufferSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReceiveBufferSize"])
 
 	Func setReceiveBufferSize P1
-		dnRequest("set",[self,"ReceiveBufferSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReceiveBufferSize",P1])
 		return self
 
 	Func getAllowedOrigins
-		return dnRequest("get",[self,"AllowedOrigins"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowedOrigins"])
 
 	Func setAllowedOrigins P1
 		raise("DotNet Error: AllowedOrigins is a read-only property")

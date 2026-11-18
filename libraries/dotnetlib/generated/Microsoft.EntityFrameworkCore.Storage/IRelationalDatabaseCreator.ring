@@ -14,83 +14,83 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return self
 
 	Func Exists 
-		return dnRequest("call",[self,"Exists"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Exists"])
 
 	Func ExistsAsync_1 P1
-		return dnRequest("call",[self,"ExistsAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync",P1])
 
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExistsAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExistsAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ExistsAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync"])
 		ok
-		return dnRequest("call",[self,"ExistsAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync",P1])
 
 	Func HasTables 
-		return dnRequest("call",[self,"HasTables"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasTables"])
 
 	Func HasTablesAsync_1 P1
-		return dnRequest("call",[self,"HasTablesAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasTablesAsync",P1])
 
 	Func HasTablesAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasTablesAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasTablesAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasTablesAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasTablesAsync"])
 		ok
-		return dnRequest("call",[self,"HasTablesAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasTablesAsync",P1])
 
 	Func Create 
-		dnRequest("call",[self,"Create"])
+		dnRequest("call",[new DotNetObject(nHandle),"Create"])
 		return self
 
 	Func CreateAsync_1 P1
-		return dnRequest("call",[self,"CreateAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync",P1])
 
 	Func CreateAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync"])
 		ok
-		return dnRequest("call",[self,"CreateAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync",P1])
 
 	Func Delete 
-		dnRequest("call",[self,"Delete"])
+		dnRequest("call",[new DotNetObject(nHandle),"Delete"])
 		return self
 
 	Func DeleteAsync_1 P1
-		return dnRequest("call",[self,"DeleteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeleteAsync",P1])
 
 	Func DeleteAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"DeleteAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"DeleteAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"DeleteAsync"])
 		ok
-		return dnRequest("call",[self,"DeleteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeleteAsync",P1])
 
 	Func CreateTables 
-		dnRequest("call",[self,"CreateTables"])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateTables"])
 		return self
 
 	Func CreateTablesAsync_1 P1
-		return dnRequest("call",[self,"CreateTablesAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateTablesAsync",P1])
 
 	Func CreateTablesAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateTablesAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateTablesAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateTablesAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateTablesAsync"])
 		ok
-		return dnRequest("call",[self,"CreateTablesAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateTablesAsync",P1])
 
 	Func GenerateCreateScript 
-		return dnRequest("call",[self,"GenerateCreateScript"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateCreateScript"])
 

@@ -26,57 +26,57 @@ Class TreeViewItem from HeaderedItemsControl
 		return self
 
 	Func ExpandSubtree 
-		dnRequest("call",[self,"ExpandSubtree"])
+		dnRequest("call",[new DotNetObject(nHandle),"ExpandSubtree"])
 		return self
 
 	Func setExpandedEvent P1
-		dnRequest("setevent",[self,"Expanded",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Expanded",dnCallback(P1)])
 		return self
 
 	Func clearExpandedEvent
-		dnRequest("clearevent",[self,"Expanded"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Expanded"])
 		return self
 
 	Func setCollapsedEvent P1
-		dnRequest("setevent",[self,"Collapsed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Collapsed",dnCallback(P1)])
 		return self
 
 	Func clearCollapsedEvent
-		dnRequest("clearevent",[self,"Collapsed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Collapsed"])
 		return self
 
 	Func setSelectedEvent P1
-		dnRequest("setevent",[self,"Selected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Selected",dnCallback(P1)])
 		return self
 
 	Func clearSelectedEvent
-		dnRequest("clearevent",[self,"Selected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Selected"])
 		return self
 
 	Func setUnselectedEvent P1
-		dnRequest("setevent",[self,"Unselected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Unselected",dnCallback(P1)])
 		return self
 
 	Func clearUnselectedEvent
-		dnRequest("clearevent",[self,"Unselected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Unselected"])
 		return self
 
 	Func getIsExpanded
-		return dnRequest("get",[self,"IsExpanded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsExpanded"])
 
 	Func setIsExpanded P1
-		dnRequest("set",[self,"IsExpanded",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsExpanded",P1])
 		return self
 
 	Func getIsSelected
-		return dnRequest("get",[self,"IsSelected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
 
 	Func setIsSelected P1
-		dnRequest("set",[self,"IsSelected",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSelected",P1])
 		return self
 
 	Func getIsSelectionActive
-		return dnRequest("get",[self,"IsSelectionActive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSelectionActive"])
 
 	Func setIsSelectionActive P1
 		raise("DotNet Error: IsSelectionActive is a read-only property")

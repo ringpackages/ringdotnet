@@ -25,41 +25,41 @@ Class TarWriter from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func WriteEntry_2 P1,P2
-		dnRequest("call",[self,"WriteEntry",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteEntry",P1,P2])
 		return self
 
 	Func WriteEntryAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"WriteEntryAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteEntryAsync",P1,P2,P3])
 
 	Func WriteEntryAsync_2 P1,P2
-		return dnRequest("call",[self,"WriteEntryAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteEntryAsync",P1,P2])
 
 	Func WriteEntry P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"WriteEntry",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteEntry",P1])
 			return self
 		ok
-		dnRequest("call",[self,"WriteEntry",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteEntry",P1])
 		return self
 
 	Func WriteEntryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WriteEntryAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteEntryAsync",P1])
 		ok
-		return dnRequest("call",[self,"WriteEntryAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteEntryAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")

@@ -21,7 +21,7 @@ Class ContextMenuStrip from ToolStripDropDownMenu
 		return self
 
 	Func getSourceControl
-		return dnRequest("get",[self,"SourceControl"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceControl"])
 
 	Func setSourceControl P1
 		raise("DotNet Error: SourceControl is a read-only property")

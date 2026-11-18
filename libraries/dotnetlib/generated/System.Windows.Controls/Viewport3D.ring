@@ -20,14 +20,14 @@ Class Viewport3D from FrameworkElement
 		return self
 
 	Func getCamera
-		return dnRequest("get",[self,"Camera"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Camera"])
 
 	Func setCamera P1
-		dnRequest("set",[self,"Camera",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Camera",P1])
 		return self
 
 	Func getChildren
-		return dnRequest("get",[self,"Children"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")

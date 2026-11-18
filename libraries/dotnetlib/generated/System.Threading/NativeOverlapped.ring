@@ -21,37 +21,37 @@ Class NativeOverlapped from ValueType
 		return self
 
 	Func getInternalLow
-		return dnRequest("get",[self,"InternalLow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InternalLow"])
 
 	Func setInternalLow P1
-		dnRequest("set",[self,"InternalLow",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InternalLow",P1])
 		return self
 
 	Func getInternalHigh
-		return dnRequest("get",[self,"InternalHigh"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InternalHigh"])
 
 	Func setInternalHigh P1
-		dnRequest("set",[self,"InternalHigh",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InternalHigh",P1])
 		return self
 
 	Func getOffsetLow
-		return dnRequest("get",[self,"OffsetLow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetLow"])
 
 	Func setOffsetLow P1
-		dnRequest("set",[self,"OffsetLow",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OffsetLow",P1])
 		return self
 
 	Func getOffsetHigh
-		return dnRequest("get",[self,"OffsetHigh"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetHigh"])
 
 	Func setOffsetHigh P1
-		dnRequest("set",[self,"OffsetHigh",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OffsetHigh",P1])
 		return self
 
 	Func getEventHandle
-		return dnRequest("get",[self,"EventHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EventHandle"])
 
 	Func setEventHandle P1
-		dnRequest("set",[self,"EventHandle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EventHandle",P1])
 		return self
 

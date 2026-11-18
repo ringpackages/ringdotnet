@@ -26,72 +26,72 @@ Class PrintDialog from CommonDialog
 		return self
 
 	Func getAllowCurrentPage
-		return dnRequest("get",[self,"AllowCurrentPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowCurrentPage"])
 
 	Func setAllowCurrentPage P1
-		dnRequest("set",[self,"AllowCurrentPage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowCurrentPage",P1])
 		return self
 
 	Func getAllowSomePages
-		return dnRequest("get",[self,"AllowSomePages"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowSomePages"])
 
 	Func setAllowSomePages P1
-		dnRequest("set",[self,"AllowSomePages",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowSomePages",P1])
 		return self
 
 	Func getAllowPrintToFile
-		return dnRequest("get",[self,"AllowPrintToFile"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowPrintToFile"])
 
 	Func setAllowPrintToFile P1
-		dnRequest("set",[self,"AllowPrintToFile",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowPrintToFile",P1])
 		return self
 
 	Func getAllowSelection
-		return dnRequest("get",[self,"AllowSelection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowSelection"])
 
 	Func setAllowSelection P1
-		dnRequest("set",[self,"AllowSelection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowSelection",P1])
 		return self
 
 	Func getDocument
-		return dnRequest("get",[self,"Document"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[self,"Document",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
 		return self
 
 	Func getPrinterSettings
-		return dnRequest("get",[self,"PrinterSettings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrinterSettings"])
 
 	Func setPrinterSettings P1
-		dnRequest("set",[self,"PrinterSettings",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrinterSettings",P1])
 		return self
 
 	Func getPrintToFile
-		return dnRequest("get",[self,"PrintToFile"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrintToFile"])
 
 	Func setPrintToFile P1
-		dnRequest("set",[self,"PrintToFile",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrintToFile",P1])
 		return self
 
 	Func getShowHelp
-		return dnRequest("get",[self,"ShowHelp"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowHelp"])
 
 	Func setShowHelp P1
-		dnRequest("set",[self,"ShowHelp",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowHelp",P1])
 		return self
 
 	Func getShowNetwork
-		return dnRequest("get",[self,"ShowNetwork"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowNetwork"])
 
 	Func setShowNetwork P1
-		dnRequest("set",[self,"ShowNetwork",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowNetwork",P1])
 		return self
 
 	Func getUseEXDialog
-		return dnRequest("get",[self,"UseEXDialog"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseEXDialog"])
 
 	Func setUseEXDialog P1
-		dnRequest("set",[self,"UseEXDialog",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseEXDialog",P1])
 		return self
 

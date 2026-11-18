@@ -16,9 +16,9 @@ Class IFilterContainer from DotNetObject
 		return self
 
 	Func getFilterDefinition
-		return dnRequest("get",[self,"FilterDefinition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FilterDefinition"])
 
 	Func setFilterDefinition P1
-		dnRequest("set",[self,"FilterDefinition",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FilterDefinition",P1])
 		return self
 

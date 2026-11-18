@@ -22,39 +22,39 @@ Class DataGridViewSortCompareEventArgs from HandledEventArgs
 		return self
 
 	Func getCellValue1
-		return dnRequest("get",[self,"CellValue1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellValue1"])
 
 	Func setCellValue1 P1
 		raise("DotNet Error: CellValue1 is a read-only property")
 
 	Func getCellValue2
-		return dnRequest("get",[self,"CellValue2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellValue2"])
 
 	Func setCellValue2 P1
 		raise("DotNet Error: CellValue2 is a read-only property")
 
 	Func getColumn
-		return dnRequest("get",[self,"Column"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getRowIndex1
-		return dnRequest("get",[self,"RowIndex1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex1"])
 
 	Func setRowIndex1 P1
 		raise("DotNet Error: RowIndex1 is a read-only property")
 
 	Func getRowIndex2
-		return dnRequest("get",[self,"RowIndex2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex2"])
 
 	Func setRowIndex2 P1
 		raise("DotNet Error: RowIndex2 is a read-only property")
 
 	Func getSortResult
-		return dnRequest("get",[self,"SortResult"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortResult"])
 
 	Func setSortResult P1
-		dnRequest("set",[self,"SortResult",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SortResult",P1])
 		return self
 

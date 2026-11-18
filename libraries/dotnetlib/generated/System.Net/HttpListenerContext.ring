@@ -19,36 +19,36 @@ Class HttpListenerContext from Object
 
 	Func AcceptWebSocketAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AcceptWebSocketAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1])
 		ok
-		return dnRequest("call",[self,"AcceptWebSocketAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1])
 
 	Func AcceptWebSocketAsync_2 P1,P2
-		return dnRequest("call",[self,"AcceptWebSocketAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1,P2])
 
 	Func AcceptWebSocketAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"AcceptWebSocketAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1,P2,P3])
 
 	Func AcceptWebSocketAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AcceptWebSocketAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequest
-		return dnRequest("get",[self,"Request"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Request"])
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[self,"User"])
+		return dnRequest("get",[new DotNetObject(nHandle),"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getResponse
-		return dnRequest("get",[self,"Response"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Response"])
 
 	Func setResponse P1
 		raise("DotNet Error: Response is a read-only property")

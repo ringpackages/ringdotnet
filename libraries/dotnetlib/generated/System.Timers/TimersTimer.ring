@@ -24,58 +24,58 @@ Class TimersTimer from Component
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func Start 
-		dnRequest("call",[self,"Start"])
+		dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		return self
 
 	Func Stop 
-		dnRequest("call",[self,"Stop"])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
 		return self
 
 	Func setElapsedEvent P1
-		dnRequest("setevent",[self,"Elapsed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Elapsed",dnCallback(P1)])
 		return self
 
 	Func clearElapsedEvent
-		dnRequest("clearevent",[self,"Elapsed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Elapsed"])
 		return self
 
 	Func getAutoReset
-		return dnRequest("get",[self,"AutoReset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoReset"])
 
 	Func setAutoReset P1
-		dnRequest("set",[self,"AutoReset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoReset",P1])
 		return self
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[self,"Enabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
 		return self
 
 	Func getInterval
-		return dnRequest("get",[self,"Interval"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Interval"])
 
 	Func setInterval P1
-		dnRequest("set",[self,"Interval",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Interval",P1])
 		return self
 
 	Func getSynchronizingObject
-		return dnRequest("get",[self,"SynchronizingObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SynchronizingObject"])
 
 	Func setSynchronizingObject P1
-		dnRequest("set",[self,"SynchronizingObject",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SynchronizingObject",P1])
 		return self
 

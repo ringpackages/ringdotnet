@@ -21,65 +21,65 @@ Class WebApplication from Object
 		return self
 
 	Func StartAsync_1 P1
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"StartAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"StartAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"StartAsync"])
 		ok
-		return dnRequest("call",[self,"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StopAsync_1 P1
-		return dnRequest("call",[self,"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func StopAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"StopAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StopAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"StopAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"StopAsync"])
 		ok
-		return dnRequest("call",[self,"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func RunAsync_1 P1
-		return dnRequest("call",[self,"RunAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RunAsync",P1])
 
 	Func RunAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RunAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RunAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RunAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RunAsync"])
 		ok
-		return dnRequest("call",[self,"RunAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RunAsync",P1])
 
 	Func Run_1 P1
-		dnRequest("call",[self,"Run",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Run",P1])
 		return self
 
 	Func Run P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Run",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Run",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Run"])
+			dnRequest("call",[new DotNetObject(nHandle),"Run"])
 		return self
 		ok
-		dnRequest("call",[self,"Run",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Run",P1])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Use P1
-		return dnRequest("call",[self,"Use",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Use",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create",P1])
@@ -121,37 +121,37 @@ Class WebApplication from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateEmptyBuilder",P1])
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Configuration"])
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
 
 	Func getEnvironment
-		return dnRequest("get",[self,"Environment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Environment"])
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getLifetime
-		return dnRequest("get",[self,"Lifetime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Lifetime"])
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")
 
 	Func getLogger
-		return dnRequest("get",[self,"Logger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getUrls
-		return dnRequest("get",[self,"Urls"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Urls"])
 
 	Func setUrls P1
 		raise("DotNet Error: Urls is a read-only property")

@@ -21,49 +21,49 @@ Class IHostApplicationBuilder from DotNetObject
 		return self
 
 	Func ConfigureContainer_2 P1,P2
-		dnRequest("call",[self,"ConfigureContainer",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ConfigureContainer",P1,P2])
 		return self
 
 	Func ConfigureContainer P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ConfigureContainer",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ConfigureContainer",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ConfigureContainer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ConfigureContainer",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getConfiguration
-		return dnRequest("get",[self,"Configuration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Configuration"])
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
 
 	Func getEnvironment
-		return dnRequest("get",[self,"Environment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Environment"])
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getLogging
-		return dnRequest("get",[self,"Logging"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Logging"])
 
 	Func setLogging P1
 		raise("DotNet Error: Logging is a read-only property")
 
 	Func getMetrics
-		return dnRequest("get",[self,"Metrics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metrics"])
 
 	Func setMetrics P1
 		raise("DotNet Error: Metrics is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")

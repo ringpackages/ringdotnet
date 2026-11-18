@@ -25,53 +25,53 @@ Class JsonObject from JsonNode
 		return self
 
 	Func TryGetPropertyValue P1
-		return dnRequest("call",[self,"TryGetPropertyValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetPropertyValue",P1])
 
 	Func Add_2 P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Add P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[self,"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func GetAt P1
-		return dnRequest("call",[self,"GetAt",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAt",P1])
 
 	Func SetAt_3 P1,P2,P3
-		dnRequest("call",[self,"SetAt",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAt",P1,P2,P3])
 		return self
 
 	Func SetAt P1,P2
-		dnRequest("call",[self,"SetAt",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAt",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2,P3
-		dnRequest("call",[self,"Insert",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func Create_2 P1,P2
@@ -84,7 +84,7 @@ Class JsonObject from JsonNode
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

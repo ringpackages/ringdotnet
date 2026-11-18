@@ -18,22 +18,22 @@ Class IXsltContextVariable from DotNetObject
 		return self
 
 	Func Evaluate P1
-		return dnRequest("call",[self,"Evaluate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Evaluate",P1])
 
 	Func getIsLocal
-		return dnRequest("get",[self,"IsLocal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLocal"])
 
 	Func setIsLocal P1
 		raise("DotNet Error: IsLocal is a read-only property")
 
 	Func getIsParam
-		return dnRequest("get",[self,"IsParam"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsParam"])
 
 	Func setIsParam P1
 		raise("DotNet Error: IsParam is a read-only property")
 
 	Func getVariableType
-		return dnRequest("get",[self,"VariableType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VariableType"])
 
 	Func setVariableType P1
 		raise("DotNet Error: VariableType is a read-only property")

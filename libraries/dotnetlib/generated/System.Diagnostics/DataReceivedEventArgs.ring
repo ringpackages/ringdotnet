@@ -16,7 +16,7 @@ Class DataReceivedEventArgs from EventArgs
 		return self
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")

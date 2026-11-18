@@ -17,19 +17,19 @@ Class SortKey from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.SortKey, System.Private.CoreLib'),"Compare",P1,P2])
 
 	Func getOriginalString
-		return dnRequest("get",[self,"OriginalString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalString"])
 
 	Func setOriginalString P1
 		raise("DotNet Error: OriginalString is a read-only property")
 
 	Func getKeyData
-		return dnRequest("get",[self,"KeyData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyData"])
 
 	Func setKeyData P1
 		raise("DotNet Error: KeyData is a read-only property")

@@ -18,15 +18,15 @@ Class DataGridViewEditingControlShowingEventArgs from EventArgs
 		return self
 
 	Func getControl
-		return dnRequest("get",[self,"Control"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getCellStyle
-		return dnRequest("get",[self,"CellStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellStyle"])
 
 	Func setCellStyle P1
-		dnRequest("set",[self,"CellStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellStyle",P1])
 		return self
 

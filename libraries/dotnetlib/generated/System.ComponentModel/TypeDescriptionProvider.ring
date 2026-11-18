@@ -16,65 +16,65 @@ Class TypeDescriptionProvider from Object
 		return self
 
 	Func RegisterType 
-		dnRequest("call",[self,"RegisterType"])
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterType"])
 		return self
 
 	Func CreateInstance P1,P2,P3,P4
-		return dnRequest("call",[self,"CreateInstance",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2,P3,P4])
 
 	Func GetCache P1
-		return dnRequest("call",[self,"GetCache",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCache",P1])
 
 	Func GetExtendedTypeDescriptor P1
-		return dnRequest("call",[self,"GetExtendedTypeDescriptor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetExtendedTypeDescriptor",P1])
 
 	Func GetExtendedTypeDescriptorFromRegisteredType P1
-		return dnRequest("call",[self,"GetExtendedTypeDescriptorFromRegisteredType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetExtendedTypeDescriptorFromRegisteredType",P1])
 
 	Func GetFullComponentName P1
-		return dnRequest("call",[self,"GetFullComponentName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFullComponentName",P1])
 
 	Func GetReflectionType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetReflectionType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetReflectionType",P1])
 		ok
-		return dnRequest("call",[self,"GetReflectionType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReflectionType",P1])
 
 	Func GetReflectionType_2 P1,P2
-		return dnRequest("call",[self,"GetReflectionType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReflectionType",P1,P2])
 
 	Func GetRuntimeType P1
-		return dnRequest("call",[self,"GetRuntimeType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRuntimeType",P1])
 
 	Func GetTypeDescriptor P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetTypeDescriptor",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetTypeDescriptor",P1])
 		ok
-		return dnRequest("call",[self,"GetTypeDescriptor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeDescriptor",P1])
 
 	Func GetTypeDescriptor_2 P1,P2
-		return dnRequest("call",[self,"GetTypeDescriptor",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeDescriptor",P1,P2])
 
 	Func GetTypeDescriptorFromRegisteredType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetTypeDescriptorFromRegisteredType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetTypeDescriptorFromRegisteredType",P1])
 		ok
-		return dnRequest("call",[self,"GetTypeDescriptorFromRegisteredType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeDescriptorFromRegisteredType",P1])
 
 	Func GetTypeDescriptorFromRegisteredType_2 P1,P2
-		return dnRequest("call",[self,"GetTypeDescriptorFromRegisteredType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeDescriptorFromRegisteredType",P1,P2])
 
 	Func IsRegisteredType P1
-		return dnRequest("call",[self,"IsRegisteredType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsRegisteredType",P1])
 
 	Func IsSupportedType P1
-		return dnRequest("call",[self,"IsSupportedType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsSupportedType",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequireRegisteredTypes
-		return dnRequest("get",[self,"RequireRegisteredTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequireRegisteredTypes"])
 
 	Func setRequireRegisteredTypes P1
 		raise("DotNet Error: RequireRegisteredTypes is a read-only property")

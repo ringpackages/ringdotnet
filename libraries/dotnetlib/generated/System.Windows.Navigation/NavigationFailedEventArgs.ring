@@ -22,45 +22,45 @@ Class NavigationFailedEventArgs from EventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[self,"Uri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Uri"])
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getExtraData
-		return dnRequest("get",[self,"ExtraData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtraData"])
 
 	Func setExtraData P1
 		raise("DotNet Error: ExtraData is a read-only property")
 
 	Func getNavigator
-		return dnRequest("get",[self,"Navigator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Navigator"])
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")
 
 	Func getWebRequest
-		return dnRequest("get",[self,"WebRequest"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WebRequest"])
 
 	Func setWebRequest P1
 		raise("DotNet Error: WebRequest is a read-only property")
 
 	Func getWebResponse
-		return dnRequest("get",[self,"WebResponse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WebResponse"])
 
 	Func setWebResponse P1
 		raise("DotNet Error: WebResponse is a read-only property")
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[self,"Handled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
 
 	Func setHandled P1
-		dnRequest("set",[self,"Handled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Handled",P1])
 		return self
 

@@ -14,5 +14,5 @@ Class IRouteHandler from DotNetObject
 		return self
 
 	Func GetRequestHandler P1,P2
-		return dnRequest("call",[self,"GetRequestHandler",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRequestHandler",P1,P2])
 

@@ -14,7 +14,7 @@ Class StreamCopyOperation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CopyToAsync P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.StreamCopyOperation, Microsoft.AspNetCore.Http.Extensions'),"CopyToAsync",P1,P2,P3,P4])

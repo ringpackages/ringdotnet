@@ -26,24 +26,24 @@ Class GeometryModel3D from Model3D
 		return self
 
 	Func getGeometry
-		return dnRequest("get",[self,"Geometry"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Geometry"])
 
 	Func setGeometry P1
-		dnRequest("set",[self,"Geometry",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Geometry",P1])
 		return self
 
 	Func getMaterial
-		return dnRequest("get",[self,"Material"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Material"])
 
 	Func setMaterial P1
-		dnRequest("set",[self,"Material",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Material",P1])
 		return self
 
 	Func getBackMaterial
-		return dnRequest("get",[self,"BackMaterial"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackMaterial"])
 
 	Func setBackMaterial P1
-		dnRequest("set",[self,"BackMaterial",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BackMaterial",P1])
 		return self
 
 	Func getGeometryProperty

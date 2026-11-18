@@ -14,7 +14,7 @@ Class Activator from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateInstance_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2,P3,P4,P5])

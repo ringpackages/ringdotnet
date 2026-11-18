@@ -14,170 +14,170 @@ Class ISqlExpressionFactory from DotNetObject
 		return self
 
 	Func ApplyTypeMapping P1,P2
-		return dnRequest("call",[self,"ApplyTypeMapping",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyTypeMapping",P1,P2])
 
 	Func ApplyDefaultTypeMapping P1
-		return dnRequest("call",[self,"ApplyDefaultTypeMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyDefaultTypeMapping",P1])
 
 	Func MakeUnary_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"MakeUnary",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnary",P1,P2,P3,P4,P5])
 
 	Func MakeUnary_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"MakeUnary",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnary",P1,P2,P3,P4])
 
 	Func MakeUnary P1,P2,P3
-		return dnRequest("call",[self,"MakeUnary",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnary",P1,P2,P3])
 
 	Func MakeBinary_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"MakeBinary",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeBinary",P1,P2,P3,P4,P5])
 
 	Func MakeBinary P1,P2,P3,P4
-		return dnRequest("call",[self,"MakeBinary",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeBinary",P1,P2,P3,P4])
 
 	Func Equal P1,P2
-		return dnRequest("call",[self,"Equal",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equal",P1,P2])
 
 	Func NotEqual P1,P2
-		return dnRequest("call",[self,"NotEqual",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"NotEqual",P1,P2])
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[self,"GreaterThan",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GreaterThan",P1,P2])
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[self,"GreaterThanOrEqual",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GreaterThanOrEqual",P1,P2])
 
 	Func LessThan P1,P2
-		return dnRequest("call",[self,"LessThan",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LessThan",P1,P2])
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[self,"LessThanOrEqual",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LessThanOrEqual",P1,P2])
 
 	Func AndAlso P1,P2
-		return dnRequest("call",[self,"AndAlso",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AndAlso",P1,P2])
 
 	Func OrElse P1,P2
-		return dnRequest("call",[self,"OrElse",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OrElse",P1,P2])
 
 	Func Add_3 P1,P2,P3
-		return dnRequest("call",[self,"Add",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 
 	Func Add P1,P2
-		return dnRequest("call",[self,"Add",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Subtract_3 P1,P2,P3
-		return dnRequest("call",[self,"Subtract",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Subtract",P1,P2,P3])
 
 	Func Subtract P1,P2
-		return dnRequest("call",[self,"Subtract",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Subtract",P1,P2])
 
 	Func Multiply_3 P1,P2,P3
-		return dnRequest("call",[self,"Multiply",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1,P2,P3])
 
 	Func Multiply P1,P2
-		return dnRequest("call",[self,"Multiply",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1,P2])
 
 	Func Divide_3 P1,P2,P3
-		return dnRequest("call",[self,"Divide",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Divide",P1,P2,P3])
 
 	Func Divide P1,P2
-		return dnRequest("call",[self,"Divide",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Divide",P1,P2])
 
 	Func Modulo_3 P1,P2,P3
-		return dnRequest("call",[self,"Modulo",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Modulo",P1,P2,P3])
 
 	Func Modulo P1,P2
-		return dnRequest("call",[self,"Modulo",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Modulo",P1,P2])
 
 	Func And_3 P1,P2,P3
-		return dnRequest("call",[self,"And",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"And",P1,P2,P3])
 
 	Func And_ P1,P2
-		return dnRequest("call",[self,"And",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"And",P1,P2])
 
 	Func Or_3 P1,P2,P3
-		return dnRequest("call",[self,"Or",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Or",P1,P2,P3])
 
 	Func Or_ P1,P2
-		return dnRequest("call",[self,"Or",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Or",P1,P2])
 
 	Func Coalesce_3 P1,P2,P3
-		return dnRequest("call",[self,"Coalesce",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Coalesce",P1,P2,P3])
 
 	Func Coalesce P1,P2
-		return dnRequest("call",[self,"Coalesce",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Coalesce",P1,P2])
 
 	Func IsNotNull P1
-		return dnRequest("call",[self,"IsNotNull",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsNotNull",P1])
 
 	Func Convert_3 P1,P2,P3
-		return dnRequest("call",[self,"Convert",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3])
 
 	Func Convert P1,P2
-		return dnRequest("call",[self,"Convert",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2])
 
 	Func Not_ P1
-		return dnRequest("call",[self,"Not",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Not",P1])
 
 	Func Negate P1
-		return dnRequest("call",[self,"Negate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Negate",P1])
 
 	Func Case_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Case",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Case",P1,P2,P3,P4])
 
 	Func Case_3 P1,P2,P3
-		return dnRequest("call",[self,"Case",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Case",P1,P2,P3])
 
 	Func Case_ P1,P2
-		return dnRequest("call",[self,"Case",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Case",P1,P2])
 
 	Func Function_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"Function",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5,P6])
 
 	Func Function_ P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Function",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5])
 
 	Func Function_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"Function",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5,P6,P7])
 
 	Func Function_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"Function",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func NiladicFunction_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"NiladicFunction",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3,P4])
 
 	Func NiladicFunction P1,P2,P3
-		return dnRequest("call",[self,"NiladicFunction",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3])
 
 	Func NiladicFunction_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"NiladicFunction",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3,P4,P5])
 
 	Func NiladicFunction_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"NiladicFunction",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3,P4,P5,P6])
 
 	Func Exists P1
-		return dnRequest("call",[self,"Exists",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Exists",P1])
 
 	Func In_ P1,P2
-		return dnRequest("call",[self,"In",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"In",P1,P2])
 
 	Func Like_3 P1,P2,P3
-		return dnRequest("call",[self,"Like",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Like",P1,P2,P3])
 
 	Func Like P1,P2
-		return dnRequest("call",[self,"Like",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Like",P1,P2])
 
 	Func Constant_2 P1,P2
-		return dnRequest("call",[self,"Constant",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1,P2])
 
 	Func Constant P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Constant",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Constant",P1])
 		ok
-		return dnRequest("call",[self,"Constant",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1])
 
 	Func Constant_3 P1,P2,P3
-		return dnRequest("call",[self,"Constant",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1,P2,P3])
 
 	Func Fragment P1
-		return dnRequest("call",[self,"Fragment",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Fragment",P1])
 

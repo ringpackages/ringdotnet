@@ -16,7 +16,7 @@ Class WebBrowserBase from Control
 		return self
 
 	Func getActiveXInstance
-		return dnRequest("get",[self,"ActiveXInstance"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActiveXInstance"])
 
 	Func setActiveXInstance P1
 		raise("DotNet Error: ActiveXInstance is a read-only property")

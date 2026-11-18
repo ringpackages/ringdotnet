@@ -45,58 +45,58 @@ Class GridView from ViewBase
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.GridView, PresentationFramework'),"ShouldSerializeColumnCollection",P1])
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getColumnHeaderContainerStyle
-		return dnRequest("get",[self,"ColumnHeaderContainerStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderContainerStyle"])
 
 	Func setColumnHeaderContainerStyle P1
-		dnRequest("set",[self,"ColumnHeaderContainerStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderContainerStyle",P1])
 		return self
 
 	Func getColumnHeaderTemplate
-		return dnRequest("get",[self,"ColumnHeaderTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderTemplate"])
 
 	Func setColumnHeaderTemplate P1
-		dnRequest("set",[self,"ColumnHeaderTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderTemplate",P1])
 		return self
 
 	Func getColumnHeaderTemplateSelector
-		return dnRequest("get",[self,"ColumnHeaderTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderTemplateSelector"])
 
 	Func setColumnHeaderTemplateSelector P1
-		dnRequest("set",[self,"ColumnHeaderTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderTemplateSelector",P1])
 		return self
 
 	Func getColumnHeaderStringFormat
-		return dnRequest("get",[self,"ColumnHeaderStringFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderStringFormat"])
 
 	Func setColumnHeaderStringFormat P1
-		dnRequest("set",[self,"ColumnHeaderStringFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderStringFormat",P1])
 		return self
 
 	Func getAllowsColumnReorder
-		return dnRequest("get",[self,"AllowsColumnReorder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowsColumnReorder"])
 
 	Func setAllowsColumnReorder P1
-		dnRequest("set",[self,"AllowsColumnReorder",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowsColumnReorder",P1])
 		return self
 
 	Func getColumnHeaderContextMenu
-		return dnRequest("get",[self,"ColumnHeaderContextMenu"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderContextMenu"])
 
 	Func setColumnHeaderContextMenu P1
-		dnRequest("set",[self,"ColumnHeaderContextMenu",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderContextMenu",P1])
 		return self
 
 	Func getColumnHeaderToolTip
-		return dnRequest("get",[self,"ColumnHeaderToolTip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderToolTip"])
 
 	Func setColumnHeaderToolTip P1
-		dnRequest("set",[self,"ColumnHeaderToolTip",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderToolTip",P1])
 		return self
 
 	Func getGridViewScrollViewerStyleKey

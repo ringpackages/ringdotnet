@@ -26,53 +26,53 @@ Class Random from Object
 
 	Func Next_ P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Next",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Next",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Next"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Next"])
 		ok
-		return dnRequest("call",[self,"Next",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Next",P1])
 
 	Func Next_1 P1
-		return dnRequest("call",[self,"Next",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Next",P1])
 
 	Func Next_2 P1,P2
-		return dnRequest("call",[self,"Next",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Next",P1,P2])
 
 	Func NextInt64 P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"NextInt64",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NextInt64",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"NextInt64"])
+			return dnRequest("call",[new DotNetObject(nHandle),"NextInt64"])
 		ok
-		return dnRequest("call",[self,"NextInt64",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextInt64",P1])
 
 	Func NextInt64_1 P1
-		return dnRequest("call",[self,"NextInt64",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextInt64",P1])
 
 	Func NextInt64_2 P1,P2
-		return dnRequest("call",[self,"NextInt64",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextInt64",P1,P2])
 
 	Func NextSingle 
-		return dnRequest("call",[self,"NextSingle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextSingle"])
 
 	Func NextDouble 
-		return dnRequest("call",[self,"NextDouble"])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextDouble"])
 
 	Func NextBytes P1
-		dnRequest("call",[self,"NextBytes",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"NextBytes",P1])
 		return self
 
 	Func GetItems P1,P2
-		return dnRequest("call",[self,"GetItems",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetItems",P1,P2])
 
 	Func Shuffle P1
-		dnRequest("call",[self,"Shuffle",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Shuffle",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getShared
 		return dnRequest("get",[dnTypeCached('System.Random, System.Private.CoreLib'),"Shared"])

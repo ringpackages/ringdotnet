@@ -16,28 +16,28 @@ Class IndexComparer from Object
 		return self
 
 	Func Compare P1,P2
-		return dnRequest("call",[self,"Compare",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2])
 
 	Func Equals_2 P1,P2
-		return dnRequest("call",[self,"Equals",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
 
 	Func GetHashCode_1 P1
-		return dnRequest("call",[self,"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetHashCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHashCode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetHashCode"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 		ok
-		return dnRequest("call",[self,"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
 
 	Func getInstance
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.IndexComparer, Microsoft.EntityFrameworkCore'),"Instance"])

@@ -18,93 +18,93 @@ Class XmlElement from XmlLinkedNode
 
 	Func GetAttribute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetAttribute",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAttribute",P1])
 		ok
-		return dnRequest("call",[self,"GetAttribute",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAttribute",P1])
 
 	Func SetAttribute P1,P2
-		dnRequest("call",[self,"SetAttribute",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAttribute",P1,P2])
 		return self
 
 	Func RemoveAttribute P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"RemoveAttribute",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"RemoveAttribute",P1])
 			return self
 		ok
-		dnRequest("call",[self,"RemoveAttribute",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAttribute",P1])
 		return self
 
 	Func GetAttributeNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetAttributeNode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAttributeNode",P1])
 		ok
-		return dnRequest("call",[self,"GetAttributeNode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAttributeNode",P1])
 
 	Func SetAttributeNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetAttributeNode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetAttributeNode",P1])
 		ok
-		return dnRequest("call",[self,"SetAttributeNode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetAttributeNode",P1])
 
 	Func RemoveAttributeNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RemoveAttributeNode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RemoveAttributeNode",P1])
 		ok
-		return dnRequest("call",[self,"RemoveAttributeNode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAttributeNode",P1])
 
 	Func GetElementsByTagName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetElementsByTagName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetElementsByTagName",P1])
 		ok
-		return dnRequest("call",[self,"GetElementsByTagName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1])
 
 	Func GetAttribute_2 P1,P2
-		return dnRequest("call",[self,"GetAttribute",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAttribute",P1,P2])
 
 	Func SetAttribute_3 P1,P2,P3
-		return dnRequest("call",[self,"SetAttribute",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetAttribute",P1,P2,P3])
 
 	Func RemoveAttribute_2 P1,P2
-		dnRequest("call",[self,"RemoveAttribute",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAttribute",P1,P2])
 		return self
 
 	Func GetAttributeNode_2 P1,P2
-		return dnRequest("call",[self,"GetAttributeNode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAttributeNode",P1,P2])
 
 	Func SetAttributeNode_2 P1,P2
-		return dnRequest("call",[self,"SetAttributeNode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetAttributeNode",P1,P2])
 
 	Func RemoveAttributeNode_2 P1,P2
-		return dnRequest("call",[self,"RemoveAttributeNode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAttributeNode",P1,P2])
 
 	Func GetElementsByTagName_2 P1,P2
-		return dnRequest("call",[self,"GetElementsByTagName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1,P2])
 
 	Func HasAttribute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasAttribute",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasAttribute",P1])
 		ok
-		return dnRequest("call",[self,"HasAttribute",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAttribute",P1])
 
 	Func HasAttribute_2 P1,P2
-		return dnRequest("call",[self,"HasAttribute",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAttribute",P1,P2])
 
 	Func RemoveAttributeAt P1
-		return dnRequest("call",[self,"RemoveAttributeAt",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAttributeAt",P1])
 
 	Func RemoveAllAttributes 
-		dnRequest("call",[self,"RemoveAllAttributes"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAllAttributes"])
 		return self
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
-		dnRequest("set",[self,"IsEmpty",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsEmpty",P1])
 		return self
 
 	Func getHasAttributes
-		return dnRequest("get",[self,"HasAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasAttributes"])
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")

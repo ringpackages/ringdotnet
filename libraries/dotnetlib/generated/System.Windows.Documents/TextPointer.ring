@@ -23,113 +23,113 @@ Class TextPointer from ContentPosition
 		return self
 
 	Func IsInSameDocument P1
-		return dnRequest("call",[self,"IsInSameDocument",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsInSameDocument",P1])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func GetPointerContext P1
-		return dnRequest("call",[self,"GetPointerContext",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPointerContext",P1])
 
 	Func GetTextRunLength P1
-		return dnRequest("call",[self,"GetTextRunLength",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTextRunLength",P1])
 
 	Func GetOffsetToPosition P1
-		return dnRequest("call",[self,"GetOffsetToPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOffsetToPosition",P1])
 
 	Func GetTextInRun P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetTextInRun",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetTextInRun",P1])
 		ok
-		return dnRequest("call",[self,"GetTextInRun",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTextInRun",P1])
 
 	Func GetTextInRun_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"GetTextInRun",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTextInRun",P1,P2,P3,P4])
 
 	Func GetAdjacentElement P1
-		return dnRequest("call",[self,"GetAdjacentElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAdjacentElement",P1])
 
 	Func GetPositionAtOffset P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetPositionAtOffset",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetPositionAtOffset",P1])
 		ok
-		return dnRequest("call",[self,"GetPositionAtOffset",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionAtOffset",P1])
 
 	Func GetPositionAtOffset_2 P1,P2
-		return dnRequest("call",[self,"GetPositionAtOffset",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionAtOffset",P1,P2])
 
 	Func GetNextContextPosition P1
-		return dnRequest("call",[self,"GetNextContextPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextContextPosition",P1])
 
 	Func GetInsertionPosition P1
-		return dnRequest("call",[self,"GetInsertionPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetInsertionPosition",P1])
 
 	Func GetNextInsertionPosition P1
-		return dnRequest("call",[self,"GetNextInsertionPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNextInsertionPosition",P1])
 
 	Func GetLineStartPosition P1
-		return dnRequest("call",[self,"GetLineStartPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLineStartPosition",P1])
 
 	Func GetCharacterRect P1
-		return dnRequest("call",[self,"GetCharacterRect",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCharacterRect",P1])
 
 	Func InsertTextInRun P1
-		dnRequest("call",[self,"InsertTextInRun",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"InsertTextInRun",P1])
 		return self
 
 	Func DeleteTextInRun P1
-		return dnRequest("call",[self,"DeleteTextInRun",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeleteTextInRun",P1])
 
 	Func InsertParagraphBreak 
-		return dnRequest("call",[self,"InsertParagraphBreak"])
+		return dnRequest("call",[new DotNetObject(nHandle),"InsertParagraphBreak"])
 
 	Func InsertLineBreak 
-		return dnRequest("call",[self,"InsertLineBreak"])
+		return dnRequest("call",[new DotNetObject(nHandle),"InsertLineBreak"])
 
 	Func getHasValidLayout
-		return dnRequest("get",[self,"HasValidLayout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasValidLayout"])
 
 	Func setHasValidLayout P1
 		raise("DotNet Error: HasValidLayout is a read-only property")
 
 	Func getLogicalDirection
-		return dnRequest("get",[self,"LogicalDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogicalDirection"])
 
 	Func setLogicalDirection P1
 		raise("DotNet Error: LogicalDirection is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getIsAtInsertionPosition
-		return dnRequest("get",[self,"IsAtInsertionPosition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAtInsertionPosition"])
 
 	Func setIsAtInsertionPosition P1
 		raise("DotNet Error: IsAtInsertionPosition is a read-only property")
 
 	Func getIsAtLineStartPosition
-		return dnRequest("get",[self,"IsAtLineStartPosition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAtLineStartPosition"])
 
 	Func setIsAtLineStartPosition P1
 		raise("DotNet Error: IsAtLineStartPosition is a read-only property")
 
 	Func getParagraph
-		return dnRequest("get",[self,"Paragraph"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Paragraph"])
 
 	Func setParagraph P1
 		raise("DotNet Error: Paragraph is a read-only property")
 
 	Func getDocumentStart
-		return dnRequest("get",[self,"DocumentStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentStart"])
 
 	Func setDocumentStart P1
 		raise("DotNet Error: DocumentStart is a read-only property")
 
 	Func getDocumentEnd
-		return dnRequest("get",[self,"DocumentEnd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentEnd"])
 
 	Func setDocumentEnd P1
 		raise("DotNet Error: DocumentEnd is a read-only property")

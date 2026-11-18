@@ -14,7 +14,7 @@ Class TextRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func DrawText P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"DrawText",P1,P2,P3,P4,P5])

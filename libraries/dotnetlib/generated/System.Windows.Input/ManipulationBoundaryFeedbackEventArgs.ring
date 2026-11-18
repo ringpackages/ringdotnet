@@ -18,19 +18,19 @@ Class ManipulationBoundaryFeedbackEventArgs from InputEventArgs
 		return self
 
 	Func getManipulationContainer
-		return dnRequest("get",[self,"ManipulationContainer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationContainer"])
 
 	Func setManipulationContainer P1
 		raise("DotNet Error: ManipulationContainer is a read-only property")
 
 	Func getBoundaryFeedback
-		return dnRequest("get",[self,"BoundaryFeedback"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BoundaryFeedback"])
 
 	Func setBoundaryFeedback P1
 		raise("DotNet Error: BoundaryFeedback is a read-only property")
 
 	Func getManipulators
-		return dnRequest("get",[self,"Manipulators"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Manipulators"])
 
 	Func setManipulators P1
 		raise("DotNet Error: Manipulators is a read-only property")

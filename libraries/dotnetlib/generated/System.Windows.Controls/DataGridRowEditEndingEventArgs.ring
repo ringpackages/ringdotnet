@@ -19,20 +19,20 @@ Class DataGridRowEditEndingEventArgs from EventArgs
 		return self
 
 	Func getCancel
-		return dnRequest("get",[self,"Cancel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cancel"])
 
 	Func setCancel P1
-		dnRequest("set",[self,"Cancel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cancel",P1])
 		return self
 
 	Func getRow
-		return dnRequest("get",[self,"Row"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getEditAction
-		return dnRequest("get",[self,"EditAction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditAction"])
 
 	Func setEditAction P1
 		raise("DotNet Error: EditAction is a read-only property")

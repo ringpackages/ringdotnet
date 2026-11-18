@@ -16,43 +16,43 @@ Class IConventionPropertyBase from DotNetObject
 		return self
 
 	Func GetConfigurationSource 
-		return dnRequest("call",[self,"GetConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConfigurationSource"])
 
 	Func SetFieldInfo_2 P1,P2
-		return dnRequest("call",[self,"SetFieldInfo",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetFieldInfo",P1,P2])
 
 	Func SetFieldInfo P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetFieldInfo",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetFieldInfo",P1])
 		ok
-		return dnRequest("call",[self,"SetFieldInfo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetFieldInfo",P1])
 
 	Func SetField_2 P1,P2
-		return dnRequest("call",[self,"SetField",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetField",P1,P2])
 
 	Func SetField P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetField",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetField",P1])
 		ok
-		return dnRequest("call",[self,"SetField",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetField",P1])
 
 	Func GetFieldInfoConfigurationSource 
-		return dnRequest("call",[self,"GetFieldInfoConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldInfoConfigurationSource"])
 
 	Func SetPropertyAccessMode_2 P1,P2
-		return dnRequest("call",[self,"SetPropertyAccessMode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetPropertyAccessMode",P1,P2])
 
 	Func SetPropertyAccessMode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetPropertyAccessMode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetPropertyAccessMode",P1])
 		ok
-		return dnRequest("call",[self,"SetPropertyAccessMode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetPropertyAccessMode",P1])
 
 	Func GetPropertyAccessModeConfigurationSource 
-		return dnRequest("call",[self,"GetPropertyAccessModeConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyAccessModeConfigurationSource"])
 
 	Func getDeclaringType
-		return dnRequest("get",[self,"DeclaringType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringType"])
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")

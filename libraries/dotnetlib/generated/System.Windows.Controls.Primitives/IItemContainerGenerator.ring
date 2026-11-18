@@ -14,32 +14,32 @@ Class IItemContainerGenerator from DotNetObject
 		return self
 
 	Func GetItemContainerGeneratorForPanel P1
-		return dnRequest("call",[self,"GetItemContainerGeneratorForPanel",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetItemContainerGeneratorForPanel",P1])
 
 	Func StartAt P1,P2
-		return dnRequest("call",[self,"StartAt",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAt",P1,P2])
 
 	Func StartAt_3 P1,P2,P3
-		return dnRequest("call",[self,"StartAt",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"StartAt",P1,P2,P3])
 
 	Func GenerateNext 
-		return dnRequest("call",[self,"GenerateNext"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateNext"])
 
 	Func PrepareItemContainer P1
-		dnRequest("call",[self,"PrepareItemContainer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PrepareItemContainer",P1])
 		return self
 
 	Func RemoveAll 
-		dnRequest("call",[self,"RemoveAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAll"])
 		return self
 
 	Func Remove P1,P2
-		dnRequest("call",[self,"Remove",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 		return self
 
 	Func GeneratorPositionFromIndex P1
-		return dnRequest("call",[self,"GeneratorPositionFromIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GeneratorPositionFromIndex",P1])
 
 	Func IndexFromGeneratorPosition P1
-		return dnRequest("call",[self,"IndexFromGeneratorPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexFromGeneratorPosition",P1])
 

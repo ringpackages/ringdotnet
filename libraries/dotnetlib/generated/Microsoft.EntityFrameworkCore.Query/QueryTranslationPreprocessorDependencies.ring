@@ -19,26 +19,26 @@ Class QueryTranslationPreprocessorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTypeMappingSource
-		return dnRequest("get",[self,"TypeMappingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[self,"TypeMappingSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
 		return self
 
 	Func getEvaluatableExpressionFilter
-		return dnRequest("get",[self,"EvaluatableExpressionFilter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EvaluatableExpressionFilter"])
 
 	Func setEvaluatableExpressionFilter P1
-		dnRequest("set",[self,"EvaluatableExpressionFilter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EvaluatableExpressionFilter",P1])
 		return self
 
 	Func getNavigationExpansionExtensibilityHelper
-		return dnRequest("get",[self,"NavigationExpansionExtensibilityHelper"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NavigationExpansionExtensibilityHelper"])
 
 	Func setNavigationExpansionExtensibilityHelper P1
-		dnRequest("set",[self,"NavigationExpansionExtensibilityHelper",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NavigationExpansionExtensibilityHelper",P1])
 		return self
 

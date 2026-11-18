@@ -14,12 +14,12 @@ Class IEntityEntryGraphIterator from DotNetObject
 		return self
 
 	Func TraverseGraph P1,P2
-		dnRequest("call",[self,"TraverseGraph",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TraverseGraph",P1,P2])
 		return self
 
 	Func TraverseGraphAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"TraverseGraphAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TraverseGraphAsync",P1,P2,P3])
 
 	Func TraverseGraphAsync P1,P2
-		return dnRequest("call",[self,"TraverseGraphAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TraverseGraphAsync",P1,P2])
 

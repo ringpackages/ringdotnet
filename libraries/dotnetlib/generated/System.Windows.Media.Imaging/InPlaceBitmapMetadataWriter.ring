@@ -14,5 +14,5 @@ Class InPlaceBitmapMetadataWriter from BitmapMetadata
 		return self
 
 	Func TrySave 
-		return dnRequest("call",[self,"TrySave"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TrySave"])
 

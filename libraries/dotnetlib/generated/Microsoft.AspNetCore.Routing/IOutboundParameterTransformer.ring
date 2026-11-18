@@ -14,5 +14,5 @@ Class IOutboundParameterTransformer from DotNetObject
 		return self
 
 	Func TransformOutbound P1
-		return dnRequest("call",[self,"TransformOutbound",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformOutbound",P1])
 

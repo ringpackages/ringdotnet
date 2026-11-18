@@ -26,24 +26,24 @@ Class BitmapCache from CacheMode
 		return self
 
 	Func getRenderAtScale
-		return dnRequest("get",[self,"RenderAtScale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RenderAtScale"])
 
 	Func setRenderAtScale P1
-		dnRequest("set",[self,"RenderAtScale",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RenderAtScale",P1])
 		return self
 
 	Func getSnapsToDevicePixels
-		return dnRequest("get",[self,"SnapsToDevicePixels"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SnapsToDevicePixels"])
 
 	Func setSnapsToDevicePixels P1
-		dnRequest("set",[self,"SnapsToDevicePixels",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SnapsToDevicePixels",P1])
 		return self
 
 	Func getEnableClearType
-		return dnRequest("get",[self,"EnableClearType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableClearType"])
 
 	Func setEnableClearType P1
-		dnRequest("set",[self,"EnableClearType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableClearType",P1])
 		return self
 
 	Func getRenderAtScaleProperty

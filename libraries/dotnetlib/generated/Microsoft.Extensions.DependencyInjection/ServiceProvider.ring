@@ -14,21 +14,21 @@ Class ServiceProvider from Object
 		return self
 
 	Func GetService P1
-		return dnRequest("call",[self,"GetService",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetService",P1])
 
 	Func GetKeyedService P1,P2
-		return dnRequest("call",[self,"GetKeyedService",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyedService",P1,P2])
 
 	Func GetRequiredKeyedService P1,P2
-		return dnRequest("call",[self,"GetRequiredKeyedService",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRequiredKeyedService",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

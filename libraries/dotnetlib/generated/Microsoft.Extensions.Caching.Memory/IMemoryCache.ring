@@ -14,15 +14,15 @@ Class IMemoryCache from DotNetObject
 		return self
 
 	Func TryGetValue P1
-		return dnRequest("call",[self,"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
 
 	Func CreateEntry P1
-		return dnRequest("call",[self,"CreateEntry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntry",P1])
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func GetCurrentStatistics 
-		return dnRequest("call",[self,"GetCurrentStatistics"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentStatistics"])
 

@@ -19,27 +19,27 @@ Class Vector3DKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		return dnRequest("call",[self,"InterpolateValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
 	Func GetValue_1 P1
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func SetValue_2 P1,P2
-		dnRequest("call",[self,"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[self,"KeyTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyTime"])
 
 	Func setKeyTime P1
-		dnRequest("set",[self,"KeyTime",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyTime",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getKeyTimeProperty

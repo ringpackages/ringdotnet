@@ -20,123 +20,123 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func Flush 
-		dnRequest("call",[self,"Flush"])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func CreateSubKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateSubKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSubKey",P1])
 		ok
-		return dnRequest("call",[self,"CreateSubKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubKey",P1])
 
 	Func CreateSubKey_2 P1,P2
-		return dnRequest("call",[self,"CreateSubKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubKey",P1,P2])
 
 	Func CreateSubKey_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateSubKey",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubKey",P1,P2,P3])
 
 	Func CreateSubKey_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"CreateSubKey",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubKey",P1,P2,P3,P4])
 
 	Func DeleteSubKey P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"DeleteSubKey",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteSubKey",P1])
 			return self
 		ok
-		dnRequest("call",[self,"DeleteSubKey",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKey",P1])
 		return self
 
 	Func DeleteSubKey_2 P1,P2
-		dnRequest("call",[self,"DeleteSubKey",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKey",P1,P2])
 		return self
 
 	Func DeleteSubKeyTree P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"DeleteSubKeyTree",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteSubKeyTree",P1])
 			return self
 		ok
-		dnRequest("call",[self,"DeleteSubKeyTree",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKeyTree",P1])
 		return self
 
 	Func DeleteSubKeyTree_2 P1,P2
-		dnRequest("call",[self,"DeleteSubKeyTree",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKeyTree",P1,P2])
 		return self
 
 	Func DeleteValue P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"DeleteValue",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteValue",P1])
 			return self
 		ok
-		dnRequest("call",[self,"DeleteValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DeleteValue",P1])
 		return self
 
 	Func DeleteValue_2 P1,P2
-		dnRequest("call",[self,"DeleteValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DeleteValue",P1,P2])
 		return self
 
 	Func OpenSubKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"OpenSubKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenSubKey",P1])
 		ok
-		return dnRequest("call",[self,"OpenSubKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenSubKey",P1])
 
 	Func OpenSubKey_2 P1,P2
-		return dnRequest("call",[self,"OpenSubKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenSubKey",P1,P2])
 
 	Func OpenSubKey_3 P1,P2,P3
-		return dnRequest("call",[self,"OpenSubKey",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenSubKey",P1,P2,P3])
 
 	Func GetAccessControl P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetAccessControl",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAccessControl",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetAccessControl"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetAccessControl"])
 		ok
-		return dnRequest("call",[self,"GetAccessControl",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAccessControl",P1])
 
 	Func GetAccessControl_1 P1
-		return dnRequest("call",[self,"GetAccessControl",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAccessControl",P1])
 
 	Func SetAccessControl P1
-		dnRequest("call",[self,"SetAccessControl",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAccessControl",P1])
 		return self
 
 	Func GetSubKeyNames 
-		return dnRequest("call",[self,"GetSubKeyNames"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSubKeyNames"])
 
 	Func GetValueNames 
-		return dnRequest("call",[self,"GetValueNames"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueNames"])
 
 	Func GetValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetValue",P1])
 		ok
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func GetValue_2 P1,P2
-		return dnRequest("call",[self,"GetValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1,P2])
 
 	Func GetValue_3 P1,P2,P3
-		return dnRequest("call",[self,"GetValue",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1,P2,P3])
 
 	Func GetValueKind P1
-		return dnRequest("call",[self,"GetValueKind",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueKind",P1])
 
 	Func SetValue P1,P2
-		dnRequest("call",[self,"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
 	Func SetValue_3 P1,P2,P3
-		dnRequest("call",[self,"SetValue",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2,P3])
 		return self
 
 	Func OpenBaseKey P1,P2
@@ -158,31 +158,31 @@ Class RegistryKey from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1,P2])
 
 	Func getSubKeyCount
-		return dnRequest("get",[self,"SubKeyCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubKeyCount"])
 
 	Func setSubKeyCount P1
 		raise("DotNet Error: SubKeyCount is a read-only property")
 
 	Func getView
-		return dnRequest("get",[self,"View"])
+		return dnRequest("get",[new DotNetObject(nHandle),"View"])
 
 	Func setView P1
 		raise("DotNet Error: View is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getValueCount
-		return dnRequest("get",[self,"ValueCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueCount"])
 
 	Func setValueCount P1
 		raise("DotNet Error: ValueCount is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

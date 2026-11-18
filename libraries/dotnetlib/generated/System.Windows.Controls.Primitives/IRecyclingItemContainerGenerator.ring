@@ -14,6 +14,6 @@ Class IRecyclingItemContainerGenerator from DotNetObject
 		return self
 
 	Func Recycle P1,P2
-		dnRequest("call",[self,"Recycle",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Recycle",P1,P2])
 		return self
 

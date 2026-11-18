@@ -15,5 +15,5 @@ Class KeysConverter from TypeConverter
 		return self
 
 	Func Compare P1,P2
-		return dnRequest("call",[self,"Compare",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2])
 

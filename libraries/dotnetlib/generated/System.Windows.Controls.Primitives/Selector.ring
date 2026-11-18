@@ -30,7 +30,7 @@ Class Selector from ItemsControl
 		return self
 
 	Func ContainerFromElement P1
-		return dnRequest("call",[self,"ContainerFromElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainerFromElement",P1])
 
 	Func AddSelectedHandler P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"AddSelectedHandler",P1,P2])
@@ -59,46 +59,46 @@ Class Selector from ItemsControl
 		return self
 
 	Func setSelectionChangedEvent P1
-		dnRequest("setevent",[self,"SelectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectionChangedEvent
-		dnRequest("clearevent",[self,"SelectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionChanged"])
 		return self
 
 	Func getIsSynchronizedWithCurrentItem
-		return dnRequest("get",[self,"IsSynchronizedWithCurrentItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSynchronizedWithCurrentItem"])
 
 	Func setIsSynchronizedWithCurrentItem P1
-		dnRequest("set",[self,"IsSynchronizedWithCurrentItem",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsSynchronizedWithCurrentItem",P1])
 		return self
 
 	Func getSelectedIndex
-		return dnRequest("get",[self,"SelectedIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedIndex"])
 
 	Func setSelectedIndex P1
-		dnRequest("set",[self,"SelectedIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedIndex",P1])
 		return self
 
 	Func getSelectedItem
-		return dnRequest("get",[self,"SelectedItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItem"])
 
 	Func setSelectedItem P1
-		dnRequest("set",[self,"SelectedItem",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedItem",P1])
 		return self
 
 	Func getSelectedValue
-		return dnRequest("get",[self,"SelectedValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValue"])
 
 	Func setSelectedValue P1
-		dnRequest("set",[self,"SelectedValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedValue",P1])
 		return self
 
 	Func getSelectedValuePath
-		return dnRequest("get",[self,"SelectedValuePath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValuePath"])
 
 	Func setSelectedValuePath P1
-		dnRequest("set",[self,"SelectedValuePath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedValuePath",P1])
 		return self
 
 	Func getSelectionChangedEvent

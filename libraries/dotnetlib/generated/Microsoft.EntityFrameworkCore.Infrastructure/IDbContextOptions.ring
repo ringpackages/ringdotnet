@@ -16,10 +16,10 @@ Class IDbContextOptions from DotNetObject
 		return self
 
 	Func FindExtension 
-		return dnRequest("call",[self,"FindExtension"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindExtension"])
 
 	Func getExtensions
-		return dnRequest("get",[self,"Extensions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Extensions"])
 
 	Func setExtensions P1
 		raise("DotNet Error: Extensions is a read-only property")

@@ -38,216 +38,216 @@ Class CoreOptionsExtension from Object
 		return self
 
 	Func WithInternalServiceProvider P1
-		return dnRequest("call",[self,"WithInternalServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithInternalServiceProvider",P1])
 
 	Func WithApplicationServiceProvider P1
-		return dnRequest("call",[self,"WithApplicationServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithApplicationServiceProvider",P1])
 
 	Func WithRootApplicationServiceProvider_1 P1
-		return dnRequest("call",[self,"WithRootApplicationServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithRootApplicationServiceProvider",P1])
 
 	Func WithRootApplicationServiceProvider P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WithRootApplicationServiceProvider",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithRootApplicationServiceProvider",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WithRootApplicationServiceProvider"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WithRootApplicationServiceProvider"])
 		ok
-		return dnRequest("call",[self,"WithRootApplicationServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithRootApplicationServiceProvider",P1])
 
 	Func WithModel P1
-		return dnRequest("call",[self,"WithModel",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithModel",P1])
 
 	Func WithMemoryCache P1
-		return dnRequest("call",[self,"WithMemoryCache",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithMemoryCache",P1])
 
 	Func WithLoggerFactory P1
-		return dnRequest("call",[self,"WithLoggerFactory",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithLoggerFactory",P1])
 
 	Func WithDbContextLogger P1
-		return dnRequest("call",[self,"WithDbContextLogger",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithDbContextLogger",P1])
 
 	Func WithSensitiveDataLoggingEnabled P1
-		return dnRequest("call",[self,"WithSensitiveDataLoggingEnabled",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithSensitiveDataLoggingEnabled",P1])
 
 	Func WithDetailedErrorsEnabled P1
-		return dnRequest("call",[self,"WithDetailedErrorsEnabled",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithDetailedErrorsEnabled",P1])
 
 	Func WithThreadSafetyChecksEnabled P1
-		return dnRequest("call",[self,"WithThreadSafetyChecksEnabled",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithThreadSafetyChecksEnabled",P1])
 
 	Func WithQueryTrackingBehavior P1
-		return dnRequest("call",[self,"WithQueryTrackingBehavior",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithQueryTrackingBehavior",P1])
 
 	Func WithReplacedService_3 P1,P2,P3
-		return dnRequest("call",[self,"WithReplacedService",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithReplacedService",P1,P2,P3])
 
 	Func WithReplacedService P1,P2
-		return dnRequest("call",[self,"WithReplacedService",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithReplacedService",P1,P2])
 
 	Func WithMaxPoolSize P1
-		return dnRequest("call",[self,"WithMaxPoolSize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithMaxPoolSize",P1])
 
 	Func WithLoggingCacheTime P1
-		return dnRequest("call",[self,"WithLoggingCacheTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithLoggingCacheTime",P1])
 
 	Func WithWarningsConfiguration P1
-		return dnRequest("call",[self,"WithWarningsConfiguration",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithWarningsConfiguration",P1])
 
 	Func WithServiceProviderCachingEnabled P1
-		return dnRequest("call",[self,"WithServiceProviderCachingEnabled",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithServiceProviderCachingEnabled",P1])
 
 	Func WithInterceptors P1
-		return dnRequest("call",[self,"WithInterceptors",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithInterceptors",P1])
 
 	Func WithSingletonInterceptors P1
-		return dnRequest("call",[self,"WithSingletonInterceptors",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithSingletonInterceptors",P1])
 
 	Func WithSeeding P1
-		return dnRequest("call",[self,"WithSeeding",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithSeeding",P1])
 
 	Func WithAsyncSeeding P1
-		return dnRequest("call",[self,"WithAsyncSeeding",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithAsyncSeeding",P1])
 
 	Func ApplyServices P1
-		dnRequest("call",[self,"ApplyServices",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyServices",P1])
 		return self
 
 	Func Validate P1
-		dnRequest("call",[self,"Validate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getInfo
-		return dnRequest("get",[self,"Info"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Info"])
 
 	Func setInfo P1
 		raise("DotNet Error: Info is a read-only property")
 
 	Func getIsSensitiveDataLoggingEnabled
-		return dnRequest("get",[self,"IsSensitiveDataLoggingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSensitiveDataLoggingEnabled"])
 
 	Func setIsSensitiveDataLoggingEnabled P1
 		raise("DotNet Error: IsSensitiveDataLoggingEnabled is a read-only property")
 
 	Func getDetailedErrorsEnabled
-		return dnRequest("get",[self,"DetailedErrorsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DetailedErrorsEnabled"])
 
 	Func setDetailedErrorsEnabled P1
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
 
 	Func getThreadSafetyChecksEnabled
-		return dnRequest("get",[self,"ThreadSafetyChecksEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ThreadSafetyChecksEnabled"])
 
 	Func setThreadSafetyChecksEnabled P1
 		raise("DotNet Error: ThreadSafetyChecksEnabled is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[self,"Model"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getLoggerFactory
-		return dnRequest("get",[self,"LoggerFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LoggerFactory"])
 
 	Func setLoggerFactory P1
 		raise("DotNet Error: LoggerFactory is a read-only property")
 
 	Func getDbContextLogger
-		return dnRequest("get",[self,"DbContextLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DbContextLogger"])
 
 	Func setDbContextLogger P1
 		raise("DotNet Error: DbContextLogger is a read-only property")
 
 	Func getMemoryCache
-		return dnRequest("get",[self,"MemoryCache"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemoryCache"])
 
 	Func setMemoryCache P1
 		raise("DotNet Error: MemoryCache is a read-only property")
 
 	Func getInternalServiceProvider
-		return dnRequest("get",[self,"InternalServiceProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InternalServiceProvider"])
 
 	Func setInternalServiceProvider P1
 		raise("DotNet Error: InternalServiceProvider is a read-only property")
 
 	Func getApplicationServiceProvider
-		return dnRequest("get",[self,"ApplicationServiceProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationServiceProvider"])
 
 	Func setApplicationServiceProvider P1
 		raise("DotNet Error: ApplicationServiceProvider is a read-only property")
 
 	Func getRootApplicationServiceProvider
-		return dnRequest("get",[self,"RootApplicationServiceProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RootApplicationServiceProvider"])
 
 	Func setRootApplicationServiceProvider P1
 		raise("DotNet Error: RootApplicationServiceProvider is a read-only property")
 
 	Func getAutoResolveRootProvider
-		return dnRequest("get",[self,"AutoResolveRootProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoResolveRootProvider"])
 
 	Func setAutoResolveRootProvider P1
 		raise("DotNet Error: AutoResolveRootProvider is a read-only property")
 
 	Func getWarningsConfiguration
-		return dnRequest("get",[self,"WarningsConfiguration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WarningsConfiguration"])
 
 	Func setWarningsConfiguration P1
 		raise("DotNet Error: WarningsConfiguration is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnRequest("get",[self,"QueryTrackingBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryTrackingBehavior"])
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
 
 	Func getServiceProviderCachingEnabled
-		return dnRequest("get",[self,"ServiceProviderCachingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceProviderCachingEnabled"])
 
 	Func setServiceProviderCachingEnabled P1
 		raise("DotNet Error: ServiceProviderCachingEnabled is a read-only property")
 
 	Func getReplacedServices
-		return dnRequest("get",[self,"ReplacedServices"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReplacedServices"])
 
 	Func setReplacedServices P1
 		raise("DotNet Error: ReplacedServices is a read-only property")
 
 	Func getMaxPoolSize
-		return dnRequest("get",[self,"MaxPoolSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxPoolSize"])
 
 	Func setMaxPoolSize P1
 		raise("DotNet Error: MaxPoolSize is a read-only property")
 
 	Func getLoggingCacheTime
-		return dnRequest("get",[self,"LoggingCacheTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LoggingCacheTime"])
 
 	Func setLoggingCacheTime P1
 		raise("DotNet Error: LoggingCacheTime is a read-only property")
 
 	Func getInterceptors
-		return dnRequest("get",[self,"Interceptors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Interceptors"])
 
 	Func setInterceptors P1
 		raise("DotNet Error: Interceptors is a read-only property")
 
 	Func getSingletonInterceptors
-		return dnRequest("get",[self,"SingletonInterceptors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SingletonInterceptors"])
 
 	Func setSingletonInterceptors P1
 		raise("DotNet Error: SingletonInterceptors is a read-only property")
 
 	Func getSeeder
-		return dnRequest("get",[self,"Seeder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Seeder"])
 
 	Func setSeeder P1
 		raise("DotNet Error: Seeder is a read-only property")
 
 	Func getAsyncSeeder
-		return dnRequest("get",[self,"AsyncSeeder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AsyncSeeder"])
 
 	Func setAsyncSeeder P1
 		raise("DotNet Error: AsyncSeeder is a read-only property")

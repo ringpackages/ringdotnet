@@ -18,19 +18,19 @@ Class RayHitTestResult from HitTestResult
 		return self
 
 	Func getModelHit
-		return dnRequest("get",[self,"ModelHit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelHit"])
 
 	Func setModelHit P1
 		raise("DotNet Error: ModelHit is a read-only property")
 
 	Func getPointHit
-		return dnRequest("get",[self,"PointHit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PointHit"])
 
 	Func setPointHit P1
 		raise("DotNet Error: PointHit is a read-only property")
 
 	Func getDistanceToRayOrigin
-		return dnRequest("get",[self,"DistanceToRayOrigin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DistanceToRayOrigin"])
 
 	Func setDistanceToRayOrigin P1
 		raise("DotNet Error: DistanceToRayOrigin is a read-only property")

@@ -44,43 +44,43 @@ Class X509Certificate2 from X509Certificate
 		return self
 
 	Func GetNameInfo P1,P2
-		return dnRequest("call",[self,"GetNameInfo",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNameInfo",P1,P2])
 
 	Func Verify 
-		return dnRequest("call",[self,"Verify"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Verify"])
 
 	Func GetECDiffieHellmanPublicKey 
-		return dnRequest("call",[self,"GetECDiffieHellmanPublicKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetECDiffieHellmanPublicKey"])
 
 	Func GetECDiffieHellmanPrivateKey 
-		return dnRequest("call",[self,"GetECDiffieHellmanPrivateKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetECDiffieHellmanPrivateKey"])
 
 	Func CopyWithPrivateKey P1
-		return dnRequest("call",[self,"CopyWithPrivateKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyWithPrivateKey",P1])
 
 	Func ExportCertificatePem 
-		return dnRequest("call",[self,"ExportCertificatePem"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportCertificatePem"])
 
 	Func MatchesHostname_3 P1,P2,P3
-		return dnRequest("call",[self,"MatchesHostname",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"MatchesHostname",P1,P2,P3])
 
 	Func MatchesHostname_2 P1,P2
-		return dnRequest("call",[self,"MatchesHostname",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"MatchesHostname",P1,P2])
 
 	Func MatchesHostname P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"MatchesHostname",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"MatchesHostname",P1])
 		ok
-		return dnRequest("call",[self,"MatchesHostname",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MatchesHostname",P1])
 
 	Func GetPublicKey_0 
-		return dnRequest("call",[self,"GetPublicKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPublicKey"])
 
 	Func GetSerialNumber_0 
-		return dnRequest("call",[self,"GetSerialNumber"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSerialNumber"])
 
 	Func GetIssuerName_0 
-		return dnRequest("call",[self,"GetIssuerName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIssuerName"])
 
 	Func GetCertContentType P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"GetCertContentType",P1])
@@ -95,100 +95,100 @@ Class X509Certificate2 from X509Certificate
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"CreateFromPemFile",P1])
 
 	Func getArchived
-		return dnRequest("get",[self,"Archived"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Archived"])
 
 	Func setArchived P1
-		dnRequest("set",[self,"Archived",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Archived",P1])
 		return self
 
 	Func getExtensions
-		return dnRequest("get",[self,"Extensions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Extensions"])
 
 	Func setExtensions P1
 		raise("DotNet Error: Extensions is a read-only property")
 
 	Func getFriendlyName
-		return dnRequest("get",[self,"FriendlyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FriendlyName"])
 
 	Func setFriendlyName P1
-		dnRequest("set",[self,"FriendlyName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FriendlyName",P1])
 		return self
 
 	Func getHasPrivateKey
-		return dnRequest("get",[self,"HasPrivateKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasPrivateKey"])
 
 	Func setHasPrivateKey P1
 		raise("DotNet Error: HasPrivateKey is a read-only property")
 
 	Func getPrivateKey
-		return dnRequest("get",[self,"PrivateKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrivateKey"])
 
 	Func setPrivateKey P1
-		dnRequest("set",[self,"PrivateKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrivateKey",P1])
 		return self
 
 	Func getIssuerName
-		return dnRequest("get",[self,"IssuerName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IssuerName"])
 
 	Func setIssuerName P1
 		raise("DotNet Error: IssuerName is a read-only property")
 
 	Func getNotAfter
-		return dnRequest("get",[self,"NotAfter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NotAfter"])
 
 	Func setNotAfter P1
 		raise("DotNet Error: NotAfter is a read-only property")
 
 	Func getNotBefore
-		return dnRequest("get",[self,"NotBefore"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NotBefore"])
 
 	Func setNotBefore P1
 		raise("DotNet Error: NotBefore is a read-only property")
 
 	Func getPublicKey
-		return dnRequest("get",[self,"PublicKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PublicKey"])
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")
 
 	Func getRawData
-		return dnRequest("get",[self,"RawData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawData"])
 
 	Func setRawData P1
 		raise("DotNet Error: RawData is a read-only property")
 
 	Func getRawDataMemory
-		return dnRequest("get",[self,"RawDataMemory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RawDataMemory"])
 
 	Func setRawDataMemory P1
 		raise("DotNet Error: RawDataMemory is a read-only property")
 
 	Func getSerialNumber
-		return dnRequest("get",[self,"SerialNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SerialNumber"])
 
 	Func setSerialNumber P1
 		raise("DotNet Error: SerialNumber is a read-only property")
 
 	Func getSignatureAlgorithm
-		return dnRequest("get",[self,"SignatureAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SignatureAlgorithm"])
 
 	Func setSignatureAlgorithm P1
 		raise("DotNet Error: SignatureAlgorithm is a read-only property")
 
 	Func getSubjectName
-		return dnRequest("get",[self,"SubjectName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubjectName"])
 
 	Func setSubjectName P1
 		raise("DotNet Error: SubjectName is a read-only property")
 
 	Func getThumbprint
-		return dnRequest("get",[self,"Thumbprint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Thumbprint"])
 
 	Func setThumbprint P1
 		raise("DotNet Error: Thumbprint is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

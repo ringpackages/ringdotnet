@@ -16,22 +16,22 @@ Class IncrementalHitTester from Object
 		return self
 
 	Func AddPoint P1
-		dnRequest("call",[self,"AddPoint",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddPoint",P1])
 		return self
 
 	Func AddPoints P1
-		dnRequest("call",[self,"AddPoints",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddPoints",P1])
 		return self
 
 	Func EndHitTesting 
-		dnRequest("call",[self,"EndHitTesting"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndHitTesting"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsValid
-		return dnRequest("get",[self,"IsValid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsValid"])
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")

@@ -14,8 +14,8 @@ Class IMigrationsAnnotationProvider from DotNetObject
 		return self
 
 	Func ForRemove P1
-		return dnRequest("call",[self,"ForRemove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ForRemove",P1])
 
 	Func ForRename P1
-		return dnRequest("call",[self,"ForRename",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ForRename",P1])
 

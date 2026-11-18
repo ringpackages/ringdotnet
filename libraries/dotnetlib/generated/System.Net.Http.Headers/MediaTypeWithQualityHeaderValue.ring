@@ -27,9 +27,9 @@ Class MediaTypeWithQualityHeaderValue from MediaTypeHeaderValue
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getQuality
-		return dnRequest("get",[self,"Quality"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Quality"])
 
 	Func setQuality P1
-		dnRequest("set",[self,"Quality",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Quality",P1])
 		return self
 

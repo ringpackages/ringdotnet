@@ -19,36 +19,36 @@ Class AttachmentBase from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContentStream
-		return dnRequest("get",[self,"ContentStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentStream"])
 
 	Func setContentStream P1
 		raise("DotNet Error: ContentStream is a read-only property")
 
 	Func getContentId
-		return dnRequest("get",[self,"ContentId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentId"])
 
 	Func setContentId P1
-		dnRequest("set",[self,"ContentId",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentId",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 
 	Func getTransferEncoding
-		return dnRequest("get",[self,"TransferEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransferEncoding"])
 
 	Func setTransferEncoding P1
-		dnRequest("set",[self,"TransferEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TransferEncoding",P1])
 		return self
 

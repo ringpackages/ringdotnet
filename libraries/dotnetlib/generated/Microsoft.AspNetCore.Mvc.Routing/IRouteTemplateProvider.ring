@@ -18,19 +18,19 @@ Class IRouteTemplateProvider from DotNetObject
 		return self
 
 	Func getTemplate
-		return dnRequest("get",[self,"Template"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Template"])
 
 	Func setTemplate P1
 		raise("DotNet Error: Template is a read-only property")
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

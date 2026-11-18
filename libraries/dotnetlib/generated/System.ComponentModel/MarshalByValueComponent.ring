@@ -19,38 +19,38 @@ Class MarshalByValueComponent from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetService P1
-		return dnRequest("call",[self,"GetService",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetService",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setDisposedEvent P1
-		dnRequest("setevent",[self,"Disposed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Disposed",dnCallback(P1)])
 		return self
 
 	Func clearDisposedEvent
-		dnRequest("clearevent",[self,"Disposed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Disposed"])
 		return self
 
 	Func getSite
-		return dnRequest("get",[self,"Site"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Site"])
 
 	Func setSite P1
-		dnRequest("set",[self,"Site",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Site",P1])
 		return self
 
 	Func getContainer
-		return dnRequest("get",[self,"Container"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Container"])
 
 	Func setContainer P1
 		raise("DotNet Error: Container is a read-only property")
 
 	Func getDesignMode
-		return dnRequest("get",[self,"DesignMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DesignMode"])
 
 	Func setDesignMode P1
 		raise("DotNet Error: DesignMode is a read-only property")

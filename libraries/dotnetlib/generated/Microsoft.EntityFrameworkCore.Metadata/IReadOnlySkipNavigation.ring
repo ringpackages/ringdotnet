@@ -19,40 +19,40 @@ Class IReadOnlySkipNavigation from DotNetObject
 		return self
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getJoinEntityType
-		return dnRequest("get",[self,"JoinEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"JoinEntityType"])
 
 	Func setJoinEntityType P1
 		raise("DotNet Error: JoinEntityType is a read-only property")
 
 	Func getInverse
-		return dnRequest("get",[self,"Inverse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inverse"])
 
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")
 
 	Func getForeignKey
-		return dnRequest("get",[self,"ForeignKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeignKey"])
 
 	Func setForeignKey P1
 		raise("DotNet Error: ForeignKey is a read-only property")
 
 	Func getIsOnDependent
-		return dnRequest("get",[self,"IsOnDependent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOnDependent"])
 
 	Func setIsOnDependent P1
 		raise("DotNet Error: IsOnDependent is a read-only property")

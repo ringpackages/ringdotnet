@@ -23,83 +23,83 @@ Class EnumerableExpression from DotNetObject
 		return self
 
 	Func ApplySelector P1
-		return dnRequest("call",[self,"ApplySelector",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplySelector",P1])
 
 	Func ApplyDistinct 
-		return dnRequest("call",[self,"ApplyDistinct"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyDistinct"])
 
 	Func ApplyPredicate P1
-		return dnRequest("call",[self,"ApplyPredicate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyPredicate",P1])
 
 	Func ApplyOrdering P1
-		return dnRequest("call",[self,"ApplyOrdering",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyOrdering",P1])
 
 	Func AppendOrdering P1
-		return dnRequest("call",[self,"AppendOrdering",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendOrdering",P1])
 
 	Func Print P1
-		dnRequest("call",[self,"Print",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func Reduce 
-		return dnRequest("call",[self,"Reduce"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
 
 	Func ReduceAndCheck 
-		return dnRequest("call",[self,"ReduceAndCheck"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
 
 	Func ReduceExtensions 
-		return dnRequest("call",[self,"ReduceExtensions"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getSelector
-		return dnRequest("get",[self,"Selector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Selector"])
 
 	Func setSelector P1
 		raise("DotNet Error: Selector is a read-only property")
 
 	Func getIsDistinct
-		return dnRequest("get",[self,"IsDistinct"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDistinct"])
 
 	Func setIsDistinct P1
 		raise("DotNet Error: IsDistinct is a read-only property")
 
 	Func getPredicate
-		return dnRequest("get",[self,"Predicate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Predicate"])
 
 	Func setPredicate P1
 		raise("DotNet Error: Predicate is a read-only property")
 
 	Func getOrderings
-		return dnRequest("get",[self,"Orderings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Orderings"])
 
 	Func setOrderings P1
 		raise("DotNet Error: Orderings is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getCanReduce
-		return dnRequest("get",[self,"CanReduce"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
 
 	Func setCanReduce P1
 		raise("DotNet Error: CanReduce is a read-only property")

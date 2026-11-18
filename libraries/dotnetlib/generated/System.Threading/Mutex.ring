@@ -23,7 +23,7 @@ Class Mutex from WaitHandle
 		return self
 
 	Func ReleaseMutex 
-		dnRequest("call",[self,"ReleaseMutex"])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseMutex"])
 		return self
 
 	Func OpenExisting P1

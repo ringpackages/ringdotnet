@@ -19,119 +19,119 @@ Class DbBatch from Object
 		return self
 
 	Func ExecuteReader_1 P1
-		return dnRequest("call",[self,"ExecuteReader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
 
 	Func ExecuteReader P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteReader",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteReader",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ExecuteReader"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader"])
 		ok
-		return dnRequest("call",[self,"ExecuteReader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
 
 	Func ExecuteReaderAsync_1 P1
-		return dnRequest("call",[self,"ExecuteReaderAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
 
 	Func ExecuteReaderAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteReaderAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ExecuteReaderAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync"])
 		ok
-		return dnRequest("call",[self,"ExecuteReaderAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
 
 	Func ExecuteReaderAsync_2 P1,P2
-		return dnRequest("call",[self,"ExecuteReaderAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1,P2])
 
 	Func ExecuteNonQuery 
-		return dnRequest("call",[self,"ExecuteNonQuery"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery"])
 
 	Func ExecuteNonQueryAsync_1 P1
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ExecuteNonQueryAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync"])
 		ok
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
 
 	Func ExecuteScalar 
-		return dnRequest("call",[self,"ExecuteScalar"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar"])
 
 	Func ExecuteScalarAsync_1 P1
-		return dnRequest("call",[self,"ExecuteScalarAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
 
 	Func ExecuteScalarAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteScalarAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ExecuteScalarAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync"])
 		ok
-		return dnRequest("call",[self,"ExecuteScalarAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
 
 	Func Prepare 
-		dnRequest("call",[self,"Prepare"])
+		dnRequest("call",[new DotNetObject(nHandle),"Prepare"])
 		return self
 
 	Func PrepareAsync_1 P1
-		return dnRequest("call",[self,"PrepareAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PrepareAsync",P1])
 
 	Func PrepareAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"PrepareAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"PrepareAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"PrepareAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"PrepareAsync"])
 		ok
-		return dnRequest("call",[self,"PrepareAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PrepareAsync",P1])
 
 	Func Cancel 
-		dnRequest("call",[self,"Cancel"])
+		dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
 		return self
 
 	Func CreateBatchCommand 
-		return dnRequest("call",[self,"CreateBatchCommand"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateBatchCommand"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBatchCommands
-		return dnRequest("get",[self,"BatchCommands"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BatchCommands"])
 
 	Func setBatchCommands P1
 		raise("DotNet Error: BatchCommands is a read-only property")
 
 	Func getTimeout
-		return dnRequest("get",[self,"Timeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Timeout"])
 
 	Func setTimeout P1
-		dnRequest("set",[self,"Timeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Timeout",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[self,"Connection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
 		return self
 
 	Func getTransaction
-		return dnRequest("get",[self,"Transaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transaction"])
 
 	Func setTransaction P1
-		dnRequest("set",[self,"Transaction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transaction",P1])
 		return self
 

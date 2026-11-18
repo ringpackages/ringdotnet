@@ -23,117 +23,117 @@ Class DataObject from Object
 		return self
 
 	Func GetData_2 P1,P2
-		return dnRequest("call",[self,"GetData",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1,P2])
 
 	Func GetData P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetData",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetData",P1])
 		ok
-		return dnRequest("call",[self,"GetData",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
 
 	Func GetDataPresent_2 P1,P2
-		return dnRequest("call",[self,"GetDataPresent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1,P2])
 
 	Func GetDataPresent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetDataPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataPresent",P1])
 		ok
-		return dnRequest("call",[self,"GetDataPresent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1])
 
 	Func GetFormats_1 P1
-		return dnRequest("call",[self,"GetFormats",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
 
 	Func GetFormats P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetFormats",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFormats",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetFormats"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetFormats"])
 		ok
-		return dnRequest("call",[self,"GetFormats",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
 
 	Func SetData_3 P1,P2,P3
-		dnRequest("call",[self,"SetData",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2,P3])
 		return self
 
 	Func SetData_2 P1,P2
-		dnRequest("call",[self,"SetData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2])
 		return self
 
 	Func SetData P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetData",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetData",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetData",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1])
 		return self
 
 	Func ContainsAudio 
-		return dnRequest("call",[self,"ContainsAudio"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsAudio"])
 
 	Func ContainsFileDropList 
-		return dnRequest("call",[self,"ContainsFileDropList"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsFileDropList"])
 
 	Func ContainsImage 
-		return dnRequest("call",[self,"ContainsImage"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsImage"])
 
 	Func ContainsText P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ContainsText",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ContainsText",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ContainsText"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ContainsText"])
 		ok
-		return dnRequest("call",[self,"ContainsText",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsText",P1])
 
 	Func ContainsText_1 P1
-		return dnRequest("call",[self,"ContainsText",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsText",P1])
 
 	Func GetAudioStream 
-		return dnRequest("call",[self,"GetAudioStream"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAudioStream"])
 
 	Func GetFileDropList 
-		return dnRequest("call",[self,"GetFileDropList"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFileDropList"])
 
 	Func GetImage 
-		return dnRequest("call",[self,"GetImage"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetImage"])
 
 	Func GetText P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetText",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetText",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetText"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetText"])
 		ok
-		return dnRequest("call",[self,"GetText",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetText",P1])
 
 	Func GetText_1 P1
-		return dnRequest("call",[self,"GetText",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetText",P1])
 
 	Func SetAudio P1
-		dnRequest("call",[self,"SetAudio",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAudio",P1])
 		return self
 
 	Func SetFileDropList P1
-		dnRequest("call",[self,"SetFileDropList",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetFileDropList",P1])
 		return self
 
 	Func SetImage P1
-		dnRequest("call",[self,"SetImage",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetImage",P1])
 		return self
 
 	Func SetText P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetText",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetText",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetText",P1])
 		return self
 
 	Func SetText_2 P1,P2
-		dnRequest("call",[self,"SetText",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetText",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

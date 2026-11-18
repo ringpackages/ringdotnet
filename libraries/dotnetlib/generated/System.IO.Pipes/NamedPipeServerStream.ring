@@ -38,36 +38,36 @@ Class NamedPipeServerStream from PipeStream
 
 	Func WaitForConnectionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WaitForConnectionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitForConnectionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WaitForConnectionAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WaitForConnectionAsync"])
 		ok
-		return dnRequest("call",[self,"WaitForConnectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForConnectionAsync",P1])
 
 	Func BeginWaitForConnection P1,P2
-		return dnRequest("call",[self,"BeginWaitForConnection",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginWaitForConnection",P1,P2])
 
 	Func EndWaitForConnection P1
-		dnRequest("call",[self,"EndWaitForConnection",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EndWaitForConnection",P1])
 		return self
 
 	Func WaitForConnection 
-		dnRequest("call",[self,"WaitForConnection"])
+		dnRequest("call",[new DotNetObject(nHandle),"WaitForConnection"])
 		return self
 
 	Func WaitForConnectionAsync_1 P1
-		return dnRequest("call",[self,"WaitForConnectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForConnectionAsync",P1])
 
 	Func Disconnect 
-		dnRequest("call",[self,"Disconnect"])
+		dnRequest("call",[new DotNetObject(nHandle),"Disconnect"])
 		return self
 
 	Func GetImpersonationUserName 
-		return dnRequest("call",[self,"GetImpersonationUserName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetImpersonationUserName"])
 
 	Func RunAsClient P1
-		dnRequest("call",[self,"RunAsClient",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RunAsClient",P1])
 		return self
 
 	Func getMaxAllowedServerInstances

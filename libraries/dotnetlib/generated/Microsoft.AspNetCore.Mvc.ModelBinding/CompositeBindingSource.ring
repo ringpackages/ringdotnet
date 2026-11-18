@@ -19,7 +19,7 @@ Class CompositeBindingSource from AspBindingSource
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeBindingSource, Microsoft.AspNetCore.Mvc.Abstractions'),"Create",P1,P2])
 
 	Func getBindingSources
-		return dnRequest("get",[self,"BindingSources"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingSources"])
 
 	Func setBindingSources P1
 		raise("DotNet Error: BindingSources is a read-only property")

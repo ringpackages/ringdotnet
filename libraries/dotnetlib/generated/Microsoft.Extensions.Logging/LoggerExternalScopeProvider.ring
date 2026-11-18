@@ -15,12 +15,12 @@ Class LoggerExternalScopeProvider from Object
 		return self
 
 	Func ForEachScope P1,P2
-		dnRequest("call",[self,"ForEachScope",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ForEachScope",P1,P2])
 		return self
 
 	Func Push P1
-		return dnRequest("call",[self,"Push",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Push",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

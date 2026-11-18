@@ -19,27 +19,27 @@ Class IMutableIndex from DotNetObject
 		return self
 
 	Func getIsUnique
-		return dnRequest("get",[self,"IsUnique"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUnique"])
 
 	Func setIsUnique P1
-		dnRequest("set",[self,"IsUnique",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsUnique",P1])
 		return self
 
 	Func getIsDescending
-		return dnRequest("get",[self,"IsDescending"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDescending"])
 
 	Func setIsDescending P1
-		dnRequest("set",[self,"IsDescending",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsDescending",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")

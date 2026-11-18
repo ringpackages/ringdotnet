@@ -17,16 +17,16 @@ Class GestureRecognitionResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRecognitionConfidence
-		return dnRequest("get",[self,"RecognitionConfidence"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecognitionConfidence"])
 
 	Func setRecognitionConfidence P1
 		raise("DotNet Error: RecognitionConfidence is a read-only property")
 
 	Func getApplicationGesture
-		return dnRequest("get",[self,"ApplicationGesture"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationGesture"])
 
 	Func setApplicationGesture P1
 		raise("DotNet Error: ApplicationGesture is a read-only property")

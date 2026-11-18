@@ -16,16 +16,16 @@ Class ISynchronizeInvoke from DotNetObject
 		return self
 
 	Func BeginInvoke P1,P2
-		return dnRequest("call",[self,"BeginInvoke",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1,P2])
 
 	Func EndInvoke P1
-		return dnRequest("call",[self,"EndInvoke",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndInvoke",P1])
 
 	Func Invoke P1,P2
-		return dnRequest("call",[self,"Invoke",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2])
 
 	Func getInvokeRequired
-		return dnRequest("get",[self,"InvokeRequired"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InvokeRequired"])
 
 	Func setInvokeRequired P1
 		raise("DotNet Error: InvokeRequired is a read-only property")

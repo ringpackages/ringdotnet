@@ -21,10 +21,10 @@ Class InlineQueryRootExpression from QueryRootExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[self,"Update",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")

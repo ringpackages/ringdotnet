@@ -20,84 +20,84 @@ Class BackgroundWorker from Component
 		return self
 
 	Func CancelAsync 
-		dnRequest("call",[self,"CancelAsync"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelAsync"])
 		return self
 
 	Func ReportProgress P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ReportProgress",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ReportProgress",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ReportProgress",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReportProgress",P1])
 		return self
 
 	Func ReportProgress_2 P1,P2
-		dnRequest("call",[self,"ReportProgress",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ReportProgress",P1,P2])
 		return self
 
 	Func RunWorkerAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"RunWorkerAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"RunWorkerAsync",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"RunWorkerAsync"])
+			dnRequest("call",[new DotNetObject(nHandle),"RunWorkerAsync"])
 		return self
 		ok
-		dnRequest("call",[self,"RunWorkerAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RunWorkerAsync",P1])
 		return self
 
 	Func RunWorkerAsync_1 P1
-		dnRequest("call",[self,"RunWorkerAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RunWorkerAsync",P1])
 		return self
 
 	Func setDoWorkEvent P1
-		dnRequest("setevent",[self,"DoWork",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DoWork",dnCallback(P1)])
 		return self
 
 	Func clearDoWorkEvent
-		dnRequest("clearevent",[self,"DoWork"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DoWork"])
 		return self
 
 	Func setProgressChangedEvent P1
-		dnRequest("setevent",[self,"ProgressChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ProgressChanged",dnCallback(P1)])
 		return self
 
 	Func clearProgressChangedEvent
-		dnRequest("clearevent",[self,"ProgressChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ProgressChanged"])
 		return self
 
 	Func setRunWorkerCompletedEvent P1
-		dnRequest("setevent",[self,"RunWorkerCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RunWorkerCompleted",dnCallback(P1)])
 		return self
 
 	Func clearRunWorkerCompletedEvent
-		dnRequest("clearevent",[self,"RunWorkerCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RunWorkerCompleted"])
 		return self
 
 	Func getCancellationPending
-		return dnRequest("get",[self,"CancellationPending"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CancellationPending"])
 
 	Func setCancellationPending P1
 		raise("DotNet Error: CancellationPending is a read-only property")
 
 	Func getIsBusy
-		return dnRequest("get",[self,"IsBusy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBusy"])
 
 	Func setIsBusy P1
 		raise("DotNet Error: IsBusy is a read-only property")
 
 	Func getWorkerReportsProgress
-		return dnRequest("get",[self,"WorkerReportsProgress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WorkerReportsProgress"])
 
 	Func setWorkerReportsProgress P1
-		dnRequest("set",[self,"WorkerReportsProgress",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WorkerReportsProgress",P1])
 		return self
 
 	Func getWorkerSupportsCancellation
-		return dnRequest("get",[self,"WorkerSupportsCancellation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WorkerSupportsCancellation"])
 
 	Func setWorkerSupportsCancellation P1
-		dnRequest("set",[self,"WorkerSupportsCancellation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WorkerSupportsCancellation",P1])
 		return self
 

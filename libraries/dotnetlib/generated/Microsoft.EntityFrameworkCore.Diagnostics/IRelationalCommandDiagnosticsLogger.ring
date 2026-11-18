@@ -14,106 +14,106 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		return self
 
 	Func CommandCreating P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"CommandCreating",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandCreating",P1,P2,P3,P4,P5,P6,P7])
 
 	Func CommandCreated P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"CommandCreated",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandCreated",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func CommandInitialized P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"CommandInitialized",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandInitialized",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func CommandReaderExecuting P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"CommandReaderExecuting",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecuting",P1,P2,P3,P4,P5,P6,P7])
 
 	Func CommandScalarExecuting P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"CommandScalarExecuting",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecuting",P1,P2,P3,P4,P5,P6,P7])
 
 	Func CommandNonQueryExecuting P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"CommandNonQueryExecuting",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecuting",P1,P2,P3,P4,P5,P6,P7])
 
 	Func CommandReaderExecutingAsync_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"CommandReaderExecutingAsync",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecutingAsync",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func CommandReaderExecutingAsync P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"CommandReaderExecutingAsync",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecutingAsync",P1,P2,P3,P4,P5,P6,P7])
 
 	Func CommandScalarExecutingAsync_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"CommandScalarExecutingAsync",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecutingAsync",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func CommandScalarExecutingAsync P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"CommandScalarExecutingAsync",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecutingAsync",P1,P2,P3,P4,P5,P6,P7])
 
 	Func CommandNonQueryExecutingAsync_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"CommandNonQueryExecutingAsync",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecutingAsync",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func CommandNonQueryExecutingAsync P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"CommandNonQueryExecutingAsync",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecutingAsync",P1,P2,P3,P4,P5,P6,P7])
 
 	Func CommandReaderExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"CommandReaderExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func CommandScalarExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"CommandScalarExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func CommandNonQueryExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"CommandNonQueryExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func CommandReaderExecutedAsync_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[self,"CommandReaderExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 
 	Func CommandReaderExecutedAsync P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"CommandReaderExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func CommandScalarExecutedAsync_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[self,"CommandScalarExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 
 	Func CommandScalarExecutedAsync P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"CommandScalarExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func CommandNonQueryExecutedAsync_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[self,"CommandNonQueryExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 
 	Func CommandNonQueryExecutedAsync P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"CommandNonQueryExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func CommandError P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		dnRequest("call",[self,"CommandError",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		dnRequest("call",[new DotNetObject(nHandle),"CommandError",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 		return self
 
 	Func CommandErrorAsync_11 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
-		return dnRequest("call",[self,"CommandErrorAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandErrorAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
 
 	Func CommandErrorAsync P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[self,"CommandErrorAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandErrorAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 
 	Func CommandCanceled P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dnRequest("call",[self,"CommandCanceled",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		dnRequest("call",[new DotNetObject(nHandle),"CommandCanceled",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		return self
 
 	Func CommandCanceledAsync_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[self,"CommandCanceledAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandCanceledAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 
 	Func CommandCanceledAsync P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"CommandCanceledAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandCanceledAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func DataReaderDisposing P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"DataReaderDisposing",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"DataReaderDisposing",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func DataReaderClosing P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"DataReaderClosing",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"DataReaderClosing",P1,P2,P3,P4,P5,P6,P7])
 
 	Func DataReaderClosingAsync P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"DataReaderClosingAsync",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"DataReaderClosingAsync",P1,P2,P3,P4,P5,P6,P7])
 
 	Func ShouldLogCommandCreate P1
-		return dnRequest("call",[self,"ShouldLogCommandCreate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogCommandCreate",P1])
 
 	Func ShouldLogCommandExecute P1
-		return dnRequest("call",[self,"ShouldLogCommandExecute",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogCommandExecute",P1])
 
 	Func ShouldLogDataReaderClose P1
-		return dnRequest("call",[self,"ShouldLogDataReaderClose",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogDataReaderClose",P1])
 
 	Func ShouldLogDataReaderDispose P1
-		return dnRequest("call",[self,"ShouldLogDataReaderDispose",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogDataReaderDispose",P1])
 

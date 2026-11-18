@@ -37,22 +37,22 @@ Class MemoryStream from Stream
 		return self
 
 	Func GetBuffer 
-		return dnRequest("call",[self,"GetBuffer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBuffer"])
 
 	Func TryGetBuffer 
-		return dnRequest("call",[self,"TryGetBuffer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetBuffer"])
 
 	Func ToArray 
-		return dnRequest("call",[self,"ToArray"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
 
 	Func WriteTo P1
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Capacity",P1])
 		return self
 

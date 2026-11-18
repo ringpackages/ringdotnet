@@ -24,43 +24,43 @@ Class PublicKey from Object
 		return self
 
 	Func ExportSubjectPublicKeyInfo 
-		return dnRequest("call",[self,"ExportSubjectPublicKeyInfo"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportSubjectPublicKeyInfo"])
 
 	Func GetRSAPublicKey 
-		return dnRequest("call",[self,"GetRSAPublicKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRSAPublicKey"])
 
 	Func GetDSAPublicKey 
-		return dnRequest("call",[self,"GetDSAPublicKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDSAPublicKey"])
 
 	Func GetECDsaPublicKey 
-		return dnRequest("call",[self,"GetECDsaPublicKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetECDsaPublicKey"])
 
 	Func GetECDiffieHellmanPublicKey 
-		return dnRequest("call",[self,"GetECDiffieHellmanPublicKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetECDiffieHellmanPublicKey"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEncodedKeyValue
-		return dnRequest("get",[self,"EncodedKeyValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EncodedKeyValue"])
 
 	Func setEncodedKeyValue P1
 		raise("DotNet Error: EncodedKeyValue is a read-only property")
 
 	Func getEncodedParameters
-		return dnRequest("get",[self,"EncodedParameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EncodedParameters"])
 
 	Func setEncodedParameters P1
 		raise("DotNet Error: EncodedParameters is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getOid
-		return dnRequest("get",[self,"Oid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Oid"])
 
 	Func setOid P1
 		raise("DotNet Error: Oid is a read-only property")

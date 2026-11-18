@@ -19,26 +19,26 @@ Class IPHostEntry from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHostName
-		return dnRequest("get",[self,"HostName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HostName"])
 
 	Func setHostName P1
-		dnRequest("set",[self,"HostName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HostName",P1])
 		return self
 
 	Func getAliases
-		return dnRequest("get",[self,"Aliases"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Aliases"])
 
 	Func setAliases P1
-		dnRequest("set",[self,"Aliases",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Aliases",P1])
 		return self
 
 	Func getAddressList
-		return dnRequest("get",[self,"AddressList"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddressList"])
 
 	Func setAddressList P1
-		dnRequest("set",[self,"AddressList",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AddressList",P1])
 		return self
 

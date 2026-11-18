@@ -14,5 +14,5 @@ Class IFileReaderService from DotNetObject
 		return self
 
 	Func OpenFileFromSource P1
-		return dnRequest("call",[self,"OpenFileFromSource",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenFileFromSource",P1])
 

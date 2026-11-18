@@ -26,62 +26,62 @@ Class SqlChars from Object
 		return self
 
 	Func SetNull 
-		dnRequest("call",[self,"SetNull"])
+		dnRequest("call",[new DotNetObject(nHandle),"SetNull"])
 		return self
 
 	Func SetLength P1
-		dnRequest("call",[self,"SetLength",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetLength",P1])
 		return self
 
 	Func Read P1,P2,P3,P4
-		return dnRequest("call",[self,"Read",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1,P2,P3,P4])
 
 	Func Write P1,P2,P3,P4
-		dnRequest("call",[self,"Write",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3,P4])
 		return self
 
 	Func ToSqlString 
-		return dnRequest("call",[self,"ToSqlString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlChars, System.Data.Common'),"GetXsdType",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Buffer"])
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func getMaxLength
-		return dnRequest("get",[self,"MaxLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxLength"])
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getStorage
-		return dnRequest("get",[self,"Storage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Storage"])
 
 	Func setStorage P1
 		raise("DotNet Error: Storage is a read-only property")

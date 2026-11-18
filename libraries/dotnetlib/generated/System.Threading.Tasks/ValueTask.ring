@@ -29,16 +29,16 @@ Class ValueTask from ValueType
 		return self
 
 	Func AsTask 
-		return dnRequest("call",[self,"AsTask"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AsTask"])
 
 	Func Preserve 
-		return dnRequest("call",[self,"Preserve"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Preserve"])
 
 	Func GetAwaiter 
-		return dnRequest("call",[self,"GetAwaiter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAwaiter"])
 
 	Func ConfigureAwait P1
-		return dnRequest("call",[self,"ConfigureAwait",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureAwait",P1])
 
 	Func FromResult P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"FromResult",P1])
@@ -50,25 +50,25 @@ Class ValueTask from ValueType
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"FromException",P1])
 
 	Func getIsCompleted
-		return dnRequest("get",[self,"IsCompleted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCompleted"])
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getIsCompletedSuccessfully
-		return dnRequest("get",[self,"IsCompletedSuccessfully"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCompletedSuccessfully"])
 
 	Func setIsCompletedSuccessfully P1
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
 
 	Func getIsFaulted
-		return dnRequest("get",[self,"IsFaulted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFaulted"])
 
 	Func setIsFaulted P1
 		raise("DotNet Error: IsFaulted is a read-only property")
 
 	Func getIsCanceled
-		return dnRequest("get",[self,"IsCanceled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCanceled"])
 
 	Func setIsCanceled P1
 		raise("DotNet Error: IsCanceled is a read-only property")

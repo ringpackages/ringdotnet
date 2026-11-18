@@ -17,13 +17,13 @@ Class XmlAttribute from XmlNode
 		return self
 
 	Func getSpecified
-		return dnRequest("get",[self,"Specified"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Specified"])
 
 	Func setSpecified P1
 		raise("DotNet Error: Specified is a read-only property")
 
 	Func getOwnerElement
-		return dnRequest("get",[self,"OwnerElement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OwnerElement"])
 
 	Func setOwnerElement P1
 		raise("DotNet Error: OwnerElement is a read-only property")

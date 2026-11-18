@@ -14,8 +14,8 @@ Class ContainerFilterService from Object
 		return self
 
 	Func FilterComponents P1
-		return dnRequest("call",[self,"FilterComponents",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FilterComponents",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

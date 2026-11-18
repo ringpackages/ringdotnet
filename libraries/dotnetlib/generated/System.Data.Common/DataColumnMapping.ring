@@ -22,22 +22,22 @@ Class DataColumnMapping from MarshalByRefObject
 		return self
 
 	Func GetDataColumnBySchemaAction P1,P2,P3
-		return dnRequest("call",[self,"GetDataColumnBySchemaAction",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataColumnBySchemaAction",P1,P2,P3])
 
 	Func GetDataColumnBySchemaAction_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DataColumnMapping, System.Data.Common'),"GetDataColumnBySchemaAction",P1,P2,P3,P4,P5])
 
 	Func getDataSetColumn
-		return dnRequest("get",[self,"DataSetColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataSetColumn"])
 
 	Func setDataSetColumn P1
-		dnRequest("set",[self,"DataSetColumn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataSetColumn",P1])
 		return self
 
 	Func getSourceColumn
-		return dnRequest("get",[self,"SourceColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceColumn"])
 
 	Func setSourceColumn P1
-		dnRequest("set",[self,"SourceColumn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceColumn",P1])
 		return self
 

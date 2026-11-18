@@ -22,82 +22,82 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func CreateAggregate_3 P1,P2,P3
-		dnRequest("call",[self,"CreateAggregate",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateAggregate",P1,P2,P3])
 		return self
 
 	Func CreateAggregate P1,P2
-		dnRequest("call",[self,"CreateAggregate",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateAggregate",P1,P2])
 		return self
 
 	Func CreateAggregate_4 P1,P2,P3,P4
-		dnRequest("call",[self,"CreateAggregate",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateAggregate",P1,P2,P3,P4])
 		return self
 
 	Func CreateAggregate_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"CreateAggregate",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateAggregate",P1,P2,P3,P4,P5])
 		return self
 
 	Func CreateFunction_3 P1,P2,P3
-		dnRequest("call",[self,"CreateFunction",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateFunction",P1,P2,P3])
 		return self
 
 	Func CreateFunction P1,P2
-		dnRequest("call",[self,"CreateFunction",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateFunction",P1,P2])
 		return self
 
 	Func CreateFunction_4 P1,P2,P3,P4
-		dnRequest("call",[self,"CreateFunction",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateFunction",P1,P2,P3,P4])
 		return self
 
 	Func CreateCollation P1,P2
-		dnRequest("call",[self,"CreateCollation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateCollation",P1,P2])
 		return self
 
 	Func CreateCollation_3 P1,P2,P3
-		dnRequest("call",[self,"CreateCollation",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateCollation",P1,P2,P3])
 		return self
 
 	Func BeginTransaction_2 P1,P2
-		return dnRequest("call",[self,"BeginTransaction",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1,P2])
 
 	Func EnableExtensions_1 P1
-		dnRequest("call",[self,"EnableExtensions",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EnableExtensions",P1])
 		return self
 
 	Func EnableExtensions P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"EnableExtensions",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"EnableExtensions",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"EnableExtensions"])
+			dnRequest("call",[new DotNetObject(nHandle),"EnableExtensions"])
 		return self
 		ok
-		dnRequest("call",[self,"EnableExtensions",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EnableExtensions",P1])
 		return self
 
 	Func LoadExtension_2 P1,P2
-		dnRequest("call",[self,"LoadExtension",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"LoadExtension",P1,P2])
 		return self
 
 	Func LoadExtension P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"LoadExtension",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"LoadExtension",P1])
 			return self
 		ok
-		dnRequest("call",[self,"LoadExtension",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"LoadExtension",P1])
 		return self
 
 	Func BackupDatabase P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"BackupDatabase",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"BackupDatabase",P1])
 			return self
 		ok
-		dnRequest("call",[self,"BackupDatabase",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"BackupDatabase",P1])
 		return self
 
 	Func BackupDatabase_3 P1,P2,P3
-		dnRequest("call",[self,"BackupDatabase",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"BackupDatabase",P1,P2,P3])
 		return self
 
 	Func ClearAllPools 
@@ -109,15 +109,15 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getDefaultTimeout
-		return dnRequest("get",[self,"DefaultTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultTimeout"])
 
 	Func setDefaultTimeout P1
-		dnRequest("set",[self,"DefaultTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultTimeout",P1])
 		return self
 

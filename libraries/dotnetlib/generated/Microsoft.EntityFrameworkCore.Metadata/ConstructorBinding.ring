@@ -17,7 +17,7 @@ Class ConstructorBinding from InstantiationBinding
 		return self
 
 	Func getConstructor
-		return dnRequest("get",[self,"Constructor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Constructor"])
 
 	Func setConstructor P1
 		raise("DotNet Error: Constructor is a read-only property")

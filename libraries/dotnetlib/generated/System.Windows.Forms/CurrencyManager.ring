@@ -16,35 +16,35 @@ Class CurrencyManager from BindingManagerBase
 		return self
 
 	Func Refresh 
-		dnRequest("call",[self,"Refresh"])
+		dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
 		return self
 
 	Func setItemChangedEvent P1
-		dnRequest("setevent",[self,"ItemChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearItemChangedEvent
-		dnRequest("clearevent",[self,"ItemChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemChanged"])
 		return self
 
 	Func setListChangedEvent P1
-		dnRequest("setevent",[self,"ListChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ListChanged",dnCallback(P1)])
 		return self
 
 	Func clearListChangedEvent
-		dnRequest("clearevent",[self,"ListChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ListChanged"])
 		return self
 
 	Func setMetaDataChangedEvent P1
-		dnRequest("setevent",[self,"MetaDataChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MetaDataChanged",dnCallback(P1)])
 		return self
 
 	Func clearMetaDataChangedEvent
-		dnRequest("clearevent",[self,"MetaDataChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MetaDataChanged"])
 		return self
 
 	Func getList
-		return dnRequest("get",[self,"List"])
+		return dnRequest("get",[new DotNetObject(nHandle),"List"])
 
 	Func setList P1
 		raise("DotNet Error: List is a read-only property")

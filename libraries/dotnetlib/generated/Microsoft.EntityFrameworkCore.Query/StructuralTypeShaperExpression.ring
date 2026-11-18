@@ -23,88 +23,88 @@ Class StructuralTypeShaperExpression from DotNetObject
 		return self
 
 	Func WithType P1
-		return dnRequest("call",[self,"WithType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithType",P1])
 
 	Func MakeNullable_1 P1
-		return dnRequest("call",[self,"MakeNullable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeNullable",P1])
 
 	Func MakeNullable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"MakeNullable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeNullable",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"MakeNullable"])
+			return dnRequest("call",[new DotNetObject(nHandle),"MakeNullable"])
 		ok
-		return dnRequest("call",[self,"MakeNullable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeNullable",P1])
 
 	Func Update P1
-		return dnRequest("call",[self,"Update",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 
 	Func DebuggerDisplay 
-		return dnRequest("call",[self,"DebuggerDisplay"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DebuggerDisplay"])
 
 	Func Reduce 
-		return dnRequest("call",[self,"Reduce"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
 
 	Func ReduceAndCheck 
-		return dnRequest("call",[self,"ReduceAndCheck"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
 
 	Func ReduceExtensions 
-		return dnRequest("call",[self,"ReduceExtensions"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func CreateUnableToDiscriminateException P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore'),"CreateUnableToDiscriminateException",P1,P2])
 
 	Func getStructuralType
-		return dnRequest("get",[self,"StructuralType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StructuralType"])
 
 	Func setStructuralType P1
 		raise("DotNet Error: StructuralType is a read-only property")
 
 	Func getValueBufferExpression
-		return dnRequest("get",[self,"ValueBufferExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueBufferExpression"])
 
 	Func setValueBufferExpression P1
 		raise("DotNet Error: ValueBufferExpression is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getMaterializationCondition
-		return dnRequest("get",[self,"MaterializationCondition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaterializationCondition"])
 
 	Func setMaterializationCondition P1
 		raise("DotNet Error: MaterializationCondition is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getCanReduce
-		return dnRequest("get",[self,"CanReduce"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
 
 	Func setCanReduce P1
 		raise("DotNet Error: CanReduce is a read-only property")

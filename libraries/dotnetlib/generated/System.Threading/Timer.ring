@@ -21,23 +21,23 @@ Class Timer from MarshalByRefObject
 		return self
 
 	Func Change P1,P2
-		return dnRequest("call",[self,"Change",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Change",P1,P2])
 
 	Func Dispose_1 P1
-		return dnRequest("call",[self,"Dispose",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Dispose",P1])
 
 	Func Dispose P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Dispose",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Dispose",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Dispose"])
+			dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 		ok
-		return dnRequest("call",[self,"Dispose",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Dispose",P1])
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func getActiveCount
 		return dnRequest("get",[dnTypeCached('System.Threading.Timer, System.Private.CoreLib'),"ActiveCount"])

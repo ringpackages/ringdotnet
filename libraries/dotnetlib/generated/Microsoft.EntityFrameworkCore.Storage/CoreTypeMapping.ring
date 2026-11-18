@@ -23,106 +23,106 @@ Class CoreTypeMapping from Object
 		return self
 
 	Func WithComposedConverter_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"WithComposedConverter",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1,P2,P3,P4,P5])
 
 	Func WithComposedConverter_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"WithComposedConverter",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1,P2,P3,P4])
 
 	Func WithComposedConverter_3 P1,P2,P3
-		return dnRequest("call",[self,"WithComposedConverter",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1,P2,P3])
 
 	Func WithComposedConverter_2 P1,P2
-		return dnRequest("call",[self,"WithComposedConverter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1,P2])
 
 	Func WithComposedConverter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WithComposedConverter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithComposedConverter",P1])
 		ok
-		return dnRequest("call",[self,"WithComposedConverter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1])
 
 	Func Clone_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"Clone",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func Clone_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"Clone",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5,P6,P7])
 
 	Func Clone_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"Clone",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5,P6])
 
 	Func Clone_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Clone",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5])
 
 	Func Clone_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Clone",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4])
 
 	Func Clone_3 P1,P2,P3
-		return dnRequest("call",[self,"Clone",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3])
 
 	Func Clone_2 P1,P2
-		return dnRequest("call",[self,"Clone",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2])
 
 	Func Clone_1 P1
-		return dnRequest("call",[self,"Clone",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1])
 
 	Func Clone P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Clone",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Clone",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Clone"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 		ok
-		return dnRequest("call",[self,"Clone",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1])
 
 	Func GenerateCodeLiteral P1
-		return dnRequest("call",[self,"GenerateCodeLiteral",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateCodeLiteral",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getClrType
-		return dnRequest("get",[self,"ClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getConverter
-		return dnRequest("get",[self,"Converter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Converter"])
 
 	Func setConverter P1
 		raise("DotNet Error: Converter is a read-only property")
 
 	Func getValueGeneratorFactory
-		return dnRequest("get",[self,"ValueGeneratorFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueGeneratorFactory"])
 
 	Func setValueGeneratorFactory P1
 		raise("DotNet Error: ValueGeneratorFactory is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getKeyComparer
-		return dnRequest("get",[self,"KeyComparer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyComparer"])
 
 	Func setKeyComparer P1
 		raise("DotNet Error: KeyComparer is a read-only property")
 
 	Func getProviderValueComparer
-		return dnRequest("get",[self,"ProviderValueComparer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProviderValueComparer"])
 
 	Func setProviderValueComparer P1
 		raise("DotNet Error: ProviderValueComparer is a read-only property")
 
 	Func getElementTypeMapping
-		return dnRequest("get",[self,"ElementTypeMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementTypeMapping"])
 
 	Func setElementTypeMapping P1
 		raise("DotNet Error: ElementTypeMapping is a read-only property")
 
 	Func getJsonValueReaderWriter
-		return dnRequest("get",[self,"JsonValueReaderWriter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"JsonValueReaderWriter"])
 
 	Func setJsonValueReaderWriter P1
 		raise("DotNet Error: JsonValueReaderWriter is a read-only property")

@@ -18,75 +18,75 @@ Class StoredProcedureBuilder from Object
 
 	Func HasParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasParameter",P1])
 		ok
-		return dnRequest("call",[self,"HasParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameter",P1])
 
 	Func HasParameter_2 P1,P2
-		return dnRequest("call",[self,"HasParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasParameter",P1,P2])
 
 	Func HasOriginalValueParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasOriginalValueParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasOriginalValueParameter",P1])
 		ok
-		return dnRequest("call",[self,"HasOriginalValueParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasOriginalValueParameter",P1])
 
 	Func HasOriginalValueParameter_2 P1,P2
-		return dnRequest("call",[self,"HasOriginalValueParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasOriginalValueParameter",P1,P2])
 
 	Func HasRowsAffectedParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasRowsAffectedParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasRowsAffectedParameter",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasRowsAffectedParameter"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedParameter"])
 		ok
-		return dnRequest("call",[self,"HasRowsAffectedParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedParameter",P1])
 
 	Func HasRowsAffectedParameter_1 P1
-		return dnRequest("call",[self,"HasRowsAffectedParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedParameter",P1])
 
 	Func HasResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasResultColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasResultColumn",P1])
 		ok
-		return dnRequest("call",[self,"HasResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasResultColumn",P1])
 
 	Func HasResultColumn_2 P1,P2
-		return dnRequest("call",[self,"HasResultColumn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasResultColumn",P1,P2])
 
 	Func HasRowsAffectedResultColumn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasRowsAffectedResultColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasRowsAffectedResultColumn",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasRowsAffectedResultColumn"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedResultColumn"])
 		ok
-		return dnRequest("call",[self,"HasRowsAffectedResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedResultColumn",P1])
 
 	Func HasRowsAffectedResultColumn_1 P1
-		return dnRequest("call",[self,"HasRowsAffectedResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedResultColumn",P1])
 
 	Func HasRowsAffectedReturnValue_1 P1
-		return dnRequest("call",[self,"HasRowsAffectedReturnValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedReturnValue",P1])
 
 	Func HasRowsAffectedReturnValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasRowsAffectedReturnValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasRowsAffectedReturnValue",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasRowsAffectedReturnValue"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedReturnValue"])
 		ok
-		return dnRequest("call",[self,"HasRowsAffectedReturnValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasRowsAffectedReturnValue",P1])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

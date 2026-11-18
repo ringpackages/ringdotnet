@@ -30,14 +30,14 @@ Class StreamWriter from TextWriter
 		return self
 
 	Func getAutoFlush
-		return dnRequest("get",[self,"AutoFlush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoFlush"])
 
 	Func setAutoFlush P1
-		dnRequest("set",[self,"AutoFlush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoFlush",P1])
 		return self
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseStream"])
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")

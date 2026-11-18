@@ -31,107 +31,107 @@ Class ReaderWriterLockSlim from Object
 		return self
 
 	Func EnterReadLock 
-		dnRequest("call",[self,"EnterReadLock"])
+		dnRequest("call",[new DotNetObject(nHandle),"EnterReadLock"])
 		return self
 
 	Func TryEnterReadLock P1
-		return dnRequest("call",[self,"TryEnterReadLock",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryEnterReadLock",P1])
 
 	Func EnterWriteLock 
-		dnRequest("call",[self,"EnterWriteLock"])
+		dnRequest("call",[new DotNetObject(nHandle),"EnterWriteLock"])
 		return self
 
 	Func TryEnterWriteLock P1
-		return dnRequest("call",[self,"TryEnterWriteLock",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryEnterWriteLock",P1])
 
 	Func EnterUpgradeableReadLock 
-		dnRequest("call",[self,"EnterUpgradeableReadLock"])
+		dnRequest("call",[new DotNetObject(nHandle),"EnterUpgradeableReadLock"])
 		return self
 
 	Func TryEnterUpgradeableReadLock P1
-		return dnRequest("call",[self,"TryEnterUpgradeableReadLock",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryEnterUpgradeableReadLock",P1])
 
 	Func ExitReadLock 
-		dnRequest("call",[self,"ExitReadLock"])
+		dnRequest("call",[new DotNetObject(nHandle),"ExitReadLock"])
 		return self
 
 	Func ExitWriteLock 
-		dnRequest("call",[self,"ExitWriteLock"])
+		dnRequest("call",[new DotNetObject(nHandle),"ExitWriteLock"])
 		return self
 
 	Func ExitUpgradeableReadLock 
-		dnRequest("call",[self,"ExitUpgradeableReadLock"])
+		dnRequest("call",[new DotNetObject(nHandle),"ExitUpgradeableReadLock"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsReadLockHeld
-		return dnRequest("get",[self,"IsReadLockHeld"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadLockHeld"])
 
 	Func setIsReadLockHeld P1
 		raise("DotNet Error: IsReadLockHeld is a read-only property")
 
 	Func getIsUpgradeableReadLockHeld
-		return dnRequest("get",[self,"IsUpgradeableReadLockHeld"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUpgradeableReadLockHeld"])
 
 	Func setIsUpgradeableReadLockHeld P1
 		raise("DotNet Error: IsUpgradeableReadLockHeld is a read-only property")
 
 	Func getIsWriteLockHeld
-		return dnRequest("get",[self,"IsWriteLockHeld"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsWriteLockHeld"])
 
 	Func setIsWriteLockHeld P1
 		raise("DotNet Error: IsWriteLockHeld is a read-only property")
 
 	Func getRecursionPolicy
-		return dnRequest("get",[self,"RecursionPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecursionPolicy"])
 
 	Func setRecursionPolicy P1
 		raise("DotNet Error: RecursionPolicy is a read-only property")
 
 	Func getCurrentReadCount
-		return dnRequest("get",[self,"CurrentReadCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentReadCount"])
 
 	Func setCurrentReadCount P1
 		raise("DotNet Error: CurrentReadCount is a read-only property")
 
 	Func getRecursiveReadCount
-		return dnRequest("get",[self,"RecursiveReadCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecursiveReadCount"])
 
 	Func setRecursiveReadCount P1
 		raise("DotNet Error: RecursiveReadCount is a read-only property")
 
 	Func getRecursiveUpgradeCount
-		return dnRequest("get",[self,"RecursiveUpgradeCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecursiveUpgradeCount"])
 
 	Func setRecursiveUpgradeCount P1
 		raise("DotNet Error: RecursiveUpgradeCount is a read-only property")
 
 	Func getRecursiveWriteCount
-		return dnRequest("get",[self,"RecursiveWriteCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecursiveWriteCount"])
 
 	Func setRecursiveWriteCount P1
 		raise("DotNet Error: RecursiveWriteCount is a read-only property")
 
 	Func getWaitingReadCount
-		return dnRequest("get",[self,"WaitingReadCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WaitingReadCount"])
 
 	Func setWaitingReadCount P1
 		raise("DotNet Error: WaitingReadCount is a read-only property")
 
 	Func getWaitingUpgradeCount
-		return dnRequest("get",[self,"WaitingUpgradeCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WaitingUpgradeCount"])
 
 	Func setWaitingUpgradeCount P1
 		raise("DotNet Error: WaitingUpgradeCount is a read-only property")
 
 	Func getWaitingWriteCount
-		return dnRequest("get",[self,"WaitingWriteCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WaitingWriteCount"])
 
 	Func setWaitingWriteCount P1
 		raise("DotNet Error: WaitingWriteCount is a read-only property")

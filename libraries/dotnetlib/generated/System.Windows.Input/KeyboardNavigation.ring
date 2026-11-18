@@ -21,7 +21,7 @@ Class KeyboardNavigation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func SetTabIndex P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Input.KeyboardNavigation, PresentationFramework'),"SetTabIndex",P1,P2])

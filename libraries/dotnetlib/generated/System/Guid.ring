@@ -33,24 +33,24 @@ Class Guid from ValueType
 
 	Func ToByteArray P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToByteArray",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToByteArray",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToByteArray"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray"])
 		ok
-		return dnRequest("call",[self,"ToByteArray",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1])
 
 	Func ToByteArray_1 P1
-		return dnRequest("call",[self,"ToByteArray",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func CreateVersion7 P1
 		if dnIsNamed(P1)
@@ -92,13 +92,13 @@ Class Guid from ValueType
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"NewGuid"])
 
 	Func getVariant
-		return dnRequest("get",[self,"Variant"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Variant"])
 
 	Func setVariant P1
 		raise("DotNet Error: Variant is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

@@ -19,7 +19,7 @@ Class XmlAttributeProperties from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetXmlSpace P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"GetXmlSpace",P1])

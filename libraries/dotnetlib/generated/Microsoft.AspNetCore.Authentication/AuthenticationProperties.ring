@@ -31,69 +31,69 @@ Class AuthenticationProperties from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func GetString P1
-		return dnRequest("call",[self,"GetString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
 
 	Func SetString P1,P2
-		dnRequest("call",[self,"SetString",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetString",P1,P2])
 		return self
 
 	Func GetParameter P1
-		return dnRequest("call",[self,"GetParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetParameter",P1])
 
 	Func SetParameter P1,P2
-		dnRequest("call",[self,"SetParameter",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetParameter",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getIsPersistent
-		return dnRequest("get",[self,"IsPersistent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPersistent"])
 
 	Func setIsPersistent P1
-		dnRequest("set",[self,"IsPersistent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsPersistent",P1])
 		return self
 
 	Func getRedirectUri
-		return dnRequest("get",[self,"RedirectUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RedirectUri"])
 
 	Func setRedirectUri P1
-		dnRequest("set",[self,"RedirectUri",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RedirectUri",P1])
 		return self
 
 	Func getIssuedUtc
-		return dnRequest("get",[self,"IssuedUtc"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IssuedUtc"])
 
 	Func setIssuedUtc P1
-		dnRequest("set",[self,"IssuedUtc",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IssuedUtc",P1])
 		return self
 
 	Func getExpiresUtc
-		return dnRequest("get",[self,"ExpiresUtc"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExpiresUtc"])
 
 	Func setExpiresUtc P1
-		dnRequest("set",[self,"ExpiresUtc",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExpiresUtc",P1])
 		return self
 
 	Func getAllowRefresh
-		return dnRequest("get",[self,"AllowRefresh"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowRefresh"])
 
 	Func setAllowRefresh P1
-		dnRequest("set",[self,"AllowRefresh",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowRefresh",P1])
 		return self
 

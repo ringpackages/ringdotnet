@@ -14,5 +14,5 @@ Class IDbSetFinder from DotNetObject
 		return self
 
 	Func FindSets P1
-		return dnRequest("call",[self,"FindSets",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindSets",P1])
 

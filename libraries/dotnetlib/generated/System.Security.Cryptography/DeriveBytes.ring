@@ -14,16 +14,16 @@ Class DeriveBytes from Object
 		return self
 
 	Func GetBytes P1
-		return dnRequest("call",[self,"GetBytes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1])
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

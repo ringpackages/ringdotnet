@@ -17,11 +17,11 @@ Class DateRangeEventArgs from EventArgs
 		return self
 
 	Func getStart
-		return dnRequest("get",[self,"Start"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Start"])
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnRequest("get",[self,"End"])
+		return dnRequest("get",[new DotNetObject(nHandle),"End"])
 

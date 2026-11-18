@@ -19,23 +19,23 @@ Class FilterDescriptor from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
 
 	Func setFilter P1
 		raise("DotNet Error: Filter is a read-only property")
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
 
 	Func setOrder P1
-		dnRequest("set",[self,"Order",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Order",P1])
 		return self
 
 	Func getScope
-		return dnRequest("get",[self,"Scope"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scope"])
 
 	Func setScope P1
 		raise("DotNet Error: Scope is a read-only property")

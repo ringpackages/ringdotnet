@@ -20,25 +20,25 @@ Class RuntimeEntityTypeMappingFragment from AnnotatableBase
 		return self
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getStoreObject
-		return dnRequest("get",[self,"StoreObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreObject"])
 
 	Func setStoreObject P1
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getIsTableExcludedFromMigrations
-		return dnRequest("get",[self,"IsTableExcludedFromMigrations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsTableExcludedFromMigrations"])
 
 	Func setIsTableExcludedFromMigrations P1
 		raise("DotNet Error: IsTableExcludedFromMigrations is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

@@ -19,223 +19,223 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func Begin_1 P1
-		dnRequest("call",[self,"Begin",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1])
 		return self
 
 	Func Begin_2 P1,P2
-		dnRequest("call",[self,"Begin",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1,P2])
 		return self
 
 	Func Begin_3 P1,P2,P3
-		dnRequest("call",[self,"Begin",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1,P2,P3])
 		return self
 
 	Func Begin_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Begin",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1,P2,P3,P4])
 		return self
 
 	Func Begin P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Begin",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Begin",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Begin"])
+			dnRequest("call",[new DotNetObject(nHandle),"Begin"])
 		return self
 		ok
-		dnRequest("call",[self,"Begin",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1])
 		return self
 
 	Func GetCurrentGlobalSpeed_1 P1
-		return dnRequest("call",[self,"GetCurrentGlobalSpeed",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentGlobalSpeed",P1])
 
 	Func GetCurrentGlobalSpeed P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCurrentGlobalSpeed",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCurrentGlobalSpeed",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetCurrentGlobalSpeed"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentGlobalSpeed"])
 		ok
-		return dnRequest("call",[self,"GetCurrentGlobalSpeed",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentGlobalSpeed",P1])
 
 	Func GetCurrentIteration_1 P1
-		return dnRequest("call",[self,"GetCurrentIteration",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentIteration",P1])
 
 	Func GetCurrentIteration P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCurrentIteration",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCurrentIteration",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetCurrentIteration"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentIteration"])
 		ok
-		return dnRequest("call",[self,"GetCurrentIteration",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentIteration",P1])
 
 	Func GetCurrentProgress_1 P1
-		return dnRequest("call",[self,"GetCurrentProgress",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentProgress",P1])
 
 	Func GetCurrentProgress P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCurrentProgress",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCurrentProgress",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetCurrentProgress"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentProgress"])
 		ok
-		return dnRequest("call",[self,"GetCurrentProgress",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentProgress",P1])
 
 	Func GetCurrentState_1 P1
-		return dnRequest("call",[self,"GetCurrentState",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentState",P1])
 
 	Func GetCurrentState P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCurrentState",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCurrentState",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetCurrentState"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentState"])
 		ok
-		return dnRequest("call",[self,"GetCurrentState",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentState",P1])
 
 	Func GetCurrentTime_1 P1
-		return dnRequest("call",[self,"GetCurrentTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentTime",P1])
 
 	Func GetCurrentTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCurrentTime",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCurrentTime",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetCurrentTime"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentTime"])
 		ok
-		return dnRequest("call",[self,"GetCurrentTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentTime",P1])
 
 	Func GetIsPaused_1 P1
-		return dnRequest("call",[self,"GetIsPaused",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsPaused",P1])
 
 	Func GetIsPaused P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetIsPaused",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetIsPaused",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetIsPaused"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetIsPaused"])
 		ok
-		return dnRequest("call",[self,"GetIsPaused",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIsPaused",P1])
 
 	Func Pause_1 P1
-		dnRequest("call",[self,"Pause",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Pause",P1])
 		return self
 
 	Func Pause P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Pause",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Pause",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Pause"])
+			dnRequest("call",[new DotNetObject(nHandle),"Pause"])
 		return self
 		ok
-		dnRequest("call",[self,"Pause",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Pause",P1])
 		return self
 
 	Func Remove_1 P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Remove P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Remove",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Remove",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Remove"])
+			dnRequest("call",[new DotNetObject(nHandle),"Remove"])
 		return self
 		ok
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Resume_1 P1
-		dnRequest("call",[self,"Resume",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Resume",P1])
 		return self
 
 	Func Resume P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Resume",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Resume",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Resume"])
+			dnRequest("call",[new DotNetObject(nHandle),"Resume"])
 		return self
 		ok
-		dnRequest("call",[self,"Resume",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Resume",P1])
 		return self
 
 	Func Seek_3 P1,P2,P3
-		dnRequest("call",[self,"Seek",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Seek",P1,P2,P3])
 		return self
 
 	Func Seek_2 P1,P2
-		dnRequest("call",[self,"Seek",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Seek",P1,P2])
 		return self
 
 	Func Seek P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Seek",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Seek",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Seek",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Seek",P1])
 		return self
 
 	Func SeekAlignedToLastTick_3 P1,P2,P3
-		dnRequest("call",[self,"SeekAlignedToLastTick",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SeekAlignedToLastTick",P1,P2,P3])
 		return self
 
 	Func SeekAlignedToLastTick_2 P1,P2
-		dnRequest("call",[self,"SeekAlignedToLastTick",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SeekAlignedToLastTick",P1,P2])
 		return self
 
 	Func SeekAlignedToLastTick P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SeekAlignedToLastTick",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SeekAlignedToLastTick",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SeekAlignedToLastTick",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SeekAlignedToLastTick",P1])
 		return self
 
 	Func SetSpeedRatio_2 P1,P2
-		dnRequest("call",[self,"SetSpeedRatio",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSpeedRatio",P1,P2])
 		return self
 
 	Func SetSpeedRatio_1 P1
-		dnRequest("call",[self,"SetSpeedRatio",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSpeedRatio",P1])
 		return self
 
 	Func SkipToFill_1 P1
-		dnRequest("call",[self,"SkipToFill",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SkipToFill",P1])
 		return self
 
 	Func SkipToFill P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SkipToFill",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SkipToFill",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"SkipToFill"])
+			dnRequest("call",[new DotNetObject(nHandle),"SkipToFill"])
 		return self
 		ok
-		dnRequest("call",[self,"SkipToFill",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SkipToFill",P1])
 		return self
 
 	Func Stop_1 P1
-		dnRequest("call",[self,"Stop",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop",P1])
 		return self
 
 	Func Stop P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Stop",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Stop",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Stop"])
+			dnRequest("call",[new DotNetObject(nHandle),"Stop"])
 		return self
 		ok
-		dnRequest("call",[self,"Stop",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop",P1])
 		return self
 
 	Func SetTarget P1,P2

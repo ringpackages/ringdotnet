@@ -35,15 +35,15 @@ Class Timeline from Animatable
 
 	Func CreateClock P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateClock",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateClock",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateClock"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateClock"])
 		ok
-		return dnRequest("call",[self,"CreateClock",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateClock",P1])
 
 	Func CreateClock_1 P1
-		return dnRequest("call",[self,"CreateClock",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateClock",P1])
 
 	Func GetDesiredFrameRate P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"GetDesiredFrameRate",P1])
@@ -53,106 +53,106 @@ Class Timeline from Animatable
 		return self
 
 	Func setCurrentStateInvalidatedEvent P1
-		dnRequest("setevent",[self,"CurrentStateInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentStateInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentStateInvalidatedEvent
-		dnRequest("clearevent",[self,"CurrentStateInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentStateInvalidated"])
 		return self
 
 	Func setCurrentTimeInvalidatedEvent P1
-		dnRequest("setevent",[self,"CurrentTimeInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentTimeInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentTimeInvalidatedEvent
-		dnRequest("clearevent",[self,"CurrentTimeInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentTimeInvalidated"])
 		return self
 
 	Func setCurrentGlobalSpeedInvalidatedEvent P1
-		dnRequest("setevent",[self,"CurrentGlobalSpeedInvalidated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentGlobalSpeedInvalidated",dnCallback(P1)])
 		return self
 
 	Func clearCurrentGlobalSpeedInvalidatedEvent
-		dnRequest("clearevent",[self,"CurrentGlobalSpeedInvalidated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentGlobalSpeedInvalidated"])
 		return self
 
 	Func setCompletedEvent P1
-		dnRequest("setevent",[self,"Completed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Completed",dnCallback(P1)])
 		return self
 
 	Func clearCompletedEvent
-		dnRequest("clearevent",[self,"Completed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Completed"])
 		return self
 
 	Func setRemoveRequestedEvent P1
-		dnRequest("setevent",[self,"RemoveRequested",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RemoveRequested",dnCallback(P1)])
 		return self
 
 	Func clearRemoveRequestedEvent
-		dnRequest("clearevent",[self,"RemoveRequested"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RemoveRequested"])
 		return self
 
 	Func getAccelerationRatio
-		return dnRequest("get",[self,"AccelerationRatio"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccelerationRatio"])
 
 	Func setAccelerationRatio P1
-		dnRequest("set",[self,"AccelerationRatio",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccelerationRatio",P1])
 		return self
 
 	Func getAutoReverse
-		return dnRequest("get",[self,"AutoReverse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoReverse"])
 
 	Func setAutoReverse P1
-		dnRequest("set",[self,"AutoReverse",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoReverse",P1])
 		return self
 
 	Func getBeginTime
-		return dnRequest("get",[self,"BeginTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BeginTime"])
 
 	Func setBeginTime P1
-		dnRequest("set",[self,"BeginTime",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BeginTime",P1])
 		return self
 
 	Func getDecelerationRatio
-		return dnRequest("get",[self,"DecelerationRatio"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DecelerationRatio"])
 
 	Func setDecelerationRatio P1
-		dnRequest("set",[self,"DecelerationRatio",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DecelerationRatio",P1])
 		return self
 
 	Func getDuration
-		return dnRequest("get",[self,"Duration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Duration"])
 
 	Func setDuration P1
-		dnRequest("set",[self,"Duration",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Duration",P1])
 		return self
 
 	Func getFillBehavior
-		return dnRequest("get",[self,"FillBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FillBehavior"])
 
 	Func setFillBehavior P1
-		dnRequest("set",[self,"FillBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FillBehavior",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getRepeatBehavior
-		return dnRequest("get",[self,"RepeatBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RepeatBehavior"])
 
 	Func setRepeatBehavior P1
-		dnRequest("set",[self,"RepeatBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RepeatBehavior",P1])
 		return self
 
 	Func getSpeedRatio
-		return dnRequest("get",[self,"SpeedRatio"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SpeedRatio"])
 
 	Func setSpeedRatio P1
-		dnRequest("set",[self,"SpeedRatio",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SpeedRatio",P1])
 		return self
 
 	Func getAccelerationRatioProperty

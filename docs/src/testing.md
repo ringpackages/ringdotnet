@@ -18,6 +18,14 @@ sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe
 
 and prints `0 failed` when everything passes. It needs the package `bin` folder on the PATH; the script adds it for you.
 
+The whole run takes about ten minutes (the windows have to open and close). While you work, run the **quick tier**, which is only the tests and the console samples and takes about a minute:
+
+```bash
+sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe --quick
+```
+
+Run everything before a commit.
+
 | Test file | Covers |
 |---|---|
 | `test_foundation.ring`, `test_runtime.ring` | the bridge: types, overloads, properties, enums, errors |

@@ -104,639 +104,639 @@ Class IHeaderDictionary from DotNetObject
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getContentLength
-		return dnRequest("get",[self,"ContentLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength"])
 
 	Func setContentLength P1
-		dnRequest("set",[self,"ContentLength",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentLength",P1])
 		return self
 
 	Func getAccept
-		return dnRequest("get",[self,"Accept"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Accept"])
 
 	Func setAccept P1
-		dnRequest("set",[self,"Accept",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Accept",P1])
 		return self
 
 	Func getAcceptCharset
-		return dnRequest("get",[self,"AcceptCharset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptCharset"])
 
 	Func setAcceptCharset P1
-		dnRequest("set",[self,"AcceptCharset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptCharset",P1])
 		return self
 
 	Func getAcceptEncoding
-		return dnRequest("get",[self,"AcceptEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptEncoding"])
 
 	Func setAcceptEncoding P1
-		dnRequest("set",[self,"AcceptEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptEncoding",P1])
 		return self
 
 	Func getAcceptLanguage
-		return dnRequest("get",[self,"AcceptLanguage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptLanguage"])
 
 	Func setAcceptLanguage P1
-		dnRequest("set",[self,"AcceptLanguage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptLanguage",P1])
 		return self
 
 	Func getAcceptRanges
-		return dnRequest("get",[self,"AcceptRanges"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptRanges"])
 
 	Func setAcceptRanges P1
-		dnRequest("set",[self,"AcceptRanges",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptRanges",P1])
 		return self
 
 	Func getAccessControlAllowCredentials
-		return dnRequest("get",[self,"AccessControlAllowCredentials"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessControlAllowCredentials"])
 
 	Func setAccessControlAllowCredentials P1
-		dnRequest("set",[self,"AccessControlAllowCredentials",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessControlAllowCredentials",P1])
 		return self
 
 	Func getAccessControlAllowHeaders
-		return dnRequest("get",[self,"AccessControlAllowHeaders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessControlAllowHeaders"])
 
 	Func setAccessControlAllowHeaders P1
-		dnRequest("set",[self,"AccessControlAllowHeaders",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessControlAllowHeaders",P1])
 		return self
 
 	Func getAccessControlAllowMethods
-		return dnRequest("get",[self,"AccessControlAllowMethods"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessControlAllowMethods"])
 
 	Func setAccessControlAllowMethods P1
-		dnRequest("set",[self,"AccessControlAllowMethods",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessControlAllowMethods",P1])
 		return self
 
 	Func getAccessControlAllowOrigin
-		return dnRequest("get",[self,"AccessControlAllowOrigin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessControlAllowOrigin"])
 
 	Func setAccessControlAllowOrigin P1
-		dnRequest("set",[self,"AccessControlAllowOrigin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessControlAllowOrigin",P1])
 		return self
 
 	Func getAccessControlExposeHeaders
-		return dnRequest("get",[self,"AccessControlExposeHeaders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessControlExposeHeaders"])
 
 	Func setAccessControlExposeHeaders P1
-		dnRequest("set",[self,"AccessControlExposeHeaders",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessControlExposeHeaders",P1])
 		return self
 
 	Func getAccessControlMaxAge
-		return dnRequest("get",[self,"AccessControlMaxAge"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessControlMaxAge"])
 
 	Func setAccessControlMaxAge P1
-		dnRequest("set",[self,"AccessControlMaxAge",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessControlMaxAge",P1])
 		return self
 
 	Func getAccessControlRequestHeaders
-		return dnRequest("get",[self,"AccessControlRequestHeaders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessControlRequestHeaders"])
 
 	Func setAccessControlRequestHeaders P1
-		dnRequest("set",[self,"AccessControlRequestHeaders",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessControlRequestHeaders",P1])
 		return self
 
 	Func getAccessControlRequestMethod
-		return dnRequest("get",[self,"AccessControlRequestMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessControlRequestMethod"])
 
 	Func setAccessControlRequestMethod P1
-		dnRequest("set",[self,"AccessControlRequestMethod",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AccessControlRequestMethod",P1])
 		return self
 
 	Func getAge
-		return dnRequest("get",[self,"Age"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Age"])
 
 	Func setAge P1
-		dnRequest("set",[self,"Age",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Age",P1])
 		return self
 
 	Func getAllow
-		return dnRequest("get",[self,"Allow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Allow"])
 
 	Func setAllow P1
-		dnRequest("set",[self,"Allow",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Allow",P1])
 		return self
 
 	Func getAltSvc
-		return dnRequest("get",[self,"AltSvc"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AltSvc"])
 
 	Func setAltSvc P1
-		dnRequest("set",[self,"AltSvc",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AltSvc",P1])
 		return self
 
 	Func getAuthorization
-		return dnRequest("get",[self,"Authorization"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Authorization"])
 
 	Func setAuthorization P1
-		dnRequest("set",[self,"Authorization",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Authorization",P1])
 		return self
 
 	Func getBaggage
-		return dnRequest("get",[self,"Baggage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Baggage"])
 
 	Func setBaggage P1
-		dnRequest("set",[self,"Baggage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Baggage",P1])
 		return self
 
 	Func getCacheControl
-		return dnRequest("get",[self,"CacheControl"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CacheControl"])
 
 	Func setCacheControl P1
-		dnRequest("set",[self,"CacheControl",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CacheControl",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[self,"Connection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
 		return self
 
 	Func getContentDisposition
-		return dnRequest("get",[self,"ContentDisposition"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentDisposition"])
 
 	Func setContentDisposition P1
-		dnRequest("set",[self,"ContentDisposition",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentDisposition",P1])
 		return self
 
 	Func getContentEncoding
-		return dnRequest("get",[self,"ContentEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentEncoding"])
 
 	Func setContentEncoding P1
-		dnRequest("set",[self,"ContentEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentEncoding",P1])
 		return self
 
 	Func getContentLanguage
-		return dnRequest("get",[self,"ContentLanguage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLanguage"])
 
 	Func setContentLanguage P1
-		dnRequest("set",[self,"ContentLanguage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentLanguage",P1])
 		return self
 
 	Func getContentLocation
-		return dnRequest("get",[self,"ContentLocation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentLocation"])
 
 	Func setContentLocation P1
-		dnRequest("set",[self,"ContentLocation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentLocation",P1])
 		return self
 
 	Func getContentMD5
-		return dnRequest("get",[self,"ContentMD5"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentMD5"])
 
 	Func setContentMD5 P1
-		dnRequest("set",[self,"ContentMD5",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentMD5",P1])
 		return self
 
 	Func getContentRange
-		return dnRequest("get",[self,"ContentRange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentRange"])
 
 	Func setContentRange P1
-		dnRequest("set",[self,"ContentRange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentRange",P1])
 		return self
 
 	Func getContentSecurityPolicy
-		return dnRequest("get",[self,"ContentSecurityPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentSecurityPolicy"])
 
 	Func setContentSecurityPolicy P1
-		dnRequest("set",[self,"ContentSecurityPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentSecurityPolicy",P1])
 		return self
 
 	Func getContentSecurityPolicyReportOnly
-		return dnRequest("get",[self,"ContentSecurityPolicyReportOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentSecurityPolicyReportOnly"])
 
 	Func setContentSecurityPolicyReportOnly P1
-		dnRequest("set",[self,"ContentSecurityPolicyReportOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentSecurityPolicyReportOnly",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[self,"ContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
 		return self
 
 	Func getCorrelationContext
-		return dnRequest("get",[self,"CorrelationContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CorrelationContext"])
 
 	Func setCorrelationContext P1
-		dnRequest("set",[self,"CorrelationContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CorrelationContext",P1])
 		return self
 
 	Func getCookie
-		return dnRequest("get",[self,"Cookie"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cookie"])
 
 	Func setCookie P1
-		dnRequest("set",[self,"Cookie",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cookie",P1])
 		return self
 
 	Func getDate
-		return dnRequest("get",[self,"Date"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Date"])
 
 	Func setDate P1
-		dnRequest("set",[self,"Date",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Date",P1])
 		return self
 
 	Func getETag
-		return dnRequest("get",[self,"ETag"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ETag"])
 
 	Func setETag P1
-		dnRequest("set",[self,"ETag",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ETag",P1])
 		return self
 
 	Func getExpires
-		return dnRequest("get",[self,"Expires"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expires"])
 
 	Func setExpires P1
-		dnRequest("set",[self,"Expires",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Expires",P1])
 		return self
 
 	Func getExpect
-		return dnRequest("get",[self,"Expect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expect"])
 
 	Func setExpect P1
-		dnRequest("set",[self,"Expect",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Expect",P1])
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnRequest("get",[new DotNetObject(nHandle),"From"])
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"From",P1])
 		return self
 
 	Func getGrpcAcceptEncoding
-		return dnRequest("get",[self,"GrpcAcceptEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GrpcAcceptEncoding"])
 
 	Func setGrpcAcceptEncoding P1
-		dnRequest("set",[self,"GrpcAcceptEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GrpcAcceptEncoding",P1])
 		return self
 
 	Func getGrpcEncoding
-		return dnRequest("get",[self,"GrpcEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GrpcEncoding"])
 
 	Func setGrpcEncoding P1
-		dnRequest("set",[self,"GrpcEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GrpcEncoding",P1])
 		return self
 
 	Func getGrpcMessage
-		return dnRequest("get",[self,"GrpcMessage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GrpcMessage"])
 
 	Func setGrpcMessage P1
-		dnRequest("set",[self,"GrpcMessage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GrpcMessage",P1])
 		return self
 
 	Func getGrpcStatus
-		return dnRequest("get",[self,"GrpcStatus"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GrpcStatus"])
 
 	Func setGrpcStatus P1
-		dnRequest("set",[self,"GrpcStatus",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GrpcStatus",P1])
 		return self
 
 	Func getGrpcTimeout
-		return dnRequest("get",[self,"GrpcTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GrpcTimeout"])
 
 	Func setGrpcTimeout P1
-		dnRequest("set",[self,"GrpcTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GrpcTimeout",P1])
 		return self
 
 	Func getHost
-		return dnRequest("get",[self,"Host"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
 
 	Func setHost P1
-		dnRequest("set",[self,"Host",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Host",P1])
 		return self
 
 	Func getKeepAlive
-		return dnRequest("get",[self,"KeepAlive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlive"])
 
 	Func setKeepAlive P1
-		dnRequest("set",[self,"KeepAlive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAlive",P1])
 		return self
 
 	Func getIfMatch
-		return dnRequest("get",[self,"IfMatch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IfMatch"])
 
 	Func setIfMatch P1
-		dnRequest("set",[self,"IfMatch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IfMatch",P1])
 		return self
 
 	Func getIfModifiedSince
-		return dnRequest("get",[self,"IfModifiedSince"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IfModifiedSince"])
 
 	Func setIfModifiedSince P1
-		dnRequest("set",[self,"IfModifiedSince",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IfModifiedSince",P1])
 		return self
 
 	Func getIfNoneMatch
-		return dnRequest("get",[self,"IfNoneMatch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IfNoneMatch"])
 
 	Func setIfNoneMatch P1
-		dnRequest("set",[self,"IfNoneMatch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IfNoneMatch",P1])
 		return self
 
 	Func getIfRange
-		return dnRequest("get",[self,"IfRange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IfRange"])
 
 	Func setIfRange P1
-		dnRequest("set",[self,"IfRange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IfRange",P1])
 		return self
 
 	Func getIfUnmodifiedSince
-		return dnRequest("get",[self,"IfUnmodifiedSince"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IfUnmodifiedSince"])
 
 	Func setIfUnmodifiedSince P1
-		dnRequest("set",[self,"IfUnmodifiedSince",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IfUnmodifiedSince",P1])
 		return self
 
 	Func getLastModified
-		return dnRequest("get",[self,"LastModified"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastModified"])
 
 	Func setLastModified P1
-		dnRequest("set",[self,"LastModified",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LastModified",P1])
 		return self
 
 	Func getLink
-		return dnRequest("get",[self,"Link"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Link"])
 
 	Func setLink P1
-		dnRequest("set",[self,"Link",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Link",P1])
 		return self
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
-		dnRequest("set",[self,"Location",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Location",P1])
 		return self
 
 	Func getMaxForwards
-		return dnRequest("get",[self,"MaxForwards"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxForwards"])
 
 	Func setMaxForwards P1
-		dnRequest("set",[self,"MaxForwards",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxForwards",P1])
 		return self
 
 	Func getOrigin
-		return dnRequest("get",[self,"Origin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Origin"])
 
 	Func setOrigin P1
-		dnRequest("set",[self,"Origin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Origin",P1])
 		return self
 
 	Func getPragma
-		return dnRequest("get",[self,"Pragma"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Pragma"])
 
 	Func setPragma P1
-		dnRequest("set",[self,"Pragma",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Pragma",P1])
 		return self
 
 	Func getProxyAuthenticate
-		return dnRequest("get",[self,"ProxyAuthenticate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProxyAuthenticate"])
 
 	Func setProxyAuthenticate P1
-		dnRequest("set",[self,"ProxyAuthenticate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProxyAuthenticate",P1])
 		return self
 
 	Func getProxyAuthorization
-		return dnRequest("get",[self,"ProxyAuthorization"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProxyAuthorization"])
 
 	Func setProxyAuthorization P1
-		dnRequest("set",[self,"ProxyAuthorization",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProxyAuthorization",P1])
 		return self
 
 	Func getProxyConnection
-		return dnRequest("get",[self,"ProxyConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProxyConnection"])
 
 	Func setProxyConnection P1
-		dnRequest("set",[self,"ProxyConnection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProxyConnection",P1])
 		return self
 
 	Func getRange
-		return dnRequest("get",[self,"Range"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Range"])
 
 	Func setRange P1
-		dnRequest("set",[self,"Range",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Range",P1])
 		return self
 
 	Func getReferer
-		return dnRequest("get",[self,"Referer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Referer"])
 
 	Func setReferer P1
-		dnRequest("set",[self,"Referer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Referer",P1])
 		return self
 
 	Func getRetryAfter
-		return dnRequest("get",[self,"RetryAfter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RetryAfter"])
 
 	Func setRetryAfter P1
-		dnRequest("set",[self,"RetryAfter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RetryAfter",P1])
 		return self
 
 	Func getRequestId
-		return dnRequest("get",[self,"RequestId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestId"])
 
 	Func setRequestId P1
-		dnRequest("set",[self,"RequestId",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestId",P1])
 		return self
 
 	Func getSecWebSocketAccept
-		return dnRequest("get",[self,"SecWebSocketAccept"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecWebSocketAccept"])
 
 	Func setSecWebSocketAccept P1
-		dnRequest("set",[self,"SecWebSocketAccept",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SecWebSocketAccept",P1])
 		return self
 
 	Func getSecWebSocketKey
-		return dnRequest("get",[self,"SecWebSocketKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecWebSocketKey"])
 
 	Func setSecWebSocketKey P1
-		dnRequest("set",[self,"SecWebSocketKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SecWebSocketKey",P1])
 		return self
 
 	Func getSecWebSocketProtocol
-		return dnRequest("get",[self,"SecWebSocketProtocol"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecWebSocketProtocol"])
 
 	Func setSecWebSocketProtocol P1
-		dnRequest("set",[self,"SecWebSocketProtocol",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SecWebSocketProtocol",P1])
 		return self
 
 	Func getSecWebSocketVersion
-		return dnRequest("get",[self,"SecWebSocketVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecWebSocketVersion"])
 
 	Func setSecWebSocketVersion P1
-		dnRequest("set",[self,"SecWebSocketVersion",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SecWebSocketVersion",P1])
 		return self
 
 	Func getSecWebSocketExtensions
-		return dnRequest("get",[self,"SecWebSocketExtensions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecWebSocketExtensions"])
 
 	Func setSecWebSocketExtensions P1
-		dnRequest("set",[self,"SecWebSocketExtensions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SecWebSocketExtensions",P1])
 		return self
 
 	Func getServer
-		return dnRequest("get",[self,"Server"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Server"])
 
 	Func setServer P1
-		dnRequest("set",[self,"Server",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Server",P1])
 		return self
 
 	Func getSetCookie
-		return dnRequest("get",[self,"SetCookie"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SetCookie"])
 
 	Func setSetCookie P1
-		dnRequest("set",[self,"SetCookie",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SetCookie",P1])
 		return self
 
 	Func getStrictTransportSecurity
-		return dnRequest("get",[self,"StrictTransportSecurity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrictTransportSecurity"])
 
 	Func setStrictTransportSecurity P1
-		dnRequest("set",[self,"StrictTransportSecurity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrictTransportSecurity",P1])
 		return self
 
 	Func getTE
-		return dnRequest("get",[self,"TE"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TE"])
 
 	Func setTE P1
-		dnRequest("set",[self,"TE",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TE",P1])
 		return self
 
 	Func getTrailer
-		return dnRequest("get",[self,"Trailer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Trailer"])
 
 	Func setTrailer P1
-		dnRequest("set",[self,"Trailer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Trailer",P1])
 		return self
 
 	Func getTransferEncoding
-		return dnRequest("get",[self,"TransferEncoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransferEncoding"])
 
 	Func setTransferEncoding P1
-		dnRequest("set",[self,"TransferEncoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TransferEncoding",P1])
 		return self
 
 	Func getTranslate
-		return dnRequest("get",[self,"Translate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Translate"])
 
 	Func setTranslate P1
-		dnRequest("set",[self,"Translate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Translate",P1])
 		return self
 
 	Func getTraceParent
-		return dnRequest("get",[self,"TraceParent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TraceParent"])
 
 	Func setTraceParent P1
-		dnRequest("set",[self,"TraceParent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TraceParent",P1])
 		return self
 
 	Func getTraceState
-		return dnRequest("get",[self,"TraceState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TraceState"])
 
 	Func setTraceState P1
-		dnRequest("set",[self,"TraceState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TraceState",P1])
 		return self
 
 	Func getUpgrade
-		return dnRequest("get",[self,"Upgrade"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Upgrade"])
 
 	Func setUpgrade P1
-		dnRequest("set",[self,"Upgrade",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Upgrade",P1])
 		return self
 
 	Func getUpgradeInsecureRequests
-		return dnRequest("get",[self,"UpgradeInsecureRequests"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpgradeInsecureRequests"])
 
 	Func setUpgradeInsecureRequests P1
-		dnRequest("set",[self,"UpgradeInsecureRequests",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UpgradeInsecureRequests",P1])
 		return self
 
 	Func getUserAgent
-		return dnRequest("get",[self,"UserAgent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UserAgent"])
 
 	Func setUserAgent P1
-		dnRequest("set",[self,"UserAgent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UserAgent",P1])
 		return self
 
 	Func getVary
-		return dnRequest("get",[self,"Vary"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Vary"])
 
 	Func setVary P1
-		dnRequest("set",[self,"Vary",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Vary",P1])
 		return self
 
 	Func getVia
-		return dnRequest("get",[self,"Via"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Via"])
 
 	Func setVia P1
-		dnRequest("set",[self,"Via",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Via",P1])
 		return self
 
 	Func getWarning
-		return dnRequest("get",[self,"Warning"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Warning"])
 
 	Func setWarning P1
-		dnRequest("set",[self,"Warning",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Warning",P1])
 		return self
 
 	Func getWebSocketSubProtocols
-		return dnRequest("get",[self,"WebSocketSubProtocols"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WebSocketSubProtocols"])
 
 	Func setWebSocketSubProtocols P1
-		dnRequest("set",[self,"WebSocketSubProtocols",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WebSocketSubProtocols",P1])
 		return self
 
 	Func getWWWAuthenticate
-		return dnRequest("get",[self,"WWWAuthenticate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WWWAuthenticate"])
 
 	Func setWWWAuthenticate P1
-		dnRequest("set",[self,"WWWAuthenticate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WWWAuthenticate",P1])
 		return self
 
 	Func getXContentTypeOptions
-		return dnRequest("get",[self,"XContentTypeOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XContentTypeOptions"])
 
 	Func setXContentTypeOptions P1
-		dnRequest("set",[self,"XContentTypeOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XContentTypeOptions",P1])
 		return self
 
 	Func getXFrameOptions
-		return dnRequest("get",[self,"XFrameOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XFrameOptions"])
 
 	Func setXFrameOptions P1
-		dnRequest("set",[self,"XFrameOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XFrameOptions",P1])
 		return self
 
 	Func getXPoweredBy
-		return dnRequest("get",[self,"XPoweredBy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XPoweredBy"])
 
 	Func setXPoweredBy P1
-		dnRequest("set",[self,"XPoweredBy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XPoweredBy",P1])
 		return self
 
 	Func getXRequestedWith
-		return dnRequest("get",[self,"XRequestedWith"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XRequestedWith"])
 
 	Func setXRequestedWith P1
-		dnRequest("set",[self,"XRequestedWith",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XRequestedWith",P1])
 		return self
 
 	Func getXUACompatible
-		return dnRequest("get",[self,"XUACompatible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XUACompatible"])
 
 	Func setXUACompatible P1
-		dnRequest("set",[self,"XUACompatible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XUACompatible",P1])
 		return self
 
 	Func getXXSSProtection
-		return dnRequest("get",[self,"XXSSProtection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XXSSProtection"])
 
 	Func setXXSSProtection P1
-		dnRequest("set",[self,"XXSSProtection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XXSSProtection",P1])
 		return self
 

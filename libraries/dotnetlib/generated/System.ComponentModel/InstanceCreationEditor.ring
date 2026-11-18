@@ -16,13 +16,13 @@ Class InstanceCreationEditor from Object
 		return self
 
 	Func CreateInstance P1,P2
-		return dnRequest("call",[self,"CreateInstance",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")

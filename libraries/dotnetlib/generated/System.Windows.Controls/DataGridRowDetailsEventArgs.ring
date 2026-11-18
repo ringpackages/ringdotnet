@@ -18,13 +18,13 @@ Class DataGridRowDetailsEventArgs from EventArgs
 		return self
 
 	Func getDetailsElement
-		return dnRequest("get",[self,"DetailsElement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DetailsElement"])
 
 	Func setDetailsElement P1
 		raise("DotNet Error: DetailsElement is a read-only property")
 
 	Func getRow
-		return dnRequest("get",[self,"Row"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")

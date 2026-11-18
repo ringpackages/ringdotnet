@@ -19,36 +19,36 @@ Class ParallelLoopState from Object
 		return self
 
 	Func Stop 
-		dnRequest("call",[self,"Stop"])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
 		return self
 
 	Func Break_ 
-		dnRequest("call",[self,"Break"])
+		dnRequest("call",[new DotNetObject(nHandle),"Break"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getShouldExitCurrentIteration
-		return dnRequest("get",[self,"ShouldExitCurrentIteration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShouldExitCurrentIteration"])
 
 	Func setShouldExitCurrentIteration P1
 		raise("DotNet Error: ShouldExitCurrentIteration is a read-only property")
 
 	Func getIsStopped
-		return dnRequest("get",[self,"IsStopped"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsStopped"])
 
 	Func setIsStopped P1
 		raise("DotNet Error: IsStopped is a read-only property")
 
 	Func getIsExceptional
-		return dnRequest("get",[self,"IsExceptional"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsExceptional"])
 
 	Func setIsExceptional P1
 		raise("DotNet Error: IsExceptional is a read-only property")
 
 	Func getLowestBreakIteration
-		return dnRequest("get",[self,"LowestBreakIteration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LowestBreakIteration"])
 
 	Func setLowestBreakIteration P1
 		raise("DotNet Error: LowestBreakIteration is a read-only property")

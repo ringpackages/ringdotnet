@@ -16,15 +16,15 @@ Class IFilterProvider from DotNetObject
 		return self
 
 	Func OnProvidersExecuting P1
-		dnRequest("call",[self,"OnProvidersExecuting",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnProvidersExecuting",P1])
 		return self
 
 	Func OnProvidersExecuted P1
-		dnRequest("call",[self,"OnProvidersExecuted",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnProvidersExecuted",P1])
 		return self
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")

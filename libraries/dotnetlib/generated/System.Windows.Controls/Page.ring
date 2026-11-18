@@ -37,108 +37,108 @@ Class Page from FrameworkElement
 		return self
 
 	Func ShouldSerializeWindowTitle 
-		return dnRequest("call",[self,"ShouldSerializeWindowTitle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeWindowTitle"])
 
 	Func ShouldSerializeWindowHeight 
-		return dnRequest("call",[self,"ShouldSerializeWindowHeight"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeWindowHeight"])
 
 	Func ShouldSerializeWindowWidth 
-		return dnRequest("call",[self,"ShouldSerializeWindowWidth"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeWindowWidth"])
 
 	Func ShouldSerializeTitle 
-		return dnRequest("call",[self,"ShouldSerializeTitle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeTitle"])
 
 	Func ShouldSerializeShowsNavigationUI 
-		return dnRequest("call",[self,"ShouldSerializeShowsNavigationUI"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeShowsNavigationUI"])
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
 
 	Func setContent P1
-		dnRequest("set",[self,"Content",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
 		return self
 
 	Func getWindowTitle
-		return dnRequest("get",[self,"WindowTitle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WindowTitle"])
 
 	Func setWindowTitle P1
-		dnRequest("set",[self,"WindowTitle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WindowTitle",P1])
 		return self
 
 	Func getWindowHeight
-		return dnRequest("get",[self,"WindowHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WindowHeight"])
 
 	Func setWindowHeight P1
-		dnRequest("set",[self,"WindowHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WindowHeight",P1])
 		return self
 
 	Func getWindowWidth
-		return dnRequest("get",[self,"WindowWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WindowWidth"])
 
 	Func setWindowWidth P1
-		dnRequest("set",[self,"WindowWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WindowWidth",P1])
 		return self
 
 	Func getBackground
-		return dnRequest("get",[self,"Background"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[self,"Background",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
 		return self
 
 	Func getTitle
-		return dnRequest("get",[self,"Title"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Title"])
 
 	Func setTitle P1
-		dnRequest("set",[self,"Title",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Title",P1])
 		return self
 
 	Func getShowsNavigationUI
-		return dnRequest("get",[self,"ShowsNavigationUI"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowsNavigationUI"])
 
 	Func setShowsNavigationUI P1
-		dnRequest("set",[self,"ShowsNavigationUI",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowsNavigationUI",P1])
 		return self
 
 	Func getKeepAlive
-		return dnRequest("get",[self,"KeepAlive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlive"])
 
 	Func setKeepAlive P1
-		dnRequest("set",[self,"KeepAlive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAlive",P1])
 		return self
 
 	Func getNavigationService
-		return dnRequest("get",[self,"NavigationService"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NavigationService"])
 
 	Func setNavigationService P1
 		raise("DotNet Error: NavigationService is a read-only property")
 
 	Func getForeground
-		return dnRequest("get",[self,"Foreground"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Foreground"])
 
 	Func setForeground P1
-		dnRequest("set",[self,"Foreground",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Foreground",P1])
 		return self
 
 	Func getFontFamily
-		return dnRequest("get",[self,"FontFamily"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontFamily"])
 
 	Func setFontFamily P1
-		dnRequest("set",[self,"FontFamily",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontFamily",P1])
 		return self
 
 	Func getFontSize
-		return dnRequest("get",[self,"FontSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontSize"])
 
 	Func setFontSize P1
-		dnRequest("set",[self,"FontSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontSize",P1])
 		return self
 
 	Func getTemplate
-		return dnRequest("get",[self,"Template"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Template"])
 
 	Func setTemplate P1
-		dnRequest("set",[self,"Template",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Template",P1])
 		return self
 
 	Func getContentProperty

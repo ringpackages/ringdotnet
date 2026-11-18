@@ -32,36 +32,36 @@ Class EncoderParameter from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEncoder
-		return dnRequest("get",[self,"Encoder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Encoder"])
 
 	Func setEncoder P1
-		dnRequest("set",[self,"Encoder",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Encoder",P1])
 		return self
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getValueType
-		return dnRequest("get",[self,"ValueType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueType"])
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getNumberOfValues
-		return dnRequest("get",[self,"NumberOfValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NumberOfValues"])
 
 	Func setNumberOfValues P1
 		raise("DotNet Error: NumberOfValues is a read-only property")

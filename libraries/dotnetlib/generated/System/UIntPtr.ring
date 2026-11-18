@@ -24,22 +24,22 @@ Class UIntPtr from ValueType
 		return self
 
 	Func ToUInt32 
-		return dnRequest("call",[self,"ToUInt32"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUInt32"])
 
 	Func ToUInt64 
-		return dnRequest("call",[self,"ToUInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUInt64"])
 
 	Func ToPointer 
-		return dnRequest("call",[self,"ToPointer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToPointer"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Add",P1,P2])

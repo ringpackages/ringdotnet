@@ -14,7 +14,7 @@ Class ClaimActionCollectionMapExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func MapJsonKey P1,P2,P3
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonKey",P1,P2,P3])

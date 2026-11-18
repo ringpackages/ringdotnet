@@ -18,57 +18,57 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func NextSubpath P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"NextSubpath",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NextSubpath",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"NextSubpath"])
+			return dnRequest("call",[new DotNetObject(nHandle),"NextSubpath"])
 		ok
-		return dnRequest("call",[self,"NextSubpath",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextSubpath",P1])
 
 	Func NextSubpath_1 P1
-		return dnRequest("call",[self,"NextSubpath",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextSubpath",P1])
 
 	Func NextPathType 
-		return dnRequest("call",[self,"NextPathType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextPathType"])
 
 	Func NextMarker P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"NextMarker",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NextMarker",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"NextMarker"])
+			return dnRequest("call",[new DotNetObject(nHandle),"NextMarker"])
 		ok
-		return dnRequest("call",[self,"NextMarker",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextMarker",P1])
 
 	Func NextMarker_1 P1
-		return dnRequest("call",[self,"NextMarker",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextMarker",P1])
 
 	Func HasCurve 
-		return dnRequest("call",[self,"HasCurve"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasCurve"])
 
 	Func Rewind 
-		dnRequest("call",[self,"Rewind"])
+		dnRequest("call",[new DotNetObject(nHandle),"Rewind"])
 		return self
 
 	Func Enumerate P1,P2
-		return dnRequest("call",[self,"Enumerate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Enumerate",P1,P2])
 
 	Func CopyData P1,P2,P3,P4
-		return dnRequest("call",[self,"CopyData",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyData",P1,P2,P3,P4])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSubpathCount
-		return dnRequest("get",[self,"SubpathCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubpathCount"])
 
 	Func setSubpathCount P1
 		raise("DotNet Error: SubpathCount is a read-only property")

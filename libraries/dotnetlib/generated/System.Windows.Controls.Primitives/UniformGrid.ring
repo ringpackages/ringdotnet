@@ -22,24 +22,24 @@ Class UniformGrid from WpfPanel
 		return self
 
 	Func getFirstColumn
-		return dnRequest("get",[self,"FirstColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstColumn"])
 
 	Func setFirstColumn P1
-		dnRequest("set",[self,"FirstColumn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FirstColumn",P1])
 		return self
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
-		dnRequest("set",[self,"Columns",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Columns",P1])
 		return self
 
 	Func getRows
-		return dnRequest("get",[self,"Rows"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rows"])
 
 	Func setRows P1
-		dnRequest("set",[self,"Rows",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Rows",P1])
 		return self
 
 	Func getFirstColumnProperty

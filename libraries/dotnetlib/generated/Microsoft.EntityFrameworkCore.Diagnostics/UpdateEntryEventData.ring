@@ -17,7 +17,7 @@ Class UpdateEntryEventData from DbContextEventData
 		return self
 
 	Func getEntityEntry
-		return dnRequest("get",[self,"EntityEntry"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityEntry"])
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")

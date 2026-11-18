@@ -33,179 +33,179 @@ Class MediaPlayer from Animatable
 		return self
 
 	Func Open P1
-		dnRequest("call",[self,"Open",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Open",P1])
 		return self
 
 	Func Play 
-		dnRequest("call",[self,"Play"])
+		dnRequest("call",[new DotNetObject(nHandle),"Play"])
 		return self
 
 	Func Pause 
-		dnRequest("call",[self,"Pause"])
+		dnRequest("call",[new DotNetObject(nHandle),"Pause"])
 		return self
 
 	Func Stop 
-		dnRequest("call",[self,"Stop"])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func setMediaFailedEvent P1
-		dnRequest("setevent",[self,"MediaFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MediaFailed",dnCallback(P1)])
 		return self
 
 	Func clearMediaFailedEvent
-		dnRequest("clearevent",[self,"MediaFailed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MediaFailed"])
 		return self
 
 	Func setMediaOpenedEvent P1
-		dnRequest("setevent",[self,"MediaOpened",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MediaOpened",dnCallback(P1)])
 		return self
 
 	Func clearMediaOpenedEvent
-		dnRequest("clearevent",[self,"MediaOpened"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MediaOpened"])
 		return self
 
 	Func setMediaEndedEvent P1
-		dnRequest("setevent",[self,"MediaEnded",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"MediaEnded",dnCallback(P1)])
 		return self
 
 	Func clearMediaEndedEvent
-		dnRequest("clearevent",[self,"MediaEnded"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"MediaEnded"])
 		return self
 
 	Func setBufferingStartedEvent P1
-		dnRequest("setevent",[self,"BufferingStarted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BufferingStarted",dnCallback(P1)])
 		return self
 
 	Func clearBufferingStartedEvent
-		dnRequest("clearevent",[self,"BufferingStarted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BufferingStarted"])
 		return self
 
 	Func setBufferingEndedEvent P1
-		dnRequest("setevent",[self,"BufferingEnded",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BufferingEnded",dnCallback(P1)])
 		return self
 
 	Func clearBufferingEndedEvent
-		dnRequest("clearevent",[self,"BufferingEnded"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BufferingEnded"])
 		return self
 
 	Func setScriptCommandEvent P1
-		dnRequest("setevent",[self,"ScriptCommand",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ScriptCommand",dnCallback(P1)])
 		return self
 
 	Func clearScriptCommandEvent
-		dnRequest("clearevent",[self,"ScriptCommand"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ScriptCommand"])
 		return self
 
 	Func getIsBuffering
-		return dnRequest("get",[self,"IsBuffering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBuffering"])
 
 	Func setIsBuffering P1
 		raise("DotNet Error: IsBuffering is a read-only property")
 
 	Func getCanPause
-		return dnRequest("get",[self,"CanPause"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanPause"])
 
 	Func setCanPause P1
 		raise("DotNet Error: CanPause is a read-only property")
 
 	Func getDownloadProgress
-		return dnRequest("get",[self,"DownloadProgress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DownloadProgress"])
 
 	Func setDownloadProgress P1
 		raise("DotNet Error: DownloadProgress is a read-only property")
 
 	Func getBufferingProgress
-		return dnRequest("get",[self,"BufferingProgress"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BufferingProgress"])
 
 	Func setBufferingProgress P1
 		raise("DotNet Error: BufferingProgress is a read-only property")
 
 	Func getNaturalVideoHeight
-		return dnRequest("get",[self,"NaturalVideoHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NaturalVideoHeight"])
 
 	Func setNaturalVideoHeight P1
 		raise("DotNet Error: NaturalVideoHeight is a read-only property")
 
 	Func getNaturalVideoWidth
-		return dnRequest("get",[self,"NaturalVideoWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NaturalVideoWidth"])
 
 	Func setNaturalVideoWidth P1
 		raise("DotNet Error: NaturalVideoWidth is a read-only property")
 
 	Func getHasAudio
-		return dnRequest("get",[self,"HasAudio"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasAudio"])
 
 	Func setHasAudio P1
 		raise("DotNet Error: HasAudio is a read-only property")
 
 	Func getHasVideo
-		return dnRequest("get",[self,"HasVideo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasVideo"])
 
 	Func setHasVideo P1
 		raise("DotNet Error: HasVideo is a read-only property")
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")
 
 	Func getVolume
-		return dnRequest("get",[self,"Volume"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Volume"])
 
 	Func setVolume P1
-		dnRequest("set",[self,"Volume",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Volume",P1])
 		return self
 
 	Func getBalance
-		return dnRequest("get",[self,"Balance"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Balance"])
 
 	Func setBalance P1
-		dnRequest("set",[self,"Balance",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Balance",P1])
 		return self
 
 	Func getScrubbingEnabled
-		return dnRequest("get",[self,"ScrubbingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScrubbingEnabled"])
 
 	Func setScrubbingEnabled P1
-		dnRequest("set",[self,"ScrubbingEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScrubbingEnabled",P1])
 		return self
 
 	Func getIsMuted
-		return dnRequest("get",[self,"IsMuted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMuted"])
 
 	Func setIsMuted P1
-		dnRequest("set",[self,"IsMuted",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsMuted",P1])
 		return self
 
 	Func getNaturalDuration
-		return dnRequest("get",[self,"NaturalDuration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NaturalDuration"])
 
 	Func setNaturalDuration P1
 		raise("DotNet Error: NaturalDuration is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[self,"Position"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[self,"Position",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
 		return self
 
 	Func getSpeedRatio
-		return dnRequest("get",[self,"SpeedRatio"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SpeedRatio"])
 
 	Func setSpeedRatio P1
-		dnRequest("set",[self,"SpeedRatio",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SpeedRatio",P1])
 		return self
 
 	Func getClock
-		return dnRequest("get",[self,"Clock"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Clock"])
 
 	Func setClock P1
-		dnRequest("set",[self,"Clock",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Clock",P1])
 		return self
 

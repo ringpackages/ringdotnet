@@ -21,37 +21,37 @@ Class AuthenticatedStream from Stream
 		return self
 
 	Func getLeaveInnerStreamOpen
-		return dnRequest("get",[self,"LeaveInnerStreamOpen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LeaveInnerStreamOpen"])
 
 	Func setLeaveInnerStreamOpen P1
 		raise("DotNet Error: LeaveInnerStreamOpen is a read-only property")
 
 	Func getIsAuthenticated
-		return dnRequest("get",[self,"IsAuthenticated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAuthenticated"])
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dnRequest("get",[self,"IsMutuallyAuthenticated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMutuallyAuthenticated"])
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsEncrypted
-		return dnRequest("get",[self,"IsEncrypted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEncrypted"])
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsSigned
-		return dnRequest("get",[self,"IsSigned"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSigned"])
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsServer
-		return dnRequest("get",[self,"IsServer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsServer"])
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")

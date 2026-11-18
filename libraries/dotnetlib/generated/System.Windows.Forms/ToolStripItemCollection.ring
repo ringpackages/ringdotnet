@@ -16,55 +16,55 @@ Class ToolStripItemCollection from ArrangedElementCollection
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func Add_2 P1,P2
-		return dnRequest("call",[self,"Add",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Add_3 P1,P2,P3
-		return dnRequest("call",[self,"Add",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 
 	Func AddRange P1
-		dnRequest("call",[self,"AddRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[self,"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
 
 	Func Find P1,P2
-		return dnRequest("call",[self,"Find",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
 
 	Func Insert P1,P2
-		dnRequest("call",[self,"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[self,"IndexOfKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func RemoveByKey P1
-		dnRequest("call",[self,"RemoveByKey",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveByKey",P1])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 

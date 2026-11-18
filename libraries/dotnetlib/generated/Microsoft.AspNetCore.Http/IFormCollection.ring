@@ -18,28 +18,28 @@ Class IFormCollection from DotNetObject
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[self,"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
 
 	Func TryGetValue P1
-		return dnRequest("call",[self,"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getFiles
-		return dnRequest("get",[self,"Files"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Files"])
 
 	Func setFiles P1
 		raise("DotNet Error: Files is a read-only property")

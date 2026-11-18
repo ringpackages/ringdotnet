@@ -22,7 +22,7 @@ Class AspRangeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -31,14 +31,14 @@ Class AspRangeHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers'),"TryParse",P1])
 
 	Func getUnit
-		return dnRequest("get",[self,"Unit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Unit"])
 
 	Func setUnit P1
-		dnRequest("set",[self,"Unit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Unit",P1])
 		return self
 
 	Func getRanges
-		return dnRequest("get",[self,"Ranges"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Ranges"])
 
 	Func setRanges P1
 		raise("DotNet Error: Ranges is a read-only property")

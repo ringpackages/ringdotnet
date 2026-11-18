@@ -19,35 +19,35 @@ Class XmlSchemaImporter from SchemaImporter
 		return self
 
 	Func ImportDerivedTypeMapping P1,P2
-		return dnRequest("call",[self,"ImportDerivedTypeMapping",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportDerivedTypeMapping",P1,P2])
 
 	Func ImportDerivedTypeMapping_3 P1,P2,P3
-		return dnRequest("call",[self,"ImportDerivedTypeMapping",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportDerivedTypeMapping",P1,P2,P3])
 
 	Func ImportSchemaType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ImportSchemaType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportSchemaType",P1])
 		ok
-		return dnRequest("call",[self,"ImportSchemaType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportSchemaType",P1])
 
 	Func ImportSchemaType_2 P1,P2
-		return dnRequest("call",[self,"ImportSchemaType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportSchemaType",P1,P2])
 
 	Func ImportSchemaType_3 P1,P2,P3
-		return dnRequest("call",[self,"ImportSchemaType",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportSchemaType",P1,P2,P3])
 
 	Func ImportTypeMapping P1
-		return dnRequest("call",[self,"ImportTypeMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
 
 	Func ImportMembersMapping P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ImportMembersMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportMembersMapping",P1])
 		ok
-		return dnRequest("call",[self,"ImportMembersMapping",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1])
 
 	Func ImportAnyType P1,P2
-		return dnRequest("call",[self,"ImportAnyType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportAnyType",P1,P2])
 
 	Func ImportMembersMapping_3 P1,P2,P3
-		return dnRequest("call",[self,"ImportMembersMapping",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3])
 

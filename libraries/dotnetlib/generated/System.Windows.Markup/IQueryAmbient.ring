@@ -14,5 +14,5 @@ Class IQueryAmbient from DotNetObject
 		return self
 
 	Func IsAmbientPropertyAvailable P1
-		return dnRequest("call",[self,"IsAmbientPropertyAvailable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAmbientPropertyAvailable",P1])
 

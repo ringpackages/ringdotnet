@@ -14,5 +14,5 @@ Class ICredentialPolicy from DotNetObject
 		return self
 
 	Func ShouldSendCredential P1,P2,P3,P4
-		return dnRequest("call",[self,"ShouldSendCredential",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSendCredential",P1,P2,P3,P4])
 

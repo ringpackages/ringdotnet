@@ -16,10 +16,10 @@ Class IHttpWebSocketFeature from DotNetObject
 		return self
 
 	Func AcceptAsync P1
-		return dnRequest("call",[self,"AcceptAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync",P1])
 
 	Func getIsWebSocketRequest
-		return dnRequest("get",[self,"IsWebSocketRequest"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsWebSocketRequest"])
 
 	Func setIsWebSocketRequest P1
 		raise("DotNet Error: IsWebSocketRequest is a read-only property")

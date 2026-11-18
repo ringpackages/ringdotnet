@@ -25,32 +25,32 @@ Class TraceSwitch from Switch_
 		return self
 
 	Func getLevel
-		return dnRequest("get",[self,"Level"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Level"])
 
 	Func setLevel P1
-		dnRequest("set",[self,"Level",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Level",P1])
 		return self
 
 	Func getTraceError
-		return dnRequest("get",[self,"TraceError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TraceError"])
 
 	Func setTraceError P1
 		raise("DotNet Error: TraceError is a read-only property")
 
 	Func getTraceWarning
-		return dnRequest("get",[self,"TraceWarning"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TraceWarning"])
 
 	Func setTraceWarning P1
 		raise("DotNet Error: TraceWarning is a read-only property")
 
 	Func getTraceInfo
-		return dnRequest("get",[self,"TraceInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TraceInfo"])
 
 	Func setTraceInfo P1
 		raise("DotNet Error: TraceInfo is a read-only property")
 
 	Func getTraceVerbose
-		return dnRequest("get",[self,"TraceVerbose"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TraceVerbose"])
 
 	Func setTraceVerbose P1
 		raise("DotNet Error: TraceVerbose is a read-only property")

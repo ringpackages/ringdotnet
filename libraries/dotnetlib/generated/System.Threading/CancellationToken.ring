@@ -25,37 +25,37 @@ Class CancellationToken from ValueType
 
 	Func Register P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Register",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Register",P1])
 		ok
-		return dnRequest("call",[self,"Register",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Register",P1])
 
 	Func Register_2 P1,P2
-		return dnRequest("call",[self,"Register",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Register",P1,P2])
 
 	Func Register_3 P1,P2,P3
-		return dnRequest("call",[self,"Register",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Register",P1,P2,P3])
 
 	Func UnsafeRegister P1,P2
-		return dnRequest("call",[self,"UnsafeRegister",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UnsafeRegister",P1,P2])
 
 	Func ThrowIfCancellationRequested 
-		dnRequest("call",[self,"ThrowIfCancellationRequested"])
+		dnRequest("call",[new DotNetObject(nHandle),"ThrowIfCancellationRequested"])
 		return self
 
 	Func getIsCancellationRequested
-		return dnRequest("get",[self,"IsCancellationRequested"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCancellationRequested"])
 
 	Func setIsCancellationRequested P1
 		raise("DotNet Error: IsCancellationRequested is a read-only property")
 
 	Func getCanBeCanceled
-		return dnRequest("get",[self,"CanBeCanceled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanBeCanceled"])
 
 	Func setCanBeCanceled P1
 		raise("DotNet Error: CanBeCanceled is a read-only property")
 
 	Func getWaitHandle
-		return dnRequest("get",[self,"WaitHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WaitHandle"])
 
 	Func setWaitHandle P1
 		raise("DotNet Error: WaitHandle is a read-only property")

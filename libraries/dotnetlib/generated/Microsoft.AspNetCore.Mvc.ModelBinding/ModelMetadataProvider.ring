@@ -14,26 +14,26 @@ Class ModelMetadataProvider from Object
 		return self
 
 	Func GetMetadataForProperties P1
-		return dnRequest("call",[self,"GetMetadataForProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForProperties",P1])
 
 	Func GetMetadataForType P1
-		return dnRequest("call",[self,"GetMetadataForType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForType",P1])
 
 	Func GetMetadataForParameter P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetMetadataForParameter",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetMetadataForParameter",P1])
 		ok
-		return dnRequest("call",[self,"GetMetadataForParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForParameter",P1])
 
 	Func GetMetadataForParameter_2 P1,P2
-		return dnRequest("call",[self,"GetMetadataForParameter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForParameter",P1,P2])
 
 	Func GetMetadataForProperty P1,P2
-		return dnRequest("call",[self,"GetMetadataForProperty",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForProperty",P1,P2])
 
 	Func GetMetadataForConstructor P1,P2
-		return dnRequest("call",[self,"GetMetadataForConstructor",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForConstructor",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

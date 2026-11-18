@@ -19,19 +19,19 @@ Class ToolStripItemRenderEventArgs from EventArgs
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getItem
-		return dnRequest("get",[self,"Item"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getToolStrip
-		return dnRequest("get",[self,"ToolStrip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToolStrip"])
 
 	Func setToolStrip P1
 		raise("DotNet Error: ToolStrip is a read-only property")

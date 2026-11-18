@@ -16,10 +16,10 @@ Class IDataErrorInfo from DotNetObject
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getError
-		return dnRequest("get",[self,"Error"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Error"])
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")

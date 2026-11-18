@@ -14,5 +14,5 @@ Class IServiceScopeFactory from DotNetObject
 		return self
 
 	Func CreateScope 
-		return dnRequest("call",[self,"CreateScope"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateScope"])
 

@@ -14,17 +14,17 @@ Class ConfigureWebHostBuilder from Object
 		return self
 
 	Func ConfigureAppConfiguration P1
-		return dnRequest("call",[self,"ConfigureAppConfiguration",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureAppConfiguration",P1])
 
 	Func ConfigureServices P1
-		return dnRequest("call",[self,"ConfigureServices",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
 
 	Func GetSetting P1
-		return dnRequest("call",[self,"GetSetting",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSetting",P1])
 
 	Func UseSetting P1,P2
-		return dnRequest("call",[self,"UseSetting",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseSetting",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

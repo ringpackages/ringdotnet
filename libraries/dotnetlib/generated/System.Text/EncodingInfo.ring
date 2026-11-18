@@ -19,25 +19,25 @@ Class EncodingInfo from Object
 		return self
 
 	Func GetEncoding 
-		return dnRequest("call",[self,"GetEncoding"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoding"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCodePage
-		return dnRequest("get",[self,"CodePage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CodePage"])
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")

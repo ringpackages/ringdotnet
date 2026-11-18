@@ -22,42 +22,42 @@ Class HashAlgorithm from Object
 
 	Func ComputeHash P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ComputeHash",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ComputeHash",P1])
 		ok
-		return dnRequest("call",[self,"ComputeHash",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComputeHash",P1])
 
 	Func ComputeHash_3 P1,P2,P3
-		return dnRequest("call",[self,"ComputeHash",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComputeHash",P1,P2,P3])
 
 	Func ComputeHashAsync_2 P1,P2
-		return dnRequest("call",[self,"ComputeHashAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComputeHashAsync",P1,P2])
 
 	Func ComputeHashAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ComputeHashAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ComputeHashAsync",P1])
 		ok
-		return dnRequest("call",[self,"ComputeHashAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ComputeHashAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func TransformBlock P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"TransformBlock",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformBlock",P1,P2,P3,P4,P5])
 
 	Func TransformFinalBlock P1,P2,P3
-		return dnRequest("call",[self,"TransformFinalBlock",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformFinalBlock",P1,P2,P3])
 
 	Func Initialize 
-		dnRequest("call",[self,"Initialize"])
+		dnRequest("call",[new DotNetObject(nHandle),"Initialize"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -72,37 +72,37 @@ Class HashAlgorithm from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getHashSize
-		return dnRequest("get",[self,"HashSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashSize"])
 
 	Func setHashSize P1
 		raise("DotNet Error: HashSize is a read-only property")
 
 	Func getHash
-		return dnRequest("get",[self,"Hash"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Hash"])
 
 	Func setHash P1
 		raise("DotNet Error: Hash is a read-only property")
 
 	Func getInputBlockSize
-		return dnRequest("get",[self,"InputBlockSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InputBlockSize"])
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dnRequest("get",[self,"OutputBlockSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OutputBlockSize"])
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dnRequest("get",[self,"CanTransformMultipleBlocks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanTransformMultipleBlocks"])
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dnRequest("get",[self,"CanReuseTransform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanReuseTransform"])
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")

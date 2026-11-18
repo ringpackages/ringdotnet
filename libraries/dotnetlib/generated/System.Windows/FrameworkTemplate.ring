@@ -20,58 +20,58 @@ Class FrameworkTemplate from DispatcherObject
 		return self
 
 	Func ShouldSerializeVisualTree 
-		return dnRequest("call",[self,"ShouldSerializeVisualTree"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeVisualTree"])
 
 	Func FindName P1,P2
-		return dnRequest("call",[self,"FindName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindName",P1,P2])
 
 	Func RegisterName P1,P2
-		dnRequest("call",[self,"RegisterName",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterName",P1,P2])
 		return self
 
 	Func UnregisterName P1
-		dnRequest("call",[self,"UnregisterName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"UnregisterName",P1])
 		return self
 
 	Func Seal 
-		dnRequest("call",[self,"Seal"])
+		dnRequest("call",[new DotNetObject(nHandle),"Seal"])
 		return self
 
 	Func LoadContent 
-		return dnRequest("call",[self,"LoadContent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadContent"])
 
 	Func ShouldSerializeResources P1
-		return dnRequest("call",[self,"ShouldSerializeResources",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeResources",P1])
 
 	Func getIsSealed
-		return dnRequest("get",[self,"IsSealed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSealed"])
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getVisualTree
-		return dnRequest("get",[self,"VisualTree"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VisualTree"])
 
 	Func setVisualTree P1
-		dnRequest("set",[self,"VisualTree",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VisualTree",P1])
 		return self
 
 	Func getTemplate
-		return dnRequest("get",[self,"Template"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Template"])
 
 	Func setTemplate P1
-		dnRequest("set",[self,"Template",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Template",P1])
 		return self
 
 	Func getResources
-		return dnRequest("get",[self,"Resources"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Resources"])
 
 	Func setResources P1
-		dnRequest("set",[self,"Resources",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Resources",P1])
 		return self
 
 	Func getHasContent
-		return dnRequest("get",[self,"HasContent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasContent"])
 
 	Func setHasContent P1
 		raise("DotNet Error: HasContent is a read-only property")

@@ -22,13 +22,13 @@ Class DbContextId from ValueType
 		return self
 
 	Func getInstanceId
-		return dnRequest("get",[self,"InstanceId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InstanceId"])
 
 	Func setInstanceId P1
 		raise("DotNet Error: InstanceId is a read-only property")
 
 	Func getLease
-		return dnRequest("get",[self,"Lease"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Lease"])
 
 	Func setLease P1
 		raise("DotNet Error: Lease is a read-only property")

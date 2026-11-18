@@ -39,16 +39,16 @@ Class IPAddress from Object
 		return self
 
 	Func GetAddressBytes 
-		return dnRequest("call",[self,"GetAddressBytes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAddressBytes"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func MapToIPv6 
-		return dnRequest("call",[self,"MapToIPv6"])
+		return dnRequest("call",[new DotNetObject(nHandle),"MapToIPv6"])
 
 	Func MapToIPv4 
-		return dnRequest("call",[self,"MapToIPv4"])
+		return dnRequest("call",[new DotNetObject(nHandle),"MapToIPv4"])
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Net.IPAddress, System.Net.Primitives'),"TryParse",P1])
@@ -66,59 +66,59 @@ Class IPAddress from Object
 		return dnRequest("call",[dnTypeCached('System.Net.IPAddress, System.Net.Primitives'),"IsLoopback",P1])
 
 	Func getAddressFamily
-		return dnRequest("get",[self,"AddressFamily"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddressFamily"])
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")
 
 	Func getScopeId
-		return dnRequest("get",[self,"ScopeId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScopeId"])
 
 	Func setScopeId P1
-		dnRequest("set",[self,"ScopeId",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScopeId",P1])
 		return self
 
 	Func getIsIPv6Multicast
-		return dnRequest("get",[self,"IsIPv6Multicast"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIPv6Multicast"])
 
 	Func setIsIPv6Multicast P1
 		raise("DotNet Error: IsIPv6Multicast is a read-only property")
 
 	Func getIsIPv6LinkLocal
-		return dnRequest("get",[self,"IsIPv6LinkLocal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIPv6LinkLocal"])
 
 	Func setIsIPv6LinkLocal P1
 		raise("DotNet Error: IsIPv6LinkLocal is a read-only property")
 
 	Func getIsIPv6SiteLocal
-		return dnRequest("get",[self,"IsIPv6SiteLocal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIPv6SiteLocal"])
 
 	Func setIsIPv6SiteLocal P1
 		raise("DotNet Error: IsIPv6SiteLocal is a read-only property")
 
 	Func getIsIPv6Teredo
-		return dnRequest("get",[self,"IsIPv6Teredo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIPv6Teredo"])
 
 	Func setIsIPv6Teredo P1
 		raise("DotNet Error: IsIPv6Teredo is a read-only property")
 
 	Func getIsIPv6UniqueLocal
-		return dnRequest("get",[self,"IsIPv6UniqueLocal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIPv6UniqueLocal"])
 
 	Func setIsIPv6UniqueLocal P1
 		raise("DotNet Error: IsIPv6UniqueLocal is a read-only property")
 
 	Func getIsIPv4MappedToIPv6
-		return dnRequest("get",[self,"IsIPv4MappedToIPv6"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIPv4MappedToIPv6"])
 
 	Func setIsIPv4MappedToIPv6 P1
 		raise("DotNet Error: IsIPv4MappedToIPv6 is a read-only property")
 
 	Func getAddress
-		return dnRequest("get",[self,"Address"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
 
 	Func setAddress P1
-		dnRequest("set",[self,"Address",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Address",P1])
 		return self
 
 	Func getAny

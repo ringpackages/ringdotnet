@@ -27,36 +27,36 @@ Class CancellationTokenSource from Object
 
 	Func Cancel P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Cancel",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Cancel",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Cancel"])
+			dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
 		return self
 		ok
-		dnRequest("call",[self,"Cancel",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Cancel",P1])
 		return self
 
 	Func Cancel_1 P1
-		dnRequest("call",[self,"Cancel",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Cancel",P1])
 		return self
 
 	Func CancelAsync 
-		return dnRequest("call",[self,"CancelAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CancelAsync"])
 
 	Func CancelAfter P1
-		dnRequest("call",[self,"CancelAfter",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelAfter",P1])
 		return self
 
 	Func TryReset 
-		return dnRequest("call",[self,"TryReset"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryReset"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateLinkedTokenSource_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.CancellationTokenSource, System.Private.CoreLib'),"CreateLinkedTokenSource",P1,P2])
@@ -68,13 +68,13 @@ Class CancellationTokenSource from Object
 		return dnRequest("call",[dnTypeCached('System.Threading.CancellationTokenSource, System.Private.CoreLib'),"CreateLinkedTokenSource",P1])
 
 	Func getIsCancellationRequested
-		return dnRequest("get",[self,"IsCancellationRequested"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCancellationRequested"])
 
 	Func setIsCancellationRequested P1
 		raise("DotNet Error: IsCancellationRequested is a read-only property")
 
 	Func getToken
-		return dnRequest("get",[self,"Token"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Token"])
 
 	Func setToken P1
 		raise("DotNet Error: Token is a read-only property")

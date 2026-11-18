@@ -31,115 +31,115 @@ Class FontDialog from CommonDialog
 		return self
 
 	Func setApplyEvent P1
-		dnRequest("setevent",[self,"Apply",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Apply",dnCallback(P1)])
 		return self
 
 	Func clearApplyEvent
-		dnRequest("clearevent",[self,"Apply"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Apply"])
 		return self
 
 	Func getAllowSimulations
-		return dnRequest("get",[self,"AllowSimulations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowSimulations"])
 
 	Func setAllowSimulations P1
-		dnRequest("set",[self,"AllowSimulations",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowSimulations",P1])
 		return self
 
 	Func getAllowVectorFonts
-		return dnRequest("get",[self,"AllowVectorFonts"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowVectorFonts"])
 
 	Func setAllowVectorFonts P1
-		dnRequest("set",[self,"AllowVectorFonts",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowVectorFonts",P1])
 		return self
 
 	Func getAllowVerticalFonts
-		return dnRequest("get",[self,"AllowVerticalFonts"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowVerticalFonts"])
 
 	Func setAllowVerticalFonts P1
-		dnRequest("set",[self,"AllowVerticalFonts",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowVerticalFonts",P1])
 		return self
 
 	Func getAllowScriptChange
-		return dnRequest("get",[self,"AllowScriptChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowScriptChange"])
 
 	Func setAllowScriptChange P1
-		dnRequest("set",[self,"AllowScriptChange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowScriptChange",P1])
 		return self
 
 	Func getColor
-		return dnRequest("get",[self,"Color"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
 
 	Func setColor P1
-		dnRequest("set",[self,"Color",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
 		return self
 
 	Func getFixedPitchOnly
-		return dnRequest("get",[self,"FixedPitchOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FixedPitchOnly"])
 
 	Func setFixedPitchOnly P1
-		dnRequest("set",[self,"FixedPitchOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FixedPitchOnly",P1])
 		return self
 
 	Func getFont
-		return dnRequest("get",[self,"Font"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
 
 	Func setFont P1
-		dnRequest("set",[self,"Font",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Font",P1])
 		return self
 
 	Func getFontMustExist
-		return dnRequest("get",[self,"FontMustExist"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontMustExist"])
 
 	Func setFontMustExist P1
-		dnRequest("set",[self,"FontMustExist",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FontMustExist",P1])
 		return self
 
 	Func getMaxSize
-		return dnRequest("get",[self,"MaxSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxSize"])
 
 	Func setMaxSize P1
-		dnRequest("set",[self,"MaxSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxSize",P1])
 		return self
 
 	Func getMinSize
-		return dnRequest("get",[self,"MinSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinSize"])
 
 	Func setMinSize P1
-		dnRequest("set",[self,"MinSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinSize",P1])
 		return self
 
 	Func getScriptsOnly
-		return dnRequest("get",[self,"ScriptsOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScriptsOnly"])
 
 	Func setScriptsOnly P1
-		dnRequest("set",[self,"ScriptsOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScriptsOnly",P1])
 		return self
 
 	Func getShowApply
-		return dnRequest("get",[self,"ShowApply"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowApply"])
 
 	Func setShowApply P1
-		dnRequest("set",[self,"ShowApply",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowApply",P1])
 		return self
 
 	Func getShowColor
-		return dnRequest("get",[self,"ShowColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowColor"])
 
 	Func setShowColor P1
-		dnRequest("set",[self,"ShowColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowColor",P1])
 		return self
 
 	Func getShowEffects
-		return dnRequest("get",[self,"ShowEffects"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowEffects"])
 
 	Func setShowEffects P1
-		dnRequest("set",[self,"ShowEffects",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowEffects",P1])
 		return self
 
 	Func getShowHelp
-		return dnRequest("get",[self,"ShowHelp"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowHelp"])
 
 	Func setShowHelp P1
-		dnRequest("set",[self,"ShowHelp",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowHelp",P1])
 		return self
 

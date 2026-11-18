@@ -29,16 +29,16 @@ Class FileBufferingWriteStream from Stream
 		return self
 
 	Func DrainBufferAsync_2 P1,P2
-		return dnRequest("call",[self,"DrainBufferAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"DrainBufferAsync",P1,P2])
 
 	Func DrainBufferAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"DrainBufferAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DrainBufferAsync",P1])
 		ok
-		return dnRequest("call",[self,"DrainBufferAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DrainBufferAsync",P1])
 
 	Func getMemoryThreshold
-		return dnRequest("get",[self,"MemoryThreshold"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemoryThreshold"])
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")

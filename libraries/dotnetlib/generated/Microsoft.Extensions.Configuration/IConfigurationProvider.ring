@@ -14,19 +14,19 @@ Class IConfigurationProvider from DotNetObject
 		return self
 
 	Func TryGet P1
-		return dnRequest("call",[self,"TryGet",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGet",P1])
 
 	Func Set_ P1,P2
-		dnRequest("call",[self,"Set",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Set",P1,P2])
 		return self
 
 	Func GetReloadToken 
-		return dnRequest("call",[self,"GetReloadToken"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReloadToken"])
 
 	Func Load_ 
-		dnRequest("call",[self,"Load"])
+		dnRequest("call",[new DotNetObject(nHandle),"Load"])
 		return self
 
 	Func GetChildKeys P1,P2
-		return dnRequest("call",[self,"GetChildKeys",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChildKeys",P1,P2])
 

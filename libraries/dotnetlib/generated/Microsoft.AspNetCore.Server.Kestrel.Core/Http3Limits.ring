@@ -17,12 +17,12 @@ Class Http3Limits from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMaxRequestHeaderFieldSize
-		return dnRequest("get",[self,"MaxRequestHeaderFieldSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestHeaderFieldSize"])
 
 	Func setMaxRequestHeaderFieldSize P1
-		dnRequest("set",[self,"MaxRequestHeaderFieldSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestHeaderFieldSize",P1])
 		return self
 

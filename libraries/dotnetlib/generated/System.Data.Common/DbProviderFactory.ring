@@ -19,58 +19,58 @@ Class DbProviderFactory from Object
 		return self
 
 	Func CreateBatch 
-		return dnRequest("call",[self,"CreateBatch"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateBatch"])
 
 	Func CreateBatchCommand 
-		return dnRequest("call",[self,"CreateBatchCommand"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateBatchCommand"])
 
 	Func CreateCommand 
-		return dnRequest("call",[self,"CreateCommand"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand"])
 
 	Func CreateCommandBuilder 
-		return dnRequest("call",[self,"CreateCommandBuilder"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommandBuilder"])
 
 	Func CreateConnection 
-		return dnRequest("call",[self,"CreateConnection"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateConnection"])
 
 	Func CreateConnectionStringBuilder 
-		return dnRequest("call",[self,"CreateConnectionStringBuilder"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateConnectionStringBuilder"])
 
 	Func CreateDataAdapter 
-		return dnRequest("call",[self,"CreateDataAdapter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataAdapter"])
 
 	Func CreateParameter 
-		return dnRequest("call",[self,"CreateParameter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter"])
 
 	Func CreateDataSourceEnumerator 
-		return dnRequest("call",[self,"CreateDataSourceEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataSourceEnumerator"])
 
 	Func CreateDataSource P1
-		return dnRequest("call",[self,"CreateDataSource",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataSource",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCanCreateBatch
-		return dnRequest("get",[self,"CanCreateBatch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateBatch"])
 
 	Func setCanCreateBatch P1
 		raise("DotNet Error: CanCreateBatch is a read-only property")
 
 	Func getCanCreateDataSourceEnumerator
-		return dnRequest("get",[self,"CanCreateDataSourceEnumerator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateDataSourceEnumerator"])
 
 	Func setCanCreateDataSourceEnumerator P1
 		raise("DotNet Error: CanCreateDataSourceEnumerator is a read-only property")
 
 	Func getCanCreateDataAdapter
-		return dnRequest("get",[self,"CanCreateDataAdapter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateDataAdapter"])
 
 	Func setCanCreateDataAdapter P1
 		raise("DotNet Error: CanCreateDataAdapter is a read-only property")
 
 	Func getCanCreateCommandBuilder
-		return dnRequest("get",[self,"CanCreateCommandBuilder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateCommandBuilder"])
 
 	Func setCanCreateCommandBuilder P1
 		raise("DotNet Error: CanCreateCommandBuilder is a read-only property")

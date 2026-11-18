@@ -44,190 +44,190 @@ Class MvcOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEnableEndpointRouting
-		return dnRequest("get",[self,"EnableEndpointRouting"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableEndpointRouting"])
 
 	Func setEnableEndpointRouting P1
-		dnRequest("set",[self,"EnableEndpointRouting",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableEndpointRouting",P1])
 		return self
 
 	Func getAllowEmptyInputInBodyModelBinding
-		return dnRequest("get",[self,"AllowEmptyInputInBodyModelBinding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowEmptyInputInBodyModelBinding"])
 
 	Func setAllowEmptyInputInBodyModelBinding P1
-		dnRequest("set",[self,"AllowEmptyInputInBodyModelBinding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowEmptyInputInBodyModelBinding",P1])
 		return self
 
 	Func getCacheProfiles
-		return dnRequest("get",[self,"CacheProfiles"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CacheProfiles"])
 
 	Func setCacheProfiles P1
 		raise("DotNet Error: CacheProfiles is a read-only property")
 
 	Func getConventions
-		return dnRequest("get",[self,"Conventions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Conventions"])
 
 	Func setConventions P1
 		raise("DotNet Error: Conventions is a read-only property")
 
 	Func getFilters
-		return dnRequest("get",[self,"Filters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filters"])
 
 	Func setFilters P1
 		raise("DotNet Error: Filters is a read-only property")
 
 	Func getFormatterMappings
-		return dnRequest("get",[self,"FormatterMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatterMappings"])
 
 	Func setFormatterMappings P1
 		raise("DotNet Error: FormatterMappings is a read-only property")
 
 	Func getInputFormatters
-		return dnRequest("get",[self,"InputFormatters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InputFormatters"])
 
 	Func setInputFormatters P1
 		raise("DotNet Error: InputFormatters is a read-only property")
 
 	Func getSuppressImplicitRequiredAttributeForNonNullableReferenceTypes
-		return dnRequest("get",[self,"SuppressImplicitRequiredAttributeForNonNullableReferenceTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressImplicitRequiredAttributeForNonNullableReferenceTypes"])
 
 	Func setSuppressImplicitRequiredAttributeForNonNullableReferenceTypes P1
-		dnRequest("set",[self,"SuppressImplicitRequiredAttributeForNonNullableReferenceTypes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressImplicitRequiredAttributeForNonNullableReferenceTypes",P1])
 		return self
 
 	Func getSuppressInputFormatterBuffering
-		return dnRequest("get",[self,"SuppressInputFormatterBuffering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressInputFormatterBuffering"])
 
 	Func setSuppressInputFormatterBuffering P1
-		dnRequest("set",[self,"SuppressInputFormatterBuffering",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressInputFormatterBuffering",P1])
 		return self
 
 	Func getSuppressOutputFormatterBuffering
-		return dnRequest("get",[self,"SuppressOutputFormatterBuffering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressOutputFormatterBuffering"])
 
 	Func setSuppressOutputFormatterBuffering P1
-		dnRequest("set",[self,"SuppressOutputFormatterBuffering",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressOutputFormatterBuffering",P1])
 		return self
 
 	Func getEnableActionInvokers
-		return dnRequest("get",[self,"EnableActionInvokers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableActionInvokers"])
 
 	Func setEnableActionInvokers P1
-		dnRequest("set",[self,"EnableActionInvokers",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableActionInvokers",P1])
 		return self
 
 	Func getMaxModelValidationErrors
-		return dnRequest("get",[self,"MaxModelValidationErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxModelValidationErrors"])
 
 	Func setMaxModelValidationErrors P1
-		dnRequest("set",[self,"MaxModelValidationErrors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxModelValidationErrors",P1])
 		return self
 
 	Func getModelBinderProviders
-		return dnRequest("get",[self,"ModelBinderProviders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelBinderProviders"])
 
 	Func setModelBinderProviders P1
 		raise("DotNet Error: ModelBinderProviders is a read-only property")
 
 	Func getModelBindingMessageProvider
-		return dnRequest("get",[self,"ModelBindingMessageProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelBindingMessageProvider"])
 
 	Func setModelBindingMessageProvider P1
 		raise("DotNet Error: ModelBindingMessageProvider is a read-only property")
 
 	Func getModelMetadataDetailsProviders
-		return dnRequest("get",[self,"ModelMetadataDetailsProviders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelMetadataDetailsProviders"])
 
 	Func setModelMetadataDetailsProviders P1
 		raise("DotNet Error: ModelMetadataDetailsProviders is a read-only property")
 
 	Func getModelValidatorProviders
-		return dnRequest("get",[self,"ModelValidatorProviders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelValidatorProviders"])
 
 	Func setModelValidatorProviders P1
 		raise("DotNet Error: ModelValidatorProviders is a read-only property")
 
 	Func getOutputFormatters
-		return dnRequest("get",[self,"OutputFormatters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OutputFormatters"])
 
 	Func setOutputFormatters P1
 		raise("DotNet Error: OutputFormatters is a read-only property")
 
 	Func getRespectBrowserAcceptHeader
-		return dnRequest("get",[self,"RespectBrowserAcceptHeader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RespectBrowserAcceptHeader"])
 
 	Func setRespectBrowserAcceptHeader P1
-		dnRequest("set",[self,"RespectBrowserAcceptHeader",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RespectBrowserAcceptHeader",P1])
 		return self
 
 	Func getReturnHttpNotAcceptable
-		return dnRequest("get",[self,"ReturnHttpNotAcceptable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnHttpNotAcceptable"])
 
 	Func setReturnHttpNotAcceptable P1
-		dnRequest("set",[self,"ReturnHttpNotAcceptable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReturnHttpNotAcceptable",P1])
 		return self
 
 	Func getValueProviderFactories
-		return dnRequest("get",[self,"ValueProviderFactories"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueProviderFactories"])
 
 	Func setValueProviderFactories P1
 		raise("DotNet Error: ValueProviderFactories is a read-only property")
 
 	Func getSslPort
-		return dnRequest("get",[self,"SslPort"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SslPort"])
 
 	Func setSslPort P1
-		dnRequest("set",[self,"SslPort",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SslPort",P1])
 		return self
 
 	Func getRequireHttpsPermanent
-		return dnRequest("get",[self,"RequireHttpsPermanent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequireHttpsPermanent"])
 
 	Func setRequireHttpsPermanent P1
-		dnRequest("set",[self,"RequireHttpsPermanent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequireHttpsPermanent",P1])
 		return self
 
 	Func getMaxValidationDepth
-		return dnRequest("get",[self,"MaxValidationDepth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxValidationDepth"])
 
 	Func setMaxValidationDepth P1
-		dnRequest("set",[self,"MaxValidationDepth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxValidationDepth",P1])
 		return self
 
 	Func getValidateComplexTypesIfChildValidationFails
-		return dnRequest("get",[self,"ValidateComplexTypesIfChildValidationFails"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidateComplexTypesIfChildValidationFails"])
 
 	Func setValidateComplexTypesIfChildValidationFails P1
-		dnRequest("set",[self,"ValidateComplexTypesIfChildValidationFails",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidateComplexTypesIfChildValidationFails",P1])
 		return self
 
 	Func getSuppressAsyncSuffixInActionNames
-		return dnRequest("get",[self,"SuppressAsyncSuffixInActionNames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressAsyncSuffixInActionNames"])
 
 	Func setSuppressAsyncSuffixInActionNames P1
-		dnRequest("set",[self,"SuppressAsyncSuffixInActionNames",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressAsyncSuffixInActionNames",P1])
 		return self
 
 	Func getMaxModelBindingCollectionSize
-		return dnRequest("get",[self,"MaxModelBindingCollectionSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxModelBindingCollectionSize"])
 
 	Func setMaxModelBindingCollectionSize P1
-		dnRequest("set",[self,"MaxModelBindingCollectionSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxModelBindingCollectionSize",P1])
 		return self
 
 	Func getMaxModelBindingRecursionDepth
-		return dnRequest("get",[self,"MaxModelBindingRecursionDepth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxModelBindingRecursionDepth"])
 
 	Func setMaxModelBindingRecursionDepth P1
-		dnRequest("set",[self,"MaxModelBindingRecursionDepth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxModelBindingRecursionDepth",P1])
 		return self
 
 	Func getMaxIAsyncEnumerableBufferLimit
-		return dnRequest("get",[self,"MaxIAsyncEnumerableBufferLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxIAsyncEnumerableBufferLimit"])
 
 	Func setMaxIAsyncEnumerableBufferLimit P1
-		dnRequest("set",[self,"MaxIAsyncEnumerableBufferLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxIAsyncEnumerableBufferLimit",P1])
 		return self
 

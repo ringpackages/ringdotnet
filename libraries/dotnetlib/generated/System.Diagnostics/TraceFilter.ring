@@ -14,8 +14,8 @@ Class TraceFilter from Object
 		return self
 
 	Func ShouldTrace P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"ShouldTrace",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldTrace",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

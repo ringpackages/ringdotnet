@@ -26,42 +26,42 @@ Class XAttribute from XObject
 		return self
 
 	Func Remove 
-		dnRequest("call",[self,"Remove"])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove"])
 		return self
 
 	Func SetValue_1 P1
-		dnRequest("call",[self,"SetValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1])
 		return self
 
 	Func getIsNamespaceDeclaration
-		return dnRequest("get",[self,"IsNamespaceDeclaration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNamespaceDeclaration"])
 
 	Func setIsNamespaceDeclaration P1
 		raise("DotNet Error: IsNamespaceDeclaration is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getNextAttribute
-		return dnRequest("get",[self,"NextAttribute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NextAttribute"])
 
 	Func setNextAttribute P1
 		raise("DotNet Error: NextAttribute is a read-only property")
 
 	Func getPreviousAttribute
-		return dnRequest("get",[self,"PreviousAttribute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreviousAttribute"])
 
 	Func setPreviousAttribute P1
 		raise("DotNet Error: PreviousAttribute is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getEmptySequence

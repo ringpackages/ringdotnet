@@ -16,7 +16,7 @@ Class IHostMetadata from DotNetObject
 		return self
 
 	Func getHosts
-		return dnRequest("get",[self,"Hosts"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Hosts"])
 
 	Func setHosts P1
 		raise("DotNet Error: Hosts is a read-only property")

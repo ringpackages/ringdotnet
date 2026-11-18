@@ -16,31 +16,31 @@ Class QueryableMethodTranslatingExpressionVisitor from DotNetObject
 		return self
 
 	Func Translate P1
-		return dnRequest("call",[self,"Translate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1])
 
 	Func TranslateSubquery P1
-		return dnRequest("call",[self,"TranslateSubquery",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TranslateSubquery",P1])
 
 	Func Visit P1
-		return dnRequest("call",[self,"Visit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
 
 	Func VisitAndConvert P1,P2
-		return dnRequest("call",[self,"VisitAndConvert",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getTranslationErrorDetails
-		return dnRequest("get",[self,"TranslationErrorDetails"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TranslationErrorDetails"])
 
 	Func setTranslationErrorDetails P1
 		raise("DotNet Error: TranslationErrorDetails is a read-only property")

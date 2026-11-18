@@ -19,33 +19,33 @@ Class CollectionCollectionBuilder from Object
 
 	Func UsingEntity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"UsingEntity",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"UsingEntity",P1])
 		ok
-		return dnRequest("call",[self,"UsingEntity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsingEntity",P1])
 
 	Func UsingEntity_2 P1,P2
-		return dnRequest("call",[self,"UsingEntity",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsingEntity",P1,P2])
 
 	Func UsingEntity_3 P1,P2,P3
-		return dnRequest("call",[self,"UsingEntity",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsingEntity",P1,P2,P3])
 
 	Func UsingEntity_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"UsingEntity",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsingEntity",P1,P2,P3,P4])
 
 	Func UsingEntity_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"UsingEntity",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsingEntity",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLeftNavigation
-		return dnRequest("get",[self,"LeftNavigation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LeftNavigation"])
 
 	Func setLeftNavigation P1
 		raise("DotNet Error: LeftNavigation is a read-only property")
 
 	Func getRightNavigation
-		return dnRequest("get",[self,"RightNavigation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightNavigation"])
 
 	Func setRightNavigation P1
 		raise("DotNet Error: RightNavigation is a read-only property")

@@ -14,53 +14,53 @@ Class IConvertible from DotNetObject
 		return self
 
 	Func GetTypeCode 
-		return dnRequest("call",[self,"GetTypeCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
 
 	Func ToBoolean P1
-		return dnRequest("call",[self,"ToBoolean",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToBoolean",P1])
 
 	Func ToChar P1
-		return dnRequest("call",[self,"ToChar",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToChar",P1])
 
 	Func ToSByte P1
-		return dnRequest("call",[self,"ToSByte",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSByte",P1])
 
 	Func ToByte P1
-		return dnRequest("call",[self,"ToByte",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToByte",P1])
 
 	Func ToInt16 P1
-		return dnRequest("call",[self,"ToInt16",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToInt16",P1])
 
 	Func ToUInt16 P1
-		return dnRequest("call",[self,"ToUInt16",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUInt16",P1])
 
 	Func ToInt32 P1
-		return dnRequest("call",[self,"ToInt32",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToInt32",P1])
 
 	Func ToUInt32 P1
-		return dnRequest("call",[self,"ToUInt32",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUInt32",P1])
 
 	Func ToInt64 P1
-		return dnRequest("call",[self,"ToInt64",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToInt64",P1])
 
 	Func ToUInt64 P1
-		return dnRequest("call",[self,"ToUInt64",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToUInt64",P1])
 
 	Func ToSingle P1
-		return dnRequest("call",[self,"ToSingle",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSingle",P1])
 
 	Func ToDouble P1
-		return dnRequest("call",[self,"ToDouble",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDouble",P1])
 
 	Func ToDecimal P1
-		return dnRequest("call",[self,"ToDecimal",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDecimal",P1])
 
 	Func ToDateTime P1
-		return dnRequest("call",[self,"ToDateTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDateTime",P1])
 
 	Func ToString P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToType P1,P2
-		return dnRequest("call",[self,"ToType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToType",P1,P2])
 

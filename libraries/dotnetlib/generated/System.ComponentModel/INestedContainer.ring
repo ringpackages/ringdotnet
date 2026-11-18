@@ -16,7 +16,7 @@ Class INestedContainer from DotNetObject
 		return self
 
 	Func getOwner
-		return dnRequest("get",[self,"Owner"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Owner"])
 
 	Func setOwner P1
 		raise("DotNet Error: Owner is a read-only property")

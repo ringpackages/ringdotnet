@@ -24,103 +24,103 @@ Class ToolStripControlHost from ToolStripItem
 		return self
 
 	Func Focus 
-		dnRequest("call",[self,"Focus"])
+		dnRequest("call",[new DotNetObject(nHandle),"Focus"])
 		return self
 
 	Func setEnterEvent P1
-		dnRequest("setevent",[self,"Enter",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Enter",dnCallback(P1)])
 		return self
 
 	Func clearEnterEvent
-		dnRequest("clearevent",[self,"Enter"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Enter"])
 		return self
 
 	Func setGotFocusEvent P1
-		dnRequest("setevent",[self,"GotFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GotFocus",dnCallback(P1)])
 		return self
 
 	Func clearGotFocusEvent
-		dnRequest("clearevent",[self,"GotFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GotFocus"])
 		return self
 
 	Func setLeaveEvent P1
-		dnRequest("setevent",[self,"Leave",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Leave",dnCallback(P1)])
 		return self
 
 	Func clearLeaveEvent
-		dnRequest("clearevent",[self,"Leave"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Leave"])
 		return self
 
 	Func setLostFocusEvent P1
-		dnRequest("setevent",[self,"LostFocus",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LostFocus",dnCallback(P1)])
 		return self
 
 	Func clearLostFocusEvent
-		dnRequest("clearevent",[self,"LostFocus"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LostFocus"])
 		return self
 
 	Func setKeyDownEvent P1
-		dnRequest("setevent",[self,"KeyDown",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"KeyDown",dnCallback(P1)])
 		return self
 
 	Func clearKeyDownEvent
-		dnRequest("clearevent",[self,"KeyDown"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyDown"])
 		return self
 
 	Func setKeyPressEvent P1
-		dnRequest("setevent",[self,"KeyPress",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"KeyPress",dnCallback(P1)])
 		return self
 
 	Func clearKeyPressEvent
-		dnRequest("clearevent",[self,"KeyPress"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyPress"])
 		return self
 
 	Func setKeyUpEvent P1
-		dnRequest("setevent",[self,"KeyUp",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"KeyUp",dnCallback(P1)])
 		return self
 
 	Func clearKeyUpEvent
-		dnRequest("clearevent",[self,"KeyUp"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyUp"])
 		return self
 
 	Func setValidatingEvent P1
-		dnRequest("setevent",[self,"Validating",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Validating",dnCallback(P1)])
 		return self
 
 	Func clearValidatingEvent
-		dnRequest("clearevent",[self,"Validating"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Validating"])
 		return self
 
 	Func setValidatedEvent P1
-		dnRequest("setevent",[self,"Validated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Validated",dnCallback(P1)])
 		return self
 
 	Func clearValidatedEvent
-		dnRequest("clearevent",[self,"Validated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Validated"])
 		return self
 
 	Func getCausesValidation
-		return dnRequest("get",[self,"CausesValidation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CausesValidation"])
 
 	Func setCausesValidation P1
-		dnRequest("set",[self,"CausesValidation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CausesValidation",P1])
 		return self
 
 	Func getControlAlign
-		return dnRequest("get",[self,"ControlAlign"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ControlAlign"])
 
 	Func setControlAlign P1
-		dnRequest("set",[self,"ControlAlign",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ControlAlign",P1])
 		return self
 
 	Func getControl
-		return dnRequest("get",[self,"Control"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getFocused
-		return dnRequest("get",[self,"Focused"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Focused"])
 
 	Func setFocused P1
 		raise("DotNet Error: Focused is a read-only property")

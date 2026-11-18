@@ -17,7 +17,7 @@ Class PointHitTestParameters from HitTestParameters
 		return self
 
 	Func getHitPoint
-		return dnRequest("get",[self,"HitPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HitPoint"])
 
 	Func setHitPoint P1
 		raise("DotNet Error: HitPoint is a read-only property")

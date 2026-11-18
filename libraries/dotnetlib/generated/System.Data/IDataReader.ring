@@ -18,32 +18,32 @@ Class IDataReader from DotNetObject
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func GetSchemaTable 
-		return dnRequest("call",[self,"GetSchemaTable"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaTable"])
 
 	Func NextResult 
-		return dnRequest("call",[self,"NextResult"])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextResult"])
 
 	Func Read 
-		return dnRequest("call",[self,"Read"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read"])
 
 	Func getDepth
-		return dnRequest("get",[self,"Depth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Depth"])
 
 	Func setDepth P1
 		raise("DotNet Error: Depth is a read-only property")
 
 	Func getIsClosed
-		return dnRequest("get",[self,"IsClosed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsClosed"])
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getRecordsAffected
-		return dnRequest("get",[self,"RecordsAffected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecordsAffected"])
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")

@@ -18,30 +18,30 @@ Class TextEffectTarget from Object
 		return self
 
 	Func Enable 
-		dnRequest("call",[self,"Enable"])
+		dnRequest("call",[new DotNetObject(nHandle),"Enable"])
 		return self
 
 	Func Disable 
-		dnRequest("call",[self,"Disable"])
+		dnRequest("call",[new DotNetObject(nHandle),"Disable"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getElement
-		return dnRequest("get",[self,"Element"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Element"])
 
 	Func setElement P1
 		raise("DotNet Error: Element is a read-only property")
 
 	Func getTextEffect
-		return dnRequest("get",[self,"TextEffect"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextEffect"])
 
 	Func setTextEffect P1
 		raise("DotNet Error: TextEffect is a read-only property")
 
 	Func getIsEnabled
-		return dnRequest("get",[self,"IsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEnabled"])
 
 	Func setIsEnabled P1
 		raise("DotNet Error: IsEnabled is a read-only property")

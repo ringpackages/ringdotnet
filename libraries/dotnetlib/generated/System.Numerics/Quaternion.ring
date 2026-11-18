@@ -31,10 +31,10 @@ Class Quaternion from ValueType
 		return self
 
 	Func Length 
-		return dnRequest("call",[self,"Length"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Length"])
 
 	Func LengthSquared 
-		return dnRequest("call",[self,"LengthSquared"])
+		return dnRequest("call",[new DotNetObject(nHandle),"LengthSquared"])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib'),"Add",P1,P2])
@@ -82,44 +82,44 @@ Class Quaternion from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib'),"Subtract",P1,P2])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getIsIdentity
-		return dnRequest("get",[self,"IsIdentity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIdentity"])
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 
 	Func getZ
-		return dnRequest("get",[self,"Z"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Z"])
 
 	Func setZ P1
-		dnRequest("set",[self,"Z",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Z",P1])
 		return self
 
 	Func getW
-		return dnRequest("get",[self,"W"])
+		return dnRequest("get",[new DotNetObject(nHandle),"W"])
 
 	Func setW P1
-		dnRequest("set",[self,"W",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"W",P1])
 		return self
 
 	Func getZero

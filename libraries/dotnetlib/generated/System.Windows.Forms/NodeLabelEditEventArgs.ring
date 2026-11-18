@@ -23,21 +23,21 @@ Class NodeLabelEditEventArgs from EventArgs
 		return self
 
 	Func getNode
-		return dnRequest("get",[self,"Node"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Node"])
 
 	Func setNode P1
 		raise("DotNet Error: Node is a read-only property")
 
 	Func getLabel
-		return dnRequest("get",[self,"Label"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Label"])
 
 	Func setLabel P1
 		raise("DotNet Error: Label is a read-only property")
 
 	Func getCancelEdit
-		return dnRequest("get",[self,"CancelEdit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CancelEdit"])
 
 	Func setCancelEdit P1
-		dnRequest("set",[self,"CancelEdit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CancelEdit",P1])
 		return self
 

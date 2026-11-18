@@ -22,7 +22,7 @@ Class StringWithQualityHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http'),"Parse",P1])
@@ -31,13 +31,13 @@ Class StringWithQualityHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getQuality
-		return dnRequest("get",[self,"Quality"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Quality"])
 
 	Func setQuality P1
 		raise("DotNet Error: Quality is a read-only property")

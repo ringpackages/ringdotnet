@@ -18,37 +18,37 @@ Class TimeProvider from Object
 		return self
 
 	Func GetUtcNow 
-		return dnRequest("call",[self,"GetUtcNow"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUtcNow"])
 
 	Func GetLocalNow 
-		return dnRequest("call",[self,"GetLocalNow"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLocalNow"])
 
 	Func GetTimestamp 
-		return dnRequest("call",[self,"GetTimestamp"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTimestamp"])
 
 	Func GetElapsedTime_2 P1,P2
-		return dnRequest("call",[self,"GetElapsedTime",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElapsedTime",P1,P2])
 
 	Func GetElapsedTime P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetElapsedTime",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetElapsedTime",P1])
 		ok
-		return dnRequest("call",[self,"GetElapsedTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElapsedTime",P1])
 
 	Func CreateTimer P1,P2,P3,P4
-		return dnRequest("call",[self,"CreateTimer",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateTimer",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLocalTimeZone
-		return dnRequest("get",[self,"LocalTimeZone"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalTimeZone"])
 
 	Func setLocalTimeZone P1
 		raise("DotNet Error: LocalTimeZone is a read-only property")
 
 	Func getTimestampFrequency
-		return dnRequest("get",[self,"TimestampFrequency"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TimestampFrequency"])
 
 	Func setTimestampFrequency P1
 		raise("DotNet Error: TimestampFrequency is a read-only property")

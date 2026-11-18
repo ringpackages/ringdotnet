@@ -24,20 +24,20 @@ Class GradientStop from Animatable
 		return self
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getColor
-		return dnRequest("get",[self,"Color"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
 
 	Func setColor P1
-		dnRequest("set",[self,"Color",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
 		return self
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
 
 	Func setOffset P1
-		dnRequest("set",[self,"Offset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Offset",P1])
 		return self
 
 	Func getColorProperty

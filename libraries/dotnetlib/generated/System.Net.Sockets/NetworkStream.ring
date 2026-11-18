@@ -26,29 +26,29 @@ Class NetworkStream from Stream
 		return self
 
 	Func Close_1 P1
-		dnRequest("call",[self,"Close",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Close",P1])
 		return self
 
 	Func Close P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Close",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Close",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Close"])
+			dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 		ok
-		dnRequest("call",[self,"Close",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Close",P1])
 		return self
 
 	Func getSocket
-		return dnRequest("get",[self,"Socket"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Socket"])
 
 	Func setSocket P1
 		raise("DotNet Error: Socket is a read-only property")
 
 	Func getDataAvailable
-		return dnRequest("get",[self,"DataAvailable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataAvailable"])
 
 	Func setDataAvailable P1
 		raise("DotNet Error: DataAvailable is a read-only property")

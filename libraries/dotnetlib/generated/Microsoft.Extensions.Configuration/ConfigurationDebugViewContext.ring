@@ -24,25 +24,25 @@ Class ConfigurationDebugViewContext from ValueType
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getConfigurationProvider
-		return dnRequest("get",[self,"ConfigurationProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConfigurationProvider"])
 
 	Func setConfigurationProvider P1
 		raise("DotNet Error: ConfigurationProvider is a read-only property")

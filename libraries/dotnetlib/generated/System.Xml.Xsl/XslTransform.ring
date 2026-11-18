@@ -18,30 +18,30 @@ Class XslTransform from Object
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Load",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func Load_2 P1,P2
-		dnRequest("call",[self,"Load",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
 		return self
 
 	Func Transform_3 P1,P2,P3
-		return dnRequest("call",[self,"Transform",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2,P3])
 
 	Func Transform P1,P2
-		return dnRequest("call",[self,"Transform",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2])
 
 	Func Transform_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Transform",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2,P3,P4])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
 		return self
 

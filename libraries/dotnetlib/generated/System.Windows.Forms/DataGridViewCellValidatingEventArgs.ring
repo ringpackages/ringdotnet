@@ -18,19 +18,19 @@ Class DataGridViewCellValidatingEventArgs from CancelEventArgs
 		return self
 
 	Func getColumnIndex
-		return dnRequest("get",[self,"ColumnIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getRowIndex
-		return dnRequest("get",[self,"RowIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getFormattedValue
-		return dnRequest("get",[self,"FormattedValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormattedValue"])
 
 	Func setFormattedValue P1
 		raise("DotNet Error: FormattedValue is a read-only property")

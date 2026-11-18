@@ -21,19 +21,19 @@ Class TypeExtension from MarkupExtension
 		return self
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getTypeName
-		return dnRequest("get",[self,"TypeName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeName"])
 
 	Func setTypeName P1
-		dnRequest("set",[self,"TypeName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeName",P1])
 		return self
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
-		dnRequest("set",[self,"Type",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
 		return self
 

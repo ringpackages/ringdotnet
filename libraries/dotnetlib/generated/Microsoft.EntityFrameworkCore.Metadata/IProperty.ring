@@ -16,40 +16,40 @@ Class IProperty from DotNetObject
 		return self
 
 	Func CreateKeyEqualityComparer 
-		return dnRequest("call",[self,"CreateKeyEqualityComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateKeyEqualityComparer"])
 
 	Func FindFirstPrincipal 
-		return dnRequest("call",[self,"FindFirstPrincipal"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindFirstPrincipal"])
 
 	Func GetPrincipals 
-		return dnRequest("call",[self,"GetPrincipals"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrincipals"])
 
 	Func GetContainingForeignKeys 
-		return dnRequest("call",[self,"GetContainingForeignKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContainingForeignKeys"])
 
 	Func GetContainingIndexes 
-		return dnRequest("call",[self,"GetContainingIndexes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContainingIndexes"])
 
 	Func FindContainingPrimaryKey 
-		return dnRequest("call",[self,"FindContainingPrimaryKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindContainingPrimaryKey"])
 
 	Func GetContainingKeys 
-		return dnRequest("call",[self,"GetContainingKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContainingKeys"])
 
 	Func GetValueComparer 
-		return dnRequest("call",[self,"GetValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueComparer"])
 
 	Func GetKeyValueComparer 
-		return dnRequest("call",[self,"GetKeyValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyValueComparer"])
 
 	Func GetProviderValueComparer 
-		return dnRequest("call",[self,"GetProviderValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProviderValueComparer"])
 
 	Func GetElementType 
-		return dnRequest("call",[self,"GetElementType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementType"])
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")

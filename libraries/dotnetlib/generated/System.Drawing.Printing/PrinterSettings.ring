@@ -39,193 +39,193 @@ Class PrinterSettings from Object
 		return self
 
 	Func IsDirectPrintingSupported P1
-		return dnRequest("call",[self,"IsDirectPrintingSupported",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDirectPrintingSupported",P1])
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func CreateMeasurementGraphics P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateMeasurementGraphics",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateMeasurementGraphics",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateMeasurementGraphics"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateMeasurementGraphics"])
 		ok
-		return dnRequest("call",[self,"CreateMeasurementGraphics",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateMeasurementGraphics",P1])
 
 	Func CreateMeasurementGraphics_1 P1
-		return dnRequest("call",[self,"CreateMeasurementGraphics",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateMeasurementGraphics",P1])
 
 	Func CreateMeasurementGraphics_2 P1,P2
-		return dnRequest("call",[self,"CreateMeasurementGraphics",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateMeasurementGraphics",P1,P2])
 
 	Func GetHdevmode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetHdevmode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHdevmode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetHdevmode"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetHdevmode"])
 		ok
-		return dnRequest("call",[self,"GetHdevmode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHdevmode",P1])
 
 	Func GetHdevmode_1 P1
-		return dnRequest("call",[self,"GetHdevmode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHdevmode",P1])
 
 	Func GetHdevnames 
-		return dnRequest("call",[self,"GetHdevnames"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHdevnames"])
 
 	Func SetHdevmode P1
-		dnRequest("call",[self,"SetHdevmode",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetHdevmode",P1])
 		return self
 
 	Func SetHdevnames P1
-		dnRequest("call",[self,"SetHdevnames",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetHdevnames",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCanDuplex
-		return dnRequest("get",[self,"CanDuplex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanDuplex"])
 
 	Func setCanDuplex P1
 		raise("DotNet Error: CanDuplex is a read-only property")
 
 	Func getCopies
-		return dnRequest("get",[self,"Copies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Copies"])
 
 	Func setCopies P1
-		dnRequest("set",[self,"Copies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Copies",P1])
 		return self
 
 	Func getCollate
-		return dnRequest("get",[self,"Collate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Collate"])
 
 	Func setCollate P1
-		dnRequest("set",[self,"Collate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Collate",P1])
 		return self
 
 	Func getDefaultPageSettings
-		return dnRequest("get",[self,"DefaultPageSettings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultPageSettings"])
 
 	Func setDefaultPageSettings P1
 		raise("DotNet Error: DefaultPageSettings is a read-only property")
 
 	Func getDuplex
-		return dnRequest("get",[self,"Duplex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Duplex"])
 
 	Func setDuplex P1
-		dnRequest("set",[self,"Duplex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Duplex",P1])
 		return self
 
 	Func getFromPage
-		return dnRequest("get",[self,"FromPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FromPage"])
 
 	Func setFromPage P1
-		dnRequest("set",[self,"FromPage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FromPage",P1])
 		return self
 
 	Func getIsDefaultPrinter
-		return dnRequest("get",[self,"IsDefaultPrinter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDefaultPrinter"])
 
 	Func setIsDefaultPrinter P1
 		raise("DotNet Error: IsDefaultPrinter is a read-only property")
 
 	Func getIsPlotter
-		return dnRequest("get",[self,"IsPlotter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPlotter"])
 
 	Func setIsPlotter P1
 		raise("DotNet Error: IsPlotter is a read-only property")
 
 	Func getIsValid
-		return dnRequest("get",[self,"IsValid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsValid"])
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getLandscapeAngle
-		return dnRequest("get",[self,"LandscapeAngle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LandscapeAngle"])
 
 	Func setLandscapeAngle P1
 		raise("DotNet Error: LandscapeAngle is a read-only property")
 
 	Func getMaximumCopies
-		return dnRequest("get",[self,"MaximumCopies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaximumCopies"])
 
 	Func setMaximumCopies P1
 		raise("DotNet Error: MaximumCopies is a read-only property")
 
 	Func getMaximumPage
-		return dnRequest("get",[self,"MaximumPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaximumPage"])
 
 	Func setMaximumPage P1
-		dnRequest("set",[self,"MaximumPage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaximumPage",P1])
 		return self
 
 	Func getMinimumPage
-		return dnRequest("get",[self,"MinimumPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinimumPage"])
 
 	Func setMinimumPage P1
-		dnRequest("set",[self,"MinimumPage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinimumPage",P1])
 		return self
 
 	Func getPrintFileName
-		return dnRequest("get",[self,"PrintFileName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrintFileName"])
 
 	Func setPrintFileName P1
-		dnRequest("set",[self,"PrintFileName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrintFileName",P1])
 		return self
 
 	Func getPaperSizes
-		return dnRequest("get",[self,"PaperSizes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PaperSizes"])
 
 	Func setPaperSizes P1
 		raise("DotNet Error: PaperSizes is a read-only property")
 
 	Func getPaperSources
-		return dnRequest("get",[self,"PaperSources"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PaperSources"])
 
 	Func setPaperSources P1
 		raise("DotNet Error: PaperSources is a read-only property")
 
 	Func getPrintRange
-		return dnRequest("get",[self,"PrintRange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrintRange"])
 
 	Func setPrintRange P1
-		dnRequest("set",[self,"PrintRange",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrintRange",P1])
 		return self
 
 	Func getPrintToFile
-		return dnRequest("get",[self,"PrintToFile"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrintToFile"])
 
 	Func setPrintToFile P1
-		dnRequest("set",[self,"PrintToFile",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrintToFile",P1])
 		return self
 
 	Func getPrinterName
-		return dnRequest("get",[self,"PrinterName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrinterName"])
 
 	Func setPrinterName P1
-		dnRequest("set",[self,"PrinterName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrinterName",P1])
 		return self
 
 	Func getPrinterResolutions
-		return dnRequest("get",[self,"PrinterResolutions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrinterResolutions"])
 
 	Func setPrinterResolutions P1
 		raise("DotNet Error: PrinterResolutions is a read-only property")
 
 	Func getSupportsColor
-		return dnRequest("get",[self,"SupportsColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsColor"])
 
 	Func setSupportsColor P1
 		raise("DotNet Error: SupportsColor is a read-only property")
 
 	Func getToPage
-		return dnRequest("get",[self,"ToPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToPage"])
 
 	Func setToPage P1
-		dnRequest("set",[self,"ToPage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ToPage",P1])
 		return self
 
 	Func getInstalledPrinters

@@ -23,55 +23,55 @@ Class PipeStream from Stream
 		return self
 
 	Func WaitForPipeDrain 
-		dnRequest("call",[self,"WaitForPipeDrain"])
+		dnRequest("call",[new DotNetObject(nHandle),"WaitForPipeDrain"])
 		return self
 
 	Func getIsConnected
-		return dnRequest("get",[self,"IsConnected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsConnected"])
 
 	Func setIsConnected P1
 		raise("DotNet Error: IsConnected is a read-only property")
 
 	Func getIsAsync
-		return dnRequest("get",[self,"IsAsync"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getIsMessageComplete
-		return dnRequest("get",[self,"IsMessageComplete"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMessageComplete"])
 
 	Func setIsMessageComplete P1
 		raise("DotNet Error: IsMessageComplete is a read-only property")
 
 	Func getSafePipeHandle
-		return dnRequest("get",[self,"SafePipeHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SafePipeHandle"])
 
 	Func setSafePipeHandle P1
 		raise("DotNet Error: SafePipeHandle is a read-only property")
 
 	Func getTransmissionMode
-		return dnRequest("get",[self,"TransmissionMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransmissionMode"])
 
 	Func setTransmissionMode P1
 		raise("DotNet Error: TransmissionMode is a read-only property")
 
 	Func getInBufferSize
-		return dnRequest("get",[self,"InBufferSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InBufferSize"])
 
 	Func setInBufferSize P1
 		raise("DotNet Error: InBufferSize is a read-only property")
 
 	Func getOutBufferSize
-		return dnRequest("get",[self,"OutBufferSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OutBufferSize"])
 
 	Func setOutBufferSize P1
 		raise("DotNet Error: OutBufferSize is a read-only property")
 
 	Func getReadMode
-		return dnRequest("get",[self,"ReadMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReadMode"])
 
 	Func setReadMode P1
-		dnRequest("set",[self,"ReadMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReadMode",P1])
 		return self
 

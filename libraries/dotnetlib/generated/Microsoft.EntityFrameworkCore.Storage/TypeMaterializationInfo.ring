@@ -25,34 +25,34 @@ Class TypeMaterializationInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getProviderClrType
-		return dnRequest("get",[self,"ProviderClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProviderClrType"])
 
 	Func setProviderClrType P1
 		raise("DotNet Error: ProviderClrType is a read-only property")
 
 	Func getModelClrType
-		return dnRequest("get",[self,"ModelClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelClrType"])
 
 	Func setModelClrType P1
 		raise("DotNet Error: ModelClrType is a read-only property")
 
 	Func getMapping
-		return dnRequest("get",[self,"Mapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mapping"])
 
 	Func setMapping P1
 		raise("DotNet Error: Mapping is a read-only property")
 
 	Func getProperty
-		return dnRequest("get",[self,"Property"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")

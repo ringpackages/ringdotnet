@@ -16,31 +16,31 @@ Class IClrCollectionAccessor from DotNetObject
 		return self
 
 	Func Add P1,P2,P3
-		return dnRequest("call",[self,"Add",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 
 	Func Contains P1,P2
-		return dnRequest("call",[self,"Contains",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2])
 
 	Func Remove P1,P2
-		return dnRequest("call",[self,"Remove",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 
 	Func AddStandalone P1,P2
-		return dnRequest("call",[self,"AddStandalone",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddStandalone",P1,P2])
 
 	Func ContainsStandalone P1,P2
-		return dnRequest("call",[self,"ContainsStandalone",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsStandalone",P1,P2])
 
 	Func RemoveStandalone P1,P2
-		return dnRequest("call",[self,"RemoveStandalone",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveStandalone",P1,P2])
 
 	Func Create 
-		return dnRequest("call",[self,"Create"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
 
 	Func GetOrCreate P1,P2
-		return dnRequest("call",[self,"GetOrCreate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrCreate",P1,P2])
 
 	Func getCollectionType
-		return dnRequest("get",[self,"CollectionType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CollectionType"])
 
 	Func setCollectionType P1
 		raise("DotNet Error: CollectionType is a read-only property")

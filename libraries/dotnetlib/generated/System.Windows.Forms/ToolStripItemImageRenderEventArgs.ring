@@ -22,13 +22,13 @@ Class ToolStripItemImageRenderEventArgs from ToolStripItemRenderEventArgs
 		return self
 
 	Func getImage
-		return dnRequest("get",[self,"Image"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Image"])
 
 	Func setImage P1
 		raise("DotNet Error: Image is a read-only property")
 
 	Func getImageRectangle
-		return dnRequest("get",[self,"ImageRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageRectangle"])
 
 	Func setImageRectangle P1
 		raise("DotNet Error: ImageRectangle is a read-only property")

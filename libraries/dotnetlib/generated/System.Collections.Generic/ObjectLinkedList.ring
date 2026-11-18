@@ -23,73 +23,73 @@ Class ObjectLinkedList from Object
 		return self
 
 	Func AddAfter P1,P2
-		return dnRequest("call",[self,"AddAfter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddAfter",P1,P2])
 
 	Func AddBefore P1,P2
-		return dnRequest("call",[self,"AddBefore",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddBefore",P1,P2])
 
 	Func AddFirst P1
-		return dnRequest("call",[self,"AddFirst",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddFirst",P1])
 
 	Func AddLast P1
-		return dnRequest("call",[self,"AddLast",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddLast",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Find P1
-		return dnRequest("call",[self,"Find",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1])
 
 	Func FindLast P1
-		return dnRequest("call",[self,"FindLast",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindLast",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func RemoveFirst 
-		dnRequest("call",[self,"RemoveFirst"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveFirst"])
 		return self
 
 	Func RemoveLast 
-		dnRequest("call",[self,"RemoveLast"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveLast"])
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func OnDeserialization P1
-		dnRequest("call",[self,"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getFirst
-		return dnRequest("get",[self,"First"])
+		return dnRequest("get",[new DotNetObject(nHandle),"First"])
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getLast
-		return dnRequest("get",[self,"Last"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Last"])
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")

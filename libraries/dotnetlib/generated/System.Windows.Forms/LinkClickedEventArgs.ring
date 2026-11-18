@@ -23,19 +23,19 @@ Class LinkClickedEventArgs from EventArgs
 		return self
 
 	Func getLinkLength
-		return dnRequest("get",[self,"LinkLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkLength"])
 
 	Func setLinkLength P1
 		raise("DotNet Error: LinkLength is a read-only property")
 
 	Func getLinkStart
-		return dnRequest("get",[self,"LinkStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkStart"])
 
 	Func setLinkStart P1
 		raise("DotNet Error: LinkStart is a read-only property")
 
 	Func getLinkText
-		return dnRequest("get",[self,"LinkText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinkText"])
 
 	Func setLinkText P1
 		raise("DotNet Error: LinkText is a read-only property")

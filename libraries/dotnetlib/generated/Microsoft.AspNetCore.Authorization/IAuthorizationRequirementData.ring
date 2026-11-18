@@ -14,5 +14,5 @@ Class IAuthorizationRequirementData from DotNetObject
 		return self
 
 	Func GetRequirements 
-		return dnRequest("call",[self,"GetRequirements"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRequirements"])
 

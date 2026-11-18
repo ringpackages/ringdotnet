@@ -21,40 +21,40 @@ Class ExceptionHandlerOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExceptionHandlingPath
-		return dnRequest("get",[self,"ExceptionHandlingPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionHandlingPath"])
 
 	Func setExceptionHandlingPath P1
-		dnRequest("set",[self,"ExceptionHandlingPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExceptionHandlingPath",P1])
 		return self
 
 	Func getCreateScopeForErrors
-		return dnRequest("get",[self,"CreateScopeForErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CreateScopeForErrors"])
 
 	Func setCreateScopeForErrors P1
-		dnRequest("set",[self,"CreateScopeForErrors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CreateScopeForErrors",P1])
 		return self
 
 	Func getExceptionHandler
-		return dnRequest("get",[self,"ExceptionHandler"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionHandler"])
 
 	Func setExceptionHandler P1
-		dnRequest("set",[self,"ExceptionHandler",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExceptionHandler",P1])
 		return self
 
 	Func getAllowStatusCode404Response
-		return dnRequest("get",[self,"AllowStatusCode404Response"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowStatusCode404Response"])
 
 	Func setAllowStatusCode404Response P1
-		dnRequest("set",[self,"AllowStatusCode404Response",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowStatusCode404Response",P1])
 		return self
 
 	Func getStatusCodeSelector
-		return dnRequest("get",[self,"StatusCodeSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatusCodeSelector"])
 
 	Func setStatusCodeSelector P1
-		dnRequest("set",[self,"StatusCodeSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StatusCodeSelector",P1])
 		return self
 

@@ -14,8 +14,8 @@ Class IHostLifetime from DotNetObject
 		return self
 
 	Func WaitForStartAsync P1
-		return dnRequest("call",[self,"WaitForStartAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForStartAsync",P1])
 
 	Func StopAsync P1
-		return dnRequest("call",[self,"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 

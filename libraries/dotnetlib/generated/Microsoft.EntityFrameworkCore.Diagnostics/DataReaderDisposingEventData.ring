@@ -17,7 +17,7 @@ Class DataReaderDisposingEventData from DataReaderEventData
 		return self
 
 	Func getDuration
-		return dnRequest("get",[self,"Duration"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Duration"])
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")

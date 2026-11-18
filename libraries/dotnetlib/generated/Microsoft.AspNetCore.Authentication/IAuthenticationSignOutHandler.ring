@@ -14,5 +14,5 @@ Class IAuthenticationSignOutHandler from DotNetObject
 		return self
 
 	Func SignOutAsync P1
-		return dnRequest("call",[self,"SignOutAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignOutAsync",P1])
 

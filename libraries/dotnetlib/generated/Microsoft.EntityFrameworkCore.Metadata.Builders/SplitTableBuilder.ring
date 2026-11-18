@@ -20,49 +20,49 @@ Class SplitTableBuilder from Object
 		return self
 
 	Func ExcludeFromMigrations_1 P1
-		return dnRequest("call",[self,"ExcludeFromMigrations",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExcludeFromMigrations",P1])
 
 	Func ExcludeFromMigrations P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExcludeFromMigrations",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExcludeFromMigrations",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ExcludeFromMigrations"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ExcludeFromMigrations"])
 		ok
-		return dnRequest("call",[self,"ExcludeFromMigrations",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExcludeFromMigrations",P1])
 
 	Func HasTrigger P1
-		return dnRequest("call",[self,"HasTrigger",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasTrigger",P1])
 
 	Func Property P1
-		return dnRequest("call",[self,"Property",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Property",P1])
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getMappingFragment
-		return dnRequest("get",[self,"MappingFragment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MappingFragment"])
 
 	Func setMappingFragment P1
 		raise("DotNet Error: MappingFragment is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

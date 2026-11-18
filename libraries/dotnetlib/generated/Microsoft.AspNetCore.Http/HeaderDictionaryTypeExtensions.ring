@@ -14,7 +14,7 @@ Class HeaderDictionaryTypeExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetTypedHeaders P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions'),"GetTypedHeaders",P1])

@@ -14,5 +14,5 @@ Class IInstantiationBindingInterceptor from DotNetObject
 		return self
 
 	Func ModifyBinding P1,P2
-		return dnRequest("call",[self,"ModifyBinding",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ModifyBinding",P1,P2])
 

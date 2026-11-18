@@ -18,16 +18,16 @@ Class Panel from ScrollableControl
 		return self
 
 	Func getAutoSizeMode
-		return dnRequest("get",[self,"AutoSizeMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoSizeMode"])
 
 	Func setAutoSizeMode P1
-		dnRequest("set",[self,"AutoSizeMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoSizeMode",P1])
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[self,"BorderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[self,"BorderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
 		return self
 

@@ -18,26 +18,26 @@ Class XmlMapping from Object
 		return self
 
 	Func SetKey P1
-		dnRequest("call",[self,"SetKey",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetKey",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getElementName
-		return dnRequest("get",[self,"ElementName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementName"])
 
 	Func setElementName P1
 		raise("DotNet Error: ElementName is a read-only property")
 
 	Func getXsdElementName
-		return dnRequest("get",[self,"XsdElementName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XsdElementName"])
 
 	Func setXsdElementName P1
 		raise("DotNet Error: XsdElementName is a read-only property")
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")

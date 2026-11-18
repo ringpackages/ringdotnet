@@ -27,76 +27,76 @@ Class IPv4InterfaceStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBytesReceived
-		return dnRequest("get",[self,"BytesReceived"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BytesReceived"])
 
 	Func setBytesReceived P1
 		raise("DotNet Error: BytesReceived is a read-only property")
 
 	Func getBytesSent
-		return dnRequest("get",[self,"BytesSent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BytesSent"])
 
 	Func setBytesSent P1
 		raise("DotNet Error: BytesSent is a read-only property")
 
 	Func getIncomingPacketsDiscarded
-		return dnRequest("get",[self,"IncomingPacketsDiscarded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IncomingPacketsDiscarded"])
 
 	Func setIncomingPacketsDiscarded P1
 		raise("DotNet Error: IncomingPacketsDiscarded is a read-only property")
 
 	Func getIncomingPacketsWithErrors
-		return dnRequest("get",[self,"IncomingPacketsWithErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IncomingPacketsWithErrors"])
 
 	Func setIncomingPacketsWithErrors P1
 		raise("DotNet Error: IncomingPacketsWithErrors is a read-only property")
 
 	Func getIncomingUnknownProtocolPackets
-		return dnRequest("get",[self,"IncomingUnknownProtocolPackets"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IncomingUnknownProtocolPackets"])
 
 	Func setIncomingUnknownProtocolPackets P1
 		raise("DotNet Error: IncomingUnknownProtocolPackets is a read-only property")
 
 	Func getNonUnicastPacketsReceived
-		return dnRequest("get",[self,"NonUnicastPacketsReceived"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NonUnicastPacketsReceived"])
 
 	Func setNonUnicastPacketsReceived P1
 		raise("DotNet Error: NonUnicastPacketsReceived is a read-only property")
 
 	Func getNonUnicastPacketsSent
-		return dnRequest("get",[self,"NonUnicastPacketsSent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NonUnicastPacketsSent"])
 
 	Func setNonUnicastPacketsSent P1
 		raise("DotNet Error: NonUnicastPacketsSent is a read-only property")
 
 	Func getOutgoingPacketsDiscarded
-		return dnRequest("get",[self,"OutgoingPacketsDiscarded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OutgoingPacketsDiscarded"])
 
 	Func setOutgoingPacketsDiscarded P1
 		raise("DotNet Error: OutgoingPacketsDiscarded is a read-only property")
 
 	Func getOutgoingPacketsWithErrors
-		return dnRequest("get",[self,"OutgoingPacketsWithErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OutgoingPacketsWithErrors"])
 
 	Func setOutgoingPacketsWithErrors P1
 		raise("DotNet Error: OutgoingPacketsWithErrors is a read-only property")
 
 	Func getOutputQueueLength
-		return dnRequest("get",[self,"OutputQueueLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OutputQueueLength"])
 
 	Func setOutputQueueLength P1
 		raise("DotNet Error: OutputQueueLength is a read-only property")
 
 	Func getUnicastPacketsReceived
-		return dnRequest("get",[self,"UnicastPacketsReceived"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnicastPacketsReceived"])
 
 	Func setUnicastPacketsReceived P1
 		raise("DotNet Error: UnicastPacketsReceived is a read-only property")
 
 	Func getUnicastPacketsSent
-		return dnRequest("get",[self,"UnicastPacketsSent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnicastPacketsSent"])
 
 	Func setUnicastPacketsSent P1
 		raise("DotNet Error: UnicastPacketsSent is a read-only property")

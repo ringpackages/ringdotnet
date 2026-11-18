@@ -20,31 +20,31 @@ Class ISkipNavigation from DotNetObject
 		return self
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getTargetEntityType
-		return dnRequest("get",[self,"TargetEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetEntityType"])
 
 	Func setTargetEntityType P1
 		raise("DotNet Error: TargetEntityType is a read-only property")
 
 	Func getJoinEntityType
-		return dnRequest("get",[self,"JoinEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"JoinEntityType"])
 
 	Func setJoinEntityType P1
 		raise("DotNet Error: JoinEntityType is a read-only property")
 
 	Func getForeignKey
-		return dnRequest("get",[self,"ForeignKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeignKey"])
 
 	Func setForeignKey P1
 		raise("DotNet Error: ForeignKey is a read-only property")
 
 	Func getInverse
-		return dnRequest("get",[self,"Inverse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inverse"])
 
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")

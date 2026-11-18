@@ -23,111 +23,111 @@ Class PictureBox from Control
 		return self
 
 	Func CancelAsync 
-		dnRequest("call",[self,"CancelAsync"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelAsync"])
 		return self
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Load"])
+			dnRequest("call",[new DotNetObject(nHandle),"Load"])
 		return self
 		ok
-		dnRequest("call",[self,"Load",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func Load_1 P1
-		dnRequest("call",[self,"Load",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func LoadAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"LoadAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"LoadAsync"])
+			dnRequest("call",[new DotNetObject(nHandle),"LoadAsync"])
 		return self
 		ok
-		dnRequest("call",[self,"LoadAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 		return self
 
 	Func LoadAsync_1 P1
-		dnRequest("call",[self,"LoadAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 		return self
 
 	Func setLoadCompletedEvent P1
-		dnRequest("setevent",[self,"LoadCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LoadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearLoadCompletedEvent
-		dnRequest("clearevent",[self,"LoadCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadCompleted"])
 		return self
 
 	Func setLoadProgressChangedEvent P1
-		dnRequest("setevent",[self,"LoadProgressChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LoadProgressChanged",dnCallback(P1)])
 		return self
 
 	Func clearLoadProgressChangedEvent
-		dnRequest("clearevent",[self,"LoadProgressChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadProgressChanged"])
 		return self
 
 	Func setSizeModeChangedEvent P1
-		dnRequest("setevent",[self,"SizeModeChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SizeModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearSizeModeChangedEvent
-		dnRequest("clearevent",[self,"SizeModeChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SizeModeChanged"])
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[self,"BorderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[self,"BorderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
 		return self
 
 	Func getErrorImage
-		return dnRequest("get",[self,"ErrorImage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorImage"])
 
 	Func setErrorImage P1
-		dnRequest("set",[self,"ErrorImage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ErrorImage",P1])
 		return self
 
 	Func getImage
-		return dnRequest("get",[self,"Image"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Image"])
 
 	Func setImage P1
-		dnRequest("set",[self,"Image",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Image",P1])
 		return self
 
 	Func getImageLocation
-		return dnRequest("get",[self,"ImageLocation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageLocation"])
 
 	Func setImageLocation P1
-		dnRequest("set",[self,"ImageLocation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageLocation",P1])
 		return self
 
 	Func getInitialImage
-		return dnRequest("get",[self,"InitialImage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InitialImage"])
 
 	Func setInitialImage P1
-		dnRequest("set",[self,"InitialImage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InitialImage",P1])
 		return self
 
 	Func getSizeMode
-		return dnRequest("get",[self,"SizeMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SizeMode"])
 
 	Func setSizeMode P1
-		dnRequest("set",[self,"SizeMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SizeMode",P1])
 		return self
 
 	Func getWaitOnLoad
-		return dnRequest("get",[self,"WaitOnLoad"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WaitOnLoad"])
 
 	Func setWaitOnLoad P1
-		dnRequest("set",[self,"WaitOnLoad",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WaitOnLoad",P1])
 		return self
 

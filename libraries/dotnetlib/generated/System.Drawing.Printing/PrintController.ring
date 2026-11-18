@@ -16,25 +16,25 @@ Class PrintController from Object
 		return self
 
 	Func OnStartPage P1,P2
-		return dnRequest("call",[self,"OnStartPage",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnStartPage",P1,P2])
 
 	Func OnEndPage P1,P2
-		dnRequest("call",[self,"OnEndPage",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OnEndPage",P1,P2])
 		return self
 
 	Func OnStartPrint P1,P2
-		dnRequest("call",[self,"OnStartPrint",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OnStartPrint",P1,P2])
 		return self
 
 	Func OnEndPrint P1,P2
-		dnRequest("call",[self,"OnEndPrint",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OnEndPrint",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsPreview
-		return dnRequest("get",[self,"IsPreview"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPreview"])
 
 	Func setIsPreview P1
 		raise("DotNet Error: IsPreview is a read-only property")

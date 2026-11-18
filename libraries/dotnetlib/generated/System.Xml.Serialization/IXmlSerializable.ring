@@ -14,13 +14,13 @@ Class IXmlSerializable from DotNetObject
 		return self
 
 	Func GetSchema 
-		return dnRequest("call",[self,"GetSchema"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSchema"])
 
 	Func ReadXml P1
-		dnRequest("call",[self,"ReadXml",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReadXml",P1])
 		return self
 
 	Func WriteXml P1
-		dnRequest("call",[self,"WriteXml",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteXml",P1])
 		return self
 

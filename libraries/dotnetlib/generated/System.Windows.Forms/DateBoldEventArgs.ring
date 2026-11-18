@@ -18,21 +18,21 @@ Class DateBoldEventArgs from EventArgs
 		return self
 
 	Func getStartDate
-		return dnRequest("get",[self,"StartDate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartDate"])
 
 	Func setStartDate P1
 		raise("DotNet Error: StartDate is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getDaysToBold
-		return dnRequest("get",[self,"DaysToBold"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DaysToBold"])
 
 	Func setDaysToBold P1
-		dnRequest("set",[self,"DaysToBold",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DaysToBold",P1])
 		return self
 

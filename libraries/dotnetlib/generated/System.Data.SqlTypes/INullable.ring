@@ -14,5 +14,5 @@ Class INullable from DotNetObject
 		return self
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
 

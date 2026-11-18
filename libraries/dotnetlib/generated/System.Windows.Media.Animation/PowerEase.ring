@@ -18,10 +18,10 @@ Class PowerEase from EasingFunctionBase
 		return self
 
 	Func getPower
-		return dnRequest("get",[self,"Power"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Power"])
 
 	Func setPower P1
-		dnRequest("set",[self,"Power",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Power",P1])
 		return self
 
 	Func getPowerProperty

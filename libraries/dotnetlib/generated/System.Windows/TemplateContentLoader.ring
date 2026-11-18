@@ -15,20 +15,20 @@ Class TemplateContentLoader from DotNetObject
 		return self
 
 	Func Load_ P1,P2
-		return dnRequest("call",[self,"Load",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
 
 	Func Save P1,P2
-		return dnRequest("call",[self,"Save",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 

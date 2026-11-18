@@ -27,46 +27,46 @@ Class WpfMouseEventArgs from InputEventArgs
 		return self
 
 	Func GetPosition P1
-		return dnRequest("call",[self,"GetPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPosition",P1])
 
 	Func getMouseDevice
-		return dnRequest("get",[self,"MouseDevice"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MouseDevice"])
 
 	Func setMouseDevice P1
 		raise("DotNet Error: MouseDevice is a read-only property")
 
 	Func getStylusDevice
-		return dnRequest("get",[self,"StylusDevice"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylusDevice"])
 
 	Func setStylusDevice P1
 		raise("DotNet Error: StylusDevice is a read-only property")
 
 	Func getLeftButton
-		return dnRequest("get",[self,"LeftButton"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LeftButton"])
 
 	Func setLeftButton P1
 		raise("DotNet Error: LeftButton is a read-only property")
 
 	Func getRightButton
-		return dnRequest("get",[self,"RightButton"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RightButton"])
 
 	Func setRightButton P1
 		raise("DotNet Error: RightButton is a read-only property")
 
 	Func getMiddleButton
-		return dnRequest("get",[self,"MiddleButton"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MiddleButton"])
 
 	Func setMiddleButton P1
 		raise("DotNet Error: MiddleButton is a read-only property")
 
 	Func getXButton1
-		return dnRequest("get",[self,"XButton1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XButton1"])
 
 	Func setXButton1 P1
 		raise("DotNet Error: XButton1 is a read-only property")
 
 	Func getXButton2
-		return dnRequest("get",[self,"XButton2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XButton2"])
 
 	Func setXButton2 P1
 		raise("DotNet Error: XButton2 is a read-only property")

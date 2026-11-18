@@ -19,19 +19,19 @@ Class RuntimeRelationalPropertyOverrides from AnnotatableBase
 		return self
 
 	Func getProperty
-		return dnRequest("get",[self,"Property"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getStoreObject
-		return dnRequest("get",[self,"StoreObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreObject"])
 
 	Func setStoreObject P1
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

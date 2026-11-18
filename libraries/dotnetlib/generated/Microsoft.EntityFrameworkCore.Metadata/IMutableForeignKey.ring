@@ -26,83 +26,83 @@ Class IMutableForeignKey from DotNetObject
 		return self
 
 	Func SetProperties P1,P2
-		dnRequest("call",[self,"SetProperties",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetProperties",P1,P2])
 		return self
 
 	Func SetDependentToPrincipal P1
-		return dnRequest("call",[self,"SetDependentToPrincipal",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetDependentToPrincipal",P1])
 
 	Func SetPrincipalToDependent P1
-		return dnRequest("call",[self,"SetPrincipalToDependent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetPrincipalToDependent",P1])
 
 	Func GetReferencingSkipNavigations 
-		return dnRequest("call",[self,"GetReferencingSkipNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReferencingSkipNavigations"])
 
 	Func GetRelatedEntityType P1
-		return dnRequest("call",[self,"GetRelatedEntityType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRelatedEntityType",P1])
 
 	Func GetNavigation P1
-		return dnRequest("call",[self,"GetNavigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNavigation",P1])
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func getPrincipalKey
-		return dnRequest("get",[self,"PrincipalKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalKey"])
 
 	Func setPrincipalKey P1
 		raise("DotNet Error: PrincipalKey is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getPrincipalEntityType
-		return dnRequest("get",[self,"PrincipalEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalEntityType"])
 
 	Func setPrincipalEntityType P1
 		raise("DotNet Error: PrincipalEntityType is a read-only property")
 
 	Func getIsUnique
-		return dnRequest("get",[self,"IsUnique"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUnique"])
 
 	Func setIsUnique P1
-		dnRequest("set",[self,"IsUnique",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsUnique",P1])
 		return self
 
 	Func getIsRequired
-		return dnRequest("get",[self,"IsRequired"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRequired"])
 
 	Func setIsRequired P1
-		dnRequest("set",[self,"IsRequired",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsRequired",P1])
 		return self
 
 	Func getIsRequiredDependent
-		return dnRequest("get",[self,"IsRequiredDependent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRequiredDependent"])
 
 	Func setIsRequiredDependent P1
-		dnRequest("set",[self,"IsRequiredDependent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsRequiredDependent",P1])
 		return self
 
 	Func getIsOwnership
-		return dnRequest("get",[self,"IsOwnership"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOwnership"])
 
 	Func setIsOwnership P1
-		dnRequest("set",[self,"IsOwnership",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsOwnership",P1])
 		return self
 
 	Func getDeleteBehavior
-		return dnRequest("get",[self,"DeleteBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeleteBehavior"])
 
 	Func setDeleteBehavior P1
-		dnRequest("set",[self,"DeleteBehavior",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DeleteBehavior",P1])
 		return self
 
 	Func getDependentToPrincipal
-		return dnRequest("get",[self,"DependentToPrincipal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DependentToPrincipal"])
 
 	Func getPrincipalToDependent
-		return dnRequest("get",[self,"PrincipalToDependent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalToDependent"])
 

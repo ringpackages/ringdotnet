@@ -17,22 +17,22 @@ Class IKey from DotNetObject
 		return self
 
 	Func GetKeyType 
-		return dnRequest("call",[self,"GetKeyType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyType"])
 
 	Func GetReferencingForeignKeys 
-		return dnRequest("call",[self,"GetReferencingForeignKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReferencingForeignKeys"])
 
 	Func GetPrincipalKeyValueFactory 
-		return dnRequest("call",[self,"GetPrincipalKeyValueFactory"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrincipalKeyValueFactory"])
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")

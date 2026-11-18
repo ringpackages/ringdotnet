@@ -34,121 +34,121 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Multiply P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Multiply",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Multiply",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Multiply",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1])
 		return self
 
 	Func Multiply_2 P1,P2
-		dnRequest("call",[self,"Multiply",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1,P2])
 		return self
 
 	Func Translate P1,P2
-		dnRequest("call",[self,"Translate",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2])
 		return self
 
 	Func Translate_3 P1,P2,P3
-		dnRequest("call",[self,"Translate",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3])
 		return self
 
 	Func Scale P1,P2
-		dnRequest("call",[self,"Scale",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1,P2])
 		return self
 
 	Func Scale_3 P1,P2,P3
-		dnRequest("call",[self,"Scale",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1,P2,P3])
 		return self
 
 	Func Rotate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Rotate",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Rotate",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Rotate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Rotate",P1])
 		return self
 
 	Func Rotate_2 P1,P2
-		dnRequest("call",[self,"Rotate",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Rotate",P1,P2])
 		return self
 
 	Func RotateAt P1,P2
-		dnRequest("call",[self,"RotateAt",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateAt",P1,P2])
 		return self
 
 	Func RotateAt_3 P1,P2,P3
-		dnRequest("call",[self,"RotateAt",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateAt",P1,P2,P3])
 		return self
 
 	Func Shear P1,P2
-		dnRequest("call",[self,"Shear",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Shear",P1,P2])
 		return self
 
 	Func Shear_3 P1,P2,P3
-		dnRequest("call",[self,"Shear",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Shear",P1,P2,P3])
 		return self
 
 	Func Invert 
-		dnRequest("call",[self,"Invert"])
+		dnRequest("call",[new DotNetObject(nHandle),"Invert"])
 		return self
 
 	Func TransformPoints P1
-		dnRequest("call",[self,"TransformPoints",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"TransformPoints",P1])
 		return self
 
 	Func TransformVectors P1
-		dnRequest("call",[self,"TransformVectors",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"TransformVectors",P1])
 		return self
 
 	Func VectorTransformPoints P1
-		dnRequest("call",[self,"VectorTransformPoints",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"VectorTransformPoints",P1])
 		return self
 
 	Func getElements
-		return dnRequest("get",[self,"Elements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Elements"])
 
 	Func setElements P1
 		raise("DotNet Error: Elements is a read-only property")
 
 	Func getMatrixElements
-		return dnRequest("get",[self,"MatrixElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MatrixElements"])
 
 	Func setMatrixElements P1
-		dnRequest("set",[self,"MatrixElements",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MatrixElements",P1])
 		return self
 
 	Func getOffsetX
-		return dnRequest("get",[self,"OffsetX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetX"])
 
 	Func setOffsetX P1
 		raise("DotNet Error: OffsetX is a read-only property")
 
 	Func getOffsetY
-		return dnRequest("get",[self,"OffsetY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OffsetY"])
 
 	Func setOffsetY P1
 		raise("DotNet Error: OffsetY is a read-only property")
 
 	Func getIsInvertible
-		return dnRequest("get",[self,"IsInvertible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInvertible"])
 
 	Func setIsInvertible P1
 		raise("DotNet Error: IsInvertible is a read-only property")
 
 	Func getIsIdentity
-		return dnRequest("get",[self,"IsIdentity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIdentity"])
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")

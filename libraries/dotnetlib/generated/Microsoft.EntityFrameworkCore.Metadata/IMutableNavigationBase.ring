@@ -14,10 +14,10 @@ Class IMutableNavigationBase from DotNetObject
 		return self
 
 	Func SetIsEagerLoaded P1
-		dnRequest("call",[self,"SetIsEagerLoaded",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetIsEagerLoaded",P1])
 		return self
 
 	Func SetLazyLoadingEnabled P1
-		dnRequest("call",[self,"SetLazyLoadingEnabled",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetLazyLoadingEnabled",P1])
 		return self
 

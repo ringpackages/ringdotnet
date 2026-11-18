@@ -22,117 +22,117 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Flush 
-		dnRequest("call",[self,"Flush"])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func TraceTransfer P1,P2,P3,P4,P5
-		dnRequest("call",[self,"TraceTransfer",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceTransfer",P1,P2,P3,P4,P5])
 		return self
 
 	Func Fail P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Fail",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Fail",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Fail",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Fail",P1])
 		return self
 
 	Func Fail_2 P1,P2
-		dnRequest("call",[self,"Fail",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Fail",P1,P2])
 		return self
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Write",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Write",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Write",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
 		return self
 
 	Func Write_2 P1,P2
-		dnRequest("call",[self,"Write",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2])
 		return self
 
 	Func WriteLine P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"WriteLine",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteLine",P1])
 			return self
 		ok
-		dnRequest("call",[self,"WriteLine",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1])
 		return self
 
 	Func WriteLine_2 P1,P2
-		dnRequest("call",[self,"WriteLine",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1,P2])
 		return self
 
 	Func TraceData P1,P2,P3,P4,P5
-		dnRequest("call",[self,"TraceData",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceData",P1,P2,P3,P4,P5])
 		return self
 
 	Func TraceEvent P1,P2,P3,P4
-		dnRequest("call",[self,"TraceEvent",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3,P4])
 		return self
 
 	Func TraceEvent_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"TraceEvent",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3,P4,P5])
 		return self
 
 	Func TraceEvent_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"TraceEvent",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getIsThreadSafe
-		return dnRequest("get",[self,"IsThreadSafe"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsThreadSafe"])
 
 	Func setIsThreadSafe P1
 		raise("DotNet Error: IsThreadSafe is a read-only property")
 
 	Func getIndentLevel
-		return dnRequest("get",[self,"IndentLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IndentLevel"])
 
 	Func setIndentLevel P1
-		dnRequest("set",[self,"IndentLevel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IndentLevel",P1])
 		return self
 
 	Func getIndentSize
-		return dnRequest("get",[self,"IndentSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IndentSize"])
 
 	Func setIndentSize P1
-		dnRequest("set",[self,"IndentSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IndentSize",P1])
 		return self
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[self,"Filter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
 		return self
 
 	Func getTraceOutputOptions
-		return dnRequest("get",[self,"TraceOutputOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TraceOutputOptions"])
 
 	Func setTraceOutputOptions P1
-		dnRequest("set",[self,"TraceOutputOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TraceOutputOptions",P1])
 		return self
 

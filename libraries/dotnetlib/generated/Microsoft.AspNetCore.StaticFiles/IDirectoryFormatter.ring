@@ -14,5 +14,5 @@ Class IDirectoryFormatter from DotNetObject
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnRequest("call",[self,"GenerateContentAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateContentAsync",P1,P2])
 

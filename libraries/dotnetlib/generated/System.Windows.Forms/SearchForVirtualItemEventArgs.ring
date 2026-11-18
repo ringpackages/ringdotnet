@@ -24,50 +24,50 @@ Class SearchForVirtualItemEventArgs from EventArgs
 		return self
 
 	Func getIsTextSearch
-		return dnRequest("get",[self,"IsTextSearch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsTextSearch"])
 
 	Func setIsTextSearch P1
 		raise("DotNet Error: IsTextSearch is a read-only property")
 
 	Func getIsPrefixSearch
-		return dnRequest("get",[self,"IsPrefixSearch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPrefixSearch"])
 
 	Func setIsPrefixSearch P1
 		raise("DotNet Error: IsPrefixSearch is a read-only property")
 
 	Func getIncludeSubItemsInSearch
-		return dnRequest("get",[self,"IncludeSubItemsInSearch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IncludeSubItemsInSearch"])
 
 	Func setIncludeSubItemsInSearch P1
 		raise("DotNet Error: IncludeSubItemsInSearch is a read-only property")
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
 
 	Func setIndex P1
-		dnRequest("set",[self,"Index",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Index",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getStartingPoint
-		return dnRequest("get",[self,"StartingPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartingPoint"])
 
 	Func setStartingPoint P1
 		raise("DotNet Error: StartingPoint is a read-only property")
 
 	Func getDirection
-		return dnRequest("get",[self,"Direction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
 
 	Func getStartIndex
-		return dnRequest("get",[self,"StartIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartIndex"])
 
 	Func setStartIndex P1
 		raise("DotNet Error: StartIndex is a read-only property")

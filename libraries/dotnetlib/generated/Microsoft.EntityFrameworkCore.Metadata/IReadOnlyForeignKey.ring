@@ -26,94 +26,94 @@ Class IReadOnlyForeignKey from DotNetObject
 		return self
 
 	Func GetReferencingSkipNavigations 
-		return dnRequest("call",[self,"GetReferencingSkipNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReferencingSkipNavigations"])
 
 	Func GetRelatedEntityType P1
-		return dnRequest("call",[self,"GetRelatedEntityType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRelatedEntityType",P1])
 
 	Func GetNavigation P1
-		return dnRequest("call",[self,"GetNavigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNavigation",P1])
 
 	Func IsBaseLinking 
-		return dnRequest("call",[self,"IsBaseLinking"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBaseLinking"])
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getPrincipalEntityType
-		return dnRequest("get",[self,"PrincipalEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalEntityType"])
 
 	Func setPrincipalEntityType P1
 		raise("DotNet Error: PrincipalEntityType is a read-only property")
 
 	Func getPrincipalKey
-		return dnRequest("get",[self,"PrincipalKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalKey"])
 
 	Func setPrincipalKey P1
 		raise("DotNet Error: PrincipalKey is a read-only property")
 
 	Func getDependentToPrincipal
-		return dnRequest("get",[self,"DependentToPrincipal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DependentToPrincipal"])
 
 	Func setDependentToPrincipal P1
 		raise("DotNet Error: DependentToPrincipal is a read-only property")
 
 	Func getPrincipalToDependent
-		return dnRequest("get",[self,"PrincipalToDependent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalToDependent"])
 
 	Func setPrincipalToDependent P1
 		raise("DotNet Error: PrincipalToDependent is a read-only property")
 
 	Func getIsUnique
-		return dnRequest("get",[self,"IsUnique"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsUnique"])
 
 	Func setIsUnique P1
 		raise("DotNet Error: IsUnique is a read-only property")
 
 	Func getIsRequired
-		return dnRequest("get",[self,"IsRequired"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRequired"])
 
 	Func setIsRequired P1
 		raise("DotNet Error: IsRequired is a read-only property")
 
 	Func getIsRequiredDependent
-		return dnRequest("get",[self,"IsRequiredDependent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRequiredDependent"])
 
 	Func setIsRequiredDependent P1
 		raise("DotNet Error: IsRequiredDependent is a read-only property")
 
 	Func getIsOwnership
-		return dnRequest("get",[self,"IsOwnership"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOwnership"])
 
 	Func setIsOwnership P1
 		raise("DotNet Error: IsOwnership is a read-only property")
 
 	Func getDeleteBehavior
-		return dnRequest("get",[self,"DeleteBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeleteBehavior"])
 
 	Func setDeleteBehavior P1
 		raise("DotNet Error: DeleteBehavior is a read-only property")

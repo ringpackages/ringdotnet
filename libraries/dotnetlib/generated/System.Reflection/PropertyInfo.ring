@@ -22,109 +22,109 @@ Class PropertyInfo from MemberInfo
 		return self
 
 	Func GetIndexParameters 
-		return dnRequest("call",[self,"GetIndexParameters"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIndexParameters"])
 
 	Func GetAccessors P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetAccessors",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAccessors",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetAccessors"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetAccessors"])
 		ok
-		return dnRequest("call",[self,"GetAccessors",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAccessors",P1])
 
 	Func GetAccessors_1 P1
-		return dnRequest("call",[self,"GetAccessors",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAccessors",P1])
 
 	Func GetGetMethod_0 
-		return dnRequest("call",[self,"GetGetMethod"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGetMethod"])
 
 	Func GetGetMethod_1 P1
-		return dnRequest("call",[self,"GetGetMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGetMethod",P1])
 
 	Func GetSetMethod_0 
-		return dnRequest("call",[self,"GetSetMethod"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSetMethod"])
 
 	Func GetSetMethod_1 P1
-		return dnRequest("call",[self,"GetSetMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSetMethod",P1])
 
 	Func GetModifiedPropertyType 
-		return dnRequest("call",[self,"GetModifiedPropertyType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetModifiedPropertyType"])
 
 	Func GetOptionalCustomModifiers 
-		return dnRequest("call",[self,"GetOptionalCustomModifiers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOptionalCustomModifiers"])
 
 	Func GetRequiredCustomModifiers 
-		return dnRequest("call",[self,"GetRequiredCustomModifiers"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRequiredCustomModifiers"])
 
 	Func GetValue P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetValue",P1])
 		ok
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func GetValue_2 P1,P2
-		return dnRequest("call",[self,"GetValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1,P2])
 
 	Func GetValue_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"GetValue",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1,P2,P3,P4,P5])
 
 	Func GetConstantValue 
-		return dnRequest("call",[self,"GetConstantValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConstantValue"])
 
 	Func GetRawConstantValue 
-		return dnRequest("call",[self,"GetRawConstantValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRawConstantValue"])
 
 	Func SetValue P1,P2
-		dnRequest("call",[self,"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
 	Func SetValue_3 P1,P2,P3
-		dnRequest("call",[self,"SetValue",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2,P3])
 		return self
 
 	Func SetValue_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[self,"SetValue",P1,P2,P3,P4,P5,P6])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func getPropertyType
-		return dnRequest("get",[self,"PropertyType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyType"])
 
 	Func setPropertyType P1
 		raise("DotNet Error: PropertyType is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getIsSpecialName
-		return dnRequest("get",[self,"IsSpecialName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSpecialName"])
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getCanRead
-		return dnRequest("get",[self,"CanRead"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanRead"])
 
 	Func setCanRead P1
 		raise("DotNet Error: CanRead is a read-only property")
 
 	Func getCanWrite
-		return dnRequest("get",[self,"CanWrite"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanWrite"])
 
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")
 
 	Func getGetMethod
-		return dnRequest("get",[self,"GetMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GetMethod"])
 
 	Func setGetMethod P1
 		raise("DotNet Error: GetMethod is a read-only property")
 
 	Func getSetMethod
-		return dnRequest("get",[self,"SetMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SetMethod"])
 
 	Func setSetMethod P1
 		raise("DotNet Error: SetMethod is a read-only property")

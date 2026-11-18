@@ -18,20 +18,20 @@ Class FragmentNavigationEventArgs from EventArgs
 		return self
 
 	Func getFragment
-		return dnRequest("get",[self,"Fragment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Fragment"])
 
 	Func setFragment P1
 		raise("DotNet Error: Fragment is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[self,"Handled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
 
 	Func setHandled P1
-		dnRequest("set",[self,"Handled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Handled",P1])
 		return self
 
 	Func getNavigator
-		return dnRequest("get",[self,"Navigator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Navigator"])
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")

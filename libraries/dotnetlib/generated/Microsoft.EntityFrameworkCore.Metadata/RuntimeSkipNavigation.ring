@@ -20,30 +20,30 @@ Class RuntimeSkipNavigation from RuntimePropertyBase
 		return self
 
 	Func SetCollectionAccessor P1,P2,P3,P4,P5
-		dnRequest("call",[self,"SetCollectionAccessor",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCollectionAccessor",P1,P2,P3,P4,P5])
 		return self
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getTargetEntityType
-		return dnRequest("get",[self,"TargetEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetEntityType"])
 
 	Func setTargetEntityType P1
 		raise("DotNet Error: TargetEntityType is a read-only property")
 
 	Func getInverse
-		return dnRequest("get",[self,"Inverse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inverse"])
 
 	Func setInverse P1
-		dnRequest("set",[self,"Inverse",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Inverse",P1])
 		return self
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

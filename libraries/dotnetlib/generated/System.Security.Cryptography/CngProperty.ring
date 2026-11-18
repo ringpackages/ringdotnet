@@ -22,16 +22,16 @@ Class CngProperty from ValueType
 		return self
 
 	Func GetValue 
-		return dnRequest("call",[self,"GetValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue"])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")

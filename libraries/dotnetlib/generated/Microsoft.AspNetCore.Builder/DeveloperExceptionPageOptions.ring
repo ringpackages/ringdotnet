@@ -18,19 +18,19 @@ Class DeveloperExceptionPageOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSourceCodeLineCount
-		return dnRequest("get",[self,"SourceCodeLineCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SourceCodeLineCount"])
 
 	Func setSourceCodeLineCount P1
-		dnRequest("set",[self,"SourceCodeLineCount",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SourceCodeLineCount",P1])
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileProvider"])
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FileProvider",P1])
 		return self
 

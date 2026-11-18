@@ -29,77 +29,77 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getContentTypeProvider
-		return dnRequest("get",[self,"ContentTypeProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentTypeProvider"])
 
 	Func setContentTypeProvider P1
-		dnRequest("set",[self,"ContentTypeProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentTypeProvider",P1])
 		return self
 
 	Func getDefaultContentType
-		return dnRequest("get",[self,"DefaultContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultContentType"])
 
 	Func setDefaultContentType P1
-		dnRequest("set",[self,"DefaultContentType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultContentType",P1])
 		return self
 
 	Func getServeUnknownFileTypes
-		return dnRequest("get",[self,"ServeUnknownFileTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServeUnknownFileTypes"])
 
 	Func setServeUnknownFileTypes P1
-		dnRequest("set",[self,"ServeUnknownFileTypes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ServeUnknownFileTypes",P1])
 		return self
 
 	Func getHttpsCompression
-		return dnRequest("get",[self,"HttpsCompression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpsCompression"])
 
 	Func setHttpsCompression P1
-		dnRequest("set",[self,"HttpsCompression",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HttpsCompression",P1])
 		return self
 
 	Func getOnPrepareResponse
-		return dnRequest("get",[self,"OnPrepareResponse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OnPrepareResponse"])
 
 	Func setOnPrepareResponse P1
-		dnRequest("set",[self,"OnPrepareResponse",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OnPrepareResponse",P1])
 		return self
 
 	Func getOnPrepareResponseAsync
-		return dnRequest("get",[self,"OnPrepareResponseAsync"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OnPrepareResponseAsync"])
 
 	Func setOnPrepareResponseAsync P1
-		dnRequest("set",[self,"OnPrepareResponseAsync",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OnPrepareResponseAsync",P1])
 		return self
 
 	Func getRequestPath
-		return dnRequest("get",[self,"RequestPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestPath"])
 
 	Func setRequestPath P1
-		dnRequest("set",[self,"RequestPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestPath",P1])
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[self,"FileProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileProvider"])
 
 	Func setFileProvider P1
-		dnRequest("set",[self,"FileProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FileProvider",P1])
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dnRequest("get",[self,"RedirectToAppendTrailingSlash"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RedirectToAppendTrailingSlash"])
 
 	Func setRedirectToAppendTrailingSlash P1
-		dnRequest("set",[self,"RedirectToAppendTrailingSlash",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RedirectToAppendTrailingSlash",P1])
 		return self
 

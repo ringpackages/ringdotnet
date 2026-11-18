@@ -14,14 +14,14 @@ Class IAuthenticationHandler from DotNetObject
 		return self
 
 	Func InitializeAsync P1,P2
-		return dnRequest("call",[self,"InitializeAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InitializeAsync",P1,P2])
 
 	Func AuthenticateAsync 
-		return dnRequest("call",[self,"AuthenticateAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsync"])
 
 	Func ChallengeAsync P1
-		return dnRequest("call",[self,"ChallengeAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ChallengeAsync",P1])
 
 	Func ForbidAsync P1
-		return dnRequest("call",[self,"ForbidAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ForbidAsync",P1])
 

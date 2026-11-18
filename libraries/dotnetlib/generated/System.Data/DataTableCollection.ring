@@ -14,83 +14,83 @@ Class DataTableCollection from InternalDataCollectionBase
 		return self
 
 	Func Add_1 P1
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[self,"AddRange",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
 	Func Add_2 P1,P2
-		return dnRequest("call",[self,"Add",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Add"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Add"])
 		ok
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func CanRemove P1
-		return dnRequest("call",[self,"CanRemove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanRemove",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Contains",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
 		ok
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Contains_2 P1,P2
-		return dnRequest("call",[self,"Contains",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2])
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexOf",P1])
 		ok
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func IndexOf_2 P1,P2
-		return dnRequest("call",[self,"IndexOf",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
 
 	Func Remove P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Remove",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Remove",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func Remove_2 P1,P2
-		dnRequest("call",[self,"Remove",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[self,"CollectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[self,"CollectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
 		return self
 
 	Func setCollectionChangingEvent P1
-		dnRequest("setevent",[self,"CollectionChanging",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanging",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangingEvent
-		dnRequest("clearevent",[self,"CollectionChanging"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanging"])
 		return self
 

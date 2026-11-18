@@ -18,33 +18,33 @@ Class BindingContext from Object
 
 	Func Contains P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Contains",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
 		ok
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Contains_2 P1,P2
-		return dnRequest("call",[self,"Contains",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func UpdateBinding P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.BindingContext, System.Windows.Forms'),"UpdateBinding",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[self,"CollectionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[self,"CollectionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

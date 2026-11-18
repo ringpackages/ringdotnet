@@ -19,40 +19,40 @@ Class XmlSchemaDatatype from Object
 		return self
 
 	Func ParseValue P1,P2,P3
-		return dnRequest("call",[self,"ParseValue",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ParseValue",P1,P2,P3])
 
 	Func ChangeType P1,P2
-		return dnRequest("call",[self,"ChangeType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ChangeType",P1,P2])
 
 	Func ChangeType_3 P1,P2,P3
-		return dnRequest("call",[self,"ChangeType",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ChangeType",P1,P2,P3])
 
 	Func IsDerivedFrom P1
-		return dnRequest("call",[self,"IsDerivedFrom",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDerivedFrom",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getValueType
-		return dnRequest("get",[self,"ValueType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueType"])
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getTokenizedType
-		return dnRequest("get",[self,"TokenizedType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TokenizedType"])
 
 	Func setTokenizedType P1
 		raise("DotNet Error: TokenizedType is a read-only property")
 
 	Func getVariety
-		return dnRequest("get",[self,"Variety"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Variety"])
 
 	Func setVariety P1
 		raise("DotNet Error: Variety is a read-only property")
 
 	Func getTypeCode
-		return dnRequest("get",[self,"TypeCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeCode"])
 
 	Func setTypeCode P1
 		raise("DotNet Error: TypeCode is a read-only property")

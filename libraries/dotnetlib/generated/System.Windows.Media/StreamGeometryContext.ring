@@ -14,38 +14,38 @@ Class StreamGeometryContext from DispatcherObject
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func BeginFigure P1,P2,P3
-		dnRequest("call",[self,"BeginFigure",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginFigure",P1,P2,P3])
 		return self
 
 	Func LineTo P1,P2,P3
-		dnRequest("call",[self,"LineTo",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"LineTo",P1,P2,P3])
 		return self
 
 	Func QuadraticBezierTo P1,P2,P3,P4
-		dnRequest("call",[self,"QuadraticBezierTo",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"QuadraticBezierTo",P1,P2,P3,P4])
 		return self
 
 	Func BezierTo P1,P2,P3,P4,P5
-		dnRequest("call",[self,"BezierTo",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"BezierTo",P1,P2,P3,P4,P5])
 		return self
 
 	Func PolyLineTo P1,P2,P3
-		dnRequest("call",[self,"PolyLineTo",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"PolyLineTo",P1,P2,P3])
 		return self
 
 	Func PolyQuadraticBezierTo P1,P2,P3
-		dnRequest("call",[self,"PolyQuadraticBezierTo",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"PolyQuadraticBezierTo",P1,P2,P3])
 		return self
 
 	Func PolyBezierTo P1,P2,P3
-		dnRequest("call",[self,"PolyBezierTo",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"PolyBezierTo",P1,P2,P3])
 		return self
 
 	Func ArcTo P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[self,"ArcTo",P1,P2,P3,P4,P5,P6,P7])
+		dnRequest("call",[new DotNetObject(nHandle),"ArcTo",P1,P2,P3,P4,P5,P6,P7])
 		return self
 

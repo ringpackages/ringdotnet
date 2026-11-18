@@ -29,639 +29,639 @@ Class ControllerBase from Object
 
 	Func StatusCode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"StatusCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StatusCode",P1])
 		ok
-		return dnRequest("call",[self,"StatusCode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"StatusCode",P1])
 
 	Func StatusCode_2 P1,P2
-		return dnRequest("call",[self,"StatusCode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"StatusCode",P1,P2])
 
 	Func Content P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Content",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Content",P1])
 		ok
-		return dnRequest("call",[self,"Content",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Content",P1])
 
 	Func Content_2 P1,P2
-		return dnRequest("call",[self,"Content",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Content",P1,P2])
 
 	Func Content_3 P1,P2,P3
-		return dnRequest("call",[self,"Content",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Content",P1,P2,P3])
 
 	Func NoContent 
-		return dnRequest("call",[self,"NoContent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"NoContent"])
 
 	Func Ok_ P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Ok",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Ok",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Ok"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Ok"])
 		ok
-		return dnRequest("call",[self,"Ok",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ok",P1])
 
 	Func Ok_1 P1
-		return dnRequest("call",[self,"Ok",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ok",P1])
 
 	Func Redirect P1
-		return dnRequest("call",[self,"Redirect",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Redirect",P1])
 
 	Func RedirectPermanent P1
-		return dnRequest("call",[self,"RedirectPermanent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectPermanent",P1])
 
 	Func RedirectPreserveMethod P1
-		return dnRequest("call",[self,"RedirectPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectPreserveMethod",P1])
 
 	Func RedirectPermanentPreserveMethod P1
-		return dnRequest("call",[self,"RedirectPermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectPermanentPreserveMethod",P1])
 
 	Func LocalRedirect P1
-		return dnRequest("call",[self,"LocalRedirect",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LocalRedirect",P1])
 
 	Func LocalRedirectPermanent P1
-		return dnRequest("call",[self,"LocalRedirectPermanent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LocalRedirectPermanent",P1])
 
 	Func LocalRedirectPreserveMethod P1
-		return dnRequest("call",[self,"LocalRedirectPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LocalRedirectPreserveMethod",P1])
 
 	Func LocalRedirectPermanentPreserveMethod P1
-		return dnRequest("call",[self,"LocalRedirectPermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LocalRedirectPermanentPreserveMethod",P1])
 
 	Func RedirectToAction P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToAction",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToAction",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RedirectToAction"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction"])
 		ok
-		return dnRequest("call",[self,"RedirectToAction",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1])
 
 	Func RedirectToAction_1 P1
-		return dnRequest("call",[self,"RedirectToAction",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1])
 
 	Func RedirectToAction_2 P1,P2
-		return dnRequest("call",[self,"RedirectToAction",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1,P2])
 
 	Func RedirectToAction_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToAction",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1,P2,P3])
 
 	Func RedirectToAction_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"RedirectToAction",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1,P2,P3,P4])
 
 	Func RedirectToActionPreserveMethod_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"RedirectToActionPreserveMethod",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1,P2,P3,P4])
 
 	Func RedirectToActionPreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToActionPreserveMethod",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1,P2,P3])
 
 	Func RedirectToActionPreserveMethod_2 P1,P2
-		return dnRequest("call",[self,"RedirectToActionPreserveMethod",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1,P2])
 
 	Func RedirectToActionPreserveMethod_1 P1
-		return dnRequest("call",[self,"RedirectToActionPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1])
 
 	Func RedirectToActionPreserveMethod P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToActionPreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RedirectToActionPreserveMethod"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod"])
 		ok
-		return dnRequest("call",[self,"RedirectToActionPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1])
 
 	Func RedirectToActionPermanent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToActionPermanent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1])
 		ok
-		return dnRequest("call",[self,"RedirectToActionPermanent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1])
 
 	Func RedirectToActionPermanent_2 P1,P2
-		return dnRequest("call",[self,"RedirectToActionPermanent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1,P2])
 
 	Func RedirectToActionPermanent_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToActionPermanent",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1,P2,P3])
 
 	Func RedirectToActionPermanent_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"RedirectToActionPermanent",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1,P2,P3,P4])
 
 	Func RedirectToActionPermanentPreserveMethod_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1,P2,P3,P4])
 
 	Func RedirectToActionPermanentPreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1,P2,P3])
 
 	Func RedirectToActionPermanentPreserveMethod_2 P1,P2
-		return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1,P2])
 
 	Func RedirectToActionPermanentPreserveMethod_1 P1
-		return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1])
 
 	Func RedirectToActionPermanentPreserveMethod P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToActionPermanentPreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod"])
 		ok
-		return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1])
 
 	Func RedirectToRoute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToRoute",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToRoute",P1])
 		ok
-		return dnRequest("call",[self,"RedirectToRoute",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoute",P1])
 
 	Func RedirectToRoute_2 P1,P2
-		return dnRequest("call",[self,"RedirectToRoute",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoute",P1,P2])
 
 	Func RedirectToRoute_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToRoute",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoute",P1,P2,P3])
 
 	Func RedirectToRoutePreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToRoutePreserveMethod",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod",P1,P2,P3])
 
 	Func RedirectToRoutePreserveMethod_2 P1,P2
-		return dnRequest("call",[self,"RedirectToRoutePreserveMethod",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod",P1,P2])
 
 	Func RedirectToRoutePreserveMethod_1 P1
-		return dnRequest("call",[self,"RedirectToRoutePreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod",P1])
 
 	Func RedirectToRoutePreserveMethod P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToRoutePreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RedirectToRoutePreserveMethod"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod"])
 		ok
-		return dnRequest("call",[self,"RedirectToRoutePreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod",P1])
 
 	Func RedirectToRoutePermanent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToRoutePermanent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToRoutePermanent",P1])
 		ok
-		return dnRequest("call",[self,"RedirectToRoutePermanent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanent",P1])
 
 	Func RedirectToRoutePermanent_2 P1,P2
-		return dnRequest("call",[self,"RedirectToRoutePermanent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanent",P1,P2])
 
 	Func RedirectToRoutePermanent_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToRoutePermanent",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanent",P1,P2,P3])
 
 	Func RedirectToRoutePermanentPreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToRoutePermanentPreserveMethod",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanentPreserveMethod",P1,P2,P3])
 
 	Func RedirectToRoutePermanentPreserveMethod_2 P1,P2
-		return dnRequest("call",[self,"RedirectToRoutePermanentPreserveMethod",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanentPreserveMethod",P1,P2])
 
 	Func RedirectToRoutePermanentPreserveMethod_1 P1
-		return dnRequest("call",[self,"RedirectToRoutePermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanentPreserveMethod",P1])
 
 	Func RedirectToRoutePermanentPreserveMethod P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToRoutePermanentPreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToRoutePermanentPreserveMethod",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RedirectToRoutePermanentPreserveMethod"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanentPreserveMethod"])
 		ok
-		return dnRequest("call",[self,"RedirectToRoutePermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanentPreserveMethod",P1])
 
 	Func RedirectToPage P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToPage",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToPage",P1])
 		ok
-		return dnRequest("call",[self,"RedirectToPage",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPage",P1])
 
 	Func RedirectToPage_2 P1,P2
-		return dnRequest("call",[self,"RedirectToPage",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPage",P1,P2])
 
 	Func RedirectToPage_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToPage",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPage",P1,P2,P3])
 
 	Func RedirectToPage_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"RedirectToPage",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPage",P1,P2,P3,P4])
 
 	Func RedirectToPagePermanent P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToPagePermanent",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1])
 		ok
-		return dnRequest("call",[self,"RedirectToPagePermanent",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1])
 
 	Func RedirectToPagePermanent_2 P1,P2
-		return dnRequest("call",[self,"RedirectToPagePermanent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1,P2])
 
 	Func RedirectToPagePermanent_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToPagePermanent",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1,P2,P3])
 
 	Func RedirectToPagePermanent_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"RedirectToPagePermanent",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1,P2,P3,P4])
 
 	Func RedirectToPagePreserveMethod_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"RedirectToPagePreserveMethod",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePreserveMethod",P1,P2,P3,P4])
 
 	Func RedirectToPagePreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToPagePreserveMethod",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePreserveMethod",P1,P2,P3])
 
 	Func RedirectToPagePreserveMethod_2 P1,P2
-		return dnRequest("call",[self,"RedirectToPagePreserveMethod",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePreserveMethod",P1,P2])
 
 	Func RedirectToPagePreserveMethod P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToPagePreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToPagePreserveMethod",P1])
 		ok
-		return dnRequest("call",[self,"RedirectToPagePreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePreserveMethod",P1])
 
 	Func RedirectToPagePermanentPreserveMethod_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"RedirectToPagePermanentPreserveMethod",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1,P2,P3,P4])
 
 	Func RedirectToPagePermanentPreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[self,"RedirectToPagePermanentPreserveMethod",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1,P2,P3])
 
 	Func RedirectToPagePermanentPreserveMethod_2 P1,P2
-		return dnRequest("call",[self,"RedirectToPagePermanentPreserveMethod",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1,P2])
 
 	Func RedirectToPagePermanentPreserveMethod P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RedirectToPagePermanentPreserveMethod",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1])
 		ok
-		return dnRequest("call",[self,"RedirectToPagePermanentPreserveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1])
 
 	Func File P1,P2
-		return dnRequest("call",[self,"File",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2])
 
 	Func File_3 P1,P2,P3
-		return dnRequest("call",[self,"File",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2,P3])
 
 	Func File_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"File",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2,P3,P4])
 
 	Func File_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"File",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2,P3,P4,P5])
 
 	Func File_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"File",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2,P3,P4,P5,P6])
 
 	Func PhysicalFile P1,P2
-		return dnRequest("call",[self,"PhysicalFile",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2])
 
 	Func PhysicalFile_3 P1,P2,P3
-		return dnRequest("call",[self,"PhysicalFile",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2,P3])
 
 	Func PhysicalFile_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"PhysicalFile",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2,P3,P4])
 
 	Func PhysicalFile_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"PhysicalFile",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2,P3,P4,P5])
 
 	Func PhysicalFile_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"PhysicalFile",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2,P3,P4,P5,P6])
 
 	Func Unauthorized P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Unauthorized",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Unauthorized",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Unauthorized"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Unauthorized"])
 		ok
-		return dnRequest("call",[self,"Unauthorized",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Unauthorized",P1])
 
 	Func Unauthorized_1 P1
-		return dnRequest("call",[self,"Unauthorized",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Unauthorized",P1])
 
 	Func NotFound P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"NotFound",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NotFound",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"NotFound"])
+			return dnRequest("call",[new DotNetObject(nHandle),"NotFound"])
 		ok
-		return dnRequest("call",[self,"NotFound",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NotFound",P1])
 
 	Func NotFound_1 P1
-		return dnRequest("call",[self,"NotFound",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"NotFound",P1])
 
 	Func BadRequest P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"BadRequest",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BadRequest",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"BadRequest"])
+			return dnRequest("call",[new DotNetObject(nHandle),"BadRequest"])
 		ok
-		return dnRequest("call",[self,"BadRequest",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BadRequest",P1])
 
 	Func BadRequest_1 P1
-		return dnRequest("call",[self,"BadRequest",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BadRequest",P1])
 
 	Func UnprocessableEntity P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"UnprocessableEntity",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"UnprocessableEntity",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"UnprocessableEntity"])
+			return dnRequest("call",[new DotNetObject(nHandle),"UnprocessableEntity"])
 		ok
-		return dnRequest("call",[self,"UnprocessableEntity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UnprocessableEntity",P1])
 
 	Func UnprocessableEntity_1 P1
-		return dnRequest("call",[self,"UnprocessableEntity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UnprocessableEntity",P1])
 
 	Func Conflict P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Conflict",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Conflict",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Conflict"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Conflict"])
 		ok
-		return dnRequest("call",[self,"Conflict",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Conflict",P1])
 
 	Func Conflict_1 P1
-		return dnRequest("call",[self,"Conflict",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Conflict",P1])
 
 	Func Problem_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Problem",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2,P3,P4,P5])
 
 	Func Problem_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"Problem",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2,P3,P4,P5,P6])
 
 	Func Problem_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Problem",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2,P3,P4])
 
 	Func Problem_3 P1,P2,P3
-		return dnRequest("call",[self,"Problem",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2,P3])
 
 	Func Problem_2 P1,P2
-		return dnRequest("call",[self,"Problem",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2])
 
 	Func Problem_1 P1
-		return dnRequest("call",[self,"Problem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1])
 
 	Func Problem P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Problem",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Problem",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Problem"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Problem"])
 		ok
-		return dnRequest("call",[self,"Problem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1])
 
 	Func ValidationProblem_1 P1
-		return dnRequest("call",[self,"ValidationProblem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1])
 
 	Func ValidationProblem P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ValidationProblem",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ValidationProblem",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ValidationProblem"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem"])
 		ok
-		return dnRequest("call",[self,"ValidationProblem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1])
 
 	Func ValidationProblem_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"ValidationProblem",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3,P4,P5,P6])
 
 	Func ValidationProblem_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"ValidationProblem",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3,P4,P5,P6,P7])
 
 	Func ValidationProblem_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"ValidationProblem",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3,P4,P5])
 
 	Func ValidationProblem_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ValidationProblem",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3,P4])
 
 	Func ValidationProblem_3 P1,P2,P3
-		return dnRequest("call",[self,"ValidationProblem",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3])
 
 	Func ValidationProblem_2 P1,P2
-		return dnRequest("call",[self,"ValidationProblem",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2])
 
 	Func Created P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Created",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Created",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Created"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Created"])
 		ok
 		raise("DotNet Error: Created does not take one argument: use Created(NULL), Created_N(...) or named arguments")
 
 	Func Created_2 P1,P2
-		return dnRequest("call",[self,"Created",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Created",P1,P2])
 
 	Func CreatedAtAction P1,P2
-		return dnRequest("call",[self,"CreatedAtAction",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtAction",P1,P2])
 
 	Func CreatedAtAction_3 P1,P2,P3
-		return dnRequest("call",[self,"CreatedAtAction",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtAction",P1,P2,P3])
 
 	Func CreatedAtAction_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"CreatedAtAction",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtAction",P1,P2,P3,P4])
 
 	Func CreatedAtRoute P1,P2
-		return dnRequest("call",[self,"CreatedAtRoute",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtRoute",P1,P2])
 
 	Func CreatedAtRoute_3 P1,P2,P3
-		return dnRequest("call",[self,"CreatedAtRoute",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtRoute",P1,P2,P3])
 
 	Func Accepted P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Accepted",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Accepted",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Accepted"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Accepted"])
 		ok
-		return dnRequest("call",[self,"Accepted",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Accepted",P1])
 
 	Func Accepted_1 P1
-		return dnRequest("call",[self,"Accepted",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Accepted",P1])
 
 	Func Accepted_2 P1,P2
-		return dnRequest("call",[self,"Accepted",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Accepted",P1,P2])
 
 	Func AcceptedAtAction P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AcceptedAtAction",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptedAtAction",P1])
 		ok
-		return dnRequest("call",[self,"AcceptedAtAction",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtAction",P1])
 
 	Func AcceptedAtAction_2 P1,P2
-		return dnRequest("call",[self,"AcceptedAtAction",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtAction",P1,P2])
 
 	Func AcceptedAtAction_3 P1,P2,P3
-		return dnRequest("call",[self,"AcceptedAtAction",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtAction",P1,P2,P3])
 
 	Func AcceptedAtAction_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AcceptedAtAction",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtAction",P1,P2,P3,P4])
 
 	Func AcceptedAtRoute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AcceptedAtRoute",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptedAtRoute",P1])
 		ok
-		return dnRequest("call",[self,"AcceptedAtRoute",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtRoute",P1])
 
 	Func AcceptedAtRoute_2 P1,P2
-		return dnRequest("call",[self,"AcceptedAtRoute",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtRoute",P1,P2])
 
 	Func AcceptedAtRoute_3 P1,P2,P3
-		return dnRequest("call",[self,"AcceptedAtRoute",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtRoute",P1,P2,P3])
 
 	Func Challenge P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Challenge",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Challenge",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Challenge"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Challenge"])
 		ok
-		return dnRequest("call",[self,"Challenge",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Challenge",P1])
 
 	Func Challenge_1 P1
-		return dnRequest("call",[self,"Challenge",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Challenge",P1])
 
 	Func Challenge_2 P1,P2
-		return dnRequest("call",[self,"Challenge",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Challenge",P1,P2])
 
 	Func Forbid P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Forbid",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Forbid",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Forbid"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Forbid"])
 		ok
-		return dnRequest("call",[self,"Forbid",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Forbid",P1])
 
 	Func Forbid_1 P1
-		return dnRequest("call",[self,"Forbid",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Forbid",P1])
 
 	Func Forbid_2 P1,P2
-		return dnRequest("call",[self,"Forbid",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Forbid",P1,P2])
 
 	Func SignIn P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SignIn",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignIn",P1])
 		ok
-		return dnRequest("call",[self,"SignIn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignIn",P1])
 
 	Func SignIn_2 P1,P2
-		return dnRequest("call",[self,"SignIn",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignIn",P1,P2])
 
 	Func SignIn_3 P1,P2,P3
-		return dnRequest("call",[self,"SignIn",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignIn",P1,P2,P3])
 
 	Func SignOut P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SignOut",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignOut",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"SignOut"])
+			return dnRequest("call",[new DotNetObject(nHandle),"SignOut"])
 		ok
-		return dnRequest("call",[self,"SignOut",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignOut",P1])
 
 	Func SignOut_1 P1
-		return dnRequest("call",[self,"SignOut",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignOut",P1])
 
 	Func SignOut_2 P1,P2
-		return dnRequest("call",[self,"SignOut",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignOut",P1,P2])
 
 	Func TryUpdateModelAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryUpdateModelAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1])
 		ok
-		return dnRequest("call",[self,"TryUpdateModelAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1])
 
 	Func TryUpdateModelAsync_2 P1,P2
-		return dnRequest("call",[self,"TryUpdateModelAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1,P2])
 
 	Func TryUpdateModelAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"TryUpdateModelAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1,P2,P3])
 
 	Func TryUpdateModelAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"TryUpdateModelAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1,P2,P3,P4])
 
 	Func TryUpdateModelAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"TryUpdateModelAsync",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1,P2,P3,P4,P5])
 
 	Func TryValidateModel P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"TryValidateModel",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryValidateModel",P1])
 		ok
-		return dnRequest("call",[self,"TryValidateModel",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryValidateModel",P1])
 
 	Func TryValidateModel_2 P1,P2
-		return dnRequest("call",[self,"TryValidateModel",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryValidateModel",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRequest
-		return dnRequest("get",[self,"Request"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Request"])
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getResponse
-		return dnRequest("get",[self,"Response"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Response"])
 
 	Func setResponse P1
 		raise("DotNet Error: Response is a read-only property")
 
 	Func getRouteData
-		return dnRequest("get",[self,"RouteData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteData"])
 
 	Func setRouteData P1
 		raise("DotNet Error: RouteData is a read-only property")
 
 	Func getModelState
-		return dnRequest("get",[self,"ModelState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelState"])
 
 	Func setModelState P1
 		raise("DotNet Error: ModelState is a read-only property")
 
 	Func getControllerContext
-		return dnRequest("get",[self,"ControllerContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ControllerContext"])
 
 	Func setControllerContext P1
-		dnRequest("set",[self,"ControllerContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ControllerContext",P1])
 		return self
 
 	Func getMetadataProvider
-		return dnRequest("get",[self,"MetadataProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MetadataProvider"])
 
 	Func setMetadataProvider P1
-		dnRequest("set",[self,"MetadataProvider",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MetadataProvider",P1])
 		return self
 
 	Func getModelBinderFactory
-		return dnRequest("get",[self,"ModelBinderFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelBinderFactory"])
 
 	Func setModelBinderFactory P1
-		dnRequest("set",[self,"ModelBinderFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ModelBinderFactory",P1])
 		return self
 
 	Func getUrl
-		return dnRequest("get",[self,"Url"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
 
 	Func setUrl P1
-		dnRequest("set",[self,"Url",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Url",P1])
 		return self
 
 	Func getObjectValidator
-		return dnRequest("get",[self,"ObjectValidator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ObjectValidator"])
 
 	Func setObjectValidator P1
-		dnRequest("set",[self,"ObjectValidator",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ObjectValidator",P1])
 		return self
 
 	Func getProblemDetailsFactory
-		return dnRequest("get",[self,"ProblemDetailsFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProblemDetailsFactory"])
 
 	Func setProblemDetailsFactory P1
-		dnRequest("set",[self,"ProblemDetailsFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProblemDetailsFactory",P1])
 		return self
 
 	Func getUser
-		return dnRequest("get",[self,"User"])
+		return dnRequest("get",[new DotNetObject(nHandle),"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")

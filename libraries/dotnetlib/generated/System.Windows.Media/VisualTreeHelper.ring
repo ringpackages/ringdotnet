@@ -14,7 +14,7 @@ Class VisualTreeHelper from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetChildrenCount P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore'),"GetChildrenCount",P1])

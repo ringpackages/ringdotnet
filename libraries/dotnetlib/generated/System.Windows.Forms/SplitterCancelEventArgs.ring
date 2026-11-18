@@ -20,28 +20,28 @@ Class SplitterCancelEventArgs from CancelEventArgs
 		return self
 
 	Func getMouseCursorX
-		return dnRequest("get",[self,"MouseCursorX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MouseCursorX"])
 
 	Func setMouseCursorX P1
 		raise("DotNet Error: MouseCursorX is a read-only property")
 
 	Func getMouseCursorY
-		return dnRequest("get",[self,"MouseCursorY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MouseCursorY"])
 
 	Func setMouseCursorY P1
 		raise("DotNet Error: MouseCursorY is a read-only property")
 
 	Func getSplitX
-		return dnRequest("get",[self,"SplitX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SplitX"])
 
 	Func setSplitX P1
-		dnRequest("set",[self,"SplitX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SplitX",P1])
 		return self
 
 	Func getSplitY
-		return dnRequest("get",[self,"SplitY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SplitY"])
 
 	Func setSplitY P1
-		dnRequest("set",[self,"SplitY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SplitY",P1])
 		return self
 

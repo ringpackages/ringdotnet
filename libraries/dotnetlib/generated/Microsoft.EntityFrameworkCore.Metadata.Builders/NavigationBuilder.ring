@@ -17,55 +17,55 @@ Class NavigationBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsePropertyAccessMode",P1])
 
 	Func HasField P1
-		return dnRequest("call",[self,"HasField",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasField",P1])
 
 	Func AutoInclude_1 P1
-		return dnRequest("call",[self,"AutoInclude",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AutoInclude",P1])
 
 	Func AutoInclude P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AutoInclude",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AutoInclude",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AutoInclude"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AutoInclude"])
 		ok
-		return dnRequest("call",[self,"AutoInclude",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AutoInclude",P1])
 
 	Func EnableLazyLoading_1 P1
-		return dnRequest("call",[self,"EnableLazyLoading",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableLazyLoading",P1])
 
 	Func EnableLazyLoading P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"EnableLazyLoading",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnableLazyLoading",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnableLazyLoading"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnableLazyLoading"])
 		ok
-		return dnRequest("call",[self,"EnableLazyLoading",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnableLazyLoading",P1])
 
 	Func IsRequired_1 P1
-		return dnRequest("call",[self,"IsRequired",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsRequired",P1])
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsRequired",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsRequired",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsRequired"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsRequired"])
 		ok
-		return dnRequest("call",[self,"IsRequired",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsRequired",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

@@ -16,18 +16,18 @@ Class IDbContextOptionsExtension from DotNetObject
 		return self
 
 	Func ApplyServices P1
-		dnRequest("call",[self,"ApplyServices",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyServices",P1])
 		return self
 
 	Func ApplyDefaults P1
-		return dnRequest("call",[self,"ApplyDefaults",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ApplyDefaults",P1])
 
 	Func Validate P1
-		dnRequest("call",[self,"Validate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 		return self
 
 	Func getInfo
-		return dnRequest("get",[self,"Info"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Info"])
 
 	Func setInfo P1
 		raise("DotNet Error: Info is a read-only property")

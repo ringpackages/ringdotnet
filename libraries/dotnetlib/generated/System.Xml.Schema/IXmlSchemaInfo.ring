@@ -22,43 +22,43 @@ Class IXmlSchemaInfo from DotNetObject
 		return self
 
 	Func getValidity
-		return dnRequest("get",[self,"Validity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Validity"])
 
 	Func setValidity P1
 		raise("DotNet Error: Validity is a read-only property")
 
 	Func getIsDefault
-		return dnRequest("get",[self,"IsDefault"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDefault"])
 
 	Func setIsDefault P1
 		raise("DotNet Error: IsDefault is a read-only property")
 
 	Func getIsNil
-		return dnRequest("get",[self,"IsNil"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNil"])
 
 	Func setIsNil P1
 		raise("DotNet Error: IsNil is a read-only property")
 
 	Func getMemberType
-		return dnRequest("get",[self,"MemberType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberType"])
 
 	Func setMemberType P1
 		raise("DotNet Error: MemberType is a read-only property")
 
 	Func getSchemaType
-		return dnRequest("get",[self,"SchemaType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaType"])
 
 	Func setSchemaType P1
 		raise("DotNet Error: SchemaType is a read-only property")
 
 	Func getSchemaElement
-		return dnRequest("get",[self,"SchemaElement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaElement"])
 
 	Func setSchemaElement P1
 		raise("DotNet Error: SchemaElement is a read-only property")
 
 	Func getSchemaAttribute
-		return dnRequest("get",[self,"SchemaAttribute"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaAttribute"])
 
 	Func setSchemaAttribute P1
 		raise("DotNet Error: SchemaAttribute is a read-only property")

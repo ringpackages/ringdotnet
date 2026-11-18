@@ -14,5 +14,5 @@ Class IRelationalQuotableExpression from DotNetObject
 		return self
 
 	Func Quote 
-		return dnRequest("call",[self,"Quote"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Quote"])
 

@@ -14,8 +14,8 @@ Class XamlInstanceCreator from Object
 		return self
 
 	Func CreateObject 
-		return dnRequest("call",[self,"CreateObject"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateObject"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

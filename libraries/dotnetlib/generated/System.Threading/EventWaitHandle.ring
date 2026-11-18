@@ -19,10 +19,10 @@ Class EventWaitHandle from WaitHandle
 		return self
 
 	Func Reset 
-		return dnRequest("call",[self,"Reset"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 
 	Func Set_ 
-		return dnRequest("call",[self,"Set"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Set"])
 
 	Func OpenExisting P1
 		return dnRequest("call",[dnTypeCached('System.Threading.EventWaitHandle, System.Private.CoreLib'),"OpenExisting",P1])

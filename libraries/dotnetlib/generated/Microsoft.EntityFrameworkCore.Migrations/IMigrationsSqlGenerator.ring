@@ -14,14 +14,14 @@ Class IMigrationsSqlGenerator from DotNetObject
 		return self
 
 	Func Generate_3 P1,P2,P3
-		return dnRequest("call",[self,"Generate",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Generate",P1,P2,P3])
 
 	Func Generate_2 P1,P2
-		return dnRequest("call",[self,"Generate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Generate",P1,P2])
 
 	Func Generate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Generate",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Generate",P1])
 		ok
-		return dnRequest("call",[self,"Generate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Generate",P1])
 

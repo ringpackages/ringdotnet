@@ -18,7 +18,7 @@ Class Debug from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func SetProvider P1
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"SetProvider",P1])

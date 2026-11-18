@@ -14,5 +14,5 @@ Class XmlText from XmlCharacterData
 		return self
 
 	Func SplitText P1
-		return dnRequest("call",[self,"SplitText",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SplitText",P1])
 

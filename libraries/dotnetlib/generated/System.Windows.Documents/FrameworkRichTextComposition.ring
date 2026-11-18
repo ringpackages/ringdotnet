@@ -19,25 +19,25 @@ Class FrameworkRichTextComposition from FrameworkTextComposition
 		return self
 
 	Func getResultStart
-		return dnRequest("get",[self,"ResultStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResultStart"])
 
 	Func setResultStart P1
 		raise("DotNet Error: ResultStart is a read-only property")
 
 	Func getResultEnd
-		return dnRequest("get",[self,"ResultEnd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResultEnd"])
 
 	Func setResultEnd P1
 		raise("DotNet Error: ResultEnd is a read-only property")
 
 	Func getCompositionStart
-		return dnRequest("get",[self,"CompositionStart"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompositionStart"])
 
 	Func setCompositionStart P1
 		raise("DotNet Error: CompositionStart is a read-only property")
 
 	Func getCompositionEnd
-		return dnRequest("get",[self,"CompositionEnd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompositionEnd"])
 
 	Func setCompositionEnd P1
 		raise("DotNet Error: CompositionEnd is a read-only property")

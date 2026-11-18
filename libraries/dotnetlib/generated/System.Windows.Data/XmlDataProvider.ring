@@ -22,51 +22,51 @@ Class XmlDataProvider from DataSourceProvider
 		return self
 
 	Func ShouldSerializeSource 
-		return dnRequest("call",[self,"ShouldSerializeSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeSource"])
 
 	Func ShouldSerializeXPath 
-		return dnRequest("call",[self,"ShouldSerializeXPath"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeXPath"])
 
 	Func ShouldSerializeXmlSerializer 
-		return dnRequest("call",[self,"ShouldSerializeXmlSerializer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeXmlSerializer"])
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
 		return self
 
 	Func getDocument
-		return dnRequest("get",[self,"Document"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[self,"Document",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
 		return self
 
 	Func getXPath
-		return dnRequest("get",[self,"XPath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XPath"])
 
 	Func setXPath P1
-		dnRequest("set",[self,"XPath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XPath",P1])
 		return self
 
 	Func getXmlNamespaceManager
-		return dnRequest("get",[self,"XmlNamespaceManager"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XmlNamespaceManager"])
 
 	Func setXmlNamespaceManager P1
-		dnRequest("set",[self,"XmlNamespaceManager",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlNamespaceManager",P1])
 		return self
 
 	Func getIsAsynchronous
-		return dnRequest("get",[self,"IsAsynchronous"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAsynchronous"])
 
 	Func setIsAsynchronous P1
-		dnRequest("set",[self,"IsAsynchronous",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsAsynchronous",P1])
 		return self
 
 	Func getXmlSerializer
-		return dnRequest("get",[self,"XmlSerializer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XmlSerializer"])
 
 	Func setXmlSerializer P1
 		raise("DotNet Error: XmlSerializer is a read-only property")

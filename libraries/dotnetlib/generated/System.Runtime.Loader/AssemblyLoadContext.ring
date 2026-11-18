@@ -26,33 +26,33 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func SetProfileOptimizationRoot P1
-		dnRequest("call",[self,"SetProfileOptimizationRoot",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetProfileOptimizationRoot",P1])
 		return self
 
 	Func StartProfileOptimization P1
-		dnRequest("call",[self,"StartProfileOptimization",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"StartProfileOptimization",P1])
 		return self
 
 	Func LoadFromAssemblyName P1
-		return dnRequest("call",[self,"LoadFromAssemblyName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadFromAssemblyName",P1])
 
 	Func LoadFromAssemblyPath P1
-		return dnRequest("call",[self,"LoadFromAssemblyPath",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadFromAssemblyPath",P1])
 
 	Func LoadFromNativeImagePath P1,P2
-		return dnRequest("call",[self,"LoadFromNativeImagePath",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadFromNativeImagePath",P1,P2])
 
 	Func LoadFromStream P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"LoadFromStream",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadFromStream",P1])
 		ok
-		return dnRequest("call",[self,"LoadFromStream",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadFromStream",P1])
 
 	Func LoadFromStream_2 P1,P2
-		return dnRequest("call",[self,"LoadFromStream",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadFromStream",P1,P2])
 
 	Func Unload 
-		dnRequest("call",[self,"Unload"])
+		dnRequest("call",[new DotNetObject(nHandle),"Unload"])
 		return self
 
 	Func EnterContextualReflection P1
@@ -60,15 +60,15 @@ Class AssemblyLoadContext from Object
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
 			ok
-			return dnRequest("callnamed",[self,"EnterContextualReflection",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnterContextualReflection",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"EnterContextualReflection"])
+			return dnRequest("call",[new DotNetObject(nHandle),"EnterContextualReflection"])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetLoadContext P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"GetLoadContext",P1])
@@ -80,43 +80,43 @@ Class AssemblyLoadContext from Object
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
 
 	Func setResolvingUnmanagedDllEvent P1
-		dnRequest("setevent",[self,"ResolvingUnmanagedDll",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ResolvingUnmanagedDll",dnCallback(P1)])
 		return self
 
 	Func clearResolvingUnmanagedDllEvent
-		dnRequest("clearevent",[self,"ResolvingUnmanagedDll"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ResolvingUnmanagedDll"])
 		return self
 
 	Func setResolvingEvent P1
-		dnRequest("setevent",[self,"Resolving",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Resolving",dnCallback(P1)])
 		return self
 
 	Func clearResolvingEvent
-		dnRequest("clearevent",[self,"Resolving"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Resolving"])
 		return self
 
 	Func setUnloadingEvent P1
-		dnRequest("setevent",[self,"Unloading",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Unloading",dnCallback(P1)])
 		return self
 
 	Func clearUnloadingEvent
-		dnRequest("clearevent",[self,"Unloading"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Unloading"])
 		return self
 
 	Func getAssemblies
-		return dnRequest("get",[self,"Assemblies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Assemblies"])
 
 	Func setAssemblies P1
 		raise("DotNet Error: Assemblies is a read-only property")
 
 	Func getIsCollectible
-		return dnRequest("get",[self,"IsCollectible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCollectible"])
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

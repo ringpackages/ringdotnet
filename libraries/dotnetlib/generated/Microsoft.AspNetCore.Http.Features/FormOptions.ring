@@ -30,76 +30,76 @@ Class FormOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBufferBody
-		return dnRequest("get",[self,"BufferBody"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BufferBody"])
 
 	Func setBufferBody P1
-		dnRequest("set",[self,"BufferBody",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BufferBody",P1])
 		return self
 
 	Func getMemoryBufferThreshold
-		return dnRequest("get",[self,"MemoryBufferThreshold"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemoryBufferThreshold"])
 
 	Func setMemoryBufferThreshold P1
-		dnRequest("set",[self,"MemoryBufferThreshold",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MemoryBufferThreshold",P1])
 		return self
 
 	Func getBufferBodyLengthLimit
-		return dnRequest("get",[self,"BufferBodyLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BufferBodyLengthLimit"])
 
 	Func setBufferBodyLengthLimit P1
-		dnRequest("set",[self,"BufferBodyLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BufferBodyLengthLimit",P1])
 		return self
 
 	Func getValueCountLimit
-		return dnRequest("get",[self,"ValueCountLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueCountLimit"])
 
 	Func setValueCountLimit P1
-		dnRequest("set",[self,"ValueCountLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValueCountLimit",P1])
 		return self
 
 	Func getKeyLengthLimit
-		return dnRequest("get",[self,"KeyLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyLengthLimit"])
 
 	Func setKeyLengthLimit P1
-		dnRequest("set",[self,"KeyLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeyLengthLimit",P1])
 		return self
 
 	Func getValueLengthLimit
-		return dnRequest("get",[self,"ValueLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueLengthLimit"])
 
 	Func setValueLengthLimit P1
-		dnRequest("set",[self,"ValueLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValueLengthLimit",P1])
 		return self
 
 	Func getMultipartBoundaryLengthLimit
-		return dnRequest("get",[self,"MultipartBoundaryLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MultipartBoundaryLengthLimit"])
 
 	Func setMultipartBoundaryLengthLimit P1
-		dnRequest("set",[self,"MultipartBoundaryLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MultipartBoundaryLengthLimit",P1])
 		return self
 
 	Func getMultipartHeadersCountLimit
-		return dnRequest("get",[self,"MultipartHeadersCountLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MultipartHeadersCountLimit"])
 
 	Func setMultipartHeadersCountLimit P1
-		dnRequest("set",[self,"MultipartHeadersCountLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MultipartHeadersCountLimit",P1])
 		return self
 
 	Func getMultipartHeadersLengthLimit
-		return dnRequest("get",[self,"MultipartHeadersLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MultipartHeadersLengthLimit"])
 
 	Func setMultipartHeadersLengthLimit P1
-		dnRequest("set",[self,"MultipartHeadersLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MultipartHeadersLengthLimit",P1])
 		return self
 
 	Func getMultipartBodyLengthLimit
-		return dnRequest("get",[self,"MultipartBodyLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MultipartBodyLengthLimit"])
 
 	Func setMultipartBodyLengthLimit P1
-		dnRequest("set",[self,"MultipartBodyLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MultipartBodyLengthLimit",P1])
 		return self
 
 	Func getDefaultMemoryBufferThreshold

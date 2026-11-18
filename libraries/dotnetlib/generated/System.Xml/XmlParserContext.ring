@@ -38,75 +38,75 @@ Class XmlParserContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NameTable"])
 
 	Func setNameTable P1
-		dnRequest("set",[self,"NameTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NameTable",P1])
 		return self
 
 	Func getNamespaceManager
-		return dnRequest("get",[self,"NamespaceManager"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NamespaceManager"])
 
 	Func setNamespaceManager P1
-		dnRequest("set",[self,"NamespaceManager",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NamespaceManager",P1])
 		return self
 
 	Func getDocTypeName
-		return dnRequest("get",[self,"DocTypeName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocTypeName"])
 
 	Func setDocTypeName P1
-		dnRequest("set",[self,"DocTypeName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DocTypeName",P1])
 		return self
 
 	Func getPublicId
-		return dnRequest("get",[self,"PublicId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PublicId"])
 
 	Func setPublicId P1
-		dnRequest("set",[self,"PublicId",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PublicId",P1])
 		return self
 
 	Func getSystemId
-		return dnRequest("get",[self,"SystemId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SystemId"])
 
 	Func setSystemId P1
-		dnRequest("set",[self,"SystemId",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SystemId",P1])
 		return self
 
 	Func getBaseURI
-		return dnRequest("get",[self,"BaseURI"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseURI"])
 
 	Func setBaseURI P1
-		dnRequest("set",[self,"BaseURI",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseURI",P1])
 		return self
 
 	Func getInternalSubset
-		return dnRequest("get",[self,"InternalSubset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InternalSubset"])
 
 	Func setInternalSubset P1
-		dnRequest("set",[self,"InternalSubset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InternalSubset",P1])
 		return self
 
 	Func getXmlLang
-		return dnRequest("get",[self,"XmlLang"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XmlLang"])
 
 	Func setXmlLang P1
-		dnRequest("set",[self,"XmlLang",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlLang",P1])
 		return self
 
 	Func getXmlSpace
-		return dnRequest("get",[self,"XmlSpace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XmlSpace"])
 
 	Func setXmlSpace P1
-		dnRequest("set",[self,"XmlSpace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlSpace",P1])
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[self,"Encoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
 
 	Func setEncoding P1
-		dnRequest("set",[self,"Encoding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Encoding",P1])
 		return self
 

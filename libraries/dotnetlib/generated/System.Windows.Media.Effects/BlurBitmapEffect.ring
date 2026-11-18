@@ -20,17 +20,17 @@ Class BlurBitmapEffect from BitmapEffect
 		return self
 
 	Func getRadius
-		return dnRequest("get",[self,"Radius"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Radius"])
 
 	Func setRadius P1
-		dnRequest("set",[self,"Radius",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Radius",P1])
 		return self
 
 	Func getKernelType
-		return dnRequest("get",[self,"KernelType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KernelType"])
 
 	Func setKernelType P1
-		dnRequest("set",[self,"KernelType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KernelType",P1])
 		return self
 
 	Func getRadiusProperty

@@ -18,13 +18,13 @@ Class DecoderFallback from Object
 		return self
 
 	Func CreateFallbackBuffer 
-		return dnRequest("call",[self,"CreateFallbackBuffer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateFallbackBuffer"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMaxCharCount
-		return dnRequest("get",[self,"MaxCharCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxCharCount"])
 
 	Func setMaxCharCount P1
 		raise("DotNet Error: MaxCharCount is a read-only property")

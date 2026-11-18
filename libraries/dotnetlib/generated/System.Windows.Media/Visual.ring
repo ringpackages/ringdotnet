@@ -14,26 +14,26 @@ Class Visual from DependencyObject
 		return self
 
 	Func IsAncestorOf P1
-		return dnRequest("call",[self,"IsAncestorOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAncestorOf",P1])
 
 	Func IsDescendantOf P1
-		return dnRequest("call",[self,"IsDescendantOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDescendantOf",P1])
 
 	Func FindCommonVisualAncestor P1
-		return dnRequest("call",[self,"FindCommonVisualAncestor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindCommonVisualAncestor",P1])
 
 	Func TransformToAncestor P1
-		return dnRequest("call",[self,"TransformToAncestor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformToAncestor",P1])
 
 	Func TransformToDescendant P1
-		return dnRequest("call",[self,"TransformToDescendant",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformToDescendant",P1])
 
 	Func TransformToVisual P1
-		return dnRequest("call",[self,"TransformToVisual",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformToVisual",P1])
 
 	Func PointToScreen P1
-		return dnRequest("call",[self,"PointToScreen",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PointToScreen",P1])
 
 	Func PointFromScreen P1
-		return dnRequest("call",[self,"PointFromScreen",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PointFromScreen",P1])
 

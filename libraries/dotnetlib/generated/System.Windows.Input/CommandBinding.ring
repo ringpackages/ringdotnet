@@ -29,44 +29,44 @@ Class CommandBinding from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setPreviewExecutedEvent P1
-		dnRequest("setevent",[self,"PreviewExecuted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewExecuted",dnCallback(P1)])
 		return self
 
 	Func clearPreviewExecutedEvent
-		dnRequest("clearevent",[self,"PreviewExecuted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewExecuted"])
 		return self
 
 	Func setExecutedEvent P1
-		dnRequest("setevent",[self,"Executed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Executed",dnCallback(P1)])
 		return self
 
 	Func clearExecutedEvent
-		dnRequest("clearevent",[self,"Executed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Executed"])
 		return self
 
 	Func setPreviewCanExecuteEvent P1
-		dnRequest("setevent",[self,"PreviewCanExecute",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewCanExecute",dnCallback(P1)])
 		return self
 
 	Func clearPreviewCanExecuteEvent
-		dnRequest("clearevent",[self,"PreviewCanExecute"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewCanExecute"])
 		return self
 
 	Func setCanExecuteEvent P1
-		dnRequest("setevent",[self,"CanExecute",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CanExecute",dnCallback(P1)])
 		return self
 
 	Func clearCanExecuteEvent
-		dnRequest("clearevent",[self,"CanExecute"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CanExecute"])
 		return self
 
 	Func getCommand
-		return dnRequest("get",[self,"Command"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
 
 	Func setCommand P1
-		dnRequest("set",[self,"Command",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Command",P1])
 		return self
 

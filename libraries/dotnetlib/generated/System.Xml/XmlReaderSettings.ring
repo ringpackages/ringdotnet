@@ -34,143 +34,143 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[self,"Reset"])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setValidationEventHandlerEvent P1
-		dnRequest("setevent",[self,"ValidationEventHandler",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ValidationEventHandler",dnCallback(P1)])
 		return self
 
 	Func clearValidationEventHandlerEvent
-		dnRequest("clearevent",[self,"ValidationEventHandler"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ValidationEventHandler"])
 		return self
 
 	Func getAsync
-		return dnRequest("get",[self,"Async"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Async"])
 
 	Func setAsync P1
-		dnRequest("set",[self,"Async",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Async",P1])
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NameTable"])
 
 	Func setNameTable P1
-		dnRequest("set",[self,"NameTable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NameTable",P1])
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
 		return self
 
 	Func getLineNumberOffset
-		return dnRequest("get",[self,"LineNumberOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LineNumberOffset"])
 
 	Func setLineNumberOffset P1
-		dnRequest("set",[self,"LineNumberOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LineNumberOffset",P1])
 		return self
 
 	Func getLinePositionOffset
-		return dnRequest("get",[self,"LinePositionOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LinePositionOffset"])
 
 	Func setLinePositionOffset P1
-		dnRequest("set",[self,"LinePositionOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LinePositionOffset",P1])
 		return self
 
 	Func getConformanceLevel
-		return dnRequest("get",[self,"ConformanceLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConformanceLevel"])
 
 	Func setConformanceLevel P1
-		dnRequest("set",[self,"ConformanceLevel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ConformanceLevel",P1])
 		return self
 
 	Func getCheckCharacters
-		return dnRequest("get",[self,"CheckCharacters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckCharacters"])
 
 	Func setCheckCharacters P1
-		dnRequest("set",[self,"CheckCharacters",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckCharacters",P1])
 		return self
 
 	Func getMaxCharactersInDocument
-		return dnRequest("get",[self,"MaxCharactersInDocument"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxCharactersInDocument"])
 
 	Func setMaxCharactersInDocument P1
-		dnRequest("set",[self,"MaxCharactersInDocument",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxCharactersInDocument",P1])
 		return self
 
 	Func getMaxCharactersFromEntities
-		return dnRequest("get",[self,"MaxCharactersFromEntities"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxCharactersFromEntities"])
 
 	Func setMaxCharactersFromEntities P1
-		dnRequest("set",[self,"MaxCharactersFromEntities",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxCharactersFromEntities",P1])
 		return self
 
 	Func getIgnoreWhitespace
-		return dnRequest("get",[self,"IgnoreWhitespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreWhitespace"])
 
 	Func setIgnoreWhitespace P1
-		dnRequest("set",[self,"IgnoreWhitespace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IgnoreWhitespace",P1])
 		return self
 
 	Func getIgnoreProcessingInstructions
-		return dnRequest("get",[self,"IgnoreProcessingInstructions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreProcessingInstructions"])
 
 	Func setIgnoreProcessingInstructions P1
-		dnRequest("set",[self,"IgnoreProcessingInstructions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IgnoreProcessingInstructions",P1])
 		return self
 
 	Func getIgnoreComments
-		return dnRequest("get",[self,"IgnoreComments"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreComments"])
 
 	Func setIgnoreComments P1
-		dnRequest("set",[self,"IgnoreComments",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IgnoreComments",P1])
 		return self
 
 	Func getProhibitDtd
-		return dnRequest("get",[self,"ProhibitDtd"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProhibitDtd"])
 
 	Func setProhibitDtd P1
-		dnRequest("set",[self,"ProhibitDtd",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ProhibitDtd",P1])
 		return self
 
 	Func getDtdProcessing
-		return dnRequest("get",[self,"DtdProcessing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DtdProcessing"])
 
 	Func setDtdProcessing P1
-		dnRequest("set",[self,"DtdProcessing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DtdProcessing",P1])
 		return self
 
 	Func getCloseInput
-		return dnRequest("get",[self,"CloseInput"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CloseInput"])
 
 	Func setCloseInput P1
-		dnRequest("set",[self,"CloseInput",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CloseInput",P1])
 		return self
 
 	Func getValidationType
-		return dnRequest("get",[self,"ValidationType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidationType"])
 
 	Func setValidationType P1
-		dnRequest("set",[self,"ValidationType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidationType",P1])
 		return self
 
 	Func getValidationFlags
-		return dnRequest("get",[self,"ValidationFlags"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidationFlags"])
 
 	Func setValidationFlags P1
-		dnRequest("set",[self,"ValidationFlags",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValidationFlags",P1])
 		return self
 
 	Func getSchemas
-		return dnRequest("get",[self,"Schemas"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schemas"])
 
 	Func setSchemas P1
-		dnRequest("set",[self,"Schemas",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Schemas",P1])
 		return self
 

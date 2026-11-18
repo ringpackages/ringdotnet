@@ -23,33 +23,33 @@ Class WpfTreeView from ItemsControl
 		return self
 
 	Func ContainerFromElement P1
-		return dnRequest("call",[self,"ContainerFromElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainerFromElement",P1])
 
 	Func setSelectedItemChangedEvent P1
-		dnRequest("setevent",[self,"SelectedItemChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedItemChangedEvent
-		dnRequest("clearevent",[self,"SelectedItemChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedItemChanged"])
 		return self
 
 	Func getSelectedItem
-		return dnRequest("get",[self,"SelectedItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItem"])
 
 	Func setSelectedItem P1
 		raise("DotNet Error: SelectedItem is a read-only property")
 
 	Func getSelectedValue
-		return dnRequest("get",[self,"SelectedValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValue"])
 
 	Func setSelectedValue P1
 		raise("DotNet Error: SelectedValue is a read-only property")
 
 	Func getSelectedValuePath
-		return dnRequest("get",[self,"SelectedValuePath"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValuePath"])
 
 	Func setSelectedValuePath P1
-		dnRequest("set",[self,"SelectedValuePath",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectedValuePath",P1])
 		return self
 
 	Func getSelectedItemProperty

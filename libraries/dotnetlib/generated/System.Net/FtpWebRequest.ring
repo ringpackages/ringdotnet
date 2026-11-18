@@ -24,65 +24,65 @@ Class FtpWebRequest from WebRequest
 		return self
 
 	Func getRenameTo
-		return dnRequest("get",[self,"RenameTo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RenameTo"])
 
 	Func setRenameTo P1
-		dnRequest("set",[self,"RenameTo",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RenameTo",P1])
 		return self
 
 	Func getReadWriteTimeout
-		return dnRequest("get",[self,"ReadWriteTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReadWriteTimeout"])
 
 	Func setReadWriteTimeout P1
-		dnRequest("set",[self,"ReadWriteTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReadWriteTimeout",P1])
 		return self
 
 	Func getContentOffset
-		return dnRequest("get",[self,"ContentOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentOffset"])
 
 	Func setContentOffset P1
-		dnRequest("set",[self,"ContentOffset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentOffset",P1])
 		return self
 
 	Func getServicePoint
-		return dnRequest("get",[self,"ServicePoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServicePoint"])
 
 	Func setServicePoint P1
 		raise("DotNet Error: ServicePoint is a read-only property")
 
 	Func getKeepAlive
-		return dnRequest("get",[self,"KeepAlive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlive"])
 
 	Func setKeepAlive P1
-		dnRequest("set",[self,"KeepAlive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAlive",P1])
 		return self
 
 	Func getUseBinary
-		return dnRequest("get",[self,"UseBinary"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseBinary"])
 
 	Func setUseBinary P1
-		dnRequest("set",[self,"UseBinary",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseBinary",P1])
 		return self
 
 	Func getUsePassive
-		return dnRequest("get",[self,"UsePassive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UsePassive"])
 
 	Func setUsePassive P1
-		dnRequest("set",[self,"UsePassive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UsePassive",P1])
 		return self
 
 	Func getClientCertificates
-		return dnRequest("get",[self,"ClientCertificates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificates"])
 
 	Func setClientCertificates P1
-		dnRequest("set",[self,"ClientCertificates",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClientCertificates",P1])
 		return self
 
 	Func getEnableSsl
-		return dnRequest("get",[self,"EnableSsl"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableSsl"])
 
 	Func setEnableSsl P1
-		dnRequest("set",[self,"EnableSsl",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableSsl",P1])
 		return self
 
 	Func getDefaultCachePolicy

@@ -22,65 +22,65 @@ Class LiftableConstantExpression from DotNetObject
 		return self
 
 	Func Update P1
-		return dnRequest("call",[self,"Update",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 
 	Func Print P1
-		dnRequest("call",[self,"Print",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
 		return self
 
 	Func Reduce 
-		return dnRequest("call",[self,"Reduce"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
 
 	Func ReduceAndCheck 
-		return dnRequest("call",[self,"ReduceAndCheck"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
 
 	Func ReduceExtensions 
-		return dnRequest("call",[self,"ReduceExtensions"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getOriginalExpression
-		return dnRequest("get",[self,"OriginalExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalExpression"])
 
 	Func setOriginalExpression P1
 		raise("DotNet Error: OriginalExpression is a read-only property")
 
 	Func getResolverExpression
-		return dnRequest("get",[self,"ResolverExpression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResolverExpression"])
 
 	Func setResolverExpression P1
 		raise("DotNet Error: ResolverExpression is a read-only property")
 
 	Func getVariableName
-		return dnRequest("get",[self,"VariableName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VariableName"])
 
 	Func setVariableName P1
 		raise("DotNet Error: VariableName is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getCanReduce
-		return dnRequest("get",[self,"CanReduce"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
 
 	Func setCanReduce P1
 		raise("DotNet Error: CanReduce is a read-only property")

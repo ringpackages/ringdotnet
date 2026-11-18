@@ -18,39 +18,39 @@ Class KeyboardDevice from InputDevice
 		return self
 
 	Func ClearFocus 
-		dnRequest("call",[self,"ClearFocus"])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearFocus"])
 		return self
 
 	Func Focus P1
-		return dnRequest("call",[self,"Focus",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Focus",P1])
 
 	Func IsKeyDown P1
-		return dnRequest("call",[self,"IsKeyDown",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsKeyDown",P1])
 
 	Func IsKeyUp P1
-		return dnRequest("call",[self,"IsKeyUp",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsKeyUp",P1])
 
 	Func IsKeyToggled P1
-		return dnRequest("call",[self,"IsKeyToggled",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsKeyToggled",P1])
 
 	Func GetKeyStates P1
-		return dnRequest("call",[self,"GetKeyStates",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyStates",P1])
 
 	Func getDefaultRestoreFocusMode
-		return dnRequest("get",[self,"DefaultRestoreFocusMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultRestoreFocusMode"])
 
 	Func setDefaultRestoreFocusMode P1
-		dnRequest("set",[self,"DefaultRestoreFocusMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultRestoreFocusMode",P1])
 		return self
 
 	Func getFocusedElement
-		return dnRequest("get",[self,"FocusedElement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FocusedElement"])
 
 	Func setFocusedElement P1
 		raise("DotNet Error: FocusedElement is a read-only property")
 
 	Func getModifiers
-		return dnRequest("get",[self,"Modifiers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Modifiers"])
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")

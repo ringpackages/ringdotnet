@@ -18,24 +18,24 @@ Class Button from ButtonBase
 		return self
 
 	Func NotifyDefault P1
-		dnRequest("call",[self,"NotifyDefault",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"NotifyDefault",P1])
 		return self
 
 	Func PerformClick 
-		dnRequest("call",[self,"PerformClick"])
+		dnRequest("call",[new DotNetObject(nHandle),"PerformClick"])
 		return self
 
 	Func getAutoSizeMode
-		return dnRequest("get",[self,"AutoSizeMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoSizeMode"])
 
 	Func setAutoSizeMode P1
-		dnRequest("set",[self,"AutoSizeMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoSizeMode",P1])
 		return self
 
 	Func getDialogResult
-		return dnRequest("get",[self,"DialogResult"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DialogResult"])
 
 	Func setDialogResult P1
-		dnRequest("set",[self,"DialogResult",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DialogResult",P1])
 		return self
 

@@ -17,13 +17,13 @@ Class IDatabaseFacadeDependenciesAccessor from DotNetObject
 		return self
 
 	Func getDependencies
-		return dnRequest("get",[self,"Dependencies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Dependencies"])
 
 	Func setDependencies P1
 		raise("DotNet Error: Dependencies is a read-only property")
 
 	Func getContext
-		return dnRequest("get",[self,"Context"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")

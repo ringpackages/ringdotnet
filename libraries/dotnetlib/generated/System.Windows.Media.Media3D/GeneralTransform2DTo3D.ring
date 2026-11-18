@@ -14,8 +14,8 @@ Class GeneralTransform2DTo3D from Freezable
 		return self
 
 	Func TryTransform P1
-		return dnRequest("call",[self,"TryTransform",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryTransform",P1])
 
 	Func Transform P1
-		return dnRequest("call",[self,"Transform",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
 

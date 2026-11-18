@@ -19,31 +19,31 @@ Class ICryptoTransform from DotNetObject
 		return self
 
 	Func TransformBlock P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"TransformBlock",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformBlock",P1,P2,P3,P4,P5])
 
 	Func TransformFinalBlock P1,P2,P3
-		return dnRequest("call",[self,"TransformFinalBlock",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformFinalBlock",P1,P2,P3])
 
 	Func getInputBlockSize
-		return dnRequest("get",[self,"InputBlockSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InputBlockSize"])
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dnRequest("get",[self,"OutputBlockSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OutputBlockSize"])
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dnRequest("get",[self,"CanTransformMultipleBlocks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanTransformMultipleBlocks"])
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dnRequest("get",[self,"CanReuseTransform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanReuseTransform"])
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")

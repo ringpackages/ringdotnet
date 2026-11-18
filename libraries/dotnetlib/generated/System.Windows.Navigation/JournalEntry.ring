@@ -20,7 +20,7 @@ Class JournalEntry from DependencyObject
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func GetName_1 P1
@@ -38,23 +38,23 @@ Class JournalEntry from DependencyObject
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
 		return self
 
 	Func getCustomContentState
-		return dnRequest("get",[self,"CustomContentState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CustomContentState"])
 
 	Func setCustomContentState P1
 		raise("DotNet Error: CustomContentState is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getNameProperty

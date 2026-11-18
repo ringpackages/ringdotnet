@@ -14,17 +14,17 @@ Class ProcessInputEventArgs from NotifyInputEventArgs
 		return self
 
 	Func PushInput_2 P1,P2
-		return dnRequest("call",[self,"PushInput",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"PushInput",P1,P2])
 
 	Func PushInput P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"PushInput",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"PushInput",P1])
 		ok
-		return dnRequest("call",[self,"PushInput",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PushInput",P1])
 
 	Func PopInput 
-		return dnRequest("call",[self,"PopInput"])
+		return dnRequest("call",[new DotNetObject(nHandle),"PopInput"])
 
 	Func PeekInput 
-		return dnRequest("call",[self,"PeekInput"])
+		return dnRequest("call",[new DotNetObject(nHandle),"PeekInput"])
 

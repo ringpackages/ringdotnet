@@ -23,5 +23,5 @@ Class StringWriter from TextWriter
 		return self
 
 	Func GetStringBuilder 
-		return dnRequest("call",[self,"GetStringBuilder"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStringBuilder"])
 

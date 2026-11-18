@@ -23,116 +23,116 @@ Class RuntimeProperty from RuntimePropertyBase
 		return self
 
 	Func SetSentinelFromProviderValue P1
-		dnRequest("call",[self,"SetSentinelFromProviderValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSentinelFromProviderValue",P1])
 		return self
 
 	Func SetElementType_12 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12])
 
 	Func SetElementType_11 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
 
 	Func SetElementType_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 
 	Func SetElementType_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func SetElementType_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func SetElementType_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3,P4,P5,P6,P7])
 
 	Func SetElementType_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3,P4,P5,P6])
 
 	Func SetElementType_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3,P4,P5])
 
 	Func SetElementType_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3,P4])
 
 	Func SetElementType_3 P1,P2,P3
-		return dnRequest("call",[self,"SetElementType",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2,P3])
 
 	Func SetElementType_2 P1,P2
-		return dnRequest("call",[self,"SetElementType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1,P2])
 
 	Func SetElementType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetElementType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetElementType",P1])
 		ok
-		return dnRequest("call",[self,"SetElementType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetElementType",P1])
 
 	Func SetValueConverter P1
-		dnRequest("call",[self,"SetValueConverter",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValueConverter",P1])
 		return self
 
 	Func GetValueComparer 
-		return dnRequest("call",[self,"GetValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueComparer"])
 
 	Func SetComparer P1
-		return dnRequest("call",[self,"SetComparer",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetComparer",P1])
 
 	Func GetKeyValueComparer 
-		return dnRequest("call",[self,"GetKeyValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyValueComparer"])
 
 	Func SetKeyComparer P1
-		return dnRequest("call",[self,"SetKeyComparer",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetKeyComparer",P1])
 
 	Func SetProviderValueComparer P1
-		return dnRequest("call",[self,"SetProviderValueComparer",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetProviderValueComparer",P1])
 
 	Func GetJsonValueReaderWriter 
-		return dnRequest("call",[self,"GetJsonValueReaderWriter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetJsonValueReaderWriter"])
 
 	Func GetElementType 
-		return dnRequest("call",[self,"GetElementType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementType"])
 
 	Func getPrimaryKey
-		return dnRequest("get",[self,"PrimaryKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrimaryKey"])
 
 	Func setPrimaryKey P1
-		dnRequest("set",[self,"PrimaryKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrimaryKey",P1])
 		return self
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
-		dnRequest("set",[self,"Keys",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Keys",P1])
 		return self
 
 	Func getForeignKeys
-		return dnRequest("get",[self,"ForeignKeys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForeignKeys"])
 
 	Func setForeignKeys P1
-		dnRequest("set",[self,"ForeignKeys",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ForeignKeys",P1])
 		return self
 
 	Func getIndexes
-		return dnRequest("get",[self,"Indexes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Indexes"])
 
 	Func setIndexes P1
-		dnRequest("set",[self,"Indexes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Indexes",P1])
 		return self
 
 	Func getTypeMapping
-		return dnRequest("get",[self,"TypeMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMapping"])
 
 	Func setTypeMapping P1
-		dnRequest("set",[self,"TypeMapping",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeMapping",P1])
 		return self
 
 	Func getIsPrimitiveCollection
-		return dnRequest("get",[self,"IsPrimitiveCollection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPrimitiveCollection"])
 
 	Func setIsPrimitiveCollection P1
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

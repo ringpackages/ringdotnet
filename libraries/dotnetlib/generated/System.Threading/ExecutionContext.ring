@@ -14,18 +14,18 @@ Class ExecutionContext from Object
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func CreateCopy 
-		return dnRequest("call",[self,"CreateCopy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateCopy"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Capture 
 		return dnRequest("call",[dnTypeCached('System.Threading.ExecutionContext, System.Private.CoreLib'),"Capture"])

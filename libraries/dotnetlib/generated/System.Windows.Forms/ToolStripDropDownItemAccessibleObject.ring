@@ -26,121 +26,121 @@ Class ToolStripDropDownItemAccessibleObject from DotNetObject
 		return self
 
 	Func DoDefaultAction 
-		dnRequest("call",[self,"DoDefaultAction"])
+		dnRequest("call",[new DotNetObject(nHandle),"DoDefaultAction"])
 		return self
 
 	Func GetChild P1
-		return dnRequest("call",[self,"GetChild",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChild",P1])
 
 	Func GetChildCount 
-		return dnRequest("call",[self,"GetChildCount"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChildCount"])
 
 	Func GetHelpTopic 
-		return dnRequest("call",[self,"GetHelpTopic"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHelpTopic"])
 
 	Func Navigate P1
-		return dnRequest("call",[self,"Navigate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
 
 	Func AddState P1
-		dnRequest("call",[self,"AddState",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddState",P1])
 		return self
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func GetFocused 
-		return dnRequest("call",[self,"GetFocused"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFocused"])
 
 	Func GetSelected 
-		return dnRequest("call",[self,"GetSelected"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSelected"])
 
 	Func HitTest P1,P2
-		return dnRequest("call",[self,"HitTest",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
 
 	Func Select P1
-		dnRequest("call",[self,"Select",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Select",P1])
 		return self
 
 	Func RaiseAutomationNotification P1,P2,P3
-		return dnRequest("call",[self,"RaiseAutomationNotification",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"RaiseAutomationNotification",P1,P2,P3])
 
 	Func RaiseLiveRegionChanged 
-		return dnRequest("call",[self,"RaiseLiveRegionChanged"])
+		return dnRequest("call",[new DotNetObject(nHandle),"RaiseLiveRegionChanged"])
 
 	Func GetLifetimeService 
-		return dnRequest("call",[self,"GetLifetimeService"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLifetimeService"])
 
 	Func InitializeLifetimeService 
-		return dnRequest("call",[self,"InitializeLifetimeService"])
+		return dnRequest("call",[new DotNetObject(nHandle),"InitializeLifetimeService"])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getRole
-		return dnRequest("get",[self,"Role"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Role"])
 
 	Func setRole P1
 		raise("DotNet Error: Role is a read-only property")
 
 	Func getDefaultAction
-		return dnRequest("get",[self,"DefaultAction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultAction"])
 
 	Func setDefaultAction P1
 		raise("DotNet Error: DefaultAction is a read-only property")
 
 	Func getDescription
-		return dnRequest("get",[self,"Description"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getHelp
-		return dnRequest("get",[self,"Help"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Help"])
 
 	Func setHelp P1
 		raise("DotNet Error: Help is a read-only property")
 
 	Func getKeyboardShortcut
-		return dnRequest("get",[self,"KeyboardShortcut"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyboardShortcut"])
 
 	Func setKeyboardShortcut P1
 		raise("DotNet Error: KeyboardShortcut is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 

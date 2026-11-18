@@ -20,127 +20,127 @@ Class IReadOnlyProperty from DotNetObject
 		return self
 
 	Func GetTypeMapping 
-		return dnRequest("call",[self,"GetTypeMapping"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeMapping"])
 
 	Func FindTypeMapping 
-		return dnRequest("call",[self,"FindTypeMapping"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindTypeMapping"])
 
 	Func GetMaxLength 
-		return dnRequest("call",[self,"GetMaxLength"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxLength"])
 
 	Func GetPrecision 
-		return dnRequest("call",[self,"GetPrecision"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrecision"])
 
 	Func GetScale 
-		return dnRequest("call",[self,"GetScale"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetScale"])
 
 	Func IsUnicode 
-		return dnRequest("call",[self,"IsUnicode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUnicode"])
 
 	Func GetBeforeSaveBehavior 
-		return dnRequest("call",[self,"GetBeforeSaveBehavior"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBeforeSaveBehavior"])
 
 	Func GetAfterSaveBehavior 
-		return dnRequest("call",[self,"GetAfterSaveBehavior"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAfterSaveBehavior"])
 
 	Func GetValueGeneratorFactory 
-		return dnRequest("call",[self,"GetValueGeneratorFactory"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueGeneratorFactory"])
 
 	Func GetValueConverter 
-		return dnRequest("call",[self,"GetValueConverter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueConverter"])
 
 	Func GetProviderClrType 
-		return dnRequest("call",[self,"GetProviderClrType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProviderClrType"])
 
 	Func GetValueComparer 
-		return dnRequest("call",[self,"GetValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueComparer"])
 
 	Func GetKeyValueComparer 
-		return dnRequest("call",[self,"GetKeyValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyValueComparer"])
 
 	Func GetProviderValueComparer 
-		return dnRequest("call",[self,"GetProviderValueComparer"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProviderValueComparer"])
 
 	Func GetJsonValueReaderWriter 
-		return dnRequest("call",[self,"GetJsonValueReaderWriter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetJsonValueReaderWriter"])
 
 	Func GetElementType 
-		return dnRequest("call",[self,"GetElementType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementType"])
 
 	Func FindFirstPrincipal 
-		return dnRequest("call",[self,"FindFirstPrincipal"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindFirstPrincipal"])
 
 	Func GetPrincipals 
-		return dnRequest("call",[self,"GetPrincipals"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrincipals"])
 
 	Func IsForeignKey 
-		return dnRequest("call",[self,"IsForeignKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsForeignKey"])
 
 	Func GetContainingForeignKeys 
-		return dnRequest("call",[self,"GetContainingForeignKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContainingForeignKeys"])
 
 	Func IsIndex 
-		return dnRequest("call",[self,"IsIndex"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsIndex"])
 
 	Func IsUniqueIndex 
-		return dnRequest("call",[self,"IsUniqueIndex"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUniqueIndex"])
 
 	Func GetContainingIndexes 
-		return dnRequest("call",[self,"GetContainingIndexes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContainingIndexes"])
 
 	Func IsPrimaryKey 
-		return dnRequest("call",[self,"IsPrimaryKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsPrimaryKey"])
 
 	Func FindContainingPrimaryKey 
-		return dnRequest("call",[self,"FindContainingPrimaryKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindContainingPrimaryKey"])
 
 	Func IsKey 
-		return dnRequest("call",[self,"IsKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsKey"])
 
 	Func GetContainingKeys 
-		return dnRequest("call",[self,"GetContainingKeys"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContainingKeys"])
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getValueGenerated
-		return dnRequest("get",[self,"ValueGenerated"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueGenerated"])
 
 	Func setValueGenerated P1
 		raise("DotNet Error: ValueGenerated is a read-only property")
 
 	Func getIsConcurrencyToken
-		return dnRequest("get",[self,"IsConcurrencyToken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsConcurrencyToken"])
 
 	Func setIsConcurrencyToken P1
 		raise("DotNet Error: IsConcurrencyToken is a read-only property")
 
 	Func getIsPrimitiveCollection
-		return dnRequest("get",[self,"IsPrimitiveCollection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPrimitiveCollection"])
 
 	Func setIsPrimitiveCollection P1
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")

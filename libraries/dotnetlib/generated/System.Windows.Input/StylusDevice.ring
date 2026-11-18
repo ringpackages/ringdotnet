@@ -25,86 +25,86 @@ Class StylusDevice from InputDevice
 		return self
 
 	Func Capture_2 P1,P2
-		return dnRequest("call",[self,"Capture",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1,P2])
 
 	Func Capture P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Capture",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Capture",P1])
 		ok
-		return dnRequest("call",[self,"Capture",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1])
 
 	Func Synchronize 
-		dnRequest("call",[self,"Synchronize"])
+		dnRequest("call",[new DotNetObject(nHandle),"Synchronize"])
 		return self
 
 	Func GetStylusPoints P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetStylusPoints",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStylusPoints",P1])
 		ok
-		return dnRequest("call",[self,"GetStylusPoints",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStylusPoints",P1])
 
 	Func GetStylusPoints_2 P1,P2
-		return dnRequest("call",[self,"GetStylusPoints",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStylusPoints",P1,P2])
 
 	Func GetPosition P1
-		return dnRequest("call",[self,"GetPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPosition",P1])
 
 	Func getIsValid
-		return dnRequest("get",[self,"IsValid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsValid"])
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getDirectlyOver
-		return dnRequest("get",[self,"DirectlyOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DirectlyOver"])
 
 	Func setDirectlyOver P1
 		raise("DotNet Error: DirectlyOver is a read-only property")
 
 	Func getCaptured
-		return dnRequest("get",[self,"Captured"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Captured"])
 
 	Func setCaptured P1
 		raise("DotNet Error: Captured is a read-only property")
 
 	Func getTabletDevice
-		return dnRequest("get",[self,"TabletDevice"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TabletDevice"])
 
 	Func setTabletDevice P1
 		raise("DotNet Error: TabletDevice is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getStylusButtons
-		return dnRequest("get",[self,"StylusButtons"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylusButtons"])
 
 	Func setStylusButtons P1
 		raise("DotNet Error: StylusButtons is a read-only property")
 
 	Func getInAir
-		return dnRequest("get",[self,"InAir"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InAir"])
 
 	Func setInAir P1
 		raise("DotNet Error: InAir is a read-only property")
 
 	Func getInverted
-		return dnRequest("get",[self,"Inverted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inverted"])
 
 	Func setInverted P1
 		raise("DotNet Error: Inverted is a read-only property")
 
 	Func getInRange
-		return dnRequest("get",[self,"InRange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InRange"])
 
 	Func setInRange P1
 		raise("DotNet Error: InRange is a read-only property")

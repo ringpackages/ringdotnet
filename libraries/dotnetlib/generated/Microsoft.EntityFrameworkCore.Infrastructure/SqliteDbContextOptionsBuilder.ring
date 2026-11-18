@@ -15,59 +15,59 @@ Class SqliteDbContextOptionsBuilder from DotNetObject
 		return self
 
 	Func MaxBatchSize P1
-		return dnRequest("call",[self,"MaxBatchSize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MaxBatchSize",P1])
 
 	Func MinBatchSize P1
-		return dnRequest("call",[self,"MinBatchSize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MinBatchSize",P1])
 
 	Func CommandTimeout P1
-		return dnRequest("call",[self,"CommandTimeout",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommandTimeout",P1])
 
 	Func MigrationsAssembly P1
-		return dnRequest("call",[self,"MigrationsAssembly",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MigrationsAssembly",P1])
 
 	Func MigrationsHistoryTable_2 P1,P2
-		return dnRequest("call",[self,"MigrationsHistoryTable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"MigrationsHistoryTable",P1,P2])
 
 	Func MigrationsHistoryTable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"MigrationsHistoryTable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"MigrationsHistoryTable",P1])
 		ok
-		return dnRequest("call",[self,"MigrationsHistoryTable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MigrationsHistoryTable",P1])
 
 	Func UseRelationalNulls_1 P1
-		return dnRequest("call",[self,"UseRelationalNulls",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseRelationalNulls",P1])
 
 	Func UseRelationalNulls P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"UseRelationalNulls",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"UseRelationalNulls",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"UseRelationalNulls"])
+			return dnRequest("call",[new DotNetObject(nHandle),"UseRelationalNulls"])
 		ok
-		return dnRequest("call",[self,"UseRelationalNulls",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseRelationalNulls",P1])
 
 	Func UseQuerySplittingBehavior P1
-		return dnRequest("call",[self,"UseQuerySplittingBehavior",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UseQuerySplittingBehavior",P1])
 
 	Func ExecutionStrategy P1
-		return dnRequest("call",[self,"ExecutionStrategy",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecutionStrategy",P1])
 
 	Func TranslateParameterizedCollectionsToConstants 
-		return dnRequest("call",[self,"TranslateParameterizedCollectionsToConstants"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TranslateParameterizedCollectionsToConstants"])
 
 	Func TranslateParameterizedCollectionsToParameters 
-		return dnRequest("call",[self,"TranslateParameterizedCollectionsToParameters"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TranslateParameterizedCollectionsToParameters"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 

@@ -17,13 +17,13 @@ Class CollectionRegisteringEventArgs from EventArgs
 		return self
 
 	Func getCollection
-		return dnRequest("get",[self,"Collection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Collection"])
 
 	Func setCollection P1
 		raise("DotNet Error: Collection is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")

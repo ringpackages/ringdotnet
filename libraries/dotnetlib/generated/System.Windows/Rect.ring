@@ -44,33 +44,33 @@ Class Rect from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Contains P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Contains",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
 		ok
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Contains_2 P1,P2
-		return dnRequest("call",[self,"Contains",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2])
 
 	Func IntersectsWith P1
-		return dnRequest("call",[self,"IntersectsWith",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IntersectsWith",P1])
 
 	Func Intersect P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Intersect",P1])
 			ok
-			return dnRequest("callnamed",[self,"Intersect",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Intersect",P1])
 		ok
-		dnRequest("call",[self,"Intersect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Intersect",P1])
 		return self
 
 	Func Union P1
@@ -78,9 +78,9 @@ Class Rect from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Union",P1])
 			ok
-			return dnRequest("callnamed",[self,"Union",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Union",P1])
 		ok
-		dnRequest("call",[self,"Union",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Union",P1])
 		return self
 
 	Func Offset P1
@@ -88,16 +88,16 @@ Class Rect from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Offset",P1])
 			ok
-			return dnRequest("callnamed",[self,"Offset",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Offset",P1])
 		ok
-		dnRequest("call",[self,"Offset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1])
 		return self
 
 	Func Offset_2 P1,P2
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Offset",P1,P2])
 		ok
-		dnRequest("call",[self,"Offset",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1,P2])
 		return self
 
 	Func Inflate P1
@@ -105,16 +105,16 @@ Class Rect from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Inflate",P1])
 			ok
-			return dnRequest("callnamed",[self,"Inflate",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Inflate",P1])
 		ok
-		dnRequest("call",[self,"Inflate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Inflate",P1])
 		return self
 
 	Func Inflate_2 P1,P2
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Inflate",P1,P2])
 		ok
-		dnRequest("call",[self,"Inflate",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Inflate",P1,P2])
 		return self
 
 	Func Transform P1
@@ -122,13 +122,13 @@ Class Rect from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Transform",P1])
 			ok
-			return dnRequest("callnamed",[self,"Transform",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Transform",P1])
 		ok
-		dnRequest("call",[self,"Transform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func Scale P1,P2
-		dnRequest("call",[self,"Scale",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1,P2])
 		return self
 
 	Func Equals_2 P1,P2
@@ -153,97 +153,97 @@ Class Rect from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Transform",P1,P2])
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
-		dnRequest("set",[self,"Location",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Location",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[self,"Width",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
 		return self
 
 	Func getLeft
-		return dnRequest("get",[self,"Left"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Left"])
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getTop
-		return dnRequest("get",[self,"Top"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Top"])
 
 	Func setTop P1
 		raise("DotNet Error: Top is a read-only property")
 
 	Func getRight
-		return dnRequest("get",[self,"Right"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Right"])
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")
 
 	Func getBottom
-		return dnRequest("get",[self,"Bottom"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bottom"])
 
 	Func setBottom P1
 		raise("DotNet Error: Bottom is a read-only property")
 
 	Func getTopLeft
-		return dnRequest("get",[self,"TopLeft"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TopLeft"])
 
 	Func setTopLeft P1
 		raise("DotNet Error: TopLeft is a read-only property")
 
 	Func getTopRight
-		return dnRequest("get",[self,"TopRight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TopRight"])
 
 	Func setTopRight P1
 		raise("DotNet Error: TopRight is a read-only property")
 
 	Func getBottomLeft
-		return dnRequest("get",[self,"BottomLeft"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BottomLeft"])
 
 	Func setBottomLeft P1
 		raise("DotNet Error: BottomLeft is a read-only property")
 
 	Func getBottomRight
-		return dnRequest("get",[self,"BottomRight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BottomRight"])
 
 	Func setBottomRight P1
 		raise("DotNet Error: BottomRight is a read-only property")

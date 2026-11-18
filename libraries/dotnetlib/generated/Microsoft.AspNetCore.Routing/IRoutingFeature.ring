@@ -16,9 +16,9 @@ Class IRoutingFeature from DotNetObject
 		return self
 
 	Func getRouteData
-		return dnRequest("get",[self,"RouteData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteData"])
 
 	Func setRouteData P1
-		dnRequest("set",[self,"RouteData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RouteData",P1])
 		return self
 

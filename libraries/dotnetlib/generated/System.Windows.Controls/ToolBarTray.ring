@@ -30,28 +30,28 @@ Class ToolBarTray from FrameworkElement
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ToolBarTray, PresentationFramework'),"GetIsLocked",P1])
 
 	Func getBackground
-		return dnRequest("get",[self,"Background"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[self,"Background",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[self,"Orientation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[self,"Orientation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
 		return self
 
 	Func getIsLocked
-		return dnRequest("get",[self,"IsLocked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLocked"])
 
 	Func setIsLocked P1
-		dnRequest("set",[self,"IsLocked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsLocked",P1])
 		return self
 
 	Func getToolBars
-		return dnRequest("get",[self,"ToolBars"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToolBars"])
 
 	Func setToolBars P1
 		raise("DotNet Error: ToolBars is a read-only property")

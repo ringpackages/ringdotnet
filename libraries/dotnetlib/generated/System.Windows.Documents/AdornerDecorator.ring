@@ -17,7 +17,7 @@ Class AdornerDecorator from Decorator
 		return self
 
 	Func getAdornerLayer
-		return dnRequest("get",[self,"AdornerLayer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AdornerLayer"])
 
 	Func setAdornerLayer P1
 		raise("DotNet Error: AdornerLayer is a read-only property")

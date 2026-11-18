@@ -25,187 +25,187 @@ Class Stream from MarshalByRefObject
 
 	Func CopyTo P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[self,"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
 	Func CopyTo_2 P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func CopyToAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CopyToAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CopyToAsync",P1])
 		ok
-		return dnRequest("call",[self,"CopyToAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1])
 
 	Func CopyToAsync_2 P1,P2
-		return dnRequest("call",[self,"CopyToAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2])
 
 	Func CopyToAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"CopyToAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2,P3])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Flush 
-		dnRequest("call",[self,"Flush"])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 
 	Func FlushAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FlushAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FlushAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"FlushAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync"])
 		ok
-		return dnRequest("call",[self,"FlushAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
 
 	Func FlushAsync_1 P1
-		return dnRequest("call",[self,"FlushAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
 
 	Func BeginRead P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"BeginRead",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginRead",P1,P2,P3,P4,P5])
 
 	Func EndRead P1
-		return dnRequest("call",[self,"EndRead",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndRead",P1])
 
 	Func ReadAsync P1,P2,P3
-		return dnRequest("call",[self,"ReadAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2,P3])
 
 	Func ReadAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ReadAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2,P3,P4])
 
 	Func ReadAsync_2 P1,P2
-		return dnRequest("call",[self,"ReadAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2])
 
 	Func ReadAsync_1 P1
-		return dnRequest("call",[self,"ReadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
 
 	Func ReadExactlyAsync_2 P1,P2
-		return dnRequest("call",[self,"ReadExactlyAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadExactlyAsync",P1,P2])
 
 	Func ReadExactlyAsync_1 P1
-		return dnRequest("call",[self,"ReadExactlyAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadExactlyAsync",P1])
 
 	Func ReadExactlyAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ReadExactlyAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadExactlyAsync",P1,P2,P3,P4])
 
 	Func ReadExactlyAsync P1,P2,P3
-		return dnRequest("call",[self,"ReadExactlyAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadExactlyAsync",P1,P2,P3])
 
 	Func ReadAtLeastAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ReadAtLeastAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAtLeastAsync",P1,P2,P3,P4])
 
 	Func ReadAtLeastAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"ReadAtLeastAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAtLeastAsync",P1,P2,P3])
 
 	Func ReadAtLeastAsync P1,P2
-		return dnRequest("call",[self,"ReadAtLeastAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadAtLeastAsync",P1,P2])
 
 	Func BeginWrite P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"BeginWrite",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginWrite",P1,P2,P3,P4,P5])
 
 	Func EndWrite P1
-		dnRequest("call",[self,"EndWrite",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EndWrite",P1])
 		return self
 
 	Func WriteAsync P1,P2,P3
-		return dnRequest("call",[self,"WriteAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2,P3])
 
 	Func WriteAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"WriteAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2,P3,P4])
 
 	Func WriteAsync_2 P1,P2
-		return dnRequest("call",[self,"WriteAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2])
 
 	Func WriteAsync_1 P1
-		return dnRequest("call",[self,"WriteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1])
 
 	Func Seek P1,P2
-		return dnRequest("call",[self,"Seek",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Seek",P1,P2])
 
 	Func SetLength P1
-		dnRequest("call",[self,"SetLength",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetLength",P1])
 		return self
 
 	Func Read P1,P2,P3
-		return dnRequest("call",[self,"Read",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1,P2,P3])
 
 	Func ReadByte 
-		return dnRequest("call",[self,"ReadByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadByte"])
 
 	Func ReadExactly P1,P2,P3
-		dnRequest("call",[self,"ReadExactly",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ReadExactly",P1,P2,P3])
 		return self
 
 	Func Write P1,P2,P3
-		dnRequest("call",[self,"Write",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3])
 		return self
 
 	Func WriteByte P1
-		dnRequest("call",[self,"WriteByte",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteByte",P1])
 		return self
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.IO.Stream, System.Private.CoreLib'),"Synchronized",P1])
 
 	Func getCanRead
-		return dnRequest("get",[self,"CanRead"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanRead"])
 
 	Func setCanRead P1
 		raise("DotNet Error: CanRead is a read-only property")
 
 	Func getCanWrite
-		return dnRequest("get",[self,"CanWrite"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanWrite"])
 
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")
 
 	Func getCanSeek
-		return dnRequest("get",[self,"CanSeek"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanSeek"])
 
 	Func setCanSeek P1
 		raise("DotNet Error: CanSeek is a read-only property")
 
 	Func getCanTimeout
-		return dnRequest("get",[self,"CanTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanTimeout"])
 
 	Func setCanTimeout P1
 		raise("DotNet Error: CanTimeout is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func getPosition
-		return dnRequest("get",[self,"Position"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[self,"Position",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
 		return self
 
 	Func getReadTimeout
-		return dnRequest("get",[self,"ReadTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReadTimeout"])
 
 	Func setReadTimeout P1
-		dnRequest("set",[self,"ReadTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReadTimeout",P1])
 		return self
 
 	Func getWriteTimeout
-		return dnRequest("get",[self,"WriteTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WriteTimeout"])
 
 	Func setWriteTimeout P1
-		dnRequest("set",[self,"WriteTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WriteTimeout",P1])
 		return self
 
 	Func getNull

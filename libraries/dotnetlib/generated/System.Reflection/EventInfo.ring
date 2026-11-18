@@ -23,80 +23,80 @@ Class EventInfo from MemberInfo
 
 	Func GetOtherMethods P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetOtherMethods",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetOtherMethods",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetOtherMethods"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetOtherMethods"])
 		ok
-		return dnRequest("call",[self,"GetOtherMethods",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOtherMethods",P1])
 
 	Func GetOtherMethods_1 P1
-		return dnRequest("call",[self,"GetOtherMethods",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOtherMethods",P1])
 
 	Func GetAddMethod_0 
-		return dnRequest("call",[self,"GetAddMethod"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAddMethod"])
 
 	Func GetRemoveMethod_0 
-		return dnRequest("call",[self,"GetRemoveMethod"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRemoveMethod"])
 
 	Func GetRaiseMethod_0 
-		return dnRequest("call",[self,"GetRaiseMethod"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRaiseMethod"])
 
 	Func GetAddMethod_1 P1
-		return dnRequest("call",[self,"GetAddMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAddMethod",P1])
 
 	Func GetRemoveMethod_1 P1
-		return dnRequest("call",[self,"GetRemoveMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRemoveMethod",P1])
 
 	Func GetRaiseMethod_1 P1
-		return dnRequest("call",[self,"GetRaiseMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRaiseMethod",P1])
 
 	Func AddEventHandler P1,P2
-		dnRequest("call",[self,"AddEventHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddEventHandler",P1,P2])
 		return self
 
 	Func RemoveEventHandler P1,P2
-		dnRequest("call",[self,"RemoveEventHandler",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveEventHandler",P1,P2])
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getIsSpecialName
-		return dnRequest("get",[self,"IsSpecialName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSpecialName"])
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getAddMethod
-		return dnRequest("get",[self,"AddMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AddMethod"])
 
 	Func setAddMethod P1
 		raise("DotNet Error: AddMethod is a read-only property")
 
 	Func getRemoveMethod
-		return dnRequest("get",[self,"RemoveMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoveMethod"])
 
 	Func setRemoveMethod P1
 		raise("DotNet Error: RemoveMethod is a read-only property")
 
 	Func getRaiseMethod
-		return dnRequest("get",[self,"RaiseMethod"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RaiseMethod"])
 
 	Func setRaiseMethod P1
 		raise("DotNet Error: RaiseMethod is a read-only property")
 
 	Func getIsMulticast
-		return dnRequest("get",[self,"IsMulticast"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMulticast"])
 
 	Func setIsMulticast P1
 		raise("DotNet Error: IsMulticast is a read-only property")
 
 	Func getEventHandlerType
-		return dnRequest("get",[self,"EventHandlerType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EventHandlerType"])
 
 	Func setEventHandlerType P1
 		raise("DotNet Error: EventHandlerType is a read-only property")

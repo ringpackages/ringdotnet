@@ -30,131 +30,131 @@ Class PathGradientBrush from Brush
 
 	Func SetSigmaBellShape P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetSigmaBellShape",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetSigmaBellShape",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetSigmaBellShape",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSigmaBellShape",P1])
 		return self
 
 	Func SetSigmaBellShape_2 P1,P2
-		dnRequest("call",[self,"SetSigmaBellShape",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSigmaBellShape",P1,P2])
 		return self
 
 	Func SetBlendTriangularShape P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetBlendTriangularShape",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetBlendTriangularShape",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetBlendTriangularShape",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetBlendTriangularShape",P1])
 		return self
 
 	Func SetBlendTriangularShape_2 P1,P2
-		dnRequest("call",[self,"SetBlendTriangularShape",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetBlendTriangularShape",P1,P2])
 		return self
 
 	Func ResetTransform 
-		dnRequest("call",[self,"ResetTransform"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetTransform"])
 		return self
 
 	Func MultiplyTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"MultiplyTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 			return self
 		ok
-		dnRequest("call",[self,"MultiplyTransform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 		return self
 
 	Func MultiplyTransform_2 P1,P2
-		dnRequest("call",[self,"MultiplyTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1,P2])
 		return self
 
 	Func TranslateTransform P1,P2
-		dnRequest("call",[self,"TranslateTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2])
 		return self
 
 	Func TranslateTransform_3 P1,P2,P3
-		dnRequest("call",[self,"TranslateTransform",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2,P3])
 		return self
 
 	Func ScaleTransform P1,P2
-		dnRequest("call",[self,"ScaleTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2])
 		return self
 
 	Func ScaleTransform_3 P1,P2,P3
-		dnRequest("call",[self,"ScaleTransform",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2,P3])
 		return self
 
 	Func RotateTransform P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"RotateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"RotateTransform",P1])
 			return self
 		ok
-		dnRequest("call",[self,"RotateTransform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1])
 		return self
 
 	Func RotateTransform_2 P1,P2
-		dnRequest("call",[self,"RotateTransform",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1,P2])
 		return self
 
 	Func getCenterColor
-		return dnRequest("get",[self,"CenterColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CenterColor"])
 
 	Func setCenterColor P1
-		dnRequest("set",[self,"CenterColor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CenterColor",P1])
 		return self
 
 	Func getSurroundColors
-		return dnRequest("get",[self,"SurroundColors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SurroundColors"])
 
 	Func setSurroundColors P1
-		dnRequest("set",[self,"SurroundColors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SurroundColors",P1])
 		return self
 
 	Func getCenterPoint
-		return dnRequest("get",[self,"CenterPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CenterPoint"])
 
 	Func setCenterPoint P1
-		dnRequest("set",[self,"CenterPoint",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CenterPoint",P1])
 		return self
 
 	Func getRectangle
-		return dnRequest("get",[self,"Rectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rectangle"])
 
 	Func setRectangle P1
 		raise("DotNet Error: Rectangle is a read-only property")
 
 	Func getBlend
-		return dnRequest("get",[self,"Blend"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Blend"])
 
 	Func setBlend P1
-		dnRequest("set",[self,"Blend",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Blend",P1])
 		return self
 
 	Func getInterpolationColors
-		return dnRequest("get",[self,"InterpolationColors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InterpolationColors"])
 
 	Func setInterpolationColors P1
-		dnRequest("set",[self,"InterpolationColors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InterpolationColors",P1])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[self,"Transform",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
 		return self
 
 	Func getFocusScales
-		return dnRequest("get",[self,"FocusScales"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FocusScales"])
 
 	Func setFocusScales P1
-		dnRequest("set",[self,"FocusScales",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FocusScales",P1])
 		return self
 
 	Func getWrapMode
-		return dnRequest("get",[self,"WrapMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WrapMode"])
 
 	Func setWrapMode P1
-		dnRequest("set",[self,"WrapMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WrapMode",P1])
 		return self
 

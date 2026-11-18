@@ -15,16 +15,16 @@ Class XmlAttributeOverrides from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Add_3 P1,P2,P3
-		dnRequest("call",[self,"Add",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 

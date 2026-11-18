@@ -17,7 +17,7 @@ Class HeaderQuality from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMatch
 		return dnRequest("get",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers'),"Match"])

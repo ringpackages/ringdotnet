@@ -28,101 +28,101 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func Add_2 P1,P2
-		return dnRequest("call",[self,"Add",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func RemoveRecursive P1
-		return dnRequest("call",[self,"RemoveRecursive",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveRecursive",P1])
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Compile 
-		dnRequest("call",[self,"Compile"])
+		dnRequest("call",[new DotNetObject(nHandle),"Compile"])
 		return self
 
 	Func Reprocess P1
-		return dnRequest("call",[self,"Reprocess",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Reprocess",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Schemas P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Schemas",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Schemas",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Schemas"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Schemas"])
 		ok
-		return dnRequest("call",[self,"Schemas",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Schemas",P1])
 
 	Func Schemas_1 P1
-		return dnRequest("call",[self,"Schemas",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Schemas",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setValidationEventHandlerEvent P1
-		dnRequest("setevent",[self,"ValidationEventHandler",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ValidationEventHandler",dnCallback(P1)])
 		return self
 
 	Func clearValidationEventHandlerEvent
-		dnRequest("clearevent",[self,"ValidationEventHandler"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ValidationEventHandler"])
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NameTable"])
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getIsCompiled
-		return dnRequest("get",[self,"IsCompiled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCompiled"])
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
 		return self
 
 	Func getCompilationSettings
-		return dnRequest("get",[self,"CompilationSettings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompilationSettings"])
 
 	Func setCompilationSettings P1
-		dnRequest("set",[self,"CompilationSettings",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CompilationSettings",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getGlobalElements
-		return dnRequest("get",[self,"GlobalElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlobalElements"])
 
 	Func setGlobalElements P1
 		raise("DotNet Error: GlobalElements is a read-only property")
 
 	Func getGlobalAttributes
-		return dnRequest("get",[self,"GlobalAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlobalAttributes"])
 
 	Func setGlobalAttributes P1
 		raise("DotNet Error: GlobalAttributes is a read-only property")
 
 	Func getGlobalTypes
-		return dnRequest("get",[self,"GlobalTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlobalTypes"])
 
 	Func setGlobalTypes P1
 		raise("DotNet Error: GlobalTypes is a read-only property")

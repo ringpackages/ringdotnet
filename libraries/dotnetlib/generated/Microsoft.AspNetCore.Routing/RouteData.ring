@@ -23,25 +23,25 @@ Class RouteData from Object
 		return self
 
 	Func PushState P1,P2,P3
-		return dnRequest("call",[self,"PushState",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"PushState",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDataTokens
-		return dnRequest("get",[self,"DataTokens"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataTokens"])
 
 	Func setDataTokens P1
 		raise("DotNet Error: DataTokens is a read-only property")
 
 	Func getRouters
-		return dnRequest("get",[self,"Routers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Routers"])
 
 	Func setRouters P1
 		raise("DotNet Error: Routers is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")

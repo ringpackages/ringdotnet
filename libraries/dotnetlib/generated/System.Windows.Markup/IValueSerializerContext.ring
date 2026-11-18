@@ -14,5 +14,5 @@ Class IValueSerializerContext from DotNetObject
 		return self
 
 	Func GetValueSerializerFor P1
-		return dnRequest("call",[self,"GetValueSerializerFor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueSerializerFor",P1])
 

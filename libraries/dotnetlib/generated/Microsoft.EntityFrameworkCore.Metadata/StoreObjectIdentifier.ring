@@ -19,10 +19,10 @@ Class StoreObjectIdentifier from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func DisplayName 
-		return dnRequest("call",[self,"DisplayName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisplayName"])
 
 	Func Create P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"Create",P1,P2])
@@ -79,19 +79,19 @@ Class StoreObjectIdentifier from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"UpdateStoredProcedure",P1])
 
 	Func getStoreObjectType
-		return dnRequest("get",[self,"StoreObjectType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreObjectType"])
 
 	Func setStoreObjectType P1
 		raise("DotNet Error: StoreObjectType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")

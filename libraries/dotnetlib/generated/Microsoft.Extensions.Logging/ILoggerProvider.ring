@@ -14,5 +14,5 @@ Class ILoggerProvider from DotNetObject
 		return self
 
 	Func CreateLogger P1
-		return dnRequest("call",[self,"CreateLogger",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateLogger",P1])
 

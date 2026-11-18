@@ -17,19 +17,19 @@ Class XmlMembersMapping from XmlMapping
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getTypeName
-		return dnRequest("get",[self,"TypeName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeName"])
 
 	Func getTypeNamespace
-		return dnRequest("get",[self,"TypeNamespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeNamespace"])
 
 	Func setTypeNamespace P1
 		raise("DotNet Error: TypeNamespace is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

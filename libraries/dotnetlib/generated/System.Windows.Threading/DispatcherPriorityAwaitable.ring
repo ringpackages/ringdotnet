@@ -15,5 +15,5 @@ Class DispatcherPriorityAwaitable from ValueType
 		return self
 
 	Func GetAwaiter 
-		return dnRequest("call",[self,"GetAwaiter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAwaiter"])
 

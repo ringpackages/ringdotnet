@@ -17,112 +17,112 @@ Class PrimitiveCollectionBuilder from Object
 		return self
 
 	Func HasAnnotation P1,P2
-		return dnRequest("call",[self,"HasAnnotation",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasAnnotation",P1,P2])
 
 	Func IsRequired_1 P1
-		return dnRequest("call",[self,"IsRequired",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsRequired",P1])
 
 	Func IsRequired P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsRequired",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsRequired",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsRequired"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsRequired"])
 		ok
-		return dnRequest("call",[self,"IsRequired",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsRequired",P1])
 
 	Func HasMaxLength P1
-		return dnRequest("call",[self,"HasMaxLength",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasMaxLength",P1])
 
 	Func HasSentinel P1
-		return dnRequest("call",[self,"HasSentinel",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSentinel",P1])
 
 	Func IsUnicode_1 P1
-		return dnRequest("call",[self,"IsUnicode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUnicode",P1])
 
 	Func IsUnicode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsUnicode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsUnicode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsUnicode"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsUnicode"])
 		ok
-		return dnRequest("call",[self,"IsUnicode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsUnicode",P1])
 
 	Func HasValueGenerator P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasValueGenerator",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasValueGenerator",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasValueGenerator"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasValueGenerator"])
 		ok
-		return dnRequest("call",[self,"HasValueGenerator",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasValueGenerator",P1])
 
 	Func HasValueGenerator_1 P1
-		return dnRequest("call",[self,"HasValueGenerator",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasValueGenerator",P1])
 
 	Func HasValueGeneratorFactory P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"HasValueGeneratorFactory",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasValueGeneratorFactory",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"HasValueGeneratorFactory"])
+			return dnRequest("call",[new DotNetObject(nHandle),"HasValueGeneratorFactory"])
 		ok
-		return dnRequest("call",[self,"HasValueGeneratorFactory",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasValueGeneratorFactory",P1])
 
 	Func HasValueGeneratorFactory_1 P1
-		return dnRequest("call",[self,"HasValueGeneratorFactory",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasValueGeneratorFactory",P1])
 
 	Func IsConcurrencyToken_1 P1
-		return dnRequest("call",[self,"IsConcurrencyToken",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsConcurrencyToken",P1])
 
 	Func IsConcurrencyToken P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsConcurrencyToken",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsConcurrencyToken",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"IsConcurrencyToken"])
+			return dnRequest("call",[new DotNetObject(nHandle),"IsConcurrencyToken"])
 		ok
-		return dnRequest("call",[self,"IsConcurrencyToken",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsConcurrencyToken",P1])
 
 	Func ValueGeneratedNever 
-		return dnRequest("call",[self,"ValueGeneratedNever"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValueGeneratedNever"])
 
 	Func ValueGeneratedOnAdd 
-		return dnRequest("call",[self,"ValueGeneratedOnAdd"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValueGeneratedOnAdd"])
 
 	Func ValueGeneratedOnAddOrUpdate 
-		return dnRequest("call",[self,"ValueGeneratedOnAddOrUpdate"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValueGeneratedOnAddOrUpdate"])
 
 	Func ValueGeneratedOnUpdate 
-		return dnRequest("call",[self,"ValueGeneratedOnUpdate"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValueGeneratedOnUpdate"])
 
 	Func ValueGeneratedOnUpdateSometimes 
-		return dnRequest("call",[self,"ValueGeneratedOnUpdateSometimes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValueGeneratedOnUpdateSometimes"])
 
 	Func HasField P1
-		return dnRequest("call",[self,"HasField",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasField",P1])
 
 	Func ElementType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ElementType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ElementType",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ElementType"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ElementType"])
 		ok
-		return dnRequest("call",[self,"ElementType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ElementType",P1])
 
 	Func ElementType_1 P1
-		return dnRequest("call",[self,"ElementType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ElementType",P1])
 
 	Func UsePropertyAccessMode P1
-		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"UsePropertyAccessMode",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMetadata
-		return dnRequest("get",[self,"Metadata"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

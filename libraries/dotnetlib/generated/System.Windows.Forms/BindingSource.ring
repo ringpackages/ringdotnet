@@ -51,368 +51,368 @@ Class BindingSource from Component
 		return self
 
 	Func GetRelatedCurrencyManager P1
-		return dnRequest("call",[self,"GetRelatedCurrencyManager",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRelatedCurrencyManager",P1])
 
 	Func CancelEdit 
-		dnRequest("call",[self,"CancelEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelEdit"])
 		return self
 
 	Func EndEdit 
-		dnRequest("call",[self,"EndEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndEdit"])
 		return self
 
 	Func Find P1,P2
-		return dnRequest("call",[self,"Find",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
 
 	Func MoveFirst 
-		dnRequest("call",[self,"MoveFirst"])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveFirst"])
 		return self
 
 	Func MoveLast 
-		dnRequest("call",[self,"MoveLast"])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveLast"])
 		return self
 
 	Func MoveNext 
-		dnRequest("call",[self,"MoveNext"])
+		dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
 		return self
 
 	Func MovePrevious 
-		dnRequest("call",[self,"MovePrevious"])
+		dnRequest("call",[new DotNetObject(nHandle),"MovePrevious"])
 		return self
 
 	Func RemoveCurrent 
-		dnRequest("call",[self,"RemoveCurrent"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveCurrent"])
 		return self
 
 	Func ResetAllowNew 
-		dnRequest("call",[self,"ResetAllowNew"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetAllowNew"])
 		return self
 
 	Func ResetBindings P1
-		dnRequest("call",[self,"ResetBindings",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetBindings",P1])
 		return self
 
 	Func ResetCurrentItem 
-		dnRequest("call",[self,"ResetCurrentItem"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetCurrentItem"])
 		return self
 
 	Func ResetItem P1
-		dnRequest("call",[self,"ResetItem",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetItem",P1])
 		return self
 
 	Func ResumeBinding 
-		dnRequest("call",[self,"ResumeBinding"])
+		dnRequest("call",[new DotNetObject(nHandle),"ResumeBinding"])
 		return self
 
 	Func SuspendBinding 
-		dnRequest("call",[self,"SuspendBinding"])
+		dnRequest("call",[new DotNetObject(nHandle),"SuspendBinding"])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[self,"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func GetListName P1
-		return dnRequest("call",[self,"GetListName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetListName",P1])
 
 	Func GetItemProperties P1
-		return dnRequest("call",[self,"GetItemProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetItemProperties",P1])
 
 	Func AddNew 
-		return dnRequest("call",[self,"AddNew"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddNew"])
 
 	Func ApplySort_2 P1,P2
-		dnRequest("call",[self,"ApplySort",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplySort",P1,P2])
 		return self
 
 	Func RemoveSort 
-		dnRequest("call",[self,"RemoveSort"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveSort"])
 		return self
 
 	Func ApplySort P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ApplySort",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplySort",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ApplySort",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplySort",P1])
 		return self
 
 	Func RemoveFilter 
-		dnRequest("call",[self,"RemoveFilter"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveFilter"])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func setAddingNewEvent P1
-		dnRequest("setevent",[self,"AddingNew",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AddingNew",dnCallback(P1)])
 		return self
 
 	Func clearAddingNewEvent
-		dnRequest("clearevent",[self,"AddingNew"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AddingNew"])
 		return self
 
 	Func setBindingCompleteEvent P1
-		dnRequest("setevent",[self,"BindingComplete",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BindingComplete",dnCallback(P1)])
 		return self
 
 	Func clearBindingCompleteEvent
-		dnRequest("clearevent",[self,"BindingComplete"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BindingComplete"])
 		return self
 
 	Func setDataErrorEvent P1
-		dnRequest("setevent",[self,"DataError",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DataError",dnCallback(P1)])
 		return self
 
 	Func clearDataErrorEvent
-		dnRequest("clearevent",[self,"DataError"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DataError"])
 		return self
 
 	Func setDataSourceChangedEvent P1
-		dnRequest("setevent",[self,"DataSourceChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DataSourceChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataSourceChangedEvent
-		dnRequest("clearevent",[self,"DataSourceChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DataSourceChanged"])
 		return self
 
 	Func setDataMemberChangedEvent P1
-		dnRequest("setevent",[self,"DataMemberChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DataMemberChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataMemberChangedEvent
-		dnRequest("clearevent",[self,"DataMemberChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DataMemberChanged"])
 		return self
 
 	Func setCurrentChangedEvent P1
-		dnRequest("setevent",[self,"CurrentChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentChangedEvent
-		dnRequest("clearevent",[self,"CurrentChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentChanged"])
 		return self
 
 	Func setCurrentItemChangedEvent P1
-		dnRequest("setevent",[self,"CurrentItemChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentItemChangedEvent
-		dnRequest("clearevent",[self,"CurrentItemChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentItemChanged"])
 		return self
 
 	Func setListChangedEvent P1
-		dnRequest("setevent",[self,"ListChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ListChanged",dnCallback(P1)])
 		return self
 
 	Func clearListChangedEvent
-		dnRequest("clearevent",[self,"ListChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ListChanged"])
 		return self
 
 	Func setPositionChangedEvent P1
-		dnRequest("setevent",[self,"PositionChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PositionChanged",dnCallback(P1)])
 		return self
 
 	Func clearPositionChangedEvent
-		dnRequest("clearevent",[self,"PositionChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PositionChanged"])
 		return self
 
 	Func getCurrencyManager
-		return dnRequest("get",[self,"CurrencyManager"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyManager"])
 
 	Func setCurrencyManager P1
 		raise("DotNet Error: CurrencyManager is a read-only property")
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Current"])
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getDataMember
-		return dnRequest("get",[self,"DataMember"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataMember"])
 
 	Func setDataMember P1
-		dnRequest("set",[self,"DataMember",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataMember",P1])
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[self,"DataSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
 
 	Func setDataSource P1
-		dnRequest("set",[self,"DataSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DataSource",P1])
 		return self
 
 	Func getIsBindingSuspended
-		return dnRequest("get",[self,"IsBindingSuspended"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBindingSuspended"])
 
 	Func setIsBindingSuspended P1
 		raise("DotNet Error: IsBindingSuspended is a read-only property")
 
 	Func getList
-		return dnRequest("get",[self,"List"])
+		return dnRequest("get",[new DotNetObject(nHandle),"List"])
 
 	Func setList P1
 		raise("DotNet Error: List is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[self,"Position"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[self,"Position",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
 		return self
 
 	Func getRaiseListChangedEvents
-		return dnRequest("get",[self,"RaiseListChangedEvents"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RaiseListChangedEvents"])
 
 	Func setRaiseListChangedEvents P1
-		dnRequest("set",[self,"RaiseListChangedEvents",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RaiseListChangedEvents",P1])
 		return self
 
 	Func getSort
-		return dnRequest("get",[self,"Sort"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sort"])
 
 	Func setSort P1
-		dnRequest("set",[self,"Sort",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Sort",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSynchronized"])
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SyncRoot"])
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedSize"])
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getAllowEdit
-		return dnRequest("get",[self,"AllowEdit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowEdit"])
 
 	Func setAllowEdit P1
 		raise("DotNet Error: AllowEdit is a read-only property")
 
 	Func getAllowNew
-		return dnRequest("get",[self,"AllowNew"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowNew"])
 
 	Func setAllowNew P1
-		dnRequest("set",[self,"AllowNew",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowNew",P1])
 		return self
 
 	Func getAllowRemove
-		return dnRequest("get",[self,"AllowRemove"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowRemove"])
 
 	Func setAllowRemove P1
 		raise("DotNet Error: AllowRemove is a read-only property")
 
 	Func getSupportsChangeNotification
-		return dnRequest("get",[self,"SupportsChangeNotification"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsChangeNotification"])
 
 	Func setSupportsChangeNotification P1
 		raise("DotNet Error: SupportsChangeNotification is a read-only property")
 
 	Func getSupportsSearching
-		return dnRequest("get",[self,"SupportsSearching"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsSearching"])
 
 	Func setSupportsSearching P1
 		raise("DotNet Error: SupportsSearching is a read-only property")
 
 	Func getSupportsSorting
-		return dnRequest("get",[self,"SupportsSorting"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsSorting"])
 
 	Func setSupportsSorting P1
 		raise("DotNet Error: SupportsSorting is a read-only property")
 
 	Func getIsSorted
-		return dnRequest("get",[self,"IsSorted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSorted"])
 
 	Func setIsSorted P1
 		raise("DotNet Error: IsSorted is a read-only property")
 
 	Func getSortProperty
-		return dnRequest("get",[self,"SortProperty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortProperty"])
 
 	Func setSortProperty P1
 		raise("DotNet Error: SortProperty is a read-only property")
 
 	Func getSortDirection
-		return dnRequest("get",[self,"SortDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortDirection"])
 
 	Func setSortDirection P1
 		raise("DotNet Error: SortDirection is a read-only property")
 
 	Func getSortDescriptions
-		return dnRequest("get",[self,"SortDescriptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SortDescriptions"])
 
 	Func setSortDescriptions P1
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[self,"Filter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
 		return self
 
 	Func getSupportsAdvancedSorting
-		return dnRequest("get",[self,"SupportsAdvancedSorting"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsAdvancedSorting"])
 
 	Func setSupportsAdvancedSorting P1
 		raise("DotNet Error: SupportsAdvancedSorting is a read-only property")
 
 	Func getSupportsFiltering
-		return dnRequest("get",[self,"SupportsFiltering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsFiltering"])
 
 	Func setSupportsFiltering P1
 		raise("DotNet Error: SupportsFiltering is a read-only property")

@@ -14,42 +14,42 @@ Class IRelationalCommand from DotNetObject
 		return self
 
 	Func ExecuteNonQuery P1
-		return dnRequest("call",[self,"ExecuteNonQuery",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1])
 
 	Func ExecuteNonQueryAsync_2 P1,P2
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2])
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
 		ok
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
 
 	Func ExecuteScalar P1
-		return dnRequest("call",[self,"ExecuteScalar",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar",P1])
 
 	Func ExecuteScalarAsync_2 P1,P2
-		return dnRequest("call",[self,"ExecuteScalarAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1,P2])
 
 	Func ExecuteScalarAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteScalarAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
 		ok
-		return dnRequest("call",[self,"ExecuteScalarAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
 
 	Func ExecuteReader P1
-		return dnRequest("call",[self,"ExecuteReader",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
 
 	Func ExecuteReaderAsync_2 P1,P2
-		return dnRequest("call",[self,"ExecuteReaderAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1,P2])
 
 	Func ExecuteReaderAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExecuteReaderAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
 		ok
-		return dnRequest("call",[self,"ExecuteReaderAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
 
 	Func PopulateFrom P1
-		dnRequest("call",[self,"PopulateFrom",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PopulateFrom",P1])
 		return self
 

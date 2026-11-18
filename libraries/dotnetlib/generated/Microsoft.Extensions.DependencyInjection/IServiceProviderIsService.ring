@@ -14,5 +14,5 @@ Class IServiceProviderIsService from DotNetObject
 		return self
 
 	Func IsService P1
-		return dnRequest("call",[self,"IsService",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsService",P1])
 

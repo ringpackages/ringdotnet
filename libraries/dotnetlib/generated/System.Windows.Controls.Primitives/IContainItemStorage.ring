@@ -14,21 +14,21 @@ Class IContainItemStorage from DotNetObject
 		return self
 
 	Func StoreItemValue P1,P2,P3
-		dnRequest("call",[self,"StoreItemValue",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"StoreItemValue",P1,P2,P3])
 		return self
 
 	Func ReadItemValue P1,P2
-		return dnRequest("call",[self,"ReadItemValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadItemValue",P1,P2])
 
 	Func ClearItemValue P1,P2
-		dnRequest("call",[self,"ClearItemValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearItemValue",P1,P2])
 		return self
 
 	Func ClearValue P1
-		dnRequest("call",[self,"ClearValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearValue",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 

@@ -17,7 +17,7 @@ Class RelationalLiftableConstantFactory from LiftableConstantFactory
 		return self
 
 	Func getRelationalDependencies
-		return dnRequest("get",[self,"RelationalDependencies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RelationalDependencies"])
 
 	Func setRelationalDependencies P1
 		raise("DotNet Error: RelationalDependencies is a read-only property")

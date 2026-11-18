@@ -19,40 +19,40 @@ Class IReadOnlyRelationalPropertyOverrides from DotNetObject
 		return self
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getProperty
-		return dnRequest("get",[self,"Property"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getStoreObject
-		return dnRequest("get",[self,"StoreObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreObject"])
 
 	Func setStoreObject P1
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getColumnName
-		return dnRequest("get",[self,"ColumnName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnName"])
 
 	Func setColumnName P1
 		raise("DotNet Error: ColumnName is a read-only property")
 
 	Func getIsColumnNameOverridden
-		return dnRequest("get",[self,"IsColumnNameOverridden"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsColumnNameOverridden"])
 
 	Func setIsColumnNameOverridden P1
 		raise("DotNet Error: IsColumnNameOverridden is a read-only property")

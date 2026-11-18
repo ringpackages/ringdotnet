@@ -27,37 +27,37 @@ Class RoutedCommand from Object
 		return self
 
 	Func Execute P1,P2
-		dnRequest("call",[self,"Execute",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Execute",P1,P2])
 		return self
 
 	Func CanExecute P1,P2
-		return dnRequest("call",[self,"CanExecute",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanExecute",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setCanExecuteChangedEvent P1
-		dnRequest("setevent",[self,"CanExecuteChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CanExecuteChanged",dnCallback(P1)])
 		return self
 
 	Func clearCanExecuteChangedEvent
-		dnRequest("clearevent",[self,"CanExecuteChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CanExecuteChanged"])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getOwnerType
-		return dnRequest("get",[self,"OwnerType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OwnerType"])
 
 	Func setOwnerType P1
 		raise("DotNet Error: OwnerType is a read-only property")
 
 	Func getInputGestures
-		return dnRequest("get",[self,"InputGestures"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InputGestures"])
 
 	Func setInputGestures P1
 		raise("DotNet Error: InputGestures is a read-only property")

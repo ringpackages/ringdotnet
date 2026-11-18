@@ -25,95 +25,95 @@ Class JsonQueryExpression from DotNetObject
 		return self
 
 	Func BindProperty P1
-		return dnRequest("call",[self,"BindProperty",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindProperty",P1])
 
 	Func BindNavigation P1
-		return dnRequest("call",[self,"BindNavigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindNavigation",P1])
 
 	Func BindCollectionElement P1
-		return dnRequest("call",[self,"BindCollectionElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindCollectionElement",P1])
 
 	Func MakeNullable 
-		return dnRequest("call",[self,"MakeNullable"])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeNullable"])
 
 	Func Print P1
-		dnRequest("call",[self,"Print",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[self,"Update",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func Reduce 
-		return dnRequest("call",[self,"Reduce"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
 
 	Func ReduceAndCheck 
-		return dnRequest("call",[self,"ReduceAndCheck"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
 
 	Func ReduceExtensions 
-		return dnRequest("call",[self,"ReduceExtensions"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getJsonColumn
-		return dnRequest("get",[self,"JsonColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"JsonColumn"])
 
 	Func setJsonColumn P1
 		raise("DotNet Error: JsonColumn is a read-only property")
 
 	Func getIsCollection
-		return dnRequest("get",[self,"IsCollection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCollection"])
 
 	Func setIsCollection P1
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[self,"IsNullable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getKeyPropertyMap
-		return dnRequest("get",[self,"KeyPropertyMap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyPropertyMap"])
 
 	Func setKeyPropertyMap P1
 		raise("DotNet Error: KeyPropertyMap is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getCanReduce
-		return dnRequest("get",[self,"CanReduce"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
 
 	Func setCanReduce P1
 		raise("DotNet Error: CanReduce is a read-only property")

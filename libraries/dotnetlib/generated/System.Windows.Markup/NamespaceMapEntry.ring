@@ -23,26 +23,26 @@ Class NamespaceMapEntry from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getXmlNamespace
-		return dnRequest("get",[self,"XmlNamespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XmlNamespace"])
 
 	Func setXmlNamespace P1
-		dnRequest("set",[self,"XmlNamespace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlNamespace",P1])
 		return self
 
 	Func getAssemblyName
-		return dnRequest("get",[self,"AssemblyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AssemblyName"])
 
 	Func setAssemblyName P1
-		dnRequest("set",[self,"AssemblyName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AssemblyName",P1])
 		return self
 
 	Func getClrNamespace
-		return dnRequest("get",[self,"ClrNamespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClrNamespace"])
 
 	Func setClrNamespace P1
-		dnRequest("set",[self,"ClrNamespace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClrNamespace",P1])
 		return self
 

@@ -25,38 +25,38 @@ Class WpfApplication from DispatcherObject
 		return self
 
 	Func Run_0 
-		return dnRequest("call",[self,"Run"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Run"])
 
 	Func Run P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Run",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Run",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Run"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Run"])
 		ok
-		return dnRequest("call",[self,"Run",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Run",P1])
 
 	Func Shutdown P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Shutdown",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Shutdown",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Shutdown"])
+			dnRequest("call",[new DotNetObject(nHandle),"Shutdown"])
 		return self
 		ok
-		dnRequest("call",[self,"Shutdown",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Shutdown",P1])
 		return self
 
 	Func Shutdown_1 P1
-		dnRequest("call",[self,"Shutdown",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Shutdown",P1])
 		return self
 
 	Func FindResource P1
-		return dnRequest("call",[self,"FindResource",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindResource",P1])
 
 	Func TryFindResource P1
-		return dnRequest("call",[self,"TryFindResource",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryFindResource",P1])
 
 	Func LoadComponent_2 P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Application, PresentationFramework'),"LoadComponent",P1,P2])
@@ -85,152 +85,152 @@ Class WpfApplication from DispatcherObject
 		return self
 
 	Func setStartupEvent P1
-		dnRequest("setevent",[self,"Startup",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Startup",dnCallback(P1)])
 		return self
 
 	Func clearStartupEvent
-		dnRequest("clearevent",[self,"Startup"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Startup"])
 		return self
 
 	Func setExitEvent P1
-		dnRequest("setevent",[self,"Exit",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Exit",dnCallback(P1)])
 		return self
 
 	Func clearExitEvent
-		dnRequest("clearevent",[self,"Exit"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Exit"])
 		return self
 
 	Func setActivatedEvent P1
-		dnRequest("setevent",[self,"Activated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Activated",dnCallback(P1)])
 		return self
 
 	Func clearActivatedEvent
-		dnRequest("clearevent",[self,"Activated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Activated"])
 		return self
 
 	Func setDeactivatedEvent P1
-		dnRequest("setevent",[self,"Deactivated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Deactivated",dnCallback(P1)])
 		return self
 
 	Func clearDeactivatedEvent
-		dnRequest("clearevent",[self,"Deactivated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Deactivated"])
 		return self
 
 	Func setSessionEndingEvent P1
-		dnRequest("setevent",[self,"SessionEnding",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SessionEnding",dnCallback(P1)])
 		return self
 
 	Func clearSessionEndingEvent
-		dnRequest("clearevent",[self,"SessionEnding"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SessionEnding"])
 		return self
 
 	Func setDispatcherUnhandledExceptionEvent P1
-		dnRequest("setevent",[self,"DispatcherUnhandledException",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"DispatcherUnhandledException",dnCallback(P1)])
 		return self
 
 	Func clearDispatcherUnhandledExceptionEvent
-		dnRequest("clearevent",[self,"DispatcherUnhandledException"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"DispatcherUnhandledException"])
 		return self
 
 	Func setNavigatingEvent P1
-		dnRequest("setevent",[self,"Navigating",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Navigating",dnCallback(P1)])
 		return self
 
 	Func clearNavigatingEvent
-		dnRequest("clearevent",[self,"Navigating"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigating"])
 		return self
 
 	Func setNavigatedEvent P1
-		dnRequest("setevent",[self,"Navigated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Navigated",dnCallback(P1)])
 		return self
 
 	Func clearNavigatedEvent
-		dnRequest("clearevent",[self,"Navigated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigated"])
 		return self
 
 	Func setNavigationProgressEvent P1
-		dnRequest("setevent",[self,"NavigationProgress",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationProgress",dnCallback(P1)])
 		return self
 
 	Func clearNavigationProgressEvent
-		dnRequest("clearevent",[self,"NavigationProgress"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationProgress"])
 		return self
 
 	Func setNavigationFailedEvent P1
-		dnRequest("setevent",[self,"NavigationFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationFailed",dnCallback(P1)])
 		return self
 
 	Func clearNavigationFailedEvent
-		dnRequest("clearevent",[self,"NavigationFailed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationFailed"])
 		return self
 
 	Func setLoadCompletedEvent P1
-		dnRequest("setevent",[self,"LoadCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LoadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearLoadCompletedEvent
-		dnRequest("clearevent",[self,"LoadCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadCompleted"])
 		return self
 
 	Func setNavigationStoppedEvent P1
-		dnRequest("setevent",[self,"NavigationStopped",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationStopped",dnCallback(P1)])
 		return self
 
 	Func clearNavigationStoppedEvent
-		dnRequest("clearevent",[self,"NavigationStopped"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationStopped"])
 		return self
 
 	Func setFragmentNavigationEvent P1
-		dnRequest("setevent",[self,"FragmentNavigation",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"FragmentNavigation",dnCallback(P1)])
 		return self
 
 	Func clearFragmentNavigationEvent
-		dnRequest("clearevent",[self,"FragmentNavigation"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"FragmentNavigation"])
 		return self
 
 	Func getWindows
-		return dnRequest("get",[self,"Windows"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Windows"])
 
 	Func setWindows P1
 		raise("DotNet Error: Windows is a read-only property")
 
 	Func getMainWindow
-		return dnRequest("get",[self,"MainWindow"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MainWindow"])
 
 	Func setMainWindow P1
-		dnRequest("set",[self,"MainWindow",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MainWindow",P1])
 		return self
 
 	Func getShutdownMode
-		return dnRequest("get",[self,"ShutdownMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShutdownMode"])
 
 	Func setShutdownMode P1
-		dnRequest("set",[self,"ShutdownMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShutdownMode",P1])
 		return self
 
 	Func getResources
-		return dnRequest("get",[self,"Resources"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Resources"])
 
 	Func setResources P1
-		dnRequest("set",[self,"Resources",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Resources",P1])
 		return self
 
 	Func getThemeMode
-		return dnRequest("get",[self,"ThemeMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ThemeMode"])
 
 	Func setThemeMode P1
-		dnRequest("set",[self,"ThemeMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ThemeMode",P1])
 		return self
 
 	Func getStartupUri
-		return dnRequest("get",[self,"StartupUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartupUri"])
 
 	Func setStartupUri P1
-		dnRequest("set",[self,"StartupUri",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StartupUri",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

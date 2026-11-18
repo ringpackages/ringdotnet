@@ -15,48 +15,48 @@ Class X500DistinguishedNameBuilder from Object
 		return self
 
 	Func Add_3 P1,P2,P3
-		dnRequest("call",[self,"Add",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func AddEmailAddress P1
-		dnRequest("call",[self,"AddEmailAddress",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddEmailAddress",P1])
 		return self
 
 	Func AddCommonName P1
-		dnRequest("call",[self,"AddCommonName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddCommonName",P1])
 		return self
 
 	Func AddLocalityName P1
-		dnRequest("call",[self,"AddLocalityName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddLocalityName",P1])
 		return self
 
 	Func AddCountryOrRegion P1
-		dnRequest("call",[self,"AddCountryOrRegion",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddCountryOrRegion",P1])
 		return self
 
 	Func AddOrganizationName P1
-		dnRequest("call",[self,"AddOrganizationName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddOrganizationName",P1])
 		return self
 
 	Func AddOrganizationalUnitName P1
-		dnRequest("call",[self,"AddOrganizationalUnitName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddOrganizationalUnitName",P1])
 		return self
 
 	Func AddStateOrProvinceName P1
-		dnRequest("call",[self,"AddStateOrProvinceName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddStateOrProvinceName",P1])
 		return self
 
 	Func AddDomainComponent P1
-		dnRequest("call",[self,"AddDomainComponent",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddDomainComponent",P1])
 		return self
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

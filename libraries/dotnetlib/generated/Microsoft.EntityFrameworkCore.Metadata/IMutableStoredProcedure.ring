@@ -21,70 +21,70 @@ Class IMutableStoredProcedure from DotNetObject
 		return self
 
 	Func FindParameter P1
-		return dnRequest("call",[self,"FindParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindParameter",P1])
 
 	Func AddParameter P1
-		return dnRequest("call",[self,"AddParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1])
 
 	Func FindOriginalValueParameter P1
-		return dnRequest("call",[self,"FindOriginalValueParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindOriginalValueParameter",P1])
 
 	Func AddOriginalValueParameter P1
-		return dnRequest("call",[self,"AddOriginalValueParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddOriginalValueParameter",P1])
 
 	Func FindRowsAffectedParameter 
-		return dnRequest("call",[self,"FindRowsAffectedParameter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRowsAffectedParameter"])
 
 	Func AddRowsAffectedParameter 
-		return dnRequest("call",[self,"AddRowsAffectedParameter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRowsAffectedParameter"])
 
 	Func FindResultColumn P1
-		return dnRequest("call",[self,"FindResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindResultColumn",P1])
 
 	Func AddResultColumn P1
-		return dnRequest("call",[self,"AddResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddResultColumn",P1])
 
 	Func FindRowsAffectedResultColumn 
-		return dnRequest("call",[self,"FindRowsAffectedResultColumn"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRowsAffectedResultColumn"])
 
 	Func AddRowsAffectedResultColumn 
-		return dnRequest("call",[self,"AddRowsAffectedResultColumn"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddRowsAffectedResultColumn"])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
 
 	Func setSchema P1
-		dnRequest("set",[self,"Schema",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Schema",P1])
 		return self
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getIsRowsAffectedReturned
-		return dnRequest("get",[self,"IsRowsAffectedReturned"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRowsAffectedReturned"])
 
 	Func setIsRowsAffectedReturned P1
-		dnRequest("set",[self,"IsRowsAffectedReturned",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsRowsAffectedReturned",P1])
 		return self
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getResultColumns
-		return dnRequest("get",[self,"ResultColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResultColumns"])
 
 	Func setResultColumns P1
 		raise("DotNet Error: ResultColumns is a read-only property")

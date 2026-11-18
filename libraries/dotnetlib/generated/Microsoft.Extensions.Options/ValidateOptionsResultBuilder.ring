@@ -15,32 +15,32 @@ Class ValidateOptionsResultBuilder from Object
 		return self
 
 	Func AddError_2 P1,P2
-		dnRequest("call",[self,"AddError",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddError",P1,P2])
 		return self
 
 	Func AddError P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AddError",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddError",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AddError",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddError",P1])
 		return self
 
 	Func AddResult P1
-		dnRequest("call",[self,"AddResult",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddResult",P1])
 		return self
 
 	Func AddResults P1
-		dnRequest("call",[self,"AddResults",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddResults",P1])
 		return self
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

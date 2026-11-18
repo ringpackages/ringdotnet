@@ -18,31 +18,31 @@ Class IncrementalHash from Object
 
 	Func AppendData P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AppendData",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AppendData",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AppendData",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendData",P1])
 		return self
 
 	Func AppendData_3 P1,P2,P3
-		dnRequest("call",[self,"AppendData",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AppendData",P1,P2,P3])
 		return self
 
 	Func GetHashAndReset 
-		return dnRequest("call",[self,"GetHashAndReset"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashAndReset"])
 
 	Func GetCurrentHash 
-		return dnRequest("call",[self,"GetCurrentHash"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentHash"])
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateHash P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"CreateHash",P1])
@@ -51,13 +51,13 @@ Class IncrementalHash from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"CreateHMAC",P1,P2])
 
 	Func getHashLengthInBytes
-		return dnRequest("get",[self,"HashLengthInBytes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashLengthInBytes"])
 
 	Func setHashLengthInBytes P1
 		raise("DotNet Error: HashLengthInBytes is a read-only property")
 
 	Func getAlgorithmName
-		return dnRequest("get",[self,"AlgorithmName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AlgorithmName"])
 
 	Func setAlgorithmName P1
 		raise("DotNet Error: AlgorithmName is a read-only property")

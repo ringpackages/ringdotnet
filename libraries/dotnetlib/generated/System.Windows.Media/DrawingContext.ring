@@ -14,106 +14,106 @@ Class DrawingContext from DispatcherObject
 		return self
 
 	Func DrawText P1,P2
-		dnRequest("call",[self,"DrawText",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1,P2])
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func DrawLine P1,P2,P3
-		dnRequest("call",[self,"DrawLine",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawLine",P1,P2,P3])
 		return self
 
 	Func DrawLine_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawLine",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawLine",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawRectangle P1,P2,P3
-		dnRequest("call",[self,"DrawRectangle",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawRectangle",P1,P2,P3])
 		return self
 
 	Func DrawRectangle_4 P1,P2,P3,P4
-		dnRequest("call",[self,"DrawRectangle",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawRectangle",P1,P2,P3,P4])
 		return self
 
 	Func DrawRoundedRectangle P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawRoundedRectangle",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawRoundedRectangle",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawRoundedRectangle_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[self,"DrawRoundedRectangle",P1,P2,P3,P4,P5,P6,P7,P8])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawRoundedRectangle",P1,P2,P3,P4,P5,P6,P7,P8])
 		return self
 
 	Func DrawEllipse P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawEllipse",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawEllipse",P1,P2,P3,P4,P5])
 		return self
 
 	Func DrawEllipse_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[self,"DrawEllipse",P1,P2,P3,P4,P5,P6,P7,P8])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawEllipse",P1,P2,P3,P4,P5,P6,P7,P8])
 		return self
 
 	Func DrawGeometry P1,P2,P3
-		dnRequest("call",[self,"DrawGeometry",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawGeometry",P1,P2,P3])
 		return self
 
 	Func DrawImage P1,P2
-		dnRequest("call",[self,"DrawImage",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2])
 		return self
 
 	Func DrawImage_3 P1,P2,P3
-		dnRequest("call",[self,"DrawImage",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3])
 		return self
 
 	Func DrawGlyphRun P1,P2
-		dnRequest("call",[self,"DrawGlyphRun",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawGlyphRun",P1,P2])
 		return self
 
 	Func DrawDrawing P1
-		dnRequest("call",[self,"DrawDrawing",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawDrawing",P1])
 		return self
 
 	Func DrawVideo P1,P2
-		dnRequest("call",[self,"DrawVideo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawVideo",P1,P2])
 		return self
 
 	Func DrawVideo_3 P1,P2,P3
-		dnRequest("call",[self,"DrawVideo",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawVideo",P1,P2,P3])
 		return self
 
 	Func PushClip P1
-		dnRequest("call",[self,"PushClip",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PushClip",P1])
 		return self
 
 	Func PushOpacityMask P1
-		dnRequest("call",[self,"PushOpacityMask",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PushOpacityMask",P1])
 		return self
 
 	Func PushOpacity P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"PushOpacity",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"PushOpacity",P1])
 			return self
 		ok
-		dnRequest("call",[self,"PushOpacity",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PushOpacity",P1])
 		return self
 
 	Func PushOpacity_2 P1,P2
-		dnRequest("call",[self,"PushOpacity",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"PushOpacity",P1,P2])
 		return self
 
 	Func PushTransform P1
-		dnRequest("call",[self,"PushTransform",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PushTransform",P1])
 		return self
 
 	Func PushGuidelineSet P1
-		dnRequest("call",[self,"PushGuidelineSet",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PushGuidelineSet",P1])
 		return self
 
 	Func PushEffect P1,P2
-		dnRequest("call",[self,"PushEffect",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"PushEffect",P1,P2])
 		return self
 
 	Func Pop 
-		dnRequest("call",[self,"Pop"])
+		dnRequest("call",[new DotNetObject(nHandle),"Pop"])
 		return self
 

@@ -18,23 +18,23 @@ Class RouteOptions from Object
 
 	Func SetParameterPolicy P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetParameterPolicy",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetParameterPolicy",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetParameterPolicy",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetParameterPolicy",P1])
 		return self
 
 	Func SetParameterPolicy_2 P1,P2
-		dnRequest("call",[self,"SetParameterPolicy",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetParameterPolicy",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConstraintMap
-		return dnRequest("get",[self,"ConstraintMap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConstraintMap"])
 
 	Func setConstraintMap P1
-		dnRequest("set",[self,"ConstraintMap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ConstraintMap",P1])
 		return self
 

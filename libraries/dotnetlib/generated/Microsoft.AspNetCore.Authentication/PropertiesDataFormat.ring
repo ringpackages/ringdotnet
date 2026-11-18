@@ -16,31 +16,31 @@ Class PropertiesDataFormat from DotNetObject
 
 	Func Protect P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Protect",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Protect",P1])
 		ok
-		return dnRequest("call",[self,"Protect",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Protect",P1])
 
 	Func Protect_2 P1,P2
-		return dnRequest("call",[self,"Protect",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Protect",P1,P2])
 
 	Func Unprotect P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Unprotect",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Unprotect",P1])
 		ok
-		return dnRequest("call",[self,"Unprotect",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Unprotect",P1])
 
 	Func Unprotect_2 P1,P2
-		return dnRequest("call",[self,"Unprotect",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Unprotect",P1,P2])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 

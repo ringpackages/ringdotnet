@@ -17,40 +17,40 @@ Class MemoryMappedFile from Object
 
 	Func CreateViewStream P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateViewStream",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateViewStream",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateViewStream"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateViewStream"])
 		ok
 		raise("DotNet Error: CreateViewStream does not take one argument: use CreateViewStream(NULL), CreateViewStream_N(...) or named arguments")
 
 	Func CreateViewStream_2 P1,P2
-		return dnRequest("call",[self,"CreateViewStream",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateViewStream",P1,P2])
 
 	Func CreateViewStream_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateViewStream",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateViewStream",P1,P2,P3])
 
 	Func CreateViewAccessor P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateViewAccessor",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateViewAccessor",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateViewAccessor"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateViewAccessor"])
 		ok
 		raise("DotNet Error: CreateViewAccessor does not take one argument: use CreateViewAccessor(NULL), CreateViewAccessor_N(...) or named arguments")
 
 	Func CreateViewAccessor_2 P1,P2
-		return dnRequest("call",[self,"CreateViewAccessor",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateViewAccessor",P1,P2])
 
 	Func CreateViewAccessor_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateViewAccessor",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateViewAccessor",P1,P2,P3])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func OpenExisting P1
 		if dnIsNamed(P1)
@@ -104,7 +104,7 @@ Class MemoryMappedFile from Object
 		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1,P2,P3,P4,P5])
 
 	Func getSafeMemoryMappedFileHandle
-		return dnRequest("get",[self,"SafeMemoryMappedFileHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SafeMemoryMappedFileHandle"])
 
 	Func setSafeMemoryMappedFileHandle P1
 		raise("DotNet Error: SafeMemoryMappedFileHandle is a read-only property")

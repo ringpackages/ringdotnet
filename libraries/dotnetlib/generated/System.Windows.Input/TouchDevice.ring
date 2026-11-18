@@ -20,74 +20,74 @@ Class TouchDevice from InputDevice
 		return self
 
 	Func GetTouchPoint P1
-		return dnRequest("call",[self,"GetTouchPoint",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTouchPoint",P1])
 
 	Func GetIntermediateTouchPoints P1
-		return dnRequest("call",[self,"GetIntermediateTouchPoints",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetIntermediateTouchPoints",P1])
 
 	Func Capture P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Capture",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Capture",P1])
 		ok
-		return dnRequest("call",[self,"Capture",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1])
 
 	Func Capture_2 P1,P2
-		return dnRequest("call",[self,"Capture",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1,P2])
 
 	Func Synchronize 
-		dnRequest("call",[self,"Synchronize"])
+		dnRequest("call",[new DotNetObject(nHandle),"Synchronize"])
 		return self
 
 	Func setActivatedEvent P1
-		dnRequest("setevent",[self,"Activated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Activated",dnCallback(P1)])
 		return self
 
 	Func clearActivatedEvent
-		dnRequest("clearevent",[self,"Activated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Activated"])
 		return self
 
 	Func setDeactivatedEvent P1
-		dnRequest("setevent",[self,"Deactivated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Deactivated",dnCallback(P1)])
 		return self
 
 	Func clearDeactivatedEvent
-		dnRequest("clearevent",[self,"Deactivated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Deactivated"])
 		return self
 
 	Func setUpdatedEvent P1
-		dnRequest("setevent",[self,"Updated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Updated",dnCallback(P1)])
 		return self
 
 	Func clearUpdatedEvent
-		dnRequest("clearevent",[self,"Updated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Updated"])
 		return self
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsActive
-		return dnRequest("get",[self,"IsActive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsActive"])
 
 	Func setIsActive P1
 		raise("DotNet Error: IsActive is a read-only property")
 
 	Func getDirectlyOver
-		return dnRequest("get",[self,"DirectlyOver"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DirectlyOver"])
 
 	Func setDirectlyOver P1
 		raise("DotNet Error: DirectlyOver is a read-only property")
 
 	Func getCaptured
-		return dnRequest("get",[self,"Captured"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Captured"])
 
 	Func setCaptured P1
 		raise("DotNet Error: Captured is a read-only property")
 
 	Func getCaptureMode
-		return dnRequest("get",[self,"CaptureMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CaptureMode"])
 
 	Func setCaptureMode P1
 		raise("DotNet Error: CaptureMode is a read-only property")

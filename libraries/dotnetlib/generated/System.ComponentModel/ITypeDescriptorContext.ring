@@ -18,26 +18,26 @@ Class ITypeDescriptorContext from DotNetObject
 		return self
 
 	Func OnComponentChanging 
-		return dnRequest("call",[self,"OnComponentChanging"])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnComponentChanging"])
 
 	Func OnComponentChanged 
-		dnRequest("call",[self,"OnComponentChanged"])
+		dnRequest("call",[new DotNetObject(nHandle),"OnComponentChanged"])
 		return self
 
 	Func getContainer
-		return dnRequest("get",[self,"Container"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Container"])
 
 	Func setContainer P1
 		raise("DotNet Error: Container is a read-only property")
 
 	Func getInstance
-		return dnRequest("get",[self,"Instance"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Instance"])
 
 	Func setInstance P1
 		raise("DotNet Error: Instance is a read-only property")
 
 	Func getPropertyDescriptor
-		return dnRequest("get",[self,"PropertyDescriptor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyDescriptor"])
 
 	Func setPropertyDescriptor P1
 		raise("DotNet Error: PropertyDescriptor is a read-only property")

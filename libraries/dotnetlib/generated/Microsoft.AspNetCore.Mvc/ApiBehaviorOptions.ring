@@ -23,52 +23,52 @@ Class ApiBehaviorOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getInvalidModelStateResponseFactory
-		return dnRequest("get",[self,"InvalidModelStateResponseFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InvalidModelStateResponseFactory"])
 
 	Func setInvalidModelStateResponseFactory P1
-		dnRequest("set",[self,"InvalidModelStateResponseFactory",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InvalidModelStateResponseFactory",P1])
 		return self
 
 	Func getSuppressModelStateInvalidFilter
-		return dnRequest("get",[self,"SuppressModelStateInvalidFilter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressModelStateInvalidFilter"])
 
 	Func setSuppressModelStateInvalidFilter P1
-		dnRequest("set",[self,"SuppressModelStateInvalidFilter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressModelStateInvalidFilter",P1])
 		return self
 
 	Func getSuppressInferBindingSourcesForParameters
-		return dnRequest("get",[self,"SuppressInferBindingSourcesForParameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressInferBindingSourcesForParameters"])
 
 	Func setSuppressInferBindingSourcesForParameters P1
-		dnRequest("set",[self,"SuppressInferBindingSourcesForParameters",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressInferBindingSourcesForParameters",P1])
 		return self
 
 	Func getDisableImplicitFromServicesParameters
-		return dnRequest("get",[self,"DisableImplicitFromServicesParameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisableImplicitFromServicesParameters"])
 
 	Func setDisableImplicitFromServicesParameters P1
-		dnRequest("set",[self,"DisableImplicitFromServicesParameters",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisableImplicitFromServicesParameters",P1])
 		return self
 
 	Func getSuppressConsumesConstraintForFormFileParameters
-		return dnRequest("get",[self,"SuppressConsumesConstraintForFormFileParameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressConsumesConstraintForFormFileParameters"])
 
 	Func setSuppressConsumesConstraintForFormFileParameters P1
-		dnRequest("set",[self,"SuppressConsumesConstraintForFormFileParameters",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressConsumesConstraintForFormFileParameters",P1])
 		return self
 
 	Func getSuppressMapClientErrors
-		return dnRequest("get",[self,"SuppressMapClientErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuppressMapClientErrors"])
 
 	Func setSuppressMapClientErrors P1
-		dnRequest("set",[self,"SuppressMapClientErrors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SuppressMapClientErrors",P1])
 		return self
 
 	Func getClientErrorMapping
-		return dnRequest("get",[self,"ClientErrorMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClientErrorMapping"])
 
 	Func setClientErrorMapping P1
 		raise("DotNet Error: ClientErrorMapping is a read-only property")

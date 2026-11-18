@@ -24,17 +24,17 @@ Class AxisAngleRotation3D from Rotation3D
 		return self
 
 	Func getAxis
-		return dnRequest("get",[self,"Axis"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Axis"])
 
 	Func setAxis P1
-		dnRequest("set",[self,"Axis",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Axis",P1])
 		return self
 
 	Func getAngle
-		return dnRequest("get",[self,"Angle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Angle"])
 
 	Func setAngle P1
-		dnRequest("set",[self,"Angle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Angle",P1])
 		return self
 
 	Func getAxisProperty

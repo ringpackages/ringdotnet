@@ -15,8 +15,8 @@ Class RelationalCommandBuilderFactory from Object
 		return self
 
 	Func Create 
-		return dnRequest("call",[self,"Create"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

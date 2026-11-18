@@ -15,10 +15,10 @@ Class PrivateFontCollection from FontCollection
 		return self
 
 	Func AddFontFile P1
-		dnRequest("call",[self,"AddFontFile",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddFontFile",P1])
 		return self
 
 	Func AddMemoryFont P1,P2
-		dnRequest("call",[self,"AddMemoryFont",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddMemoryFont",P1,P2])
 		return self
 

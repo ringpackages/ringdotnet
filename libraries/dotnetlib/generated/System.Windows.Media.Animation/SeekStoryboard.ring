@@ -18,19 +18,19 @@ Class SeekStoryboard from ControllableStoryboardAction
 		return self
 
 	Func ShouldSerializeOffset 
-		return dnRequest("call",[self,"ShouldSerializeOffset"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeOffset"])
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
 
 	Func setOffset P1
-		dnRequest("set",[self,"Offset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Offset",P1])
 		return self
 
 	Func getOrigin
-		return dnRequest("get",[self,"Origin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Origin"])
 
 	Func setOrigin P1
-		dnRequest("set",[self,"Origin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Origin",P1])
 		return self
 

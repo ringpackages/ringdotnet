@@ -16,13 +16,13 @@ Class ILiftableConstantProcessor from DotNetObject
 		return self
 
 	Func InlineConstants P1,P2
-		return dnRequest("call",[self,"InlineConstants",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InlineConstants",P1,P2])
 
 	Func LiftConstants P1,P2,P3
-		return dnRequest("call",[self,"LiftConstants",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"LiftConstants",P1,P2,P3])
 
 	Func getLiftedConstants
-		return dnRequest("get",[self,"LiftedConstants"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LiftedConstants"])
 
 	Func setLiftedConstants P1
 		raise("DotNet Error: LiftedConstants is a read-only property")

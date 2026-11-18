@@ -18,13 +18,13 @@ Class RouteEndpoint from AspEndpoint
 		return self
 
 	Func getOrder
-		return dnRequest("get",[self,"Order"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getRoutePattern
-		return dnRequest("get",[self,"RoutePattern"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RoutePattern"])
 
 	Func setRoutePattern P1
 		raise("DotNet Error: RoutePattern is a read-only property")

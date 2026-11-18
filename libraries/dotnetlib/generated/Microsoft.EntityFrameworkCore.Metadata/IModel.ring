@@ -17,47 +17,47 @@ Class IModel from DotNetObject
 
 	Func FindEntityType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FindEntityType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindEntityType",P1])
 		ok
-		return dnRequest("call",[self,"FindEntityType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindEntityType",P1])
 
 	Func FindEntityType_3 P1,P2,P3
-		return dnRequest("call",[self,"FindEntityType",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindEntityType",P1,P2,P3])
 
 	Func FindRuntimeEntityType P1
-		return dnRequest("call",[self,"FindRuntimeEntityType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRuntimeEntityType",P1])
 
 	Func GetEntityTypes 
-		return dnRequest("call",[self,"GetEntityTypes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEntityTypes"])
 
 	Func GetModelDependencies_0 
-		return dnRequest("call",[self,"GetModelDependencies"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetModelDependencies"])
 
 	Func FindEntityTypes P1
-		return dnRequest("call",[self,"FindEntityTypes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindEntityTypes",P1])
 
 	Func FindLeastDerivedEntityTypes_2 P1,P2
-		return dnRequest("call",[self,"FindLeastDerivedEntityTypes",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindLeastDerivedEntityTypes",P1,P2])
 
 	Func FindLeastDerivedEntityTypes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindLeastDerivedEntityTypes",P1])
 		ok
-		return dnRequest("call",[self,"FindLeastDerivedEntityTypes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindLeastDerivedEntityTypes",P1])
 
 	Func IsIndexerMethod P1
-		return dnRequest("call",[self,"IsIndexerMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsIndexerMethod",P1])
 
 	Func GetTypeMappingConfigurations 
-		return dnRequest("call",[self,"GetTypeMappingConfigurations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeMappingConfigurations"])
 
 	Func FindTypeMappingConfiguration P1
-		return dnRequest("call",[self,"FindTypeMappingConfiguration",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindTypeMappingConfiguration",P1])
 
 	Func getModelDependencies
-		return dnRequest("get",[self,"ModelDependencies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelDependencies"])
 
 	Func setModelDependencies P1
-		dnRequest("set",[self,"ModelDependencies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ModelDependencies",P1])
 		return self
 

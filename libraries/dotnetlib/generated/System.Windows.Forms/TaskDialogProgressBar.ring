@@ -25,37 +25,37 @@ Class TaskDialogProgressBar from TaskDialogControl
 		return self
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
-		dnRequest("set",[self,"State",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"State",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[self,"Minimum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[self,"Minimum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[self,"Maximum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[self,"Maximum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getMarqueeSpeed
-		return dnRequest("get",[self,"MarqueeSpeed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MarqueeSpeed"])
 
 	Func setMarqueeSpeed P1
-		dnRequest("set",[self,"MarqueeSpeed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MarqueeSpeed",P1])
 		return self
 

@@ -14,5 +14,5 @@ Class IRelationalAnnotationProvider from DotNetObject
 		return self
 
 	Func For_ P1,P2
-		return dnRequest("call",[self,"For",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"For",P1,P2])
 

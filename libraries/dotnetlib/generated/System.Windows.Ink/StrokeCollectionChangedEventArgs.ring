@@ -18,13 +18,13 @@ Class StrokeCollectionChangedEventArgs from EventArgs
 		return self
 
 	Func getAdded
-		return dnRequest("get",[self,"Added"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Added"])
 
 	Func setAdded P1
 		raise("DotNet Error: Added is a read-only property")
 
 	Func getRemoved
-		return dnRequest("get",[self,"Removed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Removed"])
 
 	Func setRemoved P1
 		raise("DotNet Error: Removed is a read-only property")

@@ -14,5 +14,5 @@ Class JsonTypeMapping from RelationalTypeMapping
 		return self
 
 	Func GetDataReaderMethod 
-		return dnRequest("call",[self,"GetDataReaderMethod"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataReaderMethod"])
 

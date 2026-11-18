@@ -17,12 +17,12 @@ Class RoutingFeature from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRouteData
-		return dnRequest("get",[self,"RouteData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteData"])
 
 	Func setRouteData P1
-		dnRequest("set",[self,"RouteData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RouteData",P1])
 		return self
 

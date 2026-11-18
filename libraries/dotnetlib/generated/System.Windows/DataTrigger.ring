@@ -19,10 +19,10 @@ Class DataTrigger from TriggerBase
 		return self
 
 	Func GetValue_1 P1
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func SetValue_2 P1,P2
-		dnRequest("call",[self,"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
 	Func ReceiveMarkupExtension P1,P2
@@ -30,21 +30,21 @@ Class DataTrigger from TriggerBase
 		return self
 
 	Func getBinding
-		return dnRequest("get",[self,"Binding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Binding"])
 
 	Func setBinding P1
-		dnRequest("set",[self,"Binding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Binding",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getSetters
-		return dnRequest("get",[self,"Setters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Setters"])
 
 	Func setSetters P1
 		raise("DotNet Error: Setters is a read-only property")

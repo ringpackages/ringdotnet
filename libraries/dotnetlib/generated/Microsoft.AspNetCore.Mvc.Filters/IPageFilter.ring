@@ -14,14 +14,14 @@ Class IPageFilter from DotNetObject
 		return self
 
 	Func OnPageHandlerSelected P1
-		dnRequest("call",[self,"OnPageHandlerSelected",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnPageHandlerSelected",P1])
 		return self
 
 	Func OnPageHandlerExecuting P1
-		dnRequest("call",[self,"OnPageHandlerExecuting",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnPageHandlerExecuting",P1])
 		return self
 
 	Func OnPageHandlerExecuted P1
-		dnRequest("call",[self,"OnPageHandlerExecuted",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnPageHandlerExecuted",P1])
 		return self
 

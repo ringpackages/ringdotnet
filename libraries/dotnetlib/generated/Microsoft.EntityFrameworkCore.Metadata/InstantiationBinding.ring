@@ -17,22 +17,22 @@ Class InstantiationBinding from Object
 		return self
 
 	Func CreateConstructorExpression P1
-		return dnRequest("call",[self,"CreateConstructorExpression",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateConstructorExpression",P1])
 
 	Func With P1
-		return dnRequest("call",[self,"With",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"With",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParameterBindings
-		return dnRequest("get",[self,"ParameterBindings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterBindings"])
 
 	Func setParameterBindings P1
 		raise("DotNet Error: ParameterBindings is a read-only property")
 
 	Func getRuntimeType
-		return dnRequest("get",[self,"RuntimeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RuntimeType"])
 
 	Func setRuntimeType P1
 		raise("DotNet Error: RuntimeType is a read-only property")

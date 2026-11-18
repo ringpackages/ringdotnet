@@ -18,13 +18,13 @@ Class BinaryExpressionEventData from EventData
 		return self
 
 	Func getLeft
-		return dnRequest("get",[self,"Left"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Left"])
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getRight
-		return dnRequest("get",[self,"Right"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Right"])
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")

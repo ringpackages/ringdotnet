@@ -39,46 +39,46 @@ Class SqlDecimal from ValueType
 		return self
 
 	Func ToDouble 
-		return dnRequest("call",[self,"ToDouble"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDouble"])
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[self,"ToSqlBoolean"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[self,"ToSqlByte"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[self,"ToSqlDouble"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[self,"ToSqlInt16"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[self,"ToSqlInt32"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[self,"ToSqlInt64"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[self,"ToSqlMoney"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[self,"ToSqlSingle"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[self,"ToSqlString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Parse",P1])
@@ -144,40 +144,40 @@ Class SqlDecimal from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[self,"IsNull"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsPositive
-		return dnRequest("get",[self,"IsPositive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPositive"])
 
 	Func setIsPositive P1
 		raise("DotNet Error: IsPositive is a read-only property")
 
 	Func getPrecision
-		return dnRequest("get",[self,"Precision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Precision"])
 
 	Func setPrecision P1
 		raise("DotNet Error: Precision is a read-only property")
 
 	Func getScale
-		return dnRequest("get",[self,"Scale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")
 
 	Func getBinData
-		return dnRequest("get",[self,"BinData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BinData"])
 
 	Func setBinData P1
 		raise("DotNet Error: BinData is a read-only property")

@@ -20,54 +20,54 @@ Class IReadOnlyCheckConstraint from DotNetObject
 
 	Func GetDefaultName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetDefaultName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDefaultName",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetDefaultName"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultName"])
 		ok
-		return dnRequest("call",[self,"GetDefaultName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultName",P1])
 
 	Func GetName_1 P1
-		return dnRequest("call",[self,"GetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetName",P1])
 
 	Func GetDefaultName_1 P1
-		return dnRequest("call",[self,"GetDefaultName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultName",P1])
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getModelName
-		return dnRequest("get",[self,"ModelName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelName"])
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getSql
-		return dnRequest("get",[self,"Sql"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sql"])
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")

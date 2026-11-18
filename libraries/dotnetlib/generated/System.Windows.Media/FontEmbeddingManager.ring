@@ -17,17 +17,17 @@ Class FontEmbeddingManager from Object
 		return self
 
 	Func RecordUsage P1
-		dnRequest("call",[self,"RecordUsage",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RecordUsage",P1])
 		return self
 
 	Func GetUsedGlyphs P1
-		return dnRequest("call",[self,"GetUsedGlyphs",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUsedGlyphs",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getGlyphTypefaceUris
-		return dnRequest("get",[self,"GlyphTypefaceUris"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlyphTypefaceUris"])
 
 	Func setGlyphTypefaceUris P1
 		raise("DotNet Error: GlyphTypefaceUris is a read-only property")

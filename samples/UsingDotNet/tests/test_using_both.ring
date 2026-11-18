@@ -11,4 +11,6 @@ func main
 	oForm.Text = "y"
 	oServer = new WebServer("http://127.0.0.1:0")
 	dnAssert("a form and a web server in one program",oForm.Text + "/" + (len(oServer.url()) > 0),"y/1")
+	oServer.close()                     # used to hang when the Ring thread had a Windows Forms context
+	dnAssert("the server stops",True,True)
 	dnTestSummary()

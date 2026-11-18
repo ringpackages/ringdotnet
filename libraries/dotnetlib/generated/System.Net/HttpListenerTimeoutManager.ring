@@ -21,47 +21,47 @@ Class HttpListenerTimeoutManager from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEntityBody
-		return dnRequest("get",[self,"EntityBody"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityBody"])
 
 	Func setEntityBody P1
-		dnRequest("set",[self,"EntityBody",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EntityBody",P1])
 		return self
 
 	Func getDrainEntityBody
-		return dnRequest("get",[self,"DrainEntityBody"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DrainEntityBody"])
 
 	Func setDrainEntityBody P1
-		dnRequest("set",[self,"DrainEntityBody",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DrainEntityBody",P1])
 		return self
 
 	Func getRequestQueue
-		return dnRequest("get",[self,"RequestQueue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequestQueue"])
 
 	Func setRequestQueue P1
-		dnRequest("set",[self,"RequestQueue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequestQueue",P1])
 		return self
 
 	Func getIdleConnection
-		return dnRequest("get",[self,"IdleConnection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IdleConnection"])
 
 	Func setIdleConnection P1
-		dnRequest("set",[self,"IdleConnection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IdleConnection",P1])
 		return self
 
 	Func getHeaderWait
-		return dnRequest("get",[self,"HeaderWait"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeaderWait"])
 
 	Func setHeaderWait P1
-		dnRequest("set",[self,"HeaderWait",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeaderWait",P1])
 		return self
 
 	Func getMinSendBytesPerSecond
-		return dnRequest("get",[self,"MinSendBytesPerSecond"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinSendBytesPerSecond"])
 
 	Func setMinSendBytesPerSecond P1
-		dnRequest("set",[self,"MinSendBytesPerSecond",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinSendBytesPerSecond",P1])
 		return self
 

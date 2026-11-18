@@ -27,28 +27,28 @@ Class Rfc2898DeriveBytes from DeriveBytes
 		return self
 
 	Func CryptDeriveKey P1,P2,P3,P4
-		return dnRequest("call",[self,"CryptDeriveKey",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CryptDeriveKey",P1,P2,P3,P4])
 
 	Func Pbkdf2 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography'),"Pbkdf2",P1,P2,P3,P4,P5])
 
 	Func getHashAlgorithm
-		return dnRequest("get",[self,"HashAlgorithm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getIterationCount
-		return dnRequest("get",[self,"IterationCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IterationCount"])
 
 	Func setIterationCount P1
-		dnRequest("set",[self,"IterationCount",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IterationCount",P1])
 		return self
 
 	Func getSalt
-		return dnRequest("get",[self,"Salt"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Salt"])
 
 	Func setSalt P1
-		dnRequest("set",[self,"Salt",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Salt",P1])
 		return self
 

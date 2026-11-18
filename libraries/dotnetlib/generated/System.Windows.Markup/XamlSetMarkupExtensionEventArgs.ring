@@ -18,13 +18,13 @@ Class XamlSetMarkupExtensionEventArgs from XamlSetValueEventArgs
 		return self
 
 	Func getMarkupExtension
-		return dnRequest("get",[self,"MarkupExtension"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MarkupExtension"])
 
 	Func setMarkupExtension P1
 		raise("DotNet Error: MarkupExtension is a read-only property")
 
 	Func getServiceProvider
-		return dnRequest("get",[self,"ServiceProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServiceProvider"])
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")

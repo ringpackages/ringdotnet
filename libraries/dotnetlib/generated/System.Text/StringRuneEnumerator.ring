@@ -17,13 +17,13 @@ Class StringRuneEnumerator from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func MoveNext 
-		return dnRequest("call",[self,"MoveNext"])
+		return dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
 
 	Func getCurrent
-		return dnRequest("get",[self,"Current"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Current"])
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")

@@ -21,49 +21,49 @@ Class IReadOnlyPropertyBase from DotNetObject
 		return self
 
 	Func GetFieldName 
-		return dnRequest("call",[self,"GetFieldName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldName"])
 
 	Func IsShadowProperty 
-		return dnRequest("call",[self,"IsShadowProperty"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsShadowProperty"])
 
 	Func IsIndexerProperty 
-		return dnRequest("call",[self,"IsIndexerProperty"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsIndexerProperty"])
 
 	Func GetPropertyAccessMode 
-		return dnRequest("call",[self,"GetPropertyAccessMode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyAccessMode"])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDeclaringType
-		return dnRequest("get",[self,"DeclaringType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringType"])
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getClrType
-		return dnRequest("get",[self,"ClrType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getSentinel
-		return dnRequest("get",[self,"Sentinel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sentinel"])
 
 	Func setSentinel P1
 		raise("DotNet Error: Sentinel is a read-only property")
 
 	Func getPropertyInfo
-		return dnRequest("get",[self,"PropertyInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PropertyInfo"])
 
 	Func setPropertyInfo P1
 		raise("DotNet Error: PropertyInfo is a read-only property")
 
 	Func getFieldInfo
-		return dnRequest("get",[self,"FieldInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FieldInfo"])
 
 	Func setFieldInfo P1
 		raise("DotNet Error: FieldInfo is a read-only property")

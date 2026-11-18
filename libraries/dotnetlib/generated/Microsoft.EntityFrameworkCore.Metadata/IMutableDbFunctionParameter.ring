@@ -17,19 +17,19 @@ Class IMutableDbFunctionParameter from DotNetObject
 		return self
 
 	Func getFunction
-		return dnRequest("get",[self,"Function"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Function"])
 
 	Func getStoreType
-		return dnRequest("get",[self,"StoreType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
 
 	Func setStoreType P1
-		dnRequest("set",[self,"StoreType",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StoreType",P1])
 		return self
 
 	Func getTypeMapping
-		return dnRequest("get",[self,"TypeMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMapping"])
 
 	Func setTypeMapping P1
-		dnRequest("set",[self,"TypeMapping",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TypeMapping",P1])
 		return self
 

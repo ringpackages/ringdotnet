@@ -18,10 +18,10 @@ Class WpfListView from WpfListBox
 		return self
 
 	Func getView
-		return dnRequest("get",[self,"View"])
+		return dnRequest("get",[new DotNetObject(nHandle),"View"])
 
 	Func setView P1
-		dnRequest("set",[self,"View",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"View",P1])
 		return self
 
 	Func getViewProperty

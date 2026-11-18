@@ -20,14 +20,14 @@ Class OperatingSystem from Object
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func IsOSPlatform P1
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatform",P1])
@@ -183,25 +183,25 @@ Class OperatingSystem from Object
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1])
 
 	Func getPlatform
-		return dnRequest("get",[self,"Platform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Platform"])
 
 	Func setPlatform P1
 		raise("DotNet Error: Platform is a read-only property")
 
 	Func getServicePack
-		return dnRequest("get",[self,"ServicePack"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServicePack"])
 
 	Func setServicePack P1
 		raise("DotNet Error: ServicePack is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getVersionString
-		return dnRequest("get",[self,"VersionString"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VersionString"])
 
 	Func setVersionString P1
 		raise("DotNet Error: VersionString is a read-only property")

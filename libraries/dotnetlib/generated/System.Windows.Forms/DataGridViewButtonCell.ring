@@ -18,17 +18,17 @@ Class DataGridViewButtonCell from DataGridViewCell
 		return self
 
 	Func getFlatStyle
-		return dnRequest("get",[self,"FlatStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FlatStyle"])
 
 	Func setFlatStyle P1
-		dnRequest("set",[self,"FlatStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FlatStyle",P1])
 		return self
 
 	Func getUseColumnTextForButtonValue
-		return dnRequest("get",[self,"UseColumnTextForButtonValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseColumnTextForButtonValue"])
 
 	Func setUseColumnTextForButtonValue P1
-		dnRequest("set",[self,"UseColumnTextForButtonValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseColumnTextForButtonValue",P1])
 		return self
 
 	Func setValueType P1

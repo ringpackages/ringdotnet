@@ -14,7 +14,7 @@ Class PipesAclExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetAccessControl P1
 		return dnRequest("call",[dnTypeCached('System.IO.Pipes.PipesAclExtensions, System.IO.Pipes'),"GetAccessControl",P1])

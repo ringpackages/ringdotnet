@@ -14,8 +14,8 @@ Class IInternalServiceCollectionMap from DotNetObject
 		return self
 
 	Func AddDependencySingleton 
-		return dnRequest("call",[self,"AddDependencySingleton"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddDependencySingleton"])
 
 	Func AddDependencyScoped 
-		return dnRequest("call",[self,"AddDependencyScoped"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddDependencyScoped"])
 

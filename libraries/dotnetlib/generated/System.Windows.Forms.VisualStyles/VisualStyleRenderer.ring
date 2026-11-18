@@ -26,140 +26,140 @@ Class VisualStyleRenderer from Object
 
 	Func SetParameters P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetParameters",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetParameters",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetParameters",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetParameters",P1])
 		return self
 
 	Func SetParameters_3 P1,P2,P3
-		dnRequest("call",[self,"SetParameters",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetParameters",P1,P2,P3])
 		return self
 
 	Func DrawBackground P1,P2
-		dnRequest("call",[self,"DrawBackground",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground",P1,P2])
 		return self
 
 	Func DrawBackground_3 P1,P2,P3
-		dnRequest("call",[self,"DrawBackground",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground",P1,P2,P3])
 		return self
 
 	Func DrawEdge P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"DrawEdge",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"DrawEdge",P1,P2,P3,P4,P5])
 
 	Func DrawImage P1,P2,P3
-		dnRequest("call",[self,"DrawImage",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3])
 		return self
 
 	Func DrawImage_4 P1,P2,P3,P4
-		dnRequest("call",[self,"DrawImage",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3,P4])
 		return self
 
 	Func DrawParentBackground P1,P2,P3
-		dnRequest("call",[self,"DrawParentBackground",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawParentBackground",P1,P2,P3])
 		return self
 
 	Func DrawText P1,P2,P3
-		dnRequest("call",[self,"DrawText",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1,P2,P3])
 		return self
 
 	Func DrawText_4 P1,P2,P3,P4
-		dnRequest("call",[self,"DrawText",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1,P2,P3,P4])
 		return self
 
 	Func DrawText_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"DrawText",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1,P2,P3,P4,P5])
 		return self
 
 	Func GetBackgroundContentRectangle P1,P2
-		return dnRequest("call",[self,"GetBackgroundContentRectangle",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBackgroundContentRectangle",P1,P2])
 
 	Func GetBackgroundExtent P1,P2
-		return dnRequest("call",[self,"GetBackgroundExtent",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBackgroundExtent",P1,P2])
 
 	Func GetBackgroundRegion P1,P2
-		return dnRequest("call",[self,"GetBackgroundRegion",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBackgroundRegion",P1,P2])
 
 	Func GetBoolean P1
-		return dnRequest("call",[self,"GetBoolean",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBoolean",P1])
 
 	Func GetColor P1
-		return dnRequest("call",[self,"GetColor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColor",P1])
 
 	Func GetEnumValue P1
-		return dnRequest("call",[self,"GetEnumValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumValue",P1])
 
 	Func GetFilename P1
-		return dnRequest("call",[self,"GetFilename",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFilename",P1])
 
 	Func GetFont P1,P2
-		return dnRequest("call",[self,"GetFont",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFont",P1,P2])
 
 	Func GetInteger P1
-		return dnRequest("call",[self,"GetInteger",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetInteger",P1])
 
 	Func GetPartSize P1,P2
-		return dnRequest("call",[self,"GetPartSize",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPartSize",P1,P2])
 
 	Func GetPartSize_3 P1,P2,P3
-		return dnRequest("call",[self,"GetPartSize",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPartSize",P1,P2,P3])
 
 	Func GetPoint P1
-		return dnRequest("call",[self,"GetPoint",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPoint",P1])
 
 	Func GetMargins P1,P2
-		return dnRequest("call",[self,"GetMargins",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMargins",P1,P2])
 
 	Func GetString P1
-		return dnRequest("call",[self,"GetString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
 
 	Func GetTextExtent P1,P2,P3
-		return dnRequest("call",[self,"GetTextExtent",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTextExtent",P1,P2,P3])
 
 	Func GetTextExtent_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"GetTextExtent",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTextExtent",P1,P2,P3,P4])
 
 	Func GetTextMetrics P1
-		return dnRequest("call",[self,"GetTextMetrics",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTextMetrics",P1])
 
 	Func HitTestBackground P1,P2,P3,P4
-		return dnRequest("call",[self,"HitTestBackground",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"HitTestBackground",P1,P2,P3,P4])
 
 	Func HitTestBackground_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"HitTestBackground",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"HitTestBackground",P1,P2,P3,P4,P5])
 
 	Func IsBackgroundPartiallyTransparent 
-		return dnRequest("call",[self,"IsBackgroundPartiallyTransparent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsBackgroundPartiallyTransparent"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func IsElementDefined P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"IsElementDefined",P1])
 
 	Func getClass
-		return dnRequest("get",[self,"Class"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Class"])
 
 	Func getPart
-		return dnRequest("get",[self,"Part"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Part"])
 
 	Func setPart P1
 		raise("DotNet Error: Part is a read-only property")
 
 	Func getState
-		return dnRequest("get",[self,"State"])
+		return dnRequest("get",[new DotNetObject(nHandle),"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getLastHResult
-		return dnRequest("get",[self,"LastHResult"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastHResult"])
 
 	Func setLastHResult P1
 		raise("DotNet Error: LastHResult is a read-only property")

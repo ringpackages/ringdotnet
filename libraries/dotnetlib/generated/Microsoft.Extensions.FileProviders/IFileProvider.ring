@@ -14,11 +14,11 @@ Class IFileProvider from DotNetObject
 		return self
 
 	Func GetFileInfo P1
-		return dnRequest("call",[self,"GetFileInfo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFileInfo",P1])
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[self,"GetDirectoryContents",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectoryContents",P1])
 
 	Func Watch P1
-		return dnRequest("call",[self,"Watch",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Watch",P1])
 

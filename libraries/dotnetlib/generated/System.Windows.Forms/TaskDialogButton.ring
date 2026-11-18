@@ -42,50 +42,50 @@ Class TaskDialogButton from TaskDialogControl
 		return self
 
 	Func PerformClick 
-		dnRequest("call",[self,"PerformClick"])
+		dnRequest("call",[new DotNetObject(nHandle),"PerformClick"])
 		return self
 
 	Func setClickEvent P1
-		dnRequest("setevent",[self,"Click",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[self,"Click"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
 		return self
 
 	Func getAllowCloseDialog
-		return dnRequest("get",[self,"AllowCloseDialog"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowCloseDialog"])
 
 	Func setAllowCloseDialog P1
-		dnRequest("set",[self,"AllowCloseDialog",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowCloseDialog",P1])
 		return self
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[self,"Enabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
 		return self
 
 	Func getShowShieldIcon
-		return dnRequest("get",[self,"ShowShieldIcon"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowShieldIcon"])
 
 	Func setShowShieldIcon P1
-		dnRequest("set",[self,"ShowShieldIcon",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowShieldIcon",P1])
 		return self
 
 	Func getVisible
-		return dnRequest("get",[self,"Visible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Visible"])
 
 	Func setVisible P1
-		dnRequest("set",[self,"Visible",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Visible",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
-		dnRequest("set",[self,"Text",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
 		return self
 
 	Func getOK

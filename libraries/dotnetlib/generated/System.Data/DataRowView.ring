@@ -20,74 +20,74 @@ Class DataRowView from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func CreateChildView_2 P1,P2
-		return dnRequest("call",[self,"CreateChildView",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateChildView",P1,P2])
 
 	Func CreateChildView P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateChildView",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateChildView",P1])
 		ok
-		return dnRequest("call",[self,"CreateChildView",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateChildView",P1])
 
 	Func BeginEdit 
-		dnRequest("call",[self,"BeginEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginEdit"])
 		return self
 
 	Func CancelEdit 
-		dnRequest("call",[self,"CancelEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelEdit"])
 		return self
 
 	Func EndEdit 
-		dnRequest("call",[self,"EndEdit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndEdit"])
 		return self
 
 	Func Delete 
-		dnRequest("call",[self,"Delete"])
+		dnRequest("call",[new DotNetObject(nHandle),"Delete"])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func setPropertyChangedEvent P1
-		dnRequest("setevent",[self,"PropertyChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PropertyChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyChangedEvent
-		dnRequest("clearevent",[self,"PropertyChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PropertyChanged"])
 		return self
 
 	Func getDataView
-		return dnRequest("get",[self,"DataView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataView"])
 
 	Func setDataView P1
 		raise("DotNet Error: DataView is a read-only property")
 
 	Func getRowVersion
-		return dnRequest("get",[self,"RowVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowVersion"])
 
 	Func setRowVersion P1
 		raise("DotNet Error: RowVersion is a read-only property")
 
 	Func getRow
-		return dnRequest("get",[self,"Row"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getIsNew
-		return dnRequest("get",[self,"IsNew"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNew"])
 
 	Func setIsNew P1
 		raise("DotNet Error: IsNew is a read-only property")
 
 	Func getIsEdit
-		return dnRequest("get",[self,"IsEdit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEdit"])
 
 	Func setIsEdit P1
 		raise("DotNet Error: IsEdit is a read-only property")

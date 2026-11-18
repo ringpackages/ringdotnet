@@ -18,95 +18,95 @@ Class DbTransaction from MarshalByRefObject
 		return self
 
 	Func Commit 
-		dnRequest("call",[self,"Commit"])
+		dnRequest("call",[new DotNetObject(nHandle),"Commit"])
 		return self
 
 	Func CommitAsync_1 P1
-		return dnRequest("call",[self,"CommitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
 
 	Func CommitAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CommitAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CommitAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync"])
 		ok
-		return dnRequest("call",[self,"CommitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Rollback P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Rollback",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Rollback",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Rollback"])
+			dnRequest("call",[new DotNetObject(nHandle),"Rollback"])
 		return self
 		ok
-		dnRequest("call",[self,"Rollback",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Rollback",P1])
 		return self
 
 	Func RollbackAsync_1 P1
-		return dnRequest("call",[self,"RollbackAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1])
 
 	Func RollbackAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RollbackAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RollbackAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync"])
 		ok
-		return dnRequest("call",[self,"RollbackAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1])
 
 	Func SaveAsync_2 P1,P2
-		return dnRequest("call",[self,"SaveAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2])
 
 	Func SaveAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SaveAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveAsync",P1])
 		ok
-		return dnRequest("call",[self,"SaveAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1])
 
 	Func RollbackAsync_2 P1,P2
-		return dnRequest("call",[self,"RollbackAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1,P2])
 
 	Func ReleaseAsync_2 P1,P2
-		return dnRequest("call",[self,"ReleaseAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseAsync",P1,P2])
 
 	Func ReleaseAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReleaseAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReleaseAsync",P1])
 		ok
-		return dnRequest("call",[self,"ReleaseAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseAsync",P1])
 
 	Func Save P1
-		dnRequest("call",[self,"Save",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
 	Func Rollback_1 P1
-		dnRequest("call",[self,"Rollback",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Rollback",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getIsolationLevel
-		return dnRequest("get",[self,"IsolationLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsolationLevel"])
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
 
 	Func getSupportsSavepoints
-		return dnRequest("get",[self,"SupportsSavepoints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsSavepoints"])
 
 	Func setSupportsSavepoints P1
 		raise("DotNet Error: SupportsSavepoints is a read-only property")

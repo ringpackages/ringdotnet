@@ -14,22 +14,22 @@ Class ValueSerializer from Object
 		return self
 
 	Func CanConvertToString P1,P2
-		return dnRequest("call",[self,"CanConvertToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertToString",P1,P2])
 
 	Func CanConvertFromString P1,P2
-		return dnRequest("call",[self,"CanConvertFromString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertFromString",P1,P2])
 
 	Func ConvertToString P1,P2
-		return dnRequest("call",[self,"ConvertToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToString",P1,P2])
 
 	Func ConvertFromString P1,P2
-		return dnRequest("call",[self,"ConvertFromString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromString",P1,P2])
 
 	Func TypeReferences P1,P2
-		return dnRequest("call",[self,"TypeReferences",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TypeReferences",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetSerializerFor P1
 		if dnIsNamed(P1)

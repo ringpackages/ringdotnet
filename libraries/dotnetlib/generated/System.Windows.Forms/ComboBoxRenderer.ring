@@ -16,7 +16,7 @@ Class ComboBoxRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func DrawTextBox P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3])

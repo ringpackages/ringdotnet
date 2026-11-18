@@ -17,12 +17,12 @@ Class QueryFeature from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getQuery
-		return dnRequest("get",[self,"Query"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Query"])
 
 	Func setQuery P1
-		dnRequest("set",[self,"Query",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Query",P1])
 		return self
 

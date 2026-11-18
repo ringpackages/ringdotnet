@@ -20,34 +20,34 @@ Class RuntimeKey from RuntimeAnnotatableBase
 		return self
 
 	Func SetPrincipalKeyValueFactory P1
-		dnRequest("call",[self,"SetPrincipalKeyValueFactory",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetPrincipalKeyValueFactory",P1])
 		return self
 
 	Func SetIdentityMapFactory P1
-		dnRequest("call",[self,"SetIdentityMapFactory",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetIdentityMapFactory",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getReferencingForeignKeys
-		return dnRequest("get",[self,"ReferencingForeignKeys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReferencingForeignKeys"])
 
 	Func setReferencingForeignKeys P1
-		dnRequest("set",[self,"ReferencingForeignKeys",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ReferencingForeignKeys",P1])
 		return self
 
 	Func getDebugView
-		return dnRequest("get",[self,"DebugView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

@@ -26,48 +26,48 @@ Class BinaryWriter from Object
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Flush 
-		dnRequest("call",[self,"Flush"])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 
 	Func Seek P1,P2
-		return dnRequest("call",[self,"Seek",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Seek",P1,P2])
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Write",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Write",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Write",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
 		return self
 
 	Func Write_3 P1,P2,P3
-		dnRequest("call",[self,"Write",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3])
 		return self
 
 	Func Write7BitEncodedInt P1
-		dnRequest("call",[self,"Write7BitEncodedInt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Write7BitEncodedInt",P1])
 		return self
 
 	Func Write7BitEncodedInt64 P1
-		dnRequest("call",[self,"Write7BitEncodedInt64",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Write7BitEncodedInt64",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBaseStream
-		return dnRequest("get",[self,"BaseStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseStream"])
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")

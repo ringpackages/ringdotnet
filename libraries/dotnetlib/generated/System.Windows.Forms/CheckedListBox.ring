@@ -21,57 +21,57 @@ Class CheckedListBox from ListBox
 		return self
 
 	Func GetItemCheckState P1
-		return dnRequest("call",[self,"GetItemCheckState",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetItemCheckState",P1])
 
 	Func GetItemChecked P1
-		return dnRequest("call",[self,"GetItemChecked",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetItemChecked",P1])
 
 	Func SetItemCheckState P1,P2
-		dnRequest("call",[self,"SetItemCheckState",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetItemCheckState",P1,P2])
 		return self
 
 	Func SetItemChecked P1,P2
-		dnRequest("call",[self,"SetItemChecked",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetItemChecked",P1,P2])
 		return self
 
 	Func setItemCheckEvent P1
-		dnRequest("setevent",[self,"ItemCheck",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ItemCheck",dnCallback(P1)])
 		return self
 
 	Func clearItemCheckEvent
-		dnRequest("clearevent",[self,"ItemCheck"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemCheck"])
 		return self
 
 	Func getCheckOnClick
-		return dnRequest("get",[self,"CheckOnClick"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckOnClick"])
 
 	Func setCheckOnClick P1
-		dnRequest("set",[self,"CheckOnClick",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckOnClick",P1])
 		return self
 
 	Func getCheckedIndices
-		return dnRequest("get",[self,"CheckedIndices"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckedIndices"])
 
 	Func setCheckedIndices P1
 		raise("DotNet Error: CheckedIndices is a read-only property")
 
 	Func getCheckedItems
-		return dnRequest("get",[self,"CheckedItems"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckedItems"])
 
 	Func setCheckedItems P1
 		raise("DotNet Error: CheckedItems is a read-only property")
 
 	Func getThreeDCheckBoxes
-		return dnRequest("get",[self,"ThreeDCheckBoxes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ThreeDCheckBoxes"])
 
 	Func setThreeDCheckBoxes P1
-		dnRequest("set",[self,"ThreeDCheckBoxes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ThreeDCheckBoxes",P1])
 		return self
 
 	Func getUseCompatibleTextRendering
-		return dnRequest("get",[self,"UseCompatibleTextRendering"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseCompatibleTextRendering"])
 
 	Func setUseCompatibleTextRendering P1
-		dnRequest("set",[self,"UseCompatibleTextRendering",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseCompatibleTextRendering",P1])
 		return self
 

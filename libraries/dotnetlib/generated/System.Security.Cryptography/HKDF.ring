@@ -14,7 +14,7 @@ Class HKDF from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Extract_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Extract",P1,P2,P3])

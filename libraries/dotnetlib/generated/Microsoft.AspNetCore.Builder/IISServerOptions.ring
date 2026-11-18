@@ -21,40 +21,40 @@ Class IISServerOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAllowSynchronousIO
-		return dnRequest("get",[self,"AllowSynchronousIO"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowSynchronousIO"])
 
 	Func setAllowSynchronousIO P1
-		dnRequest("set",[self,"AllowSynchronousIO",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowSynchronousIO",P1])
 		return self
 
 	Func getAutomaticAuthentication
-		return dnRequest("get",[self,"AutomaticAuthentication"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutomaticAuthentication"])
 
 	Func setAutomaticAuthentication P1
-		dnRequest("set",[self,"AutomaticAuthentication",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutomaticAuthentication",P1])
 		return self
 
 	Func getAuthenticationDisplayName
-		return dnRequest("get",[self,"AuthenticationDisplayName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationDisplayName"])
 
 	Func setAuthenticationDisplayName P1
-		dnRequest("set",[self,"AuthenticationDisplayName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationDisplayName",P1])
 		return self
 
 	Func getMaxRequestBodyBufferSize
-		return dnRequest("get",[self,"MaxRequestBodyBufferSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestBodyBufferSize"])
 
 	Func setMaxRequestBodyBufferSize P1
-		dnRequest("set",[self,"MaxRequestBodyBufferSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestBodyBufferSize",P1])
 		return self
 
 	Func getMaxRequestBodySize
-		return dnRequest("get",[self,"MaxRequestBodySize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestBodySize"])
 
 	Func setMaxRequestBodySize P1
-		dnRequest("set",[self,"MaxRequestBodySize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestBodySize",P1])
 		return self
 

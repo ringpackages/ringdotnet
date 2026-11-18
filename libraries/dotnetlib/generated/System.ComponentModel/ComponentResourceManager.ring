@@ -19,14 +19,14 @@ Class ComponentResourceManager from ResourceManager
 		return self
 
 	Func ApplyResources P1,P2
-		dnRequest("call",[self,"ApplyResources",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyResources",P1,P2])
 		return self
 
 	Func ApplyResources_3 P1,P2,P3
-		dnRequest("call",[self,"ApplyResources",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyResources",P1,P2,P3])
 		return self
 
 	Func ApplyResourcesToRegisteredType P1,P2,P3
-		dnRequest("call",[self,"ApplyResourcesToRegisteredType",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyResourcesToRegisteredType",P1,P2,P3])
 		return self
 

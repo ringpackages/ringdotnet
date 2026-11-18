@@ -16,14 +16,14 @@ Class DependencyPropertyKey from Object
 		return self
 
 	Func OverrideMetadata P1,P2
-		dnRequest("call",[self,"OverrideMetadata",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"OverrideMetadata",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDependencyProperty
-		return dnRequest("get",[self,"DependencyProperty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DependencyProperty"])
 
 	Func setDependencyProperty P1
 		raise("DotNet Error: DependencyProperty is a read-only property")

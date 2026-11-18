@@ -17,13 +17,13 @@ Class Transform from GeneralTransform
 		return self
 
 	Func GetValue_1 P1
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Transform, PresentationCore'),"Parse",P1])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func getIdentity
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Transform, PresentationCore'),"Identity"])

@@ -42,16 +42,16 @@ Class Version from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Version, System.Private.CoreLib'),"Parse",P1])
@@ -60,37 +60,37 @@ Class Version from Object
 		return dnRequest("call",[dnTypeCached('System.Version, System.Private.CoreLib'),"TryParse",P1])
 
 	Func getMajor
-		return dnRequest("get",[self,"Major"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Major"])
 
 	Func setMajor P1
 		raise("DotNet Error: Major is a read-only property")
 
 	Func getMinor
-		return dnRequest("get",[self,"Minor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Minor"])
 
 	Func setMinor P1
 		raise("DotNet Error: Minor is a read-only property")
 
 	Func getBuild
-		return dnRequest("get",[self,"Build"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Build"])
 
 	Func setBuild P1
 		raise("DotNet Error: Build is a read-only property")
 
 	Func getRevision
-		return dnRequest("get",[self,"Revision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Revision"])
 
 	Func setRevision P1
 		raise("DotNet Error: Revision is a read-only property")
 
 	Func getMajorRevision
-		return dnRequest("get",[self,"MajorRevision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MajorRevision"])
 
 	Func setMajorRevision P1
 		raise("DotNet Error: MajorRevision is a read-only property")
 
 	Func getMinorRevision
-		return dnRequest("get",[self,"MinorRevision"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinorRevision"])
 
 	Func setMinorRevision P1
 		raise("DotNet Error: MinorRevision is a read-only property")

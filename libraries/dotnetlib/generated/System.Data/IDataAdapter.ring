@@ -18,33 +18,33 @@ Class IDataAdapter from DotNetObject
 		return self
 
 	Func FillSchema P1,P2
-		return dnRequest("call",[self,"FillSchema",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"FillSchema",P1,P2])
 
 	Func Fill P1
-		return dnRequest("call",[self,"Fill",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1])
 
 	Func GetFillParameters 
-		return dnRequest("call",[self,"GetFillParameters"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFillParameters"])
 
 	Func Update P1
-		return dnRequest("call",[self,"Update",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 
 	Func getMissingMappingAction
-		return dnRequest("get",[self,"MissingMappingAction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MissingMappingAction"])
 
 	Func setMissingMappingAction P1
-		dnRequest("set",[self,"MissingMappingAction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MissingMappingAction",P1])
 		return self
 
 	Func getMissingSchemaAction
-		return dnRequest("get",[self,"MissingSchemaAction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MissingSchemaAction"])
 
 	Func setMissingSchemaAction P1
-		dnRequest("set",[self,"MissingSchemaAction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MissingSchemaAction",P1])
 		return self
 
 	Func getTableMappings
-		return dnRequest("get",[self,"TableMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TableMappings"])
 
 	Func setTableMappings P1
 		raise("DotNet Error: TableMappings is a read-only property")

@@ -48,7 +48,7 @@ Class SystemPens from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromSystemColor P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common'),"FromSystemColor",P1])

@@ -15,5 +15,5 @@ Class FormCollection from ReadOnlyCollectionBase
 		return self
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 

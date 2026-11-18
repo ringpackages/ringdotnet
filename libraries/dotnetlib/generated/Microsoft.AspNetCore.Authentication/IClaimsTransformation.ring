@@ -14,5 +14,5 @@ Class IClaimsTransformation from DotNetObject
 		return self
 
 	Func TransformAsync P1
-		return dnRequest("call",[self,"TransformAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TransformAsync",P1])
 

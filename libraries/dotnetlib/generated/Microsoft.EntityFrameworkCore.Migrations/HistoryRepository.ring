@@ -17,92 +17,92 @@ Class HistoryRepository from Object
 		return self
 
 	Func Exists 
-		return dnRequest("call",[self,"Exists"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Exists"])
 
 	Func ExistsAsync_1 P1
-		return dnRequest("call",[self,"ExistsAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync",P1])
 
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ExistsAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExistsAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ExistsAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync"])
 		ok
-		return dnRequest("call",[self,"ExistsAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync",P1])
 
 	Func GetCreateIfNotExistsScript 
-		return dnRequest("call",[self,"GetCreateIfNotExistsScript"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCreateIfNotExistsScript"])
 
 	Func GetCreateScript 
-		return dnRequest("call",[self,"GetCreateScript"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCreateScript"])
 
 	Func Create 
-		dnRequest("call",[self,"Create"])
+		dnRequest("call",[new DotNetObject(nHandle),"Create"])
 		return self
 
 	Func CreateAsync_1 P1
-		return dnRequest("call",[self,"CreateAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync",P1])
 
 	Func CreateAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync"])
 		ok
-		return dnRequest("call",[self,"CreateAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync",P1])
 
 	Func AcquireDatabaseLock 
-		return dnRequest("call",[self,"AcquireDatabaseLock"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcquireDatabaseLock"])
 
 	Func AcquireDatabaseLockAsync_1 P1
-		return dnRequest("call",[self,"AcquireDatabaseLockAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcquireDatabaseLockAsync",P1])
 
 	Func AcquireDatabaseLockAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AcquireDatabaseLockAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcquireDatabaseLockAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AcquireDatabaseLockAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AcquireDatabaseLockAsync"])
 		ok
-		return dnRequest("call",[self,"AcquireDatabaseLockAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcquireDatabaseLockAsync",P1])
 
 	Func GetAppliedMigrations 
-		return dnRequest("call",[self,"GetAppliedMigrations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAppliedMigrations"])
 
 	Func GetAppliedMigrationsAsync_1 P1
-		return dnRequest("call",[self,"GetAppliedMigrationsAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAppliedMigrationsAsync",P1])
 
 	Func GetAppliedMigrationsAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetAppliedMigrationsAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAppliedMigrationsAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetAppliedMigrationsAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetAppliedMigrationsAsync"])
 		ok
-		return dnRequest("call",[self,"GetAppliedMigrationsAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAppliedMigrationsAsync",P1])
 
 	Func GetInsertScript P1
-		return dnRequest("call",[self,"GetInsertScript",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetInsertScript",P1])
 
 	Func GetDeleteScript P1
-		return dnRequest("call",[self,"GetDeleteScript",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeleteScript",P1])
 
 	Func GetBeginIfNotExistsScript P1
-		return dnRequest("call",[self,"GetBeginIfNotExistsScript",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBeginIfNotExistsScript",P1])
 
 	Func GetBeginIfExistsScript P1
-		return dnRequest("call",[self,"GetBeginIfExistsScript",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBeginIfExistsScript",P1])
 
 	Func GetEndIfScript 
-		return dnRequest("call",[self,"GetEndIfScript"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEndIfScript"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLockReleaseBehavior
-		return dnRequest("get",[self,"LockReleaseBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LockReleaseBehavior"])
 
 	Func setLockReleaseBehavior P1
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")

@@ -27,38 +27,38 @@ Class XmlSerializer from Object
 		return self
 
 	Func Serialize P1,P2
-		dnRequest("call",[self,"Serialize",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Serialize",P1,P2])
 		return self
 
 	Func Serialize_3 P1,P2,P3
-		dnRequest("call",[self,"Serialize",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Serialize",P1,P2,P3])
 		return self
 
 	Func Serialize_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Serialize",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Serialize",P1,P2,P3,P4])
 		return self
 
 	Func Serialize_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"Serialize",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"Serialize",P1,P2,P3,P4,P5])
 		return self
 
 	Func Deserialize P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Deserialize",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Deserialize",P1])
 		ok
-		return dnRequest("call",[self,"Deserialize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Deserialize",P1])
 
 	Func Deserialize_2 P1,P2
-		return dnRequest("call",[self,"Deserialize",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Deserialize",P1,P2])
 
 	Func Deserialize_3 P1,P2,P3
-		return dnRequest("call",[self,"Deserialize",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Deserialize",P1,P2,P3])
 
 	Func CanDeserialize P1
-		return dnRequest("call",[self,"CanDeserialize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanDeserialize",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func FromMappings P1
 		if dnIsNamed(P1)
@@ -82,34 +82,34 @@ Class XmlSerializer from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1,P2])
 
 	Func setUnknownNodeEvent P1
-		dnRequest("setevent",[self,"UnknownNode",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UnknownNode",dnCallback(P1)])
 		return self
 
 	Func clearUnknownNodeEvent
-		dnRequest("clearevent",[self,"UnknownNode"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UnknownNode"])
 		return self
 
 	Func setUnknownAttributeEvent P1
-		dnRequest("setevent",[self,"UnknownAttribute",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UnknownAttribute",dnCallback(P1)])
 		return self
 
 	Func clearUnknownAttributeEvent
-		dnRequest("clearevent",[self,"UnknownAttribute"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UnknownAttribute"])
 		return self
 
 	Func setUnknownElementEvent P1
-		dnRequest("setevent",[self,"UnknownElement",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UnknownElement",dnCallback(P1)])
 		return self
 
 	Func clearUnknownElementEvent
-		dnRequest("clearevent",[self,"UnknownElement"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UnknownElement"])
 		return self
 
 	Func setUnreferencedObjectEvent P1
-		dnRequest("setevent",[self,"UnreferencedObject",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UnreferencedObject",dnCallback(P1)])
 		return self
 
 	Func clearUnreferencedObjectEvent
-		dnRequest("clearevent",[self,"UnreferencedObject"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UnreferencedObject"])
 		return self
 

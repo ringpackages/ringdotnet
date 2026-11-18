@@ -18,18 +18,18 @@ Class InkPresenter from Decorator
 		return self
 
 	Func AttachVisuals P1,P2
-		dnRequest("call",[self,"AttachVisuals",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AttachVisuals",P1,P2])
 		return self
 
 	Func DetachVisuals P1
-		dnRequest("call",[self,"DetachVisuals",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DetachVisuals",P1])
 		return self
 
 	Func getStrokes
-		return dnRequest("get",[self,"Strokes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Strokes"])
 
 	Func setStrokes P1
-		dnRequest("set",[self,"Strokes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Strokes",P1])
 		return self
 
 	Func getStrokesProperty

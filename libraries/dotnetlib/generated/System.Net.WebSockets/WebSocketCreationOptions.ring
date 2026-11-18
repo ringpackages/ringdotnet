@@ -21,40 +21,40 @@ Class WebSocketCreationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsServer
-		return dnRequest("get",[self,"IsServer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsServer"])
 
 	Func setIsServer P1
-		dnRequest("set",[self,"IsServer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsServer",P1])
 		return self
 
 	Func getSubProtocol
-		return dnRequest("get",[self,"SubProtocol"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubProtocol"])
 
 	Func setSubProtocol P1
-		dnRequest("set",[self,"SubProtocol",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SubProtocol",P1])
 		return self
 
 	Func getKeepAliveInterval
-		return dnRequest("get",[self,"KeepAliveInterval"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveInterval"])
 
 	Func setKeepAliveInterval P1
-		dnRequest("set",[self,"KeepAliveInterval",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveInterval",P1])
 		return self
 
 	Func getKeepAliveTimeout
-		return dnRequest("get",[self,"KeepAliveTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveTimeout"])
 
 	Func setKeepAliveTimeout P1
-		dnRequest("set",[self,"KeepAliveTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveTimeout",P1])
 		return self
 
 	Func getDangerousDeflateOptions
-		return dnRequest("get",[self,"DangerousDeflateOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DangerousDeflateOptions"])
 
 	Func setDangerousDeflateOptions P1
-		dnRequest("set",[self,"DangerousDeflateOptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DangerousDeflateOptions",P1])
 		return self
 

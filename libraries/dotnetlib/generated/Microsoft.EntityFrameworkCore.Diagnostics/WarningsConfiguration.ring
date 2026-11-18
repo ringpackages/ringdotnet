@@ -17,37 +17,37 @@ Class WarningsConfiguration from Object
 		return self
 
 	Func WithDefaultBehavior P1
-		return dnRequest("call",[self,"WithDefaultBehavior",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithDefaultBehavior",P1])
 
 	Func WithExplicit_2 P1,P2
-		return dnRequest("call",[self,"WithExplicit",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithExplicit",P1,P2])
 
 	Func WithExplicit P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WithExplicit",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithExplicit",P1])
 		ok
-		return dnRequest("call",[self,"WithExplicit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WithExplicit",P1])
 
 	Func GetBehavior P1
-		return dnRequest("call",[self,"GetBehavior",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBehavior",P1])
 
 	Func GetLevel P1
-		return dnRequest("call",[self,"GetLevel",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLevel",P1])
 
 	Func TryWithExplicit P1,P2
-		return dnRequest("call",[self,"TryWithExplicit",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryWithExplicit",P1,P2])
 
 	Func ShouldUseSameServiceProvider P1
-		return dnRequest("call",[self,"ShouldUseSameServiceProvider",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldUseSameServiceProvider",P1])
 
 	Func GetServiceProviderHashCode 
-		return dnRequest("call",[self,"GetServiceProviderHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetServiceProviderHashCode"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDefaultBehavior
-		return dnRequest("get",[self,"DefaultBehavior"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultBehavior"])
 
 	Func setDefaultBehavior P1
 		raise("DotNet Error: DefaultBehavior is a read-only property")

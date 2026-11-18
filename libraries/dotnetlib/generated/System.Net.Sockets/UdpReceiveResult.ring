@@ -22,13 +22,13 @@ Class UdpReceiveResult from ValueType
 		return self
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Buffer"])
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[self,"RemoteEndPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteEndPoint"])
 
 	Func setRemoteEndPoint P1
 		raise("DotNet Error: RemoteEndPoint is a read-only property")

@@ -17,10 +17,10 @@ Class RequestBodyPipeFeature from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getReader
-		return dnRequest("get",[self,"Reader"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Reader"])
 
 	Func setReader P1
 		raise("DotNet Error: Reader is a read-only property")

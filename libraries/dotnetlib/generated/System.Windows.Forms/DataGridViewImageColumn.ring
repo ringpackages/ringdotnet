@@ -25,37 +25,37 @@ Class DataGridViewImageColumn from DataGridViewColumn
 		return self
 
 	Func getDescription
-		return dnRequest("get",[self,"Description"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
 
 	Func setDescription P1
-		dnRequest("set",[self,"Description",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Description",P1])
 		return self
 
 	Func getIcon
-		return dnRequest("get",[self,"Icon"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Icon"])
 
 	Func setIcon P1
-		dnRequest("set",[self,"Icon",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Icon",P1])
 		return self
 
 	Func getImage
-		return dnRequest("get",[self,"Image"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Image"])
 
 	Func setImage P1
-		dnRequest("set",[self,"Image",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Image",P1])
 		return self
 
 	Func getImageLayout
-		return dnRequest("get",[self,"ImageLayout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageLayout"])
 
 	Func setImageLayout P1
-		dnRequest("set",[self,"ImageLayout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ImageLayout",P1])
 		return self
 
 	Func getValuesAreIcons
-		return dnRequest("get",[self,"ValuesAreIcons"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValuesAreIcons"])
 
 	Func setValuesAreIcons P1
-		dnRequest("set",[self,"ValuesAreIcons",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ValuesAreIcons",P1])
 		return self
 

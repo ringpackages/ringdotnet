@@ -17,37 +17,37 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return self
 
 	Func SetName_2 P1,P2
-		return dnRequest("call",[self,"SetName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetName",P1,P2])
 
 	Func SetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetName",P1])
 		ok
-		return dnRequest("call",[self,"SetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetName",P1])
 
 	Func GetNameConfigurationSource 
-		return dnRequest("call",[self,"GetNameConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNameConfigurationSource"])
 
 	Func SetDirection_2 P1,P2
-		return dnRequest("call",[self,"SetDirection",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetDirection",P1,P2])
 
 	Func SetDirection P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SetDirection",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetDirection",P1])
 		ok
-		return dnRequest("call",[self,"SetDirection",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SetDirection",P1])
 
 	Func GetDirectionConfigurationSource 
-		return dnRequest("call",[self,"GetDirectionConfigurationSource"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectionConfigurationSource"])
 
 	Func getStoredProcedure
-		return dnRequest("get",[self,"StoredProcedure"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedure"])
 
 	Func setStoredProcedure P1
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[self,"Builder"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")

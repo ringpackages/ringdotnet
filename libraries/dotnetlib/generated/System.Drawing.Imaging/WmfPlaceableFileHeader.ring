@@ -25,68 +25,68 @@ Class WmfPlaceableFileHeader from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getKey
-		return dnRequest("get",[self,"Key"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
 
 	Func setKey P1
-		dnRequest("set",[self,"Key",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Key",P1])
 		return self
 
 	Func getHmf
-		return dnRequest("get",[self,"Hmf"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Hmf"])
 
 	Func setHmf P1
-		dnRequest("set",[self,"Hmf",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Hmf",P1])
 		return self
 
 	Func getBboxLeft
-		return dnRequest("get",[self,"BboxLeft"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BboxLeft"])
 
 	Func setBboxLeft P1
-		dnRequest("set",[self,"BboxLeft",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BboxLeft",P1])
 		return self
 
 	Func getBboxTop
-		return dnRequest("get",[self,"BboxTop"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BboxTop"])
 
 	Func setBboxTop P1
-		dnRequest("set",[self,"BboxTop",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BboxTop",P1])
 		return self
 
 	Func getBboxRight
-		return dnRequest("get",[self,"BboxRight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BboxRight"])
 
 	Func setBboxRight P1
-		dnRequest("set",[self,"BboxRight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BboxRight",P1])
 		return self
 
 	Func getBboxBottom
-		return dnRequest("get",[self,"BboxBottom"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BboxBottom"])
 
 	Func setBboxBottom P1
-		dnRequest("set",[self,"BboxBottom",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BboxBottom",P1])
 		return self
 
 	Func getInch
-		return dnRequest("get",[self,"Inch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inch"])
 
 	Func setInch P1
-		dnRequest("set",[self,"Inch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Inch",P1])
 		return self
 
 	Func getReserved
-		return dnRequest("get",[self,"Reserved"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Reserved"])
 
 	Func setReserved P1
-		dnRequest("set",[self,"Reserved",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Reserved",P1])
 		return self
 
 	Func getChecksum
-		return dnRequest("get",[self,"Checksum"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Checksum"])
 
 	Func setChecksum P1
-		dnRequest("set",[self,"Checksum",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Checksum",P1])
 		return self
 

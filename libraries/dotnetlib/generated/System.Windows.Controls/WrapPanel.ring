@@ -22,24 +22,24 @@ Class WrapPanel from WpfPanel
 		return self
 
 	Func getItemWidth
-		return dnRequest("get",[self,"ItemWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemWidth"])
 
 	Func setItemWidth P1
-		dnRequest("set",[self,"ItemWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemWidth",P1])
 		return self
 
 	Func getItemHeight
-		return dnRequest("get",[self,"ItemHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemHeight"])
 
 	Func setItemHeight P1
-		dnRequest("set",[self,"ItemHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemHeight",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[self,"Orientation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[self,"Orientation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
 		return self
 
 	Func getItemWidthProperty

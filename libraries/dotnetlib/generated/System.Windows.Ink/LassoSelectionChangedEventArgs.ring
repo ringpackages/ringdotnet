@@ -17,13 +17,13 @@ Class LassoSelectionChangedEventArgs from EventArgs
 		return self
 
 	Func getSelectedStrokes
-		return dnRequest("get",[self,"SelectedStrokes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedStrokes"])
 
 	Func setSelectedStrokes P1
 		raise("DotNet Error: SelectedStrokes is a read-only property")
 
 	Func getDeselectedStrokes
-		return dnRequest("get",[self,"DeselectedStrokes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeselectedStrokes"])
 
 	Func setDeselectedStrokes P1
 		raise("DotNet Error: DeselectedStrokes is a read-only property")

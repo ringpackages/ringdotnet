@@ -20,25 +20,25 @@ Class Table from Block
 		return self
 
 	Func ShouldSerializeColumns 
-		return dnRequest("call",[self,"ShouldSerializeColumns"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeColumns"])
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getRowGroups
-		return dnRequest("get",[self,"RowGroups"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowGroups"])
 
 	Func setRowGroups P1
 		raise("DotNet Error: RowGroups is a read-only property")
 
 	Func getCellSpacing
-		return dnRequest("get",[self,"CellSpacing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellSpacing"])
 
 	Func setCellSpacing P1
-		dnRequest("set",[self,"CellSpacing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellSpacing",P1])
 		return self
 
 	Func getCellSpacingProperty

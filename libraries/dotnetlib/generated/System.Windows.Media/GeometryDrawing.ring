@@ -26,24 +26,24 @@ Class GeometryDrawing from Drawing
 		return self
 
 	Func getBrush
-		return dnRequest("get",[self,"Brush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Brush"])
 
 	Func setBrush P1
-		dnRequest("set",[self,"Brush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Brush",P1])
 		return self
 
 	Func getPen
-		return dnRequest("get",[self,"Pen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Pen"])
 
 	Func setPen P1
-		dnRequest("set",[self,"Pen",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Pen",P1])
 		return self
 
 	Func getGeometry
-		return dnRequest("get",[self,"Geometry"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Geometry"])
 
 	Func setGeometry P1
-		dnRequest("set",[self,"Geometry",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Geometry",P1])
 		return self
 
 	Func getBrushProperty

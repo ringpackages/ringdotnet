@@ -32,32 +32,32 @@ Class ActionContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getActionDescriptor
-		return dnRequest("get",[self,"ActionDescriptor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActionDescriptor"])
 
 	Func setActionDescriptor P1
-		dnRequest("set",[self,"ActionDescriptor",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ActionDescriptor",P1])
 		return self
 
 	Func getHttpContext
-		return dnRequest("get",[self,"HttpContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
 
 	Func setHttpContext P1
-		dnRequest("set",[self,"HttpContext",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HttpContext",P1])
 		return self
 
 	Func getModelState
-		return dnRequest("get",[self,"ModelState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelState"])
 
 	Func setModelState P1
 		raise("DotNet Error: ModelState is a read-only property")
 
 	Func getRouteData
-		return dnRequest("get",[self,"RouteData"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RouteData"])
 
 	Func setRouteData P1
-		dnRequest("set",[self,"RouteData",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RouteData",P1])
 		return self
 

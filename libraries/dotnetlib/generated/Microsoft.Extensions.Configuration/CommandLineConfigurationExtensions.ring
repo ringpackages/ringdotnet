@@ -14,7 +14,7 @@ Class CommandLineConfigurationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func AddCommandLine P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"AddCommandLine",P1,P2])

@@ -25,74 +25,74 @@ Class ZipArchiveEntry from Object
 		return self
 
 	Func Delete 
-		dnRequest("call",[self,"Delete"])
+		dnRequest("call",[new DotNetObject(nHandle),"Delete"])
 		return self
 
 	Func Open 
-		return dnRequest("call",[self,"Open"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Open"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getArchive
-		return dnRequest("get",[self,"Archive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Archive"])
 
 	Func setArchive P1
 		raise("DotNet Error: Archive is a read-only property")
 
 	Func getCrc32
-		return dnRequest("get",[self,"Crc32"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Crc32"])
 
 	Func setCrc32 P1
 		raise("DotNet Error: Crc32 is a read-only property")
 
 	Func getIsEncrypted
-		return dnRequest("get",[self,"IsEncrypted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEncrypted"])
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getCompressedLength
-		return dnRequest("get",[self,"CompressedLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompressedLength"])
 
 	Func setCompressedLength P1
 		raise("DotNet Error: CompressedLength is a read-only property")
 
 	Func getExternalAttributes
-		return dnRequest("get",[self,"ExternalAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExternalAttributes"])
 
 	Func setExternalAttributes P1
-		dnRequest("set",[self,"ExternalAttributes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExternalAttributes",P1])
 		return self
 
 	Func getComment
-		return dnRequest("get",[self,"Comment"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
 
 	Func setComment P1
-		dnRequest("set",[self,"Comment",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Comment",P1])
 		return self
 
 	Func getFullName
-		return dnRequest("get",[self,"FullName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FullName"])
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getLastWriteTime
-		return dnRequest("get",[self,"LastWriteTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastWriteTime"])
 
 	Func setLastWriteTime P1
-		dnRequest("set",[self,"LastWriteTime",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LastWriteTime",P1])
 		return self
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

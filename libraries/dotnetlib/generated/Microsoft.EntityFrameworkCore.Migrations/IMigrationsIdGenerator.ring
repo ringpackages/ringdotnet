@@ -14,11 +14,11 @@ Class IMigrationsIdGenerator from DotNetObject
 		return self
 
 	Func GenerateId P1
-		return dnRequest("call",[self,"GenerateId",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateId",P1])
 
 	Func GetName P1
-		return dnRequest("call",[self,"GetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetName",P1])
 
 	Func IsValidId P1
-		return dnRequest("call",[self,"IsValidId",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsValidId",P1])
 

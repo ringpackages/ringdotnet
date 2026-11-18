@@ -17,65 +17,65 @@ Class XContainer from XNode
 		return self
 
 	Func Add P1
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func AddFirst P1
-		dnRequest("call",[self,"AddFirst",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddFirst",P1])
 		return self
 
 	Func CreateWriter 
-		return dnRequest("call",[self,"CreateWriter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateWriter"])
 
 	Func DescendantNodes 
-		return dnRequest("call",[self,"DescendantNodes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DescendantNodes"])
 
 	Func Descendants P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Descendants",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Descendants",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Descendants"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Descendants"])
 		ok
-		return dnRequest("call",[self,"Descendants",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Descendants",P1])
 
 	Func Descendants_1 P1
-		return dnRequest("call",[self,"Descendants",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Descendants",P1])
 
 	Func Element P1
-		return dnRequest("call",[self,"Element",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Element",P1])
 
 	Func Elements P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Elements",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Elements",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Elements"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Elements"])
 		ok
-		return dnRequest("call",[self,"Elements",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Elements",P1])
 
 	Func Elements_1 P1
-		return dnRequest("call",[self,"Elements",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Elements",P1])
 
 	Func Nodes 
-		return dnRequest("call",[self,"Nodes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Nodes"])
 
 	Func RemoveNodes 
-		dnRequest("call",[self,"RemoveNodes"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveNodes"])
 		return self
 
 	Func ReplaceNodes P1
-		dnRequest("call",[self,"ReplaceNodes",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReplaceNodes",P1])
 		return self
 
 	Func getFirstNode
-		return dnRequest("get",[self,"FirstNode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstNode"])
 
 	Func setFirstNode P1
 		raise("DotNet Error: FirstNode is a read-only property")
 
 	Func getLastNode
-		return dnRequest("get",[self,"LastNode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastNode"])
 
 	Func setLastNode P1
 		raise("DotNet Error: LastNode is a read-only property")

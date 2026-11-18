@@ -18,19 +18,19 @@ Class DaylightTime from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStart
-		return dnRequest("get",[self,"Start"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Start"])
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnRequest("get",[self,"End"])
+		return dnRequest("get",[new DotNetObject(nHandle),"End"])
 
 	Func getDelta
-		return dnRequest("get",[self,"Delta"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Delta"])
 
 	Func setDelta P1
 		raise("DotNet Error: Delta is a read-only property")

@@ -14,10 +14,10 @@ Class IncrementalStrokeHitTester from IncrementalHitTester
 		return self
 
 	Func setStrokeHitEvent P1
-		dnRequest("setevent",[self,"StrokeHit",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StrokeHit",dnCallback(P1)])
 		return self
 
 	Func clearStrokeHitEvent
-		dnRequest("clearevent",[self,"StrokeHit"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StrokeHit"])
 		return self
 

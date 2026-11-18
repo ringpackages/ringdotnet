@@ -16,22 +16,22 @@ Class XamlReader from Object
 
 	Func LoadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"LoadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
 		ok
-		return dnRequest("call",[self,"LoadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 
 	Func LoadAsync_2 P1,P2
-		return dnRequest("call",[self,"LoadAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2])
 
 	Func LoadAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"LoadAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2,P3])
 
 	Func CancelAsync 
-		dnRequest("call",[self,"CancelAsync"])
+		dnRequest("call",[new DotNetObject(nHandle),"CancelAsync"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		if dnIsNamed(P1)
@@ -61,10 +61,10 @@ Class XamlReader from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"GetWpfSchemaContext"])
 
 	Func setLoadCompletedEvent P1
-		dnRequest("setevent",[self,"LoadCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LoadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearLoadCompletedEvent
-		dnRequest("clearevent",[self,"LoadCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadCompleted"])
 		return self
 

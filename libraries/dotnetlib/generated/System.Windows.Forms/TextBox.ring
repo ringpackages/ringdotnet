@@ -26,96 +26,96 @@ Class TextBox from TextBoxBase
 		return self
 
 	Func Paste_1 P1
-		dnRequest("call",[self,"Paste",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
 		return self
 
 	Func Paste P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Paste",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Paste",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Paste"])
+			dnRequest("call",[new DotNetObject(nHandle),"Paste"])
 		return self
 		ok
-		dnRequest("call",[self,"Paste",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
 		return self
 
 	Func setTextAlignChangedEvent P1
-		dnRequest("setevent",[self,"TextAlignChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"TextAlignChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextAlignChangedEvent
-		dnRequest("clearevent",[self,"TextAlignChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"TextAlignChanged"])
 		return self
 
 	Func getAcceptsReturn
-		return dnRequest("get",[self,"AcceptsReturn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AcceptsReturn"])
 
 	Func setAcceptsReturn P1
-		dnRequest("set",[self,"AcceptsReturn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AcceptsReturn",P1])
 		return self
 
 	Func getAutoCompleteMode
-		return dnRequest("get",[self,"AutoCompleteMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteMode"])
 
 	Func setAutoCompleteMode P1
-		dnRequest("set",[self,"AutoCompleteMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteMode",P1])
 		return self
 
 	Func getAutoCompleteSource
-		return dnRequest("get",[self,"AutoCompleteSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteSource"])
 
 	Func setAutoCompleteSource P1
-		dnRequest("set",[self,"AutoCompleteSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteSource",P1])
 		return self
 
 	Func getAutoCompleteCustomSource
-		return dnRequest("get",[self,"AutoCompleteCustomSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteCustomSource"])
 
 	Func setAutoCompleteCustomSource P1
-		dnRequest("set",[self,"AutoCompleteCustomSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteCustomSource",P1])
 		return self
 
 	Func getCharacterCasing
-		return dnRequest("get",[self,"CharacterCasing"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CharacterCasing"])
 
 	Func setCharacterCasing P1
-		dnRequest("set",[self,"CharacterCasing",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CharacterCasing",P1])
 		return self
 
 	Func getPasswordChar
-		return dnRequest("get",[self,"PasswordChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PasswordChar"])
 
 	Func setPasswordChar P1
-		dnRequest("set",[self,"PasswordChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PasswordChar",P1])
 		return self
 
 	Func getScrollBars
-		return dnRequest("get",[self,"ScrollBars"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScrollBars"])
 
 	Func setScrollBars P1
-		dnRequest("set",[self,"ScrollBars",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScrollBars",P1])
 		return self
 
 	Func getTextAlign
-		return dnRequest("get",[self,"TextAlign"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TextAlign"])
 
 	Func setTextAlign P1
-		dnRequest("set",[self,"TextAlign",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TextAlign",P1])
 		return self
 
 	Func getUseSystemPasswordChar
-		return dnRequest("get",[self,"UseSystemPasswordChar"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseSystemPasswordChar"])
 
 	Func setUseSystemPasswordChar P1
-		dnRequest("set",[self,"UseSystemPasswordChar",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseSystemPasswordChar",P1])
 		return self
 
 	Func getPlaceholderText
-		return dnRequest("get",[self,"PlaceholderText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PlaceholderText"])
 
 	Func setPlaceholderText P1
-		dnRequest("set",[self,"PlaceholderText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PlaceholderText",P1])
 		return self
 

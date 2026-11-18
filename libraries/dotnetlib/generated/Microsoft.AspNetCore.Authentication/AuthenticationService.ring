@@ -20,43 +20,43 @@ Class AuthenticationService from Object
 		return self
 
 	Func AuthenticateAsync P1,P2
-		return dnRequest("call",[self,"AuthenticateAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsync",P1,P2])
 
 	Func ChallengeAsync P1,P2,P3
-		return dnRequest("call",[self,"ChallengeAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ChallengeAsync",P1,P2,P3])
 
 	Func ForbidAsync P1,P2,P3
-		return dnRequest("call",[self,"ForbidAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ForbidAsync",P1,P2,P3])
 
 	Func SignInAsync P1,P2,P3,P4
-		return dnRequest("call",[self,"SignInAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignInAsync",P1,P2,P3,P4])
 
 	Func SignOutAsync P1,P2,P3
-		return dnRequest("call",[self,"SignOutAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignOutAsync",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSchemes
-		return dnRequest("get",[self,"Schemes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schemes"])
 
 	Func setSchemes P1
 		raise("DotNet Error: Schemes is a read-only property")
 
 	Func getHandlers
-		return dnRequest("get",[self,"Handlers"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handlers"])
 
 	Func setHandlers P1
 		raise("DotNet Error: Handlers is a read-only property")
 
 	Func getTransform
-		return dnRequest("get",[self,"Transform"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
 
 	Func setTransform P1
 		raise("DotNet Error: Transform is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")

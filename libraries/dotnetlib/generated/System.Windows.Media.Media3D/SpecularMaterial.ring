@@ -26,24 +26,24 @@ Class SpecularMaterial from Material
 		return self
 
 	Func getColor
-		return dnRequest("get",[self,"Color"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
 
 	Func setColor P1
-		dnRequest("set",[self,"Color",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
 		return self
 
 	Func getBrush
-		return dnRequest("get",[self,"Brush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Brush"])
 
 	Func setBrush P1
-		dnRequest("set",[self,"Brush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Brush",P1])
 		return self
 
 	Func getSpecularPower
-		return dnRequest("get",[self,"SpecularPower"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SpecularPower"])
 
 	Func setSpecularPower P1
-		dnRequest("set",[self,"SpecularPower",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SpecularPower",P1])
 		return self
 
 	Func getColorProperty

@@ -17,13 +17,13 @@ Class ColorContext from Object
 		return self
 
 	Func OpenProfileStream 
-		return dnRequest("call",[self,"OpenProfileStream"])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenProfileStream"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getProfileUri
-		return dnRequest("get",[self,"ProfileUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProfileUri"])
 
 	Func setProfileUri P1
 		raise("DotNet Error: ProfileUri is a read-only property")

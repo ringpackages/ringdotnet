@@ -28,7 +28,7 @@ Class AspContentRangeHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
@@ -37,32 +37,32 @@ Class AspContentRangeHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers'),"TryParse",P1])
 
 	Func getUnit
-		return dnRequest("get",[self,"Unit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Unit"])
 
 	Func setUnit P1
-		dnRequest("set",[self,"Unit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Unit",P1])
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnRequest("get",[new DotNetObject(nHandle),"From"])
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnRequest("get",[new DotNetObject(nHandle),"To"])
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getHasLength
-		return dnRequest("get",[self,"HasLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasLength"])
 
 	Func setHasLength P1
 		raise("DotNet Error: HasLength is a read-only property")
 
 	Func getHasRange
-		return dnRequest("get",[self,"HasRange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasRange"])
 
 	Func setHasRange P1
 		raise("DotNet Error: HasRange is a read-only property")

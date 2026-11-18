@@ -15,8 +15,8 @@ Class RelationalParameterBasedSqlProcessor from Object
 		return self
 
 	Func Optimize P1,P2
-		return dnRequest("call",[self,"Optimize",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Optimize",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

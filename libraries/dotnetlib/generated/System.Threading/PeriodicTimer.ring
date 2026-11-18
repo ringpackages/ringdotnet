@@ -21,28 +21,28 @@ Class PeriodicTimer from Object
 		return self
 
 	Func WaitForNextTickAsync_1 P1
-		return dnRequest("call",[self,"WaitForNextTickAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForNextTickAsync",P1])
 
 	Func WaitForNextTickAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WaitForNextTickAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitForNextTickAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WaitForNextTickAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WaitForNextTickAsync"])
 		ok
-		return dnRequest("call",[self,"WaitForNextTickAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForNextTickAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPeriod
-		return dnRequest("get",[self,"Period"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Period"])
 
 	Func setPeriod P1
-		dnRequest("set",[self,"Period",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Period",P1])
 		return self
 

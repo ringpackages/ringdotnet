@@ -20,7 +20,7 @@ Class InterceptionResult from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult, Microsoft.EntityFrameworkCore'),"Suppress"])
 
 	Func getIsSuppressed
-		return dnRequest("get",[self,"IsSuppressed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSuppressed"])
 
 	Func setIsSuppressed P1
 		raise("DotNet Error: IsSuppressed is a read-only property")

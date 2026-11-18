@@ -33,113 +33,113 @@ Class FileSystemWatcher from Component
 
 	Func WaitForChanged P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WaitForChanged",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitForChanged",P1])
 		ok
-		return dnRequest("call",[self,"WaitForChanged",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForChanged",P1])
 
 	Func WaitForChanged_2 P1,P2
-		return dnRequest("call",[self,"WaitForChanged",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitForChanged",P1,P2])
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func setChangedEvent P1
-		dnRequest("setevent",[self,"Changed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Changed",dnCallback(P1)])
 		return self
 
 	Func clearChangedEvent
-		dnRequest("clearevent",[self,"Changed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Changed"])
 		return self
 
 	Func setCreatedEvent P1
-		dnRequest("setevent",[self,"Created",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Created",dnCallback(P1)])
 		return self
 
 	Func clearCreatedEvent
-		dnRequest("clearevent",[self,"Created"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Created"])
 		return self
 
 	Func setDeletedEvent P1
-		dnRequest("setevent",[self,"Deleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Deleted",dnCallback(P1)])
 		return self
 
 	Func clearDeletedEvent
-		dnRequest("clearevent",[self,"Deleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Deleted"])
 		return self
 
 	Func setErrorEvent P1
-		dnRequest("setevent",[self,"Error",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Error",dnCallback(P1)])
 		return self
 
 	Func clearErrorEvent
-		dnRequest("clearevent",[self,"Error"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Error"])
 		return self
 
 	Func setRenamedEvent P1
-		dnRequest("setevent",[self,"Renamed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Renamed",dnCallback(P1)])
 		return self
 
 	Func clearRenamedEvent
-		dnRequest("clearevent",[self,"Renamed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Renamed"])
 		return self
 
 	Func getNotifyFilter
-		return dnRequest("get",[self,"NotifyFilter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NotifyFilter"])
 
 	Func setNotifyFilter P1
-		dnRequest("set",[self,"NotifyFilter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NotifyFilter",P1])
 		return self
 
 	Func getFilters
-		return dnRequest("get",[self,"Filters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filters"])
 
 	Func setFilters P1
 		raise("DotNet Error: Filters is a read-only property")
 
 	Func getEnableRaisingEvents
-		return dnRequest("get",[self,"EnableRaisingEvents"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableRaisingEvents"])
 
 	Func setEnableRaisingEvents P1
-		dnRequest("set",[self,"EnableRaisingEvents",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableRaisingEvents",P1])
 		return self
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[self,"Filter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
 		return self
 
 	Func getIncludeSubdirectories
-		return dnRequest("get",[self,"IncludeSubdirectories"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IncludeSubdirectories"])
 
 	Func setIncludeSubdirectories P1
-		dnRequest("set",[self,"IncludeSubdirectories",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IncludeSubdirectories",P1])
 		return self
 
 	Func getInternalBufferSize
-		return dnRequest("get",[self,"InternalBufferSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InternalBufferSize"])
 
 	Func setInternalBufferSize P1
-		dnRequest("set",[self,"InternalBufferSize",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InternalBufferSize",P1])
 		return self
 
 	Func getPath
-		return dnRequest("get",[self,"Path"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
 
 	Func setPath P1
-		dnRequest("set",[self,"Path",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
 		return self
 
 	Func getSynchronizingObject
-		return dnRequest("get",[self,"SynchronizingObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SynchronizingObject"])
 
 	Func setSynchronizingObject P1
-		dnRequest("set",[self,"SynchronizingObject",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SynchronizingObject",P1])
 		return self
 

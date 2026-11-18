@@ -19,19 +19,19 @@ Class LayoutEventArgs from EventArgs
 		return self
 
 	Func getAffectedComponent
-		return dnRequest("get",[self,"AffectedComponent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AffectedComponent"])
 
 	Func setAffectedComponent P1
 		raise("DotNet Error: AffectedComponent is a read-only property")
 
 	Func getAffectedControl
-		return dnRequest("get",[self,"AffectedControl"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AffectedControl"])
 
 	Func setAffectedControl P1
 		raise("DotNet Error: AffectedControl is a read-only property")
 
 	Func getAffectedProperty
-		return dnRequest("get",[self,"AffectedProperty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AffectedProperty"])
 
 	Func setAffectedProperty P1
 		raise("DotNet Error: AffectedProperty is a read-only property")

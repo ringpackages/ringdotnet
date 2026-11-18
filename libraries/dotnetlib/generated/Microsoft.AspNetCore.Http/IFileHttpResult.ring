@@ -17,13 +17,13 @@ Class IFileHttpResult from DotNetObject
 		return self
 
 	Func getContentType
-		return dnRequest("get",[self,"ContentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getFileDownloadName
-		return dnRequest("get",[self,"FileDownloadName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FileDownloadName"])
 
 	Func setFileDownloadName P1
 		raise("DotNet Error: FileDownloadName is a read-only property")

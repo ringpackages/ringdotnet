@@ -22,46 +22,46 @@ Class IPv4InterfaceProperties from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUsesWins
-		return dnRequest("get",[self,"UsesWins"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UsesWins"])
 
 	Func setUsesWins P1
 		raise("DotNet Error: UsesWins is a read-only property")
 
 	Func getIsDhcpEnabled
-		return dnRequest("get",[self,"IsDhcpEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDhcpEnabled"])
 
 	Func setIsDhcpEnabled P1
 		raise("DotNet Error: IsDhcpEnabled is a read-only property")
 
 	Func getIsAutomaticPrivateAddressingActive
-		return dnRequest("get",[self,"IsAutomaticPrivateAddressingActive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAutomaticPrivateAddressingActive"])
 
 	Func setIsAutomaticPrivateAddressingActive P1
 		raise("DotNet Error: IsAutomaticPrivateAddressingActive is a read-only property")
 
 	Func getIsAutomaticPrivateAddressingEnabled
-		return dnRequest("get",[self,"IsAutomaticPrivateAddressingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAutomaticPrivateAddressingEnabled"])
 
 	Func setIsAutomaticPrivateAddressingEnabled P1
 		raise("DotNet Error: IsAutomaticPrivateAddressingEnabled is a read-only property")
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getIsForwardingEnabled
-		return dnRequest("get",[self,"IsForwardingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsForwardingEnabled"])
 
 	Func setIsForwardingEnabled P1
 		raise("DotNet Error: IsForwardingEnabled is a read-only property")
 
 	Func getMtu
-		return dnRequest("get",[self,"Mtu"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Mtu"])
 
 	Func setMtu P1
 		raise("DotNet Error: Mtu is a read-only property")

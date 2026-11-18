@@ -15,13 +15,13 @@ Class ICustomAttributeProvider from DotNetObject
 
 	Func GetCustomAttributes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetCustomAttributes",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCustomAttributes",P1])
 		ok
-		return dnRequest("call",[self,"GetCustomAttributes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCustomAttributes",P1])
 
 	Func GetCustomAttributes_2 P1,P2
-		return dnRequest("call",[self,"GetCustomAttributes",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCustomAttributes",P1,P2])
 
 	Func IsDefined P1,P2
-		return dnRequest("call",[self,"IsDefined",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDefined",P1,P2])
 

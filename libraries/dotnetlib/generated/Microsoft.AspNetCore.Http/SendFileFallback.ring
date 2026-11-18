@@ -14,7 +14,7 @@ Class SendFileFallback from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func SendFileAsync P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.SendFileFallback, Microsoft.AspNetCore.Http'),"SendFileAsync",P1,P2,P3,P4,P5])

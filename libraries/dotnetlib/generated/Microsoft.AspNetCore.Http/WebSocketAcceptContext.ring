@@ -22,47 +22,47 @@ Class WebSocketAcceptContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSubProtocol
-		return dnRequest("get",[self,"SubProtocol"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SubProtocol"])
 
 	Func setSubProtocol P1
-		dnRequest("set",[self,"SubProtocol",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SubProtocol",P1])
 		return self
 
 	Func getKeepAliveInterval
-		return dnRequest("get",[self,"KeepAliveInterval"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveInterval"])
 
 	Func setKeepAliveInterval P1
-		dnRequest("set",[self,"KeepAliveInterval",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveInterval",P1])
 		return self
 
 	Func getKeepAliveTimeout
-		return dnRequest("get",[self,"KeepAliveTimeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveTimeout"])
 
 	Func setKeepAliveTimeout P1
-		dnRequest("set",[self,"KeepAliveTimeout",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveTimeout",P1])
 		return self
 
 	Func getDangerousEnableCompression
-		return dnRequest("get",[self,"DangerousEnableCompression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DangerousEnableCompression"])
 
 	Func setDangerousEnableCompression P1
-		dnRequest("set",[self,"DangerousEnableCompression",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DangerousEnableCompression",P1])
 		return self
 
 	Func getDisableServerContextTakeover
-		return dnRequest("get",[self,"DisableServerContextTakeover"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisableServerContextTakeover"])
 
 	Func setDisableServerContextTakeover P1
-		dnRequest("set",[self,"DisableServerContextTakeover",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DisableServerContextTakeover",P1])
 		return self
 
 	Func getServerMaxWindowBits
-		return dnRequest("get",[self,"ServerMaxWindowBits"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ServerMaxWindowBits"])
 
 	Func setServerMaxWindowBits P1
-		dnRequest("set",[self,"ServerMaxWindowBits",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ServerMaxWindowBits",P1])
 		return self
 

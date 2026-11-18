@@ -32,124 +32,124 @@ Class SortedList from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func ContainsKey P1
-		return dnRequest("call",[self,"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
 
 	Func ContainsValue P1
-		return dnRequest("call",[self,"ContainsValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsValue",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func GetByIndex P1
-		return dnRequest("call",[self,"GetByIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetByIndex",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func GetKey P1
-		return dnRequest("call",[self,"GetKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKey",P1])
 
 	Func GetKeyList 
-		return dnRequest("call",[self,"GetKeyList"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetKeyList"])
 
 	Func GetValueList 
-		return dnRequest("call",[self,"GetValueList"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValueList"])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[self,"IndexOfKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
 
 	Func IndexOfValue P1
-		return dnRequest("call",[self,"IndexOfValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfValue",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func SetByIndex P1,P2
-		dnRequest("call",[self,"SetByIndex",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetByIndex",P1,P2])
 		return self
 
 	Func TrimToSize 
-		dnRequest("call",[self,"TrimToSize"])
+		dnRequest("call",[new DotNetObject(nHandle),"TrimToSize"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.Collections.SortedList, System.Collections.NonGeneric'),"Synchronized",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Capacity",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[self,"IsFixedSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedSize"])
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[self,"IsSynchronized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSynchronized"])
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[self,"SyncRoot"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SyncRoot"])
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")

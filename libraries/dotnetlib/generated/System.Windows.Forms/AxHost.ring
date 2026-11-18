@@ -19,74 +19,74 @@ Class AxHost from Control
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func ShowAboutBox 
-		dnRequest("call",[self,"ShowAboutBox"])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowAboutBox"])
 		return self
 
 	Func DoVerb P1
-		dnRequest("call",[self,"DoVerb",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"DoVerb",P1])
 		return self
 
 	Func InvokeEditMode 
-		dnRequest("call",[self,"InvokeEditMode"])
+		dnRequest("call",[new DotNetObject(nHandle),"InvokeEditMode"])
 		return self
 
 	Func GetOcx 
-		return dnRequest("call",[self,"GetOcx"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOcx"])
 
 	Func HasPropertyPages 
-		return dnRequest("call",[self,"HasPropertyPages"])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasPropertyPages"])
 
 	Func MakeDirty 
-		dnRequest("call",[self,"MakeDirty"])
+		dnRequest("call",[new DotNetObject(nHandle),"MakeDirty"])
 		return self
 
 	Func ShowPropertyPages P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ShowPropertyPages",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ShowPropertyPages",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"ShowPropertyPages"])
+			dnRequest("call",[new DotNetObject(nHandle),"ShowPropertyPages"])
 		return self
 		ok
-		dnRequest("call",[self,"ShowPropertyPages",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowPropertyPages",P1])
 		return self
 
 	Func ShowPropertyPages_1 P1
-		dnRequest("call",[self,"ShowPropertyPages",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ShowPropertyPages",P1])
 		return self
 
 	Func getEditMode
-		return dnRequest("get",[self,"EditMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditMode"])
 
 	Func setEditMode P1
 		raise("DotNet Error: EditMode is a read-only property")
 
 	Func getHasAboutBox
-		return dnRequest("get",[self,"HasAboutBox"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasAboutBox"])
 
 	Func setHasAboutBox P1
 		raise("DotNet Error: HasAboutBox is a read-only property")
 
 	Func getOcxState
-		return dnRequest("get",[self,"OcxState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OcxState"])
 
 	Func setOcxState P1
-		dnRequest("set",[self,"OcxState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"OcxState",P1])
 		return self
 
 	Func getContainingControl
-		return dnRequest("get",[self,"ContainingControl"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContainingControl"])
 
 	Func setContainingControl P1
-		dnRequest("set",[self,"ContainingControl",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContainingControl",P1])
 		return self
 

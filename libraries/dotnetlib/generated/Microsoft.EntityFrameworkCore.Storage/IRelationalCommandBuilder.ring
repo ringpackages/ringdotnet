@@ -18,40 +18,40 @@ Class IRelationalCommandBuilder from DotNetObject
 		return self
 
 	Func AddParameter P1
-		return dnRequest("call",[self,"AddParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1])
 
 	Func RemoveParameterAt P1
-		return dnRequest("call",[self,"RemoveParameterAt",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveParameterAt",P1])
 
 	Func Build 
-		return dnRequest("call",[self,"Build"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func Append P1
-		return dnRequest("call",[self,"Append",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
 
 	Func AppendLine 
-		return dnRequest("call",[self,"AppendLine"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine"])
 
 	Func IncrementIndent 
-		return dnRequest("call",[self,"IncrementIndent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IncrementIndent"])
 
 	Func DecrementIndent 
-		return dnRequest("call",[self,"DecrementIndent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecrementIndent"])
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getTypeMappingSource
-		return dnRequest("get",[self,"TypeMappingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
 		raise("DotNet Error: TypeMappingSource is a read-only property")
 
 	Func getCommandTextLength
-		return dnRequest("get",[self,"CommandTextLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandTextLength"])
 
 	Func setCommandTextLength P1
 		raise("DotNet Error: CommandTextLength is a read-only property")

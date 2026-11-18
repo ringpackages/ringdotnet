@@ -17,16 +17,16 @@ Class IDatabaseProvider from DotNetObject
 		return self
 
 	Func IsConfigured P1
-		return dnRequest("call",[self,"IsConfigured",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsConfigured",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

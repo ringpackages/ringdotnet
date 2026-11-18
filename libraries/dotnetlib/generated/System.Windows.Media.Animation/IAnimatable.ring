@@ -16,26 +16,26 @@ Class IAnimatable from DotNetObject
 		return self
 
 	Func ApplyAnimationClock P1,P2
-		dnRequest("call",[self,"ApplyAnimationClock",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2])
 		return self
 
 	Func ApplyAnimationClock_3 P1,P2,P3
-		dnRequest("call",[self,"ApplyAnimationClock",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2,P3])
 		return self
 
 	Func BeginAnimation P1,P2
-		dnRequest("call",[self,"BeginAnimation",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2])
 		return self
 
 	Func BeginAnimation_3 P1,P2,P3
-		dnRequest("call",[self,"BeginAnimation",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2,P3])
 		return self
 
 	Func GetAnimationBaseValue P1
-		return dnRequest("call",[self,"GetAnimationBaseValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
 
 	Func getHasAnimatedProperties
-		return dnRequest("get",[self,"HasAnimatedProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasAnimatedProperties"])
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")

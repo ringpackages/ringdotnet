@@ -14,7 +14,7 @@ Class IntrospectionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetTypeInfo P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.IntrospectionExtensions, System.Private.CoreLib'),"GetTypeInfo",P1])

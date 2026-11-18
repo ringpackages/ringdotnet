@@ -26,13 +26,13 @@ Class MemberIdentity from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.MemberIdentity, Microsoft.EntityFrameworkCore'),"Create",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getMemberInfo
-		return dnRequest("get",[self,"MemberInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberInfo"])
 
 	Func setMemberInfo P1
 		raise("DotNet Error: MemberInfo is a read-only property")

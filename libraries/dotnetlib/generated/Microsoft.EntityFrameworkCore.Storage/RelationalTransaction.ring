@@ -18,94 +18,94 @@ Class RelationalTransaction from Object
 		return self
 
 	Func Commit 
-		dnRequest("call",[self,"Commit"])
+		dnRequest("call",[new DotNetObject(nHandle),"Commit"])
 		return self
 
 	Func Rollback 
-		dnRequest("call",[self,"Rollback"])
+		dnRequest("call",[new DotNetObject(nHandle),"Rollback"])
 		return self
 
 	Func CommitAsync_1 P1
-		return dnRequest("call",[self,"CommitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
 
 	Func CommitAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CommitAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CommitAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync"])
 		ok
-		return dnRequest("call",[self,"CommitAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
 
 	Func RollbackAsync_1 P1
-		return dnRequest("call",[self,"RollbackAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1])
 
 	Func RollbackAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RollbackAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RollbackAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync"])
 		ok
-		return dnRequest("call",[self,"RollbackAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1])
 
 	Func CreateSavepoint P1
-		dnRequest("call",[self,"CreateSavepoint",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CreateSavepoint",P1])
 		return self
 
 	Func CreateSavepointAsync_2 P1,P2
-		return dnRequest("call",[self,"CreateSavepointAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSavepointAsync",P1,P2])
 
 	Func CreateSavepointAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateSavepointAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSavepointAsync",P1])
 		ok
-		return dnRequest("call",[self,"CreateSavepointAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSavepointAsync",P1])
 
 	Func RollbackToSavepoint P1
-		dnRequest("call",[self,"RollbackToSavepoint",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RollbackToSavepoint",P1])
 		return self
 
 	Func RollbackToSavepointAsync_2 P1,P2
-		return dnRequest("call",[self,"RollbackToSavepointAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackToSavepointAsync",P1,P2])
 
 	Func RollbackToSavepointAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RollbackToSavepointAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackToSavepointAsync",P1])
 		ok
-		return dnRequest("call",[self,"RollbackToSavepointAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackToSavepointAsync",P1])
 
 	Func ReleaseSavepoint P1
-		dnRequest("call",[self,"ReleaseSavepoint",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseSavepoint",P1])
 		return self
 
 	Func ReleaseSavepointAsync_2 P1,P2
-		return dnRequest("call",[self,"ReleaseSavepointAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseSavepointAsync",P1,P2])
 
 	Func ReleaseSavepointAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReleaseSavepointAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReleaseSavepointAsync",P1])
 		ok
-		return dnRequest("call",[self,"ReleaseSavepointAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseSavepointAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTransactionId
-		return dnRequest("get",[self,"TransactionId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransactionId"])
 
 	Func setTransactionId P1
 		raise("DotNet Error: TransactionId is a read-only property")
 
 	Func getSupportsSavepoints
-		return dnRequest("get",[self,"SupportsSavepoints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsSavepoints"])
 
 	Func setSupportsSavepoints P1
 		raise("DotNet Error: SupportsSavepoints is a read-only property")

@@ -35,108 +35,108 @@ Class StringBuilder from Object
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[self,"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCapacity",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Clear 
-		return dnRequest("call",[self,"Clear"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 
 	Func GetChunks 
-		return dnRequest("call",[self,"GetChunks"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetChunks"])
 
 	Func Append_2 P1,P2
-		return dnRequest("call",[self,"Append",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1,P2])
 
 	Func Append_3 P1,P2,P3
-		return dnRequest("call",[self,"Append",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1,P2,P3])
 
 	Func Append P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Append",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Append",P1])
 		ok
-		return dnRequest("call",[self,"Append",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
 
 	Func AppendLine P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AppendLine",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLine",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AppendLine"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AppendLine"])
 		ok
-		return dnRequest("call",[self,"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
 	Func AppendLine_1 P1
-		return dnRequest("call",[self,"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
 	Func CopyTo P1,P2,P3,P4
-		dnRequest("call",[self,"CopyTo",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3,P4])
 		return self
 
 	Func Insert_3 P1,P2,P3
-		return dnRequest("call",[self,"Insert",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3])
 
 	Func Remove P1,P2
-		return dnRequest("call",[self,"Remove",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 
 	Func AppendLine_2 P1,P2
-		return dnRequest("call",[self,"AppendLine",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1,P2])
 
 	Func AppendJoin P1,P2
-		return dnRequest("call",[self,"AppendJoin",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendJoin",P1,P2])
 
 	Func Insert P1,P2
-		return dnRequest("call",[self,"Insert",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 
 	Func Insert_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Insert",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3,P4])
 
 	Func AppendFormat P1,P2
-		return dnRequest("call",[self,"AppendFormat",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendFormat",P1,P2])
 
 	Func AppendFormat_3 P1,P2,P3
-		return dnRequest("call",[self,"AppendFormat",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendFormat",P1,P2,P3])
 
 	Func AppendFormat_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AppendFormat",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendFormat",P1,P2,P3,P4])
 
 	Func AppendFormat_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"AppendFormat",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendFormat",P1,P2,P3,P4,P5])
 
 	Func Replace P1,P2
-		return dnRequest("call",[self,"Replace",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Replace_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Replace",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3,P4])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
 
 	Func setCapacity P1
-		dnRequest("set",[self,"Capacity",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Capacity",P1])
 		return self
 
 	Func getMaxCapacity
-		return dnRequest("get",[self,"MaxCapacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxCapacity"])
 
 	Func setMaxCapacity P1
 		raise("DotNet Error: MaxCapacity is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
 
 	Func setLength P1
-		dnRequest("set",[self,"Length",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Length",P1])
 		return self
 

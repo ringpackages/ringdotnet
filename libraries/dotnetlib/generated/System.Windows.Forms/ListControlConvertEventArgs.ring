@@ -17,7 +17,7 @@ Class ListControlConvertEventArgs from ConvertEventArgs
 		return self
 
 	Func getListItem
-		return dnRequest("get",[self,"ListItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ListItem"])
 
 	Func setListItem P1
 		raise("DotNet Error: ListItem is a read-only property")

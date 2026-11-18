@@ -18,13 +18,13 @@ Class TwoPropertyBaseCollectionsEventData from EventData
 		return self
 
 	Func getFirstPropertyCollection
-		return dnRequest("get",[self,"FirstPropertyCollection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstPropertyCollection"])
 
 	Func setFirstPropertyCollection P1
 		raise("DotNet Error: FirstPropertyCollection is a read-only property")
 
 	Func getSecondPropertyCollection
-		return dnRequest("get",[self,"SecondPropertyCollection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecondPropertyCollection"])
 
 	Func setSecondPropertyCollection P1
 		raise("DotNet Error: SecondPropertyCollection is a read-only property")

@@ -18,29 +18,29 @@ Class Container from Object
 
 	Func Add P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Add_2 P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getComponents
-		return dnRequest("get",[self,"Components"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Components"])
 
 	Func setComponents P1
 		raise("DotNet Error: Components is a read-only property")

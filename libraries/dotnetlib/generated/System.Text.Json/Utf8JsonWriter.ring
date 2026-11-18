@@ -25,158 +25,158 @@ Class Utf8JsonWriter from Object
 
 	Func Reset P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Reset",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Reset",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Reset"])
+			dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 		ok
-		dnRequest("call",[self,"Reset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset",P1])
 		return self
 
 	Func Reset_1 P1
-		dnRequest("call",[self,"Reset",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Reset",P1])
 		return self
 
 	Func Flush 
-		dnRequest("call",[self,"Flush"])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func FlushAsync_1 P1
-		return dnRequest("call",[self,"FlushAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
 
 	Func FlushAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FlushAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FlushAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"FlushAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync"])
 		ok
-		return dnRequest("call",[self,"FlushAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
 
 	Func WriteStartArray_0 
-		dnRequest("call",[self,"WriteStartArray"])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteStartArray"])
 		return self
 
 	Func WriteStartObject_0 
-		dnRequest("call",[self,"WriteStartObject"])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteStartObject"])
 		return self
 
 	Func WriteStartArray P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"WriteStartArray",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteStartArray",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"WriteStartArray"])
+			dnRequest("call",[new DotNetObject(nHandle),"WriteStartArray"])
 		return self
 		ok
-		dnRequest("call",[self,"WriteStartArray",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteStartArray",P1])
 		return self
 
 	Func WriteStartObject P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"WriteStartObject",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteStartObject",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"WriteStartObject"])
+			dnRequest("call",[new DotNetObject(nHandle),"WriteStartObject"])
 		return self
 		ok
-		dnRequest("call",[self,"WriteStartObject",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteStartObject",P1])
 		return self
 
 	Func WriteEndArray 
-		dnRequest("call",[self,"WriteEndArray"])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteEndArray"])
 		return self
 
 	Func WriteEndObject 
-		dnRequest("call",[self,"WriteEndObject"])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteEndObject"])
 		return self
 
 	Func WriteString P1,P2
-		dnRequest("call",[self,"WriteString",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteString",P1,P2])
 		return self
 
 	Func WriteNumber P1,P2
-		dnRequest("call",[self,"WriteNumber",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteNumber",P1,P2])
 		return self
 
 	Func WriteNull P1
-		dnRequest("call",[self,"WriteNull",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteNull",P1])
 		return self
 
 	Func WriteBoolean P1,P2
-		dnRequest("call",[self,"WriteBoolean",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteBoolean",P1,P2])
 		return self
 
 	Func WritePropertyName P1
-		dnRequest("call",[self,"WritePropertyName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WritePropertyName",P1])
 		return self
 
 	Func WriteCommentValue P1
-		dnRequest("call",[self,"WriteCommentValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteCommentValue",P1])
 		return self
 
 	Func WriteStringValue P1
-		dnRequest("call",[self,"WriteStringValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteStringValue",P1])
 		return self
 
 	Func WriteNumberValue P1
-		dnRequest("call",[self,"WriteNumberValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteNumberValue",P1])
 		return self
 
 	Func WriteNullValue 
-		dnRequest("call",[self,"WriteNullValue"])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteNullValue"])
 		return self
 
 	Func WriteBooleanValue P1
-		dnRequest("call",[self,"WriteBooleanValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteBooleanValue",P1])
 		return self
 
 	Func WriteRawValue_2 P1,P2
-		dnRequest("call",[self,"WriteRawValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteRawValue",P1,P2])
 		return self
 
 	Func WriteRawValue P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"WriteRawValue",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteRawValue",P1])
 			return self
 		ok
-		dnRequest("call",[self,"WriteRawValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteRawValue",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBytesPending
-		return dnRequest("get",[self,"BytesPending"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BytesPending"])
 
 	Func setBytesPending P1
 		raise("DotNet Error: BytesPending is a read-only property")
 
 	Func getBytesCommitted
-		return dnRequest("get",[self,"BytesCommitted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BytesCommitted"])
 
 	Func setBytesCommitted P1
 		raise("DotNet Error: BytesCommitted is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[self,"Options"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getCurrentDepth
-		return dnRequest("get",[self,"CurrentDepth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentDepth"])
 
 	Func setCurrentDepth P1
 		raise("DotNet Error: CurrentDepth is a read-only property")

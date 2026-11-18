@@ -17,10 +17,10 @@ Class EndpointNameMetadata from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEndpointName
-		return dnRequest("get",[self,"EndpointName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EndpointName"])
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")

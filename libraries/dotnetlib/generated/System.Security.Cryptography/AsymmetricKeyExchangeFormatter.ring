@@ -16,23 +16,23 @@ Class AsymmetricKeyExchangeFormatter from Object
 		return self
 
 	Func SetKey P1
-		dnRequest("call",[self,"SetKey",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetKey",P1])
 		return self
 
 	Func CreateKeyExchange P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateKeyExchange",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateKeyExchange",P1])
 		ok
-		return dnRequest("call",[self,"CreateKeyExchange",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateKeyExchange",P1])
 
 	Func CreateKeyExchange_2 P1,P2
-		return dnRequest("call",[self,"CreateKeyExchange",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateKeyExchange",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")

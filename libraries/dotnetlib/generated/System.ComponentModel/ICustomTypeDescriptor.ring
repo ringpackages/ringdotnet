@@ -16,64 +16,64 @@ Class ICustomTypeDescriptor from DotNetObject
 		return self
 
 	Func GetAttributes 
-		return dnRequest("call",[self,"GetAttributes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAttributes"])
 
 	Func GetClassName 
-		return dnRequest("call",[self,"GetClassName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetClassName"])
 
 	Func GetComponentName 
-		return dnRequest("call",[self,"GetComponentName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetComponentName"])
 
 	Func GetConverter 
-		return dnRequest("call",[self,"GetConverter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConverter"])
 
 	Func GetDefaultEvent 
-		return dnRequest("call",[self,"GetDefaultEvent"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultEvent"])
 
 	Func GetDefaultProperty 
-		return dnRequest("call",[self,"GetDefaultProperty"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultProperty"])
 
 	Func GetEditor P1
-		return dnRequest("call",[self,"GetEditor",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEditor",P1])
 
 	Func GetEvents P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetEvents",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetEvents",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetEvents"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetEvents"])
 		ok
-		return dnRequest("call",[self,"GetEvents",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEvents",P1])
 
 	Func GetEvents_1 P1
-		return dnRequest("call",[self,"GetEvents",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEvents",P1])
 
 	Func GetProperties P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetProperties",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetProperties",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetProperties"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetProperties"])
 		ok
-		return dnRequest("call",[self,"GetProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
 
 	Func GetProperties_1 P1
-		return dnRequest("call",[self,"GetProperties",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
 
 	Func GetPropertyOwner P1
-		return dnRequest("call",[self,"GetPropertyOwner",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyOwner",P1])
 
 	Func GetConverterFromRegisteredType 
-		return dnRequest("call",[self,"GetConverterFromRegisteredType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetConverterFromRegisteredType"])
 
 	Func GetEventsFromRegisteredType 
-		return dnRequest("call",[self,"GetEventsFromRegisteredType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEventsFromRegisteredType"])
 
 	Func GetPropertiesFromRegisteredType 
-		return dnRequest("call",[self,"GetPropertiesFromRegisteredType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesFromRegisteredType"])
 
 	Func getRequireRegisteredTypes
-		return dnRequest("get",[self,"RequireRegisteredTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequireRegisteredTypes"])
 
 	Func setRequireRegisteredTypes P1
 		raise("DotNet Error: RequireRegisteredTypes is a read-only property")

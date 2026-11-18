@@ -43,7 +43,7 @@ Class Matrix4x4 from ValueType
 		return self
 
 	Func GetDeterminant 
-		return dnRequest("call",[self,"GetDeterminant"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDeterminant"])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"Add",P1,P2])
@@ -196,128 +196,128 @@ Class Matrix4x4 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"Transpose",P1])
 
 	Func getIsIdentity
-		return dnRequest("get",[self,"IsIdentity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIdentity"])
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getTranslation
-		return dnRequest("get",[self,"Translation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Translation"])
 
 	Func setTranslation P1
-		dnRequest("set",[self,"Translation",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Translation",P1])
 		return self
 
 	Func getM11
-		return dnRequest("get",[self,"M11"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M11"])
 
 	Func setM11 P1
-		dnRequest("set",[self,"M11",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M11",P1])
 		return self
 
 	Func getM12
-		return dnRequest("get",[self,"M12"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M12"])
 
 	Func setM12 P1
-		dnRequest("set",[self,"M12",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M12",P1])
 		return self
 
 	Func getM13
-		return dnRequest("get",[self,"M13"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M13"])
 
 	Func setM13 P1
-		dnRequest("set",[self,"M13",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M13",P1])
 		return self
 
 	Func getM14
-		return dnRequest("get",[self,"M14"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M14"])
 
 	Func setM14 P1
-		dnRequest("set",[self,"M14",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M14",P1])
 		return self
 
 	Func getM21
-		return dnRequest("get",[self,"M21"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M21"])
 
 	Func setM21 P1
-		dnRequest("set",[self,"M21",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M21",P1])
 		return self
 
 	Func getM22
-		return dnRequest("get",[self,"M22"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M22"])
 
 	Func setM22 P1
-		dnRequest("set",[self,"M22",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M22",P1])
 		return self
 
 	Func getM23
-		return dnRequest("get",[self,"M23"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M23"])
 
 	Func setM23 P1
-		dnRequest("set",[self,"M23",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M23",P1])
 		return self
 
 	Func getM24
-		return dnRequest("get",[self,"M24"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M24"])
 
 	Func setM24 P1
-		dnRequest("set",[self,"M24",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M24",P1])
 		return self
 
 	Func getM31
-		return dnRequest("get",[self,"M31"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M31"])
 
 	Func setM31 P1
-		dnRequest("set",[self,"M31",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M31",P1])
 		return self
 
 	Func getM32
-		return dnRequest("get",[self,"M32"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M32"])
 
 	Func setM32 P1
-		dnRequest("set",[self,"M32",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M32",P1])
 		return self
 
 	Func getM33
-		return dnRequest("get",[self,"M33"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M33"])
 
 	Func setM33 P1
-		dnRequest("set",[self,"M33",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M33",P1])
 		return self
 
 	Func getM34
-		return dnRequest("get",[self,"M34"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M34"])
 
 	Func setM34 P1
-		dnRequest("set",[self,"M34",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M34",P1])
 		return self
 
 	Func getM41
-		return dnRequest("get",[self,"M41"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M41"])
 
 	Func setM41 P1
-		dnRequest("set",[self,"M41",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M41",P1])
 		return self
 
 	Func getM42
-		return dnRequest("get",[self,"M42"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M42"])
 
 	Func setM42 P1
-		dnRequest("set",[self,"M42",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M42",P1])
 		return self
 
 	Func getM43
-		return dnRequest("get",[self,"M43"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M43"])
 
 	Func setM43 P1
-		dnRequest("set",[self,"M43",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M43",P1])
 		return self
 
 	Func getM44
-		return dnRequest("get",[self,"M44"])
+		return dnRequest("get",[new DotNetObject(nHandle),"M44"])
 
 	Func setM44 P1
-		dnRequest("set",[self,"M44",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"M44",P1])
 		return self
 
 	Func getIdentity

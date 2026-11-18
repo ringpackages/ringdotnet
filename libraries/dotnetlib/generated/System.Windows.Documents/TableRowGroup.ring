@@ -17,10 +17,10 @@ Class TableRowGroup from TextElement
 		return self
 
 	Func ShouldSerializeRows 
-		return dnRequest("call",[self,"ShouldSerializeRows"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeRows"])
 
 	Func getRows
-		return dnRequest("get",[self,"Rows"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rows"])
 
 	Func setRows P1
 		raise("DotNet Error: Rows is a read-only property")

@@ -17,15 +17,15 @@ Class MaterializerLiftableConstantContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Deconstruct 
-		return dnRequest("call",[self,"Deconstruct"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
 
 	Func getDependencies
-		return dnRequest("get",[self,"Dependencies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Dependencies"])
 
 	Func setDependencies P1
-		dnRequest("set",[self,"Dependencies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Dependencies",P1])
 		return self
 

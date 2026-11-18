@@ -15,8 +15,8 @@ Class UrlHelperFactory from Object
 		return self
 
 	Func GetUrlHelper P1
-		return dnRequest("call",[self,"GetUrlHelper",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUrlHelper",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

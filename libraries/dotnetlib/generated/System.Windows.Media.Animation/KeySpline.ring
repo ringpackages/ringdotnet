@@ -26,22 +26,22 @@ Class KeySpline from Freezable
 		return self
 
 	Func GetSplineProgress P1
-		return dnRequest("call",[self,"GetSplineProgress",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSplineProgress",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getControlPoint1
-		return dnRequest("get",[self,"ControlPoint1"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ControlPoint1"])
 
 	Func setControlPoint1 P1
-		dnRequest("set",[self,"ControlPoint1",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ControlPoint1",P1])
 		return self
 
 	Func getControlPoint2
-		return dnRequest("get",[self,"ControlPoint2"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ControlPoint2"])
 
 	Func setControlPoint2 P1
-		dnRequest("set",[self,"ControlPoint2",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ControlPoint2",P1])
 		return self
 

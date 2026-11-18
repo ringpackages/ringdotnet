@@ -18,13 +18,13 @@ Class StateChangedEventData from EntityEntryEventData
 		return self
 
 	Func getOldState
-		return dnRequest("get",[self,"OldState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldState"])
 
 	Func setOldState P1
 		raise("DotNet Error: OldState is a read-only property")
 
 	Func getNewState
-		return dnRequest("get",[self,"NewState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewState"])
 
 	Func setNewState P1
 		raise("DotNet Error: NewState is a read-only property")

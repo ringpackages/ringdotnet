@@ -19,25 +19,25 @@ Class IFunctionMapping from DotNetObject
 		return self
 
 	Func getIsDefaultFunctionMapping
-		return dnRequest("get",[self,"IsDefaultFunctionMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDefaultFunctionMapping"])
 
 	Func setIsDefaultFunctionMapping P1
 		raise("DotNet Error: IsDefaultFunctionMapping is a read-only property")
 
 	Func getStoreFunction
-		return dnRequest("get",[self,"StoreFunction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StoreFunction"])
 
 	Func setStoreFunction P1
 		raise("DotNet Error: StoreFunction is a read-only property")
 
 	Func getDbFunction
-		return dnRequest("get",[self,"DbFunction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DbFunction"])
 
 	Func setDbFunction P1
 		raise("DotNet Error: DbFunction is a read-only property")
 
 	Func getColumnMappings
-		return dnRequest("get",[self,"ColumnMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnMappings"])
 
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")

@@ -127,622 +127,622 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func ColumnFromDisplayIndex P1
-		return dnRequest("call",[self,"ColumnFromDisplayIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ColumnFromDisplayIndex",P1])
 
 	Func SetDetailsVisibilityForItem P1,P2
-		dnRequest("call",[self,"SetDetailsVisibilityForItem",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetDetailsVisibilityForItem",P1,P2])
 		return self
 
 	Func GetDetailsVisibilityForItem P1
-		return dnRequest("call",[self,"GetDetailsVisibilityForItem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDetailsVisibilityForItem",P1])
 
 	Func ClearDetailsVisibilityForItem P1
-		dnRequest("call",[self,"ClearDetailsVisibilityForItem",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearDetailsVisibilityForItem",P1])
 		return self
 
 	Func ScrollIntoView P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"ScrollIntoView",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ScrollIntoView",P1])
 			return self
 		ok
-		dnRequest("call",[self,"ScrollIntoView",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollIntoView",P1])
 		return self
 
 	Func ScrollIntoView_2 P1,P2
-		dnRequest("call",[self,"ScrollIntoView",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ScrollIntoView",P1,P2])
 		return self
 
 	Func BeginEdit P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"BeginEdit",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginEdit",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"BeginEdit"])
+			return dnRequest("call",[new DotNetObject(nHandle),"BeginEdit"])
 		ok
-		return dnRequest("call",[self,"BeginEdit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginEdit",P1])
 
 	Func BeginEdit_1 P1
-		return dnRequest("call",[self,"BeginEdit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginEdit",P1])
 
 	Func CancelEdit P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CancelEdit",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CancelEdit",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CancelEdit"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CancelEdit"])
 		ok
-		return dnRequest("call",[self,"CancelEdit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CancelEdit",P1])
 
 	Func CancelEdit_1 P1
-		return dnRequest("call",[self,"CancelEdit",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CancelEdit",P1])
 
 	Func CommitEdit P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CommitEdit",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitEdit",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CommitEdit"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CommitEdit"])
 		ok
 		raise("DotNet Error: CommitEdit does not take one argument: use CommitEdit(NULL), CommitEdit_N(...) or named arguments")
 
 	Func CommitEdit_2 P1,P2
-		return dnRequest("call",[self,"CommitEdit",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitEdit",P1,P2])
 
 	Func SelectAllCells 
-		dnRequest("call",[self,"SelectAllCells"])
+		dnRequest("call",[new DotNetObject(nHandle),"SelectAllCells"])
 		return self
 
 	Func UnselectAllCells 
-		dnRequest("call",[self,"UnselectAllCells"])
+		dnRequest("call",[new DotNetObject(nHandle),"UnselectAllCells"])
 		return self
 
 	Func GenerateColumns P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.DataGrid, PresentationFramework'),"GenerateColumns",P1])
 
 	Func setColumnDisplayIndexChangedEvent P1
-		dnRequest("setevent",[self,"ColumnDisplayIndexChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnDisplayIndexChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnDisplayIndexChangedEvent
-		dnRequest("clearevent",[self,"ColumnDisplayIndexChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnDisplayIndexChanged"])
 		return self
 
 	Func setLoadingRowEvent P1
-		dnRequest("setevent",[self,"LoadingRow",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LoadingRow",dnCallback(P1)])
 		return self
 
 	Func clearLoadingRowEvent
-		dnRequest("clearevent",[self,"LoadingRow"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadingRow"])
 		return self
 
 	Func setUnloadingRowEvent P1
-		dnRequest("setevent",[self,"UnloadingRow",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UnloadingRow",dnCallback(P1)])
 		return self
 
 	Func clearUnloadingRowEvent
-		dnRequest("clearevent",[self,"UnloadingRow"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UnloadingRow"])
 		return self
 
 	Func setRowEditEndingEvent P1
-		dnRequest("setevent",[self,"RowEditEnding",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RowEditEnding",dnCallback(P1)])
 		return self
 
 	Func clearRowEditEndingEvent
-		dnRequest("clearevent",[self,"RowEditEnding"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RowEditEnding"])
 		return self
 
 	Func setCellEditEndingEvent P1
-		dnRequest("setevent",[self,"CellEditEnding",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CellEditEnding",dnCallback(P1)])
 		return self
 
 	Func clearCellEditEndingEvent
-		dnRequest("clearevent",[self,"CellEditEnding"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CellEditEnding"])
 		return self
 
 	Func setCurrentCellChangedEvent P1
-		dnRequest("setevent",[self,"CurrentCellChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentCellChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentCellChangedEvent
-		dnRequest("clearevent",[self,"CurrentCellChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentCellChanged"])
 		return self
 
 	Func setBeginningEditEvent P1
-		dnRequest("setevent",[self,"BeginningEdit",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"BeginningEdit",dnCallback(P1)])
 		return self
 
 	Func clearBeginningEditEvent
-		dnRequest("clearevent",[self,"BeginningEdit"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"BeginningEdit"])
 		return self
 
 	Func setPreparingCellForEditEvent P1
-		dnRequest("setevent",[self,"PreparingCellForEdit",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PreparingCellForEdit",dnCallback(P1)])
 		return self
 
 	Func clearPreparingCellForEditEvent
-		dnRequest("clearevent",[self,"PreparingCellForEdit"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PreparingCellForEdit"])
 		return self
 
 	Func setAddingNewItemEvent P1
-		dnRequest("setevent",[self,"AddingNewItem",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AddingNewItem",dnCallback(P1)])
 		return self
 
 	Func clearAddingNewItemEvent
-		dnRequest("clearevent",[self,"AddingNewItem"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AddingNewItem"])
 		return self
 
 	Func setInitializingNewItemEvent P1
-		dnRequest("setevent",[self,"InitializingNewItem",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"InitializingNewItem",dnCallback(P1)])
 		return self
 
 	Func clearInitializingNewItemEvent
-		dnRequest("clearevent",[self,"InitializingNewItem"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"InitializingNewItem"])
 		return self
 
 	Func setLoadingRowDetailsEvent P1
-		dnRequest("setevent",[self,"LoadingRowDetails",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LoadingRowDetails",dnCallback(P1)])
 		return self
 
 	Func clearLoadingRowDetailsEvent
-		dnRequest("clearevent",[self,"LoadingRowDetails"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadingRowDetails"])
 		return self
 
 	Func setUnloadingRowDetailsEvent P1
-		dnRequest("setevent",[self,"UnloadingRowDetails",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"UnloadingRowDetails",dnCallback(P1)])
 		return self
 
 	Func clearUnloadingRowDetailsEvent
-		dnRequest("clearevent",[self,"UnloadingRowDetails"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"UnloadingRowDetails"])
 		return self
 
 	Func setRowDetailsVisibilityChangedEvent P1
-		dnRequest("setevent",[self,"RowDetailsVisibilityChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RowDetailsVisibilityChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowDetailsVisibilityChangedEvent
-		dnRequest("clearevent",[self,"RowDetailsVisibilityChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RowDetailsVisibilityChanged"])
 		return self
 
 	Func setSelectedCellsChangedEvent P1
-		dnRequest("setevent",[self,"SelectedCellsChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedCellsChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedCellsChangedEvent
-		dnRequest("clearevent",[self,"SelectedCellsChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedCellsChanged"])
 		return self
 
 	Func setSortingEvent P1
-		dnRequest("setevent",[self,"Sorting",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Sorting",dnCallback(P1)])
 		return self
 
 	Func clearSortingEvent
-		dnRequest("clearevent",[self,"Sorting"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Sorting"])
 		return self
 
 	Func setAutoGeneratedColumnsEvent P1
-		dnRequest("setevent",[self,"AutoGeneratedColumns",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AutoGeneratedColumns",dnCallback(P1)])
 		return self
 
 	Func clearAutoGeneratedColumnsEvent
-		dnRequest("clearevent",[self,"AutoGeneratedColumns"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AutoGeneratedColumns"])
 		return self
 
 	Func setAutoGeneratingColumnEvent P1
-		dnRequest("setevent",[self,"AutoGeneratingColumn",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"AutoGeneratingColumn",dnCallback(P1)])
 		return self
 
 	Func clearAutoGeneratingColumnEvent
-		dnRequest("clearevent",[self,"AutoGeneratingColumn"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"AutoGeneratingColumn"])
 		return self
 
 	Func setColumnReorderingEvent P1
-		dnRequest("setevent",[self,"ColumnReordering",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnReordering",dnCallback(P1)])
 		return self
 
 	Func clearColumnReorderingEvent
-		dnRequest("clearevent",[self,"ColumnReordering"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnReordering"])
 		return self
 
 	Func setColumnHeaderDragStartedEvent P1
-		dnRequest("setevent",[self,"ColumnHeaderDragStarted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeaderDragStarted",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeaderDragStartedEvent
-		dnRequest("clearevent",[self,"ColumnHeaderDragStarted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeaderDragStarted"])
 		return self
 
 	Func setColumnHeaderDragDeltaEvent P1
-		dnRequest("setevent",[self,"ColumnHeaderDragDelta",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeaderDragDelta",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeaderDragDeltaEvent
-		dnRequest("clearevent",[self,"ColumnHeaderDragDelta"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeaderDragDelta"])
 		return self
 
 	Func setColumnHeaderDragCompletedEvent P1
-		dnRequest("setevent",[self,"ColumnHeaderDragCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeaderDragCompleted",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeaderDragCompletedEvent
-		dnRequest("clearevent",[self,"ColumnHeaderDragCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeaderDragCompleted"])
 		return self
 
 	Func setColumnReorderedEvent P1
-		dnRequest("setevent",[self,"ColumnReordered",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnReordered",dnCallback(P1)])
 		return self
 
 	Func clearColumnReorderedEvent
-		dnRequest("clearevent",[self,"ColumnReordered"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnReordered"])
 		return self
 
 	Func setCopyingRowClipboardContentEvent P1
-		dnRequest("setevent",[self,"CopyingRowClipboardContent",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CopyingRowClipboardContent",dnCallback(P1)])
 		return self
 
 	Func clearCopyingRowClipboardContentEvent
-		dnRequest("clearevent",[self,"CopyingRowClipboardContent"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CopyingRowClipboardContent"])
 		return self
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getCanUserResizeColumns
-		return dnRequest("get",[self,"CanUserResizeColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUserResizeColumns"])
 
 	Func setCanUserResizeColumns P1
-		dnRequest("set",[self,"CanUserResizeColumns",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanUserResizeColumns",P1])
 		return self
 
 	Func getColumnWidth
-		return dnRequest("get",[self,"ColumnWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnWidth"])
 
 	Func setColumnWidth P1
-		dnRequest("set",[self,"ColumnWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnWidth",P1])
 		return self
 
 	Func getMinColumnWidth
-		return dnRequest("get",[self,"MinColumnWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinColumnWidth"])
 
 	Func setMinColumnWidth P1
-		dnRequest("set",[self,"MinColumnWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinColumnWidth",P1])
 		return self
 
 	Func getMaxColumnWidth
-		return dnRequest("get",[self,"MaxColumnWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxColumnWidth"])
 
 	Func setMaxColumnWidth P1
-		dnRequest("set",[self,"MaxColumnWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxColumnWidth",P1])
 		return self
 
 	Func getGridLinesVisibility
-		return dnRequest("get",[self,"GridLinesVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GridLinesVisibility"])
 
 	Func setGridLinesVisibility P1
-		dnRequest("set",[self,"GridLinesVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GridLinesVisibility",P1])
 		return self
 
 	Func getHorizontalGridLinesBrush
-		return dnRequest("get",[self,"HorizontalGridLinesBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalGridLinesBrush"])
 
 	Func setHorizontalGridLinesBrush P1
-		dnRequest("set",[self,"HorizontalGridLinesBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HorizontalGridLinesBrush",P1])
 		return self
 
 	Func getVerticalGridLinesBrush
-		return dnRequest("get",[self,"VerticalGridLinesBrush"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalGridLinesBrush"])
 
 	Func setVerticalGridLinesBrush P1
-		dnRequest("set",[self,"VerticalGridLinesBrush",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VerticalGridLinesBrush",P1])
 		return self
 
 	Func getRowStyle
-		return dnRequest("get",[self,"RowStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowStyle"])
 
 	Func setRowStyle P1
-		dnRequest("set",[self,"RowStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowStyle",P1])
 		return self
 
 	Func getRowValidationErrorTemplate
-		return dnRequest("get",[self,"RowValidationErrorTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowValidationErrorTemplate"])
 
 	Func setRowValidationErrorTemplate P1
-		dnRequest("set",[self,"RowValidationErrorTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowValidationErrorTemplate",P1])
 		return self
 
 	Func getRowValidationRules
-		return dnRequest("get",[self,"RowValidationRules"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowValidationRules"])
 
 	Func setRowValidationRules P1
 		raise("DotNet Error: RowValidationRules is a read-only property")
 
 	Func getRowStyleSelector
-		return dnRequest("get",[self,"RowStyleSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowStyleSelector"])
 
 	Func setRowStyleSelector P1
-		dnRequest("set",[self,"RowStyleSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowStyleSelector",P1])
 		return self
 
 	Func getRowBackground
-		return dnRequest("get",[self,"RowBackground"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowBackground"])
 
 	Func setRowBackground P1
-		dnRequest("set",[self,"RowBackground",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowBackground",P1])
 		return self
 
 	Func getAlternatingRowBackground
-		return dnRequest("get",[self,"AlternatingRowBackground"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AlternatingRowBackground"])
 
 	Func setAlternatingRowBackground P1
-		dnRequest("set",[self,"AlternatingRowBackground",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AlternatingRowBackground",P1])
 		return self
 
 	Func getRowHeight
-		return dnRequest("get",[self,"RowHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowHeight"])
 
 	Func setRowHeight P1
-		dnRequest("set",[self,"RowHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowHeight",P1])
 		return self
 
 	Func getMinRowHeight
-		return dnRequest("get",[self,"MinRowHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinRowHeight"])
 
 	Func setMinRowHeight P1
-		dnRequest("set",[self,"MinRowHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinRowHeight",P1])
 		return self
 
 	Func getRowHeaderWidth
-		return dnRequest("get",[self,"RowHeaderWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowHeaderWidth"])
 
 	Func setRowHeaderWidth P1
-		dnRequest("set",[self,"RowHeaderWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowHeaderWidth",P1])
 		return self
 
 	Func getRowHeaderActualWidth
-		return dnRequest("get",[self,"RowHeaderActualWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowHeaderActualWidth"])
 
 	Func setRowHeaderActualWidth P1
 		raise("DotNet Error: RowHeaderActualWidth is a read-only property")
 
 	Func getColumnHeaderHeight
-		return dnRequest("get",[self,"ColumnHeaderHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderHeight"])
 
 	Func setColumnHeaderHeight P1
-		dnRequest("set",[self,"ColumnHeaderHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderHeight",P1])
 		return self
 
 	Func getHeadersVisibility
-		return dnRequest("get",[self,"HeadersVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeadersVisibility"])
 
 	Func setHeadersVisibility P1
-		dnRequest("set",[self,"HeadersVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeadersVisibility",P1])
 		return self
 
 	Func getCellStyle
-		return dnRequest("get",[self,"CellStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellStyle"])
 
 	Func setCellStyle P1
-		dnRequest("set",[self,"CellStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellStyle",P1])
 		return self
 
 	Func getColumnHeaderStyle
-		return dnRequest("get",[self,"ColumnHeaderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderStyle"])
 
 	Func setColumnHeaderStyle P1
-		dnRequest("set",[self,"ColumnHeaderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderStyle",P1])
 		return self
 
 	Func getRowHeaderStyle
-		return dnRequest("get",[self,"RowHeaderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowHeaderStyle"])
 
 	Func setRowHeaderStyle P1
-		dnRequest("set",[self,"RowHeaderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowHeaderStyle",P1])
 		return self
 
 	Func getRowHeaderTemplate
-		return dnRequest("get",[self,"RowHeaderTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowHeaderTemplate"])
 
 	Func setRowHeaderTemplate P1
-		dnRequest("set",[self,"RowHeaderTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowHeaderTemplate",P1])
 		return self
 
 	Func getRowHeaderTemplateSelector
-		return dnRequest("get",[self,"RowHeaderTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowHeaderTemplateSelector"])
 
 	Func setRowHeaderTemplateSelector P1
-		dnRequest("set",[self,"RowHeaderTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowHeaderTemplateSelector",P1])
 		return self
 
 	Func getHorizontalScrollBarVisibility
-		return dnRequest("get",[self,"HorizontalScrollBarVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalScrollBarVisibility"])
 
 	Func setHorizontalScrollBarVisibility P1
-		dnRequest("set",[self,"HorizontalScrollBarVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HorizontalScrollBarVisibility",P1])
 		return self
 
 	Func getVerticalScrollBarVisibility
-		return dnRequest("get",[self,"VerticalScrollBarVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"VerticalScrollBarVisibility"])
 
 	Func setVerticalScrollBarVisibility P1
-		dnRequest("set",[self,"VerticalScrollBarVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"VerticalScrollBarVisibility",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
-		dnRequest("set",[self,"IsReadOnly",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsReadOnly",P1])
 		return self
 
 	Func getCurrentItem
-		return dnRequest("get",[self,"CurrentItem"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentItem"])
 
 	Func setCurrentItem P1
-		dnRequest("set",[self,"CurrentItem",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentItem",P1])
 		return self
 
 	Func getCurrentColumn
-		return dnRequest("get",[self,"CurrentColumn"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentColumn"])
 
 	Func setCurrentColumn P1
-		dnRequest("set",[self,"CurrentColumn",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentColumn",P1])
 		return self
 
 	Func getCurrentCell
-		return dnRequest("get",[self,"CurrentCell"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentCell"])
 
 	Func setCurrentCell P1
-		dnRequest("set",[self,"CurrentCell",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentCell",P1])
 		return self
 
 	Func getCanUserAddRows
-		return dnRequest("get",[self,"CanUserAddRows"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUserAddRows"])
 
 	Func setCanUserAddRows P1
-		dnRequest("set",[self,"CanUserAddRows",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanUserAddRows",P1])
 		return self
 
 	Func getCanUserDeleteRows
-		return dnRequest("get",[self,"CanUserDeleteRows"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUserDeleteRows"])
 
 	Func setCanUserDeleteRows P1
-		dnRequest("set",[self,"CanUserDeleteRows",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanUserDeleteRows",P1])
 		return self
 
 	Func getRowDetailsVisibilityMode
-		return dnRequest("get",[self,"RowDetailsVisibilityMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowDetailsVisibilityMode"])
 
 	Func setRowDetailsVisibilityMode P1
-		dnRequest("set",[self,"RowDetailsVisibilityMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowDetailsVisibilityMode",P1])
 		return self
 
 	Func getAreRowDetailsFrozen
-		return dnRequest("get",[self,"AreRowDetailsFrozen"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreRowDetailsFrozen"])
 
 	Func setAreRowDetailsFrozen P1
-		dnRequest("set",[self,"AreRowDetailsFrozen",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AreRowDetailsFrozen",P1])
 		return self
 
 	Func getRowDetailsTemplate
-		return dnRequest("get",[self,"RowDetailsTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowDetailsTemplate"])
 
 	Func setRowDetailsTemplate P1
-		dnRequest("set",[self,"RowDetailsTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowDetailsTemplate",P1])
 		return self
 
 	Func getRowDetailsTemplateSelector
-		return dnRequest("get",[self,"RowDetailsTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowDetailsTemplateSelector"])
 
 	Func setRowDetailsTemplateSelector P1
-		dnRequest("set",[self,"RowDetailsTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowDetailsTemplateSelector",P1])
 		return self
 
 	Func getCanUserResizeRows
-		return dnRequest("get",[self,"CanUserResizeRows"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUserResizeRows"])
 
 	Func setCanUserResizeRows P1
-		dnRequest("set",[self,"CanUserResizeRows",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanUserResizeRows",P1])
 		return self
 
 	Func getNewItemMargin
-		return dnRequest("get",[self,"NewItemMargin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewItemMargin"])
 
 	Func setNewItemMargin P1
 		raise("DotNet Error: NewItemMargin is a read-only property")
 
 	Func getSelectedCells
-		return dnRequest("get",[self,"SelectedCells"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectedCells"])
 
 	Func setSelectedCells P1
 		raise("DotNet Error: SelectedCells is a read-only property")
 
 	Func getSelectionMode
-		return dnRequest("get",[self,"SelectionMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionMode"])
 
 	Func setSelectionMode P1
-		dnRequest("set",[self,"SelectionMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionMode",P1])
 		return self
 
 	Func getSelectionUnit
-		return dnRequest("get",[self,"SelectionUnit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SelectionUnit"])
 
 	Func setSelectionUnit P1
-		dnRequest("set",[self,"SelectionUnit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SelectionUnit",P1])
 		return self
 
 	Func getCanUserSortColumns
-		return dnRequest("get",[self,"CanUserSortColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUserSortColumns"])
 
 	Func setCanUserSortColumns P1
-		dnRequest("set",[self,"CanUserSortColumns",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanUserSortColumns",P1])
 		return self
 
 	Func getAutoGenerateColumns
-		return dnRequest("get",[self,"AutoGenerateColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoGenerateColumns"])
 
 	Func setAutoGenerateColumns P1
-		dnRequest("set",[self,"AutoGenerateColumns",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoGenerateColumns",P1])
 		return self
 
 	Func getFrozenColumnCount
-		return dnRequest("get",[self,"FrozenColumnCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FrozenColumnCount"])
 
 	Func setFrozenColumnCount P1
-		dnRequest("set",[self,"FrozenColumnCount",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FrozenColumnCount",P1])
 		return self
 
 	Func getNonFrozenColumnsViewportHorizontalOffset
-		return dnRequest("get",[self,"NonFrozenColumnsViewportHorizontalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NonFrozenColumnsViewportHorizontalOffset"])
 
 	Func setNonFrozenColumnsViewportHorizontalOffset P1
 		raise("DotNet Error: NonFrozenColumnsViewportHorizontalOffset is a read-only property")
 
 	Func getEnableRowVirtualization
-		return dnRequest("get",[self,"EnableRowVirtualization"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableRowVirtualization"])
 
 	Func setEnableRowVirtualization P1
-		dnRequest("set",[self,"EnableRowVirtualization",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableRowVirtualization",P1])
 		return self
 
 	Func getEnableColumnVirtualization
-		return dnRequest("get",[self,"EnableColumnVirtualization"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EnableColumnVirtualization"])
 
 	Func setEnableColumnVirtualization P1
-		dnRequest("set",[self,"EnableColumnVirtualization",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EnableColumnVirtualization",P1])
 		return self
 
 	Func getCanUserReorderColumns
-		return dnRequest("get",[self,"CanUserReorderColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanUserReorderColumns"])
 
 	Func setCanUserReorderColumns P1
-		dnRequest("set",[self,"CanUserReorderColumns",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CanUserReorderColumns",P1])
 		return self
 
 	Func getDragIndicatorStyle
-		return dnRequest("get",[self,"DragIndicatorStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DragIndicatorStyle"])
 
 	Func setDragIndicatorStyle P1
-		dnRequest("set",[self,"DragIndicatorStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DragIndicatorStyle",P1])
 		return self
 
 	Func getDropLocationIndicatorStyle
-		return dnRequest("get",[self,"DropLocationIndicatorStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DropLocationIndicatorStyle"])
 
 	Func setDropLocationIndicatorStyle P1
-		dnRequest("set",[self,"DropLocationIndicatorStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DropLocationIndicatorStyle",P1])
 		return self
 
 	Func getClipboardCopyMode
-		return dnRequest("get",[self,"ClipboardCopyMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ClipboardCopyMode"])
 
 	Func setClipboardCopyMode P1
-		dnRequest("set",[self,"ClipboardCopyMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ClipboardCopyMode",P1])
 		return self
 
 	Func getCellsPanelHorizontalOffset
-		return dnRequest("get",[self,"CellsPanelHorizontalOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellsPanelHorizontalOffset"])
 
 	Func setCellsPanelHorizontalOffset P1
 		raise("DotNet Error: CellsPanelHorizontalOffset is a read-only property")

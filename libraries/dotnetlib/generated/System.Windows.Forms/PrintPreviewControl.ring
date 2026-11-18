@@ -23,63 +23,63 @@ Class PrintPreviewControl from Control
 		return self
 
 	Func InvalidatePreview 
-		dnRequest("call",[self,"InvalidatePreview"])
+		dnRequest("call",[new DotNetObject(nHandle),"InvalidatePreview"])
 		return self
 
 	Func setStartPageChangedEvent P1
-		dnRequest("setevent",[self,"StartPageChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StartPageChanged",dnCallback(P1)])
 		return self
 
 	Func clearStartPageChangedEvent
-		dnRequest("clearevent",[self,"StartPageChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StartPageChanged"])
 		return self
 
 	Func getUseAntiAlias
-		return dnRequest("get",[self,"UseAntiAlias"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UseAntiAlias"])
 
 	Func setUseAntiAlias P1
-		dnRequest("set",[self,"UseAntiAlias",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UseAntiAlias",P1])
 		return self
 
 	Func getAutoZoom
-		return dnRequest("get",[self,"AutoZoom"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoZoom"])
 
 	Func setAutoZoom P1
-		dnRequest("set",[self,"AutoZoom",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AutoZoom",P1])
 		return self
 
 	Func getZoom
-		return dnRequest("get",[self,"Zoom"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Zoom"])
 
 	Func setZoom P1
-		dnRequest("set",[self,"Zoom",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Zoom",P1])
 		return self
 
 	Func getDocument
-		return dnRequest("get",[self,"Document"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[self,"Document",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
 		return self
 
 	Func getRows
-		return dnRequest("get",[self,"Rows"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Rows"])
 
 	Func setRows P1
-		dnRequest("set",[self,"Rows",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Rows",P1])
 		return self
 
 	Func getColumns
-		return dnRequest("get",[self,"Columns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
 
 	Func setColumns P1
-		dnRequest("set",[self,"Columns",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Columns",P1])
 		return self
 
 	Func getStartPage
-		return dnRequest("get",[self,"StartPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StartPage"])
 
 	Func setStartPage P1
-		dnRequest("set",[self,"StartPage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StartPage",P1])
 		return self
 

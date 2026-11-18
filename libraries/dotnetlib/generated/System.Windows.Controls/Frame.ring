@@ -34,161 +34,161 @@ Class Frame from ContentControl
 		return self
 
 	Func AddBackEntry P1
-		dnRequest("call",[self,"AddBackEntry",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddBackEntry",P1])
 		return self
 
 	Func RemoveBackEntry 
-		return dnRequest("call",[self,"RemoveBackEntry"])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveBackEntry"])
 
 	Func Navigate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Navigate",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Navigate",P1])
 		ok
-		return dnRequest("call",[self,"Navigate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
 
 	Func Navigate_2 P1,P2
-		return dnRequest("call",[self,"Navigate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2])
 
 	Func GoForward 
-		dnRequest("call",[self,"GoForward"])
+		dnRequest("call",[new DotNetObject(nHandle),"GoForward"])
 		return self
 
 	Func GoBack 
-		dnRequest("call",[self,"GoBack"])
+		dnRequest("call",[new DotNetObject(nHandle),"GoBack"])
 		return self
 
 	Func StopLoading 
-		dnRequest("call",[self,"StopLoading"])
+		dnRequest("call",[new DotNetObject(nHandle),"StopLoading"])
 		return self
 
 	Func Refresh 
-		dnRequest("call",[self,"Refresh"])
+		dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
 		return self
 
 	Func setContentRenderedEvent P1
-		dnRequest("setevent",[self,"ContentRendered",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ContentRendered",dnCallback(P1)])
 		return self
 
 	Func clearContentRenderedEvent
-		dnRequest("clearevent",[self,"ContentRendered"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ContentRendered"])
 		return self
 
 	Func setNavigatingEvent P1
-		dnRequest("setevent",[self,"Navigating",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Navigating",dnCallback(P1)])
 		return self
 
 	Func clearNavigatingEvent
-		dnRequest("clearevent",[self,"Navigating"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigating"])
 		return self
 
 	Func setNavigationProgressEvent P1
-		dnRequest("setevent",[self,"NavigationProgress",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationProgress",dnCallback(P1)])
 		return self
 
 	Func clearNavigationProgressEvent
-		dnRequest("clearevent",[self,"NavigationProgress"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationProgress"])
 		return self
 
 	Func setNavigationFailedEvent P1
-		dnRequest("setevent",[self,"NavigationFailed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationFailed",dnCallback(P1)])
 		return self
 
 	Func clearNavigationFailedEvent
-		dnRequest("clearevent",[self,"NavigationFailed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationFailed"])
 		return self
 
 	Func setNavigatedEvent P1
-		dnRequest("setevent",[self,"Navigated",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Navigated",dnCallback(P1)])
 		return self
 
 	Func clearNavigatedEvent
-		dnRequest("clearevent",[self,"Navigated"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigated"])
 		return self
 
 	Func setLoadCompletedEvent P1
-		dnRequest("setevent",[self,"LoadCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"LoadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearLoadCompletedEvent
-		dnRequest("clearevent",[self,"LoadCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadCompleted"])
 		return self
 
 	Func setNavigationStoppedEvent P1
-		dnRequest("setevent",[self,"NavigationStopped",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationStopped",dnCallback(P1)])
 		return self
 
 	Func clearNavigationStoppedEvent
-		dnRequest("clearevent",[self,"NavigationStopped"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationStopped"])
 		return self
 
 	Func setFragmentNavigationEvent P1
-		dnRequest("setevent",[self,"FragmentNavigation",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"FragmentNavigation",dnCallback(P1)])
 		return self
 
 	Func clearFragmentNavigationEvent
-		dnRequest("clearevent",[self,"FragmentNavigation"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"FragmentNavigation"])
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
-		dnRequest("set",[self,"Source",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
 		return self
 
 	Func getNavigationUIVisibility
-		return dnRequest("get",[self,"NavigationUIVisibility"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NavigationUIVisibility"])
 
 	Func setNavigationUIVisibility P1
-		dnRequest("set",[self,"NavigationUIVisibility",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NavigationUIVisibility",P1])
 		return self
 
 	Func getSandboxExternalContent
-		return dnRequest("get",[self,"SandboxExternalContent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SandboxExternalContent"])
 
 	Func setSandboxExternalContent P1
-		dnRequest("set",[self,"SandboxExternalContent",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SandboxExternalContent",P1])
 		return self
 
 	Func getJournalOwnership
-		return dnRequest("get",[self,"JournalOwnership"])
+		return dnRequest("get",[new DotNetObject(nHandle),"JournalOwnership"])
 
 	Func setJournalOwnership P1
-		dnRequest("set",[self,"JournalOwnership",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"JournalOwnership",P1])
 		return self
 
 	Func getNavigationService
-		return dnRequest("get",[self,"NavigationService"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NavigationService"])
 
 	Func setNavigationService P1
 		raise("DotNet Error: NavigationService is a read-only property")
 
 	Func getCanGoForward
-		return dnRequest("get",[self,"CanGoForward"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanGoForward"])
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getCanGoBack
-		return dnRequest("get",[self,"CanGoBack"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanGoBack"])
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")
 
 	Func getCurrentSource
-		return dnRequest("get",[self,"CurrentSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentSource"])
 
 	Func setCurrentSource P1
 		raise("DotNet Error: CurrentSource is a read-only property")
 
 	Func getBackStack
-		return dnRequest("get",[self,"BackStack"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BackStack"])
 
 	Func setBackStack P1
 		raise("DotNet Error: BackStack is a read-only property")
 
 	Func getForwardStack
-		return dnRequest("get",[self,"ForwardStack"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ForwardStack"])
 
 	Func setForwardStack P1
 		raise("DotNet Error: ForwardStack is a read-only property")

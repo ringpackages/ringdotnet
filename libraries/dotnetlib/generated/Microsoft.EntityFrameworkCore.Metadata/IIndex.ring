@@ -17,16 +17,16 @@ Class IIndex from DotNetObject
 		return self
 
 	Func GetNullableValueFactory 
-		return dnRequest("call",[self,"GetNullableValueFactory"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNullableValueFactory"])
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")

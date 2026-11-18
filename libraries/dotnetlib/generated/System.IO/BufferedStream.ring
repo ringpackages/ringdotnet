@@ -22,13 +22,13 @@ Class BufferedStream from Stream
 		return self
 
 	Func getUnderlyingStream
-		return dnRequest("get",[self,"UnderlyingStream"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnderlyingStream"])
 
 	Func setUnderlyingStream P1
 		raise("DotNet Error: UnderlyingStream is a read-only property")
 
 	Func getBufferSize
-		return dnRequest("get",[self,"BufferSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BufferSize"])
 
 	Func setBufferSize P1
 		raise("DotNet Error: BufferSize is a read-only property")

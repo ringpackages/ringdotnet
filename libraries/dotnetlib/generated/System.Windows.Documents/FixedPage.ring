@@ -65,37 +65,37 @@ Class FixedPage from FrameworkElement
 		return self
 
 	Func getChildren
-		return dnRequest("get",[self,"Children"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getPrintTicket
-		return dnRequest("get",[self,"PrintTicket"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrintTicket"])
 
 	Func setPrintTicket P1
-		dnRequest("set",[self,"PrintTicket",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PrintTicket",P1])
 		return self
 
 	Func getBackground
-		return dnRequest("get",[self,"Background"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[self,"Background",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
 		return self
 
 	Func getContentBox
-		return dnRequest("get",[self,"ContentBox"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentBox"])
 
 	Func setContentBox P1
-		dnRequest("set",[self,"ContentBox",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentBox",P1])
 		return self
 
 	Func getBleedBox
-		return dnRequest("get",[self,"BleedBox"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BleedBox"])
 
 	Func setBleedBox P1
-		dnRequest("set",[self,"BleedBox",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BleedBox",P1])
 		return self
 
 	Func getPrintTicketProperty

@@ -17,58 +17,58 @@ Class XmlSchemas from CollectionBase
 		return self
 
 	Func GetSchemas P1
-		return dnRequest("call",[self,"GetSchemas",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemas",P1])
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func Add_2 P1,P2
-		return dnRequest("call",[self,"Add",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func AddReference P1
-		dnRequest("call",[self,"AddReference",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddReference",P1])
 		return self
 
 	Func Insert P1,P2
-		dnRequest("call",[self,"Insert",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Find P1,P2
-		return dnRequest("call",[self,"Find",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
 
 	Func Compile P1,P2
-		dnRequest("call",[self,"Compile",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Compile",P1,P2])
 		return self
 
 	Func IsDataSet P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSchemas, System.Private.Xml'),"IsDataSet",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getIsCompiled
-		return dnRequest("get",[self,"IsCompiled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCompiled"])
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")

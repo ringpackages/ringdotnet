@@ -23,103 +23,103 @@ Class TableLayoutPanel from Panel
 		return self
 
 	Func GetColumnSpan P1
-		return dnRequest("call",[self,"GetColumnSpan",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnSpan",P1])
 
 	Func SetColumnSpan P1,P2
-		dnRequest("call",[self,"SetColumnSpan",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetColumnSpan",P1,P2])
 		return self
 
 	Func GetRowSpan P1
-		return dnRequest("call",[self,"GetRowSpan",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRowSpan",P1])
 
 	Func SetRowSpan P1,P2
-		dnRequest("call",[self,"SetRowSpan",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetRowSpan",P1,P2])
 		return self
 
 	Func GetRow P1
-		return dnRequest("call",[self,"GetRow",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRow",P1])
 
 	Func SetRow P1,P2
-		dnRequest("call",[self,"SetRow",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetRow",P1,P2])
 		return self
 
 	Func GetCellPosition P1
-		return dnRequest("call",[self,"GetCellPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCellPosition",P1])
 
 	Func SetCellPosition P1,P2
-		dnRequest("call",[self,"SetCellPosition",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCellPosition",P1,P2])
 		return self
 
 	Func GetColumn P1
-		return dnRequest("call",[self,"GetColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumn",P1])
 
 	Func SetColumn P1,P2
-		dnRequest("call",[self,"SetColumn",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetColumn",P1,P2])
 		return self
 
 	Func GetControlFromPosition P1,P2
-		return dnRequest("call",[self,"GetControlFromPosition",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetControlFromPosition",P1,P2])
 
 	Func GetPositionFromControl P1
-		return dnRequest("call",[self,"GetPositionFromControl",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionFromControl",P1])
 
 	Func GetColumnWidths 
-		return dnRequest("call",[self,"GetColumnWidths"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnWidths"])
 
 	Func GetRowHeights 
-		return dnRequest("call",[self,"GetRowHeights"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRowHeights"])
 
 	Func setCellPaintEvent P1
-		dnRequest("setevent",[self,"CellPaint",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CellPaint",dnCallback(P1)])
 		return self
 
 	Func clearCellPaintEvent
-		dnRequest("clearevent",[self,"CellPaint"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CellPaint"])
 		return self
 
 	Func getLayoutSettings
-		return dnRequest("get",[self,"LayoutSettings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LayoutSettings"])
 
 	Func setLayoutSettings P1
-		dnRequest("set",[self,"LayoutSettings",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"LayoutSettings",P1])
 		return self
 
 	Func getCellBorderStyle
-		return dnRequest("get",[self,"CellBorderStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CellBorderStyle"])
 
 	Func setCellBorderStyle P1
-		dnRequest("set",[self,"CellBorderStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CellBorderStyle",P1])
 		return self
 
 	Func getColumnCount
-		return dnRequest("get",[self,"ColumnCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnCount"])
 
 	Func setColumnCount P1
-		dnRequest("set",[self,"ColumnCount",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ColumnCount",P1])
 		return self
 
 	Func getGrowStyle
-		return dnRequest("get",[self,"GrowStyle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GrowStyle"])
 
 	Func setGrowStyle P1
-		dnRequest("set",[self,"GrowStyle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GrowStyle",P1])
 		return self
 
 	Func getRowCount
-		return dnRequest("get",[self,"RowCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowCount"])
 
 	Func setRowCount P1
-		dnRequest("set",[self,"RowCount",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowCount",P1])
 		return self
 
 	Func getRowStyles
-		return dnRequest("get",[self,"RowStyles"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowStyles"])
 
 	Func setRowStyles P1
 		raise("DotNet Error: RowStyles is a read-only property")
 
 	Func getColumnStyles
-		return dnRequest("get",[self,"ColumnStyles"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnStyles"])
 
 	Func setColumnStyles P1
 		raise("DotNet Error: ColumnStyles is a read-only property")

@@ -48,36 +48,36 @@ Class Font from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetHeight_1 P1
-		return dnRequest("call",[self,"GetHeight",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHeight",P1])
 
 	Func ToLogFont_2 P1,P2
-		dnRequest("call",[self,"ToLogFont",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ToLogFont",P1,P2])
 		return self
 
 	Func ToLogFont_1 P1
-		return dnRequest("call",[self,"ToLogFont",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToLogFont",P1])
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func ToLogFont P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToLogFont",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToLogFont",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToLogFont"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToLogFont"])
 		ok
-		return dnRequest("call",[self,"ToLogFont",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToLogFont",P1])
 
 	Func ToHfont 
-		return dnRequest("call",[self,"ToHfont"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToHfont"])
 
 	Func GetHeight_0 
-		return dnRequest("call",[self,"GetHeight"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHeight"])
 
 	Func FromHfont P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromHfont",P1])
@@ -95,97 +95,97 @@ Class Font from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromHdc",P1])
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getStyle
-		return dnRequest("get",[self,"Style"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
 
 	Func setStyle P1
 		raise("DotNet Error: Style is a read-only property")
 
 	Func getBold
-		return dnRequest("get",[self,"Bold"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bold"])
 
 	Func setBold P1
 		raise("DotNet Error: Bold is a read-only property")
 
 	Func getItalic
-		return dnRequest("get",[self,"Italic"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Italic"])
 
 	Func setItalic P1
 		raise("DotNet Error: Italic is a read-only property")
 
 	Func getStrikeout
-		return dnRequest("get",[self,"Strikeout"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Strikeout"])
 
 	Func setStrikeout P1
 		raise("DotNet Error: Strikeout is a read-only property")
 
 	Func getUnderline
-		return dnRequest("get",[self,"Underline"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Underline"])
 
 	Func setUnderline P1
 		raise("DotNet Error: Underline is a read-only property")
 
 	Func getFontFamily
-		return dnRequest("get",[self,"FontFamily"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FontFamily"])
 
 	Func setFontFamily P1
 		raise("DotNet Error: FontFamily is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getUnit
-		return dnRequest("get",[self,"Unit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Unit"])
 
 	Func setUnit P1
 		raise("DotNet Error: Unit is a read-only property")
 
 	Func getGdiCharSet
-		return dnRequest("get",[self,"GdiCharSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GdiCharSet"])
 
 	Func setGdiCharSet P1
 		raise("DotNet Error: GdiCharSet is a read-only property")
 
 	Func getGdiVerticalFont
-		return dnRequest("get",[self,"GdiVerticalFont"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GdiVerticalFont"])
 
 	Func setGdiVerticalFont P1
 		raise("DotNet Error: GdiVerticalFont is a read-only property")
 
 	Func getOriginalFontName
-		return dnRequest("get",[self,"OriginalFontName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalFontName"])
 
 	Func setOriginalFontName P1
 		raise("DotNet Error: OriginalFontName is a read-only property")
 
 	Func getSystemFontName
-		return dnRequest("get",[self,"SystemFontName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SystemFontName"])
 
 	Func setSystemFontName P1
 		raise("DotNet Error: SystemFontName is a read-only property")
 
 	Func getIsSystemFont
-		return dnRequest("get",[self,"IsSystemFont"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSystemFont"])
 
 	Func setIsSystemFont P1
 		raise("DotNet Error: IsSystemFont is a read-only property")
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getSizeInPoints
-		return dnRequest("get",[self,"SizeInPoints"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SizeInPoints"])
 
 	Func setSizeInPoints P1
 		raise("DotNet Error: SizeInPoints is a read-only property")

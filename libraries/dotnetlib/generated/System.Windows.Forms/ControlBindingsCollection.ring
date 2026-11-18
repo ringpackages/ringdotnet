@@ -20,57 +20,57 @@ Class ControlBindingsCollection from BindingsCollection
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
-		dnRequest("call",[self,"Add",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
 	Func Add_3 P1,P2,P3
-		return dnRequest("call",[self,"Add",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 
 	Func Add_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Add",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4])
 
 	Func Add_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Add",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4,P5])
 
 	Func Add_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"Add",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4,P5,P6])
 
 	Func Add_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"Add",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4,P5,P6,P7])
 
 	Func Add_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[self,"Add",P1,P2,P3,P4,P5,P6,P7,P8])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[self,"Remove",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[self,"RemoveAt",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
 
 	Func getBindableComponent
-		return dnRequest("get",[self,"BindableComponent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindableComponent"])
 
 	Func setBindableComponent P1
 		raise("DotNet Error: BindableComponent is a read-only property")
 
 	Func getControl
-		return dnRequest("get",[self,"Control"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getDefaultDataSourceUpdateMode
-		return dnRequest("get",[self,"DefaultDataSourceUpdateMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultDataSourceUpdateMode"])
 
 	Func setDefaultDataSourceUpdateMode P1
-		dnRequest("set",[self,"DefaultDataSourceUpdateMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DefaultDataSourceUpdateMode",P1])
 		return self
 

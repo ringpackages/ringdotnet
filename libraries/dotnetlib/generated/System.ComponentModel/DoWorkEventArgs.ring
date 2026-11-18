@@ -18,15 +18,15 @@ Class DoWorkEventArgs from CancelEventArgs
 		return self
 
 	Func getArgument
-		return dnRequest("get",[self,"Argument"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Argument"])
 
 	Func setArgument P1
 		raise("DotNet Error: Argument is a read-only property")
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Result",P1])
 		return self
 

@@ -33,143 +33,143 @@ Class Assembly from Object
 		return self
 
 	Func GetTypes 
-		return dnRequest("call",[self,"GetTypes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetTypes"])
 
 	Func GetExportedTypes_0 
-		return dnRequest("call",[self,"GetExportedTypes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetExportedTypes"])
 
 	Func GetForwardedTypes 
-		return dnRequest("call",[self,"GetForwardedTypes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetForwardedTypes"])
 
 	Func GetManifestResourceInfo P1
-		return dnRequest("call",[self,"GetManifestResourceInfo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetManifestResourceInfo",P1])
 
 	Func GetManifestResourceNames 
-		return dnRequest("call",[self,"GetManifestResourceNames"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetManifestResourceNames"])
 
 	Func GetManifestResourceStream P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetManifestResourceStream",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetManifestResourceStream",P1])
 		ok
-		return dnRequest("call",[self,"GetManifestResourceStream",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetManifestResourceStream",P1])
 
 	Func GetManifestResourceStream_2 P1,P2
-		return dnRequest("call",[self,"GetManifestResourceStream",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetManifestResourceStream",P1,P2])
 
 	Func GetName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetName",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetName"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetName"])
 		ok
-		return dnRequest("call",[self,"GetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetName",P1])
 
 	Func GetName_1 P1
-		return dnRequest("call",[self,"GetName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetName",P1])
 
 	Func GetType_1 P1
-		return dnRequest("call",[self,"GetType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType",P1])
 
 	Func GetType_2 P1,P2
-		return dnRequest("call",[self,"GetType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType",P1,P2])
 
 	Func GetType_3 P1,P2,P3
-		return dnRequest("call",[self,"GetType",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType",P1,P2,P3])
 
 	Func IsDefined P1,P2
-		return dnRequest("call",[self,"IsDefined",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDefined",P1,P2])
 
 	Func GetCustomAttributesData 
-		return dnRequest("call",[self,"GetCustomAttributesData"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCustomAttributesData"])
 
 	Func GetCustomAttributes_1 P1
-		return dnRequest("call",[self,"GetCustomAttributes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCustomAttributes",P1])
 
 	Func GetCustomAttributes_2 P1,P2
-		return dnRequest("call",[self,"GetCustomAttributes",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCustomAttributes",P1,P2])
 
 	Func CreateInstance P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateInstance",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateInstance",P1])
 		ok
-		return dnRequest("call",[self,"CreateInstance",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1])
 
 	Func CreateInstance_2 P1,P2
-		return dnRequest("call",[self,"CreateInstance",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2])
 
 	Func CreateInstance_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"CreateInstance",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2,P3,P4,P5,P6,P7])
 
 	Func GetModule P1
-		return dnRequest("call",[self,"GetModule",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetModule",P1])
 
 	Func GetModules_0 
-		return dnRequest("call",[self,"GetModules"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetModules"])
 
 	Func GetModules_1 P1
-		return dnRequest("call",[self,"GetModules",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetModules",P1])
 
 	Func GetLoadedModules P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetLoadedModules",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetLoadedModules",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetLoadedModules"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetLoadedModules"])
 		ok
-		return dnRequest("call",[self,"GetLoadedModules",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLoadedModules",P1])
 
 	Func GetLoadedModules_1 P1
-		return dnRequest("call",[self,"GetLoadedModules",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLoadedModules",P1])
 
 	Func GetReferencedAssemblies 
-		return dnRequest("call",[self,"GetReferencedAssemblies"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReferencedAssemblies"])
 
 	Func GetSatelliteAssembly P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetSatelliteAssembly",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetSatelliteAssembly",P1])
 		ok
-		return dnRequest("call",[self,"GetSatelliteAssembly",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSatelliteAssembly",P1])
 
 	Func GetSatelliteAssembly_2 P1,P2
-		return dnRequest("call",[self,"GetSatelliteAssembly",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSatelliteAssembly",P1,P2])
 
 	Func GetFile P1
-		return dnRequest("call",[self,"GetFile",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFile",P1])
 
 	Func GetFiles P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetFiles",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFiles",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetFiles"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetFiles"])
 		ok
-		return dnRequest("call",[self,"GetFiles",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1])
 
 	Func GetFiles_1 P1
-		return dnRequest("call",[self,"GetFiles",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1])
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func LoadModule P1,P2
-		return dnRequest("call",[self,"LoadModule",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadModule",P1,P2])
 
 	Func LoadModule_3 P1,P2,P3
-		return dnRequest("call",[self,"LoadModule",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadModule",P1,P2,P3])
 
 	Func GetType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetType",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetType"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 		ok
-		return dnRequest("call",[self,"GetType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType",P1])
 
 	Func Load_ P1
 		if dnIsNamed(P1)
@@ -224,117 +224,117 @@ Class Assembly from Object
 		return dnRequest("call",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"ReflectionOnlyLoadFrom",P1])
 
 	Func setModuleResolveEvent P1
-		dnRequest("setevent",[self,"ModuleResolve",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ModuleResolve",dnCallback(P1)])
 		return self
 
 	Func clearModuleResolveEvent
-		dnRequest("clearevent",[self,"ModuleResolve"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ModuleResolve"])
 		return self
 
 	Func getDefinedTypes
-		return dnRequest("get",[self,"DefinedTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefinedTypes"])
 
 	Func setDefinedTypes P1
 		raise("DotNet Error: DefinedTypes is a read-only property")
 
 	Func getExportedTypes
-		return dnRequest("get",[self,"ExportedTypes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExportedTypes"])
 
 	Func setExportedTypes P1
 		raise("DotNet Error: ExportedTypes is a read-only property")
 
 	Func getCodeBase
-		return dnRequest("get",[self,"CodeBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CodeBase"])
 
 	Func setCodeBase P1
 		raise("DotNet Error: CodeBase is a read-only property")
 
 	Func getEntryPoint
-		return dnRequest("get",[self,"EntryPoint"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntryPoint"])
 
 	Func setEntryPoint P1
 		raise("DotNet Error: EntryPoint is a read-only property")
 
 	Func getFullName
-		return dnRequest("get",[self,"FullName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FullName"])
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getImageRuntimeVersion
-		return dnRequest("get",[self,"ImageRuntimeVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImageRuntimeVersion"])
 
 	Func setImageRuntimeVersion P1
 		raise("DotNet Error: ImageRuntimeVersion is a read-only property")
 
 	Func getIsDynamic
-		return dnRequest("get",[self,"IsDynamic"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDynamic"])
 
 	Func setIsDynamic P1
 		raise("DotNet Error: IsDynamic is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[self,"Location"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getReflectionOnly
-		return dnRequest("get",[self,"ReflectionOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReflectionOnly"])
 
 	Func setReflectionOnly P1
 		raise("DotNet Error: ReflectionOnly is a read-only property")
 
 	Func getIsCollectible
-		return dnRequest("get",[self,"IsCollectible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCollectible"])
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getIsFullyTrusted
-		return dnRequest("get",[self,"IsFullyTrusted"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFullyTrusted"])
 
 	Func setIsFullyTrusted P1
 		raise("DotNet Error: IsFullyTrusted is a read-only property")
 
 	Func getCustomAttributes
-		return dnRequest("get",[self,"CustomAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CustomAttributes"])
 
 	Func setCustomAttributes P1
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getEscapedCodeBase
-		return dnRequest("get",[self,"EscapedCodeBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EscapedCodeBase"])
 
 	Func setEscapedCodeBase P1
 		raise("DotNet Error: EscapedCodeBase is a read-only property")
 
 	Func getManifestModule
-		return dnRequest("get",[self,"ManifestModule"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ManifestModule"])
 
 	Func setManifestModule P1
 		raise("DotNet Error: ManifestModule is a read-only property")
 
 	Func getModules
-		return dnRequest("get",[self,"Modules"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Modules"])
 
 	Func setModules P1
 		raise("DotNet Error: Modules is a read-only property")
 
 	Func getGlobalAssemblyCache
-		return dnRequest("get",[self,"GlobalAssemblyCache"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GlobalAssemblyCache"])
 
 	Func setGlobalAssemblyCache P1
 		raise("DotNet Error: GlobalAssemblyCache is a read-only property")
 
 	Func getHostContext
-		return dnRequest("get",[self,"HostContext"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HostContext"])
 
 	Func setHostContext P1
 		raise("DotNet Error: HostContext is a read-only property")
 
 	Func getSecurityRuleSet
-		return dnRequest("get",[self,"SecurityRuleSet"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SecurityRuleSet"])
 
 	Func setSecurityRuleSet P1
 		raise("DotNet Error: SecurityRuleSet is a read-only property")

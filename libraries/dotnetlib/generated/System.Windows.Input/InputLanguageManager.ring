@@ -20,15 +20,15 @@ Class InputLanguageManager from DispatcherObject
 		return self
 
 	Func RegisterInputLanguageSource P1
-		dnRequest("call",[self,"RegisterInputLanguageSource",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterInputLanguageSource",P1])
 		return self
 
 	Func ReportInputLanguageChanged P1,P2
-		dnRequest("call",[self,"ReportInputLanguageChanged",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ReportInputLanguageChanged",P1,P2])
 		return self
 
 	Func ReportInputLanguageChanging P1,P2
-		return dnRequest("call",[self,"ReportInputLanguageChanging",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReportInputLanguageChanging",P1,P2])
 
 	Func SetInputLanguage P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Input.InputLanguageManager, PresentationCore'),"SetInputLanguage",P1,P2])
@@ -45,30 +45,30 @@ Class InputLanguageManager from DispatcherObject
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.InputLanguageManager, PresentationCore'),"GetRestoreInputLanguage",P1])
 
 	Func setInputLanguageChangedEvent P1
-		dnRequest("setevent",[self,"InputLanguageChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"InputLanguageChanged",dnCallback(P1)])
 		return self
 
 	Func clearInputLanguageChangedEvent
-		dnRequest("clearevent",[self,"InputLanguageChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"InputLanguageChanged"])
 		return self
 
 	Func setInputLanguageChangingEvent P1
-		dnRequest("setevent",[self,"InputLanguageChanging",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"InputLanguageChanging",dnCallback(P1)])
 		return self
 
 	Func clearInputLanguageChangingEvent
-		dnRequest("clearevent",[self,"InputLanguageChanging"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"InputLanguageChanging"])
 		return self
 
 	Func getCurrentInputLanguage
-		return dnRequest("get",[self,"CurrentInputLanguage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentInputLanguage"])
 
 	Func setCurrentInputLanguage P1
-		dnRequest("set",[self,"CurrentInputLanguage",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CurrentInputLanguage",P1])
 		return self
 
 	Func getAvailableInputLanguages
-		return dnRequest("get",[self,"AvailableInputLanguages"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AvailableInputLanguages"])
 
 	Func setAvailableInputLanguages P1
 		raise("DotNet Error: AvailableInputLanguages is a read-only property")

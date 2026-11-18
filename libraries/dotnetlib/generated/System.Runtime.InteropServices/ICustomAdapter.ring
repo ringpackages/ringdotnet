@@ -14,5 +14,5 @@ Class ICustomAdapter from DotNetObject
 		return self
 
 	Func GetUnderlyingObject 
-		return dnRequest("call",[self,"GetUnderlyingObject"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUnderlyingObject"])
 

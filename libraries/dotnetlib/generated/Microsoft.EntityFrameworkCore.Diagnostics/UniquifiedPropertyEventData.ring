@@ -17,7 +17,7 @@ Class UniquifiedPropertyEventData from PropertyEventData
 		return self
 
 	Func getBasePropertyName
-		return dnRequest("get",[self,"BasePropertyName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BasePropertyName"])
 
 	Func setBasePropertyName P1
 		raise("DotNet Error: BasePropertyName is a read-only property")

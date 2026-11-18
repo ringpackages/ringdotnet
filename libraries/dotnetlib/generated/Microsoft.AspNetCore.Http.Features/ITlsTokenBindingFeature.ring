@@ -14,8 +14,8 @@ Class ITlsTokenBindingFeature from DotNetObject
 		return self
 
 	Func GetProvidedTokenBindingId 
-		return dnRequest("call",[self,"GetProvidedTokenBindingId"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetProvidedTokenBindingId"])
 
 	Func GetReferredTokenBindingId 
-		return dnRequest("call",[self,"GetReferredTokenBindingId"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReferredTokenBindingId"])
 

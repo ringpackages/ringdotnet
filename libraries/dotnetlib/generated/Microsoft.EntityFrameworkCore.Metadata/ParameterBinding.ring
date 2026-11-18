@@ -17,22 +17,22 @@ Class ParameterBinding from Object
 		return self
 
 	Func BindToParameter P1
-		return dnRequest("call",[self,"BindToParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindToParameter",P1])
 
 	Func With P1
-		return dnRequest("call",[self,"With",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"With",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParameterType
-		return dnRequest("get",[self,"ParameterType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterType"])
 
 	Func setParameterType P1
 		raise("DotNet Error: ParameterType is a read-only property")
 
 	Func getConsumedProperties
-		return dnRequest("get",[self,"ConsumedProperties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConsumedProperties"])
 
 	Func setConsumedProperties P1
 		raise("DotNet Error: ConsumedProperties is a read-only property")

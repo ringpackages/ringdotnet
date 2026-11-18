@@ -35,141 +35,141 @@ Class DataView from MarshalByValueComponent
 		return self
 
 	Func AddNew 
-		return dnRequest("call",[self,"AddNew"])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddNew"])
 
 	Func BeginInit 
-		dnRequest("call",[self,"BeginInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[self,"EndInit"])
+		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[self,"CopyTo",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func Delete P1
-		dnRequest("call",[self,"Delete",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Delete",P1])
 		return self
 
 	Func Find P1
-		return dnRequest("call",[self,"Find",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1])
 
 	Func FindRows P1
-		return dnRequest("call",[self,"FindRows",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRows",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func ToTable P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToTable",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToTable",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToTable"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToTable"])
 		ok
-		return dnRequest("call",[self,"ToTable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToTable",P1])
 
 	Func ToTable_1 P1
-		return dnRequest("call",[self,"ToTable",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToTable",P1])
 
 	Func ToTable_2 P1,P2
-		return dnRequest("call",[self,"ToTable",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToTable",P1,P2])
 
 	Func ToTable_3 P1,P2,P3
-		return dnRequest("call",[self,"ToTable",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToTable",P1,P2,P3])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func setListChangedEvent P1
-		dnRequest("setevent",[self,"ListChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ListChanged",dnCallback(P1)])
 		return self
 
 	Func clearListChangedEvent
-		dnRequest("clearevent",[self,"ListChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ListChanged"])
 		return self
 
 	Func setInitializedEvent P1
-		dnRequest("setevent",[self,"Initialized",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Initialized",dnCallback(P1)])
 		return self
 
 	Func clearInitializedEvent
-		dnRequest("clearevent",[self,"Initialized"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Initialized"])
 		return self
 
 	Func getAllowDelete
-		return dnRequest("get",[self,"AllowDelete"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowDelete"])
 
 	Func setAllowDelete P1
-		dnRequest("set",[self,"AllowDelete",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowDelete",P1])
 		return self
 
 	Func getApplyDefaultSort
-		return dnRequest("get",[self,"ApplyDefaultSort"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ApplyDefaultSort"])
 
 	Func setApplyDefaultSort P1
-		dnRequest("set",[self,"ApplyDefaultSort",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ApplyDefaultSort",P1])
 		return self
 
 	Func getAllowEdit
-		return dnRequest("get",[self,"AllowEdit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowEdit"])
 
 	Func setAllowEdit P1
-		dnRequest("set",[self,"AllowEdit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowEdit",P1])
 		return self
 
 	Func getAllowNew
-		return dnRequest("get",[self,"AllowNew"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowNew"])
 
 	Func setAllowNew P1
-		dnRequest("set",[self,"AllowNew",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowNew",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getDataViewManager
-		return dnRequest("get",[self,"DataViewManager"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DataViewManager"])
 
 	Func setDataViewManager P1
 		raise("DotNet Error: DataViewManager is a read-only property")
 
 	Func getIsInitialized
-		return dnRequest("get",[self,"IsInitialized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialized"])
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getRowFilter
-		return dnRequest("get",[self,"RowFilter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowFilter"])
 
 	Func setRowFilter P1
-		dnRequest("set",[self,"RowFilter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowFilter",P1])
 		return self
 
 	Func getRowStateFilter
-		return dnRequest("get",[self,"RowStateFilter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowStateFilter"])
 
 	Func setRowStateFilter P1
-		dnRequest("set",[self,"RowStateFilter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RowStateFilter",P1])
 		return self
 
 	Func getSort
-		return dnRequest("get",[self,"Sort"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sort"])
 
 	Func setSort P1
-		dnRequest("set",[self,"Sort",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Sort",P1])
 		return self
 
 	Func getTable
-		return dnRequest("get",[self,"Table"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
 
 	Func setTable P1
-		dnRequest("set",[self,"Table",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Table",P1])
 		return self
 

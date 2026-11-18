@@ -14,8 +14,8 @@ Class IDynamicInterfaceCastable from DotNetObject
 		return self
 
 	Func IsInterfaceImplemented P1,P2
-		return dnRequest("call",[self,"IsInterfaceImplemented",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsInterfaceImplemented",P1,P2])
 
 	Func GetInterfaceImplementation P1
-		return dnRequest("call",[self,"GetInterfaceImplementation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetInterfaceImplementation",P1])
 

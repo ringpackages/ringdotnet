@@ -24,13 +24,13 @@ Class VirtualizingPanel from WpfPanel
 		return self
 
 	Func GetItemOffset P1
-		return dnRequest("call",[self,"GetItemOffset",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetItemOffset",P1])
 
 	Func ShouldItemsChangeAffectLayout P1,P2
-		return dnRequest("call",[self,"ShouldItemsChangeAffectLayout",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldItemsChangeAffectLayout",P1,P2])
 
 	Func BringIndexIntoViewPublic P1
-		dnRequest("call",[self,"BringIndexIntoViewPublic",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"BringIndexIntoViewPublic",P1])
 		return self
 
 	Func GetIsVirtualizing P1
@@ -83,13 +83,13 @@ Class VirtualizingPanel from WpfPanel
 		return self
 
 	Func getCanHierarchicallyScrollAndVirtualize
-		return dnRequest("get",[self,"CanHierarchicallyScrollAndVirtualize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CanHierarchicallyScrollAndVirtualize"])
 
 	Func setCanHierarchicallyScrollAndVirtualize P1
 		raise("DotNet Error: CanHierarchicallyScrollAndVirtualize is a read-only property")
 
 	Func getItemContainerGenerator
-		return dnRequest("get",[self,"ItemContainerGenerator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerGenerator"])
 
 	Func setItemContainerGenerator P1
 		raise("DotNet Error: ItemContainerGenerator is a read-only property")

@@ -17,10 +17,10 @@ Class PhysicalAddress from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetAddressBytes 
-		return dnRequest("call",[self,"GetAddressBytes"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAddressBytes"])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation'),"Parse",P1])

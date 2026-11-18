@@ -18,27 +18,27 @@ Class WaitHandle from MarshalByRefObject
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func WaitOne_1 P1
-		return dnRequest("call",[self,"WaitOne",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitOne",P1])
 
 	Func WaitOne P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WaitOne",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitOne",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WaitOne"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WaitOne"])
 		ok
-		return dnRequest("call",[self,"WaitOne",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitOne",P1])
 
 	Func WaitOne_2 P1,P2
-		return dnRequest("call",[self,"WaitOne",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WaitOne",P1,P2])
 
 	Func WaitAll_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1,P2])
@@ -71,17 +71,17 @@ Class WaitHandle from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"SignalAndWait",P1,P2,P3,P4])
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
 
 	Func setHandle P1
-		dnRequest("set",[self,"Handle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Handle",P1])
 		return self
 
 	Func getSafeWaitHandle
-		return dnRequest("get",[self,"SafeWaitHandle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SafeWaitHandle"])
 
 	Func setSafeWaitHandle P1
-		dnRequest("set",[self,"SafeWaitHandle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SafeWaitHandle",P1])
 		return self
 
 	Func getWaitTimeout

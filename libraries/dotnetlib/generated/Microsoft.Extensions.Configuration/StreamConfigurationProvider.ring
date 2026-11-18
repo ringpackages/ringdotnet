@@ -16,23 +16,23 @@ Class StreamConfigurationProvider from ConfigurationProvider
 		return self
 
 	Func Load_1 P1
-		dnRequest("call",[self,"Load",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Load"])
+			dnRequest("call",[new DotNetObject(nHandle),"Load"])
 		return self
 		ok
-		dnRequest("call",[self,"Load",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func getSource
-		return dnRequest("get",[self,"Source"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")

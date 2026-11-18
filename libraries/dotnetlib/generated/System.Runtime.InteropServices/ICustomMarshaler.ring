@@ -14,19 +14,19 @@ Class ICustomMarshaler from DotNetObject
 		return self
 
 	Func MarshalNativeToManaged P1
-		return dnRequest("call",[self,"MarshalNativeToManaged",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MarshalNativeToManaged",P1])
 
 	Func MarshalManagedToNative P1
-		return dnRequest("call",[self,"MarshalManagedToNative",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MarshalManagedToNative",P1])
 
 	Func CleanUpNativeData P1
-		dnRequest("call",[self,"CleanUpNativeData",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CleanUpNativeData",P1])
 		return self
 
 	Func CleanUpManagedData P1
-		dnRequest("call",[self,"CleanUpManagedData",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CleanUpManagedData",P1])
 		return self
 
 	Func GetNativeDataSize 
-		return dnRequest("call",[self,"GetNativeDataSize"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNativeDataSize"])
 

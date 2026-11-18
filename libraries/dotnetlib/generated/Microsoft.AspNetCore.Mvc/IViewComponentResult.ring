@@ -14,9 +14,9 @@ Class IViewComponentResult from DotNetObject
 		return self
 
 	Func Execute P1
-		dnRequest("call",[self,"Execute",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Execute",P1])
 		return self
 
 	Func ExecuteAsync P1
-		return dnRequest("call",[self,"ExecuteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1])
 

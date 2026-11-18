@@ -19,25 +19,25 @@ Class CompositeChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnRequest("call",[self,"RegisterChangeCallback",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"RegisterChangeCallback",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getChangeTokens
-		return dnRequest("get",[self,"ChangeTokens"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChangeTokens"])
 
 	Func setChangeTokens P1
 		raise("DotNet Error: ChangeTokens is a read-only property")
 
 	Func getHasChanged
-		return dnRequest("get",[self,"HasChanged"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasChanged"])
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
 
 	Func getActiveChangeCallbacks
-		return dnRequest("get",[self,"ActiveChangeCallbacks"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActiveChangeCallbacks"])
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")

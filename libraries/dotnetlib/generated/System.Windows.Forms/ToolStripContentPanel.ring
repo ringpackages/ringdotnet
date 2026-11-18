@@ -18,32 +18,32 @@ Class ToolStripContentPanel from Panel
 		return self
 
 	Func setLoadEvent P1
-		dnRequest("setevent",[self,"Load",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Load",dnCallback(P1)])
 		return self
 
 	Func clearLoadEvent
-		dnRequest("clearevent",[self,"Load"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Load"])
 		return self
 
 	Func setRendererChangedEvent P1
-		dnRequest("setevent",[self,"RendererChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"RendererChanged",dnCallback(P1)])
 		return self
 
 	Func clearRendererChangedEvent
-		dnRequest("clearevent",[self,"RendererChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"RendererChanged"])
 		return self
 
 	Func getRenderer
-		return dnRequest("get",[self,"Renderer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Renderer"])
 
 	Func setRenderer P1
-		dnRequest("set",[self,"Renderer",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Renderer",P1])
 		return self
 
 	Func getRenderMode
-		return dnRequest("get",[self,"RenderMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RenderMode"])
 
 	Func setRenderMode P1
-		dnRequest("set",[self,"RenderMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RenderMode",P1])
 		return self
 

@@ -14,11 +14,11 @@ Class MarshalByRefObject from Object
 		return self
 
 	Func GetLifetimeService 
-		return dnRequest("call",[self,"GetLifetimeService"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLifetimeService"])
 
 	Func InitializeLifetimeService 
-		return dnRequest("call",[self,"InitializeLifetimeService"])
+		return dnRequest("call",[new DotNetObject(nHandle),"InitializeLifetimeService"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

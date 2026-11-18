@@ -18,13 +18,13 @@ Class ServiceProviderDebugInfoEventData from EventData
 		return self
 
 	Func getNewDebugInfo
-		return dnRequest("get",[self,"NewDebugInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewDebugInfo"])
 
 	Func setNewDebugInfo P1
 		raise("DotNet Error: NewDebugInfo is a read-only property")
 
 	Func getCachedDebugInfos
-		return dnRequest("get",[self,"CachedDebugInfos"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CachedDebugInfos"])
 
 	Func setCachedDebugInfos P1
 		raise("DotNet Error: CachedDebugInfos is a read-only property")

@@ -14,23 +14,23 @@ Class Binder from Object
 		return self
 
 	Func BindToField P1,P2,P3,P4
-		return dnRequest("call",[self,"BindToField",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindToField",P1,P2,P3,P4])
 
 	Func BindToMethod P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"BindToMethod",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"BindToMethod",P1,P2,P3,P4,P5,P6])
 
 	Func ChangeType P1,P2,P3
-		return dnRequest("call",[self,"ChangeType",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ChangeType",P1,P2,P3])
 
 	Func ReorderArgumentArray P1,P2
-		return dnRequest("call",[self,"ReorderArgumentArray",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReorderArgumentArray",P1,P2])
 
 	Func SelectMethod P1,P2,P3,P4
-		return dnRequest("call",[self,"SelectMethod",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SelectMethod",P1,P2,P3,P4])
 
 	Func SelectProperty P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"SelectProperty",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"SelectProperty",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

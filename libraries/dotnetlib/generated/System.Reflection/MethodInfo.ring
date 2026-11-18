@@ -18,43 +18,43 @@ Class MethodInfo from MethodBase
 		return self
 
 	Func GetGenericMethodDefinition 
-		return dnRequest("call",[self,"GetGenericMethodDefinition"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGenericMethodDefinition"])
 
 	Func MakeGenericMethod P1
-		return dnRequest("call",[self,"MakeGenericMethod",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"MakeGenericMethod",P1])
 
 	Func GetBaseDefinition 
-		return dnRequest("call",[self,"GetBaseDefinition"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBaseDefinition"])
 
 	Func CreateDelegate_1 P1
-		return dnRequest("call",[self,"CreateDelegate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDelegate",P1])
 
 	Func CreateDelegate_2 P1,P2
-		return dnRequest("call",[self,"CreateDelegate",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDelegate",P1,P2])
 
 	Func CreateDelegate P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateDelegate",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateDelegate",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CreateDelegate"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CreateDelegate"])
 		ok
-		return dnRequest("call",[self,"CreateDelegate",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDelegate",P1])
 
 	Func getReturnParameter
-		return dnRequest("get",[self,"ReturnParameter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnParameter"])
 
 	Func setReturnParameter P1
 		raise("DotNet Error: ReturnParameter is a read-only property")
 
 	Func getReturnType
-		return dnRequest("get",[self,"ReturnType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnType"])
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
 
 	Func getReturnTypeCustomAttributes
-		return dnRequest("get",[self,"ReturnTypeCustomAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnTypeCustomAttributes"])
 
 	Func setReturnTypeCustomAttributes P1
 		raise("DotNet Error: ReturnTypeCustomAttributes is a read-only property")

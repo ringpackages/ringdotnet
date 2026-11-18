@@ -15,7 +15,7 @@ Class CodeIdentifier from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func MakePascal P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"MakePascal",P1])

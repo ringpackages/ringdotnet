@@ -14,5 +14,5 @@ Class IModelSource from DotNetObject
 		return self
 
 	Func GetModel P1,P2,P3
-		return dnRequest("call",[self,"GetModel",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetModel",P1,P2,P3])
 

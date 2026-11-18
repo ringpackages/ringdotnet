@@ -17,7 +17,7 @@ Class TreeNodeMouseHoverEventArgs from EventArgs
 		return self
 
 	Func getNode
-		return dnRequest("get",[self,"Node"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Node"])
 
 	Func setNode P1
 		raise("DotNet Error: Node is a read-only property")

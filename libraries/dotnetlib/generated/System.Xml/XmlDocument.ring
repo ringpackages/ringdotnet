@@ -28,193 +28,193 @@ Class XmlDocument from XmlNode
 
 	Func CreateAttribute P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateAttribute",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateAttribute",P1])
 		ok
-		return dnRequest("call",[self,"CreateAttribute",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateAttribute",P1])
 
 	Func CreateCDataSection P1
-		return dnRequest("call",[self,"CreateCDataSection",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateCDataSection",P1])
 
 	Func CreateComment P1
-		return dnRequest("call",[self,"CreateComment",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateComment",P1])
 
 	Func CreateDocumentType P1,P2,P3,P4
-		return dnRequest("call",[self,"CreateDocumentType",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDocumentType",P1,P2,P3,P4])
 
 	Func CreateDocumentFragment 
-		return dnRequest("call",[self,"CreateDocumentFragment"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDocumentFragment"])
 
 	Func CreateElement P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateElement",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateElement",P1])
 		ok
-		return dnRequest("call",[self,"CreateElement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateElement",P1])
 
 	Func CreateEntityReference P1
-		return dnRequest("call",[self,"CreateEntityReference",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntityReference",P1])
 
 	Func CreateProcessingInstruction P1,P2
-		return dnRequest("call",[self,"CreateProcessingInstruction",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateProcessingInstruction",P1,P2])
 
 	Func CreateXmlDeclaration P1,P2,P3
-		return dnRequest("call",[self,"CreateXmlDeclaration",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateXmlDeclaration",P1,P2,P3])
 
 	Func CreateTextNode P1
-		return dnRequest("call",[self,"CreateTextNode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateTextNode",P1])
 
 	Func CreateSignificantWhitespace P1
-		return dnRequest("call",[self,"CreateSignificantWhitespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateSignificantWhitespace",P1])
 
 	Func CreateWhitespace P1
-		return dnRequest("call",[self,"CreateWhitespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateWhitespace",P1])
 
 	Func GetElementsByTagName P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetElementsByTagName",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetElementsByTagName",P1])
 		ok
-		return dnRequest("call",[self,"GetElementsByTagName",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1])
 
 	Func CreateAttribute_2 P1,P2
-		return dnRequest("call",[self,"CreateAttribute",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateAttribute",P1,P2])
 
 	Func CreateElement_2 P1,P2
-		return dnRequest("call",[self,"CreateElement",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateElement",P1,P2])
 
 	Func GetElementsByTagName_2 P1,P2
-		return dnRequest("call",[self,"GetElementsByTagName",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1,P2])
 
 	Func GetElementById P1
-		return dnRequest("call",[self,"GetElementById",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetElementById",P1])
 
 	Func ImportNode P1,P2
-		return dnRequest("call",[self,"ImportNode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ImportNode",P1,P2])
 
 	Func CreateAttribute_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateAttribute",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateAttribute",P1,P2,P3])
 
 	Func CreateElement_3 P1,P2,P3
-		return dnRequest("call",[self,"CreateElement",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateElement",P1,P2,P3])
 
 	Func CreateNode_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"CreateNode",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateNode",P1,P2,P3,P4])
 
 	Func CreateNode P1,P2,P3
-		return dnRequest("call",[self,"CreateNode",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateNode",P1,P2,P3])
 
 	Func ReadNode P1
-		return dnRequest("call",[self,"ReadNode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadNode",P1])
 
 	Func Load_ P1
-		dnRequest("call",[self,"Load",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func LoadXml P1
-		dnRequest("call",[self,"LoadXml",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"LoadXml",P1])
 		return self
 
 	Func Save P1
-		dnRequest("call",[self,"Save",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
 	Func Validate P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Validate",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Validate",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Validate",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 		return self
 
 	Func Validate_2 P1,P2
-		dnRequest("call",[self,"Validate",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2])
 		return self
 
 	Func setNodeInsertingEvent P1
-		dnRequest("setevent",[self,"NodeInserting",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NodeInserting",dnCallback(P1)])
 		return self
 
 	Func clearNodeInsertingEvent
-		dnRequest("clearevent",[self,"NodeInserting"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeInserting"])
 		return self
 
 	Func setNodeInsertedEvent P1
-		dnRequest("setevent",[self,"NodeInserted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NodeInserted",dnCallback(P1)])
 		return self
 
 	Func clearNodeInsertedEvent
-		dnRequest("clearevent",[self,"NodeInserted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeInserted"])
 		return self
 
 	Func setNodeRemovingEvent P1
-		dnRequest("setevent",[self,"NodeRemoving",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NodeRemoving",dnCallback(P1)])
 		return self
 
 	Func clearNodeRemovingEvent
-		dnRequest("clearevent",[self,"NodeRemoving"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeRemoving"])
 		return self
 
 	Func setNodeRemovedEvent P1
-		dnRequest("setevent",[self,"NodeRemoved",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NodeRemoved",dnCallback(P1)])
 		return self
 
 	Func clearNodeRemovedEvent
-		dnRequest("clearevent",[self,"NodeRemoved"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeRemoved"])
 		return self
 
 	Func setNodeChangingEvent P1
-		dnRequest("setevent",[self,"NodeChanging",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NodeChanging",dnCallback(P1)])
 		return self
 
 	Func clearNodeChangingEvent
-		dnRequest("clearevent",[self,"NodeChanging"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeChanging"])
 		return self
 
 	Func setNodeChangedEvent P1
-		dnRequest("setevent",[self,"NodeChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"NodeChanged",dnCallback(P1)])
 		return self
 
 	Func clearNodeChangedEvent
-		dnRequest("clearevent",[self,"NodeChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeChanged"])
 		return self
 
 	Func getDocumentType
-		return dnRequest("get",[self,"DocumentType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentType"])
 
 	Func setDocumentType P1
 		raise("DotNet Error: DocumentType is a read-only property")
 
 	Func getImplementation
-		return dnRequest("get",[self,"Implementation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Implementation"])
 
 	Func setImplementation P1
 		raise("DotNet Error: Implementation is a read-only property")
 
 	Func getDocumentElement
-		return dnRequest("get",[self,"DocumentElement"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentElement"])
 
 	Func setDocumentElement P1
 		raise("DotNet Error: DocumentElement is a read-only property")
 
 	Func getSchemas
-		return dnRequest("get",[self,"Schemas"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schemas"])
 
 	Func setSchemas P1
-		dnRequest("set",[self,"Schemas",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Schemas",P1])
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[self,"XmlResolver",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[self,"NameTable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NameTable"])
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getPreserveWhitespace
-		return dnRequest("get",[self,"PreserveWhitespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreserveWhitespace"])
 
 	Func setPreserveWhitespace P1
-		dnRequest("set",[self,"PreserveWhitespace",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PreserveWhitespace",P1])
 		return self
 

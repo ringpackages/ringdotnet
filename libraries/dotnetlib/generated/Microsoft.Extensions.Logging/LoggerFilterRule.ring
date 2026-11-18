@@ -20,28 +20,28 @@ Class LoggerFilterRule from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getProviderName
-		return dnRequest("get",[self,"ProviderName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProviderName"])
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")
 
 	Func getCategoryName
-		return dnRequest("get",[self,"CategoryName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CategoryName"])
 
 	Func setCategoryName P1
 		raise("DotNet Error: CategoryName is a read-only property")
 
 	Func getLogLevel
-		return dnRequest("get",[self,"LogLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogLevel"])
 
 	Func setLogLevel P1
 		raise("DotNet Error: LogLevel is a read-only property")
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
 
 	Func setFilter P1
 		raise("DotNet Error: Filter is a read-only property")

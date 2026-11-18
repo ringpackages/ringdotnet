@@ -23,67 +23,67 @@ Class MemberInfo from Object
 		return self
 
 	Func HasSameMetadataDefinitionAs P1
-		return dnRequest("call",[self,"HasSameMetadataDefinitionAs",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSameMetadataDefinitionAs",P1])
 
 	Func IsDefined P1,P2
-		return dnRequest("call",[self,"IsDefined",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDefined",P1,P2])
 
 	Func GetCustomAttributes_1 P1
-		return dnRequest("call",[self,"GetCustomAttributes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCustomAttributes",P1])
 
 	Func GetCustomAttributes_2 P1,P2
-		return dnRequest("call",[self,"GetCustomAttributes",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCustomAttributes",P1,P2])
 
 	Func GetCustomAttributesData 
-		return dnRequest("call",[self,"GetCustomAttributesData"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCustomAttributesData"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMemberType
-		return dnRequest("get",[self,"MemberType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberType"])
 
 	Func setMemberType P1
 		raise("DotNet Error: MemberType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDeclaringType
-		return dnRequest("get",[self,"DeclaringType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringType"])
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getReflectedType
-		return dnRequest("get",[self,"ReflectedType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReflectedType"])
 
 	Func setReflectedType P1
 		raise("DotNet Error: ReflectedType is a read-only property")
 
 	Func getModule
-		return dnRequest("get",[self,"Module"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Module"])
 
 	Func setModule P1
 		raise("DotNet Error: Module is a read-only property")
 
 	Func getCustomAttributes
-		return dnRequest("get",[self,"CustomAttributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CustomAttributes"])
 
 	Func setCustomAttributes P1
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getIsCollectible
-		return dnRequest("get",[self,"IsCollectible"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCollectible"])
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getMetadataToken
-		return dnRequest("get",[self,"MetadataToken"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MetadataToken"])
 
 	Func setMetadataToken P1
 		raise("DotNet Error: MetadataToken is a read-only property")

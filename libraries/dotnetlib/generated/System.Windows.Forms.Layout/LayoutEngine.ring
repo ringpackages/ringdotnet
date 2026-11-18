@@ -14,12 +14,12 @@ Class LayoutEngine from Object
 		return self
 
 	Func InitLayout P1,P2
-		dnRequest("call",[self,"InitLayout",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"InitLayout",P1,P2])
 		return self
 
 	Func Layout P1,P2
-		return dnRequest("call",[self,"Layout",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Layout",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

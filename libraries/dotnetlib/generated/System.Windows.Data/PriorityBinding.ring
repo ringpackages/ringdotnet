@@ -17,10 +17,10 @@ Class PriorityBinding from BindingBase
 		return self
 
 	Func ShouldSerializeBindings 
-		return dnRequest("call",[self,"ShouldSerializeBindings"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeBindings"])
 
 	Func getBindings
-		return dnRequest("get",[self,"Bindings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bindings"])
 
 	Func setBindings P1
 		raise("DotNet Error: Bindings is a read-only property")

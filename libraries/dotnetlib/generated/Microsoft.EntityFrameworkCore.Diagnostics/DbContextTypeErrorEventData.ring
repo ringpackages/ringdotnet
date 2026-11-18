@@ -17,7 +17,7 @@ Class DbContextTypeErrorEventData from DbContextTypeEventData
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")

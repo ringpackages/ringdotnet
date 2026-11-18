@@ -25,62 +25,62 @@ Class RowUpdatedEventArgs from EventArgs
 
 	Func CopyToRows P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"CopyToRows",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"CopyToRows",P1])
 			return self
 		ok
-		dnRequest("call",[self,"CopyToRows",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyToRows",P1])
 		return self
 
 	Func CopyToRows_2 P1,P2
-		dnRequest("call",[self,"CopyToRows",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"CopyToRows",P1,P2])
 		return self
 
 	Func getCommand
-		return dnRequest("get",[self,"Command"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getErrors
-		return dnRequest("get",[self,"Errors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Errors"])
 
 	Func setErrors P1
-		dnRequest("set",[self,"Errors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Errors",P1])
 		return self
 
 	Func getRecordsAffected
-		return dnRequest("get",[self,"RecordsAffected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecordsAffected"])
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
 
 	Func getRow
-		return dnRequest("get",[self,"Row"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getRowCount
-		return dnRequest("get",[self,"RowCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RowCount"])
 
 	Func setRowCount P1
 		raise("DotNet Error: RowCount is a read-only property")
 
 	Func getStatementType
-		return dnRequest("get",[self,"StatementType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StatementType"])
 
 	Func setStatementType P1
 		raise("DotNet Error: StatementType is a read-only property")
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
 
 	Func setStatus P1
-		dnRequest("set",[self,"Status",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Status",P1])
 		return self
 
 	Func getTableMapping
-		return dnRequest("get",[self,"TableMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TableMapping"])
 
 	Func setTableMapping P1
 		raise("DotNet Error: TableMapping is a read-only property")

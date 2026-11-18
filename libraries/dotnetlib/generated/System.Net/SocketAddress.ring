@@ -23,33 +23,33 @@ Class SocketAddress from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetMaximumAddressSize P1
 		return dnRequest("call",[dnTypeCached('System.Net.SocketAddress, System.Net.Primitives'),"GetMaximumAddressSize",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getFamily
-		return dnRequest("get",[self,"Family"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Family"])
 
 	Func setFamily P1
 		raise("DotNet Error: Family is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 
 	Func getBuffer
-		return dnRequest("get",[self,"Buffer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Buffer"])
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")

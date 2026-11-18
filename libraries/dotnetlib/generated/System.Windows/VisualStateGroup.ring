@@ -20,42 +20,42 @@ Class VisualStateGroup from DependencyObject
 		return self
 
 	Func setCurrentStateChangedEvent P1
-		dnRequest("setevent",[self,"CurrentStateChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentStateChangedEvent
-		dnRequest("clearevent",[self,"CurrentStateChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentStateChanged"])
 		return self
 
 	Func setCurrentStateChangingEvent P1
-		dnRequest("setevent",[self,"CurrentStateChanging",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentStateChanging",dnCallback(P1)])
 		return self
 
 	Func clearCurrentStateChangingEvent
-		dnRequest("clearevent",[self,"CurrentStateChanging"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentStateChanging"])
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getStates
-		return dnRequest("get",[self,"States"])
+		return dnRequest("get",[new DotNetObject(nHandle),"States"])
 
 	Func setStates P1
 		raise("DotNet Error: States is a read-only property")
 
 	Func getTransitions
-		return dnRequest("get",[self,"Transitions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Transitions"])
 
 	Func setTransitions P1
 		raise("DotNet Error: Transitions is a read-only property")
 
 	Func getCurrentState
-		return dnRequest("get",[self,"CurrentState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentState"])
 
 	Func setCurrentState P1
 		raise("DotNet Error: CurrentState is a read-only property")

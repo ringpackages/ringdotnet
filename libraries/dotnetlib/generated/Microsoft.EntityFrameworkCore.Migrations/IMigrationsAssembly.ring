@@ -18,25 +18,25 @@ Class IMigrationsAssembly from DotNetObject
 		return self
 
 	Func FindMigrationId P1
-		return dnRequest("call",[self,"FindMigrationId",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindMigrationId",P1])
 
 	Func CreateMigration P1,P2
-		return dnRequest("call",[self,"CreateMigration",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateMigration",P1,P2])
 
 	Func getMigrations
-		return dnRequest("get",[self,"Migrations"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Migrations"])
 
 	Func setMigrations P1
 		raise("DotNet Error: Migrations is a read-only property")
 
 	Func getModelSnapshot
-		return dnRequest("get",[self,"ModelSnapshot"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelSnapshot"])
 
 	Func setModelSnapshot P1
 		raise("DotNet Error: ModelSnapshot is a read-only property")
 
 	Func getAssembly
-		return dnRequest("get",[self,"Assembly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Assembly"])
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")

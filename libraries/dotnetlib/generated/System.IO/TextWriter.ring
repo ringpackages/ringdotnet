@@ -19,109 +19,109 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[self,"DisposeAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
 	Func Flush 
-		dnRequest("call",[self,"Flush"])
+		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 
 	Func Write P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Write",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Write",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Write",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
 		return self
 
 	Func Write_3 P1,P2,P3
-		dnRequest("call",[self,"Write",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3])
 		return self
 
 	Func Write_2 P1,P2
-		dnRequest("call",[self,"Write",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2])
 		return self
 
 	Func Write_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Write",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3,P4])
 		return self
 
 	Func WriteLine_0 
-		dnRequest("call",[self,"WriteLine"])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteLine"])
 		return self
 
 	Func WriteLine P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"WriteLine",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteLine",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"WriteLine"])
+			dnRequest("call",[new DotNetObject(nHandle),"WriteLine"])
 		return self
 		ok
-		dnRequest("call",[self,"WriteLine",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1])
 		return self
 
 	Func WriteLine_3 P1,P2,P3
-		dnRequest("call",[self,"WriteLine",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1,P2,P3])
 		return self
 
 	Func WriteLine_2 P1,P2
-		dnRequest("call",[self,"WriteLine",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1,P2])
 		return self
 
 	Func WriteLine_4 P1,P2,P3,P4
-		dnRequest("call",[self,"WriteLine",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1,P2,P3,P4])
 		return self
 
 	Func WriteAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WriteAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAsync",P1])
 		ok
-		return dnRequest("call",[self,"WriteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1])
 
 	Func WriteAsync_2 P1,P2
-		return dnRequest("call",[self,"WriteAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2])
 
 	Func WriteAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"WriteAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2,P3])
 
 	Func WriteLineAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"WriteLineAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteLineAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"WriteLineAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync"])
 		ok
-		return dnRequest("call",[self,"WriteLineAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync",P1])
 
 	Func WriteLineAsync_2 P1,P2
-		return dnRequest("call",[self,"WriteLineAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync",P1,P2])
 
 	Func WriteLineAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"WriteLineAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync",P1,P2,P3])
 
 	Func WriteLineAsync_0 
-		return dnRequest("call",[self,"WriteLineAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync"])
 
 	Func FlushAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"FlushAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FlushAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"FlushAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync"])
 		ok
-		return dnRequest("call",[self,"FlushAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
 
 	Func FlushAsync_1 P1
-		return dnRequest("call",[self,"FlushAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.IO.TextWriter, System.Private.CoreLib'),"Synchronized",P1])
@@ -130,22 +130,22 @@ Class TextWriter from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.IO.TextWriter, System.Private.CoreLib'),"CreateBroadcasting",P1])
 
 	Func getFormatProvider
-		return dnRequest("get",[self,"FormatProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FormatProvider"])
 
 	Func setFormatProvider P1
 		raise("DotNet Error: FormatProvider is a read-only property")
 
 	Func getEncoding
-		return dnRequest("get",[self,"Encoding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
 
 	Func setEncoding P1
 		raise("DotNet Error: Encoding is a read-only property")
 
 	Func getNewLine
-		return dnRequest("get",[self,"NewLine"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewLine"])
 
 	Func setNewLine P1
-		dnRequest("set",[self,"NewLine",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"NewLine",P1])
 		return self
 
 	Func getNull

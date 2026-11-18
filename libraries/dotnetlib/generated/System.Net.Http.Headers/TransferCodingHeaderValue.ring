@@ -18,7 +18,7 @@ Class TransferCodingHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http'),"Parse",P1])
@@ -27,13 +27,13 @@ Class TransferCodingHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")

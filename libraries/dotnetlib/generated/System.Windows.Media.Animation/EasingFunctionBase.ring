@@ -17,13 +17,13 @@ Class EasingFunctionBase from Freezable
 		return self
 
 	Func Ease P1
-		return dnRequest("call",[self,"Ease",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Ease",P1])
 
 	Func getEasingMode
-		return dnRequest("get",[self,"EasingMode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EasingMode"])
 
 	Func setEasingMode P1
-		dnRequest("set",[self,"EasingMode",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EasingMode",P1])
 		return self
 
 	Func getEasingModeProperty

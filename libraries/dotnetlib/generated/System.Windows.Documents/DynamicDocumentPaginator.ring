@@ -16,54 +16,54 @@ Class DynamicDocumentPaginator from DocumentPaginator
 		return self
 
 	Func GetPageNumber P1
-		return dnRequest("call",[self,"GetPageNumber",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPageNumber",P1])
 
 	Func GetPageNumberAsync P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"GetPageNumberAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"GetPageNumberAsync",P1])
 			return self
 		ok
-		dnRequest("call",[self,"GetPageNumberAsync",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"GetPageNumberAsync",P1])
 		return self
 
 	Func GetPageNumberAsync_2 P1,P2
-		dnRequest("call",[self,"GetPageNumberAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetPageNumberAsync",P1,P2])
 		return self
 
 	Func GetPagePosition P1
-		return dnRequest("call",[self,"GetPagePosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPagePosition",P1])
 
 	Func GetObjectPosition P1
-		return dnRequest("call",[self,"GetObjectPosition",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetObjectPosition",P1])
 
 	Func setGetPageNumberCompletedEvent P1
-		dnRequest("setevent",[self,"GetPageNumberCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"GetPageNumberCompleted",dnCallback(P1)])
 		return self
 
 	Func clearGetPageNumberCompletedEvent
-		dnRequest("clearevent",[self,"GetPageNumberCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"GetPageNumberCompleted"])
 		return self
 
 	Func setPaginationCompletedEvent P1
-		dnRequest("setevent",[self,"PaginationCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PaginationCompleted",dnCallback(P1)])
 		return self
 
 	Func clearPaginationCompletedEvent
-		dnRequest("clearevent",[self,"PaginationCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PaginationCompleted"])
 		return self
 
 	Func setPaginationProgressEvent P1
-		dnRequest("setevent",[self,"PaginationProgress",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PaginationProgress",dnCallback(P1)])
 		return self
 
 	Func clearPaginationProgressEvent
-		dnRequest("clearevent",[self,"PaginationProgress"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PaginationProgress"])
 		return self
 
 	Func getIsBackgroundPaginationEnabled
-		return dnRequest("get",[self,"IsBackgroundPaginationEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsBackgroundPaginationEnabled"])
 
 	Func setIsBackgroundPaginationEnabled P1
-		dnRequest("set",[self,"IsBackgroundPaginationEnabled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsBackgroundPaginationEnabled",P1])
 		return self
 

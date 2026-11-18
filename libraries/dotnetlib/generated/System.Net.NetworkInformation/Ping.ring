@@ -16,62 +16,62 @@ Class Ping from Component
 
 	Func Send P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Send",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Send",P1])
 		ok
-		return dnRequest("call",[self,"Send",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1])
 
 	Func Send_2 P1,P2
-		return dnRequest("call",[self,"Send",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2])
 
 	Func Send_3 P1,P2,P3
-		return dnRequest("call",[self,"Send",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3])
 
 	Func Send_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Send",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3,P4])
 
 	Func SendAsync P1,P2
-		dnRequest("call",[self,"SendAsync",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2])
 		return self
 
 	Func SendAsync_3 P1,P2,P3
-		dnRequest("call",[self,"SendAsync",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3])
 		return self
 
 	Func SendAsync_4 P1,P2,P3,P4
-		dnRequest("call",[self,"SendAsync",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4])
 		return self
 
 	Func SendAsync_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"SendAsync",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4,P5])
 		return self
 
 	Func SendPingAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SendPingAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendPingAsync",P1])
 		ok
-		return dnRequest("call",[self,"SendPingAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1])
 
 	Func SendPingAsync_2 P1,P2
-		return dnRequest("call",[self,"SendPingAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1,P2])
 
 	Func SendPingAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"SendPingAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1,P2,P3])
 
 	Func SendPingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"SendPingAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1,P2,P3,P4])
 
 	Func SendPingAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"SendPingAsync",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1,P2,P3,P4,P5])
 
 	Func SendAsyncCancel 
-		dnRequest("call",[self,"SendAsyncCancel"])
+		dnRequest("call",[new DotNetObject(nHandle),"SendAsyncCancel"])
 		return self
 
 	Func setPingCompletedEvent P1
-		dnRequest("setevent",[self,"PingCompleted",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PingCompleted",dnCallback(P1)])
 		return self
 
 	Func clearPingCompletedEvent
-		dnRequest("clearevent",[self,"PingCompleted"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PingCompleted"])
 		return self
 

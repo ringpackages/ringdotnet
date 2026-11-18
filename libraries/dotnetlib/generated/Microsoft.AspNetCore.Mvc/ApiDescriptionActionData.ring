@@ -17,12 +17,12 @@ Class ApiDescriptionActionData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getGroupName
-		return dnRequest("get",[self,"GroupName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"GroupName"])
 
 	Func setGroupName P1
-		dnRequest("set",[self,"GroupName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"GroupName",P1])
 		return self
 

@@ -35,64 +35,64 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		return dnRequest("call",[dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"IsDerivedFrom",P1,P2,P3])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 
 	Func getFinal
-		return dnRequest("get",[self,"Final"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Final"])
 
 	Func setFinal P1
-		dnRequest("set",[self,"Final",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Final",P1])
 		return self
 
 	Func getQualifiedName
-		return dnRequest("get",[self,"QualifiedName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QualifiedName"])
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getFinalResolved
-		return dnRequest("get",[self,"FinalResolved"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FinalResolved"])
 
 	Func setFinalResolved P1
 		raise("DotNet Error: FinalResolved is a read-only property")
 
 	Func getBaseSchemaType
-		return dnRequest("get",[self,"BaseSchemaType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseSchemaType"])
 
 	Func setBaseSchemaType P1
 		raise("DotNet Error: BaseSchemaType is a read-only property")
 
 	Func getBaseXmlSchemaType
-		return dnRequest("get",[self,"BaseXmlSchemaType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseXmlSchemaType"])
 
 	Func setBaseXmlSchemaType P1
 		raise("DotNet Error: BaseXmlSchemaType is a read-only property")
 
 	Func getDerivedBy
-		return dnRequest("get",[self,"DerivedBy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DerivedBy"])
 
 	Func setDerivedBy P1
 		raise("DotNet Error: DerivedBy is a read-only property")
 
 	Func getDatatype
-		return dnRequest("get",[self,"Datatype"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Datatype"])
 
 	Func setDatatype P1
 		raise("DotNet Error: Datatype is a read-only property")
 
 	Func getIsMixed
-		return dnRequest("get",[self,"IsMixed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsMixed"])
 
 	Func setIsMixed P1
-		dnRequest("set",[self,"IsMixed",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsMixed",P1])
 		return self
 
 	Func getTypeCode
-		return dnRequest("get",[self,"TypeCode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeCode"])
 
 	Func setTypeCode P1
 		raise("DotNet Error: TypeCode is a read-only property")

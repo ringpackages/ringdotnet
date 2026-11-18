@@ -18,13 +18,13 @@ Class ForeignKeyCandidateEventData from TwoPropertyBaseCollectionsEventData
 		return self
 
 	Func getDependentToPrincipalNavigationSpecification
-		return dnRequest("get",[self,"DependentToPrincipalNavigationSpecification"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DependentToPrincipalNavigationSpecification"])
 
 	Func setDependentToPrincipalNavigationSpecification P1
 		raise("DotNet Error: DependentToPrincipalNavigationSpecification is a read-only property")
 
 	Func getPrincipalToDependentNavigationSpecification
-		return dnRequest("get",[self,"PrincipalToDependentNavigationSpecification"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalToDependentNavigationSpecification"])
 
 	Func setPrincipalToDependentNavigationSpecification P1
 		raise("DotNet Error: PrincipalToDependentNavigationSpecification is a read-only property")

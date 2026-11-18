@@ -19,28 +19,28 @@ Class StylusButton from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getGuid
-		return dnRequest("get",[self,"Guid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Guid"])
 
 	Func setGuid P1
 		raise("DotNet Error: Guid is a read-only property")
 
 	Func getStylusButtonState
-		return dnRequest("get",[self,"StylusButtonState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylusButtonState"])
 
 	Func setStylusButtonState P1
 		raise("DotNet Error: StylusButtonState is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStylusDevice
-		return dnRequest("get",[self,"StylusDevice"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StylusDevice"])
 
 	Func setStylusDevice P1
 		raise("DotNet Error: StylusDevice is a read-only property")

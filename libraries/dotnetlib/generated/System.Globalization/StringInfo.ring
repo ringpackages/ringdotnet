@@ -22,16 +22,16 @@ Class StringInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func SubstringByTextElements P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SubstringByTextElements",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SubstringByTextElements",P1])
 		ok
-		return dnRequest("call",[self,"SubstringByTextElements",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SubstringByTextElements",P1])
 
 	Func SubstringByTextElements_2 P1,P2
-		return dnRequest("call",[self,"SubstringByTextElements",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SubstringByTextElements",P1,P2])
 
 	Func GetNextTextElement P1
 		if dnIsNamed(P1)
@@ -64,14 +64,14 @@ Class StringInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"ParseCombiningCharacters",P1])
 
 	Func getString
-		return dnRequest("get",[self,"String"])
+		return dnRequest("get",[new DotNetObject(nHandle),"String"])
 
 	Func setString P1
-		dnRequest("set",[self,"String",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"String",P1])
 		return self
 
 	Func getLengthInTextElements
-		return dnRequest("get",[self,"LengthInTextElements"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LengthInTextElements"])
 
 	Func setLengthInTextElements P1
 		raise("DotNet Error: LengthInTextElements is a read-only property")

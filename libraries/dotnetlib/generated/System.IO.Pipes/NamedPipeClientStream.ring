@@ -38,37 +38,37 @@ Class NamedPipeClientStream from PipeStream
 
 	Func Connect P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Connect",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Connect",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"Connect"])
+			dnRequest("call",[new DotNetObject(nHandle),"Connect"])
 		return self
 		ok
-		dnRequest("call",[self,"Connect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1])
 		return self
 
 	Func Connect_1 P1
-		dnRequest("call",[self,"Connect",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1])
 		return self
 
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ConnectAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ConnectAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync"])
 		ok
-		return dnRequest("call",[self,"ConnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1])
 
 	Func ConnectAsync_1 P1
-		return dnRequest("call",[self,"ConnectAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1])
 
 	Func ConnectAsync_2 P1,P2
-		return dnRequest("call",[self,"ConnectAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2])
 
 	Func getNumberOfServerInstances
-		return dnRequest("get",[self,"NumberOfServerInstances"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NumberOfServerInstances"])
 
 	Func setNumberOfServerInstances P1
 		raise("DotNet Error: NumberOfServerInstances is a read-only property")

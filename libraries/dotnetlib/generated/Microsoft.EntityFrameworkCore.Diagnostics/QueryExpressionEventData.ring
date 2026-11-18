@@ -18,13 +18,13 @@ Class QueryExpressionEventData from DbContextEventData
 		return self
 
 	Func getExpression
-		return dnRequest("get",[self,"Expression"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Expression"])
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getExpressionPrinter
-		return dnRequest("get",[self,"ExpressionPrinter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExpressionPrinter"])
 
 	Func setExpressionPrinter P1
 		raise("DotNet Error: ExpressionPrinter is a read-only property")

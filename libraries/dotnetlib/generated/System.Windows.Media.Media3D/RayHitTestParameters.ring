@@ -18,13 +18,13 @@ Class RayHitTestParameters from HitTestParameters3D
 		return self
 
 	Func getOrigin
-		return dnRequest("get",[self,"Origin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Origin"])
 
 	Func setOrigin P1
 		raise("DotNet Error: Origin is a read-only property")
 
 	Func getDirection
-		return dnRequest("get",[self,"Direction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")

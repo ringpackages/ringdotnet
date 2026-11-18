@@ -18,16 +18,16 @@ Class AuthorizationFailureReason from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMessage
-		return dnRequest("get",[self,"Message"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Message"])
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
 
 	Func getHandler
-		return dnRequest("get",[self,"Handler"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Handler"])
 
 	Func setHandler P1
 		raise("DotNet Error: Handler is a read-only property")

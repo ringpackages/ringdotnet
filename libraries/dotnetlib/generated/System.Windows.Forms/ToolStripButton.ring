@@ -35,39 +35,39 @@ Class ToolStripButton from ToolStripItem
 		return self
 
 	Func setCheckedChangedEvent P1
-		dnRequest("setevent",[self,"CheckedChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CheckedChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckedChangedEvent
-		dnRequest("clearevent",[self,"CheckedChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckedChanged"])
 		return self
 
 	Func setCheckStateChangedEvent P1
-		dnRequest("setevent",[self,"CheckStateChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"CheckStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckStateChangedEvent
-		dnRequest("clearevent",[self,"CheckStateChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckStateChanged"])
 		return self
 
 	Func getCheckOnClick
-		return dnRequest("get",[self,"CheckOnClick"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckOnClick"])
 
 	Func setCheckOnClick P1
-		dnRequest("set",[self,"CheckOnClick",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckOnClick",P1])
 		return self
 
 	Func getChecked
-		return dnRequest("get",[self,"Checked"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Checked"])
 
 	Func setChecked P1
-		dnRequest("set",[self,"Checked",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Checked",P1])
 		return self
 
 	Func getCheckState
-		return dnRequest("get",[self,"CheckState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckState"])
 
 	Func setCheckState P1
-		dnRequest("set",[self,"CheckState",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CheckState",P1])
 		return self
 

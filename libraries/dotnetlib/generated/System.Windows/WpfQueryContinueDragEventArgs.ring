@@ -18,21 +18,21 @@ Class WpfQueryContinueDragEventArgs from RoutedEventArgs
 		return self
 
 	Func getEscapePressed
-		return dnRequest("get",[self,"EscapePressed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EscapePressed"])
 
 	Func setEscapePressed P1
 		raise("DotNet Error: EscapePressed is a read-only property")
 
 	Func getKeyStates
-		return dnRequest("get",[self,"KeyStates"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyStates"])
 
 	Func setKeyStates P1
 		raise("DotNet Error: KeyStates is a read-only property")
 
 	Func getAction
-		return dnRequest("get",[self,"Action"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Action"])
 
 	Func setAction P1
-		dnRequest("set",[self,"Action",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Action",P1])
 		return self
 

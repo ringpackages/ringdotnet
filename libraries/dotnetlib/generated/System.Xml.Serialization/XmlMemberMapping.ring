@@ -23,55 +23,55 @@ Class XmlMemberMapping from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAny
-		return dnRequest("get",[self,"Any"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Any"])
 
 	Func setAny P1
 		raise("DotNet Error: Any is a read-only property")
 
 	Func getElementName
-		return dnRequest("get",[self,"ElementName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ElementName"])
 
 	Func setElementName P1
 		raise("DotNet Error: ElementName is a read-only property")
 
 	Func getXsdElementName
-		return dnRequest("get",[self,"XsdElementName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"XsdElementName"])
 
 	Func setXsdElementName P1
 		raise("DotNet Error: XsdElementName is a read-only property")
 
 	Func getNamespace
-		return dnRequest("get",[self,"Namespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getMemberName
-		return dnRequest("get",[self,"MemberName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MemberName"])
 
 	Func setMemberName P1
 		raise("DotNet Error: MemberName is a read-only property")
 
 	Func getTypeName
-		return dnRequest("get",[self,"TypeName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeName"])
 
 	Func getTypeNamespace
-		return dnRequest("get",[self,"TypeNamespace"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeNamespace"])
 
 	Func setTypeNamespace P1
 		raise("DotNet Error: TypeNamespace is a read-only property")
 
 	Func getTypeFullName
-		return dnRequest("get",[self,"TypeFullName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeFullName"])
 
 	Func setTypeFullName P1
 		raise("DotNet Error: TypeFullName is a read-only property")
 
 	Func getCheckSpecified
-		return dnRequest("get",[self,"CheckSpecified"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CheckSpecified"])
 
 	Func setCheckSpecified P1
 		raise("DotNet Error: CheckSpecified is a read-only property")

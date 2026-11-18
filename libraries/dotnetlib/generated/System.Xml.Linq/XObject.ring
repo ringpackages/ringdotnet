@@ -19,88 +19,88 @@ Class XObject from Object
 		return self
 
 	Func AddAnnotation P1
-		dnRequest("call",[self,"AddAnnotation",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddAnnotation",P1])
 		return self
 
 	Func Annotation_1 P1
-		return dnRequest("call",[self,"Annotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Annotation",P1])
 
 	Func Annotation P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Annotation",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Annotation",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Annotation"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Annotation"])
 		ok
-		return dnRequest("call",[self,"Annotation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Annotation",P1])
 
 	Func Annotations_1 P1
-		return dnRequest("call",[self,"Annotations",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Annotations",P1])
 
 	Func Annotations P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Annotations",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Annotations",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Annotations"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Annotations"])
 		ok
-		return dnRequest("call",[self,"Annotations",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Annotations",P1])
 
 	Func RemoveAnnotations_1 P1
-		dnRequest("call",[self,"RemoveAnnotations",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAnnotations",P1])
 		return self
 
 	Func RemoveAnnotations P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"RemoveAnnotations",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"RemoveAnnotations",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"RemoveAnnotations"])
+			dnRequest("call",[new DotNetObject(nHandle),"RemoveAnnotations"])
 		return self
 		ok
-		dnRequest("call",[self,"RemoveAnnotations",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAnnotations",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setChangedEvent P1
-		dnRequest("setevent",[self,"Changed",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Changed",dnCallback(P1)])
 		return self
 
 	Func clearChangedEvent
-		dnRequest("clearevent",[self,"Changed"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Changed"])
 		return self
 
 	Func setChangingEvent P1
-		dnRequest("setevent",[self,"Changing",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"Changing",dnCallback(P1)])
 		return self
 
 	Func clearChangingEvent
-		dnRequest("clearevent",[self,"Changing"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"Changing"])
 		return self
 
 	Func getBaseUri
-		return dnRequest("get",[self,"BaseUri"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseUri"])
 
 	Func setBaseUri P1
 		raise("DotNet Error: BaseUri is a read-only property")
 
 	Func getDocument
-		return dnRequest("get",[self,"Document"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
 
 	Func setDocument P1
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[self,"Parent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")

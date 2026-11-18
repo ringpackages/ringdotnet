@@ -15,8 +15,8 @@ Class DefaultAuthorizationHandlerProvider from Object
 		return self
 
 	Func GetHandlersAsync P1
-		return dnRequest("call",[self,"GetHandlersAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHandlersAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

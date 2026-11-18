@@ -24,7 +24,7 @@ Class WarningHeaderValue from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http'),"Parse",P1])
@@ -33,25 +33,25 @@ Class WarningHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getCode
-		return dnRequest("get",[self,"Code"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Code"])
 
 	Func setCode P1
 		raise("DotNet Error: Code is a read-only property")
 
 	Func getAgent
-		return dnRequest("get",[self,"Agent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Agent"])
 
 	Func setAgent P1
 		raise("DotNet Error: Agent is a read-only property")
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getDate
-		return dnRequest("get",[self,"Date"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Date"])
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")

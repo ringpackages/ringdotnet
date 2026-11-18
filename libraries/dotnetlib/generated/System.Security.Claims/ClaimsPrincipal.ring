@@ -26,52 +26,52 @@ Class ClaimsPrincipal from Object
 		return self
 
 	Func AddIdentity P1
-		dnRequest("call",[self,"AddIdentity",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddIdentity",P1])
 		return self
 
 	Func AddIdentities P1
-		dnRequest("call",[self,"AddIdentities",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddIdentities",P1])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func FindAll P1
-		return dnRequest("call",[self,"FindAll",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindAll",P1])
 
 	Func FindFirst P1
-		return dnRequest("call",[self,"FindFirst",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindFirst",P1])
 
 	Func HasClaim_1 P1
-		return dnRequest("call",[self,"HasClaim",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasClaim",P1])
 
 	Func HasClaim P1,P2
-		return dnRequest("call",[self,"HasClaim",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasClaim",P1,P2])
 
 	Func IsInRole P1
-		return dnRequest("call",[self,"IsInRole",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsInRole",P1])
 
 	Func WriteTo P1
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getClaims
-		return dnRequest("get",[self,"Claims"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Claims"])
 
 	Func setClaims P1
 		raise("DotNet Error: Claims is a read-only property")
 
 	Func getIdentities
-		return dnRequest("get",[self,"Identities"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Identities"])
 
 	Func setIdentities P1
 		raise("DotNet Error: Identities is a read-only property")
 
 	Func getIdentity
-		return dnRequest("get",[self,"Identity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Identity"])
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")

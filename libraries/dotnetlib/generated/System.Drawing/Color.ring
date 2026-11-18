@@ -168,19 +168,19 @@ Class Color from ValueType
 		return self
 
 	Func GetBrightness 
-		return dnRequest("call",[self,"GetBrightness"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBrightness"])
 
 	Func GetHue 
-		return dnRequest("call",[self,"GetHue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHue"])
 
 	Func GetSaturation 
-		return dnRequest("call",[self,"GetSaturation"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSaturation"])
 
 	Func ToArgb 
-		return dnRequest("call",[self,"ToArgb"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToArgb"])
 
 	Func ToKnownColor 
-		return dnRequest("call",[self,"ToKnownColor"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToKnownColor"])
 
 	Func FromArgb P1
 		if dnIsNamed(P1)
@@ -204,55 +204,55 @@ Class Color from ValueType
 		return dnRequest("call",[dnTypeCached('System.Drawing.Color, System.Drawing.Primitives'),"FromName",P1])
 
 	Func getR
-		return dnRequest("get",[self,"R"])
+		return dnRequest("get",[new DotNetObject(nHandle),"R"])
 
 	Func setR P1
 		raise("DotNet Error: R is a read-only property")
 
 	Func getG
-		return dnRequest("get",[self,"G"])
+		return dnRequest("get",[new DotNetObject(nHandle),"G"])
 
 	Func setG P1
 		raise("DotNet Error: G is a read-only property")
 
 	Func getB
-		return dnRequest("get",[self,"B"])
+		return dnRequest("get",[new DotNetObject(nHandle),"B"])
 
 	Func setB P1
 		raise("DotNet Error: B is a read-only property")
 
 	Func getA
-		return dnRequest("get",[self,"A"])
+		return dnRequest("get",[new DotNetObject(nHandle),"A"])
 
 	Func setA P1
 		raise("DotNet Error: A is a read-only property")
 
 	Func getIsKnownColor
-		return dnRequest("get",[self,"IsKnownColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsKnownColor"])
 
 	Func setIsKnownColor P1
 		raise("DotNet Error: IsKnownColor is a read-only property")
 
 	Func getIsEmpty
-		return dnRequest("get",[self,"IsEmpty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getIsNamedColor
-		return dnRequest("get",[self,"IsNamedColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNamedColor"])
 
 	Func setIsNamedColor P1
 		raise("DotNet Error: IsNamedColor is a read-only property")
 
 	Func getIsSystemColor
-		return dnRequest("get",[self,"IsSystemColor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSystemColor"])
 
 	Func setIsSystemColor P1
 		raise("DotNet Error: IsSystemColor is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

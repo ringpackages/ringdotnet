@@ -14,56 +14,56 @@ Class RSA from AsymmetricAlgorithm
 		return self
 
 	Func GetMaxOutputSize 
-		return dnRequest("call",[self,"GetMaxOutputSize"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxOutputSize"])
 
 	Func ExportParameters P1
-		return dnRequest("call",[self,"ExportParameters",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportParameters",P1])
 
 	Func ImportParameters P1
-		dnRequest("call",[self,"ImportParameters",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ImportParameters",P1])
 		return self
 
 	Func Encrypt P1,P2
-		return dnRequest("call",[self,"Encrypt",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Encrypt",P1,P2])
 
 	Func Decrypt P1,P2
-		return dnRequest("call",[self,"Decrypt",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Decrypt",P1,P2])
 
 	Func SignHash P1,P2,P3
-		return dnRequest("call",[self,"SignHash",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignHash",P1,P2,P3])
 
 	Func VerifyHash P1,P2,P3,P4
-		return dnRequest("call",[self,"VerifyHash",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyHash",P1,P2,P3,P4])
 
 	Func DecryptValue P1
-		return dnRequest("call",[self,"DecryptValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DecryptValue",P1])
 
 	Func EncryptValue P1
-		return dnRequest("call",[self,"EncryptValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EncryptValue",P1])
 
 	Func SignData P1,P2,P3
-		return dnRequest("call",[self,"SignData",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3])
 
 	Func SignData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"SignData",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3,P4,P5])
 
 	Func VerifyData P1,P2,P3,P4
-		return dnRequest("call",[self,"VerifyData",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4])
 
 	Func VerifyData_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"VerifyData",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4,P5,P6])
 
 	Func ExportRSAPrivateKey 
-		return dnRequest("call",[self,"ExportRSAPrivateKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportRSAPrivateKey"])
 
 	Func ExportRSAPublicKey 
-		return dnRequest("call",[self,"ExportRSAPublicKey"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportRSAPublicKey"])
 
 	Func ExportRSAPrivateKeyPem 
-		return dnRequest("call",[self,"ExportRSAPrivateKeyPem"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportRSAPrivateKeyPem"])
 
 	Func ExportRSAPublicKeyPem 
-		return dnRequest("call",[self,"ExportRSAPublicKeyPem"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExportRSAPublicKeyPem"])
 
 	Func Create P1
 		if dnIsNamed(P1)

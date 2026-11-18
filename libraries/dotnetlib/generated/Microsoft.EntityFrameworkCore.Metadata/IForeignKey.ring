@@ -21,49 +21,49 @@ Class IForeignKey from DotNetObject
 		return self
 
 	Func GetReferencingSkipNavigations 
-		return dnRequest("call",[self,"GetReferencingSkipNavigations"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetReferencingSkipNavigations"])
 
 	Func GetRelatedEntityType P1
-		return dnRequest("call",[self,"GetRelatedEntityType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetRelatedEntityType",P1])
 
 	Func GetNavigation P1
-		return dnRequest("call",[self,"GetNavigation",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNavigation",P1])
 
 	Func GetDependentKeyValueFactory 
-		return dnRequest("call",[self,"GetDependentKeyValueFactory"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDependentKeyValueFactory"])
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getPrincipalKey
-		return dnRequest("get",[self,"PrincipalKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalKey"])
 
 	Func setPrincipalKey P1
 		raise("DotNet Error: PrincipalKey is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getPrincipalEntityType
-		return dnRequest("get",[self,"PrincipalEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalEntityType"])
 
 	Func setPrincipalEntityType P1
 		raise("DotNet Error: PrincipalEntityType is a read-only property")
 
 	Func getDependentToPrincipal
-		return dnRequest("get",[self,"DependentToPrincipal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DependentToPrincipal"])
 
 	Func setDependentToPrincipal P1
 		raise("DotNet Error: DependentToPrincipal is a read-only property")
 
 	Func getPrincipalToDependent
-		return dnRequest("get",[self,"PrincipalToDependent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalToDependent"])
 
 	Func setPrincipalToDependent P1
 		raise("DotNet Error: PrincipalToDependent is a read-only property")

@@ -36,45 +36,45 @@ Class SizeAnimation from SizeAnimationBase
 		return self
 
 	Func getFrom
-		return dnRequest("get",[self,"From"])
+		return dnRequest("get",[new DotNetObject(nHandle),"From"])
 
 	Func setFrom P1
-		dnRequest("set",[self,"From",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"From",P1])
 		return self
 
 	Func getTo
-		return dnRequest("get",[self,"To"])
+		return dnRequest("get",[new DotNetObject(nHandle),"To"])
 
 	Func setTo P1
-		dnRequest("set",[self,"To",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"To",P1])
 		return self
 
 	Func getBy
-		return dnRequest("get",[self,"By"])
+		return dnRequest("get",[new DotNetObject(nHandle),"By"])
 
 	Func setBy P1
-		dnRequest("set",[self,"By",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"By",P1])
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[self,"EasingFunction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EasingFunction"])
 
 	Func setEasingFunction P1
-		dnRequest("set",[self,"EasingFunction",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EasingFunction",P1])
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[self,"IsAdditive"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsAdditive"])
 
 	Func setIsAdditive P1
-		dnRequest("set",[self,"IsAdditive",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsAdditive",P1])
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[self,"IsCumulative"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCumulative"])
 
 	Func setIsCumulative P1
-		dnRequest("set",[self,"IsCumulative",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsCumulative",P1])
 		return self
 
 	Func getFromProperty

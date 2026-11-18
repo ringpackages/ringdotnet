@@ -16,9 +16,9 @@ Class DataGridViewCellErrorTextNeededEventArgs from DataGridViewCellEventArgs
 		return self
 
 	Func getErrorText
-		return dnRequest("get",[self,"ErrorText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorText"])
 
 	Func setErrorText P1
-		dnRequest("set",[self,"ErrorText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ErrorText",P1])
 		return self
 

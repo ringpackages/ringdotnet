@@ -18,13 +18,13 @@ Class PropertyTabChangedEventArgs from EventArgs
 		return self
 
 	Func getOldTab
-		return dnRequest("get",[self,"OldTab"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OldTab"])
 
 	Func setOldTab P1
 		raise("DotNet Error: OldTab is a read-only property")
 
 	Func getNewTab
-		return dnRequest("get",[self,"NewTab"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NewTab"])
 
 	Func setNewTab P1
 		raise("DotNet Error: NewTab is a read-only property")

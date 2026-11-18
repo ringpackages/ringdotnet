@@ -14,6 +14,6 @@ Class IModelCustomizer from DotNetObject
 		return self
 
 	Func Customize P1,P2
-		dnRequest("call",[self,"Customize",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Customize",P1,P2])
 		return self
 

@@ -23,19 +23,19 @@ Class AspNameValueHeaderValue from Object
 		return self
 
 	Func Copy 
-		return dnRequest("call",[self,"Copy"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Copy"])
 
 	Func CopyAsReadOnly 
-		return dnRequest("call",[self,"CopyAsReadOnly"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CopyAsReadOnly"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetUnescapedValue 
-		return dnRequest("call",[self,"GetUnescapedValue"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUnescapedValue"])
 
 	Func SetAndEscapeValue P1
-		dnRequest("call",[self,"SetAndEscapeValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAndEscapeValue",P1])
 		return self
 
 	Func Parse P1
@@ -60,20 +60,20 @@ Class AspNameValueHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers'),"Find",P1,P2])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

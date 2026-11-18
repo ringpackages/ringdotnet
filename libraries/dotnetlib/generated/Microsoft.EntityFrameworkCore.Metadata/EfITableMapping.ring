@@ -20,31 +20,31 @@ Class EfITableMapping from DotNetObject
 		return self
 
 	Func getTable
-		return dnRequest("get",[self,"Table"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getColumnMappings
-		return dnRequest("get",[self,"ColumnMappings"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ColumnMappings"])
 
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
 	Func getInsertStoredProcedureMapping
-		return dnRequest("get",[self,"InsertStoredProcedureMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InsertStoredProcedureMapping"])
 
 	Func setInsertStoredProcedureMapping P1
 		raise("DotNet Error: InsertStoredProcedureMapping is a read-only property")
 
 	Func getDeleteStoredProcedureMapping
-		return dnRequest("get",[self,"DeleteStoredProcedureMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeleteStoredProcedureMapping"])
 
 	Func setDeleteStoredProcedureMapping P1
 		raise("DotNet Error: DeleteStoredProcedureMapping is a read-only property")
 
 	Func getUpdateStoredProcedureMapping
-		return dnRequest("get",[self,"UpdateStoredProcedureMapping"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UpdateStoredProcedureMapping"])
 
 	Func setUpdateStoredProcedureMapping P1
 		raise("DotNet Error: UpdateStoredProcedureMapping is a read-only property")

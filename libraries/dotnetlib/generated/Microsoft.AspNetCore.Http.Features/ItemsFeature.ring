@@ -17,12 +17,12 @@ Class ItemsFeature from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
 
 	Func setItems P1
-		dnRequest("set",[self,"Items",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Items",P1])
 		return self
 

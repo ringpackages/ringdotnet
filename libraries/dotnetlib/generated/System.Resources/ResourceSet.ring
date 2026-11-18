@@ -15,40 +15,40 @@ Class ResourceSet from Object
 		return self
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func GetDefaultReader 
-		return dnRequest("call",[self,"GetDefaultReader"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultReader"])
 
 	Func GetDefaultWriter 
-		return dnRequest("call",[self,"GetDefaultWriter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultWriter"])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func GetString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetString",P1])
 		ok
-		return dnRequest("call",[self,"GetString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
 
 	Func GetString_2 P1,P2
-		return dnRequest("call",[self,"GetString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1,P2])
 
 	Func GetObject P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetObject",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetObject",P1])
 		ok
-		return dnRequest("call",[self,"GetObject",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1])
 
 	Func GetObject_2 P1,P2
-		return dnRequest("call",[self,"GetObject",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

@@ -25,72 +25,72 @@ Class BindingExpressionBase from Expression
 		return self
 
 	Func UpdateTarget 
-		dnRequest("call",[self,"UpdateTarget"])
+		dnRequest("call",[new DotNetObject(nHandle),"UpdateTarget"])
 		return self
 
 	Func UpdateSource 
-		dnRequest("call",[self,"UpdateSource"])
+		dnRequest("call",[new DotNetObject(nHandle),"UpdateSource"])
 		return self
 
 	Func ValidateWithoutUpdate 
-		return dnRequest("call",[self,"ValidateWithoutUpdate"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ValidateWithoutUpdate"])
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getTargetProperty
-		return dnRequest("get",[self,"TargetProperty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetProperty"])
 
 	Func setTargetProperty P1
 		raise("DotNet Error: TargetProperty is a read-only property")
 
 	Func getParentBindingBase
-		return dnRequest("get",[self,"ParentBindingBase"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParentBindingBase"])
 
 	Func setParentBindingBase P1
 		raise("DotNet Error: ParentBindingBase is a read-only property")
 
 	Func getBindingGroup
-		return dnRequest("get",[self,"BindingGroup"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BindingGroup"])
 
 	Func setBindingGroup P1
 		raise("DotNet Error: BindingGroup is a read-only property")
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getValidationError
-		return dnRequest("get",[self,"ValidationError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidationError"])
 
 	Func setValidationError P1
 		raise("DotNet Error: ValidationError is a read-only property")
 
 	Func getHasError
-		return dnRequest("get",[self,"HasError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasError"])
 
 	Func setHasError P1
 		raise("DotNet Error: HasError is a read-only property")
 
 	Func getHasValidationError
-		return dnRequest("get",[self,"HasValidationError"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasValidationError"])
 
 	Func setHasValidationError P1
 		raise("DotNet Error: HasValidationError is a read-only property")
 
 	Func getIsDirty
-		return dnRequest("get",[self,"IsDirty"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsDirty"])
 
 	Func setIsDirty P1
 		raise("DotNet Error: IsDirty is a read-only property")
 
 	Func getValidationErrors
-		return dnRequest("get",[self,"ValidationErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidationErrors"])
 
 	Func setValidationErrors P1
 		raise("DotNet Error: ValidationErrors is a read-only property")

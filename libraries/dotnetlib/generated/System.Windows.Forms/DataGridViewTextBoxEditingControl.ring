@@ -22,55 +22,55 @@ Class DataGridViewTextBoxEditingControl from TextBox
 		return self
 
 	Func ApplyCellStyleToEditingControl P1
-		dnRequest("call",[self,"ApplyCellStyleToEditingControl",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ApplyCellStyleToEditingControl",P1])
 		return self
 
 	Func EditingControlWantsInputKey P1,P2
-		return dnRequest("call",[self,"EditingControlWantsInputKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"EditingControlWantsInputKey",P1,P2])
 
 	Func GetEditingControlFormattedValue_1 P1
-		return dnRequest("call",[self,"GetEditingControlFormattedValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingControlFormattedValue",P1])
 
 	Func PrepareEditingControlForEdit P1
-		dnRequest("call",[self,"PrepareEditingControlForEdit",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PrepareEditingControlForEdit",P1])
 		return self
 
 	Func getEditingControlDataGridView
-		return dnRequest("get",[self,"EditingControlDataGridView"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditingControlDataGridView"])
 
 	Func setEditingControlDataGridView P1
-		dnRequest("set",[self,"EditingControlDataGridView",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EditingControlDataGridView",P1])
 		return self
 
 	Func getEditingControlFormattedValue
-		return dnRequest("get",[self,"EditingControlFormattedValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditingControlFormattedValue"])
 
 	Func setEditingControlFormattedValue P1
-		dnRequest("set",[self,"EditingControlFormattedValue",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EditingControlFormattedValue",P1])
 		return self
 
 	Func getEditingControlRowIndex
-		return dnRequest("get",[self,"EditingControlRowIndex"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditingControlRowIndex"])
 
 	Func setEditingControlRowIndex P1
-		dnRequest("set",[self,"EditingControlRowIndex",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EditingControlRowIndex",P1])
 		return self
 
 	Func getEditingControlValueChanged
-		return dnRequest("get",[self,"EditingControlValueChanged"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditingControlValueChanged"])
 
 	Func setEditingControlValueChanged P1
-		dnRequest("set",[self,"EditingControlValueChanged",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"EditingControlValueChanged",P1])
 		return self
 
 	Func getEditingPanelCursor
-		return dnRequest("get",[self,"EditingPanelCursor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EditingPanelCursor"])
 
 	Func setEditingPanelCursor P1
 		raise("DotNet Error: EditingPanelCursor is a read-only property")
 
 	Func getRepositionEditingControlOnValueChange
-		return dnRequest("get",[self,"RepositionEditingControlOnValueChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RepositionEditingControlOnValueChange"])
 
 	Func setRepositionEditingControlOnValueChange P1
 		raise("DotNet Error: RepositionEditingControlOnValueChange is a read-only property")

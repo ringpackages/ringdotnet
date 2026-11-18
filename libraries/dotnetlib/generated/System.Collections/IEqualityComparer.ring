@@ -14,8 +14,8 @@ Class IEqualityComparer from DotNetObject
 		return self
 
 	Func Equals P1,P2
-		return dnRequest("call",[self,"Equals",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
 
 	Func GetHashCode P1
-		return dnRequest("call",[self,"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
 

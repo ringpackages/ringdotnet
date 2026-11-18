@@ -15,19 +15,19 @@ Class SqliteParameterCollection from DbParameterCollection
 
 	Func Add P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
-		return dnRequest("call",[self,"Add",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
 	Func Add_2 P1,P2
-		return dnRequest("call",[self,"Add",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Add_3 P1,P2,P3
-		return dnRequest("call",[self,"Add",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 
 	Func Add_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"Add",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4])
 
 	Func AddWithValue P1,P2
-		return dnRequest("call",[self,"AddWithValue",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AddWithValue",P1,P2])
 

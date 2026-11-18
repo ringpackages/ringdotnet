@@ -14,14 +14,14 @@ Class IMaterializationInterceptor from DotNetObject
 		return self
 
 	Func CreatingInstance P1,P2
-		return dnRequest("call",[self,"CreatingInstance",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatingInstance",P1,P2])
 
 	Func CreatedInstance P1,P2
-		return dnRequest("call",[self,"CreatedInstance",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatedInstance",P1,P2])
 
 	Func InitializingInstance P1,P2,P3
-		return dnRequest("call",[self,"InitializingInstance",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"InitializingInstance",P1,P2,P3])
 
 	Func InitializedInstance P1,P2
-		return dnRequest("call",[self,"InitializedInstance",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InitializedInstance",P1,P2])
 

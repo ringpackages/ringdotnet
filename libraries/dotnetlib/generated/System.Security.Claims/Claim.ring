@@ -44,64 +44,64 @@ Class Claim from Object
 
 	Func Clone P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Clone",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Clone",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Clone"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 		ok
-		return dnRequest("call",[self,"Clone",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1])
 
 	Func Clone_1 P1
-		return dnRequest("call",[self,"Clone",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1])
 
 	Func WriteTo P1
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func GetType_0 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIssuer
-		return dnRequest("get",[self,"Issuer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Issuer"])
 
 	Func setIssuer P1
 		raise("DotNet Error: Issuer is a read-only property")
 
 	Func getOriginalIssuer
-		return dnRequest("get",[self,"OriginalIssuer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OriginalIssuer"])
 
 	Func setOriginalIssuer P1
 		raise("DotNet Error: OriginalIssuer is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[self,"Properties"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getSubject
-		return dnRequest("get",[self,"Subject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Subject"])
 
 	Func setSubject P1
 		raise("DotNet Error: Subject is a read-only property")
 
 	Func getType
-		return dnRequest("get",[self,"Type"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getValueType
-		return dnRequest("get",[self,"ValueType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValueType"])
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")

@@ -21,27 +21,27 @@ Class XamlTypeMapper from Object
 		return self
 
 	Func GetType_2 P1,P2
-		return dnRequest("call",[self,"GetType",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType",P1,P2])
 
 	Func AddMappingProcessingInstruction P1,P2,P3
-		dnRequest("call",[self,"AddMappingProcessingInstruction",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AddMappingProcessingInstruction",P1,P2,P3])
 		return self
 
 	Func SetAssemblyPath P1,P2
-		dnRequest("call",[self,"SetAssemblyPath",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAssemblyPath",P1,P2])
 		return self
 
 	Func GetType P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetType",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetType",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetType"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 		ok
 		raise("DotNet Error: GetType does not take one argument: use GetType(NULL), GetType_N(...) or named arguments")
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDefaultMapper
 		return dnRequest("get",[dnTypeCached('System.Windows.Markup.XamlTypeMapper, PresentationFramework'),"DefaultMapper"])

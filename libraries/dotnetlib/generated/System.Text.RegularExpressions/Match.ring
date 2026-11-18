@@ -17,16 +17,16 @@ Class Match from Group
 		return self
 
 	Func NextMatch 
-		return dnRequest("call",[self,"NextMatch"])
+		return dnRequest("call",[new DotNetObject(nHandle),"NextMatch"])
 
 	Func Result P1
-		return dnRequest("call",[self,"Result",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Result",P1])
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Match, System.Text.RegularExpressions'),"Synchronized",P1])
 
 	Func getGroups
-		return dnRequest("get",[self,"Groups"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Groups"])
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")

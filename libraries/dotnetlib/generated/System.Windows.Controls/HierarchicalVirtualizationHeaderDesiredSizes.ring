@@ -22,13 +22,13 @@ Class HierarchicalVirtualizationHeaderDesiredSizes from ValueType
 		return self
 
 	Func getLogicalSize
-		return dnRequest("get",[self,"LogicalSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LogicalSize"])
 
 	Func setLogicalSize P1
 		raise("DotNet Error: LogicalSize is a read-only property")
 
 	Func getPixelSize
-		return dnRequest("get",[self,"PixelSize"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelSize"])
 
 	Func setPixelSize P1
 		raise("DotNet Error: PixelSize is a read-only property")

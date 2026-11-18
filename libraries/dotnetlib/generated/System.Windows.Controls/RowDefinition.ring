@@ -24,34 +24,34 @@ Class RowDefinition from DefinitionBase
 		return self
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[self,"Height",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
 		return self
 
 	Func getMinHeight
-		return dnRequest("get",[self,"MinHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MinHeight"])
 
 	Func setMinHeight P1
-		dnRequest("set",[self,"MinHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MinHeight",P1])
 		return self
 
 	Func getMaxHeight
-		return dnRequest("get",[self,"MaxHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxHeight"])
 
 	Func setMaxHeight P1
-		dnRequest("set",[self,"MaxHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxHeight",P1])
 		return self
 
 	Func getActualHeight
-		return dnRequest("get",[self,"ActualHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ActualHeight"])
 
 	Func setActualHeight P1
 		raise("DotNet Error: ActualHeight is a read-only property")
 
 	Func getOffset
-		return dnRequest("get",[self,"Offset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")

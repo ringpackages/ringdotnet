@@ -14,10 +14,10 @@ Class IComponentConnector from DotNetObject
 		return self
 
 	Func Connect P1,P2
-		dnRequest("call",[self,"Connect",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1,P2])
 		return self
 
 	Func InitializeComponent 
-		dnRequest("call",[self,"InitializeComponent"])
+		dnRequest("call",[new DotNetObject(nHandle),"InitializeComponent"])
 		return self
 

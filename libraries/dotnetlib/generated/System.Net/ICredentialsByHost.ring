@@ -14,5 +14,5 @@ Class ICredentialsByHost from DotNetObject
 		return self
 
 	Func GetCredential P1,P2,P3
-		return dnRequest("call",[self,"GetCredential",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCredential",P1,P2,P3])
 

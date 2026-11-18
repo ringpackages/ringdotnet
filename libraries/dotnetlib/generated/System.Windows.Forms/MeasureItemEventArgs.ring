@@ -24,28 +24,28 @@ Class MeasureItemEventArgs from EventArgs
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[self,"Graphics"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getIndex
-		return dnRequest("get",[self,"Index"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getItemHeight
-		return dnRequest("get",[self,"ItemHeight"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemHeight"])
 
 	Func setItemHeight P1
-		dnRequest("set",[self,"ItemHeight",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemHeight",P1])
 		return self
 
 	Func getItemWidth
-		return dnRequest("get",[self,"ItemWidth"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ItemWidth"])
 
 	Func setItemWidth P1
-		dnRequest("set",[self,"ItemWidth",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ItemWidth",P1])
 		return self
 

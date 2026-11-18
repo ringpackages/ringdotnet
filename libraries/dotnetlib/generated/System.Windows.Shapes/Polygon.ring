@@ -20,17 +20,17 @@ Class Polygon from Shape
 		return self
 
 	Func getPoints
-		return dnRequest("get",[self,"Points"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Points"])
 
 	Func setPoints P1
-		dnRequest("set",[self,"Points",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Points",P1])
 		return self
 
 	Func getFillRule
-		return dnRequest("get",[self,"FillRule"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FillRule"])
 
 	Func setFillRule P1
-		dnRequest("set",[self,"FillRule",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"FillRule",P1])
 		return self
 
 	Func getPointsProperty

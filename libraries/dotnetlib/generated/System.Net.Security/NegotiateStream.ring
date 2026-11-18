@@ -22,138 +22,138 @@ Class NegotiateStream from AuthenticatedStream
 		return self
 
 	Func BeginAuthenticateAsClient P1,P2
-		return dnRequest("call",[self,"BeginAuthenticateAsClient",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1,P2])
 
 	Func BeginAuthenticateAsClient_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"BeginAuthenticateAsClient",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1,P2,P3,P4])
 
 	Func BeginAuthenticateAsClient_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"BeginAuthenticateAsClient",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1,P2,P3,P4,P5])
 
 	Func BeginAuthenticateAsClient_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"BeginAuthenticateAsClient",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1,P2,P3,P4,P5,P6])
 
 	Func BeginAuthenticateAsClient_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"BeginAuthenticateAsClient",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1,P2,P3,P4,P5,P6,P7])
 
 	Func EndAuthenticateAsClient P1
-		dnRequest("call",[self,"EndAuthenticateAsClient",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EndAuthenticateAsClient",P1])
 		return self
 
 	Func AuthenticateAsServer P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AuthenticateAsServer",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsServer",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"AuthenticateAsServer"])
+			dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer"])
 		return self
 		ok
-		dnRequest("call",[self,"AuthenticateAsServer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer",P1])
 		return self
 
 	Func AuthenticateAsServer_1 P1
-		dnRequest("call",[self,"AuthenticateAsServer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer",P1])
 		return self
 
 	Func AuthenticateAsServer_3 P1,P2,P3
-		dnRequest("call",[self,"AuthenticateAsServer",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer",P1,P2,P3])
 		return self
 
 	Func AuthenticateAsServer_4 P1,P2,P3,P4
-		dnRequest("call",[self,"AuthenticateAsServer",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer",P1,P2,P3,P4])
 		return self
 
 	Func BeginAuthenticateAsServer P1,P2
-		return dnRequest("call",[self,"BeginAuthenticateAsServer",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsServer",P1,P2])
 
 	Func BeginAuthenticateAsServer_3 P1,P2,P3
-		return dnRequest("call",[self,"BeginAuthenticateAsServer",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsServer",P1,P2,P3])
 
 	Func BeginAuthenticateAsServer_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"BeginAuthenticateAsServer",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsServer",P1,P2,P3,P4,P5])
 
 	Func BeginAuthenticateAsServer_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"BeginAuthenticateAsServer",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginAuthenticateAsServer",P1,P2,P3,P4,P5,P6])
 
 	Func EndAuthenticateAsServer P1
-		dnRequest("call",[self,"EndAuthenticateAsServer",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"EndAuthenticateAsServer",P1])
 		return self
 
 	Func AuthenticateAsClient P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AuthenticateAsClient",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsClient",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"AuthenticateAsClient"])
+			dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient"])
 		return self
 		ok
 		raise("DotNet Error: AuthenticateAsClient does not take one argument: use AuthenticateAsClient(NULL), AuthenticateAsClient_N(...) or named arguments")
 
 	Func AuthenticateAsClient_2 P1,P2
-		dnRequest("call",[self,"AuthenticateAsClient",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient",P1,P2])
 		return self
 
 	Func AuthenticateAsClient_3 P1,P2,P3
-		dnRequest("call",[self,"AuthenticateAsClient",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient",P1,P2,P3])
 		return self
 
 	Func AuthenticateAsClient_4 P1,P2,P3,P4
-		dnRequest("call",[self,"AuthenticateAsClient",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient",P1,P2,P3,P4])
 		return self
 
 	Func AuthenticateAsClient_5 P1,P2,P3,P4,P5
-		dnRequest("call",[self,"AuthenticateAsClient",P1,P2,P3,P4,P5])
+		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient",P1,P2,P3,P4,P5])
 		return self
 
 	Func AuthenticateAsClientAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AuthenticateAsClientAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AuthenticateAsClientAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync"])
 		ok
 		raise("DotNet Error: AuthenticateAsClientAsync does not take one argument: use AuthenticateAsClientAsync(NULL), AuthenticateAsClientAsync_N(...) or named arguments")
 
 	Func AuthenticateAsClientAsync_2 P1,P2
-		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1,P2])
 
 	Func AuthenticateAsClientAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1,P2,P3,P4])
 
 	Func AuthenticateAsClientAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1,P2,P3])
 
 	Func AuthenticateAsClientAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1,P2,P3,P4,P5])
 
 	Func AuthenticateAsServerAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AuthenticateAsServerAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AuthenticateAsServerAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync"])
 		ok
-		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1])
 
 	Func AuthenticateAsServerAsync_1 P1
-		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1])
 
 	Func AuthenticateAsServerAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1,P2,P3])
 
 	Func AuthenticateAsServerAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1,P2,P3,P4])
 
 	Func getImpersonationLevel
-		return dnRequest("get",[self,"ImpersonationLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ImpersonationLevel"])
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
 
 	Func getRemoteIdentity
-		return dnRequest("get",[self,"RemoteIdentity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoteIdentity"])
 
 	Func setRemoteIdentity P1
 		raise("DotNet Error: RemoteIdentity is a read-only property")

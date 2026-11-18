@@ -21,37 +21,37 @@ Class IReadOnlyNavigationBase from DotNetObject
 		return self
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[self,"DeclaringEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getTargetEntityType
-		return dnRequest("get",[self,"TargetEntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetEntityType"])
 
 	Func setTargetEntityType P1
 		raise("DotNet Error: TargetEntityType is a read-only property")
 
 	Func getInverse
-		return dnRequest("get",[self,"Inverse"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Inverse"])
 
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")
 
 	Func getIsCollection
-		return dnRequest("get",[self,"IsCollection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsCollection"])
 
 	Func setIsCollection P1
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getIsEagerLoaded
-		return dnRequest("get",[self,"IsEagerLoaded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEagerLoaded"])
 
 	Func setIsEagerLoaded P1
 		raise("DotNet Error: IsEagerLoaded is a read-only property")
 
 	Func getLazyLoadingEnabled
-		return dnRequest("get",[self,"LazyLoadingEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LazyLoadingEnabled"])
 
 	Func setLazyLoadingEnabled P1
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")

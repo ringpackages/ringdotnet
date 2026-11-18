@@ -28,48 +28,48 @@ Class ContentPresenter from FrameworkElement
 		return self
 
 	Func ShouldSerializeContentTemplateSelector 
-		return dnRequest("call",[self,"ShouldSerializeContentTemplateSelector"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeContentTemplateSelector"])
 
 	Func getRecognizesAccessKey
-		return dnRequest("get",[self,"RecognizesAccessKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RecognizesAccessKey"])
 
 	Func setRecognizesAccessKey P1
-		dnRequest("set",[self,"RecognizesAccessKey",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RecognizesAccessKey",P1])
 		return self
 
 	Func getContent
-		return dnRequest("get",[self,"Content"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
 
 	Func setContent P1
-		dnRequest("set",[self,"Content",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
 		return self
 
 	Func getContentTemplate
-		return dnRequest("get",[self,"ContentTemplate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentTemplate"])
 
 	Func setContentTemplate P1
-		dnRequest("set",[self,"ContentTemplate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentTemplate",P1])
 		return self
 
 	Func getContentTemplateSelector
-		return dnRequest("get",[self,"ContentTemplateSelector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentTemplateSelector"])
 
 	Func setContentTemplateSelector P1
-		dnRequest("set",[self,"ContentTemplateSelector",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentTemplateSelector",P1])
 		return self
 
 	Func getContentStringFormat
-		return dnRequest("get",[self,"ContentStringFormat"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentStringFormat"])
 
 	Func setContentStringFormat P1
-		dnRequest("set",[self,"ContentStringFormat",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentStringFormat",P1])
 		return self
 
 	Func getContentSource
-		return dnRequest("get",[self,"ContentSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ContentSource"])
 
 	Func setContentSource P1
-		dnRequest("set",[self,"ContentSource",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ContentSource",P1])
 		return self
 
 	Func getRecognizesAccessKeyProperty

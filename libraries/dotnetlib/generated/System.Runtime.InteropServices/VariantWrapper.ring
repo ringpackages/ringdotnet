@@ -17,10 +17,10 @@ Class VariantWrapper from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getWrappedObject
-		return dnRequest("get",[self,"WrappedObject"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WrappedObject"])
 
 	Func setWrappedObject P1
 		raise("DotNet Error: WrappedObject is a read-only property")

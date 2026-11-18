@@ -17,15 +17,15 @@ Class XmlProcessingInstruction from XmlLinkedNode
 		return self
 
 	Func getTarget
-		return dnRequest("get",[self,"Target"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getData
-		return dnRequest("get",[self,"Data"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
 
 	Func setData P1
-		dnRequest("set",[self,"Data",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Data",P1])
 		return self
 

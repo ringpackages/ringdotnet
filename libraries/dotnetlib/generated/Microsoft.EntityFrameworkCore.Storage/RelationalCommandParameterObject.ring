@@ -35,43 +35,43 @@ Class RelationalCommandParameterObject from ValueType
 		return self
 
 	Func getConnection
-		return dnRequest("get",[self,"Connection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getParameterValues
-		return dnRequest("get",[self,"ParameterValues"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParameterValues"])
 
 	Func setParameterValues P1
 		raise("DotNet Error: ParameterValues is a read-only property")
 
 	Func getReaderColumns
-		return dnRequest("get",[self,"ReaderColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReaderColumns"])
 
 	Func setReaderColumns P1
 		raise("DotNet Error: ReaderColumns is a read-only property")
 
 	Func getContext
-		return dnRequest("get",[self,"Context"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getLogger
-		return dnRequest("get",[self,"Logger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getDetailedErrorsEnabled
-		return dnRequest("get",[self,"DetailedErrorsEnabled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DetailedErrorsEnabled"])
 
 	Func setDetailedErrorsEnabled P1
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
 
 	Func getCommandSource
-		return dnRequest("get",[self,"CommandSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandSource"])
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")

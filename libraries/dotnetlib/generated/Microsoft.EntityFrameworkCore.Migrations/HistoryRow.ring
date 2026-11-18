@@ -18,16 +18,16 @@ Class HistoryRow from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMigrationId
-		return dnRequest("get",[self,"MigrationId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MigrationId"])
 
 	Func setMigrationId P1
 		raise("DotNet Error: MigrationId is a read-only property")
 
 	Func getProductVersion
-		return dnRequest("get",[self,"ProductVersion"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ProductVersion"])
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")

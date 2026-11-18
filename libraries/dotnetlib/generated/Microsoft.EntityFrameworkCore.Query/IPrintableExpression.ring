@@ -14,6 +14,6 @@ Class IPrintableExpression from DotNetObject
 		return self
 
 	Func Print P1
-		dnRequest("call",[self,"Print",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
 		return self
 

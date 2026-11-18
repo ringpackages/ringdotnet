@@ -23,25 +23,25 @@ Class FilterItem from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDescriptor
-		return dnRequest("get",[self,"Descriptor"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Descriptor"])
 
 	Func setDescriptor P1
 		raise("DotNet Error: Descriptor is a read-only property")
 
 	Func getFilter
-		return dnRequest("get",[self,"Filter"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[self,"Filter",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
 		return self
 
 	Func getIsReusable
-		return dnRequest("get",[self,"IsReusable"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReusable"])
 
 	Func setIsReusable P1
-		dnRequest("set",[self,"IsReusable",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsReusable",P1])
 		return self
 

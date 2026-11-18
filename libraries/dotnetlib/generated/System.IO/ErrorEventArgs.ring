@@ -15,5 +15,5 @@ Class ErrorEventArgs from EventArgs
 		return self
 
 	Func GetException 
-		return dnRequest("call",[self,"GetException"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetException"])
 

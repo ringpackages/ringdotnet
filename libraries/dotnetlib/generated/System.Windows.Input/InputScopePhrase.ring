@@ -21,20 +21,20 @@ Class InputScopePhrase from Object
 		return self
 
 	Func AddChild P1
-		dnRequest("call",[self,"AddChild",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddChild",P1])
 		return self
 
 	Func AddText P1
-		dnRequest("call",[self,"AddText",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddText",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
-		dnRequest("set",[self,"Name",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
 		return self
 

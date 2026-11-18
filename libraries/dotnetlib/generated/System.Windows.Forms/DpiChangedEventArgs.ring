@@ -18,19 +18,19 @@ Class DpiChangedEventArgs from CancelEventArgs
 		return self
 
 	Func getDeviceDpiOld
-		return dnRequest("get",[self,"DeviceDpiOld"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeviceDpiOld"])
 
 	Func setDeviceDpiOld P1
 		raise("DotNet Error: DeviceDpiOld is a read-only property")
 
 	Func getDeviceDpiNew
-		return dnRequest("get",[self,"DeviceDpiNew"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DeviceDpiNew"])
 
 	Func setDeviceDpiNew P1
 		raise("DotNet Error: DeviceDpiNew is a read-only property")
 
 	Func getSuggestedRectangle
-		return dnRequest("get",[self,"SuggestedRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SuggestedRectangle"])
 
 	Func setSuggestedRectangle P1
 		raise("DotNet Error: SuggestedRectangle is a read-only property")

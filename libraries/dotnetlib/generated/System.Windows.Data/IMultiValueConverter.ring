@@ -14,8 +14,8 @@ Class IMultiValueConverter from DotNetObject
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnRequest("call",[self,"Convert",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3,P4])
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnRequest("call",[self,"ConvertBack",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ConvertBack",P1,P2,P3,P4])
 

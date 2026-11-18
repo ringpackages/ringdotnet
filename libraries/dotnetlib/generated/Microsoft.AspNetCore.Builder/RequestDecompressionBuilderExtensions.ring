@@ -14,7 +14,7 @@ Class RequestDecompressionBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func UseRequestDecompression P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestDecompressionBuilderExtensions, Microsoft.AspNetCore.RequestDecompression'),"UseRequestDecompression",P1])

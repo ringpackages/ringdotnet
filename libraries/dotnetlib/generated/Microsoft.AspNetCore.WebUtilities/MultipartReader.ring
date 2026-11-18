@@ -25,39 +25,39 @@ Class MultipartReader from Object
 		return self
 
 	Func ReadNextSectionAsync_1 P1
-		return dnRequest("call",[self,"ReadNextSectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadNextSectionAsync",P1])
 
 	Func ReadNextSectionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ReadNextSectionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadNextSectionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ReadNextSectionAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ReadNextSectionAsync"])
 		ok
-		return dnRequest("call",[self,"ReadNextSectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadNextSectionAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHeadersCountLimit
-		return dnRequest("get",[self,"HeadersCountLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeadersCountLimit"])
 
 	Func setHeadersCountLimit P1
-		dnRequest("set",[self,"HeadersCountLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeadersCountLimit",P1])
 		return self
 
 	Func getHeadersLengthLimit
-		return dnRequest("get",[self,"HeadersLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HeadersLengthLimit"])
 
 	Func setHeadersLengthLimit P1
-		dnRequest("set",[self,"HeadersLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"HeadersLengthLimit",P1])
 		return self
 
 	Func getBodyLengthLimit
-		return dnRequest("get",[self,"BodyLengthLimit"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BodyLengthLimit"])
 
 	Func setBodyLengthLimit P1
-		dnRequest("set",[self,"BodyLengthLimit",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BodyLengthLimit",P1])
 		return self
 
 	Func getDefaultHeadersCountLimit

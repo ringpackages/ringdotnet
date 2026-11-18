@@ -17,13 +17,13 @@ Class IMvcBuilder from DotNetObject
 		return self
 
 	Func getServices
-		return dnRequest("get",[self,"Services"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getPartManager
-		return dnRequest("get",[self,"PartManager"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PartManager"])
 
 	Func setPartManager P1
 		raise("DotNet Error: PartManager is a read-only property")

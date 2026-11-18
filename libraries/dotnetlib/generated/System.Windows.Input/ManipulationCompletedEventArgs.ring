@@ -21,40 +21,40 @@ Class ManipulationCompletedEventArgs from InputEventArgs
 		return self
 
 	Func Cancel 
-		return dnRequest("call",[self,"Cancel"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
 
 	Func getIsInertial
-		return dnRequest("get",[self,"IsInertial"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsInertial"])
 
 	Func setIsInertial P1
 		raise("DotNet Error: IsInertial is a read-only property")
 
 	Func getManipulationContainer
-		return dnRequest("get",[self,"ManipulationContainer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationContainer"])
 
 	Func setManipulationContainer P1
 		raise("DotNet Error: ManipulationContainer is a read-only property")
 
 	Func getManipulationOrigin
-		return dnRequest("get",[self,"ManipulationOrigin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationOrigin"])
 
 	Func setManipulationOrigin P1
 		raise("DotNet Error: ManipulationOrigin is a read-only property")
 
 	Func getTotalManipulation
-		return dnRequest("get",[self,"TotalManipulation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TotalManipulation"])
 
 	Func setTotalManipulation P1
 		raise("DotNet Error: TotalManipulation is a read-only property")
 
 	Func getFinalVelocities
-		return dnRequest("get",[self,"FinalVelocities"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FinalVelocities"])
 
 	Func setFinalVelocities P1
 		raise("DotNet Error: FinalVelocities is a read-only property")
 
 	Func getManipulators
-		return dnRequest("get",[self,"Manipulators"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Manipulators"])
 
 	Func setManipulators P1
 		raise("DotNet Error: Manipulators is a read-only property")

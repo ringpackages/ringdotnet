@@ -21,7 +21,7 @@ Class X509KeyUsageExtension from X509Extension
 		return self
 
 	Func getKeyUsages
-		return dnRequest("get",[self,"KeyUsages"])
+		return dnRequest("get",[new DotNetObject(nHandle),"KeyUsages"])
 
 	Func setKeyUsages P1
 		raise("DotNet Error: KeyUsages is a read-only property")

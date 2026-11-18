@@ -24,29 +24,29 @@ Class SecurityIdentifier from IdentityReference
 		return self
 
 	Func IsAccountSid 
-		return dnRequest("call",[self,"IsAccountSid"])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAccountSid"])
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func IsWellKnown P1
-		return dnRequest("call",[self,"IsWellKnown",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsWellKnown",P1])
 
 	Func GetBinaryForm P1,P2
-		dnRequest("call",[self,"GetBinaryForm",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetBinaryForm",P1,P2])
 		return self
 
 	Func IsEqualDomainSid P1
-		return dnRequest("call",[self,"IsEqualDomainSid",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsEqualDomainSid",P1])
 
 	Func getBinaryLength
-		return dnRequest("get",[self,"BinaryLength"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BinaryLength"])
 
 	Func setBinaryLength P1
 		raise("DotNet Error: BinaryLength is a read-only property")
 
 	Func getAccountDomainSid
-		return dnRequest("get",[self,"AccountDomainSid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccountDomainSid"])
 
 	Func setAccountDomainSid P1
 		raise("DotNet Error: AccountDomainSid is a read-only property")

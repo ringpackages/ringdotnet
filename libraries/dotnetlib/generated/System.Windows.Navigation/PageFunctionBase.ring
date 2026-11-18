@@ -16,9 +16,9 @@ Class PageFunctionBase from Page
 		return self
 
 	Func getRemoveFromJournal
-		return dnRequest("get",[self,"RemoveFromJournal"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RemoveFromJournal"])
 
 	Func setRemoveFromJournal P1
-		dnRequest("set",[self,"RemoveFromJournal",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RemoveFromJournal",P1])
 		return self
 

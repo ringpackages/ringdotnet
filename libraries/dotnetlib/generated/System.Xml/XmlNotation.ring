@@ -17,13 +17,13 @@ Class XmlNotation from XmlNode
 		return self
 
 	Func getPublicId
-		return dnRequest("get",[self,"PublicId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PublicId"])
 
 	Func setPublicId P1
 		raise("DotNet Error: PublicId is a read-only property")
 
 	Func getSystemId
-		return dnRequest("get",[self,"SystemId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SystemId"])
 
 	Func setSystemId P1
 		raise("DotNet Error: SystemId is a read-only property")

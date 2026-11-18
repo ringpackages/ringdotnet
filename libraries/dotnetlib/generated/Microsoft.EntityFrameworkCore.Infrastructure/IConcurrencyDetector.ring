@@ -14,9 +14,9 @@ Class IConcurrencyDetector from DotNetObject
 		return self
 
 	Func EnterCriticalSection 
-		return dnRequest("call",[self,"EnterCriticalSection"])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnterCriticalSection"])
 
 	Func ExitCriticalSection 
-		dnRequest("call",[self,"ExitCriticalSection"])
+		dnRequest("call",[new DotNetObject(nHandle),"ExitCriticalSection"])
 		return self
 

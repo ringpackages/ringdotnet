@@ -17,13 +17,13 @@ Class LiftableConstantFactory from Object
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnRequest("call",[self,"CreateLiftableConstant",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateLiftableConstant",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDependencies
-		return dnRequest("get",[self,"Dependencies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Dependencies"])
 
 	Func setDependencies P1
 		raise("DotNet Error: Dependencies is a read-only property")

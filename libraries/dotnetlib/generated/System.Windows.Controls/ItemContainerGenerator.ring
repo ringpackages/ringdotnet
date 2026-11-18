@@ -17,53 +17,53 @@ Class ItemContainerGenerator from Object
 		return self
 
 	Func GenerateBatches 
-		return dnRequest("call",[self,"GenerateBatches"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GenerateBatches"])
 
 	Func ItemFromContainer P1
-		return dnRequest("call",[self,"ItemFromContainer",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ItemFromContainer",P1])
 
 	Func ContainerFromItem P1
-		return dnRequest("call",[self,"ContainerFromItem",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainerFromItem",P1])
 
 	Func IndexFromContainer P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IndexFromContainer",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexFromContainer",P1])
 		ok
-		return dnRequest("call",[self,"IndexFromContainer",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexFromContainer",P1])
 
 	Func IndexFromContainer_2 P1,P2
-		return dnRequest("call",[self,"IndexFromContainer",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IndexFromContainer",P1,P2])
 
 	Func ContainerFromIndex P1
-		return dnRequest("call",[self,"ContainerFromIndex",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainerFromIndex",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setItemsChangedEvent P1
-		dnRequest("setevent",[self,"ItemsChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"ItemsChanged",dnCallback(P1)])
 		return self
 
 	Func clearItemsChangedEvent
-		dnRequest("clearevent",[self,"ItemsChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemsChanged"])
 		return self
 
 	Func setStatusChangedEvent P1
-		dnRequest("setevent",[self,"StatusChanged",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"StatusChanged",dnCallback(P1)])
 		return self
 
 	Func clearStatusChangedEvent
-		dnRequest("clearevent",[self,"StatusChanged"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"StatusChanged"])
 		return self
 
 	Func getStatus
-		return dnRequest("get",[self,"Status"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getItems
-		return dnRequest("get",[self,"Items"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")

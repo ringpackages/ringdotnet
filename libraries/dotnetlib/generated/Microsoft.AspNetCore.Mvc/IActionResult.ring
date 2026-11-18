@@ -14,5 +14,5 @@ Class IActionResult from DotNetObject
 		return self
 
 	Func ExecuteResultAsync P1
-		return dnRequest("call",[self,"ExecuteResultAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteResultAsync",P1])
 

@@ -24,31 +24,31 @@ Class TimeZoneInfo from Object
 		return self
 
 	Func GetAmbiguousTimeOffsets P1
-		return dnRequest("call",[self,"GetAmbiguousTimeOffsets",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAmbiguousTimeOffsets",P1])
 
 	Func GetUtcOffset P1
-		return dnRequest("call",[self,"GetUtcOffset",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetUtcOffset",P1])
 
 	Func IsAmbiguousTime P1
-		return dnRequest("call",[self,"IsAmbiguousTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsAmbiguousTime",P1])
 
 	Func IsDaylightSavingTime P1
-		return dnRequest("call",[self,"IsDaylightSavingTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsDaylightSavingTime",P1])
 
 	Func IsInvalidTime P1
-		return dnRequest("call",[self,"IsInvalidTime",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsInvalidTime",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func HasSameRules P1
-		return dnRequest("call",[self,"HasSameRules",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"HasSameRules",P1])
 
 	Func ToSerializedString 
-		return dnRequest("call",[self,"ToSerializedString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToSerializedString"])
 
 	Func GetAdjustmentRules 
-		return dnRequest("call",[self,"GetAdjustmentRules"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAdjustmentRules"])
 
 	Func ClearCachedData 
 		dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ClearCachedData"])
@@ -121,43 +121,43 @@ Class TimeZoneInfo from Object
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertWindowsIdToIanaId",P1,P2])
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getHasIanaId
-		return dnRequest("get",[self,"HasIanaId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasIanaId"])
 
 	Func setHasIanaId P1
 		raise("DotNet Error: HasIanaId is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getStandardName
-		return dnRequest("get",[self,"StandardName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StandardName"])
 
 	Func setStandardName P1
 		raise("DotNet Error: StandardName is a read-only property")
 
 	Func getDaylightName
-		return dnRequest("get",[self,"DaylightName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DaylightName"])
 
 	Func setDaylightName P1
 		raise("DotNet Error: DaylightName is a read-only property")
 
 	Func getBaseUtcOffset
-		return dnRequest("get",[self,"BaseUtcOffset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseUtcOffset"])
 
 	Func setBaseUtcOffset P1
 		raise("DotNet Error: BaseUtcOffset is a read-only property")
 
 	Func getSupportsDaylightSavingTime
-		return dnRequest("get",[self,"SupportsDaylightSavingTime"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SupportsDaylightSavingTime"])
 
 	Func setSupportsDaylightSavingTime P1
 		raise("DotNet Error: SupportsDaylightSavingTime is a read-only property")

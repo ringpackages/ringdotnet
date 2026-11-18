@@ -33,15 +33,15 @@ Class WpfQuaternion from ValueType
 		return self
 
 	Func Conjugate 
-		dnRequest("call",[self,"Conjugate"])
+		dnRequest("call",[new DotNetObject(nHandle),"Conjugate"])
 		return self
 
 	Func Invert 
-		dnRequest("call",[self,"Invert"])
+		dnRequest("call",[new DotNetObject(nHandle),"Invert"])
 		return self
 
 	Func Normalize 
-		dnRequest("call",[self,"Normalize"])
+		dnRequest("call",[new DotNetObject(nHandle),"Normalize"])
 		return self
 
 	Func Equals P1
@@ -49,12 +49,12 @@ Class WpfQuaternion from ValueType
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[self,"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Add",P1,P2])
@@ -78,55 +78,55 @@ Class WpfQuaternion from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Parse",P1])
 
 	Func getAxis
-		return dnRequest("get",[self,"Axis"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Axis"])
 
 	Func setAxis P1
 		raise("DotNet Error: Axis is a read-only property")
 
 	Func getAngle
-		return dnRequest("get",[self,"Angle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Angle"])
 
 	Func setAngle P1
 		raise("DotNet Error: Angle is a read-only property")
 
 	Func getIsNormalized
-		return dnRequest("get",[self,"IsNormalized"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsNormalized"])
 
 	Func setIsNormalized P1
 		raise("DotNet Error: IsNormalized is a read-only property")
 
 	Func getIsIdentity
-		return dnRequest("get",[self,"IsIdentity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsIdentity"])
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getX
-		return dnRequest("get",[self,"X"])
+		return dnRequest("get",[new DotNetObject(nHandle),"X"])
 
 	Func setX P1
-		dnRequest("set",[self,"X",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[self,"Y"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
 
 	Func setY P1
-		dnRequest("set",[self,"Y",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
 		return self
 
 	Func getZ
-		return dnRequest("get",[self,"Z"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Z"])
 
 	Func setZ P1
-		dnRequest("set",[self,"Z",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Z",P1])
 		return self
 
 	Func getW
-		return dnRequest("get",[self,"W"])
+		return dnRequest("get",[new DotNetObject(nHandle),"W"])
 
 	Func setW P1
-		dnRequest("set",[self,"W",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"W",P1])
 		return self
 
 	Func getIdentity

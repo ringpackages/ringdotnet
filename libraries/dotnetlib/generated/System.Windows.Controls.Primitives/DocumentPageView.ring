@@ -24,53 +24,53 @@ Class DocumentPageView from FrameworkElement
 		return self
 
 	Func setPageConnectedEvent P1
-		dnRequest("setevent",[self,"PageConnected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PageConnected",dnCallback(P1)])
 		return self
 
 	Func clearPageConnectedEvent
-		dnRequest("clearevent",[self,"PageConnected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PageConnected"])
 		return self
 
 	Func setPageDisconnectedEvent P1
-		dnRequest("setevent",[self,"PageDisconnected",dnCallback(P1)])
+		dnRequest("setevent",[new DotNetObject(nHandle),"PageDisconnected",dnCallback(P1)])
 		return self
 
 	Func clearPageDisconnectedEvent
-		dnRequest("clearevent",[self,"PageDisconnected"])
+		dnRequest("clearevent",[new DotNetObject(nHandle),"PageDisconnected"])
 		return self
 
 	Func getDocumentPaginator
-		return dnRequest("get",[self,"DocumentPaginator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentPaginator"])
 
 	Func setDocumentPaginator P1
-		dnRequest("set",[self,"DocumentPaginator",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"DocumentPaginator",P1])
 		return self
 
 	Func getDocumentPage
-		return dnRequest("get",[self,"DocumentPage"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DocumentPage"])
 
 	Func setDocumentPage P1
 		raise("DotNet Error: DocumentPage is a read-only property")
 
 	Func getPageNumber
-		return dnRequest("get",[self,"PageNumber"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PageNumber"])
 
 	Func setPageNumber P1
-		dnRequest("set",[self,"PageNumber",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"PageNumber",P1])
 		return self
 
 	Func getStretch
-		return dnRequest("get",[self,"Stretch"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Stretch"])
 
 	Func setStretch P1
-		dnRequest("set",[self,"Stretch",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Stretch",P1])
 		return self
 
 	Func getStretchDirection
-		return dnRequest("get",[self,"StretchDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StretchDirection"])
 
 	Func setStretchDirection P1
-		dnRequest("set",[self,"StretchDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StretchDirection",P1])
 		return self
 
 	Func getPageNumberProperty

@@ -16,35 +16,35 @@ Class IWebTransportSession from DotNetObject
 		return self
 
 	Func Abort P1
-		dnRequest("call",[self,"Abort",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Abort",P1])
 		return self
 
 	Func AcceptStreamAsync_1 P1
-		return dnRequest("call",[self,"AcceptStreamAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptStreamAsync",P1])
 
 	Func AcceptStreamAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"AcceptStreamAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptStreamAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"AcceptStreamAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"AcceptStreamAsync"])
 		ok
-		return dnRequest("call",[self,"AcceptStreamAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AcceptStreamAsync",P1])
 
 	Func OpenUnidirectionalStreamAsync_1 P1
-		return dnRequest("call",[self,"OpenUnidirectionalStreamAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenUnidirectionalStreamAsync",P1])
 
 	Func OpenUnidirectionalStreamAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"OpenUnidirectionalStreamAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenUnidirectionalStreamAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"OpenUnidirectionalStreamAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"OpenUnidirectionalStreamAsync"])
 		ok
-		return dnRequest("call",[self,"OpenUnidirectionalStreamAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"OpenUnidirectionalStreamAsync",P1])
 
 	Func getSessionId
-		return dnRequest("get",[self,"SessionId"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SessionId"])
 
 	Func setSessionId P1
 		raise("DotNet Error: SessionId is a read-only property")

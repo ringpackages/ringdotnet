@@ -32,31 +32,31 @@ Class SkewTransform from Transform
 		return self
 
 	Func getAngleX
-		return dnRequest("get",[self,"AngleX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AngleX"])
 
 	Func setAngleX P1
-		dnRequest("set",[self,"AngleX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AngleX",P1])
 		return self
 
 	Func getAngleY
-		return dnRequest("get",[self,"AngleY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AngleY"])
 
 	Func setAngleY P1
-		dnRequest("set",[self,"AngleY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AngleY",P1])
 		return self
 
 	Func getCenterX
-		return dnRequest("get",[self,"CenterX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CenterX"])
 
 	Func setCenterX P1
-		dnRequest("set",[self,"CenterX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CenterX",P1])
 		return self
 
 	Func getCenterY
-		return dnRequest("get",[self,"CenterY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CenterY"])
 
 	Func setCenterY P1
-		dnRequest("set",[self,"CenterY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CenterY",P1])
 		return self
 
 	Func getAngleXProperty

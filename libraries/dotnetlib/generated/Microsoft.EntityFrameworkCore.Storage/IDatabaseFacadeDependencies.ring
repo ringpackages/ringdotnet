@@ -26,67 +26,67 @@ Class IDatabaseFacadeDependencies from DotNetObject
 		return self
 
 	Func getTransactionManager
-		return dnRequest("get",[self,"TransactionManager"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TransactionManager"])
 
 	Func setTransactionManager P1
 		raise("DotNet Error: TransactionManager is a read-only property")
 
 	Func getDatabaseCreator
-		return dnRequest("get",[self,"DatabaseCreator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DatabaseCreator"])
 
 	Func setDatabaseCreator P1
 		raise("DotNet Error: DatabaseCreator is a read-only property")
 
 	Func getExecutionStrategy
-		return dnRequest("get",[self,"ExecutionStrategy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionStrategy"])
 
 	Func setExecutionStrategy P1
 		raise("DotNet Error: ExecutionStrategy is a read-only property")
 
 	Func getExecutionStrategyFactory
-		return dnRequest("get",[self,"ExecutionStrategyFactory"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionStrategyFactory"])
 
 	Func setExecutionStrategyFactory P1
 		raise("DotNet Error: ExecutionStrategyFactory is a read-only property")
 
 	Func getDatabaseProviders
-		return dnRequest("get",[self,"DatabaseProviders"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DatabaseProviders"])
 
 	Func setDatabaseProviders P1
 		raise("DotNet Error: DatabaseProviders is a read-only property")
 
 	Func getCommandLogger
-		return dnRequest("get",[self,"CommandLogger"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
 
 	Func setCommandLogger P1
 		raise("DotNet Error: CommandLogger is a read-only property")
 
 	Func getConcurrencyDetector
-		return dnRequest("get",[self,"ConcurrencyDetector"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ConcurrencyDetector"])
 
 	Func setConcurrencyDetector P1
 		raise("DotNet Error: ConcurrencyDetector is a read-only property")
 
 	Func getCoreOptions
-		return dnRequest("get",[self,"CoreOptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CoreOptions"])
 
 	Func setCoreOptions P1
 		raise("DotNet Error: CoreOptions is a read-only property")
 
 	Func getQueryProvider
-		return dnRequest("get",[self,"QueryProvider"])
+		return dnRequest("get",[new DotNetObject(nHandle),"QueryProvider"])
 
 	Func setQueryProvider P1
 		raise("DotNet Error: QueryProvider is a read-only property")
 
 	Func getAdHocMapper
-		return dnRequest("get",[self,"AdHocMapper"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AdHocMapper"])
 
 	Func setAdHocMapper P1
 		raise("DotNet Error: AdHocMapper is a read-only property")
 
 	Func getTypeMappingSource
-		return dnRequest("get",[self,"TypeMappingSource"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
 		raise("DotNet Error: TypeMappingSource is a read-only property")

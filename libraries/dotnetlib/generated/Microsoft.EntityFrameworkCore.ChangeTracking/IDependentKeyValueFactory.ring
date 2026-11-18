@@ -14,20 +14,20 @@ Class IDependentKeyValueFactory from DotNetObject
 		return self
 
 	Func CreatePrincipalEquatableKey_2 P1,P2
-		return dnRequest("call",[self,"CreatePrincipalEquatableKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatePrincipalEquatableKey",P1,P2])
 
 	Func CreatePrincipalEquatableKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreatePrincipalEquatableKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreatePrincipalEquatableKey",P1])
 		ok
-		return dnRequest("call",[self,"CreatePrincipalEquatableKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreatePrincipalEquatableKey",P1])
 
 	Func CreateDependentEquatableKey_2 P1,P2
-		return dnRequest("call",[self,"CreateDependentEquatableKey",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDependentEquatableKey",P1,P2])
 
 	Func CreateDependentEquatableKey P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CreateDependentEquatableKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateDependentEquatableKey",P1])
 		ok
-		return dnRequest("call",[self,"CreateDependentEquatableKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateDependentEquatableKey",P1])
 

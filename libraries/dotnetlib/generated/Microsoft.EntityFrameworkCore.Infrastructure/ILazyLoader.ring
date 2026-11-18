@@ -14,55 +14,55 @@ Class ILazyLoader from DotNetObject
 		return self
 
 	Func SetLoaded_3 P1,P2,P3
-		dnRequest("call",[self,"SetLoaded",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetLoaded",P1,P2,P3])
 		return self
 
 	Func SetLoaded_2 P1,P2
-		dnRequest("call",[self,"SetLoaded",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetLoaded",P1,P2])
 		return self
 
 	Func SetLoaded P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetLoaded",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetLoaded",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetLoaded",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetLoaded",P1])
 		return self
 
 	Func IsLoaded_2 P1,P2
-		return dnRequest("call",[self,"IsLoaded",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsLoaded",P1,P2])
 
 	Func IsLoaded P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"IsLoaded",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsLoaded",P1])
 		ok
-		return dnRequest("call",[self,"IsLoaded",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"IsLoaded",P1])
 
 	Func Load_2 P1,P2
-		dnRequest("call",[self,"Load",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
 		return self
 
 	Func Load_ P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
 			return self
 		ok
-		dnRequest("call",[self,"Load",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func LoadAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"LoadAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2,P3])
 
 	Func LoadAsync_2 P1,P2
-		return dnRequest("call",[self,"LoadAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2])
 
 	Func LoadAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"LoadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
 		ok
-		return dnRequest("call",[self,"LoadAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 

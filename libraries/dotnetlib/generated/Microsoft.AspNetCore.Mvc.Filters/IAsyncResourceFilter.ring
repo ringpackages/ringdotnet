@@ -14,5 +14,5 @@ Class IAsyncResourceFilter from DotNetObject
 		return self
 
 	Func OnResourceExecutionAsync P1,P2
-		return dnRequest("call",[self,"OnResourceExecutionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnResourceExecutionAsync",P1,P2])
 

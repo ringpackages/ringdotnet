@@ -22,54 +22,54 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPackage
-		return dnRequest("get",[self,"Package"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Package"])
 
 	Func setPackage P1
-		dnRequest("set",[self,"Package",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Package",P1])
 		return self
 
 	Func getCredential
-		return dnRequest("get",[self,"Credential"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Credential"])
 
 	Func setCredential P1
-		dnRequest("set",[self,"Credential",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Credential",P1])
 		return self
 
 	Func getTargetName
-		return dnRequest("get",[self,"TargetName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TargetName"])
 
 	Func setTargetName P1
-		dnRequest("set",[self,"TargetName",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"TargetName",P1])
 		return self
 
 	Func getBinding
-		return dnRequest("get",[self,"Binding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Binding"])
 
 	Func setBinding P1
-		dnRequest("set",[self,"Binding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Binding",P1])
 		return self
 
 	Func getRequiredProtectionLevel
-		return dnRequest("get",[self,"RequiredProtectionLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequiredProtectionLevel"])
 
 	Func setRequiredProtectionLevel P1
-		dnRequest("set",[self,"RequiredProtectionLevel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequiredProtectionLevel",P1])
 		return self
 
 	Func getRequireMutualAuthentication
-		return dnRequest("get",[self,"RequireMutualAuthentication"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RequireMutualAuthentication"])
 
 	Func setRequireMutualAuthentication P1
-		dnRequest("set",[self,"RequireMutualAuthentication",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RequireMutualAuthentication",P1])
 		return self
 
 	Func getAllowedImpersonationLevel
-		return dnRequest("get",[self,"AllowedImpersonationLevel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AllowedImpersonationLevel"])
 
 	Func setAllowedImpersonationLevel P1
-		dnRequest("set",[self,"AllowedImpersonationLevel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AllowedImpersonationLevel",P1])
 		return self
 

@@ -28,105 +28,105 @@ Class HttpListener from Object
 		return self
 
 	Func GetContextAsync 
-		return dnRequest("call",[self,"GetContextAsync"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContextAsync"])
 
 	Func Close 
-		dnRequest("call",[self,"Close"])
+		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
 	Func Start 
-		dnRequest("call",[self,"Start"])
+		dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		return self
 
 	Func Stop 
-		dnRequest("call",[self,"Stop"])
+		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
 		return self
 
 	Func Abort 
-		dnRequest("call",[self,"Abort"])
+		dnRequest("call",[new DotNetObject(nHandle),"Abort"])
 		return self
 
 	Func GetContext 
-		return dnRequest("call",[self,"GetContext"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetContext"])
 
 	Func BeginGetContext P1,P2
-		return dnRequest("call",[self,"BeginGetContext",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginGetContext",P1,P2])
 
 	Func EndGetContext P1
-		return dnRequest("call",[self,"EndGetContext",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EndGetContext",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAuthenticationSchemeSelectorDelegate
-		return dnRequest("get",[self,"AuthenticationSchemeSelectorDelegate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationSchemeSelectorDelegate"])
 
 	Func setAuthenticationSchemeSelectorDelegate P1
-		dnRequest("set",[self,"AuthenticationSchemeSelectorDelegate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationSchemeSelectorDelegate",P1])
 		return self
 
 	Func getExtendedProtectionSelectorDelegate
-		return dnRequest("get",[self,"ExtendedProtectionSelectorDelegate"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedProtectionSelectorDelegate"])
 
 	Func setExtendedProtectionSelectorDelegate P1
-		dnRequest("set",[self,"ExtendedProtectionSelectorDelegate",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExtendedProtectionSelectorDelegate",P1])
 		return self
 
 	Func getAuthenticationSchemes
-		return dnRequest("get",[self,"AuthenticationSchemes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationSchemes"])
 
 	Func setAuthenticationSchemes P1
-		dnRequest("set",[self,"AuthenticationSchemes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationSchemes",P1])
 		return self
 
 	Func getExtendedProtectionPolicy
-		return dnRequest("get",[self,"ExtendedProtectionPolicy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedProtectionPolicy"])
 
 	Func setExtendedProtectionPolicy P1
-		dnRequest("set",[self,"ExtendedProtectionPolicy",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExtendedProtectionPolicy",P1])
 		return self
 
 	Func getDefaultServiceNames
-		return dnRequest("get",[self,"DefaultServiceNames"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DefaultServiceNames"])
 
 	Func setDefaultServiceNames P1
 		raise("DotNet Error: DefaultServiceNames is a read-only property")
 
 	Func getPrefixes
-		return dnRequest("get",[self,"Prefixes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Prefixes"])
 
 	Func setPrefixes P1
 		raise("DotNet Error: Prefixes is a read-only property")
 
 	Func getRealm
-		return dnRequest("get",[self,"Realm"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Realm"])
 
 	Func setRealm P1
-		dnRequest("set",[self,"Realm",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Realm",P1])
 		return self
 
 	Func getIsListening
-		return dnRequest("get",[self,"IsListening"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsListening"])
 
 	Func setIsListening P1
 		raise("DotNet Error: IsListening is a read-only property")
 
 	Func getIgnoreWriteExceptions
-		return dnRequest("get",[self,"IgnoreWriteExceptions"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreWriteExceptions"])
 
 	Func setIgnoreWriteExceptions P1
-		dnRequest("set",[self,"IgnoreWriteExceptions",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IgnoreWriteExceptions",P1])
 		return self
 
 	Func getUnsafeConnectionNtlmAuthentication
-		return dnRequest("get",[self,"UnsafeConnectionNtlmAuthentication"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UnsafeConnectionNtlmAuthentication"])
 
 	Func setUnsafeConnectionNtlmAuthentication P1
-		dnRequest("set",[self,"UnsafeConnectionNtlmAuthentication",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"UnsafeConnectionNtlmAuthentication",P1])
 		return self
 
 	Func getTimeoutManager
-		return dnRequest("get",[self,"TimeoutManager"])
+		return dnRequest("get",[new DotNetObject(nHandle),"TimeoutManager"])
 
 	Func setTimeoutManager P1
 		raise("DotNet Error: TimeoutManager is a read-only property")

@@ -21,7 +21,7 @@ Class BoolTypeMapping from RelationalTypeMapping
 		return self
 
 	Func GetDataReaderMethod 
-		return dnRequest("call",[self,"GetDataReaderMethod"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetDataReaderMethod"])
 
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"Default"])

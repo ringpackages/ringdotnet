@@ -16,11 +16,11 @@ Class PreProcessInputEventArgs from ProcessInputEventArgs
 		return self
 
 	Func Cancel 
-		dnRequest("call",[self,"Cancel"])
+		dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
 		return self
 
 	Func getCanceled
-		return dnRequest("get",[self,"Canceled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Canceled"])
 
 	Func setCanceled P1
 		raise("DotNet Error: Canceled is a read-only property")

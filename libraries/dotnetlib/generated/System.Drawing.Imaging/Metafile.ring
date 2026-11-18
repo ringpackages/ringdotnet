@@ -35,7 +35,7 @@ Class Metafile from Image
 		return self
 
 	Func PlayRecord P1,P2,P3,P4
-		dnRequest("call",[self,"PlayRecord",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"PlayRecord",P1,P2,P3,P4])
 		return self
 
 	Func GetMetafileHeader P1
@@ -43,15 +43,15 @@ Class Metafile from Image
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1])
 			ok
-			return dnRequest("callnamed",[self,"GetMetafileHeader",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetMetafileHeader",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetMetafileHeader"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetMetafileHeader"])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1])
 
 	Func GetHenhmetafile 
-		return dnRequest("call",[self,"GetHenhmetafile"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHenhmetafile"])
 
 	Func GetMetafileHeader_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1,P2])

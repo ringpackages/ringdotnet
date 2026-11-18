@@ -14,5 +14,5 @@ Class IAsyncResultFilter from DotNetObject
 		return self
 
 	Func OnResultExecutionAsync P1,P2
-		return dnRequest("call",[self,"OnResultExecutionAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"OnResultExecutionAsync",P1,P2])
 

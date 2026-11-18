@@ -16,54 +16,54 @@ Class IDbContextTransactionManager from DotNetObject
 		return self
 
 	Func BeginTransaction 
-		return dnRequest("call",[self,"BeginTransaction"])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction"])
 
 	Func BeginTransactionAsync_1 P1
-		return dnRequest("call",[self,"BeginTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
 
 	Func BeginTransactionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"BeginTransactionAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync"])
 		ok
-		return dnRequest("call",[self,"BeginTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
 
 	Func CommitTransaction 
-		dnRequest("call",[self,"CommitTransaction"])
+		dnRequest("call",[new DotNetObject(nHandle),"CommitTransaction"])
 		return self
 
 	Func CommitTransactionAsync_1 P1
-		return dnRequest("call",[self,"CommitTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
 
 	Func CommitTransactionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"CommitTransactionAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"CommitTransactionAsync"])
 		ok
-		return dnRequest("call",[self,"CommitTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
 
 	Func RollbackTransaction 
-		dnRequest("call",[self,"RollbackTransaction"])
+		dnRequest("call",[new DotNetObject(nHandle),"RollbackTransaction"])
 		return self
 
 	Func RollbackTransactionAsync_1 P1
-		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 
 	Func RollbackTransactionAsync P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"RollbackTransactionAsync"])
+			return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync"])
 		ok
-		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 
 	Func getCurrentTransaction
-		return dnRequest("get",[self,"CurrentTransaction"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CurrentTransaction"])
 
 	Func setCurrentTransaction P1
 		raise("DotNet Error: CurrentTransaction is a read-only property")

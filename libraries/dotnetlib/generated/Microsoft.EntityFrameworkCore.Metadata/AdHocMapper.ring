@@ -15,11 +15,11 @@ Class AdHocMapper from Object
 		return self
 
 	Func BuildConventionSet 
-		return dnRequest("call",[self,"BuildConventionSet"])
+		return dnRequest("call",[new DotNetObject(nHandle),"BuildConventionSet"])
 
 	Func GetOrAddEntityType P1
-		return dnRequest("call",[self,"GetOrAddEntityType",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOrAddEntityType",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

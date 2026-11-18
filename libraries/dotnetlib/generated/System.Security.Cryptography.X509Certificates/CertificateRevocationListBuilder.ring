@@ -15,38 +15,38 @@ Class CertificateRevocationListBuilder from Object
 		return self
 
 	Func AddEntry_3 P1,P2,P3
-		dnRequest("call",[self,"AddEntry",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AddEntry",P1,P2,P3])
 		return self
 
 	Func AddEntry_2 P1,P2
-		dnRequest("call",[self,"AddEntry",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddEntry",P1,P2])
 		return self
 
 	Func AddEntry P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"AddEntry",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddEntry",P1])
 			return self
 		ok
-		dnRequest("call",[self,"AddEntry",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddEntry",P1])
 		return self
 
 	Func RemoveEntry P1
-		return dnRequest("call",[self,"RemoveEntry",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveEntry",P1])
 
 	Func Build_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"Build",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2,P3,P4,P5,P6])
 
 	Func Build_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"Build",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2,P3,P4,P5])
 
 	Func Build P1,P2,P3,P4
-		return dnRequest("call",[self,"Build",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2,P3,P4])
 
 	Func Build_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[self,"Build",P1,P2,P3,P4,P5,P6,P7])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2,P3,P4,P5,P6,P7])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func BuildCrlDistributionPointExtension_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"BuildCrlDistributionPointExtension",P1,P2])

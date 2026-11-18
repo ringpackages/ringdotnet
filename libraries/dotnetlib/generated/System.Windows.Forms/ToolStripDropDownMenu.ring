@@ -18,16 +18,16 @@ Class ToolStripDropDownMenu from ToolStripDropDown
 		return self
 
 	Func getShowImageMargin
-		return dnRequest("get",[self,"ShowImageMargin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowImageMargin"])
 
 	Func setShowImageMargin P1
-		dnRequest("set",[self,"ShowImageMargin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowImageMargin",P1])
 		return self
 
 	Func getShowCheckMargin
-		return dnRequest("get",[self,"ShowCheckMargin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ShowCheckMargin"])
 
 	Func setShowCheckMargin P1
-		dnRequest("set",[self,"ShowCheckMargin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ShowCheckMargin",P1])
 		return self
 

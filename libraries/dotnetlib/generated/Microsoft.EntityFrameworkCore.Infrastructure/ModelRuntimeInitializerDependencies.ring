@@ -18,19 +18,19 @@ Class ModelRuntimeInitializerDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getModelDependencies
-		return dnRequest("get",[self,"ModelDependencies"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelDependencies"])
 
 	Func setModelDependencies P1
-		dnRequest("set",[self,"ModelDependencies",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ModelDependencies",P1])
 		return self
 
 	Func getModelValidator
-		return dnRequest("get",[self,"ModelValidator"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ModelValidator"])
 
 	Func setModelValidator P1
-		dnRequest("set",[self,"ModelValidator",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ModelValidator",P1])
 		return self
 

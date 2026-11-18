@@ -15,37 +15,37 @@ Class SubjectAlternativeNameBuilder from Object
 		return self
 
 	Func AddEmailAddress P1
-		dnRequest("call",[self,"AddEmailAddress",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddEmailAddress",P1])
 		return self
 
 	Func AddDnsName P1
-		dnRequest("call",[self,"AddDnsName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddDnsName",P1])
 		return self
 
 	Func AddUri P1
-		dnRequest("call",[self,"AddUri",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddUri",P1])
 		return self
 
 	Func AddIpAddress P1
-		dnRequest("call",[self,"AddIpAddress",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddIpAddress",P1])
 		return self
 
 	Func AddUserPrincipalName P1
-		dnRequest("call",[self,"AddUserPrincipalName",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddUserPrincipalName",P1])
 		return self
 
 	Func Build_1 P1
-		return dnRequest("call",[self,"Build",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1])
 
 	Func Build P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"Build",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Build",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"Build"])
+			return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 		ok
-		return dnRequest("call",[self,"Build",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

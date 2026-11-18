@@ -25,31 +25,31 @@ Class DpiScale from ValueType
 		return self
 
 	Func getDpiScaleX
-		return dnRequest("get",[self,"DpiScaleX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DpiScaleX"])
 
 	Func setDpiScaleX P1
 		raise("DotNet Error: DpiScaleX is a read-only property")
 
 	Func getDpiScaleY
-		return dnRequest("get",[self,"DpiScaleY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DpiScaleY"])
 
 	Func setDpiScaleY P1
 		raise("DotNet Error: DpiScaleY is a read-only property")
 
 	Func getPixelsPerDip
-		return dnRequest("get",[self,"PixelsPerDip"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelsPerDip"])
 
 	Func setPixelsPerDip P1
 		raise("DotNet Error: PixelsPerDip is a read-only property")
 
 	Func getPixelsPerInchX
-		return dnRequest("get",[self,"PixelsPerInchX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelsPerInchX"])
 
 	Func setPixelsPerInchX P1
 		raise("DotNet Error: PixelsPerInchX is a read-only property")
 
 	Func getPixelsPerInchY
-		return dnRequest("get",[self,"PixelsPerInchY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PixelsPerInchY"])
 
 	Func setPixelsPerInchY P1
 		raise("DotNet Error: PixelsPerInchY is a read-only property")

@@ -30,38 +30,38 @@ Class ArcSegment from PathSegment
 		return self
 
 	Func getPoint
-		return dnRequest("get",[self,"Point"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Point"])
 
 	Func setPoint P1
-		dnRequest("set",[self,"Point",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Point",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[self,"Size"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
 
 	Func setSize P1
-		dnRequest("set",[self,"Size",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
 		return self
 
 	Func getRotationAngle
-		return dnRequest("get",[self,"RotationAngle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"RotationAngle"])
 
 	Func setRotationAngle P1
-		dnRequest("set",[self,"RotationAngle",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"RotationAngle",P1])
 		return self
 
 	Func getIsLargeArc
-		return dnRequest("get",[self,"IsLargeArc"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsLargeArc"])
 
 	Func setIsLargeArc P1
-		dnRequest("set",[self,"IsLargeArc",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"IsLargeArc",P1])
 		return self
 
 	Func getSweepDirection
-		return dnRequest("get",[self,"SweepDirection"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SweepDirection"])
 
 	Func setSweepDirection P1
-		dnRequest("set",[self,"SweepDirection",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"SweepDirection",P1])
 		return self
 
 	Func getPointProperty

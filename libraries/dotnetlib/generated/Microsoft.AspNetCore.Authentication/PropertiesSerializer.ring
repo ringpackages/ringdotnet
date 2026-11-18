@@ -17,20 +17,20 @@ Class PropertiesSerializer from Object
 		return self
 
 	Func Serialize P1
-		return dnRequest("call",[self,"Serialize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Serialize",P1])
 
 	Func Deserialize P1
-		return dnRequest("call",[self,"Deserialize",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Deserialize",P1])
 
 	Func Write P1,P2
-		dnRequest("call",[self,"Write",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2])
 		return self
 
 	Func Read P1
-		return dnRequest("call",[self,"Read",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication'),"Default"])

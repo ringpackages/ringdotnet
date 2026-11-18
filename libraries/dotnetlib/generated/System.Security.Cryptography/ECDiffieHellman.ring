@@ -16,25 +16,25 @@ Class ECDiffieHellman from ECAlgorithm
 		return self
 
 	Func DeriveKeyMaterial P1
-		return dnRequest("call",[self,"DeriveKeyMaterial",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyMaterial",P1])
 
 	Func DeriveKeyFromHash P1,P2
-		return dnRequest("call",[self,"DeriveKeyFromHash",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyFromHash",P1,P2])
 
 	Func DeriveKeyFromHash_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"DeriveKeyFromHash",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyFromHash",P1,P2,P3,P4])
 
 	Func DeriveKeyFromHmac P1,P2,P3
-		return dnRequest("call",[self,"DeriveKeyFromHmac",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyFromHmac",P1,P2,P3])
 
 	Func DeriveKeyFromHmac_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"DeriveKeyFromHmac",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyFromHmac",P1,P2,P3,P4,P5])
 
 	Func DeriveKeyTls P1,P2,P3
-		return dnRequest("call",[self,"DeriveKeyTls",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyTls",P1,P2,P3])
 
 	Func DeriveRawSecretAgreement P1
-		return dnRequest("call",[self,"DeriveRawSecretAgreement",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"DeriveRawSecretAgreement",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -49,7 +49,7 @@ Class ECDiffieHellman from ECAlgorithm
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
 
 	Func getPublicKey
-		return dnRequest("get",[self,"PublicKey"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PublicKey"])
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")

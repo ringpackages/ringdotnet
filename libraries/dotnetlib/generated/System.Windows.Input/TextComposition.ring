@@ -26,41 +26,41 @@ Class TextComposition from DispatcherObject
 		return self
 
 	Func Complete 
-		dnRequest("call",[self,"Complete"])
+		dnRequest("call",[new DotNetObject(nHandle),"Complete"])
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getCompositionText
-		return dnRequest("get",[self,"CompositionText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CompositionText"])
 
 	Func setCompositionText P1
 		raise("DotNet Error: CompositionText is a read-only property")
 
 	Func getSystemText
-		return dnRequest("get",[self,"SystemText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SystemText"])
 
 	Func setSystemText P1
 		raise("DotNet Error: SystemText is a read-only property")
 
 	Func getControlText
-		return dnRequest("get",[self,"ControlText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ControlText"])
 
 	Func setControlText P1
 		raise("DotNet Error: ControlText is a read-only property")
 
 	Func getSystemCompositionText
-		return dnRequest("get",[self,"SystemCompositionText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SystemCompositionText"])
 
 	Func setSystemCompositionText P1
 		raise("DotNet Error: SystemCompositionText is a read-only property")
 
 	Func getAutoComplete
-		return dnRequest("get",[self,"AutoComplete"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AutoComplete"])
 
 	Func setAutoComplete P1
 		raise("DotNet Error: AutoComplete is a read-only property")

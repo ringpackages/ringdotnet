@@ -18,42 +18,42 @@ Class DependencyObject from DispatcherObject
 		return self
 
 	Func GetValue P1
-		return dnRequest("call",[self,"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func SetValue P1,P2
-		dnRequest("call",[self,"SetValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
 	Func SetCurrentValue P1,P2
-		dnRequest("call",[self,"SetCurrentValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetCurrentValue",P1,P2])
 		return self
 
 	Func ClearValue P1
-		dnRequest("call",[self,"ClearValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearValue",P1])
 		return self
 
 	Func CoerceValue P1
-		dnRequest("call",[self,"CoerceValue",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"CoerceValue",P1])
 		return self
 
 	Func InvalidateProperty P1
-		dnRequest("call",[self,"InvalidateProperty",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"InvalidateProperty",P1])
 		return self
 
 	Func ReadLocalValue P1
-		return dnRequest("call",[self,"ReadLocalValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReadLocalValue",P1])
 
 	Func GetLocalValueEnumerator 
-		return dnRequest("call",[self,"GetLocalValueEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetLocalValueEnumerator"])
 
 	Func getDependencyObjectType
-		return dnRequest("get",[self,"DependencyObjectType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DependencyObjectType"])
 
 	Func setDependencyObjectType P1
 		raise("DotNet Error: DependencyObjectType is a read-only property")
 
 	Func getIsSealed
-		return dnRequest("get",[self,"IsSealed"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsSealed"])
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")

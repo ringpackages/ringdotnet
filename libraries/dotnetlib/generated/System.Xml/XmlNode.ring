@@ -37,216 +37,216 @@ Class XmlNode from Object
 		return self
 
 	Func CreateNavigator 
-		return dnRequest("call",[self,"CreateNavigator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"CreateNavigator"])
 
 	Func SelectSingleNode P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SelectSingleNode",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SelectSingleNode",P1])
 		ok
-		return dnRequest("call",[self,"SelectSingleNode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SelectSingleNode",P1])
 
 	Func SelectSingleNode_2 P1,P2
-		return dnRequest("call",[self,"SelectSingleNode",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SelectSingleNode",P1,P2])
 
 	Func SelectNodes P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"SelectNodes",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SelectNodes",P1])
 		ok
-		return dnRequest("call",[self,"SelectNodes",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"SelectNodes",P1])
 
 	Func SelectNodes_2 P1,P2
-		return dnRequest("call",[self,"SelectNodes",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"SelectNodes",P1,P2])
 
 	Func InsertBefore P1,P2
-		return dnRequest("call",[self,"InsertBefore",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InsertBefore",P1,P2])
 
 	Func InsertAfter P1,P2
-		return dnRequest("call",[self,"InsertAfter",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"InsertAfter",P1,P2])
 
 	Func ReplaceChild P1,P2
-		return dnRequest("call",[self,"ReplaceChild",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ReplaceChild",P1,P2])
 
 	Func RemoveChild P1
-		return dnRequest("call",[self,"RemoveChild",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveChild",P1])
 
 	Func PrependChild P1
-		return dnRequest("call",[self,"PrependChild",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"PrependChild",P1])
 
 	Func AppendChild P1
-		return dnRequest("call",[self,"AppendChild",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"AppendChild",P1])
 
 	Func CloneNode P1
-		return dnRequest("call",[self,"CloneNode",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CloneNode",P1])
 
 	Func Normalize 
-		dnRequest("call",[self,"Normalize"])
+		dnRequest("call",[new DotNetObject(nHandle),"Normalize"])
 		return self
 
 	Func Supports P1,P2
-		return dnRequest("call",[self,"Supports",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"Supports",P1,P2])
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func WriteTo P1
-		dnRequest("call",[self,"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
 	Func WriteContentTo P1
-		dnRequest("call",[self,"WriteContentTo",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"WriteContentTo",P1])
 		return self
 
 	Func RemoveAll 
-		dnRequest("call",[self,"RemoveAll"])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAll"])
 		return self
 
 	Func GetNamespaceOfPrefix P1
-		return dnRequest("call",[self,"GetNamespaceOfPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetNamespaceOfPrefix",P1])
 
 	Func GetPrefixOfNamespace P1
-		return dnRequest("call",[self,"GetPrefixOfNamespace",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetPrefixOfNamespace",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
 
 	Func setValue P1
-		dnRequest("set",[self,"Value",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
 		return self
 
 	Func getNodeType
-		return dnRequest("get",[self,"NodeType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getParentNode
-		return dnRequest("get",[self,"ParentNode"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ParentNode"])
 
 	Func setParentNode P1
 		raise("DotNet Error: ParentNode is a read-only property")
 
 	Func getChildNodes
-		return dnRequest("get",[self,"ChildNodes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ChildNodes"])
 
 	Func setChildNodes P1
 		raise("DotNet Error: ChildNodes is a read-only property")
 
 	Func getPreviousSibling
-		return dnRequest("get",[self,"PreviousSibling"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreviousSibling"])
 
 	Func setPreviousSibling P1
 		raise("DotNet Error: PreviousSibling is a read-only property")
 
 	Func getNextSibling
-		return dnRequest("get",[self,"NextSibling"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NextSibling"])
 
 	Func setNextSibling P1
 		raise("DotNet Error: NextSibling is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[self,"Attributes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getOwnerDocument
-		return dnRequest("get",[self,"OwnerDocument"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OwnerDocument"])
 
 	Func setOwnerDocument P1
 		raise("DotNet Error: OwnerDocument is a read-only property")
 
 	Func getFirstChild
-		return dnRequest("get",[self,"FirstChild"])
+		return dnRequest("get",[new DotNetObject(nHandle),"FirstChild"])
 
 	Func setFirstChild P1
 		raise("DotNet Error: FirstChild is a read-only property")
 
 	Func getLastChild
-		return dnRequest("get",[self,"LastChild"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LastChild"])
 
 	Func setLastChild P1
 		raise("DotNet Error: LastChild is a read-only property")
 
 	Func getHasChildNodes
-		return dnRequest("get",[self,"HasChildNodes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasChildNodes"])
 
 	Func setHasChildNodes P1
 		raise("DotNet Error: HasChildNodes is a read-only property")
 
 	Func getNamespaceURI
-		return dnRequest("get",[self,"NamespaceURI"])
+		return dnRequest("get",[new DotNetObject(nHandle),"NamespaceURI"])
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getPrefix
-		return dnRequest("get",[self,"Prefix"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Prefix"])
 
 	Func setPrefix P1
-		dnRequest("set",[self,"Prefix",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Prefix",P1])
 		return self
 
 	Func getLocalName
-		return dnRequest("get",[self,"LocalName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LocalName"])
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getInnerText
-		return dnRequest("get",[self,"InnerText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InnerText"])
 
 	Func setInnerText P1
-		dnRequest("set",[self,"InnerText",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InnerText",P1])
 		return self
 
 	Func getOuterXml
-		return dnRequest("get",[self,"OuterXml"])
+		return dnRequest("get",[new DotNetObject(nHandle),"OuterXml"])
 
 	Func setOuterXml P1
 		raise("DotNet Error: OuterXml is a read-only property")
 
 	Func getInnerXml
-		return dnRequest("get",[self,"InnerXml"])
+		return dnRequest("get",[new DotNetObject(nHandle),"InnerXml"])
 
 	Func setInnerXml P1
-		dnRequest("set",[self,"InnerXml",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"InnerXml",P1])
 		return self
 
 	Func getSchemaInfo
-		return dnRequest("get",[self,"SchemaInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"SchemaInfo"])
 
 	Func setSchemaInfo P1
 		raise("DotNet Error: SchemaInfo is a read-only property")
 
 	Func getBaseURI
-		return dnRequest("get",[self,"BaseURI"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseURI"])
 
 	Func setBaseURI P1
 		raise("DotNet Error: BaseURI is a read-only property")
 
 	Func getPreviousText
-		return dnRequest("get",[self,"PreviousText"])
+		return dnRequest("get",[new DotNetObject(nHandle),"PreviousText"])
 
 	Func setPreviousText P1
 		raise("DotNet Error: PreviousText is a read-only property")

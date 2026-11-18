@@ -23,171 +23,171 @@ Class PipeSecurity from DotNetObject
 		return self
 
 	Func AddAccessRule P1
-		dnRequest("call",[self,"AddAccessRule",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddAccessRule",P1])
 		return self
 
 	Func SetAccessRule P1
-		dnRequest("call",[self,"SetAccessRule",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAccessRule",P1])
 		return self
 
 	Func ResetAccessRule P1
-		dnRequest("call",[self,"ResetAccessRule",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ResetAccessRule",P1])
 		return self
 
 	Func RemoveAccessRule P1
-		return dnRequest("call",[self,"RemoveAccessRule",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAccessRule",P1])
 
 	Func RemoveAccessRuleSpecific P1
-		dnRequest("call",[self,"RemoveAccessRuleSpecific",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAccessRuleSpecific",P1])
 		return self
 
 	Func AddAuditRule P1
-		dnRequest("call",[self,"AddAuditRule",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"AddAuditRule",P1])
 		return self
 
 	Func SetAuditRule P1
-		dnRequest("call",[self,"SetAuditRule",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAuditRule",P1])
 		return self
 
 	Func RemoveAuditRule P1
-		return dnRequest("call",[self,"RemoveAuditRule",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAuditRule",P1])
 
 	Func RemoveAuditRuleAll P1
-		dnRequest("call",[self,"RemoveAuditRuleAll",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAuditRuleAll",P1])
 		return self
 
 	Func RemoveAuditRuleSpecific P1
-		dnRequest("call",[self,"RemoveAuditRuleSpecific",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveAuditRuleSpecific",P1])
 		return self
 
 	Func AccessRuleFactory P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"AccessRuleFactory",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"AccessRuleFactory",P1,P2,P3,P4,P5,P6])
 
 	Func AuditRuleFactory P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"AuditRuleFactory",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"AuditRuleFactory",P1,P2,P3,P4,P5,P6])
 
 	Func GetAccessRules P1,P2,P3
-		return dnRequest("call",[self,"GetAccessRules",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAccessRules",P1,P2,P3])
 
 	Func GetAuditRules P1,P2,P3
-		return dnRequest("call",[self,"GetAuditRules",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAuditRules",P1,P2,P3])
 
 	Func GetOwner P1
-		return dnRequest("call",[self,"GetOwner",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetOwner",P1])
 
 	Func SetOwner P1
-		dnRequest("call",[self,"SetOwner",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetOwner",P1])
 		return self
 
 	Func GetGroup P1
-		return dnRequest("call",[self,"GetGroup",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetGroup",P1])
 
 	Func SetGroup P1
-		dnRequest("call",[self,"SetGroup",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetGroup",P1])
 		return self
 
 	Func PurgeAccessRules P1
-		dnRequest("call",[self,"PurgeAccessRules",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PurgeAccessRules",P1])
 		return self
 
 	Func PurgeAuditRules P1
-		dnRequest("call",[self,"PurgeAuditRules",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"PurgeAuditRules",P1])
 		return self
 
 	Func SetAccessRuleProtection P1,P2
-		dnRequest("call",[self,"SetAccessRuleProtection",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAccessRuleProtection",P1,P2])
 		return self
 
 	Func SetAuditRuleProtection P1,P2
-		dnRequest("call",[self,"SetAuditRuleProtection",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetAuditRuleProtection",P1,P2])
 		return self
 
 	Func GetSecurityDescriptorSddlForm P1
-		return dnRequest("call",[self,"GetSecurityDescriptorSddlForm",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSecurityDescriptorSddlForm",P1])
 
 	Func SetSecurityDescriptorSddlForm P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetSecurityDescriptorSddlForm",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetSecurityDescriptorSddlForm",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetSecurityDescriptorSddlForm",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSecurityDescriptorSddlForm",P1])
 		return self
 
 	Func SetSecurityDescriptorSddlForm_2 P1,P2
-		dnRequest("call",[self,"SetSecurityDescriptorSddlForm",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSecurityDescriptorSddlForm",P1,P2])
 		return self
 
 	Func GetSecurityDescriptorBinaryForm 
-		return dnRequest("call",[self,"GetSecurityDescriptorBinaryForm"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSecurityDescriptorBinaryForm"])
 
 	Func SetSecurityDescriptorBinaryForm P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"SetSecurityDescriptorBinaryForm",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetSecurityDescriptorBinaryForm",P1])
 			return self
 		ok
-		dnRequest("call",[self,"SetSecurityDescriptorBinaryForm",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSecurityDescriptorBinaryForm",P1])
 		return self
 
 	Func SetSecurityDescriptorBinaryForm_2 P1,P2
-		dnRequest("call",[self,"SetSecurityDescriptorBinaryForm",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetSecurityDescriptorBinaryForm",P1,P2])
 		return self
 
 	Func ModifyAccessRule P1,P2
-		return dnRequest("call",[self,"ModifyAccessRule",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ModifyAccessRule",P1,P2])
 
 	Func ModifyAuditRule P1,P2
-		return dnRequest("call",[self,"ModifyAuditRule",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ModifyAuditRule",P1,P2])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[self,"ToString"])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getAccessRightType
-		return dnRequest("get",[self,"AccessRightType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessRightType"])
 
 	Func setAccessRightType P1
 		raise("DotNet Error: AccessRightType is a read-only property")
 
 	Func getAccessRuleType
-		return dnRequest("get",[self,"AccessRuleType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AccessRuleType"])
 
 	Func setAccessRuleType P1
 		raise("DotNet Error: AccessRuleType is a read-only property")
 
 	Func getAuditRuleType
-		return dnRequest("get",[self,"AuditRuleType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AuditRuleType"])
 
 	Func setAuditRuleType P1
 		raise("DotNet Error: AuditRuleType is a read-only property")
 
 	Func getAreAccessRulesProtected
-		return dnRequest("get",[self,"AreAccessRulesProtected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreAccessRulesProtected"])
 
 	Func setAreAccessRulesProtected P1
 		raise("DotNet Error: AreAccessRulesProtected is a read-only property")
 
 	Func getAreAuditRulesProtected
-		return dnRequest("get",[self,"AreAuditRulesProtected"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreAuditRulesProtected"])
 
 	Func setAreAuditRulesProtected P1
 		raise("DotNet Error: AreAuditRulesProtected is a read-only property")
 
 	Func getAreAccessRulesCanonical
-		return dnRequest("get",[self,"AreAccessRulesCanonical"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreAccessRulesCanonical"])
 
 	Func setAreAccessRulesCanonical P1
 		raise("DotNet Error: AreAccessRulesCanonical is a read-only property")
 
 	Func getAreAuditRulesCanonical
-		return dnRequest("get",[self,"AreAuditRulesCanonical"])
+		return dnRequest("get",[new DotNetObject(nHandle),"AreAuditRulesCanonical"])
 
 	Func setAreAuditRulesCanonical P1
 		raise("DotNet Error: AreAuditRulesCanonical is a read-only property")

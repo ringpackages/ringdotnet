@@ -14,9 +14,9 @@ Class IDeviceContext from DotNetObject
 		return self
 
 	Func GetHdc 
-		return dnRequest("call",[self,"GetHdc"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetHdc"])
 
 	Func ReleaseHdc 
-		dnRequest("call",[self,"ReleaseHdc"])
+		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHdc"])
 		return self
 

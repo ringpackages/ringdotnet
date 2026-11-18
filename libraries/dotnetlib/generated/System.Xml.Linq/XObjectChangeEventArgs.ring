@@ -21,7 +21,7 @@ Class XObjectChangeEventArgs from EventArgs
 		return self
 
 	Func getObjectChange
-		return dnRequest("get",[self,"ObjectChange"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ObjectChange"])
 
 	Func setObjectChange P1
 		raise("DotNet Error: ObjectChange is a read-only property")

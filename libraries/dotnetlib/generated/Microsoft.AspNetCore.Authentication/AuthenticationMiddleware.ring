@@ -17,15 +17,15 @@ Class AuthenticationMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[self,"Invoke",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSchemes
-		return dnRequest("get",[self,"Schemes"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schemes"])
 
 	Func setSchemes P1
-		dnRequest("set",[self,"Schemes",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Schemes",P1])
 		return self
 

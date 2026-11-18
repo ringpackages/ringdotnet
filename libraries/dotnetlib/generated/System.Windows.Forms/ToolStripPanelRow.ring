@@ -24,54 +24,54 @@ Class ToolStripPanelRow from Component
 		return self
 
 	Func CanMove P1
-		return dnRequest("call",[self,"CanMove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanMove",P1])
 
 	Func getBounds
-		return dnRequest("get",[self,"Bounds"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getControls
-		return dnRequest("get",[self,"Controls"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Controls"])
 
 	Func setControls P1
 		raise("DotNet Error: Controls is a read-only property")
 
 	Func getDisplayRectangle
-		return dnRequest("get",[self,"DisplayRectangle"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayRectangle"])
 
 	Func setDisplayRectangle P1
 		raise("DotNet Error: DisplayRectangle is a read-only property")
 
 	Func getLayoutEngine
-		return dnRequest("get",[self,"LayoutEngine"])
+		return dnRequest("get",[new DotNetObject(nHandle),"LayoutEngine"])
 
 	Func setLayoutEngine P1
 		raise("DotNet Error: LayoutEngine is a read-only property")
 
 	Func getMargin
-		return dnRequest("get",[self,"Margin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Margin"])
 
 	Func setMargin P1
-		dnRequest("set",[self,"Margin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Margin",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[self,"Padding"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[self,"Padding",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
 		return self
 
 	Func getToolStripPanel
-		return dnRequest("get",[self,"ToolStripPanel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripPanel"])
 
 	Func setToolStripPanel P1
 		raise("DotNet Error: ToolStripPanel is a read-only property")
 
 	Func getOrientation
-		return dnRequest("get",[self,"Orientation"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
 
 	Func setOrientation P1
 		raise("DotNet Error: Orientation is a read-only property")

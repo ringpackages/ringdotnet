@@ -21,33 +21,33 @@ Class TypeValidationEventArgs from EventArgs
 		return self
 
 	Func getValidatingType
-		return dnRequest("get",[self,"ValidatingType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidatingType"])
 
 	Func setValidatingType P1
 		raise("DotNet Error: ValidatingType is a read-only property")
 
 	Func getIsValidInput
-		return dnRequest("get",[self,"IsValidInput"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsValidInput"])
 
 	Func setIsValidInput P1
 		raise("DotNet Error: IsValidInput is a read-only property")
 
 	Func getMessage
-		return dnRequest("get",[self,"Message"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Message"])
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
 
 	Func getReturnValue
-		return dnRequest("get",[self,"ReturnValue"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ReturnValue"])
 
 	Func setReturnValue P1
 		raise("DotNet Error: ReturnValue is a read-only property")
 
 	Func getCancel
-		return dnRequest("get",[self,"Cancel"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Cancel"])
 
 	Func setCancel P1
-		dnRequest("set",[self,"Cancel",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Cancel",P1])
 		return self
 

@@ -22,19 +22,19 @@ Class ManipulationPivot from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCenter
-		return dnRequest("get",[self,"Center"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Center"])
 
 	Func setCenter P1
-		dnRequest("set",[self,"Center",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Center",P1])
 		return self
 
 	Func getRadius
-		return dnRequest("get",[self,"Radius"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Radius"])
 
 	Func setRadius P1
-		dnRequest("set",[self,"Radius",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Radius",P1])
 		return self
 

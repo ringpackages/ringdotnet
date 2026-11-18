@@ -28,43 +28,43 @@ Class BigInteger from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
 	Func ToByteArray P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToByteArray",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToByteArray",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToByteArray"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray"])
 		ok
-		return dnRequest("call",[self,"ToByteArray",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1])
 
 	Func ToByteArray_2 P1,P2
-		return dnRequest("call",[self,"ToByteArray",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1,P2])
 
 	Func ToByteArray_1 P1
-		return dnRequest("call",[self,"ToByteArray",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1])
 
 	Func GetByteCount_1 P1
-		return dnRequest("call",[self,"GetByteCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1])
 
 	Func GetByteCount P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"GetByteCount",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetByteCount",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"GetByteCount"])
+			return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount"])
 		ok
-		return dnRequest("call",[self,"GetByteCount",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1])
 
 	Func ToString_1 P1
-		return dnRequest("call",[self,"ToString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToString_2 P1,P2
-		return dnRequest("call",[self,"ToString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetBitLength 
-		return dnRequest("call",[self,"GetBitLength"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBitLength"])
 
 	Func Parse P1
 		if dnIsNamed(P1)
@@ -199,31 +199,31 @@ Class BigInteger from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1,P2])
 
 	Func getIsPowerOfTwo
-		return dnRequest("get",[self,"IsPowerOfTwo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsPowerOfTwo"])
 
 	Func setIsPowerOfTwo P1
 		raise("DotNet Error: IsPowerOfTwo is a read-only property")
 
 	Func getIsZero
-		return dnRequest("get",[self,"IsZero"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsZero"])
 
 	Func setIsZero P1
 		raise("DotNet Error: IsZero is a read-only property")
 
 	Func getIsOne
-		return dnRequest("get",[self,"IsOne"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsOne"])
 
 	Func setIsOne P1
 		raise("DotNet Error: IsOne is a read-only property")
 
 	Func getIsEven
-		return dnRequest("get",[self,"IsEven"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsEven"])
 
 	Func setIsEven P1
 		raise("DotNet Error: IsEven is a read-only property")
 
 	Func getSign
-		return dnRequest("get",[self,"Sign"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Sign"])
 
 	Func setSign P1
 		raise("DotNet Error: Sign is a read-only property")

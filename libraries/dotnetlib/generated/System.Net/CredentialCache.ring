@@ -18,32 +18,32 @@ Class CredentialCache from Object
 		return self
 
 	Func Add P1,P2,P3
-		dnRequest("call",[self,"Add",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 		return self
 
 	Func Add_4 P1,P2,P3,P4
-		dnRequest("call",[self,"Add",P1,P2,P3,P4])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4])
 		return self
 
 	Func Remove P1,P2
-		dnRequest("call",[self,"Remove",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 		return self
 
 	Func Remove_3 P1,P2,P3
-		dnRequest("call",[self,"Remove",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2,P3])
 		return self
 
 	Func GetCredential P1,P2
-		return dnRequest("call",[self,"GetCredential",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCredential",P1,P2])
 
 	Func GetCredential_3 P1,P2,P3
-		return dnRequest("call",[self,"GetCredential",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCredential",P1,P2,P3])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDefaultCredentials
 		return dnRequest("get",[dnTypeCached('System.Net.CredentialCache, System.Net.Primitives'),"DefaultCredentials"])

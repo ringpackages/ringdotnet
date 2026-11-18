@@ -44,45 +44,45 @@ Class ScaleTransform3D from AffineTransform3D
 		return self
 
 	Func getScaleX
-		return dnRequest("get",[self,"ScaleX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScaleX"])
 
 	Func setScaleX P1
-		dnRequest("set",[self,"ScaleX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScaleX",P1])
 		return self
 
 	Func getScaleY
-		return dnRequest("get",[self,"ScaleY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScaleY"])
 
 	Func setScaleY P1
-		dnRequest("set",[self,"ScaleY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScaleY",P1])
 		return self
 
 	Func getScaleZ
-		return dnRequest("get",[self,"ScaleZ"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ScaleZ"])
 
 	Func setScaleZ P1
-		dnRequest("set",[self,"ScaleZ",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ScaleZ",P1])
 		return self
 
 	Func getCenterX
-		return dnRequest("get",[self,"CenterX"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CenterX"])
 
 	Func setCenterX P1
-		dnRequest("set",[self,"CenterX",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CenterX",P1])
 		return self
 
 	Func getCenterY
-		return dnRequest("get",[self,"CenterY"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CenterY"])
 
 	Func setCenterY P1
-		dnRequest("set",[self,"CenterY",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CenterY",P1])
 		return self
 
 	Func getCenterZ
-		return dnRequest("get",[self,"CenterZ"])
+		return dnRequest("get",[new DotNetObject(nHandle),"CenterZ"])
 
 	Func setCenterZ P1
-		dnRequest("set",[self,"CenterZ",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"CenterZ",P1])
 		return self
 
 	Func getScaleXProperty

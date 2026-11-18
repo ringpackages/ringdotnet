@@ -15,11 +15,11 @@ Class AssemblyDependencyResolver from Object
 		return self
 
 	Func ResolveAssemblyToPath P1
-		return dnRequest("call",[self,"ResolveAssemblyToPath",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveAssemblyToPath",P1])
 
 	Func ResolveUnmanagedDllToPath P1
-		return dnRequest("call",[self,"ResolveUnmanagedDllToPath",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ResolveUnmanagedDllToPath",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 

@@ -30,131 +30,131 @@ Class ModelStateDictionary from Object
 		return self
 
 	Func TryAddModelException P1,P2
-		return dnRequest("call",[self,"TryAddModelException",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddModelException",P1,P2])
 
 	Func AddModelError_3 P1,P2,P3
-		dnRequest("call",[self,"AddModelError",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"AddModelError",P1,P2,P3])
 		return self
 
 	Func TryAddModelError_3 P1,P2,P3
-		return dnRequest("call",[self,"TryAddModelError",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddModelError",P1,P2,P3])
 
 	Func AddModelError P1,P2
-		dnRequest("call",[self,"AddModelError",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"AddModelError",P1,P2])
 		return self
 
 	Func TryAddModelError P1,P2
-		return dnRequest("call",[self,"TryAddModelError",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAddModelError",P1,P2])
 
 	Func GetFieldValidationState P1
-		return dnRequest("call",[self,"GetFieldValidationState",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldValidationState",P1])
 
 	Func GetValidationState_1 P1
-		return dnRequest("call",[self,"GetValidationState",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetValidationState",P1])
 
 	Func MarkFieldValid P1
-		dnRequest("call",[self,"MarkFieldValid",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MarkFieldValid",P1])
 		return self
 
 	Func MarkFieldSkipped P1
-		dnRequest("call",[self,"MarkFieldSkipped",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"MarkFieldSkipped",P1])
 		return self
 
 	Func Merge P1
-		dnRequest("call",[self,"Merge",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1])
 		return self
 
 	Func SetModelValue_3 P1,P2,P3
-		dnRequest("call",[self,"SetModelValue",P1,P2,P3])
+		dnRequest("call",[new DotNetObject(nHandle),"SetModelValue",P1,P2,P3])
 		return self
 
 	Func SetModelValue P1,P2
-		dnRequest("call",[self,"SetModelValue",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetModelValue",P1,P2])
 		return self
 
 	Func ClearValidationState P1
-		dnRequest("call",[self,"ClearValidationState",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"ClearValidationState",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[self,"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func TryGetValue P1
-		return dnRequest("call",[self,"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func FindKeysWithPrefix P1
-		return dnRequest("call",[self,"FindKeysWithPrefix",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindKeysWithPrefix",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func StartsWithPrefix P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions'),"StartsWithPrefix",P1,P2])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getRoot
-		return dnRequest("get",[self,"Root"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Root"])
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")
 
 	Func getMaxAllowedErrors
-		return dnRequest("get",[self,"MaxAllowedErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"MaxAllowedErrors"])
 
 	Func setMaxAllowedErrors P1
-		dnRequest("set",[self,"MaxAllowedErrors",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"MaxAllowedErrors",P1])
 		return self
 
 	Func getHasReachedMaxErrors
-		return dnRequest("get",[self,"HasReachedMaxErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"HasReachedMaxErrors"])
 
 	Func setHasReachedMaxErrors P1
 		raise("DotNet Error: HasReachedMaxErrors is a read-only property")
 
 	Func getErrorCount
-		return dnRequest("get",[self,"ErrorCount"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ErrorCount"])
 
 	Func setErrorCount P1
 		raise("DotNet Error: ErrorCount is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getIsValid
-		return dnRequest("get",[self,"IsValid"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsValid"])
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getValidationState
-		return dnRequest("get",[self,"ValidationState"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ValidationState"])
 
 	Func setValidationState P1
 		raise("DotNet Error: ValidationState is a read-only property")

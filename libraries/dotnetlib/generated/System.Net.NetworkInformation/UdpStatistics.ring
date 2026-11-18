@@ -20,34 +20,34 @@ Class UdpStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDatagramsReceived
-		return dnRequest("get",[self,"DatagramsReceived"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DatagramsReceived"])
 
 	Func setDatagramsReceived P1
 		raise("DotNet Error: DatagramsReceived is a read-only property")
 
 	Func getDatagramsSent
-		return dnRequest("get",[self,"DatagramsSent"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DatagramsSent"])
 
 	Func setDatagramsSent P1
 		raise("DotNet Error: DatagramsSent is a read-only property")
 
 	Func getIncomingDatagramsDiscarded
-		return dnRequest("get",[self,"IncomingDatagramsDiscarded"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IncomingDatagramsDiscarded"])
 
 	Func setIncomingDatagramsDiscarded P1
 		raise("DotNet Error: IncomingDatagramsDiscarded is a read-only property")
 
 	Func getIncomingDatagramsWithErrors
-		return dnRequest("get",[self,"IncomingDatagramsWithErrors"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IncomingDatagramsWithErrors"])
 
 	Func setIncomingDatagramsWithErrors P1
 		raise("DotNet Error: IncomingDatagramsWithErrors is a read-only property")
 
 	Func getUdpListeners
-		return dnRequest("get",[self,"UdpListeners"])
+		return dnRequest("get",[new DotNetObject(nHandle),"UdpListeners"])
 
 	Func setUdpListeners P1
 		raise("DotNet Error: UdpListeners is a read-only property")

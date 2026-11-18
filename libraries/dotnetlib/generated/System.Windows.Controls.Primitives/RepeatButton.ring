@@ -20,17 +20,17 @@ Class RepeatButton from WpfButtonBase
 		return self
 
 	Func getDelay
-		return dnRequest("get",[self,"Delay"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Delay"])
 
 	Func setDelay P1
-		dnRequest("set",[self,"Delay",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Delay",P1])
 		return self
 
 	Func getInterval
-		return dnRequest("get",[self,"Interval"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Interval"])
 
 	Func setInterval P1
-		dnRequest("set",[self,"Interval",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Interval",P1])
 		return self
 
 	Func getDelayProperty

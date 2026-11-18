@@ -20,30 +20,30 @@ Class ExceptionContext from FilterContext
 		return self
 
 	Func getException
-		return dnRequest("get",[self,"Exception"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
 
 	Func setException P1
-		dnRequest("set",[self,"Exception",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Exception",P1])
 		return self
 
 	Func getExceptionDispatchInfo
-		return dnRequest("get",[self,"ExceptionDispatchInfo"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionDispatchInfo"])
 
 	Func setExceptionDispatchInfo P1
-		dnRequest("set",[self,"ExceptionDispatchInfo",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExceptionDispatchInfo",P1])
 		return self
 
 	Func getExceptionHandled
-		return dnRequest("get",[self,"ExceptionHandled"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionHandled"])
 
 	Func setExceptionHandled P1
-		dnRequest("set",[self,"ExceptionHandled",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"ExceptionHandled",P1])
 		return self
 
 	Func getResult
-		return dnRequest("get",[self,"Result"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
 
 	Func setResult P1
-		dnRequest("set",[self,"Result",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"Result",P1])
 		return self
 

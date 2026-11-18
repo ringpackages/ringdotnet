@@ -29,100 +29,100 @@ Class NumberDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[self,"Add",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dnRequest("call",[self,"Clear"])
+		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[self,"ContainsKey",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
 
 	Func ContainsValue P1
-		return dnRequest("call",[self,"ContainsValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ContainsValue",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[self,"GetObjectData",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
 	Func GetAlternateLookup 
-		return dnRequest("call",[self,"GetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetAlternateLookup"])
 
 	Func TryGetAlternateLookup 
-		return dnRequest("call",[self,"TryGetAlternateLookup"])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetAlternateLookup"])
 
 	Func OnDeserialization P1
-		dnRequest("call",[self,"OnDeserialization",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"OnDeserialization",P1])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
 	Func TryGetValue P1
-		return dnRequest("call",[self,"TryGetValue",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
 
 	Func TryAdd P1,P2
-		return dnRequest("call",[self,"TryAdd",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2])
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[self,"EnsureCapacity",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCapacity",P1])
 
 	Func TrimExcess P1
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[self,"TrimExcess",P1])
+			dnRequest("callnamed",[new DotNetObject(nHandle),"TrimExcess",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[self,"TrimExcess"])
+			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[self,"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
 	Func TrimExcess_1 P1
-		dnRequest("call",[self,"TrimExcess",P1])
+		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[self,"set_Item",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
 		return self
 
 	Func getComparer
-		return dnRequest("get",[self,"Comparer"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[self,"Keys"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[self,"Values"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")

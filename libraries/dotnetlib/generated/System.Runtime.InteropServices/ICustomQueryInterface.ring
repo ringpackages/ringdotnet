@@ -14,5 +14,5 @@ Class ICustomQueryInterface from DotNetObject
 		return self
 
 	Func GetInterface P1
-		return dnRequest("call",[self,"GetInterface",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetInterface",P1])
 

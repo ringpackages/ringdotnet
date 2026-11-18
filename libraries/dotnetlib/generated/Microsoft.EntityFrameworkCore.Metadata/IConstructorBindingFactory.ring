@@ -14,8 +14,8 @@ Class IConstructorBindingFactory from DotNetObject
 		return self
 
 	Func GetBindings P1
-		return dnRequest("call",[self,"GetBindings",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetBindings",P1])
 
 	Func TryBindConstructor P1,P2
-		return dnRequest("call",[self,"TryBindConstructor",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryBindConstructor",P1,P2])
 

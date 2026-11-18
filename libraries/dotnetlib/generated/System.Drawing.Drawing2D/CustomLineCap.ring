@@ -28,44 +28,44 @@ Class CustomLineCap from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func SetStrokeCaps P1,P2
-		dnRequest("call",[self,"SetStrokeCaps",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"SetStrokeCaps",P1,P2])
 		return self
 
 	Func GetStrokeCaps 
-		return dnRequest("call",[self,"GetStrokeCaps"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStrokeCaps"])
 
 	Func getStrokeJoin
-		return dnRequest("get",[self,"StrokeJoin"])
+		return dnRequest("get",[new DotNetObject(nHandle),"StrokeJoin"])
 
 	Func setStrokeJoin P1
-		dnRequest("set",[self,"StrokeJoin",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"StrokeJoin",P1])
 		return self
 
 	Func getBaseCap
-		return dnRequest("get",[self,"BaseCap"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseCap"])
 
 	Func setBaseCap P1
-		dnRequest("set",[self,"BaseCap",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseCap",P1])
 		return self
 
 	Func getBaseInset
-		return dnRequest("get",[self,"BaseInset"])
+		return dnRequest("get",[new DotNetObject(nHandle),"BaseInset"])
 
 	Func setBaseInset P1
-		dnRequest("set",[self,"BaseInset",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"BaseInset",P1])
 		return self
 
 	Func getWidthScale
-		return dnRequest("get",[self,"WidthScale"])
+		return dnRequest("get",[new DotNetObject(nHandle),"WidthScale"])
 
 	Func setWidthScale P1
-		dnRequest("set",[self,"WidthScale",P1])
+		dnRequest("set",[new DotNetObject(nHandle),"WidthScale",P1])
 		return self
 

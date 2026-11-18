@@ -14,27 +14,27 @@ Class IMigrationCommandExecutor from DotNetObject
 		return self
 
 	Func ExecuteNonQuery P1,P2
-		dnRequest("call",[self,"ExecuteNonQuery",P1,P2])
+		dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1,P2])
 		return self
 
 	Func ExecuteNonQuery_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"ExecuteNonQuery",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1,P2,P3,P4,P5])
 
 	Func ExecuteNonQuery_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ExecuteNonQuery",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1,P2,P3,P4])
 
 	Func ExecuteNonQueryAsync_3 P1,P2,P3
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3])
 
 	Func ExecuteNonQueryAsync P1,P2
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2])
 
 	Func ExecuteNonQueryAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2,P3,P4,P5,P6])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3,P4,P5,P6])
 
 	Func ExecuteNonQueryAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2,P3,P4,P5])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3,P4,P5])
 
 	Func ExecuteNonQueryAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2,P3,P4])
+		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3,P4])
 

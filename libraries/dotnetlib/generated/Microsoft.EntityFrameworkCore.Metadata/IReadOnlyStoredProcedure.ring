@@ -21,73 +21,73 @@ Class IReadOnlyStoredProcedure from DotNetObject
 		return self
 
 	Func GetStoreIdentifier 
-		return dnRequest("call",[self,"GetStoreIdentifier"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetStoreIdentifier"])
 
 	Func FindParameter P1
-		return dnRequest("call",[self,"FindParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindParameter",P1])
 
 	Func FindOriginalValueParameter P1
-		return dnRequest("call",[self,"FindOriginalValueParameter",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindOriginalValueParameter",P1])
 
 	Func FindRowsAffectedParameter 
-		return dnRequest("call",[self,"FindRowsAffectedParameter"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRowsAffectedParameter"])
 
 	Func FindResultColumn P1
-		return dnRequest("call",[self,"FindResultColumn",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindResultColumn",P1])
 
 	Func FindRowsAffectedResultColumn 
-		return dnRequest("call",[self,"FindRowsAffectedResultColumn"])
+		return dnRequest("call",[new DotNetObject(nHandle),"FindRowsAffectedResultColumn"])
 
 	Func GetSchemaQualifiedName 
-		return dnRequest("call",[self,"GetSchemaQualifiedName"])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaQualifiedName"])
 
 	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[self,"ToDebugString",P1,P2])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1,P2])
 
 	Func ToDebugString_1 P1
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func ToDebugString P1
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[self,"ToDebugString",P1])
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDebugString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[self,"ToDebugString"])
+			return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString"])
 		ok
-		return dnRequest("call",[self,"ToDebugString",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[self,"Schema"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getEntityType
-		return dnRequest("get",[self,"EntityType"])
+		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getIsRowsAffectedReturned
-		return dnRequest("get",[self,"IsRowsAffectedReturned"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsRowsAffectedReturned"])
 
 	Func setIsRowsAffectedReturned P1
 		raise("DotNet Error: IsRowsAffectedReturned is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[self,"Parameters"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getResultColumns
-		return dnRequest("get",[self,"ResultColumns"])
+		return dnRequest("get",[new DotNetObject(nHandle),"ResultColumns"])
 
 	Func setResultColumns P1
 		raise("DotNet Error: ResultColumns is a read-only property")

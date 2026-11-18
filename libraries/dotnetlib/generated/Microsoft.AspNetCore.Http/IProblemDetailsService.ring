@@ -14,8 +14,8 @@ Class IProblemDetailsService from DotNetObject
 		return self
 
 	Func WriteAsync P1
-		return dnRequest("call",[self,"WriteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1])
 
 	Func TryWriteAsync P1
-		return dnRequest("call",[self,"TryWriteAsync",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"TryWriteAsync",P1])
 

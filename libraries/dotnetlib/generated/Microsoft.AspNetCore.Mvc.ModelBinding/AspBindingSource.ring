@@ -30,31 +30,31 @@ Class AspBindingSource from Object
 		return self
 
 	Func CanAcceptDataFrom P1
-		return dnRequest("call",[self,"CanAcceptDataFrom",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"CanAcceptDataFrom",P1])
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getId
-		return dnRequest("get",[self,"Id"])
+		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsGreedy
-		return dnRequest("get",[self,"IsGreedy"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsGreedy"])
 
 	Func setIsGreedy P1
 		raise("DotNet Error: IsGreedy is a read-only property")
 
 	Func getIsFromRequest
-		return dnRequest("get",[self,"IsFromRequest"])
+		return dnRequest("get",[new DotNetObject(nHandle),"IsFromRequest"])
 
 	Func setIsFromRequest P1
 		raise("DotNet Error: IsFromRequest is a read-only property")

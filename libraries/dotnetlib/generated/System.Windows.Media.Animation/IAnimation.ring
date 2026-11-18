@@ -14,5 +14,5 @@ Class IAnimation from DotNetObject
 		return self
 
 	Func GetCurrentValue P1,P2,P3
-		return dnRequest("call",[self,"GetCurrentValue",P1,P2,P3])
+		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentValue",P1,P2,P3])
 
