@@ -121,6 +121,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-73-sql-reports.html"><div class="ic">73</div><b>Reports with SQL</b><span>JOIN, GROUP BY, HAVING, LEFT JOIN and sub-queries.</span></a>
 <a class="card" href="tut-74-system.html"><div class="ic">74</div><b>Asking the computer</b><span>The system, processors, memory, drives and the running programs.</span></a>
 <a class="card" href="tut-75-recursion.html"><div class="ic">75</div><b>Recursion</b><span>Factorial, the Towers of Hanoi, permutations, a folder tree and a flood fill.</span></a>
+<a class="card" href="tut-76-calendars.html"><div class="ic">76</div><b>Other calendars</b><span>Hijri, Persian, Hebrew, Japanese and Thai dates; Arabic names with ar-SA.</span></a>
+<a class="card" href="tut-77-xslt.html"><div class="ic">77</div><b>XSLT</b><span>Turn XML into text, CSV and HTML with XslCompiledTransform.</span></a>
+<a class="card" href="tut-78-crypto.html"><div class="ic">78</div><b>Protecting and signing messages</b><span>AES, HMAC (encrypt-then-MAC), PBKDF2 keys and RSA signatures.</span></a>
 </div>
 
 ## Learning path

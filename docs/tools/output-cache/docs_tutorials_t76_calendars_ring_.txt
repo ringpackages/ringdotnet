@@ -1,0 +1,36 @@
+1. the day 2024-03-11 in:
+   Gregorian         : 2024-3-11
+   Hijri (Umm al-Qura): 1445-9-1
+   Persian           : 1402-12-21
+   Hebrew            : 5784-7-1
+   Thai Buddhist     : 2567-3-11
+   Japanese (era year): 6
+
+2. 1 Ramadan 1445 is 2024-03-11, a Monday
+
+3. the months of 1445:
+   month  1: 29 days, starts 2023-07-19
+   month  2: 30 days, starts 2023-08-17
+   month  3: 30 days, starts 2023-09-16
+   month  4: 30 days, starts 2023-10-16
+   month  5: 29 days, starts 2023-11-15
+   month  6: 30 days, starts 2023-12-14
+   month  7: 29 days, starts 2024-01-13
+   month  8: 29 days, starts 2024-02-11
+   month  9: 30 days, starts 2024-03-11
+   month 10: 29 days, starts 2024-04-10
+   month 11: 29 days, starts 2024-05-09
+   month 12: 30 days, starts 2024-06-07
+
+4. in ar-SA the culture's own calendar is UmAlQuraCalendar
+   الاثنين, 1 رمضان 1445
+   Monday, 11 March 2024
+
+5. the first day of Ramadan, year after year:
+   1445: 2024-03-11
+   1446: 2025-03-01
+   1447: 2026-02-18
+   1448: 2027-02-08
+   1449: 2028-01-28
+
+6. 2024 is a leap year: yes, 2100: no, 2000: yes

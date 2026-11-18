@@ -71,6 +71,6 @@ Use recursion when the problem has the shape of a **tree** or *"the same problem
 3. Count the files of each extension below a folder with a recursive function.
 4. Write `reverse(text)` recursively (the last letter + the reverse of the rest).
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 76: Other calendars](tut-76-calendars.html)

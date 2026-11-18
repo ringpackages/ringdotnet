@@ -1,0 +1,28 @@
+1. a text report, newest book first, with the total price:
+   Neuromancer (1984)
+   Dune (1965)
+   The Hobbit (1937)
+   Total: 29.75
+
+2. CSV of the cheap books:
+   title,year,price
+   The Hobbit,1937,9.5
+   Neuromancer,1984,8.25
+
+3. an HTML table (236 characters) with 3 rows; the genres became classes: yes
+
+4. the HTML:
+   <table>
+     <tr class="fantasy">
+       <td>The Hobbit</td>
+       <td>9.5</td>
+     </tr>
+     <tr class="scifi">
+       <td>Dune</td>
+       <td>12</td>
+     </tr>
+     <tr class="scifi">
+       <td>Neuromancer</td>
+       <td>8.25</td>
+     </tr>
+   </table>

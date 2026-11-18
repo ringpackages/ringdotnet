@@ -1,0 +1,14 @@
+1. keys derived from the password: 32 + 32 bytes
+
+2. the message has 28 bytes, the protected package 80 bytes (16 IV + padded ciphertext + 32 tag)
+   the plain text is not in the package: yes
+
+3. opened: ok -> Transfer 100 to account 4521
+
+4. one changed byte: refused (the tag does not match: changed or wrong key)
+
+5. two protections of one message are equal: no
+
+6. the signature has 256 bytes (a 2048-bit key)
+   verified with the public key: yes
+   the order was changed to 'Pay 900 to Ann': no
