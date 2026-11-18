@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your own assemblies · RingDotNet</title>
-<meta name="description" content="Wrap any .NET DLL — your own library or a NuGet package — with one command, and use its classes with the same natural syntax as the built-in ones.">
+<meta name="description" content="Wrap any .NET DLL — your own library or a NuGet package — with one command, and use its classes with the same simple syntax as the built-in ones.">
 <link rel="stylesheet" href="assets/style.css">
 <script>window.SITE_ROOT="";</script>
 <script src="assets/search-index.js"></script>
@@ -79,9 +79,9 @@
 </nav>
 <main>
 <article>
-<h1>Your own assemblies</h1><p class="lead">Wrap any .NET DLL — your own library or a NuGet package — with one command, and use its classes with the same natural syntax as the built-in ones.</p>
+<h1>Your own assemblies</h1><p class="lead">Wrap any .NET DLL — your own library or a NuGet package — with one command, and use its classes with the same simple syntax as the built-in ones.</p>
 <h2 id="two-ways-to-use-an-assembly">Two ways to use an assembly<a class="anchor" href="#two-ways-to-use-an-assembly">#</a></h2>
-<div class="tablewrap"><table><thead><tr><th>Way</th><th>When</th></tr></thead><tbody><tr><td><strong>Generic calls</strong> — <code>dnLoad</code>, <code>dnType</code>, <code>dnNew</code>, <code>callMethod</code></td><td>a quick call, nothing to generate</td></tr><tr><td><strong>Generated classes</strong> — <code>wrapassembly.ring</code></td><td>natural <code>oObj.Method()</code> syntax, properties, events, enums, inheritance</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Way</th><th>When</th></tr></thead><tbody><tr><td><strong>Generic calls</strong> — <code>dnLoad</code>, <code>dnType</code>, <code>dnNew</code>, <code>callMethod</code></td><td>a quick call, nothing to generate</td></tr><tr><td><strong>Generated classes</strong> — <code>wrapassembly.ring</code></td><td>the simple <code>oObj.Method()</code> syntax, properties, events, enums, inheritance</td></tr></tbody></table></div>
 <h2 id="generic-calls">Generic calls<a class="anchor" href="#generic-calls">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 <span class="f">dnLoad</span>(<span class="s">"path/to/MyLibrary.dll"</span>)                       <span class="c"># dependencies are found next to the dll</span>

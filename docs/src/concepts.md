@@ -18,7 +18,7 @@ new Console().WriteLine("Hi")           # static members are called on an instan
 ? new Math().Max(3,9)
 ```
 
-{{output:samples/UsingDotNet/test02_natural.ring}}
+{{output:samples/UsingDotNet/test02_simple.ring}}
 
 > [!NOTE] Always write `new StringBuilder(...)` **with parentheses**. In Ring, `new X` without them does not call the constructor.
 
@@ -41,7 +41,7 @@ The bridge still **picks the real overload from the argument types**: whole numb
 
 ## Named arguments
 
-Ring has no optional or overloaded parameters, but it has a natural replacement: a **list of `:name = value` pairs**. When a method has overloads with different numbers of parameters, its plain name takes **one parameter** and looks at what you pass:
+Ring has no optional or overloaded parameters, but it has a simple replacement: a **list of `:name = value` pairs**. When a method has overloads with different numbers of parameters, its plain name takes **one parameter** and looks at what you pass:
 
 | You pass | What happens |
 |---|---|
@@ -78,7 +78,7 @@ Rules and limits:
 
 ## Properties and fields are attributes
 
-.NET properties are Ring attributes. Ring calls the generated `getName()` / `setName(value)` for you, so reading and writing is natural, also inside `{ }`:
+.NET properties are Ring attributes. Ring calls the generated `getName()` / `setName(value)` for you, so reading and writing is simple, also inside `{ }`:
 
 ```ring
 oForm = new Form() {
@@ -95,7 +95,7 @@ Assigning a read-only property raises an error. Properties whose names are Ring 
 
 ## Braces instead of the dot operator
 
-Ring lets you write `{ }` after an object, and everything inside is evaluated **on that object**. It is the natural way to configure a .NET object, and all the samples in this documentation use it:
+Ring lets you write `{ }` after an object, and everything inside is evaluated **on that object**. It is a simple way to configure a .NET object, and all the samples in this documentation use it:
 
 ```ring
 oInfo = new ProcessStartInfo() {

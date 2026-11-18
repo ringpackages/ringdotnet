@@ -1,0 +1,12 @@
+Hello from .NET
+Max(3,9)   = 9
+Sqrt(144)  = 12
+PI         = 3.14
+Hello, Ring!
+Length    = 12
+Hello, Ring!!!?
+Elapsed ms >= 0 : 1
+a\b
+file.txt
+1
+1

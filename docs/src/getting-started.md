@@ -52,7 +52,7 @@ oSB.Append(", ").Append("Ring!")
 
 The output above is the real output of `samples/UsingDotNet/test01_hello.ring`, which uses both styles you will see in this documentation:
 
-1. **Natural classes** (generated wrappers): `new StringBuilder("Hello")`, `oSB.Append(...)`, `oSB.Length`. This is what you will use almost always.
+1. **Generated classes** with simple syntax: `new StringBuilder("Hello")`, `oSB.Append(...)`, `oSB.Length`. This is what you will use almost always.
 2. **Generic calls** (no wrappers needed): `dnType("System.Console").callMethod("WriteLine",["text"])`, `dnNew(...)`, `dnStatic(...)`. Useful for a type that has no generated class — see [Core functions](core-api.html).
 
 ## The startup modes

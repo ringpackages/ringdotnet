@@ -5,7 +5,7 @@ lead: Use .NET classes and methods from Ring programs
 
 <div class="hero">
 <h1>RingDotNet</h1>
-<p>Call any .NET class from Ring with natural syntax. Build Windows Forms and WPF programs, web servers with ASP.NET Core, and databases with Entity Framework — all in Ring.</p>
+<p>Call any .NET class from Ring with simple syntax. Build Windows Forms and WPF programs, web servers with ASP.NET Core, and databases with Entity Framework — all in Ring.</p>
 <div class="btns"><a class="btn primary" href="getting-started.html">Get started</a><a class="btn ghost" href="gallery-apps.html">See the applications</a><a class="btn ghost" href="reference.html">Function index</a></div>
 </div>
 
@@ -34,7 +34,7 @@ The classes are real Ring classes with the same method names as the .NET ones �
 ## What is inside
 
 <div class="cards">
-<a class="card" href="concepts.html"><div class="ic">🔌</div><b>Natural syntax</b><span>oObj.Method(), oObj.Property = x, enums as strings, events with setClickEvent().</span></a>
+<a class="card" href="concepts.html"><div class="ic">🔌</div><b>Simple syntax</b><span>oObj.Method(), oObj.Property = x, enums as strings, events with setClickEvent().</span></a>
 <a class="card" href="foundation.html"><div class="ic">📚</div><b>The class library</b><span>Strings, dates, files, regex, networking, crypto, XML, JSON, reflection, LINQ and more.</span></a>
 <a class="card" href="callbacks-events.html"><div class="ic">🔁</div><b>Callbacks and events</b><span>Pass Ring code wherever .NET expects a delegate, as RingQt does with events.</span></a>
 <a class="card" href="winforms.html"><div class="ic">🪟</div><b>Windows Forms</b><span>All controls wrapped, plus short helpers: uiForm(), uiButton(), UiCanvas for drawing.</span></a>

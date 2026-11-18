@@ -1,6 +1,6 @@
 ---
 title: Your own assemblies
-lead: Wrap any .NET DLL — your own library or a NuGet package — with one command, and use its classes with the same natural syntax as the built-in ones.
+lead: Wrap any .NET DLL — your own library or a NuGet package — with one command, and use its classes with the same simple syntax as the built-in ones.
 ---
 
 ## Two ways to use an assembly
@@ -8,7 +8,7 @@ lead: Wrap any .NET DLL — your own library or a NuGet package — with one com
 | Way | When |
 |---|---|
 | **Generic calls** — `dnLoad`, `dnType`, `dnNew`, `callMethod` | a quick call, nothing to generate |
-| **Generated classes** — `wrapassembly.ring` | natural `oObj.Method()` syntax, properties, events, enums, inheritance |
+| **Generated classes** — `wrapassembly.ring` | the simple `oObj.Method()` syntax, properties, events, enums, inheritance |
 
 ## Generic calls
 

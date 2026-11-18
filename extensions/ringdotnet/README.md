@@ -43,7 +43,7 @@ oCalc = new Calculator()
 
 `tests/UserLib` is a complete example (`tests/test_userassembly.ring`). Without generated classes any assembly is usable through `dnType("Namespace.Type")`, `dnNew()` and `callMethod()`.
 
-## Natural syntax (generated classes)
+## Simple syntax (generated classes)
 
 Like RingQt's classes, the .NET types are wrapped by generated Ring classes (`libraries/dotnetlib/generated`) with the same method names:
 
@@ -87,7 +87,7 @@ aTop = dnQuery(aSales).Where("xDotNetResult = aDotNetArgs[1] >= 100").OrderByDes
 
 ## Properties
 
-.NET properties and fields are Ring attributes (Ring calls the generated `getName()` / `setName(value)` automatically, see "Setter and Getter" in the Ring docs), so they read and write naturally, also inside `{ }`; `getName()` / `setName()` can still be called explicitly. Assigning a read-only property raises an error. Properties whose names are Ring keywords (`From`, `To`, `Step`, `On`...) are not attributes: use `getFrom()` / `setFrom(value)`.
+.NET properties and fields are Ring attributes (Ring calls the generated `getName()` / `setName(value)` automatically, see "Setter and Getter" in the Ring docs), so they are read and written with the simple `oObj.Name` and `oObj.Name = value`, also inside `{ }`; `getName()` / `setName()` can still be called explicitly. Assigning a read-only property raises an error. Properties whose names are Ring keywords (`From`, `To`, `Step`, `On`...) are not attributes: use `getFrom()` / `setFrom(value)`.
 
 ```ring
 oForm = new Form()

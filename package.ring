@@ -4829,7 +4829,7 @@ aPackageInfo = [
 		"samples/Forms/README.md",
 		"samples/UsingDotNet/demo_todo.ring",
 		"samples/UsingDotNet/test01_hello.ring",
-		"samples/UsingDotNet/test02_natural.ring",
+		"samples/UsingDotNet/test02_simple.ring",
 		"samples/UsingDotNet/test03_collections.ring",
 		"samples/UsingDotNet/test04_callbacks.ring",
 		"samples/UsingDotNet/test05_events.ring",
