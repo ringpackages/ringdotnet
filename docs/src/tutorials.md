@@ -82,6 +82,21 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-39-rest-client.html"><div class="ic">39</div><b>A REST client</b><span>GET and POST with JSON, status codes, timeouts and errors.</span></a>
 </div>
 
+## Part 5 — Even more
+
+<div class="cards">
+<a class="card" href="tut-40-dialog.html"><div class="ic">40</div><b>Your own dialog</b><span>A modal form that asks for data, validates it and returns it; tested with a timer.</span></a>
+<a class="card" href="tut-41-menus.html"><div class="ic">41</div><b>Menus, toolbars, shortcuts</b><span>Write each action once and reach it from a menu, a toolbar, a context menu and a key.</span></a>
+<a class="card" href="tut-42-browser.html"><div class="ic">42</div><b>A folder browser</b><span>TreeView, ListView, recursion and the Tag property: a small Explorer.</span></a>
+<a class="card" href="tut-43-calendar.html"><div class="ic">43</div><b>Calendars and dates</b><span>Month tables, ages, business days, birthdays and safe date arithmetic.</span></a>
+<a class="card" href="tut-44-statistics.html"><div class="ic">44</div><b>Statistics and simulation</b><span>Mean, median, mode, deviation, primes, gcd and a Monte Carlo estimate of pi.</span></a>
+<a class="card" href="tut-45-binary.html"><div class="ic">45</div><b>Binary files</b><span>BinaryWriter and BinaryReader, a file format, a hex dump, little endian.</span></a>
+<a class="card" href="tut-46-backup.html"><div class="ic">46</div><b>Project: a backup tool</b><span>Zip by date, keep the newest few, restore and verify.</span></a>
+<a class="card" href="tut-47-markdown.html"><div class="ic">47</div><b>Project: Markdown to HTML</b><span>Blocks, inline formatting, regular expressions, and escaping first.</span></a>
+<a class="card" href="tut-48-addressbook.html"><div class="ic">48</div><b>Project: an address book</b><span>A window, a data grid and a database that stay consistent; search as you type.</span></a>
+<a class="card" href="tut-49-login.html"><div class="ic">49</div><b>Login, sessions and cookies</b><span>Registration, safe passwords, a session cookie and a protected page.</span></a>
+</div>
+
 ## Learning path
 
 | If you want to... | Read |
@@ -101,5 +116,8 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 | text patterns, tables, settings, cultures | tutorials 29, 30, 32, 33 |
 | timers, games and charts | tutorials 34, 35, 36 |
 | tools around other programs, WPF layout, web clients | tutorials 37, 38, 39 |
+| dialogs, menus, trees and lists | tutorials 40, 41, 42 |
+| dates, numbers, binary data, backups, text conversion | tutorials 43, 44, 45, 46, 47 |
+| a database application, and logins for web sites | tutorials 48, 49 |
 
 After the tutorials: the [Core concepts](concepts.html) page lists the naming rules, the [Class reference](api.html) lists every class, and the [applications](gallery-apps.html) are bigger programs to read.

@@ -1,0 +1,19 @@
+1. Written: 46 bytes
+
+2. The hex dump of the file:
+   0000  04 52 44 4e 31 03 00 00  .RDN1...
+   0008  00 0c 54 65 6d 70 65 72  ..Temper
+   0010  61 74 75 72 65 73 00 00  atures..
+   0018  00 00 00 80 35 40 00 00  ....5@..
+   0020  00 00 00 40 33 40 00 00  ...@3@..
+   0028  00 00 00 c0 37 40        ....7@
+
+
+3. Magic 'RDN1', 3 values, title 'Temperatures'
+   value 1 = 21.50
+   value 2 = 19.25
+   value 3 = 23.75
+
+4. Not our file format: refused
+
+5. 1000 as bytes: 4 bytes, the first two are 232 and 3 (1000 = 3 * 256 + 232)

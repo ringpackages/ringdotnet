@@ -75,6 +75,6 @@ Step 4 posts `{"title":"Foundation","year":1951}`. The service answers `201 Crea
 3. Add an `Accept` header (`oClient.DefaultRequestHeaders.Add(...)`).
 4. Call a real public API (for example a free JSON placeholder service) and print three fields. You need internet for this one.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep these pages open while you build things: [Core concepts](concepts.html), the [class reference](api.html), [Gotchas & limits](gotchas.html) and the [applications](gallery-apps.html).
+[Tutorial 40: Your own dialog](tut-40-dialog.html) — Part 5 has more window programs, projects and web topics.

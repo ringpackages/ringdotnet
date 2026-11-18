@@ -1,0 +1,34 @@
+---- Markdown ----
+# Shopping
+
+Things to buy **today** for the *party*, see [the list](http://example.com/list).
+
+## Food
+- bread
+- cheese & `olives`
+- <fresh> fruit
+
+Thank you!
+
+---- HTML ----
+<h1>Shopping</h1>
+
+<p>Things to buy <strong>today</strong> for the <em>party</em>, see <a href='http://example.com/list'>the list</a>.</p>
+
+<h2>Food</h2>
+
+<ul>
+
+<li>bread</li>
+
+<li>cheese &amp; <code>olives</code></li>
+
+<li>&lt;fresh&gt; fruit</li>
+
+</ul>
+
+<p>Thank you!</p>
+
+
+
+Saved a page of 304 characters

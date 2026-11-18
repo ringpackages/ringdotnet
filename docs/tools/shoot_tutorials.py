@@ -33,6 +33,11 @@ SHOTS = [
     ("g37_runner.ring", "g37", "\tuiTest(", "\trunCommand()\n", 2500, "forms"),
     ("g38_wpf_layout.ring", "g38", None, "", 3500, "wpf"),
     ("g38_wpf_layout.ring", "g38-typed", "\twpfTest(", "\tpressKey(4)\n\tpressKey(2)\n\tpressKey(7)\n", 3500, "wpf"),
+    ("g40_dialog.ring", "g40-main", None, "", 2500, "forms"),
+    ("g40_dialog.ring", "g40-dialog", "\tuiTest(", "\taskProfile('Ann',31)\n", 2500, "forms"),
+    ("g41_menus.ring", "g41", None, "", 2500, "forms"),
+    ("g42_browser.ring", "g42", "\tuiTest(", "\toTree.SelectedNode = oRootNode.Nodes.Item(2).Nodes.Item(0)\n", 2500, "forms"),
+    ("g48_addressbook.ring", "g48", "\treload()\n\tuiTest(", "\toDb.insert('Contacts',[['Name','Ann Taylor'],['Phone','555-0101'],['City','Cairo']])\n\toDb.insert('Contacts',[['Name','Bob Stone'],['Phone','555-0102'],['City','Oslo']])\n\toDb.insert('Contacts',[['Name','Cy Young'],['Phone','555-0103'],['City','Cairo']])\n\toDb.insert('Contacts',[['Name','Dee Park'],['Phone','555-0104'],['City','Tokyo']])\n", 2500, "forms"),
 ]
 
 

@@ -1,0 +1,24 @@
+Data           : 4, 8, 15, 16, 23, 42, 8, 15, 8, 4
+Count, sum     : 10, 143
+Mean (average) : 14.30
+Median (middle): 11.50
+Mode (common)  : 8
+Smallest, largest: 4, 42
+Standard deviation: 10.85
+
+LINQ average   : 14.30 (same as the mean)
+
+Histogram:
+    4 ##
+    8 ###
+   15 ##
+   16 #
+   23 #
+   42 #
+
+Primes up to 100: 25 of them, the last is 97
+
+gcd(84, 36) = 12, lcm(4, 6) = 12
+
+Estimate of pi from 20000 random points: 3.16
+Math.PI                                : 3.14

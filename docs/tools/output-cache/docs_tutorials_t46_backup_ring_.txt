@@ -1,0 +1,17 @@
+The folder to protect has 2 files
+
+STEP 1: five backups made:
+   backup-2024-05-01_0900.zip
+   backup-2024-05-02_0900.zip
+   backup-2024-05-03_0900.zip
+   backup-2024-05-04_0900.zip
+   backup-2024-05-05_0900.zip
+
+STEP 2: removed 2 old backups, left:
+   backup-2024-05-03_0900.zip
+   backup-2024-05-04_0900.zip
+   backup-2024-05-05_0900.zip
+
+STEP 3: restored backup-2024-05-05_0900.zip
+   the restored report says: Annual report, version of 2024-05-05_0
+   restored files: 2

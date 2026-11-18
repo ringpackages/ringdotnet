@@ -1,0 +1,8 @@
+register ann              -> Created welcome, ann
+register ann again        -> Conflict that name is taken
+profile, not logged in    -> Unauthorized please log in
+login, wrong password     -> Unauthorized wrong name or password
+login, right password     -> OK logged in as ann   (a cookie was sent: 1)
+profile, with the cookie  -> OK this is the profile of ann
+logout                    -> OK logged out
+profile, old cookie       -> Unauthorized please log in
