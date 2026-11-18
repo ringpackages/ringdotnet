@@ -173,7 +173,7 @@ cLine = <span class="s">"Count: "</span> + nCount
 <span class="k">try</span>
 	? nCount + <span class="s">" items"</span>       <span class="c"># a number on the left: " items" is not a number</span>
 <span class="k">catch</span>
-	? <span class="s">"error: "</span> + cCatchError
+	? <span class="s">"error: "</span> + substr(cCatchError,<span class="n">15</span>)          <span class="c"># the message without the "Error (R41) : " in front</span>
 <span class="k">done</span>
 ? string(nCount) + <span class="s">" items"</span>   <span class="c"># string() makes the number a text first</span>
 
@@ -206,7 +206,7 @@ NUMBER STRING NUMBER
 Count: 3
 34
 10
-error: Error (R41) : Invalid numeric string
+error: Invalid numeric string
 3 items
 12
 H
@@ -508,7 +508,7 @@ Eva 20</code></pre></div>
 	<span class="k">try</span>
 		nResult = <span class="n">10</span> / <span class="n">0</span>
 	<span class="k">catch</span>
-		? <span class="s">"caught: "</span> + cCatchError
+		? <span class="s">"caught: "</span> + substr(cCatchError,<span class="n">14</span>)     <span class="c"># a runtime error starts with "Error (R1) : ", then the text</span>
 	<span class="k">done</span>
 	<span class="k">try</span>
 		checkAge(-<span class="n">5</span>)
@@ -547,7 +547,7 @@ Eva 20</code></pre></div>
 
 <span class="k">func</span> <span class="f">hello</span>
 	? <span class="s">"hello from a function called by name"</span></code></pre></div>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>caught: Error (R1) : Can't divide by zero
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>caught: Can't divide by zero
 caught: an age can not be negative: -5
 30 is fine
 1

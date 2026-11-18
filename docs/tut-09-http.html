@@ -204,7 +204,7 @@ cUrl = <span class="s">""</span>
 	oBody = oResponse.Content.<span class="f">ReadAsStringAsync</span>(<span class="k">NULL</span>)
 	oBody.<span class="f">Wait</span>(<span class="k">NULL</span>)
 	<span class="k">return</span> oResponse.StatusCode + <span class="s">" "</span> + oBody.<span class="f">getProp</span>(<span class="s">"Result"</span>)</code></pre></div>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>The server listens at http://127.0.0.1:51008
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>The server listens at http://127.0.0.1:55391
 
 GET /hello  -&gt; OK Hello from a Ring handler
 GET /time   -&gt; OK {"hour":12,"minute":30}

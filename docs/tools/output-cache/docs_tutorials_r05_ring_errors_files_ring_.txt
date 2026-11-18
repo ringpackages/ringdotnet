@@ -1,4 +1,4 @@
-caught: Error (R1) : Can't divide by zero
+caught: Can't divide by zero
 caught: an age can not be negative: -5
 30 is fine
 1

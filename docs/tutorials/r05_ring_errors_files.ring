@@ -5,7 +5,7 @@ func main
 	try
 		nResult = 10 / 0
 	catch
-		? "caught: " + cCatchError
+		? "caught: " + substr(cCatchError,14)     # a runtime error starts with "Error (R1) : ", then the text
 	done
 	try
 		checkAge(-5)

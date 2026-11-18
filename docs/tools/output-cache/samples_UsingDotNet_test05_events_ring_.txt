@@ -1,8 +1,0 @@
-CollectionChanged event #1
-  CollectionChanged event #2
-  CollectionChanged event #3
-Events received : 3
-Items           : 1
-  (second handler)
-Items           : 3
-  action = Add

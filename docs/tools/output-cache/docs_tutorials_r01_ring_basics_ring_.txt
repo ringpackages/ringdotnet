@@ -10,7 +10,7 @@ NUMBER STRING NUMBER
 Count: 3
 34
 10
-error: Error (R41) : Invalid numeric string
+error: Invalid numeric string
 3 items
 12
 H

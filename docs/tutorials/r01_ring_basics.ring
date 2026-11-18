@@ -25,7 +25,7 @@ cLine = "Count: " + nCount
 try
 	? nCount + " items"       # a number on the left: " items" is not a number
 catch
-	? "error: " + cCatchError
+	? "error: " + substr(cCatchError,15)          # the message without the "Error (R41) : " in front
 done
 ? string(nCount) + " items"   # string() makes the number a text first
 
