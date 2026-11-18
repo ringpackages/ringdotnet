@@ -1,0 +1,19 @@
+1. the meeting at 12:00 UTC on 1 July 2024:
+   New York  2024-07-01 08:00   (UTC-04:00)
+   London    2024-07-01 13:00   (UTC+01:00)
+   Cairo     2024-07-01 15:00   (UTC+03:00)
+   Tokyo     2024-07-01 21:00   (UTC+09:00)
+
+2. the same meeting at 12:00 UTC on 15 January 2024:
+   New York  2024-01-15 07:00   (UTC-05:00)
+   London    2024-01-15 12:00   (UTC+00:00)
+   Cairo     2024-01-15 14:00   (UTC+02:00)
+   Tokyo     2024-01-15 21:00   (UTC+09:00)
+
+3. New York in July: daylight saving? yes; in January? no
+
+4. departure Cairo 01 Jul 22:30, arrival New York 02 Jul 02:45
+   in UTC: 19:30 -> 06:45 (the duration is the same in every zone)
+
+5. does 2:30 on 10 March 2024 exist in New York? no
+   hours between midnight and midnight that day: 23

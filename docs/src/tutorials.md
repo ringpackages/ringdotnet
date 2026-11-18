@@ -112,6 +112,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-64-urls.html"><div class="ic">64</div><b>URLs and encodings</b><span>Uri, query strings, percent-encoding, relative addresses and Base64.</span></a>
 <a class="card" href="tut-65-enums.html"><div class="ic">65</div><b>Enums and flags</b><span>Named choices as text, comma-separated flags and your own bit flags.</span></a>
 <a class="card" href="tut-66-spelling.html"><div class="ic">66</div><b>A spell checker</b><span>A set of words, the edit distance table and the best suggestions.</span></a>
+<a class="card" href="tut-67-bases.html"><div class="ic">67</div><b>Number systems and big numbers</b><span>Binary and hex, bits, the 2^53 limit and BigInteger.</span></a>
+<a class="card" href="tut-68-timezones.html"><div class="ic">68</div><b>Time zones</b><span>UTC, local time, daylight saving, a meeting and a flight across zones.</span></a>
+<a class="card" href="tut-69-random.html"><div class="ic">69</div><b>Randomness</b><span>Seeds, dice, a correct shuffle, weighted choices, Guids and secure numbers.</span></a>
 </div>
 
 ## Learning path

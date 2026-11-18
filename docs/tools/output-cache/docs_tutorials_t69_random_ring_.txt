@@ -1,0 +1,15 @@
+1. two generators with the same seed: 11 69 51  and  11 69 51
+
+2. 6000 throws of a die: 1051 974 1022 1000 1004 949
+   every side between 900 and 1100 times? yes
+
+3. a shuffled deck of 10: 9 6 1 10 2 3 4 8 7 5   (still 10 different cards: yes)
+
+4. 10000 draws with chances 70 / 25 / 5 percent:
+   common    6954
+   rare      2577
+   legendary 469
+
+5. a Guid has 36 characters (8-4-4-4-12 hexadecimal digits); two new Guids are different: yes
+
+6. a secure number from RandomNumberGenerator.GetInt32: yes (in range); a different one every run
