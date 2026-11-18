@@ -49,6 +49,6 @@ Steps 4 and 5 show that `é` can be one code point or two. They look the same, b
 2. Count the letters of your own name with `len()` and with `StringInfo`.
 3. Find out what `Encoding.ASCII.GetBytes("é")` returns, and why.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 53: Speed — measure first](tut-53-speed.html)

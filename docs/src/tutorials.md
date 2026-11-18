@@ -98,6 +98,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-50-cli.html"><div class="ic">50</div><b>A command-line tool</b><span>Arguments, options, usage text and exit codes.</span></a>
 <a class="card" href="tut-51-logging.html"><div class="ic">51</div><b>Logging</b><span>Levels, timestamps, a log file and rotation.</span></a>
 <a class="card" href="tut-52-unicode.html"><div class="ic">52</div><b>Unicode and encodings</b><span>Bytes, code points and letters; UTF-8, UTF-16 and mojibake.</span></a>
+<a class="card" href="tut-53-speed.html"><div class="ic">53</div><b>Speed: measure first</b><span>Stopwatch, a cache, StringBuilder against +=, and the cost of bridge calls.</span></a>
+<a class="card" href="tut-54-expression.html"><div class="ic">54</div><b>An expression calculator</b><span>Tokens, a recursive-descent parser, precedence and clear errors.</span></a>
+<a class="card" href="tut-55-miniweb.html"><div class="ic">55</div><b>A tiny web framework</b><span>Routes with parameters, a catch-all handler and escaped templates.</span></a>
 </div>
 
 ## Learning path

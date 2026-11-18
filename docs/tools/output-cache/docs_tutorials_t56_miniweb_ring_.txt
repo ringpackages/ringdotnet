@@ -1,0 +1,5 @@
+/                     OK  <h1>Welcome</h1>
+/users/ali            OK  <h1>User ali</h1>
+/users/sara/posts/7   OK  <h1>Post 7 of sara</h1>
+/users/<b>sara        OK  <h1>User &lt;b&gt;sara</h1>
+/nothing/here         NotFound  no page /nothing/here

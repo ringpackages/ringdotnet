@@ -1,0 +1,12 @@
+1. A loop of 200000 additions gives 20000100000 (measured: 1)
+
+2. Same text (20000 pieces), two ways:
+   the faster one: Ring's own +=
+   same result? yes
+
+3. fib(22): slow = 17711, cached = 17711
+   Number of calls without a cache: 114626, with a cache: 44
+   the cached version is faster ? yes
+
+4. Reading 500 items: one by one over the bridge vs one call (ToList)
+   one call is faster ? yes
