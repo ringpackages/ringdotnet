@@ -320,6 +320,16 @@ func buildPlan cTypeName, nForceInit
 	cCode += "			return self" + nl
 	cCode += "		ok" + nl
 	if lCreate
+		# init has one parameter and the type also has a parameterless constructor: init(NULL) (an empty text) calls that one
+		for aCtor in aCtors
+			if (nInit = 1) and (len(aCtor) = 0)
+				cCode += "		if isstring(P1) and P1 = " + '""' + nl
+				cCode += "			nHandle = dnCreate('" + cTypeName + "',[])" + nl
+				cCode += "			return self" + nl
+				cCode += "		ok" + nl
+				exit
+			ok
+		next
 		cCode += "		nHandle = dnCreate('" + cTypeName + "',[" + paraList(nInit) + "])" + nl
 	ok
 	cCode += "		return self" + nl + nl

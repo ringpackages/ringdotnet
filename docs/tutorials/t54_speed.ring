@@ -83,7 +83,7 @@ func buildWithPlus nIgnored
 	return cText
 
 func buildWithBuilder nIgnored
-	oBuilder = new StringBuilder("")
+	oBuilder = new StringBuilder(NULL)
 	for nI = 1 to 20000
 		oBuilder.Append("piece " + nI + ";")
 	next

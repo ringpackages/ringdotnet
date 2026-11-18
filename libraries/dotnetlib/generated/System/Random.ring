@@ -13,6 +13,10 @@ Class Random from Object
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Random, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Random, System.Private.CoreLib',[P1])
 		return self
 

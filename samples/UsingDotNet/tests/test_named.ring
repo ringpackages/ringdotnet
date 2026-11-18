@@ -63,4 +63,21 @@ func main
 		lFailed = True
 	done
 	dnAssert("a required parameter is missing",lFailed,True)
+	
+
+	# constructors: a class whose init() takes one argument also has the parameterless constructor, reached with NULL
+	oBuilder = new StringBuilder(NULL)
+	oBuilder.Append("ab")
+	dnAssert("new StringBuilder(NULL) is the empty builder",oBuilder.ToString(),"ab")
+	oText = new StringBuilder("xy")
+	dnAssert("new StringBuilder(text) starts with the text",oText.ToString(),"xy")
+	oRandom = new Random(NULL)
+	dnAssert("new Random(NULL) works",oRandom.Next_(10) < 10,True)
+	oFirst = new Random(42)
+	oSecond = new Random(42)
+	dnAssert("new Random(seed) still works",oFirst.Next_(100) = oSecond.Next_(100),True)
+	oZero = new Version(NULL)
+	dnAssert("new Version(NULL) is 0.0",oZero.ToString(),"0.0")
+	oParsed = new Version("1.2.3")
+	dnAssert("new Version(text) parses the text",oParsed.ToString(),"1.2.3")
 	dnTestSummary()

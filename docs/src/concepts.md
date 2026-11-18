@@ -68,7 +68,7 @@ oDate = dnNew("DateTime",[ :year = 2024, :month = 12, :day = 25 ])
 
 Rules and limits:
 
-- **`NULL` for no arguments.** Ring needs the right number of arguments, so on an overloaded method call the parameterless form with `NULL`: `oTask.Wait(NULL)`, `oList.Sort(NULL)`. A method that has no overloads still takes no argument: `oTimer.Start()`. The function index and the class files show which is which.
+- **`NULL` for no arguments.** Ring needs the right number of arguments, so on an overloaded method call the parameterless form with `NULL`: `oTask.Wait(NULL)`, `oList.Sort(NULL)`. A method that has no overloads still takes no argument: `oTimer.Start()`. The same rule holds for **constructors**: Ring cannot call `init()` with a different number of arguments, so a class whose `init` takes one value (`StringBuilder`, `Random`, `Version`) creates the parameterless object with `NULL`: `new StringBuilder(NULL)`, `new Random(NULL)`, `new Version(NULL)`. Other constructors: `dnNew("Class",[ :name = value ])` or `New_N`. The function index and the class files show which is which.
 - **The plain name takes more than one parameter, or all overloads have the same number of parameters** (`Path.Combine(a,b)`, `Math.Max(a,b)`): the method stays positional. The bridge already picks among same-arity overloads by the types of the values.
 - **`ToString` and `ToList` keep their plain forms**, because every object already has `toString()` / `toList()`. Use `ToString_1(format)`.
 - A name that matches no parameter, or a missing required parameter, raises an error that lists the names you gave. Names are not case sensitive.
