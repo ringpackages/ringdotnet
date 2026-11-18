@@ -101,6 +101,10 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-53-speed.html"><div class="ic">53</div><b>Speed: measure first</b><span>Stopwatch, a cache, StringBuilder against +=, and the cost of bridge calls.</span></a>
 <a class="card" href="tut-54-expression.html"><div class="ic">54</div><b>An expression calculator</b><span>Tokens, a recursive-descent parser, precedence and clear errors.</span></a>
 <a class="card" href="tut-55-miniweb.html"><div class="ic">55</div><b>A tiny web framework</b><span>Routes with parameters, a catch-all handler and escaped templates.</span></a>
+<a class="card" href="tut-56-streams.html"><div class="ic">56</div><b>Streams and compression</b><span>MemoryStream, StreamWriter, GZip, and one pattern for memory and files.</span></a>
+<a class="card" href="tut-57-money.html"><div class="ic">57</div><b>Money</b><span>Why 0.1 + 0.2 is not 0.3: whole cents, rounding rules and fair splitting.</span></a>
+<a class="card" href="tut-58-undo.html"><div class="ic">58</div><b>Undo, redo and queues</b><span>Stacks and queues; two stacks make undo and redo.</span></a>
+<a class="card" href="tut-59-paths.html"><div class="ic">59</div><b>Paths and the environment</b><span>Path.Combine, special folders, valid names and environment variables.</span></a>
 </div>
 
 ## Learning path

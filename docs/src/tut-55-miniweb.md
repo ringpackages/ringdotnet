@@ -53,6 +53,6 @@ The `class Router` is at the end of the file. In Ring, functions written *after*
 2. Support a `*` part that matches the rest of the path (`/files/*`).
 3. Put the templates in files in a `views` folder and read them with `File.ReadAllText`.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 56: Streams and compression](tut-56-streams.html)

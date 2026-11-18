@@ -1,0 +1,20 @@
+1. 0.1 + 0.2 = 0.3 ?  no
+   ten times 0.1 equals 1 ?  no
+
+2. three items of 19.99 = 59.97
+
+3. tax on 19.99 at 7.5 % is 149.925 cents: a part of a cent does not exist
+   rounded to the nearest cent: 150 cents = 1.50
+
+4. rounding 0.5, 1.5, 2.5, 3.5:
+   banker's (to even)  : 0 2 2 4
+   school (away from 0): 1 2 3 4
+
+5. 100.00 split in 3: 33.34, 33.33, 33.33
+   the shares add up to 100.00
+
+6. An invoice:
+   Notebook     12.50 x 2
+   Pen           1.99 x 10
+   Backpack     45.99 x 1
+   subtotal 90.89, tax 20 % 18.18, total 109.07

@@ -1,0 +1,7 @@
+1. bytes in the memory stream: 25
+2. read back: first line / second line
+
+3. 9000 bytes became 120 bytes (1 %)
+4. the text is the same after the round trip: yes
+
+5. the .gz file has 120 bytes

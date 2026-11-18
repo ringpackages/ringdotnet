@@ -1,0 +1,15 @@
+1. Peek (look at the top): c, Pop (take it): c, now 2 items, the top is b
+
+2. text: Hello Ring and .NET
+   undo : Hello Ring
+   undo : Hello
+   redo : Hello Ring
+   a new change: Hello again  (can redo now? no)
+
+3. jobs waiting: 3
+   doing: print report
+   doing: send email
+   doing: backup files
+
+4. The queue is empty now. Look at Count first, because Dequeue on an empty queue raises an error:
+   Dequeue on an empty queue raised an error: DotNet Error: System.InvalidOperationExceptio
