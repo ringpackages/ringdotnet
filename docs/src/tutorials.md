@@ -118,6 +118,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-70-wpf-animation.html"><div class="ic">70</div><b>WPF animation</b><span>Move, fade and rotate with DoubleAnimation, easing and AutoReverse.</span></a>
 <a class="card" href="tut-71-dispose.html"><div class="ic">71</div><b>Releasing resources</b><span>Locked files, Dispose, and a clean-up that runs after an error.</span></a>
 <a class="card" href="tut-72-xml.html"><div class="ic">72</div><b>XML in depth</b><span>XDocument, XPath, building and changing elements, bad XML.</span></a>
+<a class="card" href="tut-73-sql-reports.html"><div class="ic">73</div><b>Reports with SQL</b><span>JOIN, GROUP BY, HAVING, LEFT JOIN and sub-queries.</span></a>
+<a class="card" href="tut-74-system.html"><div class="ic">74</div><b>Asking the computer</b><span>The system, processors, memory, drives and the running programs.</span></a>
+<a class="card" href="tut-75-recursion.html"><div class="ic">75</div><b>Recursion</b><span>Factorial, the Towers of Hanoi, permutations, a folder tree and a flood fill.</span></a>
 </div>
 
 ## Learning path

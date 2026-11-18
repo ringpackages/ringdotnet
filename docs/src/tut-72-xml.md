@@ -74,6 +74,6 @@ XML is strict: every tag must be closed and tags must nest. `Parse` raises an er
 3. Add a `<tags>` element with several `<tag>` children to each book.
 4. Convert the list of books to JSON ([tutorial 6](tut-06-json-xml.html)) and back.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 73: Reports with SQL](tut-73-sql-reports.html)

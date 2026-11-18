@@ -1,0 +1,21 @@
+1. platform          : Win32NT
+   runtime           : .NET 9.0.15
+   process type      : X64, 64-bit system? yes
+   is it Windows?    : yes
+
+2. logical processors: 20
+   the computer has been on for more than a second: yes
+
+3. the user name and the machine name exist: yes
+   the current folder exists: yes
+
+4. there is at least one drive: yes, and its name contains a colon (like C:): yes
+
+5. this program is the process 'ring'; it uses between 1 and 2000 MB: yes
+
+6. a StringBuilder with 5 million characters made the .NET memory grow: yes
+
+7. more than five programs are running: yes
+   this program is among them: yes
+
+8. Stopwatch has a high resolution counter: yes

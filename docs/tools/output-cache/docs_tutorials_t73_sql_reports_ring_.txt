@@ -1,0 +1,38 @@
+4 customers and 7 orders are in the database (Dee has no orders)
+
+1. who bought what:
+   Ann       Laptop    900       
+   Ann       Mouse     20        
+   Ann       Monitor   250       
+   Bob       Laptop    950       
+   Bob       Keyboard  60        
+   Cy        Mouse     25        
+   Cy        Mouse     25        
+
+2. the total of each customer, the biggest first:
+   Ann       3         1170      
+   Bob       2         1010      
+   Cy        2         50        
+
+3. customers who spent more than 300 (HAVING):
+   Ann       1170      
+   Bob       1010      
+   the same for January only (WHERE first):
+   Ann       920       
+   Bob       950       
+
+4. every customer with the number of orders (LEFT JOIN keeps Dee):
+   Ann       3         
+   Bob       2         
+   Cy        2         
+   Dee       0         
+
+5. the total per city:
+   Cairo     1220      
+   Oslo      1010      
+
+6. orders above the average (a sub-query calculates the average):
+   Laptop    950       
+   Laptop    900       
+
+7. the number of different products: 4

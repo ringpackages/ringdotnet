@@ -1,0 +1,41 @@
+1. factorial(5) = 120   (5 * factorial(4), ..., and factorial(1) = 1 stops it)
+   sum of the numbers 1..100 = 5050
+
+2. the depth of the calls for countdown(5):
+   countdown(5)
+     countdown(4)
+       countdown(3)
+         countdown(2)
+           countdown(1)
+             countdown(0)
+
+3. 3 discs from A to C:
+   disc 1 from A to C
+   disc 2 from A to B
+   disc 1 from C to B
+   disc 3 from A to C
+   disc 1 from B to A
+   disc 2 from B to C
+   disc 1 from A to C
+   moves needed: 7 (2^3 - 1); for 10 discs: 1023, for 64 discs about 18 quintillion (the legend says the world ends when the monks finish)
+
+4. the 6 orders of a, b, c: abc, acb, bac, bca, cab, cba
+
+5. the folder tree:
+   tutorial75/
+      docs/
+         old/
+            v1.txt
+         guide.txt
+      src/
+         main.ring
+      readme.txt
+   the total size of the files: 21 bytes
+
+6. fill the inside of the frame, starting at row 2, column 4:
+   ..#####..
+   ..#***#..
+   ..#***#..
+   ..#####..
+   .........
+   6 cells filled; the outside of the frame stayed empty
