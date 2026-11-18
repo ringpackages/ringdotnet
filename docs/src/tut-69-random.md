@@ -60,6 +60,6 @@ Because `Random` is a formula, a person who sees a few of its numbers can calcul
 3. Shuffle a deck of 52 cards (numbers 1–52) and deal four hands of five.
 4. Estimate the probability of at least one six in four throws by simulation, then calculate it exactly.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 70: WPF animation](tut-70-wpf-animation.html)

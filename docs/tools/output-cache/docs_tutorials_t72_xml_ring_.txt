@@ -1,0 +1,27 @@
+1. the root element is <library>
+
+2. 3 books:
+   #1 The Hobbit (1937) costs 9.50
+   #2 Dune (1965) costs 12
+   #3 Neuromancer (1984) costs 8.25
+   the total price: 29.75
+
+3. XPath /library/book[@year>1950] finds 2 books:
+   Dune
+   Neuromancer
+   the title of book 3: Neuromancer
+
+4. after adding a book there are 4 books; the new one:
+<book id="4" year="1951">
+
+  <title>Foundation</title>
+
+  <price>7.75</price>
+
+</book>
+
+5. book 2 now costs 14 and the first book is Dune
+
+6. the saved file has 3 books
+
+7. bad XML: DotNet Error: System.Xml.XmlException: The 'book' start tag on line 1

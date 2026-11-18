@@ -115,6 +115,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-67-bases.html"><div class="ic">67</div><b>Number systems and big numbers</b><span>Binary and hex, bits, the 2^53 limit and BigInteger.</span></a>
 <a class="card" href="tut-68-timezones.html"><div class="ic">68</div><b>Time zones</b><span>UTC, local time, daylight saving, a meeting and a flight across zones.</span></a>
 <a class="card" href="tut-69-random.html"><div class="ic">69</div><b>Randomness</b><span>Seeds, dice, a correct shuffle, weighted choices, Guids and secure numbers.</span></a>
+<a class="card" href="tut-70-wpf-animation.html"><div class="ic">70</div><b>WPF animation</b><span>Move, fade and rotate with DoubleAnimation, easing and AutoReverse.</span></a>
+<a class="card" href="tut-71-dispose.html"><div class="ic">71</div><b>Releasing resources</b><span>Locked files, Dispose, and a clean-up that runs after an error.</span></a>
+<a class="card" href="tut-72-xml.html"><div class="ic">72</div><b>XML in depth</b><span>XDocument, XPath, building and changing elements, bad XML.</span></a>
 </div>
 
 ## Learning path

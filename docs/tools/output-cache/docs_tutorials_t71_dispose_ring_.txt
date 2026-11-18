@@ -1,0 +1,17 @@
+1. the file is open. Can we delete it now? no
+
+2. after Dispose. Can we delete it now? yes
+
+3. a reader without a clean-up, and an error while reading:
+   first line: line 1
+   an error: DotNet Error: System.FormatException: Th
+   the file is still locked after the error: yes
+   (Ring forgot the variable when the function ended, but the .NET reader is still open)
+
+4. the careful way:
+   first line: line 1
+   an error: DotNet Error: System.FormatException: Th
+   the reader was disposed
+   the file can be deleted after the error: yes
+
+5. rule: whoever creates a resource releases it, in the same function if possible
