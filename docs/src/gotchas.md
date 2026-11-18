@@ -59,12 +59,12 @@ Do not define your own functions named like built-ins the library uses (`isNumbe
 
 A `func` at the top of a file swallows the rest of the file into its body. Put the main code first (or put it in `func main` and call it at the end).
 
-### `x = new Class().Method(x)` does not work
+### Using objects during definition: `x = new Class().Method(x)`
 
-Ring assigns the new object to `x` first and then calls the method, so the argument `x` is no longer your value:
+This is a **Ring feature** (since Ring 1.19, [Using objects during definition](https://ring-lang.github.io/doc1.28/oop.html#using-objects-during-definition)): in an assignment `x = new Class(...)`, the new object is stored in `x` *first*, so that it can be used while the rest of the expression is evaluated. Then the rest of the expression runs (a method call, an operator) and its result is stored in `x` again. This makes it possible to use the object (for example with an overloaded operator) during its own definition, but it means that the variable you are assigning already holds the **new object** when the arguments are evaluated:
 
 ```ring
-cText = new Regex("a").Replace(cText,"b")       # error: no method matches the 2 arguments
+cText = new Regex("a").Replace(cText,"b")       # cText is already the Regex object: no method matches the 2 arguments
 cResult = new Regex("a").Replace(cText,"b")     # works: a different variable
 ```
 

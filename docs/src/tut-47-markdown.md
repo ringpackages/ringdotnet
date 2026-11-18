@@ -9,7 +9,7 @@ lead: Write a small converter from the Markdown that people like to type into th
 - a line-by-line scan with a little state,
 - inline formatting with regular expressions,
 - why you escape first,
-- a Ring trap: `x = new Class().Method(x)`.
+- a Ring feature to know: using objects during definition, `x = new Class().Method(x)`.
 
 ## Markdown in one minute
 
@@ -49,9 +49,9 @@ The function goes through the lines. The one thing it must remember is whether i
 
 `$1` and `$2` are the captured groups ([tutorial 29](tut-29-regex.html)); `.+?` is lazy so that two bold parts in one line are two separate matches. **Bold before italic**: both use the star, and `**x**` must be taken first.
 
-### The trap
+### Using objects during definition
 
-Look at how the steps are written: each result goes to a **new variable** (`cSafe`, `cCode`, `cBold`...). The natural way would be `cText = new Regex(...).Replace(cText, ...)`, but in Ring that fails with an odd error ("no method matches the 2 arguments"): Ring first assigns the new `Regex` object to `cText`, and *then* calls `.Replace` with `cText` — which is now the Regex object, not your text. A *new object with a method call on the right side of an assignment* cannot use the variable that is being assigned. Use a different variable name.
+Look at how the steps are written: each result goes to a **new variable** (`cSafe`, `cCode`, `cBold`...). The tempting form is `cText = new Regex(...).Replace(cText, ...)`, but it fails with an odd error ("no method matches the 2 arguments"). The reason is a Ring feature, [using objects during definition](https://ring-lang.github.io/doc1.28/oop.html#using-objects-during-definition) (Ring 1.19+): when you write `x = new Class()...`, Ring stores the new object in `x` **first**, so that the object can be used while the rest of the expression runs (for example by a method call or an overloaded operator), and only then stores the final result in `x`. So when `.Replace(cText, ...)` is evaluated, `cText` already holds the `Regex` object, not your text. The feature is useful in Ring code that defines objects; for plain .NET calls, just use a different variable name.
 
 ## What you learned
 
@@ -59,7 +59,7 @@ Look at how the steps are written: each result goes to a **new variable** (`cSaf
 - state for lists, `StringBuilder` for output,
 - escape before formatting,
 - lazy regexes, ordering of the steps,
-- never assign `x = new Class().Method(x)`.
+- with `x = new Class().Method(x)` the variable already holds the new object (using objects during definition): use another variable.
 
 ## Exercises
 
