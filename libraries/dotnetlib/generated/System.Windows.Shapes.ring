@@ -8,10 +8,4 @@ dnRegisterClass("System.Windows.Shapes.Path","WpfPath",0)
 dnRegisterClass("System.Windows.Shapes.Polygon","Polygon",0)
 dnRegisterClass("System.Windows.Shapes.Polyline","Polyline",0)
 dnRegisterClass("System.Windows.Shapes.Rectangle","WpfRectangle",0)
-load "System.Windows.Shapes/Shape.ring"
-load "System.Windows.Shapes/Ellipse.ring"
-load "System.Windows.Shapes/Line.ring"
-load "System.Windows.Shapes/WpfPath.ring"
-load "System.Windows.Shapes/Polygon.ring"
-load "System.Windows.Shapes/Polyline.ring"
-load "System.Windows.Shapes/WpfRectangle.ring"
+load "System.Windows.Shapes.classes.ring"

@@ -11,14 +11,4 @@ dnRegisterClass("Microsoft.Extensions.FileProviders.NotFoundFileInfo","NotFoundF
 dnRegisterClass("Microsoft.Extensions.FileProviders.NullChangeToken","NullChangeToken",0)
 dnRegisterClass("Microsoft.Extensions.FileProviders.NullFileProvider","NullFileProvider",0)
 dnRegisterClass("Microsoft.Extensions.FileProviders.PhysicalFileProvider","PhysicalFileProvider",1)
-load "Microsoft.Extensions.FileProviders/CompositeFileProvider.ring"
-load "Microsoft.Extensions.FileProviders/EmbeddedFileProvider.ring"
-load "Microsoft.Extensions.FileProviders/IDirectoryContents.ring"
-load "Microsoft.Extensions.FileProviders/IFileInfo.ring"
-load "Microsoft.Extensions.FileProviders/IFileProvider.ring"
-load "Microsoft.Extensions.FileProviders/ManifestEmbeddedFileProvider.ring"
-load "Microsoft.Extensions.FileProviders/NotFoundDirectoryContents.ring"
-load "Microsoft.Extensions.FileProviders/NotFoundFileInfo.ring"
-load "Microsoft.Extensions.FileProviders/NullChangeToken.ring"
-load "Microsoft.Extensions.FileProviders/NullFileProvider.ring"
-load "Microsoft.Extensions.FileProviders/PhysicalFileProvider.ring"
+load "Microsoft.Extensions.FileProviders.classes.ring"

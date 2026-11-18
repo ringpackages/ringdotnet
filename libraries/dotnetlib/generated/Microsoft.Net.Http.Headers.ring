@@ -18,21 +18,4 @@ dnRegisterClass("Microsoft.Net.Http.Headers.RangeItemHeaderValue","AspRangeItemH
 dnRegisterClass("Microsoft.Net.Http.Headers.SetCookieHeaderValue","SetCookieHeaderValue",1)
 dnRegisterClass("Microsoft.Net.Http.Headers.StringWithQualityHeaderValue","AspStringWithQualityHeaderValue",1)
 dnRegisterClass("Microsoft.Net.Http.Headers.StringWithQualityHeaderValueComparer","StringWithQualityHeaderValueComparer",0)
-load "Microsoft.Net.Http.Headers/AspCacheControlHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/AspContentDispositionHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/ContentDispositionHeaderValueIdentityExtensions.ring"
-load "Microsoft.Net.Http.Headers/AspContentRangeHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/CookieHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/AspEntityTagHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/HeaderNames.ring"
-load "Microsoft.Net.Http.Headers/HeaderQuality.ring"
-load "Microsoft.Net.Http.Headers/HeaderUtilities.ring"
-load "Microsoft.Net.Http.Headers/AspMediaTypeHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/MediaTypeHeaderValueComparer.ring"
-load "Microsoft.Net.Http.Headers/AspNameValueHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/AspRangeConditionHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/AspRangeHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/AspRangeItemHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/SetCookieHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/AspStringWithQualityHeaderValue.ring"
-load "Microsoft.Net.Http.Headers/StringWithQualityHeaderValueComparer.ring"
+load "Microsoft.Net.Http.Headers.classes.ring"

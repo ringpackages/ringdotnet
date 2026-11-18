@@ -11,13 +11,4 @@ dnRegisterClass("System.Formats.Tar.GnuTarEntry","GnuTarEntry",1)
 dnRegisterClass("System.Formats.Tar.PaxGlobalExtendedAttributesTarEntry","PaxGlobalExtendedAttributesTarEntry",1)
 dnRegisterClass("System.Formats.Tar.PaxTarEntry","PaxTarEntry",1)
 dnRegisterClass("System.Formats.Tar.UstarTarEntry","UstarTarEntry",1)
-load "System.Formats.Tar/TarEntry.ring"
-load "System.Formats.Tar/TarFile.ring"
-load "System.Formats.Tar/TarReader.ring"
-load "System.Formats.Tar/TarWriter.ring"
-load "System.Formats.Tar/PosixTarEntry.ring"
-load "System.Formats.Tar/V7TarEntry.ring"
-load "System.Formats.Tar/GnuTarEntry.ring"
-load "System.Formats.Tar/PaxGlobalExtendedAttributesTarEntry.ring"
-load "System.Formats.Tar/PaxTarEntry.ring"
-load "System.Formats.Tar/UstarTarEntry.ring"
+load "System.Formats.Tar.classes.ring"

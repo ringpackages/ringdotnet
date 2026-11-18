@@ -19,22 +19,4 @@ dnRegisterClass("System.Transactions.DependentTransaction","DependentTransaction
 dnRegisterClass("System.Transactions.PreparingEnlistment","PreparingEnlistment",0)
 dnRegisterClass("System.Transactions.SinglePhaseEnlistment","SinglePhaseEnlistment",0)
 dnRegisterClass("System.Transactions.SubordinateTransaction","SubordinateTransaction",2)
-load "System.Transactions/Enlistment.ring"
-load "System.Transactions/IDtcTransaction.ring"
-load "System.Transactions/IEnlistmentNotification.ring"
-load "System.Transactions/IPromotableSinglePhaseNotification.ring"
-load "System.Transactions/ISimpleTransactionSuperior.ring"
-load "System.Transactions/ISinglePhaseNotification.ring"
-load "System.Transactions/ITransactionPromoter.ring"
-load "System.Transactions/Transaction.ring"
-load "System.Transactions/TransactionEventArgs.ring"
-load "System.Transactions/TransactionInformation.ring"
-load "System.Transactions/TransactionInterop.ring"
-load "System.Transactions/TransactionManager.ring"
-load "System.Transactions/TransactionOptions.ring"
-load "System.Transactions/TransactionScope.ring"
-load "System.Transactions/CommittableTransaction.ring"
-load "System.Transactions/DependentTransaction.ring"
-load "System.Transactions/PreparingEnlistment.ring"
-load "System.Transactions/SinglePhaseEnlistment.ring"
-load "System.Transactions/SubordinateTransaction.ring"
+load "System.Transactions.classes.ring"

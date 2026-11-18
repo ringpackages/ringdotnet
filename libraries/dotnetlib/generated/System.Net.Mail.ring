@@ -13,14 +13,4 @@ dnRegisterClass("System.Net.Mail.SmtpClient","SmtpClient",0)
 dnRegisterClass("System.Net.Mail.AlternateView","AlternateView",1)
 dnRegisterClass("System.Net.Mail.Attachment","Attachment",1)
 dnRegisterClass("System.Net.Mail.LinkedResource","LinkedResource",1)
-load "System.Net.Mail/AlternateViewCollection.ring"
-load "System.Net.Mail/AttachmentBase.ring"
-load "System.Net.Mail/AttachmentCollection.ring"
-load "System.Net.Mail/LinkedResourceCollection.ring"
-load "System.Net.Mail/MailAddress.ring"
-load "System.Net.Mail/MailAddressCollection.ring"
-load "System.Net.Mail/MailMessage.ring"
-load "System.Net.Mail/SmtpClient.ring"
-load "System.Net.Mail/AlternateView.ring"
-load "System.Net.Mail/Attachment.ring"
-load "System.Net.Mail/LinkedResource.ring"
+load "System.Net.Mail.classes.ring"

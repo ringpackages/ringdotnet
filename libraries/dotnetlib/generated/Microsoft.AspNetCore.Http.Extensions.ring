@@ -4,7 +4,4 @@ dnRegisterClass("Microsoft.AspNetCore.Http.Extensions.HttpRequestMultipartExtens
 dnRegisterClass("Microsoft.AspNetCore.Http.Extensions.QueryBuilder","QueryBuilder",0)
 dnRegisterClass("Microsoft.AspNetCore.Http.Extensions.StreamCopyOperation","StreamCopyOperation",0)
 dnRegisterClass("Microsoft.AspNetCore.Http.Extensions.UriHelper","UriHelper",0)
-load "Microsoft.AspNetCore.Http.Extensions/HttpRequestMultipartExtensions.ring"
-load "Microsoft.AspNetCore.Http.Extensions/QueryBuilder.ring"
-load "Microsoft.AspNetCore.Http.Extensions/StreamCopyOperation.ring"
-load "Microsoft.AspNetCore.Http.Extensions/UriHelper.ring"
+load "Microsoft.AspNetCore.Http.Extensions.classes.ring"

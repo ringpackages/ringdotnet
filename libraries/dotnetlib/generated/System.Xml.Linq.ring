@@ -21,22 +21,4 @@ dnRegisterClass("System.Xml.Linq.XText","XText",1)
 dnRegisterClass("System.Xml.Linq.XCData","XCData",1)
 dnRegisterClass("System.Xml.Linq.XDocument","XDocument",0)
 dnRegisterClass("System.Xml.Linq.XElement","XElement",2)
-load "System.Xml.Linq/Extensions.ring"
-load "System.Xml.Linq/XDeclaration.ring"
-load "System.Xml.Linq/XName.ring"
-load "System.Xml.Linq/XNamespace.ring"
-load "System.Xml.Linq/XNodeDocumentOrderComparer.ring"
-load "System.Xml.Linq/XNodeEqualityComparer.ring"
-load "System.Xml.Linq/XObject.ring"
-load "System.Xml.Linq/XObjectChangeEventArgs.ring"
-load "System.Xml.Linq/XStreamingElement.ring"
-load "System.Xml.Linq/XAttribute.ring"
-load "System.Xml.Linq/XNode.ring"
-load "System.Xml.Linq/XComment.ring"
-load "System.Xml.Linq/XContainer.ring"
-load "System.Xml.Linq/XDocumentType.ring"
-load "System.Xml.Linq/XProcessingInstruction.ring"
-load "System.Xml.Linq/XText.ring"
-load "System.Xml.Linq/XCData.ring"
-load "System.Xml.Linq/XDocument.ring"
-load "System.Xml.Linq/XElement.ring"
+load "System.Xml.Linq.classes.ring"

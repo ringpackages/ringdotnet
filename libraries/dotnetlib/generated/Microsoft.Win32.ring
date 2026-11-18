@@ -2,5 +2,4 @@
 dnImport("System")
 dnRegisterClass("Microsoft.Win32.Registry","Registry",0)
 dnRegisterClass("Microsoft.Win32.RegistryKey","RegistryKey",0)
-load "Microsoft.Win32/Registry.ring"
-load "Microsoft.Win32/RegistryKey.ring"
+load "Microsoft.Win32.classes.ring"

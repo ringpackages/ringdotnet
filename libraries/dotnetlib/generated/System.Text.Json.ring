@@ -13,15 +13,4 @@ dnRegisterClass("System.Text.Json.JsonSerializer","JsonSerializer",0)
 dnRegisterClass("System.Text.Json.JsonSerializerOptions","JsonSerializerOptions",0)
 dnRegisterClass("System.Text.Json.JsonWriterOptions","JsonWriterOptions",0)
 dnRegisterClass("System.Text.Json.Utf8JsonWriter","Utf8JsonWriter",1)
-load "System.Text.Json/JsonDocument.ring"
-load "System.Text.Json/JsonDocumentOptions.ring"
-load "System.Text.Json/JsonElement.ring"
-load "System.Text.Json/JsonEncodedText.ring"
-load "System.Text.Json/JsonNamingPolicy.ring"
-load "System.Text.Json/JsonProperty.ring"
-load "System.Text.Json/JsonReaderOptions.ring"
-load "System.Text.Json/JsonReaderState.ring"
-load "System.Text.Json/JsonSerializer.ring"
-load "System.Text.Json/JsonSerializerOptions.ring"
-load "System.Text.Json/JsonWriterOptions.ring"
-load "System.Text.Json/Utf8JsonWriter.ring"
+load "System.Text.Json.classes.ring"

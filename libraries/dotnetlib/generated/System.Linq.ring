@@ -2,5 +2,5 @@
 dnImport("System")
 dnImport("System.Collections.Generic")
 dnRegisterClass("System.Linq.Enumerable","Enumerable",0)
-load "System.Linq/Enumerable.ring"
+load "System.Linq.classes.ring"
 load "../linq.ring"

@@ -12,14 +12,4 @@ dnRegisterClass("System.IO.Pipes.AnonymousPipeClientStream","AnonymousPipeClient
 dnRegisterClass("System.IO.Pipes.AnonymousPipeServerStream","AnonymousPipeServerStream",0)
 dnRegisterClass("System.IO.Pipes.NamedPipeClientStream","NamedPipeClientStream",2)
 dnRegisterClass("System.IO.Pipes.NamedPipeServerStream","NamedPipeServerStream",1)
-load "System.IO.Pipes/AnonymousPipeServerStreamAcl.ring"
-load "System.IO.Pipes/NamedPipeServerStreamAcl.ring"
-load "System.IO.Pipes/PipeAccessRule.ring"
-load "System.IO.Pipes/PipeAuditRule.ring"
-load "System.IO.Pipes/PipeSecurity.ring"
-load "System.IO.Pipes/PipeStream.ring"
-load "System.IO.Pipes/PipesAclExtensions.ring"
-load "System.IO.Pipes/AnonymousPipeClientStream.ring"
-load "System.IO.Pipes/AnonymousPipeServerStream.ring"
-load "System.IO.Pipes/NamedPipeClientStream.ring"
-load "System.IO.Pipes/NamedPipeServerStream.ring"
+load "System.IO.Pipes.classes.ring"

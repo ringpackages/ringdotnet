@@ -17,20 +17,4 @@ dnRegisterClass("System.Data.SqlTypes.SqlMoney","SqlMoney",0)
 dnRegisterClass("System.Data.SqlTypes.SqlSingle","SqlSingle",0)
 dnRegisterClass("System.Data.SqlTypes.SqlString","SqlString",0)
 dnRegisterClass("System.Data.SqlTypes.SqlXml","SqlXml",0)
-load "System.Data.SqlTypes/INullable.ring"
-load "System.Data.SqlTypes/SqlBinary.ring"
-load "System.Data.SqlTypes/SqlBoolean.ring"
-load "System.Data.SqlTypes/SqlByte.ring"
-load "System.Data.SqlTypes/SqlBytes.ring"
-load "System.Data.SqlTypes/SqlChars.ring"
-load "System.Data.SqlTypes/SqlDateTime.ring"
-load "System.Data.SqlTypes/SqlDecimal.ring"
-load "System.Data.SqlTypes/SqlDouble.ring"
-load "System.Data.SqlTypes/SqlGuid.ring"
-load "System.Data.SqlTypes/SqlInt16.ring"
-load "System.Data.SqlTypes/SqlInt32.ring"
-load "System.Data.SqlTypes/SqlInt64.ring"
-load "System.Data.SqlTypes/SqlMoney.ring"
-load "System.Data.SqlTypes/SqlSingle.ring"
-load "System.Data.SqlTypes/SqlString.ring"
-load "System.Data.SqlTypes/SqlXml.ring"
+load "System.Data.SqlTypes.classes.ring"

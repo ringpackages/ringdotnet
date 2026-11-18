@@ -5,6 +5,4 @@ dnImport("System.IO")
 dnRegisterClass("System.Net.Http.Json.HttpClientJsonExtensions","HttpClientJsonExtensions",0)
 dnRegisterClass("System.Net.Http.Json.HttpContentJsonExtensions","HttpContentJsonExtensions",0)
 dnRegisterClass("System.Net.Http.Json.JsonContent","JsonContent",0)
-load "System.Net.Http.Json/HttpClientJsonExtensions.ring"
-load "System.Net.Http.Json/HttpContentJsonExtensions.ring"
-load "System.Net.Http.Json/JsonContent.ring"
+load "System.Net.Http.Json.classes.ring"

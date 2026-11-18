@@ -11,14 +11,4 @@ dnRegisterClass("System.Collections.Specialized.StringCollection","StringCollect
 dnRegisterClass("System.Collections.Specialized.StringDictionary","SpecializedStringDictionary",0)
 dnRegisterClass("System.Collections.Specialized.StringEnumerator","StringEnumerator",0)
 dnRegisterClass("System.Collections.Specialized.NameValueCollection","NameValueCollection",0)
-load "System.Collections.Specialized/BitVector32.ring"
-load "System.Collections.Specialized/CollectionsUtil.ring"
-load "System.Collections.Specialized/HybridDictionary.ring"
-load "System.Collections.Specialized/IOrderedDictionary.ring"
-load "System.Collections.Specialized/ListDictionary.ring"
-load "System.Collections.Specialized/NameObjectCollectionBase.ring"
-load "System.Collections.Specialized/OrderedDictionary.ring"
-load "System.Collections.Specialized/StringCollection.ring"
-load "System.Collections.Specialized/SpecializedStringDictionary.ring"
-load "System.Collections.Specialized/StringEnumerator.ring"
-load "System.Collections.Specialized/NameValueCollection.ring"
+load "System.Collections.Specialized.classes.ring"

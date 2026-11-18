@@ -3,6 +3,4 @@ dnImport("System")
 dnRegisterClass("System.Text.Unicode.UnicodeRange","UnicodeRange",2)
 dnRegisterClass("System.Text.Unicode.UnicodeRanges","UnicodeRanges",0)
 dnRegisterClass("System.Text.Unicode.Utf8","Utf8",0)
-load "System.Text.Unicode/UnicodeRange.ring"
-load "System.Text.Unicode/UnicodeRanges.ring"
-load "System.Text.Unicode/Utf8.ring"
+load "System.Text.Unicode.classes.ring"

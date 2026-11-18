@@ -4,7 +4,4 @@ dnRegisterClass("System.Collections.ObjectModel.ObservableCollection`1[[System.O
 dnRegisterClass("System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","ReadOnlyStringList",1)
 dnRegisterClass("System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","StringCollectionList",0)
 dnRegisterClass("System.Collections.ObjectModel.ObservableCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","ObservableStringList",0)
-load "System.Collections.ObjectModel/ObservableObjectList.ring"
-load "System.Collections.ObjectModel/ReadOnlyStringList.ring"
-load "System.Collections.ObjectModel/StringCollectionList.ring"
-load "System.Collections.ObjectModel/ObservableStringList.ring"
+load "System.Collections.ObjectModel.classes.ring"

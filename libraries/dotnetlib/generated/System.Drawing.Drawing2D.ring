@@ -15,17 +15,4 @@ dnRegisterClass("System.Drawing.Drawing2D.PathData","PathData",0)
 dnRegisterClass("System.Drawing.Drawing2D.PathGradientBrush","PathGradientBrush",1)
 dnRegisterClass("System.Drawing.Drawing2D.RegionData","RegionData",0)
 dnRegisterClass("System.Drawing.Drawing2D.AdjustableArrowCap","AdjustableArrowCap",2)
-load "System.Drawing.Drawing2D/Blend.ring"
-load "System.Drawing.Drawing2D/ColorBlend.ring"
-load "System.Drawing.Drawing2D/CustomLineCap.ring"
-load "System.Drawing.Drawing2D/GraphicsContainer.ring"
-load "System.Drawing.Drawing2D/GraphicsPath.ring"
-load "System.Drawing.Drawing2D/GraphicsPathIterator.ring"
-load "System.Drawing.Drawing2D/GraphicsState.ring"
-load "System.Drawing.Drawing2D/HatchBrush.ring"
-load "System.Drawing.Drawing2D/LinearGradientBrush.ring"
-load "System.Drawing.Drawing2D/Matrix.ring"
-load "System.Drawing.Drawing2D/PathData.ring"
-load "System.Drawing.Drawing2D/PathGradientBrush.ring"
-load "System.Drawing.Drawing2D/RegionData.ring"
-load "System.Drawing.Drawing2D/AdjustableArrowCap.ring"
+load "System.Drawing.Drawing2D.classes.ring"

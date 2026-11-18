@@ -11,14 +11,4 @@ dnRegisterClass("Microsoft.Extensions.Caching.Memory.MemoryCacheOptions","Memory
 dnRegisterClass("Microsoft.Extensions.Caching.Memory.MemoryCacheStatistics","MemoryCacheStatistics",0)
 dnRegisterClass("Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration","PostEvictionCallbackRegistration",0)
 dnRegisterClass("Microsoft.Extensions.Caching.Memory.MemoryDistributedCacheOptions","MemoryDistributedCacheOptions",0)
-load "Microsoft.Extensions.Caching.Memory/CacheEntryExtensions.ring"
-load "Microsoft.Extensions.Caching.Memory/CacheExtensions.ring"
-load "Microsoft.Extensions.Caching.Memory/ICacheEntry.ring"
-load "Microsoft.Extensions.Caching.Memory/IMemoryCache.ring"
-load "Microsoft.Extensions.Caching.Memory/MemoryCache.ring"
-load "Microsoft.Extensions.Caching.Memory/MemoryCacheEntryExtensions.ring"
-load "Microsoft.Extensions.Caching.Memory/MemoryCacheEntryOptions.ring"
-load "Microsoft.Extensions.Caching.Memory/MemoryCacheOptions.ring"
-load "Microsoft.Extensions.Caching.Memory/MemoryCacheStatistics.ring"
-load "Microsoft.Extensions.Caching.Memory/PostEvictionCallbackRegistration.ring"
-load "Microsoft.Extensions.Caching.Memory/MemoryDistributedCacheOptions.ring"
+load "Microsoft.Extensions.Caching.Memory.classes.ring"

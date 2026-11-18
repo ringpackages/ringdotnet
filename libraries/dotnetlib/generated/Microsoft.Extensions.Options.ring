@@ -5,8 +5,4 @@ dnRegisterClass("Microsoft.Extensions.Options.Options","Options",0)
 dnRegisterClass("Microsoft.Extensions.Options.OptionsMonitorExtensions","OptionsMonitorExtensions",0)
 dnRegisterClass("Microsoft.Extensions.Options.ValidateOptionsResult","ValidateOptionsResult",0)
 dnRegisterClass("Microsoft.Extensions.Options.ValidateOptionsResultBuilder","ValidateOptionsResultBuilder",0)
-load "Microsoft.Extensions.Options/IStartupValidator.ring"
-load "Microsoft.Extensions.Options/Options.ring"
-load "Microsoft.Extensions.Options/OptionsMonitorExtensions.ring"
-load "Microsoft.Extensions.Options/ValidateOptionsResult.ring"
-load "Microsoft.Extensions.Options/ValidateOptionsResultBuilder.ring"
+load "Microsoft.Extensions.Options.classes.ring"

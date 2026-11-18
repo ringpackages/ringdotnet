@@ -20,21 +20,4 @@ dnRegisterClass("System.Net.Sockets.TcpListener","TcpListener",2)
 dnRegisterClass("System.Net.Sockets.UdpClient","UdpClient",0)
 dnRegisterClass("System.Net.Sockets.UdpReceiveResult","UdpReceiveResult",0)
 dnRegisterClass("System.Net.Sockets.UnixDomainSocketEndPoint","UnixDomainSocketEndPoint",1)
-load "System.Net.Sockets/IPPacketInformation.ring"
-load "System.Net.Sockets/IPv6MulticastOption.ring"
-load "System.Net.Sockets/LingerOption.ring"
-load "System.Net.Sockets/MulticastOption.ring"
-load "System.Net.Sockets/NetworkStream.ring"
-load "System.Net.Sockets/SafeSocketHandle.ring"
-load "System.Net.Sockets/SendPacketsElement.ring"
-load "System.Net.Sockets/Socket.ring"
-load "System.Net.Sockets/SocketAsyncEventArgs.ring"
-load "System.Net.Sockets/SocketInformation.ring"
-load "System.Net.Sockets/SocketReceiveFromResult.ring"
-load "System.Net.Sockets/SocketReceiveMessageFromResult.ring"
-load "System.Net.Sockets/SocketTaskExtensions.ring"
-load "System.Net.Sockets/TcpClient.ring"
-load "System.Net.Sockets/TcpListener.ring"
-load "System.Net.Sockets/UdpClient.ring"
-load "System.Net.Sockets/UdpReceiveResult.ring"
-load "System.Net.Sockets/UnixDomainSocketEndPoint.ring"
+load "System.Net.Sockets.classes.ring"

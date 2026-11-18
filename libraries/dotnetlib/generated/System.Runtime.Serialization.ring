@@ -2,5 +2,4 @@
 dnImport("System.IO")
 dnRegisterClass("System.Runtime.Serialization.ISerializationSurrogateProvider","ISerializationSurrogateProvider",0)
 dnRegisterClass("System.Runtime.Serialization.ISerializationSurrogateProvider2","ISerializationSurrogateProvider2",0)
-load "System.Runtime.Serialization/ISerializationSurrogateProvider.ring"
-load "System.Runtime.Serialization/ISerializationSurrogateProvider2.ring"
+load "System.Runtime.Serialization.classes.ring"

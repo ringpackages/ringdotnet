@@ -21,21 +21,4 @@ dnRegisterClass("System.Windows.Ink.EllipseStylusShape","EllipseStylusShape",2)
 dnRegisterClass("System.Windows.Ink.IncrementalLassoHitTester","IncrementalLassoHitTester",0)
 dnRegisterClass("System.Windows.Ink.IncrementalStrokeHitTester","IncrementalStrokeHitTester",0)
 dnRegisterClass("System.Windows.Ink.RectangleStylusShape","RectangleStylusShape",2)
-load "System.Windows.Ink/DrawingAttributeIds.ring"
-load "System.Windows.Ink/DrawingAttributes.ring"
-load "System.Windows.Ink/DrawingAttributesReplacedEventArgs.ring"
-load "System.Windows.Ink/GestureRecognitionResult.ring"
-load "System.Windows.Ink/GestureRecognizer.ring"
-load "System.Windows.Ink/IncrementalHitTester.ring"
-load "System.Windows.Ink/LassoSelectionChangedEventArgs.ring"
-load "System.Windows.Ink/PropertyDataChangedEventArgs.ring"
-load "System.Windows.Ink/Stroke.ring"
-load "System.Windows.Ink/StrokeCollection.ring"
-load "System.Windows.Ink/StrokeCollectionChangedEventArgs.ring"
-load "System.Windows.Ink/StrokeHitEventArgs.ring"
-load "System.Windows.Ink/StylusPointsReplacedEventArgs.ring"
-load "System.Windows.Ink/StylusShape.ring"
-load "System.Windows.Ink/EllipseStylusShape.ring"
-load "System.Windows.Ink/IncrementalLassoHitTester.ring"
-load "System.Windows.Ink/IncrementalStrokeHitTester.ring"
-load "System.Windows.Ink/RectangleStylusShape.ring"
+load "System.Windows.Ink.classes.ring"

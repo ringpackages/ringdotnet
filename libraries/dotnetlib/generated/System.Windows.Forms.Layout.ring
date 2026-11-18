@@ -5,6 +5,4 @@ dnImport("System.Windows.Forms")
 dnRegisterClass("System.Windows.Forms.Layout.ArrangedElementCollection","ArrangedElementCollection",0)
 dnRegisterClass("System.Windows.Forms.Layout.LayoutEngine","LayoutEngine",0)
 dnRegisterClass("System.Windows.Forms.Layout.TableLayoutSettingsTypeConverter","TableLayoutSettingsTypeConverter",0)
-load "System.Windows.Forms.Layout/ArrangedElementCollection.ring"
-load "System.Windows.Forms.Layout/LayoutEngine.ring"
-load "System.Windows.Forms.Layout/TableLayoutSettingsTypeConverter.ring"
+load "System.Windows.Forms.Layout.classes.ring"

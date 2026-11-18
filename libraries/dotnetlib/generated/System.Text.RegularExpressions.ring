@@ -9,12 +9,4 @@ dnRegisterClass("System.Text.RegularExpressions.RegexRunner","RegexRunner",0)
 dnRegisterClass("System.Text.RegularExpressions.RegexRunnerFactory","RegexRunnerFactory",0)
 dnRegisterClass("System.Text.RegularExpressions.Group","Group",0)
 dnRegisterClass("System.Text.RegularExpressions.Match","Match",0)
-load "System.Text.RegularExpressions/Capture.ring"
-load "System.Text.RegularExpressions/CaptureCollection.ring"
-load "System.Text.RegularExpressions/GroupCollection.ring"
-load "System.Text.RegularExpressions/MatchCollection.ring"
-load "System.Text.RegularExpressions/Regex.ring"
-load "System.Text.RegularExpressions/RegexRunner.ring"
-load "System.Text.RegularExpressions/RegexRunnerFactory.ring"
-load "System.Text.RegularExpressions/Group.ring"
-load "System.Text.RegularExpressions/Match.ring"
+load "System.Text.RegularExpressions.classes.ring"

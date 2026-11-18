@@ -6,8 +6,4 @@ dnRegisterClass("System.Security.Claims.ClaimTypes","ClaimTypes",0)
 dnRegisterClass("System.Security.Claims.ClaimValueTypes","ClaimValueTypes",0)
 dnRegisterClass("System.Security.Claims.ClaimsIdentity","ClaimsIdentity",0)
 dnRegisterClass("System.Security.Claims.ClaimsPrincipal","ClaimsPrincipal",0)
-load "System.Security.Claims/Claim.ring"
-load "System.Security.Claims/ClaimTypes.ring"
-load "System.Security.Claims/ClaimValueTypes.ring"
-load "System.Security.Claims/ClaimsIdentity.ring"
-load "System.Security.Claims/ClaimsPrincipal.ring"
+load "System.Security.Claims.classes.ring"

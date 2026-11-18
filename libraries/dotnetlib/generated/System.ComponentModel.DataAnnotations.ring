@@ -6,8 +6,4 @@ dnRegisterClass("System.ComponentModel.DataAnnotations.IValidatableObject","IVal
 dnRegisterClass("System.ComponentModel.DataAnnotations.ValidationContext","ValidationContext",1)
 dnRegisterClass("System.ComponentModel.DataAnnotations.ValidationResult","DataAnnotationsValidationResult",1)
 dnRegisterClass("System.ComponentModel.DataAnnotations.Validator","Validator",0)
-load "System.ComponentModel.DataAnnotations/AssociatedMetadataTypeTypeDescriptionProvider.ring"
-load "System.ComponentModel.DataAnnotations/IValidatableObject.ring"
-load "System.ComponentModel.DataAnnotations/ValidationContext.ring"
-load "System.ComponentModel.DataAnnotations/DataAnnotationsValidationResult.ring"
-load "System.ComponentModel.DataAnnotations/Validator.ring"
+load "System.ComponentModel.DataAnnotations.classes.ring"

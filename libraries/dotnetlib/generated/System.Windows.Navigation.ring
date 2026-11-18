@@ -18,18 +18,4 @@ dnRegisterClass("System.Windows.Navigation.NavigationService","NavigationService
 dnRegisterClass("System.Windows.Navigation.NavigationWindow","NavigationWindow",0)
 dnRegisterClass("System.Windows.Navigation.PageFunctionBase","PageFunctionBase",0)
 dnRegisterClass("System.Windows.Navigation.RequestNavigateEventArgs","RequestNavigateEventArgs",2)
-load "System.Windows.Navigation/BaseUriHelper.ring"
-load "System.Windows.Navigation/CustomContentState.ring"
-load "System.Windows.Navigation/FragmentNavigationEventArgs.ring"
-load "System.Windows.Navigation/IProvideCustomContentState.ring"
-load "System.Windows.Navigation/JournalEntry.ring"
-load "System.Windows.Navigation/JournalEntryListConverter.ring"
-load "System.Windows.Navigation/JournalEntryUnifiedViewConverter.ring"
-load "System.Windows.Navigation/NavigatingCancelEventArgs.ring"
-load "System.Windows.Navigation/NavigationEventArgs.ring"
-load "System.Windows.Navigation/NavigationFailedEventArgs.ring"
-load "System.Windows.Navigation/NavigationProgressEventArgs.ring"
-load "System.Windows.Navigation/NavigationService.ring"
-load "System.Windows.Navigation/NavigationWindow.ring"
-load "System.Windows.Navigation/PageFunctionBase.ring"
-load "System.Windows.Navigation/RequestNavigateEventArgs.ring"
+load "System.Windows.Navigation.classes.ring"

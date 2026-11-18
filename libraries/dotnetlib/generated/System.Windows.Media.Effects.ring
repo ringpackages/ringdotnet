@@ -15,17 +15,4 @@ dnRegisterClass("System.Windows.Media.Effects.DropShadowEffect","DropShadowEffec
 dnRegisterClass("System.Windows.Media.Effects.EmbossBitmapEffect","EmbossBitmapEffect",0)
 dnRegisterClass("System.Windows.Media.Effects.OuterGlowBitmapEffect","OuterGlowBitmapEffect",0)
 dnRegisterClass("System.Windows.Media.Effects.ShaderEffect","ShaderEffect",0)
-load "System.Windows.Media.Effects/BitmapEffect.ring"
-load "System.Windows.Media.Effects/BitmapEffectCollection.ring"
-load "System.Windows.Media.Effects/BitmapEffectInput.ring"
-load "System.Windows.Media.Effects/Effect.ring"
-load "System.Windows.Media.Effects/PixelShader.ring"
-load "System.Windows.Media.Effects/BevelBitmapEffect.ring"
-load "System.Windows.Media.Effects/BitmapEffectGroup.ring"
-load "System.Windows.Media.Effects/BlurBitmapEffect.ring"
-load "System.Windows.Media.Effects/BlurEffect.ring"
-load "System.Windows.Media.Effects/DropShadowBitmapEffect.ring"
-load "System.Windows.Media.Effects/DropShadowEffect.ring"
-load "System.Windows.Media.Effects/EmbossBitmapEffect.ring"
-load "System.Windows.Media.Effects/OuterGlowBitmapEffect.ring"
-load "System.Windows.Media.Effects/ShaderEffect.ring"
+load "System.Windows.Media.Effects.classes.ring"

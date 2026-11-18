@@ -13,15 +13,4 @@ dnRegisterClass("Microsoft.AspNetCore.Mvc.Routing.UrlHelperBase","UrlHelperBase"
 dnRegisterClass("Microsoft.AspNetCore.Mvc.Routing.UrlHelperFactory","UrlHelperFactory",0)
 dnRegisterClass("Microsoft.AspNetCore.Mvc.Routing.UrlRouteContext","UrlRouteContext",0)
 dnRegisterClass("Microsoft.AspNetCore.Mvc.Routing.UrlHelper","UrlHelper",1)
-load "Microsoft.AspNetCore.Mvc.Routing/AttributeRouteInfo.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/DynamicRouteValueTransformer.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/IActionHttpMethodProvider.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/IRouteTemplateProvider.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/IRouteValueProvider.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/IUrlHelperFactory.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/KnownRouteValueConstraint.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/UrlActionContext.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/UrlHelperBase.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/UrlHelperFactory.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/UrlRouteContext.ring"
-load "Microsoft.AspNetCore.Mvc.Routing/UrlHelper.ring"
+load "Microsoft.AspNetCore.Mvc.Routing.classes.ring"

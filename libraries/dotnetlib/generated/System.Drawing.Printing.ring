@@ -18,19 +18,4 @@ dnRegisterClass("System.Drawing.Printing.PrinterUnitConvert","PrinterUnitConvert
 dnRegisterClass("System.Drawing.Printing.PreviewPrintController","PreviewPrintController",0)
 dnRegisterClass("System.Drawing.Printing.QueryPageSettingsEventArgs","QueryPageSettingsEventArgs",1)
 dnRegisterClass("System.Drawing.Printing.StandardPrintController","StandardPrintController",0)
-load "System.Drawing.Printing/Margins.ring"
-load "System.Drawing.Printing/MarginsConverter.ring"
-load "System.Drawing.Printing/PageSettings.ring"
-load "System.Drawing.Printing/PaperSize.ring"
-load "System.Drawing.Printing/PaperSource.ring"
-load "System.Drawing.Printing/PreviewPageInfo.ring"
-load "System.Drawing.Printing/PrintController.ring"
-load "System.Drawing.Printing/PrintDocument.ring"
-load "System.Drawing.Printing/PrintEventArgs.ring"
-load "System.Drawing.Printing/PrintPageEventArgs.ring"
-load "System.Drawing.Printing/PrinterResolution.ring"
-load "System.Drawing.Printing/PrinterSettings.ring"
-load "System.Drawing.Printing/PrinterUnitConvert.ring"
-load "System.Drawing.Printing/PreviewPrintController.ring"
-load "System.Drawing.Printing/QueryPageSettingsEventArgs.ring"
-load "System.Drawing.Printing/StandardPrintController.ring"
+load "System.Drawing.Printing.classes.ring"

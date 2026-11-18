@@ -7,10 +7,4 @@ dnRegisterClass("Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits","
 dnRegisterClass("Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions","KestrelServerOptions",0)
 dnRegisterClass("Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions","ListenOptions",0)
 dnRegisterClass("Microsoft.AspNetCore.Server.Kestrel.Core.MinDataRate","MinDataRate",2)
-load "Microsoft.AspNetCore.Server.Kestrel.Core/Http2Limits.ring"
-load "Microsoft.AspNetCore.Server.Kestrel.Core/Http3Limits.ring"
-load "Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServer.ring"
-load "Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.ring"
-load "Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerOptions.ring"
-load "Microsoft.AspNetCore.Server.Kestrel.Core/ListenOptions.ring"
-load "Microsoft.AspNetCore.Server.Kestrel.Core/MinDataRate.ring"
+load "Microsoft.AspNetCore.Server.Kestrel.Core.classes.ring"

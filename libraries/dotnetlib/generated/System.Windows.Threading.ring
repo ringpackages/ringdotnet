@@ -16,17 +16,4 @@ dnRegisterClass("System.Windows.Threading.DispatcherTimer","DispatcherTimer",0)
 dnRegisterClass("System.Windows.Threading.DispatcherFrame","DispatcherFrame",0)
 dnRegisterClass("System.Windows.Threading.DispatcherUnhandledExceptionEventArgs","DispatcherUnhandledExceptionEventArgs",0)
 dnRegisterClass("System.Windows.Threading.DispatcherUnhandledExceptionFilterEventArgs","DispatcherUnhandledExceptionFilterEventArgs",0)
-load "System.Windows.Threading/Dispatcher.ring"
-load "System.Windows.Threading/DispatcherEventArgs.ring"
-load "System.Windows.Threading/DispatcherHookEventArgs.ring"
-load "System.Windows.Threading/DispatcherHooks.ring"
-load "System.Windows.Threading/DispatcherObject.ring"
-load "System.Windows.Threading/DispatcherOperation.ring"
-load "System.Windows.Threading/DispatcherPriorityAwaitable.ring"
-load "System.Windows.Threading/DispatcherPriorityAwaiter.ring"
-load "System.Windows.Threading/DispatcherProcessingDisabled.ring"
-load "System.Windows.Threading/DispatcherSynchronizationContext.ring"
-load "System.Windows.Threading/DispatcherTimer.ring"
-load "System.Windows.Threading/DispatcherFrame.ring"
-load "System.Windows.Threading/DispatcherUnhandledExceptionEventArgs.ring"
-load "System.Windows.Threading/DispatcherUnhandledExceptionFilterEventArgs.ring"
+load "System.Windows.Threading.classes.ring"

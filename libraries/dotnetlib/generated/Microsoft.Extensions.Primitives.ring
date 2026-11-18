@@ -9,12 +9,4 @@ dnRegisterClass("Microsoft.Extensions.Primitives.StringSegment","StringSegment",
 dnRegisterClass("Microsoft.Extensions.Primitives.StringSegmentComparer","StringSegmentComparer",0)
 dnRegisterClass("Microsoft.Extensions.Primitives.StringTokenizer","StringTokenizer",0)
 dnRegisterClass("Microsoft.Extensions.Primitives.StringValues","StringValues",0)
-load "Microsoft.Extensions.Primitives/CancellationChangeToken.ring"
-load "Microsoft.Extensions.Primitives/ChangeToken.ring"
-load "Microsoft.Extensions.Primitives/CompositeChangeToken.ring"
-load "Microsoft.Extensions.Primitives/AspExtensions.ring"
-load "Microsoft.Extensions.Primitives/IChangeToken.ring"
-load "Microsoft.Extensions.Primitives/StringSegment.ring"
-load "Microsoft.Extensions.Primitives/StringSegmentComparer.ring"
-load "Microsoft.Extensions.Primitives/StringTokenizer.ring"
-load "Microsoft.Extensions.Primitives/StringValues.ring"
+load "Microsoft.Extensions.Primitives.classes.ring"

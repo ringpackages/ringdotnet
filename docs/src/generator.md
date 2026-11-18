@@ -9,15 +9,15 @@ lead: How the wrapper classes are made, how to add namespaces, closed generic ty
 
 ```text
 libraries/dotnetlib/generated/
-	System.ring                     # the namespace loader: loads the class files
-	System/
-		Math.ring                   # one file per class
-		Console.ring
-		...
+	System.ring                     # the namespace loader: imports, registrations
+	System.classes.ring             # all the classes of the namespace (one file: loading and installing thousands of small files is slow)
+	System.IO.ring
+	System.IO.classes.ring
+	...
 	classindex.ring                 # [type, namespace] of every class: automatic imports
 ```
 
-Class files are plain Ring: a `Class X from Base` with a method per .NET method, `getX`/`setX` for properties, `setXEvent` / `clearXEvent` for events and registration with `dnRegisterClass`. The files are generated: **do not edit them**.
+The class files are plain Ring: a `Class X from Base` with a method per .NET method, `getX`/`setX` for properties, `setXEvent` / `clearXEvent` for events and registration with `dnRegisterClass`. The files are generated: **do not edit them**.
 
 ## Regenerate
 

@@ -11,11 +11,4 @@ dnRegisterClass("System.Xml.Xsl.XsltArgumentList","XsltArgumentList",0)
 dnRegisterClass("System.Xml.Xsl.XsltContext","XsltContext",0)
 dnRegisterClass("System.Xml.Xsl.XsltMessageEncounteredEventArgs","XsltMessageEncounteredEventArgs",0)
 dnRegisterClass("System.Xml.Xsl.XsltSettings","XsltSettings",0)
-load "System.Xml.Xsl/IXsltContextFunction.ring"
-load "System.Xml.Xsl/IXsltContextVariable.ring"
-load "System.Xml.Xsl/XslCompiledTransform.ring"
-load "System.Xml.Xsl/XslTransform.ring"
-load "System.Xml.Xsl/XsltArgumentList.ring"
-load "System.Xml.Xsl/XsltContext.ring"
-load "System.Xml.Xsl/XsltMessageEncounteredEventArgs.ring"
-load "System.Xml.Xsl/XsltSettings.ring"
+load "System.Xml.Xsl.classes.ring"

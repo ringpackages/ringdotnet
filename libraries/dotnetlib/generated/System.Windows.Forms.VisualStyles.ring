@@ -5,7 +5,4 @@ dnRegisterClass("System.Windows.Forms.VisualStyles.TextMetrics","TextMetrics",0)
 dnRegisterClass("System.Windows.Forms.VisualStyles.VisualStyleElement","VisualStyleElement",0)
 dnRegisterClass("System.Windows.Forms.VisualStyles.VisualStyleInformation","VisualStyleInformation",0)
 dnRegisterClass("System.Windows.Forms.VisualStyles.VisualStyleRenderer","VisualStyleRenderer",1)
-load "System.Windows.Forms.VisualStyles/TextMetrics.ring"
-load "System.Windows.Forms.VisualStyles/VisualStyleElement.ring"
-load "System.Windows.Forms.VisualStyles/VisualStyleInformation.ring"
-load "System.Windows.Forms.VisualStyles/VisualStyleRenderer.ring"
+load "System.Windows.Forms.VisualStyles.classes.ring"

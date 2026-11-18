@@ -7,9 +7,4 @@ dnRegisterClass("System.Xml.XPath.XPathExpression","XPathExpression",0)
 dnRegisterClass("System.Xml.XPath.XPathItem","XPathItem",0)
 dnRegisterClass("System.Xml.XPath.XPathNodeIterator","XPathNodeIterator",0)
 dnRegisterClass("System.Xml.XPath.XPathNavigator","XPathNavigator",0)
-load "System.Xml.XPath/IXPathNavigable.ring"
-load "System.Xml.XPath/XPathDocument.ring"
-load "System.Xml.XPath/XPathExpression.ring"
-load "System.Xml.XPath/XPathItem.ring"
-load "System.Xml.XPath/XPathNodeIterator.ring"
-load "System.Xml.XPath/XPathNavigator.ring"
+load "System.Xml.XPath.classes.ring"

@@ -11,14 +11,4 @@ dnRegisterClass("System.Numerics.Vector","Vector",0)
 dnRegisterClass("System.Numerics.Vector2","Vector2",0)
 dnRegisterClass("System.Numerics.Vector3","Vector3",0)
 dnRegisterClass("System.Numerics.Vector4","Vector4",0)
-load "System.Numerics/BigInteger.ring"
-load "System.Numerics/BitOperations.ring"
-load "System.Numerics/Complex.ring"
-load "System.Numerics/Matrix3x2.ring"
-load "System.Numerics/Matrix4x4.ring"
-load "System.Numerics/Plane.ring"
-load "System.Numerics/Quaternion.ring"
-load "System.Numerics/Vector.ring"
-load "System.Numerics/Vector2.ring"
-load "System.Numerics/Vector3.ring"
-load "System.Numerics/Vector4.ring"
+load "System.Numerics.classes.ring"

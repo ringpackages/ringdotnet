@@ -9,11 +9,4 @@ dnRegisterClass("System.Net.WebSockets.WebSocketCreationOptions","WebSocketCreat
 dnRegisterClass("System.Net.WebSockets.WebSocketDeflateOptions","WebSocketDeflateOptions",0)
 dnRegisterClass("System.Net.WebSockets.WebSocketReceiveResult","WebSocketReceiveResult",3)
 dnRegisterClass("System.Net.WebSockets.ClientWebSocket","ClientWebSocket",0)
-load "System.Net.WebSockets/ClientWebSocketOptions.ring"
-load "System.Net.WebSockets/ValueWebSocketReceiveResult.ring"
-load "System.Net.WebSockets/WebSocket.ring"
-load "System.Net.WebSockets/WebSocketContext.ring"
-load "System.Net.WebSockets/WebSocketCreationOptions.ring"
-load "System.Net.WebSockets/WebSocketDeflateOptions.ring"
-load "System.Net.WebSockets/WebSocketReceiveResult.ring"
-load "System.Net.WebSockets/ClientWebSocket.ring"
+load "System.Net.WebSockets.classes.ring"

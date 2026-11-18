@@ -6,8 +6,4 @@ dnRegisterClass("System.Text.Json.Nodes.JsonNodeOptions","JsonNodeOptions",0)
 dnRegisterClass("System.Text.Json.Nodes.JsonArray","JsonArray",0)
 dnRegisterClass("System.Text.Json.Nodes.JsonObject","JsonObject",0)
 dnRegisterClass("System.Text.Json.Nodes.JsonValue","JsonValue",0)
-load "System.Text.Json.Nodes/JsonNode.ring"
-load "System.Text.Json.Nodes/JsonNodeOptions.ring"
-load "System.Text.Json.Nodes/JsonArray.ring"
-load "System.Text.Json.Nodes/JsonObject.ring"
-load "System.Text.Json.Nodes/JsonValue.ring"
+load "System.Text.Json.Nodes.classes.ring"

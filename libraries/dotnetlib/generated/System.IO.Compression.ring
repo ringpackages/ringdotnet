@@ -13,15 +13,4 @@ dnRegisterClass("System.IO.Compression.ZipArchive","ZipArchive",1)
 dnRegisterClass("System.IO.Compression.ZipArchiveEntry","ZipArchiveEntry",0)
 dnRegisterClass("System.IO.Compression.ZipFile","ZipFile",0)
 dnRegisterClass("System.IO.Compression.ZipFileExtensions","ZipFileExtensions",0)
-load "System.IO.Compression/BrotliCompressionOptions.ring"
-load "System.IO.Compression/BrotliDecoder.ring"
-load "System.IO.Compression/BrotliEncoder.ring"
-load "System.IO.Compression/BrotliStream.ring"
-load "System.IO.Compression/DeflateStream.ring"
-load "System.IO.Compression/GZipStream.ring"
-load "System.IO.Compression/ZLibCompressionOptions.ring"
-load "System.IO.Compression/ZLibStream.ring"
-load "System.IO.Compression/ZipArchive.ring"
-load "System.IO.Compression/ZipArchiveEntry.ring"
-load "System.IO.Compression/ZipFile.ring"
-load "System.IO.Compression/ZipFileExtensions.ring"
+load "System.IO.Compression.classes.ring"

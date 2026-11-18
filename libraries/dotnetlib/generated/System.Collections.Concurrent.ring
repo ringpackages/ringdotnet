@@ -8,11 +8,4 @@ dnRegisterClass("System.Collections.Concurrent.ConcurrentBag`1[[System.Object, S
 dnRegisterClass("System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","ConcurrentObjectDictionary",0)
 dnRegisterClass("System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","ConcurrentStringDictionary",0)
 dnRegisterClass("System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","BlockingObjectCollection",0)
-load "System.Collections.Concurrent/Partitioner.ring"
-load "System.Collections.Concurrent/ConcurrentStringQueue.ring"
-load "System.Collections.Concurrent/ConcurrentObjectQueue.ring"
-load "System.Collections.Concurrent/ConcurrentObjectStack.ring"
-load "System.Collections.Concurrent/ConcurrentObjectBag.ring"
-load "System.Collections.Concurrent/ConcurrentObjectDictionary.ring"
-load "System.Collections.Concurrent/ConcurrentStringDictionary.ring"
-load "System.Collections.Concurrent/BlockingObjectCollection.ring"
+load "System.Collections.Concurrent.classes.ring"

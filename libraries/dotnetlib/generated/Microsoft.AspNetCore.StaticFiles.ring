@@ -9,11 +9,4 @@ dnRegisterClass("Microsoft.AspNetCore.StaticFiles.IContentTypeProvider","IConten
 dnRegisterClass("Microsoft.AspNetCore.StaticFiles.IDirectoryFormatter","IDirectoryFormatter",0)
 dnRegisterClass("Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware","StaticFileMiddleware",4)
 dnRegisterClass("Microsoft.AspNetCore.StaticFiles.StaticFileResponseContext","StaticFileResponseContext",2)
-load "Microsoft.AspNetCore.StaticFiles/DefaultFilesMiddleware.ring"
-load "Microsoft.AspNetCore.StaticFiles/DirectoryBrowserMiddleware.ring"
-load "Microsoft.AspNetCore.StaticFiles/FileExtensionContentTypeProvider.ring"
-load "Microsoft.AspNetCore.StaticFiles/HtmlDirectoryFormatter.ring"
-load "Microsoft.AspNetCore.StaticFiles/IContentTypeProvider.ring"
-load "Microsoft.AspNetCore.StaticFiles/IDirectoryFormatter.ring"
-load "Microsoft.AspNetCore.StaticFiles/StaticFileMiddleware.ring"
-load "Microsoft.AspNetCore.StaticFiles/StaticFileResponseContext.ring"
+load "Microsoft.AspNetCore.StaticFiles.classes.ring"

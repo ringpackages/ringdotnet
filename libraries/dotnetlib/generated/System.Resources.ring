@@ -4,7 +4,4 @@ dnRegisterClass("System.Resources.IResourceReader","IResourceReader",0)
 dnRegisterClass("System.Resources.ResourceManager","ResourceManager",1)
 dnRegisterClass("System.Resources.ResourceReader","ResourceReader",1)
 dnRegisterClass("System.Resources.ResourceSet","ResourceSet",1)
-load "System.Resources/IResourceReader.ring"
-load "System.Resources/ResourceManager.ring"
-load "System.Resources/ResourceReader.ring"
-load "System.Resources/ResourceSet.ring"
+load "System.Resources.classes.ring"

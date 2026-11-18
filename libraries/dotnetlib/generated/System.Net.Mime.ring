@@ -4,7 +4,4 @@ dnRegisterClass("System.Net.Mime.ContentDisposition","ContentDisposition",0)
 dnRegisterClass("System.Net.Mime.ContentType","ContentType",0)
 dnRegisterClass("System.Net.Mime.DispositionTypeNames","DispositionTypeNames",0)
 dnRegisterClass("System.Net.Mime.MediaTypeNames","MediaTypeNames",0)
-load "System.Net.Mime/ContentDisposition.ring"
-load "System.Net.Mime/ContentType.ring"
-load "System.Net.Mime/DispositionTypeNames.ring"
-load "System.Net.Mime/MediaTypeNames.ring"
+load "System.Net.Mime.classes.ring"

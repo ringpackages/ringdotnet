@@ -143,13 +143,13 @@
 <h2 id="what-the-generator-does">What the generator does<a class="anchor" href="#what-the-generator-does">#</a></h2>
 <p><code>tools/gendotnet.ring</code> reads the <strong>manifest</strong> (<code>tools/dotnetmanifest.ring</code>), loads the assemblies, and uses reflection to write Ring source:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="copy" type="button">Copy</button></div><pre><code>libraries/dotnetlib/generated/
-	System.ring                     # the namespace loader: loads the class files
-	System/
-		Math.ring                   # one file per class
-		Console.ring
-		...
+	System.ring                     # the namespace loader: imports, registrations
+	System.classes.ring             # all the classes of the namespace (one file: loading and installing thousands of small files is slow)
+	System.IO.ring
+	System.IO.classes.ring
+	...
 	classindex.ring                 # [type, namespace] of every class: automatic imports</code></pre></div>
-<p>Class files are plain Ring: a <code>Class X from Base</code> with a method per .NET method, <code>getX</code>/<code>setX</code> for properties, <code>setXEvent</code> / <code>clearXEvent</code> for events and registration with <code>dnRegisterClass</code>. The files are generated: <strong>do not edit them</strong>.</p>
+<p>The class files are plain Ring: a <code>Class X from Base</code> with a method per .NET method, <code>getX</code>/<code>setX</code> for properties, <code>setXEvent</code> / <code>clearXEvent</code> for events and registration with <code>dnRegisterClass</code>. The files are generated: <strong>do not edit them</strong>.</p>
 <h2 id="regenerate">Regenerate<a class="anchor" href="#regenerate">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>cd tools
 ring gendotnet.ring                       # every namespace of the manifest

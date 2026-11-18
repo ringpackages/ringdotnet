@@ -9,11 +9,4 @@ dnRegisterClass("System.Security.Principal.WindowsIdentity","WindowsIdentity",0)
 dnRegisterClass("System.Security.Principal.WindowsPrincipal","WindowsPrincipal",1)
 dnRegisterClass("System.Security.Principal.NTAccount","NTAccount",1)
 dnRegisterClass("System.Security.Principal.SecurityIdentifier","SecurityIdentifier",1)
-load "System.Security.Principal/IIdentity.ring"
-load "System.Security.Principal/IPrincipal.ring"
-load "System.Security.Principal/IdentityReference.ring"
-load "System.Security.Principal/IdentityReferenceCollection.ring"
-load "System.Security.Principal/WindowsIdentity.ring"
-load "System.Security.Principal/WindowsPrincipal.ring"
-load "System.Security.Principal/NTAccount.ring"
-load "System.Security.Principal/SecurityIdentifier.ring"
+load "System.Security.Principal.classes.ring"

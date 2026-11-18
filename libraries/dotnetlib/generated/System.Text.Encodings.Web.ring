@@ -5,8 +5,4 @@ dnRegisterClass("System.Text.Encodings.Web.TextEncoderSettings","TextEncoderSett
 dnRegisterClass("System.Text.Encodings.Web.HtmlEncoder","HtmlEncoder",0)
 dnRegisterClass("System.Text.Encodings.Web.JavaScriptEncoder","JavaScriptEncoder",0)
 dnRegisterClass("System.Text.Encodings.Web.UrlEncoder","UrlEncoder",0)
-load "System.Text.Encodings.Web/TextEncoder.ring"
-load "System.Text.Encodings.Web/TextEncoderSettings.ring"
-load "System.Text.Encodings.Web/HtmlEncoder.ring"
-load "System.Text.Encodings.Web/JavaScriptEncoder.ring"
-load "System.Text.Encodings.Web/UrlEncoder.ring"
+load "System.Text.Encodings.Web.classes.ring"

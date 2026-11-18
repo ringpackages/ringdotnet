@@ -4,6 +4,4 @@ dnImport("System.Drawing")
 dnRegisterClass("System.Drawing.Text.FontCollection","FontCollection",0)
 dnRegisterClass("System.Drawing.Text.InstalledFontCollection","InstalledFontCollection",0)
 dnRegisterClass("System.Drawing.Text.PrivateFontCollection","PrivateFontCollection",0)
-load "System.Drawing.Text/FontCollection.ring"
-load "System.Drawing.Text/InstalledFontCollection.ring"
-load "System.Drawing.Text/PrivateFontCollection.ring"
+load "System.Drawing.Text.classes.ring"

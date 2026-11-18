@@ -10,12 +10,4 @@ dnRegisterClass("Microsoft.Data.Sqlite.SqliteFactory","SqliteFactory",0)
 dnRegisterClass("Microsoft.Data.Sqlite.SqliteParameter","SqliteParameter",0)
 dnRegisterClass("Microsoft.Data.Sqlite.SqliteParameterCollection","SqliteParameterCollection",0)
 dnRegisterClass("Microsoft.Data.Sqlite.SqliteTransaction","SqliteTransaction",0)
-load "Microsoft.Data.Sqlite/SqliteBlob.ring"
-load "Microsoft.Data.Sqlite/SqliteCommand.ring"
-load "Microsoft.Data.Sqlite/SqliteConnection.ring"
-load "Microsoft.Data.Sqlite/SqliteConnectionStringBuilder.ring"
-load "Microsoft.Data.Sqlite/SqliteDataReader.ring"
-load "Microsoft.Data.Sqlite/SqliteFactory.ring"
-load "Microsoft.Data.Sqlite/SqliteParameter.ring"
-load "Microsoft.Data.Sqlite/SqliteParameterCollection.ring"
-load "Microsoft.Data.Sqlite/SqliteTransaction.ring"
+load "Microsoft.Data.Sqlite.classes.ring"

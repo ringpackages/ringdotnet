@@ -4,6 +4,4 @@ dnImport("System.IO")
 dnRegisterClass("System.IO.MemoryMappedFiles.MemoryMappedFile","MemoryMappedFile",0)
 dnRegisterClass("System.IO.MemoryMappedFiles.MemoryMappedViewAccessor","MemoryMappedViewAccessor",0)
 dnRegisterClass("System.IO.MemoryMappedFiles.MemoryMappedViewStream","MemoryMappedViewStream",0)
-load "System.IO.MemoryMappedFiles/MemoryMappedFile.ring"
-load "System.IO.MemoryMappedFiles/MemoryMappedViewAccessor.ring"
-load "System.IO.MemoryMappedFiles/MemoryMappedViewStream.ring"
+load "System.IO.MemoryMappedFiles.classes.ring"

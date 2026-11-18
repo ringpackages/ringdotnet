@@ -18,20 +18,4 @@ dnRegisterClass("System.Drawing.Imaging.Metafile","Metafile",1)
 dnRegisterClass("System.Drawing.Imaging.MetafileHeader","MetafileHeader",0)
 dnRegisterClass("System.Drawing.Imaging.PropertyItem","PropertyItem",0)
 dnRegisterClass("System.Drawing.Imaging.WmfPlaceableFileHeader","WmfPlaceableFileHeader",0)
-load "System.Drawing.Imaging/BitmapData.ring"
-load "System.Drawing.Imaging/CachedBitmap.ring"
-load "System.Drawing.Imaging/ColorMap.ring"
-load "System.Drawing.Imaging/ColorMatrix.ring"
-load "System.Drawing.Imaging/ColorPalette.ring"
-load "System.Drawing.Imaging/ImagingEncoder.ring"
-load "System.Drawing.Imaging/EncoderParameter.ring"
-load "System.Drawing.Imaging/EncoderParameters.ring"
-load "System.Drawing.Imaging/FrameDimension.ring"
-load "System.Drawing.Imaging/ImageAttributes.ring"
-load "System.Drawing.Imaging/ImageCodecInfo.ring"
-load "System.Drawing.Imaging/ImageFormat.ring"
-load "System.Drawing.Imaging/MetaHeader.ring"
-load "System.Drawing.Imaging/Metafile.ring"
-load "System.Drawing.Imaging/MetafileHeader.ring"
-load "System.Drawing.Imaging/PropertyItem.ring"
-load "System.Drawing.Imaging/WmfPlaceableFileHeader.ring"
+load "System.Drawing.Imaging.classes.ring"

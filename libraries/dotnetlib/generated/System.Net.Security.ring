@@ -15,16 +15,4 @@ dnRegisterClass("System.Net.Security.SslServerAuthenticationOptions","SslServerA
 dnRegisterClass("System.Net.Security.SslStreamCertificateContext","SslStreamCertificateContext",0)
 dnRegisterClass("System.Net.Security.NegotiateStream","NegotiateStream",1)
 dnRegisterClass("System.Net.Security.SslStream","SslStream",1)
-load "System.Net.Security/AuthenticatedStream.ring"
-load "System.Net.Security/CipherSuitesPolicy.ring"
-load "System.Net.Security/NegotiateAuthentication.ring"
-load "System.Net.Security/NegotiateAuthenticationClientOptions.ring"
-load "System.Net.Security/NegotiateAuthenticationServerOptions.ring"
-load "System.Net.Security/SslApplicationProtocol.ring"
-load "System.Net.Security/SslCertificateTrust.ring"
-load "System.Net.Security/SslClientAuthenticationOptions.ring"
-load "System.Net.Security/SslClientHelloInfo.ring"
-load "System.Net.Security/SslServerAuthenticationOptions.ring"
-load "System.Net.Security/SslStreamCertificateContext.ring"
-load "System.Net.Security/NegotiateStream.ring"
-load "System.Net.Security/SslStream.ring"
+load "System.Net.Security.classes.ring"
