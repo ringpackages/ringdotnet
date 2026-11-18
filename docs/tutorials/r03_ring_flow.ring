@@ -1,6 +1,6 @@
 # Ring in 15 minutes, part 3: decisions, loops and functions
 # Ring runs a file from the top. If the file has a function called main, Ring calls it by itself when it reaches the end of the file.
-# The code at the top level (before the first func) runs first. A func swallows everything after it, so statements go BEFORE the functions.
+# The code at the top level (before the first func) runs first. A func continues until the next func or class, so statements go BEFORE the functions.
 
 nTotal = 0                          # a global variable: defined at the top, outside every function
 

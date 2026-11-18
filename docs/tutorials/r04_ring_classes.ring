@@ -1,4 +1,4 @@
-# Ring in 15 minutes, part 4: classes and objects (the code at the top comes first, the classes go LAST: a func or class swallows what follows)
+# Ring in 15 minutes, part 4: classes and objects (the code at the top comes first, the classes go LAST: a func or class continues until the next func or class)
 
 func main
 	# 1. new makes an object. The parentheses call init().
