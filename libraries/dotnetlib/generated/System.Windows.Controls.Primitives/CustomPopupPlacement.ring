@@ -22,16 +22,16 @@ Class CustomPopupPlacement from ValueType
 		return self
 
 	Func getPoint
-		return dnRequest("get",[new DotNetObject(nHandle),"Point"])
+		return dnRequest("get",[self,"Point"])
 
 	Func setPoint P1
-		dnRequest("set",[new DotNetObject(nHandle),"Point",P1])
+		dnRequest("set",[self,"Point",P1])
 		return self
 
 	Func getPrimaryAxis
-		return dnRequest("get",[new DotNetObject(nHandle),"PrimaryAxis"])
+		return dnRequest("get",[self,"PrimaryAxis"])
 
 	Func setPrimaryAxis P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrimaryAxis",P1])
+		dnRequest("set",[self,"PrimaryAxis",P1])
 		return self
 

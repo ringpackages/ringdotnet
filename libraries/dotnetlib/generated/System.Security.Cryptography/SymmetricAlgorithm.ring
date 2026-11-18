@@ -142,63 +142,63 @@ Class SymmetricAlgorithm from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getFeedbackSize
-		return dnRequest("get",[new DotNetObject(nHandle),"FeedbackSize"])
+		return dnRequest("get",[self,"FeedbackSize"])
 
 	Func setFeedbackSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"FeedbackSize",P1])
+		dnRequest("set",[self,"FeedbackSize",P1])
 		return self
 
 	Func getBlockSize
-		return dnRequest("get",[new DotNetObject(nHandle),"BlockSize"])
+		return dnRequest("get",[self,"BlockSize"])
 
 	Func setBlockSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"BlockSize",P1])
+		dnRequest("set",[self,"BlockSize",P1])
 		return self
 
 	Func getIV
-		return dnRequest("get",[new DotNetObject(nHandle),"IV"])
+		return dnRequest("get",[self,"IV"])
 
 	Func setIV P1
-		dnRequest("set",[new DotNetObject(nHandle),"IV",P1])
+		dnRequest("set",[self,"IV",P1])
 		return self
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"Key",P1])
+		dnRequest("set",[self,"Key",P1])
 		return self
 
 	Func getKeySize
-		return dnRequest("get",[new DotNetObject(nHandle),"KeySize"])
+		return dnRequest("get",[self,"KeySize"])
 
 	Func setKeySize P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeySize",P1])
+		dnRequest("set",[self,"KeySize",P1])
 		return self
 
 	Func getLegalBlockSizes
-		return dnRequest("get",[new DotNetObject(nHandle),"LegalBlockSizes"])
+		return dnRequest("get",[self,"LegalBlockSizes"])
 
 	Func setLegalBlockSizes P1
 		raise("DotNet Error: LegalBlockSizes is a read-only property")
 
 	Func getLegalKeySizes
-		return dnRequest("get",[new DotNetObject(nHandle),"LegalKeySizes"])
+		return dnRequest("get",[self,"LegalKeySizes"])
 
 	Func setLegalKeySizes P1
 		raise("DotNet Error: LegalKeySizes is a read-only property")
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
+		dnRequest("set",[self,"Mode",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
+		return dnRequest("get",[self,"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
+		dnRequest("set",[self,"Padding",P1])
 		return self
 

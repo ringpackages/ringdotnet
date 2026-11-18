@@ -23,37 +23,37 @@ Class FlatButtonAppearance from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBorderSize
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderSize"])
+		return dnRequest("get",[self,"BorderSize"])
 
 	Func setBorderSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderSize",P1])
+		dnRequest("set",[self,"BorderSize",P1])
 		return self
 
 	Func getBorderColor
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderColor"])
+		return dnRequest("get",[self,"BorderColor"])
 
 	Func setBorderColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderColor",P1])
+		dnRequest("set",[self,"BorderColor",P1])
 		return self
 
 	Func getCheckedBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckedBackColor"])
+		return dnRequest("get",[self,"CheckedBackColor"])
 
 	Func setCheckedBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckedBackColor",P1])
+		dnRequest("set",[self,"CheckedBackColor",P1])
 		return self
 
 	Func getMouseDownBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"MouseDownBackColor"])
+		return dnRequest("get",[self,"MouseDownBackColor"])
 
 	Func setMouseDownBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"MouseDownBackColor",P1])
+		dnRequest("set",[self,"MouseDownBackColor",P1])
 		return self
 
 	Func getMouseOverBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"MouseOverBackColor"])
+		return dnRequest("get",[self,"MouseOverBackColor"])
 
 	Func setMouseOverBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"MouseOverBackColor",P1])
+		dnRequest("set",[self,"MouseOverBackColor",P1])
 		return self
 

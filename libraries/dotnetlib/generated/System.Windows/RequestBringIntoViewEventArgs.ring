@@ -17,13 +17,13 @@ Class RequestBringIntoViewEventArgs from RoutedEventArgs
 		return self
 
 	Func getTargetObject
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetObject"])
+		return dnRequest("get",[self,"TargetObject"])
 
 	Func setTargetObject P1
 		raise("DotNet Error: TargetObject is a read-only property")
 
 	Func getTargetRect
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetRect"])
+		return dnRequest("get",[self,"TargetRect"])
 
 	Func setTargetRect P1
 		raise("DotNet Error: TargetRect is a read-only property")

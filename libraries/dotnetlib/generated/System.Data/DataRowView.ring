@@ -63,31 +63,31 @@ Class DataRowView from Object
 		return self
 
 	Func getDataView
-		return dnRequest("get",[new DotNetObject(nHandle),"DataView"])
+		return dnRequest("get",[self,"DataView"])
 
 	Func setDataView P1
 		raise("DotNet Error: DataView is a read-only property")
 
 	Func getRowVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"RowVersion"])
+		return dnRequest("get",[self,"RowVersion"])
 
 	Func setRowVersion P1
 		raise("DotNet Error: RowVersion is a read-only property")
 
 	Func getRow
-		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
+		return dnRequest("get",[self,"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getIsNew
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNew"])
+		return dnRequest("get",[self,"IsNew"])
 
 	Func setIsNew P1
 		raise("DotNet Error: IsNew is a read-only property")
 
 	Func getIsEdit
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEdit"])
+		return dnRequest("get",[self,"IsEdit"])
 
 	Func setIsEdit P1
 		raise("DotNet Error: IsEdit is a read-only property")

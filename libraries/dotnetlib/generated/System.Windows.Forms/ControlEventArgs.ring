@@ -17,7 +17,7 @@ Class ControlEventArgs from EventArgs
 		return self
 
 	Func getControl
-		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
+		return dnRequest("get",[self,"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")

@@ -18,13 +18,13 @@ Class ParallelLoopResult from ValueType
 		return self
 
 	Func getIsCompleted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompleted"])
+		return dnRequest("get",[self,"IsCompleted"])
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getLowestBreakIteration
-		return dnRequest("get",[new DotNetObject(nHandle),"LowestBreakIteration"])
+		return dnRequest("get",[self,"LowestBreakIteration"])
 
 	Func setLowestBreakIteration P1
 		raise("DotNet Error: LowestBreakIteration is a read-only property")

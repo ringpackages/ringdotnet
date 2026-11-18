@@ -21,16 +21,16 @@ Class AdHocMapperDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Model",P1])
+		dnRequest("set",[self,"Model",P1])
 		return self
 
 	Func getModelCreationDependencies
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelCreationDependencies"])
+		return dnRequest("get",[self,"ModelCreationDependencies"])
 
 	Func setModelCreationDependencies P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelCreationDependencies",P1])
+		dnRequest("set",[self,"ModelCreationDependencies",P1])
 		return self
 

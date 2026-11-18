@@ -322,101 +322,101 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[new DotNetObject(nHandle),"NameTable"])
+		return dnRequest("get",[self,"NameTable"])
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
+		return dnRequest("get",[self,"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getLocalName
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalName"])
+		return dnRequest("get",[self,"LocalName"])
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getNamespaceURI
-		return dnRequest("get",[new DotNetObject(nHandle),"NamespaceURI"])
+		return dnRequest("get",[self,"NamespaceURI"])
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getPrefix
-		return dnRequest("get",[new DotNetObject(nHandle),"Prefix"])
+		return dnRequest("get",[self,"Prefix"])
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
 
 	Func getBaseURI
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseURI"])
+		return dnRequest("get",[self,"BaseURI"])
 
 	Func setBaseURI P1
 		raise("DotNet Error: BaseURI is a read-only property")
 
 	Func getIsEmptyElement
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEmptyElement"])
+		return dnRequest("get",[self,"IsEmptyElement"])
 
 	Func setIsEmptyElement P1
 		raise("DotNet Error: IsEmptyElement is a read-only property")
 
 	Func getXmlLang
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlLang"])
+		return dnRequest("get",[self,"XmlLang"])
 
 	Func setXmlLang P1
 		raise("DotNet Error: XmlLang is a read-only property")
 
 	Func getUnderlyingObject
-		return dnRequest("get",[new DotNetObject(nHandle),"UnderlyingObject"])
+		return dnRequest("get",[self,"UnderlyingObject"])
 
 	Func setUnderlyingObject P1
 		raise("DotNet Error: UnderlyingObject is a read-only property")
 
 	Func getHasAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"HasAttributes"])
+		return dnRequest("get",[self,"HasAttributes"])
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
 
 	Func getHasChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"HasChildren"])
+		return dnRequest("get",[self,"HasChildren"])
 
 	Func setHasChildren P1
 		raise("DotNet Error: HasChildren is a read-only property")
 
 	Func getSchemaInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaInfo"])
+		return dnRequest("get",[self,"SchemaInfo"])
 
 	Func setSchemaInfo P1
 		raise("DotNet Error: SchemaInfo is a read-only property")
 
 	Func getCanEdit
-		return dnRequest("get",[new DotNetObject(nHandle),"CanEdit"])
+		return dnRequest("get",[self,"CanEdit"])
 
 	Func setCanEdit P1
 		raise("DotNet Error: CanEdit is a read-only property")
 
 	Func getOuterXml
-		return dnRequest("get",[new DotNetObject(nHandle),"OuterXml"])
+		return dnRequest("get",[self,"OuterXml"])
 
 	Func setOuterXml P1
-		dnRequest("set",[new DotNetObject(nHandle),"OuterXml",P1])
+		dnRequest("set",[self,"OuterXml",P1])
 		return self
 
 	Func getInnerXml
-		return dnRequest("get",[new DotNetObject(nHandle),"InnerXml"])
+		return dnRequest("get",[self,"InnerXml"])
 
 	Func setInnerXml P1
-		dnRequest("set",[new DotNetObject(nHandle),"InnerXml",P1])
+		dnRequest("set",[self,"InnerXml",P1])
 		return self
 
 	Func getNavigatorComparer

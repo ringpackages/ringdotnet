@@ -20,7 +20,7 @@ Class IChangeTracking from DotNetObject
 		return self
 
 	Func getIsChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"IsChanged"])
+		return dnRequest("get",[self,"IsChanged"])
 
 	Func setIsChanged P1
 		raise("DotNet Error: IsChanged is a read-only property")

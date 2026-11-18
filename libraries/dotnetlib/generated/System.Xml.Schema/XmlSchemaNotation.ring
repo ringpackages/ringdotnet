@@ -19,23 +19,23 @@ Class XmlSchemaNotation from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getPublic
-		return dnRequest("get",[new DotNetObject(nHandle),"Public"])
+		return dnRequest("get",[self,"Public"])
 
 	Func setPublic P1
-		dnRequest("set",[new DotNetObject(nHandle),"Public",P1])
+		dnRequest("set",[self,"Public",P1])
 		return self
 
 	Func getSystem
-		return dnRequest("get",[new DotNetObject(nHandle),"System"])
+		return dnRequest("get",[self,"System"])
 
 	Func setSystem P1
-		dnRequest("set",[new DotNetObject(nHandle),"System",P1])
+		dnRequest("set",[self,"System",P1])
 		return self
 

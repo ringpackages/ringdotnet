@@ -18,13 +18,13 @@ Class StylusPointsReplacedEventArgs from EventArgs
 		return self
 
 	Func getNewStylusPoints
-		return dnRequest("get",[new DotNetObject(nHandle),"NewStylusPoints"])
+		return dnRequest("get",[self,"NewStylusPoints"])
 
 	Func setNewStylusPoints P1
 		raise("DotNet Error: NewStylusPoints is a read-only property")
 
 	Func getPreviousStylusPoints
-		return dnRequest("get",[new DotNetObject(nHandle),"PreviousStylusPoints"])
+		return dnRequest("get",[self,"PreviousStylusPoints"])
 
 	Func setPreviousStylusPoints P1
 		raise("DotNet Error: PreviousStylusPoints is a read-only property")

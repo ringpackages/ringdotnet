@@ -46,37 +46,37 @@ Class DrawToolTipEventArgs from EventArgs
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
+		return dnRequest("get",[self,"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getAssociatedWindow
-		return dnRequest("get",[new DotNetObject(nHandle),"AssociatedWindow"])
+		return dnRequest("get",[self,"AssociatedWindow"])
 
 	Func setAssociatedWindow P1
 		raise("DotNet Error: AssociatedWindow is a read-only property")
 
 	Func getAssociatedControl
-		return dnRequest("get",[new DotNetObject(nHandle),"AssociatedControl"])
+		return dnRequest("get",[self,"AssociatedControl"])
 
 	Func setAssociatedControl P1
 		raise("DotNet Error: AssociatedControl is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getToolTipText
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipText"])
+		return dnRequest("get",[self,"ToolTipText"])
 
 	Func setToolTipText P1
 		raise("DotNet Error: ToolTipText is a read-only property")
 
 	Func getFont
-		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
+		return dnRequest("get",[self,"Font"])
 
 	Func setFont P1
 		raise("DotNet Error: Font is a read-only property")

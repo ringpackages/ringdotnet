@@ -28,49 +28,49 @@ Class HierarchicalVirtualizationItemDesiredSizes from ValueType
 		return self
 
 	Func getLogicalSize
-		return dnRequest("get",[new DotNetObject(nHandle),"LogicalSize"])
+		return dnRequest("get",[self,"LogicalSize"])
 
 	Func setLogicalSize P1
 		raise("DotNet Error: LogicalSize is a read-only property")
 
 	Func getLogicalSizeInViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"LogicalSizeInViewport"])
+		return dnRequest("get",[self,"LogicalSizeInViewport"])
 
 	Func setLogicalSizeInViewport P1
 		raise("DotNet Error: LogicalSizeInViewport is a read-only property")
 
 	Func getLogicalSizeBeforeViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"LogicalSizeBeforeViewport"])
+		return dnRequest("get",[self,"LogicalSizeBeforeViewport"])
 
 	Func setLogicalSizeBeforeViewport P1
 		raise("DotNet Error: LogicalSizeBeforeViewport is a read-only property")
 
 	Func getLogicalSizeAfterViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"LogicalSizeAfterViewport"])
+		return dnRequest("get",[self,"LogicalSizeAfterViewport"])
 
 	Func setLogicalSizeAfterViewport P1
 		raise("DotNet Error: LogicalSizeAfterViewport is a read-only property")
 
 	Func getPixelSize
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelSize"])
+		return dnRequest("get",[self,"PixelSize"])
 
 	Func setPixelSize P1
 		raise("DotNet Error: PixelSize is a read-only property")
 
 	Func getPixelSizeInViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelSizeInViewport"])
+		return dnRequest("get",[self,"PixelSizeInViewport"])
 
 	Func setPixelSizeInViewport P1
 		raise("DotNet Error: PixelSizeInViewport is a read-only property")
 
 	Func getPixelSizeBeforeViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelSizeBeforeViewport"])
+		return dnRequest("get",[self,"PixelSizeBeforeViewport"])
 
 	Func setPixelSizeBeforeViewport P1
 		raise("DotNet Error: PixelSizeBeforeViewport is a read-only property")
 
 	Func getPixelSizeAfterViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelSizeAfterViewport"])
+		return dnRequest("get",[self,"PixelSizeAfterViewport"])
 
 	Func setPixelSizeAfterViewport P1
 		raise("DotNet Error: PixelSizeAfterViewport is a read-only property")

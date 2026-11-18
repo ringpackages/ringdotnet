@@ -29,51 +29,51 @@ Class MetaHeader from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
-		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
+		dnRequest("set",[self,"Type",P1])
 		return self
 
 	Func getHeaderSize
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderSize"])
+		return dnRequest("get",[self,"HeaderSize"])
 
 	Func setHeaderSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderSize",P1])
+		dnRequest("set",[self,"HeaderSize",P1])
 		return self
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
-		dnRequest("set",[new DotNetObject(nHandle),"Version",P1])
+		dnRequest("set",[self,"Version",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
+		dnRequest("set",[self,"Size",P1])
 		return self
 
 	Func getNoObjects
-		return dnRequest("get",[new DotNetObject(nHandle),"NoObjects"])
+		return dnRequest("get",[self,"NoObjects"])
 
 	Func setNoObjects P1
-		dnRequest("set",[new DotNetObject(nHandle),"NoObjects",P1])
+		dnRequest("set",[self,"NoObjects",P1])
 		return self
 
 	Func getMaxRecord
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxRecord"])
+		return dnRequest("get",[self,"MaxRecord"])
 
 	Func setMaxRecord P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxRecord",P1])
+		dnRequest("set",[self,"MaxRecord",P1])
 		return self
 
 	Func getNoParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"NoParameters"])
+		return dnRequest("get",[self,"NoParameters"])
 
 	Func setNoParameters P1
-		dnRequest("set",[new DotNetObject(nHandle),"NoParameters",P1])
+		dnRequest("set",[self,"NoParameters",P1])
 		return self
 

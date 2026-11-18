@@ -49,31 +49,31 @@ Class RuntimeSequence from AnnotatableBase
 		return self
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getModelSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelSchema"])
+		return dnRequest("get",[self,"ModelSchema"])
 
 	Func setModelSchema P1
 		raise("DotNet Error: ModelSchema is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
+		return dnRequest("get",[self,"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

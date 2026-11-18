@@ -21,16 +21,16 @@ Class ZLibCompressionOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCompressionLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"CompressionLevel"])
+		return dnRequest("get",[self,"CompressionLevel"])
 
 	Func setCompressionLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"CompressionLevel",P1])
+		dnRequest("set",[self,"CompressionLevel",P1])
 		return self
 
 	Func getCompressionStrategy
-		return dnRequest("get",[new DotNetObject(nHandle),"CompressionStrategy"])
+		return dnRequest("get",[self,"CompressionStrategy"])
 
 	Func setCompressionStrategy P1
-		dnRequest("set",[new DotNetObject(nHandle),"CompressionStrategy",P1])
+		dnRequest("set",[self,"CompressionStrategy",P1])
 		return self
 

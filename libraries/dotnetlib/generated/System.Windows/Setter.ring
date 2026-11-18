@@ -35,23 +35,23 @@ Class Setter from SetterBase
 		return self
 
 	Func getProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
+		return dnRequest("get",[self,"Property"])
 
 	Func setProperty P1
-		dnRequest("set",[new DotNetObject(nHandle),"Property",P1])
+		dnRequest("set",[self,"Property",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getTargetName
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetName"])
+		return dnRequest("get",[self,"TargetName"])
 
 	Func setTargetName P1
-		dnRequest("set",[new DotNetObject(nHandle),"TargetName",P1])
+		dnRequest("set",[self,"TargetName",P1])
 		return self
 

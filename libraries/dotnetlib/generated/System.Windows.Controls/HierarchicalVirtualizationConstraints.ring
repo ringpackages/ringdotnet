@@ -23,19 +23,19 @@ Class HierarchicalVirtualizationConstraints from ValueType
 		return self
 
 	Func getCacheLength
-		return dnRequest("get",[new DotNetObject(nHandle),"CacheLength"])
+		return dnRequest("get",[self,"CacheLength"])
 
 	Func setCacheLength P1
 		raise("DotNet Error: CacheLength is a read-only property")
 
 	Func getCacheLengthUnit
-		return dnRequest("get",[new DotNetObject(nHandle),"CacheLengthUnit"])
+		return dnRequest("get",[self,"CacheLengthUnit"])
 
 	Func setCacheLengthUnit P1
 		raise("DotNet Error: CacheLengthUnit is a read-only property")
 
 	Func getViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"Viewport"])
+		return dnRequest("get",[self,"Viewport"])
 
 	Func setViewport P1
 		raise("DotNet Error: Viewport is a read-only property")

@@ -20,7 +20,7 @@ Class BStrWrapper from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getWrappedObject
-		return dnRequest("get",[new DotNetObject(nHandle),"WrappedObject"])
+		return dnRequest("get",[self,"WrappedObject"])
 
 	Func setWrappedObject P1
 		raise("DotNet Error: WrappedObject is a read-only property")

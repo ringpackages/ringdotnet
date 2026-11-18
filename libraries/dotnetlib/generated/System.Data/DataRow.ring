@@ -118,33 +118,33 @@ Class DataRow from Object
 		return self
 
 	Func getRowError
-		return dnRequest("get",[new DotNetObject(nHandle),"RowError"])
+		return dnRequest("get",[self,"RowError"])
 
 	Func setRowError P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowError",P1])
+		dnRequest("set",[self,"RowError",P1])
 		return self
 
 	Func getRowState
-		return dnRequest("get",[new DotNetObject(nHandle),"RowState"])
+		return dnRequest("get",[self,"RowState"])
 
 	Func setRowState P1
 		raise("DotNet Error: RowState is a read-only property")
 
 	Func getTable
-		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
+		return dnRequest("get",[self,"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getItemArray
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemArray"])
+		return dnRequest("get",[self,"ItemArray"])
 
 	Func setItemArray P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemArray",P1])
+		dnRequest("set",[self,"ItemArray",P1])
 		return self
 
 	Func getHasErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"HasErrors"])
+		return dnRequest("get",[self,"HasErrors"])
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")

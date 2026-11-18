@@ -65,28 +65,28 @@ Class AxHost from Control
 		return self
 
 	Func getEditMode
-		return dnRequest("get",[new DotNetObject(nHandle),"EditMode"])
+		return dnRequest("get",[self,"EditMode"])
 
 	Func setEditMode P1
 		raise("DotNet Error: EditMode is a read-only property")
 
 	Func getHasAboutBox
-		return dnRequest("get",[new DotNetObject(nHandle),"HasAboutBox"])
+		return dnRequest("get",[self,"HasAboutBox"])
 
 	Func setHasAboutBox P1
 		raise("DotNet Error: HasAboutBox is a read-only property")
 
 	Func getOcxState
-		return dnRequest("get",[new DotNetObject(nHandle),"OcxState"])
+		return dnRequest("get",[self,"OcxState"])
 
 	Func setOcxState P1
-		dnRequest("set",[new DotNetObject(nHandle),"OcxState",P1])
+		dnRequest("set",[self,"OcxState",P1])
 		return self
 
 	Func getContainingControl
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainingControl"])
+		return dnRequest("get",[self,"ContainingControl"])
 
 	Func setContainingControl P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContainingControl",P1])
+		dnRequest("set",[self,"ContainingControl",P1])
 		return self
 

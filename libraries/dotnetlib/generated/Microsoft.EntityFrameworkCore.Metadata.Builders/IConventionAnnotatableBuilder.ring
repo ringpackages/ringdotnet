@@ -53,13 +53,13 @@ Class IConventionAnnotatableBuilder from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"CanRemoveAnnotation",P1])
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getModelBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelBuilder"])
+		return dnRequest("get",[self,"ModelBuilder"])
 
 	Func setModelBuilder P1
 		raise("DotNet Error: ModelBuilder is a read-only property")

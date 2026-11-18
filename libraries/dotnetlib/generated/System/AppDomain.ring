@@ -240,76 +240,76 @@ Class AppDomain from MarshalByRefObject
 		return self
 
 	Func getBaseDirectory
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseDirectory"])
+		return dnRequest("get",[self,"BaseDirectory"])
 
 	Func setBaseDirectory P1
 		raise("DotNet Error: BaseDirectory is a read-only property")
 
 	Func getRelativeSearchPath
-		return dnRequest("get",[new DotNetObject(nHandle),"RelativeSearchPath"])
+		return dnRequest("get",[self,"RelativeSearchPath"])
 
 	Func setRelativeSearchPath P1
 		raise("DotNet Error: RelativeSearchPath is a read-only property")
 
 	Func getSetupInformation
-		return dnRequest("get",[new DotNetObject(nHandle),"SetupInformation"])
+		return dnRequest("get",[self,"SetupInformation"])
 
 	Func setSetupInformation P1
 		raise("DotNet Error: SetupInformation is a read-only property")
 
 	Func getPermissionSet
-		return dnRequest("get",[new DotNetObject(nHandle),"PermissionSet"])
+		return dnRequest("get",[self,"PermissionSet"])
 
 	Func setPermissionSet P1
 		raise("DotNet Error: PermissionSet is a read-only property")
 
 	Func getDynamicDirectory
-		return dnRequest("get",[new DotNetObject(nHandle),"DynamicDirectory"])
+		return dnRequest("get",[self,"DynamicDirectory"])
 
 	Func setDynamicDirectory P1
 		raise("DotNet Error: DynamicDirectory is a read-only property")
 
 	Func getFriendlyName
-		return dnRequest("get",[new DotNetObject(nHandle),"FriendlyName"])
+		return dnRequest("get",[self,"FriendlyName"])
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsFullyTrusted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFullyTrusted"])
+		return dnRequest("get",[self,"IsFullyTrusted"])
 
 	Func setIsFullyTrusted P1
 		raise("DotNet Error: IsFullyTrusted is a read-only property")
 
 	Func getIsHomogenous
-		return dnRequest("get",[new DotNetObject(nHandle),"IsHomogenous"])
+		return dnRequest("get",[self,"IsHomogenous"])
 
 	Func setIsHomogenous P1
 		raise("DotNet Error: IsHomogenous is a read-only property")
 
 	Func getMonitoringSurvivedMemorySize
-		return dnRequest("get",[new DotNetObject(nHandle),"MonitoringSurvivedMemorySize"])
+		return dnRequest("get",[self,"MonitoringSurvivedMemorySize"])
 
 	Func setMonitoringSurvivedMemorySize P1
 		raise("DotNet Error: MonitoringSurvivedMemorySize is a read-only property")
 
 	Func getMonitoringTotalAllocatedMemorySize
-		return dnRequest("get",[new DotNetObject(nHandle),"MonitoringTotalAllocatedMemorySize"])
+		return dnRequest("get",[self,"MonitoringTotalAllocatedMemorySize"])
 
 	Func setMonitoringTotalAllocatedMemorySize P1
 		raise("DotNet Error: MonitoringTotalAllocatedMemorySize is a read-only property")
 
 	Func getShadowCopyFiles
-		return dnRequest("get",[new DotNetObject(nHandle),"ShadowCopyFiles"])
+		return dnRequest("get",[self,"ShadowCopyFiles"])
 
 	Func getMonitoringTotalProcessorTime
-		return dnRequest("get",[new DotNetObject(nHandle),"MonitoringTotalProcessorTime"])
+		return dnRequest("get",[self,"MonitoringTotalProcessorTime"])
 
 	Func setMonitoringTotalProcessorTime P1
 		raise("DotNet Error: MonitoringTotalProcessorTime is a read-only property")

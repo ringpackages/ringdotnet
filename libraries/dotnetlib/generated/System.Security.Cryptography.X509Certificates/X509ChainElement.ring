@@ -21,19 +21,19 @@ Class X509ChainElement from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCertificate
-		return dnRequest("get",[new DotNetObject(nHandle),"Certificate"])
+		return dnRequest("get",[self,"Certificate"])
 
 	Func setCertificate P1
 		raise("DotNet Error: Certificate is a read-only property")
 
 	Func getChainElementStatus
-		return dnRequest("get",[new DotNetObject(nHandle),"ChainElementStatus"])
+		return dnRequest("get",[self,"ChainElementStatus"])
 
 	Func setChainElementStatus P1
 		raise("DotNet Error: ChainElementStatus is a read-only property")
 
 	Func getInformation
-		return dnRequest("get",[new DotNetObject(nHandle),"Information"])
+		return dnRequest("get",[self,"Information"])
 
 	Func setInformation P1
 		raise("DotNet Error: Information is a read-only property")

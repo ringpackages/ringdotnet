@@ -17,9 +17,9 @@ Class XText from XNode
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 

@@ -40,9 +40,9 @@ Class CommonDialog from Component
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 

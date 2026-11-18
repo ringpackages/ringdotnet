@@ -40,7 +40,7 @@ Class IHost from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func getServices
-		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
+		return dnRequest("get",[self,"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")

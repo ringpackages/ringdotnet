@@ -126,14 +126,14 @@ Class RuntimeModel from RuntimeAnnotatableBase
 		return dnRequest("call",[new DotNetObject(nHandle),"FinalizeModel"])
 
 	Func getModelId
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelId"])
+		return dnRequest("get",[self,"ModelId"])
 
 	Func setModelId P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelId",P1])
+		dnRequest("set",[self,"ModelId",P1])
 		return self
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

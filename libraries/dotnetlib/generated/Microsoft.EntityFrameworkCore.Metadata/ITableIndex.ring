@@ -37,43 +37,43 @@ Class ITableIndex from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getMappedIndexes
-		return dnRequest("get",[new DotNetObject(nHandle),"MappedIndexes"])
+		return dnRequest("get",[self,"MappedIndexes"])
 
 	Func setMappedIndexes P1
 		raise("DotNet Error: MappedIndexes is a read-only property")
 
 	Func getTable
-		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
+		return dnRequest("get",[self,"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
+		return dnRequest("get",[self,"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getIsUnique
-		return dnRequest("get",[new DotNetObject(nHandle),"IsUnique"])
+		return dnRequest("get",[self,"IsUnique"])
 
 	Func setIsUnique P1
 		raise("DotNet Error: IsUnique is a read-only property")
 
 	Func getIsDescending
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDescending"])
+		return dnRequest("get",[self,"IsDescending"])
 
 	Func setIsDescending P1
 		raise("DotNet Error: IsDescending is a read-only property")
 
 	Func getFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
+		return dnRequest("get",[self,"Filter"])
 
 	Func setFilter P1
 		raise("DotNet Error: Filter is a read-only property")

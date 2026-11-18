@@ -25,7 +25,7 @@ Class IExecutionStrategy from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2,P3])
 
 	Func getRetriesOnFailure
-		return dnRequest("get",[new DotNetObject(nHandle),"RetriesOnFailure"])
+		return dnRequest("get",[self,"RetriesOnFailure"])
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")

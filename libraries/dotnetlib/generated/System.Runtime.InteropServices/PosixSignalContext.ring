@@ -21,15 +21,15 @@ Class PosixSignalContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSignal
-		return dnRequest("get",[new DotNetObject(nHandle),"Signal"])
+		return dnRequest("get",[self,"Signal"])
 
 	Func setSignal P1
 		raise("DotNet Error: Signal is a read-only property")
 
 	Func getCancel
-		return dnRequest("get",[new DotNetObject(nHandle),"Cancel"])
+		return dnRequest("get",[self,"Cancel"])
 
 	Func setCancel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cancel",P1])
+		dnRequest("set",[self,"Cancel",P1])
 		return self
 

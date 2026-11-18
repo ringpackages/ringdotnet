@@ -48,16 +48,16 @@ Class Plane from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Plane, System.Private.CoreLib'),"Transform",P1,P2])
 
 	Func getNormal
-		return dnRequest("get",[new DotNetObject(nHandle),"Normal"])
+		return dnRequest("get",[self,"Normal"])
 
 	Func setNormal P1
-		dnRequest("set",[new DotNetObject(nHandle),"Normal",P1])
+		dnRequest("set",[self,"Normal",P1])
 		return self
 
 	Func getD
-		return dnRequest("get",[new DotNetObject(nHandle),"D"])
+		return dnRequest("get",[self,"D"])
 
 	Func setD P1
-		dnRequest("set",[new DotNetObject(nHandle),"D",P1])
+		dnRequest("set",[self,"D",P1])
 		return self
 

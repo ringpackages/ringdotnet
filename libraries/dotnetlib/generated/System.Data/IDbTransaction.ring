@@ -25,13 +25,13 @@ Class IDbTransaction from DotNetObject
 		return self
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getIsolationLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"IsolationLevel"])
+		return dnRequest("get",[self,"IsolationLevel"])
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")

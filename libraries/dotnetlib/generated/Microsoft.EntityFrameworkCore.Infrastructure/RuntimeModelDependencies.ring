@@ -22,23 +22,23 @@ Class RuntimeModelDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTypeMappingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
+		return dnRequest("get",[self,"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
+		dnRequest("set",[self,"TypeMappingSource",P1])
 		return self
 
 	Func getConstructorBindingFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"ConstructorBindingFactory"])
+		return dnRequest("get",[self,"ConstructorBindingFactory"])
 
 	Func setConstructorBindingFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConstructorBindingFactory",P1])
+		dnRequest("set",[self,"ConstructorBindingFactory",P1])
 		return self
 
 	Func getParameterBindingFactories
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterBindingFactories"])
+		return dnRequest("get",[self,"ParameterBindingFactories"])
 
 	Func setParameterBindingFactories P1
-		dnRequest("set",[new DotNetObject(nHandle),"ParameterBindingFactories",P1])
+		dnRequest("set",[self,"ParameterBindingFactories",P1])
 		return self
 

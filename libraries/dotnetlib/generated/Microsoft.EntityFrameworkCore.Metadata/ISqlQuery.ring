@@ -21,19 +21,19 @@ Class ISqlQuery from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"FindColumn",P1])
 
 	Func getEntityTypeMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityTypeMappings"])
+		return dnRequest("get",[self,"EntityTypeMappings"])
 
 	Func setEntityTypeMappings P1
 		raise("DotNet Error: EntityTypeMappings is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
+		return dnRequest("get",[self,"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getSql
-		return dnRequest("get",[new DotNetObject(nHandle),"Sql"])
+		return dnRequest("get",[self,"Sql"])
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")

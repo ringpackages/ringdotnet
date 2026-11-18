@@ -16,7 +16,7 @@ Class SaveChangesEventArgs from EventArgs
 		return self
 
 	Func getAcceptAllChangesOnSuccess
-		return dnRequest("get",[new DotNetObject(nHandle),"AcceptAllChangesOnSuccess"])
+		return dnRequest("get",[self,"AcceptAllChangesOnSuccess"])
 
 	Func setAcceptAllChangesOnSuccess P1
 		raise("DotNet Error: AcceptAllChangesOnSuccess is a read-only property")

@@ -82,25 +82,25 @@ Class ImageCollection from Object
 		return self
 
 	Func getKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
+		return dnRequest("get",[self,"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"Empty"])
+		return dnRequest("get",[self,"Empty"])
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")

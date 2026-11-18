@@ -23,13 +23,13 @@ Class IPv6InterfaceProperties from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
+		return dnRequest("get",[self,"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getMtu
-		return dnRequest("get",[new DotNetObject(nHandle),"Mtu"])
+		return dnRequest("get",[self,"Mtu"])
 
 	Func setMtu P1
 		raise("DotNet Error: Mtu is a read-only property")

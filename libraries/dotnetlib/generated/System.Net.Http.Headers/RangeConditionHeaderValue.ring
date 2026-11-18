@@ -27,13 +27,13 @@ Class RangeConditionHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.RangeConditionHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getDate
-		return dnRequest("get",[new DotNetObject(nHandle),"Date"])
+		return dnRequest("get",[self,"Date"])
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getEntityTag
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityTag"])
+		return dnRequest("get",[self,"EntityTag"])
 
 	Func setEntityTag P1
 		raise("DotNet Error: EntityTag is a read-only property")

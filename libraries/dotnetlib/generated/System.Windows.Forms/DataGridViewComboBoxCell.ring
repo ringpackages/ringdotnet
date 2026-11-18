@@ -27,79 +27,79 @@ Class DataGridViewComboBoxCell from DataGridViewCell
 		return self
 
 	Func getAutoComplete
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoComplete"])
+		return dnRequest("get",[self,"AutoComplete"])
 
 	Func setAutoComplete P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoComplete",P1])
+		dnRequest("set",[self,"AutoComplete",P1])
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
+		return dnRequest("get",[self,"DataSource"])
 
 	Func setDataSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSource",P1])
+		dnRequest("set",[self,"DataSource",P1])
 		return self
 
 	Func getDisplayMember
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayMember"])
+		return dnRequest("get",[self,"DisplayMember"])
 
 	Func setDisplayMember P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayMember",P1])
+		dnRequest("set",[self,"DisplayMember",P1])
 		return self
 
 	Func getDisplayStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayStyle"])
+		return dnRequest("get",[self,"DisplayStyle"])
 
 	Func setDisplayStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayStyle",P1])
+		dnRequest("set",[self,"DisplayStyle",P1])
 		return self
 
 	Func getDisplayStyleForCurrentCellOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayStyleForCurrentCellOnly"])
+		return dnRequest("get",[self,"DisplayStyleForCurrentCellOnly"])
 
 	Func setDisplayStyleForCurrentCellOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayStyleForCurrentCellOnly",P1])
+		dnRequest("set",[self,"DisplayStyleForCurrentCellOnly",P1])
 		return self
 
 	Func getDropDownWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownWidth"])
+		return dnRequest("get",[self,"DropDownWidth"])
 
 	Func setDropDownWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropDownWidth",P1])
+		dnRequest("set",[self,"DropDownWidth",P1])
 		return self
 
 	Func getFlatStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"FlatStyle"])
+		return dnRequest("get",[self,"FlatStyle"])
 
 	Func setFlatStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlatStyle",P1])
+		dnRequest("set",[self,"FlatStyle",P1])
 		return self
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getMaxDropDownItems
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxDropDownItems"])
+		return dnRequest("get",[self,"MaxDropDownItems"])
 
 	Func setMaxDropDownItems P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxDropDownItems",P1])
+		dnRequest("set",[self,"MaxDropDownItems",P1])
 		return self
 
 	Func getSorted
-		return dnRequest("get",[new DotNetObject(nHandle),"Sorted"])
+		return dnRequest("get",[self,"Sorted"])
 
 	Func setSorted P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sorted",P1])
+		dnRequest("set",[self,"Sorted",P1])
 		return self
 
 	Func getValueMember
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueMember"])
+		return dnRequest("get",[self,"ValueMember"])
 
 	Func setValueMember P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValueMember",P1])
+		dnRequest("set",[self,"ValueMember",P1])
 		return self
 
 	Func setValueType P1

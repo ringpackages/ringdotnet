@@ -18,15 +18,15 @@ Class HelpEventArgs from EventArgs
 		return self
 
 	Func getMousePos
-		return dnRequest("get",[new DotNetObject(nHandle),"MousePos"])
+		return dnRequest("get",[self,"MousePos"])
 
 	Func setMousePos P1
 		raise("DotNet Error: MousePos is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
+		return dnRequest("get",[self,"Handled"])
 
 	Func setHandled P1
-		dnRequest("set",[new DotNetObject(nHandle),"Handled",P1])
+		dnRequest("set",[self,"Handled",P1])
 		return self
 

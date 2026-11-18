@@ -36,51 +36,51 @@ Class Paragraph from Block
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeInlines",P1])
 
 	Func getInlines
-		return dnRequest("get",[new DotNetObject(nHandle),"Inlines"])
+		return dnRequest("get",[self,"Inlines"])
 
 	Func setInlines P1
 		raise("DotNet Error: Inlines is a read-only property")
 
 	Func getTextDecorations
-		return dnRequest("get",[new DotNetObject(nHandle),"TextDecorations"])
+		return dnRequest("get",[self,"TextDecorations"])
 
 	Func setTextDecorations P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextDecorations",P1])
+		dnRequest("set",[self,"TextDecorations",P1])
 		return self
 
 	Func getTextIndent
-		return dnRequest("get",[new DotNetObject(nHandle),"TextIndent"])
+		return dnRequest("get",[self,"TextIndent"])
 
 	Func setTextIndent P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextIndent",P1])
+		dnRequest("set",[self,"TextIndent",P1])
 		return self
 
 	Func getMinOrphanLines
-		return dnRequest("get",[new DotNetObject(nHandle),"MinOrphanLines"])
+		return dnRequest("get",[self,"MinOrphanLines"])
 
 	Func setMinOrphanLines P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinOrphanLines",P1])
+		dnRequest("set",[self,"MinOrphanLines",P1])
 		return self
 
 	Func getMinWidowLines
-		return dnRequest("get",[new DotNetObject(nHandle),"MinWidowLines"])
+		return dnRequest("get",[self,"MinWidowLines"])
 
 	Func setMinWidowLines P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinWidowLines",P1])
+		dnRequest("set",[self,"MinWidowLines",P1])
 		return self
 
 	Func getKeepWithNext
-		return dnRequest("get",[new DotNetObject(nHandle),"KeepWithNext"])
+		return dnRequest("get",[self,"KeepWithNext"])
 
 	Func setKeepWithNext P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeepWithNext",P1])
+		dnRequest("set",[self,"KeepWithNext",P1])
 		return self
 
 	Func getKeepTogether
-		return dnRequest("get",[new DotNetObject(nHandle),"KeepTogether"])
+		return dnRequest("get",[self,"KeepTogether"])
 
 	Func setKeepTogether P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeepTogether",P1])
+		dnRequest("set",[self,"KeepTogether",P1])
 		return self
 
 	Func getTextDecorationsProperty

@@ -47,17 +47,17 @@ Class ToggleButton from WpfButtonBase
 		return self
 
 	Func getIsChecked
-		return dnRequest("get",[new DotNetObject(nHandle),"IsChecked"])
+		return dnRequest("get",[self,"IsChecked"])
 
 	Func setIsChecked P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsChecked",P1])
+		dnRequest("set",[self,"IsChecked",P1])
 		return self
 
 	Func getIsThreeState
-		return dnRequest("get",[new DotNetObject(nHandle),"IsThreeState"])
+		return dnRequest("get",[self,"IsThreeState"])
 
 	Func setIsThreeState P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsThreeState",P1])
+		dnRequest("set",[self,"IsThreeState",P1])
 		return self
 
 	Func getCheckedEvent

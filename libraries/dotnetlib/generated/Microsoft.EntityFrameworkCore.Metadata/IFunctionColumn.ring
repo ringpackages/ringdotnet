@@ -19,10 +19,10 @@ Class IFunctionColumn from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"FindColumnMapping",P1])
 
 	Func getFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"Function"])
+		return dnRequest("get",[self,"Function"])
 
 	Func getPropertyMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyMappings"])
+		return dnRequest("get",[self,"PropertyMappings"])
 
 	Func setPropertyMappings P1
 		raise("DotNet Error: PropertyMappings is a read-only property")

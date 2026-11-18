@@ -27,72 +27,72 @@ Class XmlSchemaComplexType from XmlSchemaType
 		return self
 
 	Func getIsAbstract
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAbstract"])
+		return dnRequest("get",[self,"IsAbstract"])
 
 	Func setIsAbstract P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsAbstract",P1])
+		dnRequest("set",[self,"IsAbstract",P1])
 		return self
 
 	Func getBlock
-		return dnRequest("get",[new DotNetObject(nHandle),"Block"])
+		return dnRequest("get",[self,"Block"])
 
 	Func setBlock P1
-		dnRequest("set",[new DotNetObject(nHandle),"Block",P1])
+		dnRequest("set",[self,"Block",P1])
 		return self
 
 	Func getContentModel
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentModel"])
+		return dnRequest("get",[self,"ContentModel"])
 
 	Func setContentModel P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentModel",P1])
+		dnRequest("set",[self,"ContentModel",P1])
 		return self
 
 	Func getParticle
-		return dnRequest("get",[new DotNetObject(nHandle),"Particle"])
+		return dnRequest("get",[self,"Particle"])
 
 	Func setParticle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Particle",P1])
+		dnRequest("set",[self,"Particle",P1])
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAnyAttribute
-		return dnRequest("get",[new DotNetObject(nHandle),"AnyAttribute"])
+		return dnRequest("get",[self,"AnyAttribute"])
 
 	Func setAnyAttribute P1
-		dnRequest("set",[new DotNetObject(nHandle),"AnyAttribute",P1])
+		dnRequest("set",[self,"AnyAttribute",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
+		return dnRequest("get",[self,"ContentType"])
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentTypeParticle
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentTypeParticle"])
+		return dnRequest("get",[self,"ContentTypeParticle"])
 
 	Func setContentTypeParticle P1
 		raise("DotNet Error: ContentTypeParticle is a read-only property")
 
 	Func getBlockResolved
-		return dnRequest("get",[new DotNetObject(nHandle),"BlockResolved"])
+		return dnRequest("get",[self,"BlockResolved"])
 
 	Func setBlockResolved P1
 		raise("DotNet Error: BlockResolved is a read-only property")
 
 	Func getAttributeUses
-		return dnRequest("get",[new DotNetObject(nHandle),"AttributeUses"])
+		return dnRequest("get",[self,"AttributeUses"])
 
 	Func setAttributeUses P1
 		raise("DotNet Error: AttributeUses is a read-only property")
 
 	Func getAttributeWildcard
-		return dnRequest("get",[new DotNetObject(nHandle),"AttributeWildcard"])
+		return dnRequest("get",[self,"AttributeWildcard"])
 
 	Func setAttributeWildcard P1
 		raise("DotNet Error: AttributeWildcard is a read-only property")

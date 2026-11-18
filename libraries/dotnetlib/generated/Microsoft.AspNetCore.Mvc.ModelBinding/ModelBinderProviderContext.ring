@@ -31,25 +31,25 @@ Class ModelBinderProviderContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBindingInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingInfo"])
+		return dnRequest("get",[self,"BindingInfo"])
 
 	Func setBindingInfo P1
 		raise("DotNet Error: BindingInfo is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getMetadataProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"MetadataProvider"])
+		return dnRequest("get",[self,"MetadataProvider"])
 
 	Func setMetadataProvider P1
 		raise("DotNet Error: MetadataProvider is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
+		return dnRequest("get",[self,"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")

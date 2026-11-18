@@ -3,7 +3,7 @@
 Func DotNetNew_JsonQueryExpression
 	oDotNetNew = new JsonQueryExpression(0,0,0,0,0)
 
-Class JsonQueryExpression from DotNetObject
+Class JsonQueryExpression from ExpressionsExpression
 
 	EntityType
 	JsonColumn
@@ -11,9 +11,6 @@ Class JsonQueryExpression from DotNetObject
 	Path
 	IsNullable
 	KeyPropertyMap
-	NodeType
-	Type
-	CanReduce
 
 	Func init P1,P2,P3,P4,P5
 		if nDotNetWrapHandle != 0
@@ -43,78 +40,39 @@ Class JsonQueryExpression from DotNetObject
 	Func Update P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
 
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
-	Func Reduce 
-		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
-
-	Func ReduceAndCheck 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
-
-	Func ReduceExtensions 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
 	Func getEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
+		return dnRequest("get",[self,"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getJsonColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"JsonColumn"])
+		return dnRequest("get",[self,"JsonColumn"])
 
 	Func setJsonColumn P1
 		raise("DotNet Error: JsonColumn is a read-only property")
 
 	Func getIsCollection
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCollection"])
+		return dnRequest("get",[self,"IsCollection"])
 
 	Func setIsCollection P1
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getPath
-		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
+		return dnRequest("get",[self,"Path"])
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getKeyPropertyMap
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyPropertyMap"])
+		return dnRequest("get",[self,"KeyPropertyMap"])
 
 	Func setKeyPropertyMap P1
 		raise("DotNet Error: KeyPropertyMap is a read-only property")
-
-	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
-
-	Func setNodeType P1
-		raise("DotNet Error: NodeType is a read-only property")
-
-	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
-
-	Func setType P1
-		raise("DotNet Error: Type is a read-only property")
-
-	Func getCanReduce
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
-
-	Func setCanReduce P1
-		raise("DotNet Error: CanReduce is a read-only property")
 

@@ -20,24 +20,24 @@ Class DataGridBoundColumn from DataGridColumn
 		return self
 
 	Func getBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"Binding"])
+		return dnRequest("get",[self,"Binding"])
 
 	Func setBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Binding",P1])
+		dnRequest("set",[self,"Binding",P1])
 		return self
 
 	Func getElementStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementStyle"])
+		return dnRequest("get",[self,"ElementStyle"])
 
 	Func setElementStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ElementStyle",P1])
+		dnRequest("set",[self,"ElementStyle",P1])
 		return self
 
 	Func getEditingElementStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingElementStyle"])
+		return dnRequest("get",[self,"EditingElementStyle"])
 
 	Func setEditingElementStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingElementStyle",P1])
+		dnRequest("set",[self,"EditingElementStyle",P1])
 		return self
 
 	Func getElementStyleProperty

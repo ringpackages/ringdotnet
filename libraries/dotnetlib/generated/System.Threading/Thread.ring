@@ -212,75 +212,75 @@ Class Thread from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"GetCurrentProcessorId"])
 
 	Func getManagedThreadId
-		return dnRequest("get",[new DotNetObject(nHandle),"ManagedThreadId"])
+		return dnRequest("get",[self,"ManagedThreadId"])
 
 	Func setManagedThreadId P1
 		raise("DotNet Error: ManagedThreadId is a read-only property")
 
 	Func getIsAlive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAlive"])
+		return dnRequest("get",[self,"IsAlive"])
 
 	Func setIsAlive P1
 		raise("DotNet Error: IsAlive is a read-only property")
 
 	Func getIsBackground
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBackground"])
+		return dnRequest("get",[self,"IsBackground"])
 
 	Func setIsBackground P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsBackground",P1])
+		dnRequest("set",[self,"IsBackground",P1])
 		return self
 
 	Func getIsThreadPoolThread
-		return dnRequest("get",[new DotNetObject(nHandle),"IsThreadPoolThread"])
+		return dnRequest("get",[self,"IsThreadPoolThread"])
 
 	Func setIsThreadPoolThread P1
 		raise("DotNet Error: IsThreadPoolThread is a read-only property")
 
 	Func getPriority
-		return dnRequest("get",[new DotNetObject(nHandle),"Priority"])
+		return dnRequest("get",[self,"Priority"])
 
 	Func setPriority P1
-		dnRequest("set",[new DotNetObject(nHandle),"Priority",P1])
+		dnRequest("set",[self,"Priority",P1])
 		return self
 
 	Func getThreadState
-		return dnRequest("get",[new DotNetObject(nHandle),"ThreadState"])
+		return dnRequest("get",[self,"ThreadState"])
 
 	Func setThreadState P1
 		raise("DotNet Error: ThreadState is a read-only property")
 
 	Func getCurrentCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentCulture"])
+		return dnRequest("get",[self,"CurrentCulture"])
 
 	Func setCurrentCulture P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentCulture",P1])
+		dnRequest("set",[self,"CurrentCulture",P1])
 		return self
 
 	Func getCurrentUICulture
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentUICulture"])
+		return dnRequest("get",[self,"CurrentUICulture"])
 
 	Func setCurrentUICulture P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentUICulture",P1])
+		dnRequest("set",[self,"CurrentUICulture",P1])
 		return self
 
 	Func getExecutionContext
-		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionContext"])
+		return dnRequest("get",[self,"ExecutionContext"])
 
 	Func setExecutionContext P1
 		raise("DotNet Error: ExecutionContext is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getApartmentState
-		return dnRequest("get",[new DotNetObject(nHandle),"ApartmentState"])
+		return dnRequest("get",[self,"ApartmentState"])
 
 	Func setApartmentState P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApartmentState",P1])
+		dnRequest("set",[self,"ApartmentState",P1])
 		return self
 
 	Func getCurrentPrincipal

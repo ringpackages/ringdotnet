@@ -22,24 +22,24 @@ Class BlurEffect from Effect
 		return self
 
 	Func getRadius
-		return dnRequest("get",[new DotNetObject(nHandle),"Radius"])
+		return dnRequest("get",[self,"Radius"])
 
 	Func setRadius P1
-		dnRequest("set",[new DotNetObject(nHandle),"Radius",P1])
+		dnRequest("set",[self,"Radius",P1])
 		return self
 
 	Func getKernelType
-		return dnRequest("get",[new DotNetObject(nHandle),"KernelType"])
+		return dnRequest("get",[self,"KernelType"])
 
 	Func setKernelType P1
-		dnRequest("set",[new DotNetObject(nHandle),"KernelType",P1])
+		dnRequest("set",[self,"KernelType",P1])
 		return self
 
 	Func getRenderingBias
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderingBias"])
+		return dnRequest("get",[self,"RenderingBias"])
 
 	Func setRenderingBias P1
-		dnRequest("set",[new DotNetObject(nHandle),"RenderingBias",P1])
+		dnRequest("set",[self,"RenderingBias",P1])
 		return self
 
 	Func getRadiusProperty

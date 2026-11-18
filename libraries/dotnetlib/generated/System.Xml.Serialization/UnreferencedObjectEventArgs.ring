@@ -18,13 +18,13 @@ Class UnreferencedObjectEventArgs from EventArgs
 		return self
 
 	Func getUnreferencedObject
-		return dnRequest("get",[new DotNetObject(nHandle),"UnreferencedObject"])
+		return dnRequest("get",[self,"UnreferencedObject"])
 
 	Func setUnreferencedObject P1
 		raise("DotNet Error: UnreferencedObject is a read-only property")
 
 	Func getUnreferencedId
-		return dnRequest("get",[new DotNetObject(nHandle),"UnreferencedId"])
+		return dnRequest("get",[self,"UnreferencedId"])
 
 	Func setUnreferencedId P1
 		raise("DotNet Error: UnreferencedId is a read-only property")

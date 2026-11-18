@@ -17,6 +17,7 @@ dnRegisterClass("System.ComponentModel.ComponentResourceManager","ComponentResou
 dnRegisterClass("System.ComponentModel.Container","Container",0)
 dnRegisterClass("System.ComponentModel.ContainerFilterService","ContainerFilterService",0)
 dnRegisterClass("System.ComponentModel.CustomTypeDescriptor","CustomTypeDescriptor",0)
+dnRegisterClass("System.ComponentModel.DataErrorsChangedEventArgs","DataErrorsChangedEventArgs",1)
 dnRegisterClass("System.ComponentModel.EventDescriptorCollection","EventDescriptorCollection",1)
 dnRegisterClass("System.ComponentModel.EventHandlerList","EventHandlerList",0)
 dnRegisterClass("System.ComponentModel.HandledEventArgs","HandledEventArgs",0)
@@ -34,6 +35,9 @@ dnRegisterClass("System.ComponentModel.IIntellisenseBuilder","IIntellisenseBuild
 dnRegisterClass("System.ComponentModel.IListSource","IListSource",0)
 dnRegisterClass("System.ComponentModel.INestedContainer","INestedContainer",0)
 dnRegisterClass("System.ComponentModel.INestedSite","INestedSite",0)
+dnRegisterClass("System.ComponentModel.INotifyDataErrorInfo","INotifyDataErrorInfo",0)
+dnRegisterClass("System.ComponentModel.INotifyPropertyChanged","INotifyPropertyChanged",0)
+dnRegisterClass("System.ComponentModel.INotifyPropertyChanging","INotifyPropertyChanging",0)
 dnRegisterClass("System.ComponentModel.IRaiseItemChangedEvents","IRaiseItemChangedEvents",0)
 dnRegisterClass("System.ComponentModel.IRevertibleChangeTracking","IRevertibleChangeTracking",0)
 dnRegisterClass("System.ComponentModel.ISite","ISite",0)
@@ -54,6 +58,8 @@ dnRegisterClass("System.ComponentModel.MarshalByValueComponent","MarshalByValueC
 dnRegisterClass("System.ComponentModel.MaskedTextProvider","MaskedTextProvider",1)
 dnRegisterClass("System.ComponentModel.MemberDescriptor","MemberDescriptor",0)
 dnRegisterClass("System.ComponentModel.ProgressChangedEventArgs","ProgressChangedEventArgs",2)
+dnRegisterClass("System.ComponentModel.PropertyChangedEventArgs","PropertyChangedEventArgs",1)
+dnRegisterClass("System.ComponentModel.PropertyChangingEventArgs","PropertyChangingEventArgs",1)
 dnRegisterClass("System.ComponentModel.PropertyDescriptorCollection","PropertyDescriptorCollection",1)
 dnRegisterClass("System.ComponentModel.RefreshEventArgs","RefreshEventArgs",1)
 dnRegisterClass("System.ComponentModel.SyntaxCheck","SyntaxCheck",0)
@@ -116,6 +122,7 @@ load "System.ComponentModel/ComponentResourceManager.ring"
 load "System.ComponentModel/Container.ring"
 load "System.ComponentModel/ContainerFilterService.ring"
 load "System.ComponentModel/CustomTypeDescriptor.ring"
+load "System.ComponentModel/DataErrorsChangedEventArgs.ring"
 load "System.ComponentModel/EventDescriptorCollection.ring"
 load "System.ComponentModel/EventHandlerList.ring"
 load "System.ComponentModel/HandledEventArgs.ring"
@@ -133,6 +140,9 @@ load "System.ComponentModel/IIntellisenseBuilder.ring"
 load "System.ComponentModel/IListSource.ring"
 load "System.ComponentModel/INestedContainer.ring"
 load "System.ComponentModel/INestedSite.ring"
+load "System.ComponentModel/INotifyDataErrorInfo.ring"
+load "System.ComponentModel/INotifyPropertyChanged.ring"
+load "System.ComponentModel/INotifyPropertyChanging.ring"
 load "System.ComponentModel/IRaiseItemChangedEvents.ring"
 load "System.ComponentModel/IRevertibleChangeTracking.ring"
 load "System.ComponentModel/ISite.ring"
@@ -153,6 +163,8 @@ load "System.ComponentModel/MarshalByValueComponent.ring"
 load "System.ComponentModel/MaskedTextProvider.ring"
 load "System.ComponentModel/MemberDescriptor.ring"
 load "System.ComponentModel/ProgressChangedEventArgs.ring"
+load "System.ComponentModel/PropertyChangedEventArgs.ring"
+load "System.ComponentModel/PropertyChangingEventArgs.ring"
 load "System.ComponentModel/PropertyDescriptorCollection.ring"
 load "System.ComponentModel/RefreshEventArgs.ring"
 load "System.ComponentModel/SyntaxCheck.ring"

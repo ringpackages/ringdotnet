@@ -18,13 +18,13 @@ Class DataGridViewRowsRemovedEventArgs from EventArgs
 		return self
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getRowCount
-		return dnRequest("get",[new DotNetObject(nHandle),"RowCount"])
+		return dnRequest("get",[self,"RowCount"])
 
 	Func setRowCount P1
 		raise("DotNet Error: RowCount is a read-only property")

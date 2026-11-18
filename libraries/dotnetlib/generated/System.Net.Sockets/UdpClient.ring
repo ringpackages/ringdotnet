@@ -132,50 +132,50 @@ Class UdpClient from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAvailable
-		return dnRequest("get",[new DotNetObject(nHandle),"Available"])
+		return dnRequest("get",[self,"Available"])
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
 
 	Func getClient
-		return dnRequest("get",[new DotNetObject(nHandle),"Client"])
+		return dnRequest("get",[self,"Client"])
 
 	Func setClient P1
-		dnRequest("set",[new DotNetObject(nHandle),"Client",P1])
+		dnRequest("set",[self,"Client",P1])
 		return self
 
 	Func getTtl
-		return dnRequest("get",[new DotNetObject(nHandle),"Ttl"])
+		return dnRequest("get",[self,"Ttl"])
 
 	Func setTtl P1
-		dnRequest("set",[new DotNetObject(nHandle),"Ttl",P1])
+		dnRequest("set",[self,"Ttl",P1])
 		return self
 
 	Func getDontFragment
-		return dnRequest("get",[new DotNetObject(nHandle),"DontFragment"])
+		return dnRequest("get",[self,"DontFragment"])
 
 	Func setDontFragment P1
-		dnRequest("set",[new DotNetObject(nHandle),"DontFragment",P1])
+		dnRequest("set",[self,"DontFragment",P1])
 		return self
 
 	Func getMulticastLoopback
-		return dnRequest("get",[new DotNetObject(nHandle),"MulticastLoopback"])
+		return dnRequest("get",[self,"MulticastLoopback"])
 
 	Func setMulticastLoopback P1
-		dnRequest("set",[new DotNetObject(nHandle),"MulticastLoopback",P1])
+		dnRequest("set",[self,"MulticastLoopback",P1])
 		return self
 
 	Func getEnableBroadcast
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableBroadcast"])
+		return dnRequest("get",[self,"EnableBroadcast"])
 
 	Func setEnableBroadcast P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableBroadcast",P1])
+		dnRequest("set",[self,"EnableBroadcast",P1])
 		return self
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[new DotNetObject(nHandle),"ExclusiveAddressUse"])
+		return dnRequest("get",[self,"ExclusiveAddressUse"])
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExclusiveAddressUse",P1])
+		dnRequest("set",[self,"ExclusiveAddressUse",P1])
 		return self
 

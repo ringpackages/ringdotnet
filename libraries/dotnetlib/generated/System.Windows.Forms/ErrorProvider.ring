@@ -73,64 +73,64 @@ Class ErrorProvider from Component
 		return self
 
 	Func getBlinkStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"BlinkStyle"])
+		return dnRequest("get",[self,"BlinkStyle"])
 
 	Func setBlinkStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"BlinkStyle",P1])
+		dnRequest("set",[self,"BlinkStyle",P1])
 		return self
 
 	Func getContainerControl
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainerControl"])
+		return dnRequest("get",[self,"ContainerControl"])
 
 	Func setContainerControl P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContainerControl",P1])
+		dnRequest("set",[self,"ContainerControl",P1])
 		return self
 
 	Func getHasErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"HasErrors"])
+		return dnRequest("get",[self,"HasErrors"])
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")
 
 	Func getRightToLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeft"])
+		return dnRequest("get",[self,"RightToLeft"])
 
 	Func setRightToLeft P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightToLeft",P1])
+		dnRequest("set",[self,"RightToLeft",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
+		return dnRequest("get",[self,"DataSource"])
 
 	Func setDataSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSource",P1])
+		dnRequest("set",[self,"DataSource",P1])
 		return self
 
 	Func getDataMember
-		return dnRequest("get",[new DotNetObject(nHandle),"DataMember"])
+		return dnRequest("get",[self,"DataMember"])
 
 	Func setDataMember P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataMember",P1])
+		dnRequest("set",[self,"DataMember",P1])
 		return self
 
 	Func getBlinkRate
-		return dnRequest("get",[new DotNetObject(nHandle),"BlinkRate"])
+		return dnRequest("get",[self,"BlinkRate"])
 
 	Func setBlinkRate P1
-		dnRequest("set",[new DotNetObject(nHandle),"BlinkRate",P1])
+		dnRequest("set",[self,"BlinkRate",P1])
 		return self
 
 	Func getIcon
-		return dnRequest("get",[new DotNetObject(nHandle),"Icon"])
+		return dnRequest("get",[self,"Icon"])
 
 	Func setIcon P1
-		dnRequest("set",[new DotNetObject(nHandle),"Icon",P1])
+		dnRequest("set",[self,"Icon",P1])
 		return self
 

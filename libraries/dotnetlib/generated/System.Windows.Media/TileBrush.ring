@@ -31,59 +31,59 @@ Class TileBrush from WpfBrush
 		return self
 
 	Func getViewportUnits
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewportUnits"])
+		return dnRequest("get",[self,"ViewportUnits"])
 
 	Func setViewportUnits P1
-		dnRequest("set",[new DotNetObject(nHandle),"ViewportUnits",P1])
+		dnRequest("set",[self,"ViewportUnits",P1])
 		return self
 
 	Func getViewboxUnits
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewboxUnits"])
+		return dnRequest("get",[self,"ViewboxUnits"])
 
 	Func setViewboxUnits P1
-		dnRequest("set",[new DotNetObject(nHandle),"ViewboxUnits",P1])
+		dnRequest("set",[self,"ViewboxUnits",P1])
 		return self
 
 	Func getViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"Viewport"])
+		return dnRequest("get",[self,"Viewport"])
 
 	Func setViewport P1
-		dnRequest("set",[new DotNetObject(nHandle),"Viewport",P1])
+		dnRequest("set",[self,"Viewport",P1])
 		return self
 
 	Func getViewbox
-		return dnRequest("get",[new DotNetObject(nHandle),"Viewbox"])
+		return dnRequest("get",[self,"Viewbox"])
 
 	Func setViewbox P1
-		dnRequest("set",[new DotNetObject(nHandle),"Viewbox",P1])
+		dnRequest("set",[self,"Viewbox",P1])
 		return self
 
 	Func getStretch
-		return dnRequest("get",[new DotNetObject(nHandle),"Stretch"])
+		return dnRequest("get",[self,"Stretch"])
 
 	Func setStretch P1
-		dnRequest("set",[new DotNetObject(nHandle),"Stretch",P1])
+		dnRequest("set",[self,"Stretch",P1])
 		return self
 
 	Func getTileMode
-		return dnRequest("get",[new DotNetObject(nHandle),"TileMode"])
+		return dnRequest("get",[self,"TileMode"])
 
 	Func setTileMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"TileMode",P1])
+		dnRequest("set",[self,"TileMode",P1])
 		return self
 
 	Func getAlignmentX
-		return dnRequest("get",[new DotNetObject(nHandle),"AlignmentX"])
+		return dnRequest("get",[self,"AlignmentX"])
 
 	Func setAlignmentX P1
-		dnRequest("set",[new DotNetObject(nHandle),"AlignmentX",P1])
+		dnRequest("set",[self,"AlignmentX",P1])
 		return self
 
 	Func getAlignmentY
-		return dnRequest("get",[new DotNetObject(nHandle),"AlignmentY"])
+		return dnRequest("get",[self,"AlignmentY"])
 
 	Func setAlignmentY P1
-		dnRequest("set",[new DotNetObject(nHandle),"AlignmentY",P1])
+		dnRequest("set",[self,"AlignmentY",P1])
 		return self
 
 	Func getViewportUnitsProperty

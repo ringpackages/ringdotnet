@@ -32,9 +32,9 @@ Class InputScopeName from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getNameValue
-		return dnRequest("get",[new DotNetObject(nHandle),"NameValue"])
+		return dnRequest("get",[self,"NameValue"])
 
 	Func setNameValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"NameValue",P1])
+		dnRequest("set",[self,"NameValue",P1])
 		return self
 

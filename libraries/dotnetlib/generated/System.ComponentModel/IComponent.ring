@@ -24,9 +24,9 @@ Class IComponent from DotNetObject
 		return self
 
 	Func getSite
-		return dnRequest("get",[new DotNetObject(nHandle),"Site"])
+		return dnRequest("get",[self,"Site"])
 
 	Func setSite P1
-		dnRequest("set",[new DotNetObject(nHandle),"Site",P1])
+		dnRequest("set",[self,"Site",P1])
 		return self
 

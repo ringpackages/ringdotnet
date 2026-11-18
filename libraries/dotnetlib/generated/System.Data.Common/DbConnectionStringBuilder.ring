@@ -68,45 +68,45 @@ Class DbConnectionStringBuilder from Object
 		return self
 
 	Func getBrowsableConnectionString
-		return dnRequest("get",[new DotNetObject(nHandle),"BrowsableConnectionString"])
+		return dnRequest("get",[self,"BrowsableConnectionString"])
 
 	Func setBrowsableConnectionString P1
-		dnRequest("set",[new DotNetObject(nHandle),"BrowsableConnectionString",P1])
+		dnRequest("set",[self,"BrowsableConnectionString",P1])
 		return self
 
 	Func getConnectionString
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionString"])
+		return dnRequest("get",[self,"ConnectionString"])
 
 	Func setConnectionString P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConnectionString",P1])
+		dnRequest("set",[self,"ConnectionString",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedSize"])
+		return dnRequest("get",[self,"IsFixedSize"])
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
+		return dnRequest("get",[self,"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
+		return dnRequest("get",[self,"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")

@@ -23,30 +23,30 @@ Class FontFamilyMap from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUnicode
-		return dnRequest("get",[new DotNetObject(nHandle),"Unicode"])
+		return dnRequest("get",[self,"Unicode"])
 
 	Func setUnicode P1
-		dnRequest("set",[new DotNetObject(nHandle),"Unicode",P1])
+		dnRequest("set",[self,"Unicode",P1])
 		return self
 
 	Func getTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
+		return dnRequest("get",[self,"Target"])
 
 	Func setTarget P1
-		dnRequest("set",[new DotNetObject(nHandle),"Target",P1])
+		dnRequest("set",[self,"Target",P1])
 		return self
 
 	Func getScale
-		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
+		return dnRequest("get",[self,"Scale"])
 
 	Func setScale P1
-		dnRequest("set",[new DotNetObject(nHandle),"Scale",P1])
+		dnRequest("set",[self,"Scale",P1])
 		return self
 
 	Func getLanguage
-		return dnRequest("get",[new DotNetObject(nHandle),"Language"])
+		return dnRequest("get",[self,"Language"])
 
 	Func setLanguage P1
-		dnRequest("set",[new DotNetObject(nHandle),"Language",P1])
+		dnRequest("set",[self,"Language",P1])
 		return self
 

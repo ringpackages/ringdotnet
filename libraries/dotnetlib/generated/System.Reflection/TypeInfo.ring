@@ -48,55 +48,55 @@ Class TypeInfo from Type
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getGenericTypeParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"GenericTypeParameters"])
+		return dnRequest("get",[self,"GenericTypeParameters"])
 
 	Func setGenericTypeParameters P1
 		raise("DotNet Error: GenericTypeParameters is a read-only property")
 
 	Func getDeclaredConstructors
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredConstructors"])
+		return dnRequest("get",[self,"DeclaredConstructors"])
 
 	Func setDeclaredConstructors P1
 		raise("DotNet Error: DeclaredConstructors is a read-only property")
 
 	Func getDeclaredEvents
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredEvents"])
+		return dnRequest("get",[self,"DeclaredEvents"])
 
 	Func setDeclaredEvents P1
 		raise("DotNet Error: DeclaredEvents is a read-only property")
 
 	Func getDeclaredFields
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredFields"])
+		return dnRequest("get",[self,"DeclaredFields"])
 
 	Func setDeclaredFields P1
 		raise("DotNet Error: DeclaredFields is a read-only property")
 
 	Func getDeclaredMembers
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredMembers"])
+		return dnRequest("get",[self,"DeclaredMembers"])
 
 	Func setDeclaredMembers P1
 		raise("DotNet Error: DeclaredMembers is a read-only property")
 
 	Func getDeclaredMethods
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredMethods"])
+		return dnRequest("get",[self,"DeclaredMethods"])
 
 	Func setDeclaredMethods P1
 		raise("DotNet Error: DeclaredMethods is a read-only property")
 
 	Func getDeclaredNestedTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredNestedTypes"])
+		return dnRequest("get",[self,"DeclaredNestedTypes"])
 
 	Func setDeclaredNestedTypes P1
 		raise("DotNet Error: DeclaredNestedTypes is a read-only property")
 
 	Func getDeclaredProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredProperties"])
+		return dnRequest("get",[self,"DeclaredProperties"])
 
 	Func setDeclaredProperties P1
 		raise("DotNet Error: DeclaredProperties is a read-only property")
 
 	Func getImplementedInterfaces
-		return dnRequest("get",[new DotNetObject(nHandle),"ImplementedInterfaces"])
+		return dnRequest("get",[self,"ImplementedInterfaces"])
 
 	Func setImplementedInterfaces P1
 		raise("DotNet Error: ImplementedInterfaces is a read-only property")

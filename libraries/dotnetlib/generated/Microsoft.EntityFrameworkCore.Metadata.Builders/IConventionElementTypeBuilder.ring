@@ -199,7 +199,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"CanSetValueComparer",P1])
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

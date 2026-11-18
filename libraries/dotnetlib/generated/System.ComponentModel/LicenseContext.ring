@@ -30,7 +30,7 @@ Class LicenseContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUsageMode
-		return dnRequest("get",[new DotNetObject(nHandle),"UsageMode"])
+		return dnRequest("get",[self,"UsageMode"])
 
 	Func setUsageMode P1
 		raise("DotNet Error: UsageMode is a read-only property")

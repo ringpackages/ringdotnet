@@ -29,7 +29,7 @@ Class XmlLanguage from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XmlLanguage, PresentationCore'),"GetLanguage",P1])
 
 	Func getIetfLanguageTag
-		return dnRequest("get",[new DotNetObject(nHandle),"IetfLanguageTag"])
+		return dnRequest("get",[self,"IetfLanguageTag"])
 
 	Func setIetfLanguageTag P1
 		raise("DotNet Error: IetfLanguageTag is a read-only property")

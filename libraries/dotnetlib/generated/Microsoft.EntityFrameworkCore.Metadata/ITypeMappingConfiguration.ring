@@ -34,7 +34,7 @@ Class ITypeMappingConfiguration from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetProviderClrType"])
 
 	Func getClrType
-		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
+		return dnRequest("get",[self,"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")

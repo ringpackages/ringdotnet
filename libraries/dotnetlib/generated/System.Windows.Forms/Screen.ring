@@ -43,31 +43,31 @@ Class Screen from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"GetBounds",P1])
 
 	Func getBitsPerPixel
-		return dnRequest("get",[new DotNetObject(nHandle),"BitsPerPixel"])
+		return dnRequest("get",[self,"BitsPerPixel"])
 
 	Func setBitsPerPixel P1
 		raise("DotNet Error: BitsPerPixel is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getDeviceName
-		return dnRequest("get",[new DotNetObject(nHandle),"DeviceName"])
+		return dnRequest("get",[self,"DeviceName"])
 
 	Func setDeviceName P1
 		raise("DotNet Error: DeviceName is a read-only property")
 
 	Func getPrimary
-		return dnRequest("get",[new DotNetObject(nHandle),"Primary"])
+		return dnRequest("get",[self,"Primary"])
 
 	Func setPrimary P1
 		raise("DotNet Error: Primary is a read-only property")
 
 	Func getWorkingArea
-		return dnRequest("get",[new DotNetObject(nHandle),"WorkingArea"])
+		return dnRequest("get",[self,"WorkingArea"])
 
 	Func setWorkingArea P1
 		raise("DotNet Error: WorkingArea is a read-only property")

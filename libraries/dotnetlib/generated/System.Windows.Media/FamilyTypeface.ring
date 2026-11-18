@@ -31,83 +31,83 @@ Class FamilyTypeface from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
+		return dnRequest("get",[self,"Style"])
 
 	Func setStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Style",P1])
+		dnRequest("set",[self,"Style",P1])
 		return self
 
 	Func getWeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Weight"])
+		return dnRequest("get",[self,"Weight"])
 
 	Func setWeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"Weight",P1])
+		dnRequest("set",[self,"Weight",P1])
 		return self
 
 	Func getStretch
-		return dnRequest("get",[new DotNetObject(nHandle),"Stretch"])
+		return dnRequest("get",[self,"Stretch"])
 
 	Func setStretch P1
-		dnRequest("set",[new DotNetObject(nHandle),"Stretch",P1])
+		dnRequest("set",[self,"Stretch",P1])
 		return self
 
 	Func getUnderlinePosition
-		return dnRequest("get",[new DotNetObject(nHandle),"UnderlinePosition"])
+		return dnRequest("get",[self,"UnderlinePosition"])
 
 	Func setUnderlinePosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"UnderlinePosition",P1])
+		dnRequest("set",[self,"UnderlinePosition",P1])
 		return self
 
 	Func getUnderlineThickness
-		return dnRequest("get",[new DotNetObject(nHandle),"UnderlineThickness"])
+		return dnRequest("get",[self,"UnderlineThickness"])
 
 	Func setUnderlineThickness P1
-		dnRequest("set",[new DotNetObject(nHandle),"UnderlineThickness",P1])
+		dnRequest("set",[self,"UnderlineThickness",P1])
 		return self
 
 	Func getStrikethroughPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"StrikethroughPosition"])
+		return dnRequest("get",[self,"StrikethroughPosition"])
 
 	Func setStrikethroughPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"StrikethroughPosition",P1])
+		dnRequest("set",[self,"StrikethroughPosition",P1])
 		return self
 
 	Func getStrikethroughThickness
-		return dnRequest("get",[new DotNetObject(nHandle),"StrikethroughThickness"])
+		return dnRequest("get",[self,"StrikethroughThickness"])
 
 	Func setStrikethroughThickness P1
-		dnRequest("set",[new DotNetObject(nHandle),"StrikethroughThickness",P1])
+		dnRequest("set",[self,"StrikethroughThickness",P1])
 		return self
 
 	Func getCapsHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"CapsHeight"])
+		return dnRequest("get",[self,"CapsHeight"])
 
 	Func setCapsHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"CapsHeight",P1])
+		dnRequest("set",[self,"CapsHeight",P1])
 		return self
 
 	Func getXHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"XHeight"])
+		return dnRequest("get",[self,"XHeight"])
 
 	Func setXHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"XHeight",P1])
+		dnRequest("set",[self,"XHeight",P1])
 		return self
 
 	Func getAdjustedFaceNames
-		return dnRequest("get",[new DotNetObject(nHandle),"AdjustedFaceNames"])
+		return dnRequest("get",[self,"AdjustedFaceNames"])
 
 	Func setAdjustedFaceNames P1
 		raise("DotNet Error: AdjustedFaceNames is a read-only property")
 
 	Func getDeviceFontName
-		return dnRequest("get",[new DotNetObject(nHandle),"DeviceFontName"])
+		return dnRequest("get",[self,"DeviceFontName"])
 
 	Func setDeviceFontName P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeviceFontName",P1])
+		dnRequest("set",[self,"DeviceFontName",P1])
 		return self
 
 	Func getDeviceFontCharacterMetrics
-		return dnRequest("get",[new DotNetObject(nHandle),"DeviceFontCharacterMetrics"])
+		return dnRequest("get",[self,"DeviceFontCharacterMetrics"])
 
 	Func setDeviceFontCharacterMetrics P1
 		raise("DotNet Error: DeviceFontCharacterMetrics is a read-only property")

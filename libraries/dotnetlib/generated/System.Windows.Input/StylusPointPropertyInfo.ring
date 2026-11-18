@@ -24,25 +24,25 @@ Class StylusPointPropertyInfo from StylusPointProperty
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
+		return dnRequest("get",[self,"Minimum"])
 
 	Func setMinimum P1
 		raise("DotNet Error: Minimum is a read-only property")
 
 	Func getMaximum
-		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
+		return dnRequest("get",[self,"Maximum"])
 
 	Func setMaximum P1
 		raise("DotNet Error: Maximum is a read-only property")
 
 	Func getResolution
-		return dnRequest("get",[new DotNetObject(nHandle),"Resolution"])
+		return dnRequest("get",[self,"Resolution"])
 
 	Func setResolution P1
 		raise("DotNet Error: Resolution is a read-only property")
 
 	Func getUnit
-		return dnRequest("get",[new DotNetObject(nHandle),"Unit"])
+		return dnRequest("get",[self,"Unit"])
 
 	Func setUnit P1
 		raise("DotNet Error: Unit is a read-only property")

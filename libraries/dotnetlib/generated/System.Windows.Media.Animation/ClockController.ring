@@ -49,15 +49,15 @@ Class ClockController from DispatcherObject
 		return self
 
 	Func getClock
-		return dnRequest("get",[new DotNetObject(nHandle),"Clock"])
+		return dnRequest("get",[self,"Clock"])
 
 	Func setClock P1
 		raise("DotNet Error: Clock is a read-only property")
 
 	Func getSpeedRatio
-		return dnRequest("get",[new DotNetObject(nHandle),"SpeedRatio"])
+		return dnRequest("get",[self,"SpeedRatio"])
 
 	Func setSpeedRatio P1
-		dnRequest("set",[new DotNetObject(nHandle),"SpeedRatio",P1])
+		dnRequest("set",[self,"SpeedRatio",P1])
 		return self
 

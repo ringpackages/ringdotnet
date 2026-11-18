@@ -24,31 +24,31 @@ Class DataGridRowClipboardEventArgs from EventArgs
 		return dnRequest("call",[new DotNetObject(nHandle),"FormatClipboardCellValues",P1])
 
 	Func getItem
-		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
+		return dnRequest("get",[self,"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getClipboardRowContent
-		return dnRequest("get",[new DotNetObject(nHandle),"ClipboardRowContent"])
+		return dnRequest("get",[self,"ClipboardRowContent"])
 
 	Func setClipboardRowContent P1
 		raise("DotNet Error: ClipboardRowContent is a read-only property")
 
 	Func getStartColumnDisplayIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"StartColumnDisplayIndex"])
+		return dnRequest("get",[self,"StartColumnDisplayIndex"])
 
 	Func setStartColumnDisplayIndex P1
 		raise("DotNet Error: StartColumnDisplayIndex is a read-only property")
 
 	Func getEndColumnDisplayIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"EndColumnDisplayIndex"])
+		return dnRequest("get",[self,"EndColumnDisplayIndex"])
 
 	Func setEndColumnDisplayIndex P1
 		raise("DotNet Error: EndColumnDisplayIndex is a read-only property")
 
 	Func getIsColumnHeadersRow
-		return dnRequest("get",[new DotNetObject(nHandle),"IsColumnHeadersRow"])
+		return dnRequest("get",[self,"IsColumnHeadersRow"])
 
 	Func setIsColumnHeadersRow P1
 		raise("DotNet Error: IsColumnHeadersRow is a read-only property")

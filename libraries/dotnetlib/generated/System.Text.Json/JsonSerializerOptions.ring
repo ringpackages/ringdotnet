@@ -83,201 +83,201 @@ Class JsonSerializerOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConverters
-		return dnRequest("get",[new DotNetObject(nHandle),"Converters"])
+		return dnRequest("get",[self,"Converters"])
 
 	Func setConverters P1
 		raise("DotNet Error: Converters is a read-only property")
 
 	Func getTypeInfoResolver
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeInfoResolver"])
+		return dnRequest("get",[self,"TypeInfoResolver"])
 
 	Func setTypeInfoResolver P1
-		dnRequest("set",[new DotNetObject(nHandle),"TypeInfoResolver",P1])
+		dnRequest("set",[self,"TypeInfoResolver",P1])
 		return self
 
 	Func getTypeInfoResolverChain
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeInfoResolverChain"])
+		return dnRequest("get",[self,"TypeInfoResolverChain"])
 
 	Func setTypeInfoResolverChain P1
 		raise("DotNet Error: TypeInfoResolverChain is a read-only property")
 
 	Func getAllowOutOfOrderMetadataProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowOutOfOrderMetadataProperties"])
+		return dnRequest("get",[self,"AllowOutOfOrderMetadataProperties"])
 
 	Func setAllowOutOfOrderMetadataProperties P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowOutOfOrderMetadataProperties",P1])
+		dnRequest("set",[self,"AllowOutOfOrderMetadataProperties",P1])
 		return self
 
 	Func getAllowTrailingCommas
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowTrailingCommas"])
+		return dnRequest("get",[self,"AllowTrailingCommas"])
 
 	Func setAllowTrailingCommas P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowTrailingCommas",P1])
+		dnRequest("set",[self,"AllowTrailingCommas",P1])
 		return self
 
 	Func getDefaultBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultBufferSize"])
+		return dnRequest("get",[self,"DefaultBufferSize"])
 
 	Func setDefaultBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultBufferSize",P1])
+		dnRequest("set",[self,"DefaultBufferSize",P1])
 		return self
 
 	Func getEncoder
-		return dnRequest("get",[new DotNetObject(nHandle),"Encoder"])
+		return dnRequest("get",[self,"Encoder"])
 
 	Func setEncoder P1
-		dnRequest("set",[new DotNetObject(nHandle),"Encoder",P1])
+		dnRequest("set",[self,"Encoder",P1])
 		return self
 
 	Func getDictionaryKeyPolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"DictionaryKeyPolicy"])
+		return dnRequest("get",[self,"DictionaryKeyPolicy"])
 
 	Func setDictionaryKeyPolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"DictionaryKeyPolicy",P1])
+		dnRequest("set",[self,"DictionaryKeyPolicy",P1])
 		return self
 
 	Func getIgnoreNullValues
-		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreNullValues"])
+		return dnRequest("get",[self,"IgnoreNullValues"])
 
 	Func setIgnoreNullValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"IgnoreNullValues",P1])
+		dnRequest("set",[self,"IgnoreNullValues",P1])
 		return self
 
 	Func getDefaultIgnoreCondition
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultIgnoreCondition"])
+		return dnRequest("get",[self,"DefaultIgnoreCondition"])
 
 	Func setDefaultIgnoreCondition P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultIgnoreCondition",P1])
+		dnRequest("set",[self,"DefaultIgnoreCondition",P1])
 		return self
 
 	Func getNumberHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberHandling"])
+		return dnRequest("get",[self,"NumberHandling"])
 
 	Func setNumberHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"NumberHandling",P1])
+		dnRequest("set",[self,"NumberHandling",P1])
 		return self
 
 	Func getPreferredObjectCreationHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"PreferredObjectCreationHandling"])
+		return dnRequest("get",[self,"PreferredObjectCreationHandling"])
 
 	Func setPreferredObjectCreationHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreferredObjectCreationHandling",P1])
+		dnRequest("set",[self,"PreferredObjectCreationHandling",P1])
 		return self
 
 	Func getIgnoreReadOnlyProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreReadOnlyProperties"])
+		return dnRequest("get",[self,"IgnoreReadOnlyProperties"])
 
 	Func setIgnoreReadOnlyProperties P1
-		dnRequest("set",[new DotNetObject(nHandle),"IgnoreReadOnlyProperties",P1])
+		dnRequest("set",[self,"IgnoreReadOnlyProperties",P1])
 		return self
 
 	Func getIgnoreReadOnlyFields
-		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreReadOnlyFields"])
+		return dnRequest("get",[self,"IgnoreReadOnlyFields"])
 
 	Func setIgnoreReadOnlyFields P1
-		dnRequest("set",[new DotNetObject(nHandle),"IgnoreReadOnlyFields",P1])
+		dnRequest("set",[self,"IgnoreReadOnlyFields",P1])
 		return self
 
 	Func getIncludeFields
-		return dnRequest("get",[new DotNetObject(nHandle),"IncludeFields"])
+		return dnRequest("get",[self,"IncludeFields"])
 
 	Func setIncludeFields P1
-		dnRequest("set",[new DotNetObject(nHandle),"IncludeFields",P1])
+		dnRequest("set",[self,"IncludeFields",P1])
 		return self
 
 	Func getMaxDepth
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxDepth"])
+		return dnRequest("get",[self,"MaxDepth"])
 
 	Func setMaxDepth P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxDepth",P1])
+		dnRequest("set",[self,"MaxDepth",P1])
 		return self
 
 	Func getPropertyNamingPolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyNamingPolicy"])
+		return dnRequest("get",[self,"PropertyNamingPolicy"])
 
 	Func setPropertyNamingPolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"PropertyNamingPolicy",P1])
+		dnRequest("set",[self,"PropertyNamingPolicy",P1])
 		return self
 
 	Func getPropertyNameCaseInsensitive
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyNameCaseInsensitive"])
+		return dnRequest("get",[self,"PropertyNameCaseInsensitive"])
 
 	Func setPropertyNameCaseInsensitive P1
-		dnRequest("set",[new DotNetObject(nHandle),"PropertyNameCaseInsensitive",P1])
+		dnRequest("set",[self,"PropertyNameCaseInsensitive",P1])
 		return self
 
 	Func getReadCommentHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadCommentHandling"])
+		return dnRequest("get",[self,"ReadCommentHandling"])
 
 	Func setReadCommentHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadCommentHandling",P1])
+		dnRequest("set",[self,"ReadCommentHandling",P1])
 		return self
 
 	Func getUnknownTypeHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"UnknownTypeHandling"])
+		return dnRequest("get",[self,"UnknownTypeHandling"])
 
 	Func setUnknownTypeHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"UnknownTypeHandling",P1])
+		dnRequest("set",[self,"UnknownTypeHandling",P1])
 		return self
 
 	Func getUnmappedMemberHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"UnmappedMemberHandling"])
+		return dnRequest("get",[self,"UnmappedMemberHandling"])
 
 	Func setUnmappedMemberHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"UnmappedMemberHandling",P1])
+		dnRequest("set",[self,"UnmappedMemberHandling",P1])
 		return self
 
 	Func getWriteIndented
-		return dnRequest("get",[new DotNetObject(nHandle),"WriteIndented"])
+		return dnRequest("get",[self,"WriteIndented"])
 
 	Func setWriteIndented P1
-		dnRequest("set",[new DotNetObject(nHandle),"WriteIndented",P1])
+		dnRequest("set",[self,"WriteIndented",P1])
 		return self
 
 	Func getIndentCharacter
-		return dnRequest("get",[new DotNetObject(nHandle),"IndentCharacter"])
+		return dnRequest("get",[self,"IndentCharacter"])
 
 	Func setIndentCharacter P1
-		dnRequest("set",[new DotNetObject(nHandle),"IndentCharacter",P1])
+		dnRequest("set",[self,"IndentCharacter",P1])
 		return self
 
 	Func getIndentSize
-		return dnRequest("get",[new DotNetObject(nHandle),"IndentSize"])
+		return dnRequest("get",[self,"IndentSize"])
 
 	Func setIndentSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"IndentSize",P1])
+		dnRequest("set",[self,"IndentSize",P1])
 		return self
 
 	Func getReferenceHandler
-		return dnRequest("get",[new DotNetObject(nHandle),"ReferenceHandler"])
+		return dnRequest("get",[self,"ReferenceHandler"])
 
 	Func setReferenceHandler P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReferenceHandler",P1])
+		dnRequest("set",[self,"ReferenceHandler",P1])
 		return self
 
 	Func getNewLine
-		return dnRequest("get",[new DotNetObject(nHandle),"NewLine"])
+		return dnRequest("get",[self,"NewLine"])
 
 	Func setNewLine P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewLine",P1])
+		dnRequest("set",[self,"NewLine",P1])
 		return self
 
 	Func getRespectNullableAnnotations
-		return dnRequest("get",[new DotNetObject(nHandle),"RespectNullableAnnotations"])
+		return dnRequest("get",[self,"RespectNullableAnnotations"])
 
 	Func setRespectNullableAnnotations P1
-		dnRequest("set",[new DotNetObject(nHandle),"RespectNullableAnnotations",P1])
+		dnRequest("set",[self,"RespectNullableAnnotations",P1])
 		return self
 
 	Func getRespectRequiredConstructorParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"RespectRequiredConstructorParameters"])
+		return dnRequest("get",[self,"RespectRequiredConstructorParameters"])
 
 	Func setRespectRequiredConstructorParameters P1
-		dnRequest("set",[new DotNetObject(nHandle),"RespectRequiredConstructorParameters",P1])
+		dnRequest("set",[self,"RespectRequiredConstructorParameters",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

@@ -17,13 +17,13 @@ Class NotifyInputEventArgs from EventArgs
 		return self
 
 	Func getStagingItem
-		return dnRequest("get",[new DotNetObject(nHandle),"StagingItem"])
+		return dnRequest("get",[self,"StagingItem"])
 
 	Func setStagingItem P1
 		raise("DotNet Error: StagingItem is a read-only property")
 
 	Func getInputManager
-		return dnRequest("get",[new DotNetObject(nHandle),"InputManager"])
+		return dnRequest("get",[self,"InputManager"])
 
 	Func setInputManager P1
 		raise("DotNet Error: InputManager is a read-only property")

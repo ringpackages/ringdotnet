@@ -41,13 +41,13 @@ Class Freezable from DependencyObject
 		return self
 
 	Func getCanFreeze
-		return dnRequest("get",[new DotNetObject(nHandle),"CanFreeze"])
+		return dnRequest("get",[self,"CanFreeze"])
 
 	Func setCanFreeze P1
 		raise("DotNet Error: CanFreeze is a read-only property")
 
 	Func getIsFrozen
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFrozen"])
+		return dnRequest("get",[self,"IsFrozen"])
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")

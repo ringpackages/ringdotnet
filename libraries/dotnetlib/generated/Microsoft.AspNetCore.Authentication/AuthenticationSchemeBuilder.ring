@@ -25,22 +25,22 @@ Class AuthenticationSchemeBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
+		return dnRequest("get",[self,"DisplayName"])
 
 	Func setDisplayName P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayName",P1])
+		dnRequest("set",[self,"DisplayName",P1])
 		return self
 
 	Func getHandlerType
-		return dnRequest("get",[new DotNetObject(nHandle),"HandlerType"])
+		return dnRequest("get",[self,"HandlerType"])
 
 	Func setHandlerType P1
-		dnRequest("set",[new DotNetObject(nHandle),"HandlerType",P1])
+		dnRequest("set",[self,"HandlerType",P1])
 		return self
 

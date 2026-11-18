@@ -21,13 +21,13 @@ Class AuthorizationFailureReason from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMessage
-		return dnRequest("get",[new DotNetObject(nHandle),"Message"])
+		return dnRequest("get",[self,"Message"])
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
 
 	Func getHandler
-		return dnRequest("get",[new DotNetObject(nHandle),"Handler"])
+		return dnRequest("get",[self,"Handler"])
 
 	Func setHandler P1
 		raise("DotNet Error: Handler is a read-only property")

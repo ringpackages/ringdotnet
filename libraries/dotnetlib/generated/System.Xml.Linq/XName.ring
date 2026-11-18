@@ -30,19 +30,19 @@ Class XName from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1,P2])
 
 	Func getLocalName
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalName"])
+		return dnRequest("get",[self,"LocalName"])
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
+		return dnRequest("get",[self,"Namespace"])
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getNamespaceName
-		return dnRequest("get",[new DotNetObject(nHandle),"NamespaceName"])
+		return dnRequest("get",[self,"NamespaceName"])
 
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")

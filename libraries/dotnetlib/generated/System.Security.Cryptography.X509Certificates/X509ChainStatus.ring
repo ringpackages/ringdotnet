@@ -18,16 +18,16 @@ Class X509ChainStatus from ValueType
 		return self
 
 	Func getStatus
-		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
+		return dnRequest("get",[self,"Status"])
 
 	Func setStatus P1
-		dnRequest("set",[new DotNetObject(nHandle),"Status",P1])
+		dnRequest("set",[self,"Status",P1])
 		return self
 
 	Func getStatusInformation
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusInformation"])
+		return dnRequest("get",[self,"StatusInformation"])
 
 	Func setStatusInformation P1
-		dnRequest("set",[new DotNetObject(nHandle),"StatusInformation",P1])
+		dnRequest("set",[self,"StatusInformation",P1])
 		return self
 

@@ -59,19 +59,19 @@ Class ClaimsPrincipal from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getClaims
-		return dnRequest("get",[new DotNetObject(nHandle),"Claims"])
+		return dnRequest("get",[self,"Claims"])
 
 	Func setClaims P1
 		raise("DotNet Error: Claims is a read-only property")
 
 	Func getIdentities
-		return dnRequest("get",[new DotNetObject(nHandle),"Identities"])
+		return dnRequest("get",[self,"Identities"])
 
 	Func setIdentities P1
 		raise("DotNet Error: Identities is a read-only property")
 
 	Func getIdentity
-		return dnRequest("get",[new DotNetObject(nHandle),"Identity"])
+		return dnRequest("get",[self,"Identity"])
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")

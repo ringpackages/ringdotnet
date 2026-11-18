@@ -18,13 +18,13 @@ Class WebBrowserProgressChangedEventArgs from EventArgs
 		return self
 
 	Func getCurrentProgress
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentProgress"])
+		return dnRequest("get",[self,"CurrentProgress"])
 
 	Func setCurrentProgress P1
 		raise("DotNet Error: CurrentProgress is a read-only property")
 
 	Func getMaximumProgress
-		return dnRequest("get",[new DotNetObject(nHandle),"MaximumProgress"])
+		return dnRequest("get",[self,"MaximumProgress"])
 
 	Func setMaximumProgress P1
 		raise("DotNet Error: MaximumProgress is a read-only property")

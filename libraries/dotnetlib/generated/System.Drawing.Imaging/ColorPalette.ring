@@ -24,13 +24,13 @@ Class ColorPalette from Object
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ColorPalette, System.Drawing.Common'),"CreateOptimalPalette",P1,P2,P3])
 
 	Func getFlags
-		return dnRequest("get",[new DotNetObject(nHandle),"Flags"])
+		return dnRequest("get",[self,"Flags"])
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
 
 	Func getEntries
-		return dnRequest("get",[new DotNetObject(nHandle),"Entries"])
+		return dnRequest("get",[self,"Entries"])
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")

@@ -25,7 +25,7 @@ Class PaxTarEntry from PosixTarEntry
 		return self
 
 	Func getExtendedAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedAttributes"])
+		return dnRequest("get",[self,"ExtendedAttributes"])
 
 	Func setExtendedAttributes P1
 		raise("DotNet Error: ExtendedAttributes is a read-only property")

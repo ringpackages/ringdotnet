@@ -27,58 +27,58 @@ Class CookiePolicyOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMinimumSameSitePolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"MinimumSameSitePolicy"])
+		return dnRequest("get",[self,"MinimumSameSitePolicy"])
 
 	Func setMinimumSameSitePolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinimumSameSitePolicy",P1])
+		dnRequest("set",[self,"MinimumSameSitePolicy",P1])
 		return self
 
 	Func getHttpOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpOnly"])
+		return dnRequest("get",[self,"HttpOnly"])
 
 	Func setHttpOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"HttpOnly",P1])
+		dnRequest("set",[self,"HttpOnly",P1])
 		return self
 
 	Func getSecure
-		return dnRequest("get",[new DotNetObject(nHandle),"Secure"])
+		return dnRequest("get",[self,"Secure"])
 
 	Func setSecure P1
-		dnRequest("set",[new DotNetObject(nHandle),"Secure",P1])
+		dnRequest("set",[self,"Secure",P1])
 		return self
 
 	Func getConsentCookie
-		return dnRequest("get",[new DotNetObject(nHandle),"ConsentCookie"])
+		return dnRequest("get",[self,"ConsentCookie"])
 
 	Func setConsentCookie P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConsentCookie",P1])
+		dnRequest("set",[self,"ConsentCookie",P1])
 		return self
 
 	Func getConsentCookieValue
-		return dnRequest("get",[new DotNetObject(nHandle),"ConsentCookieValue"])
+		return dnRequest("get",[self,"ConsentCookieValue"])
 
 	Func setConsentCookieValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConsentCookieValue",P1])
+		dnRequest("set",[self,"ConsentCookieValue",P1])
 		return self
 
 	Func getCheckConsentNeeded
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckConsentNeeded"])
+		return dnRequest("get",[self,"CheckConsentNeeded"])
 
 	Func setCheckConsentNeeded P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckConsentNeeded",P1])
+		dnRequest("set",[self,"CheckConsentNeeded",P1])
 		return self
 
 	Func getOnAppendCookie
-		return dnRequest("get",[new DotNetObject(nHandle),"OnAppendCookie"])
+		return dnRequest("get",[self,"OnAppendCookie"])
 
 	Func setOnAppendCookie P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnAppendCookie",P1])
+		dnRequest("set",[self,"OnAppendCookie",P1])
 		return self
 
 	Func getOnDeleteCookie
-		return dnRequest("get",[new DotNetObject(nHandle),"OnDeleteCookie"])
+		return dnRequest("get",[self,"OnDeleteCookie"])
 
 	Func setOnDeleteCookie P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnDeleteCookie",P1])
+		dnRequest("set",[self,"OnDeleteCookie",P1])
 		return self
 

@@ -22,16 +22,16 @@ Class XProcessingInstruction from XNode
 		return self
 
 	Func getData
-		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
+		return dnRequest("get",[self,"Data"])
 
 	Func setData P1
-		dnRequest("set",[new DotNetObject(nHandle),"Data",P1])
+		dnRequest("set",[self,"Data",P1])
 		return self
 
 	Func getTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
+		return dnRequest("get",[self,"Target"])
 
 	Func setTarget P1
-		dnRequest("set",[new DotNetObject(nHandle),"Target",P1])
+		dnRequest("set",[self,"Target",P1])
 		return self
 

@@ -23,23 +23,23 @@ Class ECParameters from ValueType
 		return self
 
 	Func getQ
-		return dnRequest("get",[new DotNetObject(nHandle),"Q"])
+		return dnRequest("get",[self,"Q"])
 
 	Func setQ P1
-		dnRequest("set",[new DotNetObject(nHandle),"Q",P1])
+		dnRequest("set",[self,"Q",P1])
 		return self
 
 	Func getD
-		return dnRequest("get",[new DotNetObject(nHandle),"D"])
+		return dnRequest("get",[self,"D"])
 
 	Func setD P1
-		dnRequest("set",[new DotNetObject(nHandle),"D",P1])
+		dnRequest("set",[self,"D",P1])
 		return self
 
 	Func getCurve
-		return dnRequest("get",[new DotNetObject(nHandle),"Curve"])
+		return dnRequest("get",[self,"Curve"])
 
 	Func setCurve P1
-		dnRequest("set",[new DotNetObject(nHandle),"Curve",P1])
+		dnRequest("set",[self,"Curve",P1])
 		return self
 

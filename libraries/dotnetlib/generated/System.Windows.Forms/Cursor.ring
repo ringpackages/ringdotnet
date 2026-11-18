@@ -53,28 +53,28 @@ Class Cursor from Object
 		return self
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getHotSpot
-		return dnRequest("get",[new DotNetObject(nHandle),"HotSpot"])
+		return dnRequest("get",[self,"HotSpot"])
 
 	Func setHotSpot P1
 		raise("DotNet Error: HotSpot is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getClip

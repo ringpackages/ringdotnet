@@ -49,13 +49,13 @@ Class WriteableBitmap from BitmapSource
 		return self
 
 	Func getBackBuffer
-		return dnRequest("get",[new DotNetObject(nHandle),"BackBuffer"])
+		return dnRequest("get",[self,"BackBuffer"])
 
 	Func setBackBuffer P1
 		raise("DotNet Error: BackBuffer is a read-only property")
 
 	Func getBackBufferStride
-		return dnRequest("get",[new DotNetObject(nHandle),"BackBufferStride"])
+		return dnRequest("get",[self,"BackBufferStride"])
 
 	Func setBackBufferStride P1
 		raise("DotNet Error: BackBufferStride is a read-only property")

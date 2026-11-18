@@ -39,14 +39,14 @@ Class Decoder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFallback
-		return dnRequest("get",[new DotNetObject(nHandle),"Fallback"])
+		return dnRequest("get",[self,"Fallback"])
 
 	Func setFallback P1
-		dnRequest("set",[new DotNetObject(nHandle),"Fallback",P1])
+		dnRequest("set",[self,"Fallback",P1])
 		return self
 
 	Func getFallbackBuffer
-		return dnRequest("get",[new DotNetObject(nHandle),"FallbackBuffer"])
+		return dnRequest("get",[self,"FallbackBuffer"])
 
 	Func setFallbackBuffer P1
 		raise("DotNet Error: FallbackBuffer is a read-only property")

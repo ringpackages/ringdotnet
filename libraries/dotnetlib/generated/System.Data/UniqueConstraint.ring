@@ -26,13 +26,13 @@ Class UniqueConstraint from Constraint
 		return self
 
 	Func getColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
+		return dnRequest("get",[self,"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getIsPrimaryKey
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPrimaryKey"])
+		return dnRequest("get",[self,"IsPrimaryKey"])
 
 	Func setIsPrimaryKey P1
 		raise("DotNet Error: IsPrimaryKey is a read-only property")

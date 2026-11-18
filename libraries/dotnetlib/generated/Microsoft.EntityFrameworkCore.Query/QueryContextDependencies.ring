@@ -26,50 +26,50 @@ Class QueryContextDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrentContext
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentContext"])
+		return dnRequest("get",[self,"CurrentContext"])
 
 	Func setCurrentContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentContext",P1])
+		dnRequest("set",[self,"CurrentContext",P1])
 		return self
 
 	Func getStateManager
-		return dnRequest("get",[new DotNetObject(nHandle),"StateManager"])
+		return dnRequest("get",[self,"StateManager"])
 
 	Func setStateManager P1
 		raise("DotNet Error: StateManager is a read-only property")
 
 	Func getExecutionStrategy
-		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionStrategy"])
+		return dnRequest("get",[self,"ExecutionStrategy"])
 
 	Func setExecutionStrategy P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExecutionStrategy",P1])
+		dnRequest("set",[self,"ExecutionStrategy",P1])
 		return self
 
 	Func getConcurrencyDetector
-		return dnRequest("get",[new DotNetObject(nHandle),"ConcurrencyDetector"])
+		return dnRequest("get",[self,"ConcurrencyDetector"])
 
 	Func setConcurrencyDetector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConcurrencyDetector",P1])
+		dnRequest("set",[self,"ConcurrencyDetector",P1])
 		return self
 
 	Func getExceptionDetector
-		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionDetector"])
+		return dnRequest("get",[self,"ExceptionDetector"])
 
 	Func setExceptionDetector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExceptionDetector",P1])
+		dnRequest("set",[self,"ExceptionDetector",P1])
 		return self
 
 	Func getCommandLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
+		return dnRequest("get",[self,"CommandLogger"])
 
 	Func setCommandLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandLogger",P1])
+		dnRequest("set",[self,"CommandLogger",P1])
 		return self
 
 	Func getQueryLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryLogger"])
+		return dnRequest("get",[self,"QueryLogger"])
 
 	Func setQueryLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"QueryLogger",P1])
+		dnRequest("set",[self,"QueryLogger",P1])
 		return self
 

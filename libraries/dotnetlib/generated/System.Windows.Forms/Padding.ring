@@ -39,54 +39,54 @@ Class Padding from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Padding, System.Windows.Forms.Primitives'),"Subtract",P1,P2])
 
 	Func getAll
-		return dnRequest("get",[new DotNetObject(nHandle),"All"])
+		return dnRequest("get",[self,"All"])
 
 	Func setAll P1
-		dnRequest("set",[new DotNetObject(nHandle),"All",P1])
+		dnRequest("set",[self,"All",P1])
 		return self
 
 	Func getBottom
-		return dnRequest("get",[new DotNetObject(nHandle),"Bottom"])
+		return dnRequest("get",[self,"Bottom"])
 
 	Func setBottom P1
-		dnRequest("set",[new DotNetObject(nHandle),"Bottom",P1])
+		dnRequest("set",[self,"Bottom",P1])
 		return self
 
 	Func getLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"Left"])
+		return dnRequest("get",[self,"Left"])
 
 	Func setLeft P1
-		dnRequest("set",[new DotNetObject(nHandle),"Left",P1])
+		dnRequest("set",[self,"Left",P1])
 		return self
 
 	Func getRight
-		return dnRequest("get",[new DotNetObject(nHandle),"Right"])
+		return dnRequest("get",[self,"Right"])
 
 	Func setRight P1
-		dnRequest("set",[new DotNetObject(nHandle),"Right",P1])
+		dnRequest("set",[self,"Right",P1])
 		return self
 
 	Func getTop
-		return dnRequest("get",[new DotNetObject(nHandle),"Top"])
+		return dnRequest("get",[self,"Top"])
 
 	Func setTop P1
-		dnRequest("set",[new DotNetObject(nHandle),"Top",P1])
+		dnRequest("set",[self,"Top",P1])
 		return self
 
 	Func getHorizontal
-		return dnRequest("get",[new DotNetObject(nHandle),"Horizontal"])
+		return dnRequest("get",[self,"Horizontal"])
 
 	Func setHorizontal P1
 		raise("DotNet Error: Horizontal is a read-only property")
 
 	Func getVertical
-		return dnRequest("get",[new DotNetObject(nHandle),"Vertical"])
+		return dnRequest("get",[self,"Vertical"])
 
 	Func setVertical P1
 		raise("DotNet Error: Vertical is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")

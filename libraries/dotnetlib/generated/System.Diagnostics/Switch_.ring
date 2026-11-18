@@ -35,33 +35,33 @@ Class Switch_ from Object
 		return self
 
 	Func getDisplayName
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
+		return dnRequest("get",[self,"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
+		return dnRequest("get",[self,"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getDefaultValue
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultValue"])
+		return dnRequest("get",[self,"DefaultValue"])
 
 	Func setDefaultValue P1
 		raise("DotNet Error: DefaultValue is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 

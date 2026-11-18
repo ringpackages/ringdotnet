@@ -23,9 +23,9 @@ Class MaterializerLiftableConstantContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
 
 	Func getDependencies
-		return dnRequest("get",[new DotNetObject(nHandle),"Dependencies"])
+		return dnRequest("get",[self,"Dependencies"])
 
 	Func setDependencies P1
-		dnRequest("set",[new DotNetObject(nHandle),"Dependencies",P1])
+		dnRequest("set",[self,"Dependencies",P1])
 		return self
 

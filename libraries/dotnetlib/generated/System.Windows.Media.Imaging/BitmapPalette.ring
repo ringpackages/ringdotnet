@@ -21,7 +21,7 @@ Class BitmapPalette from DispatcherObject
 		return self
 
 	Func getColors
-		return dnRequest("get",[new DotNetObject(nHandle),"Colors"])
+		return dnRequest("get",[self,"Colors"])
 
 	Func setColors P1
 		raise("DotNet Error: Colors is a read-only property")

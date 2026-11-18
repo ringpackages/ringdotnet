@@ -21,9 +21,9 @@ Class DynamicResourceExtension from MarkupExtension
 		return self
 
 	Func getResourceKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ResourceKey"])
+		return dnRequest("get",[self,"ResourceKey"])
 
 	Func setResourceKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"ResourceKey",P1])
+		dnRequest("set",[self,"ResourceKey",P1])
 		return self
 

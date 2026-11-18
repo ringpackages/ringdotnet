@@ -31,14 +31,14 @@ Class RangeHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getUnit
-		return dnRequest("get",[new DotNetObject(nHandle),"Unit"])
+		return dnRequest("get",[self,"Unit"])
 
 	Func setUnit P1
-		dnRequest("set",[new DotNetObject(nHandle),"Unit",P1])
+		dnRequest("set",[self,"Unit",P1])
 		return self
 
 	Func getRanges
-		return dnRequest("get",[new DotNetObject(nHandle),"Ranges"])
+		return dnRequest("get",[self,"Ranges"])
 
 	Func setRanges P1
 		raise("DotNet Error: Ranges is a read-only property")

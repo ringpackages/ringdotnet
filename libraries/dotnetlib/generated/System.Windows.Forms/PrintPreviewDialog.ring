@@ -19,21 +19,21 @@ Class PrintPreviewDialog from Form
 		return self
 
 	Func getUseAntiAlias
-		return dnRequest("get",[new DotNetObject(nHandle),"UseAntiAlias"])
+		return dnRequest("get",[self,"UseAntiAlias"])
 
 	Func setUseAntiAlias P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseAntiAlias",P1])
+		dnRequest("set",[self,"UseAntiAlias",P1])
 		return self
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
+		dnRequest("set",[self,"Document",P1])
 		return self
 
 	Func getPrintPreviewControl
-		return dnRequest("get",[new DotNetObject(nHandle),"PrintPreviewControl"])
+		return dnRequest("get",[self,"PrintPreviewControl"])
 
 	Func setPrintPreviewControl P1
 		raise("DotNet Error: PrintPreviewControl is a read-only property")

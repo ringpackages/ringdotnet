@@ -56,50 +56,50 @@ Class QueryContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContext
-		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
+		return dnRequest("get",[self,"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getExecutionStrategy
-		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionStrategy"])
+		return dnRequest("get",[self,"ExecutionStrategy"])
 
 	Func setExecutionStrategy P1
 		raise("DotNet Error: ExecutionStrategy is a read-only property")
 
 	Func getConcurrencyDetector
-		return dnRequest("get",[new DotNetObject(nHandle),"ConcurrencyDetector"])
+		return dnRequest("get",[self,"ConcurrencyDetector"])
 
 	Func setConcurrencyDetector P1
 		raise("DotNet Error: ConcurrencyDetector is a read-only property")
 
 	Func getExceptionDetector
-		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionDetector"])
+		return dnRequest("get",[self,"ExceptionDetector"])
 
 	Func setExceptionDetector P1
 		raise("DotNet Error: ExceptionDetector is a read-only property")
 
 	Func getCancellationToken
-		return dnRequest("get",[new DotNetObject(nHandle),"CancellationToken"])
+		return dnRequest("get",[self,"CancellationToken"])
 
 	Func setCancellationToken P1
-		dnRequest("set",[new DotNetObject(nHandle),"CancellationToken",P1])
+		dnRequest("set",[self,"CancellationToken",P1])
 		return self
 
 	Func getCommandLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
+		return dnRequest("get",[self,"CommandLogger"])
 
 	Func setCommandLogger P1
 		raise("DotNet Error: CommandLogger is a read-only property")
 
 	Func getQueryLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryLogger"])
+		return dnRequest("get",[self,"QueryLogger"])
 
 	Func setQueryLogger P1
 		raise("DotNet Error: QueryLogger is a read-only property")
 
 	Func getParameterValues
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterValues"])
+		return dnRequest("get",[self,"ParameterValues"])
 
 	Func setParameterValues P1
 		raise("DotNet Error: ParameterValues is a read-only property")

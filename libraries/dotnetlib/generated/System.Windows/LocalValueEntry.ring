@@ -18,13 +18,13 @@ Class LocalValueEntry from ValueType
 		return self
 
 	Func getProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
+		return dnRequest("get",[self,"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

@@ -35,51 +35,51 @@ Class RedirectToActionResult from ActionResult
 		return self
 
 	Func getUrlHelper
-		return dnRequest("get",[new DotNetObject(nHandle),"UrlHelper"])
+		return dnRequest("get",[self,"UrlHelper"])
 
 	Func setUrlHelper P1
-		dnRequest("set",[new DotNetObject(nHandle),"UrlHelper",P1])
+		dnRequest("set",[self,"UrlHelper",P1])
 		return self
 
 	Func getActionName
-		return dnRequest("get",[new DotNetObject(nHandle),"ActionName"])
+		return dnRequest("get",[self,"ActionName"])
 
 	Func setActionName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActionName",P1])
+		dnRequest("set",[self,"ActionName",P1])
 		return self
 
 	Func getControllerName
-		return dnRequest("get",[new DotNetObject(nHandle),"ControllerName"])
+		return dnRequest("get",[self,"ControllerName"])
 
 	Func setControllerName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ControllerName",P1])
+		dnRequest("set",[self,"ControllerName",P1])
 		return self
 
 	Func getRouteValues
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteValues"])
+		return dnRequest("get",[self,"RouteValues"])
 
 	Func setRouteValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"RouteValues",P1])
+		dnRequest("set",[self,"RouteValues",P1])
 		return self
 
 	Func getPermanent
-		return dnRequest("get",[new DotNetObject(nHandle),"Permanent"])
+		return dnRequest("get",[self,"Permanent"])
 
 	Func setPermanent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Permanent",P1])
+		dnRequest("set",[self,"Permanent",P1])
 		return self
 
 	Func getPreserveMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"PreserveMethod"])
+		return dnRequest("get",[self,"PreserveMethod"])
 
 	Func setPreserveMethod P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreserveMethod",P1])
+		dnRequest("set",[self,"PreserveMethod",P1])
 		return self
 
 	Func getFragment
-		return dnRequest("get",[new DotNetObject(nHandle),"Fragment"])
+		return dnRequest("get",[self,"Fragment"])
 
 	Func setFragment P1
-		dnRequest("set",[new DotNetObject(nHandle),"Fragment",P1])
+		dnRequest("set",[self,"Fragment",P1])
 		return self
 

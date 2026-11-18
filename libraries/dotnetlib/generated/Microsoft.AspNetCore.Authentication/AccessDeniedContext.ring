@@ -46,65 +46,65 @@ Class AccessDeniedContext from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getAccessDeniedPath
-		return dnRequest("get",[new DotNetObject(nHandle),"AccessDeniedPath"])
+		return dnRequest("get",[self,"AccessDeniedPath"])
 
 	Func setAccessDeniedPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"AccessDeniedPath",P1])
+		dnRequest("set",[self,"AccessDeniedPath",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
-		dnRequest("set",[new DotNetObject(nHandle),"Properties",P1])
+		dnRequest("set",[self,"Properties",P1])
 		return self
 
 	Func getReturnUrl
-		return dnRequest("get",[new DotNetObject(nHandle),"ReturnUrl"])
+		return dnRequest("get",[self,"ReturnUrl"])
 
 	Func setReturnUrl P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReturnUrl",P1])
+		dnRequest("set",[self,"ReturnUrl",P1])
 		return self
 
 	Func getReturnUrlParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"ReturnUrlParameter"])
+		return dnRequest("get",[self,"ReturnUrlParameter"])
 
 	Func setReturnUrlParameter P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReturnUrlParameter",P1])
+		dnRequest("set",[self,"ReturnUrlParameter",P1])
 		return self
 
 	Func getResult
-		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
+		return dnRequest("get",[self,"Result"])
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
+		return dnRequest("get",[self,"Scheme"])
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getHttpContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
+		return dnRequest("get",[self,"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRequest
-		return dnRequest("get",[new DotNetObject(nHandle),"Request"])
+		return dnRequest("get",[self,"Request"])
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getResponse
-		return dnRequest("get",[new DotNetObject(nHandle),"Response"])
+		return dnRequest("get",[self,"Response"])
 
 	Func setResponse P1
 		raise("DotNet Error: Response is a read-only property")

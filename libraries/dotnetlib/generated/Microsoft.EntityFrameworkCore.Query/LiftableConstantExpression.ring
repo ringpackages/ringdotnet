@@ -3,14 +3,11 @@
 Func DotNetNew_LiftableConstantExpression
 	oDotNetNew = new LiftableConstantExpression(0,0,0,0)
 
-Class LiftableConstantExpression from DotNetObject
+Class LiftableConstantExpression from ExpressionsExpression
 
 	OriginalExpression
 	ResolverExpression
 	VariableName
-	Type
-	NodeType
-	CanReduce
 
 	Func init P1,P2,P3,P4
 		if nDotNetWrapHandle != 0
@@ -28,60 +25,21 @@ Class LiftableConstantExpression from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
 		return self
 
-	Func Reduce 
-		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
-
-	Func ReduceAndCheck 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
-
-	Func ReduceExtensions 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
 	Func getOriginalExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalExpression"])
+		return dnRequest("get",[self,"OriginalExpression"])
 
 	Func setOriginalExpression P1
 		raise("DotNet Error: OriginalExpression is a read-only property")
 
 	Func getResolverExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"ResolverExpression"])
+		return dnRequest("get",[self,"ResolverExpression"])
 
 	Func setResolverExpression P1
 		raise("DotNet Error: ResolverExpression is a read-only property")
 
 	Func getVariableName
-		return dnRequest("get",[new DotNetObject(nHandle),"VariableName"])
+		return dnRequest("get",[self,"VariableName"])
 
 	Func setVariableName P1
 		raise("DotNet Error: VariableName is a read-only property")
-
-	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
-
-	Func setType P1
-		raise("DotNet Error: Type is a read-only property")
-
-	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
-
-	Func setNodeType P1
-		raise("DotNet Error: NodeType is a read-only property")
-
-	Func getCanReduce
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
-
-	Func setCanReduce P1
-		raise("DotNet Error: CanReduce is a read-only property")
 

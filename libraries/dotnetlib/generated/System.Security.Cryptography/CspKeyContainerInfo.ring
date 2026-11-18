@@ -31,73 +31,73 @@ Class CspKeyContainerInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAccessible
-		return dnRequest("get",[new DotNetObject(nHandle),"Accessible"])
+		return dnRequest("get",[self,"Accessible"])
 
 	Func setAccessible P1
 		raise("DotNet Error: Accessible is a read-only property")
 
 	Func getExportable
-		return dnRequest("get",[new DotNetObject(nHandle),"Exportable"])
+		return dnRequest("get",[self,"Exportable"])
 
 	Func setExportable P1
 		raise("DotNet Error: Exportable is a read-only property")
 
 	Func getHardwareDevice
-		return dnRequest("get",[new DotNetObject(nHandle),"HardwareDevice"])
+		return dnRequest("get",[self,"HardwareDevice"])
 
 	Func setHardwareDevice P1
 		raise("DotNet Error: HardwareDevice is a read-only property")
 
 	Func getKeyContainerName
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyContainerName"])
+		return dnRequest("get",[self,"KeyContainerName"])
 
 	Func setKeyContainerName P1
 		raise("DotNet Error: KeyContainerName is a read-only property")
 
 	Func getKeyNumber
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyNumber"])
+		return dnRequest("get",[self,"KeyNumber"])
 
 	Func setKeyNumber P1
 		raise("DotNet Error: KeyNumber is a read-only property")
 
 	Func getMachineKeyStore
-		return dnRequest("get",[new DotNetObject(nHandle),"MachineKeyStore"])
+		return dnRequest("get",[self,"MachineKeyStore"])
 
 	Func setMachineKeyStore P1
 		raise("DotNet Error: MachineKeyStore is a read-only property")
 
 	Func getProtected
-		return dnRequest("get",[new DotNetObject(nHandle),"Protected"])
+		return dnRequest("get",[self,"Protected"])
 
 	Func setProtected P1
 		raise("DotNet Error: Protected is a read-only property")
 
 	Func getProviderName
-		return dnRequest("get",[new DotNetObject(nHandle),"ProviderName"])
+		return dnRequest("get",[self,"ProviderName"])
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")
 
 	Func getProviderType
-		return dnRequest("get",[new DotNetObject(nHandle),"ProviderType"])
+		return dnRequest("get",[self,"ProviderType"])
 
 	Func setProviderType P1
 		raise("DotNet Error: ProviderType is a read-only property")
 
 	Func getRandomlyGenerated
-		return dnRequest("get",[new DotNetObject(nHandle),"RandomlyGenerated"])
+		return dnRequest("get",[self,"RandomlyGenerated"])
 
 	Func setRandomlyGenerated P1
 		raise("DotNet Error: RandomlyGenerated is a read-only property")
 
 	Func getRemovable
-		return dnRequest("get",[new DotNetObject(nHandle),"Removable"])
+		return dnRequest("get",[self,"Removable"])
 
 	Func setRemovable P1
 		raise("DotNet Error: Removable is a read-only property")
 
 	Func getUniqueKeyContainerName
-		return dnRequest("get",[new DotNetObject(nHandle),"UniqueKeyContainerName"])
+		return dnRequest("get",[self,"UniqueKeyContainerName"])
 
 	Func setUniqueKeyContainerName P1
 		raise("DotNet Error: UniqueKeyContainerName is a read-only property")

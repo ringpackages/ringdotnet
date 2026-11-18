@@ -23,51 +23,51 @@ Class ColorDialog from CommonDialog
 		return self
 
 	Func getAllowFullOpen
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowFullOpen"])
+		return dnRequest("get",[self,"AllowFullOpen"])
 
 	Func setAllowFullOpen P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowFullOpen",P1])
+		dnRequest("set",[self,"AllowFullOpen",P1])
 		return self
 
 	Func getAnyColor
-		return dnRequest("get",[new DotNetObject(nHandle),"AnyColor"])
+		return dnRequest("get",[self,"AnyColor"])
 
 	Func setAnyColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"AnyColor",P1])
+		dnRequest("set",[self,"AnyColor",P1])
 		return self
 
 	Func getColor
-		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
+		return dnRequest("get",[self,"Color"])
 
 	Func setColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
+		dnRequest("set",[self,"Color",P1])
 		return self
 
 	Func getCustomColors
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomColors"])
+		return dnRequest("get",[self,"CustomColors"])
 
 	Func setCustomColors P1
-		dnRequest("set",[new DotNetObject(nHandle),"CustomColors",P1])
+		dnRequest("set",[self,"CustomColors",P1])
 		return self
 
 	Func getFullOpen
-		return dnRequest("get",[new DotNetObject(nHandle),"FullOpen"])
+		return dnRequest("get",[self,"FullOpen"])
 
 	Func setFullOpen P1
-		dnRequest("set",[new DotNetObject(nHandle),"FullOpen",P1])
+		dnRequest("set",[self,"FullOpen",P1])
 		return self
 
 	Func getShowHelp
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowHelp"])
+		return dnRequest("get",[self,"ShowHelp"])
 
 	Func setShowHelp P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowHelp",P1])
+		dnRequest("set",[self,"ShowHelp",P1])
 		return self
 
 	Func getSolidColorOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"SolidColorOnly"])
+		return dnRequest("get",[self,"SolidColorOnly"])
 
 	Func setSolidColorOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"SolidColorOnly",P1])
+		dnRequest("set",[self,"SolidColorOnly",P1])
 		return self
 

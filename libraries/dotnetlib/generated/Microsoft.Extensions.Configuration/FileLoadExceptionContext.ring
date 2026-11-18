@@ -22,23 +22,23 @@ Class FileLoadExceptionContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"Provider"])
+		return dnRequest("get",[self,"Provider"])
 
 	Func setProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"Provider",P1])
+		dnRequest("set",[self,"Provider",P1])
 		return self
 
 	Func getException
-		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
+		return dnRequest("get",[self,"Exception"])
 
 	Func setException P1
-		dnRequest("set",[new DotNetObject(nHandle),"Exception",P1])
+		dnRequest("set",[self,"Exception",P1])
 		return self
 
 	Func getIgnore
-		return dnRequest("get",[new DotNetObject(nHandle),"Ignore"])
+		return dnRequest("get",[self,"Ignore"])
 
 	Func setIgnore P1
-		dnRequest("set",[new DotNetObject(nHandle),"Ignore",P1])
+		dnRequest("set",[self,"Ignore",P1])
 		return self
 

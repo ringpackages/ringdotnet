@@ -17,7 +17,7 @@ Class InvalidateEventArgs from EventArgs
 		return self
 
 	Func getInvalidRect
-		return dnRequest("get",[new DotNetObject(nHandle),"InvalidRect"])
+		return dnRequest("get",[self,"InvalidRect"])
 
 	Func setInvalidRect P1
 		raise("DotNet Error: InvalidRect is a read-only property")

@@ -20,9 +20,9 @@ Class HttpContextAccessor from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
+		return dnRequest("get",[self,"HttpContext"])
 
 	Func setHttpContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"HttpContext",P1])
+		dnRequest("set",[self,"HttpContext",P1])
 		return self
 

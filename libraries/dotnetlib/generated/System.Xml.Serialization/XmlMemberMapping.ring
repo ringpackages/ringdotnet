@@ -26,52 +26,52 @@ Class XmlMemberMapping from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAny
-		return dnRequest("get",[new DotNetObject(nHandle),"Any"])
+		return dnRequest("get",[self,"Any"])
 
 	Func setAny P1
 		raise("DotNet Error: Any is a read-only property")
 
 	Func getElementName
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementName"])
+		return dnRequest("get",[self,"ElementName"])
 
 	Func setElementName P1
 		raise("DotNet Error: ElementName is a read-only property")
 
 	Func getXsdElementName
-		return dnRequest("get",[new DotNetObject(nHandle),"XsdElementName"])
+		return dnRequest("get",[self,"XsdElementName"])
 
 	Func setXsdElementName P1
 		raise("DotNet Error: XsdElementName is a read-only property")
 
 	Func getNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
+		return dnRequest("get",[self,"Namespace"])
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getMemberName
-		return dnRequest("get",[new DotNetObject(nHandle),"MemberName"])
+		return dnRequest("get",[self,"MemberName"])
 
 	Func setMemberName P1
 		raise("DotNet Error: MemberName is a read-only property")
 
 	Func getTypeName
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeName"])
+		return dnRequest("get",[self,"TypeName"])
 
 	Func getTypeNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeNamespace"])
+		return dnRequest("get",[self,"TypeNamespace"])
 
 	Func setTypeNamespace P1
 		raise("DotNet Error: TypeNamespace is a read-only property")
 
 	Func getTypeFullName
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeFullName"])
+		return dnRequest("get",[self,"TypeFullName"])
 
 	Func setTypeFullName P1
 		raise("DotNet Error: TypeFullName is a read-only property")
 
 	Func getCheckSpecified
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckSpecified"])
+		return dnRequest("get",[self,"CheckSpecified"])
 
 	Func setCheckSpecified P1
 		raise("DotNet Error: CheckSpecified is a read-only property")

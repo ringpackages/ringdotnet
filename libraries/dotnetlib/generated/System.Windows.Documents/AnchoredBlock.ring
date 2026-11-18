@@ -33,58 +33,58 @@ Class AnchoredBlock from Inline
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeBlocks",P1])
 
 	Func getBlocks
-		return dnRequest("get",[new DotNetObject(nHandle),"Blocks"])
+		return dnRequest("get",[self,"Blocks"])
 
 	Func setBlocks P1
 		raise("DotNet Error: Blocks is a read-only property")
 
 	Func getMargin
-		return dnRequest("get",[new DotNetObject(nHandle),"Margin"])
+		return dnRequest("get",[self,"Margin"])
 
 	Func setMargin P1
-		dnRequest("set",[new DotNetObject(nHandle),"Margin",P1])
+		dnRequest("set",[self,"Margin",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
+		return dnRequest("get",[self,"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
+		dnRequest("set",[self,"Padding",P1])
 		return self
 
 	Func getBorderThickness
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderThickness"])
+		return dnRequest("get",[self,"BorderThickness"])
 
 	Func setBorderThickness P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderThickness",P1])
+		dnRequest("set",[self,"BorderThickness",P1])
 		return self
 
 	Func getBorderBrush
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderBrush"])
+		return dnRequest("get",[self,"BorderBrush"])
 
 	Func setBorderBrush P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderBrush",P1])
+		dnRequest("set",[self,"BorderBrush",P1])
 		return self
 
 	Func getTextAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"TextAlignment"])
+		return dnRequest("get",[self,"TextAlignment"])
 
 	Func setTextAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextAlignment",P1])
+		dnRequest("set",[self,"TextAlignment",P1])
 		return self
 
 	Func getLineHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"LineHeight"])
+		return dnRequest("get",[self,"LineHeight"])
 
 	Func setLineHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"LineHeight",P1])
+		dnRequest("set",[self,"LineHeight",P1])
 		return self
 
 	Func getLineStackingStrategy
-		return dnRequest("get",[new DotNetObject(nHandle),"LineStackingStrategy"])
+		return dnRequest("get",[self,"LineStackingStrategy"])
 
 	Func setLineStackingStrategy P1
-		dnRequest("set",[new DotNetObject(nHandle),"LineStackingStrategy",P1])
+		dnRequest("set",[self,"LineStackingStrategy",P1])
 		return self
 
 	Func getMarginProperty

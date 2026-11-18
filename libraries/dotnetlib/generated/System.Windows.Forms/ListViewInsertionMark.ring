@@ -25,29 +25,29 @@ Class ListViewInsertionMark from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAppearsAfterItem
-		return dnRequest("get",[new DotNetObject(nHandle),"AppearsAfterItem"])
+		return dnRequest("get",[self,"AppearsAfterItem"])
 
 	Func setAppearsAfterItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"AppearsAfterItem",P1])
+		dnRequest("set",[self,"AppearsAfterItem",P1])
 		return self
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getColor
-		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
+		return dnRequest("get",[self,"Color"])
 
 	Func setColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
+		dnRequest("set",[self,"Color",P1])
 		return self
 
 	Func getIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
+		return dnRequest("get",[self,"Index"])
 
 	Func setIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"Index",P1])
+		dnRequest("set",[self,"Index",P1])
 		return self
 

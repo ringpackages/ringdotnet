@@ -64,14 +64,14 @@ Class StringInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"ParseCombiningCharacters",P1])
 
 	Func getString
-		return dnRequest("get",[new DotNetObject(nHandle),"String"])
+		return dnRequest("get",[self,"String"])
 
 	Func setString P1
-		dnRequest("set",[new DotNetObject(nHandle),"String",P1])
+		dnRequest("set",[self,"String",P1])
 		return self
 
 	Func getLengthInTextElements
-		return dnRequest("get",[new DotNetObject(nHandle),"LengthInTextElements"])
+		return dnRequest("get",[self,"LengthInTextElements"])
 
 	Func setLengthInTextElements P1
 		raise("DotNet Error: LengthInTextElements is a read-only property")

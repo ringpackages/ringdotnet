@@ -21,9 +21,9 @@ Class RSAPKCS1KeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 		return self
 
 	Func getRNG
-		return dnRequest("get",[new DotNetObject(nHandle),"RNG"])
+		return dnRequest("get",[self,"RNG"])
 
 	Func setRNG P1
-		dnRequest("set",[new DotNetObject(nHandle),"RNG",P1])
+		dnRequest("set",[self,"RNG",P1])
 		return self
 

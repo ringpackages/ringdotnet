@@ -68,25 +68,25 @@ Class WebSocket from Object
 		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateClientWebSocket",P1,P2,P3,P4,P5,P6,P7])
 
 	Func getCloseStatus
-		return dnRequest("get",[new DotNetObject(nHandle),"CloseStatus"])
+		return dnRequest("get",[self,"CloseStatus"])
 
 	Func setCloseStatus P1
 		raise("DotNet Error: CloseStatus is a read-only property")
 
 	Func getCloseStatusDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"CloseStatusDescription"])
+		return dnRequest("get",[self,"CloseStatusDescription"])
 
 	Func setCloseStatusDescription P1
 		raise("DotNet Error: CloseStatusDescription is a read-only property")
 
 	Func getSubProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"SubProtocol"])
+		return dnRequest("get",[self,"SubProtocol"])
 
 	Func setSubProtocol P1
 		raise("DotNet Error: SubProtocol is a read-only property")
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")

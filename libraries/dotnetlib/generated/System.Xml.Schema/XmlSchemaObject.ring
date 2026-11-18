@@ -23,37 +23,37 @@ Class XmlSchemaObject from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLineNumber
-		return dnRequest("get",[new DotNetObject(nHandle),"LineNumber"])
+		return dnRequest("get",[self,"LineNumber"])
 
 	Func setLineNumber P1
-		dnRequest("set",[new DotNetObject(nHandle),"LineNumber",P1])
+		dnRequest("set",[self,"LineNumber",P1])
 		return self
 
 	Func getLinePosition
-		return dnRequest("get",[new DotNetObject(nHandle),"LinePosition"])
+		return dnRequest("get",[self,"LinePosition"])
 
 	Func setLinePosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"LinePosition",P1])
+		dnRequest("set",[self,"LinePosition",P1])
 		return self
 
 	Func getSourceUri
-		return dnRequest("get",[new DotNetObject(nHandle),"SourceUri"])
+		return dnRequest("get",[self,"SourceUri"])
 
 	Func setSourceUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"SourceUri",P1])
+		dnRequest("set",[self,"SourceUri",P1])
 		return self
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Parent",P1])
+		dnRequest("set",[self,"Parent",P1])
 		return self
 
 	Func getNamespaces
-		return dnRequest("get",[new DotNetObject(nHandle),"Namespaces"])
+		return dnRequest("get",[self,"Namespaces"])
 
 	Func setNamespaces P1
-		dnRequest("set",[new DotNetObject(nHandle),"Namespaces",P1])
+		dnRequest("set",[self,"Namespaces",P1])
 		return self
 

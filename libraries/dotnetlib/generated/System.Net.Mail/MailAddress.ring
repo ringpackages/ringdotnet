@@ -43,25 +43,25 @@ Class MailAddress from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1,P2,P3])
 
 	Func getDisplayName
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
+		return dnRequest("get",[self,"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[new DotNetObject(nHandle),"User"])
+		return dnRequest("get",[self,"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getHost
-		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
+		return dnRequest("get",[self,"Host"])
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
+		return dnRequest("get",[self,"Address"])
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")

@@ -70,79 +70,79 @@ Class DatePicker from WpfControl
 		return self
 
 	Func getBlackoutDates
-		return dnRequest("get",[new DotNetObject(nHandle),"BlackoutDates"])
+		return dnRequest("get",[self,"BlackoutDates"])
 
 	Func setBlackoutDates P1
 		raise("DotNet Error: BlackoutDates is a read-only property")
 
 	Func getCalendarStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarStyle"])
+		return dnRequest("get",[self,"CalendarStyle"])
 
 	Func setCalendarStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarStyle",P1])
+		dnRequest("set",[self,"CalendarStyle",P1])
 		return self
 
 	Func getDisplayDate
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayDate"])
+		return dnRequest("get",[self,"DisplayDate"])
 
 	Func setDisplayDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayDate",P1])
+		dnRequest("set",[self,"DisplayDate",P1])
 		return self
 
 	Func getDisplayDateEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayDateEnd"])
+		return dnRequest("get",[self,"DisplayDateEnd"])
 
 	Func setDisplayDateEnd P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayDateEnd",P1])
+		dnRequest("set",[self,"DisplayDateEnd",P1])
 		return self
 
 	Func getDisplayDateStart
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayDateStart"])
+		return dnRequest("get",[self,"DisplayDateStart"])
 
 	Func setDisplayDateStart P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayDateStart",P1])
+		dnRequest("set",[self,"DisplayDateStart",P1])
 		return self
 
 	Func getFirstDayOfWeek
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstDayOfWeek"])
+		return dnRequest("get",[self,"FirstDayOfWeek"])
 
 	Func setFirstDayOfWeek P1
-		dnRequest("set",[new DotNetObject(nHandle),"FirstDayOfWeek",P1])
+		dnRequest("set",[self,"FirstDayOfWeek",P1])
 		return self
 
 	Func getIsDropDownOpen
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDropDownOpen"])
+		return dnRequest("get",[self,"IsDropDownOpen"])
 
 	Func setIsDropDownOpen P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsDropDownOpen",P1])
+		dnRequest("set",[self,"IsDropDownOpen",P1])
 		return self
 
 	Func getIsTodayHighlighted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTodayHighlighted"])
+		return dnRequest("get",[self,"IsTodayHighlighted"])
 
 	Func setIsTodayHighlighted P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsTodayHighlighted",P1])
+		dnRequest("set",[self,"IsTodayHighlighted",P1])
 		return self
 
 	Func getSelectedDate
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedDate"])
+		return dnRequest("get",[self,"SelectedDate"])
 
 	Func setSelectedDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedDate",P1])
+		dnRequest("set",[self,"SelectedDate",P1])
 		return self
 
 	Func getSelectedDateFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedDateFormat"])
+		return dnRequest("get",[self,"SelectedDateFormat"])
 
 	Func setSelectedDateFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedDateFormat",P1])
+		dnRequest("set",[self,"SelectedDateFormat",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getSelectedDateChangedEvent

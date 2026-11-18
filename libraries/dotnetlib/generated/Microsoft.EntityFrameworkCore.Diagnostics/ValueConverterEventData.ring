@@ -18,13 +18,13 @@ Class ValueConverterEventData from EventData
 		return self
 
 	Func getMappingClrType
-		return dnRequest("get",[new DotNetObject(nHandle),"MappingClrType"])
+		return dnRequest("get",[self,"MappingClrType"])
 
 	Func setMappingClrType P1
 		raise("DotNet Error: MappingClrType is a read-only property")
 
 	Func getValueConverter
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueConverter"])
+		return dnRequest("get",[self,"ValueConverter"])
 
 	Func setValueConverter P1
 		raise("DotNet Error: ValueConverter is a read-only property")

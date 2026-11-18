@@ -17,9 +17,9 @@ Class XamlDesignerSerializationManager from ServiceProviders
 		return self
 
 	Func getXamlWriterMode
-		return dnRequest("get",[new DotNetObject(nHandle),"XamlWriterMode"])
+		return dnRequest("get",[self,"XamlWriterMode"])
 
 	Func setXamlWriterMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"XamlWriterMode",P1])
+		dnRequest("set",[self,"XamlWriterMode",P1])
 		return self
 

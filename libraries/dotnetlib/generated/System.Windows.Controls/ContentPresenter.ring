@@ -31,45 +31,45 @@ Class ContentPresenter from FrameworkElement
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeContentTemplateSelector"])
 
 	Func getRecognizesAccessKey
-		return dnRequest("get",[new DotNetObject(nHandle),"RecognizesAccessKey"])
+		return dnRequest("get",[self,"RecognizesAccessKey"])
 
 	Func setRecognizesAccessKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"RecognizesAccessKey",P1])
+		dnRequest("set",[self,"RecognizesAccessKey",P1])
 		return self
 
 	Func getContent
-		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
+		return dnRequest("get",[self,"Content"])
 
 	Func setContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
+		dnRequest("set",[self,"Content",P1])
 		return self
 
 	Func getContentTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentTemplate"])
+		return dnRequest("get",[self,"ContentTemplate"])
 
 	Func setContentTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentTemplate",P1])
+		dnRequest("set",[self,"ContentTemplate",P1])
 		return self
 
 	Func getContentTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentTemplateSelector"])
+		return dnRequest("get",[self,"ContentTemplateSelector"])
 
 	Func setContentTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentTemplateSelector",P1])
+		dnRequest("set",[self,"ContentTemplateSelector",P1])
 		return self
 
 	Func getContentStringFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentStringFormat"])
+		return dnRequest("get",[self,"ContentStringFormat"])
 
 	Func setContentStringFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentStringFormat",P1])
+		dnRequest("set",[self,"ContentStringFormat",P1])
 		return self
 
 	Func getContentSource
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentSource"])
+		return dnRequest("get",[self,"ContentSource"])
 
 	Func setContentSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentSource",P1])
+		dnRequest("set",[self,"ContentSource",P1])
 		return self
 
 	Func getRecognizesAccessKeyProperty

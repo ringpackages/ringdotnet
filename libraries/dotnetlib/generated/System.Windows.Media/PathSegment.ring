@@ -19,17 +19,17 @@ Class PathSegment from Animatable
 		return self
 
 	Func getIsStroked
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStroked"])
+		return dnRequest("get",[self,"IsStroked"])
 
 	Func setIsStroked P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsStroked",P1])
+		dnRequest("set",[self,"IsStroked",P1])
 		return self
 
 	Func getIsSmoothJoin
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSmoothJoin"])
+		return dnRequest("get",[self,"IsSmoothJoin"])
 
 	Func setIsSmoothJoin P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSmoothJoin",P1])
+		dnRequest("set",[self,"IsSmoothJoin",P1])
 		return self
 
 	Func getIsStrokedProperty

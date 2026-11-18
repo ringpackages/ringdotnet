@@ -100,76 +100,76 @@ Class DataView from MarshalByValueComponent
 		return self
 
 	Func getAllowDelete
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowDelete"])
+		return dnRequest("get",[self,"AllowDelete"])
 
 	Func setAllowDelete P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowDelete",P1])
+		dnRequest("set",[self,"AllowDelete",P1])
 		return self
 
 	Func getApplyDefaultSort
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplyDefaultSort"])
+		return dnRequest("get",[self,"ApplyDefaultSort"])
 
 	Func setApplyDefaultSort P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApplyDefaultSort",P1])
+		dnRequest("set",[self,"ApplyDefaultSort",P1])
 		return self
 
 	Func getAllowEdit
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowEdit"])
+		return dnRequest("get",[self,"AllowEdit"])
 
 	Func setAllowEdit P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowEdit",P1])
+		dnRequest("set",[self,"AllowEdit",P1])
 		return self
 
 	Func getAllowNew
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowNew"])
+		return dnRequest("get",[self,"AllowNew"])
 
 	Func setAllowNew P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowNew",P1])
+		dnRequest("set",[self,"AllowNew",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getDataViewManager
-		return dnRequest("get",[new DotNetObject(nHandle),"DataViewManager"])
+		return dnRequest("get",[self,"DataViewManager"])
 
 	Func setDataViewManager P1
 		raise("DotNet Error: DataViewManager is a read-only property")
 
 	Func getIsInitialized
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialized"])
+		return dnRequest("get",[self,"IsInitialized"])
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getRowFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"RowFilter"])
+		return dnRequest("get",[self,"RowFilter"])
 
 	Func setRowFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowFilter",P1])
+		dnRequest("set",[self,"RowFilter",P1])
 		return self
 
 	Func getRowStateFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"RowStateFilter"])
+		return dnRequest("get",[self,"RowStateFilter"])
 
 	Func setRowStateFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowStateFilter",P1])
+		dnRequest("set",[self,"RowStateFilter",P1])
 		return self
 
 	Func getSort
-		return dnRequest("get",[new DotNetObject(nHandle),"Sort"])
+		return dnRequest("get",[self,"Sort"])
 
 	Func setSort P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sort",P1])
+		dnRequest("set",[self,"Sort",P1])
 		return self
 
 	Func getTable
-		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
+		return dnRequest("get",[self,"Table"])
 
 	Func setTable P1
-		dnRequest("set",[new DotNetObject(nHandle),"Table",P1])
+		dnRequest("set",[self,"Table",P1])
 		return self
 

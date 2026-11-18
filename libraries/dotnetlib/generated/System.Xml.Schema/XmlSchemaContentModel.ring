@@ -16,9 +16,9 @@ Class XmlSchemaContentModel from XmlSchemaAnnotated
 		return self
 
 	Func getContent
-		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
+		return dnRequest("get",[self,"Content"])
 
 	Func setContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
+		dnRequest("set",[self,"Content",P1])
 		return self
 

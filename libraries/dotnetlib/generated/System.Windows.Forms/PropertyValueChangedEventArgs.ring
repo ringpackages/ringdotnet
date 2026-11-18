@@ -18,13 +18,13 @@ Class PropertyValueChangedEventArgs from EventArgs
 		return self
 
 	Func getChangedItem
-		return dnRequest("get",[new DotNetObject(nHandle),"ChangedItem"])
+		return dnRequest("get",[self,"ChangedItem"])
 
 	Func setChangedItem P1
 		raise("DotNet Error: ChangedItem is a read-only property")
 
 	Func getOldValue
-		return dnRequest("get",[new DotNetObject(nHandle),"OldValue"])
+		return dnRequest("get",[self,"OldValue"])
 
 	Func setOldValue P1
 		raise("DotNet Error: OldValue is a read-only property")

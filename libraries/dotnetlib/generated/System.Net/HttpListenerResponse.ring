@@ -73,85 +73,85 @@ Class HttpListenerResponse from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
+		return dnRequest("get",[self,"Headers"])
 
 	Func setHeaders P1
-		dnRequest("set",[new DotNetObject(nHandle),"Headers",P1])
+		dnRequest("set",[self,"Headers",P1])
 		return self
 
 	Func getContentEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentEncoding"])
+		return dnRequest("get",[self,"ContentEncoding"])
 
 	Func setContentEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentEncoding",P1])
+		dnRequest("set",[self,"ContentEncoding",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
+		return dnRequest("get",[self,"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
+		dnRequest("set",[self,"ContentType",P1])
 		return self
 
 	Func getSendChunked
-		return dnRequest("get",[new DotNetObject(nHandle),"SendChunked"])
+		return dnRequest("get",[self,"SendChunked"])
 
 	Func setSendChunked P1
-		dnRequest("set",[new DotNetObject(nHandle),"SendChunked",P1])
+		dnRequest("set",[self,"SendChunked",P1])
 		return self
 
 	Func getContentLength64
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength64"])
+		return dnRequest("get",[self,"ContentLength64"])
 
 	Func setContentLength64 P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentLength64",P1])
+		dnRequest("set",[self,"ContentLength64",P1])
 		return self
 
 	Func getCookies
-		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
+		return dnRequest("get",[self,"Cookies"])
 
 	Func setCookies P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cookies",P1])
+		dnRequest("set",[self,"Cookies",P1])
 		return self
 
 	Func getKeepAlive
-		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlive"])
+		return dnRequest("get",[self,"KeepAlive"])
 
 	Func setKeepAlive P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeepAlive",P1])
+		dnRequest("set",[self,"KeepAlive",P1])
 		return self
 
 	Func getOutputStream
-		return dnRequest("get",[new DotNetObject(nHandle),"OutputStream"])
+		return dnRequest("get",[self,"OutputStream"])
 
 	Func setOutputStream P1
 		raise("DotNet Error: OutputStream is a read-only property")
 
 	Func getRedirectLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"RedirectLocation"])
+		return dnRequest("get",[self,"RedirectLocation"])
 
 	Func setRedirectLocation P1
-		dnRequest("set",[new DotNetObject(nHandle),"RedirectLocation",P1])
+		dnRequest("set",[self,"RedirectLocation",P1])
 		return self
 
 	Func getStatusDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusDescription"])
+		return dnRequest("get",[self,"StatusDescription"])
 
 	Func setStatusDescription P1
-		dnRequest("set",[new DotNetObject(nHandle),"StatusDescription",P1])
+		dnRequest("set",[self,"StatusDescription",P1])
 		return self
 
 	Func getStatusCode
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
+		return dnRequest("get",[self,"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
+		dnRequest("set",[self,"StatusCode",P1])
 		return self
 
 	Func getProtocolVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolVersion"])
+		return dnRequest("get",[self,"ProtocolVersion"])
 
 	Func setProtocolVersion P1
-		dnRequest("set",[new DotNetObject(nHandle),"ProtocolVersion",P1])
+		dnRequest("set",[self,"ProtocolVersion",P1])
 		return self
 

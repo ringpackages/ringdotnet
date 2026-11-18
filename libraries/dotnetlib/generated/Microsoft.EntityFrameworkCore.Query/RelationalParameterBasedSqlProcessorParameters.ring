@@ -21,16 +21,16 @@ Class RelationalParameterBasedSqlProcessorParameters from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUseRelationalNulls
-		return dnRequest("get",[new DotNetObject(nHandle),"UseRelationalNulls"])
+		return dnRequest("get",[self,"UseRelationalNulls"])
 
 	Func setUseRelationalNulls P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseRelationalNulls",P1])
+		dnRequest("set",[self,"UseRelationalNulls",P1])
 		return self
 
 	Func getParametersToConstantize
-		return dnRequest("get",[new DotNetObject(nHandle),"ParametersToConstantize"])
+		return dnRequest("get",[self,"ParametersToConstantize"])
 
 	Func setParametersToConstantize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ParametersToConstantize",P1])
+		dnRequest("set",[self,"ParametersToConstantize",P1])
 		return self
 

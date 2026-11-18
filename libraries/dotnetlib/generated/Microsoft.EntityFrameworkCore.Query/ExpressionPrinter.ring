@@ -3,7 +3,7 @@
 Func DotNetNew_ExpressionPrinter
 	oDotNetNew = new ExpressionPrinter()
 
-Class ExpressionPrinter from DotNetObject
+Class ExpressionPrinter from ExpressionVisitor
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -53,9 +53,6 @@ Class ExpressionPrinter from DotNetObject
 	Func PrintExpressionDebug P1
 		return dnRequest("call",[new DotNetObject(nHandle),"PrintExpressionDebug",P1])
 
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
 	Func GenerateBinaryOperator P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GenerateBinaryOperator",P1])
 
@@ -73,18 +70,6 @@ Class ExpressionPrinter from DotNetObject
 
 	Func Visit P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
-
-	Func VisitAndConvert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
-
-	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func Print P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"Print",P1])

@@ -34,7 +34,7 @@ Class IHostBuilder from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

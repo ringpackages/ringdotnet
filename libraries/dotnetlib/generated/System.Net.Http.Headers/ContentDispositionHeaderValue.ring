@@ -34,64 +34,64 @@ Class ContentDispositionHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getDispositionType
-		return dnRequest("get",[new DotNetObject(nHandle),"DispositionType"])
+		return dnRequest("get",[self,"DispositionType"])
 
 	Func setDispositionType P1
-		dnRequest("set",[new DotNetObject(nHandle),"DispositionType",P1])
+		dnRequest("set",[self,"DispositionType",P1])
 		return self
 
 	Func getParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
+		return dnRequest("get",[self,"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getFileName
-		return dnRequest("get",[new DotNetObject(nHandle),"FileName"])
+		return dnRequest("get",[self,"FileName"])
 
 	Func setFileName P1
-		dnRequest("set",[new DotNetObject(nHandle),"FileName",P1])
+		dnRequest("set",[self,"FileName",P1])
 		return self
 
 	Func getFileNameStar
-		return dnRequest("get",[new DotNetObject(nHandle),"FileNameStar"])
+		return dnRequest("get",[self,"FileNameStar"])
 
 	Func setFileNameStar P1
-		dnRequest("set",[new DotNetObject(nHandle),"FileNameStar",P1])
+		dnRequest("set",[self,"FileNameStar",P1])
 		return self
 
 	Func getCreationDate
-		return dnRequest("get",[new DotNetObject(nHandle),"CreationDate"])
+		return dnRequest("get",[self,"CreationDate"])
 
 	Func setCreationDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"CreationDate",P1])
+		dnRequest("set",[self,"CreationDate",P1])
 		return self
 
 	Func getModificationDate
-		return dnRequest("get",[new DotNetObject(nHandle),"ModificationDate"])
+		return dnRequest("get",[self,"ModificationDate"])
 
 	Func setModificationDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModificationDate",P1])
+		dnRequest("set",[self,"ModificationDate",P1])
 		return self
 
 	Func getReadDate
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadDate"])
+		return dnRequest("get",[self,"ReadDate"])
 
 	Func setReadDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadDate",P1])
+		dnRequest("set",[self,"ReadDate",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
+		dnRequest("set",[self,"Size",P1])
 		return self
 

@@ -17,7 +17,7 @@ Class DataGridViewRowEventArgs from EventArgs
 		return self
 
 	Func getRow
-		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
+		return dnRequest("get",[self,"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")

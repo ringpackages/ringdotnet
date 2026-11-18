@@ -16,7 +16,7 @@ Class IConventionEntityTypeMappingFragmentBuilder from DotNetObject
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

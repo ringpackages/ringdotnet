@@ -24,37 +24,37 @@ Class UrlRouteContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRouteName
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteName"])
+		return dnRequest("get",[self,"RouteName"])
 
 	Func setRouteName P1
-		dnRequest("set",[new DotNetObject(nHandle),"RouteName",P1])
+		dnRequest("set",[self,"RouteName",P1])
 		return self
 
 	Func getValues
-		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
+		return dnRequest("get",[self,"Values"])
 
 	Func setValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"Values",P1])
+		dnRequest("set",[self,"Values",P1])
 		return self
 
 	Func getProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"Protocol"])
+		return dnRequest("get",[self,"Protocol"])
 
 	Func setProtocol P1
-		dnRequest("set",[new DotNetObject(nHandle),"Protocol",P1])
+		dnRequest("set",[self,"Protocol",P1])
 		return self
 
 	Func getHost
-		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
+		return dnRequest("get",[self,"Host"])
 
 	Func setHost P1
-		dnRequest("set",[new DotNetObject(nHandle),"Host",P1])
+		dnRequest("set",[self,"Host",P1])
 		return self
 
 	Func getFragment
-		return dnRequest("get",[new DotNetObject(nHandle),"Fragment"])
+		return dnRequest("get",[self,"Fragment"])
 
 	Func setFragment P1
-		dnRequest("set",[new DotNetObject(nHandle),"Fragment",P1])
+		dnRequest("set",[self,"Fragment",P1])
 		return self
 

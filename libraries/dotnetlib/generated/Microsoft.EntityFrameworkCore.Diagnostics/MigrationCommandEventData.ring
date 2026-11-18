@@ -18,13 +18,13 @@ Class MigrationCommandEventData from MigratorEventData
 		return self
 
 	Func getMigration
-		return dnRequest("get",[new DotNetObject(nHandle),"Migration"])
+		return dnRequest("get",[self,"Migration"])
 
 	Func setMigration P1
 		raise("DotNet Error: Migration is a read-only property")
 
 	Func getMigrationCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationCommand"])
+		return dnRequest("get",[self,"MigrationCommand"])
 
 	Func setMigrationCommand P1
 		raise("DotNet Error: MigrationCommand is a read-only property")

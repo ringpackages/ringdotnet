@@ -24,17 +24,17 @@ Class VisualBrush from TileBrush
 		return self
 
 	Func getVisual
-		return dnRequest("get",[new DotNetObject(nHandle),"Visual"])
+		return dnRequest("get",[self,"Visual"])
 
 	Func setVisual P1
-		dnRequest("set",[new DotNetObject(nHandle),"Visual",P1])
+		dnRequest("set",[self,"Visual",P1])
 		return self
 
 	Func getAutoLayoutContent
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoLayoutContent"])
+		return dnRequest("get",[self,"AutoLayoutContent"])
 
 	Func setAutoLayoutContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoLayoutContent",P1])
+		dnRequest("set",[self,"AutoLayoutContent",P1])
 		return self
 
 	Func getVisualProperty

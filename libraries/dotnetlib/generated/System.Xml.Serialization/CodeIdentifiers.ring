@@ -59,9 +59,9 @@ Class CodeIdentifiers from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUseCamelCasing
-		return dnRequest("get",[new DotNetObject(nHandle),"UseCamelCasing"])
+		return dnRequest("get",[self,"UseCamelCasing"])
 
 	Func setUseCamelCasing P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseCamelCasing",P1])
+		dnRequest("set",[self,"UseCamelCasing",P1])
 		return self
 

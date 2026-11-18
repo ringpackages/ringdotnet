@@ -114,136 +114,136 @@ Class ListBox from ListControl
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
+		return dnRequest("get",[self,"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
+		dnRequest("set",[self,"BorderStyle",P1])
 		return self
 
 	Func getColumnWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnWidth"])
+		return dnRequest("get",[self,"ColumnWidth"])
 
 	Func setColumnWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnWidth",P1])
+		dnRequest("set",[self,"ColumnWidth",P1])
 		return self
 
 	Func getUseCustomTabOffsets
-		return dnRequest("get",[new DotNetObject(nHandle),"UseCustomTabOffsets"])
+		return dnRequest("get",[self,"UseCustomTabOffsets"])
 
 	Func setUseCustomTabOffsets P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseCustomTabOffsets",P1])
+		dnRequest("set",[self,"UseCustomTabOffsets",P1])
 		return self
 
 	Func getDrawMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DrawMode"])
+		return dnRequest("get",[self,"DrawMode"])
 
 	Func setDrawMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"DrawMode",P1])
+		dnRequest("set",[self,"DrawMode",P1])
 		return self
 
 	Func getHorizontalExtent
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalExtent"])
+		return dnRequest("get",[self,"HorizontalExtent"])
 
 	Func setHorizontalExtent P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalExtent",P1])
+		dnRequest("set",[self,"HorizontalExtent",P1])
 		return self
 
 	Func getHorizontalScrollbar
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalScrollbar"])
+		return dnRequest("get",[self,"HorizontalScrollbar"])
 
 	Func setHorizontalScrollbar P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalScrollbar",P1])
+		dnRequest("set",[self,"HorizontalScrollbar",P1])
 		return self
 
 	Func getIntegralHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"IntegralHeight"])
+		return dnRequest("get",[self,"IntegralHeight"])
 
 	Func setIntegralHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"IntegralHeight",P1])
+		dnRequest("set",[self,"IntegralHeight",P1])
 		return self
 
 	Func getItemHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemHeight"])
+		return dnRequest("get",[self,"ItemHeight"])
 
 	Func setItemHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemHeight",P1])
+		dnRequest("set",[self,"ItemHeight",P1])
 		return self
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getMultiColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"MultiColumn"])
+		return dnRequest("get",[self,"MultiColumn"])
 
 	Func setMultiColumn P1
-		dnRequest("set",[new DotNetObject(nHandle),"MultiColumn",P1])
+		dnRequest("set",[self,"MultiColumn",P1])
 		return self
 
 	Func getPreferredHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"PreferredHeight"])
+		return dnRequest("get",[self,"PreferredHeight"])
 
 	Func setPreferredHeight P1
 		raise("DotNet Error: PreferredHeight is a read-only property")
 
 	Func getScrollAlwaysVisible
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollAlwaysVisible"])
+		return dnRequest("get",[self,"ScrollAlwaysVisible"])
 
 	Func setScrollAlwaysVisible P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScrollAlwaysVisible",P1])
+		dnRequest("set",[self,"ScrollAlwaysVisible",P1])
 		return self
 
 	Func getSelectedIndices
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedIndices"])
+		return dnRequest("get",[self,"SelectedIndices"])
 
 	Func setSelectedIndices P1
 		raise("DotNet Error: SelectedIndices is a read-only property")
 
 	Func getSelectedItem
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItem"])
+		return dnRequest("get",[self,"SelectedItem"])
 
 	Func setSelectedItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedItem",P1])
+		dnRequest("set",[self,"SelectedItem",P1])
 		return self
 
 	Func getSelectedItems
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItems"])
+		return dnRequest("get",[self,"SelectedItems"])
 
 	Func setSelectedItems P1
 		raise("DotNet Error: SelectedItems is a read-only property")
 
 	Func getSelectionMode
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionMode"])
+		return dnRequest("get",[self,"SelectionMode"])
 
 	Func setSelectionMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionMode",P1])
+		dnRequest("set",[self,"SelectionMode",P1])
 		return self
 
 	Func getSorted
-		return dnRequest("get",[new DotNetObject(nHandle),"Sorted"])
+		return dnRequest("get",[self,"Sorted"])
 
 	Func setSorted P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sorted",P1])
+		dnRequest("set",[self,"Sorted",P1])
 		return self
 
 	Func getTopIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"TopIndex"])
+		return dnRequest("get",[self,"TopIndex"])
 
 	Func setTopIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"TopIndex",P1])
+		dnRequest("set",[self,"TopIndex",P1])
 		return self
 
 	Func getUseTabStops
-		return dnRequest("get",[new DotNetObject(nHandle),"UseTabStops"])
+		return dnRequest("get",[self,"UseTabStops"])
 
 	Func setUseTabStops P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseTabStops",P1])
+		dnRequest("set",[self,"UseTabStops",P1])
 		return self
 
 	Func getCustomTabOffsets
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomTabOffsets"])
+		return dnRequest("get",[self,"CustomTabOffsets"])
 
 	Func setCustomTabOffsets P1
 		raise("DotNet Error: CustomTabOffsets is a read-only property")

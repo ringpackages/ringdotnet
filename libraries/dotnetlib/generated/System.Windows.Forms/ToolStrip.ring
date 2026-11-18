@@ -131,156 +131,156 @@ Class ToolStrip from ScrollableControl
 		return self
 
 	Func getAllowClickThrough
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowClickThrough"])
+		return dnRequest("get",[self,"AllowClickThrough"])
 
 	Func setAllowClickThrough P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowClickThrough",P1])
+		dnRequest("set",[self,"AllowClickThrough",P1])
 		return self
 
 	Func getAllowItemReorder
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowItemReorder"])
+		return dnRequest("get",[self,"AllowItemReorder"])
 
 	Func setAllowItemReorder P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowItemReorder",P1])
+		dnRequest("set",[self,"AllowItemReorder",P1])
 		return self
 
 	Func getAllowMerge
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowMerge"])
+		return dnRequest("get",[self,"AllowMerge"])
 
 	Func setAllowMerge P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowMerge",P1])
+		dnRequest("set",[self,"AllowMerge",P1])
 		return self
 
 	Func getCanOverflow
-		return dnRequest("get",[new DotNetObject(nHandle),"CanOverflow"])
+		return dnRequest("get",[self,"CanOverflow"])
 
 	Func setCanOverflow P1
-		dnRequest("set",[new DotNetObject(nHandle),"CanOverflow",P1])
+		dnRequest("set",[self,"CanOverflow",P1])
 		return self
 
 	Func getDefaultDropDownDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultDropDownDirection"])
+		return dnRequest("get",[self,"DefaultDropDownDirection"])
 
 	Func setDefaultDropDownDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultDropDownDirection",P1])
+		dnRequest("set",[self,"DefaultDropDownDirection",P1])
 		return self
 
 	Func getGripStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"GripStyle"])
+		return dnRequest("get",[self,"GripStyle"])
 
 	Func setGripStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"GripStyle",P1])
+		dnRequest("set",[self,"GripStyle",P1])
 		return self
 
 	Func getGripDisplayStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"GripDisplayStyle"])
+		return dnRequest("get",[self,"GripDisplayStyle"])
 
 	Func setGripDisplayStyle P1
 		raise("DotNet Error: GripDisplayStyle is a read-only property")
 
 	Func getGripMargin
-		return dnRequest("get",[new DotNetObject(nHandle),"GripMargin"])
+		return dnRequest("get",[self,"GripMargin"])
 
 	Func setGripMargin P1
-		dnRequest("set",[new DotNetObject(nHandle),"GripMargin",P1])
+		dnRequest("set",[self,"GripMargin",P1])
 		return self
 
 	Func getGripRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"GripRectangle"])
+		return dnRequest("get",[self,"GripRectangle"])
 
 	Func setGripRectangle P1
 		raise("DotNet Error: GripRectangle is a read-only property")
 
 	Func getImageScalingSize
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageScalingSize"])
+		return dnRequest("get",[self,"ImageScalingSize"])
 
 	Func setImageScalingSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageScalingSize",P1])
+		dnRequest("set",[self,"ImageScalingSize",P1])
 		return self
 
 	Func getImageList
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageList"])
+		return dnRequest("get",[self,"ImageList"])
 
 	Func setImageList P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageList",P1])
+		dnRequest("set",[self,"ImageList",P1])
 		return self
 
 	Func getIsCurrentlyDragging
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCurrentlyDragging"])
+		return dnRequest("get",[self,"IsCurrentlyDragging"])
 
 	Func setIsCurrentlyDragging P1
 		raise("DotNet Error: IsCurrentlyDragging is a read-only property")
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getIsDropDown
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDropDown"])
+		return dnRequest("get",[self,"IsDropDown"])
 
 	Func setIsDropDown P1
 		raise("DotNet Error: IsDropDown is a read-only property")
 
 	Func getLayoutSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"LayoutSettings"])
+		return dnRequest("get",[self,"LayoutSettings"])
 
 	Func setLayoutSettings P1
-		dnRequest("set",[new DotNetObject(nHandle),"LayoutSettings",P1])
+		dnRequest("set",[self,"LayoutSettings",P1])
 		return self
 
 	Func getLayoutStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"LayoutStyle"])
+		return dnRequest("get",[self,"LayoutStyle"])
 
 	Func setLayoutStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"LayoutStyle",P1])
+		dnRequest("set",[self,"LayoutStyle",P1])
 		return self
 
 	Func getOverflowButton
-		return dnRequest("get",[new DotNetObject(nHandle),"OverflowButton"])
+		return dnRequest("get",[self,"OverflowButton"])
 
 	Func setOverflowButton P1
 		raise("DotNet Error: OverflowButton is a read-only property")
 
 	Func getOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
+		return dnRequest("get",[self,"Orientation"])
 
 	Func setOrientation P1
 		raise("DotNet Error: Orientation is a read-only property")
 
 	Func getStretch
-		return dnRequest("get",[new DotNetObject(nHandle),"Stretch"])
+		return dnRequest("get",[self,"Stretch"])
 
 	Func setStretch P1
-		dnRequest("set",[new DotNetObject(nHandle),"Stretch",P1])
+		dnRequest("set",[self,"Stretch",P1])
 		return self
 
 	Func getRenderer
-		return dnRequest("get",[new DotNetObject(nHandle),"Renderer"])
+		return dnRequest("get",[self,"Renderer"])
 
 	Func setRenderer P1
-		dnRequest("set",[new DotNetObject(nHandle),"Renderer",P1])
+		dnRequest("set",[self,"Renderer",P1])
 		return self
 
 	Func getRenderMode
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderMode"])
+		return dnRequest("get",[self,"RenderMode"])
 
 	Func setRenderMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"RenderMode",P1])
+		dnRequest("set",[self,"RenderMode",P1])
 		return self
 
 	Func getShowItemToolTips
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowItemToolTips"])
+		return dnRequest("get",[self,"ShowItemToolTips"])
 
 	Func setShowItemToolTips P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowItemToolTips",P1])
+		dnRequest("set",[self,"ShowItemToolTips",P1])
 		return self
 
 	Func getTextDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"TextDirection"])
+		return dnRequest("get",[self,"TextDirection"])
 
 	Func setTextDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextDirection",P1])
+		dnRequest("set",[self,"TextDirection",P1])
 		return self
 

@@ -23,7 +23,7 @@ Class FrameDimension from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getGuid
-		return dnRequest("get",[new DotNetObject(nHandle),"Guid"])
+		return dnRequest("get",[self,"Guid"])
 
 	Func setGuid P1
 		raise("DotNet Error: Guid is a read-only property")

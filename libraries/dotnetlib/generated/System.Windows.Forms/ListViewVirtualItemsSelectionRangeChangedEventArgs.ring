@@ -19,19 +19,19 @@ Class ListViewVirtualItemsSelectionRangeChangedEventArgs from EventArgs
 		return self
 
 	Func getStartIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"StartIndex"])
+		return dnRequest("get",[self,"StartIndex"])
 
 	Func setStartIndex P1
 		raise("DotNet Error: StartIndex is a read-only property")
 
 	Func getEndIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"EndIndex"])
+		return dnRequest("get",[self,"EndIndex"])
 
 	Func setEndIndex P1
 		raise("DotNet Error: EndIndex is a read-only property")
 
 	Func getIsSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
+		return dnRequest("get",[self,"IsSelected"])
 
 	Func setIsSelected P1
 		raise("DotNet Error: IsSelected is a read-only property")

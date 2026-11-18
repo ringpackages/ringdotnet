@@ -83,13 +83,13 @@ Class VirtualizingPanel from WpfPanel
 		return self
 
 	Func getCanHierarchicallyScrollAndVirtualize
-		return dnRequest("get",[new DotNetObject(nHandle),"CanHierarchicallyScrollAndVirtualize"])
+		return dnRequest("get",[self,"CanHierarchicallyScrollAndVirtualize"])
 
 	Func setCanHierarchicallyScrollAndVirtualize P1
 		raise("DotNet Error: CanHierarchicallyScrollAndVirtualize is a read-only property")
 
 	Func getItemContainerGenerator
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerGenerator"])
+		return dnRequest("get",[self,"ItemContainerGenerator"])
 
 	Func setItemContainerGenerator P1
 		raise("DotNet Error: ItemContainerGenerator is a read-only property")

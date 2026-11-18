@@ -180,34 +180,34 @@ Class RuntimeTypeBase from RuntimeAnnotatableBase
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.RuntimeTypeBase, Microsoft.EntityFrameworkCore'),"FindIndexerProperty",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getClrType
-		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
+		return dnRequest("get",[self,"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Model",P1])
+		dnRequest("set",[self,"Model",P1])
 		return self
 
 	Func getBaseType
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseType"])
+		return dnRequest("get",[self,"BaseType"])
 
 	Func setBaseType P1
 		raise("DotNet Error: BaseType is a read-only property")
 
 	Func getConstructorBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"ConstructorBinding"])
+		return dnRequest("get",[self,"ConstructorBinding"])
 
 	Func setConstructorBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConstructorBinding",P1])
+		dnRequest("set",[self,"ConstructorBinding",P1])
 		return self
 

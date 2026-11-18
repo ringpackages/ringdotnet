@@ -26,16 +26,16 @@ Class Button from ButtonBase
 		return self
 
 	Func getAutoSizeMode
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoSizeMode"])
+		return dnRequest("get",[self,"AutoSizeMode"])
 
 	Func setAutoSizeMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoSizeMode",P1])
+		dnRequest("set",[self,"AutoSizeMode",P1])
 		return self
 
 	Func getDialogResult
-		return dnRequest("get",[new DotNetObject(nHandle),"DialogResult"])
+		return dnRequest("get",[self,"DialogResult"])
 
 	Func setDialogResult P1
-		dnRequest("set",[new DotNetObject(nHandle),"DialogResult",P1])
+		dnRequest("set",[self,"DialogResult",P1])
 		return self
 

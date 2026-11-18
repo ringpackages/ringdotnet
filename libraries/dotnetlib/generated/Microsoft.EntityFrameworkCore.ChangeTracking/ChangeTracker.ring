@@ -120,48 +120,48 @@ Class ChangeTracker from Object
 		return self
 
 	Func getAutoDetectChangesEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoDetectChangesEnabled"])
+		return dnRequest("get",[self,"AutoDetectChangesEnabled"])
 
 	Func setAutoDetectChangesEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoDetectChangesEnabled",P1])
+		dnRequest("set",[self,"AutoDetectChangesEnabled",P1])
 		return self
 
 	Func getLazyLoadingEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"LazyLoadingEnabled"])
+		return dnRequest("get",[self,"LazyLoadingEnabled"])
 
 	Func setLazyLoadingEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"LazyLoadingEnabled",P1])
+		dnRequest("set",[self,"LazyLoadingEnabled",P1])
 		return self
 
 	Func getQueryTrackingBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryTrackingBehavior"])
+		return dnRequest("get",[self,"QueryTrackingBehavior"])
 
 	Func setQueryTrackingBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"QueryTrackingBehavior",P1])
+		dnRequest("set",[self,"QueryTrackingBehavior",P1])
 		return self
 
 	Func getDeleteOrphansTiming
-		return dnRequest("get",[new DotNetObject(nHandle),"DeleteOrphansTiming"])
+		return dnRequest("get",[self,"DeleteOrphansTiming"])
 
 	Func setDeleteOrphansTiming P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeleteOrphansTiming",P1])
+		dnRequest("set",[self,"DeleteOrphansTiming",P1])
 		return self
 
 	Func getCascadeDeleteTiming
-		return dnRequest("get",[new DotNetObject(nHandle),"CascadeDeleteTiming"])
+		return dnRequest("get",[self,"CascadeDeleteTiming"])
 
 	Func setCascadeDeleteTiming P1
-		dnRequest("set",[new DotNetObject(nHandle),"CascadeDeleteTiming",P1])
+		dnRequest("set",[self,"CascadeDeleteTiming",P1])
 		return self
 
 	Func getContext
-		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
+		return dnRequest("get",[self,"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

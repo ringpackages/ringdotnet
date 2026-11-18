@@ -33,7 +33,7 @@ Class XmlResolver from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
+		dnRequest("set",[self,"Credentials",P1])
 		return self
 
 	Func getFileSystemResolver

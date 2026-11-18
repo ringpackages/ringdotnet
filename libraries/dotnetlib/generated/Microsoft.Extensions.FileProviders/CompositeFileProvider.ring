@@ -29,7 +29,7 @@ Class CompositeFileProvider from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFileProviders
-		return dnRequest("get",[new DotNetObject(nHandle),"FileProviders"])
+		return dnRequest("get",[self,"FileProviders"])
 
 	Func setFileProviders P1
 		raise("DotNet Error: FileProviders is a read-only property")

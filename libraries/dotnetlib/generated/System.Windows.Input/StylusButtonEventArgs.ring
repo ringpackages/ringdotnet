@@ -17,7 +17,7 @@ Class StylusButtonEventArgs from StylusEventArgs
 		return self
 
 	Func getStylusButton
-		return dnRequest("get",[new DotNetObject(nHandle),"StylusButton"])
+		return dnRequest("get",[self,"StylusButton"])
 
 	Func setStylusButton P1
 		raise("DotNet Error: StylusButton is a read-only property")

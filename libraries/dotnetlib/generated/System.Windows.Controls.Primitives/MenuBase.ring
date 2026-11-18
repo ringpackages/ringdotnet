@@ -22,17 +22,17 @@ Class MenuBase from ItemsControl
 		return dnRequest("call",[new DotNetObject(nHandle),"ContainerFromElement",P1])
 
 	Func getItemContainerTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerTemplateSelector"])
+		return dnRequest("get",[self,"ItemContainerTemplateSelector"])
 
 	Func setItemContainerTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemContainerTemplateSelector",P1])
+		dnRequest("set",[self,"ItemContainerTemplateSelector",P1])
 		return self
 
 	Func getUsesItemContainerTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"UsesItemContainerTemplate"])
+		return dnRequest("get",[self,"UsesItemContainerTemplate"])
 
 	Func setUsesItemContainerTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"UsesItemContainerTemplate",P1])
+		dnRequest("set",[self,"UsesItemContainerTemplate",P1])
 		return self
 
 	Func getItemContainerTemplateSelectorProperty

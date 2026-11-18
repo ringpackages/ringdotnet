@@ -21,7 +21,7 @@ Class CompositeEndpointDataSource from EndpointDataSource
 		return self
 
 	Func getDataSources
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSources"])
+		return dnRequest("get",[self,"DataSources"])
 
 	Func setDataSources P1
 		raise("DotNet Error: DataSources is a read-only property")

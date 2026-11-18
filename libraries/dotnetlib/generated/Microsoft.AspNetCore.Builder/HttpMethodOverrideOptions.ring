@@ -20,9 +20,9 @@ Class HttpMethodOverrideOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFormFieldName
-		return dnRequest("get",[new DotNetObject(nHandle),"FormFieldName"])
+		return dnRequest("get",[self,"FormFieldName"])
 
 	Func setFormFieldName P1
-		dnRequest("set",[new DotNetObject(nHandle),"FormFieldName",P1])
+		dnRequest("set",[self,"FormFieldName",P1])
 		return self
 

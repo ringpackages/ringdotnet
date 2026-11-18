@@ -47,7 +47,7 @@ Class TaskDialog from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1,P2,P3])
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")

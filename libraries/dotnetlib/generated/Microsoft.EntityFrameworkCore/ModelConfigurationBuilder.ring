@@ -77,7 +77,7 @@ Class ModelConfigurationBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConventions
-		return dnRequest("get",[new DotNetObject(nHandle),"Conventions"])
+		return dnRequest("get",[self,"Conventions"])
 
 	Func setConventions P1
 		raise("DotNet Error: Conventions is a read-only property")

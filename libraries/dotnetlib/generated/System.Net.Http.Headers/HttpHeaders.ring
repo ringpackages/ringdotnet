@@ -45,7 +45,7 @@ Class HttpHeaders from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getNonValidated
-		return dnRequest("get",[new DotNetObject(nHandle),"NonValidated"])
+		return dnRequest("get",[self,"NonValidated"])
 
 	Func setNonValidated P1
 		raise("DotNet Error: NonValidated is a read-only property")

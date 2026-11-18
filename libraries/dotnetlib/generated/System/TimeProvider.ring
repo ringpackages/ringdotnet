@@ -42,13 +42,13 @@ Class TimeProvider from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLocalTimeZone
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalTimeZone"])
+		return dnRequest("get",[self,"LocalTimeZone"])
 
 	Func setLocalTimeZone P1
 		raise("DotNet Error: LocalTimeZone is a read-only property")
 
 	Func getTimestampFrequency
-		return dnRequest("get",[new DotNetObject(nHandle),"TimestampFrequency"])
+		return dnRequest("get",[self,"TimestampFrequency"])
 
 	Func setTimestampFrequency P1
 		raise("DotNet Error: TimestampFrequency is a read-only property")

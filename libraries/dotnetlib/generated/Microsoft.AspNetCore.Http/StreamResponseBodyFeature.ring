@@ -52,19 +52,19 @@ Class StreamResponseBodyFeature from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStream
-		return dnRequest("get",[new DotNetObject(nHandle),"Stream"])
+		return dnRequest("get",[self,"Stream"])
 
 	Func setStream P1
 		raise("DotNet Error: Stream is a read-only property")
 
 	Func getPriorFeature
-		return dnRequest("get",[new DotNetObject(nHandle),"PriorFeature"])
+		return dnRequest("get",[self,"PriorFeature"])
 
 	Func setPriorFeature P1
 		raise("DotNet Error: PriorFeature is a read-only property")
 
 	Func getWriter
-		return dnRequest("get",[new DotNetObject(nHandle),"Writer"])
+		return dnRequest("get",[self,"Writer"])
 
 	Func setWriter P1
 		raise("DotNet Error: Writer is a read-only property")

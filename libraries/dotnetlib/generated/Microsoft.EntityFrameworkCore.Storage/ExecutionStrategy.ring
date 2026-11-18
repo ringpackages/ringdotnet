@@ -34,19 +34,19 @@ Class ExecutionStrategy from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy, Microsoft.EntityFrameworkCore'),"CallOnWrappedException",P1,P2])
 
 	Func getMaxRetryCount
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxRetryCount"])
+		return dnRequest("get",[self,"MaxRetryCount"])
 
 	Func setMaxRetryCount P1
 		raise("DotNet Error: MaxRetryCount is a read-only property")
 
 	Func getMaxRetryDelay
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxRetryDelay"])
+		return dnRequest("get",[self,"MaxRetryDelay"])
 
 	Func setMaxRetryDelay P1
 		raise("DotNet Error: MaxRetryDelay is a read-only property")
 
 	Func getRetriesOnFailure
-		return dnRequest("get",[new DotNetObject(nHandle),"RetriesOnFailure"])
+		return dnRequest("get",[self,"RetriesOnFailure"])
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")

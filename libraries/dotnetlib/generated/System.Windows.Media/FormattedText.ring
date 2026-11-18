@@ -188,117 +188,117 @@ Class FormattedText from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getPixelsPerDip
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelsPerDip"])
+		return dnRequest("get",[self,"PixelsPerDip"])
 
 	Func setPixelsPerDip P1
-		dnRequest("set",[new DotNetObject(nHandle),"PixelsPerDip",P1])
+		dnRequest("set",[self,"PixelsPerDip",P1])
 		return self
 
 	Func getFlowDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"FlowDirection"])
+		return dnRequest("get",[self,"FlowDirection"])
 
 	Func setFlowDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlowDirection",P1])
+		dnRequest("set",[self,"FlowDirection",P1])
 		return self
 
 	Func getTextAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"TextAlignment"])
+		return dnRequest("get",[self,"TextAlignment"])
 
 	Func setTextAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextAlignment",P1])
+		dnRequest("set",[self,"TextAlignment",P1])
 		return self
 
 	Func getLineHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"LineHeight"])
+		return dnRequest("get",[self,"LineHeight"])
 
 	Func setLineHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"LineHeight",P1])
+		dnRequest("set",[self,"LineHeight",P1])
 		return self
 
 	Func getMaxTextWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxTextWidth"])
+		return dnRequest("get",[self,"MaxTextWidth"])
 
 	Func setMaxTextWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxTextWidth",P1])
+		dnRequest("set",[self,"MaxTextWidth",P1])
 		return self
 
 	Func getMaxTextHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxTextHeight"])
+		return dnRequest("get",[self,"MaxTextHeight"])
 
 	Func setMaxTextHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxTextHeight",P1])
+		dnRequest("set",[self,"MaxTextHeight",P1])
 		return self
 
 	Func getMaxLineCount
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxLineCount"])
+		return dnRequest("get",[self,"MaxLineCount"])
 
 	Func setMaxLineCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxLineCount",P1])
+		dnRequest("set",[self,"MaxLineCount",P1])
 		return self
 
 	Func getTrimming
-		return dnRequest("get",[new DotNetObject(nHandle),"Trimming"])
+		return dnRequest("get",[self,"Trimming"])
 
 	Func setTrimming P1
-		dnRequest("set",[new DotNetObject(nHandle),"Trimming",P1])
+		dnRequest("set",[self,"Trimming",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
+		return dnRequest("get",[self,"Height"])
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getExtent
-		return dnRequest("get",[new DotNetObject(nHandle),"Extent"])
+		return dnRequest("get",[self,"Extent"])
 
 	Func setExtent P1
 		raise("DotNet Error: Extent is a read-only property")
 
 	Func getBaseline
-		return dnRequest("get",[new DotNetObject(nHandle),"Baseline"])
+		return dnRequest("get",[self,"Baseline"])
 
 	Func setBaseline P1
 		raise("DotNet Error: Baseline is a read-only property")
 
 	Func getOverhangAfter
-		return dnRequest("get",[new DotNetObject(nHandle),"OverhangAfter"])
+		return dnRequest("get",[self,"OverhangAfter"])
 
 	Func setOverhangAfter P1
 		raise("DotNet Error: OverhangAfter is a read-only property")
 
 	Func getOverhangLeading
-		return dnRequest("get",[new DotNetObject(nHandle),"OverhangLeading"])
+		return dnRequest("get",[self,"OverhangLeading"])
 
 	Func setOverhangLeading P1
 		raise("DotNet Error: OverhangLeading is a read-only property")
 
 	Func getOverhangTrailing
-		return dnRequest("get",[new DotNetObject(nHandle),"OverhangTrailing"])
+		return dnRequest("get",[self,"OverhangTrailing"])
 
 	Func setOverhangTrailing P1
 		raise("DotNet Error: OverhangTrailing is a read-only property")
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getWidthIncludingTrailingWhitespace
-		return dnRequest("get",[new DotNetObject(nHandle),"WidthIncludingTrailingWhitespace"])
+		return dnRequest("get",[self,"WidthIncludingTrailingWhitespace"])
 
 	Func setWidthIncludingTrailingWhitespace P1
 		raise("DotNet Error: WidthIncludingTrailingWhitespace is a read-only property")
 
 	Func getMinWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"MinWidth"])
+		return dnRequest("get",[self,"MinWidth"])
 
 	Func setMinWidth P1
 		raise("DotNet Error: MinWidth is a read-only property")

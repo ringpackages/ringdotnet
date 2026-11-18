@@ -110,65 +110,65 @@ Class Rect3D from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Parse",P1])
 
 	Func getIsEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
+		return dnRequest("get",[self,"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
+		return dnRequest("get",[self,"Location"])
 
 	Func setLocation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Location",P1])
+		dnRequest("set",[self,"Location",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
+		dnRequest("set",[self,"Size",P1])
 		return self
 
 	Func getSizeX
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeX"])
+		return dnRequest("get",[self,"SizeX"])
 
 	Func setSizeX P1
-		dnRequest("set",[new DotNetObject(nHandle),"SizeX",P1])
+		dnRequest("set",[self,"SizeX",P1])
 		return self
 
 	Func getSizeY
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeY"])
+		return dnRequest("get",[self,"SizeY"])
 
 	Func setSizeY P1
-		dnRequest("set",[new DotNetObject(nHandle),"SizeY",P1])
+		dnRequest("set",[self,"SizeY",P1])
 		return self
 
 	Func getSizeZ
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeZ"])
+		return dnRequest("get",[self,"SizeZ"])
 
 	Func setSizeZ P1
-		dnRequest("set",[new DotNetObject(nHandle),"SizeZ",P1])
+		dnRequest("set",[self,"SizeZ",P1])
 		return self
 
 	Func getX
-		return dnRequest("get",[new DotNetObject(nHandle),"X"])
+		return dnRequest("get",[self,"X"])
 
 	Func setX P1
-		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
+		dnRequest("set",[self,"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
+		return dnRequest("get",[self,"Y"])
 
 	Func setY P1
-		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
+		dnRequest("set",[self,"Y",P1])
 		return self
 
 	Func getZ
-		return dnRequest("get",[new DotNetObject(nHandle),"Z"])
+		return dnRequest("get",[self,"Z"])
 
 	Func setZ P1
-		dnRequest("set",[new DotNetObject(nHandle),"Z",P1])
+		dnRequest("set",[self,"Z",P1])
 		return self
 
 	Func getEmpty

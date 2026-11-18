@@ -19,7 +19,7 @@ Class LayoutSettings from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLayoutEngine
-		return dnRequest("get",[new DotNetObject(nHandle),"LayoutEngine"])
+		return dnRequest("get",[self,"LayoutEngine"])
 
 	Func setLayoutEngine P1
 		raise("DotNet Error: LayoutEngine is a read-only property")

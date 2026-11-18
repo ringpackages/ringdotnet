@@ -28,38 +28,38 @@ Class DataGridTextColumn from DataGridBoundColumn
 		return self
 
 	Func getFontFamily
-		return dnRequest("get",[new DotNetObject(nHandle),"FontFamily"])
+		return dnRequest("get",[self,"FontFamily"])
 
 	Func setFontFamily P1
-		dnRequest("set",[new DotNetObject(nHandle),"FontFamily",P1])
+		dnRequest("set",[self,"FontFamily",P1])
 		return self
 
 	Func getFontSize
-		return dnRequest("get",[new DotNetObject(nHandle),"FontSize"])
+		return dnRequest("get",[self,"FontSize"])
 
 	Func setFontSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"FontSize",P1])
+		dnRequest("set",[self,"FontSize",P1])
 		return self
 
 	Func getFontStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"FontStyle"])
+		return dnRequest("get",[self,"FontStyle"])
 
 	Func setFontStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"FontStyle",P1])
+		dnRequest("set",[self,"FontStyle",P1])
 		return self
 
 	Func getFontWeight
-		return dnRequest("get",[new DotNetObject(nHandle),"FontWeight"])
+		return dnRequest("get",[self,"FontWeight"])
 
 	Func setFontWeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"FontWeight",P1])
+		dnRequest("set",[self,"FontWeight",P1])
 		return self
 
 	Func getForeground
-		return dnRequest("get",[new DotNetObject(nHandle),"Foreground"])
+		return dnRequest("get",[self,"Foreground"])
 
 	Func setForeground P1
-		dnRequest("set",[new DotNetObject(nHandle),"Foreground",P1])
+		dnRequest("set",[self,"Foreground",P1])
 		return self
 
 	Func getDefaultElementStyle

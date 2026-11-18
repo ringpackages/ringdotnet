@@ -20,25 +20,25 @@ Class TextCompositionEventArgs from InputEventArgs
 		return self
 
 	Func getTextComposition
-		return dnRequest("get",[new DotNetObject(nHandle),"TextComposition"])
+		return dnRequest("get",[self,"TextComposition"])
 
 	Func setTextComposition P1
 		raise("DotNet Error: TextComposition is a read-only property")
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getSystemText
-		return dnRequest("get",[new DotNetObject(nHandle),"SystemText"])
+		return dnRequest("get",[self,"SystemText"])
 
 	Func setSystemText P1
 		raise("DotNet Error: SystemText is a read-only property")
 
 	Func getControlText
-		return dnRequest("get",[new DotNetObject(nHandle),"ControlText"])
+		return dnRequest("get",[self,"ControlText"])
 
 	Func setControlText P1
 		raise("DotNet Error: ControlText is a read-only property")

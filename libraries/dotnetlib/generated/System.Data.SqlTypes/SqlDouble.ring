@@ -100,10 +100,10 @@ Class SqlDouble from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
+		return dnRequest("get",[self,"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

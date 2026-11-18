@@ -20,26 +20,26 @@ Class PopupEventArgs from CancelEventArgs
 		return self
 
 	Func getAssociatedWindow
-		return dnRequest("get",[new DotNetObject(nHandle),"AssociatedWindow"])
+		return dnRequest("get",[self,"AssociatedWindow"])
 
 	Func setAssociatedWindow P1
 		raise("DotNet Error: AssociatedWindow is a read-only property")
 
 	Func getAssociatedControl
-		return dnRequest("get",[new DotNetObject(nHandle),"AssociatedControl"])
+		return dnRequest("get",[self,"AssociatedControl"])
 
 	Func setAssociatedControl P1
 		raise("DotNet Error: AssociatedControl is a read-only property")
 
 	Func getToolTipSize
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipSize"])
+		return dnRequest("get",[self,"ToolTipSize"])
 
 	Func setToolTipSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ToolTipSize",P1])
+		dnRequest("set",[self,"ToolTipSize",P1])
 		return self
 
 	Func getIsBalloon
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBalloon"])
+		return dnRequest("get",[self,"IsBalloon"])
 
 	Func setIsBalloon P1
 		raise("DotNet Error: IsBalloon is a read-only property")

@@ -20,9 +20,9 @@ Class WindowsFormsSection from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getJitDebugging
-		return dnRequest("get",[new DotNetObject(nHandle),"JitDebugging"])
+		return dnRequest("get",[self,"JitDebugging"])
 
 	Func setJitDebugging P1
-		dnRequest("set",[new DotNetObject(nHandle),"JitDebugging",P1])
+		dnRequest("set",[self,"JitDebugging",P1])
 		return self
 

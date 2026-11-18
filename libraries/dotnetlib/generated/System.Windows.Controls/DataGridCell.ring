@@ -42,29 +42,29 @@ Class DataGridCell from ContentControl
 		return self
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getIsEditing
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEditing"])
+		return dnRequest("get",[self,"IsEditing"])
 
 	Func setIsEditing P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsEditing",P1])
+		dnRequest("set",[self,"IsEditing",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
+		return dnRequest("get",[self,"IsSelected"])
 
 	Func setIsSelected P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSelected",P1])
+		dnRequest("set",[self,"IsSelected",P1])
 		return self
 
 	Func getColumnProperty

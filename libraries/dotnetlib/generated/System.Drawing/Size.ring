@@ -39,23 +39,23 @@ Class Size from ValueType
 		return dnRequest("call",[dnTypeCached('System.Drawing.Size, System.Drawing.Primitives'),"Round",P1])
 
 	Func getIsEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
+		return dnRequest("get",[self,"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
+		dnRequest("set",[self,"Width",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
+		return dnRequest("get",[self,"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
+		dnRequest("set",[self,"Height",P1])
 		return self
 
 	Func getEmpty

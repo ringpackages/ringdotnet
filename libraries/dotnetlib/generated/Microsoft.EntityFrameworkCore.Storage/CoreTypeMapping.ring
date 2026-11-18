@@ -80,49 +80,49 @@ Class CoreTypeMapping from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getClrType
-		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
+		return dnRequest("get",[self,"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getConverter
-		return dnRequest("get",[new DotNetObject(nHandle),"Converter"])
+		return dnRequest("get",[self,"Converter"])
 
 	Func setConverter P1
 		raise("DotNet Error: Converter is a read-only property")
 
 	Func getValueGeneratorFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueGeneratorFactory"])
+		return dnRequest("get",[self,"ValueGeneratorFactory"])
 
 	Func setValueGeneratorFactory P1
 		raise("DotNet Error: ValueGeneratorFactory is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
+		return dnRequest("get",[self,"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getKeyComparer
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyComparer"])
+		return dnRequest("get",[self,"KeyComparer"])
 
 	Func setKeyComparer P1
 		raise("DotNet Error: KeyComparer is a read-only property")
 
 	Func getProviderValueComparer
-		return dnRequest("get",[new DotNetObject(nHandle),"ProviderValueComparer"])
+		return dnRequest("get",[self,"ProviderValueComparer"])
 
 	Func setProviderValueComparer P1
 		raise("DotNet Error: ProviderValueComparer is a read-only property")
 
 	Func getElementTypeMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementTypeMapping"])
+		return dnRequest("get",[self,"ElementTypeMapping"])
 
 	Func setElementTypeMapping P1
 		raise("DotNet Error: ElementTypeMapping is a read-only property")
 
 	Func getJsonValueReaderWriter
-		return dnRequest("get",[new DotNetObject(nHandle),"JsonValueReaderWriter"])
+		return dnRequest("get",[self,"JsonValueReaderWriter"])
 
 	Func setJsonValueReaderWriter P1
 		raise("DotNet Error: JsonValueReaderWriter is a read-only property")

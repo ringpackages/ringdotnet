@@ -260,13 +260,13 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetElementTypeConfigurationSource"])
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
+		return dnRequest("get",[self,"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")

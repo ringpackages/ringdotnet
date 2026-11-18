@@ -243,156 +243,156 @@ Class HtmlElement from Object
 		return self
 
 	Func getAll
-		return dnRequest("get",[new DotNetObject(nHandle),"All"])
+		return dnRequest("get",[self,"All"])
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
 
 	Func getChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
+		return dnRequest("get",[self,"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getCanHaveChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"CanHaveChildren"])
+		return dnRequest("get",[self,"CanHaveChildren"])
 
 	Func setCanHaveChildren P1
 		raise("DotNet Error: CanHaveChildren is a read-only property")
 
 	Func getClientRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"ClientRectangle"])
+		return dnRequest("get",[self,"ClientRectangle"])
 
 	Func setClientRectangle P1
 		raise("DotNet Error: ClientRectangle is a read-only property")
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
+		return dnRequest("get",[self,"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
+		dnRequest("set",[self,"Enabled",P1])
 		return self
 
 	Func getFirstChild
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstChild"])
+		return dnRequest("get",[self,"FirstChild"])
 
 	Func setFirstChild P1
 		raise("DotNet Error: FirstChild is a read-only property")
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
-		dnRequest("set",[new DotNetObject(nHandle),"Id",P1])
+		dnRequest("set",[self,"Id",P1])
 		return self
 
 	Func getInnerHtml
-		return dnRequest("get",[new DotNetObject(nHandle),"InnerHtml"])
+		return dnRequest("get",[self,"InnerHtml"])
 
 	Func setInnerHtml P1
-		dnRequest("set",[new DotNetObject(nHandle),"InnerHtml",P1])
+		dnRequest("set",[self,"InnerHtml",P1])
 		return self
 
 	Func getInnerText
-		return dnRequest("get",[new DotNetObject(nHandle),"InnerText"])
+		return dnRequest("get",[self,"InnerText"])
 
 	Func setInnerText P1
-		dnRequest("set",[new DotNetObject(nHandle),"InnerText",P1])
+		dnRequest("set",[self,"InnerText",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getNextSibling
-		return dnRequest("get",[new DotNetObject(nHandle),"NextSibling"])
+		return dnRequest("get",[self,"NextSibling"])
 
 	Func setNextSibling P1
 		raise("DotNet Error: NextSibling is a read-only property")
 
 	Func getOffsetRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetRectangle"])
+		return dnRequest("get",[self,"OffsetRectangle"])
 
 	Func setOffsetRectangle P1
 		raise("DotNet Error: OffsetRectangle is a read-only property")
 
 	Func getOffsetParent
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetParent"])
+		return dnRequest("get",[self,"OffsetParent"])
 
 	Func setOffsetParent P1
 		raise("DotNet Error: OffsetParent is a read-only property")
 
 	Func getOuterHtml
-		return dnRequest("get",[new DotNetObject(nHandle),"OuterHtml"])
+		return dnRequest("get",[self,"OuterHtml"])
 
 	Func setOuterHtml P1
-		dnRequest("set",[new DotNetObject(nHandle),"OuterHtml",P1])
+		dnRequest("set",[self,"OuterHtml",P1])
 		return self
 
 	Func getOuterText
-		return dnRequest("get",[new DotNetObject(nHandle),"OuterText"])
+		return dnRequest("get",[self,"OuterText"])
 
 	Func setOuterText P1
-		dnRequest("set",[new DotNetObject(nHandle),"OuterText",P1])
+		dnRequest("set",[self,"OuterText",P1])
 		return self
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getScrollRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollRectangle"])
+		return dnRequest("get",[self,"ScrollRectangle"])
 
 	Func setScrollRectangle P1
 		raise("DotNet Error: ScrollRectangle is a read-only property")
 
 	Func getScrollLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollLeft"])
+		return dnRequest("get",[self,"ScrollLeft"])
 
 	Func setScrollLeft P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScrollLeft",P1])
+		dnRequest("set",[self,"ScrollLeft",P1])
 		return self
 
 	Func getScrollTop
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollTop"])
+		return dnRequest("get",[self,"ScrollTop"])
 
 	Func setScrollTop P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScrollTop",P1])
+		dnRequest("set",[self,"ScrollTop",P1])
 		return self
 
 	Func getStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
+		return dnRequest("get",[self,"Style"])
 
 	Func setStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Style",P1])
+		dnRequest("set",[self,"Style",P1])
 		return self
 
 	Func getTagName
-		return dnRequest("get",[new DotNetObject(nHandle),"TagName"])
+		return dnRequest("get",[self,"TagName"])
 
 	Func setTagName P1
 		raise("DotNet Error: TagName is a read-only property")
 
 	Func getTabIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"TabIndex"])
+		return dnRequest("get",[self,"TabIndex"])
 
 	Func setTabIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"TabIndex",P1])
+		dnRequest("set",[self,"TabIndex",P1])
 		return self
 
 	Func getDomElement
-		return dnRequest("get",[new DotNetObject(nHandle),"DomElement"])
+		return dnRequest("get",[self,"DomElement"])
 
 	Func setDomElement P1
 		raise("DotNet Error: DomElement is a read-only property")

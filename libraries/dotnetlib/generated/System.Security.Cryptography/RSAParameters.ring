@@ -24,58 +24,58 @@ Class RSAParameters from ValueType
 		return self
 
 	Func getD
-		return dnRequest("get",[new DotNetObject(nHandle),"D"])
+		return dnRequest("get",[self,"D"])
 
 	Func setD P1
-		dnRequest("set",[new DotNetObject(nHandle),"D",P1])
+		dnRequest("set",[self,"D",P1])
 		return self
 
 	Func getDP
-		return dnRequest("get",[new DotNetObject(nHandle),"DP"])
+		return dnRequest("get",[self,"DP"])
 
 	Func setDP P1
-		dnRequest("set",[new DotNetObject(nHandle),"DP",P1])
+		dnRequest("set",[self,"DP",P1])
 		return self
 
 	Func getDQ
-		return dnRequest("get",[new DotNetObject(nHandle),"DQ"])
+		return dnRequest("get",[self,"DQ"])
 
 	Func setDQ P1
-		dnRequest("set",[new DotNetObject(nHandle),"DQ",P1])
+		dnRequest("set",[self,"DQ",P1])
 		return self
 
 	Func getExponent
-		return dnRequest("get",[new DotNetObject(nHandle),"Exponent"])
+		return dnRequest("get",[self,"Exponent"])
 
 	Func setExponent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Exponent",P1])
+		dnRequest("set",[self,"Exponent",P1])
 		return self
 
 	Func getInverseQ
-		return dnRequest("get",[new DotNetObject(nHandle),"InverseQ"])
+		return dnRequest("get",[self,"InverseQ"])
 
 	Func setInverseQ P1
-		dnRequest("set",[new DotNetObject(nHandle),"InverseQ",P1])
+		dnRequest("set",[self,"InverseQ",P1])
 		return self
 
 	Func getModulus
-		return dnRequest("get",[new DotNetObject(nHandle),"Modulus"])
+		return dnRequest("get",[self,"Modulus"])
 
 	Func setModulus P1
-		dnRequest("set",[new DotNetObject(nHandle),"Modulus",P1])
+		dnRequest("set",[self,"Modulus",P1])
 		return self
 
 	Func getP
-		return dnRequest("get",[new DotNetObject(nHandle),"P"])
+		return dnRequest("get",[self,"P"])
 
 	Func setP P1
-		dnRequest("set",[new DotNetObject(nHandle),"P",P1])
+		dnRequest("set",[self,"P",P1])
 		return self
 
 	Func getQ
-		return dnRequest("get",[new DotNetObject(nHandle),"Q"])
+		return dnRequest("get",[self,"Q"])
 
 	Func setQ P1
-		dnRequest("set",[new DotNetObject(nHandle),"Q",P1])
+		dnRequest("set",[self,"Q",P1])
 		return self
 

@@ -506,128 +506,128 @@ Class Graphics from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"GetHalftonePalette"])
 
 	Func getClip
-		return dnRequest("get",[new DotNetObject(nHandle),"Clip"])
+		return dnRequest("get",[self,"Clip"])
 
 	Func setClip P1
-		dnRequest("set",[new DotNetObject(nHandle),"Clip",P1])
+		dnRequest("set",[self,"Clip",P1])
 		return self
 
 	Func getClipBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"ClipBounds"])
+		return dnRequest("get",[self,"ClipBounds"])
 
 	Func setClipBounds P1
 		raise("DotNet Error: ClipBounds is a read-only property")
 
 	Func getCompositingMode
-		return dnRequest("get",[new DotNetObject(nHandle),"CompositingMode"])
+		return dnRequest("get",[self,"CompositingMode"])
 
 	Func setCompositingMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"CompositingMode",P1])
+		dnRequest("set",[self,"CompositingMode",P1])
 		return self
 
 	Func getCompositingQuality
-		return dnRequest("get",[new DotNetObject(nHandle),"CompositingQuality"])
+		return dnRequest("get",[self,"CompositingQuality"])
 
 	Func setCompositingQuality P1
-		dnRequest("set",[new DotNetObject(nHandle),"CompositingQuality",P1])
+		dnRequest("set",[self,"CompositingQuality",P1])
 		return self
 
 	Func getDpiX
-		return dnRequest("get",[new DotNetObject(nHandle),"DpiX"])
+		return dnRequest("get",[self,"DpiX"])
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		return dnRequest("get",[new DotNetObject(nHandle),"DpiY"])
+		return dnRequest("get",[self,"DpiY"])
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getInterpolationMode
-		return dnRequest("get",[new DotNetObject(nHandle),"InterpolationMode"])
+		return dnRequest("get",[self,"InterpolationMode"])
 
 	Func setInterpolationMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"InterpolationMode",P1])
+		dnRequest("set",[self,"InterpolationMode",P1])
 		return self
 
 	Func getIsClipEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsClipEmpty"])
+		return dnRequest("get",[self,"IsClipEmpty"])
 
 	Func setIsClipEmpty P1
 		raise("DotNet Error: IsClipEmpty is a read-only property")
 
 	Func getIsVisibleClipEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsVisibleClipEmpty"])
+		return dnRequest("get",[self,"IsVisibleClipEmpty"])
 
 	Func setIsVisibleClipEmpty P1
 		raise("DotNet Error: IsVisibleClipEmpty is a read-only property")
 
 	Func getPageScale
-		return dnRequest("get",[new DotNetObject(nHandle),"PageScale"])
+		return dnRequest("get",[self,"PageScale"])
 
 	Func setPageScale P1
-		dnRequest("set",[new DotNetObject(nHandle),"PageScale",P1])
+		dnRequest("set",[self,"PageScale",P1])
 		return self
 
 	Func getPageUnit
-		return dnRequest("get",[new DotNetObject(nHandle),"PageUnit"])
+		return dnRequest("get",[self,"PageUnit"])
 
 	Func setPageUnit P1
-		dnRequest("set",[new DotNetObject(nHandle),"PageUnit",P1])
+		dnRequest("set",[self,"PageUnit",P1])
 		return self
 
 	Func getPixelOffsetMode
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelOffsetMode"])
+		return dnRequest("get",[self,"PixelOffsetMode"])
 
 	Func setPixelOffsetMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"PixelOffsetMode",P1])
+		dnRequest("set",[self,"PixelOffsetMode",P1])
 		return self
 
 	Func getRenderingOrigin
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderingOrigin"])
+		return dnRequest("get",[self,"RenderingOrigin"])
 
 	Func setRenderingOrigin P1
-		dnRequest("set",[new DotNetObject(nHandle),"RenderingOrigin",P1])
+		dnRequest("set",[self,"RenderingOrigin",P1])
 		return self
 
 	Func getSmoothingMode
-		return dnRequest("get",[new DotNetObject(nHandle),"SmoothingMode"])
+		return dnRequest("get",[self,"SmoothingMode"])
 
 	Func setSmoothingMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SmoothingMode",P1])
+		dnRequest("set",[self,"SmoothingMode",P1])
 		return self
 
 	Func getTextContrast
-		return dnRequest("get",[new DotNetObject(nHandle),"TextContrast"])
+		return dnRequest("get",[self,"TextContrast"])
 
 	Func setTextContrast P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextContrast",P1])
+		dnRequest("set",[self,"TextContrast",P1])
 		return self
 
 	Func getTextRenderingHint
-		return dnRequest("get",[new DotNetObject(nHandle),"TextRenderingHint"])
+		return dnRequest("get",[self,"TextRenderingHint"])
 
 	Func setTextRenderingHint P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextRenderingHint",P1])
+		dnRequest("set",[self,"TextRenderingHint",P1])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
+		return dnRequest("get",[self,"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
+		dnRequest("set",[self,"Transform",P1])
 		return self
 
 	Func getTransformElements
-		return dnRequest("get",[new DotNetObject(nHandle),"TransformElements"])
+		return dnRequest("get",[self,"TransformElements"])
 
 	Func setTransformElements P1
-		dnRequest("set",[new DotNetObject(nHandle),"TransformElements",P1])
+		dnRequest("set",[self,"TransformElements",P1])
 		return self
 
 	Func getVisibleClipBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"VisibleClipBounds"])
+		return dnRequest("get",[self,"VisibleClipBounds"])
 
 	Func setVisibleClipBounds P1
 		raise("DotNet Error: VisibleClipBounds is a read-only property")

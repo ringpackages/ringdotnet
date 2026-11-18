@@ -88,43 +88,43 @@ Class PropertyInfo from MemberInfo
 		return self
 
 	Func getPropertyType
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyType"])
+		return dnRequest("get",[self,"PropertyType"])
 
 	Func setPropertyType P1
 		raise("DotNet Error: PropertyType is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getIsSpecialName
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSpecialName"])
+		return dnRequest("get",[self,"IsSpecialName"])
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getCanRead
-		return dnRequest("get",[new DotNetObject(nHandle),"CanRead"])
+		return dnRequest("get",[self,"CanRead"])
 
 	Func setCanRead P1
 		raise("DotNet Error: CanRead is a read-only property")
 
 	Func getCanWrite
-		return dnRequest("get",[new DotNetObject(nHandle),"CanWrite"])
+		return dnRequest("get",[self,"CanWrite"])
 
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")
 
 	Func getGetMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"GetMethod"])
+		return dnRequest("get",[self,"GetMethod"])
 
 	Func setGetMethod P1
 		raise("DotNet Error: GetMethod is a read-only property")
 
 	Func getSetMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"SetMethod"])
+		return dnRequest("get",[self,"SetMethod"])
 
 	Func setSetMethod P1
 		raise("DotNet Error: SetMethod is a read-only property")

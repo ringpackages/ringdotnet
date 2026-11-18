@@ -21,16 +21,16 @@ Class QuerySqlGeneratorDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRelationalCommandBuilderFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"RelationalCommandBuilderFactory"])
+		return dnRequest("get",[self,"RelationalCommandBuilderFactory"])
 
 	Func setRelationalCommandBuilderFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"RelationalCommandBuilderFactory",P1])
+		dnRequest("set",[self,"RelationalCommandBuilderFactory",P1])
 		return self
 
 	Func getSqlGenerationHelper
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlGenerationHelper"])
+		return dnRequest("get",[self,"SqlGenerationHelper"])
 
 	Func setSqlGenerationHelper P1
-		dnRequest("set",[new DotNetObject(nHandle),"SqlGenerationHelper",P1])
+		dnRequest("set",[self,"SqlGenerationHelper",P1])
 		return self
 

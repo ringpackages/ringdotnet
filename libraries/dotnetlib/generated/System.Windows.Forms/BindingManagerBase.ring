@@ -90,32 +90,32 @@ Class BindingManagerBase from Object
 		return self
 
 	Func getBindings
-		return dnRequest("get",[new DotNetObject(nHandle),"Bindings"])
+		return dnRequest("get",[self,"Bindings"])
 
 	Func setBindings P1
 		raise("DotNet Error: Bindings is a read-only property")
 
 	Func getCurrent
-		return dnRequest("get",[new DotNetObject(nHandle),"Current"])
+		return dnRequest("get",[self,"Current"])
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
+		return dnRequest("get",[self,"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
+		dnRequest("set",[self,"Position",P1])
 		return self
 
 	Func getIsBindingSuspended
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBindingSuspended"])
+		return dnRequest("get",[self,"IsBindingSuspended"])
 
 	Func setIsBindingSuspended P1
 		raise("DotNet Error: IsBindingSuspended is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

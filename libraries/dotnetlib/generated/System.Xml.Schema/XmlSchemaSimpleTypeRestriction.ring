@@ -19,21 +19,21 @@ Class XmlSchemaSimpleTypeRestriction from XmlSchemaSimpleTypeContent
 		return self
 
 	Func getBaseTypeName
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseTypeName"])
+		return dnRequest("get",[self,"BaseTypeName"])
 
 	Func setBaseTypeName P1
-		dnRequest("set",[new DotNetObject(nHandle),"BaseTypeName",P1])
+		dnRequest("set",[self,"BaseTypeName",P1])
 		return self
 
 	Func getBaseType
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseType"])
+		return dnRequest("get",[self,"BaseType"])
 
 	Func setBaseType P1
-		dnRequest("set",[new DotNetObject(nHandle),"BaseType",P1])
+		dnRequest("set",[self,"BaseType",P1])
 		return self
 
 	Func getFacets
-		return dnRequest("get",[new DotNetObject(nHandle),"Facets"])
+		return dnRequest("get",[self,"Facets"])
 
 	Func setFacets P1
 		raise("DotNet Error: Facets is a read-only property")

@@ -16,7 +16,7 @@ Class IDataTokensMetadata from DotNetObject
 		return self
 
 	Func getDataTokens
-		return dnRequest("get",[new DotNetObject(nHandle),"DataTokens"])
+		return dnRequest("get",[self,"DataTokens"])
 
 	Func setDataTokens P1
 		raise("DotNet Error: DataTokens is a read-only property")

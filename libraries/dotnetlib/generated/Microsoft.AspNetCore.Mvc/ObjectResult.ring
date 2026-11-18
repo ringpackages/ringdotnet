@@ -25,37 +25,37 @@ Class ObjectResult from ActionResult
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getFormatters
-		return dnRequest("get",[new DotNetObject(nHandle),"Formatters"])
+		return dnRequest("get",[self,"Formatters"])
 
 	Func setFormatters P1
-		dnRequest("set",[new DotNetObject(nHandle),"Formatters",P1])
+		dnRequest("set",[self,"Formatters",P1])
 		return self
 
 	Func getContentTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentTypes"])
+		return dnRequest("get",[self,"ContentTypes"])
 
 	Func setContentTypes P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentTypes",P1])
+		dnRequest("set",[self,"ContentTypes",P1])
 		return self
 
 	Func getDeclaredType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaredType"])
+		return dnRequest("get",[self,"DeclaredType"])
 
 	Func setDeclaredType P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeclaredType",P1])
+		dnRequest("set",[self,"DeclaredType",P1])
 		return self
 
 	Func getStatusCode
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
+		return dnRequest("get",[self,"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
+		dnRequest("set",[self,"StatusCode",P1])
 		return self
 

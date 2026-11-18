@@ -19,21 +19,21 @@ Class DataGridViewCellValueEventArgs from EventArgs
 		return self
 
 	Func getColumnIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
+		return dnRequest("get",[self,"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 

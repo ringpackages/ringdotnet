@@ -81,21 +81,21 @@ Class Controller from ControllerBase
 		return self
 
 	Func getViewData
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewData"])
+		return dnRequest("get",[self,"ViewData"])
 
 	Func setViewData P1
-		dnRequest("set",[new DotNetObject(nHandle),"ViewData",P1])
+		dnRequest("set",[self,"ViewData",P1])
 		return self
 
 	Func getTempData
-		return dnRequest("get",[new DotNetObject(nHandle),"TempData"])
+		return dnRequest("get",[self,"TempData"])
 
 	Func setTempData P1
-		dnRequest("set",[new DotNetObject(nHandle),"TempData",P1])
+		dnRequest("set",[self,"TempData",P1])
 		return self
 
 	Func getViewBag
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewBag"])
+		return dnRequest("get",[self,"ViewBag"])
 
 	Func setViewBag P1
 		raise("DotNet Error: ViewBag is a read-only property")

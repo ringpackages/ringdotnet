@@ -69,13 +69,13 @@ Class XContainer from XNode
 		return self
 
 	Func getFirstNode
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstNode"])
+		return dnRequest("get",[self,"FirstNode"])
 
 	Func setFirstNode P1
 		raise("DotNet Error: FirstNode is a read-only property")
 
 	Func getLastNode
-		return dnRequest("get",[new DotNetObject(nHandle),"LastNode"])
+		return dnRequest("get",[self,"LastNode"])
 
 	Func setLastNode P1
 		raise("DotNet Error: LastNode is a read-only property")

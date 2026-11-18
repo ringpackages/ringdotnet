@@ -30,30 +30,30 @@ Class Margins from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"Left"])
+		return dnRequest("get",[self,"Left"])
 
 	Func setLeft P1
-		dnRequest("set",[new DotNetObject(nHandle),"Left",P1])
+		dnRequest("set",[self,"Left",P1])
 		return self
 
 	Func getRight
-		return dnRequest("get",[new DotNetObject(nHandle),"Right"])
+		return dnRequest("get",[self,"Right"])
 
 	Func setRight P1
-		dnRequest("set",[new DotNetObject(nHandle),"Right",P1])
+		dnRequest("set",[self,"Right",P1])
 		return self
 
 	Func getTop
-		return dnRequest("get",[new DotNetObject(nHandle),"Top"])
+		return dnRequest("get",[self,"Top"])
 
 	Func setTop P1
-		dnRequest("set",[new DotNetObject(nHandle),"Top",P1])
+		dnRequest("set",[self,"Top",P1])
 		return self
 
 	Func getBottom
-		return dnRequest("get",[new DotNetObject(nHandle),"Bottom"])
+		return dnRequest("get",[self,"Bottom"])
 
 	Func setBottom P1
-		dnRequest("set",[new DotNetObject(nHandle),"Bottom",P1])
+		dnRequest("set",[self,"Bottom",P1])
 		return self
 

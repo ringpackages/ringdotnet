@@ -234,91 +234,91 @@ Class DateTime from ValueType
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func getDate
-		return dnRequest("get",[new DotNetObject(nHandle),"Date"])
+		return dnRequest("get",[self,"Date"])
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getDay
-		return dnRequest("get",[new DotNetObject(nHandle),"Day"])
+		return dnRequest("get",[self,"Day"])
 
 	Func setDay P1
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnRequest("get",[new DotNetObject(nHandle),"DayOfWeek"])
+		return dnRequest("get",[self,"DayOfWeek"])
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
 
 	Func getDayOfYear
-		return dnRequest("get",[new DotNetObject(nHandle),"DayOfYear"])
+		return dnRequest("get",[self,"DayOfYear"])
 
 	Func setDayOfYear P1
 		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getHour
-		return dnRequest("get",[new DotNetObject(nHandle),"Hour"])
+		return dnRequest("get",[self,"Hour"])
 
 	Func setHour P1
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getKind
-		return dnRequest("get",[new DotNetObject(nHandle),"Kind"])
+		return dnRequest("get",[self,"Kind"])
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getMillisecond
-		return dnRequest("get",[new DotNetObject(nHandle),"Millisecond"])
+		return dnRequest("get",[self,"Millisecond"])
 
 	Func setMillisecond P1
 		raise("DotNet Error: Millisecond is a read-only property")
 
 	Func getMicrosecond
-		return dnRequest("get",[new DotNetObject(nHandle),"Microsecond"])
+		return dnRequest("get",[self,"Microsecond"])
 
 	Func setMicrosecond P1
 		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
-		return dnRequest("get",[new DotNetObject(nHandle),"Nanosecond"])
+		return dnRequest("get",[self,"Nanosecond"])
 
 	Func setNanosecond P1
 		raise("DotNet Error: Nanosecond is a read-only property")
 
 	Func getMinute
-		return dnRequest("get",[new DotNetObject(nHandle),"Minute"])
+		return dnRequest("get",[self,"Minute"])
 
 	Func setMinute P1
 		raise("DotNet Error: Minute is a read-only property")
 
 	Func getMonth
-		return dnRequest("get",[new DotNetObject(nHandle),"Month"])
+		return dnRequest("get",[self,"Month"])
 
 	Func setMonth P1
 		raise("DotNet Error: Month is a read-only property")
 
 	Func getSecond
-		return dnRequest("get",[new DotNetObject(nHandle),"Second"])
+		return dnRequest("get",[self,"Second"])
 
 	Func setSecond P1
 		raise("DotNet Error: Second is a read-only property")
 
 	Func getTicks
-		return dnRequest("get",[new DotNetObject(nHandle),"Ticks"])
+		return dnRequest("get",[self,"Ticks"])
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getTimeOfDay
-		return dnRequest("get",[new DotNetObject(nHandle),"TimeOfDay"])
+		return dnRequest("get",[self,"TimeOfDay"])
 
 	Func setTimeOfDay P1
 		raise("DotNet Error: TimeOfDay is a read-only property")
 
 	Func getYear
-		return dnRequest("get",[new DotNetObject(nHandle),"Year"])
+		return dnRequest("get",[self,"Year"])
 
 	Func setYear P1
 		raise("DotNet Error: Year is a read-only property")

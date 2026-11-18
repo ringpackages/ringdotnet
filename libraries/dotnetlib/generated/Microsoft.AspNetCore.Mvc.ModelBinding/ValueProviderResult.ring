@@ -32,25 +32,25 @@ Class ValueProviderResult from ValueType
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func getCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
+		return dnRequest("get",[self,"Culture"])
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
+		return dnRequest("get",[self,"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getFirstValue
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstValue"])
+		return dnRequest("get",[self,"FirstValue"])
 
 	Func setFirstValue P1
 		raise("DotNet Error: FirstValue is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

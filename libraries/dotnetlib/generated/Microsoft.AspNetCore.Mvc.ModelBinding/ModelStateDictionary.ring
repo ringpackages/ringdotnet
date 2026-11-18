@@ -105,56 +105,56 @@ Class ModelStateDictionary from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getRoot
-		return dnRequest("get",[new DotNetObject(nHandle),"Root"])
+		return dnRequest("get",[self,"Root"])
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")
 
 	Func getMaxAllowedErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxAllowedErrors"])
+		return dnRequest("get",[self,"MaxAllowedErrors"])
 
 	Func setMaxAllowedErrors P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxAllowedErrors",P1])
+		dnRequest("set",[self,"MaxAllowedErrors",P1])
 		return self
 
 	Func getHasReachedMaxErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"HasReachedMaxErrors"])
+		return dnRequest("get",[self,"HasReachedMaxErrors"])
 
 	Func setHasReachedMaxErrors P1
 		raise("DotNet Error: HasReachedMaxErrors is a read-only property")
 
 	Func getErrorCount
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorCount"])
+		return dnRequest("get",[self,"ErrorCount"])
 
 	Func setErrorCount P1
 		raise("DotNet Error: ErrorCount is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
+		return dnRequest("get",[self,"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
+		return dnRequest("get",[self,"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getIsValid
-		return dnRequest("get",[new DotNetObject(nHandle),"IsValid"])
+		return dnRequest("get",[self,"IsValid"])
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getValidationState
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidationState"])
+		return dnRequest("get",[self,"ValidationState"])
 
 	Func setValidationState P1
 		raise("DotNet Error: ValidationState is a read-only property")

@@ -26,37 +26,37 @@ Class HeaderedContentControl from ContentControl
 		return self
 
 	Func getHeader
-		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
+		return dnRequest("get",[self,"Header"])
 
 	Func setHeader P1
-		dnRequest("set",[new DotNetObject(nHandle),"Header",P1])
+		dnRequest("set",[self,"Header",P1])
 		return self
 
 	Func getHasHeader
-		return dnRequest("get",[new DotNetObject(nHandle),"HasHeader"])
+		return dnRequest("get",[self,"HasHeader"])
 
 	Func setHasHeader P1
 		raise("DotNet Error: HasHeader is a read-only property")
 
 	Func getHeaderTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplate"])
+		return dnRequest("get",[self,"HeaderTemplate"])
 
 	Func setHeaderTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplate",P1])
+		dnRequest("set",[self,"HeaderTemplate",P1])
 		return self
 
 	Func getHeaderTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplateSelector"])
+		return dnRequest("get",[self,"HeaderTemplateSelector"])
 
 	Func setHeaderTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplateSelector",P1])
+		dnRequest("set",[self,"HeaderTemplateSelector",P1])
 		return self
 
 	Func getHeaderStringFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderStringFormat"])
+		return dnRequest("get",[self,"HeaderStringFormat"])
 
 	Func setHeaderStringFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderStringFormat",P1])
+		dnRequest("set",[self,"HeaderStringFormat",P1])
 		return self
 
 	Func getHeaderProperty

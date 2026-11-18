@@ -135,13 +135,13 @@ Class DirectoryInfo from FileSystemInfo
 		return self
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getRoot
-		return dnRequest("get",[new DotNetObject(nHandle),"Root"])
+		return dnRequest("get",[self,"Root"])
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")

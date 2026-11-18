@@ -43,35 +43,35 @@ Class CheckedListBox from ListBox
 		return self
 
 	Func getCheckOnClick
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckOnClick"])
+		return dnRequest("get",[self,"CheckOnClick"])
 
 	Func setCheckOnClick P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckOnClick",P1])
+		dnRequest("set",[self,"CheckOnClick",P1])
 		return self
 
 	Func getCheckedIndices
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckedIndices"])
+		return dnRequest("get",[self,"CheckedIndices"])
 
 	Func setCheckedIndices P1
 		raise("DotNet Error: CheckedIndices is a read-only property")
 
 	Func getCheckedItems
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckedItems"])
+		return dnRequest("get",[self,"CheckedItems"])
 
 	Func setCheckedItems P1
 		raise("DotNet Error: CheckedItems is a read-only property")
 
 	Func getThreeDCheckBoxes
-		return dnRequest("get",[new DotNetObject(nHandle),"ThreeDCheckBoxes"])
+		return dnRequest("get",[self,"ThreeDCheckBoxes"])
 
 	Func setThreeDCheckBoxes P1
-		dnRequest("set",[new DotNetObject(nHandle),"ThreeDCheckBoxes",P1])
+		dnRequest("set",[self,"ThreeDCheckBoxes",P1])
 		return self
 
 	Func getUseCompatibleTextRendering
-		return dnRequest("get",[new DotNetObject(nHandle),"UseCompatibleTextRendering"])
+		return dnRequest("get",[self,"UseCompatibleTextRendering"])
 
 	Func setUseCompatibleTextRendering P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseCompatibleTextRendering",P1])
+		dnRequest("set",[self,"UseCompatibleTextRendering",P1])
 		return self
 

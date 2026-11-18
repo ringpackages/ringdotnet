@@ -21,37 +21,37 @@ Class InputMethodStateChangedEventArgs from EventArgs
 		return self
 
 	Func getIsImeStateChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"IsImeStateChanged"])
+		return dnRequest("get",[self,"IsImeStateChanged"])
 
 	Func setIsImeStateChanged P1
 		raise("DotNet Error: IsImeStateChanged is a read-only property")
 
 	Func getIsMicrophoneStateChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMicrophoneStateChanged"])
+		return dnRequest("get",[self,"IsMicrophoneStateChanged"])
 
 	Func setIsMicrophoneStateChanged P1
 		raise("DotNet Error: IsMicrophoneStateChanged is a read-only property")
 
 	Func getIsHandwritingStateChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"IsHandwritingStateChanged"])
+		return dnRequest("get",[self,"IsHandwritingStateChanged"])
 
 	Func setIsHandwritingStateChanged P1
 		raise("DotNet Error: IsHandwritingStateChanged is a read-only property")
 
 	Func getIsSpeechModeChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSpeechModeChanged"])
+		return dnRequest("get",[self,"IsSpeechModeChanged"])
 
 	Func setIsSpeechModeChanged P1
 		raise("DotNet Error: IsSpeechModeChanged is a read-only property")
 
 	Func getIsImeConversionModeChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"IsImeConversionModeChanged"])
+		return dnRequest("get",[self,"IsImeConversionModeChanged"])
 
 	Func setIsImeConversionModeChanged P1
 		raise("DotNet Error: IsImeConversionModeChanged is a read-only property")
 
 	Func getIsImeSentenceModeChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"IsImeSentenceModeChanged"])
+		return dnRequest("get",[self,"IsImeSentenceModeChanged"])
 
 	Func setIsImeSentenceModeChanged P1
 		raise("DotNet Error: IsImeSentenceModeChanged is a read-only property")

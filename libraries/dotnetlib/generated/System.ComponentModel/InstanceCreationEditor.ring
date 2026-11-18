@@ -22,7 +22,7 @@ Class InstanceCreationEditor from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")

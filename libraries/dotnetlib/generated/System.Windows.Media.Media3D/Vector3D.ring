@@ -72,35 +72,35 @@ Class Vector3D from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"Parse",P1])
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLengthSquared
-		return dnRequest("get",[new DotNetObject(nHandle),"LengthSquared"])
+		return dnRequest("get",[self,"LengthSquared"])
 
 	Func setLengthSquared P1
 		raise("DotNet Error: LengthSquared is a read-only property")
 
 	Func getX
-		return dnRequest("get",[new DotNetObject(nHandle),"X"])
+		return dnRequest("get",[self,"X"])
 
 	Func setX P1
-		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
+		dnRequest("set",[self,"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
+		return dnRequest("get",[self,"Y"])
 
 	Func setY P1
-		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
+		dnRequest("set",[self,"Y",P1])
 		return self
 
 	Func getZ
-		return dnRequest("get",[new DotNetObject(nHandle),"Z"])
+		return dnRequest("get",[self,"Z"])
 
 	Func setZ P1
-		dnRequest("set",[new DotNetObject(nHandle),"Z",P1])
+		dnRequest("set",[self,"Z",P1])
 		return self
 

@@ -51,23 +51,23 @@ Class Point from ValueType
 		return dnRequest("call",[dnTypeCached('System.Drawing.Point, System.Drawing.Primitives'),"Round",P1])
 
 	Func getIsEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
+		return dnRequest("get",[self,"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getX
-		return dnRequest("get",[new DotNetObject(nHandle),"X"])
+		return dnRequest("get",[self,"X"])
 
 	Func setX P1
-		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
+		dnRequest("set",[self,"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
+		return dnRequest("get",[self,"Y"])
 
 	Func setY P1
-		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
+		dnRequest("set",[self,"Y",P1])
 		return self
 
 	Func getEmpty

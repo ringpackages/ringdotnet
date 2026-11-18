@@ -22,13 +22,13 @@ Class TreeViewEventArgs from EventArgs
 		return self
 
 	Func getNode
-		return dnRequest("get",[new DotNetObject(nHandle),"Node"])
+		return dnRequest("get",[self,"Node"])
 
 	Func setNode P1
 		raise("DotNet Error: Node is a read-only property")
 
 	Func getAction
-		return dnRequest("get",[new DotNetObject(nHandle),"Action"])
+		return dnRequest("get",[self,"Action"])
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")

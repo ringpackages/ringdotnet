@@ -136,13 +136,13 @@ Class IMutableTypeBase from DotNetObject
 		return self
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContainingEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainingEntityType"])
+		return dnRequest("get",[self,"ContainingEntityType"])
 
 	Func setContainingEntityType P1
 		raise("DotNet Error: ContainingEntityType is a read-only property")

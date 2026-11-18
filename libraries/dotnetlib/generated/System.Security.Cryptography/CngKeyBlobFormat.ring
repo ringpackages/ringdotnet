@@ -28,7 +28,7 @@ Class CngKeyBlobFormat from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
+		return dnRequest("get",[self,"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")

@@ -19,7 +19,7 @@ Class ICurrencyManagerProvider from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetRelatedCurrencyManager",P1])
 
 	Func getCurrencyManager
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyManager"])
+		return dnRequest("get",[self,"CurrencyManager"])
 
 	Func setCurrencyManager P1
 		raise("DotNet Error: CurrencyManager is a read-only property")

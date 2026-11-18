@@ -177,44 +177,44 @@ Class XmlDocument from XmlNode
 		return self
 
 	Func getDocumentType
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentType"])
+		return dnRequest("get",[self,"DocumentType"])
 
 	Func setDocumentType P1
 		raise("DotNet Error: DocumentType is a read-only property")
 
 	Func getImplementation
-		return dnRequest("get",[new DotNetObject(nHandle),"Implementation"])
+		return dnRequest("get",[self,"Implementation"])
 
 	Func setImplementation P1
 		raise("DotNet Error: Implementation is a read-only property")
 
 	Func getDocumentElement
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentElement"])
+		return dnRequest("get",[self,"DocumentElement"])
 
 	Func setDocumentElement P1
 		raise("DotNet Error: DocumentElement is a read-only property")
 
 	Func getSchemas
-		return dnRequest("get",[new DotNetObject(nHandle),"Schemas"])
+		return dnRequest("get",[self,"Schemas"])
 
 	Func setSchemas P1
-		dnRequest("set",[new DotNetObject(nHandle),"Schemas",P1])
+		dnRequest("set",[self,"Schemas",P1])
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
+		dnRequest("set",[self,"XmlResolver",P1])
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[new DotNetObject(nHandle),"NameTable"])
+		return dnRequest("get",[self,"NameTable"])
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getPreserveWhitespace
-		return dnRequest("get",[new DotNetObject(nHandle),"PreserveWhitespace"])
+		return dnRequest("get",[self,"PreserveWhitespace"])
 
 	Func setPreserveWhitespace P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreserveWhitespace",P1])
+		dnRequest("set",[self,"PreserveWhitespace",P1])
 		return self
 

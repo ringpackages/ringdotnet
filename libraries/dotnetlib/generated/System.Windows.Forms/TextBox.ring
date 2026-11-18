@@ -50,72 +50,72 @@ Class TextBox from TextBoxBase
 		return self
 
 	Func getAcceptsReturn
-		return dnRequest("get",[new DotNetObject(nHandle),"AcceptsReturn"])
+		return dnRequest("get",[self,"AcceptsReturn"])
 
 	Func setAcceptsReturn P1
-		dnRequest("set",[new DotNetObject(nHandle),"AcceptsReturn",P1])
+		dnRequest("set",[self,"AcceptsReturn",P1])
 		return self
 
 	Func getAutoCompleteMode
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteMode"])
+		return dnRequest("get",[self,"AutoCompleteMode"])
 
 	Func setAutoCompleteMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteMode",P1])
+		dnRequest("set",[self,"AutoCompleteMode",P1])
 		return self
 
 	Func getAutoCompleteSource
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteSource"])
+		return dnRequest("get",[self,"AutoCompleteSource"])
 
 	Func setAutoCompleteSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteSource",P1])
+		dnRequest("set",[self,"AutoCompleteSource",P1])
 		return self
 
 	Func getAutoCompleteCustomSource
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteCustomSource"])
+		return dnRequest("get",[self,"AutoCompleteCustomSource"])
 
 	Func setAutoCompleteCustomSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteCustomSource",P1])
+		dnRequest("set",[self,"AutoCompleteCustomSource",P1])
 		return self
 
 	Func getCharacterCasing
-		return dnRequest("get",[new DotNetObject(nHandle),"CharacterCasing"])
+		return dnRequest("get",[self,"CharacterCasing"])
 
 	Func setCharacterCasing P1
-		dnRequest("set",[new DotNetObject(nHandle),"CharacterCasing",P1])
+		dnRequest("set",[self,"CharacterCasing",P1])
 		return self
 
 	Func getPasswordChar
-		return dnRequest("get",[new DotNetObject(nHandle),"PasswordChar"])
+		return dnRequest("get",[self,"PasswordChar"])
 
 	Func setPasswordChar P1
-		dnRequest("set",[new DotNetObject(nHandle),"PasswordChar",P1])
+		dnRequest("set",[self,"PasswordChar",P1])
 		return self
 
 	Func getScrollBars
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollBars"])
+		return dnRequest("get",[self,"ScrollBars"])
 
 	Func setScrollBars P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScrollBars",P1])
+		dnRequest("set",[self,"ScrollBars",P1])
 		return self
 
 	Func getTextAlign
-		return dnRequest("get",[new DotNetObject(nHandle),"TextAlign"])
+		return dnRequest("get",[self,"TextAlign"])
 
 	Func setTextAlign P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextAlign",P1])
+		dnRequest("set",[self,"TextAlign",P1])
 		return self
 
 	Func getUseSystemPasswordChar
-		return dnRequest("get",[new DotNetObject(nHandle),"UseSystemPasswordChar"])
+		return dnRequest("get",[self,"UseSystemPasswordChar"])
 
 	Func setUseSystemPasswordChar P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseSystemPasswordChar",P1])
+		dnRequest("set",[self,"UseSystemPasswordChar",P1])
 		return self
 
 	Func getPlaceholderText
-		return dnRequest("get",[new DotNetObject(nHandle),"PlaceholderText"])
+		return dnRequest("get",[self,"PlaceholderText"])
 
 	Func setPlaceholderText P1
-		dnRequest("set",[new DotNetObject(nHandle),"PlaceholderText",P1])
+		dnRequest("set",[self,"PlaceholderText",P1])
 		return self
 

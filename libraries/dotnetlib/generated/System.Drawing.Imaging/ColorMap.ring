@@ -21,16 +21,16 @@ Class ColorMap from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOldColor
-		return dnRequest("get",[new DotNetObject(nHandle),"OldColor"])
+		return dnRequest("get",[self,"OldColor"])
 
 	Func setOldColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"OldColor",P1])
+		dnRequest("set",[self,"OldColor",P1])
 		return self
 
 	Func getNewColor
-		return dnRequest("get",[new DotNetObject(nHandle),"NewColor"])
+		return dnRequest("get",[self,"NewColor"])
 
 	Func setNewColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewColor",P1])
+		dnRequest("set",[self,"NewColor",P1])
 		return self
 

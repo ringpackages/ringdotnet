@@ -25,42 +25,42 @@ Class RelationalSqlTranslatingExpressionVisitorDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSqlExpressionFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlExpressionFactory"])
+		return dnRequest("get",[self,"SqlExpressionFactory"])
 
 	Func setSqlExpressionFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"SqlExpressionFactory",P1])
+		dnRequest("set",[self,"SqlExpressionFactory",P1])
 		return self
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Model",P1])
+		dnRequest("set",[self,"Model",P1])
 		return self
 
 	Func getTypeMappingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
+		return dnRequest("get",[self,"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
+		dnRequest("set",[self,"TypeMappingSource",P1])
 		return self
 
 	Func getMemberTranslatorProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"MemberTranslatorProvider"])
+		return dnRequest("get",[self,"MemberTranslatorProvider"])
 
 	Func setMemberTranslatorProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"MemberTranslatorProvider",P1])
+		dnRequest("set",[self,"MemberTranslatorProvider",P1])
 		return self
 
 	Func getMethodCallTranslatorProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"MethodCallTranslatorProvider"])
+		return dnRequest("get",[self,"MethodCallTranslatorProvider"])
 
 	Func setMethodCallTranslatorProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"MethodCallTranslatorProvider",P1])
+		dnRequest("set",[self,"MethodCallTranslatorProvider",P1])
 		return self
 
 	Func getAggregateMethodCallTranslatorProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"AggregateMethodCallTranslatorProvider"])
+		return dnRequest("get",[self,"AggregateMethodCallTranslatorProvider"])
 
 	Func setAggregateMethodCallTranslatorProvider P1
 		raise("DotNet Error: AggregateMethodCallTranslatorProvider is a read-only property")

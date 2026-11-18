@@ -27,13 +27,13 @@ Class JsonEncodedText from ValueType
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json'),"Encode",P1])
 
 	Func getEncodedUtf8Bytes
-		return dnRequest("get",[new DotNetObject(nHandle),"EncodedUtf8Bytes"])
+		return dnRequest("get",[self,"EncodedUtf8Bytes"])
 
 	Func setEncodedUtf8Bytes P1
 		raise("DotNet Error: EncodedUtf8Bytes is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

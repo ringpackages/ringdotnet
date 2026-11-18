@@ -46,19 +46,19 @@ Class OwnedNavigationTableBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
+		return dnRequest("get",[self,"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")

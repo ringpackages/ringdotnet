@@ -21,7 +21,7 @@ Class MdiClient from Control
 		return self
 
 	Func getMdiChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"MdiChildren"])
+		return dnRequest("get",[self,"MdiChildren"])
 
 	Func setMdiChildren P1
 		raise("DotNet Error: MdiChildren is a read-only property")

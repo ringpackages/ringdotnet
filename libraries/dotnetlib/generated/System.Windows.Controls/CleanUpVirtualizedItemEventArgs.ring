@@ -19,21 +19,21 @@ Class CleanUpVirtualizedItemEventArgs from RoutedEventArgs
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getUIElement
-		return dnRequest("get",[new DotNetObject(nHandle),"UIElement"])
+		return dnRequest("get",[self,"UIElement"])
 
 	Func setUIElement P1
 		raise("DotNet Error: UIElement is a read-only property")
 
 	Func getCancel
-		return dnRequest("get",[new DotNetObject(nHandle),"Cancel"])
+		return dnRequest("get",[self,"Cancel"])
 
 	Func setCancel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cancel",P1])
+		dnRequest("set",[self,"Cancel",P1])
 		return self
 

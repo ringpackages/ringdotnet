@@ -22,10 +22,10 @@ Class PolyBezierSegment from PathSegment
 		return self
 
 	Func getPoints
-		return dnRequest("get",[new DotNetObject(nHandle),"Points"])
+		return dnRequest("get",[self,"Points"])
 
 	Func setPoints P1
-		dnRequest("set",[new DotNetObject(nHandle),"Points",P1])
+		dnRequest("set",[self,"Points",P1])
 		return self
 
 	Func getPointsProperty

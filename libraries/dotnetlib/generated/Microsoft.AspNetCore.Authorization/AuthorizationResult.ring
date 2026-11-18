@@ -35,13 +35,13 @@ Class AuthorizationResult from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"Failed",P1])
 
 	Func getSucceeded
-		return dnRequest("get",[new DotNetObject(nHandle),"Succeeded"])
+		return dnRequest("get",[self,"Succeeded"])
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
 
 	Func getFailure
-		return dnRequest("get",[new DotNetObject(nHandle),"Failure"])
+		return dnRequest("get",[self,"Failure"])
 
 	Func setFailure P1
 		raise("DotNet Error: Failure is a read-only property")

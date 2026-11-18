@@ -25,30 +25,30 @@ Class PropertyItem from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
-		dnRequest("set",[new DotNetObject(nHandle),"Id",P1])
+		dnRequest("set",[self,"Id",P1])
 		return self
 
 	Func getLen
-		return dnRequest("get",[new DotNetObject(nHandle),"Len"])
+		return dnRequest("get",[self,"Len"])
 
 	Func setLen P1
-		dnRequest("set",[new DotNetObject(nHandle),"Len",P1])
+		dnRequest("set",[self,"Len",P1])
 		return self
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
-		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
+		dnRequest("set",[self,"Type",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 

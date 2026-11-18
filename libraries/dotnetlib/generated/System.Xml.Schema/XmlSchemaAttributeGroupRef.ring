@@ -17,9 +17,9 @@ Class XmlSchemaAttributeGroupRef from XmlSchemaAnnotated
 		return self
 
 	Func getRefName
-		return dnRequest("get",[new DotNetObject(nHandle),"RefName"])
+		return dnRequest("get",[self,"RefName"])
 
 	Func setRefName P1
-		dnRequest("set",[new DotNetObject(nHandle),"RefName",P1])
+		dnRequest("set",[self,"RefName",P1])
 		return self
 

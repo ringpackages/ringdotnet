@@ -45,65 +45,65 @@ Class RedirectToPageResult from ActionResult
 		return self
 
 	Func getUrlHelper
-		return dnRequest("get",[new DotNetObject(nHandle),"UrlHelper"])
+		return dnRequest("get",[self,"UrlHelper"])
 
 	Func setUrlHelper P1
-		dnRequest("set",[new DotNetObject(nHandle),"UrlHelper",P1])
+		dnRequest("set",[self,"UrlHelper",P1])
 		return self
 
 	Func getPageName
-		return dnRequest("get",[new DotNetObject(nHandle),"PageName"])
+		return dnRequest("get",[self,"PageName"])
 
 	Func setPageName P1
-		dnRequest("set",[new DotNetObject(nHandle),"PageName",P1])
+		dnRequest("set",[self,"PageName",P1])
 		return self
 
 	Func getPageHandler
-		return dnRequest("get",[new DotNetObject(nHandle),"PageHandler"])
+		return dnRequest("get",[self,"PageHandler"])
 
 	Func setPageHandler P1
-		dnRequest("set",[new DotNetObject(nHandle),"PageHandler",P1])
+		dnRequest("set",[self,"PageHandler",P1])
 		return self
 
 	Func getRouteValues
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteValues"])
+		return dnRequest("get",[self,"RouteValues"])
 
 	Func setRouteValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"RouteValues",P1])
+		dnRequest("set",[self,"RouteValues",P1])
 		return self
 
 	Func getPermanent
-		return dnRequest("get",[new DotNetObject(nHandle),"Permanent"])
+		return dnRequest("get",[self,"Permanent"])
 
 	Func setPermanent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Permanent",P1])
+		dnRequest("set",[self,"Permanent",P1])
 		return self
 
 	Func getPreserveMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"PreserveMethod"])
+		return dnRequest("get",[self,"PreserveMethod"])
 
 	Func setPreserveMethod P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreserveMethod",P1])
+		dnRequest("set",[self,"PreserveMethod",P1])
 		return self
 
 	Func getFragment
-		return dnRequest("get",[new DotNetObject(nHandle),"Fragment"])
+		return dnRequest("get",[self,"Fragment"])
 
 	Func setFragment P1
-		dnRequest("set",[new DotNetObject(nHandle),"Fragment",P1])
+		dnRequest("set",[self,"Fragment",P1])
 		return self
 
 	Func getProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"Protocol"])
+		return dnRequest("get",[self,"Protocol"])
 
 	Func setProtocol P1
-		dnRequest("set",[new DotNetObject(nHandle),"Protocol",P1])
+		dnRequest("set",[self,"Protocol",P1])
 		return self
 
 	Func getHost
-		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
+		return dnRequest("get",[self,"Host"])
 
 	Func setHost P1
-		dnRequest("set",[new DotNetObject(nHandle),"Host",P1])
+		dnRequest("set",[self,"Host",P1])
 		return self
 

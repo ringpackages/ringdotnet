@@ -27,7 +27,7 @@ Class IDbContextOptionsExtension from DotNetObject
 		return self
 
 	Func getInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"Info"])
+		return dnRequest("get",[self,"Info"])
 
 	Func setInfo P1
 		raise("DotNet Error: Info is a read-only property")

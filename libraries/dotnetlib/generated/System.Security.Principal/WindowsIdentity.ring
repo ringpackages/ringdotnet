@@ -68,67 +68,67 @@ Class WindowsIdentity from ClaimsIdentity
 		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"RunImpersonatedAsync",P1,P2])
 
 	Func getImpersonationLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"ImpersonationLevel"])
+		return dnRequest("get",[self,"ImpersonationLevel"])
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
 
 	Func getIsGuest
-		return dnRequest("get",[new DotNetObject(nHandle),"IsGuest"])
+		return dnRequest("get",[self,"IsGuest"])
 
 	Func setIsGuest P1
 		raise("DotNet Error: IsGuest is a read-only property")
 
 	Func getIsSystem
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSystem"])
+		return dnRequest("get",[self,"IsSystem"])
 
 	Func setIsSystem P1
 		raise("DotNet Error: IsSystem is a read-only property")
 
 	Func getIsAnonymous
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAnonymous"])
+		return dnRequest("get",[self,"IsAnonymous"])
 
 	Func setIsAnonymous P1
 		raise("DotNet Error: IsAnonymous is a read-only property")
 
 	Func getOwner
-		return dnRequest("get",[new DotNetObject(nHandle),"Owner"])
+		return dnRequest("get",[self,"Owner"])
 
 	Func setOwner P1
 		raise("DotNet Error: Owner is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[new DotNetObject(nHandle),"User"])
+		return dnRequest("get",[self,"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getGroups
-		return dnRequest("get",[new DotNetObject(nHandle),"Groups"])
+		return dnRequest("get",[self,"Groups"])
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")
 
 	Func getAccessToken
-		return dnRequest("get",[new DotNetObject(nHandle),"AccessToken"])
+		return dnRequest("get",[self,"AccessToken"])
 
 	Func setAccessToken P1
 		raise("DotNet Error: AccessToken is a read-only property")
 
 	Func getToken
-		return dnRequest("get",[new DotNetObject(nHandle),"Token"])
+		return dnRequest("get",[self,"Token"])
 
 	Func setToken P1
 		raise("DotNet Error: Token is a read-only property")
 
 	Func getUserClaims
-		return dnRequest("get",[new DotNetObject(nHandle),"UserClaims"])
+		return dnRequest("get",[self,"UserClaims"])
 
 	Func setUserClaims P1
 		raise("DotNet Error: UserClaims is a read-only property")
 
 	Func getDeviceClaims
-		return dnRequest("get",[new DotNetObject(nHandle),"DeviceClaims"])
+		return dnRequest("get",[self,"DeviceClaims"])
 
 	Func setDeviceClaims P1
 		raise("DotNet Error: DeviceClaims is a read-only property")

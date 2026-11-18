@@ -21,9 +21,9 @@ Class AcceptedResult from ObjectResult
 		return self
 
 	Func getLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
+		return dnRequest("get",[self,"Location"])
 
 	Func setLocation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Location",P1])
+		dnRequest("set",[self,"Location",P1])
 		return self
 

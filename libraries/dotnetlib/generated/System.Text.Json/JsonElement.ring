@@ -150,7 +150,7 @@ Class JsonElement from ValueType
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getValueKind
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueKind"])
+		return dnRequest("get",[self,"ValueKind"])
 
 	Func setValueKind P1
 		raise("DotNet Error: ValueKind is a read-only property")

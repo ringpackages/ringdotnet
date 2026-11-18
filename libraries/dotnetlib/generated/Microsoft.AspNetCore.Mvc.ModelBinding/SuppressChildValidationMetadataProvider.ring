@@ -28,13 +28,13 @@ Class SuppressChildValidationMetadataProvider from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getFullTypeName
-		return dnRequest("get",[new DotNetObject(nHandle),"FullTypeName"])
+		return dnRequest("get",[self,"FullTypeName"])
 
 	Func setFullTypeName P1
 		raise("DotNet Error: FullTypeName is a read-only property")

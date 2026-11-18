@@ -27,17 +27,17 @@ Class XsltSettings from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEnableDocumentFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableDocumentFunction"])
+		return dnRequest("get",[self,"EnableDocumentFunction"])
 
 	Func setEnableDocumentFunction P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableDocumentFunction",P1])
+		dnRequest("set",[self,"EnableDocumentFunction",P1])
 		return self
 
 	Func getEnableScript
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableScript"])
+		return dnRequest("get",[self,"EnableScript"])
 
 	Func setEnableScript P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableScript",P1])
+		dnRequest("set",[self,"EnableScript",P1])
 		return self
 
 	Func getDefault

@@ -216,7 +216,7 @@ Class Decimal from ValueType
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func getScale
-		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
+		return dnRequest("get",[self,"Scale"])
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")

@@ -17,7 +17,7 @@ Class AssemblyLoadEventArgs from EventArgs
 		return self
 
 	Func getLoadedAssembly
-		return dnRequest("get",[new DotNetObject(nHandle),"LoadedAssembly"])
+		return dnRequest("get",[self,"LoadedAssembly"])
 
 	Func setLoadedAssembly P1
 		raise("DotNet Error: LoadedAssembly is a read-only property")

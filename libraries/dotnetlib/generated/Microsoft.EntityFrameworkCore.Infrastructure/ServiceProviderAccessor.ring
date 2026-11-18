@@ -20,7 +20,7 @@ Class ServiceProviderAccessor from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRootServiceProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"RootServiceProvider"])
+		return dnRequest("get",[self,"RootServiceProvider"])
 
 	Func setRootServiceProvider P1
 		raise("DotNet Error: RootServiceProvider is a read-only property")

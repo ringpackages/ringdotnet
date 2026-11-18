@@ -26,24 +26,24 @@ Class SpotLight from PointLightBase
 		return self
 
 	Func getDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
+		return dnRequest("get",[self,"Direction"])
 
 	Func setDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Direction",P1])
+		dnRequest("set",[self,"Direction",P1])
 		return self
 
 	Func getOuterConeAngle
-		return dnRequest("get",[new DotNetObject(nHandle),"OuterConeAngle"])
+		return dnRequest("get",[self,"OuterConeAngle"])
 
 	Func setOuterConeAngle P1
-		dnRequest("set",[new DotNetObject(nHandle),"OuterConeAngle",P1])
+		dnRequest("set",[self,"OuterConeAngle",P1])
 		return self
 
 	Func getInnerConeAngle
-		return dnRequest("get",[new DotNetObject(nHandle),"InnerConeAngle"])
+		return dnRequest("get",[self,"InnerConeAngle"])
 
 	Func setInnerConeAngle P1
-		dnRequest("set",[new DotNetObject(nHandle),"InnerConeAngle",P1])
+		dnRequest("set",[self,"InnerConeAngle",P1])
 		return self
 
 	Func getDirectionProperty

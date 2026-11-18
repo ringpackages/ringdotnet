@@ -44,66 +44,66 @@ Class Track from FrameworkElement
 		return self
 
 	Func getDecreaseRepeatButton
-		return dnRequest("get",[new DotNetObject(nHandle),"DecreaseRepeatButton"])
+		return dnRequest("get",[self,"DecreaseRepeatButton"])
 
 	Func setDecreaseRepeatButton P1
-		dnRequest("set",[new DotNetObject(nHandle),"DecreaseRepeatButton",P1])
+		dnRequest("set",[self,"DecreaseRepeatButton",P1])
 		return self
 
 	Func getThumb
-		return dnRequest("get",[new DotNetObject(nHandle),"Thumb"])
+		return dnRequest("get",[self,"Thumb"])
 
 	Func setThumb P1
-		dnRequest("set",[new DotNetObject(nHandle),"Thumb",P1])
+		dnRequest("set",[self,"Thumb",P1])
 		return self
 
 	Func getIncreaseRepeatButton
-		return dnRequest("get",[new DotNetObject(nHandle),"IncreaseRepeatButton"])
+		return dnRequest("get",[self,"IncreaseRepeatButton"])
 
 	Func setIncreaseRepeatButton P1
-		dnRequest("set",[new DotNetObject(nHandle),"IncreaseRepeatButton",P1])
+		dnRequest("set",[self,"IncreaseRepeatButton",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
+		return dnRequest("get",[self,"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
+		dnRequest("set",[self,"Orientation",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
+		return dnRequest("get",[self,"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
+		dnRequest("set",[self,"Minimum",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
+		return dnRequest("get",[self,"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
+		dnRequest("set",[self,"Maximum",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getViewportSize
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewportSize"])
+		return dnRequest("get",[self,"ViewportSize"])
 
 	Func setViewportSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ViewportSize",P1])
+		dnRequest("set",[self,"ViewportSize",P1])
 		return self
 
 	Func getIsDirectionReversed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDirectionReversed"])
+		return dnRequest("get",[self,"IsDirectionReversed"])
 
 	Func setIsDirectionReversed P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsDirectionReversed",P1])
+		dnRequest("set",[self,"IsDirectionReversed",P1])
 		return self
 
 	Func getOrientationProperty

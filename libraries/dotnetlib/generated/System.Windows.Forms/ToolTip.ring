@@ -86,114 +86,114 @@ Class ToolTip from Component
 		return self
 
 	Func getActive
-		return dnRequest("get",[new DotNetObject(nHandle),"Active"])
+		return dnRequest("get",[self,"Active"])
 
 	Func setActive P1
-		dnRequest("set",[new DotNetObject(nHandle),"Active",P1])
+		dnRequest("set",[self,"Active",P1])
 		return self
 
 	Func getAutomaticDelay
-		return dnRequest("get",[new DotNetObject(nHandle),"AutomaticDelay"])
+		return dnRequest("get",[self,"AutomaticDelay"])
 
 	Func setAutomaticDelay P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutomaticDelay",P1])
+		dnRequest("set",[self,"AutomaticDelay",P1])
 		return self
 
 	Func getAutoPopDelay
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoPopDelay"])
+		return dnRequest("get",[self,"AutoPopDelay"])
 
 	Func setAutoPopDelay P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoPopDelay",P1])
+		dnRequest("set",[self,"AutoPopDelay",P1])
 		return self
 
 	Func getBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
+		return dnRequest("get",[self,"BackColor"])
 
 	Func setBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"BackColor",P1])
+		dnRequest("set",[self,"BackColor",P1])
 		return self
 
 	Func getForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
+		return dnRequest("get",[self,"ForeColor"])
 
 	Func setForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForeColor",P1])
+		dnRequest("set",[self,"ForeColor",P1])
 		return self
 
 	Func getIsBalloon
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBalloon"])
+		return dnRequest("get",[self,"IsBalloon"])
 
 	Func setIsBalloon P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsBalloon",P1])
+		dnRequest("set",[self,"IsBalloon",P1])
 		return self
 
 	Func getInitialDelay
-		return dnRequest("get",[new DotNetObject(nHandle),"InitialDelay"])
+		return dnRequest("get",[self,"InitialDelay"])
 
 	Func setInitialDelay P1
-		dnRequest("set",[new DotNetObject(nHandle),"InitialDelay",P1])
+		dnRequest("set",[self,"InitialDelay",P1])
 		return self
 
 	Func getOwnerDraw
-		return dnRequest("get",[new DotNetObject(nHandle),"OwnerDraw"])
+		return dnRequest("get",[self,"OwnerDraw"])
 
 	Func setOwnerDraw P1
-		dnRequest("set",[new DotNetObject(nHandle),"OwnerDraw",P1])
+		dnRequest("set",[self,"OwnerDraw",P1])
 		return self
 
 	Func getReshowDelay
-		return dnRequest("get",[new DotNetObject(nHandle),"ReshowDelay"])
+		return dnRequest("get",[self,"ReshowDelay"])
 
 	Func setReshowDelay P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReshowDelay",P1])
+		dnRequest("set",[self,"ReshowDelay",P1])
 		return self
 
 	Func getShowAlways
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowAlways"])
+		return dnRequest("get",[self,"ShowAlways"])
 
 	Func setShowAlways P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowAlways",P1])
+		dnRequest("set",[self,"ShowAlways",P1])
 		return self
 
 	Func getStripAmpersands
-		return dnRequest("get",[new DotNetObject(nHandle),"StripAmpersands"])
+		return dnRequest("get",[self,"StripAmpersands"])
 
 	Func setStripAmpersands P1
-		dnRequest("set",[new DotNetObject(nHandle),"StripAmpersands",P1])
+		dnRequest("set",[self,"StripAmpersands",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getToolTipIcon
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipIcon"])
+		return dnRequest("get",[self,"ToolTipIcon"])
 
 	Func setToolTipIcon P1
-		dnRequest("set",[new DotNetObject(nHandle),"ToolTipIcon",P1])
+		dnRequest("set",[self,"ToolTipIcon",P1])
 		return self
 
 	Func getToolTipTitle
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipTitle"])
+		return dnRequest("get",[self,"ToolTipTitle"])
 
 	Func setToolTipTitle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ToolTipTitle",P1])
+		dnRequest("set",[self,"ToolTipTitle",P1])
 		return self
 
 	Func getUseAnimation
-		return dnRequest("get",[new DotNetObject(nHandle),"UseAnimation"])
+		return dnRequest("get",[self,"UseAnimation"])
 
 	Func setUseAnimation P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseAnimation",P1])
+		dnRequest("set",[self,"UseAnimation",P1])
 		return self
 
 	Func getUseFading
-		return dnRequest("get",[new DotNetObject(nHandle),"UseFading"])
+		return dnRequest("get",[self,"UseFading"])
 
 	Func setUseFading P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseFading",P1])
+		dnRequest("set",[self,"UseFading",P1])
 		return self
 

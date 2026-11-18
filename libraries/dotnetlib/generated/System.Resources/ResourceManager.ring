@@ -69,20 +69,20 @@ Class ResourceManager from Object
 		return dnRequest("call",[dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib'),"CreateFileBasedResourceManager",P1,P2,P3])
 
 	Func getBaseName
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseName"])
+		return dnRequest("get",[self,"BaseName"])
 
 	Func setBaseName P1
 		raise("DotNet Error: BaseName is a read-only property")
 
 	Func getIgnoreCase
-		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreCase"])
+		return dnRequest("get",[self,"IgnoreCase"])
 
 	Func setIgnoreCase P1
-		dnRequest("set",[new DotNetObject(nHandle),"IgnoreCase",P1])
+		dnRequest("set",[self,"IgnoreCase",P1])
 		return self
 
 	Func getResourceSetType
-		return dnRequest("get",[new DotNetObject(nHandle),"ResourceSetType"])
+		return dnRequest("get",[self,"ResourceSetType"])
 
 	Func setResourceSetType P1
 		raise("DotNet Error: ResourceSetType is a read-only property")

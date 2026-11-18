@@ -26,10 +26,10 @@ Class InkPresenter from Decorator
 		return self
 
 	Func getStrokes
-		return dnRequest("get",[new DotNetObject(nHandle),"Strokes"])
+		return dnRequest("get",[self,"Strokes"])
 
 	Func setStrokes P1
-		dnRequest("set",[new DotNetObject(nHandle),"Strokes",P1])
+		dnRequest("set",[self,"Strokes",P1])
 		return self
 
 	Func getStrokesProperty

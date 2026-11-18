@@ -16,7 +16,7 @@ Class TemplateBindingExpression from Expression
 		return self
 
 	Func getTemplateBindingExtension
-		return dnRequest("get",[new DotNetObject(nHandle),"TemplateBindingExtension"])
+		return dnRequest("get",[self,"TemplateBindingExtension"])
 
 	Func setTemplateBindingExtension P1
 		raise("DotNet Error: TemplateBindingExtension is a read-only property")

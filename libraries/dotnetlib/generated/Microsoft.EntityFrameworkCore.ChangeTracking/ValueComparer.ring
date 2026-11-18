@@ -72,37 +72,37 @@ Class ValueComparer from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"CreateDefault",P1])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getEqualsExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"EqualsExpression"])
+		return dnRequest("get",[self,"EqualsExpression"])
 
 	Func setEqualsExpression P1
 		raise("DotNet Error: EqualsExpression is a read-only property")
 
 	Func getObjectEqualsExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"ObjectEqualsExpression"])
+		return dnRequest("get",[self,"ObjectEqualsExpression"])
 
 	Func setObjectEqualsExpression P1
 		raise("DotNet Error: ObjectEqualsExpression is a read-only property")
 
 	Func getHashCodeExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"HashCodeExpression"])
+		return dnRequest("get",[self,"HashCodeExpression"])
 
 	Func setHashCodeExpression P1
 		raise("DotNet Error: HashCodeExpression is a read-only property")
 
 	Func getSnapshotExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"SnapshotExpression"])
+		return dnRequest("get",[self,"SnapshotExpression"])
 
 	Func setSnapshotExpression P1
 		raise("DotNet Error: SnapshotExpression is a read-only property")
 
 	Func getConstructorExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"ConstructorExpression"])
+		return dnRequest("get",[self,"ConstructorExpression"])
 
 	Func setConstructorExpression P1
 		raise("DotNet Error: ConstructorExpression is a read-only property")

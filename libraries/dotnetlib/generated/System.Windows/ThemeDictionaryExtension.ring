@@ -21,9 +21,9 @@ Class ThemeDictionaryExtension from MarkupExtension
 		return self
 
 	Func getAssemblyName
-		return dnRequest("get",[new DotNetObject(nHandle),"AssemblyName"])
+		return dnRequest("get",[self,"AssemblyName"])
 
 	Func setAssemblyName P1
-		dnRequest("set",[new DotNetObject(nHandle),"AssemblyName",P1])
+		dnRequest("set",[self,"AssemblyName",P1])
 		return self
 

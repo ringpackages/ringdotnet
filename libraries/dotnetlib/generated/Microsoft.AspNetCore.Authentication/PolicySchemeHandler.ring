@@ -52,13 +52,13 @@ Class PolicySchemeHandler from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
+		return dnRequest("get",[self,"Scheme"])
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")

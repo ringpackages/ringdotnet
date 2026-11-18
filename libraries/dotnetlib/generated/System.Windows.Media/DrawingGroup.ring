@@ -38,59 +38,59 @@ Class DrawingGroup from Drawing
 		return dnRequest("call",[new DotNetObject(nHandle),"Append"])
 
 	Func getChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
+		return dnRequest("get",[self,"Children"])
 
 	Func setChildren P1
-		dnRequest("set",[new DotNetObject(nHandle),"Children",P1])
+		dnRequest("set",[self,"Children",P1])
 		return self
 
 	Func getClipGeometry
-		return dnRequest("get",[new DotNetObject(nHandle),"ClipGeometry"])
+		return dnRequest("get",[self,"ClipGeometry"])
 
 	Func setClipGeometry P1
-		dnRequest("set",[new DotNetObject(nHandle),"ClipGeometry",P1])
+		dnRequest("set",[self,"ClipGeometry",P1])
 		return self
 
 	Func getOpacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Opacity"])
+		return dnRequest("get",[self,"Opacity"])
 
 	Func setOpacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"Opacity",P1])
+		dnRequest("set",[self,"Opacity",P1])
 		return self
 
 	Func getOpacityMask
-		return dnRequest("get",[new DotNetObject(nHandle),"OpacityMask"])
+		return dnRequest("get",[self,"OpacityMask"])
 
 	Func setOpacityMask P1
-		dnRequest("set",[new DotNetObject(nHandle),"OpacityMask",P1])
+		dnRequest("set",[self,"OpacityMask",P1])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
+		return dnRequest("get",[self,"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
+		dnRequest("set",[self,"Transform",P1])
 		return self
 
 	Func getGuidelineSet
-		return dnRequest("get",[new DotNetObject(nHandle),"GuidelineSet"])
+		return dnRequest("get",[self,"GuidelineSet"])
 
 	Func setGuidelineSet P1
-		dnRequest("set",[new DotNetObject(nHandle),"GuidelineSet",P1])
+		dnRequest("set",[self,"GuidelineSet",P1])
 		return self
 
 	Func getBitmapEffect
-		return dnRequest("get",[new DotNetObject(nHandle),"BitmapEffect"])
+		return dnRequest("get",[self,"BitmapEffect"])
 
 	Func setBitmapEffect P1
-		dnRequest("set",[new DotNetObject(nHandle),"BitmapEffect",P1])
+		dnRequest("set",[self,"BitmapEffect",P1])
 		return self
 
 	Func getBitmapEffectInput
-		return dnRequest("get",[new DotNetObject(nHandle),"BitmapEffectInput"])
+		return dnRequest("get",[self,"BitmapEffectInput"])
 
 	Func setBitmapEffectInput P1
-		dnRequest("set",[new DotNetObject(nHandle),"BitmapEffectInput",P1])
+		dnRequest("set",[self,"BitmapEffectInput",P1])
 		return self
 
 	Func getChildrenProperty

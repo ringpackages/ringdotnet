@@ -29,7 +29,7 @@ Class BackgroundService from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExecuteTask
-		return dnRequest("get",[new DotNetObject(nHandle),"ExecuteTask"])
+		return dnRequest("get",[self,"ExecuteTask"])
 
 	Func setExecuteTask P1
 		raise("DotNet Error: ExecuteTask is a read-only property")

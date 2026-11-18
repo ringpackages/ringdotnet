@@ -32,85 +32,85 @@ Class TcpStatistics from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConnectionsAccepted
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionsAccepted"])
+		return dnRequest("get",[self,"ConnectionsAccepted"])
 
 	Func setConnectionsAccepted P1
 		raise("DotNet Error: ConnectionsAccepted is a read-only property")
 
 	Func getConnectionsInitiated
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionsInitiated"])
+		return dnRequest("get",[self,"ConnectionsInitiated"])
 
 	Func setConnectionsInitiated P1
 		raise("DotNet Error: ConnectionsInitiated is a read-only property")
 
 	Func getCumulativeConnections
-		return dnRequest("get",[new DotNetObject(nHandle),"CumulativeConnections"])
+		return dnRequest("get",[self,"CumulativeConnections"])
 
 	Func setCumulativeConnections P1
 		raise("DotNet Error: CumulativeConnections is a read-only property")
 
 	Func getCurrentConnections
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentConnections"])
+		return dnRequest("get",[self,"CurrentConnections"])
 
 	Func setCurrentConnections P1
 		raise("DotNet Error: CurrentConnections is a read-only property")
 
 	Func getErrorsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorsReceived"])
+		return dnRequest("get",[self,"ErrorsReceived"])
 
 	Func setErrorsReceived P1
 		raise("DotNet Error: ErrorsReceived is a read-only property")
 
 	Func getFailedConnectionAttempts
-		return dnRequest("get",[new DotNetObject(nHandle),"FailedConnectionAttempts"])
+		return dnRequest("get",[self,"FailedConnectionAttempts"])
 
 	Func setFailedConnectionAttempts P1
 		raise("DotNet Error: FailedConnectionAttempts is a read-only property")
 
 	Func getMaximumConnections
-		return dnRequest("get",[new DotNetObject(nHandle),"MaximumConnections"])
+		return dnRequest("get",[self,"MaximumConnections"])
 
 	Func setMaximumConnections P1
 		raise("DotNet Error: MaximumConnections is a read-only property")
 
 	Func getMaximumTransmissionTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"MaximumTransmissionTimeout"])
+		return dnRequest("get",[self,"MaximumTransmissionTimeout"])
 
 	Func setMaximumTransmissionTimeout P1
 		raise("DotNet Error: MaximumTransmissionTimeout is a read-only property")
 
 	Func getMinimumTransmissionTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"MinimumTransmissionTimeout"])
+		return dnRequest("get",[self,"MinimumTransmissionTimeout"])
 
 	Func setMinimumTransmissionTimeout P1
 		raise("DotNet Error: MinimumTransmissionTimeout is a read-only property")
 
 	Func getResetConnections
-		return dnRequest("get",[new DotNetObject(nHandle),"ResetConnections"])
+		return dnRequest("get",[self,"ResetConnections"])
 
 	Func setResetConnections P1
 		raise("DotNet Error: ResetConnections is a read-only property")
 
 	Func getSegmentsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"SegmentsReceived"])
+		return dnRequest("get",[self,"SegmentsReceived"])
 
 	Func setSegmentsReceived P1
 		raise("DotNet Error: SegmentsReceived is a read-only property")
 
 	Func getSegmentsResent
-		return dnRequest("get",[new DotNetObject(nHandle),"SegmentsResent"])
+		return dnRequest("get",[self,"SegmentsResent"])
 
 	Func setSegmentsResent P1
 		raise("DotNet Error: SegmentsResent is a read-only property")
 
 	Func getSegmentsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"SegmentsSent"])
+		return dnRequest("get",[self,"SegmentsSent"])
 
 	Func setSegmentsSent P1
 		raise("DotNet Error: SegmentsSent is a read-only property")
 
 	Func getResetsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"ResetsSent"])
+		return dnRequest("get",[self,"ResetsSent"])
 
 	Func setResetsSent P1
 		raise("DotNet Error: ResetsSent is a read-only property")

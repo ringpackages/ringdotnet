@@ -41,7 +41,7 @@ Class ChainedConfigurationProvider from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConfiguration
-		return dnRequest("get",[new DotNetObject(nHandle),"Configuration"])
+		return dnRequest("get",[self,"Configuration"])
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")

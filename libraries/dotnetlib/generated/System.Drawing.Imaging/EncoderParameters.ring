@@ -28,9 +28,9 @@ Class EncoderParameters from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParam
-		return dnRequest("get",[new DotNetObject(nHandle),"Param"])
+		return dnRequest("get",[self,"Param"])
 
 	Func setParam P1
-		dnRequest("set",[new DotNetObject(nHandle),"Param",P1])
+		dnRequest("set",[self,"Param",P1])
 		return self
 

@@ -20,9 +20,9 @@ Class ModelValidatorDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMemberClassifier
-		return dnRequest("get",[new DotNetObject(nHandle),"MemberClassifier"])
+		return dnRequest("get",[self,"MemberClassifier"])
 
 	Func setMemberClassifier P1
-		dnRequest("set",[new DotNetObject(nHandle),"MemberClassifier",P1])
+		dnRequest("set",[self,"MemberClassifier",P1])
 		return self
 

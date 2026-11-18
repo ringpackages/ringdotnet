@@ -92,13 +92,13 @@ Class IConventionSequence from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetIsCyclicConfigurationSource"])
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")

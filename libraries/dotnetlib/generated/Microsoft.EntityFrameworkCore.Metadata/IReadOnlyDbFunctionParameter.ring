@@ -35,34 +35,34 @@ Class IReadOnlyDbFunctionParameter from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"Function"])
+		return dnRequest("get",[self,"Function"])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getClrType
-		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
+		return dnRequest("get",[self,"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getStoreType
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
+		return dnRequest("get",[self,"StoreType"])
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getPropagatesNullability
-		return dnRequest("get",[new DotNetObject(nHandle),"PropagatesNullability"])
+		return dnRequest("get",[self,"PropagatesNullability"])
 
 	Func setPropagatesNullability P1
 		raise("DotNet Error: PropagatesNullability is a read-only property")
 
 	Func getTypeMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMapping"])
+		return dnRequest("get",[self,"TypeMapping"])
 
 	Func setTypeMapping P1
 		raise("DotNet Error: TypeMapping is a read-only property")

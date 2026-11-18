@@ -85,26 +85,26 @@ Class DocumentPaginator from Object
 		return self
 
 	Func getIsPageCountValid
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPageCountValid"])
+		return dnRequest("get",[self,"IsPageCountValid"])
 
 	Func setIsPageCountValid P1
 		raise("DotNet Error: IsPageCountValid is a read-only property")
 
 	Func getPageCount
-		return dnRequest("get",[new DotNetObject(nHandle),"PageCount"])
+		return dnRequest("get",[self,"PageCount"])
 
 	Func setPageCount P1
 		raise("DotNet Error: PageCount is a read-only property")
 
 	Func getPageSize
-		return dnRequest("get",[new DotNetObject(nHandle),"PageSize"])
+		return dnRequest("get",[self,"PageSize"])
 
 	Func setPageSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"PageSize",P1])
+		dnRequest("set",[self,"PageSize",P1])
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")

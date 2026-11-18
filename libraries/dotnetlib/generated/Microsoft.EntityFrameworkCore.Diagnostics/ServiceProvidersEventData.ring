@@ -17,7 +17,7 @@ Class ServiceProvidersEventData from EventData
 		return self
 
 	Func getServiceProviders
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceProviders"])
+		return dnRequest("get",[self,"ServiceProviders"])
 
 	Func setServiceProviders P1
 		raise("DotNet Error: ServiceProviders is a read-only property")

@@ -71,21 +71,21 @@ Class TextureBrush from Brush
 		return self
 
 	Func getTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
+		return dnRequest("get",[self,"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
+		dnRequest("set",[self,"Transform",P1])
 		return self
 
 	Func getWrapMode
-		return dnRequest("get",[new DotNetObject(nHandle),"WrapMode"])
+		return dnRequest("get",[self,"WrapMode"])
 
 	Func setWrapMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"WrapMode",P1])
+		dnRequest("set",[self,"WrapMode",P1])
 		return self
 
 	Func getImage
-		return dnRequest("get",[new DotNetObject(nHandle),"Image"])
+		return dnRequest("get",[self,"Image"])
 
 	Func setImage P1
 		raise("DotNet Error: Image is a read-only property")

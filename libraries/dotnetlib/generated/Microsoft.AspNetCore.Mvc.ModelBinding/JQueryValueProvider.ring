@@ -31,7 +31,7 @@ Class JQueryValueProvider from BindingSourceValueProvider
 		return dnRequest("call",[new DotNetObject(nHandle),"Filter",P1])
 
 	Func getCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
+		return dnRequest("get",[self,"Culture"])
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")

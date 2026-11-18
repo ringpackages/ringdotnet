@@ -43,19 +43,19 @@ Class RelationalCommandBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTypeMappingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
+		return dnRequest("get",[self,"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
 		raise("DotNet Error: TypeMappingSource is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
+		return dnRequest("get",[self,"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getCommandTextLength
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandTextLength"])
+		return dnRequest("get",[self,"CommandTextLength"])
 
 	Func setCommandTextLength P1
 		raise("DotNet Error: CommandTextLength is a read-only property")

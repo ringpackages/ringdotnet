@@ -34,42 +34,42 @@ Class ObjectDataProvider from DataSourceProvider
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeMethodParameters"])
 
 	Func getObjectType
-		return dnRequest("get",[new DotNetObject(nHandle),"ObjectType"])
+		return dnRequest("get",[self,"ObjectType"])
 
 	Func setObjectType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ObjectType",P1])
+		dnRequest("set",[self,"ObjectType",P1])
 		return self
 
 	Func getObjectInstance
-		return dnRequest("get",[new DotNetObject(nHandle),"ObjectInstance"])
+		return dnRequest("get",[self,"ObjectInstance"])
 
 	Func setObjectInstance P1
-		dnRequest("set",[new DotNetObject(nHandle),"ObjectInstance",P1])
+		dnRequest("set",[self,"ObjectInstance",P1])
 		return self
 
 	Func getMethodName
-		return dnRequest("get",[new DotNetObject(nHandle),"MethodName"])
+		return dnRequest("get",[self,"MethodName"])
 
 	Func setMethodName P1
-		dnRequest("set",[new DotNetObject(nHandle),"MethodName",P1])
+		dnRequest("set",[self,"MethodName",P1])
 		return self
 
 	Func getConstructorParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"ConstructorParameters"])
+		return dnRequest("get",[self,"ConstructorParameters"])
 
 	Func setConstructorParameters P1
 		raise("DotNet Error: ConstructorParameters is a read-only property")
 
 	Func getMethodParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"MethodParameters"])
+		return dnRequest("get",[self,"MethodParameters"])
 
 	Func setMethodParameters P1
 		raise("DotNet Error: MethodParameters is a read-only property")
 
 	Func getIsAsynchronous
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAsynchronous"])
+		return dnRequest("get",[self,"IsAsynchronous"])
 
 	Func setIsAsynchronous P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsAsynchronous",P1])
+		dnRequest("set",[self,"IsAsynchronous",P1])
 		return self
 

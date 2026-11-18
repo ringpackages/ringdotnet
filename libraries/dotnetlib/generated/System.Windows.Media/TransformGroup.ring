@@ -18,10 +18,10 @@ Class TransformGroup from Transform
 		return self
 
 	Func getChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
+		return dnRequest("get",[self,"Children"])
 
 	Func setChildren P1
-		dnRequest("set",[new DotNetObject(nHandle),"Children",P1])
+		dnRequest("set",[self,"Children",P1])
 		return self
 
 	Func getChildrenProperty

@@ -60,19 +60,19 @@ Class ManualResetEventSlim from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getWaitHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"WaitHandle"])
+		return dnRequest("get",[self,"WaitHandle"])
 
 	Func setWaitHandle P1
 		raise("DotNet Error: WaitHandle is a read-only property")
 
 	Func getIsSet
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSet"])
+		return dnRequest("get",[self,"IsSet"])
 
 	Func setIsSet P1
 		raise("DotNet Error: IsSet is a read-only property")
 
 	Func getSpinCount
-		return dnRequest("get",[new DotNetObject(nHandle),"SpinCount"])
+		return dnRequest("get",[self,"SpinCount"])
 
 	Func setSpinCount P1
 		raise("DotNet Error: SpinCount is a read-only property")

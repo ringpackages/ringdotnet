@@ -19,25 +19,25 @@ Class IAsyncResult from DotNetObject
 		return self
 
 	Func getIsCompleted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompleted"])
+		return dnRequest("get",[self,"IsCompleted"])
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getAsyncWaitHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"AsyncWaitHandle"])
+		return dnRequest("get",[self,"AsyncWaitHandle"])
 
 	Func setAsyncWaitHandle P1
 		raise("DotNet Error: AsyncWaitHandle is a read-only property")
 
 	Func getAsyncState
-		return dnRequest("get",[new DotNetObject(nHandle),"AsyncState"])
+		return dnRequest("get",[self,"AsyncState"])
 
 	Func setAsyncState P1
 		raise("DotNet Error: AsyncState is a read-only property")
 
 	Func getCompletedSynchronously
-		return dnRequest("get",[new DotNetObject(nHandle),"CompletedSynchronously"])
+		return dnRequest("get",[self,"CompletedSynchronously"])
 
 	Func setCompletedSynchronously P1
 		raise("DotNet Error: CompletedSynchronously is a read-only property")

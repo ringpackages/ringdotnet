@@ -23,31 +23,31 @@ Class GradientBrush from WpfBrush
 		return self
 
 	Func getColorInterpolationMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ColorInterpolationMode"])
+		return dnRequest("get",[self,"ColorInterpolationMode"])
 
 	Func setColorInterpolationMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColorInterpolationMode",P1])
+		dnRequest("set",[self,"ColorInterpolationMode",P1])
 		return self
 
 	Func getMappingMode
-		return dnRequest("get",[new DotNetObject(nHandle),"MappingMode"])
+		return dnRequest("get",[self,"MappingMode"])
 
 	Func setMappingMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"MappingMode",P1])
+		dnRequest("set",[self,"MappingMode",P1])
 		return self
 
 	Func getSpreadMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"SpreadMethod"])
+		return dnRequest("get",[self,"SpreadMethod"])
 
 	Func setSpreadMethod P1
-		dnRequest("set",[new DotNetObject(nHandle),"SpreadMethod",P1])
+		dnRequest("set",[self,"SpreadMethod",P1])
 		return self
 
 	Func getGradientStops
-		return dnRequest("get",[new DotNetObject(nHandle),"GradientStops"])
+		return dnRequest("get",[self,"GradientStops"])
 
 	Func setGradientStops P1
-		dnRequest("set",[new DotNetObject(nHandle),"GradientStops",P1])
+		dnRequest("set",[self,"GradientStops",P1])
 		return self
 
 	Func getColorInterpolationModeProperty

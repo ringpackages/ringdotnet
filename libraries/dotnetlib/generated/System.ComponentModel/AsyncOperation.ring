@@ -32,13 +32,13 @@ Class AsyncOperation from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUserSuppliedState
-		return dnRequest("get",[new DotNetObject(nHandle),"UserSuppliedState"])
+		return dnRequest("get",[self,"UserSuppliedState"])
 
 	Func setUserSuppliedState P1
 		raise("DotNet Error: UserSuppliedState is a read-only property")
 
 	Func getSynchronizationContext
-		return dnRequest("get",[new DotNetObject(nHandle),"SynchronizationContext"])
+		return dnRequest("get",[self,"SynchronizationContext"])
 
 	Func setSynchronizationContext P1
 		raise("DotNet Error: SynchronizationContext is a read-only property")

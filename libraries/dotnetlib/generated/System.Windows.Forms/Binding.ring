@@ -85,93 +85,93 @@ Class Binding from Object
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
+		return dnRequest("get",[self,"DataSource"])
 
 	Func setDataSource P1
 		raise("DotNet Error: DataSource is a read-only property")
 
 	Func getBindingMemberInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingMemberInfo"])
+		return dnRequest("get",[self,"BindingMemberInfo"])
 
 	Func setBindingMemberInfo P1
 		raise("DotNet Error: BindingMemberInfo is a read-only property")
 
 	Func getBindableComponent
-		return dnRequest("get",[new DotNetObject(nHandle),"BindableComponent"])
+		return dnRequest("get",[self,"BindableComponent"])
 
 	Func setBindableComponent P1
 		raise("DotNet Error: BindableComponent is a read-only property")
 
 	Func getControl
-		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
+		return dnRequest("get",[self,"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getIsBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBinding"])
+		return dnRequest("get",[self,"IsBinding"])
 
 	Func setIsBinding P1
 		raise("DotNet Error: IsBinding is a read-only property")
 
 	Func getBindingManagerBase
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingManagerBase"])
+		return dnRequest("get",[self,"BindingManagerBase"])
 
 	Func setBindingManagerBase P1
 		raise("DotNet Error: BindingManagerBase is a read-only property")
 
 	Func getPropertyName
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyName"])
+		return dnRequest("get",[self,"PropertyName"])
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getFormattingEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"FormattingEnabled"])
+		return dnRequest("get",[self,"FormattingEnabled"])
 
 	Func setFormattingEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"FormattingEnabled",P1])
+		dnRequest("set",[self,"FormattingEnabled",P1])
 		return self
 
 	Func getFormatInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"FormatInfo"])
+		return dnRequest("get",[self,"FormatInfo"])
 
 	Func setFormatInfo P1
-		dnRequest("set",[new DotNetObject(nHandle),"FormatInfo",P1])
+		dnRequest("set",[self,"FormatInfo",P1])
 		return self
 
 	Func getFormatString
-		return dnRequest("get",[new DotNetObject(nHandle),"FormatString"])
+		return dnRequest("get",[self,"FormatString"])
 
 	Func setFormatString P1
-		dnRequest("set",[new DotNetObject(nHandle),"FormatString",P1])
+		dnRequest("set",[self,"FormatString",P1])
 		return self
 
 	Func getNullValue
-		return dnRequest("get",[new DotNetObject(nHandle),"NullValue"])
+		return dnRequest("get",[self,"NullValue"])
 
 	Func setNullValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"NullValue",P1])
+		dnRequest("set",[self,"NullValue",P1])
 		return self
 
 	Func getDataSourceNullValue
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSourceNullValue"])
+		return dnRequest("get",[self,"DataSourceNullValue"])
 
 	Func setDataSourceNullValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSourceNullValue",P1])
+		dnRequest("set",[self,"DataSourceNullValue",P1])
 		return self
 
 	Func getControlUpdateMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ControlUpdateMode"])
+		return dnRequest("get",[self,"ControlUpdateMode"])
 
 	Func setControlUpdateMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ControlUpdateMode",P1])
+		dnRequest("set",[self,"ControlUpdateMode",P1])
 		return self
 
 	Func getDataSourceUpdateMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSourceUpdateMode"])
+		return dnRequest("get",[self,"DataSourceUpdateMode"])
 
 	Func setDataSourceUpdateMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSourceUpdateMode",P1])
+		dnRequest("set",[self,"DataSourceUpdateMode",P1])
 		return self
 

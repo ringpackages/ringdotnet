@@ -199,31 +199,31 @@ Class BigInteger from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1,P2])
 
 	Func getIsPowerOfTwo
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPowerOfTwo"])
+		return dnRequest("get",[self,"IsPowerOfTwo"])
 
 	Func setIsPowerOfTwo P1
 		raise("DotNet Error: IsPowerOfTwo is a read-only property")
 
 	Func getIsZero
-		return dnRequest("get",[new DotNetObject(nHandle),"IsZero"])
+		return dnRequest("get",[self,"IsZero"])
 
 	Func setIsZero P1
 		raise("DotNet Error: IsZero is a read-only property")
 
 	Func getIsOne
-		return dnRequest("get",[new DotNetObject(nHandle),"IsOne"])
+		return dnRequest("get",[self,"IsOne"])
 
 	Func setIsOne P1
 		raise("DotNet Error: IsOne is a read-only property")
 
 	Func getIsEven
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEven"])
+		return dnRequest("get",[self,"IsEven"])
 
 	Func setIsEven P1
 		raise("DotNet Error: IsEven is a read-only property")
 
 	Func getSign
-		return dnRequest("get",[new DotNetObject(nHandle),"Sign"])
+		return dnRequest("get",[self,"Sign"])
 
 	Func setSign P1
 		raise("DotNet Error: Sign is a read-only property")

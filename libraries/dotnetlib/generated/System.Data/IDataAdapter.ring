@@ -30,21 +30,21 @@ Class IDataAdapter from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 
 	Func getMissingMappingAction
-		return dnRequest("get",[new DotNetObject(nHandle),"MissingMappingAction"])
+		return dnRequest("get",[self,"MissingMappingAction"])
 
 	Func setMissingMappingAction P1
-		dnRequest("set",[new DotNetObject(nHandle),"MissingMappingAction",P1])
+		dnRequest("set",[self,"MissingMappingAction",P1])
 		return self
 
 	Func getMissingSchemaAction
-		return dnRequest("get",[new DotNetObject(nHandle),"MissingSchemaAction"])
+		return dnRequest("get",[self,"MissingSchemaAction"])
 
 	Func setMissingSchemaAction P1
-		dnRequest("set",[new DotNetObject(nHandle),"MissingSchemaAction",P1])
+		dnRequest("set",[self,"MissingSchemaAction",P1])
 		return self
 
 	Func getTableMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"TableMappings"])
+		return dnRequest("get",[self,"TableMappings"])
 
 	Func setTableMappings P1
 		raise("DotNet Error: TableMappings is a read-only property")

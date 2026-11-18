@@ -25,31 +25,31 @@ Class ToolStripRenderEventArgs from EventArgs
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
+		return dnRequest("get",[self,"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getAffectedBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"AffectedBounds"])
+		return dnRequest("get",[self,"AffectedBounds"])
 
 	Func setAffectedBounds P1
 		raise("DotNet Error: AffectedBounds is a read-only property")
 
 	Func getToolStrip
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStrip"])
+		return dnRequest("get",[self,"ToolStrip"])
 
 	Func setToolStrip P1
 		raise("DotNet Error: ToolStrip is a read-only property")
 
 	Func getBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
+		return dnRequest("get",[self,"BackColor"])
 
 	Func setBackColor P1
 		raise("DotNet Error: BackColor is a read-only property")
 
 	Func getConnectedArea
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectedArea"])
+		return dnRequest("get",[self,"ConnectedArea"])
 
 	Func setConnectedArea P1
 		raise("DotNet Error: ConnectedArea is a read-only property")

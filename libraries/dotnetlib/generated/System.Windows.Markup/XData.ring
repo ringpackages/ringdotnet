@@ -21,16 +21,16 @@ Class XData from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getXmlReader
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlReader"])
+		return dnRequest("get",[self,"XmlReader"])
 
 	Func setXmlReader P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlReader",P1])
+		dnRequest("set",[self,"XmlReader",P1])
 		return self
 

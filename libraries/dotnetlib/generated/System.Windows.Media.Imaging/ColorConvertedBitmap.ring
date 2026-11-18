@@ -36,31 +36,31 @@ Class ColorConvertedBitmap from BitmapSource
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getSourceColorContext
-		return dnRequest("get",[new DotNetObject(nHandle),"SourceColorContext"])
+		return dnRequest("get",[self,"SourceColorContext"])
 
 	Func setSourceColorContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"SourceColorContext",P1])
+		dnRequest("set",[self,"SourceColorContext",P1])
 		return self
 
 	Func getDestinationColorContext
-		return dnRequest("get",[new DotNetObject(nHandle),"DestinationColorContext"])
+		return dnRequest("get",[self,"DestinationColorContext"])
 
 	Func setDestinationColorContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"DestinationColorContext",P1])
+		dnRequest("set",[self,"DestinationColorContext",P1])
 		return self
 
 	Func getDestinationFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"DestinationFormat"])
+		return dnRequest("get",[self,"DestinationFormat"])
 
 	Func setDestinationFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"DestinationFormat",P1])
+		dnRequest("set",[self,"DestinationFormat",P1])
 		return self
 
 	Func getSourceProperty

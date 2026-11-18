@@ -23,26 +23,26 @@ Class PageHandlerExecutingContext from FilterContext
 		raise("DotNet Error: ActionDescriptor is a read-only property")
 
 	Func getResult
-		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
+		return dnRequest("get",[self,"Result"])
 
 	Func setResult P1
-		dnRequest("set",[new DotNetObject(nHandle),"Result",P1])
+		dnRequest("set",[self,"Result",P1])
 		return self
 
 	Func getHandlerArguments
-		return dnRequest("get",[new DotNetObject(nHandle),"HandlerArguments"])
+		return dnRequest("get",[self,"HandlerArguments"])
 
 	Func setHandlerArguments P1
 		raise("DotNet Error: HandlerArguments is a read-only property")
 
 	Func getHandlerMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"HandlerMethod"])
+		return dnRequest("get",[self,"HandlerMethod"])
 
 	Func setHandlerMethod P1
 		raise("DotNet Error: HandlerMethod is a read-only property")
 
 	Func getHandlerInstance
-		return dnRequest("get",[new DotNetObject(nHandle),"HandlerInstance"])
+		return dnRequest("get",[self,"HandlerInstance"])
 
 	Func setHandlerInstance P1
 		raise("DotNet Error: HandlerInstance is a read-only property")

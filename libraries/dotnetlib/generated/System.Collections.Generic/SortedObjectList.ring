@@ -86,32 +86,32 @@ Class SortedObjectList from Object
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
+		return dnRequest("get",[self,"Capacity"])
 
 	Func setCapacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"Capacity",P1])
+		dnRequest("set",[self,"Capacity",P1])
 		return self
 
 	Func getComparer
-		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
+		return dnRequest("get",[self,"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
+		return dnRequest("get",[self,"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
+		return dnRequest("get",[self,"Values"])
 
 	Func setValues P1
 		raise("DotNet Error: Values is a read-only property")

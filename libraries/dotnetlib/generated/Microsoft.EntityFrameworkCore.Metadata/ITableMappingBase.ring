@@ -36,37 +36,37 @@ Class ITableMappingBase from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getTypeBase
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeBase"])
+		return dnRequest("get",[self,"TypeBase"])
 
 	Func setTypeBase P1
 		raise("DotNet Error: TypeBase is a read-only property")
 
 	Func getTable
-		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
+		return dnRequest("get",[self,"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getColumnMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnMappings"])
+		return dnRequest("get",[self,"ColumnMappings"])
 
 	Func setColumnMappings P1
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
 	Func getIsSharedTablePrincipal
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSharedTablePrincipal"])
+		return dnRequest("get",[self,"IsSharedTablePrincipal"])
 
 	Func setIsSharedTablePrincipal P1
 		raise("DotNet Error: IsSharedTablePrincipal is a read-only property")
 
 	Func getIsSplitEntityTypePrincipal
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSplitEntityTypePrincipal"])
+		return dnRequest("get",[self,"IsSplitEntityTypePrincipal"])
 
 	Func setIsSplitEntityTypePrincipal P1
 		raise("DotNet Error: IsSplitEntityTypePrincipal is a read-only property")
 
 	Func getIncludesDerivedTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"IncludesDerivedTypes"])
+		return dnRequest("get",[self,"IncludesDerivedTypes"])
 
 	Func setIncludesDerivedTypes P1
 		raise("DotNet Error: IncludesDerivedTypes is a read-only property")

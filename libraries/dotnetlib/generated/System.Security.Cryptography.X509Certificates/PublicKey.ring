@@ -42,25 +42,25 @@ Class PublicKey from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEncodedKeyValue
-		return dnRequest("get",[new DotNetObject(nHandle),"EncodedKeyValue"])
+		return dnRequest("get",[self,"EncodedKeyValue"])
 
 	Func setEncodedKeyValue P1
 		raise("DotNet Error: EncodedKeyValue is a read-only property")
 
 	Func getEncodedParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"EncodedParameters"])
+		return dnRequest("get",[self,"EncodedParameters"])
 
 	Func setEncodedParameters P1
 		raise("DotNet Error: EncodedParameters is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getOid
-		return dnRequest("get",[new DotNetObject(nHandle),"Oid"])
+		return dnRequest("get",[self,"Oid"])
 
 	Func setOid P1
 		raise("DotNet Error: Oid is a read-only property")

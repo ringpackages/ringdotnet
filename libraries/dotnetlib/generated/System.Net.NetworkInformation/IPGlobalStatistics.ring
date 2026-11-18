@@ -40,133 +40,133 @@ Class IPGlobalStatistics from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDefaultTtl
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultTtl"])
+		return dnRequest("get",[self,"DefaultTtl"])
 
 	Func setDefaultTtl P1
 		raise("DotNet Error: DefaultTtl is a read-only property")
 
 	Func getForwardingEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"ForwardingEnabled"])
+		return dnRequest("get",[self,"ForwardingEnabled"])
 
 	Func setForwardingEnabled P1
 		raise("DotNet Error: ForwardingEnabled is a read-only property")
 
 	Func getNumberOfInterfaces
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberOfInterfaces"])
+		return dnRequest("get",[self,"NumberOfInterfaces"])
 
 	Func setNumberOfInterfaces P1
 		raise("DotNet Error: NumberOfInterfaces is a read-only property")
 
 	Func getNumberOfIPAddresses
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberOfIPAddresses"])
+		return dnRequest("get",[self,"NumberOfIPAddresses"])
 
 	Func setNumberOfIPAddresses P1
 		raise("DotNet Error: NumberOfIPAddresses is a read-only property")
 
 	Func getOutputPacketRequests
-		return dnRequest("get",[new DotNetObject(nHandle),"OutputPacketRequests"])
+		return dnRequest("get",[self,"OutputPacketRequests"])
 
 	Func setOutputPacketRequests P1
 		raise("DotNet Error: OutputPacketRequests is a read-only property")
 
 	Func getOutputPacketRoutingDiscards
-		return dnRequest("get",[new DotNetObject(nHandle),"OutputPacketRoutingDiscards"])
+		return dnRequest("get",[self,"OutputPacketRoutingDiscards"])
 
 	Func setOutputPacketRoutingDiscards P1
 		raise("DotNet Error: OutputPacketRoutingDiscards is a read-only property")
 
 	Func getOutputPacketsDiscarded
-		return dnRequest("get",[new DotNetObject(nHandle),"OutputPacketsDiscarded"])
+		return dnRequest("get",[self,"OutputPacketsDiscarded"])
 
 	Func setOutputPacketsDiscarded P1
 		raise("DotNet Error: OutputPacketsDiscarded is a read-only property")
 
 	Func getOutputPacketsWithNoRoute
-		return dnRequest("get",[new DotNetObject(nHandle),"OutputPacketsWithNoRoute"])
+		return dnRequest("get",[self,"OutputPacketsWithNoRoute"])
 
 	Func setOutputPacketsWithNoRoute P1
 		raise("DotNet Error: OutputPacketsWithNoRoute is a read-only property")
 
 	Func getPacketFragmentFailures
-		return dnRequest("get",[new DotNetObject(nHandle),"PacketFragmentFailures"])
+		return dnRequest("get",[self,"PacketFragmentFailures"])
 
 	Func setPacketFragmentFailures P1
 		raise("DotNet Error: PacketFragmentFailures is a read-only property")
 
 	Func getPacketReassembliesRequired
-		return dnRequest("get",[new DotNetObject(nHandle),"PacketReassembliesRequired"])
+		return dnRequest("get",[self,"PacketReassembliesRequired"])
 
 	Func setPacketReassembliesRequired P1
 		raise("DotNet Error: PacketReassembliesRequired is a read-only property")
 
 	Func getPacketReassemblyFailures
-		return dnRequest("get",[new DotNetObject(nHandle),"PacketReassemblyFailures"])
+		return dnRequest("get",[self,"PacketReassemblyFailures"])
 
 	Func setPacketReassemblyFailures P1
 		raise("DotNet Error: PacketReassemblyFailures is a read-only property")
 
 	Func getPacketReassemblyTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"PacketReassemblyTimeout"])
+		return dnRequest("get",[self,"PacketReassemblyTimeout"])
 
 	Func setPacketReassemblyTimeout P1
 		raise("DotNet Error: PacketReassemblyTimeout is a read-only property")
 
 	Func getPacketsFragmented
-		return dnRequest("get",[new DotNetObject(nHandle),"PacketsFragmented"])
+		return dnRequest("get",[self,"PacketsFragmented"])
 
 	Func setPacketsFragmented P1
 		raise("DotNet Error: PacketsFragmented is a read-only property")
 
 	Func getPacketsReassembled
-		return dnRequest("get",[new DotNetObject(nHandle),"PacketsReassembled"])
+		return dnRequest("get",[self,"PacketsReassembled"])
 
 	Func setPacketsReassembled P1
 		raise("DotNet Error: PacketsReassembled is a read-only property")
 
 	Func getReceivedPackets
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedPackets"])
+		return dnRequest("get",[self,"ReceivedPackets"])
 
 	Func setReceivedPackets P1
 		raise("DotNet Error: ReceivedPackets is a read-only property")
 
 	Func getReceivedPacketsDelivered
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedPacketsDelivered"])
+		return dnRequest("get",[self,"ReceivedPacketsDelivered"])
 
 	Func setReceivedPacketsDelivered P1
 		raise("DotNet Error: ReceivedPacketsDelivered is a read-only property")
 
 	Func getReceivedPacketsDiscarded
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedPacketsDiscarded"])
+		return dnRequest("get",[self,"ReceivedPacketsDiscarded"])
 
 	Func setReceivedPacketsDiscarded P1
 		raise("DotNet Error: ReceivedPacketsDiscarded is a read-only property")
 
 	Func getReceivedPacketsForwarded
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedPacketsForwarded"])
+		return dnRequest("get",[self,"ReceivedPacketsForwarded"])
 
 	Func setReceivedPacketsForwarded P1
 		raise("DotNet Error: ReceivedPacketsForwarded is a read-only property")
 
 	Func getReceivedPacketsWithAddressErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedPacketsWithAddressErrors"])
+		return dnRequest("get",[self,"ReceivedPacketsWithAddressErrors"])
 
 	Func setReceivedPacketsWithAddressErrors P1
 		raise("DotNet Error: ReceivedPacketsWithAddressErrors is a read-only property")
 
 	Func getReceivedPacketsWithHeadersErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedPacketsWithHeadersErrors"])
+		return dnRequest("get",[self,"ReceivedPacketsWithHeadersErrors"])
 
 	Func setReceivedPacketsWithHeadersErrors P1
 		raise("DotNet Error: ReceivedPacketsWithHeadersErrors is a read-only property")
 
 	Func getReceivedPacketsWithUnknownProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedPacketsWithUnknownProtocol"])
+		return dnRequest("get",[self,"ReceivedPacketsWithUnknownProtocol"])
 
 	Func setReceivedPacketsWithUnknownProtocol P1
 		raise("DotNet Error: ReceivedPacketsWithUnknownProtocol is a read-only property")
 
 	Func getNumberOfRoutes
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberOfRoutes"])
+		return dnRequest("get",[self,"NumberOfRoutes"])
 
 	Func setNumberOfRoutes P1
 		raise("DotNet Error: NumberOfRoutes is a read-only property")

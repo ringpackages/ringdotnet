@@ -16,7 +16,7 @@ Class ExceptionRoutedEventArgs from RoutedEventArgs
 		return self
 
 	Func getErrorException
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorException"])
+		return dnRequest("get",[self,"ErrorException"])
 
 	Func setErrorException P1
 		raise("DotNet Error: ErrorException is a read-only property")

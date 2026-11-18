@@ -18,13 +18,13 @@ Class PropertyValueEventData from PropertyEventData
 		return self
 
 	Func getEntityEntry
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityEntry"])
+		return dnRequest("get",[self,"EntityEntry"])
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

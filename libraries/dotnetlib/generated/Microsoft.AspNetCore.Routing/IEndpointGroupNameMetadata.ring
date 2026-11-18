@@ -16,7 +16,7 @@ Class IEndpointGroupNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointGroupName
-		return dnRequest("get",[new DotNetObject(nHandle),"EndpointGroupName"])
+		return dnRequest("get",[self,"EndpointGroupName"])
 
 	Func setEndpointGroupName P1
 		raise("DotNet Error: EndpointGroupName is a read-only property")

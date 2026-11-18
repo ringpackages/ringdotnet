@@ -28,7 +28,7 @@ Class Span from Inline
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeInlines",P1])
 
 	Func getInlines
-		return dnRequest("get",[new DotNetObject(nHandle),"Inlines"])
+		return dnRequest("get",[self,"Inlines"])
 
 	Func setInlines P1
 		raise("DotNet Error: Inlines is a read-only property")

@@ -16,9 +16,9 @@ Class IQueryFeature from DotNetObject
 		return self
 
 	Func getQuery
-		return dnRequest("get",[new DotNetObject(nHandle),"Query"])
+		return dnRequest("get",[self,"Query"])
 
 	Func setQuery P1
-		dnRequest("set",[new DotNetObject(nHandle),"Query",P1])
+		dnRequest("set",[self,"Query",P1])
 		return self
 

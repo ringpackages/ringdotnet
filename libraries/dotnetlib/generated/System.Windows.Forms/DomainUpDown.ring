@@ -29,36 +29,36 @@ Class DomainUpDown from UpDownBase
 		return self
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getSelectedIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedIndex"])
+		return dnRequest("get",[self,"SelectedIndex"])
 
 	Func setSelectedIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedIndex",P1])
+		dnRequest("set",[self,"SelectedIndex",P1])
 		return self
 
 	Func getSelectedItem
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItem"])
+		return dnRequest("get",[self,"SelectedItem"])
 
 	Func setSelectedItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedItem",P1])
+		dnRequest("set",[self,"SelectedItem",P1])
 		return self
 
 	Func getSorted
-		return dnRequest("get",[new DotNetObject(nHandle),"Sorted"])
+		return dnRequest("get",[self,"Sorted"])
 
 	Func setSorted P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sorted",P1])
+		dnRequest("set",[self,"Sorted",P1])
 		return self
 
 	Func getWrap
-		return dnRequest("get",[new DotNetObject(nHandle),"Wrap"])
+		return dnRequest("get",[self,"Wrap"])
 
 	Func setWrap P1
-		dnRequest("set",[new DotNetObject(nHandle),"Wrap",P1])
+		dnRequest("set",[self,"Wrap",P1])
 		return self
 

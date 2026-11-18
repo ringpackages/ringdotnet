@@ -71,96 +71,96 @@ Class AspMediaTypeHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers'),"TryParseStrictList",P1])
 
 	Func getCharset
-		return dnRequest("get",[new DotNetObject(nHandle),"Charset"])
+		return dnRequest("get",[self,"Charset"])
 
 	Func setCharset P1
-		dnRequest("set",[new DotNetObject(nHandle),"Charset",P1])
+		dnRequest("set",[self,"Charset",P1])
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
+		return dnRequest("get",[self,"Encoding"])
 
 	Func setEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Encoding",P1])
+		dnRequest("set",[self,"Encoding",P1])
 		return self
 
 	Func getBoundary
-		return dnRequest("get",[new DotNetObject(nHandle),"Boundary"])
+		return dnRequest("get",[self,"Boundary"])
 
 	Func setBoundary P1
-		dnRequest("set",[new DotNetObject(nHandle),"Boundary",P1])
+		dnRequest("set",[self,"Boundary",P1])
 		return self
 
 	Func getParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
+		return dnRequest("get",[self,"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getQuality
-		return dnRequest("get",[new DotNetObject(nHandle),"Quality"])
+		return dnRequest("get",[self,"Quality"])
 
 	Func setQuality P1
-		dnRequest("set",[new DotNetObject(nHandle),"Quality",P1])
+		dnRequest("set",[self,"Quality",P1])
 		return self
 
 	Func getMediaType
-		return dnRequest("get",[new DotNetObject(nHandle),"MediaType"])
+		return dnRequest("get",[self,"MediaType"])
 
 	Func setMediaType P1
-		dnRequest("set",[new DotNetObject(nHandle),"MediaType",P1])
+		dnRequest("set",[self,"MediaType",P1])
 		return self
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getSubType
-		return dnRequest("get",[new DotNetObject(nHandle),"SubType"])
+		return dnRequest("get",[self,"SubType"])
 
 	Func setSubType P1
 		raise("DotNet Error: SubType is a read-only property")
 
 	Func getSubTypeWithoutSuffix
-		return dnRequest("get",[new DotNetObject(nHandle),"SubTypeWithoutSuffix"])
+		return dnRequest("get",[self,"SubTypeWithoutSuffix"])
 
 	Func setSubTypeWithoutSuffix P1
 		raise("DotNet Error: SubTypeWithoutSuffix is a read-only property")
 
 	Func getSuffix
-		return dnRequest("get",[new DotNetObject(nHandle),"Suffix"])
+		return dnRequest("get",[self,"Suffix"])
 
 	Func setSuffix P1
 		raise("DotNet Error: Suffix is a read-only property")
 
 	Func getFacets
-		return dnRequest("get",[new DotNetObject(nHandle),"Facets"])
+		return dnRequest("get",[self,"Facets"])
 
 	Func setFacets P1
 		raise("DotNet Error: Facets is a read-only property")
 
 	Func getMatchesAllTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"MatchesAllTypes"])
+		return dnRequest("get",[self,"MatchesAllTypes"])
 
 	Func setMatchesAllTypes P1
 		raise("DotNet Error: MatchesAllTypes is a read-only property")
 
 	Func getMatchesAllSubTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"MatchesAllSubTypes"])
+		return dnRequest("get",[self,"MatchesAllSubTypes"])
 
 	Func setMatchesAllSubTypes P1
 		raise("DotNet Error: MatchesAllSubTypes is a read-only property")
 
 	Func getMatchesAllSubTypesWithoutSuffix
-		return dnRequest("get",[new DotNetObject(nHandle),"MatchesAllSubTypesWithoutSuffix"])
+		return dnRequest("get",[self,"MatchesAllSubTypesWithoutSuffix"])
 
 	Func setMatchesAllSubTypesWithoutSuffix P1
 		raise("DotNet Error: MatchesAllSubTypesWithoutSuffix is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

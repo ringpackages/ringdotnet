@@ -21,9 +21,9 @@ Class HttpValidationProblemDetails from ProblemDetails
 		return self
 
 	Func getErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"Errors"])
+		return dnRequest("get",[self,"Errors"])
 
 	Func setErrors P1
-		dnRequest("set",[new DotNetObject(nHandle),"Errors",P1])
+		dnRequest("set",[self,"Errors",P1])
 		return self
 

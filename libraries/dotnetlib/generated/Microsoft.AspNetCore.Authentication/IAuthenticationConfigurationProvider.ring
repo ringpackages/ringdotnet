@@ -16,7 +16,7 @@ Class IAuthenticationConfigurationProvider from DotNetObject
 		return self
 
 	Func getAuthenticationConfiguration
-		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationConfiguration"])
+		return dnRequest("get",[self,"AuthenticationConfiguration"])
 
 	Func setAuthenticationConfiguration P1
 		raise("DotNet Error: AuthenticationConfiguration is a read-only property")

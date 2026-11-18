@@ -72,7 +72,7 @@ Class NameValueCollection from NameObjectCollectionBase
 		return self
 
 	Func getAllKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"AllKeys"])
+		return dnRequest("get",[self,"AllKeys"])
 
 	Func setAllKeys P1
 		raise("DotNet Error: AllKeys is a read-only property")

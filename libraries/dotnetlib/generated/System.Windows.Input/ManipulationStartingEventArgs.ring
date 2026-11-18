@@ -27,35 +27,35 @@ Class ManipulationStartingEventArgs from InputEventArgs
 		return self
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
+		dnRequest("set",[self,"Mode",P1])
 		return self
 
 	Func getManipulationContainer
-		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationContainer"])
+		return dnRequest("get",[self,"ManipulationContainer"])
 
 	Func setManipulationContainer P1
-		dnRequest("set",[new DotNetObject(nHandle),"ManipulationContainer",P1])
+		dnRequest("set",[self,"ManipulationContainer",P1])
 		return self
 
 	Func getPivot
-		return dnRequest("get",[new DotNetObject(nHandle),"Pivot"])
+		return dnRequest("get",[self,"Pivot"])
 
 	Func setPivot P1
-		dnRequest("set",[new DotNetObject(nHandle),"Pivot",P1])
+		dnRequest("set",[self,"Pivot",P1])
 		return self
 
 	Func getIsSingleTouchEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSingleTouchEnabled"])
+		return dnRequest("get",[self,"IsSingleTouchEnabled"])
 
 	Func setIsSingleTouchEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSingleTouchEnabled",P1])
+		dnRequest("set",[self,"IsSingleTouchEnabled",P1])
 		return self
 
 	Func getManipulators
-		return dnRequest("get",[new DotNetObject(nHandle),"Manipulators"])
+		return dnRequest("get",[self,"Manipulators"])
 
 	Func setManipulators P1
 		raise("DotNet Error: Manipulators is a read-only property")

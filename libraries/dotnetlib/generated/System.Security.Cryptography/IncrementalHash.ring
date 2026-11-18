@@ -51,13 +51,13 @@ Class IncrementalHash from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"CreateHMAC",P1,P2])
 
 	Func getHashLengthInBytes
-		return dnRequest("get",[new DotNetObject(nHandle),"HashLengthInBytes"])
+		return dnRequest("get",[self,"HashLengthInBytes"])
 
 	Func setHashLengthInBytes P1
 		raise("DotNet Error: HashLengthInBytes is a read-only property")
 
 	Func getAlgorithmName
-		return dnRequest("get",[new DotNetObject(nHandle),"AlgorithmName"])
+		return dnRequest("get",[self,"AlgorithmName"])
 
 	Func setAlgorithmName P1
 		raise("DotNet Error: AlgorithmName is a read-only property")

@@ -44,85 +44,85 @@ Class IReadOnlyDbFunction from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
+		return dnRequest("get",[self,"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getModelName
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelName"])
+		return dnRequest("get",[self,"ModelName"])
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getMethodInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"MethodInfo"])
+		return dnRequest("get",[self,"MethodInfo"])
 
 	Func setMethodInfo P1
 		raise("DotNet Error: MethodInfo is a read-only property")
 
 	Func getIsBuiltIn
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBuiltIn"])
+		return dnRequest("get",[self,"IsBuiltIn"])
 
 	Func setIsBuiltIn P1
 		raise("DotNet Error: IsBuiltIn is a read-only property")
 
 	Func getIsScalar
-		return dnRequest("get",[new DotNetObject(nHandle),"IsScalar"])
+		return dnRequest("get",[self,"IsScalar"])
 
 	Func setIsScalar P1
 		raise("DotNet Error: IsScalar is a read-only property")
 
 	Func getIsAggregate
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAggregate"])
+		return dnRequest("get",[self,"IsAggregate"])
 
 	Func setIsAggregate P1
 		raise("DotNet Error: IsAggregate is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getStoreType
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
+		return dnRequest("get",[self,"StoreType"])
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getReturnType
-		return dnRequest("get",[new DotNetObject(nHandle),"ReturnType"])
+		return dnRequest("get",[self,"ReturnType"])
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
 
 	Func getTypeMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMapping"])
+		return dnRequest("get",[self,"TypeMapping"])
 
 	Func setTypeMapping P1
 		raise("DotNet Error: TypeMapping is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
+		return dnRequest("get",[self,"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getTranslation
-		return dnRequest("get",[new DotNetObject(nHandle),"Translation"])
+		return dnRequest("get",[self,"Translation"])
 
 	Func setTranslation P1
 		raise("DotNet Error: Translation is a read-only property")

@@ -27,19 +27,19 @@ Class AuthorizationFailure from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization'),"Failed",P1])
 
 	Func getFailCalled
-		return dnRequest("get",[new DotNetObject(nHandle),"FailCalled"])
+		return dnRequest("get",[self,"FailCalled"])
 
 	Func setFailCalled P1
 		raise("DotNet Error: FailCalled is a read-only property")
 
 	Func getFailedRequirements
-		return dnRequest("get",[new DotNetObject(nHandle),"FailedRequirements"])
+		return dnRequest("get",[self,"FailedRequirements"])
 
 	Func setFailedRequirements P1
 		raise("DotNet Error: FailedRequirements is a read-only property")
 
 	Func getFailureReasons
-		return dnRequest("get",[new DotNetObject(nHandle),"FailureReasons"])
+		return dnRequest("get",[self,"FailureReasons"])
 
 	Func setFailureReasons P1
 		raise("DotNet Error: FailureReasons is a read-only property")

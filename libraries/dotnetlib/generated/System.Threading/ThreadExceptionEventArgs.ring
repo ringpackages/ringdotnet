@@ -17,7 +17,7 @@ Class ThreadExceptionEventArgs from EventArgs
 		return self
 
 	Func getException
-		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
+		return dnRequest("get",[self,"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")

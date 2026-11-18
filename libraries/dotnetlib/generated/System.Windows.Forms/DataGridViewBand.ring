@@ -35,89 +35,89 @@ Class DataGridViewBand from DataGridViewElement
 		return self
 
 	Func getContextMenuStrip
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextMenuStrip"])
+		return dnRequest("get",[self,"ContextMenuStrip"])
 
 	Func setContextMenuStrip P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContextMenuStrip",P1])
+		dnRequest("set",[self,"ContextMenuStrip",P1])
 		return self
 
 	Func getDefaultCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultCellStyle"])
+		return dnRequest("get",[self,"DefaultCellStyle"])
 
 	Func setDefaultCellStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultCellStyle",P1])
+		dnRequest("set",[self,"DefaultCellStyle",P1])
 		return self
 
 	Func getDefaultHeaderCellType
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultHeaderCellType"])
+		return dnRequest("get",[self,"DefaultHeaderCellType"])
 
 	Func setDefaultHeaderCellType P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultHeaderCellType",P1])
+		dnRequest("set",[self,"DefaultHeaderCellType",P1])
 		return self
 
 	Func getDisplayed
-		return dnRequest("get",[new DotNetObject(nHandle),"Displayed"])
+		return dnRequest("get",[self,"Displayed"])
 
 	Func setDisplayed P1
 		raise("DotNet Error: Displayed is a read-only property")
 
 	Func getFrozen
-		return dnRequest("get",[new DotNetObject(nHandle),"Frozen"])
+		return dnRequest("get",[self,"Frozen"])
 
 	Func setFrozen P1
-		dnRequest("set",[new DotNetObject(nHandle),"Frozen",P1])
+		dnRequest("set",[self,"Frozen",P1])
 		return self
 
 	Func getHasDefaultCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"HasDefaultCellStyle"])
+		return dnRequest("get",[self,"HasDefaultCellStyle"])
 
 	Func setHasDefaultCellStyle P1
 		raise("DotNet Error: HasDefaultCellStyle is a read-only property")
 
 	Func getIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
+		return dnRequest("get",[self,"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getInheritedStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"InheritedStyle"])
+		return dnRequest("get",[self,"InheritedStyle"])
 
 	Func setInheritedStyle P1
 		raise("DotNet Error: InheritedStyle is a read-only property")
 
 	Func getReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
+		return dnRequest("get",[self,"ReadOnly"])
 
 	Func setReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadOnly",P1])
+		dnRequest("set",[self,"ReadOnly",P1])
 		return self
 
 	Func getResizable
-		return dnRequest("get",[new DotNetObject(nHandle),"Resizable"])
+		return dnRequest("get",[self,"Resizable"])
 
 	Func setResizable P1
-		dnRequest("set",[new DotNetObject(nHandle),"Resizable",P1])
+		dnRequest("set",[self,"Resizable",P1])
 		return self
 
 	Func getSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"Selected"])
+		return dnRequest("get",[self,"Selected"])
 
 	Func setSelected P1
-		dnRequest("set",[new DotNetObject(nHandle),"Selected",P1])
+		dnRequest("set",[self,"Selected",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getVisible
-		return dnRequest("get",[new DotNetObject(nHandle),"Visible"])
+		return dnRequest("get",[self,"Visible"])
 
 	Func setVisible P1
-		dnRequest("set",[new DotNetObject(nHandle),"Visible",P1])
+		dnRequest("set",[self,"Visible",P1])
 		return self
 

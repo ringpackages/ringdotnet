@@ -30,19 +30,19 @@ Class XPathNodeIterator from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrent
-		return dnRequest("get",[new DotNetObject(nHandle),"Current"])
+		return dnRequest("get",[self,"Current"])
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getCurrentPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentPosition"])
+		return dnRequest("get",[self,"CurrentPosition"])
 
 	Func setCurrentPosition P1
 		raise("DotNet Error: CurrentPosition is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

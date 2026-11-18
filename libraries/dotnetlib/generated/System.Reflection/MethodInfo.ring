@@ -42,19 +42,19 @@ Class MethodInfo from MethodBase
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateDelegate",P1])
 
 	Func getReturnParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"ReturnParameter"])
+		return dnRequest("get",[self,"ReturnParameter"])
 
 	Func setReturnParameter P1
 		raise("DotNet Error: ReturnParameter is a read-only property")
 
 	Func getReturnType
-		return dnRequest("get",[new DotNetObject(nHandle),"ReturnType"])
+		return dnRequest("get",[self,"ReturnType"])
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
 
 	Func getReturnTypeCustomAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"ReturnTypeCustomAttributes"])
+		return dnRequest("get",[self,"ReturnTypeCustomAttributes"])
 
 	Func setReturnTypeCustomAttributes P1
 		raise("DotNet Error: ReturnTypeCustomAttributes is a read-only property")

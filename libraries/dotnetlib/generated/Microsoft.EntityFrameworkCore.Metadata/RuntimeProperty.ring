@@ -91,48 +91,48 @@ Class RuntimeProperty from RuntimePropertyBase
 		return dnRequest("call",[new DotNetObject(nHandle),"GetElementType"])
 
 	Func getPrimaryKey
-		return dnRequest("get",[new DotNetObject(nHandle),"PrimaryKey"])
+		return dnRequest("get",[self,"PrimaryKey"])
 
 	Func setPrimaryKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrimaryKey",P1])
+		dnRequest("set",[self,"PrimaryKey",P1])
 		return self
 
 	Func getKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
+		return dnRequest("get",[self,"Keys"])
 
 	Func setKeys P1
-		dnRequest("set",[new DotNetObject(nHandle),"Keys",P1])
+		dnRequest("set",[self,"Keys",P1])
 		return self
 
 	Func getForeignKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"ForeignKeys"])
+		return dnRequest("get",[self,"ForeignKeys"])
 
 	Func setForeignKeys P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForeignKeys",P1])
+		dnRequest("set",[self,"ForeignKeys",P1])
 		return self
 
 	Func getIndexes
-		return dnRequest("get",[new DotNetObject(nHandle),"Indexes"])
+		return dnRequest("get",[self,"Indexes"])
 
 	Func setIndexes P1
-		dnRequest("set",[new DotNetObject(nHandle),"Indexes",P1])
+		dnRequest("set",[self,"Indexes",P1])
 		return self
 
 	Func getTypeMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMapping"])
+		return dnRequest("get",[self,"TypeMapping"])
 
 	Func setTypeMapping P1
-		dnRequest("set",[new DotNetObject(nHandle),"TypeMapping",P1])
+		dnRequest("set",[self,"TypeMapping",P1])
 		return self
 
 	Func getIsPrimitiveCollection
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPrimitiveCollection"])
+		return dnRequest("get",[self,"IsPrimitiveCollection"])
 
 	Func setIsPrimitiveCollection P1
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

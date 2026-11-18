@@ -32,31 +32,31 @@ Class ReaderColumn from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ReaderColumn, Microsoft.EntityFrameworkCore.Relational'),"GetConstructor",P1])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
+		return dnRequest("get",[self,"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getGetFieldValueExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"GetFieldValueExpression"])
+		return dnRequest("get",[self,"GetFieldValueExpression"])
 
 	Func setGetFieldValueExpression P1
 		raise("DotNet Error: GetFieldValueExpression is a read-only property")

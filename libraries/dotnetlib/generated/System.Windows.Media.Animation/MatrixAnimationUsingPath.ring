@@ -25,38 +25,38 @@ Class MatrixAnimationUsingPath from MatrixAnimationBase
 		return self
 
 	Func getDoesRotateWithTangent
-		return dnRequest("get",[new DotNetObject(nHandle),"DoesRotateWithTangent"])
+		return dnRequest("get",[self,"DoesRotateWithTangent"])
 
 	Func setDoesRotateWithTangent P1
-		dnRequest("set",[new DotNetObject(nHandle),"DoesRotateWithTangent",P1])
+		dnRequest("set",[self,"DoesRotateWithTangent",P1])
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAdditive"])
+		return dnRequest("get",[self,"IsAdditive"])
 
 	Func setIsAdditive P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsAdditive",P1])
+		dnRequest("set",[self,"IsAdditive",P1])
 		return self
 
 	Func getIsAngleCumulative
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAngleCumulative"])
+		return dnRequest("get",[self,"IsAngleCumulative"])
 
 	Func setIsAngleCumulative P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsAngleCumulative",P1])
+		dnRequest("set",[self,"IsAngleCumulative",P1])
 		return self
 
 	Func getIsOffsetCumulative
-		return dnRequest("get",[new DotNetObject(nHandle),"IsOffsetCumulative"])
+		return dnRequest("get",[self,"IsOffsetCumulative"])
 
 	Func setIsOffsetCumulative P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsOffsetCumulative",P1])
+		dnRequest("set",[self,"IsOffsetCumulative",P1])
 		return self
 
 	Func getPathGeometry
-		return dnRequest("get",[new DotNetObject(nHandle),"PathGeometry"])
+		return dnRequest("get",[self,"PathGeometry"])
 
 	Func setPathGeometry P1
-		dnRequest("set",[new DotNetObject(nHandle),"PathGeometry",P1])
+		dnRequest("set",[self,"PathGeometry",P1])
 		return self
 
 	Func getDoesRotateWithTangentProperty

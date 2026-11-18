@@ -63,31 +63,31 @@ Class TouchDevice from InputDevice
 		return self
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsActive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsActive"])
+		return dnRequest("get",[self,"IsActive"])
 
 	Func setIsActive P1
 		raise("DotNet Error: IsActive is a read-only property")
 
 	Func getDirectlyOver
-		return dnRequest("get",[new DotNetObject(nHandle),"DirectlyOver"])
+		return dnRequest("get",[self,"DirectlyOver"])
 
 	Func setDirectlyOver P1
 		raise("DotNet Error: DirectlyOver is a read-only property")
 
 	Func getCaptured
-		return dnRequest("get",[new DotNetObject(nHandle),"Captured"])
+		return dnRequest("get",[self,"Captured"])
 
 	Func setCaptured P1
 		raise("DotNet Error: Captured is a read-only property")
 
 	Func getCaptureMode
-		return dnRequest("get",[new DotNetObject(nHandle),"CaptureMode"])
+		return dnRequest("get",[self,"CaptureMode"])
 
 	Func setCaptureMode P1
 		raise("DotNet Error: CaptureMode is a read-only property")

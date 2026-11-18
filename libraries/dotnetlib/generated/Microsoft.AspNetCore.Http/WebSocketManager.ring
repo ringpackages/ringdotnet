@@ -32,13 +32,13 @@ Class WebSocketManager from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsWebSocketRequest
-		return dnRequest("get",[new DotNetObject(nHandle),"IsWebSocketRequest"])
+		return dnRequest("get",[self,"IsWebSocketRequest"])
 
 	Func setIsWebSocketRequest P1
 		raise("DotNet Error: IsWebSocketRequest is a read-only property")
 
 	Func getWebSocketRequestedProtocols
-		return dnRequest("get",[new DotNetObject(nHandle),"WebSocketRequestedProtocols"])
+		return dnRequest("get",[self,"WebSocketRequestedProtocols"])
 
 	Func setWebSocketRequestedProtocols P1
 		raise("DotNet Error: WebSocketRequestedProtocols is a read-only property")

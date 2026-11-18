@@ -23,49 +23,49 @@ Class XmlNodeEventArgs from EventArgs
 		return self
 
 	Func getObjectBeingDeserialized
-		return dnRequest("get",[new DotNetObject(nHandle),"ObjectBeingDeserialized"])
+		return dnRequest("get",[self,"ObjectBeingDeserialized"])
 
 	Func setObjectBeingDeserialized P1
 		raise("DotNet Error: ObjectBeingDeserialized is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
+		return dnRequest("get",[self,"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getLocalName
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalName"])
+		return dnRequest("get",[self,"LocalName"])
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getNamespaceURI
-		return dnRequest("get",[new DotNetObject(nHandle),"NamespaceURI"])
+		return dnRequest("get",[self,"NamespaceURI"])
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getLineNumber
-		return dnRequest("get",[new DotNetObject(nHandle),"LineNumber"])
+		return dnRequest("get",[self,"LineNumber"])
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		return dnRequest("get",[new DotNetObject(nHandle),"LinePosition"])
+		return dnRequest("get",[self,"LinePosition"])
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")

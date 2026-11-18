@@ -66,24 +66,24 @@ Class TextRange from Object
 		return self
 
 	Func getStart
-		return dnRequest("get",[new DotNetObject(nHandle),"Start"])
+		return dnRequest("get",[self,"Start"])
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"End"])
+		return dnRequest("get",[self,"End"])
 
 	Func getIsEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
+		return dnRequest("get",[self,"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 

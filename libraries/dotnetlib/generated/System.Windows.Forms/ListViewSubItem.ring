@@ -38,50 +38,50 @@ Class ListViewSubItem from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
+		return dnRequest("get",[self,"BackColor"])
 
 	Func setBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"BackColor",P1])
+		dnRequest("set",[self,"BackColor",P1])
 		return self
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getFont
-		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
+		return dnRequest("get",[self,"Font"])
 
 	Func setFont P1
-		dnRequest("set",[new DotNetObject(nHandle),"Font",P1])
+		dnRequest("set",[self,"Font",P1])
 		return self
 
 	Func getForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
+		return dnRequest("get",[self,"ForeColor"])
 
 	Func setForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForeColor",P1])
+		dnRequest("set",[self,"ForeColor",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 

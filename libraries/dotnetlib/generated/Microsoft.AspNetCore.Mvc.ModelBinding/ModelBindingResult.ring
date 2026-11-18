@@ -24,13 +24,13 @@ Class ModelBindingResult from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions'),"Success",P1])
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getIsModelSet
-		return dnRequest("get",[new DotNetObject(nHandle),"IsModelSet"])
+		return dnRequest("get",[self,"IsModelSet"])
 
 	Func setIsModelSet P1
 		raise("DotNet Error: IsModelSet is a read-only property")

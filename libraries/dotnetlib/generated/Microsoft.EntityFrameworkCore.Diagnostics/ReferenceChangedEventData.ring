@@ -19,19 +19,19 @@ Class ReferenceChangedEventData from NavigationEventData
 		return self
 
 	Func getEntityEntry
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityEntry"])
+		return dnRequest("get",[self,"EntityEntry"])
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")
 
 	Func getOldReferencedEntity
-		return dnRequest("get",[new DotNetObject(nHandle),"OldReferencedEntity"])
+		return dnRequest("get",[self,"OldReferencedEntity"])
 
 	Func setOldReferencedEntity P1
 		raise("DotNet Error: OldReferencedEntity is a read-only property")
 
 	Func getNewReferencedEntity
-		return dnRequest("get",[new DotNetObject(nHandle),"NewReferencedEntity"])
+		return dnRequest("get",[self,"NewReferencedEntity"])
 
 	Func setNewReferencedEntity P1
 		raise("DotNet Error: NewReferencedEntity is a read-only property")

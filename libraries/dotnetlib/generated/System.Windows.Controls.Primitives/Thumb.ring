@@ -49,7 +49,7 @@ Class Thumb from WpfControl
 		return self
 
 	Func getIsDragging
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDragging"])
+		return dnRequest("get",[self,"IsDragging"])
 
 	Func setIsDragging P1
 		raise("DotNet Error: IsDragging is a read-only property")

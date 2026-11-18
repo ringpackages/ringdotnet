@@ -22,7 +22,7 @@ Class XmlSchemaCollectionEnumerator from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrent
-		return dnRequest("get",[new DotNetObject(nHandle),"Current"])
+		return dnRequest("get",[self,"Current"])
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")

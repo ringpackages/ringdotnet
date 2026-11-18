@@ -20,30 +20,30 @@ Class SocketReceiveMessageFromResult from ValueType
 		return self
 
 	Func getReceivedBytes
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedBytes"])
+		return dnRequest("get",[self,"ReceivedBytes"])
 
 	Func setReceivedBytes P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReceivedBytes",P1])
+		dnRequest("set",[self,"ReceivedBytes",P1])
 		return self
 
 	Func getSocketFlags
-		return dnRequest("get",[new DotNetObject(nHandle),"SocketFlags"])
+		return dnRequest("get",[self,"SocketFlags"])
 
 	Func setSocketFlags P1
-		dnRequest("set",[new DotNetObject(nHandle),"SocketFlags",P1])
+		dnRequest("set",[self,"SocketFlags",P1])
 		return self
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[new DotNetObject(nHandle),"RemoteEndPoint"])
+		return dnRequest("get",[self,"RemoteEndPoint"])
 
 	Func setRemoteEndPoint P1
-		dnRequest("set",[new DotNetObject(nHandle),"RemoteEndPoint",P1])
+		dnRequest("set",[self,"RemoteEndPoint",P1])
 		return self
 
 	Func getPacketInformation
-		return dnRequest("get",[new DotNetObject(nHandle),"PacketInformation"])
+		return dnRequest("get",[self,"PacketInformation"])
 
 	Func setPacketInformation P1
-		dnRequest("set",[new DotNetObject(nHandle),"PacketInformation",P1])
+		dnRequest("set",[self,"PacketInformation",P1])
 		return self
 

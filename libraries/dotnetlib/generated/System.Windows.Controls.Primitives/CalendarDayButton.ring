@@ -26,31 +26,31 @@ Class CalendarDayButton from WpfButton
 		return self
 
 	Func getIsToday
-		return dnRequest("get",[new DotNetObject(nHandle),"IsToday"])
+		return dnRequest("get",[self,"IsToday"])
 
 	Func setIsToday P1
 		raise("DotNet Error: IsToday is a read-only property")
 
 	Func getIsSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
+		return dnRequest("get",[self,"IsSelected"])
 
 	Func setIsSelected P1
 		raise("DotNet Error: IsSelected is a read-only property")
 
 	Func getIsInactive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInactive"])
+		return dnRequest("get",[self,"IsInactive"])
 
 	Func setIsInactive P1
 		raise("DotNet Error: IsInactive is a read-only property")
 
 	Func getIsBlackedOut
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBlackedOut"])
+		return dnRequest("get",[self,"IsBlackedOut"])
 
 	Func setIsBlackedOut P1
 		raise("DotNet Error: IsBlackedOut is a read-only property")
 
 	Func getIsHighlighted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsHighlighted"])
+		return dnRequest("get",[self,"IsHighlighted"])
 
 	Func setIsHighlighted P1
 		raise("DotNet Error: IsHighlighted is a read-only property")

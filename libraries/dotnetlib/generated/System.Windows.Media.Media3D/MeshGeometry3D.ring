@@ -24,31 +24,31 @@ Class MeshGeometry3D from Geometry3D
 		return self
 
 	Func getPositions
-		return dnRequest("get",[new DotNetObject(nHandle),"Positions"])
+		return dnRequest("get",[self,"Positions"])
 
 	Func setPositions P1
-		dnRequest("set",[new DotNetObject(nHandle),"Positions",P1])
+		dnRequest("set",[self,"Positions",P1])
 		return self
 
 	Func getNormals
-		return dnRequest("get",[new DotNetObject(nHandle),"Normals"])
+		return dnRequest("get",[self,"Normals"])
 
 	Func setNormals P1
-		dnRequest("set",[new DotNetObject(nHandle),"Normals",P1])
+		dnRequest("set",[self,"Normals",P1])
 		return self
 
 	Func getTextureCoordinates
-		return dnRequest("get",[new DotNetObject(nHandle),"TextureCoordinates"])
+		return dnRequest("get",[self,"TextureCoordinates"])
 
 	Func setTextureCoordinates P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextureCoordinates",P1])
+		dnRequest("set",[self,"TextureCoordinates",P1])
 		return self
 
 	Func getTriangleIndices
-		return dnRequest("get",[new DotNetObject(nHandle),"TriangleIndices"])
+		return dnRequest("get",[self,"TriangleIndices"])
 
 	Func setTriangleIndices P1
-		dnRequest("set",[new DotNetObject(nHandle),"TriangleIndices",P1])
+		dnRequest("set",[self,"TriangleIndices",P1])
 		return self
 
 	Func getPositionsProperty

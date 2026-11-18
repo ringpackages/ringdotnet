@@ -36,51 +36,51 @@ Class RowUpdatedEventArgs from EventArgs
 		return self
 
 	Func getCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
+		return dnRequest("get",[self,"Command"])
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"Errors"])
+		return dnRequest("get",[self,"Errors"])
 
 	Func setErrors P1
-		dnRequest("set",[new DotNetObject(nHandle),"Errors",P1])
+		dnRequest("set",[self,"Errors",P1])
 		return self
 
 	Func getRecordsAffected
-		return dnRequest("get",[new DotNetObject(nHandle),"RecordsAffected"])
+		return dnRequest("get",[self,"RecordsAffected"])
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
 
 	Func getRow
-		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
+		return dnRequest("get",[self,"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getRowCount
-		return dnRequest("get",[new DotNetObject(nHandle),"RowCount"])
+		return dnRequest("get",[self,"RowCount"])
 
 	Func setRowCount P1
 		raise("DotNet Error: RowCount is a read-only property")
 
 	Func getStatementType
-		return dnRequest("get",[new DotNetObject(nHandle),"StatementType"])
+		return dnRequest("get",[self,"StatementType"])
 
 	Func setStatementType P1
 		raise("DotNet Error: StatementType is a read-only property")
 
 	Func getStatus
-		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
+		return dnRequest("get",[self,"Status"])
 
 	Func setStatus P1
-		dnRequest("set",[new DotNetObject(nHandle),"Status",P1])
+		dnRequest("set",[self,"Status",P1])
 		return self
 
 	Func getTableMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"TableMapping"])
+		return dnRequest("get",[self,"TableMapping"])
 
 	Func setTableMapping P1
 		raise("DotNet Error: TableMapping is a read-only property")

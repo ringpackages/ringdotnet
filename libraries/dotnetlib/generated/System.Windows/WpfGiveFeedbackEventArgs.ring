@@ -17,15 +17,15 @@ Class WpfGiveFeedbackEventArgs from RoutedEventArgs
 		return self
 
 	Func getEffects
-		return dnRequest("get",[new DotNetObject(nHandle),"Effects"])
+		return dnRequest("get",[self,"Effects"])
 
 	Func setEffects P1
 		raise("DotNet Error: Effects is a read-only property")
 
 	Func getUseDefaultCursors
-		return dnRequest("get",[new DotNetObject(nHandle),"UseDefaultCursors"])
+		return dnRequest("get",[self,"UseDefaultCursors"])
 
 	Func setUseDefaultCursors P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseDefaultCursors",P1])
+		dnRequest("set",[self,"UseDefaultCursors",P1])
 		return self
 

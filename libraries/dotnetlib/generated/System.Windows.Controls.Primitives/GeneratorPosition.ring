@@ -22,16 +22,16 @@ Class GeneratorPosition from ValueType
 		return self
 
 	Func getIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
+		return dnRequest("get",[self,"Index"])
 
 	Func setIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"Index",P1])
+		dnRequest("set",[self,"Index",P1])
 		return self
 
 	Func getOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
+		return dnRequest("get",[self,"Offset"])
 
 	Func setOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"Offset",P1])
+		dnRequest("set",[self,"Offset",P1])
 		return self
 

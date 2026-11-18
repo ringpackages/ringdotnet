@@ -21,16 +21,16 @@ Class RelationalQueryContextDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRelationalConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"RelationalConnection"])
+		return dnRequest("get",[self,"RelationalConnection"])
 
 	Func setRelationalConnection P1
-		dnRequest("set",[new DotNetObject(nHandle),"RelationalConnection",P1])
+		dnRequest("set",[self,"RelationalConnection",P1])
 		return self
 
 	Func getRelationalQueryStringFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"RelationalQueryStringFactory"])
+		return dnRequest("get",[self,"RelationalQueryStringFactory"])
 
 	Func setRelationalQueryStringFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"RelationalQueryStringFactory",P1])
+		dnRequest("set",[self,"RelationalQueryStringFactory",P1])
 		return self
 

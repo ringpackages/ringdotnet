@@ -32,16 +32,16 @@ Class AsnEncodedData from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOid
-		return dnRequest("get",[new DotNetObject(nHandle),"Oid"])
+		return dnRequest("get",[self,"Oid"])
 
 	Func setOid P1
-		dnRequest("set",[new DotNetObject(nHandle),"Oid",P1])
+		dnRequest("set",[self,"Oid",P1])
 		return self
 
 	Func getRawData
-		return dnRequest("get",[new DotNetObject(nHandle),"RawData"])
+		return dnRequest("get",[self,"RawData"])
 
 	Func setRawData P1
-		dnRequest("set",[new DotNetObject(nHandle),"RawData",P1])
+		dnRequest("set",[self,"RawData",P1])
 		return self
 

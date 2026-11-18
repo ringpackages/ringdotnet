@@ -95,50 +95,50 @@ Class LinearGradientBrush from Brush
 		return self
 
 	Func getLinearColors
-		return dnRequest("get",[new DotNetObject(nHandle),"LinearColors"])
+		return dnRequest("get",[self,"LinearColors"])
 
 	Func setLinearColors P1
-		dnRequest("set",[new DotNetObject(nHandle),"LinearColors",P1])
+		dnRequest("set",[self,"LinearColors",P1])
 		return self
 
 	Func getRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"Rectangle"])
+		return dnRequest("get",[self,"Rectangle"])
 
 	Func setRectangle P1
 		raise("DotNet Error: Rectangle is a read-only property")
 
 	Func getGammaCorrection
-		return dnRequest("get",[new DotNetObject(nHandle),"GammaCorrection"])
+		return dnRequest("get",[self,"GammaCorrection"])
 
 	Func setGammaCorrection P1
-		dnRequest("set",[new DotNetObject(nHandle),"GammaCorrection",P1])
+		dnRequest("set",[self,"GammaCorrection",P1])
 		return self
 
 	Func getBlend
-		return dnRequest("get",[new DotNetObject(nHandle),"Blend"])
+		return dnRequest("get",[self,"Blend"])
 
 	Func setBlend P1
-		dnRequest("set",[new DotNetObject(nHandle),"Blend",P1])
+		dnRequest("set",[self,"Blend",P1])
 		return self
 
 	Func getInterpolationColors
-		return dnRequest("get",[new DotNetObject(nHandle),"InterpolationColors"])
+		return dnRequest("get",[self,"InterpolationColors"])
 
 	Func setInterpolationColors P1
-		dnRequest("set",[new DotNetObject(nHandle),"InterpolationColors",P1])
+		dnRequest("set",[self,"InterpolationColors",P1])
 		return self
 
 	Func getWrapMode
-		return dnRequest("get",[new DotNetObject(nHandle),"WrapMode"])
+		return dnRequest("get",[self,"WrapMode"])
 
 	Func setWrapMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"WrapMode",P1])
+		dnRequest("set",[self,"WrapMode",P1])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
+		return dnRequest("get",[self,"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
+		dnRequest("set",[self,"Transform",P1])
 		return self
 

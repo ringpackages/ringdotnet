@@ -29,44 +29,44 @@ Class SoapAttributes from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSoapType
-		return dnRequest("get",[new DotNetObject(nHandle),"SoapType"])
+		return dnRequest("get",[self,"SoapType"])
 
 	Func setSoapType P1
-		dnRequest("set",[new DotNetObject(nHandle),"SoapType",P1])
+		dnRequest("set",[self,"SoapType",P1])
 		return self
 
 	Func getSoapEnum
-		return dnRequest("get",[new DotNetObject(nHandle),"SoapEnum"])
+		return dnRequest("get",[self,"SoapEnum"])
 
 	Func setSoapEnum P1
-		dnRequest("set",[new DotNetObject(nHandle),"SoapEnum",P1])
+		dnRequest("set",[self,"SoapEnum",P1])
 		return self
 
 	Func getSoapIgnore
-		return dnRequest("get",[new DotNetObject(nHandle),"SoapIgnore"])
+		return dnRequest("get",[self,"SoapIgnore"])
 
 	Func setSoapIgnore P1
-		dnRequest("set",[new DotNetObject(nHandle),"SoapIgnore",P1])
+		dnRequest("set",[self,"SoapIgnore",P1])
 		return self
 
 	Func getSoapElement
-		return dnRequest("get",[new DotNetObject(nHandle),"SoapElement"])
+		return dnRequest("get",[self,"SoapElement"])
 
 	Func setSoapElement P1
-		dnRequest("set",[new DotNetObject(nHandle),"SoapElement",P1])
+		dnRequest("set",[self,"SoapElement",P1])
 		return self
 
 	Func getSoapAttribute
-		return dnRequest("get",[new DotNetObject(nHandle),"SoapAttribute"])
+		return dnRequest("get",[self,"SoapAttribute"])
 
 	Func setSoapAttribute P1
-		dnRequest("set",[new DotNetObject(nHandle),"SoapAttribute",P1])
+		dnRequest("set",[self,"SoapAttribute",P1])
 		return self
 
 	Func getSoapDefaultValue
-		return dnRequest("get",[new DotNetObject(nHandle),"SoapDefaultValue"])
+		return dnRequest("get",[self,"SoapDefaultValue"])
 
 	Func setSoapDefaultValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"SoapDefaultValue",P1])
+		dnRequest("set",[self,"SoapDefaultValue",P1])
 		return self
 

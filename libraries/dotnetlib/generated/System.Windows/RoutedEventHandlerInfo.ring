@@ -18,13 +18,13 @@ Class RoutedEventHandlerInfo from ValueType
 		return self
 
 	Func getHandler
-		return dnRequest("get",[new DotNetObject(nHandle),"Handler"])
+		return dnRequest("get",[self,"Handler"])
 
 	Func setHandler P1
 		raise("DotNet Error: Handler is a read-only property")
 
 	Func getInvokeHandledEventsToo
-		return dnRequest("get",[new DotNetObject(nHandle),"InvokeHandledEventsToo"])
+		return dnRequest("get",[self,"InvokeHandledEventsToo"])
 
 	Func setInvokeHandledEventsToo P1
 		raise("DotNet Error: InvokeHandledEventsToo is a read-only property")

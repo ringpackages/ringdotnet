@@ -20,30 +20,30 @@ Class JpegBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getQualityLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"QualityLevel"])
+		return dnRequest("get",[self,"QualityLevel"])
 
 	Func setQualityLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"QualityLevel",P1])
+		dnRequest("set",[self,"QualityLevel",P1])
 		return self
 
 	Func getRotation
-		return dnRequest("get",[new DotNetObject(nHandle),"Rotation"])
+		return dnRequest("get",[self,"Rotation"])
 
 	Func setRotation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Rotation",P1])
+		dnRequest("set",[self,"Rotation",P1])
 		return self
 
 	Func getFlipHorizontal
-		return dnRequest("get",[new DotNetObject(nHandle),"FlipHorizontal"])
+		return dnRequest("get",[self,"FlipHorizontal"])
 
 	Func setFlipHorizontal P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlipHorizontal",P1])
+		dnRequest("set",[self,"FlipHorizontal",P1])
 		return self
 
 	Func getFlipVertical
-		return dnRequest("get",[new DotNetObject(nHandle),"FlipVertical"])
+		return dnRequest("get",[self,"FlipVertical"])
 
 	Func setFlipVertical P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlipVertical",P1])
+		dnRequest("set",[self,"FlipVertical",P1])
 		return self
 

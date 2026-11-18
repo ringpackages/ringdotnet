@@ -51,73 +51,73 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func getBaseUri
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseUri"])
+		return dnRequest("get",[self,"BaseUri"])
 
 	Func setBaseUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"BaseUri",P1])
+		dnRequest("set",[self,"BaseUri",P1])
 		return self
 
 	Func getUriCachePolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"UriCachePolicy"])
+		return dnRequest("get",[self,"UriCachePolicy"])
 
 	Func setUriCachePolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"UriCachePolicy",P1])
+		dnRequest("set",[self,"UriCachePolicy",P1])
 		return self
 
 	Func getUriSource
-		return dnRequest("get",[new DotNetObject(nHandle),"UriSource"])
+		return dnRequest("get",[self,"UriSource"])
 
 	Func setUriSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"UriSource",P1])
+		dnRequest("set",[self,"UriSource",P1])
 		return self
 
 	Func getStreamSource
-		return dnRequest("get",[new DotNetObject(nHandle),"StreamSource"])
+		return dnRequest("get",[self,"StreamSource"])
 
 	Func setStreamSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"StreamSource",P1])
+		dnRequest("set",[self,"StreamSource",P1])
 		return self
 
 	Func getDecodePixelWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"DecodePixelWidth"])
+		return dnRequest("get",[self,"DecodePixelWidth"])
 
 	Func setDecodePixelWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"DecodePixelWidth",P1])
+		dnRequest("set",[self,"DecodePixelWidth",P1])
 		return self
 
 	Func getDecodePixelHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"DecodePixelHeight"])
+		return dnRequest("get",[self,"DecodePixelHeight"])
 
 	Func setDecodePixelHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"DecodePixelHeight",P1])
+		dnRequest("set",[self,"DecodePixelHeight",P1])
 		return self
 
 	Func getRotation
-		return dnRequest("get",[new DotNetObject(nHandle),"Rotation"])
+		return dnRequest("get",[self,"Rotation"])
 
 	Func setRotation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Rotation",P1])
+		dnRequest("set",[self,"Rotation",P1])
 		return self
 
 	Func getSourceRect
-		return dnRequest("get",[new DotNetObject(nHandle),"SourceRect"])
+		return dnRequest("get",[self,"SourceRect"])
 
 	Func setSourceRect P1
-		dnRequest("set",[new DotNetObject(nHandle),"SourceRect",P1])
+		dnRequest("set",[self,"SourceRect",P1])
 		return self
 
 	Func getCreateOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"CreateOptions"])
+		return dnRequest("get",[self,"CreateOptions"])
 
 	Func setCreateOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"CreateOptions",P1])
+		dnRequest("set",[self,"CreateOptions",P1])
 		return self
 
 	Func getCacheOption
-		return dnRequest("get",[new DotNetObject(nHandle),"CacheOption"])
+		return dnRequest("get",[self,"CacheOption"])
 
 	Func setCacheOption P1
-		dnRequest("set",[new DotNetObject(nHandle),"CacheOption",P1])
+		dnRequest("set",[self,"CacheOption",P1])
 		return self
 
 	Func getUriCachePolicyProperty

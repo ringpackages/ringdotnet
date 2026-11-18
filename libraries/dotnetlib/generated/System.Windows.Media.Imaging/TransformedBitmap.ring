@@ -32,17 +32,17 @@ Class TransformedBitmap from BitmapSource
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
+		return dnRequest("get",[self,"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
+		dnRequest("set",[self,"Transform",P1])
 		return self
 
 	Func getSourceProperty

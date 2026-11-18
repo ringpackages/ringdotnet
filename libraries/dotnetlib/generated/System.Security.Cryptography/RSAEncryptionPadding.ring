@@ -31,13 +31,13 @@ Class RSAEncryptionPadding from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"CreateOaep",P1])
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")
 
 	Func getOaepHashAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"OaepHashAlgorithm"])
+		return dnRequest("get",[self,"OaepHashAlgorithm"])
 
 	Func setOaepHashAlgorithm P1
 		raise("DotNet Error: OaepHashAlgorithm is a read-only property")

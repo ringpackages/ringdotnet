@@ -29,19 +29,19 @@ Class TextEffectTarget from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getElement
-		return dnRequest("get",[new DotNetObject(nHandle),"Element"])
+		return dnRequest("get",[self,"Element"])
 
 	Func setElement P1
 		raise("DotNet Error: Element is a read-only property")
 
 	Func getTextEffect
-		return dnRequest("get",[new DotNetObject(nHandle),"TextEffect"])
+		return dnRequest("get",[self,"TextEffect"])
 
 	Func setTextEffect P1
 		raise("DotNet Error: TextEffect is a read-only property")
 
 	Func getIsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEnabled"])
+		return dnRequest("get",[self,"IsEnabled"])
 
 	Func setIsEnabled P1
 		raise("DotNet Error: IsEnabled is a read-only property")

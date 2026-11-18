@@ -29,7 +29,7 @@ Class TableLayoutControlCollection from ControlCollection
 		return self
 
 	Func getContainer
-		return dnRequest("get",[new DotNetObject(nHandle),"Container"])
+		return dnRequest("get",[self,"Container"])
 
 	Func setContainer P1
 		raise("DotNet Error: Container is a read-only property")

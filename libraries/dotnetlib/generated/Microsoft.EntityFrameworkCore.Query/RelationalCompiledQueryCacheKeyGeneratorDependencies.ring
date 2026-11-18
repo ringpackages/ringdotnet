@@ -20,9 +20,9 @@ Class RelationalCompiledQueryCacheKeyGeneratorDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContextOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextOptions"])
+		return dnRequest("get",[self,"ContextOptions"])
 
 	Func setContextOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContextOptions",P1])
+		dnRequest("set",[self,"ContextOptions",P1])
 		return self
 

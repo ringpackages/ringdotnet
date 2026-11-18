@@ -21,19 +21,19 @@ Class IView from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"FindColumn",P1])
 
 	Func getEntityTypeMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityTypeMappings"])
+		return dnRequest("get",[self,"EntityTypeMappings"])
 
 	Func setEntityTypeMappings P1
 		raise("DotNet Error: EntityTypeMappings is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
+		return dnRequest("get",[self,"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getViewDefinitionSql
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewDefinitionSql"])
+		return dnRequest("get",[self,"ViewDefinitionSql"])
 
 	Func setViewDefinitionSql P1
 		raise("DotNet Error: ViewDefinitionSql is a read-only property")

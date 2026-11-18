@@ -144,25 +144,25 @@ Class Dispatcher from Object
 		return self
 
 	Func getThread
-		return dnRequest("get",[new DotNetObject(nHandle),"Thread"])
+		return dnRequest("get",[self,"Thread"])
 
 	Func setThread P1
 		raise("DotNet Error: Thread is a read-only property")
 
 	Func getHasShutdownStarted
-		return dnRequest("get",[new DotNetObject(nHandle),"HasShutdownStarted"])
+		return dnRequest("get",[self,"HasShutdownStarted"])
 
 	Func setHasShutdownStarted P1
 		raise("DotNet Error: HasShutdownStarted is a read-only property")
 
 	Func getHasShutdownFinished
-		return dnRequest("get",[new DotNetObject(nHandle),"HasShutdownFinished"])
+		return dnRequest("get",[self,"HasShutdownFinished"])
 
 	Func setHasShutdownFinished P1
 		raise("DotNet Error: HasShutdownFinished is a read-only property")
 
 	Func getHooks
-		return dnRequest("get",[new DotNetObject(nHandle),"Hooks"])
+		return dnRequest("get",[self,"Hooks"])
 
 	Func setHooks P1
 		raise("DotNet Error: Hooks is a read-only property")

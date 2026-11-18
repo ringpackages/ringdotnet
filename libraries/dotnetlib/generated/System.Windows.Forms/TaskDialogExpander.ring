@@ -33,37 +33,37 @@ Class TaskDialogExpander from TaskDialogControl
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getExpandedButtonText
-		return dnRequest("get",[new DotNetObject(nHandle),"ExpandedButtonText"])
+		return dnRequest("get",[self,"ExpandedButtonText"])
 
 	Func setExpandedButtonText P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExpandedButtonText",P1])
+		dnRequest("set",[self,"ExpandedButtonText",P1])
 		return self
 
 	Func getCollapsedButtonText
-		return dnRequest("get",[new DotNetObject(nHandle),"CollapsedButtonText"])
+		return dnRequest("get",[self,"CollapsedButtonText"])
 
 	Func setCollapsedButtonText P1
-		dnRequest("set",[new DotNetObject(nHandle),"CollapsedButtonText",P1])
+		dnRequest("set",[self,"CollapsedButtonText",P1])
 		return self
 
 	Func getExpanded
-		return dnRequest("get",[new DotNetObject(nHandle),"Expanded"])
+		return dnRequest("get",[self,"Expanded"])
 
 	Func setExpanded P1
-		dnRequest("set",[new DotNetObject(nHandle),"Expanded",P1])
+		dnRequest("set",[self,"Expanded",P1])
 		return self
 
 	Func getPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
+		return dnRequest("get",[self,"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
+		dnRequest("set",[self,"Position",P1])
 		return self
 

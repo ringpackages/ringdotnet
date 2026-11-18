@@ -136,13 +136,13 @@ Class DbContextOptionsBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getIsConfigured
-		return dnRequest("get",[new DotNetObject(nHandle),"IsConfigured"])
+		return dnRequest("get",[self,"IsConfigured"])
 
 	Func setIsConfigured P1
 		raise("DotNet Error: IsConfigured is a read-only property")

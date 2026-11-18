@@ -32,13 +32,13 @@ Class IViewColumnMapping from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getViewMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewMapping"])
+		return dnRequest("get",[self,"ViewMapping"])
 
 	Func setViewMapping P1
 		raise("DotNet Error: ViewMapping is a read-only property")

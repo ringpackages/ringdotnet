@@ -55,48 +55,48 @@ Class StringFormat from MarshalByRefObject
 		return self
 
 	Func getFormatFlags
-		return dnRequest("get",[new DotNetObject(nHandle),"FormatFlags"])
+		return dnRequest("get",[self,"FormatFlags"])
 
 	Func setFormatFlags P1
-		dnRequest("set",[new DotNetObject(nHandle),"FormatFlags",P1])
+		dnRequest("set",[self,"FormatFlags",P1])
 		return self
 
 	Func getAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"Alignment"])
+		return dnRequest("get",[self,"Alignment"])
 
 	Func setAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"Alignment",P1])
+		dnRequest("set",[self,"Alignment",P1])
 		return self
 
 	Func getLineAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"LineAlignment"])
+		return dnRequest("get",[self,"LineAlignment"])
 
 	Func setLineAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"LineAlignment",P1])
+		dnRequest("set",[self,"LineAlignment",P1])
 		return self
 
 	Func getHotkeyPrefix
-		return dnRequest("get",[new DotNetObject(nHandle),"HotkeyPrefix"])
+		return dnRequest("get",[self,"HotkeyPrefix"])
 
 	Func setHotkeyPrefix P1
-		dnRequest("set",[new DotNetObject(nHandle),"HotkeyPrefix",P1])
+		dnRequest("set",[self,"HotkeyPrefix",P1])
 		return self
 
 	Func getTrimming
-		return dnRequest("get",[new DotNetObject(nHandle),"Trimming"])
+		return dnRequest("get",[self,"Trimming"])
 
 	Func setTrimming P1
-		dnRequest("set",[new DotNetObject(nHandle),"Trimming",P1])
+		dnRequest("set",[self,"Trimming",P1])
 		return self
 
 	Func getDigitSubstitutionMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"DigitSubstitutionMethod"])
+		return dnRequest("get",[self,"DigitSubstitutionMethod"])
 
 	Func setDigitSubstitutionMethod P1
 		raise("DotNet Error: DigitSubstitutionMethod is a read-only property")
 
 	Func getDigitSubstitutionLanguage
-		return dnRequest("get",[new DotNetObject(nHandle),"DigitSubstitutionLanguage"])
+		return dnRequest("get",[self,"DigitSubstitutionLanguage"])
 
 	Func setDigitSubstitutionLanguage P1
 		raise("DotNet Error: DigitSubstitutionLanguage is a read-only property")

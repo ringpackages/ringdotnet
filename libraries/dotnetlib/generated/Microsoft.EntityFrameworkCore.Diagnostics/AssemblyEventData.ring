@@ -17,7 +17,7 @@ Class AssemblyEventData from EventData
 		return self
 
 	Func getAssembly
-		return dnRequest("get",[new DotNetObject(nHandle),"Assembly"])
+		return dnRequest("get",[self,"Assembly"])
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")

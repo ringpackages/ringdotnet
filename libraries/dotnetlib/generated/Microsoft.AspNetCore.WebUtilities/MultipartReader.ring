@@ -40,24 +40,24 @@ Class MultipartReader from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHeadersCountLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"HeadersCountLimit"])
+		return dnRequest("get",[self,"HeadersCountLimit"])
 
 	Func setHeadersCountLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeadersCountLimit",P1])
+		dnRequest("set",[self,"HeadersCountLimit",P1])
 		return self
 
 	Func getHeadersLengthLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"HeadersLengthLimit"])
+		return dnRequest("get",[self,"HeadersLengthLimit"])
 
 	Func setHeadersLengthLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeadersLengthLimit",P1])
+		dnRequest("set",[self,"HeadersLengthLimit",P1])
 		return self
 
 	Func getBodyLengthLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"BodyLengthLimit"])
+		return dnRequest("get",[self,"BodyLengthLimit"])
 
 	Func setBodyLengthLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"BodyLengthLimit",P1])
+		dnRequest("set",[self,"BodyLengthLimit",P1])
 		return self
 
 	Func getDefaultHeadersCountLimit

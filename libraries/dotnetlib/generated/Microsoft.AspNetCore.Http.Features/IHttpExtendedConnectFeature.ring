@@ -20,13 +20,13 @@ Class IHttpExtendedConnectFeature from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync"])
 
 	Func getIsExtendedConnect
-		return dnRequest("get",[new DotNetObject(nHandle),"IsExtendedConnect"])
+		return dnRequest("get",[self,"IsExtendedConnect"])
 
 	Func setIsExtendedConnect P1
 		raise("DotNet Error: IsExtendedConnect is a read-only property")
 
 	Func getProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"Protocol"])
+		return dnRequest("get",[self,"Protocol"])
 
 	Func setProtocol P1
 		raise("DotNet Error: Protocol is a read-only property")

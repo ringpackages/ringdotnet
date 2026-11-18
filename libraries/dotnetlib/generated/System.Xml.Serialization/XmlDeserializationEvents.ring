@@ -20,30 +20,30 @@ Class XmlDeserializationEvents from ValueType
 		return self
 
 	Func getOnUnknownNode
-		return dnRequest("get",[new DotNetObject(nHandle),"OnUnknownNode"])
+		return dnRequest("get",[self,"OnUnknownNode"])
 
 	Func setOnUnknownNode P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnUnknownNode",P1])
+		dnRequest("set",[self,"OnUnknownNode",P1])
 		return self
 
 	Func getOnUnknownAttribute
-		return dnRequest("get",[new DotNetObject(nHandle),"OnUnknownAttribute"])
+		return dnRequest("get",[self,"OnUnknownAttribute"])
 
 	Func setOnUnknownAttribute P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnUnknownAttribute",P1])
+		dnRequest("set",[self,"OnUnknownAttribute",P1])
 		return self
 
 	Func getOnUnknownElement
-		return dnRequest("get",[new DotNetObject(nHandle),"OnUnknownElement"])
+		return dnRequest("get",[self,"OnUnknownElement"])
 
 	Func setOnUnknownElement P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnUnknownElement",P1])
+		dnRequest("set",[self,"OnUnknownElement",P1])
 		return self
 
 	Func getOnUnreferencedObject
-		return dnRequest("get",[new DotNetObject(nHandle),"OnUnreferencedObject"])
+		return dnRequest("get",[self,"OnUnreferencedObject"])
 
 	Func setOnUnreferencedObject P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnUnreferencedObject",P1])
+		dnRequest("set",[self,"OnUnreferencedObject",P1])
 		return self
 

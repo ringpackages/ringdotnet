@@ -18,8 +18,8 @@ Class AspRangeItemHeaderValue from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFrom
-		return dnRequest("get",[new DotNetObject(nHandle),"From"])
+		return dnRequest("get",[self,"From"])
 
 	Func getTo
-		return dnRequest("get",[new DotNetObject(nHandle),"To"])
+		return dnRequest("get",[self,"To"])
 

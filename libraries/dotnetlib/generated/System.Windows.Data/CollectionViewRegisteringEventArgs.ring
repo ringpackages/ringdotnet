@@ -16,7 +16,7 @@ Class CollectionViewRegisteringEventArgs from EventArgs
 		return self
 
 	Func getCollectionView
-		return dnRequest("get",[new DotNetObject(nHandle),"CollectionView"])
+		return dnRequest("get",[self,"CollectionView"])
 
 	Func setCollectionView P1
 		raise("DotNet Error: CollectionView is a read-only property")

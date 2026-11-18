@@ -68,7 +68,7 @@ Class XmlSchemas from CollectionBase
 		return self
 
 	Func getIsCompiled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompiled"])
+		return dnRequest("get",[self,"IsCompiled"])
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")

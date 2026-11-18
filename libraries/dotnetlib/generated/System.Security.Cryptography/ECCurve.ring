@@ -44,102 +44,102 @@ Class ECCurve from ValueType
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECCurve, System.Security.Cryptography'),"CreateFromValue",P1])
 
 	Func getOid
-		return dnRequest("get",[new DotNetObject(nHandle),"Oid"])
+		return dnRequest("get",[self,"Oid"])
 
 	Func setOid P1
 		raise("DotNet Error: Oid is a read-only property")
 
 	Func getIsPrime
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPrime"])
+		return dnRequest("get",[self,"IsPrime"])
 
 	Func setIsPrime P1
 		raise("DotNet Error: IsPrime is a read-only property")
 
 	Func getIsCharacteristic2
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCharacteristic2"])
+		return dnRequest("get",[self,"IsCharacteristic2"])
 
 	Func setIsCharacteristic2 P1
 		raise("DotNet Error: IsCharacteristic2 is a read-only property")
 
 	Func getIsExplicit
-		return dnRequest("get",[new DotNetObject(nHandle),"IsExplicit"])
+		return dnRequest("get",[self,"IsExplicit"])
 
 	Func setIsExplicit P1
 		raise("DotNet Error: IsExplicit is a read-only property")
 
 	Func getIsNamed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNamed"])
+		return dnRequest("get",[self,"IsNamed"])
 
 	Func setIsNamed P1
 		raise("DotNet Error: IsNamed is a read-only property")
 
 	Func getA
-		return dnRequest("get",[new DotNetObject(nHandle),"A"])
+		return dnRequest("get",[self,"A"])
 
 	Func setA P1
-		dnRequest("set",[new DotNetObject(nHandle),"A",P1])
+		dnRequest("set",[self,"A",P1])
 		return self
 
 	Func getB
-		return dnRequest("get",[new DotNetObject(nHandle),"B"])
+		return dnRequest("get",[self,"B"])
 
 	Func setB P1
-		dnRequest("set",[new DotNetObject(nHandle),"B",P1])
+		dnRequest("set",[self,"B",P1])
 		return self
 
 	Func getG
-		return dnRequest("get",[new DotNetObject(nHandle),"G"])
+		return dnRequest("get",[self,"G"])
 
 	Func setG P1
-		dnRequest("set",[new DotNetObject(nHandle),"G",P1])
+		dnRequest("set",[self,"G",P1])
 		return self
 
 	Func getOrder
-		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
+		return dnRequest("get",[self,"Order"])
 
 	Func setOrder P1
-		dnRequest("set",[new DotNetObject(nHandle),"Order",P1])
+		dnRequest("set",[self,"Order",P1])
 		return self
 
 	Func getCofactor
-		return dnRequest("get",[new DotNetObject(nHandle),"Cofactor"])
+		return dnRequest("get",[self,"Cofactor"])
 
 	Func setCofactor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cofactor",P1])
+		dnRequest("set",[self,"Cofactor",P1])
 		return self
 
 	Func getSeed
-		return dnRequest("get",[new DotNetObject(nHandle),"Seed"])
+		return dnRequest("get",[self,"Seed"])
 
 	Func setSeed P1
-		dnRequest("set",[new DotNetObject(nHandle),"Seed",P1])
+		dnRequest("set",[self,"Seed",P1])
 		return self
 
 	Func getCurveType
-		return dnRequest("get",[new DotNetObject(nHandle),"CurveType"])
+		return dnRequest("get",[self,"CurveType"])
 
 	Func setCurveType P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurveType",P1])
+		dnRequest("set",[self,"CurveType",P1])
 		return self
 
 	Func getHash
-		return dnRequest("get",[new DotNetObject(nHandle),"Hash"])
+		return dnRequest("get",[self,"Hash"])
 
 	Func setHash P1
-		dnRequest("set",[new DotNetObject(nHandle),"Hash",P1])
+		dnRequest("set",[self,"Hash",P1])
 		return self
 
 	Func getPolynomial
-		return dnRequest("get",[new DotNetObject(nHandle),"Polynomial"])
+		return dnRequest("get",[self,"Polynomial"])
 
 	Func setPolynomial P1
-		dnRequest("set",[new DotNetObject(nHandle),"Polynomial",P1])
+		dnRequest("set",[self,"Polynomial",P1])
 		return self
 
 	Func getPrime
-		return dnRequest("get",[new DotNetObject(nHandle),"Prime"])
+		return dnRequest("get",[self,"Prime"])
 
 	Func setPrime P1
-		dnRequest("set",[new DotNetObject(nHandle),"Prime",P1])
+		dnRequest("set",[self,"Prime",P1])
 		return self
 

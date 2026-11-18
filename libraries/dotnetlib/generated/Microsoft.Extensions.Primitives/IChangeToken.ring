@@ -20,13 +20,13 @@ Class IChangeToken from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"RegisterChangeCallback",P1,P2])
 
 	Func getHasChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"HasChanged"])
+		return dnRequest("get",[self,"HasChanged"])
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
 
 	Func getActiveChangeCallbacks
-		return dnRequest("get",[new DotNetObject(nHandle),"ActiveChangeCallbacks"])
+		return dnRequest("get",[self,"ActiveChangeCallbacks"])
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")

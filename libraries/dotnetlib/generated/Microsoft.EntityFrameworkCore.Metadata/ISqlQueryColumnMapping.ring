@@ -32,13 +32,13 @@ Class ISqlQueryColumnMapping from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getSqlQueryMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlQueryMapping"])
+		return dnRequest("get",[self,"SqlQueryMapping"])
 
 	Func setSqlQueryMapping P1
 		raise("DotNet Error: SqlQueryMapping is a read-only property")

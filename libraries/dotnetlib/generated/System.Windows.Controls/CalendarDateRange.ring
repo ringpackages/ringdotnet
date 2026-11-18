@@ -36,16 +36,16 @@ Class CalendarDateRange from Object
 		return self
 
 	Func getEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"End"])
+		return dnRequest("get",[self,"End"])
 
 	Func setEnd P1
-		dnRequest("set",[new DotNetObject(nHandle),"End",P1])
+		dnRequest("set",[self,"End",P1])
 		return self
 
 	Func getStart
-		return dnRequest("get",[new DotNetObject(nHandle),"Start"])
+		return dnRequest("get",[self,"Start"])
 
 	Func setStart P1
-		dnRequest("set",[new DotNetObject(nHandle),"Start",P1])
+		dnRequest("set",[self,"Start",P1])
 		return self
 

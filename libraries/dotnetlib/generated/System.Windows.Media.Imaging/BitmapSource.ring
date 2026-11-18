@@ -68,43 +68,43 @@ Class BitmapSource from ImageSource
 		return self
 
 	Func getFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
+		return dnRequest("get",[self,"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getPixelWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelWidth"])
+		return dnRequest("get",[self,"PixelWidth"])
 
 	Func setPixelWidth P1
 		raise("DotNet Error: PixelWidth is a read-only property")
 
 	Func getPixelHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelHeight"])
+		return dnRequest("get",[self,"PixelHeight"])
 
 	Func setPixelHeight P1
 		raise("DotNet Error: PixelHeight is a read-only property")
 
 	Func getDpiX
-		return dnRequest("get",[new DotNetObject(nHandle),"DpiX"])
+		return dnRequest("get",[self,"DpiX"])
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		return dnRequest("get",[new DotNetObject(nHandle),"DpiY"])
+		return dnRequest("get",[self,"DpiY"])
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getPalette
-		return dnRequest("get",[new DotNetObject(nHandle),"Palette"])
+		return dnRequest("get",[self,"Palette"])
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getIsDownloading
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDownloading"])
+		return dnRequest("get",[self,"IsDownloading"])
 
 	Func setIsDownloading P1
 		raise("DotNet Error: IsDownloading is a read-only property")

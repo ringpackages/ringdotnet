@@ -34,22 +34,22 @@ Class DataViewManager from MarshalByValueComponent
 		return self
 
 	Func getDataSet
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSet"])
+		return dnRequest("get",[self,"DataSet"])
 
 	Func setDataSet P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSet",P1])
+		dnRequest("set",[self,"DataSet",P1])
 		return self
 
 	Func getDataViewSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"DataViewSettings"])
+		return dnRequest("get",[self,"DataViewSettings"])
 
 	Func setDataViewSettings P1
 		raise("DotNet Error: DataViewSettings is a read-only property")
 
 	Func getDataViewSettingCollectionString
-		return dnRequest("get",[new DotNetObject(nHandle),"DataViewSettingCollectionString"])
+		return dnRequest("get",[self,"DataViewSettingCollectionString"])
 
 	Func setDataViewSettingCollectionString P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataViewSettingCollectionString",P1])
+		dnRequest("set",[self,"DataViewSettingCollectionString",P1])
 		return self
 

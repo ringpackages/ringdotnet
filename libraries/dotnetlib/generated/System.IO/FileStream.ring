@@ -60,25 +60,25 @@ Class FileStream from Stream
 		return self
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getSafeFileHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"SafeFileHandle"])
+		return dnRequest("get",[self,"SafeFileHandle"])
 
 	Func setSafeFileHandle P1
 		raise("DotNet Error: SafeFileHandle is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIsAsync
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
+		return dnRequest("get",[self,"IsAsync"])
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")

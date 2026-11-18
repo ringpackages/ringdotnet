@@ -37,20 +37,20 @@ Class MarshalByValueComponent from Object
 		return self
 
 	Func getSite
-		return dnRequest("get",[new DotNetObject(nHandle),"Site"])
+		return dnRequest("get",[self,"Site"])
 
 	Func setSite P1
-		dnRequest("set",[new DotNetObject(nHandle),"Site",P1])
+		dnRequest("set",[self,"Site",P1])
 		return self
 
 	Func getContainer
-		return dnRequest("get",[new DotNetObject(nHandle),"Container"])
+		return dnRequest("get",[self,"Container"])
 
 	Func setContainer P1
 		raise("DotNet Error: Container is a read-only property")
 
 	Func getDesignMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DesignMode"])
+		return dnRequest("get",[self,"DesignMode"])
 
 	Func setDesignMode P1
 		raise("DotNet Error: DesignMode is a read-only property")

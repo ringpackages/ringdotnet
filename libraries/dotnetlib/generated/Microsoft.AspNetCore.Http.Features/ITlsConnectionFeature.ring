@@ -19,9 +19,9 @@ Class ITlsConnectionFeature from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetClientCertificateAsync",P1])
 
 	Func getClientCertificate
-		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificate"])
+		return dnRequest("get",[self,"ClientCertificate"])
 
 	Func setClientCertificate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ClientCertificate",P1])
+		dnRequest("set",[self,"ClientCertificate",P1])
 		return self
 

@@ -74,64 +74,64 @@ Class WpfColor from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Equals",P1,P2])
 
 	Func getColorContext
-		return dnRequest("get",[new DotNetObject(nHandle),"ColorContext"])
+		return dnRequest("get",[self,"ColorContext"])
 
 	Func setColorContext P1
 		raise("DotNet Error: ColorContext is a read-only property")
 
 	Func getA
-		return dnRequest("get",[new DotNetObject(nHandle),"A"])
+		return dnRequest("get",[self,"A"])
 
 	Func setA P1
-		dnRequest("set",[new DotNetObject(nHandle),"A",P1])
+		dnRequest("set",[self,"A",P1])
 		return self
 
 	Func getR
-		return dnRequest("get",[new DotNetObject(nHandle),"R"])
+		return dnRequest("get",[self,"R"])
 
 	Func setR P1
-		dnRequest("set",[new DotNetObject(nHandle),"R",P1])
+		dnRequest("set",[self,"R",P1])
 		return self
 
 	Func getG
-		return dnRequest("get",[new DotNetObject(nHandle),"G"])
+		return dnRequest("get",[self,"G"])
 
 	Func setG P1
-		dnRequest("set",[new DotNetObject(nHandle),"G",P1])
+		dnRequest("set",[self,"G",P1])
 		return self
 
 	Func getB
-		return dnRequest("get",[new DotNetObject(nHandle),"B"])
+		return dnRequest("get",[self,"B"])
 
 	Func setB P1
-		dnRequest("set",[new DotNetObject(nHandle),"B",P1])
+		dnRequest("set",[self,"B",P1])
 		return self
 
 	Func getScA
-		return dnRequest("get",[new DotNetObject(nHandle),"ScA"])
+		return dnRequest("get",[self,"ScA"])
 
 	Func setScA P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScA",P1])
+		dnRequest("set",[self,"ScA",P1])
 		return self
 
 	Func getScR
-		return dnRequest("get",[new DotNetObject(nHandle),"ScR"])
+		return dnRequest("get",[self,"ScR"])
 
 	Func setScR P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScR",P1])
+		dnRequest("set",[self,"ScR",P1])
 		return self
 
 	Func getScG
-		return dnRequest("get",[new DotNetObject(nHandle),"ScG"])
+		return dnRequest("get",[self,"ScG"])
 
 	Func setScG P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScG",P1])
+		dnRequest("set",[self,"ScG",P1])
 		return self
 
 	Func getScB
-		return dnRequest("get",[new DotNetObject(nHandle),"ScB"])
+		return dnRequest("get",[self,"ScB"])
 
 	Func setScB P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScB",P1])
+		dnRequest("set",[self,"ScB",P1])
 		return self
 

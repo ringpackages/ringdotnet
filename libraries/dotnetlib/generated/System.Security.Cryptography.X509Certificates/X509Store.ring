@@ -64,31 +64,31 @@ Class X509Store from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStoreHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreHandle"])
+		return dnRequest("get",[self,"StoreHandle"])
 
 	Func setStoreHandle P1
 		raise("DotNet Error: StoreHandle is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
+		return dnRequest("get",[self,"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getCertificates
-		return dnRequest("get",[new DotNetObject(nHandle),"Certificates"])
+		return dnRequest("get",[self,"Certificates"])
 
 	Func setCertificates P1
 		raise("DotNet Error: Certificates is a read-only property")
 
 	Func getIsOpen
-		return dnRequest("get",[new DotNetObject(nHandle),"IsOpen"])
+		return dnRequest("get",[self,"IsOpen"])
 
 	Func setIsOpen P1
 		raise("DotNet Error: IsOpen is a read-only property")

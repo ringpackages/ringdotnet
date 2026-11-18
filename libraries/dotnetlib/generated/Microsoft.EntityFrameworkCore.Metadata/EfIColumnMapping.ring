@@ -32,13 +32,13 @@ Class EfIColumnMapping from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getTableMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"TableMapping"])
+		return dnRequest("get",[self,"TableMapping"])
 
 	Func setTableMapping P1
 		raise("DotNet Error: TableMapping is a read-only property")

@@ -22,23 +22,23 @@ Class ModelBinderFactoryContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBindingInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingInfo"])
+		return dnRequest("get",[self,"BindingInfo"])
 
 	Func setBindingInfo P1
-		dnRequest("set",[new DotNetObject(nHandle),"BindingInfo",P1])
+		dnRequest("set",[self,"BindingInfo",P1])
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
-		dnRequest("set",[new DotNetObject(nHandle),"Metadata",P1])
+		dnRequest("set",[self,"Metadata",P1])
 		return self
 
 	Func getCacheToken
-		return dnRequest("get",[new DotNetObject(nHandle),"CacheToken"])
+		return dnRequest("get",[self,"CacheToken"])
 
 	Func setCacheToken P1
-		dnRequest("set",[new DotNetObject(nHandle),"CacheToken",P1])
+		dnRequest("set",[self,"CacheToken",P1])
 		return self
 

@@ -22,13 +22,13 @@ Class DnsEndPoint from EndPoint
 		return self
 
 	Func getHost
-		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
+		return dnRequest("get",[self,"Host"])
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPort
-		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
+		return dnRequest("get",[self,"Port"])
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")

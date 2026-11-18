@@ -21,31 +21,31 @@ Class UICuesEventArgs from EventArgs
 		return self
 
 	Func getShowFocus
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowFocus"])
+		return dnRequest("get",[self,"ShowFocus"])
 
 	Func setShowFocus P1
 		raise("DotNet Error: ShowFocus is a read-only property")
 
 	Func getShowKeyboard
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowKeyboard"])
+		return dnRequest("get",[self,"ShowKeyboard"])
 
 	Func setShowKeyboard P1
 		raise("DotNet Error: ShowKeyboard is a read-only property")
 
 	Func getChangeFocus
-		return dnRequest("get",[new DotNetObject(nHandle),"ChangeFocus"])
+		return dnRequest("get",[self,"ChangeFocus"])
 
 	Func setChangeFocus P1
 		raise("DotNet Error: ChangeFocus is a read-only property")
 
 	Func getChangeKeyboard
-		return dnRequest("get",[new DotNetObject(nHandle),"ChangeKeyboard"])
+		return dnRequest("get",[self,"ChangeKeyboard"])
 
 	Func setChangeKeyboard P1
 		raise("DotNet Error: ChangeKeyboard is a read-only property")
 
 	Func getChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"Changed"])
+		return dnRequest("get",[self,"Changed"])
 
 	Func setChanged P1
 		raise("DotNet Error: Changed is a read-only property")

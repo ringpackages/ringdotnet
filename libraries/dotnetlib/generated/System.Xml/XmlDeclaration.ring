@@ -18,22 +18,22 @@ Class XmlDeclaration from XmlLinkedNode
 		return self
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
+		return dnRequest("get",[self,"Encoding"])
 
 	Func setEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Encoding",P1])
+		dnRequest("set",[self,"Encoding",P1])
 		return self
 
 	Func getStandalone
-		return dnRequest("get",[new DotNetObject(nHandle),"Standalone"])
+		return dnRequest("get",[self,"Standalone"])
 
 	Func setStandalone P1
-		dnRequest("set",[new DotNetObject(nHandle),"Standalone",P1])
+		dnRequest("set",[self,"Standalone",P1])
 		return self
 

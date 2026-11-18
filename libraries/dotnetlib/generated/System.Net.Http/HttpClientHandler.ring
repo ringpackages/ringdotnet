@@ -41,164 +41,164 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getSupportsAutomaticDecompression
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsAutomaticDecompression"])
+		return dnRequest("get",[self,"SupportsAutomaticDecompression"])
 
 	Func setSupportsAutomaticDecompression P1
 		raise("DotNet Error: SupportsAutomaticDecompression is a read-only property")
 
 	Func getSupportsProxy
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsProxy"])
+		return dnRequest("get",[self,"SupportsProxy"])
 
 	Func setSupportsProxy P1
 		raise("DotNet Error: SupportsProxy is a read-only property")
 
 	Func getSupportsRedirectConfiguration
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsRedirectConfiguration"])
+		return dnRequest("get",[self,"SupportsRedirectConfiguration"])
 
 	Func setSupportsRedirectConfiguration P1
 		raise("DotNet Error: SupportsRedirectConfiguration is a read-only property")
 
 	Func getMeterFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"MeterFactory"])
+		return dnRequest("get",[self,"MeterFactory"])
 
 	Func setMeterFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"MeterFactory",P1])
+		dnRequest("set",[self,"MeterFactory",P1])
 		return self
 
 	Func getUseCookies
-		return dnRequest("get",[new DotNetObject(nHandle),"UseCookies"])
+		return dnRequest("get",[self,"UseCookies"])
 
 	Func setUseCookies P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseCookies",P1])
+		dnRequest("set",[self,"UseCookies",P1])
 		return self
 
 	Func getCookieContainer
-		return dnRequest("get",[new DotNetObject(nHandle),"CookieContainer"])
+		return dnRequest("get",[self,"CookieContainer"])
 
 	Func setCookieContainer P1
-		dnRequest("set",[new DotNetObject(nHandle),"CookieContainer",P1])
+		dnRequest("set",[self,"CookieContainer",P1])
 		return self
 
 	Func getAutomaticDecompression
-		return dnRequest("get",[new DotNetObject(nHandle),"AutomaticDecompression"])
+		return dnRequest("get",[self,"AutomaticDecompression"])
 
 	Func setAutomaticDecompression P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutomaticDecompression",P1])
+		dnRequest("set",[self,"AutomaticDecompression",P1])
 		return self
 
 	Func getUseProxy
-		return dnRequest("get",[new DotNetObject(nHandle),"UseProxy"])
+		return dnRequest("get",[self,"UseProxy"])
 
 	Func setUseProxy P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseProxy",P1])
+		dnRequest("set",[self,"UseProxy",P1])
 		return self
 
 	Func getProxy
-		return dnRequest("get",[new DotNetObject(nHandle),"Proxy"])
+		return dnRequest("get",[self,"Proxy"])
 
 	Func setProxy P1
-		dnRequest("set",[new DotNetObject(nHandle),"Proxy",P1])
+		dnRequest("set",[self,"Proxy",P1])
 		return self
 
 	Func getDefaultProxyCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultProxyCredentials"])
+		return dnRequest("get",[self,"DefaultProxyCredentials"])
 
 	Func setDefaultProxyCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultProxyCredentials",P1])
+		dnRequest("set",[self,"DefaultProxyCredentials",P1])
 		return self
 
 	Func getPreAuthenticate
-		return dnRequest("get",[new DotNetObject(nHandle),"PreAuthenticate"])
+		return dnRequest("get",[self,"PreAuthenticate"])
 
 	Func setPreAuthenticate P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreAuthenticate",P1])
+		dnRequest("set",[self,"PreAuthenticate",P1])
 		return self
 
 	Func getUseDefaultCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"UseDefaultCredentials"])
+		return dnRequest("get",[self,"UseDefaultCredentials"])
 
 	Func setUseDefaultCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseDefaultCredentials",P1])
+		dnRequest("set",[self,"UseDefaultCredentials",P1])
 		return self
 
 	Func getCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"Credentials"])
+		return dnRequest("get",[self,"Credentials"])
 
 	Func setCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
+		dnRequest("set",[self,"Credentials",P1])
 		return self
 
 	Func getAllowAutoRedirect
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowAutoRedirect"])
+		return dnRequest("get",[self,"AllowAutoRedirect"])
 
 	Func setAllowAutoRedirect P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowAutoRedirect",P1])
+		dnRequest("set",[self,"AllowAutoRedirect",P1])
 		return self
 
 	Func getMaxAutomaticRedirections
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxAutomaticRedirections"])
+		return dnRequest("get",[self,"MaxAutomaticRedirections"])
 
 	Func setMaxAutomaticRedirections P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxAutomaticRedirections",P1])
+		dnRequest("set",[self,"MaxAutomaticRedirections",P1])
 		return self
 
 	Func getMaxConnectionsPerServer
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxConnectionsPerServer"])
+		return dnRequest("get",[self,"MaxConnectionsPerServer"])
 
 	Func setMaxConnectionsPerServer P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxConnectionsPerServer",P1])
+		dnRequest("set",[self,"MaxConnectionsPerServer",P1])
 		return self
 
 	Func getMaxRequestContentBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestContentBufferSize"])
+		return dnRequest("get",[self,"MaxRequestContentBufferSize"])
 
 	Func setMaxRequestContentBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestContentBufferSize",P1])
+		dnRequest("set",[self,"MaxRequestContentBufferSize",P1])
 		return self
 
 	Func getMaxResponseHeadersLength
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxResponseHeadersLength"])
+		return dnRequest("get",[self,"MaxResponseHeadersLength"])
 
 	Func setMaxResponseHeadersLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxResponseHeadersLength",P1])
+		dnRequest("set",[self,"MaxResponseHeadersLength",P1])
 		return self
 
 	Func getClientCertificateOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificateOptions"])
+		return dnRequest("get",[self,"ClientCertificateOptions"])
 
 	Func setClientCertificateOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"ClientCertificateOptions",P1])
+		dnRequest("set",[self,"ClientCertificateOptions",P1])
 		return self
 
 	Func getClientCertificates
-		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificates"])
+		return dnRequest("get",[self,"ClientCertificates"])
 
 	Func setClientCertificates P1
 		raise("DotNet Error: ClientCertificates is a read-only property")
 
 	Func getServerCertificateCustomValidationCallback
-		return dnRequest("get",[new DotNetObject(nHandle),"ServerCertificateCustomValidationCallback"])
+		return dnRequest("get",[self,"ServerCertificateCustomValidationCallback"])
 
 	Func setServerCertificateCustomValidationCallback P1
-		dnRequest("set",[new DotNetObject(nHandle),"ServerCertificateCustomValidationCallback",P1])
+		dnRequest("set",[self,"ServerCertificateCustomValidationCallback",P1])
 		return self
 
 	Func getCheckCertificateRevocationList
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckCertificateRevocationList"])
+		return dnRequest("get",[self,"CheckCertificateRevocationList"])
 
 	Func setCheckCertificateRevocationList P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckCertificateRevocationList",P1])
+		dnRequest("set",[self,"CheckCertificateRevocationList",P1])
 		return self
 
 	Func getSslProtocols
-		return dnRequest("get",[new DotNetObject(nHandle),"SslProtocols"])
+		return dnRequest("get",[self,"SslProtocols"])
 
 	Func setSslProtocols P1
-		dnRequest("set",[new DotNetObject(nHandle),"SslProtocols",P1])
+		dnRequest("set",[self,"SslProtocols",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

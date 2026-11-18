@@ -27,7 +27,7 @@ Class NameValueWithParametersHeaderValue from NameValueHeaderValue
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
+		return dnRequest("get",[self,"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")

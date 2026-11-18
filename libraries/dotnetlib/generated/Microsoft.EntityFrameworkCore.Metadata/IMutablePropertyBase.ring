@@ -25,15 +25,15 @@ Class IMutablePropertyBase from DotNetObject
 		return self
 
 	Func getDeclaringType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringType"])
+		return dnRequest("get",[self,"DeclaringType"])
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getFieldInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"FieldInfo"])
+		return dnRequest("get",[self,"FieldInfo"])
 
 	Func setFieldInfo P1
-		dnRequest("set",[new DotNetObject(nHandle),"FieldInfo",P1])
+		dnRequest("set",[self,"FieldInfo",P1])
 		return self
 

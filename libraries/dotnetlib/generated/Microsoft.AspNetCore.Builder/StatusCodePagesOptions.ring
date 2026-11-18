@@ -20,9 +20,9 @@ Class StatusCodePagesOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHandleAsync
-		return dnRequest("get",[new DotNetObject(nHandle),"HandleAsync"])
+		return dnRequest("get",[self,"HandleAsync"])
 
 	Func setHandleAsync P1
-		dnRequest("set",[new DotNetObject(nHandle),"HandleAsync",P1])
+		dnRequest("set",[self,"HandleAsync",P1])
 		return self
 

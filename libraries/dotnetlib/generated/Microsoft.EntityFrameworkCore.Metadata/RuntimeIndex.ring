@@ -20,25 +20,25 @@ Class RuntimeIndex from RuntimeAnnotatableBase
 		return self
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
+		return dnRequest("get",[self,"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

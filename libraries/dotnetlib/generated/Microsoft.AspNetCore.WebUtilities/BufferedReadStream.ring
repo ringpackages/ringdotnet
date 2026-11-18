@@ -48,7 +48,7 @@ Class BufferedReadStream from Stream
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadLineAsync",P1,P2])
 
 	Func getBufferedData
-		return dnRequest("get",[new DotNetObject(nHandle),"BufferedData"])
+		return dnRequest("get",[self,"BufferedData"])
 
 	Func setBufferedData P1
 		raise("DotNet Error: BufferedData is a read-only property")

@@ -21,16 +21,16 @@ Class ClientErrorData from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLink
-		return dnRequest("get",[new DotNetObject(nHandle),"Link"])
+		return dnRequest("get",[self,"Link"])
 
 	Func setLink P1
-		dnRequest("set",[new DotNetObject(nHandle),"Link",P1])
+		dnRequest("set",[self,"Link",P1])
 		return self
 
 	Func getTitle
-		return dnRequest("get",[new DotNetObject(nHandle),"Title"])
+		return dnRequest("get",[self,"Title"])
 
 	Func setTitle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Title",P1])
+		dnRequest("set",[self,"Title",P1])
 		return self
 

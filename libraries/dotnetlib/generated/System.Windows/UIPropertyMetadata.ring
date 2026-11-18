@@ -33,9 +33,9 @@ Class UIPropertyMetadata from PropertyMetadata
 		return self
 
 	Func getIsAnimationProhibited
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAnimationProhibited"])
+		return dnRequest("get",[self,"IsAnimationProhibited"])
 
 	Func setIsAnimationProhibited P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsAnimationProhibited",P1])
+		dnRequest("set",[self,"IsAnimationProhibited",P1])
 		return self
 

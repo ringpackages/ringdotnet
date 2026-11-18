@@ -62,21 +62,21 @@ Class TreeViewItem from HeaderedItemsControl
 		return self
 
 	Func getIsExpanded
-		return dnRequest("get",[new DotNetObject(nHandle),"IsExpanded"])
+		return dnRequest("get",[self,"IsExpanded"])
 
 	Func setIsExpanded P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsExpanded",P1])
+		dnRequest("set",[self,"IsExpanded",P1])
 		return self
 
 	Func getIsSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
+		return dnRequest("get",[self,"IsSelected"])
 
 	Func setIsSelected P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSelected",P1])
+		dnRequest("set",[self,"IsSelected",P1])
 		return self
 
 	Func getIsSelectionActive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelectionActive"])
+		return dnRequest("get",[self,"IsSelectionActive"])
 
 	Func setIsSelectionActive P1
 		raise("DotNet Error: IsSelectionActive is a read-only property")

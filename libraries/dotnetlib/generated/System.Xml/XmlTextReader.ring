@@ -56,66 +56,66 @@ Class XmlTextReader from XmlReader
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadBinHex",P1,P2,P3])
 
 	Func getLineNumber
-		return dnRequest("get",[new DotNetObject(nHandle),"LineNumber"])
+		return dnRequest("get",[self,"LineNumber"])
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		return dnRequest("get",[new DotNetObject(nHandle),"LinePosition"])
+		return dnRequest("get",[self,"LinePosition"])
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
 
 	Func getNamespaces
-		return dnRequest("get",[new DotNetObject(nHandle),"Namespaces"])
+		return dnRequest("get",[self,"Namespaces"])
 
 	Func setNamespaces P1
-		dnRequest("set",[new DotNetObject(nHandle),"Namespaces",P1])
+		dnRequest("set",[self,"Namespaces",P1])
 		return self
 
 	Func getNormalization
-		return dnRequest("get",[new DotNetObject(nHandle),"Normalization"])
+		return dnRequest("get",[self,"Normalization"])
 
 	Func setNormalization P1
-		dnRequest("set",[new DotNetObject(nHandle),"Normalization",P1])
+		dnRequest("set",[self,"Normalization",P1])
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
+		return dnRequest("get",[self,"Encoding"])
 
 	Func setEncoding P1
 		raise("DotNet Error: Encoding is a read-only property")
 
 	Func getWhitespaceHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"WhitespaceHandling"])
+		return dnRequest("get",[self,"WhitespaceHandling"])
 
 	Func setWhitespaceHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"WhitespaceHandling",P1])
+		dnRequest("set",[self,"WhitespaceHandling",P1])
 		return self
 
 	Func getProhibitDtd
-		return dnRequest("get",[new DotNetObject(nHandle),"ProhibitDtd"])
+		return dnRequest("get",[self,"ProhibitDtd"])
 
 	Func setProhibitDtd P1
-		dnRequest("set",[new DotNetObject(nHandle),"ProhibitDtd",P1])
+		dnRequest("set",[self,"ProhibitDtd",P1])
 		return self
 
 	Func getDtdProcessing
-		return dnRequest("get",[new DotNetObject(nHandle),"DtdProcessing"])
+		return dnRequest("get",[self,"DtdProcessing"])
 
 	Func setDtdProcessing P1
-		dnRequest("set",[new DotNetObject(nHandle),"DtdProcessing",P1])
+		dnRequest("set",[self,"DtdProcessing",P1])
 		return self
 
 	Func getEntityHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityHandling"])
+		return dnRequest("get",[self,"EntityHandling"])
 
 	Func setEntityHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"EntityHandling",P1])
+		dnRequest("set",[self,"EntityHandling",P1])
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
+		dnRequest("set",[self,"XmlResolver",P1])
 		return self
 

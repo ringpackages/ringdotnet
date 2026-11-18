@@ -86,86 +86,86 @@ Class EntityEntry from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEntity
-		return dnRequest("get",[new DotNetObject(nHandle),"Entity"])
+		return dnRequest("get",[self,"Entity"])
 
 	Func setEntity P1
 		raise("DotNet Error: Entity is a read-only property")
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
-		dnRequest("set",[new DotNetObject(nHandle),"State",P1])
+		dnRequest("set",[self,"State",P1])
 		return self
 
 	Func getContext
-		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
+		return dnRequest("get",[self,"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getMembers
-		return dnRequest("get",[new DotNetObject(nHandle),"Members"])
+		return dnRequest("get",[self,"Members"])
 
 	Func setMembers P1
 		raise("DotNet Error: Members is a read-only property")
 
 	Func getNavigations
-		return dnRequest("get",[new DotNetObject(nHandle),"Navigations"])
+		return dnRequest("get",[self,"Navigations"])
 
 	Func setNavigations P1
 		raise("DotNet Error: Navigations is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getComplexProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"ComplexProperties"])
+		return dnRequest("get",[self,"ComplexProperties"])
 
 	Func setComplexProperties P1
 		raise("DotNet Error: ComplexProperties is a read-only property")
 
 	Func getReferences
-		return dnRequest("get",[new DotNetObject(nHandle),"References"])
+		return dnRequest("get",[self,"References"])
 
 	Func setReferences P1
 		raise("DotNet Error: References is a read-only property")
 
 	Func getCollections
-		return dnRequest("get",[new DotNetObject(nHandle),"Collections"])
+		return dnRequest("get",[self,"Collections"])
 
 	Func setCollections P1
 		raise("DotNet Error: Collections is a read-only property")
 
 	Func getIsKeySet
-		return dnRequest("get",[new DotNetObject(nHandle),"IsKeySet"])
+		return dnRequest("get",[self,"IsKeySet"])
 
 	Func setIsKeySet P1
 		raise("DotNet Error: IsKeySet is a read-only property")
 
 	Func getCurrentValues
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentValues"])
+		return dnRequest("get",[self,"CurrentValues"])
 
 	Func setCurrentValues P1
 		raise("DotNet Error: CurrentValues is a read-only property")
 
 	Func getOriginalValues
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalValues"])
+		return dnRequest("get",[self,"OriginalValues"])
 
 	Func setOriginalValues P1
 		raise("DotNet Error: OriginalValues is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

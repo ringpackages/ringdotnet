@@ -77,19 +77,19 @@ Class StringLinkedList from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getFirst
-		return dnRequest("get",[new DotNetObject(nHandle),"First"])
+		return dnRequest("get",[self,"First"])
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getLast
-		return dnRequest("get",[new DotNetObject(nHandle),"Last"])
+		return dnRequest("get",[self,"Last"])
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")

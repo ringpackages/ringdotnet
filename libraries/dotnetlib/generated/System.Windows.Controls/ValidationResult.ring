@@ -22,13 +22,13 @@ Class ValidationResult from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsValid
-		return dnRequest("get",[new DotNetObject(nHandle),"IsValid"])
+		return dnRequest("get",[self,"IsValid"])
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getErrorContent
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorContent"])
+		return dnRequest("get",[self,"ErrorContent"])
 
 	Func setErrorContent P1
 		raise("DotNet Error: ErrorContent is a read-only property")

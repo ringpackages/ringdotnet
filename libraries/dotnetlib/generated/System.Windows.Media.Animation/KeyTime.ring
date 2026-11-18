@@ -42,19 +42,19 @@ Class KeyTime from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"Equals",P1,P2])
 
 	Func getTimeSpan
-		return dnRequest("get",[new DotNetObject(nHandle),"TimeSpan"])
+		return dnRequest("get",[self,"TimeSpan"])
 
 	Func setTimeSpan P1
 		raise("DotNet Error: TimeSpan is a read-only property")
 
 	Func getPercent
-		return dnRequest("get",[new DotNetObject(nHandle),"Percent"])
+		return dnRequest("get",[self,"Percent"])
 
 	Func setPercent P1
 		raise("DotNet Error: Percent is a read-only property")
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")

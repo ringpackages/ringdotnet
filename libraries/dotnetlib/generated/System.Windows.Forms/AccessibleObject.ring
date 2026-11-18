@@ -61,64 +61,64 @@ Class AccessibleObject from StandardOleMarshalObject
 		return dnRequest("call",[new DotNetObject(nHandle),"RaiseLiveRegionChanged"])
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getDefaultAction
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultAction"])
+		return dnRequest("get",[self,"DefaultAction"])
 
 	Func setDefaultAction P1
 		raise("DotNet Error: DefaultAction is a read-only property")
 
 	Func getDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
+		return dnRequest("get",[self,"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getHelp
-		return dnRequest("get",[new DotNetObject(nHandle),"Help"])
+		return dnRequest("get",[self,"Help"])
 
 	Func setHelp P1
 		raise("DotNet Error: Help is a read-only property")
 
 	Func getKeyboardShortcut
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyboardShortcut"])
+		return dnRequest("get",[self,"KeyboardShortcut"])
 
 	Func setKeyboardShortcut P1
 		raise("DotNet Error: KeyboardShortcut is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getRole
-		return dnRequest("get",[new DotNetObject(nHandle),"Role"])
+		return dnRequest("get",[self,"Role"])
 
 	Func setRole P1
 		raise("DotNet Error: Role is a read-only property")
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 

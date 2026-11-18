@@ -25,44 +25,44 @@ Class WebSocketAcceptContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSubProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"SubProtocol"])
+		return dnRequest("get",[self,"SubProtocol"])
 
 	Func setSubProtocol P1
-		dnRequest("set",[new DotNetObject(nHandle),"SubProtocol",P1])
+		dnRequest("set",[self,"SubProtocol",P1])
 		return self
 
 	Func getKeepAliveInterval
-		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveInterval"])
+		return dnRequest("get",[self,"KeepAliveInterval"])
 
 	Func setKeepAliveInterval P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveInterval",P1])
+		dnRequest("set",[self,"KeepAliveInterval",P1])
 		return self
 
 	Func getKeepAliveTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveTimeout"])
+		return dnRequest("get",[self,"KeepAliveTimeout"])
 
 	Func setKeepAliveTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveTimeout",P1])
+		dnRequest("set",[self,"KeepAliveTimeout",P1])
 		return self
 
 	Func getDangerousEnableCompression
-		return dnRequest("get",[new DotNetObject(nHandle),"DangerousEnableCompression"])
+		return dnRequest("get",[self,"DangerousEnableCompression"])
 
 	Func setDangerousEnableCompression P1
-		dnRequest("set",[new DotNetObject(nHandle),"DangerousEnableCompression",P1])
+		dnRequest("set",[self,"DangerousEnableCompression",P1])
 		return self
 
 	Func getDisableServerContextTakeover
-		return dnRequest("get",[new DotNetObject(nHandle),"DisableServerContextTakeover"])
+		return dnRequest("get",[self,"DisableServerContextTakeover"])
 
 	Func setDisableServerContextTakeover P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisableServerContextTakeover",P1])
+		dnRequest("set",[self,"DisableServerContextTakeover",P1])
 		return self
 
 	Func getServerMaxWindowBits
-		return dnRequest("get",[new DotNetObject(nHandle),"ServerMaxWindowBits"])
+		return dnRequest("get",[self,"ServerMaxWindowBits"])
 
 	Func setServerMaxWindowBits P1
-		dnRequest("set",[new DotNetObject(nHandle),"ServerMaxWindowBits",P1])
+		dnRequest("set",[self,"ServerMaxWindowBits",P1])
 		return self
 

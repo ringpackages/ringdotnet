@@ -17,14 +17,14 @@ Class ConsoleCancelEventArgs from EventArgs
 		return self
 
 	Func getCancel
-		return dnRequest("get",[new DotNetObject(nHandle),"Cancel"])
+		return dnRequest("get",[self,"Cancel"])
 
 	Func setCancel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cancel",P1])
+		dnRequest("set",[self,"Cancel",P1])
 		return self
 
 	Func getSpecialKey
-		return dnRequest("get",[new DotNetObject(nHandle),"SpecialKey"])
+		return dnRequest("get",[self,"SpecialKey"])
 
 	Func setSpecialKey P1
 		raise("DotNet Error: SpecialKey is a read-only property")

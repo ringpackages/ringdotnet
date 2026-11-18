@@ -20,9 +20,9 @@ Class RelationalQueryTranslationPreprocessorDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRelationalTypeMappingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"RelationalTypeMappingSource"])
+		return dnRequest("get",[self,"RelationalTypeMappingSource"])
 
 	Func setRelationalTypeMappingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"RelationalTypeMappingSource",P1])
+		dnRequest("set",[self,"RelationalTypeMappingSource",P1])
 		return self
 

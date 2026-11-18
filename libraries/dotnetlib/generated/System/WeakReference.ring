@@ -30,21 +30,21 @@ Class WeakReference from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTrackResurrection
-		return dnRequest("get",[new DotNetObject(nHandle),"TrackResurrection"])
+		return dnRequest("get",[self,"TrackResurrection"])
 
 	Func setTrackResurrection P1
 		raise("DotNet Error: TrackResurrection is a read-only property")
 
 	Func getIsAlive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAlive"])
+		return dnRequest("get",[self,"IsAlive"])
 
 	Func setIsAlive P1
 		raise("DotNet Error: IsAlive is a read-only property")
 
 	Func getTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
+		return dnRequest("get",[self,"Target"])
 
 	Func setTarget P1
-		dnRequest("set",[new DotNetObject(nHandle),"Target",P1])
+		dnRequest("set",[self,"Target",P1])
 		return self
 

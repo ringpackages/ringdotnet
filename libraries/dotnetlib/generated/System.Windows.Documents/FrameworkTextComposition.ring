@@ -19,25 +19,25 @@ Class FrameworkTextComposition from TextComposition
 		return self
 
 	Func getResultOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"ResultOffset"])
+		return dnRequest("get",[self,"ResultOffset"])
 
 	Func setResultOffset P1
 		raise("DotNet Error: ResultOffset is a read-only property")
 
 	Func getResultLength
-		return dnRequest("get",[new DotNetObject(nHandle),"ResultLength"])
+		return dnRequest("get",[self,"ResultLength"])
 
 	Func setResultLength P1
 		raise("DotNet Error: ResultLength is a read-only property")
 
 	Func getCompositionOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"CompositionOffset"])
+		return dnRequest("get",[self,"CompositionOffset"])
 
 	Func setCompositionOffset P1
 		raise("DotNet Error: CompositionOffset is a read-only property")
 
 	Func getCompositionLength
-		return dnRequest("get",[new DotNetObject(nHandle),"CompositionLength"])
+		return dnRequest("get",[self,"CompositionLength"])
 
 	Func setCompositionLength P1
 		raise("DotNet Error: CompositionLength is a read-only property")

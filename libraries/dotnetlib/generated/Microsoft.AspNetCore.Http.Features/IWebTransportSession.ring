@@ -44,7 +44,7 @@ Class IWebTransportSession from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"OpenUnidirectionalStreamAsync",P1])
 
 	Func getSessionId
-		return dnRequest("get",[new DotNetObject(nHandle),"SessionId"])
+		return dnRequest("get",[self,"SessionId"])
 
 	Func setSessionId P1
 		raise("DotNet Error: SessionId is a read-only property")

@@ -35,51 +35,51 @@ Class PrintPreviewControl from Control
 		return self
 
 	Func getUseAntiAlias
-		return dnRequest("get",[new DotNetObject(nHandle),"UseAntiAlias"])
+		return dnRequest("get",[self,"UseAntiAlias"])
 
 	Func setUseAntiAlias P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseAntiAlias",P1])
+		dnRequest("set",[self,"UseAntiAlias",P1])
 		return self
 
 	Func getAutoZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoZoom"])
+		return dnRequest("get",[self,"AutoZoom"])
 
 	Func setAutoZoom P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoZoom",P1])
+		dnRequest("set",[self,"AutoZoom",P1])
 		return self
 
 	Func getZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"Zoom"])
+		return dnRequest("get",[self,"Zoom"])
 
 	Func setZoom P1
-		dnRequest("set",[new DotNetObject(nHandle),"Zoom",P1])
+		dnRequest("set",[self,"Zoom",P1])
 		return self
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
+		dnRequest("set",[self,"Document",P1])
 		return self
 
 	Func getRows
-		return dnRequest("get",[new DotNetObject(nHandle),"Rows"])
+		return dnRequest("get",[self,"Rows"])
 
 	Func setRows P1
-		dnRequest("set",[new DotNetObject(nHandle),"Rows",P1])
+		dnRequest("set",[self,"Rows",P1])
 		return self
 
 	Func getColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
+		return dnRequest("get",[self,"Columns"])
 
 	Func setColumns P1
-		dnRequest("set",[new DotNetObject(nHandle),"Columns",P1])
+		dnRequest("set",[self,"Columns",P1])
 		return self
 
 	Func getStartPage
-		return dnRequest("get",[new DotNetObject(nHandle),"StartPage"])
+		return dnRequest("get",[self,"StartPage"])
 
 	Func setStartPage P1
-		dnRequest("set",[new DotNetObject(nHandle),"StartPage",P1])
+		dnRequest("set",[self,"StartPage",P1])
 		return self
 

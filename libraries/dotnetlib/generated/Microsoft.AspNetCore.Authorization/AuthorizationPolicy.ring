@@ -30,13 +30,13 @@ Class AuthorizationPolicy from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"CombineAsync",P1,P2,P3])
 
 	Func getRequirements
-		return dnRequest("get",[new DotNetObject(nHandle),"Requirements"])
+		return dnRequest("get",[self,"Requirements"])
 
 	Func setRequirements P1
 		raise("DotNet Error: Requirements is a read-only property")
 
 	Func getAuthenticationSchemes
-		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationSchemes"])
+		return dnRequest("get",[self,"AuthenticationSchemes"])
 
 	Func setAuthenticationSchemes P1
 		raise("DotNet Error: AuthenticationSchemes is a read-only property")

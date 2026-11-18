@@ -64,25 +64,25 @@ Class InlineCollection from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getFirstInline
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstInline"])
+		return dnRequest("get",[self,"FirstInline"])
 
 	Func setFirstInline P1
 		raise("DotNet Error: FirstInline is a read-only property")
 
 	Func getLastInline
-		return dnRequest("get",[new DotNetObject(nHandle),"LastInline"])
+		return dnRequest("get",[self,"LastInline"])
 
 	Func setLastInline P1
 		raise("DotNet Error: LastInline is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

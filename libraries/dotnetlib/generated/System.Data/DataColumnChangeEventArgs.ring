@@ -19,21 +19,21 @@ Class DataColumnChangeEventArgs from EventArgs
 		return self
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getRow
-		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
+		return dnRequest("get",[self,"Row"])
 
 	Func setRow P1
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getProposedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"ProposedValue"])
+		return dnRequest("get",[self,"ProposedValue"])
 
 	Func setProposedValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"ProposedValue",P1])
+		dnRequest("set",[self,"ProposedValue",P1])
 		return self
 

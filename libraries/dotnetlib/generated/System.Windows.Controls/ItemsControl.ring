@@ -80,124 +80,124 @@ Class ItemsControl from WpfControl
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ItemsControl, PresentationFramework'),"ContainerFromElement",P1,P2])
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getItemsSource
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemsSource"])
+		return dnRequest("get",[self,"ItemsSource"])
 
 	Func setItemsSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemsSource",P1])
+		dnRequest("set",[self,"ItemsSource",P1])
 		return self
 
 	Func getItemContainerGenerator
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerGenerator"])
+		return dnRequest("get",[self,"ItemContainerGenerator"])
 
 	Func setItemContainerGenerator P1
 		raise("DotNet Error: ItemContainerGenerator is a read-only property")
 
 	Func getHasItems
-		return dnRequest("get",[new DotNetObject(nHandle),"HasItems"])
+		return dnRequest("get",[self,"HasItems"])
 
 	Func setHasItems P1
 		raise("DotNet Error: HasItems is a read-only property")
 
 	Func getDisplayMemberPath
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayMemberPath"])
+		return dnRequest("get",[self,"DisplayMemberPath"])
 
 	Func setDisplayMemberPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayMemberPath",P1])
+		dnRequest("set",[self,"DisplayMemberPath",P1])
 		return self
 
 	Func getItemTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemTemplate"])
+		return dnRequest("get",[self,"ItemTemplate"])
 
 	Func setItemTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemTemplate",P1])
+		dnRequest("set",[self,"ItemTemplate",P1])
 		return self
 
 	Func getItemTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemTemplateSelector"])
+		return dnRequest("get",[self,"ItemTemplateSelector"])
 
 	Func setItemTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemTemplateSelector",P1])
+		dnRequest("set",[self,"ItemTemplateSelector",P1])
 		return self
 
 	Func getItemStringFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemStringFormat"])
+		return dnRequest("get",[self,"ItemStringFormat"])
 
 	Func setItemStringFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemStringFormat",P1])
+		dnRequest("set",[self,"ItemStringFormat",P1])
 		return self
 
 	Func getItemBindingGroup
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemBindingGroup"])
+		return dnRequest("get",[self,"ItemBindingGroup"])
 
 	Func setItemBindingGroup P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemBindingGroup",P1])
+		dnRequest("set",[self,"ItemBindingGroup",P1])
 		return self
 
 	Func getItemContainerStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerStyle"])
+		return dnRequest("get",[self,"ItemContainerStyle"])
 
 	Func setItemContainerStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemContainerStyle",P1])
+		dnRequest("set",[self,"ItemContainerStyle",P1])
 		return self
 
 	Func getItemContainerStyleSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerStyleSelector"])
+		return dnRequest("get",[self,"ItemContainerStyleSelector"])
 
 	Func setItemContainerStyleSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemContainerStyleSelector",P1])
+		dnRequest("set",[self,"ItemContainerStyleSelector",P1])
 		return self
 
 	Func getItemsPanel
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemsPanel"])
+		return dnRequest("get",[self,"ItemsPanel"])
 
 	Func setItemsPanel P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemsPanel",P1])
+		dnRequest("set",[self,"ItemsPanel",P1])
 		return self
 
 	Func getIsGrouping
-		return dnRequest("get",[new DotNetObject(nHandle),"IsGrouping"])
+		return dnRequest("get",[self,"IsGrouping"])
 
 	Func setIsGrouping P1
 		raise("DotNet Error: IsGrouping is a read-only property")
 
 	Func getGroupStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"GroupStyle"])
+		return dnRequest("get",[self,"GroupStyle"])
 
 	Func setGroupStyle P1
 		raise("DotNet Error: GroupStyle is a read-only property")
 
 	Func getGroupStyleSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"GroupStyleSelector"])
+		return dnRequest("get",[self,"GroupStyleSelector"])
 
 	Func setGroupStyleSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"GroupStyleSelector",P1])
+		dnRequest("set",[self,"GroupStyleSelector",P1])
 		return self
 
 	Func getAlternationCount
-		return dnRequest("get",[new DotNetObject(nHandle),"AlternationCount"])
+		return dnRequest("get",[self,"AlternationCount"])
 
 	Func setAlternationCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"AlternationCount",P1])
+		dnRequest("set",[self,"AlternationCount",P1])
 		return self
 
 	Func getIsTextSearchEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTextSearchEnabled"])
+		return dnRequest("get",[self,"IsTextSearchEnabled"])
 
 	Func setIsTextSearchEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsTextSearchEnabled",P1])
+		dnRequest("set",[self,"IsTextSearchEnabled",P1])
 		return self
 
 	Func getIsTextSearchCaseSensitive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTextSearchCaseSensitive"])
+		return dnRequest("get",[self,"IsTextSearchCaseSensitive"])
 
 	Func setIsTextSearchCaseSensitive P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsTextSearchCaseSensitive",P1])
+		dnRequest("set",[self,"IsTextSearchCaseSensitive",P1])
 		return self
 
 	Func getItemsSourceProperty

@@ -16,7 +16,7 @@ Class PingCompletedEventArgs from AsyncCompletedEventArgs
 		return self
 
 	Func getReply
-		return dnRequest("get",[new DotNetObject(nHandle),"Reply"])
+		return dnRequest("get",[self,"Reply"])
 
 	Func setReply P1
 		raise("DotNet Error: Reply is a read-only property")

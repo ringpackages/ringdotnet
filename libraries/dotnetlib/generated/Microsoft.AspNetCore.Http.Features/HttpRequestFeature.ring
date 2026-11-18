@@ -28,65 +28,65 @@ Class HttpRequestFeature from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"Protocol"])
+		return dnRequest("get",[self,"Protocol"])
 
 	Func setProtocol P1
-		dnRequest("set",[new DotNetObject(nHandle),"Protocol",P1])
+		dnRequest("set",[self,"Protocol",P1])
 		return self
 
 	Func getScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
+		return dnRequest("get",[self,"Scheme"])
 
 	Func setScheme P1
-		dnRequest("set",[new DotNetObject(nHandle),"Scheme",P1])
+		dnRequest("set",[self,"Scheme",P1])
 		return self
 
 	Func getMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"Method"])
+		return dnRequest("get",[self,"Method"])
 
 	Func setMethod P1
-		dnRequest("set",[new DotNetObject(nHandle),"Method",P1])
+		dnRequest("set",[self,"Method",P1])
 		return self
 
 	Func getPathBase
-		return dnRequest("get",[new DotNetObject(nHandle),"PathBase"])
+		return dnRequest("get",[self,"PathBase"])
 
 	Func setPathBase P1
-		dnRequest("set",[new DotNetObject(nHandle),"PathBase",P1])
+		dnRequest("set",[self,"PathBase",P1])
 		return self
 
 	Func getPath
-		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
+		return dnRequest("get",[self,"Path"])
 
 	Func setPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
+		dnRequest("set",[self,"Path",P1])
 		return self
 
 	Func getQueryString
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryString"])
+		return dnRequest("get",[self,"QueryString"])
 
 	Func setQueryString P1
-		dnRequest("set",[new DotNetObject(nHandle),"QueryString",P1])
+		dnRequest("set",[self,"QueryString",P1])
 		return self
 
 	Func getRawTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"RawTarget"])
+		return dnRequest("get",[self,"RawTarget"])
 
 	Func setRawTarget P1
-		dnRequest("set",[new DotNetObject(nHandle),"RawTarget",P1])
+		dnRequest("set",[self,"RawTarget",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
+		return dnRequest("get",[self,"Headers"])
 
 	Func setHeaders P1
-		dnRequest("set",[new DotNetObject(nHandle),"Headers",P1])
+		dnRequest("set",[self,"Headers",P1])
 		return self
 
 	Func getBody
-		return dnRequest("get",[new DotNetObject(nHandle),"Body"])
+		return dnRequest("get",[self,"Body"])
 
 	Func setBody P1
-		dnRequest("set",[new DotNetObject(nHandle),"Body",P1])
+		dnRequest("set",[self,"Body",P1])
 		return self
 

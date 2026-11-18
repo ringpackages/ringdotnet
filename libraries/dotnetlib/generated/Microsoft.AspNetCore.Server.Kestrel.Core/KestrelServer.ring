@@ -31,13 +31,13 @@ Class KestrelServer from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFeatures
-		return dnRequest("get",[new DotNetObject(nHandle),"Features"])
+		return dnRequest("get",[self,"Features"])
 
 	Func setFeatures P1
 		raise("DotNet Error: Features is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")

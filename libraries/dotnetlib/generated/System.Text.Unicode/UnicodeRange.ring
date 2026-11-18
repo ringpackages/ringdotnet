@@ -24,13 +24,13 @@ Class UnicodeRange from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Unicode.UnicodeRange, System.Text.Encodings.Web'),"Create",P1,P2])
 
 	Func getFirstCodePoint
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstCodePoint"])
+		return dnRequest("get",[self,"FirstCodePoint"])
 
 	Func setFirstCodePoint P1
 		raise("DotNet Error: FirstCodePoint is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

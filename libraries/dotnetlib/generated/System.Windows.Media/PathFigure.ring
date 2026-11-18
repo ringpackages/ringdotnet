@@ -46,31 +46,31 @@ Class PathFigure from Animatable
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getStartPoint
-		return dnRequest("get",[new DotNetObject(nHandle),"StartPoint"])
+		return dnRequest("get",[self,"StartPoint"])
 
 	Func setStartPoint P1
-		dnRequest("set",[new DotNetObject(nHandle),"StartPoint",P1])
+		dnRequest("set",[self,"StartPoint",P1])
 		return self
 
 	Func getIsFilled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFilled"])
+		return dnRequest("get",[self,"IsFilled"])
 
 	Func setIsFilled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsFilled",P1])
+		dnRequest("set",[self,"IsFilled",P1])
 		return self
 
 	Func getSegments
-		return dnRequest("get",[new DotNetObject(nHandle),"Segments"])
+		return dnRequest("get",[self,"Segments"])
 
 	Func setSegments P1
-		dnRequest("set",[new DotNetObject(nHandle),"Segments",P1])
+		dnRequest("set",[self,"Segments",P1])
 		return self
 
 	Func getIsClosed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsClosed"])
+		return dnRequest("get",[self,"IsClosed"])
 
 	Func setIsClosed P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsClosed",P1])
+		dnRequest("set",[self,"IsClosed",P1])
 		return self
 
 	Func getStartPointProperty

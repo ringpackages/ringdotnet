@@ -30,38 +30,38 @@ Class TextEffect from Animatable
 		return self
 
 	Func getTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
+		return dnRequest("get",[self,"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
+		dnRequest("set",[self,"Transform",P1])
 		return self
 
 	Func getClip
-		return dnRequest("get",[new DotNetObject(nHandle),"Clip"])
+		return dnRequest("get",[self,"Clip"])
 
 	Func setClip P1
-		dnRequest("set",[new DotNetObject(nHandle),"Clip",P1])
+		dnRequest("set",[self,"Clip",P1])
 		return self
 
 	Func getForeground
-		return dnRequest("get",[new DotNetObject(nHandle),"Foreground"])
+		return dnRequest("get",[self,"Foreground"])
 
 	Func setForeground P1
-		dnRequest("set",[new DotNetObject(nHandle),"Foreground",P1])
+		dnRequest("set",[self,"Foreground",P1])
 		return self
 
 	Func getPositionStart
-		return dnRequest("get",[new DotNetObject(nHandle),"PositionStart"])
+		return dnRequest("get",[self,"PositionStart"])
 
 	Func setPositionStart P1
-		dnRequest("set",[new DotNetObject(nHandle),"PositionStart",P1])
+		dnRequest("set",[self,"PositionStart",P1])
 		return self
 
 	Func getPositionCount
-		return dnRequest("get",[new DotNetObject(nHandle),"PositionCount"])
+		return dnRequest("get",[self,"PositionCount"])
 
 	Func setPositionCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"PositionCount",P1])
+		dnRequest("set",[self,"PositionCount",P1])
 		return self
 
 	Func getTransformProperty

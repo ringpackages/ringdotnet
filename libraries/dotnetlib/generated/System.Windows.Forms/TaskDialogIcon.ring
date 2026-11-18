@@ -34,7 +34,7 @@ Class TaskDialogIcon from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIconHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"IconHandle"])
+		return dnRequest("get",[self,"IconHandle"])
 
 	Func setIconHandle P1
 		raise("DotNet Error: IconHandle is a read-only property")

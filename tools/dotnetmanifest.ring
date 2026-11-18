@@ -69,7 +69,7 @@ aDotNetManifest = [
 
 	[ :namespace = "System.Net",
 	  :uses = ["System.IO","System.Collections.Specialized","System.Security.Cryptography"],
-	  :assemblies = ["System.Net.Primitives","System.Net.NameResolution","System.Net.HttpListener","System.Net.Requests","System.Net.WebClient","System.Net.WebHeaderCollection","System.Net.Security","System.Private.Uri","System.Private.CoreLib","System.Net.Http"],
+	  :assemblies = ["System.Net.WebProxy","System.Net.ServicePoint","System.Net.Primitives","System.Net.NameResolution","System.Net.HttpListener","System.Net.Requests","System.Net.WebClient","System.Net.WebHeaderCollection","System.Net.Security","System.Private.Uri","System.Private.CoreLib","System.Net.Http"],
 	  :all = true,
 	  :types = [ ["System.Net.IPAddress","IPAddress",0] ] ],
 

@@ -76,28 +76,28 @@ Class BackgroundWorker from Component
 		return self
 
 	Func getCancellationPending
-		return dnRequest("get",[new DotNetObject(nHandle),"CancellationPending"])
+		return dnRequest("get",[self,"CancellationPending"])
 
 	Func setCancellationPending P1
 		raise("DotNet Error: CancellationPending is a read-only property")
 
 	Func getIsBusy
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBusy"])
+		return dnRequest("get",[self,"IsBusy"])
 
 	Func setIsBusy P1
 		raise("DotNet Error: IsBusy is a read-only property")
 
 	Func getWorkerReportsProgress
-		return dnRequest("get",[new DotNetObject(nHandle),"WorkerReportsProgress"])
+		return dnRequest("get",[self,"WorkerReportsProgress"])
 
 	Func setWorkerReportsProgress P1
-		dnRequest("set",[new DotNetObject(nHandle),"WorkerReportsProgress",P1])
+		dnRequest("set",[self,"WorkerReportsProgress",P1])
 		return self
 
 	Func getWorkerSupportsCancellation
-		return dnRequest("get",[new DotNetObject(nHandle),"WorkerSupportsCancellation"])
+		return dnRequest("get",[self,"WorkerSupportsCancellation"])
 
 	Func setWorkerSupportsCancellation P1
-		dnRequest("set",[new DotNetObject(nHandle),"WorkerSupportsCancellation",P1])
+		dnRequest("set",[self,"WorkerSupportsCancellation",P1])
 		return self
 

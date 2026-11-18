@@ -17,10 +17,10 @@ Class DataGridViewTextBoxCell from DataGridViewCell
 		return self
 
 	Func getMaxInputLength
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxInputLength"])
+		return dnRequest("get",[self,"MaxInputLength"])
 
 	Func setMaxInputLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxInputLength",P1])
+		dnRequest("set",[self,"MaxInputLength",P1])
 		return self
 
 	Func setValueType P1

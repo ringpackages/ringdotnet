@@ -18,13 +18,13 @@ Class CalendarModeChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func getNewMode
-		return dnRequest("get",[new DotNetObject(nHandle),"NewMode"])
+		return dnRequest("get",[self,"NewMode"])
 
 	Func setNewMode P1
 		raise("DotNet Error: NewMode is a read-only property")
 
 	Func getOldMode
-		return dnRequest("get",[new DotNetObject(nHandle),"OldMode"])
+		return dnRequest("get",[self,"OldMode"])
 
 	Func setOldMode P1
 		raise("DotNet Error: OldMode is a read-only property")

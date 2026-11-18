@@ -27,31 +27,31 @@ Class ApplicationId from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
+		return dnRequest("get",[self,"Culture"])
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getProcessorArchitecture
-		return dnRequest("get",[new DotNetObject(nHandle),"ProcessorArchitecture"])
+		return dnRequest("get",[self,"ProcessorArchitecture"])
 
 	Func setProcessorArchitecture P1
 		raise("DotNet Error: ProcessorArchitecture is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getPublicKeyToken
-		return dnRequest("get",[new DotNetObject(nHandle),"PublicKeyToken"])
+		return dnRequest("get",[self,"PublicKeyToken"])
 
 	Func setPublicKeyToken P1
 		raise("DotNet Error: PublicKeyToken is a read-only property")

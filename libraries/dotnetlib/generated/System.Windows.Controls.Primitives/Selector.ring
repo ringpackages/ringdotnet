@@ -67,38 +67,38 @@ Class Selector from ItemsControl
 		return self
 
 	Func getIsSynchronizedWithCurrentItem
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSynchronizedWithCurrentItem"])
+		return dnRequest("get",[self,"IsSynchronizedWithCurrentItem"])
 
 	Func setIsSynchronizedWithCurrentItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSynchronizedWithCurrentItem",P1])
+		dnRequest("set",[self,"IsSynchronizedWithCurrentItem",P1])
 		return self
 
 	Func getSelectedIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedIndex"])
+		return dnRequest("get",[self,"SelectedIndex"])
 
 	Func setSelectedIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedIndex",P1])
+		dnRequest("set",[self,"SelectedIndex",P1])
 		return self
 
 	Func getSelectedItem
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItem"])
+		return dnRequest("get",[self,"SelectedItem"])
 
 	Func setSelectedItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedItem",P1])
+		dnRequest("set",[self,"SelectedItem",P1])
 		return self
 
 	Func getSelectedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValue"])
+		return dnRequest("get",[self,"SelectedValue"])
 
 	Func setSelectedValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedValue",P1])
+		dnRequest("set",[self,"SelectedValue",P1])
 		return self
 
 	Func getSelectedValuePath
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValuePath"])
+		return dnRequest("get",[self,"SelectedValuePath"])
 
 	Func setSelectedValuePath P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedValuePath",P1])
+		dnRequest("set",[self,"SelectedValuePath",P1])
 		return self
 
 	Func getSelectionChangedEvent

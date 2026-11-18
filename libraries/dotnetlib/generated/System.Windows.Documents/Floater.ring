@@ -28,17 +28,17 @@ Class Floater from AnchoredBlock
 		return self
 
 	Func getHorizontalAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalAlignment"])
+		return dnRequest("get",[self,"HorizontalAlignment"])
 
 	Func setHorizontalAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalAlignment",P1])
+		dnRequest("set",[self,"HorizontalAlignment",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
+		dnRequest("set",[self,"Width",P1])
 		return self
 
 	Func getHorizontalAlignmentProperty

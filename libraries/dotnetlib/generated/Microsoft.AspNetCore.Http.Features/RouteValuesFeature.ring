@@ -20,9 +20,9 @@ Class RouteValuesFeature from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRouteValues
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteValues"])
+		return dnRequest("get",[self,"RouteValues"])
 
 	Func setRouteValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"RouteValues",P1])
+		dnRequest("set",[self,"RouteValues",P1])
 		return self
 

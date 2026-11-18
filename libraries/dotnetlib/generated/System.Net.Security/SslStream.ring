@@ -161,85 +161,85 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func getTransportContext
-		return dnRequest("get",[new DotNetObject(nHandle),"TransportContext"])
+		return dnRequest("get",[self,"TransportContext"])
 
 	Func setTransportContext P1
 		raise("DotNet Error: TransportContext is a read-only property")
 
 	Func getSslProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"SslProtocol"])
+		return dnRequest("get",[self,"SslProtocol"])
 
 	Func setSslProtocol P1
 		raise("DotNet Error: SslProtocol is a read-only property")
 
 	Func getCheckCertRevocationStatus
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckCertRevocationStatus"])
+		return dnRequest("get",[self,"CheckCertRevocationStatus"])
 
 	Func setCheckCertRevocationStatus P1
 		raise("DotNet Error: CheckCertRevocationStatus is a read-only property")
 
 	Func getLocalCertificate
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalCertificate"])
+		return dnRequest("get",[self,"LocalCertificate"])
 
 	Func setLocalCertificate P1
 		raise("DotNet Error: LocalCertificate is a read-only property")
 
 	Func getRemoteCertificate
-		return dnRequest("get",[new DotNetObject(nHandle),"RemoteCertificate"])
+		return dnRequest("get",[self,"RemoteCertificate"])
 
 	Func setRemoteCertificate P1
 		raise("DotNet Error: RemoteCertificate is a read-only property")
 
 	Func getNegotiatedApplicationProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"NegotiatedApplicationProtocol"])
+		return dnRequest("get",[self,"NegotiatedApplicationProtocol"])
 
 	Func setNegotiatedApplicationProtocol P1
 		raise("DotNet Error: NegotiatedApplicationProtocol is a read-only property")
 
 	Func getNegotiatedCipherSuite
-		return dnRequest("get",[new DotNetObject(nHandle),"NegotiatedCipherSuite"])
+		return dnRequest("get",[self,"NegotiatedCipherSuite"])
 
 	Func setNegotiatedCipherSuite P1
 		raise("DotNet Error: NegotiatedCipherSuite is a read-only property")
 
 	Func getCipherAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"CipherAlgorithm"])
+		return dnRequest("get",[self,"CipherAlgorithm"])
 
 	Func setCipherAlgorithm P1
 		raise("DotNet Error: CipherAlgorithm is a read-only property")
 
 	Func getCipherStrength
-		return dnRequest("get",[new DotNetObject(nHandle),"CipherStrength"])
+		return dnRequest("get",[self,"CipherStrength"])
 
 	Func setCipherStrength P1
 		raise("DotNet Error: CipherStrength is a read-only property")
 
 	Func getHashAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
+		return dnRequest("get",[self,"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getHashStrength
-		return dnRequest("get",[new DotNetObject(nHandle),"HashStrength"])
+		return dnRequest("get",[self,"HashStrength"])
 
 	Func setHashStrength P1
 		raise("DotNet Error: HashStrength is a read-only property")
 
 	Func getKeyExchangeAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyExchangeAlgorithm"])
+		return dnRequest("get",[self,"KeyExchangeAlgorithm"])
 
 	Func setKeyExchangeAlgorithm P1
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")
 
 	Func getKeyExchangeStrength
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyExchangeStrength"])
+		return dnRequest("get",[self,"KeyExchangeStrength"])
 
 	Func setKeyExchangeStrength P1
 		raise("DotNet Error: KeyExchangeStrength is a read-only property")
 
 	Func getTargetHostName
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetHostName"])
+		return dnRequest("get",[self,"TargetHostName"])
 
 	Func setTargetHostName P1
 		raise("DotNet Error: TargetHostName is a read-only property")

@@ -42,37 +42,37 @@ Class AuthenticateResult from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1,P2])
 
 	Func getSucceeded
-		return dnRequest("get",[new DotNetObject(nHandle),"Succeeded"])
+		return dnRequest("get",[self,"Succeeded"])
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
 
 	Func getTicket
-		return dnRequest("get",[new DotNetObject(nHandle),"Ticket"])
+		return dnRequest("get",[self,"Ticket"])
 
 	Func setTicket P1
 		raise("DotNet Error: Ticket is a read-only property")
 
 	Func getPrincipal
-		return dnRequest("get",[new DotNetObject(nHandle),"Principal"])
+		return dnRequest("get",[self,"Principal"])
 
 	Func setPrincipal P1
 		raise("DotNet Error: Principal is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getFailure
-		return dnRequest("get",[new DotNetObject(nHandle),"Failure"])
+		return dnRequest("get",[self,"Failure"])
 
 	Func setFailure P1
 		raise("DotNet Error: Failure is a read-only property")
 
 	Func getNone
-		return dnRequest("get",[new DotNetObject(nHandle),"None"])
+		return dnRequest("get",[self,"None"])
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")

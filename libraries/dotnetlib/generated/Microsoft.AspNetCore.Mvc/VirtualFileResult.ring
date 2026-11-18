@@ -18,16 +18,16 @@ Class VirtualFileResult from FileResult
 		return self
 
 	Func getFileName
-		return dnRequest("get",[new DotNetObject(nHandle),"FileName"])
+		return dnRequest("get",[self,"FileName"])
 
 	Func setFileName P1
-		dnRequest("set",[new DotNetObject(nHandle),"FileName",P1])
+		dnRequest("set",[self,"FileName",P1])
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"FileProvider"])
+		return dnRequest("get",[self,"FileProvider"])
 
 	Func setFileProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"FileProvider",P1])
+		dnRequest("set",[self,"FileProvider",P1])
 		return self
 

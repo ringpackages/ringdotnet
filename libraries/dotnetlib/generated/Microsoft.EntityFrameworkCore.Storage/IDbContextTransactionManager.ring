@@ -63,7 +63,7 @@ Class IDbContextTransactionManager from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 
 	Func getCurrentTransaction
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentTransaction"])
+		return dnRequest("get",[self,"CurrentTransaction"])
 
 	Func setCurrentTransaction P1
 		raise("DotNet Error: CurrentTransaction is a read-only property")

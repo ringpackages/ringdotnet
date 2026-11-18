@@ -41,7 +41,7 @@ Class ManifestEmbeddedFileProvider from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAssembly
-		return dnRequest("get",[new DotNetObject(nHandle),"Assembly"])
+		return dnRequest("get",[self,"Assembly"])
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")

@@ -22,23 +22,23 @@ Class RelationalMethodCallTranslatorProviderDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSqlExpressionFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlExpressionFactory"])
+		return dnRequest("get",[self,"SqlExpressionFactory"])
 
 	Func setSqlExpressionFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"SqlExpressionFactory",P1])
+		dnRequest("set",[self,"SqlExpressionFactory",P1])
 		return self
 
 	Func getPlugins
-		return dnRequest("get",[new DotNetObject(nHandle),"Plugins"])
+		return dnRequest("get",[self,"Plugins"])
 
 	Func setPlugins P1
-		dnRequest("set",[new DotNetObject(nHandle),"Plugins",P1])
+		dnRequest("set",[self,"Plugins",P1])
 		return self
 
 	Func getRelationalTypeMappingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"RelationalTypeMappingSource"])
+		return dnRequest("get",[self,"RelationalTypeMappingSource"])
 
 	Func setRelationalTypeMappingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"RelationalTypeMappingSource",P1])
+		dnRequest("set",[self,"RelationalTypeMappingSource",P1])
 		return self
 

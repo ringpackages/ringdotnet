@@ -18,13 +18,13 @@ Class IPPacketInformation from ValueType
 		return self
 
 	Func getAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
+		return dnRequest("get",[self,"Address"])
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getInterface
-		return dnRequest("get",[new DotNetObject(nHandle),"Interface"])
+		return dnRequest("get",[self,"Interface"])
 
 	Func setInterface P1
 		raise("DotNet Error: Interface is a read-only property")

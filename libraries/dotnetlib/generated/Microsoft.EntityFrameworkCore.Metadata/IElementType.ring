@@ -16,7 +16,7 @@ Class IElementType from DotNetObject
 		return self
 
 	Func getCollectionProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"CollectionProperty"])
+		return dnRequest("get",[self,"CollectionProperty"])
 
 	Func setCollectionProperty P1
 		raise("DotNet Error: CollectionProperty is a read-only property")

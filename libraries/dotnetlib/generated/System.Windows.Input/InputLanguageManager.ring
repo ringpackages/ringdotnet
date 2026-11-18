@@ -61,14 +61,14 @@ Class InputLanguageManager from DispatcherObject
 		return self
 
 	Func getCurrentInputLanguage
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentInputLanguage"])
+		return dnRequest("get",[self,"CurrentInputLanguage"])
 
 	Func setCurrentInputLanguage P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentInputLanguage",P1])
+		dnRequest("set",[self,"CurrentInputLanguage",P1])
 		return self
 
 	Func getAvailableInputLanguages
-		return dnRequest("get",[new DotNetObject(nHandle),"AvailableInputLanguages"])
+		return dnRequest("get",[self,"AvailableInputLanguages"])
 
 	Func setAvailableInputLanguages P1
 		raise("DotNet Error: AvailableInputLanguages is a read-only property")

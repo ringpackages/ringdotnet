@@ -17,10 +17,10 @@ Class Light from Model3D
 		return self
 
 	Func getColor
-		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
+		return dnRequest("get",[self,"Color"])
 
 	Func setColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
+		dnRequest("set",[self,"Color",P1])
 		return self
 
 	Func getColorProperty

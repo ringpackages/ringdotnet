@@ -93,66 +93,66 @@ Class Timeline from Animatable
 		return self
 
 	Func getAccelerationRatio
-		return dnRequest("get",[new DotNetObject(nHandle),"AccelerationRatio"])
+		return dnRequest("get",[self,"AccelerationRatio"])
 
 	Func setAccelerationRatio P1
-		dnRequest("set",[new DotNetObject(nHandle),"AccelerationRatio",P1])
+		dnRequest("set",[self,"AccelerationRatio",P1])
 		return self
 
 	Func getAutoReverse
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoReverse"])
+		return dnRequest("get",[self,"AutoReverse"])
 
 	Func setAutoReverse P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoReverse",P1])
+		dnRequest("set",[self,"AutoReverse",P1])
 		return self
 
 	Func getBeginTime
-		return dnRequest("get",[new DotNetObject(nHandle),"BeginTime"])
+		return dnRequest("get",[self,"BeginTime"])
 
 	Func setBeginTime P1
-		dnRequest("set",[new DotNetObject(nHandle),"BeginTime",P1])
+		dnRequest("set",[self,"BeginTime",P1])
 		return self
 
 	Func getDecelerationRatio
-		return dnRequest("get",[new DotNetObject(nHandle),"DecelerationRatio"])
+		return dnRequest("get",[self,"DecelerationRatio"])
 
 	Func setDecelerationRatio P1
-		dnRequest("set",[new DotNetObject(nHandle),"DecelerationRatio",P1])
+		dnRequest("set",[self,"DecelerationRatio",P1])
 		return self
 
 	Func getDuration
-		return dnRequest("get",[new DotNetObject(nHandle),"Duration"])
+		return dnRequest("get",[self,"Duration"])
 
 	Func setDuration P1
-		dnRequest("set",[new DotNetObject(nHandle),"Duration",P1])
+		dnRequest("set",[self,"Duration",P1])
 		return self
 
 	Func getFillBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"FillBehavior"])
+		return dnRequest("get",[self,"FillBehavior"])
 
 	Func setFillBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"FillBehavior",P1])
+		dnRequest("set",[self,"FillBehavior",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getRepeatBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"RepeatBehavior"])
+		return dnRequest("get",[self,"RepeatBehavior"])
 
 	Func setRepeatBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"RepeatBehavior",P1])
+		dnRequest("set",[self,"RepeatBehavior",P1])
 		return self
 
 	Func getSpeedRatio
-		return dnRequest("get",[new DotNetObject(nHandle),"SpeedRatio"])
+		return dnRequest("get",[self,"SpeedRatio"])
 
 	Func setSpeedRatio P1
-		dnRequest("set",[new DotNetObject(nHandle),"SpeedRatio",P1])
+		dnRequest("set",[self,"SpeedRatio",P1])
 		return self
 
 	Func getAccelerationRatioProperty

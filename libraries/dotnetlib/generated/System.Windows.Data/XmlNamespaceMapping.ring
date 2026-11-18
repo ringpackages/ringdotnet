@@ -25,16 +25,16 @@ Class XmlNamespaceMapping from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPrefix
-		return dnRequest("get",[new DotNetObject(nHandle),"Prefix"])
+		return dnRequest("get",[self,"Prefix"])
 
 	Func setPrefix P1
-		dnRequest("set",[new DotNetObject(nHandle),"Prefix",P1])
+		dnRequest("set",[self,"Prefix",P1])
 		return self
 
 	Func getUri
-		return dnRequest("get",[new DotNetObject(nHandle),"Uri"])
+		return dnRequest("get",[self,"Uri"])
 
 	Func setUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"Uri",P1])
+		dnRequest("set",[self,"Uri",P1])
 		return self
 

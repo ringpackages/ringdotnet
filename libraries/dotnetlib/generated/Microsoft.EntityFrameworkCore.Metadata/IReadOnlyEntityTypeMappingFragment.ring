@@ -33,19 +33,19 @@ Class IReadOnlyEntityTypeMappingFragment from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
+		return dnRequest("get",[self,"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getStoreObject
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreObject"])
+		return dnRequest("get",[self,"StoreObject"])
 
 	Func setStoreObject P1
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getIsTableExcludedFromMigrations
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTableExcludedFromMigrations"])
+		return dnRequest("get",[self,"IsTableExcludedFromMigrations"])
 
 	Func setIsTableExcludedFromMigrations P1
 		raise("DotNet Error: IsTableExcludedFromMigrations is a read-only property")

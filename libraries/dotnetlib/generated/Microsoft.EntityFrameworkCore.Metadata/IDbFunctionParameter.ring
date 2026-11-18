@@ -17,16 +17,16 @@ Class IDbFunctionParameter from DotNetObject
 		return self
 
 	Func getStoreType
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
+		return dnRequest("get",[self,"StoreType"])
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"Function"])
+		return dnRequest("get",[self,"Function"])
 
 	Func getStoreFunctionParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreFunctionParameter"])
+		return dnRequest("get",[self,"StoreFunctionParameter"])
 
 	Func setStoreFunctionParameter P1
 		raise("DotNet Error: StoreFunctionParameter is a read-only property")

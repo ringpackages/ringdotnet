@@ -104,19 +104,19 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func getAssemblies
-		return dnRequest("get",[new DotNetObject(nHandle),"Assemblies"])
+		return dnRequest("get",[self,"Assemblies"])
 
 	Func setAssemblies P1
 		raise("DotNet Error: Assemblies is a read-only property")
 
 	Func getIsCollectible
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCollectible"])
+		return dnRequest("get",[self,"IsCollectible"])
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

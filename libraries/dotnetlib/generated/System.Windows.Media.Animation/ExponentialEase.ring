@@ -18,10 +18,10 @@ Class ExponentialEase from EasingFunctionBase
 		return self
 
 	Func getExponent
-		return dnRequest("get",[new DotNetObject(nHandle),"Exponent"])
+		return dnRequest("get",[self,"Exponent"])
 
 	Func setExponent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Exponent",P1])
+		dnRequest("set",[self,"Exponent",P1])
 		return self
 
 	Func getExponentProperty

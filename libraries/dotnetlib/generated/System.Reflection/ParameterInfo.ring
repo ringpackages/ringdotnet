@@ -57,91 +57,91 @@ Class ParameterInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getMember
-		return dnRequest("get",[new DotNetObject(nHandle),"Member"])
+		return dnRequest("get",[self,"Member"])
 
 	Func setMember P1
 		raise("DotNet Error: Member is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getParameterType
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterType"])
+		return dnRequest("get",[self,"ParameterType"])
 
 	Func setParameterType P1
 		raise("DotNet Error: ParameterType is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
+		return dnRequest("get",[self,"Position"])
 
 	Func setPosition P1
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getIsIn
-		return dnRequest("get",[new DotNetObject(nHandle),"IsIn"])
+		return dnRequest("get",[self,"IsIn"])
 
 	Func setIsIn P1
 		raise("DotNet Error: IsIn is a read-only property")
 
 	Func getIsLcid
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLcid"])
+		return dnRequest("get",[self,"IsLcid"])
 
 	Func setIsLcid P1
 		raise("DotNet Error: IsLcid is a read-only property")
 
 	Func getIsOptional
-		return dnRequest("get",[new DotNetObject(nHandle),"IsOptional"])
+		return dnRequest("get",[self,"IsOptional"])
 
 	Func setIsOptional P1
 		raise("DotNet Error: IsOptional is a read-only property")
 
 	Func getIsOut
-		return dnRequest("get",[new DotNetObject(nHandle),"IsOut"])
+		return dnRequest("get",[self,"IsOut"])
 
 	Func setIsOut P1
 		raise("DotNet Error: IsOut is a read-only property")
 
 	Func getIsRetval
-		return dnRequest("get",[new DotNetObject(nHandle),"IsRetval"])
+		return dnRequest("get",[self,"IsRetval"])
 
 	Func setIsRetval P1
 		raise("DotNet Error: IsRetval is a read-only property")
 
 	Func getDefaultValue
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultValue"])
+		return dnRequest("get",[self,"DefaultValue"])
 
 	Func setDefaultValue P1
 		raise("DotNet Error: DefaultValue is a read-only property")
 
 	Func getRawDefaultValue
-		return dnRequest("get",[new DotNetObject(nHandle),"RawDefaultValue"])
+		return dnRequest("get",[self,"RawDefaultValue"])
 
 	Func setRawDefaultValue P1
 		raise("DotNet Error: RawDefaultValue is a read-only property")
 
 	Func getHasDefaultValue
-		return dnRequest("get",[new DotNetObject(nHandle),"HasDefaultValue"])
+		return dnRequest("get",[self,"HasDefaultValue"])
 
 	Func setHasDefaultValue P1
 		raise("DotNet Error: HasDefaultValue is a read-only property")
 
 	Func getCustomAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomAttributes"])
+		return dnRequest("get",[self,"CustomAttributes"])
 
 	Func setCustomAttributes P1
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getMetadataToken
-		return dnRequest("get",[new DotNetObject(nHandle),"MetadataToken"])
+		return dnRequest("get",[self,"MetadataToken"])
 
 	Func setMetadataToken P1
 		raise("DotNet Error: MetadataToken is a read-only property")

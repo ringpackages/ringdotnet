@@ -22,23 +22,23 @@ Class LinkOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLowercaseUrls
-		return dnRequest("get",[new DotNetObject(nHandle),"LowercaseUrls"])
+		return dnRequest("get",[self,"LowercaseUrls"])
 
 	Func setLowercaseUrls P1
-		dnRequest("set",[new DotNetObject(nHandle),"LowercaseUrls",P1])
+		dnRequest("set",[self,"LowercaseUrls",P1])
 		return self
 
 	Func getLowercaseQueryStrings
-		return dnRequest("get",[new DotNetObject(nHandle),"LowercaseQueryStrings"])
+		return dnRequest("get",[self,"LowercaseQueryStrings"])
 
 	Func setLowercaseQueryStrings P1
-		dnRequest("set",[new DotNetObject(nHandle),"LowercaseQueryStrings",P1])
+		dnRequest("set",[self,"LowercaseQueryStrings",P1])
 		return self
 
 	Func getAppendTrailingSlash
-		return dnRequest("get",[new DotNetObject(nHandle),"AppendTrailingSlash"])
+		return dnRequest("get",[self,"AppendTrailingSlash"])
 
 	Func setAppendTrailingSlash P1
-		dnRequest("set",[new DotNetObject(nHandle),"AppendTrailingSlash",P1])
+		dnRequest("set",[self,"AppendTrailingSlash",P1])
 		return self
 

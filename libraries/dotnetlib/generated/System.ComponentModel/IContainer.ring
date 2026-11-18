@@ -32,7 +32,7 @@ Class IContainer from DotNetObject
 		return self
 
 	Func getComponents
-		return dnRequest("get",[new DotNetObject(nHandle),"Components"])
+		return dnRequest("get",[self,"Components"])
 
 	Func setComponents P1
 		raise("DotNet Error: Components is a read-only property")

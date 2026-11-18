@@ -55,129 +55,129 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getAllowDBNull
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowDBNull"])
+		return dnRequest("get",[self,"AllowDBNull"])
 
 	Func setAllowDBNull P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowDBNull",P1])
+		dnRequest("set",[self,"AllowDBNull",P1])
 		return self
 
 	Func getAutoIncrement
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoIncrement"])
+		return dnRequest("get",[self,"AutoIncrement"])
 
 	Func setAutoIncrement P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoIncrement",P1])
+		dnRequest("set",[self,"AutoIncrement",P1])
 		return self
 
 	Func getAutoIncrementSeed
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoIncrementSeed"])
+		return dnRequest("get",[self,"AutoIncrementSeed"])
 
 	Func setAutoIncrementSeed P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoIncrementSeed",P1])
+		dnRequest("set",[self,"AutoIncrementSeed",P1])
 		return self
 
 	Func getAutoIncrementStep
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoIncrementStep"])
+		return dnRequest("get",[self,"AutoIncrementStep"])
 
 	Func setAutoIncrementStep P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoIncrementStep",P1])
+		dnRequest("set",[self,"AutoIncrementStep",P1])
 		return self
 
 	Func getCaption
-		return dnRequest("get",[new DotNetObject(nHandle),"Caption"])
+		return dnRequest("get",[self,"Caption"])
 
 	Func setCaption P1
-		dnRequest("set",[new DotNetObject(nHandle),"Caption",P1])
+		dnRequest("set",[self,"Caption",P1])
 		return self
 
 	Func getColumnName
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnName"])
+		return dnRequest("get",[self,"ColumnName"])
 
 	Func setColumnName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnName",P1])
+		dnRequest("set",[self,"ColumnName",P1])
 		return self
 
 	Func getPrefix
-		return dnRequest("get",[new DotNetObject(nHandle),"Prefix"])
+		return dnRequest("get",[self,"Prefix"])
 
 	Func setPrefix P1
-		dnRequest("set",[new DotNetObject(nHandle),"Prefix",P1])
+		dnRequest("set",[self,"Prefix",P1])
 		return self
 
 	Func getDataType
-		return dnRequest("get",[new DotNetObject(nHandle),"DataType"])
+		return dnRequest("get",[self,"DataType"])
 
 	Func setDataType P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataType",P1])
+		dnRequest("set",[self,"DataType",P1])
 		return self
 
 	Func getDateTimeMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DateTimeMode"])
+		return dnRequest("get",[self,"DateTimeMode"])
 
 	Func setDateTimeMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"DateTimeMode",P1])
+		dnRequest("set",[self,"DateTimeMode",P1])
 		return self
 
 	Func getDefaultValue
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultValue"])
+		return dnRequest("get",[self,"DefaultValue"])
 
 	Func setDefaultValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultValue",P1])
+		dnRequest("set",[self,"DefaultValue",P1])
 		return self
 
 	Func getExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"Expression"])
+		return dnRequest("get",[self,"Expression"])
 
 	Func setExpression P1
-		dnRequest("set",[new DotNetObject(nHandle),"Expression",P1])
+		dnRequest("set",[self,"Expression",P1])
 		return self
 
 	Func getExtendedProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedProperties"])
+		return dnRequest("get",[self,"ExtendedProperties"])
 
 	Func setExtendedProperties P1
 		raise("DotNet Error: ExtendedProperties is a read-only property")
 
 	Func getMaxLength
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxLength"])
+		return dnRequest("get",[self,"MaxLength"])
 
 	Func setMaxLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxLength",P1])
+		dnRequest("set",[self,"MaxLength",P1])
 		return self
 
 	Func getNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
+		return dnRequest("get",[self,"Namespace"])
 
 	Func setNamespace P1
-		dnRequest("set",[new DotNetObject(nHandle),"Namespace",P1])
+		dnRequest("set",[self,"Namespace",P1])
 		return self
 
 	Func getOrdinal
-		return dnRequest("get",[new DotNetObject(nHandle),"Ordinal"])
+		return dnRequest("get",[self,"Ordinal"])
 
 	Func getReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
+		return dnRequest("get",[self,"ReadOnly"])
 
 	Func setReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadOnly",P1])
+		dnRequest("set",[self,"ReadOnly",P1])
 		return self
 
 	Func getTable
-		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
+		return dnRequest("get",[self,"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getUnique
-		return dnRequest("get",[new DotNetObject(nHandle),"Unique"])
+		return dnRequest("get",[self,"Unique"])
 
 	Func setUnique P1
-		dnRequest("set",[new DotNetObject(nHandle),"Unique",P1])
+		dnRequest("set",[self,"Unique",P1])
 		return self
 
 	Func getColumnMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnMapping"])
+		return dnRequest("get",[self,"ColumnMapping"])
 
 	Func setColumnMapping P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnMapping",P1])
+		dnRequest("set",[self,"ColumnMapping",P1])
 		return self
 

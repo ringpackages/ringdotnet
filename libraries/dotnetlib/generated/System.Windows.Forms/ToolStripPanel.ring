@@ -57,42 +57,42 @@ Class ToolStripPanel from ContainerControl
 		return self
 
 	Func getRowMargin
-		return dnRequest("get",[new DotNetObject(nHandle),"RowMargin"])
+		return dnRequest("get",[self,"RowMargin"])
 
 	Func setRowMargin P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowMargin",P1])
+		dnRequest("set",[self,"RowMargin",P1])
 		return self
 
 	Func getLocked
-		return dnRequest("get",[new DotNetObject(nHandle),"Locked"])
+		return dnRequest("get",[self,"Locked"])
 
 	Func setLocked P1
-		dnRequest("set",[new DotNetObject(nHandle),"Locked",P1])
+		dnRequest("set",[self,"Locked",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
+		return dnRequest("get",[self,"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
+		dnRequest("set",[self,"Orientation",P1])
 		return self
 
 	Func getRenderer
-		return dnRequest("get",[new DotNetObject(nHandle),"Renderer"])
+		return dnRequest("get",[self,"Renderer"])
 
 	Func setRenderer P1
-		dnRequest("set",[new DotNetObject(nHandle),"Renderer",P1])
+		dnRequest("set",[self,"Renderer",P1])
 		return self
 
 	Func getRenderMode
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderMode"])
+		return dnRequest("get",[self,"RenderMode"])
 
 	Func setRenderMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"RenderMode",P1])
+		dnRequest("set",[self,"RenderMode",P1])
 		return self
 
 	Func getRows
-		return dnRequest("get",[new DotNetObject(nHandle),"Rows"])
+		return dnRequest("get",[self,"Rows"])
 
 	Func setRows P1
 		raise("DotNet Error: Rows is a read-only property")

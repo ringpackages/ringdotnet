@@ -29,37 +29,37 @@ Class ContentControl from WpfControl
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeContent"])
 
 	Func getContent
-		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
+		return dnRequest("get",[self,"Content"])
 
 	Func setContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
+		dnRequest("set",[self,"Content",P1])
 		return self
 
 	Func getHasContent
-		return dnRequest("get",[new DotNetObject(nHandle),"HasContent"])
+		return dnRequest("get",[self,"HasContent"])
 
 	Func setHasContent P1
 		raise("DotNet Error: HasContent is a read-only property")
 
 	Func getContentTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentTemplate"])
+		return dnRequest("get",[self,"ContentTemplate"])
 
 	Func setContentTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentTemplate",P1])
+		dnRequest("set",[self,"ContentTemplate",P1])
 		return self
 
 	Func getContentTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentTemplateSelector"])
+		return dnRequest("get",[self,"ContentTemplateSelector"])
 
 	Func setContentTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentTemplateSelector",P1])
+		dnRequest("set",[self,"ContentTemplateSelector",P1])
 		return self
 
 	Func getContentStringFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentStringFormat"])
+		return dnRequest("get",[self,"ContentStringFormat"])
 
 	Func setContentStringFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentStringFormat",P1])
+		dnRequest("set",[self,"ContentStringFormat",P1])
 		return self
 
 	Func getContentProperty

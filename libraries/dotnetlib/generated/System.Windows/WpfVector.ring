@@ -67,27 +67,27 @@ Class WpfVector from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Vector, WindowsBase'),"Determinant",P1,P2])
 
 	Func getX
-		return dnRequest("get",[new DotNetObject(nHandle),"X"])
+		return dnRequest("get",[self,"X"])
 
 	Func setX P1
-		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
+		dnRequest("set",[self,"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
+		return dnRequest("get",[self,"Y"])
 
 	Func setY P1
-		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
+		dnRequest("set",[self,"Y",P1])
 		return self
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLengthSquared
-		return dnRequest("get",[new DotNetObject(nHandle),"LengthSquared"])
+		return dnRequest("get",[self,"LengthSquared"])
 
 	Func setLengthSquared P1
 		raise("DotNet Error: LengthSquared is a read-only property")

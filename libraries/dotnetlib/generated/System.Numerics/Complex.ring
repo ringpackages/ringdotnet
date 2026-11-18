@@ -182,25 +182,25 @@ Class Complex from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"TryParse",P1,P2])
 
 	Func getReal
-		return dnRequest("get",[new DotNetObject(nHandle),"Real"])
+		return dnRequest("get",[self,"Real"])
 
 	Func setReal P1
 		raise("DotNet Error: Real is a read-only property")
 
 	Func getImaginary
-		return dnRequest("get",[new DotNetObject(nHandle),"Imaginary"])
+		return dnRequest("get",[self,"Imaginary"])
 
 	Func setImaginary P1
 		raise("DotNet Error: Imaginary is a read-only property")
 
 	Func getMagnitude
-		return dnRequest("get",[new DotNetObject(nHandle),"Magnitude"])
+		return dnRequest("get",[self,"Magnitude"])
 
 	Func setMagnitude P1
 		raise("DotNet Error: Magnitude is a read-only property")
 
 	Func getPhase
-		return dnRequest("get",[new DotNetObject(nHandle),"Phase"])
+		return dnRequest("get",[self,"Phase"])
 
 	Func setPhase P1
 		raise("DotNet Error: Phase is a read-only property")

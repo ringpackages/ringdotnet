@@ -51,50 +51,50 @@ Class IDbCommand from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar"])
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
+		dnRequest("set",[self,"Connection",P1])
 		return self
 
 	Func getTransaction
-		return dnRequest("get",[new DotNetObject(nHandle),"Transaction"])
+		return dnRequest("get",[self,"Transaction"])
 
 	Func setTransaction P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transaction",P1])
+		dnRequest("set",[self,"Transaction",P1])
 		return self
 
 	Func getCommandText
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandText"])
+		return dnRequest("get",[self,"CommandText"])
 
 	Func setCommandText P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandText",P1])
+		dnRequest("set",[self,"CommandText",P1])
 		return self
 
 	Func getCommandTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandTimeout"])
+		return dnRequest("get",[self,"CommandTimeout"])
 
 	Func setCommandTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandTimeout",P1])
+		dnRequest("set",[self,"CommandTimeout",P1])
 		return self
 
 	Func getCommandType
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandType"])
+		return dnRequest("get",[self,"CommandType"])
 
 	Func setCommandType P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandType",P1])
+		dnRequest("set",[self,"CommandType",P1])
 		return self
 
 	Func getParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
+		return dnRequest("get",[self,"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getUpdatedRowSource
-		return dnRequest("get",[new DotNetObject(nHandle),"UpdatedRowSource"])
+		return dnRequest("get",[self,"UpdatedRowSource"])
 
 	Func setUpdatedRowSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"UpdatedRowSource",P1])
+		dnRequest("set",[self,"UpdatedRowSource",P1])
 		return self
 

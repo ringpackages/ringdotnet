@@ -327,84 +327,84 @@ Class WebClient from Component
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
+		return dnRequest("get",[self,"Encoding"])
 
 	Func setEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Encoding",P1])
+		dnRequest("set",[self,"Encoding",P1])
 		return self
 
 	Func getBaseAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseAddress"])
+		return dnRequest("get",[self,"BaseAddress"])
 
 	Func setBaseAddress P1
-		dnRequest("set",[new DotNetObject(nHandle),"BaseAddress",P1])
+		dnRequest("set",[self,"BaseAddress",P1])
 		return self
 
 	Func getCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"Credentials"])
+		return dnRequest("get",[self,"Credentials"])
 
 	Func setCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
+		dnRequest("set",[self,"Credentials",P1])
 		return self
 
 	Func getUseDefaultCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"UseDefaultCredentials"])
+		return dnRequest("get",[self,"UseDefaultCredentials"])
 
 	Func setUseDefaultCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseDefaultCredentials",P1])
+		dnRequest("set",[self,"UseDefaultCredentials",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
+		return dnRequest("get",[self,"Headers"])
 
 	Func setHeaders P1
-		dnRequest("set",[new DotNetObject(nHandle),"Headers",P1])
+		dnRequest("set",[self,"Headers",P1])
 		return self
 
 	Func getQueryString
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryString"])
+		return dnRequest("get",[self,"QueryString"])
 
 	Func setQueryString P1
-		dnRequest("set",[new DotNetObject(nHandle),"QueryString",P1])
+		dnRequest("set",[self,"QueryString",P1])
 		return self
 
 	Func getResponseHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"ResponseHeaders"])
+		return dnRequest("get",[self,"ResponseHeaders"])
 
 	Func setResponseHeaders P1
 		raise("DotNet Error: ResponseHeaders is a read-only property")
 
 	Func getProxy
-		return dnRequest("get",[new DotNetObject(nHandle),"Proxy"])
+		return dnRequest("get",[self,"Proxy"])
 
 	Func setProxy P1
-		dnRequest("set",[new DotNetObject(nHandle),"Proxy",P1])
+		dnRequest("set",[self,"Proxy",P1])
 		return self
 
 	Func getCachePolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"CachePolicy"])
+		return dnRequest("get",[self,"CachePolicy"])
 
 	Func setCachePolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"CachePolicy",P1])
+		dnRequest("set",[self,"CachePolicy",P1])
 		return self
 
 	Func getIsBusy
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBusy"])
+		return dnRequest("get",[self,"IsBusy"])
 
 	Func setIsBusy P1
 		raise("DotNet Error: IsBusy is a read-only property")
 
 	Func getAllowReadStreamBuffering
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowReadStreamBuffering"])
+		return dnRequest("get",[self,"AllowReadStreamBuffering"])
 
 	Func setAllowReadStreamBuffering P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowReadStreamBuffering",P1])
+		dnRequest("set",[self,"AllowReadStreamBuffering",P1])
 		return self
 
 	Func getAllowWriteStreamBuffering
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowWriteStreamBuffering"])
+		return dnRequest("get",[self,"AllowWriteStreamBuffering"])
 
 	Func setAllowWriteStreamBuffering P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowWriteStreamBuffering",P1])
+		dnRequest("set",[self,"AllowWriteStreamBuffering",P1])
 		return self
 

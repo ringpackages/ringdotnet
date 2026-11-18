@@ -25,37 +25,37 @@ Class TraceEventCache from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDateTime
-		return dnRequest("get",[new DotNetObject(nHandle),"DateTime"])
+		return dnRequest("get",[self,"DateTime"])
 
 	Func setDateTime P1
 		raise("DotNet Error: DateTime is a read-only property")
 
 	Func getProcessId
-		return dnRequest("get",[new DotNetObject(nHandle),"ProcessId"])
+		return dnRequest("get",[self,"ProcessId"])
 
 	Func setProcessId P1
 		raise("DotNet Error: ProcessId is a read-only property")
 
 	Func getThreadId
-		return dnRequest("get",[new DotNetObject(nHandle),"ThreadId"])
+		return dnRequest("get",[self,"ThreadId"])
 
 	Func setThreadId P1
 		raise("DotNet Error: ThreadId is a read-only property")
 
 	Func getTimestamp
-		return dnRequest("get",[new DotNetObject(nHandle),"Timestamp"])
+		return dnRequest("get",[self,"Timestamp"])
 
 	Func setTimestamp P1
 		raise("DotNet Error: Timestamp is a read-only property")
 
 	Func getCallstack
-		return dnRequest("get",[new DotNetObject(nHandle),"Callstack"])
+		return dnRequest("get",[self,"Callstack"])
 
 	Func setCallstack P1
 		raise("DotNet Error: Callstack is a read-only property")
 
 	Func getLogicalOperationStack
-		return dnRequest("get",[new DotNetObject(nHandle),"LogicalOperationStack"])
+		return dnRequest("get",[self,"LogicalOperationStack"])
 
 	Func setLogicalOperationStack P1
 		raise("DotNet Error: LogicalOperationStack is a read-only property")

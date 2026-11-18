@@ -20,13 +20,13 @@ Class IEndpointRouteBuilder from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateApplicationBuilder"])
 
 	Func getServiceProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceProvider"])
+		return dnRequest("get",[self,"ServiceProvider"])
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")
 
 	Func getDataSources
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSources"])
+		return dnRequest("get",[self,"DataSources"])
 
 	Func setDataSources P1
 		raise("DotNet Error: DataSources is a read-only property")

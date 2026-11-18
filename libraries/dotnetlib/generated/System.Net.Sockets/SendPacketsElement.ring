@@ -39,49 +39,49 @@ Class SendPacketsElement from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFilePath
-		return dnRequest("get",[new DotNetObject(nHandle),"FilePath"])
+		return dnRequest("get",[self,"FilePath"])
 
 	Func setFilePath P1
 		raise("DotNet Error: FilePath is a read-only property")
 
 	Func getFileStream
-		return dnRequest("get",[new DotNetObject(nHandle),"FileStream"])
+		return dnRequest("get",[self,"FileStream"])
 
 	Func setFileStream P1
 		raise("DotNet Error: FileStream is a read-only property")
 
 	Func getBuffer
-		return dnRequest("get",[new DotNetObject(nHandle),"Buffer"])
+		return dnRequest("get",[self,"Buffer"])
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getMemoryBuffer
-		return dnRequest("get",[new DotNetObject(nHandle),"MemoryBuffer"])
+		return dnRequest("get",[self,"MemoryBuffer"])
 
 	Func setMemoryBuffer P1
 		raise("DotNet Error: MemoryBuffer is a read-only property")
 
 	Func getOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
+		return dnRequest("get",[self,"Offset"])
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getOffsetLong
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetLong"])
+		return dnRequest("get",[self,"OffsetLong"])
 
 	Func setOffsetLong P1
 		raise("DotNet Error: OffsetLong is a read-only property")
 
 	Func getEndOfPacket
-		return dnRequest("get",[new DotNetObject(nHandle),"EndOfPacket"])
+		return dnRequest("get",[self,"EndOfPacket"])
 
 	Func setEndOfPacket P1
 		raise("DotNet Error: EndOfPacket is a read-only property")

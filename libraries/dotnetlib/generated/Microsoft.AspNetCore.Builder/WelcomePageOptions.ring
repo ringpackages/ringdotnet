@@ -20,9 +20,9 @@ Class WelcomePageOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPath
-		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
+		return dnRequest("get",[self,"Path"])
 
 	Func setPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
+		dnRequest("set",[self,"Path",P1])
 		return self
 

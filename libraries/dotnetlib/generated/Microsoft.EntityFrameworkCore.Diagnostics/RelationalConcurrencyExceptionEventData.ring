@@ -21,31 +21,31 @@ Class RelationalConcurrencyExceptionEventData from ConcurrencyExceptionEventData
 		return self
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
+		return dnRequest("get",[self,"Command"])
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getDataReader
-		return dnRequest("get",[new DotNetObject(nHandle),"DataReader"])
+		return dnRequest("get",[self,"DataReader"])
 
 	Func setDataReader P1
 		raise("DotNet Error: DataReader is a read-only property")
 
 	Func getCommandId
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandId"])
+		return dnRequest("get",[self,"CommandId"])
 
 	Func setCommandId P1
 		raise("DotNet Error: CommandId is a read-only property")
 
 	Func getConnectionId
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionId"])
+		return dnRequest("get",[self,"ConnectionId"])
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")

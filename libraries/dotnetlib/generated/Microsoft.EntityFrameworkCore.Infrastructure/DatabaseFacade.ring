@@ -119,34 +119,34 @@ Class DatabaseFacade from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrentTransaction
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentTransaction"])
+		return dnRequest("get",[self,"CurrentTransaction"])
 
 	Func setCurrentTransaction P1
 		raise("DotNet Error: CurrentTransaction is a read-only property")
 
 	Func getAutoTransactionsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoTransactionsEnabled"])
+		return dnRequest("get",[self,"AutoTransactionsEnabled"])
 
 	Func setAutoTransactionsEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoTransactionsEnabled",P1])
+		dnRequest("set",[self,"AutoTransactionsEnabled",P1])
 		return self
 
 	Func getAutoTransactionBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoTransactionBehavior"])
+		return dnRequest("get",[self,"AutoTransactionBehavior"])
 
 	Func setAutoTransactionBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoTransactionBehavior",P1])
+		dnRequest("set",[self,"AutoTransactionBehavior",P1])
 		return self
 
 	Func getAutoSavepointsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoSavepointsEnabled"])
+		return dnRequest("get",[self,"AutoSavepointsEnabled"])
 
 	Func setAutoSavepointsEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoSavepointsEnabled",P1])
+		dnRequest("set",[self,"AutoSavepointsEnabled",P1])
 		return self
 
 	Func getProviderName
-		return dnRequest("get",[new DotNetObject(nHandle),"ProviderName"])
+		return dnRequest("get",[self,"ProviderName"])
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")

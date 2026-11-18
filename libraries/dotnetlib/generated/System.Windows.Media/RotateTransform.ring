@@ -30,24 +30,24 @@ Class RotateTransform from Transform
 		return self
 
 	Func getAngle
-		return dnRequest("get",[new DotNetObject(nHandle),"Angle"])
+		return dnRequest("get",[self,"Angle"])
 
 	Func setAngle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Angle",P1])
+		dnRequest("set",[self,"Angle",P1])
 		return self
 
 	Func getCenterX
-		return dnRequest("get",[new DotNetObject(nHandle),"CenterX"])
+		return dnRequest("get",[self,"CenterX"])
 
 	Func setCenterX P1
-		dnRequest("set",[new DotNetObject(nHandle),"CenterX",P1])
+		dnRequest("set",[self,"CenterX",P1])
 		return self
 
 	Func getCenterY
-		return dnRequest("get",[new DotNetObject(nHandle),"CenterY"])
+		return dnRequest("get",[self,"CenterY"])
 
 	Func setCenterY P1
-		dnRequest("set",[new DotNetObject(nHandle),"CenterY",P1])
+		dnRequest("set",[self,"CenterY",P1])
 		return self
 
 	Func getAngleProperty

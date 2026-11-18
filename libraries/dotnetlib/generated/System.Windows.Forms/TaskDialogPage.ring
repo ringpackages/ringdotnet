@@ -72,119 +72,119 @@ Class TaskDialogPage from Object
 		return self
 
 	Func getButtons
-		return dnRequest("get",[new DotNetObject(nHandle),"Buttons"])
+		return dnRequest("get",[self,"Buttons"])
 
 	Func setButtons P1
-		dnRequest("set",[new DotNetObject(nHandle),"Buttons",P1])
+		dnRequest("set",[self,"Buttons",P1])
 		return self
 
 	Func getDefaultButton
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultButton"])
+		return dnRequest("get",[self,"DefaultButton"])
 
 	Func setDefaultButton P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultButton",P1])
+		dnRequest("set",[self,"DefaultButton",P1])
 		return self
 
 	Func getRadioButtons
-		return dnRequest("get",[new DotNetObject(nHandle),"RadioButtons"])
+		return dnRequest("get",[self,"RadioButtons"])
 
 	Func setRadioButtons P1
-		dnRequest("set",[new DotNetObject(nHandle),"RadioButtons",P1])
+		dnRequest("set",[self,"RadioButtons",P1])
 		return self
 
 	Func getVerification
-		return dnRequest("get",[new DotNetObject(nHandle),"Verification"])
+		return dnRequest("get",[self,"Verification"])
 
 	Func setVerification P1
-		dnRequest("set",[new DotNetObject(nHandle),"Verification",P1])
+		dnRequest("set",[self,"Verification",P1])
 		return self
 
 	Func getExpander
-		return dnRequest("get",[new DotNetObject(nHandle),"Expander"])
+		return dnRequest("get",[self,"Expander"])
 
 	Func setExpander P1
-		dnRequest("set",[new DotNetObject(nHandle),"Expander",P1])
+		dnRequest("set",[self,"Expander",P1])
 		return self
 
 	Func getFootnote
-		return dnRequest("get",[new DotNetObject(nHandle),"Footnote"])
+		return dnRequest("get",[self,"Footnote"])
 
 	Func setFootnote P1
-		dnRequest("set",[new DotNetObject(nHandle),"Footnote",P1])
+		dnRequest("set",[self,"Footnote",P1])
 		return self
 
 	Func getProgressBar
-		return dnRequest("get",[new DotNetObject(nHandle),"ProgressBar"])
+		return dnRequest("get",[self,"ProgressBar"])
 
 	Func setProgressBar P1
-		dnRequest("set",[new DotNetObject(nHandle),"ProgressBar",P1])
+		dnRequest("set",[self,"ProgressBar",P1])
 		return self
 
 	Func getCaption
-		return dnRequest("get",[new DotNetObject(nHandle),"Caption"])
+		return dnRequest("get",[self,"Caption"])
 
 	Func setCaption P1
-		dnRequest("set",[new DotNetObject(nHandle),"Caption",P1])
+		dnRequest("set",[self,"Caption",P1])
 		return self
 
 	Func getHeading
-		return dnRequest("get",[new DotNetObject(nHandle),"Heading"])
+		return dnRequest("get",[self,"Heading"])
 
 	Func setHeading P1
-		dnRequest("set",[new DotNetObject(nHandle),"Heading",P1])
+		dnRequest("set",[self,"Heading",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getIcon
-		return dnRequest("get",[new DotNetObject(nHandle),"Icon"])
+		return dnRequest("get",[self,"Icon"])
 
 	Func setIcon P1
-		dnRequest("set",[new DotNetObject(nHandle),"Icon",P1])
+		dnRequest("set",[self,"Icon",P1])
 		return self
 
 	Func getAllowCancel
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowCancel"])
+		return dnRequest("get",[self,"AllowCancel"])
 
 	Func setAllowCancel P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowCancel",P1])
+		dnRequest("set",[self,"AllowCancel",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
+		return dnRequest("get",[self,"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
+		dnRequest("set",[self,"RightToLeftLayout",P1])
 		return self
 
 	Func getAllowMinimize
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowMinimize"])
+		return dnRequest("get",[self,"AllowMinimize"])
 
 	Func setAllowMinimize P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowMinimize",P1])
+		dnRequest("set",[self,"AllowMinimize",P1])
 		return self
 
 	Func getSizeToContent
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeToContent"])
+		return dnRequest("get",[self,"SizeToContent"])
 
 	Func setSizeToContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"SizeToContent",P1])
+		dnRequest("set",[self,"SizeToContent",P1])
 		return self
 
 	Func getEnableLinks
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableLinks"])
+		return dnRequest("get",[self,"EnableLinks"])
 
 	Func setEnableLinks P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableLinks",P1])
+		dnRequest("set",[self,"EnableLinks",P1])
 		return self
 
 	Func getBoundDialog
-		return dnRequest("get",[new DotNetObject(nHandle),"BoundDialog"])
+		return dnRequest("get",[self,"BoundDialog"])
 
 	Func setBoundDialog P1
 		raise("DotNet Error: BoundDialog is a read-only property")

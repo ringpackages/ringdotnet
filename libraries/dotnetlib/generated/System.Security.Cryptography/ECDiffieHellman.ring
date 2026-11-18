@@ -49,7 +49,7 @@ Class ECDiffieHellman from ECAlgorithm
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
 
 	Func getPublicKey
-		return dnRequest("get",[new DotNetObject(nHandle),"PublicKey"])
+		return dnRequest("get",[self,"PublicKey"])
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")

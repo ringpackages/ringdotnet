@@ -94,13 +94,13 @@ Class StylusPointCollection from DotNetObject
 		return self
 
 	Func getDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
+		return dnRequest("get",[self,"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

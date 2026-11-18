@@ -26,16 +26,16 @@ Class MouseGesture from InputGesture
 		return self
 
 	Func getMouseAction
-		return dnRequest("get",[new DotNetObject(nHandle),"MouseAction"])
+		return dnRequest("get",[self,"MouseAction"])
 
 	Func setMouseAction P1
-		dnRequest("set",[new DotNetObject(nHandle),"MouseAction",P1])
+		dnRequest("set",[self,"MouseAction",P1])
 		return self
 
 	Func getModifiers
-		return dnRequest("get",[new DotNetObject(nHandle),"Modifiers"])
+		return dnRequest("get",[self,"Modifiers"])
 
 	Func setModifiers P1
-		dnRequest("set",[new DotNetObject(nHandle),"Modifiers",P1])
+		dnRequest("set",[self,"Modifiers",P1])
 		return self
 

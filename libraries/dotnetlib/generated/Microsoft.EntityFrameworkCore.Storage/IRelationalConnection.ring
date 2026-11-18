@@ -59,40 +59,40 @@ Class IRelationalConnection from DotNetObject
 		return self
 
 	Func getConnectionString
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionString"])
+		return dnRequest("get",[self,"ConnectionString"])
 
 	Func setConnectionString P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConnectionString",P1])
+		dnRequest("set",[self,"ConnectionString",P1])
 		return self
 
 	Func getDbConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"DbConnection"])
+		return dnRequest("get",[self,"DbConnection"])
 
 	Func setDbConnection P1
-		dnRequest("set",[new DotNetObject(nHandle),"DbConnection",P1])
+		dnRequest("set",[self,"DbConnection",P1])
 		return self
 
 	Func getContext
-		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
+		return dnRequest("get",[self,"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getConnectionId
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionId"])
+		return dnRequest("get",[self,"ConnectionId"])
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getCommandTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandTimeout"])
+		return dnRequest("get",[self,"CommandTimeout"])
 
 	Func setCommandTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandTimeout",P1])
+		dnRequest("set",[self,"CommandTimeout",P1])
 		return self
 
 	Func getCurrentTransaction
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentTransaction"])
+		return dnRequest("get",[self,"CurrentTransaction"])
 
 	Func setCurrentTransaction P1
 		raise("DotNet Error: CurrentTransaction is a read-only property")

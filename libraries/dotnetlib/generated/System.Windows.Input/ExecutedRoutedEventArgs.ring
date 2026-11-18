@@ -17,13 +17,13 @@ Class ExecutedRoutedEventArgs from RoutedEventArgs
 		return self
 
 	Func getCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
+		return dnRequest("get",[self,"Command"])
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameter"])
+		return dnRequest("get",[self,"Parameter"])
 
 	Func setParameter P1
 		raise("DotNet Error: Parameter is a read-only property")

@@ -48,13 +48,13 @@ Class Duration from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Duration, PresentationCore'),"Equals",P1,P2])
 
 	Func getHasTimeSpan
-		return dnRequest("get",[new DotNetObject(nHandle),"HasTimeSpan"])
+		return dnRequest("get",[self,"HasTimeSpan"])
 
 	Func setHasTimeSpan P1
 		raise("DotNet Error: HasTimeSpan is a read-only property")
 
 	Func getTimeSpan
-		return dnRequest("get",[new DotNetObject(nHandle),"TimeSpan"])
+		return dnRequest("get",[self,"TimeSpan"])
 
 	Func setTimeSpan P1
 		raise("DotNet Error: TimeSpan is a read-only property")

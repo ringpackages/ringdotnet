@@ -36,19 +36,19 @@ Class HttpListenerContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequest
-		return dnRequest("get",[new DotNetObject(nHandle),"Request"])
+		return dnRequest("get",[self,"Request"])
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[new DotNetObject(nHandle),"User"])
+		return dnRequest("get",[self,"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getResponse
-		return dnRequest("get",[new DotNetObject(nHandle),"Response"])
+		return dnRequest("get",[self,"Response"])
 
 	Func setResponse P1
 		raise("DotNet Error: Response is a read-only property")

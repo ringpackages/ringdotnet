@@ -18,22 +18,22 @@ Class XmlTypeMapping from XmlMapping
 		return self
 
 	Func getTypeName
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeName"])
+		return dnRequest("get",[self,"TypeName"])
 
 	Func getTypeFullName
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeFullName"])
+		return dnRequest("get",[self,"TypeFullName"])
 
 	Func setTypeFullName P1
 		raise("DotNet Error: TypeFullName is a read-only property")
 
 	Func getXsdTypeName
-		return dnRequest("get",[new DotNetObject(nHandle),"XsdTypeName"])
+		return dnRequest("get",[self,"XsdTypeName"])
 
 	Func setXsdTypeName P1
 		raise("DotNet Error: XsdTypeName is a read-only property")
 
 	Func getXsdTypeNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"XsdTypeNamespace"])
+		return dnRequest("get",[self,"XsdTypeNamespace"])
 
 	Func setXsdTypeNamespace P1
 		raise("DotNet Error: XsdTypeNamespace is a read-only property")

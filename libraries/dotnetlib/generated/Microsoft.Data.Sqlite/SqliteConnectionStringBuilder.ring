@@ -28,58 +28,58 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
+		return dnRequest("get",[self,"DataSource"])
 
 	Func setDataSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSource",P1])
+		dnRequest("set",[self,"DataSource",P1])
 		return self
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
+		dnRequest("set",[self,"Mode",P1])
 		return self
 
 	Func getCache
-		return dnRequest("get",[new DotNetObject(nHandle),"Cache"])
+		return dnRequest("get",[self,"Cache"])
 
 	Func setCache P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cache",P1])
+		dnRequest("set",[self,"Cache",P1])
 		return self
 
 	Func getPassword
-		return dnRequest("get",[new DotNetObject(nHandle),"Password"])
+		return dnRequest("get",[self,"Password"])
 
 	Func setPassword P1
-		dnRequest("set",[new DotNetObject(nHandle),"Password",P1])
+		dnRequest("set",[self,"Password",P1])
 		return self
 
 	Func getForeignKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"ForeignKeys"])
+		return dnRequest("get",[self,"ForeignKeys"])
 
 	Func setForeignKeys P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForeignKeys",P1])
+		dnRequest("set",[self,"ForeignKeys",P1])
 		return self
 
 	Func getRecursiveTriggers
-		return dnRequest("get",[new DotNetObject(nHandle),"RecursiveTriggers"])
+		return dnRequest("get",[self,"RecursiveTriggers"])
 
 	Func setRecursiveTriggers P1
-		dnRequest("set",[new DotNetObject(nHandle),"RecursiveTriggers",P1])
+		dnRequest("set",[self,"RecursiveTriggers",P1])
 		return self
 
 	Func getDefaultTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultTimeout"])
+		return dnRequest("get",[self,"DefaultTimeout"])
 
 	Func setDefaultTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultTimeout",P1])
+		dnRequest("set",[self,"DefaultTimeout",P1])
 		return self
 
 	Func getPooling
-		return dnRequest("get",[new DotNetObject(nHandle),"Pooling"])
+		return dnRequest("get",[self,"Pooling"])
 
 	Func setPooling P1
-		dnRequest("set",[new DotNetObject(nHandle),"Pooling",P1])
+		dnRequest("set",[self,"Pooling",P1])
 		return self
 

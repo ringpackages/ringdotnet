@@ -130,85 +130,85 @@ Class KestrelServerOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAllowHostHeaderOverride
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowHostHeaderOverride"])
+		return dnRequest("get",[self,"AllowHostHeaderOverride"])
 
 	Func setAllowHostHeaderOverride P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowHostHeaderOverride",P1])
+		dnRequest("set",[self,"AllowHostHeaderOverride",P1])
 		return self
 
 	Func getAddServerHeader
-		return dnRequest("get",[new DotNetObject(nHandle),"AddServerHeader"])
+		return dnRequest("get",[self,"AddServerHeader"])
 
 	Func setAddServerHeader P1
-		dnRequest("set",[new DotNetObject(nHandle),"AddServerHeader",P1])
+		dnRequest("set",[self,"AddServerHeader",P1])
 		return self
 
 	Func getAllowResponseHeaderCompression
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowResponseHeaderCompression"])
+		return dnRequest("get",[self,"AllowResponseHeaderCompression"])
 
 	Func setAllowResponseHeaderCompression P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowResponseHeaderCompression",P1])
+		dnRequest("set",[self,"AllowResponseHeaderCompression",P1])
 		return self
 
 	Func getAllowSynchronousIO
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowSynchronousIO"])
+		return dnRequest("get",[self,"AllowSynchronousIO"])
 
 	Func setAllowSynchronousIO P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowSynchronousIO",P1])
+		dnRequest("set",[self,"AllowSynchronousIO",P1])
 		return self
 
 	Func getAllowAlternateSchemes
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowAlternateSchemes"])
+		return dnRequest("get",[self,"AllowAlternateSchemes"])
 
 	Func setAllowAlternateSchemes P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowAlternateSchemes",P1])
+		dnRequest("set",[self,"AllowAlternateSchemes",P1])
 		return self
 
 	Func getDisableStringReuse
-		return dnRequest("get",[new DotNetObject(nHandle),"DisableStringReuse"])
+		return dnRequest("get",[self,"DisableStringReuse"])
 
 	Func setDisableStringReuse P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisableStringReuse",P1])
+		dnRequest("set",[self,"DisableStringReuse",P1])
 		return self
 
 	Func getEnableAltSvc
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableAltSvc"])
+		return dnRequest("get",[self,"EnableAltSvc"])
 
 	Func setEnableAltSvc P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableAltSvc",P1])
+		dnRequest("set",[self,"EnableAltSvc",P1])
 		return self
 
 	Func getRequestHeaderEncodingSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestHeaderEncodingSelector"])
+		return dnRequest("get",[self,"RequestHeaderEncodingSelector"])
 
 	Func setRequestHeaderEncodingSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestHeaderEncodingSelector",P1])
+		dnRequest("set",[self,"RequestHeaderEncodingSelector",P1])
 		return self
 
 	Func getResponseHeaderEncodingSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ResponseHeaderEncodingSelector"])
+		return dnRequest("get",[self,"ResponseHeaderEncodingSelector"])
 
 	Func setResponseHeaderEncodingSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ResponseHeaderEncodingSelector",P1])
+		dnRequest("set",[self,"ResponseHeaderEncodingSelector",P1])
 		return self
 
 	Func getApplicationServices
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationServices"])
+		return dnRequest("get",[self,"ApplicationServices"])
 
 	Func setApplicationServices P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApplicationServices",P1])
+		dnRequest("set",[self,"ApplicationServices",P1])
 		return self
 
 	Func getLimits
-		return dnRequest("get",[new DotNetObject(nHandle),"Limits"])
+		return dnRequest("get",[self,"Limits"])
 
 	Func setLimits P1
 		raise("DotNet Error: Limits is a read-only property")
 
 	Func getConfigurationLoader
-		return dnRequest("get",[new DotNetObject(nHandle),"ConfigurationLoader"])
+		return dnRequest("get",[self,"ConfigurationLoader"])
 
 	Func setConfigurationLoader P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConfigurationLoader",P1])
+		dnRequest("set",[self,"ConfigurationLoader",P1])
 		return self
 

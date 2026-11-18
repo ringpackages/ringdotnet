@@ -20,17 +20,17 @@ Class EmbossBitmapEffect from BitmapEffect
 		return self
 
 	Func getLightAngle
-		return dnRequest("get",[new DotNetObject(nHandle),"LightAngle"])
+		return dnRequest("get",[self,"LightAngle"])
 
 	Func setLightAngle P1
-		dnRequest("set",[new DotNetObject(nHandle),"LightAngle",P1])
+		dnRequest("set",[self,"LightAngle",P1])
 		return self
 
 	Func getRelief
-		return dnRequest("get",[new DotNetObject(nHandle),"Relief"])
+		return dnRequest("get",[self,"Relief"])
 
 	Func setRelief P1
-		dnRequest("set",[new DotNetObject(nHandle),"Relief",P1])
+		dnRequest("set",[self,"Relief",P1])
 		return self
 
 	Func getLightAngleProperty

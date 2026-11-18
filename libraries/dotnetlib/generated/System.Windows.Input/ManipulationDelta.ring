@@ -23,25 +23,25 @@ Class ManipulationDelta from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTranslation
-		return dnRequest("get",[new DotNetObject(nHandle),"Translation"])
+		return dnRequest("get",[self,"Translation"])
 
 	Func setTranslation P1
 		raise("DotNet Error: Translation is a read-only property")
 
 	Func getRotation
-		return dnRequest("get",[new DotNetObject(nHandle),"Rotation"])
+		return dnRequest("get",[self,"Rotation"])
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")
 
 	Func getScale
-		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
+		return dnRequest("get",[self,"Scale"])
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getExpansion
-		return dnRequest("get",[new DotNetObject(nHandle),"Expansion"])
+		return dnRequest("get",[self,"Expansion"])
 
 	Func setExpansion P1
 		raise("DotNet Error: Expansion is a read-only property")

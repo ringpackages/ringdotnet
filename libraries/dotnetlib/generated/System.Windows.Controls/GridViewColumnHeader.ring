@@ -20,13 +20,13 @@ Class GridViewColumnHeader from WpfButtonBase
 		return self
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getRole
-		return dnRequest("get",[new DotNetObject(nHandle),"Role"])
+		return dnRequest("get",[self,"Role"])
 
 	Func setRole P1
 		raise("DotNet Error: Role is a read-only property")

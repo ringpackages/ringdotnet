@@ -32,9 +32,9 @@ Class RouteOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConstraintMap
-		return dnRequest("get",[new DotNetObject(nHandle),"ConstraintMap"])
+		return dnRequest("get",[self,"ConstraintMap"])
 
 	Func setConstraintMap P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConstraintMap",P1])
+		dnRequest("set",[self,"ConstraintMap",P1])
 		return self
 

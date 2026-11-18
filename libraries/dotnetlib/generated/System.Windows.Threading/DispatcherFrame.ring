@@ -19,9 +19,9 @@ Class DispatcherFrame from DispatcherObject
 		return self
 
 	Func getContinue
-		return dnRequest("get",[new DotNetObject(nHandle),"Continue"])
+		return dnRequest("get",[self,"Continue"])
 
 	Func setContinue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Continue",P1])
+		dnRequest("set",[self,"Continue",P1])
 		return self
 

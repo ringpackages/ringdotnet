@@ -86,146 +86,146 @@ Class PrinterSettings from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCanDuplex
-		return dnRequest("get",[new DotNetObject(nHandle),"CanDuplex"])
+		return dnRequest("get",[self,"CanDuplex"])
 
 	Func setCanDuplex P1
 		raise("DotNet Error: CanDuplex is a read-only property")
 
 	Func getCopies
-		return dnRequest("get",[new DotNetObject(nHandle),"Copies"])
+		return dnRequest("get",[self,"Copies"])
 
 	Func setCopies P1
-		dnRequest("set",[new DotNetObject(nHandle),"Copies",P1])
+		dnRequest("set",[self,"Copies",P1])
 		return self
 
 	Func getCollate
-		return dnRequest("get",[new DotNetObject(nHandle),"Collate"])
+		return dnRequest("get",[self,"Collate"])
 
 	Func setCollate P1
-		dnRequest("set",[new DotNetObject(nHandle),"Collate",P1])
+		dnRequest("set",[self,"Collate",P1])
 		return self
 
 	Func getDefaultPageSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultPageSettings"])
+		return dnRequest("get",[self,"DefaultPageSettings"])
 
 	Func setDefaultPageSettings P1
 		raise("DotNet Error: DefaultPageSettings is a read-only property")
 
 	Func getDuplex
-		return dnRequest("get",[new DotNetObject(nHandle),"Duplex"])
+		return dnRequest("get",[self,"Duplex"])
 
 	Func setDuplex P1
-		dnRequest("set",[new DotNetObject(nHandle),"Duplex",P1])
+		dnRequest("set",[self,"Duplex",P1])
 		return self
 
 	Func getFromPage
-		return dnRequest("get",[new DotNetObject(nHandle),"FromPage"])
+		return dnRequest("get",[self,"FromPage"])
 
 	Func setFromPage P1
-		dnRequest("set",[new DotNetObject(nHandle),"FromPage",P1])
+		dnRequest("set",[self,"FromPage",P1])
 		return self
 
 	Func getIsDefaultPrinter
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDefaultPrinter"])
+		return dnRequest("get",[self,"IsDefaultPrinter"])
 
 	Func setIsDefaultPrinter P1
 		raise("DotNet Error: IsDefaultPrinter is a read-only property")
 
 	Func getIsPlotter
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPlotter"])
+		return dnRequest("get",[self,"IsPlotter"])
 
 	Func setIsPlotter P1
 		raise("DotNet Error: IsPlotter is a read-only property")
 
 	Func getIsValid
-		return dnRequest("get",[new DotNetObject(nHandle),"IsValid"])
+		return dnRequest("get",[self,"IsValid"])
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getLandscapeAngle
-		return dnRequest("get",[new DotNetObject(nHandle),"LandscapeAngle"])
+		return dnRequest("get",[self,"LandscapeAngle"])
 
 	Func setLandscapeAngle P1
 		raise("DotNet Error: LandscapeAngle is a read-only property")
 
 	Func getMaximumCopies
-		return dnRequest("get",[new DotNetObject(nHandle),"MaximumCopies"])
+		return dnRequest("get",[self,"MaximumCopies"])
 
 	Func setMaximumCopies P1
 		raise("DotNet Error: MaximumCopies is a read-only property")
 
 	Func getMaximumPage
-		return dnRequest("get",[new DotNetObject(nHandle),"MaximumPage"])
+		return dnRequest("get",[self,"MaximumPage"])
 
 	Func setMaximumPage P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaximumPage",P1])
+		dnRequest("set",[self,"MaximumPage",P1])
 		return self
 
 	Func getMinimumPage
-		return dnRequest("get",[new DotNetObject(nHandle),"MinimumPage"])
+		return dnRequest("get",[self,"MinimumPage"])
 
 	Func setMinimumPage P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinimumPage",P1])
+		dnRequest("set",[self,"MinimumPage",P1])
 		return self
 
 	Func getPrintFileName
-		return dnRequest("get",[new DotNetObject(nHandle),"PrintFileName"])
+		return dnRequest("get",[self,"PrintFileName"])
 
 	Func setPrintFileName P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrintFileName",P1])
+		dnRequest("set",[self,"PrintFileName",P1])
 		return self
 
 	Func getPaperSizes
-		return dnRequest("get",[new DotNetObject(nHandle),"PaperSizes"])
+		return dnRequest("get",[self,"PaperSizes"])
 
 	Func setPaperSizes P1
 		raise("DotNet Error: PaperSizes is a read-only property")
 
 	Func getPaperSources
-		return dnRequest("get",[new DotNetObject(nHandle),"PaperSources"])
+		return dnRequest("get",[self,"PaperSources"])
 
 	Func setPaperSources P1
 		raise("DotNet Error: PaperSources is a read-only property")
 
 	Func getPrintRange
-		return dnRequest("get",[new DotNetObject(nHandle),"PrintRange"])
+		return dnRequest("get",[self,"PrintRange"])
 
 	Func setPrintRange P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrintRange",P1])
+		dnRequest("set",[self,"PrintRange",P1])
 		return self
 
 	Func getPrintToFile
-		return dnRequest("get",[new DotNetObject(nHandle),"PrintToFile"])
+		return dnRequest("get",[self,"PrintToFile"])
 
 	Func setPrintToFile P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrintToFile",P1])
+		dnRequest("set",[self,"PrintToFile",P1])
 		return self
 
 	Func getPrinterName
-		return dnRequest("get",[new DotNetObject(nHandle),"PrinterName"])
+		return dnRequest("get",[self,"PrinterName"])
 
 	Func setPrinterName P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrinterName",P1])
+		dnRequest("set",[self,"PrinterName",P1])
 		return self
 
 	Func getPrinterResolutions
-		return dnRequest("get",[new DotNetObject(nHandle),"PrinterResolutions"])
+		return dnRequest("get",[self,"PrinterResolutions"])
 
 	Func setPrinterResolutions P1
 		raise("DotNet Error: PrinterResolutions is a read-only property")
 
 	Func getSupportsColor
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsColor"])
+		return dnRequest("get",[self,"SupportsColor"])
 
 	Func setSupportsColor P1
 		raise("DotNet Error: SupportsColor is a read-only property")
 
 	Func getToPage
-		return dnRequest("get",[new DotNetObject(nHandle),"ToPage"])
+		return dnRequest("get",[self,"ToPage"])
 
 	Func setToPage P1
-		dnRequest("set",[new DotNetObject(nHandle),"ToPage",P1])
+		dnRequest("set",[self,"ToPage",P1])
 		return self
 
 	Func getInstalledPrinters

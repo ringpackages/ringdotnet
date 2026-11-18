@@ -21,13 +21,13 @@ Class DataGridViewElement from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getDataGridView
-		return dnRequest("get",[new DotNetObject(nHandle),"DataGridView"])
+		return dnRequest("get",[self,"DataGridView"])
 
 	Func setDataGridView P1
 		raise("DotNet Error: DataGridView is a read-only property")

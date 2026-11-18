@@ -194,93 +194,93 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func getRemotingFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"RemotingFormat"])
+		return dnRequest("get",[self,"RemotingFormat"])
 
 	Func setRemotingFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"RemotingFormat",P1])
+		dnRequest("set",[self,"RemotingFormat",P1])
 		return self
 
 	Func getSchemaSerializationMode
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaSerializationMode"])
+		return dnRequest("get",[self,"SchemaSerializationMode"])
 
 	Func setSchemaSerializationMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SchemaSerializationMode",P1])
+		dnRequest("set",[self,"SchemaSerializationMode",P1])
 		return self
 
 	Func getCaseSensitive
-		return dnRequest("get",[new DotNetObject(nHandle),"CaseSensitive"])
+		return dnRequest("get",[self,"CaseSensitive"])
 
 	Func setCaseSensitive P1
-		dnRequest("set",[new DotNetObject(nHandle),"CaseSensitive",P1])
+		dnRequest("set",[self,"CaseSensitive",P1])
 		return self
 
 	Func getDefaultViewManager
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultViewManager"])
+		return dnRequest("get",[self,"DefaultViewManager"])
 
 	Func setDefaultViewManager P1
 		raise("DotNet Error: DefaultViewManager is a read-only property")
 
 	Func getEnforceConstraints
-		return dnRequest("get",[new DotNetObject(nHandle),"EnforceConstraints"])
+		return dnRequest("get",[self,"EnforceConstraints"])
 
 	Func setEnforceConstraints P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnforceConstraints",P1])
+		dnRequest("set",[self,"EnforceConstraints",P1])
 		return self
 
 	Func getDataSetName
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSetName"])
+		return dnRequest("get",[self,"DataSetName"])
 
 	Func setDataSetName P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSetName",P1])
+		dnRequest("set",[self,"DataSetName",P1])
 		return self
 
 	Func getNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
+		return dnRequest("get",[self,"Namespace"])
 
 	Func setNamespace P1
-		dnRequest("set",[new DotNetObject(nHandle),"Namespace",P1])
+		dnRequest("set",[self,"Namespace",P1])
 		return self
 
 	Func getPrefix
-		return dnRequest("get",[new DotNetObject(nHandle),"Prefix"])
+		return dnRequest("get",[self,"Prefix"])
 
 	Func setPrefix P1
-		dnRequest("set",[new DotNetObject(nHandle),"Prefix",P1])
+		dnRequest("set",[self,"Prefix",P1])
 		return self
 
 	Func getExtendedProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedProperties"])
+		return dnRequest("get",[self,"ExtendedProperties"])
 
 	Func setExtendedProperties P1
 		raise("DotNet Error: ExtendedProperties is a read-only property")
 
 	Func getHasErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"HasErrors"])
+		return dnRequest("get",[self,"HasErrors"])
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")
 
 	Func getIsInitialized
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialized"])
+		return dnRequest("get",[self,"IsInitialized"])
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getLocale
-		return dnRequest("get",[new DotNetObject(nHandle),"Locale"])
+		return dnRequest("get",[self,"Locale"])
 
 	Func setLocale P1
-		dnRequest("set",[new DotNetObject(nHandle),"Locale",P1])
+		dnRequest("set",[self,"Locale",P1])
 		return self
 
 	Func getRelations
-		return dnRequest("get",[new DotNetObject(nHandle),"Relations"])
+		return dnRequest("get",[self,"Relations"])
 
 	Func setRelations P1
 		raise("DotNet Error: Relations is a read-only property")
 
 	Func getTables
-		return dnRequest("get",[new DotNetObject(nHandle),"Tables"])
+		return dnRequest("get",[self,"Tables"])
 
 	Func setTables P1
 		raise("DotNet Error: Tables is a read-only property")

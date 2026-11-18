@@ -50,24 +50,24 @@ Class NumberSubstitution from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore'),"GetSubstitution",P1])
 
 	Func getCultureSource
-		return dnRequest("get",[new DotNetObject(nHandle),"CultureSource"])
+		return dnRequest("get",[self,"CultureSource"])
 
 	Func setCultureSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"CultureSource",P1])
+		dnRequest("set",[self,"CultureSource",P1])
 		return self
 
 	Func getCultureOverride
-		return dnRequest("get",[new DotNetObject(nHandle),"CultureOverride"])
+		return dnRequest("get",[self,"CultureOverride"])
 
 	Func setCultureOverride P1
-		dnRequest("set",[new DotNetObject(nHandle),"CultureOverride",P1])
+		dnRequest("set",[self,"CultureOverride",P1])
 		return self
 
 	Func getSubstitution
-		return dnRequest("get",[new DotNetObject(nHandle),"Substitution"])
+		return dnRequest("get",[self,"Substitution"])
 
 	Func setSubstitution P1
-		dnRequest("set",[new DotNetObject(nHandle),"Substitution",P1])
+		dnRequest("set",[self,"Substitution",P1])
 		return self
 
 	Func getCultureSourceProperty

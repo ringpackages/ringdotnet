@@ -118,214 +118,214 @@ Class TreeNode from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TreeNode, System.Windows.Forms'),"FromHandle",P1,P2])
 
 	Func getBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
+		return dnRequest("get",[self,"BackColor"])
 
 	Func setBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"BackColor",P1])
+		dnRequest("set",[self,"BackColor",P1])
 		return self
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getChecked
-		return dnRequest("get",[new DotNetObject(nHandle),"Checked"])
+		return dnRequest("get",[self,"Checked"])
 
 	Func setChecked P1
-		dnRequest("set",[new DotNetObject(nHandle),"Checked",P1])
+		dnRequest("set",[self,"Checked",P1])
 		return self
 
 	Func getContextMenuStrip
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextMenuStrip"])
+		return dnRequest("get",[self,"ContextMenuStrip"])
 
 	Func setContextMenuStrip P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContextMenuStrip",P1])
+		dnRequest("set",[self,"ContextMenuStrip",P1])
 		return self
 
 	Func getFirstNode
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstNode"])
+		return dnRequest("get",[self,"FirstNode"])
 
 	Func setFirstNode P1
 		raise("DotNet Error: FirstNode is a read-only property")
 
 	Func getForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
+		return dnRequest("get",[self,"ForeColor"])
 
 	Func setForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForeColor",P1])
+		dnRequest("set",[self,"ForeColor",P1])
 		return self
 
 	Func getFullPath
-		return dnRequest("get",[new DotNetObject(nHandle),"FullPath"])
+		return dnRequest("get",[self,"FullPath"])
 
 	Func setFullPath P1
 		raise("DotNet Error: FullPath is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getImageIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageIndex"])
+		return dnRequest("get",[self,"ImageIndex"])
 
 	Func setImageIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageIndex",P1])
+		dnRequest("set",[self,"ImageIndex",P1])
 		return self
 
 	Func getImageKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageKey"])
+		return dnRequest("get",[self,"ImageKey"])
 
 	Func setImageKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageKey",P1])
+		dnRequest("set",[self,"ImageKey",P1])
 		return self
 
 	Func getIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
+		return dnRequest("get",[self,"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getIsEditing
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEditing"])
+		return dnRequest("get",[self,"IsEditing"])
 
 	Func setIsEditing P1
 		raise("DotNet Error: IsEditing is a read-only property")
 
 	Func getIsExpanded
-		return dnRequest("get",[new DotNetObject(nHandle),"IsExpanded"])
+		return dnRequest("get",[self,"IsExpanded"])
 
 	Func setIsExpanded P1
 		raise("DotNet Error: IsExpanded is a read-only property")
 
 	Func getIsSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
+		return dnRequest("get",[self,"IsSelected"])
 
 	Func setIsSelected P1
 		raise("DotNet Error: IsSelected is a read-only property")
 
 	Func getIsVisible
-		return dnRequest("get",[new DotNetObject(nHandle),"IsVisible"])
+		return dnRequest("get",[self,"IsVisible"])
 
 	Func setIsVisible P1
 		raise("DotNet Error: IsVisible is a read-only property")
 
 	Func getLastNode
-		return dnRequest("get",[new DotNetObject(nHandle),"LastNode"])
+		return dnRequest("get",[self,"LastNode"])
 
 	Func setLastNode P1
 		raise("DotNet Error: LastNode is a read-only property")
 
 	Func getLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"Level"])
+		return dnRequest("get",[self,"Level"])
 
 	Func setLevel P1
 		raise("DotNet Error: Level is a read-only property")
 
 	Func getNextNode
-		return dnRequest("get",[new DotNetObject(nHandle),"NextNode"])
+		return dnRequest("get",[self,"NextNode"])
 
 	Func setNextNode P1
 		raise("DotNet Error: NextNode is a read-only property")
 
 	Func getNextVisibleNode
-		return dnRequest("get",[new DotNetObject(nHandle),"NextVisibleNode"])
+		return dnRequest("get",[self,"NextVisibleNode"])
 
 	Func setNextVisibleNode P1
 		raise("DotNet Error: NextVisibleNode is a read-only property")
 
 	Func getNodeFont
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeFont"])
+		return dnRequest("get",[self,"NodeFont"])
 
 	Func setNodeFont P1
-		dnRequest("set",[new DotNetObject(nHandle),"NodeFont",P1])
+		dnRequest("set",[self,"NodeFont",P1])
 		return self
 
 	Func getNodes
-		return dnRequest("get",[new DotNetObject(nHandle),"Nodes"])
+		return dnRequest("get",[self,"Nodes"])
 
 	Func setNodes P1
 		raise("DotNet Error: Nodes is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getPrevNode
-		return dnRequest("get",[new DotNetObject(nHandle),"PrevNode"])
+		return dnRequest("get",[self,"PrevNode"])
 
 	Func setPrevNode P1
 		raise("DotNet Error: PrevNode is a read-only property")
 
 	Func getPrevVisibleNode
-		return dnRequest("get",[new DotNetObject(nHandle),"PrevVisibleNode"])
+		return dnRequest("get",[self,"PrevVisibleNode"])
 
 	Func setPrevVisibleNode P1
 		raise("DotNet Error: PrevVisibleNode is a read-only property")
 
 	Func getSelectedImageIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedImageIndex"])
+		return dnRequest("get",[self,"SelectedImageIndex"])
 
 	Func setSelectedImageIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedImageIndex",P1])
+		dnRequest("set",[self,"SelectedImageIndex",P1])
 		return self
 
 	Func getSelectedImageKey
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedImageKey"])
+		return dnRequest("get",[self,"SelectedImageKey"])
 
 	Func setSelectedImageKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedImageKey",P1])
+		dnRequest("set",[self,"SelectedImageKey",P1])
 		return self
 
 	Func getStateImageKey
-		return dnRequest("get",[new DotNetObject(nHandle),"StateImageKey"])
+		return dnRequest("get",[self,"StateImageKey"])
 
 	Func setStateImageKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"StateImageKey",P1])
+		dnRequest("set",[self,"StateImageKey",P1])
 		return self
 
 	Func getStateImageIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"StateImageIndex"])
+		return dnRequest("get",[self,"StateImageIndex"])
 
 	Func setStateImageIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"StateImageIndex",P1])
+		dnRequest("set",[self,"StateImageIndex",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getToolTipText
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipText"])
+		return dnRequest("get",[self,"ToolTipText"])
 
 	Func setToolTipText P1
-		dnRequest("set",[new DotNetObject(nHandle),"ToolTipText",P1])
+		dnRequest("set",[self,"ToolTipText",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getTreeView
-		return dnRequest("get",[new DotNetObject(nHandle),"TreeView"])
+		return dnRequest("get",[self,"TreeView"])
 
 	Func setTreeView P1
 		raise("DotNet Error: TreeView is a read-only property")

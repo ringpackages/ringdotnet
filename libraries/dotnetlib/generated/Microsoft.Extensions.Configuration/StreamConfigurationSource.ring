@@ -22,9 +22,9 @@ Class StreamConfigurationSource from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStream
-		return dnRequest("get",[new DotNetObject(nHandle),"Stream"])
+		return dnRequest("get",[self,"Stream"])
 
 	Func setStream P1
-		dnRequest("set",[new DotNetObject(nHandle),"Stream",P1])
+		dnRequest("set",[self,"Stream",P1])
 		return self
 

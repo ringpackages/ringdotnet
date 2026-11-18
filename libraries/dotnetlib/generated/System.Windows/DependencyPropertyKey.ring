@@ -23,7 +23,7 @@ Class DependencyPropertyKey from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDependencyProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"DependencyProperty"])
+		return dnRequest("get",[self,"DependencyProperty"])
 
 	Func setDependencyProperty P1
 		raise("DotNet Error: DependencyProperty is a read-only property")

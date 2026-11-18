@@ -118,63 +118,63 @@ Class WpfMatrix from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Matrix, WindowsBase'),"Parse",P1])
 
 	Func getIsIdentity
-		return dnRequest("get",[new DotNetObject(nHandle),"IsIdentity"])
+		return dnRequest("get",[self,"IsIdentity"])
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getDeterminant
-		return dnRequest("get",[new DotNetObject(nHandle),"Determinant"])
+		return dnRequest("get",[self,"Determinant"])
 
 	Func setDeterminant P1
 		raise("DotNet Error: Determinant is a read-only property")
 
 	Func getHasInverse
-		return dnRequest("get",[new DotNetObject(nHandle),"HasInverse"])
+		return dnRequest("get",[self,"HasInverse"])
 
 	Func setHasInverse P1
 		raise("DotNet Error: HasInverse is a read-only property")
 
 	Func getM11
-		return dnRequest("get",[new DotNetObject(nHandle),"M11"])
+		return dnRequest("get",[self,"M11"])
 
 	Func setM11 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M11",P1])
+		dnRequest("set",[self,"M11",P1])
 		return self
 
 	Func getM12
-		return dnRequest("get",[new DotNetObject(nHandle),"M12"])
+		return dnRequest("get",[self,"M12"])
 
 	Func setM12 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M12",P1])
+		dnRequest("set",[self,"M12",P1])
 		return self
 
 	Func getM21
-		return dnRequest("get",[new DotNetObject(nHandle),"M21"])
+		return dnRequest("get",[self,"M21"])
 
 	Func setM21 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M21",P1])
+		dnRequest("set",[self,"M21",P1])
 		return self
 
 	Func getM22
-		return dnRequest("get",[new DotNetObject(nHandle),"M22"])
+		return dnRequest("get",[self,"M22"])
 
 	Func setM22 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M22",P1])
+		dnRequest("set",[self,"M22",P1])
 		return self
 
 	Func getOffsetX
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetX"])
+		return dnRequest("get",[self,"OffsetX"])
 
 	Func setOffsetX P1
-		dnRequest("set",[new DotNetObject(nHandle),"OffsetX",P1])
+		dnRequest("set",[self,"OffsetX",P1])
 		return self
 
 	Func getOffsetY
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetY"])
+		return dnRequest("get",[self,"OffsetY"])
 
 	Func setOffsetY P1
-		dnRequest("set",[new DotNetObject(nHandle),"OffsetY",P1])
+		dnRequest("set",[self,"OffsetY",P1])
 		return self
 
 	Func getIdentity

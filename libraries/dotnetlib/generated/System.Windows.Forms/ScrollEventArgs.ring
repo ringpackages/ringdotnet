@@ -31,26 +31,26 @@ Class ScrollEventArgs from EventArgs
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getNewValue
-		return dnRequest("get",[new DotNetObject(nHandle),"NewValue"])
+		return dnRequest("get",[self,"NewValue"])
 
 	Func setNewValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewValue",P1])
+		dnRequest("set",[self,"NewValue",P1])
 		return self
 
 	Func getOldValue
-		return dnRequest("get",[new DotNetObject(nHandle),"OldValue"])
+		return dnRequest("get",[self,"OldValue"])
 
 	Func setOldValue P1
 		raise("DotNet Error: OldValue is a read-only property")
 
 	Func getScrollOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollOrientation"])
+		return dnRequest("get",[self,"ScrollOrientation"])
 
 	Func setScrollOrientation P1
 		raise("DotNet Error: ScrollOrientation is a read-only property")

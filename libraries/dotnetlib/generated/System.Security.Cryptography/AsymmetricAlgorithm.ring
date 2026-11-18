@@ -61,26 +61,26 @@ Class AsymmetricAlgorithm from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getKeySize
-		return dnRequest("get",[new DotNetObject(nHandle),"KeySize"])
+		return dnRequest("get",[self,"KeySize"])
 
 	Func setKeySize P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeySize",P1])
+		dnRequest("set",[self,"KeySize",P1])
 		return self
 
 	Func getLegalKeySizes
-		return dnRequest("get",[new DotNetObject(nHandle),"LegalKeySizes"])
+		return dnRequest("get",[self,"LegalKeySizes"])
 
 	Func setLegalKeySizes P1
 		raise("DotNet Error: LegalKeySizes is a read-only property")
 
 	Func getSignatureAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"SignatureAlgorithm"])
+		return dnRequest("get",[self,"SignatureAlgorithm"])
 
 	Func setSignatureAlgorithm P1
 		raise("DotNet Error: SignatureAlgorithm is a read-only property")
 
 	Func getKeyExchangeAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyExchangeAlgorithm"])
+		return dnRequest("get",[self,"KeyExchangeAlgorithm"])
 
 	Func setKeyExchangeAlgorithm P1
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")

@@ -17,13 +17,13 @@ Class DownloadProgressChangedEventArgs from ProgressChangedEventArgs
 		return self
 
 	Func getBytesReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"BytesReceived"])
+		return dnRequest("get",[self,"BytesReceived"])
 
 	Func setBytesReceived P1
 		raise("DotNet Error: BytesReceived is a read-only property")
 
 	Func getTotalBytesToReceive
-		return dnRequest("get",[new DotNetObject(nHandle),"TotalBytesToReceive"])
+		return dnRequest("get",[self,"TotalBytesToReceive"])
 
 	Func setTotalBytesToReceive P1
 		raise("DotNet Error: TotalBytesToReceive is a read-only property")

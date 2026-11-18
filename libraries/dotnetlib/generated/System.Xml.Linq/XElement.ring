@@ -146,47 +146,47 @@ Class XElement from XContainer
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1,P2])
 
 	Func getFirstAttribute
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstAttribute"])
+		return dnRequest("get",[self,"FirstAttribute"])
 
 	Func setFirstAttribute P1
 		raise("DotNet Error: FirstAttribute is a read-only property")
 
 	Func getHasAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"HasAttributes"])
+		return dnRequest("get",[self,"HasAttributes"])
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
 
 	Func getHasElements
-		return dnRequest("get",[new DotNetObject(nHandle),"HasElements"])
+		return dnRequest("get",[self,"HasElements"])
 
 	Func setHasElements P1
 		raise("DotNet Error: HasElements is a read-only property")
 
 	Func getIsEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
+		return dnRequest("get",[self,"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getLastAttribute
-		return dnRequest("get",[new DotNetObject(nHandle),"LastAttribute"])
+		return dnRequest("get",[self,"LastAttribute"])
 
 	Func setLastAttribute P1
 		raise("DotNet Error: LastAttribute is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getEmptySequence

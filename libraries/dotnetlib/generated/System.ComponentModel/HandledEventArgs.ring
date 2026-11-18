@@ -21,9 +21,9 @@ Class HandledEventArgs from EventArgs
 		return self
 
 	Func getHandled
-		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
+		return dnRequest("get",[self,"Handled"])
 
 	Func setHandled P1
-		dnRequest("set",[new DotNetObject(nHandle),"Handled",P1])
+		dnRequest("set",[self,"Handled",P1])
 		return self
 

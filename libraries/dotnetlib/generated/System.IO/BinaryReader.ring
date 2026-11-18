@@ -108,7 +108,7 @@ Class BinaryReader from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBaseStream
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseStream"])
+		return dnRequest("get",[self,"BaseStream"])
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")

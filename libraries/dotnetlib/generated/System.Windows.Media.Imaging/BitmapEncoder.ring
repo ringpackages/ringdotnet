@@ -29,50 +29,50 @@ Class BitmapEncoder from DispatcherObject
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapEncoder, PresentationCore'),"Create",P1])
 
 	Func getColorContexts
-		return dnRequest("get",[new DotNetObject(nHandle),"ColorContexts"])
+		return dnRequest("get",[self,"ColorContexts"])
 
 	Func setColorContexts P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColorContexts",P1])
+		dnRequest("set",[self,"ColorContexts",P1])
 		return self
 
 	Func getThumbnail
-		return dnRequest("get",[new DotNetObject(nHandle),"Thumbnail"])
+		return dnRequest("get",[self,"Thumbnail"])
 
 	Func setThumbnail P1
-		dnRequest("set",[new DotNetObject(nHandle),"Thumbnail",P1])
+		dnRequest("set",[self,"Thumbnail",P1])
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
-		dnRequest("set",[new DotNetObject(nHandle),"Metadata",P1])
+		dnRequest("set",[self,"Metadata",P1])
 		return self
 
 	Func getPreview
-		return dnRequest("get",[new DotNetObject(nHandle),"Preview"])
+		return dnRequest("get",[self,"Preview"])
 
 	Func setPreview P1
-		dnRequest("set",[new DotNetObject(nHandle),"Preview",P1])
+		dnRequest("set",[self,"Preview",P1])
 		return self
 
 	Func getCodecInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"CodecInfo"])
+		return dnRequest("get",[self,"CodecInfo"])
 
 	Func setCodecInfo P1
 		raise("DotNet Error: CodecInfo is a read-only property")
 
 	Func getPalette
-		return dnRequest("get",[new DotNetObject(nHandle),"Palette"])
+		return dnRequest("get",[self,"Palette"])
 
 	Func setPalette P1
-		dnRequest("set",[new DotNetObject(nHandle),"Palette",P1])
+		dnRequest("set",[self,"Palette",P1])
 		return self
 
 	Func getFrames
-		return dnRequest("get",[new DotNetObject(nHandle),"Frames"])
+		return dnRequest("get",[self,"Frames"])
 
 	Func setFrames P1
-		dnRequest("set",[new DotNetObject(nHandle),"Frames",P1])
+		dnRequest("set",[self,"Frames",P1])
 		return self
 

@@ -17,15 +17,15 @@ Class IMutableEntityTypeMappingFragment from DotNetObject
 		return self
 
 	Func getEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
+		return dnRequest("get",[self,"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getIsTableExcludedFromMigrations
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTableExcludedFromMigrations"])
+		return dnRequest("get",[self,"IsTableExcludedFromMigrations"])
 
 	Func setIsTableExcludedFromMigrations P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsTableExcludedFromMigrations",P1])
+		dnRequest("set",[self,"IsTableExcludedFromMigrations",P1])
 		return self
 

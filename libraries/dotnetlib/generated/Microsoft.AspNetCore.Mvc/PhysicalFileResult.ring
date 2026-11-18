@@ -17,9 +17,9 @@ Class PhysicalFileResult from FileResult
 		return self
 
 	Func getFileName
-		return dnRequest("get",[new DotNetObject(nHandle),"FileName"])
+		return dnRequest("get",[self,"FileName"])
 
 	Func setFileName P1
-		dnRequest("set",[new DotNetObject(nHandle),"FileName",P1])
+		dnRequest("set",[self,"FileName",P1])
 		return self
 

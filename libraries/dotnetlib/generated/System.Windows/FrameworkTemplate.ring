@@ -44,34 +44,34 @@ Class FrameworkTemplate from DispatcherObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeResources",P1])
 
 	Func getIsSealed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSealed"])
+		return dnRequest("get",[self,"IsSealed"])
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getVisualTree
-		return dnRequest("get",[new DotNetObject(nHandle),"VisualTree"])
+		return dnRequest("get",[self,"VisualTree"])
 
 	Func setVisualTree P1
-		dnRequest("set",[new DotNetObject(nHandle),"VisualTree",P1])
+		dnRequest("set",[self,"VisualTree",P1])
 		return self
 
 	Func getTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"Template"])
+		return dnRequest("get",[self,"Template"])
 
 	Func setTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"Template",P1])
+		dnRequest("set",[self,"Template",P1])
 		return self
 
 	Func getResources
-		return dnRequest("get",[new DotNetObject(nHandle),"Resources"])
+		return dnRequest("get",[self,"Resources"])
 
 	Func setResources P1
-		dnRequest("set",[new DotNetObject(nHandle),"Resources",P1])
+		dnRequest("set",[self,"Resources",P1])
 		return self
 
 	Func getHasContent
-		return dnRequest("get",[new DotNetObject(nHandle),"HasContent"])
+		return dnRequest("get",[self,"HasContent"])
 
 	Func setHasContent P1
 		raise("DotNet Error: HasContent is a read-only property")

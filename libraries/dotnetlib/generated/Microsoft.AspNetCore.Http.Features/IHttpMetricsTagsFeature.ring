@@ -17,15 +17,15 @@ Class IHttpMetricsTagsFeature from DotNetObject
 		return self
 
 	Func getTags
-		return dnRequest("get",[new DotNetObject(nHandle),"Tags"])
+		return dnRequest("get",[self,"Tags"])
 
 	Func setTags P1
 		raise("DotNet Error: Tags is a read-only property")
 
 	Func getMetricsDisabled
-		return dnRequest("get",[new DotNetObject(nHandle),"MetricsDisabled"])
+		return dnRequest("get",[self,"MetricsDisabled"])
 
 	Func setMetricsDisabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"MetricsDisabled",P1])
+		dnRequest("set",[self,"MetricsDisabled",P1])
 		return self
 

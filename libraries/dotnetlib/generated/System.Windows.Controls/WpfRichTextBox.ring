@@ -40,30 +40,30 @@ Class WpfRichTextBox from WpfTextBoxBase
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeDocument"])
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
+		dnRequest("set",[self,"Document",P1])
 		return self
 
 	Func getIsDocumentEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDocumentEnabled"])
+		return dnRequest("get",[self,"IsDocumentEnabled"])
 
 	Func setIsDocumentEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsDocumentEnabled",P1])
+		dnRequest("set",[self,"IsDocumentEnabled",P1])
 		return self
 
 	Func getSelection
-		return dnRequest("get",[new DotNetObject(nHandle),"Selection"])
+		return dnRequest("get",[self,"Selection"])
 
 	Func setSelection P1
 		raise("DotNet Error: Selection is a read-only property")
 
 	Func getCaretPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"CaretPosition"])
+		return dnRequest("get",[self,"CaretPosition"])
 
 	Func setCaretPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"CaretPosition",P1])
+		dnRequest("set",[self,"CaretPosition",P1])
 		return self
 
 	Func getIsDocumentEnabledProperty

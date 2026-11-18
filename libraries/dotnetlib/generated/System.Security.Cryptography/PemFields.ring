@@ -20,25 +20,25 @@ Class PemFields from ValueType
 		return self
 
 	Func getLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
+		return dnRequest("get",[self,"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getLabel
-		return dnRequest("get",[new DotNetObject(nHandle),"Label"])
+		return dnRequest("get",[self,"Label"])
 
 	Func setLabel P1
 		raise("DotNet Error: Label is a read-only property")
 
 	Func getBase64Data
-		return dnRequest("get",[new DotNetObject(nHandle),"Base64Data"])
+		return dnRequest("get",[self,"Base64Data"])
 
 	Func setBase64Data P1
 		raise("DotNet Error: Base64Data is a read-only property")
 
 	Func getDecodedDataLength
-		return dnRequest("get",[new DotNetObject(nHandle),"DecodedDataLength"])
+		return dnRequest("get",[self,"DecodedDataLength"])
 
 	Func setDecodedDataLength P1
 		raise("DotNet Error: DecodedDataLength is a read-only property")

@@ -43,31 +43,31 @@ Class HostApplicationBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEnvironment
-		return dnRequest("get",[new DotNetObject(nHandle),"Environment"])
+		return dnRequest("get",[self,"Environment"])
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getConfiguration
-		return dnRequest("get",[new DotNetObject(nHandle),"Configuration"])
+		return dnRequest("get",[self,"Configuration"])
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
+		return dnRequest("get",[self,"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getLogging
-		return dnRequest("get",[new DotNetObject(nHandle),"Logging"])
+		return dnRequest("get",[self,"Logging"])
 
 	Func setLogging P1
 		raise("DotNet Error: Logging is a read-only property")
 
 	Func getMetrics
-		return dnRequest("get",[new DotNetObject(nHandle),"Metrics"])
+		return dnRequest("get",[self,"Metrics"])
 
 	Func setMetrics P1
 		raise("DotNet Error: Metrics is a read-only property")

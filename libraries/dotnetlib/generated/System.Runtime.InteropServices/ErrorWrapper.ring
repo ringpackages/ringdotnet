@@ -20,7 +20,7 @@ Class ErrorWrapper from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getErrorCode
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorCode"])
+		return dnRequest("get",[self,"ErrorCode"])
 
 	Func setErrorCode P1
 		raise("DotNet Error: ErrorCode is a read-only property")

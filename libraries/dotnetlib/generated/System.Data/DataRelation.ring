@@ -41,63 +41,63 @@ Class DataRelation from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getChildColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"ChildColumns"])
+		return dnRequest("get",[self,"ChildColumns"])
 
 	Func setChildColumns P1
 		raise("DotNet Error: ChildColumns is a read-only property")
 
 	Func getChildTable
-		return dnRequest("get",[new DotNetObject(nHandle),"ChildTable"])
+		return dnRequest("get",[self,"ChildTable"])
 
 	Func setChildTable P1
 		raise("DotNet Error: ChildTable is a read-only property")
 
 	Func getDataSet
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSet"])
+		return dnRequest("get",[self,"DataSet"])
 
 	Func setDataSet P1
 		raise("DotNet Error: DataSet is a read-only property")
 
 	Func getParentColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"ParentColumns"])
+		return dnRequest("get",[self,"ParentColumns"])
 
 	Func setParentColumns P1
 		raise("DotNet Error: ParentColumns is a read-only property")
 
 	Func getParentTable
-		return dnRequest("get",[new DotNetObject(nHandle),"ParentTable"])
+		return dnRequest("get",[self,"ParentTable"])
 
 	Func setParentTable P1
 		raise("DotNet Error: ParentTable is a read-only property")
 
 	Func getRelationName
-		return dnRequest("get",[new DotNetObject(nHandle),"RelationName"])
+		return dnRequest("get",[self,"RelationName"])
 
 	Func setRelationName P1
-		dnRequest("set",[new DotNetObject(nHandle),"RelationName",P1])
+		dnRequest("set",[self,"RelationName",P1])
 		return self
 
 	Func getNested
-		return dnRequest("get",[new DotNetObject(nHandle),"Nested"])
+		return dnRequest("get",[self,"Nested"])
 
 	Func setNested P1
-		dnRequest("set",[new DotNetObject(nHandle),"Nested",P1])
+		dnRequest("set",[self,"Nested",P1])
 		return self
 
 	Func getParentKeyConstraint
-		return dnRequest("get",[new DotNetObject(nHandle),"ParentKeyConstraint"])
+		return dnRequest("get",[self,"ParentKeyConstraint"])
 
 	Func setParentKeyConstraint P1
 		raise("DotNet Error: ParentKeyConstraint is a read-only property")
 
 	Func getChildKeyConstraint
-		return dnRequest("get",[new DotNetObject(nHandle),"ChildKeyConstraint"])
+		return dnRequest("get",[self,"ChildKeyConstraint"])
 
 	Func setChildKeyConstraint P1
 		raise("DotNet Error: ChildKeyConstraint is a read-only property")
 
 	Func getExtendedProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedProperties"])
+		return dnRequest("get",[self,"ExtendedProperties"])
 
 	Func setExtendedProperties P1
 		raise("DotNet Error: ExtendedProperties is a read-only property")

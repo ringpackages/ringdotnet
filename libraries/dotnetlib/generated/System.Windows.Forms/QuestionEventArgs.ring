@@ -21,9 +21,9 @@ Class QuestionEventArgs from EventArgs
 		return self
 
 	Func getResponse
-		return dnRequest("get",[new DotNetObject(nHandle),"Response"])
+		return dnRequest("get",[self,"Response"])
 
 	Func setResponse P1
-		dnRequest("set",[new DotNetObject(nHandle),"Response",P1])
+		dnRequest("set",[self,"Response",P1])
 		return self
 

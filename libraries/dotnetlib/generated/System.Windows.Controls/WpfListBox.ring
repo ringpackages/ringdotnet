@@ -32,14 +32,14 @@ Class WpfListBox from Selector
 		return self
 
 	Func getSelectionMode
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionMode"])
+		return dnRequest("get",[self,"SelectionMode"])
 
 	Func setSelectionMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionMode",P1])
+		dnRequest("set",[self,"SelectionMode",P1])
 		return self
 
 	Func getSelectedItems
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItems"])
+		return dnRequest("get",[self,"SelectedItems"])
 
 	Func setSelectedItems P1
 		raise("DotNet Error: SelectedItems is a read-only property")

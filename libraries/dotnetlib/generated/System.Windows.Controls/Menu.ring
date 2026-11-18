@@ -18,10 +18,10 @@ Class Menu from MenuBase
 		return self
 
 	Func getIsMainMenu
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMainMenu"])
+		return dnRequest("get",[self,"IsMainMenu"])
 
 	Func setIsMainMenu P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsMainMenu",P1])
+		dnRequest("set",[self,"IsMainMenu",P1])
 		return self
 
 	Func getIsMainMenuProperty

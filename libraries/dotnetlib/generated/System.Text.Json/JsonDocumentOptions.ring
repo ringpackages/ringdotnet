@@ -19,23 +19,23 @@ Class JsonDocumentOptions from ValueType
 		return self
 
 	Func getCommentHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"CommentHandling"])
+		return dnRequest("get",[self,"CommentHandling"])
 
 	Func setCommentHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommentHandling",P1])
+		dnRequest("set",[self,"CommentHandling",P1])
 		return self
 
 	Func getMaxDepth
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxDepth"])
+		return dnRequest("get",[self,"MaxDepth"])
 
 	Func setMaxDepth P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxDepth",P1])
+		dnRequest("set",[self,"MaxDepth",P1])
 		return self
 
 	Func getAllowTrailingCommas
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowTrailingCommas"])
+		return dnRequest("get",[self,"AllowTrailingCommas"])
 
 	Func setAllowTrailingCommas P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowTrailingCommas",P1])
+		dnRequest("set",[self,"AllowTrailingCommas",P1])
 		return self
 

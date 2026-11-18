@@ -17,7 +17,7 @@ Class DataGridViewRowDividerDoubleClickEventArgs from HandledMouseEventArgs
 		return self
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")

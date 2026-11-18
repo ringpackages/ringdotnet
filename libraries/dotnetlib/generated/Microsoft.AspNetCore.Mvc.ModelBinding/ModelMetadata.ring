@@ -83,331 +83,331 @@ Class ModelMetadata from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForProperties",P1])
 
 	Func getContainerType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainerType"])
+		return dnRequest("get",[self,"ContainerType"])
 
 	Func setContainerType P1
 		raise("DotNet Error: ContainerType is a read-only property")
 
 	Func getContainerMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainerMetadata"])
+		return dnRequest("get",[self,"ContainerMetadata"])
 
 	Func setContainerMetadata P1
 		raise("DotNet Error: ContainerMetadata is a read-only property")
 
 	Func getMetadataKind
-		return dnRequest("get",[new DotNetObject(nHandle),"MetadataKind"])
+		return dnRequest("get",[self,"MetadataKind"])
 
 	Func setMetadataKind P1
 		raise("DotNet Error: MetadataKind is a read-only property")
 
 	Func getModelType
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelType"])
+		return dnRequest("get",[self,"ModelType"])
 
 	Func setModelType P1
 		raise("DotNet Error: ModelType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getParameterName
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterName"])
+		return dnRequest("get",[self,"ParameterName"])
 
 	Func setParameterName P1
 		raise("DotNet Error: ParameterName is a read-only property")
 
 	Func getPropertyName
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyName"])
+		return dnRequest("get",[self,"PropertyName"])
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getAdditionalValues
-		return dnRequest("get",[new DotNetObject(nHandle),"AdditionalValues"])
+		return dnRequest("get",[self,"AdditionalValues"])
 
 	Func setAdditionalValues P1
 		raise("DotNet Error: AdditionalValues is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getBoundConstructor
-		return dnRequest("get",[new DotNetObject(nHandle),"BoundConstructor"])
+		return dnRequest("get",[self,"BoundConstructor"])
 
 	Func setBoundConstructor P1
 		raise("DotNet Error: BoundConstructor is a read-only property")
 
 	Func getBoundConstructorParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"BoundConstructorParameters"])
+		return dnRequest("get",[self,"BoundConstructorParameters"])
 
 	Func setBoundConstructorParameters P1
 		raise("DotNet Error: BoundConstructorParameters is a read-only property")
 
 	Func getBinderModelName
-		return dnRequest("get",[new DotNetObject(nHandle),"BinderModelName"])
+		return dnRequest("get",[self,"BinderModelName"])
 
 	Func setBinderModelName P1
 		raise("DotNet Error: BinderModelName is a read-only property")
 
 	Func getBinderType
-		return dnRequest("get",[new DotNetObject(nHandle),"BinderType"])
+		return dnRequest("get",[self,"BinderType"])
 
 	Func setBinderType P1
 		raise("DotNet Error: BinderType is a read-only property")
 
 	Func getBindingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingSource"])
+		return dnRequest("get",[self,"BindingSource"])
 
 	Func setBindingSource P1
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getConvertEmptyStringToNull
-		return dnRequest("get",[new DotNetObject(nHandle),"ConvertEmptyStringToNull"])
+		return dnRequest("get",[self,"ConvertEmptyStringToNull"])
 
 	Func setConvertEmptyStringToNull P1
 		raise("DotNet Error: ConvertEmptyStringToNull is a read-only property")
 
 	Func getDataTypeName
-		return dnRequest("get",[new DotNetObject(nHandle),"DataTypeName"])
+		return dnRequest("get",[self,"DataTypeName"])
 
 	Func setDataTypeName P1
 		raise("DotNet Error: DataTypeName is a read-only property")
 
 	Func getDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
+		return dnRequest("get",[self,"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getDisplayFormatString
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayFormatString"])
+		return dnRequest("get",[self,"DisplayFormatString"])
 
 	Func setDisplayFormatString P1
 		raise("DotNet Error: DisplayFormatString is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
+		return dnRequest("get",[self,"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getEditFormatString
-		return dnRequest("get",[new DotNetObject(nHandle),"EditFormatString"])
+		return dnRequest("get",[self,"EditFormatString"])
 
 	Func setEditFormatString P1
 		raise("DotNet Error: EditFormatString is a read-only property")
 
 	Func getElementMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementMetadata"])
+		return dnRequest("get",[self,"ElementMetadata"])
 
 	Func setElementMetadata P1
 		raise("DotNet Error: ElementMetadata is a read-only property")
 
 	Func getEnumGroupedDisplayNamesAndValues
-		return dnRequest("get",[new DotNetObject(nHandle),"EnumGroupedDisplayNamesAndValues"])
+		return dnRequest("get",[self,"EnumGroupedDisplayNamesAndValues"])
 
 	Func setEnumGroupedDisplayNamesAndValues P1
 		raise("DotNet Error: EnumGroupedDisplayNamesAndValues is a read-only property")
 
 	Func getEnumNamesAndValues
-		return dnRequest("get",[new DotNetObject(nHandle),"EnumNamesAndValues"])
+		return dnRequest("get",[self,"EnumNamesAndValues"])
 
 	Func setEnumNamesAndValues P1
 		raise("DotNet Error: EnumNamesAndValues is a read-only property")
 
 	Func getHasNonDefaultEditFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"HasNonDefaultEditFormat"])
+		return dnRequest("get",[self,"HasNonDefaultEditFormat"])
 
 	Func setHasNonDefaultEditFormat P1
 		raise("DotNet Error: HasNonDefaultEditFormat is a read-only property")
 
 	Func getHtmlEncode
-		return dnRequest("get",[new DotNetObject(nHandle),"HtmlEncode"])
+		return dnRequest("get",[self,"HtmlEncode"])
 
 	Func setHtmlEncode P1
 		raise("DotNet Error: HtmlEncode is a read-only property")
 
 	Func getHideSurroundingHtml
-		return dnRequest("get",[new DotNetObject(nHandle),"HideSurroundingHtml"])
+		return dnRequest("get",[self,"HideSurroundingHtml"])
 
 	Func setHideSurroundingHtml P1
 		raise("DotNet Error: HideSurroundingHtml is a read-only property")
 
 	Func getIsBindingAllowed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBindingAllowed"])
+		return dnRequest("get",[self,"IsBindingAllowed"])
 
 	Func setIsBindingAllowed P1
 		raise("DotNet Error: IsBindingAllowed is a read-only property")
 
 	Func getIsBindingRequired
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBindingRequired"])
+		return dnRequest("get",[self,"IsBindingRequired"])
 
 	Func setIsBindingRequired P1
 		raise("DotNet Error: IsBindingRequired is a read-only property")
 
 	Func getIsEnum
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEnum"])
+		return dnRequest("get",[self,"IsEnum"])
 
 	Func setIsEnum P1
 		raise("DotNet Error: IsEnum is a read-only property")
 
 	Func getIsFlagsEnum
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFlagsEnum"])
+		return dnRequest("get",[self,"IsFlagsEnum"])
 
 	Func setIsFlagsEnum P1
 		raise("DotNet Error: IsFlagsEnum is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsRequired
-		return dnRequest("get",[new DotNetObject(nHandle),"IsRequired"])
+		return dnRequest("get",[self,"IsRequired"])
 
 	Func setIsRequired P1
 		raise("DotNet Error: IsRequired is a read-only property")
 
 	Func getModelBindingMessageProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelBindingMessageProvider"])
+		return dnRequest("get",[self,"ModelBindingMessageProvider"])
 
 	Func setModelBindingMessageProvider P1
 		raise("DotNet Error: ModelBindingMessageProvider is a read-only property")
 
 	Func getOrder
-		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
+		return dnRequest("get",[self,"Order"])
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getPlaceholder
-		return dnRequest("get",[new DotNetObject(nHandle),"Placeholder"])
+		return dnRequest("get",[self,"Placeholder"])
 
 	Func setPlaceholder P1
 		raise("DotNet Error: Placeholder is a read-only property")
 
 	Func getNullDisplayText
-		return dnRequest("get",[new DotNetObject(nHandle),"NullDisplayText"])
+		return dnRequest("get",[self,"NullDisplayText"])
 
 	Func setNullDisplayText P1
 		raise("DotNet Error: NullDisplayText is a read-only property")
 
 	Func getPropertyFilterProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyFilterProvider"])
+		return dnRequest("get",[self,"PropertyFilterProvider"])
 
 	Func setPropertyFilterProvider P1
 		raise("DotNet Error: PropertyFilterProvider is a read-only property")
 
 	Func getShowForDisplay
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowForDisplay"])
+		return dnRequest("get",[self,"ShowForDisplay"])
 
 	Func setShowForDisplay P1
 		raise("DotNet Error: ShowForDisplay is a read-only property")
 
 	Func getShowForEdit
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowForEdit"])
+		return dnRequest("get",[self,"ShowForEdit"])
 
 	Func setShowForEdit P1
 		raise("DotNet Error: ShowForEdit is a read-only property")
 
 	Func getSimpleDisplayProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"SimpleDisplayProperty"])
+		return dnRequest("get",[self,"SimpleDisplayProperty"])
 
 	Func setSimpleDisplayProperty P1
 		raise("DotNet Error: SimpleDisplayProperty is a read-only property")
 
 	Func getTemplateHint
-		return dnRequest("get",[new DotNetObject(nHandle),"TemplateHint"])
+		return dnRequest("get",[self,"TemplateHint"])
 
 	Func setTemplateHint P1
 		raise("DotNet Error: TemplateHint is a read-only property")
 
 	Func getPropertyValidationFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyValidationFilter"])
+		return dnRequest("get",[self,"PropertyValidationFilter"])
 
 	Func setPropertyValidationFilter P1
 		raise("DotNet Error: PropertyValidationFilter is a read-only property")
 
 	Func getValidateChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidateChildren"])
+		return dnRequest("get",[self,"ValidateChildren"])
 
 	Func setValidateChildren P1
 		raise("DotNet Error: ValidateChildren is a read-only property")
 
 	Func getHasValidators
-		return dnRequest("get",[new DotNetObject(nHandle),"HasValidators"])
+		return dnRequest("get",[self,"HasValidators"])
 
 	Func setHasValidators P1
 		raise("DotNet Error: HasValidators is a read-only property")
 
 	Func getValidatorMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidatorMetadata"])
+		return dnRequest("get",[self,"ValidatorMetadata"])
 
 	Func setValidatorMetadata P1
 		raise("DotNet Error: ValidatorMetadata is a read-only property")
 
 	Func getElementType
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementType"])
+		return dnRequest("get",[self,"ElementType"])
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
 
 	Func getIsComplexType
-		return dnRequest("get",[new DotNetObject(nHandle),"IsComplexType"])
+		return dnRequest("get",[self,"IsComplexType"])
 
 	Func setIsComplexType P1
 		raise("DotNet Error: IsComplexType is a read-only property")
 
 	Func getIsNullableValueType
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullableValueType"])
+		return dnRequest("get",[self,"IsNullableValueType"])
 
 	Func setIsNullableValueType P1
 		raise("DotNet Error: IsNullableValueType is a read-only property")
 
 	Func getIsCollectionType
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCollectionType"])
+		return dnRequest("get",[self,"IsCollectionType"])
 
 	Func setIsCollectionType P1
 		raise("DotNet Error: IsCollectionType is a read-only property")
 
 	Func getIsEnumerableType
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEnumerableType"])
+		return dnRequest("get",[self,"IsEnumerableType"])
 
 	Func setIsEnumerableType P1
 		raise("DotNet Error: IsEnumerableType is a read-only property")
 
 	Func getIsReferenceOrNullableType
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReferenceOrNullableType"])
+		return dnRequest("get",[self,"IsReferenceOrNullableType"])
 
 	Func setIsReferenceOrNullableType P1
 		raise("DotNet Error: IsReferenceOrNullableType is a read-only property")
 
 	Func getUnderlyingOrModelType
-		return dnRequest("get",[new DotNetObject(nHandle),"UnderlyingOrModelType"])
+		return dnRequest("get",[self,"UnderlyingOrModelType"])
 
 	Func setUnderlyingOrModelType P1
 		raise("DotNet Error: UnderlyingOrModelType is a read-only property")
 
 	Func getPropertyGetter
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyGetter"])
+		return dnRequest("get",[self,"PropertyGetter"])
 
 	Func setPropertyGetter P1
 		raise("DotNet Error: PropertyGetter is a read-only property")
 
 	Func getPropertySetter
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertySetter"])
+		return dnRequest("get",[self,"PropertySetter"])
 
 	Func setPropertySetter P1
 		raise("DotNet Error: PropertySetter is a read-only property")
 
 	Func getBoundConstructorInvoker
-		return dnRequest("get",[new DotNetObject(nHandle),"BoundConstructorInvoker"])
+		return dnRequest("get",[self,"BoundConstructorInvoker"])
 
 	Func setBoundConstructorInvoker P1
 		raise("DotNet Error: BoundConstructorInvoker is a read-only property")

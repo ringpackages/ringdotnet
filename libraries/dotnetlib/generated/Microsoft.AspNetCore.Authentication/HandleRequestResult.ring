@@ -39,13 +39,13 @@ Class HandleRequestResult from AuthenticateResult
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"NoResult"])
 
 	Func getHandled
-		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
+		return dnRequest("get",[self,"Handled"])
 
 	Func setHandled P1
 		raise("DotNet Error: Handled is a read-only property")
 
 	Func getSkipped
-		return dnRequest("get",[new DotNetObject(nHandle),"Skipped"])
+		return dnRequest("get",[self,"Skipped"])
 
 	Func setSkipped P1
 		raise("DotNet Error: Skipped is a read-only property")

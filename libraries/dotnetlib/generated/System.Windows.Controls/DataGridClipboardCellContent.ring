@@ -23,19 +23,19 @@ Class DataGridClipboardCellContent from ValueType
 		return self
 
 	Func getItem
-		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
+		return dnRequest("get",[self,"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getContent
-		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
+		return dnRequest("get",[self,"Content"])
 
 	Func setContent P1
 		raise("DotNet Error: Content is a read-only property")

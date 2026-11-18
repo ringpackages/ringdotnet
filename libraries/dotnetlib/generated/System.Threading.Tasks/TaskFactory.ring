@@ -89,25 +89,25 @@ Class TaskFactory from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCancellationToken
-		return dnRequest("get",[new DotNetObject(nHandle),"CancellationToken"])
+		return dnRequest("get",[self,"CancellationToken"])
 
 	Func setCancellationToken P1
 		raise("DotNet Error: CancellationToken is a read-only property")
 
 	Func getScheduler
-		return dnRequest("get",[new DotNetObject(nHandle),"Scheduler"])
+		return dnRequest("get",[self,"Scheduler"])
 
 	Func setScheduler P1
 		raise("DotNet Error: Scheduler is a read-only property")
 
 	Func getCreationOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"CreationOptions"])
+		return dnRequest("get",[self,"CreationOptions"])
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getContinuationOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"ContinuationOptions"])
+		return dnRequest("get",[self,"ContinuationOptions"])
 
 	Func setContinuationOptions P1
 		raise("DotNet Error: ContinuationOptions is a read-only property")

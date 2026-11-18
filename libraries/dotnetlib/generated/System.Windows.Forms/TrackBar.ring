@@ -61,65 +61,65 @@ Class TrackBar from Control
 		return self
 
 	Func getLargeChange
-		return dnRequest("get",[new DotNetObject(nHandle),"LargeChange"])
+		return dnRequest("get",[self,"LargeChange"])
 
 	Func setLargeChange P1
-		dnRequest("set",[new DotNetObject(nHandle),"LargeChange",P1])
+		dnRequest("set",[self,"LargeChange",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
+		return dnRequest("get",[self,"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
+		dnRequest("set",[self,"Maximum",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
+		return dnRequest("get",[self,"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
+		dnRequest("set",[self,"Minimum",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
+		return dnRequest("get",[self,"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
+		dnRequest("set",[self,"Orientation",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
+		return dnRequest("get",[self,"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
+		dnRequest("set",[self,"RightToLeftLayout",P1])
 		return self
 
 	Func getSmallChange
-		return dnRequest("get",[new DotNetObject(nHandle),"SmallChange"])
+		return dnRequest("get",[self,"SmallChange"])
 
 	Func setSmallChange P1
-		dnRequest("set",[new DotNetObject(nHandle),"SmallChange",P1])
+		dnRequest("set",[self,"SmallChange",P1])
 		return self
 
 	Func getTickStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"TickStyle"])
+		return dnRequest("get",[self,"TickStyle"])
 
 	Func setTickStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"TickStyle",P1])
+		dnRequest("set",[self,"TickStyle",P1])
 		return self
 
 	Func getTickFrequency
-		return dnRequest("get",[new DotNetObject(nHandle),"TickFrequency"])
+		return dnRequest("get",[self,"TickFrequency"])
 
 	Func setTickFrequency P1
-		dnRequest("set",[new DotNetObject(nHandle),"TickFrequency",P1])
+		dnRequest("set",[self,"TickFrequency",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 

@@ -249,170 +249,170 @@ Class BindingSource from Component
 		return self
 
 	Func getCurrencyManager
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyManager"])
+		return dnRequest("get",[self,"CurrencyManager"])
 
 	Func setCurrencyManager P1
 		raise("DotNet Error: CurrencyManager is a read-only property")
 
 	Func getCurrent
-		return dnRequest("get",[new DotNetObject(nHandle),"Current"])
+		return dnRequest("get",[self,"Current"])
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getDataMember
-		return dnRequest("get",[new DotNetObject(nHandle),"DataMember"])
+		return dnRequest("get",[self,"DataMember"])
 
 	Func setDataMember P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataMember",P1])
+		dnRequest("set",[self,"DataMember",P1])
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
+		return dnRequest("get",[self,"DataSource"])
 
 	Func setDataSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSource",P1])
+		dnRequest("set",[self,"DataSource",P1])
 		return self
 
 	Func getIsBindingSuspended
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBindingSuspended"])
+		return dnRequest("get",[self,"IsBindingSuspended"])
 
 	Func setIsBindingSuspended P1
 		raise("DotNet Error: IsBindingSuspended is a read-only property")
 
 	Func getList
-		return dnRequest("get",[new DotNetObject(nHandle),"List"])
+		return dnRequest("get",[self,"List"])
 
 	Func setList P1
 		raise("DotNet Error: List is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
+		return dnRequest("get",[self,"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
+		dnRequest("set",[self,"Position",P1])
 		return self
 
 	Func getRaiseListChangedEvents
-		return dnRequest("get",[new DotNetObject(nHandle),"RaiseListChangedEvents"])
+		return dnRequest("get",[self,"RaiseListChangedEvents"])
 
 	Func setRaiseListChangedEvents P1
-		dnRequest("set",[new DotNetObject(nHandle),"RaiseListChangedEvents",P1])
+		dnRequest("set",[self,"RaiseListChangedEvents",P1])
 		return self
 
 	Func getSort
-		return dnRequest("get",[new DotNetObject(nHandle),"Sort"])
+		return dnRequest("get",[self,"Sort"])
 
 	Func setSort P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sort",P1])
+		dnRequest("set",[self,"Sort",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSynchronized"])
+		return dnRequest("get",[self,"IsSynchronized"])
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[new DotNetObject(nHandle),"SyncRoot"])
+		return dnRequest("get",[self,"SyncRoot"])
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedSize"])
+		return dnRequest("get",[self,"IsFixedSize"])
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getAllowEdit
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowEdit"])
+		return dnRequest("get",[self,"AllowEdit"])
 
 	Func setAllowEdit P1
 		raise("DotNet Error: AllowEdit is a read-only property")
 
 	Func getAllowNew
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowNew"])
+		return dnRequest("get",[self,"AllowNew"])
 
 	Func setAllowNew P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowNew",P1])
+		dnRequest("set",[self,"AllowNew",P1])
 		return self
 
 	Func getAllowRemove
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowRemove"])
+		return dnRequest("get",[self,"AllowRemove"])
 
 	Func setAllowRemove P1
 		raise("DotNet Error: AllowRemove is a read-only property")
 
 	Func getSupportsChangeNotification
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsChangeNotification"])
+		return dnRequest("get",[self,"SupportsChangeNotification"])
 
 	Func setSupportsChangeNotification P1
 		raise("DotNet Error: SupportsChangeNotification is a read-only property")
 
 	Func getSupportsSearching
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsSearching"])
+		return dnRequest("get",[self,"SupportsSearching"])
 
 	Func setSupportsSearching P1
 		raise("DotNet Error: SupportsSearching is a read-only property")
 
 	Func getSupportsSorting
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsSorting"])
+		return dnRequest("get",[self,"SupportsSorting"])
 
 	Func setSupportsSorting P1
 		raise("DotNet Error: SupportsSorting is a read-only property")
 
 	Func getIsSorted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSorted"])
+		return dnRequest("get",[self,"IsSorted"])
 
 	Func setIsSorted P1
 		raise("DotNet Error: IsSorted is a read-only property")
 
 	Func getSortProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"SortProperty"])
+		return dnRequest("get",[self,"SortProperty"])
 
 	Func setSortProperty P1
 		raise("DotNet Error: SortProperty is a read-only property")
 
 	Func getSortDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"SortDirection"])
+		return dnRequest("get",[self,"SortDirection"])
 
 	Func setSortDirection P1
 		raise("DotNet Error: SortDirection is a read-only property")
 
 	Func getSortDescriptions
-		return dnRequest("get",[new DotNetObject(nHandle),"SortDescriptions"])
+		return dnRequest("get",[self,"SortDescriptions"])
 
 	Func setSortDescriptions P1
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
+		return dnRequest("get",[self,"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
+		dnRequest("set",[self,"Filter",P1])
 		return self
 
 	Func getSupportsAdvancedSorting
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsAdvancedSorting"])
+		return dnRequest("get",[self,"SupportsAdvancedSorting"])
 
 	Func setSupportsAdvancedSorting P1
 		raise("DotNet Error: SupportsAdvancedSorting is a read-only property")
 
 	Func getSupportsFiltering
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsFiltering"])
+		return dnRequest("get",[self,"SupportsFiltering"])
 
 	Func setSupportsFiltering P1
 		raise("DotNet Error: SupportsFiltering is a read-only property")

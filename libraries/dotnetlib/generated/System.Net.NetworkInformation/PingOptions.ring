@@ -25,16 +25,16 @@ Class PingOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTtl
-		return dnRequest("get",[new DotNetObject(nHandle),"Ttl"])
+		return dnRequest("get",[self,"Ttl"])
 
 	Func setTtl P1
-		dnRequest("set",[new DotNetObject(nHandle),"Ttl",P1])
+		dnRequest("set",[self,"Ttl",P1])
 		return self
 
 	Func getDontFragment
-		return dnRequest("get",[new DotNetObject(nHandle),"DontFragment"])
+		return dnRequest("get",[self,"DontFragment"])
 
 	Func setDontFragment P1
-		dnRequest("set",[new DotNetObject(nHandle),"DontFragment",P1])
+		dnRequest("set",[self,"DontFragment",P1])
 		return self
 

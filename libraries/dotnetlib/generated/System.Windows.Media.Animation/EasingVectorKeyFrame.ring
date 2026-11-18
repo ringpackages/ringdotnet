@@ -30,10 +30,10 @@ Class EasingVectorKeyFrame from VectorKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"EasingFunction"])
+		return dnRequest("get",[self,"EasingFunction"])
 
 	Func setEasingFunction P1
-		dnRequest("set",[new DotNetObject(nHandle),"EasingFunction",P1])
+		dnRequest("set",[self,"EasingFunction",P1])
 		return self
 
 	Func getEasingFunctionProperty

@@ -22,15 +22,15 @@ Class UnmanagedMemoryStream from Stream
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
+		return dnRequest("get",[self,"Capacity"])
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getPositionPointer
-		return dnRequest("get",[new DotNetObject(nHandle),"PositionPointer"])
+		return dnRequest("get",[self,"PositionPointer"])
 
 	Func setPositionPointer P1
-		dnRequest("set",[new DotNetObject(nHandle),"PositionPointer",P1])
+		dnRequest("set",[self,"PositionPointer",P1])
 		return self
 

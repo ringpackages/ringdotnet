@@ -188,19 +188,19 @@ Class Regex from Object
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2,P3,P4])
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getRightToLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeft"])
+		return dnRequest("get",[self,"RightToLeft"])
 
 	Func setRightToLeft P1
 		raise("DotNet Error: RightToLeft is a read-only property")
 
 	Func getMatchTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"MatchTimeout"])
+		return dnRequest("get",[self,"MatchTimeout"])
 
 	Func setMatchTimeout P1
 		raise("DotNet Error: MatchTimeout is a read-only property")

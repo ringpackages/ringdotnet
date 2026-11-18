@@ -163,137 +163,137 @@ Class HtmlDocument from Object
 		return self
 
 	Func getActiveElement
-		return dnRequest("get",[new DotNetObject(nHandle),"ActiveElement"])
+		return dnRequest("get",[self,"ActiveElement"])
 
 	Func setActiveElement P1
 		raise("DotNet Error: ActiveElement is a read-only property")
 
 	Func getBody
-		return dnRequest("get",[new DotNetObject(nHandle),"Body"])
+		return dnRequest("get",[self,"Body"])
 
 	Func setBody P1
 		raise("DotNet Error: Body is a read-only property")
 
 	Func getDomain
-		return dnRequest("get",[new DotNetObject(nHandle),"Domain"])
+		return dnRequest("get",[self,"Domain"])
 
 	Func setDomain P1
-		dnRequest("set",[new DotNetObject(nHandle),"Domain",P1])
+		dnRequest("set",[self,"Domain",P1])
 		return self
 
 	Func getTitle
-		return dnRequest("get",[new DotNetObject(nHandle),"Title"])
+		return dnRequest("get",[self,"Title"])
 
 	Func setTitle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Title",P1])
+		dnRequest("set",[self,"Title",P1])
 		return self
 
 	Func getUrl
-		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
+		return dnRequest("get",[self,"Url"])
 
 	Func setUrl P1
 		raise("DotNet Error: Url is a read-only property")
 
 	Func getWindow
-		return dnRequest("get",[new DotNetObject(nHandle),"Window"])
+		return dnRequest("get",[self,"Window"])
 
 	Func setWindow P1
 		raise("DotNet Error: Window is a read-only property")
 
 	Func getBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
+		return dnRequest("get",[self,"BackColor"])
 
 	Func setBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"BackColor",P1])
+		dnRequest("set",[self,"BackColor",P1])
 		return self
 
 	Func getForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
+		return dnRequest("get",[self,"ForeColor"])
 
 	Func setForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForeColor",P1])
+		dnRequest("set",[self,"ForeColor",P1])
 		return self
 
 	Func getLinkColor
-		return dnRequest("get",[new DotNetObject(nHandle),"LinkColor"])
+		return dnRequest("get",[self,"LinkColor"])
 
 	Func setLinkColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"LinkColor",P1])
+		dnRequest("set",[self,"LinkColor",P1])
 		return self
 
 	Func getActiveLinkColor
-		return dnRequest("get",[new DotNetObject(nHandle),"ActiveLinkColor"])
+		return dnRequest("get",[self,"ActiveLinkColor"])
 
 	Func setActiveLinkColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActiveLinkColor",P1])
+		dnRequest("set",[self,"ActiveLinkColor",P1])
 		return self
 
 	Func getVisitedLinkColor
-		return dnRequest("get",[new DotNetObject(nHandle),"VisitedLinkColor"])
+		return dnRequest("get",[self,"VisitedLinkColor"])
 
 	Func setVisitedLinkColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"VisitedLinkColor",P1])
+		dnRequest("set",[self,"VisitedLinkColor",P1])
 		return self
 
 	Func getFocused
-		return dnRequest("get",[new DotNetObject(nHandle),"Focused"])
+		return dnRequest("get",[self,"Focused"])
 
 	Func setFocused P1
 		raise("DotNet Error: Focused is a read-only property")
 
 	Func getDomDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"DomDocument"])
+		return dnRequest("get",[self,"DomDocument"])
 
 	Func setDomDocument P1
 		raise("DotNet Error: DomDocument is a read-only property")
 
 	Func getCookie
-		return dnRequest("get",[new DotNetObject(nHandle),"Cookie"])
+		return dnRequest("get",[self,"Cookie"])
 
 	Func setCookie P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cookie",P1])
+		dnRequest("set",[self,"Cookie",P1])
 		return self
 
 	Func getRightToLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeft"])
+		return dnRequest("get",[self,"RightToLeft"])
 
 	Func setRightToLeft P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightToLeft",P1])
+		dnRequest("set",[self,"RightToLeft",P1])
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
+		return dnRequest("get",[self,"Encoding"])
 
 	Func setEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Encoding",P1])
+		dnRequest("set",[self,"Encoding",P1])
 		return self
 
 	Func getDefaultEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultEncoding"])
+		return dnRequest("get",[self,"DefaultEncoding"])
 
 	Func setDefaultEncoding P1
 		raise("DotNet Error: DefaultEncoding is a read-only property")
 
 	Func getAll
-		return dnRequest("get",[new DotNetObject(nHandle),"All"])
+		return dnRequest("get",[self,"All"])
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")
 
 	Func getLinks
-		return dnRequest("get",[new DotNetObject(nHandle),"Links"])
+		return dnRequest("get",[self,"Links"])
 
 	Func setLinks P1
 		raise("DotNet Error: Links is a read-only property")
 
 	Func getImages
-		return dnRequest("get",[new DotNetObject(nHandle),"Images"])
+		return dnRequest("get",[self,"Images"])
 
 	Func setImages P1
 		raise("DotNet Error: Images is a read-only property")
 
 	Func getForms
-		return dnRequest("get",[new DotNetObject(nHandle),"Forms"])
+		return dnRequest("get",[self,"Forms"])
 
 	Func setForms P1
 		raise("DotNet Error: Forms is a read-only property")

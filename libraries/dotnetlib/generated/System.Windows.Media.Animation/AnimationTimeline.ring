@@ -22,13 +22,13 @@ Class AnimationTimeline from Timeline
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentValue",P1,P2,P3])
 
 	Func getTargetPropertyType
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetPropertyType"])
+		return dnRequest("get",[self,"TargetPropertyType"])
 
 	Func setTargetPropertyType P1
 		raise("DotNet Error: TargetPropertyType is a read-only property")
 
 	Func getIsDestinationDefault
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDestinationDefault"])
+		return dnRequest("get",[self,"IsDestinationDefault"])
 
 	Func setIsDestinationDefault P1
 		raise("DotNet Error: IsDestinationDefault is a read-only property")

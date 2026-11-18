@@ -23,7 +23,7 @@ Class FontCollection from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFamilies
-		return dnRequest("get",[new DotNetObject(nHandle),"Families"])
+		return dnRequest("get",[self,"Families"])
 
 	Func setFamilies P1
 		raise("DotNet Error: Families is a read-only property")

@@ -47,7 +47,7 @@ Class AesGcm from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTagSizeInBytes
-		return dnRequest("get",[new DotNetObject(nHandle),"TagSizeInBytes"])
+		return dnRequest("get",[self,"TagSizeInBytes"])
 
 	Func setTagSizeInBytes P1
 		raise("DotNet Error: TagSizeInBytes is a read-only property")

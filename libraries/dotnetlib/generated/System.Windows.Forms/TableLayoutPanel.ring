@@ -78,48 +78,48 @@ Class TableLayoutPanel from Panel
 		return self
 
 	Func getLayoutSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"LayoutSettings"])
+		return dnRequest("get",[self,"LayoutSettings"])
 
 	Func setLayoutSettings P1
-		dnRequest("set",[new DotNetObject(nHandle),"LayoutSettings",P1])
+		dnRequest("set",[self,"LayoutSettings",P1])
 		return self
 
 	Func getCellBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"CellBorderStyle"])
+		return dnRequest("get",[self,"CellBorderStyle"])
 
 	Func setCellBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"CellBorderStyle",P1])
+		dnRequest("set",[self,"CellBorderStyle",P1])
 		return self
 
 	Func getColumnCount
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnCount"])
+		return dnRequest("get",[self,"ColumnCount"])
 
 	Func setColumnCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnCount",P1])
+		dnRequest("set",[self,"ColumnCount",P1])
 		return self
 
 	Func getGrowStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"GrowStyle"])
+		return dnRequest("get",[self,"GrowStyle"])
 
 	Func setGrowStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"GrowStyle",P1])
+		dnRequest("set",[self,"GrowStyle",P1])
 		return self
 
 	Func getRowCount
-		return dnRequest("get",[new DotNetObject(nHandle),"RowCount"])
+		return dnRequest("get",[self,"RowCount"])
 
 	Func setRowCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowCount",P1])
+		dnRequest("set",[self,"RowCount",P1])
 		return self
 
 	Func getRowStyles
-		return dnRequest("get",[new DotNetObject(nHandle),"RowStyles"])
+		return dnRequest("get",[self,"RowStyles"])
 
 	Func setRowStyles P1
 		raise("DotNet Error: RowStyles is a read-only property")
 
 	Func getColumnStyles
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnStyles"])
+		return dnRequest("get",[self,"ColumnStyles"])
 
 	Func setColumnStyles P1
 		raise("DotNet Error: ColumnStyles is a read-only property")

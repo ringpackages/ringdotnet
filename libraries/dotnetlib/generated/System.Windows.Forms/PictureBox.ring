@@ -83,51 +83,51 @@ Class PictureBox from Control
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
+		return dnRequest("get",[self,"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
+		dnRequest("set",[self,"BorderStyle",P1])
 		return self
 
 	Func getErrorImage
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorImage"])
+		return dnRequest("get",[self,"ErrorImage"])
 
 	Func setErrorImage P1
-		dnRequest("set",[new DotNetObject(nHandle),"ErrorImage",P1])
+		dnRequest("set",[self,"ErrorImage",P1])
 		return self
 
 	Func getImage
-		return dnRequest("get",[new DotNetObject(nHandle),"Image"])
+		return dnRequest("get",[self,"Image"])
 
 	Func setImage P1
-		dnRequest("set",[new DotNetObject(nHandle),"Image",P1])
+		dnRequest("set",[self,"Image",P1])
 		return self
 
 	Func getImageLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageLocation"])
+		return dnRequest("get",[self,"ImageLocation"])
 
 	Func setImageLocation P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageLocation",P1])
+		dnRequest("set",[self,"ImageLocation",P1])
 		return self
 
 	Func getInitialImage
-		return dnRequest("get",[new DotNetObject(nHandle),"InitialImage"])
+		return dnRequest("get",[self,"InitialImage"])
 
 	Func setInitialImage P1
-		dnRequest("set",[new DotNetObject(nHandle),"InitialImage",P1])
+		dnRequest("set",[self,"InitialImage",P1])
 		return self
 
 	Func getSizeMode
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeMode"])
+		return dnRequest("get",[self,"SizeMode"])
 
 	Func setSizeMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SizeMode",P1])
+		dnRequest("set",[self,"SizeMode",P1])
 		return self
 
 	Func getWaitOnLoad
-		return dnRequest("get",[new DotNetObject(nHandle),"WaitOnLoad"])
+		return dnRequest("get",[self,"WaitOnLoad"])
 
 	Func setWaitOnLoad P1
-		dnRequest("set",[new DotNetObject(nHandle),"WaitOnLoad",P1])
+		dnRequest("set",[self,"WaitOnLoad",P1])
 		return self
 

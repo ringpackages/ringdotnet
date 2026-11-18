@@ -42,19 +42,19 @@ Class RuntimePropertyBase from RuntimeAnnotatableBase
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDeclaringType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringType"])
+		return dnRequest("get",[self,"DeclaringType"])
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getSentinel
-		return dnRequest("get",[new DotNetObject(nHandle),"Sentinel"])
+		return dnRequest("get",[self,"Sentinel"])
 
 	Func setSentinel P1
 		raise("DotNet Error: Sentinel is a read-only property")

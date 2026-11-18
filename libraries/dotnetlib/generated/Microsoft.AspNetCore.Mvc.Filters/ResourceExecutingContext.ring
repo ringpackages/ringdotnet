@@ -18,14 +18,14 @@ Class ResourceExecutingContext from FilterContext
 		return self
 
 	Func getResult
-		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
+		return dnRequest("get",[self,"Result"])
 
 	Func setResult P1
-		dnRequest("set",[new DotNetObject(nHandle),"Result",P1])
+		dnRequest("set",[self,"Result",P1])
 		return self
 
 	Func getValueProviderFactories
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueProviderFactories"])
+		return dnRequest("get",[self,"ValueProviderFactories"])
 
 	Func setValueProviderFactories P1
 		raise("DotNet Error: ValueProviderFactories is a read-only property")

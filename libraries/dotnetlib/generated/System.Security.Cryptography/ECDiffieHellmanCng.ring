@@ -44,62 +44,62 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 		return self
 
 	Func getHashAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
+		return dnRequest("get",[self,"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
-		dnRequest("set",[new DotNetObject(nHandle),"HashAlgorithm",P1])
+		dnRequest("set",[self,"HashAlgorithm",P1])
 		return self
 
 	Func getKeyDerivationFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyDerivationFunction"])
+		return dnRequest("get",[self,"KeyDerivationFunction"])
 
 	Func setKeyDerivationFunction P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeyDerivationFunction",P1])
+		dnRequest("set",[self,"KeyDerivationFunction",P1])
 		return self
 
 	Func getHmacKey
-		return dnRequest("get",[new DotNetObject(nHandle),"HmacKey"])
+		return dnRequest("get",[self,"HmacKey"])
 
 	Func setHmacKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"HmacKey",P1])
+		dnRequest("set",[self,"HmacKey",P1])
 		return self
 
 	Func getLabel
-		return dnRequest("get",[new DotNetObject(nHandle),"Label"])
+		return dnRequest("get",[self,"Label"])
 
 	Func setLabel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Label",P1])
+		dnRequest("set",[self,"Label",P1])
 		return self
 
 	Func getSecretAppend
-		return dnRequest("get",[new DotNetObject(nHandle),"SecretAppend"])
+		return dnRequest("get",[self,"SecretAppend"])
 
 	Func setSecretAppend P1
-		dnRequest("set",[new DotNetObject(nHandle),"SecretAppend",P1])
+		dnRequest("set",[self,"SecretAppend",P1])
 		return self
 
 	Func getSecretPrepend
-		return dnRequest("get",[new DotNetObject(nHandle),"SecretPrepend"])
+		return dnRequest("get",[self,"SecretPrepend"])
 
 	Func setSecretPrepend P1
-		dnRequest("set",[new DotNetObject(nHandle),"SecretPrepend",P1])
+		dnRequest("set",[self,"SecretPrepend",P1])
 		return self
 
 	Func getSeed
-		return dnRequest("get",[new DotNetObject(nHandle),"Seed"])
+		return dnRequest("get",[self,"Seed"])
 
 	Func setSeed P1
-		dnRequest("set",[new DotNetObject(nHandle),"Seed",P1])
+		dnRequest("set",[self,"Seed",P1])
 		return self
 
 	Func getUseSecretAgreementAsHmacKey
-		return dnRequest("get",[new DotNetObject(nHandle),"UseSecretAgreementAsHmacKey"])
+		return dnRequest("get",[self,"UseSecretAgreementAsHmacKey"])
 
 	Func setUseSecretAgreementAsHmacKey P1
 		raise("DotNet Error: UseSecretAgreementAsHmacKey is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")

@@ -17,7 +17,7 @@ Class DataGridViewColumnDividerDoubleClickEventArgs from HandledMouseEventArgs
 		return self
 
 	Func getColumnIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
+		return dnRequest("get",[self,"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")

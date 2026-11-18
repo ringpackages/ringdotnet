@@ -48,124 +48,124 @@ Class MailMessage from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFrom
-		return dnRequest("get",[new DotNetObject(nHandle),"From"])
+		return dnRequest("get",[self,"From"])
 
 	Func setFrom P1
-		dnRequest("set",[new DotNetObject(nHandle),"From",P1])
+		dnRequest("set",[self,"From",P1])
 		return self
 
 	Func getSender
-		return dnRequest("get",[new DotNetObject(nHandle),"Sender"])
+		return dnRequest("get",[self,"Sender"])
 
 	Func setSender P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sender",P1])
+		dnRequest("set",[self,"Sender",P1])
 		return self
 
 	Func getReplyTo
-		return dnRequest("get",[new DotNetObject(nHandle),"ReplyTo"])
+		return dnRequest("get",[self,"ReplyTo"])
 
 	Func setReplyTo P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReplyTo",P1])
+		dnRequest("set",[self,"ReplyTo",P1])
 		return self
 
 	Func getReplyToList
-		return dnRequest("get",[new DotNetObject(nHandle),"ReplyToList"])
+		return dnRequest("get",[self,"ReplyToList"])
 
 	Func setReplyToList P1
 		raise("DotNet Error: ReplyToList is a read-only property")
 
 	Func getTo
-		return dnRequest("get",[new DotNetObject(nHandle),"To"])
+		return dnRequest("get",[self,"To"])
 
 	Func getBcc
-		return dnRequest("get",[new DotNetObject(nHandle),"Bcc"])
+		return dnRequest("get",[self,"Bcc"])
 
 	Func setBcc P1
 		raise("DotNet Error: Bcc is a read-only property")
 
 	Func getCC
-		return dnRequest("get",[new DotNetObject(nHandle),"CC"])
+		return dnRequest("get",[self,"CC"])
 
 	Func setCC P1
 		raise("DotNet Error: CC is a read-only property")
 
 	Func getPriority
-		return dnRequest("get",[new DotNetObject(nHandle),"Priority"])
+		return dnRequest("get",[self,"Priority"])
 
 	Func setPriority P1
-		dnRequest("set",[new DotNetObject(nHandle),"Priority",P1])
+		dnRequest("set",[self,"Priority",P1])
 		return self
 
 	Func getDeliveryNotificationOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"DeliveryNotificationOptions"])
+		return dnRequest("get",[self,"DeliveryNotificationOptions"])
 
 	Func setDeliveryNotificationOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeliveryNotificationOptions",P1])
+		dnRequest("set",[self,"DeliveryNotificationOptions",P1])
 		return self
 
 	Func getSubject
-		return dnRequest("get",[new DotNetObject(nHandle),"Subject"])
+		return dnRequest("get",[self,"Subject"])
 
 	Func setSubject P1
-		dnRequest("set",[new DotNetObject(nHandle),"Subject",P1])
+		dnRequest("set",[self,"Subject",P1])
 		return self
 
 	Func getSubjectEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"SubjectEncoding"])
+		return dnRequest("get",[self,"SubjectEncoding"])
 
 	Func setSubjectEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"SubjectEncoding",P1])
+		dnRequest("set",[self,"SubjectEncoding",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
+		return dnRequest("get",[self,"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getHeadersEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"HeadersEncoding"])
+		return dnRequest("get",[self,"HeadersEncoding"])
 
 	Func setHeadersEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeadersEncoding",P1])
+		dnRequest("set",[self,"HeadersEncoding",P1])
 		return self
 
 	Func getBody
-		return dnRequest("get",[new DotNetObject(nHandle),"Body"])
+		return dnRequest("get",[self,"Body"])
 
 	Func setBody P1
-		dnRequest("set",[new DotNetObject(nHandle),"Body",P1])
+		dnRequest("set",[self,"Body",P1])
 		return self
 
 	Func getBodyEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"BodyEncoding"])
+		return dnRequest("get",[self,"BodyEncoding"])
 
 	Func setBodyEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"BodyEncoding",P1])
+		dnRequest("set",[self,"BodyEncoding",P1])
 		return self
 
 	Func getBodyTransferEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"BodyTransferEncoding"])
+		return dnRequest("get",[self,"BodyTransferEncoding"])
 
 	Func setBodyTransferEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"BodyTransferEncoding",P1])
+		dnRequest("set",[self,"BodyTransferEncoding",P1])
 		return self
 
 	Func getIsBodyHtml
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBodyHtml"])
+		return dnRequest("get",[self,"IsBodyHtml"])
 
 	Func setIsBodyHtml P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsBodyHtml",P1])
+		dnRequest("set",[self,"IsBodyHtml",P1])
 		return self
 
 	Func getAttachments
-		return dnRequest("get",[new DotNetObject(nHandle),"Attachments"])
+		return dnRequest("get",[self,"Attachments"])
 
 	Func setAttachments P1
 		raise("DotNet Error: Attachments is a read-only property")
 
 	Func getAlternateViews
-		return dnRequest("get",[new DotNetObject(nHandle),"AlternateViews"])
+		return dnRequest("get",[self,"AlternateViews"])
 
 	Func setAlternateViews P1
 		raise("DotNet Error: AlternateViews is a read-only property")

@@ -22,19 +22,19 @@ Class KeySizes from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMinSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MinSize"])
+		return dnRequest("get",[self,"MinSize"])
 
 	Func setMinSize P1
 		raise("DotNet Error: MinSize is a read-only property")
 
 	Func getMaxSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxSize"])
+		return dnRequest("get",[self,"MaxSize"])
 
 	Func setMaxSize P1
 		raise("DotNet Error: MaxSize is a read-only property")
 
 	Func getSkipSize
-		return dnRequest("get",[new DotNetObject(nHandle),"SkipSize"])
+		return dnRequest("get",[self,"SkipSize"])
 
 	Func setSkipSize P1
 		raise("DotNet Error: SkipSize is a read-only property")

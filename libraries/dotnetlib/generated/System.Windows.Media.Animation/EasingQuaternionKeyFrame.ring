@@ -32,17 +32,17 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		return dnRequest("get",[new DotNetObject(nHandle),"UseShortestPath"])
+		return dnRequest("get",[self,"UseShortestPath"])
 
 	Func setUseShortestPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseShortestPath",P1])
+		dnRequest("set",[self,"UseShortestPath",P1])
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"EasingFunction"])
+		return dnRequest("get",[self,"EasingFunction"])
 
 	Func setEasingFunction P1
-		dnRequest("set",[new DotNetObject(nHandle),"EasingFunction",P1])
+		dnRequest("set",[self,"EasingFunction",P1])
 		return self
 
 	Func getUseShortestPathProperty

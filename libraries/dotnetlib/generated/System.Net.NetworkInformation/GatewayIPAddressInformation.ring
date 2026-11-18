@@ -19,7 +19,7 @@ Class GatewayIPAddressInformation from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
+		return dnRequest("get",[self,"Address"])
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")

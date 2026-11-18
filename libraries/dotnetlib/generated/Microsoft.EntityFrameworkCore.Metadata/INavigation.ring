@@ -19,25 +19,25 @@ Class INavigation from DotNetObject
 		return self
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
+		return dnRequest("get",[self,"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getTargetEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetEntityType"])
+		return dnRequest("get",[self,"TargetEntityType"])
 
 	Func setTargetEntityType P1
 		raise("DotNet Error: TargetEntityType is a read-only property")
 
 	Func getForeignKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ForeignKey"])
+		return dnRequest("get",[self,"ForeignKey"])
 
 	Func setForeignKey P1
 		raise("DotNet Error: ForeignKey is a read-only property")
 
 	Func getInverse
-		return dnRequest("get",[new DotNetObject(nHandle),"Inverse"])
+		return dnRequest("get",[self,"Inverse"])
 
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")

@@ -73,38 +73,38 @@ Class DocumentViewerBase from WpfControl
 		return self
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
+		dnRequest("set",[self,"Document",P1])
 		return self
 
 	Func getPageCount
-		return dnRequest("get",[new DotNetObject(nHandle),"PageCount"])
+		return dnRequest("get",[self,"PageCount"])
 
 	Func setPageCount P1
 		raise("DotNet Error: PageCount is a read-only property")
 
 	Func getMasterPageNumber
-		return dnRequest("get",[new DotNetObject(nHandle),"MasterPageNumber"])
+		return dnRequest("get",[self,"MasterPageNumber"])
 
 	Func setMasterPageNumber P1
 		raise("DotNet Error: MasterPageNumber is a read-only property")
 
 	Func getCanGoToPreviousPage
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoToPreviousPage"])
+		return dnRequest("get",[self,"CanGoToPreviousPage"])
 
 	Func setCanGoToPreviousPage P1
 		raise("DotNet Error: CanGoToPreviousPage is a read-only property")
 
 	Func getCanGoToNextPage
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoToNextPage"])
+		return dnRequest("get",[self,"CanGoToNextPage"])
 
 	Func setCanGoToNextPage P1
 		raise("DotNet Error: CanGoToNextPage is a read-only property")
 
 	Func getPageViews
-		return dnRequest("get",[new DotNetObject(nHandle),"PageViews"])
+		return dnRequest("get",[self,"PageViews"])
 
 	Func setPageViews P1
 		raise("DotNet Error: PageViews is a read-only property")

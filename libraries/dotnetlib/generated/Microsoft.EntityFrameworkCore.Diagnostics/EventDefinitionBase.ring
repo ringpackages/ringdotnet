@@ -22,25 +22,25 @@ Class EventDefinitionBase from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEventId
-		return dnRequest("get",[new DotNetObject(nHandle),"EventId"])
+		return dnRequest("get",[self,"EventId"])
 
 	Func setEventId P1
 		raise("DotNet Error: EventId is a read-only property")
 
 	Func getLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"Level"])
+		return dnRequest("get",[self,"Level"])
 
 	Func setLevel P1
 		raise("DotNet Error: Level is a read-only property")
 
 	Func getEventIdCode
-		return dnRequest("get",[new DotNetObject(nHandle),"EventIdCode"])
+		return dnRequest("get",[self,"EventIdCode"])
 
 	Func setEventIdCode P1
 		raise("DotNet Error: EventIdCode is a read-only property")
 
 	Func getWarningBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"WarningBehavior"])
+		return dnRequest("get",[self,"WarningBehavior"])
 
 	Func setWarningBehavior P1
 		raise("DotNet Error: WarningBehavior is a read-only property")

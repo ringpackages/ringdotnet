@@ -17,13 +17,13 @@ Class AccessKeyEventArgs from EventArgs
 		return self
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getIsMultiple
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMultiple"])
+		return dnRequest("get",[self,"IsMultiple"])
 
 	Func setIsMultiple P1
 		raise("DotNet Error: IsMultiple is a read-only property")

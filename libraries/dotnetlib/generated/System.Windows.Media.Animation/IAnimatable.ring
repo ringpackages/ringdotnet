@@ -35,7 +35,7 @@ Class IAnimatable from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
 
 	Func getHasAnimatedProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"HasAnimatedProperties"])
+		return dnRequest("get",[self,"HasAnimatedProperties"])
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")

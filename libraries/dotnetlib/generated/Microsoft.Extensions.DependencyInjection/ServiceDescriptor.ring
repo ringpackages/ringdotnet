@@ -124,61 +124,61 @@ Class ServiceDescriptor from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions'),"DescribeKeyed",P1,P2,P3,P4])
 
 	Func getLifetime
-		return dnRequest("get",[new DotNetObject(nHandle),"Lifetime"])
+		return dnRequest("get",[self,"Lifetime"])
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")
 
 	Func getServiceKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceKey"])
+		return dnRequest("get",[self,"ServiceKey"])
 
 	Func setServiceKey P1
 		raise("DotNet Error: ServiceKey is a read-only property")
 
 	Func getServiceType
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceType"])
+		return dnRequest("get",[self,"ServiceType"])
 
 	Func setServiceType P1
 		raise("DotNet Error: ServiceType is a read-only property")
 
 	Func getImplementationType
-		return dnRequest("get",[new DotNetObject(nHandle),"ImplementationType"])
+		return dnRequest("get",[self,"ImplementationType"])
 
 	Func setImplementationType P1
 		raise("DotNet Error: ImplementationType is a read-only property")
 
 	Func getKeyedImplementationType
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyedImplementationType"])
+		return dnRequest("get",[self,"KeyedImplementationType"])
 
 	Func setKeyedImplementationType P1
 		raise("DotNet Error: KeyedImplementationType is a read-only property")
 
 	Func getImplementationInstance
-		return dnRequest("get",[new DotNetObject(nHandle),"ImplementationInstance"])
+		return dnRequest("get",[self,"ImplementationInstance"])
 
 	Func setImplementationInstance P1
 		raise("DotNet Error: ImplementationInstance is a read-only property")
 
 	Func getKeyedImplementationInstance
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyedImplementationInstance"])
+		return dnRequest("get",[self,"KeyedImplementationInstance"])
 
 	Func setKeyedImplementationInstance P1
 		raise("DotNet Error: KeyedImplementationInstance is a read-only property")
 
 	Func getImplementationFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"ImplementationFactory"])
+		return dnRequest("get",[self,"ImplementationFactory"])
 
 	Func setImplementationFactory P1
 		raise("DotNet Error: ImplementationFactory is a read-only property")
 
 	Func getKeyedImplementationFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyedImplementationFactory"])
+		return dnRequest("get",[self,"KeyedImplementationFactory"])
 
 	Func setKeyedImplementationFactory P1
 		raise("DotNet Error: KeyedImplementationFactory is a read-only property")
 
 	Func getIsKeyedService
-		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyedService"])
+		return dnRequest("get",[self,"IsKeyedService"])
 
 	Func setIsKeyedService P1
 		raise("DotNet Error: IsKeyedService is a read-only property")

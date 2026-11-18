@@ -22,7 +22,7 @@ Class FilterContext from ActionContext
 		return dnRequest("call",[new DotNetObject(nHandle),"FindEffectivePolicy"])
 
 	Func getFilters
-		return dnRequest("get",[new DotNetObject(nHandle),"Filters"])
+		return dnRequest("get",[self,"Filters"])
 
 	Func setFilters P1
 		raise("DotNet Error: Filters is a read-only property")

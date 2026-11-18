@@ -19,20 +19,20 @@ Class ActionExecutingContext from FilterContext
 		return self
 
 	Func getResult
-		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
+		return dnRequest("get",[self,"Result"])
 
 	Func setResult P1
-		dnRequest("set",[new DotNetObject(nHandle),"Result",P1])
+		dnRequest("set",[self,"Result",P1])
 		return self
 
 	Func getActionArguments
-		return dnRequest("get",[new DotNetObject(nHandle),"ActionArguments"])
+		return dnRequest("get",[self,"ActionArguments"])
 
 	Func setActionArguments P1
 		raise("DotNet Error: ActionArguments is a read-only property")
 
 	Func getController
-		return dnRequest("get",[new DotNetObject(nHandle),"Controller"])
+		return dnRequest("get",[self,"Controller"])
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")

@@ -32,63 +32,63 @@ Class AuthenticationOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSchemes
-		return dnRequest("get",[new DotNetObject(nHandle),"Schemes"])
+		return dnRequest("get",[self,"Schemes"])
 
 	Func setSchemes P1
 		raise("DotNet Error: Schemes is a read-only property")
 
 	Func getSchemeMap
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemeMap"])
+		return dnRequest("get",[self,"SchemeMap"])
 
 	Func setSchemeMap P1
 		raise("DotNet Error: SchemeMap is a read-only property")
 
 	Func getDefaultScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultScheme"])
+		return dnRequest("get",[self,"DefaultScheme"])
 
 	Func setDefaultScheme P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultScheme",P1])
+		dnRequest("set",[self,"DefaultScheme",P1])
 		return self
 
 	Func getDefaultAuthenticateScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultAuthenticateScheme"])
+		return dnRequest("get",[self,"DefaultAuthenticateScheme"])
 
 	Func setDefaultAuthenticateScheme P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultAuthenticateScheme",P1])
+		dnRequest("set",[self,"DefaultAuthenticateScheme",P1])
 		return self
 
 	Func getDefaultSignInScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultSignInScheme"])
+		return dnRequest("get",[self,"DefaultSignInScheme"])
 
 	Func setDefaultSignInScheme P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultSignInScheme",P1])
+		dnRequest("set",[self,"DefaultSignInScheme",P1])
 		return self
 
 	Func getDefaultSignOutScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultSignOutScheme"])
+		return dnRequest("get",[self,"DefaultSignOutScheme"])
 
 	Func setDefaultSignOutScheme P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultSignOutScheme",P1])
+		dnRequest("set",[self,"DefaultSignOutScheme",P1])
 		return self
 
 	Func getDefaultChallengeScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultChallengeScheme"])
+		return dnRequest("get",[self,"DefaultChallengeScheme"])
 
 	Func setDefaultChallengeScheme P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultChallengeScheme",P1])
+		dnRequest("set",[self,"DefaultChallengeScheme",P1])
 		return self
 
 	Func getDefaultForbidScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultForbidScheme"])
+		return dnRequest("get",[self,"DefaultForbidScheme"])
 
 	Func setDefaultForbidScheme P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultForbidScheme",P1])
+		dnRequest("set",[self,"DefaultForbidScheme",P1])
 		return self
 
 	Func getRequireAuthenticatedSignIn
-		return dnRequest("get",[new DotNetObject(nHandle),"RequireAuthenticatedSignIn"])
+		return dnRequest("get",[self,"RequireAuthenticatedSignIn"])
 
 	Func setRequireAuthenticatedSignIn P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequireAuthenticatedSignIn",P1])
+		dnRequest("set",[self,"RequireAuthenticatedSignIn",P1])
 		return self
 

@@ -81,48 +81,48 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func getNameTable
-		return dnRequest("get",[new DotNetObject(nHandle),"NameTable"])
+		return dnRequest("get",[self,"NameTable"])
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getIsCompiled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompiled"])
+		return dnRequest("get",[self,"IsCompiled"])
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
 
 	Func setXmlResolver P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
+		dnRequest("set",[self,"XmlResolver",P1])
 		return self
 
 	Func getCompilationSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"CompilationSettings"])
+		return dnRequest("get",[self,"CompilationSettings"])
 
 	Func setCompilationSettings P1
-		dnRequest("set",[new DotNetObject(nHandle),"CompilationSettings",P1])
+		dnRequest("set",[self,"CompilationSettings",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getGlobalElements
-		return dnRequest("get",[new DotNetObject(nHandle),"GlobalElements"])
+		return dnRequest("get",[self,"GlobalElements"])
 
 	Func setGlobalElements P1
 		raise("DotNet Error: GlobalElements is a read-only property")
 
 	Func getGlobalAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"GlobalAttributes"])
+		return dnRequest("get",[self,"GlobalAttributes"])
 
 	Func setGlobalAttributes P1
 		raise("DotNet Error: GlobalAttributes is a read-only property")
 
 	Func getGlobalTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"GlobalTypes"])
+		return dnRequest("get",[self,"GlobalTypes"])
 
 	Func setGlobalTypes P1
 		raise("DotNet Error: GlobalTypes is a read-only property")

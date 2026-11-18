@@ -214,202 +214,202 @@ Class TreeView from Control
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
+		return dnRequest("get",[self,"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
+		dnRequest("set",[self,"BorderStyle",P1])
 		return self
 
 	Func getCheckBoxes
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckBoxes"])
+		return dnRequest("get",[self,"CheckBoxes"])
 
 	Func setCheckBoxes P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckBoxes",P1])
+		dnRequest("set",[self,"CheckBoxes",P1])
 		return self
 
 	Func getFullRowSelect
-		return dnRequest("get",[new DotNetObject(nHandle),"FullRowSelect"])
+		return dnRequest("get",[self,"FullRowSelect"])
 
 	Func setFullRowSelect P1
-		dnRequest("set",[new DotNetObject(nHandle),"FullRowSelect",P1])
+		dnRequest("set",[self,"FullRowSelect",P1])
 		return self
 
 	Func getHideSelection
-		return dnRequest("get",[new DotNetObject(nHandle),"HideSelection"])
+		return dnRequest("get",[self,"HideSelection"])
 
 	Func setHideSelection P1
-		dnRequest("set",[new DotNetObject(nHandle),"HideSelection",P1])
+		dnRequest("set",[self,"HideSelection",P1])
 		return self
 
 	Func getHotTracking
-		return dnRequest("get",[new DotNetObject(nHandle),"HotTracking"])
+		return dnRequest("get",[self,"HotTracking"])
 
 	Func setHotTracking P1
-		dnRequest("set",[new DotNetObject(nHandle),"HotTracking",P1])
+		dnRequest("set",[self,"HotTracking",P1])
 		return self
 
 	Func getImageIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageIndex"])
+		return dnRequest("get",[self,"ImageIndex"])
 
 	Func setImageIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageIndex",P1])
+		dnRequest("set",[self,"ImageIndex",P1])
 		return self
 
 	Func getImageKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageKey"])
+		return dnRequest("get",[self,"ImageKey"])
 
 	Func setImageKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageKey",P1])
+		dnRequest("set",[self,"ImageKey",P1])
 		return self
 
 	Func getImageList
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageList"])
+		return dnRequest("get",[self,"ImageList"])
 
 	Func setImageList P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageList",P1])
+		dnRequest("set",[self,"ImageList",P1])
 		return self
 
 	Func getStateImageList
-		return dnRequest("get",[new DotNetObject(nHandle),"StateImageList"])
+		return dnRequest("get",[self,"StateImageList"])
 
 	Func setStateImageList P1
-		dnRequest("set",[new DotNetObject(nHandle),"StateImageList",P1])
+		dnRequest("set",[self,"StateImageList",P1])
 		return self
 
 	Func getIndent
-		return dnRequest("get",[new DotNetObject(nHandle),"Indent"])
+		return dnRequest("get",[self,"Indent"])
 
 	Func setIndent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Indent",P1])
+		dnRequest("set",[self,"Indent",P1])
 		return self
 
 	Func getItemHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemHeight"])
+		return dnRequest("get",[self,"ItemHeight"])
 
 	Func setItemHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemHeight",P1])
+		dnRequest("set",[self,"ItemHeight",P1])
 		return self
 
 	Func getLabelEdit
-		return dnRequest("get",[new DotNetObject(nHandle),"LabelEdit"])
+		return dnRequest("get",[self,"LabelEdit"])
 
 	Func setLabelEdit P1
-		dnRequest("set",[new DotNetObject(nHandle),"LabelEdit",P1])
+		dnRequest("set",[self,"LabelEdit",P1])
 		return self
 
 	Func getLineColor
-		return dnRequest("get",[new DotNetObject(nHandle),"LineColor"])
+		return dnRequest("get",[self,"LineColor"])
 
 	Func setLineColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"LineColor",P1])
+		dnRequest("set",[self,"LineColor",P1])
 		return self
 
 	Func getNodes
-		return dnRequest("get",[new DotNetObject(nHandle),"Nodes"])
+		return dnRequest("get",[self,"Nodes"])
 
 	Func setNodes P1
 		raise("DotNet Error: Nodes is a read-only property")
 
 	Func getDrawMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DrawMode"])
+		return dnRequest("get",[self,"DrawMode"])
 
 	Func setDrawMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"DrawMode",P1])
+		dnRequest("set",[self,"DrawMode",P1])
 		return self
 
 	Func getPathSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"PathSeparator"])
+		return dnRequest("get",[self,"PathSeparator"])
 
 	Func setPathSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"PathSeparator",P1])
+		dnRequest("set",[self,"PathSeparator",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
+		return dnRequest("get",[self,"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
+		dnRequest("set",[self,"RightToLeftLayout",P1])
 		return self
 
 	Func getScrollable
-		return dnRequest("get",[new DotNetObject(nHandle),"Scrollable"])
+		return dnRequest("get",[self,"Scrollable"])
 
 	Func setScrollable P1
-		dnRequest("set",[new DotNetObject(nHandle),"Scrollable",P1])
+		dnRequest("set",[self,"Scrollable",P1])
 		return self
 
 	Func getSelectedImageIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedImageIndex"])
+		return dnRequest("get",[self,"SelectedImageIndex"])
 
 	Func setSelectedImageIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedImageIndex",P1])
+		dnRequest("set",[self,"SelectedImageIndex",P1])
 		return self
 
 	Func getSelectedImageKey
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedImageKey"])
+		return dnRequest("get",[self,"SelectedImageKey"])
 
 	Func setSelectedImageKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedImageKey",P1])
+		dnRequest("set",[self,"SelectedImageKey",P1])
 		return self
 
 	Func getSelectedNode
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedNode"])
+		return dnRequest("get",[self,"SelectedNode"])
 
 	Func setSelectedNode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedNode",P1])
+		dnRequest("set",[self,"SelectedNode",P1])
 		return self
 
 	Func getShowLines
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowLines"])
+		return dnRequest("get",[self,"ShowLines"])
 
 	Func setShowLines P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowLines",P1])
+		dnRequest("set",[self,"ShowLines",P1])
 		return self
 
 	Func getShowNodeToolTips
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowNodeToolTips"])
+		return dnRequest("get",[self,"ShowNodeToolTips"])
 
 	Func setShowNodeToolTips P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowNodeToolTips",P1])
+		dnRequest("set",[self,"ShowNodeToolTips",P1])
 		return self
 
 	Func getShowPlusMinus
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowPlusMinus"])
+		return dnRequest("get",[self,"ShowPlusMinus"])
 
 	Func setShowPlusMinus P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowPlusMinus",P1])
+		dnRequest("set",[self,"ShowPlusMinus",P1])
 		return self
 
 	Func getShowRootLines
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowRootLines"])
+		return dnRequest("get",[self,"ShowRootLines"])
 
 	Func setShowRootLines P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowRootLines",P1])
+		dnRequest("set",[self,"ShowRootLines",P1])
 		return self
 
 	Func getSorted
-		return dnRequest("get",[new DotNetObject(nHandle),"Sorted"])
+		return dnRequest("get",[self,"Sorted"])
 
 	Func setSorted P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sorted",P1])
+		dnRequest("set",[self,"Sorted",P1])
 		return self
 
 	Func getTreeViewNodeSorter
-		return dnRequest("get",[new DotNetObject(nHandle),"TreeViewNodeSorter"])
+		return dnRequest("get",[self,"TreeViewNodeSorter"])
 
 	Func setTreeViewNodeSorter P1
-		dnRequest("set",[new DotNetObject(nHandle),"TreeViewNodeSorter",P1])
+		dnRequest("set",[self,"TreeViewNodeSorter",P1])
 		return self
 
 	Func getTopNode
-		return dnRequest("get",[new DotNetObject(nHandle),"TopNode"])
+		return dnRequest("get",[self,"TopNode"])
 
 	Func setTopNode P1
-		dnRequest("set",[new DotNetObject(nHandle),"TopNode",P1])
+		dnRequest("set",[self,"TopNode",P1])
 		return self
 
 	Func getVisibleCount
-		return dnRequest("get",[new DotNetObject(nHandle),"VisibleCount"])
+		return dnRequest("get",[self,"VisibleCount"])
 
 	Func setVisibleCount P1
 		raise("DotNet Error: VisibleCount is a read-only property")

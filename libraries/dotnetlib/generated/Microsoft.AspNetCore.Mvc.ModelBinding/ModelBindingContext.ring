@@ -46,111 +46,111 @@ Class ModelBindingContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getActionContext
-		return dnRequest("get",[new DotNetObject(nHandle),"ActionContext"])
+		return dnRequest("get",[self,"ActionContext"])
 
 	Func setActionContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActionContext",P1])
+		dnRequest("set",[self,"ActionContext",P1])
 		return self
 
 	Func getBinderModelName
-		return dnRequest("get",[new DotNetObject(nHandle),"BinderModelName"])
+		return dnRequest("get",[self,"BinderModelName"])
 
 	Func setBinderModelName P1
-		dnRequest("set",[new DotNetObject(nHandle),"BinderModelName",P1])
+		dnRequest("set",[self,"BinderModelName",P1])
 		return self
 
 	Func getBindingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingSource"])
+		return dnRequest("get",[self,"BindingSource"])
 
 	Func setBindingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"BindingSource",P1])
+		dnRequest("set",[self,"BindingSource",P1])
 		return self
 
 	Func getFieldName
-		return dnRequest("get",[new DotNetObject(nHandle),"FieldName"])
+		return dnRequest("get",[self,"FieldName"])
 
 	Func setFieldName P1
-		dnRequest("set",[new DotNetObject(nHandle),"FieldName",P1])
+		dnRequest("set",[self,"FieldName",P1])
 		return self
 
 	Func getHttpContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
+		return dnRequest("get",[self,"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getIsTopLevelObject
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTopLevelObject"])
+		return dnRequest("get",[self,"IsTopLevelObject"])
 
 	Func setIsTopLevelObject P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsTopLevelObject",P1])
+		dnRequest("set",[self,"IsTopLevelObject",P1])
 		return self
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Model",P1])
+		dnRequest("set",[self,"Model",P1])
 		return self
 
 	Func getModelMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelMetadata"])
+		return dnRequest("get",[self,"ModelMetadata"])
 
 	Func setModelMetadata P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelMetadata",P1])
+		dnRequest("set",[self,"ModelMetadata",P1])
 		return self
 
 	Func getModelName
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelName"])
+		return dnRequest("get",[self,"ModelName"])
 
 	Func setModelName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelName",P1])
+		dnRequest("set",[self,"ModelName",P1])
 		return self
 
 	Func getOriginalModelName
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalModelName"])
+		return dnRequest("get",[self,"OriginalModelName"])
 
 	Func setOriginalModelName P1
 		raise("DotNet Error: OriginalModelName is a read-only property")
 
 	Func getModelState
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelState"])
+		return dnRequest("get",[self,"ModelState"])
 
 	Func setModelState P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelState",P1])
+		dnRequest("set",[self,"ModelState",P1])
 		return self
 
 	Func getModelType
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelType"])
+		return dnRequest("get",[self,"ModelType"])
 
 	Func setModelType P1
 		raise("DotNet Error: ModelType is a read-only property")
 
 	Func getPropertyFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyFilter"])
+		return dnRequest("get",[self,"PropertyFilter"])
 
 	Func setPropertyFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"PropertyFilter",P1])
+		dnRequest("set",[self,"PropertyFilter",P1])
 		return self
 
 	Func getValidationState
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidationState"])
+		return dnRequest("get",[self,"ValidationState"])
 
 	Func setValidationState P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidationState",P1])
+		dnRequest("set",[self,"ValidationState",P1])
 		return self
 
 	Func getValueProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueProvider"])
+		return dnRequest("get",[self,"ValueProvider"])
 
 	Func setValueProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValueProvider",P1])
+		dnRequest("set",[self,"ValueProvider",P1])
 		return self
 
 	Func getResult
-		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
+		return dnRequest("get",[self,"Result"])
 
 	Func setResult P1
-		dnRequest("set",[new DotNetObject(nHandle),"Result",P1])
+		dnRequest("set",[self,"Result",P1])
 		return self
 

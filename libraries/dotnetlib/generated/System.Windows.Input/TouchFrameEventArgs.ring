@@ -26,7 +26,7 @@ Class TouchFrameEventArgs from EventArgs
 		return self
 
 	Func getTimestamp
-		return dnRequest("get",[new DotNetObject(nHandle),"Timestamp"])
+		return dnRequest("get",[self,"Timestamp"])
 
 	Func setTimestamp P1
 		raise("DotNet Error: Timestamp is a read-only property")

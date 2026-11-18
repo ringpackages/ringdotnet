@@ -17,7 +17,7 @@ Class KeyboardEventArgs from InputEventArgs
 		return self
 
 	Func getKeyboardDevice
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyboardDevice"])
+		return dnRequest("get",[self,"KeyboardDevice"])
 
 	Func setKeyboardDevice P1
 		raise("DotNet Error: KeyboardDevice is a read-only property")

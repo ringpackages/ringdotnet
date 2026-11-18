@@ -152,111 +152,111 @@ Class TextBoxBase from Control
 		return self
 
 	Func getAcceptsTab
-		return dnRequest("get",[new DotNetObject(nHandle),"AcceptsTab"])
+		return dnRequest("get",[self,"AcceptsTab"])
 
 	Func setAcceptsTab P1
-		dnRequest("set",[new DotNetObject(nHandle),"AcceptsTab",P1])
+		dnRequest("set",[self,"AcceptsTab",P1])
 		return self
 
 	Func getShortcutsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"ShortcutsEnabled"])
+		return dnRequest("get",[self,"ShortcutsEnabled"])
 
 	Func setShortcutsEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShortcutsEnabled",P1])
+		dnRequest("set",[self,"ShortcutsEnabled",P1])
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
+		return dnRequest("get",[self,"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
+		dnRequest("set",[self,"BorderStyle",P1])
 		return self
 
 	Func getCanUndo
-		return dnRequest("get",[new DotNetObject(nHandle),"CanUndo"])
+		return dnRequest("get",[self,"CanUndo"])
 
 	Func setCanUndo P1
 		raise("DotNet Error: CanUndo is a read-only property")
 
 	Func getHideSelection
-		return dnRequest("get",[new DotNetObject(nHandle),"HideSelection"])
+		return dnRequest("get",[self,"HideSelection"])
 
 	Func setHideSelection P1
-		dnRequest("set",[new DotNetObject(nHandle),"HideSelection",P1])
+		dnRequest("set",[self,"HideSelection",P1])
 		return self
 
 	Func getLines
-		return dnRequest("get",[new DotNetObject(nHandle),"Lines"])
+		return dnRequest("get",[self,"Lines"])
 
 	Func setLines P1
-		dnRequest("set",[new DotNetObject(nHandle),"Lines",P1])
+		dnRequest("set",[self,"Lines",P1])
 		return self
 
 	Func getMaxLength
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxLength"])
+		return dnRequest("get",[self,"MaxLength"])
 
 	Func setMaxLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxLength",P1])
+		dnRequest("set",[self,"MaxLength",P1])
 		return self
 
 	Func getModified
-		return dnRequest("get",[new DotNetObject(nHandle),"Modified"])
+		return dnRequest("get",[self,"Modified"])
 
 	Func setModified P1
-		dnRequest("set",[new DotNetObject(nHandle),"Modified",P1])
+		dnRequest("set",[self,"Modified",P1])
 		return self
 
 	Func getMultiline
-		return dnRequest("get",[new DotNetObject(nHandle),"Multiline"])
+		return dnRequest("get",[self,"Multiline"])
 
 	Func setMultiline P1
-		dnRequest("set",[new DotNetObject(nHandle),"Multiline",P1])
+		dnRequest("set",[self,"Multiline",P1])
 		return self
 
 	Func getPreferredHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"PreferredHeight"])
+		return dnRequest("get",[self,"PreferredHeight"])
 
 	Func setPreferredHeight P1
 		raise("DotNet Error: PreferredHeight is a read-only property")
 
 	Func getReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
+		return dnRequest("get",[self,"ReadOnly"])
 
 	Func setReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadOnly",P1])
+		dnRequest("set",[self,"ReadOnly",P1])
 		return self
 
 	Func getSelectedText
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedText"])
+		return dnRequest("get",[self,"SelectedText"])
 
 	Func setSelectedText P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedText",P1])
+		dnRequest("set",[self,"SelectedText",P1])
 		return self
 
 	Func getSelectionLength
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionLength"])
+		return dnRequest("get",[self,"SelectionLength"])
 
 	Func setSelectionLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionLength",P1])
+		dnRequest("set",[self,"SelectionLength",P1])
 		return self
 
 	Func getSelectionStart
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionStart"])
+		return dnRequest("get",[self,"SelectionStart"])
 
 	Func setSelectionStart P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionStart",P1])
+		dnRequest("set",[self,"SelectionStart",P1])
 		return self
 
 	Func getTextLength
-		return dnRequest("get",[new DotNetObject(nHandle),"TextLength"])
+		return dnRequest("get",[self,"TextLength"])
 
 	Func setTextLength P1
 		raise("DotNet Error: TextLength is a read-only property")
 
 	Func getWordWrap
-		return dnRequest("get",[new DotNetObject(nHandle),"WordWrap"])
+		return dnRequest("get",[self,"WordWrap"])
 
 	Func setWordWrap P1
-		dnRequest("set",[new DotNetObject(nHandle),"WordWrap",P1])
+		dnRequest("set",[self,"WordWrap",P1])
 		return self
 

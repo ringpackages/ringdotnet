@@ -20,9 +20,9 @@ Class ApiDescriptionActionData from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getGroupName
-		return dnRequest("get",[new DotNetObject(nHandle),"GroupName"])
+		return dnRequest("get",[self,"GroupName"])
 
 	Func setGroupName P1
-		dnRequest("set",[new DotNetObject(nHandle),"GroupName",P1])
+		dnRequest("set",[self,"GroupName",P1])
 		return self
 

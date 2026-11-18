@@ -54,7 +54,7 @@ Class ModuleHandle from ValueType
 		return dnRequest("call",[new DotNetObject(nHandle),"ResolveFieldHandle",P1,P2,P3])
 
 	Func getMDStreamVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"MDStreamVersion"])
+		return dnRequest("get",[self,"MDStreamVersion"])
 
 	Func setMDStreamVersion P1
 		raise("DotNet Error: MDStreamVersion is a read-only property")

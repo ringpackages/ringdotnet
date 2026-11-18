@@ -38,19 +38,19 @@ Class ConcurrentExclusiveSchedulerPair from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCompletion
-		return dnRequest("get",[new DotNetObject(nHandle),"Completion"])
+		return dnRequest("get",[self,"Completion"])
 
 	Func setCompletion P1
 		raise("DotNet Error: Completion is a read-only property")
 
 	Func getConcurrentScheduler
-		return dnRequest("get",[new DotNetObject(nHandle),"ConcurrentScheduler"])
+		return dnRequest("get",[self,"ConcurrentScheduler"])
 
 	Func setConcurrentScheduler P1
 		raise("DotNet Error: ConcurrentScheduler is a read-only property")
 
 	Func getExclusiveScheduler
-		return dnRequest("get",[new DotNetObject(nHandle),"ExclusiveScheduler"])
+		return dnRequest("get",[self,"ExclusiveScheduler"])
 
 	Func setExclusiveScheduler P1
 		raise("DotNet Error: ExclusiveScheduler is a read-only property")

@@ -45,56 +45,56 @@ Class DataGridViewRowPostPaintEventArgs from EventArgs
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
+		return dnRequest("get",[self,"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getClipBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"ClipBounds"])
+		return dnRequest("get",[self,"ClipBounds"])
 
 	Func setClipBounds P1
-		dnRequest("set",[new DotNetObject(nHandle),"ClipBounds",P1])
+		dnRequest("set",[self,"ClipBounds",P1])
 		return self
 
 	Func getRowBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"RowBounds"])
+		return dnRequest("get",[self,"RowBounds"])
 
 	Func setRowBounds P1
 		raise("DotNet Error: RowBounds is a read-only property")
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getErrorText
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorText"])
+		return dnRequest("get",[self,"ErrorText"])
 
 	Func setErrorText P1
 		raise("DotNet Error: ErrorText is a read-only property")
 
 	Func getInheritedRowStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"InheritedRowStyle"])
+		return dnRequest("get",[self,"InheritedRowStyle"])
 
 	Func setInheritedRowStyle P1
 		raise("DotNet Error: InheritedRowStyle is a read-only property")
 
 	Func getIsFirstDisplayedRow
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFirstDisplayedRow"])
+		return dnRequest("get",[self,"IsFirstDisplayedRow"])
 
 	Func setIsFirstDisplayedRow P1
 		raise("DotNet Error: IsFirstDisplayedRow is a read-only property")
 
 	Func getIsLastVisibleRow
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLastVisibleRow"])
+		return dnRequest("get",[self,"IsLastVisibleRow"])
 
 	Func setIsLastVisibleRow P1
 		raise("DotNet Error: IsLastVisibleRow is a read-only property")

@@ -99,13 +99,13 @@ Class RelationalTransaction from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTransactionId
-		return dnRequest("get",[new DotNetObject(nHandle),"TransactionId"])
+		return dnRequest("get",[self,"TransactionId"])
 
 	Func setTransactionId P1
 		raise("DotNet Error: TransactionId is a read-only property")
 
 	Func getSupportsSavepoints
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsSavepoints"])
+		return dnRequest("get",[self,"SupportsSavepoints"])
 
 	Func setSupportsSavepoints P1
 		raise("DotNet Error: SupportsSavepoints is a read-only property")

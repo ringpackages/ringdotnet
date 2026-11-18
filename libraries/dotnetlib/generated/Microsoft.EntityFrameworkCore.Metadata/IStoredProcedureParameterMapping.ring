@@ -33,19 +33,19 @@ Class IStoredProcedureParameterMapping from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getStoreParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreParameter"])
+		return dnRequest("get",[self,"StoreParameter"])
 
 	Func setStoreParameter P1
 		raise("DotNet Error: StoreParameter is a read-only property")
 
 	Func getParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameter"])
+		return dnRequest("get",[self,"Parameter"])
 
 	Func setParameter P1
 		raise("DotNet Error: Parameter is a read-only property")
 
 	Func getStoredProcedureMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedureMapping"])
+		return dnRequest("get",[self,"StoredProcedureMapping"])
 
 	Func setStoredProcedureMapping P1
 		raise("DotNet Error: StoredProcedureMapping is a read-only property")

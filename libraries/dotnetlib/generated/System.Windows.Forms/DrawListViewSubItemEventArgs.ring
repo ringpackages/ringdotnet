@@ -49,57 +49,57 @@ Class DrawListViewSubItemEventArgs from EventArgs
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
+		return dnRequest("get",[self,"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getItem
-		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
+		return dnRequest("get",[self,"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getSubItem
-		return dnRequest("get",[new DotNetObject(nHandle),"SubItem"])
+		return dnRequest("get",[self,"SubItem"])
 
 	Func setSubItem P1
 		raise("DotNet Error: SubItem is a read-only property")
 
 	Func getItemIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemIndex"])
+		return dnRequest("get",[self,"ItemIndex"])
 
 	Func setItemIndex P1
 		raise("DotNet Error: ItemIndex is a read-only property")
 
 	Func getColumnIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
+		return dnRequest("get",[self,"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getHeader
-		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
+		return dnRequest("get",[self,"Header"])
 
 	Func setHeader P1
 		raise("DotNet Error: Header is a read-only property")
 
 	Func getItemState
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemState"])
+		return dnRequest("get",[self,"ItemState"])
 
 	Func setItemState P1
 		raise("DotNet Error: ItemState is a read-only property")
 
 	Func getDrawDefault
-		return dnRequest("get",[new DotNetObject(nHandle),"DrawDefault"])
+		return dnRequest("get",[self,"DrawDefault"])
 
 	Func setDrawDefault P1
-		dnRequest("set",[new DotNetObject(nHandle),"DrawDefault",P1])
+		dnRequest("set",[self,"DrawDefault",P1])
 		return self
 

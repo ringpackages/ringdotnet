@@ -37,25 +37,25 @@ Class HostString from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"MatchesAny",P1,P2])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		return dnRequest("get",[new DotNetObject(nHandle),"HasValue"])
+		return dnRequest("get",[self,"HasValue"])
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getHost
-		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
+		return dnRequest("get",[self,"Host"])
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPort
-		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
+		return dnRequest("get",[self,"Port"])
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")

@@ -18,19 +18,19 @@ Class IDictionaryEnumerator from DotNetObject
 		return self
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getEntry
-		return dnRequest("get",[new DotNetObject(nHandle),"Entry"])
+		return dnRequest("get",[self,"Entry"])
 
 	Func setEntry P1
 		raise("DotNet Error: Entry is a read-only property")

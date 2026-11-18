@@ -22,13 +22,13 @@ Class EnumGroupAndName from ValueType
 		return self
 
 	Func getGroup
-		return dnRequest("get",[new DotNetObject(nHandle),"Group"])
+		return dnRequest("get",[self,"Group"])
 
 	Func setGroup P1
 		raise("DotNet Error: Group is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

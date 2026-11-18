@@ -23,30 +23,30 @@ Class RouteGroupContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPrefix
-		return dnRequest("get",[new DotNetObject(nHandle),"Prefix"])
+		return dnRequest("get",[self,"Prefix"])
 
 	Func setPrefix P1
-		dnRequest("set",[new DotNetObject(nHandle),"Prefix",P1])
+		dnRequest("set",[self,"Prefix",P1])
 		return self
 
 	Func getConventions
-		return dnRequest("get",[new DotNetObject(nHandle),"Conventions"])
+		return dnRequest("get",[self,"Conventions"])
 
 	Func setConventions P1
-		dnRequest("set",[new DotNetObject(nHandle),"Conventions",P1])
+		dnRequest("set",[self,"Conventions",P1])
 		return self
 
 	Func getFinallyConventions
-		return dnRequest("get",[new DotNetObject(nHandle),"FinallyConventions"])
+		return dnRequest("get",[self,"FinallyConventions"])
 
 	Func setFinallyConventions P1
-		dnRequest("set",[new DotNetObject(nHandle),"FinallyConventions",P1])
+		dnRequest("set",[self,"FinallyConventions",P1])
 		return self
 
 	Func getApplicationServices
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationServices"])
+		return dnRequest("get",[self,"ApplicationServices"])
 
 	Func setApplicationServices P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApplicationServices",P1])
+		dnRequest("set",[self,"ApplicationServices",P1])
 		return self
 

@@ -200,37 +200,37 @@ Class DbDataReader from MarshalByRefObject
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getDepth
-		return dnRequest("get",[new DotNetObject(nHandle),"Depth"])
+		return dnRequest("get",[self,"Depth"])
 
 	Func setDepth P1
 		raise("DotNet Error: Depth is a read-only property")
 
 	Func getFieldCount
-		return dnRequest("get",[new DotNetObject(nHandle),"FieldCount"])
+		return dnRequest("get",[self,"FieldCount"])
 
 	Func setFieldCount P1
 		raise("DotNet Error: FieldCount is a read-only property")
 
 	Func getHasRows
-		return dnRequest("get",[new DotNetObject(nHandle),"HasRows"])
+		return dnRequest("get",[self,"HasRows"])
 
 	Func setHasRows P1
 		raise("DotNet Error: HasRows is a read-only property")
 
 	Func getIsClosed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsClosed"])
+		return dnRequest("get",[self,"IsClosed"])
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getRecordsAffected
-		return dnRequest("get",[new DotNetObject(nHandle),"RecordsAffected"])
+		return dnRequest("get",[self,"RecordsAffected"])
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
 
 	Func getVisibleFieldCount
-		return dnRequest("get",[new DotNetObject(nHandle),"VisibleFieldCount"])
+		return dnRequest("get",[self,"VisibleFieldCount"])
 
 	Func setVisibleFieldCount P1
 		raise("DotNet Error: VisibleFieldCount is a read-only property")

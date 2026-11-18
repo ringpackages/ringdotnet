@@ -27,58 +27,58 @@ Class XmlSchemaInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getValidity
-		return dnRequest("get",[new DotNetObject(nHandle),"Validity"])
+		return dnRequest("get",[self,"Validity"])
 
 	Func setValidity P1
-		dnRequest("set",[new DotNetObject(nHandle),"Validity",P1])
+		dnRequest("set",[self,"Validity",P1])
 		return self
 
 	Func getIsDefault
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDefault"])
+		return dnRequest("get",[self,"IsDefault"])
 
 	Func setIsDefault P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsDefault",P1])
+		dnRequest("set",[self,"IsDefault",P1])
 		return self
 
 	Func getIsNil
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNil"])
+		return dnRequest("get",[self,"IsNil"])
 
 	Func setIsNil P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsNil",P1])
+		dnRequest("set",[self,"IsNil",P1])
 		return self
 
 	Func getMemberType
-		return dnRequest("get",[new DotNetObject(nHandle),"MemberType"])
+		return dnRequest("get",[self,"MemberType"])
 
 	Func setMemberType P1
-		dnRequest("set",[new DotNetObject(nHandle),"MemberType",P1])
+		dnRequest("set",[self,"MemberType",P1])
 		return self
 
 	Func getSchemaType
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaType"])
+		return dnRequest("get",[self,"SchemaType"])
 
 	Func setSchemaType P1
-		dnRequest("set",[new DotNetObject(nHandle),"SchemaType",P1])
+		dnRequest("set",[self,"SchemaType",P1])
 		return self
 
 	Func getSchemaElement
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaElement"])
+		return dnRequest("get",[self,"SchemaElement"])
 
 	Func setSchemaElement P1
-		dnRequest("set",[new DotNetObject(nHandle),"SchemaElement",P1])
+		dnRequest("set",[self,"SchemaElement",P1])
 		return self
 
 	Func getSchemaAttribute
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaAttribute"])
+		return dnRequest("get",[self,"SchemaAttribute"])
 
 	Func setSchemaAttribute P1
-		dnRequest("set",[new DotNetObject(nHandle),"SchemaAttribute",P1])
+		dnRequest("set",[self,"SchemaAttribute",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
+		return dnRequest("get",[self,"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
+		dnRequest("set",[self,"ContentType",P1])
 		return self
 

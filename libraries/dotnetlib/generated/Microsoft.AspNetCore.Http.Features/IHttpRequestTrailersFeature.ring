@@ -17,13 +17,13 @@ Class IHttpRequestTrailersFeature from DotNetObject
 		return self
 
 	Func getAvailable
-		return dnRequest("get",[new DotNetObject(nHandle),"Available"])
+		return dnRequest("get",[self,"Available"])
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
 
 	Func getTrailers
-		return dnRequest("get",[new DotNetObject(nHandle),"Trailers"])
+		return dnRequest("get",[self,"Trailers"])
 
 	Func setTrailers P1
 		raise("DotNet Error: Trailers is a read-only property")

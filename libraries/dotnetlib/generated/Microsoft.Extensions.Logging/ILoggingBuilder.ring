@@ -16,7 +16,7 @@ Class ILoggingBuilder from DotNetObject
 		return self
 
 	Func getServices
-		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
+		return dnRequest("get",[self,"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")

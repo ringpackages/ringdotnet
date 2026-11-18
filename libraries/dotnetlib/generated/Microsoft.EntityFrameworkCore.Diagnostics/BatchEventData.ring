@@ -18,13 +18,13 @@ Class BatchEventData from EventData
 		return self
 
 	Func getEntries
-		return dnRequest("get",[new DotNetObject(nHandle),"Entries"])
+		return dnRequest("get",[self,"Entries"])
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getCommandCount
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandCount"])
+		return dnRequest("get",[self,"CommandCount"])
 
 	Func setCommandCount P1
 		raise("DotNet Error: CommandCount is a read-only property")

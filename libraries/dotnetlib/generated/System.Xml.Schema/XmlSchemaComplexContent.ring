@@ -17,9 +17,9 @@ Class XmlSchemaComplexContent from XmlSchemaContentModel
 		return self
 
 	Func getIsMixed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMixed"])
+		return dnRequest("get",[self,"IsMixed"])
 
 	Func setIsMixed P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsMixed",P1])
+		dnRequest("set",[self,"IsMixed",P1])
 		return self
 

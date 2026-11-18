@@ -20,28 +20,28 @@ Class SplitterEventArgs from EventArgs
 		return self
 
 	Func getX
-		return dnRequest("get",[new DotNetObject(nHandle),"X"])
+		return dnRequest("get",[self,"X"])
 
 	Func setX P1
 		raise("DotNet Error: X is a read-only property")
 
 	Func getY
-		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
+		return dnRequest("get",[self,"Y"])
 
 	Func setY P1
 		raise("DotNet Error: Y is a read-only property")
 
 	Func getSplitX
-		return dnRequest("get",[new DotNetObject(nHandle),"SplitX"])
+		return dnRequest("get",[self,"SplitX"])
 
 	Func setSplitX P1
-		dnRequest("set",[new DotNetObject(nHandle),"SplitX",P1])
+		dnRequest("set",[self,"SplitX",P1])
 		return self
 
 	Func getSplitY
-		return dnRequest("get",[new DotNetObject(nHandle),"SplitY"])
+		return dnRequest("get",[self,"SplitY"])
 
 	Func setSplitY P1
-		dnRequest("set",[new DotNetObject(nHandle),"SplitY",P1])
+		dnRequest("set",[self,"SplitY",P1])
 		return self
 

@@ -34,56 +34,56 @@ Class HttpWebResponse from WebResponse
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentEncoding"])
+		return dnRequest("get",[self,"ContentEncoding"])
 
 	Func setContentEncoding P1
 		raise("DotNet Error: ContentEncoding is a read-only property")
 
 	Func getCookies
-		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
+		return dnRequest("get",[self,"Cookies"])
 
 	Func setCookies P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cookies",P1])
+		dnRequest("set",[self,"Cookies",P1])
 		return self
 
 	Func getLastModified
-		return dnRequest("get",[new DotNetObject(nHandle),"LastModified"])
+		return dnRequest("get",[self,"LastModified"])
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getServer
-		return dnRequest("get",[new DotNetObject(nHandle),"Server"])
+		return dnRequest("get",[self,"Server"])
 
 	Func setServer P1
 		raise("DotNet Error: Server is a read-only property")
 
 	Func getProtocolVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolVersion"])
+		return dnRequest("get",[self,"ProtocolVersion"])
 
 	Func setProtocolVersion P1
 		raise("DotNet Error: ProtocolVersion is a read-only property")
 
 	Func getMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"Method"])
+		return dnRequest("get",[self,"Method"])
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
 
 	Func getStatusCode
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
+		return dnRequest("get",[self,"StatusCode"])
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
 
 	Func getStatusDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusDescription"])
+		return dnRequest("get",[self,"StatusDescription"])
 
 	Func setStatusDescription P1
 		raise("DotNet Error: StatusDescription is a read-only property")
 
 	Func getCharacterSet
-		return dnRequest("get",[new DotNetObject(nHandle),"CharacterSet"])
+		return dnRequest("get",[self,"CharacterSet"])
 
 	Func setCharacterSet P1
 		raise("DotNet Error: CharacterSet is a read-only property")

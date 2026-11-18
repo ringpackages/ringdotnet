@@ -24,23 +24,23 @@ Class OwnerDrawPropertyBag from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.OwnerDrawPropertyBag, System.Windows.Forms'),"Copy",P1])
 
 	Func getFont
-		return dnRequest("get",[new DotNetObject(nHandle),"Font"])
+		return dnRequest("get",[self,"Font"])
 
 	Func setFont P1
-		dnRequest("set",[new DotNetObject(nHandle),"Font",P1])
+		dnRequest("set",[self,"Font",P1])
 		return self
 
 	Func getForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"ForeColor"])
+		return dnRequest("get",[self,"ForeColor"])
 
 	Func setForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForeColor",P1])
+		dnRequest("set",[self,"ForeColor",P1])
 		return self
 
 	Func getBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"BackColor"])
+		return dnRequest("get",[self,"BackColor"])
 
 	Func setBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"BackColor",P1])
+		dnRequest("set",[self,"BackColor",P1])
 		return self
 

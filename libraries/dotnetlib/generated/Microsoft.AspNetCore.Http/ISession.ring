@@ -57,19 +57,19 @@ Class ISession from DotNetObject
 		return self
 
 	Func getIsAvailable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAvailable"])
+		return dnRequest("get",[self,"IsAvailable"])
 
 	Func setIsAvailable P1
 		raise("DotNet Error: IsAvailable is a read-only property")
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"Keys"])
+		return dnRequest("get",[self,"Keys"])
 
 	Func setKeys P1
 		raise("DotNet Error: Keys is a read-only property")

@@ -47,13 +47,13 @@ Class AspEntityTagHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers'),"TryParseStrictList",P1])
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
 		raise("DotNet Error: Tag is a read-only property")
 
 	Func getIsWeak
-		return dnRequest("get",[new DotNetObject(nHandle),"IsWeak"])
+		return dnRequest("get",[self,"IsWeak"])
 
 	Func setIsWeak P1
 		raise("DotNet Error: IsWeak is a read-only property")

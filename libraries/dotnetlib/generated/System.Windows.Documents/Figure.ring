@@ -40,59 +40,59 @@ Class Figure from AnchoredBlock
 		return self
 
 	Func getHorizontalAnchor
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalAnchor"])
+		return dnRequest("get",[self,"HorizontalAnchor"])
 
 	Func setHorizontalAnchor P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalAnchor",P1])
+		dnRequest("set",[self,"HorizontalAnchor",P1])
 		return self
 
 	Func getVerticalAnchor
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalAnchor"])
+		return dnRequest("get",[self,"VerticalAnchor"])
 
 	Func setVerticalAnchor P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerticalAnchor",P1])
+		dnRequest("set",[self,"VerticalAnchor",P1])
 		return self
 
 	Func getHorizontalOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
+		return dnRequest("get",[self,"HorizontalOffset"])
 
 	Func setHorizontalOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalOffset",P1])
+		dnRequest("set",[self,"HorizontalOffset",P1])
 		return self
 
 	Func getVerticalOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
+		return dnRequest("get",[self,"VerticalOffset"])
 
 	Func setVerticalOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerticalOffset",P1])
+		dnRequest("set",[self,"VerticalOffset",P1])
 		return self
 
 	Func getCanDelayPlacement
-		return dnRequest("get",[new DotNetObject(nHandle),"CanDelayPlacement"])
+		return dnRequest("get",[self,"CanDelayPlacement"])
 
 	Func setCanDelayPlacement P1
-		dnRequest("set",[new DotNetObject(nHandle),"CanDelayPlacement",P1])
+		dnRequest("set",[self,"CanDelayPlacement",P1])
 		return self
 
 	Func getWrapDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"WrapDirection"])
+		return dnRequest("get",[self,"WrapDirection"])
 
 	Func setWrapDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"WrapDirection",P1])
+		dnRequest("set",[self,"WrapDirection",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
+		dnRequest("set",[self,"Width",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
+		return dnRequest("get",[self,"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
+		dnRequest("set",[self,"Height",P1])
 		return self
 
 	Func getHorizontalAnchorProperty

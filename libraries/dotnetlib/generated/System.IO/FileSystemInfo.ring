@@ -47,88 +47,88 @@ Class FileSystemInfo from MarshalByRefObject
 		return self
 
 	Func getFullName
-		return dnRequest("get",[new DotNetObject(nHandle),"FullName"])
+		return dnRequest("get",[self,"FullName"])
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getExtension
-		return dnRequest("get",[new DotNetObject(nHandle),"Extension"])
+		return dnRequest("get",[self,"Extension"])
 
 	Func setExtension P1
 		raise("DotNet Error: Extension is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getExists
-		return dnRequest("get",[new DotNetObject(nHandle),"Exists"])
+		return dnRequest("get",[self,"Exists"])
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getCreationTime
-		return dnRequest("get",[new DotNetObject(nHandle),"CreationTime"])
+		return dnRequest("get",[self,"CreationTime"])
 
 	Func setCreationTime P1
-		dnRequest("set",[new DotNetObject(nHandle),"CreationTime",P1])
+		dnRequest("set",[self,"CreationTime",P1])
 		return self
 
 	Func getCreationTimeUtc
-		return dnRequest("get",[new DotNetObject(nHandle),"CreationTimeUtc"])
+		return dnRequest("get",[self,"CreationTimeUtc"])
 
 	Func setCreationTimeUtc P1
-		dnRequest("set",[new DotNetObject(nHandle),"CreationTimeUtc",P1])
+		dnRequest("set",[self,"CreationTimeUtc",P1])
 		return self
 
 	Func getLastAccessTime
-		return dnRequest("get",[new DotNetObject(nHandle),"LastAccessTime"])
+		return dnRequest("get",[self,"LastAccessTime"])
 
 	Func setLastAccessTime P1
-		dnRequest("set",[new DotNetObject(nHandle),"LastAccessTime",P1])
+		dnRequest("set",[self,"LastAccessTime",P1])
 		return self
 
 	Func getLastAccessTimeUtc
-		return dnRequest("get",[new DotNetObject(nHandle),"LastAccessTimeUtc"])
+		return dnRequest("get",[self,"LastAccessTimeUtc"])
 
 	Func setLastAccessTimeUtc P1
-		dnRequest("set",[new DotNetObject(nHandle),"LastAccessTimeUtc",P1])
+		dnRequest("set",[self,"LastAccessTimeUtc",P1])
 		return self
 
 	Func getLastWriteTime
-		return dnRequest("get",[new DotNetObject(nHandle),"LastWriteTime"])
+		return dnRequest("get",[self,"LastWriteTime"])
 
 	Func setLastWriteTime P1
-		dnRequest("set",[new DotNetObject(nHandle),"LastWriteTime",P1])
+		dnRequest("set",[self,"LastWriteTime",P1])
 		return self
 
 	Func getLastWriteTimeUtc
-		return dnRequest("get",[new DotNetObject(nHandle),"LastWriteTimeUtc"])
+		return dnRequest("get",[self,"LastWriteTimeUtc"])
 
 	Func setLastWriteTimeUtc P1
-		dnRequest("set",[new DotNetObject(nHandle),"LastWriteTimeUtc",P1])
+		dnRequest("set",[self,"LastWriteTimeUtc",P1])
 		return self
 
 	Func getLinkTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"LinkTarget"])
+		return dnRequest("get",[self,"LinkTarget"])
 
 	Func setLinkTarget P1
 		raise("DotNet Error: LinkTarget is a read-only property")
 
 	Func getUnixFileMode
-		return dnRequest("get",[new DotNetObject(nHandle),"UnixFileMode"])
+		return dnRequest("get",[self,"UnixFileMode"])
 
 	Func setUnixFileMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"UnixFileMode",P1])
+		dnRequest("set",[self,"UnixFileMode",P1])
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
-		dnRequest("set",[new DotNetObject(nHandle),"Attributes",P1])
+		dnRequest("set",[self,"Attributes",P1])
 		return self
 

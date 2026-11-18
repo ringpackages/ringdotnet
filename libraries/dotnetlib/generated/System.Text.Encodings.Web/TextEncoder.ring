@@ -36,7 +36,7 @@ Class TextEncoder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMaxOutputCharactersPerInputCharacter
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxOutputCharactersPerInputCharacter"])
+		return dnRequest("get",[self,"MaxOutputCharactersPerInputCharacter"])
 
 	Func setMaxOutputCharactersPerInputCharacter P1
 		raise("DotNet Error: MaxOutputCharactersPerInputCharacter is a read-only property")

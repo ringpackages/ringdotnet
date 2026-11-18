@@ -32,13 +32,13 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetIsTableExcludedFromMigrationsConfigurationSource"])
 
 	Func getEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
+		return dnRequest("get",[self,"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")

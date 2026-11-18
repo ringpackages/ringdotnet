@@ -17,13 +17,13 @@ Class InputLanguageEventArgs from EventArgs
 		return self
 
 	Func getNewLanguage
-		return dnRequest("get",[new DotNetObject(nHandle),"NewLanguage"])
+		return dnRequest("get",[self,"NewLanguage"])
 
 	Func setNewLanguage P1
 		raise("DotNet Error: NewLanguage is a read-only property")
 
 	Func getPreviousLanguage
-		return dnRequest("get",[new DotNetObject(nHandle),"PreviousLanguage"])
+		return dnRequest("get",[self,"PreviousLanguage"])
 
 	Func setPreviousLanguage P1
 		raise("DotNet Error: PreviousLanguage is a read-only property")

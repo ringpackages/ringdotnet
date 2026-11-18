@@ -28,16 +28,16 @@ Class DataColumnMapping from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DataColumnMapping, System.Data.Common'),"GetDataColumnBySchemaAction",P1,P2,P3,P4,P5])
 
 	Func getDataSetColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSetColumn"])
+		return dnRequest("get",[self,"DataSetColumn"])
 
 	Func setDataSetColumn P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSetColumn",P1])
+		dnRequest("set",[self,"DataSetColumn",P1])
 		return self
 
 	Func getSourceColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"SourceColumn"])
+		return dnRequest("get",[self,"SourceColumn"])
 
 	Func setSourceColumn P1
-		dnRequest("set",[new DotNetObject(nHandle),"SourceColumn",P1])
+		dnRequest("set",[self,"SourceColumn",P1])
 		return self
 

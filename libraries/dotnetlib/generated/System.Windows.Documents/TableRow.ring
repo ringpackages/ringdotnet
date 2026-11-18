@@ -20,7 +20,7 @@ Class TableRow from TextElement
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeCells"])
 
 	Func getCells
-		return dnRequest("get",[new DotNetObject(nHandle),"Cells"])
+		return dnRequest("get",[self,"Cells"])
 
 	Func setCells P1
 		raise("DotNet Error: Cells is a read-only property")

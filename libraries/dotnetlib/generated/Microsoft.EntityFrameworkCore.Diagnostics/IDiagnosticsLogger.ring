@@ -34,37 +34,37 @@ Class IDiagnosticsLogger from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"NeedsEventData",P1])
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getDefinitions
-		return dnRequest("get",[new DotNetObject(nHandle),"Definitions"])
+		return dnRequest("get",[self,"Definitions"])
 
 	Func setDefinitions P1
 		raise("DotNet Error: Definitions is a read-only property")
 
 	Func getLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
+		return dnRequest("get",[self,"Logger"])
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getDiagnosticSource
-		return dnRequest("get",[new DotNetObject(nHandle),"DiagnosticSource"])
+		return dnRequest("get",[self,"DiagnosticSource"])
 
 	Func setDiagnosticSource P1
 		raise("DotNet Error: DiagnosticSource is a read-only property")
 
 	Func getDbContextLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"DbContextLogger"])
+		return dnRequest("get",[self,"DbContextLogger"])
 
 	Func setDbContextLogger P1
 		raise("DotNet Error: DbContextLogger is a read-only property")
 
 	Func getInterceptors
-		return dnRequest("get",[new DotNetObject(nHandle),"Interceptors"])
+		return dnRequest("get",[self,"Interceptors"])
 
 	Func setInterceptors P1
 		raise("DotNet Error: Interceptors is a read-only property")

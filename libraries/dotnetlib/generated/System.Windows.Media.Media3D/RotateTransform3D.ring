@@ -36,31 +36,31 @@ Class RotateTransform3D from AffineTransform3D
 		return self
 
 	Func getCenterX
-		return dnRequest("get",[new DotNetObject(nHandle),"CenterX"])
+		return dnRequest("get",[self,"CenterX"])
 
 	Func setCenterX P1
-		dnRequest("set",[new DotNetObject(nHandle),"CenterX",P1])
+		dnRequest("set",[self,"CenterX",P1])
 		return self
 
 	Func getCenterY
-		return dnRequest("get",[new DotNetObject(nHandle),"CenterY"])
+		return dnRequest("get",[self,"CenterY"])
 
 	Func setCenterY P1
-		dnRequest("set",[new DotNetObject(nHandle),"CenterY",P1])
+		dnRequest("set",[self,"CenterY",P1])
 		return self
 
 	Func getCenterZ
-		return dnRequest("get",[new DotNetObject(nHandle),"CenterZ"])
+		return dnRequest("get",[self,"CenterZ"])
 
 	Func setCenterZ P1
-		dnRequest("set",[new DotNetObject(nHandle),"CenterZ",P1])
+		dnRequest("set",[self,"CenterZ",P1])
 		return self
 
 	Func getRotation
-		return dnRequest("get",[new DotNetObject(nHandle),"Rotation"])
+		return dnRequest("get",[self,"Rotation"])
 
 	Func setRotation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Rotation",P1])
+		dnRequest("set",[self,"Rotation",P1])
 		return self
 
 	Func getCenterXProperty

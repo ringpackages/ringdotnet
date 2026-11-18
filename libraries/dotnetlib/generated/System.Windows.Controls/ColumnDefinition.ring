@@ -24,34 +24,34 @@ Class ColumnDefinition from DefinitionBase
 		return self
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
+		dnRequest("set",[self,"Width",P1])
 		return self
 
 	Func getMinWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"MinWidth"])
+		return dnRequest("get",[self,"MinWidth"])
 
 	Func setMinWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinWidth",P1])
+		dnRequest("set",[self,"MinWidth",P1])
 		return self
 
 	Func getMaxWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxWidth"])
+		return dnRequest("get",[self,"MaxWidth"])
 
 	Func setMaxWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxWidth",P1])
+		dnRequest("set",[self,"MaxWidth",P1])
 		return self
 
 	Func getActualWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"ActualWidth"])
+		return dnRequest("get",[self,"ActualWidth"])
 
 	Func setActualWidth P1
 		raise("DotNet Error: ActualWidth is a read-only property")
 
 	Func getOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
+		return dnRequest("get",[self,"Offset"])
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")

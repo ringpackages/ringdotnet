@@ -17,9 +17,9 @@ Class XmlSchemaXPath from XmlSchemaAnnotated
 		return self
 
 	Func getXPath
-		return dnRequest("get",[new DotNetObject(nHandle),"XPath"])
+		return dnRequest("get",[self,"XPath"])
 
 	Func setXPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"XPath",P1])
+		dnRequest("set",[self,"XPath",P1])
 		return self
 

@@ -21,42 +21,42 @@ Class IHierarchicalVirtualizationAndScrollInfo from DotNetObject
 		return self
 
 	Func getConstraints
-		return dnRequest("get",[new DotNetObject(nHandle),"Constraints"])
+		return dnRequest("get",[self,"Constraints"])
 
 	Func setConstraints P1
-		dnRequest("set",[new DotNetObject(nHandle),"Constraints",P1])
+		dnRequest("set",[self,"Constraints",P1])
 		return self
 
 	Func getHeaderDesiredSizes
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderDesiredSizes"])
+		return dnRequest("get",[self,"HeaderDesiredSizes"])
 
 	Func setHeaderDesiredSizes P1
 		raise("DotNet Error: HeaderDesiredSizes is a read-only property")
 
 	Func getItemDesiredSizes
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemDesiredSizes"])
+		return dnRequest("get",[self,"ItemDesiredSizes"])
 
 	Func setItemDesiredSizes P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemDesiredSizes",P1])
+		dnRequest("set",[self,"ItemDesiredSizes",P1])
 		return self
 
 	Func getItemsHost
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemsHost"])
+		return dnRequest("get",[self,"ItemsHost"])
 
 	Func setItemsHost P1
 		raise("DotNet Error: ItemsHost is a read-only property")
 
 	Func getMustDisableVirtualization
-		return dnRequest("get",[new DotNetObject(nHandle),"MustDisableVirtualization"])
+		return dnRequest("get",[self,"MustDisableVirtualization"])
 
 	Func setMustDisableVirtualization P1
-		dnRequest("set",[new DotNetObject(nHandle),"MustDisableVirtualization",P1])
+		dnRequest("set",[self,"MustDisableVirtualization",P1])
 		return self
 
 	Func getInBackgroundLayout
-		return dnRequest("get",[new DotNetObject(nHandle),"InBackgroundLayout"])
+		return dnRequest("get",[self,"InBackgroundLayout"])
 
 	Func setInBackgroundLayout P1
-		dnRequest("set",[new DotNetObject(nHandle),"InBackgroundLayout",P1])
+		dnRequest("set",[self,"InBackgroundLayout",P1])
 		return self
 

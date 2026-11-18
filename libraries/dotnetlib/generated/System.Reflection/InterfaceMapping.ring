@@ -20,30 +20,30 @@ Class InterfaceMapping from ValueType
 		return self
 
 	Func getTargetType
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetType"])
+		return dnRequest("get",[self,"TargetType"])
 
 	Func setTargetType P1
-		dnRequest("set",[new DotNetObject(nHandle),"TargetType",P1])
+		dnRequest("set",[self,"TargetType",P1])
 		return self
 
 	Func getInterfaceType
-		return dnRequest("get",[new DotNetObject(nHandle),"InterfaceType"])
+		return dnRequest("get",[self,"InterfaceType"])
 
 	Func setInterfaceType P1
-		dnRequest("set",[new DotNetObject(nHandle),"InterfaceType",P1])
+		dnRequest("set",[self,"InterfaceType",P1])
 		return self
 
 	Func getTargetMethods
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetMethods"])
+		return dnRequest("get",[self,"TargetMethods"])
 
 	Func setTargetMethods P1
-		dnRequest("set",[new DotNetObject(nHandle),"TargetMethods",P1])
+		dnRequest("set",[self,"TargetMethods",P1])
 		return self
 
 	Func getInterfaceMethods
-		return dnRequest("get",[new DotNetObject(nHandle),"InterfaceMethods"])
+		return dnRequest("get",[self,"InterfaceMethods"])
 
 	Func setInterfaceMethods P1
-		dnRequest("set",[new DotNetObject(nHandle),"InterfaceMethods",P1])
+		dnRequest("set",[self,"InterfaceMethods",P1])
 		return self
 

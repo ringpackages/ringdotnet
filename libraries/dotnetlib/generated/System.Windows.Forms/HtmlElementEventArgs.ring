@@ -28,81 +28,81 @@ Class HtmlElementEventArgs from EventArgs
 		return self
 
 	Func getMouseButtonsPressed
-		return dnRequest("get",[new DotNetObject(nHandle),"MouseButtonsPressed"])
+		return dnRequest("get",[self,"MouseButtonsPressed"])
 
 	Func setMouseButtonsPressed P1
 		raise("DotNet Error: MouseButtonsPressed is a read-only property")
 
 	Func getClientMousePosition
-		return dnRequest("get",[new DotNetObject(nHandle),"ClientMousePosition"])
+		return dnRequest("get",[self,"ClientMousePosition"])
 
 	Func setClientMousePosition P1
 		raise("DotNet Error: ClientMousePosition is a read-only property")
 
 	Func getOffsetMousePosition
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetMousePosition"])
+		return dnRequest("get",[self,"OffsetMousePosition"])
 
 	Func setOffsetMousePosition P1
 		raise("DotNet Error: OffsetMousePosition is a read-only property")
 
 	Func getMousePosition
-		return dnRequest("get",[new DotNetObject(nHandle),"MousePosition"])
+		return dnRequest("get",[self,"MousePosition"])
 
 	Func setMousePosition P1
 		raise("DotNet Error: MousePosition is a read-only property")
 
 	Func getBubbleEvent
-		return dnRequest("get",[new DotNetObject(nHandle),"BubbleEvent"])
+		return dnRequest("get",[self,"BubbleEvent"])
 
 	Func setBubbleEvent P1
-		dnRequest("set",[new DotNetObject(nHandle),"BubbleEvent",P1])
+		dnRequest("set",[self,"BubbleEvent",P1])
 		return self
 
 	Func getKeyPressedCode
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyPressedCode"])
+		return dnRequest("get",[self,"KeyPressedCode"])
 
 	Func setKeyPressedCode P1
 		raise("DotNet Error: KeyPressedCode is a read-only property")
 
 	Func getAltKeyPressed
-		return dnRequest("get",[new DotNetObject(nHandle),"AltKeyPressed"])
+		return dnRequest("get",[self,"AltKeyPressed"])
 
 	Func setAltKeyPressed P1
 		raise("DotNet Error: AltKeyPressed is a read-only property")
 
 	Func getCtrlKeyPressed
-		return dnRequest("get",[new DotNetObject(nHandle),"CtrlKeyPressed"])
+		return dnRequest("get",[self,"CtrlKeyPressed"])
 
 	Func setCtrlKeyPressed P1
 		raise("DotNet Error: CtrlKeyPressed is a read-only property")
 
 	Func getShiftKeyPressed
-		return dnRequest("get",[new DotNetObject(nHandle),"ShiftKeyPressed"])
+		return dnRequest("get",[self,"ShiftKeyPressed"])
 
 	Func setShiftKeyPressed P1
 		raise("DotNet Error: ShiftKeyPressed is a read-only property")
 
 	Func getEventType
-		return dnRequest("get",[new DotNetObject(nHandle),"EventType"])
+		return dnRequest("get",[self,"EventType"])
 
 	Func setEventType P1
 		raise("DotNet Error: EventType is a read-only property")
 
 	Func getReturnValue
-		return dnRequest("get",[new DotNetObject(nHandle),"ReturnValue"])
+		return dnRequest("get",[self,"ReturnValue"])
 
 	Func setReturnValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReturnValue",P1])
+		dnRequest("set",[self,"ReturnValue",P1])
 		return self
 
 	Func getFromElement
-		return dnRequest("get",[new DotNetObject(nHandle),"FromElement"])
+		return dnRequest("get",[self,"FromElement"])
 
 	Func setFromElement P1
 		raise("DotNet Error: FromElement is a read-only property")
 
 	Func getToElement
-		return dnRequest("get",[new DotNetObject(nHandle),"ToElement"])
+		return dnRequest("get",[self,"ToElement"])
 
 	Func setToElement P1
 		raise("DotNet Error: ToElement is a read-only property")

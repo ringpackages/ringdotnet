@@ -32,57 +32,57 @@ Class LinkLabel from Label
 		return self
 
 	Func getActiveLinkColor
-		return dnRequest("get",[new DotNetObject(nHandle),"ActiveLinkColor"])
+		return dnRequest("get",[self,"ActiveLinkColor"])
 
 	Func setActiveLinkColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActiveLinkColor",P1])
+		dnRequest("set",[self,"ActiveLinkColor",P1])
 		return self
 
 	Func getDisabledLinkColor
-		return dnRequest("get",[new DotNetObject(nHandle),"DisabledLinkColor"])
+		return dnRequest("get",[self,"DisabledLinkColor"])
 
 	Func setDisabledLinkColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisabledLinkColor",P1])
+		dnRequest("set",[self,"DisabledLinkColor",P1])
 		return self
 
 	Func getLinkArea
-		return dnRequest("get",[new DotNetObject(nHandle),"LinkArea"])
+		return dnRequest("get",[self,"LinkArea"])
 
 	Func setLinkArea P1
-		dnRequest("set",[new DotNetObject(nHandle),"LinkArea",P1])
+		dnRequest("set",[self,"LinkArea",P1])
 		return self
 
 	Func getLinkBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"LinkBehavior"])
+		return dnRequest("get",[self,"LinkBehavior"])
 
 	Func setLinkBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"LinkBehavior",P1])
+		dnRequest("set",[self,"LinkBehavior",P1])
 		return self
 
 	Func getLinkColor
-		return dnRequest("get",[new DotNetObject(nHandle),"LinkColor"])
+		return dnRequest("get",[self,"LinkColor"])
 
 	Func setLinkColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"LinkColor",P1])
+		dnRequest("set",[self,"LinkColor",P1])
 		return self
 
 	Func getLinks
-		return dnRequest("get",[new DotNetObject(nHandle),"Links"])
+		return dnRequest("get",[self,"Links"])
 
 	Func setLinks P1
 		raise("DotNet Error: Links is a read-only property")
 
 	Func getLinkVisited
-		return dnRequest("get",[new DotNetObject(nHandle),"LinkVisited"])
+		return dnRequest("get",[self,"LinkVisited"])
 
 	Func setLinkVisited P1
-		dnRequest("set",[new DotNetObject(nHandle),"LinkVisited",P1])
+		dnRequest("set",[self,"LinkVisited",P1])
 		return self
 
 	Func getVisitedLinkColor
-		return dnRequest("get",[new DotNetObject(nHandle),"VisitedLinkColor"])
+		return dnRequest("get",[self,"VisitedLinkColor"])
 
 	Func setVisitedLinkColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"VisitedLinkColor",P1])
+		dnRequest("set",[self,"VisitedLinkColor",P1])
 		return self
 

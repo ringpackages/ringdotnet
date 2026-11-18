@@ -3,7 +3,7 @@
 Func DotNetNew_LiftableConstantProcessor
 	oDotNetNew = new LiftableConstantProcessor(0)
 
-Class LiftableConstantProcessor from DotNetObject
+Class LiftableConstantProcessor from ExpressionVisitor
 
 	LiftedConstants
 
@@ -25,23 +25,8 @@ Class LiftableConstantProcessor from DotNetObject
 	Func Visit P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
 
-	Func VisitAndConvert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
-
-	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
 	Func getLiftedConstants
-		return dnRequest("get",[new DotNetObject(nHandle),"LiftedConstants"])
+		return dnRequest("get",[self,"LiftedConstants"])
 
 	Func setLiftedConstants P1
 		raise("DotNet Error: LiftedConstants is a read-only property")

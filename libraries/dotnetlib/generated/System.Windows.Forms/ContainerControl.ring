@@ -58,41 +58,41 @@ Class ContainerControl from ScrollableControl
 		return self
 
 	Func getAutoScaleDimensions
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoScaleDimensions"])
+		return dnRequest("get",[self,"AutoScaleDimensions"])
 
 	Func setAutoScaleDimensions P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoScaleDimensions",P1])
+		dnRequest("set",[self,"AutoScaleDimensions",P1])
 		return self
 
 	Func getAutoScaleMode
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoScaleMode"])
+		return dnRequest("get",[self,"AutoScaleMode"])
 
 	Func setAutoScaleMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoScaleMode",P1])
+		dnRequest("set",[self,"AutoScaleMode",P1])
 		return self
 
 	Func getAutoValidate
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoValidate"])
+		return dnRequest("get",[self,"AutoValidate"])
 
 	Func setAutoValidate P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoValidate",P1])
+		dnRequest("set",[self,"AutoValidate",P1])
 		return self
 
 	Func getActiveControl
-		return dnRequest("get",[new DotNetObject(nHandle),"ActiveControl"])
+		return dnRequest("get",[self,"ActiveControl"])
 
 	Func setActiveControl P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActiveControl",P1])
+		dnRequest("set",[self,"ActiveControl",P1])
 		return self
 
 	Func getCurrentAutoScaleDimensions
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentAutoScaleDimensions"])
+		return dnRequest("get",[self,"CurrentAutoScaleDimensions"])
 
 	Func setCurrentAutoScaleDimensions P1
 		raise("DotNet Error: CurrentAutoScaleDimensions is a read-only property")
 
 	Func getParentForm
-		return dnRequest("get",[new DotNetObject(nHandle),"ParentForm"])
+		return dnRequest("get",[self,"ParentForm"])
 
 	Func setParentForm P1
 		raise("DotNet Error: ParentForm is a read-only property")

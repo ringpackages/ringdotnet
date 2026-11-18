@@ -21,7 +21,7 @@ Class RSASignaturePadding from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")

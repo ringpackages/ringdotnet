@@ -20,13 +20,13 @@ Class ISqlQueryColumn from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"FindColumnMapping",P1])
 
 	Func getSqlQuery
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlQuery"])
+		return dnRequest("get",[self,"SqlQuery"])
 
 	Func setSqlQuery P1
 		raise("DotNet Error: SqlQuery is a read-only property")
 
 	Func getPropertyMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyMappings"])
+		return dnRequest("get",[self,"PropertyMappings"])
 
 	Func setPropertyMappings P1
 		raise("DotNet Error: PropertyMappings is a read-only property")

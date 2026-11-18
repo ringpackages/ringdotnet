@@ -18,13 +18,13 @@ Class CascadeDeleteEventData from EntityEntryEventData
 		return self
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getParentEntityEntry
-		return dnRequest("get",[new DotNetObject(nHandle),"ParentEntityEntry"])
+		return dnRequest("get",[self,"ParentEntityEntry"])
 
 	Func setParentEntityEntry P1
 		raise("DotNet Error: ParentEntityEntry is a read-only property")

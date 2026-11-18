@@ -90,49 +90,49 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getIsThreadSafe
-		return dnRequest("get",[new DotNetObject(nHandle),"IsThreadSafe"])
+		return dnRequest("get",[self,"IsThreadSafe"])
 
 	Func setIsThreadSafe P1
 		raise("DotNet Error: IsThreadSafe is a read-only property")
 
 	Func getIndentLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"IndentLevel"])
+		return dnRequest("get",[self,"IndentLevel"])
 
 	Func setIndentLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"IndentLevel",P1])
+		dnRequest("set",[self,"IndentLevel",P1])
 		return self
 
 	Func getIndentSize
-		return dnRequest("get",[new DotNetObject(nHandle),"IndentSize"])
+		return dnRequest("get",[self,"IndentSize"])
 
 	Func setIndentSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"IndentSize",P1])
+		dnRequest("set",[self,"IndentSize",P1])
 		return self
 
 	Func getFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
+		return dnRequest("get",[self,"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
+		dnRequest("set",[self,"Filter",P1])
 		return self
 
 	Func getTraceOutputOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"TraceOutputOptions"])
+		return dnRequest("get",[self,"TraceOutputOptions"])
 
 	Func setTraceOutputOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"TraceOutputOptions",P1])
+		dnRequest("set",[self,"TraceOutputOptions",P1])
 		return self
 

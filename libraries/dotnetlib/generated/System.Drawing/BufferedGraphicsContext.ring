@@ -31,9 +31,9 @@ Class BufferedGraphicsContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMaximumBuffer
-		return dnRequest("get",[new DotNetObject(nHandle),"MaximumBuffer"])
+		return dnRequest("get",[self,"MaximumBuffer"])
 
 	Func setMaximumBuffer P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaximumBuffer",P1])
+		dnRequest("set",[self,"MaximumBuffer",P1])
 		return self
 

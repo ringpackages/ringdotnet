@@ -22,7 +22,7 @@ Class SqliteDataReader from DbDataReader
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTimeSpan",P1])
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")

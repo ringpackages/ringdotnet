@@ -3,13 +3,10 @@
 Func DotNetNew_QueryRootExpression
 	oDotNetNew = new QueryRootExpression()
 
-Class QueryRootExpression from DotNetObject
+Class QueryRootExpression from ExpressionsExpression
 
 	QueryProvider
 	ElementType
-	NodeType
-	Type
-	CanReduce
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -22,54 +19,15 @@ Class QueryRootExpression from DotNetObject
 	Func DetachQueryProvider 
 		return dnRequest("call",[new DotNetObject(nHandle),"DetachQueryProvider"])
 
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
-	Func Reduce 
-		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
-
-	Func ReduceAndCheck 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
-
-	Func ReduceExtensions 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
 	Func getQueryProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryProvider"])
+		return dnRequest("get",[self,"QueryProvider"])
 
 	Func setQueryProvider P1
 		raise("DotNet Error: QueryProvider is a read-only property")
 
 	Func getElementType
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementType"])
+		return dnRequest("get",[self,"ElementType"])
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
-
-	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
-
-	Func setNodeType P1
-		raise("DotNet Error: NodeType is a read-only property")
-
-	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
-
-	Func setType P1
-		raise("DotNet Error: Type is a read-only property")
-
-	Func getCanReduce
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
-
-	Func setCanReduce P1
-		raise("DotNet Error: CanReduce is a read-only property")
 

@@ -121,22 +121,22 @@ Class StringBuilder from Object
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
+		return dnRequest("get",[self,"Capacity"])
 
 	Func setCapacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"Capacity",P1])
+		dnRequest("set",[self,"Capacity",P1])
 		return self
 
 	Func getMaxCapacity
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxCapacity"])
+		return dnRequest("get",[self,"MaxCapacity"])
 
 	Func setMaxCapacity P1
 		raise("DotNet Error: MaxCapacity is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"Length",P1])
+		dnRequest("set",[self,"Length",P1])
 		return self
 

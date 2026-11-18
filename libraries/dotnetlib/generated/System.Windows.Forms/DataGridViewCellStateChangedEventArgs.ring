@@ -18,13 +18,13 @@ Class DataGridViewCellStateChangedEventArgs from EventArgs
 		return self
 
 	Func getCell
-		return dnRequest("get",[new DotNetObject(nHandle),"Cell"])
+		return dnRequest("get",[self,"Cell"])
 
 	Func setCell P1
 		raise("DotNet Error: Cell is a read-only property")
 
 	Func getStateChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"StateChanged"])
+		return dnRequest("get",[self,"StateChanged"])
 
 	Func setStateChanged P1
 		raise("DotNet Error: StateChanged is a read-only property")

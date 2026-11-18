@@ -50,9 +50,9 @@ Class NavigationEntry from MemberEntry
 		return dnRequest("call",[new DotNetObject(nHandle),"Query"])
 
 	Func getIsLoaded
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLoaded"])
+		return dnRequest("get",[self,"IsLoaded"])
 
 	Func setIsLoaded P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsLoaded",P1])
+		dnRequest("set",[self,"IsLoaded",P1])
 		return self
 

@@ -51,19 +51,19 @@ Class SpinLock from ValueType
 		return self
 
 	Func getIsHeld
-		return dnRequest("get",[new DotNetObject(nHandle),"IsHeld"])
+		return dnRequest("get",[self,"IsHeld"])
 
 	Func setIsHeld P1
 		raise("DotNet Error: IsHeld is a read-only property")
 
 	Func getIsHeldByCurrentThread
-		return dnRequest("get",[new DotNetObject(nHandle),"IsHeldByCurrentThread"])
+		return dnRequest("get",[self,"IsHeldByCurrentThread"])
 
 	Func setIsHeldByCurrentThread P1
 		raise("DotNet Error: IsHeldByCurrentThread is a read-only property")
 
 	Func getIsThreadOwnerTrackingEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsThreadOwnerTrackingEnabled"])
+		return dnRequest("get",[self,"IsThreadOwnerTrackingEnabled"])
 
 	Func setIsThreadOwnerTrackingEnabled P1
 		raise("DotNet Error: IsThreadOwnerTrackingEnabled is a read-only property")

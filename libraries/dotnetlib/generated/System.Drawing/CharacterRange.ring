@@ -22,16 +22,16 @@ Class CharacterRange from ValueType
 		return self
 
 	Func getFirst
-		return dnRequest("get",[new DotNetObject(nHandle),"First"])
+		return dnRequest("get",[self,"First"])
 
 	Func setFirst P1
-		dnRequest("set",[new DotNetObject(nHandle),"First",P1])
+		dnRequest("set",[self,"First",P1])
 		return self
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"Length",P1])
+		dnRequest("set",[self,"Length",P1])
 		return self
 

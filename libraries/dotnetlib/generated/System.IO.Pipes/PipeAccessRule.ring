@@ -34,37 +34,37 @@ Class PipeAccessRule from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getPipeAccessRights
-		return dnRequest("get",[new DotNetObject(nHandle),"PipeAccessRights"])
+		return dnRequest("get",[self,"PipeAccessRights"])
 
 	Func setPipeAccessRights P1
 		raise("DotNet Error: PipeAccessRights is a read-only property")
 
 	Func getAccessControlType
-		return dnRequest("get",[new DotNetObject(nHandle),"AccessControlType"])
+		return dnRequest("get",[self,"AccessControlType"])
 
 	Func setAccessControlType P1
 		raise("DotNet Error: AccessControlType is a read-only property")
 
 	Func getIdentityReference
-		return dnRequest("get",[new DotNetObject(nHandle),"IdentityReference"])
+		return dnRequest("get",[self,"IdentityReference"])
 
 	Func setIdentityReference P1
 		raise("DotNet Error: IdentityReference is a read-only property")
 
 	Func getIsInherited
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInherited"])
+		return dnRequest("get",[self,"IsInherited"])
 
 	Func setIsInherited P1
 		raise("DotNet Error: IsInherited is a read-only property")
 
 	Func getInheritanceFlags
-		return dnRequest("get",[new DotNetObject(nHandle),"InheritanceFlags"])
+		return dnRequest("get",[self,"InheritanceFlags"])
 
 	Func setInheritanceFlags P1
 		raise("DotNet Error: InheritanceFlags is a read-only property")
 
 	Func getPropagationFlags
-		return dnRequest("get",[new DotNetObject(nHandle),"PropagationFlags"])
+		return dnRequest("get",[self,"PropagationFlags"])
 
 	Func setPropagationFlags P1
 		raise("DotNet Error: PropagationFlags is a read-only property")

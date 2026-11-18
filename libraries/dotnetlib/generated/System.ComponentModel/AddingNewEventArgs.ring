@@ -21,9 +21,9 @@ Class AddingNewEventArgs from EventArgs
 		return self
 
 	Func getNewObject
-		return dnRequest("get",[new DotNetObject(nHandle),"NewObject"])
+		return dnRequest("get",[self,"NewObject"])
 
 	Func setNewObject P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewObject",P1])
+		dnRequest("set",[self,"NewObject",P1])
 		return self
 

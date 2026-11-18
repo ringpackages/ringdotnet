@@ -31,23 +31,23 @@ Class RemoteAuthenticationEvents from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOnAccessDenied
-		return dnRequest("get",[new DotNetObject(nHandle),"OnAccessDenied"])
+		return dnRequest("get",[self,"OnAccessDenied"])
 
 	Func setOnAccessDenied P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnAccessDenied",P1])
+		dnRequest("set",[self,"OnAccessDenied",P1])
 		return self
 
 	Func getOnRemoteFailure
-		return dnRequest("get",[new DotNetObject(nHandle),"OnRemoteFailure"])
+		return dnRequest("get",[self,"OnRemoteFailure"])
 
 	Func setOnRemoteFailure P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnRemoteFailure",P1])
+		dnRequest("set",[self,"OnRemoteFailure",P1])
 		return self
 
 	Func getOnTicketReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"OnTicketReceived"])
+		return dnRequest("get",[self,"OnTicketReceived"])
 
 	Func setOnTicketReceived P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnTicketReceived",P1])
+		dnRequest("set",[self,"OnTicketReceived",P1])
 		return self
 

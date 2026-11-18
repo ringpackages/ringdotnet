@@ -37,61 +37,61 @@ Class XPathItem from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsNode
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNode"])
+		return dnRequest("get",[self,"IsNode"])
 
 	Func setIsNode P1
 		raise("DotNet Error: IsNode is a read-only property")
 
 	Func getXmlType
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlType"])
+		return dnRequest("get",[self,"XmlType"])
 
 	Func setXmlType P1
 		raise("DotNet Error: XmlType is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getTypedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"TypedValue"])
+		return dnRequest("get",[self,"TypedValue"])
 
 	Func setTypedValue P1
 		raise("DotNet Error: TypedValue is a read-only property")
 
 	Func getValueType
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueType"])
+		return dnRequest("get",[self,"ValueType"])
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getValueAsBoolean
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueAsBoolean"])
+		return dnRequest("get",[self,"ValueAsBoolean"])
 
 	Func setValueAsBoolean P1
 		raise("DotNet Error: ValueAsBoolean is a read-only property")
 
 	Func getValueAsDateTime
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueAsDateTime"])
+		return dnRequest("get",[self,"ValueAsDateTime"])
 
 	Func setValueAsDateTime P1
 		raise("DotNet Error: ValueAsDateTime is a read-only property")
 
 	Func getValueAsDouble
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueAsDouble"])
+		return dnRequest("get",[self,"ValueAsDouble"])
 
 	Func setValueAsDouble P1
 		raise("DotNet Error: ValueAsDouble is a read-only property")
 
 	Func getValueAsInt
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueAsInt"])
+		return dnRequest("get",[self,"ValueAsInt"])
 
 	Func setValueAsInt P1
 		raise("DotNet Error: ValueAsInt is a read-only property")
 
 	Func getValueAsLong
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueAsLong"])
+		return dnRequest("get",[self,"ValueAsLong"])
 
 	Func setValueAsLong P1
 		raise("DotNet Error: ValueAsLong is a read-only property")

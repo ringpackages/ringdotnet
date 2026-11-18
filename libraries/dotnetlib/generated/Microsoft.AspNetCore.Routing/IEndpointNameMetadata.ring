@@ -16,7 +16,7 @@ Class IEndpointNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointName
-		return dnRequest("get",[new DotNetObject(nHandle),"EndpointName"])
+		return dnRequest("get",[self,"EndpointName"])
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")

@@ -64,108 +64,108 @@ Class WpfControl from FrameworkElement
 		return self
 
 	Func getBorderBrush
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderBrush"])
+		return dnRequest("get",[self,"BorderBrush"])
 
 	Func setBorderBrush P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderBrush",P1])
+		dnRequest("set",[self,"BorderBrush",P1])
 		return self
 
 	Func getBorderThickness
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderThickness"])
+		return dnRequest("get",[self,"BorderThickness"])
 
 	Func setBorderThickness P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderThickness",P1])
+		dnRequest("set",[self,"BorderThickness",P1])
 		return self
 
 	Func getBackground
-		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
+		return dnRequest("get",[self,"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
+		dnRequest("set",[self,"Background",P1])
 		return self
 
 	Func getForeground
-		return dnRequest("get",[new DotNetObject(nHandle),"Foreground"])
+		return dnRequest("get",[self,"Foreground"])
 
 	Func setForeground P1
-		dnRequest("set",[new DotNetObject(nHandle),"Foreground",P1])
+		dnRequest("set",[self,"Foreground",P1])
 		return self
 
 	Func getFontFamily
-		return dnRequest("get",[new DotNetObject(nHandle),"FontFamily"])
+		return dnRequest("get",[self,"FontFamily"])
 
 	Func setFontFamily P1
-		dnRequest("set",[new DotNetObject(nHandle),"FontFamily",P1])
+		dnRequest("set",[self,"FontFamily",P1])
 		return self
 
 	Func getFontSize
-		return dnRequest("get",[new DotNetObject(nHandle),"FontSize"])
+		return dnRequest("get",[self,"FontSize"])
 
 	Func setFontSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"FontSize",P1])
+		dnRequest("set",[self,"FontSize",P1])
 		return self
 
 	Func getFontStretch
-		return dnRequest("get",[new DotNetObject(nHandle),"FontStretch"])
+		return dnRequest("get",[self,"FontStretch"])
 
 	Func setFontStretch P1
-		dnRequest("set",[new DotNetObject(nHandle),"FontStretch",P1])
+		dnRequest("set",[self,"FontStretch",P1])
 		return self
 
 	Func getFontStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"FontStyle"])
+		return dnRequest("get",[self,"FontStyle"])
 
 	Func setFontStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"FontStyle",P1])
+		dnRequest("set",[self,"FontStyle",P1])
 		return self
 
 	Func getFontWeight
-		return dnRequest("get",[new DotNetObject(nHandle),"FontWeight"])
+		return dnRequest("get",[self,"FontWeight"])
 
 	Func setFontWeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"FontWeight",P1])
+		dnRequest("set",[self,"FontWeight",P1])
 		return self
 
 	Func getHorizontalContentAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalContentAlignment"])
+		return dnRequest("get",[self,"HorizontalContentAlignment"])
 
 	Func setHorizontalContentAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalContentAlignment",P1])
+		dnRequest("set",[self,"HorizontalContentAlignment",P1])
 		return self
 
 	Func getVerticalContentAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalContentAlignment"])
+		return dnRequest("get",[self,"VerticalContentAlignment"])
 
 	Func setVerticalContentAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerticalContentAlignment",P1])
+		dnRequest("set",[self,"VerticalContentAlignment",P1])
 		return self
 
 	Func getTabIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"TabIndex"])
+		return dnRequest("get",[self,"TabIndex"])
 
 	Func setTabIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"TabIndex",P1])
+		dnRequest("set",[self,"TabIndex",P1])
 		return self
 
 	Func getIsTabStop
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTabStop"])
+		return dnRequest("get",[self,"IsTabStop"])
 
 	Func setIsTabStop P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsTabStop",P1])
+		dnRequest("set",[self,"IsTabStop",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
+		return dnRequest("get",[self,"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
+		dnRequest("set",[self,"Padding",P1])
 		return self
 
 	Func getTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"Template"])
+		return dnRequest("get",[self,"Template"])
 
 	Func setTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"Template",P1])
+		dnRequest("set",[self,"Template",P1])
 		return self
 
 	Func getBorderBrushProperty

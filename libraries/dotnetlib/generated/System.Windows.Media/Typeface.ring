@@ -43,79 +43,79 @@ Class Typeface from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFontFamily
-		return dnRequest("get",[new DotNetObject(nHandle),"FontFamily"])
+		return dnRequest("get",[self,"FontFamily"])
 
 	Func setFontFamily P1
 		raise("DotNet Error: FontFamily is a read-only property")
 
 	Func getWeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Weight"])
+		return dnRequest("get",[self,"Weight"])
 
 	Func setWeight P1
 		raise("DotNet Error: Weight is a read-only property")
 
 	Func getStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
+		return dnRequest("get",[self,"Style"])
 
 	Func setStyle P1
 		raise("DotNet Error: Style is a read-only property")
 
 	Func getStretch
-		return dnRequest("get",[new DotNetObject(nHandle),"Stretch"])
+		return dnRequest("get",[self,"Stretch"])
 
 	Func setStretch P1
 		raise("DotNet Error: Stretch is a read-only property")
 
 	Func getIsObliqueSimulated
-		return dnRequest("get",[new DotNetObject(nHandle),"IsObliqueSimulated"])
+		return dnRequest("get",[self,"IsObliqueSimulated"])
 
 	Func setIsObliqueSimulated P1
 		raise("DotNet Error: IsObliqueSimulated is a read-only property")
 
 	Func getIsBoldSimulated
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBoldSimulated"])
+		return dnRequest("get",[self,"IsBoldSimulated"])
 
 	Func setIsBoldSimulated P1
 		raise("DotNet Error: IsBoldSimulated is a read-only property")
 
 	Func getXHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"XHeight"])
+		return dnRequest("get",[self,"XHeight"])
 
 	Func setXHeight P1
 		raise("DotNet Error: XHeight is a read-only property")
 
 	Func getCapsHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"CapsHeight"])
+		return dnRequest("get",[self,"CapsHeight"])
 
 	Func setCapsHeight P1
 		raise("DotNet Error: CapsHeight is a read-only property")
 
 	Func getUnderlinePosition
-		return dnRequest("get",[new DotNetObject(nHandle),"UnderlinePosition"])
+		return dnRequest("get",[self,"UnderlinePosition"])
 
 	Func setUnderlinePosition P1
 		raise("DotNet Error: UnderlinePosition is a read-only property")
 
 	Func getUnderlineThickness
-		return dnRequest("get",[new DotNetObject(nHandle),"UnderlineThickness"])
+		return dnRequest("get",[self,"UnderlineThickness"])
 
 	Func setUnderlineThickness P1
 		raise("DotNet Error: UnderlineThickness is a read-only property")
 
 	Func getStrikethroughPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"StrikethroughPosition"])
+		return dnRequest("get",[self,"StrikethroughPosition"])
 
 	Func setStrikethroughPosition P1
 		raise("DotNet Error: StrikethroughPosition is a read-only property")
 
 	Func getStrikethroughThickness
-		return dnRequest("get",[new DotNetObject(nHandle),"StrikethroughThickness"])
+		return dnRequest("get",[self,"StrikethroughThickness"])
 
 	Func setStrikethroughThickness P1
 		raise("DotNet Error: StrikethroughThickness is a read-only property")
 
 	Func getFaceNames
-		return dnRequest("get",[new DotNetObject(nHandle),"FaceNames"])
+		return dnRequest("get",[self,"FaceNames"])
 
 	Func setFaceNames P1
 		raise("DotNet Error: FaceNames is a read-only property")

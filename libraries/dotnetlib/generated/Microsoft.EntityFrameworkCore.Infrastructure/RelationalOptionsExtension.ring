@@ -89,91 +89,91 @@ Class RelationalOptionsExtension from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational'),"WithDefaultWarningConfiguration",P1])
 
 	Func getInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"Info"])
+		return dnRequest("get",[self,"Info"])
 
 	Func setInfo P1
 		raise("DotNet Error: Info is a read-only property")
 
 	Func getConnectionString
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionString"])
+		return dnRequest("get",[self,"ConnectionString"])
 
 	Func setConnectionString P1
 		raise("DotNet Error: ConnectionString is a read-only property")
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getIsConnectionOwned
-		return dnRequest("get",[new DotNetObject(nHandle),"IsConnectionOwned"])
+		return dnRequest("get",[self,"IsConnectionOwned"])
 
 	Func setIsConnectionOwned P1
 		raise("DotNet Error: IsConnectionOwned is a read-only property")
 
 	Func getCommandTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandTimeout"])
+		return dnRequest("get",[self,"CommandTimeout"])
 
 	Func setCommandTimeout P1
 		raise("DotNet Error: CommandTimeout is a read-only property")
 
 	Func getMaxBatchSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxBatchSize"])
+		return dnRequest("get",[self,"MaxBatchSize"])
 
 	Func setMaxBatchSize P1
 		raise("DotNet Error: MaxBatchSize is a read-only property")
 
 	Func getMinBatchSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MinBatchSize"])
+		return dnRequest("get",[self,"MinBatchSize"])
 
 	Func setMinBatchSize P1
 		raise("DotNet Error: MinBatchSize is a read-only property")
 
 	Func getUseRelationalNulls
-		return dnRequest("get",[new DotNetObject(nHandle),"UseRelationalNulls"])
+		return dnRequest("get",[self,"UseRelationalNulls"])
 
 	Func setUseRelationalNulls P1
 		raise("DotNet Error: UseRelationalNulls is a read-only property")
 
 	Func getQuerySplittingBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"QuerySplittingBehavior"])
+		return dnRequest("get",[self,"QuerySplittingBehavior"])
 
 	Func setQuerySplittingBehavior P1
 		raise("DotNet Error: QuerySplittingBehavior is a read-only property")
 
 	Func getMigrationsAssembly
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsAssembly"])
+		return dnRequest("get",[self,"MigrationsAssembly"])
 
 	Func setMigrationsAssembly P1
 		raise("DotNet Error: MigrationsAssembly is a read-only property")
 
 	Func getMigrationsAssemblyObject
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsAssemblyObject"])
+		return dnRequest("get",[self,"MigrationsAssemblyObject"])
 
 	Func setMigrationsAssemblyObject P1
 		raise("DotNet Error: MigrationsAssemblyObject is a read-only property")
 
 	Func getMigrationsHistoryTableName
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsHistoryTableName"])
+		return dnRequest("get",[self,"MigrationsHistoryTableName"])
 
 	Func setMigrationsHistoryTableName P1
 		raise("DotNet Error: MigrationsHistoryTableName is a read-only property")
 
 	Func getMigrationsHistoryTableSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsHistoryTableSchema"])
+		return dnRequest("get",[self,"MigrationsHistoryTableSchema"])
 
 	Func setMigrationsHistoryTableSchema P1
 		raise("DotNet Error: MigrationsHistoryTableSchema is a read-only property")
 
 	Func getExecutionStrategyFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionStrategyFactory"])
+		return dnRequest("get",[self,"ExecutionStrategyFactory"])
 
 	Func setExecutionStrategyFactory P1
 		raise("DotNet Error: ExecutionStrategyFactory is a read-only property")
 
 	Func getParameterizedCollectionTranslationMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterizedCollectionTranslationMode"])
+		return dnRequest("get",[self,"ParameterizedCollectionTranslationMode"])
 
 	Func setParameterizedCollectionTranslationMode P1
 		raise("DotNet Error: ParameterizedCollectionTranslationMode is a read-only property")

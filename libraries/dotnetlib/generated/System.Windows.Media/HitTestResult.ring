@@ -19,7 +19,7 @@ Class HitTestResult from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getVisualHit
-		return dnRequest("get",[new DotNetObject(nHandle),"VisualHit"])
+		return dnRequest("get",[self,"VisualHit"])
 
 	Func setVisualHit P1
 		raise("DotNet Error: VisualHit is a read-only property")

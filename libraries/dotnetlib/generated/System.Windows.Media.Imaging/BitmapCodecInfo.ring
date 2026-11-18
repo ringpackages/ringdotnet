@@ -30,73 +30,73 @@ Class BitmapCodecInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContainerFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainerFormat"])
+		return dnRequest("get",[self,"ContainerFormat"])
 
 	Func setContainerFormat P1
 		raise("DotNet Error: ContainerFormat is a read-only property")
 
 	Func getAuthor
-		return dnRequest("get",[new DotNetObject(nHandle),"Author"])
+		return dnRequest("get",[self,"Author"])
 
 	Func setAuthor P1
 		raise("DotNet Error: Author is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getSpecificationVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"SpecificationVersion"])
+		return dnRequest("get",[self,"SpecificationVersion"])
 
 	Func setSpecificationVersion P1
 		raise("DotNet Error: SpecificationVersion is a read-only property")
 
 	Func getFriendlyName
-		return dnRequest("get",[new DotNetObject(nHandle),"FriendlyName"])
+		return dnRequest("get",[self,"FriendlyName"])
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getDeviceManufacturer
-		return dnRequest("get",[new DotNetObject(nHandle),"DeviceManufacturer"])
+		return dnRequest("get",[self,"DeviceManufacturer"])
 
 	Func setDeviceManufacturer P1
 		raise("DotNet Error: DeviceManufacturer is a read-only property")
 
 	Func getDeviceModels
-		return dnRequest("get",[new DotNetObject(nHandle),"DeviceModels"])
+		return dnRequest("get",[self,"DeviceModels"])
 
 	Func setDeviceModels P1
 		raise("DotNet Error: DeviceModels is a read-only property")
 
 	Func getMimeTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"MimeTypes"])
+		return dnRequest("get",[self,"MimeTypes"])
 
 	Func setMimeTypes P1
 		raise("DotNet Error: MimeTypes is a read-only property")
 
 	Func getFileExtensions
-		return dnRequest("get",[new DotNetObject(nHandle),"FileExtensions"])
+		return dnRequest("get",[self,"FileExtensions"])
 
 	Func setFileExtensions P1
 		raise("DotNet Error: FileExtensions is a read-only property")
 
 	Func getSupportsAnimation
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsAnimation"])
+		return dnRequest("get",[self,"SupportsAnimation"])
 
 	Func setSupportsAnimation P1
 		raise("DotNet Error: SupportsAnimation is a read-only property")
 
 	Func getSupportsLossless
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsLossless"])
+		return dnRequest("get",[self,"SupportsLossless"])
 
 	Func setSupportsLossless P1
 		raise("DotNet Error: SupportsLossless is a read-only property")
 
 	Func getSupportsMultipleFrames
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsMultipleFrames"])
+		return dnRequest("get",[self,"SupportsMultipleFrames"])
 
 	Func setSupportsMultipleFrames P1
 		raise("DotNet Error: SupportsMultipleFrames is a read-only property")

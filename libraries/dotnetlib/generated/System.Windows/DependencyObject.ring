@@ -47,13 +47,13 @@ Class DependencyObject from DispatcherObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetLocalValueEnumerator"])
 
 	Func getDependencyObjectType
-		return dnRequest("get",[new DotNetObject(nHandle),"DependencyObjectType"])
+		return dnRequest("get",[self,"DependencyObjectType"])
 
 	Func setDependencyObjectType P1
 		raise("DotNet Error: DependencyObjectType is a read-only property")
 
 	Func getIsSealed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSealed"])
+		return dnRequest("get",[self,"IsSealed"])
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")

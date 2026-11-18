@@ -36,10 +36,10 @@ Class ListBoxItem from ContentControl
 		return self
 
 	Func getIsSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
+		return dnRequest("get",[self,"IsSelected"])
 
 	Func setIsSelected P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSelected",P1])
+		dnRequest("set",[self,"IsSelected",P1])
 		return self
 
 	Func getIsSelectedProperty

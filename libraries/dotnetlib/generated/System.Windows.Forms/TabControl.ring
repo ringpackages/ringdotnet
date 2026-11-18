@@ -101,103 +101,103 @@ Class TabControl from Control
 		return self
 
 	Func getAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"Alignment"])
+		return dnRequest("get",[self,"Alignment"])
 
 	Func setAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"Alignment",P1])
+		dnRequest("set",[self,"Alignment",P1])
 		return self
 
 	Func getAppearance
-		return dnRequest("get",[new DotNetObject(nHandle),"Appearance"])
+		return dnRequest("get",[self,"Appearance"])
 
 	Func setAppearance P1
-		dnRequest("set",[new DotNetObject(nHandle),"Appearance",P1])
+		dnRequest("set",[self,"Appearance",P1])
 		return self
 
 	Func getDrawMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DrawMode"])
+		return dnRequest("get",[self,"DrawMode"])
 
 	Func setDrawMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"DrawMode",P1])
+		dnRequest("set",[self,"DrawMode",P1])
 		return self
 
 	Func getHotTrack
-		return dnRequest("get",[new DotNetObject(nHandle),"HotTrack"])
+		return dnRequest("get",[self,"HotTrack"])
 
 	Func setHotTrack P1
-		dnRequest("set",[new DotNetObject(nHandle),"HotTrack",P1])
+		dnRequest("set",[self,"HotTrack",P1])
 		return self
 
 	Func getImageList
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageList"])
+		return dnRequest("get",[self,"ImageList"])
 
 	Func setImageList P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageList",P1])
+		dnRequest("set",[self,"ImageList",P1])
 		return self
 
 	Func getItemSize
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemSize"])
+		return dnRequest("get",[self,"ItemSize"])
 
 	Func setItemSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemSize",P1])
+		dnRequest("set",[self,"ItemSize",P1])
 		return self
 
 	Func getMultiline
-		return dnRequest("get",[new DotNetObject(nHandle),"Multiline"])
+		return dnRequest("get",[self,"Multiline"])
 
 	Func setMultiline P1
-		dnRequest("set",[new DotNetObject(nHandle),"Multiline",P1])
+		dnRequest("set",[self,"Multiline",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
+		return dnRequest("get",[self,"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
+		dnRequest("set",[self,"RightToLeftLayout",P1])
 		return self
 
 	Func getRowCount
-		return dnRequest("get",[new DotNetObject(nHandle),"RowCount"])
+		return dnRequest("get",[self,"RowCount"])
 
 	Func setRowCount P1
 		raise("DotNet Error: RowCount is a read-only property")
 
 	Func getSelectedIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedIndex"])
+		return dnRequest("get",[self,"SelectedIndex"])
 
 	Func setSelectedIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedIndex",P1])
+		dnRequest("set",[self,"SelectedIndex",P1])
 		return self
 
 	Func getSelectedTab
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedTab"])
+		return dnRequest("get",[self,"SelectedTab"])
 
 	Func setSelectedTab P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedTab",P1])
+		dnRequest("set",[self,"SelectedTab",P1])
 		return self
 
 	Func getSizeMode
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeMode"])
+		return dnRequest("get",[self,"SizeMode"])
 
 	Func setSizeMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SizeMode",P1])
+		dnRequest("set",[self,"SizeMode",P1])
 		return self
 
 	Func getShowToolTips
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowToolTips"])
+		return dnRequest("get",[self,"ShowToolTips"])
 
 	Func setShowToolTips P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowToolTips",P1])
+		dnRequest("set",[self,"ShowToolTips",P1])
 		return self
 
 	Func getTabCount
-		return dnRequest("get",[new DotNetObject(nHandle),"TabCount"])
+		return dnRequest("get",[self,"TabCount"])
 
 	Func setTabCount P1
 		raise("DotNet Error: TabCount is a read-only property")
 
 	Func getTabPages
-		return dnRequest("get",[new DotNetObject(nHandle),"TabPages"])
+		return dnRequest("get",[self,"TabPages"])
 
 	Func setTabPages P1
 		raise("DotNet Error: TabPages is a read-only property")

@@ -18,14 +18,14 @@ Class XmlSchemaGroupRef from XmlSchemaParticle
 		return self
 
 	Func getRefName
-		return dnRequest("get",[new DotNetObject(nHandle),"RefName"])
+		return dnRequest("get",[self,"RefName"])
 
 	Func setRefName P1
-		dnRequest("set",[new DotNetObject(nHandle),"RefName",P1])
+		dnRequest("set",[self,"RefName",P1])
 		return self
 
 	Func getParticle
-		return dnRequest("get",[new DotNetObject(nHandle),"Particle"])
+		return dnRequest("get",[self,"Particle"])
 
 	Func setParticle P1
 		raise("DotNet Error: Particle is a read-only property")

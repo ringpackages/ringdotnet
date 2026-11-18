@@ -30,16 +30,16 @@ Class XmlSchemaInference from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOccurrence
-		return dnRequest("get",[new DotNetObject(nHandle),"Occurrence"])
+		return dnRequest("get",[self,"Occurrence"])
 
 	Func setOccurrence P1
-		dnRequest("set",[new DotNetObject(nHandle),"Occurrence",P1])
+		dnRequest("set",[self,"Occurrence",P1])
 		return self
 
 	Func getTypeInference
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeInference"])
+		return dnRequest("get",[self,"TypeInference"])
 
 	Func setTypeInference P1
-		dnRequest("set",[new DotNetObject(nHandle),"TypeInference",P1])
+		dnRequest("set",[self,"TypeInference",P1])
 		return self
 

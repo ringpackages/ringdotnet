@@ -17,16 +17,16 @@ Class IAuthenticationFeature from DotNetObject
 		return self
 
 	Func getOriginalPathBase
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalPathBase"])
+		return dnRequest("get",[self,"OriginalPathBase"])
 
 	Func setOriginalPathBase P1
-		dnRequest("set",[new DotNetObject(nHandle),"OriginalPathBase",P1])
+		dnRequest("set",[self,"OriginalPathBase",P1])
 		return self
 
 	Func getOriginalPath
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalPath"])
+		return dnRequest("get",[self,"OriginalPath"])
 
 	Func setOriginalPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"OriginalPath",P1])
+		dnRequest("set",[self,"OriginalPath",P1])
 		return self
 

@@ -52,66 +52,66 @@ Class ContextMenu from MenuBase
 		return self
 
 	Func getHorizontalOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
+		return dnRequest("get",[self,"HorizontalOffset"])
 
 	Func setHorizontalOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalOffset",P1])
+		dnRequest("set",[self,"HorizontalOffset",P1])
 		return self
 
 	Func getVerticalOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
+		return dnRequest("get",[self,"VerticalOffset"])
 
 	Func setVerticalOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerticalOffset",P1])
+		dnRequest("set",[self,"VerticalOffset",P1])
 		return self
 
 	Func getIsOpen
-		return dnRequest("get",[new DotNetObject(nHandle),"IsOpen"])
+		return dnRequest("get",[self,"IsOpen"])
 
 	Func setIsOpen P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsOpen",P1])
+		dnRequest("set",[self,"IsOpen",P1])
 		return self
 
 	Func getPlacementTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"PlacementTarget"])
+		return dnRequest("get",[self,"PlacementTarget"])
 
 	Func setPlacementTarget P1
-		dnRequest("set",[new DotNetObject(nHandle),"PlacementTarget",P1])
+		dnRequest("set",[self,"PlacementTarget",P1])
 		return self
 
 	Func getPlacementRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"PlacementRectangle"])
+		return dnRequest("get",[self,"PlacementRectangle"])
 
 	Func setPlacementRectangle P1
-		dnRequest("set",[new DotNetObject(nHandle),"PlacementRectangle",P1])
+		dnRequest("set",[self,"PlacementRectangle",P1])
 		return self
 
 	Func getPlacement
-		return dnRequest("get",[new DotNetObject(nHandle),"Placement"])
+		return dnRequest("get",[self,"Placement"])
 
 	Func setPlacement P1
-		dnRequest("set",[new DotNetObject(nHandle),"Placement",P1])
+		dnRequest("set",[self,"Placement",P1])
 		return self
 
 	Func getHasDropShadow
-		return dnRequest("get",[new DotNetObject(nHandle),"HasDropShadow"])
+		return dnRequest("get",[self,"HasDropShadow"])
 
 	Func setHasDropShadow P1
-		dnRequest("set",[new DotNetObject(nHandle),"HasDropShadow",P1])
+		dnRequest("set",[self,"HasDropShadow",P1])
 		return self
 
 	Func getCustomPopupPlacementCallback
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomPopupPlacementCallback"])
+		return dnRequest("get",[self,"CustomPopupPlacementCallback"])
 
 	Func setCustomPopupPlacementCallback P1
-		dnRequest("set",[new DotNetObject(nHandle),"CustomPopupPlacementCallback",P1])
+		dnRequest("set",[self,"CustomPopupPlacementCallback",P1])
 		return self
 
 	Func getStaysOpen
-		return dnRequest("get",[new DotNetObject(nHandle),"StaysOpen"])
+		return dnRequest("get",[self,"StaysOpen"])
 
 	Func setStaysOpen P1
-		dnRequest("set",[new DotNetObject(nHandle),"StaysOpen",P1])
+		dnRequest("set",[self,"StaysOpen",P1])
 		return self
 
 	Func getHorizontalOffsetProperty

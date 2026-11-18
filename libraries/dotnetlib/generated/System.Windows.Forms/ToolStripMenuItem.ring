@@ -55,49 +55,49 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 		return self
 
 	Func getChecked
-		return dnRequest("get",[new DotNetObject(nHandle),"Checked"])
+		return dnRequest("get",[self,"Checked"])
 
 	Func setChecked P1
-		dnRequest("set",[new DotNetObject(nHandle),"Checked",P1])
+		dnRequest("set",[self,"Checked",P1])
 		return self
 
 	Func getCheckOnClick
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckOnClick"])
+		return dnRequest("get",[self,"CheckOnClick"])
 
 	Func setCheckOnClick P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckOnClick",P1])
+		dnRequest("set",[self,"CheckOnClick",P1])
 		return self
 
 	Func getCheckState
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckState"])
+		return dnRequest("get",[self,"CheckState"])
 
 	Func setCheckState P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckState",P1])
+		dnRequest("set",[self,"CheckState",P1])
 		return self
 
 	Func getShortcutKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"ShortcutKeys"])
+		return dnRequest("get",[self,"ShortcutKeys"])
 
 	Func setShortcutKeys P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShortcutKeys",P1])
+		dnRequest("set",[self,"ShortcutKeys",P1])
 		return self
 
 	Func getShortcutKeyDisplayString
-		return dnRequest("get",[new DotNetObject(nHandle),"ShortcutKeyDisplayString"])
+		return dnRequest("get",[self,"ShortcutKeyDisplayString"])
 
 	Func setShortcutKeyDisplayString P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShortcutKeyDisplayString",P1])
+		dnRequest("set",[self,"ShortcutKeyDisplayString",P1])
 		return self
 
 	Func getShowShortcutKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowShortcutKeys"])
+		return dnRequest("get",[self,"ShowShortcutKeys"])
 
 	Func setShowShortcutKeys P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowShortcutKeys",P1])
+		dnRequest("set",[self,"ShowShortcutKeys",P1])
 		return self
 
 	Func getIsMdiWindowListEntry
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMdiWindowListEntry"])
+		return dnRequest("get",[self,"IsMdiWindowListEntry"])
 
 	Func setIsMdiWindowListEntry P1
 		raise("DotNet Error: IsMdiWindowListEntry is a read-only property")

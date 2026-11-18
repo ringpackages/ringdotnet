@@ -18,13 +18,13 @@ Class EntityTypeSchemaEventData from EventData
 		return self
 
 	Func getEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
+		return dnRequest("get",[self,"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
+		return dnRequest("get",[self,"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")

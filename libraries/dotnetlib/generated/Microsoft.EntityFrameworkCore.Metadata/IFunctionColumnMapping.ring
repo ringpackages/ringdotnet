@@ -32,13 +32,13 @@ Class IFunctionColumnMapping from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getFunctionMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"FunctionMapping"])
+		return dnRequest("get",[self,"FunctionMapping"])
 
 	Func setFunctionMapping P1
 		raise("DotNet Error: FunctionMapping is a read-only property")

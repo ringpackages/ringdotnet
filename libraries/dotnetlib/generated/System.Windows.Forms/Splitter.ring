@@ -36,30 +36,30 @@ Class Splitter from Control
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
+		return dnRequest("get",[self,"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
+		dnRequest("set",[self,"BorderStyle",P1])
 		return self
 
 	Func getMinExtra
-		return dnRequest("get",[new DotNetObject(nHandle),"MinExtra"])
+		return dnRequest("get",[self,"MinExtra"])
 
 	Func setMinExtra P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinExtra",P1])
+		dnRequest("set",[self,"MinExtra",P1])
 		return self
 
 	Func getMinSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MinSize"])
+		return dnRequest("get",[self,"MinSize"])
 
 	Func setMinSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinSize",P1])
+		dnRequest("set",[self,"MinSize",P1])
 		return self
 
 	Func getSplitPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"SplitPosition"])
+		return dnRequest("get",[self,"SplitPosition"])
 
 	Func setSplitPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"SplitPosition",P1])
+		dnRequest("set",[self,"SplitPosition",P1])
 		return self
 

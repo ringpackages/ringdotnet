@@ -18,13 +18,13 @@ Class RuntimeComplexProperty from RuntimePropertyBase
 		return self
 
 	Func getComplexType
-		return dnRequest("get",[new DotNetObject(nHandle),"ComplexType"])
+		return dnRequest("get",[self,"ComplexType"])
 
 	Func setComplexType P1
 		raise("DotNet Error: ComplexType is a read-only property")
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

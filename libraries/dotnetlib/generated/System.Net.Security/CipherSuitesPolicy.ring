@@ -20,7 +20,7 @@ Class CipherSuitesPolicy from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAllowedCipherSuites
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowedCipherSuites"])
+		return dnRequest("get",[self,"AllowedCipherSuites"])
 
 	Func setAllowedCipherSuites P1
 		raise("DotNet Error: AllowedCipherSuites is a read-only property")

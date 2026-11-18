@@ -73,92 +73,92 @@ Class WpfCalendar from WpfControl
 		return self
 
 	Func getBlackoutDates
-		return dnRequest("get",[new DotNetObject(nHandle),"BlackoutDates"])
+		return dnRequest("get",[self,"BlackoutDates"])
 
 	Func setBlackoutDates P1
 		raise("DotNet Error: BlackoutDates is a read-only property")
 
 	Func getCalendarButtonStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarButtonStyle"])
+		return dnRequest("get",[self,"CalendarButtonStyle"])
 
 	Func setCalendarButtonStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarButtonStyle",P1])
+		dnRequest("set",[self,"CalendarButtonStyle",P1])
 		return self
 
 	Func getCalendarDayButtonStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarDayButtonStyle"])
+		return dnRequest("get",[self,"CalendarDayButtonStyle"])
 
 	Func setCalendarDayButtonStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarDayButtonStyle",P1])
+		dnRequest("set",[self,"CalendarDayButtonStyle",P1])
 		return self
 
 	Func getCalendarItemStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarItemStyle"])
+		return dnRequest("get",[self,"CalendarItemStyle"])
 
 	Func setCalendarItemStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarItemStyle",P1])
+		dnRequest("set",[self,"CalendarItemStyle",P1])
 		return self
 
 	Func getDisplayDate
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayDate"])
+		return dnRequest("get",[self,"DisplayDate"])
 
 	Func setDisplayDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayDate",P1])
+		dnRequest("set",[self,"DisplayDate",P1])
 		return self
 
 	Func getDisplayDateEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayDateEnd"])
+		return dnRequest("get",[self,"DisplayDateEnd"])
 
 	Func setDisplayDateEnd P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayDateEnd",P1])
+		dnRequest("set",[self,"DisplayDateEnd",P1])
 		return self
 
 	Func getDisplayDateStart
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayDateStart"])
+		return dnRequest("get",[self,"DisplayDateStart"])
 
 	Func setDisplayDateStart P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayDateStart",P1])
+		dnRequest("set",[self,"DisplayDateStart",P1])
 		return self
 
 	Func getDisplayMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayMode"])
+		return dnRequest("get",[self,"DisplayMode"])
 
 	Func setDisplayMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayMode",P1])
+		dnRequest("set",[self,"DisplayMode",P1])
 		return self
 
 	Func getFirstDayOfWeek
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstDayOfWeek"])
+		return dnRequest("get",[self,"FirstDayOfWeek"])
 
 	Func setFirstDayOfWeek P1
-		dnRequest("set",[new DotNetObject(nHandle),"FirstDayOfWeek",P1])
+		dnRequest("set",[self,"FirstDayOfWeek",P1])
 		return self
 
 	Func getIsTodayHighlighted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTodayHighlighted"])
+		return dnRequest("get",[self,"IsTodayHighlighted"])
 
 	Func setIsTodayHighlighted P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsTodayHighlighted",P1])
+		dnRequest("set",[self,"IsTodayHighlighted",P1])
 		return self
 
 	Func getSelectedDate
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedDate"])
+		return dnRequest("get",[self,"SelectedDate"])
 
 	Func setSelectedDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedDate",P1])
+		dnRequest("set",[self,"SelectedDate",P1])
 		return self
 
 	Func getSelectedDates
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedDates"])
+		return dnRequest("get",[self,"SelectedDates"])
 
 	Func setSelectedDates P1
 		raise("DotNet Error: SelectedDates is a read-only property")
 
 	Func getSelectionMode
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionMode"])
+		return dnRequest("get",[self,"SelectionMode"])
 
 	Func setSelectionMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionMode",P1])
+		dnRequest("set",[self,"SelectionMode",P1])
 		return self
 
 	Func getSelectedDatesChangedEvent

@@ -17,7 +17,7 @@ Class ComplexPropertyEventData from EventData
 		return self
 
 	Func getProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
+		return dnRequest("get",[self,"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")

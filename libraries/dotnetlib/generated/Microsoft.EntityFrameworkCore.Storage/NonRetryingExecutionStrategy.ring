@@ -29,7 +29,7 @@ Class NonRetryingExecutionStrategy from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRetriesOnFailure
-		return dnRequest("get",[new DotNetObject(nHandle),"RetriesOnFailure"])
+		return dnRequest("get",[self,"RetriesOnFailure"])
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")

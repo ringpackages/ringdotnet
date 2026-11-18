@@ -147,13 +147,13 @@ Class NegotiateStream from AuthenticatedStream
 		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1,P2,P3,P4])
 
 	Func getImpersonationLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"ImpersonationLevel"])
+		return dnRequest("get",[self,"ImpersonationLevel"])
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
 
 	Func getRemoteIdentity
-		return dnRequest("get",[new DotNetObject(nHandle),"RemoteIdentity"])
+		return dnRequest("get",[self,"RemoteIdentity"])
 
 	Func setRemoteIdentity P1
 		raise("DotNet Error: RemoteIdentity is a read-only property")

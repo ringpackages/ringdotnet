@@ -48,13 +48,13 @@ Class SpinWait from ValueType
 		return dnRequest("call",[dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib'),"SpinUntil",P1,P2])
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getNextSpinWillYield
-		return dnRequest("get",[new DotNetObject(nHandle),"NextSpinWillYield"])
+		return dnRequest("get",[self,"NextSpinWillYield"])
 
 	Func setNextSpinWillYield P1
 		raise("DotNet Error: NextSpinWillYield is a read-only property")

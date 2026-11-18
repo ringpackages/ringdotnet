@@ -28,65 +28,65 @@ Class MigrationsSqlGeneratorDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCommandBuilderFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandBuilderFactory"])
+		return dnRequest("get",[self,"CommandBuilderFactory"])
 
 	Func setCommandBuilderFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandBuilderFactory",P1])
+		dnRequest("set",[self,"CommandBuilderFactory",P1])
 		return self
 
 	Func getUpdateSqlGenerator
-		return dnRequest("get",[new DotNetObject(nHandle),"UpdateSqlGenerator"])
+		return dnRequest("get",[self,"UpdateSqlGenerator"])
 
 	Func setUpdateSqlGenerator P1
-		dnRequest("set",[new DotNetObject(nHandle),"UpdateSqlGenerator",P1])
+		dnRequest("set",[self,"UpdateSqlGenerator",P1])
 		return self
 
 	Func getSqlGenerationHelper
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlGenerationHelper"])
+		return dnRequest("get",[self,"SqlGenerationHelper"])
 
 	Func setSqlGenerationHelper P1
-		dnRequest("set",[new DotNetObject(nHandle),"SqlGenerationHelper",P1])
+		dnRequest("set",[self,"SqlGenerationHelper",P1])
 		return self
 
 	Func getTypeMappingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
+		return dnRequest("get",[self,"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
+		dnRequest("set",[self,"TypeMappingSource",P1])
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentContext"])
+		return dnRequest("get",[self,"CurrentContext"])
 
 	Func setCurrentContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentContext",P1])
+		dnRequest("set",[self,"CurrentContext",P1])
 		return self
 
 	Func getModificationCommandFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"ModificationCommandFactory"])
+		return dnRequest("get",[self,"ModificationCommandFactory"])
 
 	Func setModificationCommandFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModificationCommandFactory",P1])
+		dnRequest("set",[self,"ModificationCommandFactory",P1])
 		return self
 
 	Func getLoggingOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"LoggingOptions"])
+		return dnRequest("get",[self,"LoggingOptions"])
 
 	Func setLoggingOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"LoggingOptions",P1])
+		dnRequest("set",[self,"LoggingOptions",P1])
 		return self
 
 	Func getLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
+		return dnRequest("get",[self,"Logger"])
 
 	Func setLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"Logger",P1])
+		dnRequest("set",[self,"Logger",P1])
 		return self
 
 	Func getMigrationsLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsLogger"])
+		return dnRequest("get",[self,"MigrationsLogger"])
 
 	Func setMigrationsLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"MigrationsLogger",P1])
+		dnRequest("set",[self,"MigrationsLogger",P1])
 		return self
 

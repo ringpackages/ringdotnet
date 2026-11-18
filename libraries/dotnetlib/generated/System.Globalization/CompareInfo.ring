@@ -108,19 +108,19 @@ Class CompareInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"IsSortable",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[new DotNetObject(nHandle),"LCID"])
+		return dnRequest("get",[self,"LCID"])
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")

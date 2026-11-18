@@ -24,24 +24,24 @@ Class WpfBrush from Animatable
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getOpacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Opacity"])
+		return dnRequest("get",[self,"Opacity"])
 
 	Func setOpacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"Opacity",P1])
+		dnRequest("set",[self,"Opacity",P1])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
+		return dnRequest("get",[self,"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
+		dnRequest("set",[self,"Transform",P1])
 		return self
 
 	Func getRelativeTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"RelativeTransform"])
+		return dnRequest("get",[self,"RelativeTransform"])
 
 	Func setRelativeTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"RelativeTransform",P1])
+		dnRequest("set",[self,"RelativeTransform",P1])
 		return self
 
 	Func getOpacityProperty

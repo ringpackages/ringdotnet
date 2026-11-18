@@ -56,21 +56,21 @@ Class ControlBindingsCollection from BindingsCollection
 		return self
 
 	Func getBindableComponent
-		return dnRequest("get",[new DotNetObject(nHandle),"BindableComponent"])
+		return dnRequest("get",[self,"BindableComponent"])
 
 	Func setBindableComponent P1
 		raise("DotNet Error: BindableComponent is a read-only property")
 
 	Func getControl
-		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
+		return dnRequest("get",[self,"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getDefaultDataSourceUpdateMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultDataSourceUpdateMode"])
+		return dnRequest("get",[self,"DefaultDataSourceUpdateMode"])
 
 	Func setDefaultDataSourceUpdateMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultDataSourceUpdateMode",P1])
+		dnRequest("set",[self,"DefaultDataSourceUpdateMode",P1])
 		return self
 

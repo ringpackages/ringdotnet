@@ -23,13 +23,13 @@ Class IAuthenticationModule from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"PreAuthenticate",P1,P2])
 
 	Func getCanPreAuthenticate
-		return dnRequest("get",[new DotNetObject(nHandle),"CanPreAuthenticate"])
+		return dnRequest("get",[self,"CanPreAuthenticate"])
 
 	Func setCanPreAuthenticate P1
 		raise("DotNet Error: CanPreAuthenticate is a read-only property")
 
 	Func getAuthenticationType
-		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationType"])
+		return dnRequest("get",[self,"AuthenticationType"])
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")

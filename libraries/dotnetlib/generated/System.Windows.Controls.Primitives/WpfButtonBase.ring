@@ -34,37 +34,37 @@ Class WpfButtonBase from ContentControl
 		return self
 
 	Func getIsPressed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPressed"])
+		return dnRequest("get",[self,"IsPressed"])
 
 	Func setIsPressed P1
 		raise("DotNet Error: IsPressed is a read-only property")
 
 	Func getCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
+		return dnRequest("get",[self,"Command"])
 
 	Func setCommand P1
-		dnRequest("set",[new DotNetObject(nHandle),"Command",P1])
+		dnRequest("set",[self,"Command",P1])
 		return self
 
 	Func getCommandParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandParameter"])
+		return dnRequest("get",[self,"CommandParameter"])
 
 	Func setCommandParameter P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandParameter",P1])
+		dnRequest("set",[self,"CommandParameter",P1])
 		return self
 
 	Func getCommandTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandTarget"])
+		return dnRequest("get",[self,"CommandTarget"])
 
 	Func setCommandTarget P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandTarget",P1])
+		dnRequest("set",[self,"CommandTarget",P1])
 		return self
 
 	Func getClickMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ClickMode"])
+		return dnRequest("get",[self,"ClickMode"])
 
 	Func setClickMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ClickMode",P1])
+		dnRequest("set",[self,"ClickMode",P1])
 		return self
 
 	Func getClickEvent

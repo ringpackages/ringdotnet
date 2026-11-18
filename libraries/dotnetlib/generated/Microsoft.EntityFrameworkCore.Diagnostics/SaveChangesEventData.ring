@@ -18,13 +18,13 @@ Class SaveChangesEventData from EventData
 		return self
 
 	Func getEntries
-		return dnRequest("get",[new DotNetObject(nHandle),"Entries"])
+		return dnRequest("get",[self,"Entries"])
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getRowsAffected
-		return dnRequest("get",[new DotNetObject(nHandle),"RowsAffected"])
+		return dnRequest("get",[self,"RowsAffected"])
 
 	Func setRowsAffected P1
 		raise("DotNet Error: RowsAffected is a read-only property")

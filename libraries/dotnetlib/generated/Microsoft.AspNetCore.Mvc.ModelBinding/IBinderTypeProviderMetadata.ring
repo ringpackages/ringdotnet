@@ -16,7 +16,7 @@ Class IBinderTypeProviderMetadata from DotNetObject
 		return self
 
 	Func getBinderType
-		return dnRequest("get",[new DotNetObject(nHandle),"BinderType"])
+		return dnRequest("get",[self,"BinderType"])
 
 	Func setBinderType P1
 		raise("DotNet Error: BinderType is a read-only property")

@@ -21,37 +21,37 @@ Class MulticastIPAddressInformation from IPAddressInformation
 		return self
 
 	Func getAddressPreferredLifetime
-		return dnRequest("get",[new DotNetObject(nHandle),"AddressPreferredLifetime"])
+		return dnRequest("get",[self,"AddressPreferredLifetime"])
 
 	Func setAddressPreferredLifetime P1
 		raise("DotNet Error: AddressPreferredLifetime is a read-only property")
 
 	Func getAddressValidLifetime
-		return dnRequest("get",[new DotNetObject(nHandle),"AddressValidLifetime"])
+		return dnRequest("get",[self,"AddressValidLifetime"])
 
 	Func setAddressValidLifetime P1
 		raise("DotNet Error: AddressValidLifetime is a read-only property")
 
 	Func getDhcpLeaseLifetime
-		return dnRequest("get",[new DotNetObject(nHandle),"DhcpLeaseLifetime"])
+		return dnRequest("get",[self,"DhcpLeaseLifetime"])
 
 	Func setDhcpLeaseLifetime P1
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
 
 	Func getDuplicateAddressDetectionState
-		return dnRequest("get",[new DotNetObject(nHandle),"DuplicateAddressDetectionState"])
+		return dnRequest("get",[self,"DuplicateAddressDetectionState"])
 
 	Func setDuplicateAddressDetectionState P1
 		raise("DotNet Error: DuplicateAddressDetectionState is a read-only property")
 
 	Func getPrefixOrigin
-		return dnRequest("get",[new DotNetObject(nHandle),"PrefixOrigin"])
+		return dnRequest("get",[self,"PrefixOrigin"])
 
 	Func setPrefixOrigin P1
 		raise("DotNet Error: PrefixOrigin is a read-only property")
 
 	Func getSuffixOrigin
-		return dnRequest("get",[new DotNetObject(nHandle),"SuffixOrigin"])
+		return dnRequest("get",[self,"SuffixOrigin"])
 
 	Func setSuffixOrigin P1
 		raise("DotNet Error: SuffixOrigin is a read-only property")

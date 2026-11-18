@@ -20,9 +20,9 @@ Class ModelDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
+		return dnRequest("get",[self,"Logger"])
 
 	Func setLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"Logger",P1])
+		dnRequest("set",[self,"Logger",P1])
 		return self
 

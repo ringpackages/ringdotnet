@@ -38,7 +38,7 @@ Class Animatable from Freezable
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Animatable, PresentationCore'),"ShouldSerializeStoredWeakReference",P1])
 
 	Func getHasAnimatedProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"HasAnimatedProperties"])
+		return dnRequest("get",[self,"HasAnimatedProperties"])
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")

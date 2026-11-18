@@ -25,51 +25,51 @@ Class ScrollProperties from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
+		return dnRequest("get",[self,"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
+		dnRequest("set",[self,"Enabled",P1])
 		return self
 
 	Func getLargeChange
-		return dnRequest("get",[new DotNetObject(nHandle),"LargeChange"])
+		return dnRequest("get",[self,"LargeChange"])
 
 	Func setLargeChange P1
-		dnRequest("set",[new DotNetObject(nHandle),"LargeChange",P1])
+		dnRequest("set",[self,"LargeChange",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
+		return dnRequest("get",[self,"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
+		dnRequest("set",[self,"Maximum",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
+		return dnRequest("get",[self,"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
+		dnRequest("set",[self,"Minimum",P1])
 		return self
 
 	Func getSmallChange
-		return dnRequest("get",[new DotNetObject(nHandle),"SmallChange"])
+		return dnRequest("get",[self,"SmallChange"])
 
 	Func setSmallChange P1
-		dnRequest("set",[new DotNetObject(nHandle),"SmallChange",P1])
+		dnRequest("set",[self,"SmallChange",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getVisible
-		return dnRequest("get",[new DotNetObject(nHandle),"Visible"])
+		return dnRequest("get",[self,"Visible"])
 
 	Func setVisible P1
-		dnRequest("set",[new DotNetObject(nHandle),"Visible",P1])
+		dnRequest("set",[self,"Visible",P1])
 		return self
 

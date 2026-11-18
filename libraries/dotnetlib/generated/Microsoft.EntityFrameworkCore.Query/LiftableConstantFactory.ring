@@ -23,7 +23,7 @@ Class LiftableConstantFactory from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDependencies
-		return dnRequest("get",[new DotNetObject(nHandle),"Dependencies"])
+		return dnRequest("get",[self,"Dependencies"])
 
 	Func setDependencies P1
 		raise("DotNet Error: Dependencies is a read-only property")

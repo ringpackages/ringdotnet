@@ -41,40 +41,40 @@ Class FormFile from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContentDisposition
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentDisposition"])
+		return dnRequest("get",[self,"ContentDisposition"])
 
 	Func setContentDisposition P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentDisposition",P1])
+		dnRequest("set",[self,"ContentDisposition",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
+		return dnRequest("get",[self,"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
+		dnRequest("set",[self,"ContentType",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
+		return dnRequest("get",[self,"Headers"])
 
 	Func setHeaders P1
-		dnRequest("set",[new DotNetObject(nHandle),"Headers",P1])
+		dnRequest("set",[self,"Headers",P1])
 		return self
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		return dnRequest("get",[new DotNetObject(nHandle),"FileName"])
+		return dnRequest("get",[self,"FileName"])
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")

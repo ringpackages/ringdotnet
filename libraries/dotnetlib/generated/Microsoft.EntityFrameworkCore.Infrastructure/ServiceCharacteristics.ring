@@ -26,13 +26,13 @@ Class ServiceCharacteristics from ValueType
 		return self
 
 	Func getLifetime
-		return dnRequest("get",[new DotNetObject(nHandle),"Lifetime"])
+		return dnRequest("get",[self,"Lifetime"])
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")
 
 	Func getMultipleRegistrations
-		return dnRequest("get",[new DotNetObject(nHandle),"MultipleRegistrations"])
+		return dnRequest("get",[self,"MultipleRegistrations"])
 
 	Func setMultipleRegistrations P1
 		raise("DotNet Error: MultipleRegistrations is a read-only property")

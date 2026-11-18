@@ -18,19 +18,19 @@ Class ICoreSingletonOptions from DotNetObject
 		return self
 
 	Func getAreDetailedErrorsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"AreDetailedErrorsEnabled"])
+		return dnRequest("get",[self,"AreDetailedErrorsEnabled"])
 
 	Func setAreDetailedErrorsEnabled P1
 		raise("DotNet Error: AreDetailedErrorsEnabled is a read-only property")
 
 	Func getAreThreadSafetyChecksEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"AreThreadSafetyChecksEnabled"])
+		return dnRequest("get",[self,"AreThreadSafetyChecksEnabled"])
 
 	Func setAreThreadSafetyChecksEnabled P1
 		raise("DotNet Error: AreThreadSafetyChecksEnabled is a read-only property")
 
 	Func getRootApplicationServiceProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"RootApplicationServiceProvider"])
+		return dnRequest("get",[self,"RootApplicationServiceProvider"])
 
 	Func setRootApplicationServiceProvider P1
 		raise("DotNet Error: RootApplicationServiceProvider is a read-only property")

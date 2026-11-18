@@ -136,34 +136,34 @@ Class SqlString from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
+		return dnRequest("get",[self,"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[new DotNetObject(nHandle),"LCID"])
+		return dnRequest("get",[self,"LCID"])
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
 
 	Func getCultureInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"CultureInfo"])
+		return dnRequest("get",[self,"CultureInfo"])
 
 	Func setCultureInfo P1
 		raise("DotNet Error: CultureInfo is a read-only property")
 
 	Func getCompareInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"CompareInfo"])
+		return dnRequest("get",[self,"CompareInfo"])
 
 	Func setCompareInfo P1
 		raise("DotNet Error: CompareInfo is a read-only property")
 
 	Func getSqlCompareOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlCompareOptions"])
+		return dnRequest("get",[self,"SqlCompareOptions"])
 
 	Func setSqlCompareOptions P1
 		raise("DotNet Error: SqlCompareOptions is a read-only property")

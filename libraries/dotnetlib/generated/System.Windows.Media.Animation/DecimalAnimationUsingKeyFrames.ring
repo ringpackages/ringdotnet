@@ -22,23 +22,23 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeKeyFrames"])
 
 	Func getKeyFrames
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyFrames"])
+		return dnRequest("get",[self,"KeyFrames"])
 
 	Func setKeyFrames P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeyFrames",P1])
+		dnRequest("set",[self,"KeyFrames",P1])
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAdditive"])
+		return dnRequest("get",[self,"IsAdditive"])
 
 	Func setIsAdditive P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsAdditive",P1])
+		dnRequest("set",[self,"IsAdditive",P1])
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCumulative"])
+		return dnRequest("get",[self,"IsCumulative"])
 
 	Func setIsCumulative P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsCumulative",P1])
+		dnRequest("set",[self,"IsCumulative",P1])
 		return self
 

@@ -31,19 +31,19 @@ Class DbContextOptionsExtensionInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExtension
-		return dnRequest("get",[new DotNetObject(nHandle),"Extension"])
+		return dnRequest("get",[self,"Extension"])
 
 	Func setExtension P1
 		raise("DotNet Error: Extension is a read-only property")
 
 	Func getIsDatabaseProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDatabaseProvider"])
+		return dnRequest("get",[self,"IsDatabaseProvider"])
 
 	Func setIsDatabaseProvider P1
 		raise("DotNet Error: IsDatabaseProvider is a read-only property")
 
 	Func getLogFragment
-		return dnRequest("get",[new DotNetObject(nHandle),"LogFragment"])
+		return dnRequest("get",[self,"LogFragment"])
 
 	Func setLogFragment P1
 		raise("DotNet Error: LogFragment is a read-only property")

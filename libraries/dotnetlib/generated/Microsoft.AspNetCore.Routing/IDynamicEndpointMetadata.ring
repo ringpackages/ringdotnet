@@ -16,7 +16,7 @@ Class IDynamicEndpointMetadata from DotNetObject
 		return self
 
 	Func getIsDynamic
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDynamic"])
+		return dnRequest("get",[self,"IsDynamic"])
 
 	Func setIsDynamic P1
 		raise("DotNet Error: IsDynamic is a read-only property")

@@ -17,13 +17,13 @@ Class MemoryMappedViewStream from UnmanagedMemoryStream
 		return self
 
 	Func getSafeMemoryMappedViewHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"SafeMemoryMappedViewHandle"])
+		return dnRequest("get",[self,"SafeMemoryMappedViewHandle"])
 
 	Func setSafeMemoryMappedViewHandle P1
 		raise("DotNet Error: SafeMemoryMappedViewHandle is a read-only property")
 
 	Func getPointerOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"PointerOffset"])
+		return dnRequest("get",[self,"PointerOffset"])
 
 	Func setPointerOffset P1
 		raise("DotNet Error: PointerOffset is a read-only property")

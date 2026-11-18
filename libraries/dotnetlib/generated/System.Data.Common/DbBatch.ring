@@ -109,29 +109,29 @@ Class DbBatch from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBatchCommands
-		return dnRequest("get",[new DotNetObject(nHandle),"BatchCommands"])
+		return dnRequest("get",[self,"BatchCommands"])
 
 	Func setBatchCommands P1
 		raise("DotNet Error: BatchCommands is a read-only property")
 
 	Func getTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"Timeout"])
+		return dnRequest("get",[self,"Timeout"])
 
 	Func setTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"Timeout",P1])
+		dnRequest("set",[self,"Timeout",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
+		dnRequest("set",[self,"Connection",P1])
 		return self
 
 	Func getTransaction
-		return dnRequest("get",[new DotNetObject(nHandle),"Transaction"])
+		return dnRequest("get",[self,"Transaction"])
 
 	Func setTransaction P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transaction",P1])
+		dnRequest("set",[self,"Transaction",P1])
 		return self
 

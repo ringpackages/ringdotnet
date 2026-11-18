@@ -30,58 +30,58 @@ Class GridItem from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getGridItems
-		return dnRequest("get",[new DotNetObject(nHandle),"GridItems"])
+		return dnRequest("get",[self,"GridItems"])
 
 	Func setGridItems P1
 		raise("DotNet Error: GridItems is a read-only property")
 
 	Func getGridItemType
-		return dnRequest("get",[new DotNetObject(nHandle),"GridItemType"])
+		return dnRequest("get",[self,"GridItemType"])
 
 	Func setGridItemType P1
 		raise("DotNet Error: GridItemType is a read-only property")
 
 	Func getLabel
-		return dnRequest("get",[new DotNetObject(nHandle),"Label"])
+		return dnRequest("get",[self,"Label"])
 
 	Func setLabel P1
 		raise("DotNet Error: Label is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getPropertyDescriptor
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyDescriptor"])
+		return dnRequest("get",[self,"PropertyDescriptor"])
 
 	Func setPropertyDescriptor P1
 		raise("DotNet Error: PropertyDescriptor is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getExpandable
-		return dnRequest("get",[new DotNetObject(nHandle),"Expandable"])
+		return dnRequest("get",[self,"Expandable"])
 
 	Func setExpandable P1
 		raise("DotNet Error: Expandable is a read-only property")
 
 	Func getExpanded
-		return dnRequest("get",[new DotNetObject(nHandle),"Expanded"])
+		return dnRequest("get",[self,"Expanded"])
 
 	Func setExpanded P1
-		dnRequest("set",[new DotNetObject(nHandle),"Expanded",P1])
+		dnRequest("set",[self,"Expanded",P1])
 		return self
 

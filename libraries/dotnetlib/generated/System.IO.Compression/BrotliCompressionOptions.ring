@@ -20,9 +20,9 @@ Class BrotliCompressionOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getQuality
-		return dnRequest("get",[new DotNetObject(nHandle),"Quality"])
+		return dnRequest("get",[self,"Quality"])
 
 	Func setQuality P1
-		dnRequest("set",[new DotNetObject(nHandle),"Quality",P1])
+		dnRequest("set",[self,"Quality",P1])
 		return self
 

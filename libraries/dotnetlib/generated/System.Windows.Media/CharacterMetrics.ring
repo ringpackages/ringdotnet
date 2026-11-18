@@ -31,50 +31,50 @@ Class CharacterMetrics from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMetrics
-		return dnRequest("get",[new DotNetObject(nHandle),"Metrics"])
+		return dnRequest("get",[self,"Metrics"])
 
 	Func setMetrics P1
-		dnRequest("set",[new DotNetObject(nHandle),"Metrics",P1])
+		dnRequest("set",[self,"Metrics",P1])
 		return self
 
 	Func getBlackBoxWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"BlackBoxWidth"])
+		return dnRequest("get",[self,"BlackBoxWidth"])
 
 	Func setBlackBoxWidth P1
 		raise("DotNet Error: BlackBoxWidth is a read-only property")
 
 	Func getBlackBoxHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"BlackBoxHeight"])
+		return dnRequest("get",[self,"BlackBoxHeight"])
 
 	Func setBlackBoxHeight P1
 		raise("DotNet Error: BlackBoxHeight is a read-only property")
 
 	Func getBaseline
-		return dnRequest("get",[new DotNetObject(nHandle),"Baseline"])
+		return dnRequest("get",[self,"Baseline"])
 
 	Func setBaseline P1
 		raise("DotNet Error: Baseline is a read-only property")
 
 	Func getLeftSideBearing
-		return dnRequest("get",[new DotNetObject(nHandle),"LeftSideBearing"])
+		return dnRequest("get",[self,"LeftSideBearing"])
 
 	Func setLeftSideBearing P1
 		raise("DotNet Error: LeftSideBearing is a read-only property")
 
 	Func getRightSideBearing
-		return dnRequest("get",[new DotNetObject(nHandle),"RightSideBearing"])
+		return dnRequest("get",[self,"RightSideBearing"])
 
 	Func setRightSideBearing P1
 		raise("DotNet Error: RightSideBearing is a read-only property")
 
 	Func getTopSideBearing
-		return dnRequest("get",[new DotNetObject(nHandle),"TopSideBearing"])
+		return dnRequest("get",[self,"TopSideBearing"])
 
 	Func setTopSideBearing P1
 		raise("DotNet Error: TopSideBearing is a read-only property")
 
 	Func getBottomSideBearing
-		return dnRequest("get",[new DotNetObject(nHandle),"BottomSideBearing"])
+		return dnRequest("get",[self,"BottomSideBearing"])
 
 	Func setBottomSideBearing P1
 		raise("DotNet Error: BottomSideBearing is a read-only property")

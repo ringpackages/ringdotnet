@@ -45,19 +45,19 @@ Class IConventionIndex from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetIsDescendingConfigurationSource"])
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
+		return dnRequest("get",[self,"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")

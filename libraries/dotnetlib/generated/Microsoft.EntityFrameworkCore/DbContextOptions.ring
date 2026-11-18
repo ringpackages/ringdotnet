@@ -34,19 +34,19 @@ Class DbContextOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExtensions
-		return dnRequest("get",[new DotNetObject(nHandle),"Extensions"])
+		return dnRequest("get",[self,"Extensions"])
 
 	Func setExtensions P1
 		raise("DotNet Error: Extensions is a read-only property")
 
 	Func getContextType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextType"])
+		return dnRequest("get",[self,"ContextType"])
 
 	Func setContextType P1
 		raise("DotNet Error: ContextType is a read-only property")
 
 	Func getIsFrozen
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFrozen"])
+		return dnRequest("get",[self,"IsFrozen"])
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")

@@ -207,55 +207,55 @@ Class Task from Object
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenEach",P1])
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getException
-		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
+		return dnRequest("get",[self,"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getStatus
-		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
+		return dnRequest("get",[self,"Status"])
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getIsCanceled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCanceled"])
+		return dnRequest("get",[self,"IsCanceled"])
 
 	Func setIsCanceled P1
 		raise("DotNet Error: IsCanceled is a read-only property")
 
 	Func getIsCompleted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompleted"])
+		return dnRequest("get",[self,"IsCompleted"])
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getIsCompletedSuccessfully
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompletedSuccessfully"])
+		return dnRequest("get",[self,"IsCompletedSuccessfully"])
 
 	Func setIsCompletedSuccessfully P1
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
 
 	Func getCreationOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"CreationOptions"])
+		return dnRequest("get",[self,"CreationOptions"])
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getAsyncState
-		return dnRequest("get",[new DotNetObject(nHandle),"AsyncState"])
+		return dnRequest("get",[self,"AsyncState"])
 
 	Func setAsyncState P1
 		raise("DotNet Error: AsyncState is a read-only property")
 
 	Func getIsFaulted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFaulted"])
+		return dnRequest("get",[self,"IsFaulted"])
 
 	Func setIsFaulted P1
 		raise("DotNet Error: IsFaulted is a read-only property")

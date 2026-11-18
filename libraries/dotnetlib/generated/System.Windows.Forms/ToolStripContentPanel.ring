@@ -34,16 +34,16 @@ Class ToolStripContentPanel from Panel
 		return self
 
 	Func getRenderer
-		return dnRequest("get",[new DotNetObject(nHandle),"Renderer"])
+		return dnRequest("get",[self,"Renderer"])
 
 	Func setRenderer P1
-		dnRequest("set",[new DotNetObject(nHandle),"Renderer",P1])
+		dnRequest("set",[self,"Renderer",P1])
 		return self
 
 	Func getRenderMode
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderMode"])
+		return dnRequest("get",[self,"RenderMode"])
 
 	Func setRenderMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"RenderMode",P1])
+		dnRequest("set",[self,"RenderMode",P1])
 		return self
 

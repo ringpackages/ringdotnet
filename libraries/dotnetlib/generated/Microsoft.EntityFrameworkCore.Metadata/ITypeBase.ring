@@ -84,19 +84,19 @@ Class ITypeBase from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedPropertiesInHierarchy"])
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContainingEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainingEntityType"])
+		return dnRequest("get",[self,"ContainingEntityType"])
 
 	Func setContainingEntityType P1
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getConstructorBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"ConstructorBinding"])
+		return dnRequest("get",[self,"ConstructorBinding"])
 
 	Func setConstructorBinding P1
 		raise("DotNet Error: ConstructorBinding is a read-only property")

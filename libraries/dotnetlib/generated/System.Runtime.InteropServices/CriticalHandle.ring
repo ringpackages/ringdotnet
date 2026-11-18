@@ -41,13 +41,13 @@ Class CriticalHandle from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getIsClosed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsClosed"])
+		return dnRequest("get",[self,"IsClosed"])
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getIsInvalid
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInvalid"])
+		return dnRequest("get",[self,"IsInvalid"])
 
 	Func setIsInvalid P1
 		raise("DotNet Error: IsInvalid is a read-only property")

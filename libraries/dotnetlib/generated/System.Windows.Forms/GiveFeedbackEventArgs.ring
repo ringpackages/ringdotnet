@@ -25,36 +25,36 @@ Class GiveFeedbackEventArgs from EventArgs
 		return self
 
 	Func getEffect
-		return dnRequest("get",[new DotNetObject(nHandle),"Effect"])
+		return dnRequest("get",[self,"Effect"])
 
 	Func setEffect P1
 		raise("DotNet Error: Effect is a read-only property")
 
 	Func getUseDefaultCursors
-		return dnRequest("get",[new DotNetObject(nHandle),"UseDefaultCursors"])
+		return dnRequest("get",[self,"UseDefaultCursors"])
 
 	Func setUseDefaultCursors P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseDefaultCursors",P1])
+		dnRequest("set",[self,"UseDefaultCursors",P1])
 		return self
 
 	Func getDragImage
-		return dnRequest("get",[new DotNetObject(nHandle),"DragImage"])
+		return dnRequest("get",[self,"DragImage"])
 
 	Func setDragImage P1
-		dnRequest("set",[new DotNetObject(nHandle),"DragImage",P1])
+		dnRequest("set",[self,"DragImage",P1])
 		return self
 
 	Func getCursorOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"CursorOffset"])
+		return dnRequest("get",[self,"CursorOffset"])
 
 	Func setCursorOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"CursorOffset",P1])
+		dnRequest("set",[self,"CursorOffset",P1])
 		return self
 
 	Func getUseDefaultDragImage
-		return dnRequest("get",[new DotNetObject(nHandle),"UseDefaultDragImage"])
+		return dnRequest("get",[self,"UseDefaultDragImage"])
 
 	Func setUseDefaultDragImage P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseDefaultDragImage",P1])
+		dnRequest("set",[self,"UseDefaultDragImage",P1])
 		return self
 

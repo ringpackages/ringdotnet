@@ -36,20 +36,20 @@ Class SocketAddress from Object
 		return self
 
 	Func getFamily
-		return dnRequest("get",[new DotNetObject(nHandle),"Family"])
+		return dnRequest("get",[self,"Family"])
 
 	Func setFamily P1
 		raise("DotNet Error: Family is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
+		dnRequest("set",[self,"Size",P1])
 		return self
 
 	Func getBuffer
-		return dnRequest("get",[new DotNetObject(nHandle),"Buffer"])
+		return dnRequest("get",[self,"Buffer"])
 
 	Func setBuffer P1
 		raise("DotNet Error: Buffer is a read-only property")

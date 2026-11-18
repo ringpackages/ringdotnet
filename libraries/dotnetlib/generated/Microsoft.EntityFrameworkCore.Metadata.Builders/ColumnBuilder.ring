@@ -26,7 +26,7 @@ Class ColumnBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOverrides
-		return dnRequest("get",[new DotNetObject(nHandle),"Overrides"])
+		return dnRequest("get",[self,"Overrides"])
 
 	Func setOverrides P1
 		raise("DotNet Error: Overrides is a read-only property")

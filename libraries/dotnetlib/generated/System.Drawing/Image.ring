@@ -136,87 +136,87 @@ Class Image from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"IsAlphaPixelFormat",P1])
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getPhysicalDimension
-		return dnRequest("get",[new DotNetObject(nHandle),"PhysicalDimension"])
+		return dnRequest("get",[self,"PhysicalDimension"])
 
 	Func setPhysicalDimension P1
 		raise("DotNet Error: PhysicalDimension is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
+		return dnRequest("get",[self,"Height"])
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getHorizontalResolution
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalResolution"])
+		return dnRequest("get",[self,"HorizontalResolution"])
 
 	Func setHorizontalResolution P1
 		raise("DotNet Error: HorizontalResolution is a read-only property")
 
 	Func getVerticalResolution
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalResolution"])
+		return dnRequest("get",[self,"VerticalResolution"])
 
 	Func setVerticalResolution P1
 		raise("DotNet Error: VerticalResolution is a read-only property")
 
 	Func getFlags
-		return dnRequest("get",[new DotNetObject(nHandle),"Flags"])
+		return dnRequest("get",[self,"Flags"])
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
 
 	Func getRawFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"RawFormat"])
+		return dnRequest("get",[self,"RawFormat"])
 
 	Func setRawFormat P1
 		raise("DotNet Error: RawFormat is a read-only property")
 
 	Func getPixelFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelFormat"])
+		return dnRequest("get",[self,"PixelFormat"])
 
 	Func setPixelFormat P1
 		raise("DotNet Error: PixelFormat is a read-only property")
 
 	Func getPropertyIdList
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyIdList"])
+		return dnRequest("get",[self,"PropertyIdList"])
 
 	Func setPropertyIdList P1
 		raise("DotNet Error: PropertyIdList is a read-only property")
 
 	Func getPropertyItems
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyItems"])
+		return dnRequest("get",[self,"PropertyItems"])
 
 	Func setPropertyItems P1
 		raise("DotNet Error: PropertyItems is a read-only property")
 
 	Func getPalette
-		return dnRequest("get",[new DotNetObject(nHandle),"Palette"])
+		return dnRequest("get",[self,"Palette"])
 
 	Func setPalette P1
-		dnRequest("set",[new DotNetObject(nHandle),"Palette",P1])
+		dnRequest("set",[self,"Palette",P1])
 		return self
 
 	Func getFrameDimensionsList
-		return dnRequest("get",[new DotNetObject(nHandle),"FrameDimensionsList"])
+		return dnRequest("get",[self,"FrameDimensionsList"])
 
 	Func setFrameDimensionsList P1
 		raise("DotNet Error: FrameDimensionsList is a read-only property")

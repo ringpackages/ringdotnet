@@ -22,19 +22,19 @@ Class ImportContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTypeIdentifiers
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeIdentifiers"])
+		return dnRequest("get",[self,"TypeIdentifiers"])
 
 	Func setTypeIdentifiers P1
 		raise("DotNet Error: TypeIdentifiers is a read-only property")
 
 	Func getShareTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"ShareTypes"])
+		return dnRequest("get",[self,"ShareTypes"])
 
 	Func setShareTypes P1
 		raise("DotNet Error: ShareTypes is a read-only property")
 
 	Func getWarnings
-		return dnRequest("get",[new DotNetObject(nHandle),"Warnings"])
+		return dnRequest("get",[self,"Warnings"])
 
 	Func setWarnings P1
 		raise("DotNet Error: Warnings is a read-only property")

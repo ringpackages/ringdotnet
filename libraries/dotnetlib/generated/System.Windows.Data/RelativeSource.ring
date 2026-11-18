@@ -35,24 +35,24 @@ Class RelativeSource from MarkupExtension
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeAncestorLevel"])
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
+		dnRequest("set",[self,"Mode",P1])
 		return self
 
 	Func getAncestorType
-		return dnRequest("get",[new DotNetObject(nHandle),"AncestorType"])
+		return dnRequest("get",[self,"AncestorType"])
 
 	Func setAncestorType P1
-		dnRequest("set",[new DotNetObject(nHandle),"AncestorType",P1])
+		dnRequest("set",[self,"AncestorType",P1])
 		return self
 
 	Func getAncestorLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"AncestorLevel"])
+		return dnRequest("get",[self,"AncestorLevel"])
 
 	Func setAncestorLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"AncestorLevel",P1])
+		dnRequest("set",[self,"AncestorLevel",P1])
 		return self
 
 	Func getPreviousData

@@ -99,180 +99,180 @@ Class DateTimeFormatInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"ReadOnly",P1])
 
 	Func getAMDesignator
-		return dnRequest("get",[new DotNetObject(nHandle),"AMDesignator"])
+		return dnRequest("get",[self,"AMDesignator"])
 
 	Func setAMDesignator P1
-		dnRequest("set",[new DotNetObject(nHandle),"AMDesignator",P1])
+		dnRequest("set",[self,"AMDesignator",P1])
 		return self
 
 	Func getCalendar
-		return dnRequest("get",[new DotNetObject(nHandle),"Calendar"])
+		return dnRequest("get",[self,"Calendar"])
 
 	Func setCalendar P1
-		dnRequest("set",[new DotNetObject(nHandle),"Calendar",P1])
+		dnRequest("set",[self,"Calendar",P1])
 		return self
 
 	Func getDateSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"DateSeparator"])
+		return dnRequest("get",[self,"DateSeparator"])
 
 	Func setDateSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"DateSeparator",P1])
+		dnRequest("set",[self,"DateSeparator",P1])
 		return self
 
 	Func getFirstDayOfWeek
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstDayOfWeek"])
+		return dnRequest("get",[self,"FirstDayOfWeek"])
 
 	Func setFirstDayOfWeek P1
-		dnRequest("set",[new DotNetObject(nHandle),"FirstDayOfWeek",P1])
+		dnRequest("set",[self,"FirstDayOfWeek",P1])
 		return self
 
 	Func getCalendarWeekRule
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarWeekRule"])
+		return dnRequest("get",[self,"CalendarWeekRule"])
 
 	Func setCalendarWeekRule P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarWeekRule",P1])
+		dnRequest("set",[self,"CalendarWeekRule",P1])
 		return self
 
 	Func getFullDateTimePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"FullDateTimePattern"])
+		return dnRequest("get",[self,"FullDateTimePattern"])
 
 	Func setFullDateTimePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"FullDateTimePattern",P1])
+		dnRequest("set",[self,"FullDateTimePattern",P1])
 		return self
 
 	Func getLongDatePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"LongDatePattern"])
+		return dnRequest("get",[self,"LongDatePattern"])
 
 	Func setLongDatePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"LongDatePattern",P1])
+		dnRequest("set",[self,"LongDatePattern",P1])
 		return self
 
 	Func getLongTimePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"LongTimePattern"])
+		return dnRequest("get",[self,"LongTimePattern"])
 
 	Func setLongTimePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"LongTimePattern",P1])
+		dnRequest("set",[self,"LongTimePattern",P1])
 		return self
 
 	Func getMonthDayPattern
-		return dnRequest("get",[new DotNetObject(nHandle),"MonthDayPattern"])
+		return dnRequest("get",[self,"MonthDayPattern"])
 
 	Func setMonthDayPattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"MonthDayPattern",P1])
+		dnRequest("set",[self,"MonthDayPattern",P1])
 		return self
 
 	Func getPMDesignator
-		return dnRequest("get",[new DotNetObject(nHandle),"PMDesignator"])
+		return dnRequest("get",[self,"PMDesignator"])
 
 	Func setPMDesignator P1
-		dnRequest("set",[new DotNetObject(nHandle),"PMDesignator",P1])
+		dnRequest("set",[self,"PMDesignator",P1])
 		return self
 
 	Func getRFC1123Pattern
-		return dnRequest("get",[new DotNetObject(nHandle),"RFC1123Pattern"])
+		return dnRequest("get",[self,"RFC1123Pattern"])
 
 	Func setRFC1123Pattern P1
 		raise("DotNet Error: RFC1123Pattern is a read-only property")
 
 	Func getShortDatePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"ShortDatePattern"])
+		return dnRequest("get",[self,"ShortDatePattern"])
 
 	Func setShortDatePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShortDatePattern",P1])
+		dnRequest("set",[self,"ShortDatePattern",P1])
 		return self
 
 	Func getShortTimePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"ShortTimePattern"])
+		return dnRequest("get",[self,"ShortTimePattern"])
 
 	Func setShortTimePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShortTimePattern",P1])
+		dnRequest("set",[self,"ShortTimePattern",P1])
 		return self
 
 	Func getSortableDateTimePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"SortableDateTimePattern"])
+		return dnRequest("get",[self,"SortableDateTimePattern"])
 
 	Func setSortableDateTimePattern P1
 		raise("DotNet Error: SortableDateTimePattern is a read-only property")
 
 	Func getTimeSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"TimeSeparator"])
+		return dnRequest("get",[self,"TimeSeparator"])
 
 	Func setTimeSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"TimeSeparator",P1])
+		dnRequest("set",[self,"TimeSeparator",P1])
 		return self
 
 	Func getUniversalSortableDateTimePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"UniversalSortableDateTimePattern"])
+		return dnRequest("get",[self,"UniversalSortableDateTimePattern"])
 
 	Func setUniversalSortableDateTimePattern P1
 		raise("DotNet Error: UniversalSortableDateTimePattern is a read-only property")
 
 	Func getYearMonthPattern
-		return dnRequest("get",[new DotNetObject(nHandle),"YearMonthPattern"])
+		return dnRequest("get",[self,"YearMonthPattern"])
 
 	Func setYearMonthPattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"YearMonthPattern",P1])
+		dnRequest("set",[self,"YearMonthPattern",P1])
 		return self
 
 	Func getAbbreviatedDayNames
-		return dnRequest("get",[new DotNetObject(nHandle),"AbbreviatedDayNames"])
+		return dnRequest("get",[self,"AbbreviatedDayNames"])
 
 	Func setAbbreviatedDayNames P1
-		dnRequest("set",[new DotNetObject(nHandle),"AbbreviatedDayNames",P1])
+		dnRequest("set",[self,"AbbreviatedDayNames",P1])
 		return self
 
 	Func getShortestDayNames
-		return dnRequest("get",[new DotNetObject(nHandle),"ShortestDayNames"])
+		return dnRequest("get",[self,"ShortestDayNames"])
 
 	Func setShortestDayNames P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShortestDayNames",P1])
+		dnRequest("set",[self,"ShortestDayNames",P1])
 		return self
 
 	Func getDayNames
-		return dnRequest("get",[new DotNetObject(nHandle),"DayNames"])
+		return dnRequest("get",[self,"DayNames"])
 
 	Func setDayNames P1
-		dnRequest("set",[new DotNetObject(nHandle),"DayNames",P1])
+		dnRequest("set",[self,"DayNames",P1])
 		return self
 
 	Func getAbbreviatedMonthNames
-		return dnRequest("get",[new DotNetObject(nHandle),"AbbreviatedMonthNames"])
+		return dnRequest("get",[self,"AbbreviatedMonthNames"])
 
 	Func setAbbreviatedMonthNames P1
-		dnRequest("set",[new DotNetObject(nHandle),"AbbreviatedMonthNames",P1])
+		dnRequest("set",[self,"AbbreviatedMonthNames",P1])
 		return self
 
 	Func getMonthNames
-		return dnRequest("get",[new DotNetObject(nHandle),"MonthNames"])
+		return dnRequest("get",[self,"MonthNames"])
 
 	Func setMonthNames P1
-		dnRequest("set",[new DotNetObject(nHandle),"MonthNames",P1])
+		dnRequest("set",[self,"MonthNames",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getNativeCalendarName
-		return dnRequest("get",[new DotNetObject(nHandle),"NativeCalendarName"])
+		return dnRequest("get",[self,"NativeCalendarName"])
 
 	Func setNativeCalendarName P1
 		raise("DotNet Error: NativeCalendarName is a read-only property")
 
 	Func getAbbreviatedMonthGenitiveNames
-		return dnRequest("get",[new DotNetObject(nHandle),"AbbreviatedMonthGenitiveNames"])
+		return dnRequest("get",[self,"AbbreviatedMonthGenitiveNames"])
 
 	Func setAbbreviatedMonthGenitiveNames P1
-		dnRequest("set",[new DotNetObject(nHandle),"AbbreviatedMonthGenitiveNames",P1])
+		dnRequest("set",[self,"AbbreviatedMonthGenitiveNames",P1])
 		return self
 
 	Func getMonthGenitiveNames
-		return dnRequest("get",[new DotNetObject(nHandle),"MonthGenitiveNames"])
+		return dnRequest("get",[self,"MonthGenitiveNames"])
 
 	Func setMonthGenitiveNames P1
-		dnRequest("set",[new DotNetObject(nHandle),"MonthGenitiveNames",P1])
+		dnRequest("set",[self,"MonthGenitiveNames",P1])
 		return self
 
 	Func getInvariantInfo

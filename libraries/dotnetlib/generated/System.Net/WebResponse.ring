@@ -33,45 +33,45 @@ Class WebResponse from MarshalByRefObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetResponseStream"])
 
 	Func getContentLength
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength"])
+		return dnRequest("get",[self,"ContentLength"])
 
 	Func setContentLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentLength",P1])
+		dnRequest("set",[self,"ContentLength",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
+		return dnRequest("get",[self,"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
+		dnRequest("set",[self,"ContentType",P1])
 		return self
 
 	Func getIsFromCache
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFromCache"])
+		return dnRequest("get",[self,"IsFromCache"])
 
 	Func setIsFromCache P1
 		raise("DotNet Error: IsFromCache is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMutuallyAuthenticated"])
+		return dnRequest("get",[self,"IsMutuallyAuthenticated"])
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getResponseUri
-		return dnRequest("get",[new DotNetObject(nHandle),"ResponseUri"])
+		return dnRequest("get",[self,"ResponseUri"])
 
 	Func setResponseUri P1
 		raise("DotNet Error: ResponseUri is a read-only property")
 
 	Func getHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
+		return dnRequest("get",[self,"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getSupportsHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsHeaders"])
+		return dnRequest("get",[self,"SupportsHeaders"])
 
 	Func setSupportsHeaders P1
 		raise("DotNet Error: SupportsHeaders is a read-only property")

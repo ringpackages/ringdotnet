@@ -36,13 +36,13 @@ Class Index from ValueType
 		return dnRequest("call",[dnTypeCached('System.Index, System.Private.CoreLib'),"FromEnd",P1])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsFromEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFromEnd"])
+		return dnRequest("get",[self,"IsFromEnd"])
 
 	Func setIsFromEnd P1
 		raise("DotNet Error: IsFromEnd is a read-only property")

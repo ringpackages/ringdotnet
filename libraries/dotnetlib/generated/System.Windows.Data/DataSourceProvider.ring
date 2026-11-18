@@ -40,20 +40,20 @@ Class DataSourceProvider from Object
 		return self
 
 	Func getIsInitialLoadEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialLoadEnabled"])
+		return dnRequest("get",[self,"IsInitialLoadEnabled"])
 
 	Func setIsInitialLoadEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsInitialLoadEnabled",P1])
+		dnRequest("set",[self,"IsInitialLoadEnabled",P1])
 		return self
 
 	Func getData
-		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
+		return dnRequest("get",[self,"Data"])
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")
 
 	Func getError
-		return dnRequest("get",[new DotNetObject(nHandle),"Error"])
+		return dnRequest("get",[self,"Error"])
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")

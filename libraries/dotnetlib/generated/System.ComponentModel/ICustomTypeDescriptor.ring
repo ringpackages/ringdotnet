@@ -73,7 +73,7 @@ Class ICustomTypeDescriptor from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesFromRegisteredType"])
 
 	Func getRequireRegisteredTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"RequireRegisteredTypes"])
+		return dnRequest("get",[self,"RequireRegisteredTypes"])
 
 	Func setRequireRegisteredTypes P1
 		raise("DotNet Error: RequireRegisteredTypes is a read-only property")

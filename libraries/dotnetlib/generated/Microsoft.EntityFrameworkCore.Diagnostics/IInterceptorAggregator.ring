@@ -19,7 +19,7 @@ Class IInterceptorAggregator from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"AggregateInterceptors",P1])
 
 	Func getInterceptorType
-		return dnRequest("get",[new DotNetObject(nHandle),"InterceptorType"])
+		return dnRequest("get",[self,"InterceptorType"])
 
 	Func setInterceptorType P1
 		raise("DotNet Error: InterceptorType is a read-only property")

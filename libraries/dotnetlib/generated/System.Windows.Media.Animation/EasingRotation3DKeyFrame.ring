@@ -30,10 +30,10 @@ Class EasingRotation3DKeyFrame from Rotation3DKeyFrame
 		return self
 
 	Func getEasingFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"EasingFunction"])
+		return dnRequest("get",[self,"EasingFunction"])
 
 	Func setEasingFunction P1
-		dnRequest("set",[new DotNetObject(nHandle),"EasingFunction",P1])
+		dnRequest("set",[self,"EasingFunction",P1])
 		return self
 
 	Func getEasingFunctionProperty

@@ -4,6 +4,7 @@ dnImport("System.ComponentModel")
 dnRegisterClass("System.IO.BinaryReader","BinaryReader",1)
 dnRegisterClass("System.IO.BinaryWriter","BinaryWriter",1)
 dnRegisterClass("System.IO.Directory","Directory",0)
+dnRegisterClass("System.IO.DriveInfo","DriveInfo",1)
 dnRegisterClass("System.IO.EnumerationOptions","EnumerationOptions",0)
 dnRegisterClass("System.IO.ErrorEventArgs","ErrorEventArgs",1)
 dnRegisterClass("System.IO.File","File",0)
@@ -32,6 +33,7 @@ dnRegisterClass("System.IO.UnmanagedMemoryStream","UnmanagedMemoryStream",3)
 load "System.IO/BinaryReader.ring"
 load "System.IO/BinaryWriter.ring"
 load "System.IO/Directory.ring"
+load "System.IO/DriveInfo.ring"
 load "System.IO/EnumerationOptions.ring"
 load "System.IO/ErrorEventArgs.ring"
 load "System.IO/File.ring"

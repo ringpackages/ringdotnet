@@ -21,37 +21,37 @@ Class IStoredProcedureMapping from DotNetObject
 		return self
 
 	Func getStoreStoredProcedure
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreStoredProcedure"])
+		return dnRequest("get",[self,"StoreStoredProcedure"])
 
 	Func setStoreStoredProcedure P1
 		raise("DotNet Error: StoreStoredProcedure is a read-only property")
 
 	Func getStoredProcedure
-		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedure"])
+		return dnRequest("get",[self,"StoredProcedure"])
 
 	Func setStoredProcedure P1
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getStoredProcedureIdentifier
-		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedureIdentifier"])
+		return dnRequest("get",[self,"StoredProcedureIdentifier"])
 
 	Func setStoredProcedureIdentifier P1
 		raise("DotNet Error: StoredProcedureIdentifier is a read-only property")
 
 	Func getTableMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"TableMapping"])
+		return dnRequest("get",[self,"TableMapping"])
 
 	Func setTableMapping P1
 		raise("DotNet Error: TableMapping is a read-only property")
 
 	Func getParameterMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterMappings"])
+		return dnRequest("get",[self,"ParameterMappings"])
 
 	Func setParameterMappings P1
 		raise("DotNet Error: ParameterMappings is a read-only property")
 
 	Func getResultColumnMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"ResultColumnMappings"])
+		return dnRequest("get",[self,"ResultColumnMappings"])
 
 	Func setResultColumnMappings P1
 		raise("DotNet Error: ResultColumnMappings is a read-only property")

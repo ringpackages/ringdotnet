@@ -27,7 +27,7 @@ Class FontEmbeddingManager from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getGlyphTypefaceUris
-		return dnRequest("get",[new DotNetObject(nHandle),"GlyphTypefaceUris"])
+		return dnRequest("get",[self,"GlyphTypefaceUris"])
 
 	Func setGlyphTypefaceUris P1
 		raise("DotNet Error: GlyphTypefaceUris is a read-only property")

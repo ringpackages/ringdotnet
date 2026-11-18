@@ -21,19 +21,19 @@ Class IPAddressInformation from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
+		return dnRequest("get",[self,"Address"])
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getIsDnsEligible
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDnsEligible"])
+		return dnRequest("get",[self,"IsDnsEligible"])
 
 	Func setIsDnsEligible P1
 		raise("DotNet Error: IsDnsEligible is a read-only property")
 
 	Func getIsTransient
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTransient"])
+		return dnRequest("get",[self,"IsTransient"])
 
 	Func setIsTransient P1
 		raise("DotNet Error: IsTransient is a read-only property")

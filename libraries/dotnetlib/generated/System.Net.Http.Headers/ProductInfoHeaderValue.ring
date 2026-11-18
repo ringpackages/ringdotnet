@@ -31,13 +31,13 @@ Class ProductInfoHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getProduct
-		return dnRequest("get",[new DotNetObject(nHandle),"Product"])
+		return dnRequest("get",[self,"Product"])
 
 	Func setProduct P1
 		raise("DotNet Error: Product is a read-only property")
 
 	Func getComment
-		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
+		return dnRequest("get",[self,"Comment"])
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")

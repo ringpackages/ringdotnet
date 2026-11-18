@@ -56,38 +56,38 @@ Class Hyperlink from Span
 		return self
 
 	Func getCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
+		return dnRequest("get",[self,"Command"])
 
 	Func setCommand P1
-		dnRequest("set",[new DotNetObject(nHandle),"Command",P1])
+		dnRequest("set",[self,"Command",P1])
 		return self
 
 	Func getCommandParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandParameter"])
+		return dnRequest("get",[self,"CommandParameter"])
 
 	Func setCommandParameter P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandParameter",P1])
+		dnRequest("set",[self,"CommandParameter",P1])
 		return self
 
 	Func getCommandTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandTarget"])
+		return dnRequest("get",[self,"CommandTarget"])
 
 	Func setCommandTarget P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandTarget",P1])
+		dnRequest("set",[self,"CommandTarget",P1])
 		return self
 
 	Func getNavigateUri
-		return dnRequest("get",[new DotNetObject(nHandle),"NavigateUri"])
+		return dnRequest("get",[self,"NavigateUri"])
 
 	Func setNavigateUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"NavigateUri",P1])
+		dnRequest("set",[self,"NavigateUri",P1])
 		return self
 
 	Func getTargetName
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetName"])
+		return dnRequest("get",[self,"TargetName"])
 
 	Func setTargetName P1
-		dnRequest("set",[new DotNetObject(nHandle),"TargetName",P1])
+		dnRequest("set",[self,"TargetName",P1])
 		return self
 
 	Func getCommandProperty

@@ -27,75 +27,75 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getDefaultValue
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultValue"])
+		return dnRequest("get",[self,"DefaultValue"])
 
 	Func setDefaultValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultValue",P1])
+		dnRequest("set",[self,"DefaultValue",P1])
 		return self
 
 	Func getFixedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"FixedValue"])
+		return dnRequest("get",[self,"FixedValue"])
 
 	Func setFixedValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"FixedValue",P1])
+		dnRequest("set",[self,"FixedValue",P1])
 		return self
 
 	Func getForm
-		return dnRequest("get",[new DotNetObject(nHandle),"Form"])
+		return dnRequest("get",[self,"Form"])
 
 	Func setForm P1
-		dnRequest("set",[new DotNetObject(nHandle),"Form",P1])
+		dnRequest("set",[self,"Form",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getRefName
-		return dnRequest("get",[new DotNetObject(nHandle),"RefName"])
+		return dnRequest("get",[self,"RefName"])
 
 	Func setRefName P1
-		dnRequest("set",[new DotNetObject(nHandle),"RefName",P1])
+		dnRequest("set",[self,"RefName",P1])
 		return self
 
 	Func getSchemaTypeName
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaTypeName"])
+		return dnRequest("get",[self,"SchemaTypeName"])
 
 	Func setSchemaTypeName P1
-		dnRequest("set",[new DotNetObject(nHandle),"SchemaTypeName",P1])
+		dnRequest("set",[self,"SchemaTypeName",P1])
 		return self
 
 	Func getSchemaType
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaType"])
+		return dnRequest("get",[self,"SchemaType"])
 
 	Func setSchemaType P1
-		dnRequest("set",[new DotNetObject(nHandle),"SchemaType",P1])
+		dnRequest("set",[self,"SchemaType",P1])
 		return self
 
 	Func getUse
-		return dnRequest("get",[new DotNetObject(nHandle),"Use"])
+		return dnRequest("get",[self,"Use"])
 
 	Func setUse P1
-		dnRequest("set",[new DotNetObject(nHandle),"Use",P1])
+		dnRequest("set",[self,"Use",P1])
 		return self
 
 	Func getQualifiedName
-		return dnRequest("get",[new DotNetObject(nHandle),"QualifiedName"])
+		return dnRequest("get",[self,"QualifiedName"])
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getAttributeType
-		return dnRequest("get",[new DotNetObject(nHandle),"AttributeType"])
+		return dnRequest("get",[self,"AttributeType"])
 
 	Func setAttributeType P1
 		raise("DotNet Error: AttributeType is a read-only property")
 
 	Func getAttributeSchemaType
-		return dnRequest("get",[new DotNetObject(nHandle),"AttributeSchemaType"])
+		return dnRequest("get",[self,"AttributeSchemaType"])
 
 	Func setAttributeSchemaType P1
 		raise("DotNet Error: AttributeSchemaType is a read-only property")

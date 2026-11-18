@@ -22,9 +22,9 @@ Class IWebProxy from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"IsBypassed",P1])
 
 	Func getCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"Credentials"])
+		return dnRequest("get",[self,"Credentials"])
 
 	Func setCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
+		dnRequest("set",[self,"Credentials",P1])
 		return self
 

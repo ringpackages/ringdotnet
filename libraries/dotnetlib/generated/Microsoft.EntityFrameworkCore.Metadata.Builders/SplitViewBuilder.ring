@@ -28,19 +28,19 @@ Class SplitViewBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
+		return dnRequest("get",[self,"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getMappingFragment
-		return dnRequest("get",[new DotNetObject(nHandle),"MappingFragment"])
+		return dnRequest("get",[self,"MappingFragment"])
 
 	Func setMappingFragment P1
 		raise("DotNet Error: MappingFragment is a read-only property")

@@ -109,37 +109,37 @@ Class DateOnly from ValueType
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func getYear
-		return dnRequest("get",[new DotNetObject(nHandle),"Year"])
+		return dnRequest("get",[self,"Year"])
 
 	Func setYear P1
 		raise("DotNet Error: Year is a read-only property")
 
 	Func getMonth
-		return dnRequest("get",[new DotNetObject(nHandle),"Month"])
+		return dnRequest("get",[self,"Month"])
 
 	Func setMonth P1
 		raise("DotNet Error: Month is a read-only property")
 
 	Func getDay
-		return dnRequest("get",[new DotNetObject(nHandle),"Day"])
+		return dnRequest("get",[self,"Day"])
 
 	Func setDay P1
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnRequest("get",[new DotNetObject(nHandle),"DayOfWeek"])
+		return dnRequest("get",[self,"DayOfWeek"])
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
 
 	Func getDayOfYear
-		return dnRequest("get",[new DotNetObject(nHandle),"DayOfYear"])
+		return dnRequest("get",[self,"DayOfYear"])
 
 	Func setDayOfYear P1
 		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getDayNumber
-		return dnRequest("get",[new DotNetObject(nHandle),"DayNumber"])
+		return dnRequest("get",[self,"DayNumber"])
 
 	Func setDayNumber P1
 		raise("DotNet Error: DayNumber is a read-only property")

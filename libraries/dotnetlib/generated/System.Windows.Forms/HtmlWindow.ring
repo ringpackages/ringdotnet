@@ -163,82 +163,82 @@ Class HtmlWindow from Object
 		return self
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getDomWindow
-		return dnRequest("get",[new DotNetObject(nHandle),"DomWindow"])
+		return dnRequest("get",[self,"DomWindow"])
 
 	Func setDomWindow P1
 		raise("DotNet Error: DomWindow is a read-only property")
 
 	Func getFrames
-		return dnRequest("get",[new DotNetObject(nHandle),"Frames"])
+		return dnRequest("get",[self,"Frames"])
 
 	Func setFrames P1
 		raise("DotNet Error: Frames is a read-only property")
 
 	Func getHistory
-		return dnRequest("get",[new DotNetObject(nHandle),"History"])
+		return dnRequest("get",[self,"History"])
 
 	Func setHistory P1
 		raise("DotNet Error: History is a read-only property")
 
 	Func getIsClosed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsClosed"])
+		return dnRequest("get",[self,"IsClosed"])
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getOpener
-		return dnRequest("get",[new DotNetObject(nHandle),"Opener"])
+		return dnRequest("get",[self,"Opener"])
 
 	Func setOpener P1
 		raise("DotNet Error: Opener is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
+		return dnRequest("get",[self,"Position"])
 
 	Func setPosition P1
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"Size",P1])
+		dnRequest("set",[self,"Size",P1])
 		return self
 
 	Func getStatusBarText
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusBarText"])
+		return dnRequest("get",[self,"StatusBarText"])
 
 	Func setStatusBarText P1
-		dnRequest("set",[new DotNetObject(nHandle),"StatusBarText",P1])
+		dnRequest("set",[self,"StatusBarText",P1])
 		return self
 
 	Func getUrl
-		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
+		return dnRequest("get",[self,"Url"])
 
 	Func setUrl P1
 		raise("DotNet Error: Url is a read-only property")
 
 	Func getWindowFrameElement
-		return dnRequest("get",[new DotNetObject(nHandle),"WindowFrameElement"])
+		return dnRequest("get",[self,"WindowFrameElement"])
 
 	Func setWindowFrameElement P1
 		raise("DotNet Error: WindowFrameElement is a read-only property")

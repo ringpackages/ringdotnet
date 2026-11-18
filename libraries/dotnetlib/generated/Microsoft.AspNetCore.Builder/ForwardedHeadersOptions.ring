@@ -33,98 +33,98 @@ Class ForwardedHeadersOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getForwardedForHeaderName
-		return dnRequest("get",[new DotNetObject(nHandle),"ForwardedForHeaderName"])
+		return dnRequest("get",[self,"ForwardedForHeaderName"])
 
 	Func setForwardedForHeaderName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForwardedForHeaderName",P1])
+		dnRequest("set",[self,"ForwardedForHeaderName",P1])
 		return self
 
 	Func getForwardedHostHeaderName
-		return dnRequest("get",[new DotNetObject(nHandle),"ForwardedHostHeaderName"])
+		return dnRequest("get",[self,"ForwardedHostHeaderName"])
 
 	Func setForwardedHostHeaderName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForwardedHostHeaderName",P1])
+		dnRequest("set",[self,"ForwardedHostHeaderName",P1])
 		return self
 
 	Func getForwardedProtoHeaderName
-		return dnRequest("get",[new DotNetObject(nHandle),"ForwardedProtoHeaderName"])
+		return dnRequest("get",[self,"ForwardedProtoHeaderName"])
 
 	Func setForwardedProtoHeaderName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForwardedProtoHeaderName",P1])
+		dnRequest("set",[self,"ForwardedProtoHeaderName",P1])
 		return self
 
 	Func getForwardedPrefixHeaderName
-		return dnRequest("get",[new DotNetObject(nHandle),"ForwardedPrefixHeaderName"])
+		return dnRequest("get",[self,"ForwardedPrefixHeaderName"])
 
 	Func setForwardedPrefixHeaderName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForwardedPrefixHeaderName",P1])
+		dnRequest("set",[self,"ForwardedPrefixHeaderName",P1])
 		return self
 
 	Func getOriginalForHeaderName
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalForHeaderName"])
+		return dnRequest("get",[self,"OriginalForHeaderName"])
 
 	Func setOriginalForHeaderName P1
-		dnRequest("set",[new DotNetObject(nHandle),"OriginalForHeaderName",P1])
+		dnRequest("set",[self,"OriginalForHeaderName",P1])
 		return self
 
 	Func getOriginalHostHeaderName
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalHostHeaderName"])
+		return dnRequest("get",[self,"OriginalHostHeaderName"])
 
 	Func setOriginalHostHeaderName P1
-		dnRequest("set",[new DotNetObject(nHandle),"OriginalHostHeaderName",P1])
+		dnRequest("set",[self,"OriginalHostHeaderName",P1])
 		return self
 
 	Func getOriginalProtoHeaderName
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalProtoHeaderName"])
+		return dnRequest("get",[self,"OriginalProtoHeaderName"])
 
 	Func setOriginalProtoHeaderName P1
-		dnRequest("set",[new DotNetObject(nHandle),"OriginalProtoHeaderName",P1])
+		dnRequest("set",[self,"OriginalProtoHeaderName",P1])
 		return self
 
 	Func getOriginalPrefixHeaderName
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalPrefixHeaderName"])
+		return dnRequest("get",[self,"OriginalPrefixHeaderName"])
 
 	Func setOriginalPrefixHeaderName P1
-		dnRequest("set",[new DotNetObject(nHandle),"OriginalPrefixHeaderName",P1])
+		dnRequest("set",[self,"OriginalPrefixHeaderName",P1])
 		return self
 
 	Func getForwardedHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"ForwardedHeaders"])
+		return dnRequest("get",[self,"ForwardedHeaders"])
 
 	Func setForwardedHeaders P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForwardedHeaders",P1])
+		dnRequest("set",[self,"ForwardedHeaders",P1])
 		return self
 
 	Func getForwardLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"ForwardLimit"])
+		return dnRequest("get",[self,"ForwardLimit"])
 
 	Func setForwardLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForwardLimit",P1])
+		dnRequest("set",[self,"ForwardLimit",P1])
 		return self
 
 	Func getKnownProxies
-		return dnRequest("get",[new DotNetObject(nHandle),"KnownProxies"])
+		return dnRequest("get",[self,"KnownProxies"])
 
 	Func setKnownProxies P1
 		raise("DotNet Error: KnownProxies is a read-only property")
 
 	Func getKnownNetworks
-		return dnRequest("get",[new DotNetObject(nHandle),"KnownNetworks"])
+		return dnRequest("get",[self,"KnownNetworks"])
 
 	Func setKnownNetworks P1
 		raise("DotNet Error: KnownNetworks is a read-only property")
 
 	Func getAllowedHosts
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowedHosts"])
+		return dnRequest("get",[self,"AllowedHosts"])
 
 	Func setAllowedHosts P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowedHosts",P1])
+		dnRequest("set",[self,"AllowedHosts",P1])
 		return self
 
 	Func getRequireHeaderSymmetry
-		return dnRequest("get",[new DotNetObject(nHandle),"RequireHeaderSymmetry"])
+		return dnRequest("get",[self,"RequireHeaderSymmetry"])
 
 	Func setRequireHeaderSymmetry P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequireHeaderSymmetry",P1])
+		dnRequest("set",[self,"RequireHeaderSymmetry",P1])
 		return self
 

@@ -41,86 +41,86 @@ Class Pkcs12LoaderLimits from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getMacIterationLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"MacIterationLimit"])
+		return dnRequest("get",[self,"MacIterationLimit"])
 
 	Func setMacIterationLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"MacIterationLimit",P1])
+		dnRequest("set",[self,"MacIterationLimit",P1])
 		return self
 
 	Func getIndividualKdfIterationLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"IndividualKdfIterationLimit"])
+		return dnRequest("get",[self,"IndividualKdfIterationLimit"])
 
 	Func setIndividualKdfIterationLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"IndividualKdfIterationLimit",P1])
+		dnRequest("set",[self,"IndividualKdfIterationLimit",P1])
 		return self
 
 	Func getTotalKdfIterationLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"TotalKdfIterationLimit"])
+		return dnRequest("get",[self,"TotalKdfIterationLimit"])
 
 	Func setTotalKdfIterationLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"TotalKdfIterationLimit",P1])
+		dnRequest("set",[self,"TotalKdfIterationLimit",P1])
 		return self
 
 	Func getMaxKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxKeys"])
+		return dnRequest("get",[self,"MaxKeys"])
 
 	Func setMaxKeys P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxKeys",P1])
+		dnRequest("set",[self,"MaxKeys",P1])
 		return self
 
 	Func getMaxCertificates
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxCertificates"])
+		return dnRequest("get",[self,"MaxCertificates"])
 
 	Func setMaxCertificates P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxCertificates",P1])
+		dnRequest("set",[self,"MaxCertificates",P1])
 		return self
 
 	Func getPreserveStorageProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"PreserveStorageProvider"])
+		return dnRequest("get",[self,"PreserveStorageProvider"])
 
 	Func setPreserveStorageProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreserveStorageProvider",P1])
+		dnRequest("set",[self,"PreserveStorageProvider",P1])
 		return self
 
 	Func getPreserveKeyName
-		return dnRequest("get",[new DotNetObject(nHandle),"PreserveKeyName"])
+		return dnRequest("get",[self,"PreserveKeyName"])
 
 	Func setPreserveKeyName P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreserveKeyName",P1])
+		dnRequest("set",[self,"PreserveKeyName",P1])
 		return self
 
 	Func getPreserveCertificateAlias
-		return dnRequest("get",[new DotNetObject(nHandle),"PreserveCertificateAlias"])
+		return dnRequest("get",[self,"PreserveCertificateAlias"])
 
 	Func setPreserveCertificateAlias P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreserveCertificateAlias",P1])
+		dnRequest("set",[self,"PreserveCertificateAlias",P1])
 		return self
 
 	Func getPreserveUnknownAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"PreserveUnknownAttributes"])
+		return dnRequest("get",[self,"PreserveUnknownAttributes"])
 
 	Func setPreserveUnknownAttributes P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreserveUnknownAttributes",P1])
+		dnRequest("set",[self,"PreserveUnknownAttributes",P1])
 		return self
 
 	Func getIgnorePrivateKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"IgnorePrivateKeys"])
+		return dnRequest("get",[self,"IgnorePrivateKeys"])
 
 	Func setIgnorePrivateKeys P1
-		dnRequest("set",[new DotNetObject(nHandle),"IgnorePrivateKeys",P1])
+		dnRequest("set",[self,"IgnorePrivateKeys",P1])
 		return self
 
 	Func getIgnoreEncryptedAuthSafes
-		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreEncryptedAuthSafes"])
+		return dnRequest("get",[self,"IgnoreEncryptedAuthSafes"])
 
 	Func setIgnoreEncryptedAuthSafes P1
-		dnRequest("set",[new DotNetObject(nHandle),"IgnoreEncryptedAuthSafes",P1])
+		dnRequest("set",[self,"IgnoreEncryptedAuthSafes",P1])
 		return self
 
 	Func getDefaults

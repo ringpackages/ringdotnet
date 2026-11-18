@@ -17,7 +17,7 @@ Class DataGridViewAutoSizeColumnsModeEventArgs from EventArgs
 		return self
 
 	Func getPreviousModes
-		return dnRequest("get",[new DotNetObject(nHandle),"PreviousModes"])
+		return dnRequest("get",[self,"PreviousModes"])
 
 	Func setPreviousModes P1
 		raise("DotNet Error: PreviousModes is a read-only property")

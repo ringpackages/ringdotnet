@@ -16,7 +16,7 @@ Class SessionEndingCancelEventArgs from CancelEventArgs
 		return self
 
 	Func getReasonSessionEnding
-		return dnRequest("get",[new DotNetObject(nHandle),"ReasonSessionEnding"])
+		return dnRequest("get",[self,"ReasonSessionEnding"])
 
 	Func setReasonSessionEnding P1
 		raise("DotNet Error: ReasonSessionEnding is a read-only property")

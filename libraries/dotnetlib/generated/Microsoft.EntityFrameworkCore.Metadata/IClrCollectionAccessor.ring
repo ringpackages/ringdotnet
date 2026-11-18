@@ -40,7 +40,7 @@ Class IClrCollectionAccessor from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetOrCreate",P1,P2])
 
 	Func getCollectionType
-		return dnRequest("get",[new DotNetObject(nHandle),"CollectionType"])
+		return dnRequest("get",[self,"CollectionType"])
 
 	Func setCollectionType P1
 		raise("DotNet Error: CollectionType is a read-only property")

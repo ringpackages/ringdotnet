@@ -43,19 +43,19 @@ Class CancellationToken from ValueType
 		return self
 
 	Func getIsCancellationRequested
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCancellationRequested"])
+		return dnRequest("get",[self,"IsCancellationRequested"])
 
 	Func setIsCancellationRequested P1
 		raise("DotNet Error: IsCancellationRequested is a read-only property")
 
 	Func getCanBeCanceled
-		return dnRequest("get",[new DotNetObject(nHandle),"CanBeCanceled"])
+		return dnRequest("get",[self,"CanBeCanceled"])
 
 	Func setCanBeCanceled P1
 		raise("DotNet Error: CanBeCanceled is a read-only property")
 
 	Func getWaitHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"WaitHandle"])
+		return dnRequest("get",[self,"WaitHandle"])
 
 	Func setWaitHandle P1
 		raise("DotNet Error: WaitHandle is a read-only property")

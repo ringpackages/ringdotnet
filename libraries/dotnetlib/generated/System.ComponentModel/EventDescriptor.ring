@@ -26,19 +26,19 @@ Class EventDescriptor from MemberDescriptor
 		return self
 
 	Func getComponentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ComponentType"])
+		return dnRequest("get",[self,"ComponentType"])
 
 	Func setComponentType P1
 		raise("DotNet Error: ComponentType is a read-only property")
 
 	Func getEventType
-		return dnRequest("get",[new DotNetObject(nHandle),"EventType"])
+		return dnRequest("get",[self,"EventType"])
 
 	Func setEventType P1
 		raise("DotNet Error: EventType is a read-only property")
 
 	Func getIsMulticast
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMulticast"])
+		return dnRequest("get",[self,"IsMulticast"])
 
 	Func setIsMulticast P1
 		raise("DotNet Error: IsMulticast is a read-only property")

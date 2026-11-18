@@ -30,21 +30,21 @@ Class DataTrigger from TriggerBase
 		return self
 
 	Func getBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"Binding"])
+		return dnRequest("get",[self,"Binding"])
 
 	Func setBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Binding",P1])
+		dnRequest("set",[self,"Binding",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getSetters
-		return dnRequest("get",[new DotNetObject(nHandle),"Setters"])
+		return dnRequest("get",[self,"Setters"])
 
 	Func setSetters P1
 		raise("DotNet Error: Setters is a read-only property")

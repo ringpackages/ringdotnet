@@ -24,16 +24,16 @@ Class FlowLayoutSettings from LayoutSettings
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFlowBreak",P1])
 
 	Func getFlowDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"FlowDirection"])
+		return dnRequest("get",[self,"FlowDirection"])
 
 	Func setFlowDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlowDirection",P1])
+		dnRequest("set",[self,"FlowDirection",P1])
 		return self
 
 	Func getWrapContents
-		return dnRequest("get",[new DotNetObject(nHandle),"WrapContents"])
+		return dnRequest("get",[self,"WrapContents"])
 
 	Func setWrapContents P1
-		dnRequest("set",[new DotNetObject(nHandle),"WrapContents",P1])
+		dnRequest("set",[self,"WrapContents",P1])
 		return self
 

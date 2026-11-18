@@ -51,13 +51,13 @@ Class XmlNamespaceManager from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getNameTable
-		return dnRequest("get",[new DotNetObject(nHandle),"NameTable"])
+		return dnRequest("get",[self,"NameTable"])
 
 	Func setNameTable P1
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getDefaultNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultNamespace"])
+		return dnRequest("get",[self,"DefaultNamespace"])
 
 	Func setDefaultNamespace P1
 		raise("DotNet Error: DefaultNamespace is a read-only property")

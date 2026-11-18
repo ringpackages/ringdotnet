@@ -46,37 +46,37 @@ Class Overlapped from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAsyncResult
-		return dnRequest("get",[new DotNetObject(nHandle),"AsyncResult"])
+		return dnRequest("get",[self,"AsyncResult"])
 
 	Func setAsyncResult P1
-		dnRequest("set",[new DotNetObject(nHandle),"AsyncResult",P1])
+		dnRequest("set",[self,"AsyncResult",P1])
 		return self
 
 	Func getOffsetLow
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetLow"])
+		return dnRequest("get",[self,"OffsetLow"])
 
 	Func setOffsetLow P1
-		dnRequest("set",[new DotNetObject(nHandle),"OffsetLow",P1])
+		dnRequest("set",[self,"OffsetLow",P1])
 		return self
 
 	Func getOffsetHigh
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetHigh"])
+		return dnRequest("get",[self,"OffsetHigh"])
 
 	Func setOffsetHigh P1
-		dnRequest("set",[new DotNetObject(nHandle),"OffsetHigh",P1])
+		dnRequest("set",[self,"OffsetHigh",P1])
 		return self
 
 	Func getEventHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"EventHandle"])
+		return dnRequest("get",[self,"EventHandle"])
 
 	Func setEventHandle P1
-		dnRequest("set",[new DotNetObject(nHandle),"EventHandle",P1])
+		dnRequest("set",[self,"EventHandle",P1])
 		return self
 
 	Func getEventHandleIntPtr
-		return dnRequest("get",[new DotNetObject(nHandle),"EventHandleIntPtr"])
+		return dnRequest("get",[self,"EventHandleIntPtr"])
 
 	Func setEventHandleIntPtr P1
-		dnRequest("set",[new DotNetObject(nHandle),"EventHandleIntPtr",P1])
+		dnRequest("set",[self,"EventHandleIntPtr",P1])
 		return self
 

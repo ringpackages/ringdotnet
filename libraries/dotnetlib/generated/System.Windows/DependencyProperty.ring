@@ -82,43 +82,43 @@ Class DependencyProperty from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1,P2,P3,P4,P5])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyType
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyType"])
+		return dnRequest("get",[self,"PropertyType"])
 
 	Func setPropertyType P1
 		raise("DotNet Error: PropertyType is a read-only property")
 
 	Func getOwnerType
-		return dnRequest("get",[new DotNetObject(nHandle),"OwnerType"])
+		return dnRequest("get",[self,"OwnerType"])
 
 	Func setOwnerType P1
 		raise("DotNet Error: OwnerType is a read-only property")
 
 	Func getDefaultMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultMetadata"])
+		return dnRequest("get",[self,"DefaultMetadata"])
 
 	Func setDefaultMetadata P1
 		raise("DotNet Error: DefaultMetadata is a read-only property")
 
 	Func getValidateValueCallback
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidateValueCallback"])
+		return dnRequest("get",[self,"ValidateValueCallback"])
 
 	Func setValidateValueCallback P1
 		raise("DotNet Error: ValidateValueCallback is a read-only property")
 
 	Func getGlobalIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"GlobalIndex"])
+		return dnRequest("get",[self,"GlobalIndex"])
 
 	Func setGlobalIndex P1
 		raise("DotNet Error: GlobalIndex is a read-only property")
 
 	Func getReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
+		return dnRequest("get",[self,"ReadOnly"])
 
 	Func setReadOnly P1
 		raise("DotNet Error: ReadOnly is a read-only property")

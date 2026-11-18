@@ -1337,582 +1337,582 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getCanGoBack
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoBack"])
+		return dnRequest("get",[self,"CanGoBack"])
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")
 
 	Func getCanGoForward
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoForward"])
+		return dnRequest("get",[self,"CanGoForward"])
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getObjectForScripting
-		return dnRequest("get",[new DotNetObject(nHandle),"ObjectForScripting"])
+		return dnRequest("get",[self,"ObjectForScripting"])
 
 	Func setObjectForScripting P1
-		dnRequest("set",[new DotNetObject(nHandle),"ObjectForScripting",P1])
+		dnRequest("set",[self,"ObjectForScripting",P1])
 		return self
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
+		return dnRequest("get",[self,"Style"])
 
 	Func setStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Style",P1])
+		dnRequest("set",[self,"Style",P1])
 		return self
 
 	Func getOverridesDefaultStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"OverridesDefaultStyle"])
+		return dnRequest("get",[self,"OverridesDefaultStyle"])
 
 	Func setOverridesDefaultStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"OverridesDefaultStyle",P1])
+		dnRequest("set",[self,"OverridesDefaultStyle",P1])
 		return self
 
 	Func getUseLayoutRounding
-		return dnRequest("get",[new DotNetObject(nHandle),"UseLayoutRounding"])
+		return dnRequest("get",[self,"UseLayoutRounding"])
 
 	Func setUseLayoutRounding P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseLayoutRounding",P1])
+		dnRequest("set",[self,"UseLayoutRounding",P1])
 		return self
 
 	Func getTriggers
-		return dnRequest("get",[new DotNetObject(nHandle),"Triggers"])
+		return dnRequest("get",[self,"Triggers"])
 
 	Func setTriggers P1
 		raise("DotNet Error: Triggers is a read-only property")
 
 	Func getTemplatedParent
-		return dnRequest("get",[new DotNetObject(nHandle),"TemplatedParent"])
+		return dnRequest("get",[self,"TemplatedParent"])
 
 	Func setTemplatedParent P1
 		raise("DotNet Error: TemplatedParent is a read-only property")
 
 	Func getResources
-		return dnRequest("get",[new DotNetObject(nHandle),"Resources"])
+		return dnRequest("get",[self,"Resources"])
 
 	Func setResources P1
-		dnRequest("set",[new DotNetObject(nHandle),"Resources",P1])
+		dnRequest("set",[self,"Resources",P1])
 		return self
 
 	Func getDataContext
-		return dnRequest("get",[new DotNetObject(nHandle),"DataContext"])
+		return dnRequest("get",[self,"DataContext"])
 
 	Func setDataContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataContext",P1])
+		dnRequest("set",[self,"DataContext",P1])
 		return self
 
 	Func getBindingGroup
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingGroup"])
+		return dnRequest("get",[self,"BindingGroup"])
 
 	Func setBindingGroup P1
-		dnRequest("set",[new DotNetObject(nHandle),"BindingGroup",P1])
+		dnRequest("set",[self,"BindingGroup",P1])
 		return self
 
 	Func getLanguage
-		return dnRequest("get",[new DotNetObject(nHandle),"Language"])
+		return dnRequest("get",[self,"Language"])
 
 	Func setLanguage P1
-		dnRequest("set",[new DotNetObject(nHandle),"Language",P1])
+		dnRequest("set",[self,"Language",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getInputScope
-		return dnRequest("get",[new DotNetObject(nHandle),"InputScope"])
+		return dnRequest("get",[self,"InputScope"])
 
 	Func setInputScope P1
-		dnRequest("set",[new DotNetObject(nHandle),"InputScope",P1])
+		dnRequest("set",[self,"InputScope",P1])
 		return self
 
 	Func getActualWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"ActualWidth"])
+		return dnRequest("get",[self,"ActualWidth"])
 
 	Func setActualWidth P1
 		raise("DotNet Error: ActualWidth is a read-only property")
 
 	Func getActualHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"ActualHeight"])
+		return dnRequest("get",[self,"ActualHeight"])
 
 	Func setActualHeight P1
 		raise("DotNet Error: ActualHeight is a read-only property")
 
 	Func getLayoutTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"LayoutTransform"])
+		return dnRequest("get",[self,"LayoutTransform"])
 
 	Func setLayoutTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"LayoutTransform",P1])
+		dnRequest("set",[self,"LayoutTransform",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
+		dnRequest("set",[self,"Width",P1])
 		return self
 
 	Func getMinWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"MinWidth"])
+		return dnRequest("get",[self,"MinWidth"])
 
 	Func setMinWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinWidth",P1])
+		dnRequest("set",[self,"MinWidth",P1])
 		return self
 
 	Func getMaxWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxWidth"])
+		return dnRequest("get",[self,"MaxWidth"])
 
 	Func setMaxWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxWidth",P1])
+		dnRequest("set",[self,"MaxWidth",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
+		return dnRequest("get",[self,"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
+		dnRequest("set",[self,"Height",P1])
 		return self
 
 	Func getMinHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"MinHeight"])
+		return dnRequest("get",[self,"MinHeight"])
 
 	Func setMinHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinHeight",P1])
+		dnRequest("set",[self,"MinHeight",P1])
 		return self
 
 	Func getMaxHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxHeight"])
+		return dnRequest("get",[self,"MaxHeight"])
 
 	Func setMaxHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxHeight",P1])
+		dnRequest("set",[self,"MaxHeight",P1])
 		return self
 
 	Func getFlowDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"FlowDirection"])
+		return dnRequest("get",[self,"FlowDirection"])
 
 	Func setFlowDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlowDirection",P1])
+		dnRequest("set",[self,"FlowDirection",P1])
 		return self
 
 	Func getMargin
-		return dnRequest("get",[new DotNetObject(nHandle),"Margin"])
+		return dnRequest("get",[self,"Margin"])
 
 	Func setMargin P1
-		dnRequest("set",[new DotNetObject(nHandle),"Margin",P1])
+		dnRequest("set",[self,"Margin",P1])
 		return self
 
 	Func getHorizontalAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalAlignment"])
+		return dnRequest("get",[self,"HorizontalAlignment"])
 
 	Func setHorizontalAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalAlignment",P1])
+		dnRequest("set",[self,"HorizontalAlignment",P1])
 		return self
 
 	Func getVerticalAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalAlignment"])
+		return dnRequest("get",[self,"VerticalAlignment"])
 
 	Func setVerticalAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerticalAlignment",P1])
+		dnRequest("set",[self,"VerticalAlignment",P1])
 		return self
 
 	Func getFocusVisualStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"FocusVisualStyle"])
+		return dnRequest("get",[self,"FocusVisualStyle"])
 
 	Func setFocusVisualStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"FocusVisualStyle",P1])
+		dnRequest("set",[self,"FocusVisualStyle",P1])
 		return self
 
 	Func getCursor
-		return dnRequest("get",[new DotNetObject(nHandle),"Cursor"])
+		return dnRequest("get",[self,"Cursor"])
 
 	Func setCursor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cursor",P1])
+		dnRequest("set",[self,"Cursor",P1])
 		return self
 
 	Func getForceCursor
-		return dnRequest("get",[new DotNetObject(nHandle),"ForceCursor"])
+		return dnRequest("get",[self,"ForceCursor"])
 
 	Func setForceCursor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForceCursor",P1])
+		dnRequest("set",[self,"ForceCursor",P1])
 		return self
 
 	Func getIsInitialized
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialized"])
+		return dnRequest("get",[self,"IsInitialized"])
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getIsLoaded
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLoaded"])
+		return dnRequest("get",[self,"IsLoaded"])
 
 	Func setIsLoaded P1
 		raise("DotNet Error: IsLoaded is a read-only property")
 
 	Func getToolTip
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolTip"])
+		return dnRequest("get",[self,"ToolTip"])
 
 	Func setToolTip P1
-		dnRequest("set",[new DotNetObject(nHandle),"ToolTip",P1])
+		dnRequest("set",[self,"ToolTip",P1])
 		return self
 
 	Func getContextMenu
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextMenu"])
+		return dnRequest("get",[self,"ContextMenu"])
 
 	Func setContextMenu P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContextMenu",P1])
+		dnRequest("set",[self,"ContextMenu",P1])
 		return self
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getHasAnimatedProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"HasAnimatedProperties"])
+		return dnRequest("get",[self,"HasAnimatedProperties"])
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
 
 	Func getInputBindings
-		return dnRequest("get",[new DotNetObject(nHandle),"InputBindings"])
+		return dnRequest("get",[self,"InputBindings"])
 
 	Func setInputBindings P1
 		raise("DotNet Error: InputBindings is a read-only property")
 
 	Func getCommandBindings
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandBindings"])
+		return dnRequest("get",[self,"CommandBindings"])
 
 	Func setCommandBindings P1
 		raise("DotNet Error: CommandBindings is a read-only property")
 
 	Func getAllowDrop
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowDrop"])
+		return dnRequest("get",[self,"AllowDrop"])
 
 	Func setAllowDrop P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowDrop",P1])
+		dnRequest("set",[self,"AllowDrop",P1])
 		return self
 
 	Func getDesiredSize
-		return dnRequest("get",[new DotNetObject(nHandle),"DesiredSize"])
+		return dnRequest("get",[self,"DesiredSize"])
 
 	Func setDesiredSize P1
 		raise("DotNet Error: DesiredSize is a read-only property")
 
 	Func getIsMeasureValid
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMeasureValid"])
+		return dnRequest("get",[self,"IsMeasureValid"])
 
 	Func setIsMeasureValid P1
 		raise("DotNet Error: IsMeasureValid is a read-only property")
 
 	Func getIsArrangeValid
-		return dnRequest("get",[new DotNetObject(nHandle),"IsArrangeValid"])
+		return dnRequest("get",[self,"IsArrangeValid"])
 
 	Func setIsArrangeValid P1
 		raise("DotNet Error: IsArrangeValid is a read-only property")
 
 	Func getRenderSize
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderSize"])
+		return dnRequest("get",[self,"RenderSize"])
 
 	Func setRenderSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"RenderSize",P1])
+		dnRequest("set",[self,"RenderSize",P1])
 		return self
 
 	Func getRenderTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderTransform"])
+		return dnRequest("get",[self,"RenderTransform"])
 
 	Func setRenderTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"RenderTransform",P1])
+		dnRequest("set",[self,"RenderTransform",P1])
 		return self
 
 	Func getRenderTransformOrigin
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderTransformOrigin"])
+		return dnRequest("get",[self,"RenderTransformOrigin"])
 
 	Func setRenderTransformOrigin P1
-		dnRequest("set",[new DotNetObject(nHandle),"RenderTransformOrigin",P1])
+		dnRequest("set",[self,"RenderTransformOrigin",P1])
 		return self
 
 	Func getIsMouseDirectlyOver
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseDirectlyOver"])
+		return dnRequest("get",[self,"IsMouseDirectlyOver"])
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseOver
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseOver"])
+		return dnRequest("get",[self,"IsMouseOver"])
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsStylusOver
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusOver"])
+		return dnRequest("get",[self,"IsStylusOver"])
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyboardFocusWithin"])
+		return dnRequest("get",[self,"IsKeyboardFocusWithin"])
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsMouseCaptured
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseCaptured"])
+		return dnRequest("get",[self,"IsMouseCaptured"])
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsMouseCaptureWithin
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseCaptureWithin"])
+		return dnRequest("get",[self,"IsMouseCaptureWithin"])
 
 	Func setIsMouseCaptureWithin P1
 		raise("DotNet Error: IsMouseCaptureWithin is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusDirectlyOver"])
+		return dnRequest("get",[self,"IsStylusDirectlyOver"])
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusCaptured"])
+		return dnRequest("get",[self,"IsStylusCaptured"])
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsStylusCaptureWithin
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusCaptureWithin"])
+		return dnRequest("get",[self,"IsStylusCaptureWithin"])
 
 	Func setIsStylusCaptureWithin P1
 		raise("DotNet Error: IsStylusCaptureWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyboardFocused"])
+		return dnRequest("get",[self,"IsKeyboardFocused"])
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsInputMethodEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInputMethodEnabled"])
+		return dnRequest("get",[self,"IsInputMethodEnabled"])
 
 	Func setIsInputMethodEnabled P1
 		raise("DotNet Error: IsInputMethodEnabled is a read-only property")
 
 	Func getOpacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Opacity"])
+		return dnRequest("get",[self,"Opacity"])
 
 	Func setOpacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"Opacity",P1])
+		dnRequest("set",[self,"Opacity",P1])
 		return self
 
 	Func getOpacityMask
-		return dnRequest("get",[new DotNetObject(nHandle),"OpacityMask"])
+		return dnRequest("get",[self,"OpacityMask"])
 
 	Func setOpacityMask P1
-		dnRequest("set",[new DotNetObject(nHandle),"OpacityMask",P1])
+		dnRequest("set",[self,"OpacityMask",P1])
 		return self
 
 	Func getBitmapEffect
-		return dnRequest("get",[new DotNetObject(nHandle),"BitmapEffect"])
+		return dnRequest("get",[self,"BitmapEffect"])
 
 	Func setBitmapEffect P1
-		dnRequest("set",[new DotNetObject(nHandle),"BitmapEffect",P1])
+		dnRequest("set",[self,"BitmapEffect",P1])
 		return self
 
 	Func getEffect
-		return dnRequest("get",[new DotNetObject(nHandle),"Effect"])
+		return dnRequest("get",[self,"Effect"])
 
 	Func setEffect P1
-		dnRequest("set",[new DotNetObject(nHandle),"Effect",P1])
+		dnRequest("set",[self,"Effect",P1])
 		return self
 
 	Func getBitmapEffectInput
-		return dnRequest("get",[new DotNetObject(nHandle),"BitmapEffectInput"])
+		return dnRequest("get",[self,"BitmapEffectInput"])
 
 	Func setBitmapEffectInput P1
-		dnRequest("set",[new DotNetObject(nHandle),"BitmapEffectInput",P1])
+		dnRequest("set",[self,"BitmapEffectInput",P1])
 		return self
 
 	Func getCacheMode
-		return dnRequest("get",[new DotNetObject(nHandle),"CacheMode"])
+		return dnRequest("get",[self,"CacheMode"])
 
 	Func setCacheMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"CacheMode",P1])
+		dnRequest("set",[self,"CacheMode",P1])
 		return self
 
 	Func getUid
-		return dnRequest("get",[new DotNetObject(nHandle),"Uid"])
+		return dnRequest("get",[self,"Uid"])
 
 	Func setUid P1
-		dnRequest("set",[new DotNetObject(nHandle),"Uid",P1])
+		dnRequest("set",[self,"Uid",P1])
 		return self
 
 	Func getVisibility
-		return dnRequest("get",[new DotNetObject(nHandle),"Visibility"])
+		return dnRequest("get",[self,"Visibility"])
 
 	Func setVisibility P1
-		dnRequest("set",[new DotNetObject(nHandle),"Visibility",P1])
+		dnRequest("set",[self,"Visibility",P1])
 		return self
 
 	Func getClipToBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"ClipToBounds"])
+		return dnRequest("get",[self,"ClipToBounds"])
 
 	Func setClipToBounds P1
-		dnRequest("set",[new DotNetObject(nHandle),"ClipToBounds",P1])
+		dnRequest("set",[self,"ClipToBounds",P1])
 		return self
 
 	Func getClip
-		return dnRequest("get",[new DotNetObject(nHandle),"Clip"])
+		return dnRequest("get",[self,"Clip"])
 
 	Func setClip P1
-		dnRequest("set",[new DotNetObject(nHandle),"Clip",P1])
+		dnRequest("set",[self,"Clip",P1])
 		return self
 
 	Func getSnapsToDevicePixels
-		return dnRequest("get",[new DotNetObject(nHandle),"SnapsToDevicePixels"])
+		return dnRequest("get",[self,"SnapsToDevicePixels"])
 
 	Func setSnapsToDevicePixels P1
-		dnRequest("set",[new DotNetObject(nHandle),"SnapsToDevicePixels",P1])
+		dnRequest("set",[self,"SnapsToDevicePixels",P1])
 		return self
 
 	Func getIsFocused
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFocused"])
+		return dnRequest("get",[self,"IsFocused"])
 
 	Func setIsFocused P1
 		raise("DotNet Error: IsFocused is a read-only property")
 
 	Func getIsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEnabled"])
+		return dnRequest("get",[self,"IsEnabled"])
 
 	Func setIsEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsEnabled",P1])
+		dnRequest("set",[self,"IsEnabled",P1])
 		return self
 
 	Func getIsHitTestVisible
-		return dnRequest("get",[new DotNetObject(nHandle),"IsHitTestVisible"])
+		return dnRequest("get",[self,"IsHitTestVisible"])
 
 	Func setIsHitTestVisible P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsHitTestVisible",P1])
+		dnRequest("set",[self,"IsHitTestVisible",P1])
 		return self
 
 	Func getIsVisible
-		return dnRequest("get",[new DotNetObject(nHandle),"IsVisible"])
+		return dnRequest("get",[self,"IsVisible"])
 
 	Func setIsVisible P1
 		raise("DotNet Error: IsVisible is a read-only property")
 
 	Func getFocusable
-		return dnRequest("get",[new DotNetObject(nHandle),"Focusable"])
+		return dnRequest("get",[self,"Focusable"])
 
 	Func setFocusable P1
-		dnRequest("set",[new DotNetObject(nHandle),"Focusable",P1])
+		dnRequest("set",[self,"Focusable",P1])
 		return self
 
 	Func getPersistId
-		return dnRequest("get",[new DotNetObject(nHandle),"PersistId"])
+		return dnRequest("get",[self,"PersistId"])
 
 	Func setPersistId P1
 		raise("DotNet Error: PersistId is a read-only property")
 
 	Func getIsManipulationEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsManipulationEnabled"])
+		return dnRequest("get",[self,"IsManipulationEnabled"])
 
 	Func setIsManipulationEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsManipulationEnabled",P1])
+		dnRequest("set",[self,"IsManipulationEnabled",P1])
 		return self
 
 	Func getAreAnyTouchesOver
-		return dnRequest("get",[new DotNetObject(nHandle),"AreAnyTouchesOver"])
+		return dnRequest("get",[self,"AreAnyTouchesOver"])
 
 	Func setAreAnyTouchesOver P1
 		raise("DotNet Error: AreAnyTouchesOver is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOver
-		return dnRequest("get",[new DotNetObject(nHandle),"AreAnyTouchesDirectlyOver"])
+		return dnRequest("get",[self,"AreAnyTouchesDirectlyOver"])
 
 	Func setAreAnyTouchesDirectlyOver P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOver is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithin
-		return dnRequest("get",[new DotNetObject(nHandle),"AreAnyTouchesCapturedWithin"])
+		return dnRequest("get",[self,"AreAnyTouchesCapturedWithin"])
 
 	Func setAreAnyTouchesCapturedWithin P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithin is a read-only property")
 
 	Func getAreAnyTouchesCaptured
-		return dnRequest("get",[new DotNetObject(nHandle),"AreAnyTouchesCaptured"])
+		return dnRequest("get",[self,"AreAnyTouchesCaptured"])
 
 	Func setAreAnyTouchesCaptured P1
 		raise("DotNet Error: AreAnyTouchesCaptured is a read-only property")
 
 	Func getTouchesCaptured
-		return dnRequest("get",[new DotNetObject(nHandle),"TouchesCaptured"])
+		return dnRequest("get",[self,"TouchesCaptured"])
 
 	Func setTouchesCaptured P1
 		raise("DotNet Error: TouchesCaptured is a read-only property")
 
 	Func getTouchesCapturedWithin
-		return dnRequest("get",[new DotNetObject(nHandle),"TouchesCapturedWithin"])
+		return dnRequest("get",[self,"TouchesCapturedWithin"])
 
 	Func setTouchesCapturedWithin P1
 		raise("DotNet Error: TouchesCapturedWithin is a read-only property")
 
 	Func getTouchesOver
-		return dnRequest("get",[new DotNetObject(nHandle),"TouchesOver"])
+		return dnRequest("get",[self,"TouchesOver"])
 
 	Func setTouchesOver P1
 		raise("DotNet Error: TouchesOver is a read-only property")
 
 	Func getTouchesDirectlyOver
-		return dnRequest("get",[new DotNetObject(nHandle),"TouchesDirectlyOver"])
+		return dnRequest("get",[self,"TouchesDirectlyOver"])
 
 	Func setTouchesDirectlyOver P1
 		raise("DotNet Error: TouchesDirectlyOver is a read-only property")
 
 	Func getDependencyObjectType
-		return dnRequest("get",[new DotNetObject(nHandle),"DependencyObjectType"])
+		return dnRequest("get",[self,"DependencyObjectType"])
 
 	Func setDependencyObjectType P1
 		raise("DotNet Error: DependencyObjectType is a read-only property")
 
 	Func getIsSealed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSealed"])
+		return dnRequest("get",[self,"IsSealed"])
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getDispatcher
-		return dnRequest("get",[new DotNetObject(nHandle),"Dispatcher"])
+		return dnRequest("get",[self,"Dispatcher"])
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")

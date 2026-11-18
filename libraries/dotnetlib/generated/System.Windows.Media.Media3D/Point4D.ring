@@ -55,30 +55,30 @@ Class Point4D from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore'),"Parse",P1])
 
 	Func getX
-		return dnRequest("get",[new DotNetObject(nHandle),"X"])
+		return dnRequest("get",[self,"X"])
 
 	Func setX P1
-		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
+		dnRequest("set",[self,"X",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
+		return dnRequest("get",[self,"Y"])
 
 	Func setY P1
-		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
+		dnRequest("set",[self,"Y",P1])
 		return self
 
 	Func getZ
-		return dnRequest("get",[new DotNetObject(nHandle),"Z"])
+		return dnRequest("get",[self,"Z"])
 
 	Func setZ P1
-		dnRequest("set",[new DotNetObject(nHandle),"Z",P1])
+		dnRequest("set",[self,"Z",P1])
 		return self
 
 	Func getW
-		return dnRequest("get",[new DotNetObject(nHandle),"W"])
+		return dnRequest("get",[self,"W"])
 
 	Func setW P1
-		dnRequest("set",[new DotNetObject(nHandle),"W",P1])
+		dnRequest("set",[self,"W",P1])
 		return self
 

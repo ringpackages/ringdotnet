@@ -33,95 +33,95 @@ Class QueryCompilationContextDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContext
-		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
+		return dnRequest("get",[self,"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getContextType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextType"])
+		return dnRequest("get",[self,"ContextType"])
 
 	Func setContextType P1
 		raise("DotNet Error: ContextType is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryTrackingBehavior"])
+		return dnRequest("get",[self,"QueryTrackingBehavior"])
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Model",P1])
+		dnRequest("set",[self,"Model",P1])
 		return self
 
 	Func getQueryTranslationPreprocessorFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryTranslationPreprocessorFactory"])
+		return dnRequest("get",[self,"QueryTranslationPreprocessorFactory"])
 
 	Func setQueryTranslationPreprocessorFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"QueryTranslationPreprocessorFactory",P1])
+		dnRequest("set",[self,"QueryTranslationPreprocessorFactory",P1])
 		return self
 
 	Func getQueryableMethodTranslatingExpressionVisitorFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryableMethodTranslatingExpressionVisitorFactory"])
+		return dnRequest("get",[self,"QueryableMethodTranslatingExpressionVisitorFactory"])
 
 	Func setQueryableMethodTranslatingExpressionVisitorFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"QueryableMethodTranslatingExpressionVisitorFactory",P1])
+		dnRequest("set",[self,"QueryableMethodTranslatingExpressionVisitorFactory",P1])
 		return self
 
 	Func getQueryTranslationPostprocessorFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryTranslationPostprocessorFactory"])
+		return dnRequest("get",[self,"QueryTranslationPostprocessorFactory"])
 
 	Func setQueryTranslationPostprocessorFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"QueryTranslationPostprocessorFactory",P1])
+		dnRequest("set",[self,"QueryTranslationPostprocessorFactory",P1])
 		return self
 
 	Func getShapedQueryCompilingExpressionVisitorFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"ShapedQueryCompilingExpressionVisitorFactory"])
+		return dnRequest("get",[self,"ShapedQueryCompilingExpressionVisitorFactory"])
 
 	Func setShapedQueryCompilingExpressionVisitorFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShapedQueryCompilingExpressionVisitorFactory",P1])
+		dnRequest("set",[self,"ShapedQueryCompilingExpressionVisitorFactory",P1])
 		return self
 
 	Func getLiftableConstantFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"LiftableConstantFactory"])
+		return dnRequest("get",[self,"LiftableConstantFactory"])
 
 	Func setLiftableConstantFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"LiftableConstantFactory",P1])
+		dnRequest("set",[self,"LiftableConstantFactory",P1])
 		return self
 
 	Func getLiftableConstantProcessor
-		return dnRequest("get",[new DotNetObject(nHandle),"LiftableConstantProcessor"])
+		return dnRequest("get",[self,"LiftableConstantProcessor"])
 
 	Func setLiftableConstantProcessor P1
-		dnRequest("set",[new DotNetObject(nHandle),"LiftableConstantProcessor",P1])
+		dnRequest("set",[self,"LiftableConstantProcessor",P1])
 		return self
 
 	Func getIsRetryingExecutionStrategy
-		return dnRequest("get",[new DotNetObject(nHandle),"IsRetryingExecutionStrategy"])
+		return dnRequest("get",[self,"IsRetryingExecutionStrategy"])
 
 	Func setIsRetryingExecutionStrategy P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsRetryingExecutionStrategy",P1])
+		dnRequest("set",[self,"IsRetryingExecutionStrategy",P1])
 		return self
 
 	Func getContextOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextOptions"])
+		return dnRequest("get",[self,"ContextOptions"])
 
 	Func setContextOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContextOptions",P1])
+		dnRequest("set",[self,"ContextOptions",P1])
 		return self
 
 	Func getLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
+		return dnRequest("get",[self,"Logger"])
 
 	Func setLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"Logger",P1])
+		dnRequest("set",[self,"Logger",P1])
 		return self
 
 	Func getInterceptors
-		return dnRequest("get",[new DotNetObject(nHandle),"Interceptors"])
+		return dnRequest("get",[self,"Interceptors"])
 
 	Func setInterceptors P1
 		raise("DotNet Error: Interceptors is a read-only property")

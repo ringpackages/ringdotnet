@@ -25,7 +25,7 @@ Class IAuthorizationPolicyProvider from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFallbackPolicyAsync"])
 
 	Func getAllowsCachingPolicies
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowsCachingPolicies"])
+		return dnRequest("get",[self,"AllowsCachingPolicies"])
 
 	Func setAllowsCachingPolicies P1
 		raise("DotNet Error: AllowsCachingPolicies is a read-only property")

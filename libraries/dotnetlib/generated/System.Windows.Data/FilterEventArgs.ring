@@ -17,15 +17,15 @@ Class FilterEventArgs from EventArgs
 		return self
 
 	Func getItem
-		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
+		return dnRequest("get",[self,"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getAccepted
-		return dnRequest("get",[new DotNetObject(nHandle),"Accepted"])
+		return dnRequest("get",[self,"Accepted"])
 
 	Func setAccepted P1
-		dnRequest("set",[new DotNetObject(nHandle),"Accepted",P1])
+		dnRequest("set",[self,"Accepted",P1])
 		return self
 

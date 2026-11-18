@@ -3,13 +3,10 @@
 Func DotNetNew_NonQueryExpression
 	oDotNetNew = new NonQueryExpression(0)
 
-Class NonQueryExpression from DotNetObject
+Class NonQueryExpression from ExpressionsExpression
 
 	Expression
 	CommandSource
-	Type
-	NodeType
-	CanReduce
 
 	Func init P1
 		if nDotNetWrapHandle != 0
@@ -31,54 +28,15 @@ Class NonQueryExpression from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
 		return self
 
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
-	Func Reduce 
-		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
-
-	Func ReduceAndCheck 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
-
-	Func ReduceExtensions 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
 	Func getExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"Expression"])
+		return dnRequest("get",[self,"Expression"])
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getCommandSource
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandSource"])
+		return dnRequest("get",[self,"CommandSource"])
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
-
-	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
-
-	Func setType P1
-		raise("DotNet Error: Type is a read-only property")
-
-	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
-
-	Func setNodeType P1
-		raise("DotNet Error: NodeType is a read-only property")
-
-	Func getCanReduce
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
-
-	Func setCanReduce P1
-		raise("DotNet Error: CanReduce is a read-only property")
 

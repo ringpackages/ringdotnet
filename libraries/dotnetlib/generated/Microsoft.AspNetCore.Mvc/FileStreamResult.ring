@@ -17,9 +17,9 @@ Class FileStreamResult from FileResult
 		return self
 
 	Func getFileStream
-		return dnRequest("get",[new DotNetObject(nHandle),"FileStream"])
+		return dnRequest("get",[self,"FileStream"])
 
 	Func setFileStream P1
-		dnRequest("set",[new DotNetObject(nHandle),"FileStream",P1])
+		dnRequest("set",[self,"FileStream",P1])
 		return self
 

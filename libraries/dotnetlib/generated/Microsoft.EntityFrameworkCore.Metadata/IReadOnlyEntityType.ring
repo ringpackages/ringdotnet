@@ -214,7 +214,7 @@ Class IReadOnlyEntityType from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getBaseType
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseType"])
+		return dnRequest("get",[self,"BaseType"])
 
 	Func setBaseType P1
 		raise("DotNet Error: BaseType is a read-only property")

@@ -44,7 +44,7 @@ Class ConfigurationRoot from Object
 		return self
 
 	Func getProviders
-		return dnRequest("get",[new DotNetObject(nHandle),"Providers"])
+		return dnRequest("get",[self,"Providers"])
 
 	Func setProviders P1
 		raise("DotNet Error: Providers is a read-only property")

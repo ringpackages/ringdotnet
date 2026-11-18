@@ -16,7 +16,7 @@ Class RenderingEventArgs from EventArgs
 		return self
 
 	Func getRenderingTime
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderingTime"])
+		return dnRequest("get",[self,"RenderingTime"])
 
 	Func setRenderingTime P1
 		raise("DotNet Error: RenderingTime is a read-only property")

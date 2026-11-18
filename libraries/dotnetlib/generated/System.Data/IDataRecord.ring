@@ -85,7 +85,7 @@ Class IDataRecord from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getFieldCount
-		return dnRequest("get",[new DotNetObject(nHandle),"FieldCount"])
+		return dnRequest("get",[self,"FieldCount"])
 
 	Func setFieldCount P1
 		raise("DotNet Error: FieldCount is a read-only property")

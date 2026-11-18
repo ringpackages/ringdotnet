@@ -21,16 +21,16 @@ Class ServiceProviderOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getValidateScopes
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidateScopes"])
+		return dnRequest("get",[self,"ValidateScopes"])
 
 	Func setValidateScopes P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidateScopes",P1])
+		dnRequest("set",[self,"ValidateScopes",P1])
 		return self
 
 	Func getValidateOnBuild
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidateOnBuild"])
+		return dnRequest("get",[self,"ValidateOnBuild"])
 
 	Func setValidateOnBuild P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidateOnBuild",P1])
+		dnRequest("set",[self,"ValidateOnBuild",P1])
 		return self
 

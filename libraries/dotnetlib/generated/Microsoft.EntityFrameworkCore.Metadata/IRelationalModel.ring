@@ -59,49 +59,49 @@ Class IRelationalModel from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getTables
-		return dnRequest("get",[new DotNetObject(nHandle),"Tables"])
+		return dnRequest("get",[self,"Tables"])
 
 	Func setTables P1
 		raise("DotNet Error: Tables is a read-only property")
 
 	Func getViews
-		return dnRequest("get",[new DotNetObject(nHandle),"Views"])
+		return dnRequest("get",[self,"Views"])
 
 	Func setViews P1
 		raise("DotNet Error: Views is a read-only property")
 
 	Func getQueries
-		return dnRequest("get",[new DotNetObject(nHandle),"Queries"])
+		return dnRequest("get",[self,"Queries"])
 
 	Func setQueries P1
 		raise("DotNet Error: Queries is a read-only property")
 
 	Func getSequences
-		return dnRequest("get",[new DotNetObject(nHandle),"Sequences"])
+		return dnRequest("get",[self,"Sequences"])
 
 	Func setSequences P1
 		raise("DotNet Error: Sequences is a read-only property")
 
 	Func getFunctions
-		return dnRequest("get",[new DotNetObject(nHandle),"Functions"])
+		return dnRequest("get",[self,"Functions"])
 
 	Func setFunctions P1
 		raise("DotNet Error: Functions is a read-only property")
 
 	Func getStoredProcedures
-		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedures"])
+		return dnRequest("get",[self,"StoredProcedures"])
 
 	Func setStoredProcedures P1
 		raise("DotNet Error: StoredProcedures is a read-only property")
 
 	Func getCollation
-		return dnRequest("get",[new DotNetObject(nHandle),"Collation"])
+		return dnRequest("get",[self,"Collation"])
 
 	Func setCollation P1
 		raise("DotNet Error: Collation is a read-only property")

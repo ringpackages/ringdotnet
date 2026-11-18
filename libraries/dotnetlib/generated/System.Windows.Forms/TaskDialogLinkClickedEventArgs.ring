@@ -17,7 +17,7 @@ Class TaskDialogLinkClickedEventArgs from EventArgs
 		return self
 
 	Func getLinkHref
-		return dnRequest("get",[new DotNetObject(nHandle),"LinkHref"])
+		return dnRequest("get",[self,"LinkHref"])
 
 	Func setLinkHref P1
 		raise("DotNet Error: LinkHref is a read-only property")

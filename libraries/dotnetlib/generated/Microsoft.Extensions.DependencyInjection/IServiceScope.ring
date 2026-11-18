@@ -16,7 +16,7 @@ Class IServiceScope from DotNetObject
 		return self
 
 	Func getServiceProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceProvider"])
+		return dnRequest("get",[self,"ServiceProvider"])
 
 	Func setServiceProvider P1
 		raise("DotNet Error: ServiceProvider is a read-only property")

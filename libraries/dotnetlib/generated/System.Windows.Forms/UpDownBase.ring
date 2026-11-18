@@ -44,43 +44,43 @@ Class UpDownBase from ContainerControl
 		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
 
 	Func getBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
+		return dnRequest("get",[self,"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
+		dnRequest("set",[self,"BorderStyle",P1])
 		return self
 
 	Func getInterceptArrowKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"InterceptArrowKeys"])
+		return dnRequest("get",[self,"InterceptArrowKeys"])
 
 	Func setInterceptArrowKeys P1
-		dnRequest("set",[new DotNetObject(nHandle),"InterceptArrowKeys",P1])
+		dnRequest("set",[self,"InterceptArrowKeys",P1])
 		return self
 
 	Func getPreferredHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"PreferredHeight"])
+		return dnRequest("get",[self,"PreferredHeight"])
 
 	Func setPreferredHeight P1
 		raise("DotNet Error: PreferredHeight is a read-only property")
 
 	Func getReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
+		return dnRequest("get",[self,"ReadOnly"])
 
 	Func setReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadOnly",P1])
+		dnRequest("set",[self,"ReadOnly",P1])
 		return self
 
 	Func getTextAlign
-		return dnRequest("get",[new DotNetObject(nHandle),"TextAlign"])
+		return dnRequest("get",[self,"TextAlign"])
 
 	Func setTextAlign P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextAlign",P1])
+		dnRequest("set",[self,"TextAlign",P1])
 		return self
 
 	Func getUpDownAlign
-		return dnRequest("get",[new DotNetObject(nHandle),"UpDownAlign"])
+		return dnRequest("get",[self,"UpDownAlign"])
 
 	Func setUpDownAlign P1
-		dnRequest("set",[new DotNetObject(nHandle),"UpDownAlign",P1])
+		dnRequest("set",[self,"UpDownAlign",P1])
 		return self
 

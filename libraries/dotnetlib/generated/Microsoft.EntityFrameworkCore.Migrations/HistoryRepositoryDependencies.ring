@@ -34,107 +34,107 @@ Class HistoryRepositoryDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDatabaseCreator
-		return dnRequest("get",[new DotNetObject(nHandle),"DatabaseCreator"])
+		return dnRequest("get",[self,"DatabaseCreator"])
 
 	Func setDatabaseCreator P1
-		dnRequest("set",[new DotNetObject(nHandle),"DatabaseCreator",P1])
+		dnRequest("set",[self,"DatabaseCreator",P1])
 		return self
 
 	Func getRawSqlCommandBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"RawSqlCommandBuilder"])
+		return dnRequest("get",[self,"RawSqlCommandBuilder"])
 
 	Func setRawSqlCommandBuilder P1
-		dnRequest("set",[new DotNetObject(nHandle),"RawSqlCommandBuilder",P1])
+		dnRequest("set",[self,"RawSqlCommandBuilder",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
+		dnRequest("set",[self,"Connection",P1])
 		return self
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"Options",P1])
+		dnRequest("set",[self,"Options",P1])
 		return self
 
 	Func getModelDiffer
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelDiffer"])
+		return dnRequest("get",[self,"ModelDiffer"])
 
 	Func setModelDiffer P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelDiffer",P1])
+		dnRequest("set",[self,"ModelDiffer",P1])
 		return self
 
 	Func getMigrationsSqlGenerator
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsSqlGenerator"])
+		return dnRequest("get",[self,"MigrationsSqlGenerator"])
 
 	Func setMigrationsSqlGenerator P1
-		dnRequest("set",[new DotNetObject(nHandle),"MigrationsSqlGenerator",P1])
+		dnRequest("set",[self,"MigrationsSqlGenerator",P1])
 		return self
 
 	Func getSqlGenerationHelper
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlGenerationHelper"])
+		return dnRequest("get",[self,"SqlGenerationHelper"])
 
 	Func setSqlGenerationHelper P1
-		dnRequest("set",[new DotNetObject(nHandle),"SqlGenerationHelper",P1])
+		dnRequest("set",[self,"SqlGenerationHelper",P1])
 		return self
 
 	Func getMigrationCommandExecutor
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationCommandExecutor"])
+		return dnRequest("get",[self,"MigrationCommandExecutor"])
 
 	Func setMigrationCommandExecutor P1
-		dnRequest("set",[new DotNetObject(nHandle),"MigrationCommandExecutor",P1])
+		dnRequest("set",[self,"MigrationCommandExecutor",P1])
 		return self
 
 	Func getConventionSetBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"ConventionSetBuilder"])
+		return dnRequest("get",[self,"ConventionSetBuilder"])
 
 	Func setConventionSetBuilder P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConventionSetBuilder",P1])
+		dnRequest("set",[self,"ConventionSetBuilder",P1])
 		return self
 
 	Func getModelDependencies
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelDependencies"])
+		return dnRequest("get",[self,"ModelDependencies"])
 
 	Func setModelDependencies P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelDependencies",P1])
+		dnRequest("set",[self,"ModelDependencies",P1])
 		return self
 
 	Func getTypeMappingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
+		return dnRequest("get",[self,"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
+		dnRequest("set",[self,"TypeMappingSource",P1])
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentContext"])
+		return dnRequest("get",[self,"CurrentContext"])
 
 	Func setCurrentContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentContext",P1])
+		dnRequest("set",[self,"CurrentContext",P1])
 		return self
 
 	Func getModelRuntimeInitializer
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelRuntimeInitializer"])
+		return dnRequest("get",[self,"ModelRuntimeInitializer"])
 
 	Func setModelRuntimeInitializer P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelRuntimeInitializer",P1])
+		dnRequest("set",[self,"ModelRuntimeInitializer",P1])
 		return self
 
 	Func getCommandLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
+		return dnRequest("get",[self,"CommandLogger"])
 
 	Func setCommandLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandLogger",P1])
+		dnRequest("set",[self,"CommandLogger",P1])
 		return self
 
 	Func getMigrationsLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsLogger"])
+		return dnRequest("get",[self,"MigrationsLogger"])
 
 	Func setMigrationsLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"MigrationsLogger",P1])
+		dnRequest("set",[self,"MigrationsLogger",P1])
 		return self
 

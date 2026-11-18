@@ -17,7 +17,7 @@ Class ContentsResizedEventArgs from EventArgs
 		return self
 
 	Func getNewRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"NewRectangle"])
+		return dnRequest("get",[self,"NewRectangle"])
 
 	Func setNewRectangle P1
 		raise("DotNet Error: NewRectangle is a read-only property")

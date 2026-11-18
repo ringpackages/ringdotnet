@@ -86,58 +86,58 @@ Class Matrix3x2 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"Subtract",P1,P2])
 
 	Func getIsIdentity
-		return dnRequest("get",[new DotNetObject(nHandle),"IsIdentity"])
+		return dnRequest("get",[self,"IsIdentity"])
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getTranslation
-		return dnRequest("get",[new DotNetObject(nHandle),"Translation"])
+		return dnRequest("get",[self,"Translation"])
 
 	Func setTranslation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Translation",P1])
+		dnRequest("set",[self,"Translation",P1])
 		return self
 
 	Func getM11
-		return dnRequest("get",[new DotNetObject(nHandle),"M11"])
+		return dnRequest("get",[self,"M11"])
 
 	Func setM11 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M11",P1])
+		dnRequest("set",[self,"M11",P1])
 		return self
 
 	Func getM12
-		return dnRequest("get",[new DotNetObject(nHandle),"M12"])
+		return dnRequest("get",[self,"M12"])
 
 	Func setM12 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M12",P1])
+		dnRequest("set",[self,"M12",P1])
 		return self
 
 	Func getM21
-		return dnRequest("get",[new DotNetObject(nHandle),"M21"])
+		return dnRequest("get",[self,"M21"])
 
 	Func setM21 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M21",P1])
+		dnRequest("set",[self,"M21",P1])
 		return self
 
 	Func getM22
-		return dnRequest("get",[new DotNetObject(nHandle),"M22"])
+		return dnRequest("get",[self,"M22"])
 
 	Func setM22 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M22",P1])
+		dnRequest("set",[self,"M22",P1])
 		return self
 
 	Func getM31
-		return dnRequest("get",[new DotNetObject(nHandle),"M31"])
+		return dnRequest("get",[self,"M31"])
 
 	Func setM31 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M31",P1])
+		dnRequest("set",[self,"M31",P1])
 		return self
 
 	Func getM32
-		return dnRequest("get",[new DotNetObject(nHandle),"M32"])
+		return dnRequest("get",[self,"M32"])
 
 	Func setM32 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M32",P1])
+		dnRequest("set",[self,"M32",P1])
 		return self
 
 	Func getIdentity

@@ -43,57 +43,57 @@ Class ToolStripProgressBar from ToolStripControlHost
 		return self
 
 	Func getProgressBar
-		return dnRequest("get",[new DotNetObject(nHandle),"ProgressBar"])
+		return dnRequest("get",[self,"ProgressBar"])
 
 	Func setProgressBar P1
 		raise("DotNet Error: ProgressBar is a read-only property")
 
 	Func getMarqueeAnimationSpeed
-		return dnRequest("get",[new DotNetObject(nHandle),"MarqueeAnimationSpeed"])
+		return dnRequest("get",[self,"MarqueeAnimationSpeed"])
 
 	Func setMarqueeAnimationSpeed P1
-		dnRequest("set",[new DotNetObject(nHandle),"MarqueeAnimationSpeed",P1])
+		dnRequest("set",[self,"MarqueeAnimationSpeed",P1])
 		return self
 
 	Func getMaximum
-		return dnRequest("get",[new DotNetObject(nHandle),"Maximum"])
+		return dnRequest("get",[self,"Maximum"])
 
 	Func setMaximum P1
-		dnRequest("set",[new DotNetObject(nHandle),"Maximum",P1])
+		dnRequest("set",[self,"Maximum",P1])
 		return self
 
 	Func getMinimum
-		return dnRequest("get",[new DotNetObject(nHandle),"Minimum"])
+		return dnRequest("get",[self,"Minimum"])
 
 	Func setMinimum P1
-		dnRequest("set",[new DotNetObject(nHandle),"Minimum",P1])
+		dnRequest("set",[self,"Minimum",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
+		return dnRequest("get",[self,"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
+		dnRequest("set",[self,"RightToLeftLayout",P1])
 		return self
 
 	Func getStep
-		return dnRequest("get",[new DotNetObject(nHandle),"Step"])
+		return dnRequest("get",[self,"Step"])
 
 	Func setStep P1
-		dnRequest("set",[new DotNetObject(nHandle),"Step",P1])
+		dnRequest("set",[self,"Step",P1])
 		return self
 
 	Func getStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
+		return dnRequest("get",[self,"Style"])
 
 	Func setStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Style",P1])
+		dnRequest("set",[self,"Style",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 

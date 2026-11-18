@@ -19,25 +19,25 @@ Class VisualStateChangedEventArgs from EventArgs
 		return self
 
 	Func getOldState
-		return dnRequest("get",[new DotNetObject(nHandle),"OldState"])
+		return dnRequest("get",[self,"OldState"])
 
 	Func setOldState P1
 		raise("DotNet Error: OldState is a read-only property")
 
 	Func getNewState
-		return dnRequest("get",[new DotNetObject(nHandle),"NewState"])
+		return dnRequest("get",[self,"NewState"])
 
 	Func setNewState P1
 		raise("DotNet Error: NewState is a read-only property")
 
 	Func getControl
-		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
+		return dnRequest("get",[self,"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getStateGroupsRoot
-		return dnRequest("get",[new DotNetObject(nHandle),"StateGroupsRoot"])
+		return dnRequest("get",[self,"StateGroupsRoot"])
 
 	Func setStateGroupsRoot P1
 		raise("DotNet Error: StateGroupsRoot is a read-only property")

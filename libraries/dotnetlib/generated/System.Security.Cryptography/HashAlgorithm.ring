@@ -72,37 +72,37 @@ Class HashAlgorithm from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getHashSize
-		return dnRequest("get",[new DotNetObject(nHandle),"HashSize"])
+		return dnRequest("get",[self,"HashSize"])
 
 	Func setHashSize P1
 		raise("DotNet Error: HashSize is a read-only property")
 
 	Func getHash
-		return dnRequest("get",[new DotNetObject(nHandle),"Hash"])
+		return dnRequest("get",[self,"Hash"])
 
 	Func setHash P1
 		raise("DotNet Error: Hash is a read-only property")
 
 	Func getInputBlockSize
-		return dnRequest("get",[new DotNetObject(nHandle),"InputBlockSize"])
+		return dnRequest("get",[self,"InputBlockSize"])
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dnRequest("get",[new DotNetObject(nHandle),"OutputBlockSize"])
+		return dnRequest("get",[self,"OutputBlockSize"])
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dnRequest("get",[new DotNetObject(nHandle),"CanTransformMultipleBlocks"])
+		return dnRequest("get",[self,"CanTransformMultipleBlocks"])
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReuseTransform"])
+		return dnRequest("get",[self,"CanReuseTransform"])
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")

@@ -20,13 +20,13 @@ Class AppDomainSetup from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getApplicationBase
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationBase"])
+		return dnRequest("get",[self,"ApplicationBase"])
 
 	Func setApplicationBase P1
 		raise("DotNet Error: ApplicationBase is a read-only property")
 
 	Func getTargetFrameworkName
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetFrameworkName"])
+		return dnRequest("get",[self,"TargetFrameworkName"])
 
 	Func setTargetFrameworkName P1
 		raise("DotNet Error: TargetFrameworkName is a read-only property")

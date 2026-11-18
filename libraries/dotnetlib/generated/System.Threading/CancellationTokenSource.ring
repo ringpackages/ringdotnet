@@ -68,13 +68,13 @@ Class CancellationTokenSource from Object
 		return dnRequest("call",[dnTypeCached('System.Threading.CancellationTokenSource, System.Private.CoreLib'),"CreateLinkedTokenSource",P1])
 
 	Func getIsCancellationRequested
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCancellationRequested"])
+		return dnRequest("get",[self,"IsCancellationRequested"])
 
 	Func setIsCancellationRequested P1
 		raise("DotNet Error: IsCancellationRequested is a read-only property")
 
 	Func getToken
-		return dnRequest("get",[new DotNetObject(nHandle),"Token"])
+		return dnRequest("get",[self,"Token"])
 
 	Func setToken P1
 		raise("DotNet Error: Token is a read-only property")

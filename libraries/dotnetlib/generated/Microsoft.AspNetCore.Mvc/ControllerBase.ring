@@ -589,79 +589,79 @@ Class ControllerBase from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
+		return dnRequest("get",[self,"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRequest
-		return dnRequest("get",[new DotNetObject(nHandle),"Request"])
+		return dnRequest("get",[self,"Request"])
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getResponse
-		return dnRequest("get",[new DotNetObject(nHandle),"Response"])
+		return dnRequest("get",[self,"Response"])
 
 	Func setResponse P1
 		raise("DotNet Error: Response is a read-only property")
 
 	Func getRouteData
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteData"])
+		return dnRequest("get",[self,"RouteData"])
 
 	Func setRouteData P1
 		raise("DotNet Error: RouteData is a read-only property")
 
 	Func getModelState
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelState"])
+		return dnRequest("get",[self,"ModelState"])
 
 	Func setModelState P1
 		raise("DotNet Error: ModelState is a read-only property")
 
 	Func getControllerContext
-		return dnRequest("get",[new DotNetObject(nHandle),"ControllerContext"])
+		return dnRequest("get",[self,"ControllerContext"])
 
 	Func setControllerContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"ControllerContext",P1])
+		dnRequest("set",[self,"ControllerContext",P1])
 		return self
 
 	Func getMetadataProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"MetadataProvider"])
+		return dnRequest("get",[self,"MetadataProvider"])
 
 	Func setMetadataProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"MetadataProvider",P1])
+		dnRequest("set",[self,"MetadataProvider",P1])
 		return self
 
 	Func getModelBinderFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelBinderFactory"])
+		return dnRequest("get",[self,"ModelBinderFactory"])
 
 	Func setModelBinderFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelBinderFactory",P1])
+		dnRequest("set",[self,"ModelBinderFactory",P1])
 		return self
 
 	Func getUrl
-		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
+		return dnRequest("get",[self,"Url"])
 
 	Func setUrl P1
-		dnRequest("set",[new DotNetObject(nHandle),"Url",P1])
+		dnRequest("set",[self,"Url",P1])
 		return self
 
 	Func getObjectValidator
-		return dnRequest("get",[new DotNetObject(nHandle),"ObjectValidator"])
+		return dnRequest("get",[self,"ObjectValidator"])
 
 	Func setObjectValidator P1
-		dnRequest("set",[new DotNetObject(nHandle),"ObjectValidator",P1])
+		dnRequest("set",[self,"ObjectValidator",P1])
 		return self
 
 	Func getProblemDetailsFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"ProblemDetailsFactory"])
+		return dnRequest("get",[self,"ProblemDetailsFactory"])
 
 	Func setProblemDetailsFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"ProblemDetailsFactory",P1])
+		dnRequest("set",[self,"ProblemDetailsFactory",P1])
 		return self
 
 	Func getUser
-		return dnRequest("get",[new DotNetObject(nHandle),"User"])
+		return dnRequest("get",[self,"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")

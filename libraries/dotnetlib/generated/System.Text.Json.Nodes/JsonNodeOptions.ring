@@ -17,9 +17,9 @@ Class JsonNodeOptions from ValueType
 		return self
 
 	Func getPropertyNameCaseInsensitive
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyNameCaseInsensitive"])
+		return dnRequest("get",[self,"PropertyNameCaseInsensitive"])
 
 	Func setPropertyNameCaseInsensitive P1
-		dnRequest("set",[new DotNetObject(nHandle),"PropertyNameCaseInsensitive",P1])
+		dnRequest("set",[self,"PropertyNameCaseInsensitive",P1])
 		return self
 

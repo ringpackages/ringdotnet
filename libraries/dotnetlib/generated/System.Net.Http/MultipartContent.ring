@@ -32,9 +32,9 @@ Class MultipartContent from HttpContent
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
 	Func getHeaderEncodingSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderEncodingSelector"])
+		return dnRequest("get",[self,"HeaderEncodingSelector"])
 
 	Func setHeaderEncodingSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderEncodingSelector",P1])
+		dnRequest("set",[self,"HeaderEncodingSelector",P1])
 		return self
 

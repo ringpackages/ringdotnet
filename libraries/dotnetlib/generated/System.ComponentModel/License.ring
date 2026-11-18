@@ -23,7 +23,7 @@ Class License from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLicenseKey
-		return dnRequest("get",[new DotNetObject(nHandle),"LicenseKey"])
+		return dnRequest("get",[self,"LicenseKey"])
 
 	Func setLicenseKey P1
 		raise("DotNet Error: LicenseKey is a read-only property")

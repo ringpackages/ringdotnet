@@ -16,7 +16,7 @@ Class IMemberTranslatorPlugin from DotNetObject
 		return self
 
 	Func getTranslators
-		return dnRequest("get",[new DotNetObject(nHandle),"Translators"])
+		return dnRequest("get",[self,"Translators"])
 
 	Func setTranslators P1
 		raise("DotNet Error: Translators is a read-only property")

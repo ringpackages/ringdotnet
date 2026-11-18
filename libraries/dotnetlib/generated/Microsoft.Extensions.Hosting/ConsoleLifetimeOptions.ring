@@ -20,9 +20,9 @@ Class ConsoleLifetimeOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSuppressStatusMessages
-		return dnRequest("get",[new DotNetObject(nHandle),"SuppressStatusMessages"])
+		return dnRequest("get",[self,"SuppressStatusMessages"])
 
 	Func setSuppressStatusMessages P1
-		dnRequest("set",[new DotNetObject(nHandle),"SuppressStatusMessages",P1])
+		dnRequest("set",[self,"SuppressStatusMessages",P1])
 		return self
 

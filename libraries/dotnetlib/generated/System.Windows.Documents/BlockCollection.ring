@@ -64,25 +64,25 @@ Class BlockCollection from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getFirstBlock
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstBlock"])
+		return dnRequest("get",[self,"FirstBlock"])
 
 	Func setFirstBlock P1
 		raise("DotNet Error: FirstBlock is a read-only property")
 
 	Func getLastBlock
-		return dnRequest("get",[new DotNetObject(nHandle),"LastBlock"])
+		return dnRequest("get",[self,"LastBlock"])
 
 	Func setLastBlock P1
 		raise("DotNet Error: LastBlock is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

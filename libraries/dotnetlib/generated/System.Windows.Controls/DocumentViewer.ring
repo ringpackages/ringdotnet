@@ -126,110 +126,110 @@ Class DocumentViewer from DocumentViewerBase
 		return self
 
 	Func getHorizontalOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
+		return dnRequest("get",[self,"HorizontalOffset"])
 
 	Func setHorizontalOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalOffset",P1])
+		dnRequest("set",[self,"HorizontalOffset",P1])
 		return self
 
 	Func getVerticalOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
+		return dnRequest("get",[self,"VerticalOffset"])
 
 	Func setVerticalOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerticalOffset",P1])
+		dnRequest("set",[self,"VerticalOffset",P1])
 		return self
 
 	Func getExtentWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtentWidth"])
+		return dnRequest("get",[self,"ExtentWidth"])
 
 	Func setExtentWidth P1
 		raise("DotNet Error: ExtentWidth is a read-only property")
 
 	Func getExtentHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtentHeight"])
+		return dnRequest("get",[self,"ExtentHeight"])
 
 	Func setExtentHeight P1
 		raise("DotNet Error: ExtentHeight is a read-only property")
 
 	Func getViewportWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewportWidth"])
+		return dnRequest("get",[self,"ViewportWidth"])
 
 	Func setViewportWidth P1
 		raise("DotNet Error: ViewportWidth is a read-only property")
 
 	Func getViewportHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewportHeight"])
+		return dnRequest("get",[self,"ViewportHeight"])
 
 	Func setViewportHeight P1
 		raise("DotNet Error: ViewportHeight is a read-only property")
 
 	Func getShowPageBorders
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowPageBorders"])
+		return dnRequest("get",[self,"ShowPageBorders"])
 
 	Func setShowPageBorders P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowPageBorders",P1])
+		dnRequest("set",[self,"ShowPageBorders",P1])
 		return self
 
 	Func getZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"Zoom"])
+		return dnRequest("get",[self,"Zoom"])
 
 	Func setZoom P1
-		dnRequest("set",[new DotNetObject(nHandle),"Zoom",P1])
+		dnRequest("set",[self,"Zoom",P1])
 		return self
 
 	Func getMaxPagesAcross
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxPagesAcross"])
+		return dnRequest("get",[self,"MaxPagesAcross"])
 
 	Func setMaxPagesAcross P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxPagesAcross",P1])
+		dnRequest("set",[self,"MaxPagesAcross",P1])
 		return self
 
 	Func getVerticalPageSpacing
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalPageSpacing"])
+		return dnRequest("get",[self,"VerticalPageSpacing"])
 
 	Func setVerticalPageSpacing P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerticalPageSpacing",P1])
+		dnRequest("set",[self,"VerticalPageSpacing",P1])
 		return self
 
 	Func getHorizontalPageSpacing
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalPageSpacing"])
+		return dnRequest("get",[self,"HorizontalPageSpacing"])
 
 	Func setHorizontalPageSpacing P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalPageSpacing",P1])
+		dnRequest("set",[self,"HorizontalPageSpacing",P1])
 		return self
 
 	Func getCanMoveUp
-		return dnRequest("get",[new DotNetObject(nHandle),"CanMoveUp"])
+		return dnRequest("get",[self,"CanMoveUp"])
 
 	Func setCanMoveUp P1
 		raise("DotNet Error: CanMoveUp is a read-only property")
 
 	Func getCanMoveDown
-		return dnRequest("get",[new DotNetObject(nHandle),"CanMoveDown"])
+		return dnRequest("get",[self,"CanMoveDown"])
 
 	Func setCanMoveDown P1
 		raise("DotNet Error: CanMoveDown is a read-only property")
 
 	Func getCanMoveLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"CanMoveLeft"])
+		return dnRequest("get",[self,"CanMoveLeft"])
 
 	Func setCanMoveLeft P1
 		raise("DotNet Error: CanMoveLeft is a read-only property")
 
 	Func getCanMoveRight
-		return dnRequest("get",[new DotNetObject(nHandle),"CanMoveRight"])
+		return dnRequest("get",[self,"CanMoveRight"])
 
 	Func setCanMoveRight P1
 		raise("DotNet Error: CanMoveRight is a read-only property")
 
 	Func getCanIncreaseZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"CanIncreaseZoom"])
+		return dnRequest("get",[self,"CanIncreaseZoom"])
 
 	Func setCanIncreaseZoom P1
 		raise("DotNet Error: CanIncreaseZoom is a read-only property")
 
 	Func getCanDecreaseZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"CanDecreaseZoom"])
+		return dnRequest("get",[self,"CanDecreaseZoom"])
 
 	Func setCanDecreaseZoom P1
 		raise("DotNet Error: CanDecreaseZoom is a read-only property")

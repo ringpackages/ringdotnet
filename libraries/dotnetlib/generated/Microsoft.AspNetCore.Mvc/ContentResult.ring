@@ -19,23 +19,23 @@ Class ContentResult from ActionResult
 		return self
 
 	Func getContent
-		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
+		return dnRequest("get",[self,"Content"])
 
 	Func setContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
+		dnRequest("set",[self,"Content",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
+		return dnRequest("get",[self,"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
+		dnRequest("set",[self,"ContentType",P1])
 		return self
 
 	Func getStatusCode
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
+		return dnRequest("get",[self,"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
+		dnRequest("set",[self,"StatusCode",P1])
 		return self
 

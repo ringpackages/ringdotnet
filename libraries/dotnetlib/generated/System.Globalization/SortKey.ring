@@ -23,13 +23,13 @@ Class SortKey from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.SortKey, System.Private.CoreLib'),"Compare",P1,P2])
 
 	Func getOriginalString
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalString"])
+		return dnRequest("get",[self,"OriginalString"])
 
 	Func setOriginalString P1
 		raise("DotNet Error: OriginalString is a read-only property")
 
 	Func getKeyData
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyData"])
+		return dnRequest("get",[self,"KeyData"])
 
 	Func setKeyData P1
 		raise("DotNet Error: KeyData is a read-only property")

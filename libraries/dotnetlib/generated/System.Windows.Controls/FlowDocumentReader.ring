@@ -87,149 +87,149 @@ Class FlowDocumentReader from WpfControl
 		return self
 
 	Func getViewingMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewingMode"])
+		return dnRequest("get",[self,"ViewingMode"])
 
 	Func setViewingMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ViewingMode",P1])
+		dnRequest("set",[self,"ViewingMode",P1])
 		return self
 
 	Func getSelection
-		return dnRequest("get",[new DotNetObject(nHandle),"Selection"])
+		return dnRequest("get",[self,"Selection"])
 
 	Func setSelection P1
 		raise("DotNet Error: Selection is a read-only property")
 
 	Func getIsPageViewEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPageViewEnabled"])
+		return dnRequest("get",[self,"IsPageViewEnabled"])
 
 	Func setIsPageViewEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsPageViewEnabled",P1])
+		dnRequest("set",[self,"IsPageViewEnabled",P1])
 		return self
 
 	Func getIsTwoPageViewEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTwoPageViewEnabled"])
+		return dnRequest("get",[self,"IsTwoPageViewEnabled"])
 
 	Func setIsTwoPageViewEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsTwoPageViewEnabled",P1])
+		dnRequest("set",[self,"IsTwoPageViewEnabled",P1])
 		return self
 
 	Func getIsScrollViewEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsScrollViewEnabled"])
+		return dnRequest("get",[self,"IsScrollViewEnabled"])
 
 	Func setIsScrollViewEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsScrollViewEnabled",P1])
+		dnRequest("set",[self,"IsScrollViewEnabled",P1])
 		return self
 
 	Func getPageCount
-		return dnRequest("get",[new DotNetObject(nHandle),"PageCount"])
+		return dnRequest("get",[self,"PageCount"])
 
 	Func setPageCount P1
 		raise("DotNet Error: PageCount is a read-only property")
 
 	Func getPageNumber
-		return dnRequest("get",[new DotNetObject(nHandle),"PageNumber"])
+		return dnRequest("get",[self,"PageNumber"])
 
 	Func setPageNumber P1
 		raise("DotNet Error: PageNumber is a read-only property")
 
 	Func getCanGoToPreviousPage
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoToPreviousPage"])
+		return dnRequest("get",[self,"CanGoToPreviousPage"])
 
 	Func setCanGoToPreviousPage P1
 		raise("DotNet Error: CanGoToPreviousPage is a read-only property")
 
 	Func getCanGoToNextPage
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoToNextPage"])
+		return dnRequest("get",[self,"CanGoToNextPage"])
 
 	Func setCanGoToNextPage P1
 		raise("DotNet Error: CanGoToNextPage is a read-only property")
 
 	Func getIsFindEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFindEnabled"])
+		return dnRequest("get",[self,"IsFindEnabled"])
 
 	Func setIsFindEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsFindEnabled",P1])
+		dnRequest("set",[self,"IsFindEnabled",P1])
 		return self
 
 	Func getIsPrintEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPrintEnabled"])
+		return dnRequest("get",[self,"IsPrintEnabled"])
 
 	Func setIsPrintEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsPrintEnabled",P1])
+		dnRequest("set",[self,"IsPrintEnabled",P1])
 		return self
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
+		dnRequest("set",[self,"Document",P1])
 		return self
 
 	Func getZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"Zoom"])
+		return dnRequest("get",[self,"Zoom"])
 
 	Func setZoom P1
-		dnRequest("set",[new DotNetObject(nHandle),"Zoom",P1])
+		dnRequest("set",[self,"Zoom",P1])
 		return self
 
 	Func getMaxZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxZoom"])
+		return dnRequest("get",[self,"MaxZoom"])
 
 	Func setMaxZoom P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxZoom",P1])
+		dnRequest("set",[self,"MaxZoom",P1])
 		return self
 
 	Func getMinZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"MinZoom"])
+		return dnRequest("get",[self,"MinZoom"])
 
 	Func setMinZoom P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinZoom",P1])
+		dnRequest("set",[self,"MinZoom",P1])
 		return self
 
 	Func getZoomIncrement
-		return dnRequest("get",[new DotNetObject(nHandle),"ZoomIncrement"])
+		return dnRequest("get",[self,"ZoomIncrement"])
 
 	Func setZoomIncrement P1
-		dnRequest("set",[new DotNetObject(nHandle),"ZoomIncrement",P1])
+		dnRequest("set",[self,"ZoomIncrement",P1])
 		return self
 
 	Func getCanIncreaseZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"CanIncreaseZoom"])
+		return dnRequest("get",[self,"CanIncreaseZoom"])
 
 	Func setCanIncreaseZoom P1
 		raise("DotNet Error: CanIncreaseZoom is a read-only property")
 
 	Func getCanDecreaseZoom
-		return dnRequest("get",[new DotNetObject(nHandle),"CanDecreaseZoom"])
+		return dnRequest("get",[self,"CanDecreaseZoom"])
 
 	Func setCanDecreaseZoom P1
 		raise("DotNet Error: CanDecreaseZoom is a read-only property")
 
 	Func getSelectionBrush
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionBrush"])
+		return dnRequest("get",[self,"SelectionBrush"])
 
 	Func setSelectionBrush P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionBrush",P1])
+		dnRequest("set",[self,"SelectionBrush",P1])
 		return self
 
 	Func getSelectionOpacity
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionOpacity"])
+		return dnRequest("get",[self,"SelectionOpacity"])
 
 	Func setSelectionOpacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionOpacity",P1])
+		dnRequest("set",[self,"SelectionOpacity",P1])
 		return self
 
 	Func getIsSelectionActive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelectionActive"])
+		return dnRequest("get",[self,"IsSelectionActive"])
 
 	Func setIsSelectionActive P1
 		raise("DotNet Error: IsSelectionActive is a read-only property")
 
 	Func getIsInactiveSelectionHighlightEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInactiveSelectionHighlightEnabled"])
+		return dnRequest("get",[self,"IsInactiveSelectionHighlightEnabled"])
 
 	Func setIsInactiveSelectionHighlightEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsInactiveSelectionHighlightEnabled",P1])
+		dnRequest("set",[self,"IsInactiveSelectionHighlightEnabled",P1])
 		return self
 
 	Func getViewingModeProperty

@@ -21,7 +21,7 @@ Class RSACng from RSA
 		return self
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")

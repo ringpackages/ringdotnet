@@ -25,16 +25,16 @@ Class Blend from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFactors
-		return dnRequest("get",[new DotNetObject(nHandle),"Factors"])
+		return dnRequest("get",[self,"Factors"])
 
 	Func setFactors P1
-		dnRequest("set",[new DotNetObject(nHandle),"Factors",P1])
+		dnRequest("set",[self,"Factors",P1])
 		return self
 
 	Func getPositions
-		return dnRequest("get",[new DotNetObject(nHandle),"Positions"])
+		return dnRequest("get",[self,"Positions"])
 
 	Func setPositions P1
-		dnRequest("set",[new DotNetObject(nHandle),"Positions",P1])
+		dnRequest("set",[self,"Positions",P1])
 		return self
 

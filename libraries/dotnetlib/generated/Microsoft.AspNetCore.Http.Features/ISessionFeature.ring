@@ -16,9 +16,9 @@ Class ISessionFeature from DotNetObject
 		return self
 
 	Func getSession
-		return dnRequest("get",[new DotNetObject(nHandle),"Session"])
+		return dnRequest("get",[self,"Session"])
 
 	Func setSession P1
-		dnRequest("set",[new DotNetObject(nHandle),"Session",P1])
+		dnRequest("set",[self,"Session",P1])
 		return self
 

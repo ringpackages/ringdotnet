@@ -67,24 +67,24 @@ Class FormReader from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getValueCountLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueCountLimit"])
+		return dnRequest("get",[self,"ValueCountLimit"])
 
 	Func setValueCountLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValueCountLimit",P1])
+		dnRequest("set",[self,"ValueCountLimit",P1])
 		return self
 
 	Func getKeyLengthLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyLengthLimit"])
+		return dnRequest("get",[self,"KeyLengthLimit"])
 
 	Func setKeyLengthLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeyLengthLimit",P1])
+		dnRequest("set",[self,"KeyLengthLimit",P1])
 		return self
 
 	Func getValueLengthLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueLengthLimit"])
+		return dnRequest("get",[self,"ValueLengthLimit"])
 
 	Func setValueLengthLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValueLengthLimit",P1])
+		dnRequest("set",[self,"ValueLengthLimit",P1])
 		return self
 
 	Func getDefaultValueCountLimit

@@ -1233,477 +1233,477 @@ Class DataGridView from Control
 		return self
 
 	Func getAdjustedTopLeftHeaderBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"AdjustedTopLeftHeaderBorderStyle"])
+		return dnRequest("get",[self,"AdjustedTopLeftHeaderBorderStyle"])
 
 	Func setAdjustedTopLeftHeaderBorderStyle P1
 		raise("DotNet Error: AdjustedTopLeftHeaderBorderStyle is a read-only property")
 
 	Func getAdvancedCellBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"AdvancedCellBorderStyle"])
+		return dnRequest("get",[self,"AdvancedCellBorderStyle"])
 
 	Func setAdvancedCellBorderStyle P1
 		raise("DotNet Error: AdvancedCellBorderStyle is a read-only property")
 
 	Func getAdvancedColumnHeadersBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"AdvancedColumnHeadersBorderStyle"])
+		return dnRequest("get",[self,"AdvancedColumnHeadersBorderStyle"])
 
 	Func setAdvancedColumnHeadersBorderStyle P1
 		raise("DotNet Error: AdvancedColumnHeadersBorderStyle is a read-only property")
 
 	Func getAdvancedRowHeadersBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"AdvancedRowHeadersBorderStyle"])
+		return dnRequest("get",[self,"AdvancedRowHeadersBorderStyle"])
 
 	Func setAdvancedRowHeadersBorderStyle P1
 		raise("DotNet Error: AdvancedRowHeadersBorderStyle is a read-only property")
 
 	Func getAllowUserToAddRows
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowUserToAddRows"])
+		return dnRequest("get",[self,"AllowUserToAddRows"])
 
 	Func setAllowUserToAddRows P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowUserToAddRows",P1])
+		dnRequest("set",[self,"AllowUserToAddRows",P1])
 		return self
 
 	Func getAllowUserToDeleteRows
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowUserToDeleteRows"])
+		return dnRequest("get",[self,"AllowUserToDeleteRows"])
 
 	Func setAllowUserToDeleteRows P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowUserToDeleteRows",P1])
+		dnRequest("set",[self,"AllowUserToDeleteRows",P1])
 		return self
 
 	Func getAllowUserToOrderColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowUserToOrderColumns"])
+		return dnRequest("get",[self,"AllowUserToOrderColumns"])
 
 	Func setAllowUserToOrderColumns P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowUserToOrderColumns",P1])
+		dnRequest("set",[self,"AllowUserToOrderColumns",P1])
 		return self
 
 	Func getAllowUserToResizeColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowUserToResizeColumns"])
+		return dnRequest("get",[self,"AllowUserToResizeColumns"])
 
 	Func setAllowUserToResizeColumns P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowUserToResizeColumns",P1])
+		dnRequest("set",[self,"AllowUserToResizeColumns",P1])
 		return self
 
 	Func getAllowUserToResizeRows
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowUserToResizeRows"])
+		return dnRequest("get",[self,"AllowUserToResizeRows"])
 
 	Func setAllowUserToResizeRows P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowUserToResizeRows",P1])
+		dnRequest("set",[self,"AllowUserToResizeRows",P1])
 		return self
 
 	Func getAlternatingRowsDefaultCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"AlternatingRowsDefaultCellStyle"])
+		return dnRequest("get",[self,"AlternatingRowsDefaultCellStyle"])
 
 	Func setAlternatingRowsDefaultCellStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"AlternatingRowsDefaultCellStyle",P1])
+		dnRequest("set",[self,"AlternatingRowsDefaultCellStyle",P1])
 		return self
 
 	Func getAutoGenerateColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoGenerateColumns"])
+		return dnRequest("get",[self,"AutoGenerateColumns"])
 
 	Func setAutoGenerateColumns P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoGenerateColumns",P1])
+		dnRequest("set",[self,"AutoGenerateColumns",P1])
 		return self
 
 	Func getAutoSizeColumnsMode
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoSizeColumnsMode"])
+		return dnRequest("get",[self,"AutoSizeColumnsMode"])
 
 	Func setAutoSizeColumnsMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoSizeColumnsMode",P1])
+		dnRequest("set",[self,"AutoSizeColumnsMode",P1])
 		return self
 
 	Func getAutoSizeRowsMode
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoSizeRowsMode"])
+		return dnRequest("get",[self,"AutoSizeRowsMode"])
 
 	Func setAutoSizeRowsMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoSizeRowsMode",P1])
+		dnRequest("set",[self,"AutoSizeRowsMode",P1])
 		return self
 
 	Func getBackgroundColor
-		return dnRequest("get",[new DotNetObject(nHandle),"BackgroundColor"])
+		return dnRequest("get",[self,"BackgroundColor"])
 
 	Func setBackgroundColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"BackgroundColor",P1])
+		dnRequest("set",[self,"BackgroundColor",P1])
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
+		return dnRequest("get",[self,"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
+		dnRequest("set",[self,"BorderStyle",P1])
 		return self
 
 	Func getCellBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"CellBorderStyle"])
+		return dnRequest("get",[self,"CellBorderStyle"])
 
 	Func setCellBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"CellBorderStyle",P1])
+		dnRequest("set",[self,"CellBorderStyle",P1])
 		return self
 
 	Func getClipboardCopyMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ClipboardCopyMode"])
+		return dnRequest("get",[self,"ClipboardCopyMode"])
 
 	Func setClipboardCopyMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ClipboardCopyMode",P1])
+		dnRequest("set",[self,"ClipboardCopyMode",P1])
 		return self
 
 	Func getColumnCount
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnCount"])
+		return dnRequest("get",[self,"ColumnCount"])
 
 	Func setColumnCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnCount",P1])
+		dnRequest("set",[self,"ColumnCount",P1])
 		return self
 
 	Func getColumnHeadersBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeadersBorderStyle"])
+		return dnRequest("get",[self,"ColumnHeadersBorderStyle"])
 
 	Func setColumnHeadersBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeadersBorderStyle",P1])
+		dnRequest("set",[self,"ColumnHeadersBorderStyle",P1])
 		return self
 
 	Func getColumnHeadersDefaultCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeadersDefaultCellStyle"])
+		return dnRequest("get",[self,"ColumnHeadersDefaultCellStyle"])
 
 	Func setColumnHeadersDefaultCellStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeadersDefaultCellStyle",P1])
+		dnRequest("set",[self,"ColumnHeadersDefaultCellStyle",P1])
 		return self
 
 	Func getColumnHeadersHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeadersHeight"])
+		return dnRequest("get",[self,"ColumnHeadersHeight"])
 
 	Func setColumnHeadersHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeadersHeight",P1])
+		dnRequest("set",[self,"ColumnHeadersHeight",P1])
 		return self
 
 	Func getColumnHeadersHeightSizeMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeadersHeightSizeMode"])
+		return dnRequest("get",[self,"ColumnHeadersHeightSizeMode"])
 
 	Func setColumnHeadersHeightSizeMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeadersHeightSizeMode",P1])
+		dnRequest("set",[self,"ColumnHeadersHeightSizeMode",P1])
 		return self
 
 	Func getColumnHeadersVisible
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeadersVisible"])
+		return dnRequest("get",[self,"ColumnHeadersVisible"])
 
 	Func setColumnHeadersVisible P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeadersVisible",P1])
+		dnRequest("set",[self,"ColumnHeadersVisible",P1])
 		return self
 
 	Func getColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
+		return dnRequest("get",[self,"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getCurrentCell
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentCell"])
+		return dnRequest("get",[self,"CurrentCell"])
 
 	Func setCurrentCell P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentCell",P1])
+		dnRequest("set",[self,"CurrentCell",P1])
 		return self
 
 	Func getCurrentCellAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentCellAddress"])
+		return dnRequest("get",[self,"CurrentCellAddress"])
 
 	Func setCurrentCellAddress P1
 		raise("DotNet Error: CurrentCellAddress is a read-only property")
 
 	Func getCurrentRow
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentRow"])
+		return dnRequest("get",[self,"CurrentRow"])
 
 	Func setCurrentRow P1
 		raise("DotNet Error: CurrentRow is a read-only property")
 
 	Func getDataMember
-		return dnRequest("get",[new DotNetObject(nHandle),"DataMember"])
+		return dnRequest("get",[self,"DataMember"])
 
 	Func setDataMember P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataMember",P1])
+		dnRequest("set",[self,"DataMember",P1])
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
+		return dnRequest("get",[self,"DataSource"])
 
 	Func setDataSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSource",P1])
+		dnRequest("set",[self,"DataSource",P1])
 		return self
 
 	Func getDefaultCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultCellStyle"])
+		return dnRequest("get",[self,"DefaultCellStyle"])
 
 	Func setDefaultCellStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultCellStyle",P1])
+		dnRequest("set",[self,"DefaultCellStyle",P1])
 		return self
 
 	Func getEditMode
-		return dnRequest("get",[new DotNetObject(nHandle),"EditMode"])
+		return dnRequest("get",[self,"EditMode"])
 
 	Func setEditMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditMode",P1])
+		dnRequest("set",[self,"EditMode",P1])
 		return self
 
 	Func getEditingControl
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingControl"])
+		return dnRequest("get",[self,"EditingControl"])
 
 	Func setEditingControl P1
 		raise("DotNet Error: EditingControl is a read-only property")
 
 	Func getEditingPanel
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingPanel"])
+		return dnRequest("get",[self,"EditingPanel"])
 
 	Func setEditingPanel P1
 		raise("DotNet Error: EditingPanel is a read-only property")
 
 	Func getEnableHeadersVisualStyles
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableHeadersVisualStyles"])
+		return dnRequest("get",[self,"EnableHeadersVisualStyles"])
 
 	Func setEnableHeadersVisualStyles P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableHeadersVisualStyles",P1])
+		dnRequest("set",[self,"EnableHeadersVisualStyles",P1])
 		return self
 
 	Func getFirstDisplayedCell
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstDisplayedCell"])
+		return dnRequest("get",[self,"FirstDisplayedCell"])
 
 	Func setFirstDisplayedCell P1
-		dnRequest("set",[new DotNetObject(nHandle),"FirstDisplayedCell",P1])
+		dnRequest("set",[self,"FirstDisplayedCell",P1])
 		return self
 
 	Func getFirstDisplayedScrollingColumnHiddenWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstDisplayedScrollingColumnHiddenWidth"])
+		return dnRequest("get",[self,"FirstDisplayedScrollingColumnHiddenWidth"])
 
 	Func setFirstDisplayedScrollingColumnHiddenWidth P1
 		raise("DotNet Error: FirstDisplayedScrollingColumnHiddenWidth is a read-only property")
 
 	Func getFirstDisplayedScrollingColumnIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstDisplayedScrollingColumnIndex"])
+		return dnRequest("get",[self,"FirstDisplayedScrollingColumnIndex"])
 
 	Func setFirstDisplayedScrollingColumnIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"FirstDisplayedScrollingColumnIndex",P1])
+		dnRequest("set",[self,"FirstDisplayedScrollingColumnIndex",P1])
 		return self
 
 	Func getFirstDisplayedScrollingRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstDisplayedScrollingRowIndex"])
+		return dnRequest("get",[self,"FirstDisplayedScrollingRowIndex"])
 
 	Func setFirstDisplayedScrollingRowIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"FirstDisplayedScrollingRowIndex",P1])
+		dnRequest("set",[self,"FirstDisplayedScrollingRowIndex",P1])
 		return self
 
 	Func getGridColor
-		return dnRequest("get",[new DotNetObject(nHandle),"GridColor"])
+		return dnRequest("get",[self,"GridColor"])
 
 	Func setGridColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"GridColor",P1])
+		dnRequest("set",[self,"GridColor",P1])
 		return self
 
 	Func getHorizontalScrollingOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalScrollingOffset"])
+		return dnRequest("get",[self,"HorizontalScrollingOffset"])
 
 	Func setHorizontalScrollingOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalScrollingOffset",P1])
+		dnRequest("set",[self,"HorizontalScrollingOffset",P1])
 		return self
 
 	Func getIsCurrentCellDirty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCurrentCellDirty"])
+		return dnRequest("get",[self,"IsCurrentCellDirty"])
 
 	Func setIsCurrentCellDirty P1
 		raise("DotNet Error: IsCurrentCellDirty is a read-only property")
 
 	Func getIsCurrentCellInEditMode
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCurrentCellInEditMode"])
+		return dnRequest("get",[self,"IsCurrentCellInEditMode"])
 
 	Func setIsCurrentCellInEditMode P1
 		raise("DotNet Error: IsCurrentCellInEditMode is a read-only property")
 
 	Func getIsCurrentRowDirty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCurrentRowDirty"])
+		return dnRequest("get",[self,"IsCurrentRowDirty"])
 
 	Func setIsCurrentRowDirty P1
 		raise("DotNet Error: IsCurrentRowDirty is a read-only property")
 
 	Func getMultiSelect
-		return dnRequest("get",[new DotNetObject(nHandle),"MultiSelect"])
+		return dnRequest("get",[self,"MultiSelect"])
 
 	Func setMultiSelect P1
-		dnRequest("set",[new DotNetObject(nHandle),"MultiSelect",P1])
+		dnRequest("set",[self,"MultiSelect",P1])
 		return self
 
 	Func getNewRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"NewRowIndex"])
+		return dnRequest("get",[self,"NewRowIndex"])
 
 	Func setNewRowIndex P1
 		raise("DotNet Error: NewRowIndex is a read-only property")
 
 	Func getReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
+		return dnRequest("get",[self,"ReadOnly"])
 
 	Func setReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadOnly",P1])
+		dnRequest("set",[self,"ReadOnly",P1])
 		return self
 
 	Func getRowCount
-		return dnRequest("get",[new DotNetObject(nHandle),"RowCount"])
+		return dnRequest("get",[self,"RowCount"])
 
 	Func setRowCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowCount",P1])
+		dnRequest("set",[self,"RowCount",P1])
 		return self
 
 	Func getRowHeadersBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"RowHeadersBorderStyle"])
+		return dnRequest("get",[self,"RowHeadersBorderStyle"])
 
 	Func setRowHeadersBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowHeadersBorderStyle",P1])
+		dnRequest("set",[self,"RowHeadersBorderStyle",P1])
 		return self
 
 	Func getRowHeadersDefaultCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"RowHeadersDefaultCellStyle"])
+		return dnRequest("get",[self,"RowHeadersDefaultCellStyle"])
 
 	Func setRowHeadersDefaultCellStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowHeadersDefaultCellStyle",P1])
+		dnRequest("set",[self,"RowHeadersDefaultCellStyle",P1])
 		return self
 
 	Func getRowHeadersVisible
-		return dnRequest("get",[new DotNetObject(nHandle),"RowHeadersVisible"])
+		return dnRequest("get",[self,"RowHeadersVisible"])
 
 	Func setRowHeadersVisible P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowHeadersVisible",P1])
+		dnRequest("set",[self,"RowHeadersVisible",P1])
 		return self
 
 	Func getRowHeadersWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"RowHeadersWidth"])
+		return dnRequest("get",[self,"RowHeadersWidth"])
 
 	Func setRowHeadersWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowHeadersWidth",P1])
+		dnRequest("set",[self,"RowHeadersWidth",P1])
 		return self
 
 	Func getRowHeadersWidthSizeMode
-		return dnRequest("get",[new DotNetObject(nHandle),"RowHeadersWidthSizeMode"])
+		return dnRequest("get",[self,"RowHeadersWidthSizeMode"])
 
 	Func setRowHeadersWidthSizeMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowHeadersWidthSizeMode",P1])
+		dnRequest("set",[self,"RowHeadersWidthSizeMode",P1])
 		return self
 
 	Func getRows
-		return dnRequest("get",[new DotNetObject(nHandle),"Rows"])
+		return dnRequest("get",[self,"Rows"])
 
 	Func setRows P1
 		raise("DotNet Error: Rows is a read-only property")
 
 	Func getRowsDefaultCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"RowsDefaultCellStyle"])
+		return dnRequest("get",[self,"RowsDefaultCellStyle"])
 
 	Func setRowsDefaultCellStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowsDefaultCellStyle",P1])
+		dnRequest("set",[self,"RowsDefaultCellStyle",P1])
 		return self
 
 	Func getRowTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"RowTemplate"])
+		return dnRequest("get",[self,"RowTemplate"])
 
 	Func setRowTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowTemplate",P1])
+		dnRequest("set",[self,"RowTemplate",P1])
 		return self
 
 	Func getScrollBars
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollBars"])
+		return dnRequest("get",[self,"ScrollBars"])
 
 	Func setScrollBars P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScrollBars",P1])
+		dnRequest("set",[self,"ScrollBars",P1])
 		return self
 
 	Func getSelectedCells
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedCells"])
+		return dnRequest("get",[self,"SelectedCells"])
 
 	Func setSelectedCells P1
 		raise("DotNet Error: SelectedCells is a read-only property")
 
 	Func getSelectedColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedColumns"])
+		return dnRequest("get",[self,"SelectedColumns"])
 
 	Func setSelectedColumns P1
 		raise("DotNet Error: SelectedColumns is a read-only property")
 
 	Func getSelectedRows
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedRows"])
+		return dnRequest("get",[self,"SelectedRows"])
 
 	Func setSelectedRows P1
 		raise("DotNet Error: SelectedRows is a read-only property")
 
 	Func getSelectionMode
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionMode"])
+		return dnRequest("get",[self,"SelectionMode"])
 
 	Func setSelectionMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionMode",P1])
+		dnRequest("set",[self,"SelectionMode",P1])
 		return self
 
 	Func getShowCellErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowCellErrors"])
+		return dnRequest("get",[self,"ShowCellErrors"])
 
 	Func setShowCellErrors P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowCellErrors",P1])
+		dnRequest("set",[self,"ShowCellErrors",P1])
 		return self
 
 	Func getShowCellToolTips
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowCellToolTips"])
+		return dnRequest("get",[self,"ShowCellToolTips"])
 
 	Func setShowCellToolTips P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowCellToolTips",P1])
+		dnRequest("set",[self,"ShowCellToolTips",P1])
 		return self
 
 	Func getShowEditingIcon
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowEditingIcon"])
+		return dnRequest("get",[self,"ShowEditingIcon"])
 
 	Func setShowEditingIcon P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowEditingIcon",P1])
+		dnRequest("set",[self,"ShowEditingIcon",P1])
 		return self
 
 	Func getShowRowErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowRowErrors"])
+		return dnRequest("get",[self,"ShowRowErrors"])
 
 	Func setShowRowErrors P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowRowErrors",P1])
+		dnRequest("set",[self,"ShowRowErrors",P1])
 		return self
 
 	Func getSortedColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"SortedColumn"])
+		return dnRequest("get",[self,"SortedColumn"])
 
 	Func setSortedColumn P1
 		raise("DotNet Error: SortedColumn is a read-only property")
 
 	Func getSortOrder
-		return dnRequest("get",[new DotNetObject(nHandle),"SortOrder"])
+		return dnRequest("get",[self,"SortOrder"])
 
 	Func setSortOrder P1
 		raise("DotNet Error: SortOrder is a read-only property")
 
 	Func getStandardTab
-		return dnRequest("get",[new DotNetObject(nHandle),"StandardTab"])
+		return dnRequest("get",[self,"StandardTab"])
 
 	Func setStandardTab P1
-		dnRequest("set",[new DotNetObject(nHandle),"StandardTab",P1])
+		dnRequest("set",[self,"StandardTab",P1])
 		return self
 
 	Func getTopLeftHeaderCell
-		return dnRequest("get",[new DotNetObject(nHandle),"TopLeftHeaderCell"])
+		return dnRequest("get",[self,"TopLeftHeaderCell"])
 
 	Func setTopLeftHeaderCell P1
-		dnRequest("set",[new DotNetObject(nHandle),"TopLeftHeaderCell",P1])
+		dnRequest("set",[self,"TopLeftHeaderCell",P1])
 		return self
 
 	Func getUserSetCursor
-		return dnRequest("get",[new DotNetObject(nHandle),"UserSetCursor"])
+		return dnRequest("get",[self,"UserSetCursor"])
 
 	Func setUserSetCursor P1
 		raise("DotNet Error: UserSetCursor is a read-only property")
 
 	Func getVerticalScrollingOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalScrollingOffset"])
+		return dnRequest("get",[self,"VerticalScrollingOffset"])
 
 	Func setVerticalScrollingOffset P1
 		raise("DotNet Error: VerticalScrollingOffset is a read-only property")
 
 	Func getVirtualMode
-		return dnRequest("get",[new DotNetObject(nHandle),"VirtualMode"])
+		return dnRequest("get",[self,"VirtualMode"])
 
 	Func setVirtualMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"VirtualMode",P1])
+		dnRequest("set",[self,"VirtualMode",P1])
 		return self
 

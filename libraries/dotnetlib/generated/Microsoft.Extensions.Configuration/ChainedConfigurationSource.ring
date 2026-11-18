@@ -24,16 +24,16 @@ Class ChainedConfigurationSource from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConfiguration
-		return dnRequest("get",[new DotNetObject(nHandle),"Configuration"])
+		return dnRequest("get",[self,"Configuration"])
 
 	Func setConfiguration P1
-		dnRequest("set",[new DotNetObject(nHandle),"Configuration",P1])
+		dnRequest("set",[self,"Configuration",P1])
 		return self
 
 	Func getShouldDisposeConfiguration
-		return dnRequest("get",[new DotNetObject(nHandle),"ShouldDisposeConfiguration"])
+		return dnRequest("get",[self,"ShouldDisposeConfiguration"])
 
 	Func setShouldDisposeConfiguration P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShouldDisposeConfiguration",P1])
+		dnRequest("set",[self,"ShouldDisposeConfiguration",P1])
 		return self
 

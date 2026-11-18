@@ -92,111 +92,111 @@ Class CollectionView from DispatcherObject
 		return self
 
 	Func getCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
+		return dnRequest("get",[self,"Culture"])
 
 	Func setCulture P1
-		dnRequest("set",[new DotNetObject(nHandle),"Culture",P1])
+		dnRequest("set",[self,"Culture",P1])
 		return self
 
 	Func getSourceCollection
-		return dnRequest("get",[new DotNetObject(nHandle),"SourceCollection"])
+		return dnRequest("get",[self,"SourceCollection"])
 
 	Func setSourceCollection P1
 		raise("DotNet Error: SourceCollection is a read-only property")
 
 	Func getFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
+		return dnRequest("get",[self,"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
+		dnRequest("set",[self,"Filter",P1])
 		return self
 
 	Func getCanFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"CanFilter"])
+		return dnRequest("get",[self,"CanFilter"])
 
 	Func setCanFilter P1
 		raise("DotNet Error: CanFilter is a read-only property")
 
 	Func getSortDescriptions
-		return dnRequest("get",[new DotNetObject(nHandle),"SortDescriptions"])
+		return dnRequest("get",[self,"SortDescriptions"])
 
 	Func setSortDescriptions P1
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getCanSort
-		return dnRequest("get",[new DotNetObject(nHandle),"CanSort"])
+		return dnRequest("get",[self,"CanSort"])
 
 	Func setCanSort P1
 		raise("DotNet Error: CanSort is a read-only property")
 
 	Func getCanGroup
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGroup"])
+		return dnRequest("get",[self,"CanGroup"])
 
 	Func setCanGroup P1
 		raise("DotNet Error: CanGroup is a read-only property")
 
 	Func getGroupDescriptions
-		return dnRequest("get",[new DotNetObject(nHandle),"GroupDescriptions"])
+		return dnRequest("get",[self,"GroupDescriptions"])
 
 	Func setGroupDescriptions P1
 		raise("DotNet Error: GroupDescriptions is a read-only property")
 
 	Func getGroups
-		return dnRequest("get",[new DotNetObject(nHandle),"Groups"])
+		return dnRequest("get",[self,"Groups"])
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")
 
 	Func getCurrentItem
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentItem"])
+		return dnRequest("get",[self,"CurrentItem"])
 
 	Func setCurrentItem P1
 		raise("DotNet Error: CurrentItem is a read-only property")
 
 	Func getCurrentPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentPosition"])
+		return dnRequest("get",[self,"CurrentPosition"])
 
 	Func setCurrentPosition P1
 		raise("DotNet Error: CurrentPosition is a read-only property")
 
 	Func getIsCurrentAfterLast
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCurrentAfterLast"])
+		return dnRequest("get",[self,"IsCurrentAfterLast"])
 
 	Func setIsCurrentAfterLast P1
 		raise("DotNet Error: IsCurrentAfterLast is a read-only property")
 
 	Func getIsCurrentBeforeFirst
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCurrentBeforeFirst"])
+		return dnRequest("get",[self,"IsCurrentBeforeFirst"])
 
 	Func setIsCurrentBeforeFirst P1
 		raise("DotNet Error: IsCurrentBeforeFirst is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
+		return dnRequest("get",[self,"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
+		return dnRequest("get",[self,"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getNeedsRefresh
-		return dnRequest("get",[new DotNetObject(nHandle),"NeedsRefresh"])
+		return dnRequest("get",[self,"NeedsRefresh"])
 
 	Func setNeedsRefresh P1
 		raise("DotNet Error: NeedsRefresh is a read-only property")
 
 	Func getIsInUse
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInUse"])
+		return dnRequest("get",[self,"IsInUse"])
 
 	Func setIsInUse P1
 		raise("DotNet Error: IsInUse is a read-only property")

@@ -59,7 +59,7 @@ Class DbDataSource from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConnectionString
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionString"])
+		return dnRequest("get",[self,"ConnectionString"])
 
 	Func setConnectionString P1
 		raise("DotNet Error: ConnectionString is a read-only property")

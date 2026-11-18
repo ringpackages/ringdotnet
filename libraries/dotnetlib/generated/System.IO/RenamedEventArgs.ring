@@ -18,13 +18,13 @@ Class RenamedEventArgs from FileSystemEventArgs
 		return self
 
 	Func getOldFullPath
-		return dnRequest("get",[new DotNetObject(nHandle),"OldFullPath"])
+		return dnRequest("get",[self,"OldFullPath"])
 
 	Func setOldFullPath P1
 		raise("DotNet Error: OldFullPath is a read-only property")
 
 	Func getOldName
-		return dnRequest("get",[new DotNetObject(nHandle),"OldName"])
+		return dnRequest("get",[self,"OldName"])
 
 	Func setOldName P1
 		raise("DotNet Error: OldName is a read-only property")

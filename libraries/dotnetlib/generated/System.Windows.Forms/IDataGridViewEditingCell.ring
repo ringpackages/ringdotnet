@@ -24,16 +24,16 @@ Class IDataGridViewEditingCell from DotNetObject
 		return self
 
 	Func getEditingCellFormattedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingCellFormattedValue"])
+		return dnRequest("get",[self,"EditingCellFormattedValue"])
 
 	Func setEditingCellFormattedValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingCellFormattedValue",P1])
+		dnRequest("set",[self,"EditingCellFormattedValue",P1])
 		return self
 
 	Func getEditingCellValueChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingCellValueChanged"])
+		return dnRequest("get",[self,"EditingCellValueChanged"])
 
 	Func setEditingCellValueChanged P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingCellValueChanged",P1])
+		dnRequest("set",[self,"EditingCellValueChanged",P1])
 		return self
 

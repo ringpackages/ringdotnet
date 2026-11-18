@@ -25,16 +25,16 @@ Class ManipulationPivot from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCenter
-		return dnRequest("get",[new DotNetObject(nHandle),"Center"])
+		return dnRequest("get",[self,"Center"])
 
 	Func setCenter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Center",P1])
+		dnRequest("set",[self,"Center",P1])
 		return self
 
 	Func getRadius
-		return dnRequest("get",[new DotNetObject(nHandle),"Radius"])
+		return dnRequest("get",[self,"Radius"])
 
 	Func setRadius P1
-		dnRequest("set",[new DotNetObject(nHandle),"Radius",P1])
+		dnRequest("set",[self,"Radius",P1])
 		return self
 

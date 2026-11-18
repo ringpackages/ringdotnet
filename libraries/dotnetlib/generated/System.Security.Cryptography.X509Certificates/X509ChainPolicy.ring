@@ -38,82 +38,82 @@ Class X509ChainPolicy from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDisableCertificateDownloads
-		return dnRequest("get",[new DotNetObject(nHandle),"DisableCertificateDownloads"])
+		return dnRequest("get",[self,"DisableCertificateDownloads"])
 
 	Func setDisableCertificateDownloads P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisableCertificateDownloads",P1])
+		dnRequest("set",[self,"DisableCertificateDownloads",P1])
 		return self
 
 	Func getVerificationTimeIgnored
-		return dnRequest("get",[new DotNetObject(nHandle),"VerificationTimeIgnored"])
+		return dnRequest("get",[self,"VerificationTimeIgnored"])
 
 	Func setVerificationTimeIgnored P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerificationTimeIgnored",P1])
+		dnRequest("set",[self,"VerificationTimeIgnored",P1])
 		return self
 
 	Func getApplicationPolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationPolicy"])
+		return dnRequest("get",[self,"ApplicationPolicy"])
 
 	Func setApplicationPolicy P1
 		raise("DotNet Error: ApplicationPolicy is a read-only property")
 
 	Func getCertificatePolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"CertificatePolicy"])
+		return dnRequest("get",[self,"CertificatePolicy"])
 
 	Func setCertificatePolicy P1
 		raise("DotNet Error: CertificatePolicy is a read-only property")
 
 	Func getExtraStore
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtraStore"])
+		return dnRequest("get",[self,"ExtraStore"])
 
 	Func setExtraStore P1
 		raise("DotNet Error: ExtraStore is a read-only property")
 
 	Func getCustomTrustStore
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomTrustStore"])
+		return dnRequest("get",[self,"CustomTrustStore"])
 
 	Func setCustomTrustStore P1
 		raise("DotNet Error: CustomTrustStore is a read-only property")
 
 	Func getRevocationMode
-		return dnRequest("get",[new DotNetObject(nHandle),"RevocationMode"])
+		return dnRequest("get",[self,"RevocationMode"])
 
 	Func setRevocationMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"RevocationMode",P1])
+		dnRequest("set",[self,"RevocationMode",P1])
 		return self
 
 	Func getRevocationFlag
-		return dnRequest("get",[new DotNetObject(nHandle),"RevocationFlag"])
+		return dnRequest("get",[self,"RevocationFlag"])
 
 	Func setRevocationFlag P1
-		dnRequest("set",[new DotNetObject(nHandle),"RevocationFlag",P1])
+		dnRequest("set",[self,"RevocationFlag",P1])
 		return self
 
 	Func getVerificationFlags
-		return dnRequest("get",[new DotNetObject(nHandle),"VerificationFlags"])
+		return dnRequest("get",[self,"VerificationFlags"])
 
 	Func setVerificationFlags P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerificationFlags",P1])
+		dnRequest("set",[self,"VerificationFlags",P1])
 		return self
 
 	Func getTrustMode
-		return dnRequest("get",[new DotNetObject(nHandle),"TrustMode"])
+		return dnRequest("get",[self,"TrustMode"])
 
 	Func setTrustMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"TrustMode",P1])
+		dnRequest("set",[self,"TrustMode",P1])
 		return self
 
 	Func getVerificationTime
-		return dnRequest("get",[new DotNetObject(nHandle),"VerificationTime"])
+		return dnRequest("get",[self,"VerificationTime"])
 
 	Func setVerificationTime P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerificationTime",P1])
+		dnRequest("set",[self,"VerificationTime",P1])
 		return self
 
 	Func getUrlRetrievalTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"UrlRetrievalTimeout"])
+		return dnRequest("get",[self,"UrlRetrievalTimeout"])
 
 	Func setUrlRetrievalTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"UrlRetrievalTimeout",P1])
+		dnRequest("set",[self,"UrlRetrievalTimeout",P1])
 		return self
 

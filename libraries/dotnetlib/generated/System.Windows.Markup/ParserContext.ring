@@ -31,36 +31,36 @@ Class ParserContext from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.ParserContext, PresentationFramework'),"ToXmlParserContext",P1])
 
 	Func getXmlnsDictionary
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlnsDictionary"])
+		return dnRequest("get",[self,"XmlnsDictionary"])
 
 	Func setXmlnsDictionary P1
 		raise("DotNet Error: XmlnsDictionary is a read-only property")
 
 	Func getXmlLang
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlLang"])
+		return dnRequest("get",[self,"XmlLang"])
 
 	Func setXmlLang P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlLang",P1])
+		dnRequest("set",[self,"XmlLang",P1])
 		return self
 
 	Func getXmlSpace
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlSpace"])
+		return dnRequest("get",[self,"XmlSpace"])
 
 	Func setXmlSpace P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlSpace",P1])
+		dnRequest("set",[self,"XmlSpace",P1])
 		return self
 
 	Func getXamlTypeMapper
-		return dnRequest("get",[new DotNetObject(nHandle),"XamlTypeMapper"])
+		return dnRequest("get",[self,"XamlTypeMapper"])
 
 	Func setXamlTypeMapper P1
-		dnRequest("set",[new DotNetObject(nHandle),"XamlTypeMapper",P1])
+		dnRequest("set",[self,"XamlTypeMapper",P1])
 		return self
 
 	Func getBaseUri
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseUri"])
+		return dnRequest("get",[self,"BaseUri"])
 
 	Func setBaseUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"BaseUri",P1])
+		dnRequest("set",[self,"BaseUri",P1])
 		return self
 

@@ -40,9 +40,9 @@ Class PeriodicTimer from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPeriod
-		return dnRequest("get",[new DotNetObject(nHandle),"Period"])
+		return dnRequest("get",[self,"Period"])
 
 	Func setPeriod P1
-		dnRequest("set",[new DotNetObject(nHandle),"Period",P1])
+		dnRequest("set",[self,"Period",P1])
 		return self
 

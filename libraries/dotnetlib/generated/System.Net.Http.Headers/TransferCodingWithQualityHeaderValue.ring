@@ -27,9 +27,9 @@ Class TransferCodingWithQualityHeaderValue from TransferCodingHeaderValue
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getQuality
-		return dnRequest("get",[new DotNetObject(nHandle),"Quality"])
+		return dnRequest("get",[self,"Quality"])
 
 	Func setQuality P1
-		dnRequest("set",[new DotNetObject(nHandle),"Quality",P1])
+		dnRequest("set",[self,"Quality",P1])
 		return self
 

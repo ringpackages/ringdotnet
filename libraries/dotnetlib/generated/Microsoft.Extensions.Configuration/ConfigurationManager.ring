@@ -37,7 +37,7 @@ Class ConfigurationManager from Object
 		return self
 
 	Func getSources
-		return dnRequest("get",[new DotNetObject(nHandle),"Sources"])
+		return dnRequest("get",[self,"Sources"])
 
 	Func setSources P1
 		raise("DotNet Error: Sources is a read-only property")

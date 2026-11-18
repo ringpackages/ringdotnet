@@ -54,16 +54,16 @@ Class AuthorizationPolicyBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequirements
-		return dnRequest("get",[new DotNetObject(nHandle),"Requirements"])
+		return dnRequest("get",[self,"Requirements"])
 
 	Func setRequirements P1
-		dnRequest("set",[new DotNetObject(nHandle),"Requirements",P1])
+		dnRequest("set",[self,"Requirements",P1])
 		return self
 
 	Func getAuthenticationSchemes
-		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationSchemes"])
+		return dnRequest("get",[self,"AuthenticationSchemes"])
 
 	Func setAuthenticationSchemes P1
-		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationSchemes",P1])
+		dnRequest("set",[self,"AuthenticationSchemes",P1])
 		return self
 

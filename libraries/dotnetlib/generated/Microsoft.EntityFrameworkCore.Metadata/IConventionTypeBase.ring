@@ -180,19 +180,19 @@ Class IConventionTypeBase from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyAccessModeConfigurationSource"])
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getContainingEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainingEntityType"])
+		return dnRequest("get",[self,"ContainingEntityType"])
 
 	Func setContainingEntityType P1
 		raise("DotNet Error: ContainingEntityType is a read-only property")

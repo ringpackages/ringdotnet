@@ -102,21 +102,21 @@ Class TcpListener from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.TcpListener, System.Net.Sockets'),"Create",P1])
 
 	Func getServer
-		return dnRequest("get",[new DotNetObject(nHandle),"Server"])
+		return dnRequest("get",[self,"Server"])
 
 	Func setServer P1
 		raise("DotNet Error: Server is a read-only property")
 
 	Func getLocalEndpoint
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalEndpoint"])
+		return dnRequest("get",[self,"LocalEndpoint"])
 
 	Func setLocalEndpoint P1
 		raise("DotNet Error: LocalEndpoint is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[new DotNetObject(nHandle),"ExclusiveAddressUse"])
+		return dnRequest("get",[self,"ExclusiveAddressUse"])
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExclusiveAddressUse",P1])
+		dnRequest("set",[self,"ExclusiveAddressUse",P1])
 		return self
 

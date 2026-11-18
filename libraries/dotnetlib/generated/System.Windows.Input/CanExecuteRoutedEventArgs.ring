@@ -19,28 +19,28 @@ Class CanExecuteRoutedEventArgs from RoutedEventArgs
 		return self
 
 	Func getCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
+		return dnRequest("get",[self,"Command"])
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameter"])
+		return dnRequest("get",[self,"Parameter"])
 
 	Func setParameter P1
 		raise("DotNet Error: Parameter is a read-only property")
 
 	Func getCanExecute
-		return dnRequest("get",[new DotNetObject(nHandle),"CanExecute"])
+		return dnRequest("get",[self,"CanExecute"])
 
 	Func setCanExecute P1
-		dnRequest("set",[new DotNetObject(nHandle),"CanExecute",P1])
+		dnRequest("set",[self,"CanExecute",P1])
 		return self
 
 	Func getContinueRouting
-		return dnRequest("get",[new DotNetObject(nHandle),"ContinueRouting"])
+		return dnRequest("get",[self,"ContinueRouting"])
 
 	Func setContinueRouting P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContinueRouting",P1])
+		dnRequest("set",[self,"ContinueRouting",P1])
 		return self
 

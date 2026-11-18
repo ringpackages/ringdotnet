@@ -16,9 +16,9 @@ Class IHttpBodyControlFeature from DotNetObject
 		return self
 
 	Func getAllowSynchronousIO
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowSynchronousIO"])
+		return dnRequest("get",[self,"AllowSynchronousIO"])
 
 	Func setAllowSynchronousIO P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowSynchronousIO",P1])
+		dnRequest("set",[self,"AllowSynchronousIO",P1])
 		return self
 

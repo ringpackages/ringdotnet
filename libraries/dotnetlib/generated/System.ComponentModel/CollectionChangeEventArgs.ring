@@ -18,13 +18,13 @@ Class CollectionChangeEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnRequest("get",[new DotNetObject(nHandle),"Action"])
+		return dnRequest("get",[self,"Action"])
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getElement
-		return dnRequest("get",[new DotNetObject(nHandle),"Element"])
+		return dnRequest("get",[self,"Element"])
 
 	Func setElement P1
 		raise("DotNet Error: Element is a read-only property")

@@ -17,9 +17,9 @@ Class XmlSchemaInclude from XmlSchemaExternal
 		return self
 
 	Func getAnnotation
-		return dnRequest("get",[new DotNetObject(nHandle),"Annotation"])
+		return dnRequest("get",[self,"Annotation"])
 
 	Func setAnnotation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Annotation",P1])
+		dnRequest("set",[self,"Annotation",P1])
 		return self
 

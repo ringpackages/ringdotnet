@@ -20,9 +20,9 @@ Class RouteHandlerOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getThrowOnBadRequest
-		return dnRequest("get",[new DotNetObject(nHandle),"ThrowOnBadRequest"])
+		return dnRequest("get",[self,"ThrowOnBadRequest"])
 
 	Func setThrowOnBadRequest P1
-		dnRequest("set",[new DotNetObject(nHandle),"ThrowOnBadRequest",P1])
+		dnRequest("set",[self,"ThrowOnBadRequest",P1])
 		return self
 

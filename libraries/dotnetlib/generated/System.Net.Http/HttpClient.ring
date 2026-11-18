@@ -125,44 +125,44 @@ Class HttpClient from HttpMessageInvoker
 		return self
 
 	Func getDefaultRequestHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultRequestHeaders"])
+		return dnRequest("get",[self,"DefaultRequestHeaders"])
 
 	Func setDefaultRequestHeaders P1
 		raise("DotNet Error: DefaultRequestHeaders is a read-only property")
 
 	Func getDefaultRequestVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultRequestVersion"])
+		return dnRequest("get",[self,"DefaultRequestVersion"])
 
 	Func setDefaultRequestVersion P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultRequestVersion",P1])
+		dnRequest("set",[self,"DefaultRequestVersion",P1])
 		return self
 
 	Func getDefaultVersionPolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultVersionPolicy"])
+		return dnRequest("get",[self,"DefaultVersionPolicy"])
 
 	Func setDefaultVersionPolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultVersionPolicy",P1])
+		dnRequest("set",[self,"DefaultVersionPolicy",P1])
 		return self
 
 	Func getBaseAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseAddress"])
+		return dnRequest("get",[self,"BaseAddress"])
 
 	Func setBaseAddress P1
-		dnRequest("set",[new DotNetObject(nHandle),"BaseAddress",P1])
+		dnRequest("set",[self,"BaseAddress",P1])
 		return self
 
 	Func getTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"Timeout"])
+		return dnRequest("get",[self,"Timeout"])
 
 	Func setTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"Timeout",P1])
+		dnRequest("set",[self,"Timeout",P1])
 		return self
 
 	Func getMaxResponseContentBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxResponseContentBufferSize"])
+		return dnRequest("get",[self,"MaxResponseContentBufferSize"])
 
 	Func setMaxResponseContentBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxResponseContentBufferSize",P1])
+		dnRequest("set",[self,"MaxResponseContentBufferSize",P1])
 		return self
 
 	Func getDefaultProxy

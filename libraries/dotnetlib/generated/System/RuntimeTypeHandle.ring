@@ -30,7 +30,7 @@ Class RuntimeTypeHandle from ValueType
 		return dnRequest("call",[dnTypeCached('System.RuntimeTypeHandle, System.Private.CoreLib'),"ToIntPtr",P1])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

@@ -3,14 +3,11 @@
 Func DotNetNew_ProjectionBindingExpression
 	oDotNetNew = new ProjectionBindingExpression(0,0,0)
 
-Class ProjectionBindingExpression from DotNetObject
+Class ProjectionBindingExpression from ExpressionsExpression
 
 	QueryExpression
 	ProjectionMember
 	Index
-	Type
-	NodeType
-	CanReduce
 
 	Func init P1,P2,P3
 		if nDotNetWrapHandle != 0
@@ -21,60 +18,21 @@ Class ProjectionBindingExpression from DotNetObject
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ProjectionBindingExpression, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		return self
 
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
-	Func Reduce 
-		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
-
-	Func ReduceAndCheck 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
-
-	Func ReduceExtensions 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
 	Func getQueryExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryExpression"])
+		return dnRequest("get",[self,"QueryExpression"])
 
 	Func setQueryExpression P1
 		raise("DotNet Error: QueryExpression is a read-only property")
 
 	Func getProjectionMember
-		return dnRequest("get",[new DotNetObject(nHandle),"ProjectionMember"])
+		return dnRequest("get",[self,"ProjectionMember"])
 
 	Func setProjectionMember P1
 		raise("DotNet Error: ProjectionMember is a read-only property")
 
 	Func getIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
+		return dnRequest("get",[self,"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
-
-	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
-
-	Func setType P1
-		raise("DotNet Error: Type is a read-only property")
-
-	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
-
-	Func setNodeType P1
-		raise("DotNet Error: NodeType is a read-only property")
-
-	Func getCanReduce
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
-
-	Func setCanReduce P1
-		raise("DotNet Error: CanReduce is a read-only property")
 

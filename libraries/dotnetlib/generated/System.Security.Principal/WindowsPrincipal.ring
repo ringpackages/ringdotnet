@@ -18,13 +18,13 @@ Class WindowsPrincipal from ClaimsPrincipal
 		return self
 
 	Func getUserClaims
-		return dnRequest("get",[new DotNetObject(nHandle),"UserClaims"])
+		return dnRequest("get",[self,"UserClaims"])
 
 	Func setUserClaims P1
 		raise("DotNet Error: UserClaims is a read-only property")
 
 	Func getDeviceClaims
-		return dnRequest("get",[new DotNetObject(nHandle),"DeviceClaims"])
+		return dnRequest("get",[self,"DeviceClaims"])
 
 	Func setDeviceClaims P1
 		raise("DotNet Error: DeviceClaims is a read-only property")

@@ -25,7 +25,7 @@ Class EndPoint from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAddressFamily
-		return dnRequest("get",[new DotNetObject(nHandle),"AddressFamily"])
+		return dnRequest("get",[self,"AddressFamily"])
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")

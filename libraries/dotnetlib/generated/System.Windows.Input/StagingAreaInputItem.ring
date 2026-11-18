@@ -26,7 +26,7 @@ Class StagingAreaInputItem from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getInput
-		return dnRequest("get",[new DotNetObject(nHandle),"Input"])
+		return dnRequest("get",[self,"Input"])
 
 	Func setInput P1
 		raise("DotNet Error: Input is a read-only property")

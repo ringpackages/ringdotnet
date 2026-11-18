@@ -24,37 +24,37 @@ Class MigrationExecutionState from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLastCommittedCommandIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"LastCommittedCommandIndex"])
+		return dnRequest("get",[self,"LastCommittedCommandIndex"])
 
 	Func setLastCommittedCommandIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"LastCommittedCommandIndex",P1])
+		dnRequest("set",[self,"LastCommittedCommandIndex",P1])
 		return self
 
 	Func getCurrentMigrationId
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentMigrationId"])
+		return dnRequest("get",[self,"CurrentMigrationId"])
 
 	Func setCurrentMigrationId P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentMigrationId",P1])
+		dnRequest("set",[self,"CurrentMigrationId",P1])
 		return self
 
 	Func getAnyOperationPerformed
-		return dnRequest("get",[new DotNetObject(nHandle),"AnyOperationPerformed"])
+		return dnRequest("get",[self,"AnyOperationPerformed"])
 
 	Func setAnyOperationPerformed P1
-		dnRequest("set",[new DotNetObject(nHandle),"AnyOperationPerformed",P1])
+		dnRequest("set",[self,"AnyOperationPerformed",P1])
 		return self
 
 	Func getDatabaseLock
-		return dnRequest("get",[new DotNetObject(nHandle),"DatabaseLock"])
+		return dnRequest("get",[self,"DatabaseLock"])
 
 	Func setDatabaseLock P1
-		dnRequest("set",[new DotNetObject(nHandle),"DatabaseLock",P1])
+		dnRequest("set",[self,"DatabaseLock",P1])
 		return self
 
 	Func getTransaction
-		return dnRequest("get",[new DotNetObject(nHandle),"Transaction"])
+		return dnRequest("get",[self,"Transaction"])
 
 	Func setTransaction P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transaction",P1])
+		dnRequest("set",[self,"Transaction",P1])
 		return self
 

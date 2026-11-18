@@ -26,16 +26,16 @@ Class PageRange from ValueType
 		return self
 
 	Func getPageFrom
-		return dnRequest("get",[new DotNetObject(nHandle),"PageFrom"])
+		return dnRequest("get",[self,"PageFrom"])
 
 	Func setPageFrom P1
-		dnRequest("set",[new DotNetObject(nHandle),"PageFrom",P1])
+		dnRequest("set",[self,"PageFrom",P1])
 		return self
 
 	Func getPageTo
-		return dnRequest("get",[new DotNetObject(nHandle),"PageTo"])
+		return dnRequest("get",[self,"PageTo"])
 
 	Func setPageTo P1
-		dnRequest("set",[new DotNetObject(nHandle),"PageTo",P1])
+		dnRequest("set",[self,"PageTo",P1])
 		return self
 

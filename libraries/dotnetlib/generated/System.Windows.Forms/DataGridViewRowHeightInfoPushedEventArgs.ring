@@ -18,19 +18,19 @@ Class DataGridViewRowHeightInfoPushedEventArgs from HandledEventArgs
 		return self
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
+		return dnRequest("get",[self,"Height"])
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getMinimumHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"MinimumHeight"])
+		return dnRequest("get",[self,"MinimumHeight"])
 
 	Func setMinimumHeight P1
 		raise("DotNet Error: MinimumHeight is a read-only property")

@@ -62,97 +62,97 @@ Class SplitContainer from ContainerControl
 		return self
 
 	Func getBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"BorderStyle"])
+		return dnRequest("get",[self,"BorderStyle"])
 
 	Func setBorderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"BorderStyle",P1])
+		dnRequest("set",[self,"BorderStyle",P1])
 		return self
 
 	Func getFixedPanel
-		return dnRequest("get",[new DotNetObject(nHandle),"FixedPanel"])
+		return dnRequest("get",[self,"FixedPanel"])
 
 	Func setFixedPanel P1
-		dnRequest("set",[new DotNetObject(nHandle),"FixedPanel",P1])
+		dnRequest("set",[self,"FixedPanel",P1])
 		return self
 
 	Func getIsSplitterFixed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSplitterFixed"])
+		return dnRequest("get",[self,"IsSplitterFixed"])
 
 	Func setIsSplitterFixed P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSplitterFixed",P1])
+		dnRequest("set",[self,"IsSplitterFixed",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
+		return dnRequest("get",[self,"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
+		dnRequest("set",[self,"Orientation",P1])
 		return self
 
 	Func getPanel1
-		return dnRequest("get",[new DotNetObject(nHandle),"Panel1"])
+		return dnRequest("get",[self,"Panel1"])
 
 	Func setPanel1 P1
 		raise("DotNet Error: Panel1 is a read-only property")
 
 	Func getPanel1Collapsed
-		return dnRequest("get",[new DotNetObject(nHandle),"Panel1Collapsed"])
+		return dnRequest("get",[self,"Panel1Collapsed"])
 
 	Func setPanel1Collapsed P1
-		dnRequest("set",[new DotNetObject(nHandle),"Panel1Collapsed",P1])
+		dnRequest("set",[self,"Panel1Collapsed",P1])
 		return self
 
 	Func getPanel2Collapsed
-		return dnRequest("get",[new DotNetObject(nHandle),"Panel2Collapsed"])
+		return dnRequest("get",[self,"Panel2Collapsed"])
 
 	Func setPanel2Collapsed P1
-		dnRequest("set",[new DotNetObject(nHandle),"Panel2Collapsed",P1])
+		dnRequest("set",[self,"Panel2Collapsed",P1])
 		return self
 
 	Func getPanel1MinSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Panel1MinSize"])
+		return dnRequest("get",[self,"Panel1MinSize"])
 
 	Func setPanel1MinSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"Panel1MinSize",P1])
+		dnRequest("set",[self,"Panel1MinSize",P1])
 		return self
 
 	Func getPanel2
-		return dnRequest("get",[new DotNetObject(nHandle),"Panel2"])
+		return dnRequest("get",[self,"Panel2"])
 
 	Func setPanel2 P1
 		raise("DotNet Error: Panel2 is a read-only property")
 
 	Func getPanel2MinSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Panel2MinSize"])
+		return dnRequest("get",[self,"Panel2MinSize"])
 
 	Func setPanel2MinSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"Panel2MinSize",P1])
+		dnRequest("set",[self,"Panel2MinSize",P1])
 		return self
 
 	Func getSplitterDistance
-		return dnRequest("get",[new DotNetObject(nHandle),"SplitterDistance"])
+		return dnRequest("get",[self,"SplitterDistance"])
 
 	Func setSplitterDistance P1
-		dnRequest("set",[new DotNetObject(nHandle),"SplitterDistance",P1])
+		dnRequest("set",[self,"SplitterDistance",P1])
 		return self
 
 	Func getSplitterIncrement
-		return dnRequest("get",[new DotNetObject(nHandle),"SplitterIncrement"])
+		return dnRequest("get",[self,"SplitterIncrement"])
 
 	Func setSplitterIncrement P1
-		dnRequest("set",[new DotNetObject(nHandle),"SplitterIncrement",P1])
+		dnRequest("set",[self,"SplitterIncrement",P1])
 		return self
 
 	Func getSplitterRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"SplitterRectangle"])
+		return dnRequest("get",[self,"SplitterRectangle"])
 
 	Func setSplitterRectangle P1
 		raise("DotNet Error: SplitterRectangle is a read-only property")
 
 	Func getSplitterWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"SplitterWidth"])
+		return dnRequest("get",[self,"SplitterWidth"])
 
 	Func setSplitterWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"SplitterWidth",P1])
+		dnRequest("set",[self,"SplitterWidth",P1])
 		return self
 

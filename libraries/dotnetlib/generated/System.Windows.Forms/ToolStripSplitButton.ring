@@ -77,57 +77,57 @@ Class ToolStripSplitButton from ToolStripDropDownItem
 		return self
 
 	Func getButtonBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonBounds"])
+		return dnRequest("get",[self,"ButtonBounds"])
 
 	Func setButtonBounds P1
 		raise("DotNet Error: ButtonBounds is a read-only property")
 
 	Func getButtonPressed
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonPressed"])
+		return dnRequest("get",[self,"ButtonPressed"])
 
 	Func setButtonPressed P1
 		raise("DotNet Error: ButtonPressed is a read-only property")
 
 	Func getButtonSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonSelected"])
+		return dnRequest("get",[self,"ButtonSelected"])
 
 	Func setButtonSelected P1
 		raise("DotNet Error: ButtonSelected is a read-only property")
 
 	Func getDefaultItem
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultItem"])
+		return dnRequest("get",[self,"DefaultItem"])
 
 	Func setDefaultItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultItem",P1])
+		dnRequest("set",[self,"DefaultItem",P1])
 		return self
 
 	Func getDropDownButtonBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownButtonBounds"])
+		return dnRequest("get",[self,"DropDownButtonBounds"])
 
 	Func setDropDownButtonBounds P1
 		raise("DotNet Error: DropDownButtonBounds is a read-only property")
 
 	Func getDropDownButtonPressed
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownButtonPressed"])
+		return dnRequest("get",[self,"DropDownButtonPressed"])
 
 	Func setDropDownButtonPressed P1
 		raise("DotNet Error: DropDownButtonPressed is a read-only property")
 
 	Func getDropDownButtonSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownButtonSelected"])
+		return dnRequest("get",[self,"DropDownButtonSelected"])
 
 	Func setDropDownButtonSelected P1
 		raise("DotNet Error: DropDownButtonSelected is a read-only property")
 
 	Func getDropDownButtonWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownButtonWidth"])
+		return dnRequest("get",[self,"DropDownButtonWidth"])
 
 	Func setDropDownButtonWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropDownButtonWidth",P1])
+		dnRequest("set",[self,"DropDownButtonWidth",P1])
 		return self
 
 	Func getSplitterBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"SplitterBounds"])
+		return dnRequest("get",[self,"SplitterBounds"])
 
 	Func setSplitterBounds P1
 		raise("DotNet Error: SplitterBounds is a read-only property")

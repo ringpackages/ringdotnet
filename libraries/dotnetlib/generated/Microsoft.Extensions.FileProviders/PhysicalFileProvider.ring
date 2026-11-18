@@ -39,21 +39,21 @@ Class PhysicalFileProvider from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUsePollingFileWatcher
-		return dnRequest("get",[new DotNetObject(nHandle),"UsePollingFileWatcher"])
+		return dnRequest("get",[self,"UsePollingFileWatcher"])
 
 	Func setUsePollingFileWatcher P1
-		dnRequest("set",[new DotNetObject(nHandle),"UsePollingFileWatcher",P1])
+		dnRequest("set",[self,"UsePollingFileWatcher",P1])
 		return self
 
 	Func getUseActivePolling
-		return dnRequest("get",[new DotNetObject(nHandle),"UseActivePolling"])
+		return dnRequest("get",[self,"UseActivePolling"])
 
 	Func setUseActivePolling P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseActivePolling",P1])
+		dnRequest("set",[self,"UseActivePolling",P1])
 		return self
 
 	Func getRoot
-		return dnRequest("get",[new DotNetObject(nHandle),"Root"])
+		return dnRequest("get",[self,"Root"])
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")

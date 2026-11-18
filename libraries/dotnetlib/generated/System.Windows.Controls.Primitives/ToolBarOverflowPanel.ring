@@ -18,10 +18,10 @@ Class ToolBarOverflowPanel from WpfPanel
 		return self
 
 	Func getWrapWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"WrapWidth"])
+		return dnRequest("get",[self,"WrapWidth"])
 
 	Func setWrapWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"WrapWidth",P1])
+		dnRequest("set",[self,"WrapWidth",P1])
 		return self
 
 	Func getWrapWidthProperty

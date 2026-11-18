@@ -22,31 +22,31 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 		return self
 
 	Func getPathGeometry
-		return dnRequest("get",[new DotNetObject(nHandle),"PathGeometry"])
+		return dnRequest("get",[self,"PathGeometry"])
 
 	Func setPathGeometry P1
-		dnRequest("set",[new DotNetObject(nHandle),"PathGeometry",P1])
+		dnRequest("set",[self,"PathGeometry",P1])
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getIsAdditive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAdditive"])
+		return dnRequest("get",[self,"IsAdditive"])
 
 	Func setIsAdditive P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsAdditive",P1])
+		dnRequest("set",[self,"IsAdditive",P1])
 		return self
 
 	Func getIsCumulative
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCumulative"])
+		return dnRequest("get",[self,"IsCumulative"])
 
 	Func setIsCumulative P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsCumulative",P1])
+		dnRequest("set",[self,"IsCumulative",P1])
 		return self
 
 	Func getPathGeometryProperty

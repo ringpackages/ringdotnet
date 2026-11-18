@@ -33,19 +33,19 @@ Class ProducesResponseTypeMetadata from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getStatusCode
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
+		return dnRequest("get",[self,"StatusCode"])
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
 
 	Func getContentTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentTypes"])
+		return dnRequest("get",[self,"ContentTypes"])
 
 	Func setContentTypes P1
 		raise("DotNet Error: ContentTypes is a read-only property")

@@ -314,25 +314,25 @@ Class XmlWriter from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1,P2])
 
 	Func getSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"Settings"])
+		return dnRequest("get",[self,"Settings"])
 
 	Func setSettings P1
 		raise("DotNet Error: Settings is a read-only property")
 
 	Func getWriteState
-		return dnRequest("get",[new DotNetObject(nHandle),"WriteState"])
+		return dnRequest("get",[self,"WriteState"])
 
 	Func setWriteState P1
 		raise("DotNet Error: WriteState is a read-only property")
 
 	Func getXmlSpace
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlSpace"])
+		return dnRequest("get",[self,"XmlSpace"])
 
 	Func setXmlSpace P1
 		raise("DotNet Error: XmlSpace is a read-only property")
 
 	Func getXmlLang
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlLang"])
+		return dnRequest("get",[self,"XmlLang"])
 
 	Func setXmlLang P1
 		raise("DotNet Error: XmlLang is a read-only property")

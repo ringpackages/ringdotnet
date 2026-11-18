@@ -17,9 +17,9 @@ Class EventTypeFilter from TraceFilter
 		return self
 
 	Func getEventType
-		return dnRequest("get",[new DotNetObject(nHandle),"EventType"])
+		return dnRequest("get",[self,"EventType"])
 
 	Func setEventType P1
-		dnRequest("set",[new DotNetObject(nHandle),"EventType",P1])
+		dnRequest("set",[self,"EventType",P1])
 		return self
 

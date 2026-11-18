@@ -20,9 +20,9 @@ Class RelationalModelValidatorDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTypeMappingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
+		return dnRequest("get",[self,"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
+		dnRequest("set",[self,"TypeMappingSource",P1])
 		return self
 

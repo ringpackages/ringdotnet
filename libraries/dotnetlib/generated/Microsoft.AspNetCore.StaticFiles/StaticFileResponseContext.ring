@@ -21,13 +21,13 @@ Class StaticFileResponseContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContext
-		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
+		return dnRequest("get",[self,"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getFile
-		return dnRequest("get",[new DotNetObject(nHandle),"File"])
+		return dnRequest("get",[self,"File"])
 
 	Func setFile P1
 		raise("DotNet Error: File is a read-only property")

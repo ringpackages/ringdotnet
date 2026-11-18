@@ -90,22 +90,22 @@ Class SqlDateTime from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
+		return dnRequest("get",[self,"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getDayTicks
-		return dnRequest("get",[new DotNetObject(nHandle),"DayTicks"])
+		return dnRequest("get",[self,"DayTicks"])
 
 	Func setDayTicks P1
 		raise("DotNet Error: DayTicks is a read-only property")
 
 	Func getTimeTicks
-		return dnRequest("get",[new DotNetObject(nHandle),"TimeTicks"])
+		return dnRequest("get",[self,"TimeTicks"])
 
 	Func setTimeTicks P1
 		raise("DotNet Error: TimeTicks is a read-only property")

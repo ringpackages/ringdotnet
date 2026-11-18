@@ -97,14 +97,14 @@ Class XmlElement from XmlLinkedNode
 		return self
 
 	Func getIsEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
+		return dnRequest("get",[self,"IsEmpty"])
 
 	Func setIsEmpty P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsEmpty",P1])
+		dnRequest("set",[self,"IsEmpty",P1])
 		return self
 
 	Func getHasAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"HasAttributes"])
+		return dnRequest("get",[self,"HasAttributes"])
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")

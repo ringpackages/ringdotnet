@@ -19,21 +19,21 @@ Class QueryContinueDragEventArgs from EventArgs
 		return self
 
 	Func getKeyState
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyState"])
+		return dnRequest("get",[self,"KeyState"])
 
 	Func setKeyState P1
 		raise("DotNet Error: KeyState is a read-only property")
 
 	Func getEscapePressed
-		return dnRequest("get",[new DotNetObject(nHandle),"EscapePressed"])
+		return dnRequest("get",[self,"EscapePressed"])
 
 	Func setEscapePressed P1
 		raise("DotNet Error: EscapePressed is a read-only property")
 
 	Func getAction
-		return dnRequest("get",[new DotNetObject(nHandle),"Action"])
+		return dnRequest("get",[self,"Action"])
 
 	Func setAction P1
-		dnRequest("set",[new DotNetObject(nHandle),"Action",P1])
+		dnRequest("set",[self,"Action",P1])
 		return self
 

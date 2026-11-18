@@ -19,23 +19,23 @@ Class XmlSchemaSimpleTypeList from XmlSchemaSimpleTypeContent
 		return self
 
 	Func getItemTypeName
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemTypeName"])
+		return dnRequest("get",[self,"ItemTypeName"])
 
 	Func setItemTypeName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemTypeName",P1])
+		dnRequest("set",[self,"ItemTypeName",P1])
 		return self
 
 	Func getItemType
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemType"])
+		return dnRequest("get",[self,"ItemType"])
 
 	Func setItemType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemType",P1])
+		dnRequest("set",[self,"ItemType",P1])
 		return self
 
 	Func getBaseItemType
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseItemType"])
+		return dnRequest("get",[self,"BaseItemType"])
 
 	Func setBaseItemType P1
-		dnRequest("set",[new DotNetObject(nHandle),"BaseItemType",P1])
+		dnRequest("set",[self,"BaseItemType",P1])
 		return self
 

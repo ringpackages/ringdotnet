@@ -27,19 +27,19 @@ Class FileBufferingReadStream from Stream
 		return self
 
 	Func getMemoryThreshold
-		return dnRequest("get",[new DotNetObject(nHandle),"MemoryThreshold"])
+		return dnRequest("get",[self,"MemoryThreshold"])
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")
 
 	Func getInMemory
-		return dnRequest("get",[new DotNetObject(nHandle),"InMemory"])
+		return dnRequest("get",[self,"InMemory"])
 
 	Func setInMemory P1
 		raise("DotNet Error: InMemory is a read-only property")
 
 	Func getTempFileName
-		return dnRequest("get",[new DotNetObject(nHandle),"TempFileName"])
+		return dnRequest("get",[self,"TempFileName"])
 
 	Func setTempFileName P1
 		raise("DotNet Error: TempFileName is a read-only property")

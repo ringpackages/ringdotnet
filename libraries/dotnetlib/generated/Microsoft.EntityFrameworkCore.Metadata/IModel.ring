@@ -55,9 +55,9 @@ Class IModel from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"FindTypeMappingConfiguration",P1])
 
 	Func getModelDependencies
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelDependencies"])
+		return dnRequest("get",[self,"ModelDependencies"])
 
 	Func setModelDependencies P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelDependencies",P1])
+		dnRequest("set",[self,"ModelDependencies",P1])
 		return self
 

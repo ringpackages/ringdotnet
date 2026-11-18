@@ -66,20 +66,20 @@ Class Grid from WpfPanel
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.Grid, PresentationFramework'),"GetIsSharedSizeScope",P1])
 
 	Func getShowGridLines
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowGridLines"])
+		return dnRequest("get",[self,"ShowGridLines"])
 
 	Func setShowGridLines P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowGridLines",P1])
+		dnRequest("set",[self,"ShowGridLines",P1])
 		return self
 
 	Func getColumnDefinitions
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnDefinitions"])
+		return dnRequest("get",[self,"ColumnDefinitions"])
 
 	Func setColumnDefinitions P1
 		raise("DotNet Error: ColumnDefinitions is a read-only property")
 
 	Func getRowDefinitions
-		return dnRequest("get",[new DotNetObject(nHandle),"RowDefinitions"])
+		return dnRequest("get",[self,"RowDefinitions"])
 
 	Func setRowDefinitions P1
 		raise("DotNet Error: RowDefinitions is a read-only property")

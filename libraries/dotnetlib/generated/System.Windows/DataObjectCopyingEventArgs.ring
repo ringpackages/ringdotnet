@@ -17,7 +17,7 @@ Class DataObjectCopyingEventArgs from DataObjectEventArgs
 		return self
 
 	Func getDataObject
-		return dnRequest("get",[new DotNetObject(nHandle),"DataObject"])
+		return dnRequest("get",[self,"DataObject"])
 
 	Func setDataObject P1
 		raise("DotNet Error: DataObject is a read-only property")

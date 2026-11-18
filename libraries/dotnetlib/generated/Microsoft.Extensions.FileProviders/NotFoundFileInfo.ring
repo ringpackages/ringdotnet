@@ -28,37 +28,37 @@ Class NotFoundFileInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExists
-		return dnRequest("get",[new DotNetObject(nHandle),"Exists"])
+		return dnRequest("get",[self,"Exists"])
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getIsDirectory
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDirectory"])
+		return dnRequest("get",[self,"IsDirectory"])
 
 	Func setIsDirectory P1
 		raise("DotNet Error: IsDirectory is a read-only property")
 
 	Func getLastModified
-		return dnRequest("get",[new DotNetObject(nHandle),"LastModified"])
+		return dnRequest("get",[self,"LastModified"])
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPhysicalPath
-		return dnRequest("get",[new DotNetObject(nHandle),"PhysicalPath"])
+		return dnRequest("get",[self,"PhysicalPath"])
 
 	Func setPhysicalPath P1
 		raise("DotNet Error: PhysicalPath is a read-only property")

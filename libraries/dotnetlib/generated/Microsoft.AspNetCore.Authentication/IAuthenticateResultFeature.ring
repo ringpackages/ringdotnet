@@ -16,9 +16,9 @@ Class IAuthenticateResultFeature from DotNetObject
 		return self
 
 	Func getAuthenticateResult
-		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticateResult"])
+		return dnRequest("get",[self,"AuthenticateResult"])
 
 	Func setAuthenticateResult P1
-		dnRequest("set",[new DotNetObject(nHandle),"AuthenticateResult",P1])
+		dnRequest("set",[self,"AuthenticateResult",P1])
 		return self
 

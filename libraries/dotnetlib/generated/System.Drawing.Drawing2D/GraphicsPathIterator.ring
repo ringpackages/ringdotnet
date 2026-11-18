@@ -62,13 +62,13 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return dnRequest("call",[new DotNetObject(nHandle),"CopyData",P1,P2,P3,P4])
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSubpathCount
-		return dnRequest("get",[new DotNetObject(nHandle),"SubpathCount"])
+		return dnRequest("get",[self,"SubpathCount"])
 
 	Func setSubpathCount P1
 		raise("DotNet Error: SubpathCount is a read-only property")

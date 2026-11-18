@@ -23,27 +23,27 @@ Class InputScope from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getNames
-		return dnRequest("get",[new DotNetObject(nHandle),"Names"])
+		return dnRequest("get",[self,"Names"])
 
 	Func setNames P1
 		raise("DotNet Error: Names is a read-only property")
 
 	Func getSrgsMarkup
-		return dnRequest("get",[new DotNetObject(nHandle),"SrgsMarkup"])
+		return dnRequest("get",[self,"SrgsMarkup"])
 
 	Func setSrgsMarkup P1
-		dnRequest("set",[new DotNetObject(nHandle),"SrgsMarkup",P1])
+		dnRequest("set",[self,"SrgsMarkup",P1])
 		return self
 
 	Func getRegularExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"RegularExpression"])
+		return dnRequest("get",[self,"RegularExpression"])
 
 	Func setRegularExpression P1
-		dnRequest("set",[new DotNetObject(nHandle),"RegularExpression",P1])
+		dnRequest("set",[self,"RegularExpression",P1])
 		return self
 
 	Func getPhraseList
-		return dnRequest("get",[new DotNetObject(nHandle),"PhraseList"])
+		return dnRequest("get",[self,"PhraseList"])
 
 	Func setPhraseList P1
 		raise("DotNet Error: PhraseList is a read-only property")

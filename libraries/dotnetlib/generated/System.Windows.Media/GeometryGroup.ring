@@ -20,17 +20,17 @@ Class GeometryGroup from Geometry
 		return self
 
 	Func getFillRule
-		return dnRequest("get",[new DotNetObject(nHandle),"FillRule"])
+		return dnRequest("get",[self,"FillRule"])
 
 	Func setFillRule P1
-		dnRequest("set",[new DotNetObject(nHandle),"FillRule",P1])
+		dnRequest("set",[self,"FillRule",P1])
 		return self
 
 	Func getChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
+		return dnRequest("get",[self,"Children"])
 
 	Func setChildren P1
-		dnRequest("set",[new DotNetObject(nHandle),"Children",P1])
+		dnRequest("set",[self,"Children",P1])
 		return self
 
 	Func getFillRuleProperty

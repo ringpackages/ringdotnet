@@ -70,7 +70,7 @@ Class IReadOnlyModel from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getModelId
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelId"])
+		return dnRequest("get",[self,"ModelId"])
 
 	Func setModelId P1
 		raise("DotNet Error: ModelId is a read-only property")

@@ -41,7 +41,7 @@ Class CryptoStream from Stream
 		return self
 
 	Func getHasFlushedFinalBlock
-		return dnRequest("get",[new DotNetObject(nHandle),"HasFlushedFinalBlock"])
+		return dnRequest("get",[self,"HasFlushedFinalBlock"])
 
 	Func setHasFlushedFinalBlock P1
 		raise("DotNet Error: HasFlushedFinalBlock is a read-only property")

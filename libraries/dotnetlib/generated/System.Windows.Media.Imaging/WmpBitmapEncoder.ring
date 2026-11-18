@@ -34,128 +34,128 @@ Class WmpBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getImageQualityLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageQualityLevel"])
+		return dnRequest("get",[self,"ImageQualityLevel"])
 
 	Func setImageQualityLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageQualityLevel",P1])
+		dnRequest("set",[self,"ImageQualityLevel",P1])
 		return self
 
 	Func getLossless
-		return dnRequest("get",[new DotNetObject(nHandle),"Lossless"])
+		return dnRequest("get",[self,"Lossless"])
 
 	Func setLossless P1
-		dnRequest("set",[new DotNetObject(nHandle),"Lossless",P1])
+		dnRequest("set",[self,"Lossless",P1])
 		return self
 
 	Func getRotation
-		return dnRequest("get",[new DotNetObject(nHandle),"Rotation"])
+		return dnRequest("get",[self,"Rotation"])
 
 	Func setRotation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Rotation",P1])
+		dnRequest("set",[self,"Rotation",P1])
 		return self
 
 	Func getFlipHorizontal
-		return dnRequest("get",[new DotNetObject(nHandle),"FlipHorizontal"])
+		return dnRequest("get",[self,"FlipHorizontal"])
 
 	Func setFlipHorizontal P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlipHorizontal",P1])
+		dnRequest("set",[self,"FlipHorizontal",P1])
 		return self
 
 	Func getFlipVertical
-		return dnRequest("get",[new DotNetObject(nHandle),"FlipVertical"])
+		return dnRequest("get",[self,"FlipVertical"])
 
 	Func setFlipVertical P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlipVertical",P1])
+		dnRequest("set",[self,"FlipVertical",P1])
 		return self
 
 	Func getUseCodecOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"UseCodecOptions"])
+		return dnRequest("get",[self,"UseCodecOptions"])
 
 	Func setUseCodecOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseCodecOptions",P1])
+		dnRequest("set",[self,"UseCodecOptions",P1])
 		return self
 
 	Func getQualityLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"QualityLevel"])
+		return dnRequest("get",[self,"QualityLevel"])
 
 	Func setQualityLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"QualityLevel",P1])
+		dnRequest("set",[self,"QualityLevel",P1])
 		return self
 
 	Func getSubsamplingLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"SubsamplingLevel"])
+		return dnRequest("get",[self,"SubsamplingLevel"])
 
 	Func setSubsamplingLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"SubsamplingLevel",P1])
+		dnRequest("set",[self,"SubsamplingLevel",P1])
 		return self
 
 	Func getOverlapLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"OverlapLevel"])
+		return dnRequest("get",[self,"OverlapLevel"])
 
 	Func setOverlapLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"OverlapLevel",P1])
+		dnRequest("set",[self,"OverlapLevel",P1])
 		return self
 
 	Func getHorizontalTileSlices
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalTileSlices"])
+		return dnRequest("get",[self,"HorizontalTileSlices"])
 
 	Func setHorizontalTileSlices P1
-		dnRequest("set",[new DotNetObject(nHandle),"HorizontalTileSlices",P1])
+		dnRequest("set",[self,"HorizontalTileSlices",P1])
 		return self
 
 	Func getVerticalTileSlices
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalTileSlices"])
+		return dnRequest("get",[self,"VerticalTileSlices"])
 
 	Func setVerticalTileSlices P1
-		dnRequest("set",[new DotNetObject(nHandle),"VerticalTileSlices",P1])
+		dnRequest("set",[self,"VerticalTileSlices",P1])
 		return self
 
 	Func getFrequencyOrder
-		return dnRequest("get",[new DotNetObject(nHandle),"FrequencyOrder"])
+		return dnRequest("get",[self,"FrequencyOrder"])
 
 	Func setFrequencyOrder P1
-		dnRequest("set",[new DotNetObject(nHandle),"FrequencyOrder",P1])
+		dnRequest("set",[self,"FrequencyOrder",P1])
 		return self
 
 	Func getInterleavedAlpha
-		return dnRequest("get",[new DotNetObject(nHandle),"InterleavedAlpha"])
+		return dnRequest("get",[self,"InterleavedAlpha"])
 
 	Func setInterleavedAlpha P1
-		dnRequest("set",[new DotNetObject(nHandle),"InterleavedAlpha",P1])
+		dnRequest("set",[self,"InterleavedAlpha",P1])
 		return self
 
 	Func getAlphaQualityLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"AlphaQualityLevel"])
+		return dnRequest("get",[self,"AlphaQualityLevel"])
 
 	Func setAlphaQualityLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"AlphaQualityLevel",P1])
+		dnRequest("set",[self,"AlphaQualityLevel",P1])
 		return self
 
 	Func getCompressedDomainTranscode
-		return dnRequest("get",[new DotNetObject(nHandle),"CompressedDomainTranscode"])
+		return dnRequest("get",[self,"CompressedDomainTranscode"])
 
 	Func setCompressedDomainTranscode P1
-		dnRequest("set",[new DotNetObject(nHandle),"CompressedDomainTranscode",P1])
+		dnRequest("set",[self,"CompressedDomainTranscode",P1])
 		return self
 
 	Func getImageDataDiscardLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageDataDiscardLevel"])
+		return dnRequest("get",[self,"ImageDataDiscardLevel"])
 
 	Func setImageDataDiscardLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageDataDiscardLevel",P1])
+		dnRequest("set",[self,"ImageDataDiscardLevel",P1])
 		return self
 
 	Func getAlphaDataDiscardLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"AlphaDataDiscardLevel"])
+		return dnRequest("get",[self,"AlphaDataDiscardLevel"])
 
 	Func setAlphaDataDiscardLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"AlphaDataDiscardLevel",P1])
+		dnRequest("set",[self,"AlphaDataDiscardLevel",P1])
 		return self
 
 	Func getIgnoreOverlap
-		return dnRequest("get",[new DotNetObject(nHandle),"IgnoreOverlap"])
+		return dnRequest("get",[self,"IgnoreOverlap"])
 
 	Func setIgnoreOverlap P1
-		dnRequest("set",[new DotNetObject(nHandle),"IgnoreOverlap",P1])
+		dnRequest("set",[self,"IgnoreOverlap",P1])
 		return self
 

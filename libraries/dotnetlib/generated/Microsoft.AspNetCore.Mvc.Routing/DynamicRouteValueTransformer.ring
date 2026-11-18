@@ -25,9 +25,9 @@ Class DynamicRouteValueTransformer from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
-		dnRequest("set",[new DotNetObject(nHandle),"State",P1])
+		dnRequest("set",[self,"State",P1])
 		return self
 

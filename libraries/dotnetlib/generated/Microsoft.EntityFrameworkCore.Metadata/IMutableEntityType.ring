@@ -237,16 +237,16 @@ Class IMutableEntityType from DotNetObject
 		return self
 
 	Func getBaseType
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseType"])
+		return dnRequest("get",[self,"BaseType"])
 
 	Func setBaseType P1
-		dnRequest("set",[new DotNetObject(nHandle),"BaseType",P1])
+		dnRequest("set",[self,"BaseType",P1])
 		return self
 
 	Func getIsKeyless
-		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyless"])
+		return dnRequest("get",[self,"IsKeyless"])
 
 	Func setIsKeyless P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsKeyless",P1])
+		dnRequest("set",[self,"IsKeyless",P1])
 		return self
 

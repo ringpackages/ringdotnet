@@ -40,15 +40,15 @@ Class CorrelationManager from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLogicalOperationStack
-		return dnRequest("get",[new DotNetObject(nHandle),"LogicalOperationStack"])
+		return dnRequest("get",[self,"LogicalOperationStack"])
 
 	Func setLogicalOperationStack P1
 		raise("DotNet Error: LogicalOperationStack is a read-only property")
 
 	Func getActivityId
-		return dnRequest("get",[new DotNetObject(nHandle),"ActivityId"])
+		return dnRequest("get",[self,"ActivityId"])
 
 	Func setActivityId P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActivityId",P1])
+		dnRequest("set",[self,"ActivityId",P1])
 		return self
 

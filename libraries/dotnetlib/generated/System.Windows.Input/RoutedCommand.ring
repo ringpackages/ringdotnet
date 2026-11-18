@@ -45,19 +45,19 @@ Class RoutedCommand from Object
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getOwnerType
-		return dnRequest("get",[new DotNetObject(nHandle),"OwnerType"])
+		return dnRequest("get",[self,"OwnerType"])
 
 	Func setOwnerType P1
 		raise("DotNet Error: OwnerType is a read-only property")
 
 	Func getInputGestures
-		return dnRequest("get",[new DotNetObject(nHandle),"InputGestures"])
+		return dnRequest("get",[self,"InputGestures"])
 
 	Func setInputGestures P1
 		raise("DotNet Error: InputGestures is a read-only property")

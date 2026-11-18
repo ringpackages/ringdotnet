@@ -17,15 +17,15 @@ Class DataGridViewRowErrorTextNeededEventArgs from EventArgs
 		return self
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getErrorText
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorText"])
+		return dnRequest("get",[self,"ErrorText"])
 
 	Func setErrorText P1
-		dnRequest("set",[new DotNetObject(nHandle),"ErrorText",P1])
+		dnRequest("set",[self,"ErrorText",P1])
 		return self
 

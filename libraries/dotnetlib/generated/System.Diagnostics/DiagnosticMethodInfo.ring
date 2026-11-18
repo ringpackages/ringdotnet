@@ -24,19 +24,19 @@ Class DiagnosticMethodInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.DiagnosticMethodInfo, System.Private.CoreLib'),"Create",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDeclaringTypeName
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringTypeName"])
+		return dnRequest("get",[self,"DeclaringTypeName"])
 
 	Func setDeclaringTypeName P1
 		raise("DotNet Error: DeclaringTypeName is a read-only property")
 
 	Func getDeclaringAssemblyName
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringAssemblyName"])
+		return dnRequest("get",[self,"DeclaringAssemblyName"])
 
 	Func setDeclaringAssemblyName P1
 		raise("DotNet Error: DeclaringAssemblyName is a read-only property")

@@ -126,154 +126,154 @@ Class MonthCalendar from Control
 		return self
 
 	Func getAnnuallyBoldedDates
-		return dnRequest("get",[new DotNetObject(nHandle),"AnnuallyBoldedDates"])
+		return dnRequest("get",[self,"AnnuallyBoldedDates"])
 
 	Func setAnnuallyBoldedDates P1
-		dnRequest("set",[new DotNetObject(nHandle),"AnnuallyBoldedDates",P1])
+		dnRequest("set",[self,"AnnuallyBoldedDates",P1])
 		return self
 
 	Func getBoldedDates
-		return dnRequest("get",[new DotNetObject(nHandle),"BoldedDates"])
+		return dnRequest("get",[self,"BoldedDates"])
 
 	Func setBoldedDates P1
-		dnRequest("set",[new DotNetObject(nHandle),"BoldedDates",P1])
+		dnRequest("set",[self,"BoldedDates",P1])
 		return self
 
 	Func getCalendarDimensions
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarDimensions"])
+		return dnRequest("get",[self,"CalendarDimensions"])
 
 	Func setCalendarDimensions P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarDimensions",P1])
+		dnRequest("set",[self,"CalendarDimensions",P1])
 		return self
 
 	Func getFirstDayOfWeek
-		return dnRequest("get",[new DotNetObject(nHandle),"FirstDayOfWeek"])
+		return dnRequest("get",[self,"FirstDayOfWeek"])
 
 	Func setFirstDayOfWeek P1
-		dnRequest("set",[new DotNetObject(nHandle),"FirstDayOfWeek",P1])
+		dnRequest("set",[self,"FirstDayOfWeek",P1])
 		return self
 
 	Func getMaxDate
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxDate"])
+		return dnRequest("get",[self,"MaxDate"])
 
 	Func setMaxDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxDate",P1])
+		dnRequest("set",[self,"MaxDate",P1])
 		return self
 
 	Func getMaxSelectionCount
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxSelectionCount"])
+		return dnRequest("get",[self,"MaxSelectionCount"])
 
 	Func setMaxSelectionCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxSelectionCount",P1])
+		dnRequest("set",[self,"MaxSelectionCount",P1])
 		return self
 
 	Func getMinDate
-		return dnRequest("get",[new DotNetObject(nHandle),"MinDate"])
+		return dnRequest("get",[self,"MinDate"])
 
 	Func setMinDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinDate",P1])
+		dnRequest("set",[self,"MinDate",P1])
 		return self
 
 	Func getMonthlyBoldedDates
-		return dnRequest("get",[new DotNetObject(nHandle),"MonthlyBoldedDates"])
+		return dnRequest("get",[self,"MonthlyBoldedDates"])
 
 	Func setMonthlyBoldedDates P1
-		dnRequest("set",[new DotNetObject(nHandle),"MonthlyBoldedDates",P1])
+		dnRequest("set",[self,"MonthlyBoldedDates",P1])
 		return self
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
+		return dnRequest("get",[self,"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
+		dnRequest("set",[self,"RightToLeftLayout",P1])
 		return self
 
 	Func getScrollChange
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollChange"])
+		return dnRequest("get",[self,"ScrollChange"])
 
 	Func setScrollChange P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScrollChange",P1])
+		dnRequest("set",[self,"ScrollChange",P1])
 		return self
 
 	Func getSelectionEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionEnd"])
+		return dnRequest("get",[self,"SelectionEnd"])
 
 	Func setSelectionEnd P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionEnd",P1])
+		dnRequest("set",[self,"SelectionEnd",P1])
 		return self
 
 	Func getSelectionStart
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionStart"])
+		return dnRequest("get",[self,"SelectionStart"])
 
 	Func setSelectionStart P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionStart",P1])
+		dnRequest("set",[self,"SelectionStart",P1])
 		return self
 
 	Func getSelectionRange
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionRange"])
+		return dnRequest("get",[self,"SelectionRange"])
 
 	Func setSelectionRange P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionRange",P1])
+		dnRequest("set",[self,"SelectionRange",P1])
 		return self
 
 	Func getShowToday
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowToday"])
+		return dnRequest("get",[self,"ShowToday"])
 
 	Func setShowToday P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowToday",P1])
+		dnRequest("set",[self,"ShowToday",P1])
 		return self
 
 	Func getShowTodayCircle
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowTodayCircle"])
+		return dnRequest("get",[self,"ShowTodayCircle"])
 
 	Func setShowTodayCircle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowTodayCircle",P1])
+		dnRequest("set",[self,"ShowTodayCircle",P1])
 		return self
 
 	Func getShowWeekNumbers
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowWeekNumbers"])
+		return dnRequest("get",[self,"ShowWeekNumbers"])
 
 	Func setShowWeekNumbers P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowWeekNumbers",P1])
+		dnRequest("set",[self,"ShowWeekNumbers",P1])
 		return self
 
 	Func getSingleMonthSize
-		return dnRequest("get",[new DotNetObject(nHandle),"SingleMonthSize"])
+		return dnRequest("get",[self,"SingleMonthSize"])
 
 	Func setSingleMonthSize P1
 		raise("DotNet Error: SingleMonthSize is a read-only property")
 
 	Func getTodayDate
-		return dnRequest("get",[new DotNetObject(nHandle),"TodayDate"])
+		return dnRequest("get",[self,"TodayDate"])
 
 	Func setTodayDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"TodayDate",P1])
+		dnRequest("set",[self,"TodayDate",P1])
 		return self
 
 	Func getTodayDateSet
-		return dnRequest("get",[new DotNetObject(nHandle),"TodayDateSet"])
+		return dnRequest("get",[self,"TodayDateSet"])
 
 	Func setTodayDateSet P1
 		raise("DotNet Error: TodayDateSet is a read-only property")
 
 	Func getTitleBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"TitleBackColor"])
+		return dnRequest("get",[self,"TitleBackColor"])
 
 	Func setTitleBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"TitleBackColor",P1])
+		dnRequest("set",[self,"TitleBackColor",P1])
 		return self
 
 	Func getTitleForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"TitleForeColor"])
+		return dnRequest("get",[self,"TitleForeColor"])
 
 	Func setTitleForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"TitleForeColor",P1])
+		dnRequest("set",[self,"TitleForeColor",P1])
 		return self
 
 	Func getTrailingForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"TrailingForeColor"])
+		return dnRequest("get",[self,"TrailingForeColor"])
 
 	Func setTrailingForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"TrailingForeColor",P1])
+		dnRequest("set",[self,"TrailingForeColor",P1])
 		return self
 

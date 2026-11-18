@@ -3,15 +3,12 @@
 Func DotNetNew_StructuralTypeProjectionExpression
 	oDotNetNew = new StructuralTypeProjectionExpression(0,0,0)
 
-Class StructuralTypeProjectionExpression from DotNetObject
+Class StructuralTypeProjectionExpression from ExpressionsExpression
 
 	StructuralType
 	TableMap
 	IsNullable
 	DiscriminatorExpression
-	NodeType
-	Type
-	CanReduce
 
 	Func init P1,P2,P3
 		if nDotNetWrapHandle != 0
@@ -56,66 +53,27 @@ Class StructuralTypeProjectionExpression from DotNetObject
 	Func BindNavigation P1
 		return dnRequest("call",[new DotNetObject(nHandle),"BindNavigation",P1])
 
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func Reduce 
-		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
-
-	Func ReduceAndCheck 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
-
-	Func ReduceExtensions 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
 	Func getStructuralType
-		return dnRequest("get",[new DotNetObject(nHandle),"StructuralType"])
+		return dnRequest("get",[self,"StructuralType"])
 
 	Func setStructuralType P1
 		raise("DotNet Error: StructuralType is a read-only property")
 
 	Func getTableMap
-		return dnRequest("get",[new DotNetObject(nHandle),"TableMap"])
+		return dnRequest("get",[self,"TableMap"])
 
 	Func setTableMap P1
 		raise("DotNet Error: TableMap is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getDiscriminatorExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"DiscriminatorExpression"])
+		return dnRequest("get",[self,"DiscriminatorExpression"])
 
 	Func setDiscriminatorExpression P1
 		raise("DotNet Error: DiscriminatorExpression is a read-only property")
-
-	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
-
-	Func setNodeType P1
-		raise("DotNet Error: NodeType is a read-only property")
-
-	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
-
-	Func setType P1
-		raise("DotNet Error: Type is a read-only property")
-
-	Func getCanReduce
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
-
-	Func setCanReduce P1
-		raise("DotNet Error: CanReduce is a read-only property")
 

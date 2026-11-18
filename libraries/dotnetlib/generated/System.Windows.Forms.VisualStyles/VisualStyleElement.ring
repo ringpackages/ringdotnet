@@ -24,19 +24,19 @@ Class VisualStyleElement from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms'),"CreateElement",P1,P2,P3])
 
 	Func getClassName
-		return dnRequest("get",[new DotNetObject(nHandle),"ClassName"])
+		return dnRequest("get",[self,"ClassName"])
 
 	Func setClassName P1
 		raise("DotNet Error: ClassName is a read-only property")
 
 	Func getPart
-		return dnRequest("get",[new DotNetObject(nHandle),"Part"])
+		return dnRequest("get",[self,"Part"])
 
 	Func setPart P1
 		raise("DotNet Error: Part is a read-only property")
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")

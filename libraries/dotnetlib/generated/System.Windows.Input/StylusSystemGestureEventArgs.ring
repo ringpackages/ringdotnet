@@ -17,7 +17,7 @@ Class StylusSystemGestureEventArgs from StylusEventArgs
 		return self
 
 	Func getSystemGesture
-		return dnRequest("get",[new DotNetObject(nHandle),"SystemGesture"])
+		return dnRequest("get",[self,"SystemGesture"])
 
 	Func setSystemGesture P1
 		raise("DotNet Error: SystemGesture is a read-only property")

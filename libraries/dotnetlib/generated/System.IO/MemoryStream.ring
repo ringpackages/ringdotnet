@@ -50,9 +50,9 @@ Class MemoryStream from Stream
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
+		return dnRequest("get",[self,"Capacity"])
 
 	Func setCapacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"Capacity",P1])
+		dnRequest("set",[self,"Capacity",P1])
 		return self
 

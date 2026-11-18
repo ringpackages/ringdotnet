@@ -57,32 +57,32 @@ Class DispatcherOperation from Object
 		return self
 
 	Func getDispatcher
-		return dnRequest("get",[new DotNetObject(nHandle),"Dispatcher"])
+		return dnRequest("get",[self,"Dispatcher"])
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getPriority
-		return dnRequest("get",[new DotNetObject(nHandle),"Priority"])
+		return dnRequest("get",[self,"Priority"])
 
 	Func setPriority P1
-		dnRequest("set",[new DotNetObject(nHandle),"Priority",P1])
+		dnRequest("set",[self,"Priority",P1])
 		return self
 
 	Func getStatus
-		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
+		return dnRequest("get",[self,"Status"])
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getTask
-		return dnRequest("get",[new DotNetObject(nHandle),"Task"])
+		return dnRequest("get",[self,"Task"])
 
 	Func setTask P1
 		raise("DotNet Error: Task is a read-only property")
 
 	Func getResult
-		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
+		return dnRequest("get",[self,"Result"])
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")

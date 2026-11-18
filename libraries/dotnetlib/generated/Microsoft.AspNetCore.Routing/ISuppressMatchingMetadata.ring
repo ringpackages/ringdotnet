@@ -16,7 +16,7 @@ Class ISuppressMatchingMetadata from DotNetObject
 		return self
 
 	Func getSuppressMatching
-		return dnRequest("get",[new DotNetObject(nHandle),"SuppressMatching"])
+		return dnRequest("get",[self,"SuppressMatching"])
 
 	Func setSuppressMatching P1
 		raise("DotNet Error: SuppressMatching is a read-only property")

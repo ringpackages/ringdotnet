@@ -151,43 +151,43 @@ Class PipeSecurity from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getAccessRightType
-		return dnRequest("get",[new DotNetObject(nHandle),"AccessRightType"])
+		return dnRequest("get",[self,"AccessRightType"])
 
 	Func setAccessRightType P1
 		raise("DotNet Error: AccessRightType is a read-only property")
 
 	Func getAccessRuleType
-		return dnRequest("get",[new DotNetObject(nHandle),"AccessRuleType"])
+		return dnRequest("get",[self,"AccessRuleType"])
 
 	Func setAccessRuleType P1
 		raise("DotNet Error: AccessRuleType is a read-only property")
 
 	Func getAuditRuleType
-		return dnRequest("get",[new DotNetObject(nHandle),"AuditRuleType"])
+		return dnRequest("get",[self,"AuditRuleType"])
 
 	Func setAuditRuleType P1
 		raise("DotNet Error: AuditRuleType is a read-only property")
 
 	Func getAreAccessRulesProtected
-		return dnRequest("get",[new DotNetObject(nHandle),"AreAccessRulesProtected"])
+		return dnRequest("get",[self,"AreAccessRulesProtected"])
 
 	Func setAreAccessRulesProtected P1
 		raise("DotNet Error: AreAccessRulesProtected is a read-only property")
 
 	Func getAreAuditRulesProtected
-		return dnRequest("get",[new DotNetObject(nHandle),"AreAuditRulesProtected"])
+		return dnRequest("get",[self,"AreAuditRulesProtected"])
 
 	Func setAreAuditRulesProtected P1
 		raise("DotNet Error: AreAuditRulesProtected is a read-only property")
 
 	Func getAreAccessRulesCanonical
-		return dnRequest("get",[new DotNetObject(nHandle),"AreAccessRulesCanonical"])
+		return dnRequest("get",[self,"AreAccessRulesCanonical"])
 
 	Func setAreAccessRulesCanonical P1
 		raise("DotNet Error: AreAccessRulesCanonical is a read-only property")
 
 	Func getAreAuditRulesCanonical
-		return dnRequest("get",[new DotNetObject(nHandle),"AreAuditRulesCanonical"])
+		return dnRequest("get",[self,"AreAuditRulesCanonical"])
 
 	Func setAreAuditRulesCanonical P1
 		raise("DotNet Error: AreAuditRulesCanonical is a read-only property")

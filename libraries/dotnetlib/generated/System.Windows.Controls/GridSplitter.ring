@@ -28,45 +28,45 @@ Class GridSplitter from Thumb
 		return self
 
 	Func getResizeDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"ResizeDirection"])
+		return dnRequest("get",[self,"ResizeDirection"])
 
 	Func setResizeDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"ResizeDirection",P1])
+		dnRequest("set",[self,"ResizeDirection",P1])
 		return self
 
 	Func getResizeBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"ResizeBehavior"])
+		return dnRequest("get",[self,"ResizeBehavior"])
 
 	Func setResizeBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"ResizeBehavior",P1])
+		dnRequest("set",[self,"ResizeBehavior",P1])
 		return self
 
 	Func getShowsPreview
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowsPreview"])
+		return dnRequest("get",[self,"ShowsPreview"])
 
 	Func setShowsPreview P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowsPreview",P1])
+		dnRequest("set",[self,"ShowsPreview",P1])
 		return self
 
 	Func getPreviewStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"PreviewStyle"])
+		return dnRequest("get",[self,"PreviewStyle"])
 
 	Func setPreviewStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreviewStyle",P1])
+		dnRequest("set",[self,"PreviewStyle",P1])
 		return self
 
 	Func getKeyboardIncrement
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyboardIncrement"])
+		return dnRequest("get",[self,"KeyboardIncrement"])
 
 	Func setKeyboardIncrement P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeyboardIncrement",P1])
+		dnRequest("set",[self,"KeyboardIncrement",P1])
 		return self
 
 	Func getDragIncrement
-		return dnRequest("get",[new DotNetObject(nHandle),"DragIncrement"])
+		return dnRequest("get",[self,"DragIncrement"])
 
 	Func setDragIncrement P1
-		dnRequest("set",[new DotNetObject(nHandle),"DragIncrement",P1])
+		dnRequest("set",[self,"DragIncrement",P1])
 		return self
 
 	Func getResizeDirectionProperty

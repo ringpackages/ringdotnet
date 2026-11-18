@@ -56,25 +56,25 @@ Class RelationalDataReader from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRelationalConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"RelationalConnection"])
+		return dnRequest("get",[self,"RelationalConnection"])
 
 	Func setRelationalConnection P1
 		raise("DotNet Error: RelationalConnection is a read-only property")
 
 	Func getDbDataReader
-		return dnRequest("get",[new DotNetObject(nHandle),"DbDataReader"])
+		return dnRequest("get",[self,"DbDataReader"])
 
 	Func setDbDataReader P1
 		raise("DotNet Error: DbDataReader is a read-only property")
 
 	Func getDbCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"DbCommand"])
+		return dnRequest("get",[self,"DbCommand"])
 
 	Func setDbCommand P1
 		raise("DotNet Error: DbCommand is a read-only property")
 
 	Func getCommandId
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandId"])
+		return dnRequest("get",[self,"CommandId"])
 
 	Func setCommandId P1
 		raise("DotNet Error: CommandId is a read-only property")

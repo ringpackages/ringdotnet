@@ -27,7 +27,7 @@ Class HttpMethod from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"Method"])
+		return dnRequest("get",[self,"Method"])
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")

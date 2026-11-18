@@ -68,96 +68,96 @@ Class DataGridRow from WpfControl
 		return self
 
 	Func getItem
-		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
+		return dnRequest("get",[self,"Item"])
 
 	Func setItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"Item",P1])
+		dnRequest("set",[self,"Item",P1])
 		return self
 
 	Func getItemsPanel
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemsPanel"])
+		return dnRequest("get",[self,"ItemsPanel"])
 
 	Func setItemsPanel P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemsPanel",P1])
+		dnRequest("set",[self,"ItemsPanel",P1])
 		return self
 
 	Func getHeader
-		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
+		return dnRequest("get",[self,"Header"])
 
 	Func setHeader P1
-		dnRequest("set",[new DotNetObject(nHandle),"Header",P1])
+		dnRequest("set",[self,"Header",P1])
 		return self
 
 	Func getHeaderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderStyle"])
+		return dnRequest("get",[self,"HeaderStyle"])
 
 	Func setHeaderStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderStyle",P1])
+		dnRequest("set",[self,"HeaderStyle",P1])
 		return self
 
 	Func getHeaderTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplate"])
+		return dnRequest("get",[self,"HeaderTemplate"])
 
 	Func setHeaderTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplate",P1])
+		dnRequest("set",[self,"HeaderTemplate",P1])
 		return self
 
 	Func getHeaderTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplateSelector"])
+		return dnRequest("get",[self,"HeaderTemplateSelector"])
 
 	Func setHeaderTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplateSelector",P1])
+		dnRequest("set",[self,"HeaderTemplateSelector",P1])
 		return self
 
 	Func getValidationErrorTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidationErrorTemplate"])
+		return dnRequest("get",[self,"ValidationErrorTemplate"])
 
 	Func setValidationErrorTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidationErrorTemplate",P1])
+		dnRequest("set",[self,"ValidationErrorTemplate",P1])
 		return self
 
 	Func getDetailsTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"DetailsTemplate"])
+		return dnRequest("get",[self,"DetailsTemplate"])
 
 	Func setDetailsTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"DetailsTemplate",P1])
+		dnRequest("set",[self,"DetailsTemplate",P1])
 		return self
 
 	Func getDetailsTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"DetailsTemplateSelector"])
+		return dnRequest("get",[self,"DetailsTemplateSelector"])
 
 	Func setDetailsTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"DetailsTemplateSelector",P1])
+		dnRequest("set",[self,"DetailsTemplateSelector",P1])
 		return self
 
 	Func getDetailsVisibility
-		return dnRequest("get",[new DotNetObject(nHandle),"DetailsVisibility"])
+		return dnRequest("get",[self,"DetailsVisibility"])
 
 	Func setDetailsVisibility P1
-		dnRequest("set",[new DotNetObject(nHandle),"DetailsVisibility",P1])
+		dnRequest("set",[self,"DetailsVisibility",P1])
 		return self
 
 	Func getAlternationIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"AlternationIndex"])
+		return dnRequest("get",[self,"AlternationIndex"])
 
 	Func setAlternationIndex P1
 		raise("DotNet Error: AlternationIndex is a read-only property")
 
 	Func getIsSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
+		return dnRequest("get",[self,"IsSelected"])
 
 	Func setIsSelected P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSelected",P1])
+		dnRequest("set",[self,"IsSelected",P1])
 		return self
 
 	Func getIsEditing
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEditing"])
+		return dnRequest("get",[self,"IsEditing"])
 
 	Func setIsEditing P1
 		raise("DotNet Error: IsEditing is a read-only property")
 
 	Func getIsNewItem
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNewItem"])
+		return dnRequest("get",[self,"IsNewItem"])
 
 	Func setIsNewItem P1
 		raise("DotNet Error: IsNewItem is a read-only property")

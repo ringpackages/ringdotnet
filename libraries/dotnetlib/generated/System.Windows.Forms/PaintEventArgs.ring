@@ -22,13 +22,13 @@ Class PaintEventArgs from EventArgs
 		return self
 
 	Func getClipRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"ClipRectangle"])
+		return dnRequest("get",[self,"ClipRectangle"])
 
 	Func setClipRectangle P1
 		raise("DotNet Error: ClipRectangle is a read-only property")
 
 	Func getGraphics
-		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
+		return dnRequest("get",[self,"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")

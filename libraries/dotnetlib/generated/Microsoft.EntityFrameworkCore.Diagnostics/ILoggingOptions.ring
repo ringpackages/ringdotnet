@@ -22,26 +22,26 @@ Class ILoggingOptions from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldWarnForStringEnumValueInJson",P1])
 
 	Func getIsSensitiveDataLoggingEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSensitiveDataLoggingEnabled"])
+		return dnRequest("get",[self,"IsSensitiveDataLoggingEnabled"])
 
 	Func setIsSensitiveDataLoggingEnabled P1
 		raise("DotNet Error: IsSensitiveDataLoggingEnabled is a read-only property")
 
 	Func getIsSensitiveDataLoggingWarned
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSensitiveDataLoggingWarned"])
+		return dnRequest("get",[self,"IsSensitiveDataLoggingWarned"])
 
 	Func setIsSensitiveDataLoggingWarned P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSensitiveDataLoggingWarned",P1])
+		dnRequest("set",[self,"IsSensitiveDataLoggingWarned",P1])
 		return self
 
 	Func getDetailedErrorsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"DetailedErrorsEnabled"])
+		return dnRequest("get",[self,"DetailedErrorsEnabled"])
 
 	Func setDetailedErrorsEnabled P1
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
 
 	Func getWarningsConfiguration
-		return dnRequest("get",[new DotNetObject(nHandle),"WarningsConfiguration"])
+		return dnRequest("get",[self,"WarningsConfiguration"])
 
 	Func setWarningsConfiguration P1
 		raise("DotNet Error: WarningsConfiguration is a read-only property")

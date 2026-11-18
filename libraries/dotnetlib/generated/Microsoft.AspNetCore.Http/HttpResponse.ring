@@ -86,59 +86,59 @@ Class HttpResponse from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
+		return dnRequest("get",[self,"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getStatusCode
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusCode"])
+		return dnRequest("get",[self,"StatusCode"])
 
 	Func setStatusCode P1
-		dnRequest("set",[new DotNetObject(nHandle),"StatusCode",P1])
+		dnRequest("set",[self,"StatusCode",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
+		return dnRequest("get",[self,"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getBody
-		return dnRequest("get",[new DotNetObject(nHandle),"Body"])
+		return dnRequest("get",[self,"Body"])
 
 	Func setBody P1
-		dnRequest("set",[new DotNetObject(nHandle),"Body",P1])
+		dnRequest("set",[self,"Body",P1])
 		return self
 
 	Func getBodyWriter
-		return dnRequest("get",[new DotNetObject(nHandle),"BodyWriter"])
+		return dnRequest("get",[self,"BodyWriter"])
 
 	Func setBodyWriter P1
 		raise("DotNet Error: BodyWriter is a read-only property")
 
 	Func getContentLength
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength"])
+		return dnRequest("get",[self,"ContentLength"])
 
 	Func setContentLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentLength",P1])
+		dnRequest("set",[self,"ContentLength",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
+		return dnRequest("get",[self,"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
+		dnRequest("set",[self,"ContentType",P1])
 		return self
 
 	Func getCookies
-		return dnRequest("get",[new DotNetObject(nHandle),"Cookies"])
+		return dnRequest("get",[self,"Cookies"])
 
 	Func setCookies P1
 		raise("DotNet Error: Cookies is a read-only property")
 
 	Func getHasStarted
-		return dnRequest("get",[new DotNetObject(nHandle),"HasStarted"])
+		return dnRequest("get",[self,"HasStarted"])
 
 	Func setHasStarted P1
 		raise("DotNet Error: HasStarted is a read-only property")

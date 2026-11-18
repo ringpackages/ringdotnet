@@ -116,31 +116,31 @@ Class IReadOnlyProperty from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
+		return dnRequest("get",[self,"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getValueGenerated
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueGenerated"])
+		return dnRequest("get",[self,"ValueGenerated"])
 
 	Func setValueGenerated P1
 		raise("DotNet Error: ValueGenerated is a read-only property")
 
 	Func getIsConcurrencyToken
-		return dnRequest("get",[new DotNetObject(nHandle),"IsConcurrencyToken"])
+		return dnRequest("get",[self,"IsConcurrencyToken"])
 
 	Func setIsConcurrencyToken P1
 		raise("DotNet Error: IsConcurrencyToken is a read-only property")
 
 	Func getIsPrimitiveCollection
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPrimitiveCollection"])
+		return dnRequest("get",[self,"IsPrimitiveCollection"])
 
 	Func setIsPrimitiveCollection P1
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")

@@ -17,9 +17,9 @@ Class PngBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getInterlace
-		return dnRequest("get",[new DotNetObject(nHandle),"Interlace"])
+		return dnRequest("get",[self,"Interlace"])
 
 	Func setInterlace P1
-		dnRequest("set",[new DotNetObject(nHandle),"Interlace",P1])
+		dnRequest("set",[self,"Interlace",P1])
 		return self
 

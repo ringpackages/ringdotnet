@@ -3,7 +3,7 @@
 Func DotNetNew_QueryableMethodTranslatingExpressionVisitor
 	oDotNetNew = new QueryableMethodTranslatingExpressionVisitor()
 
-Class QueryableMethodTranslatingExpressionVisitor from DotNetObject
+Class QueryableMethodTranslatingExpressionVisitor from ExpressionVisitor
 
 	TranslationErrorDetails
 
@@ -24,23 +24,8 @@ Class QueryableMethodTranslatingExpressionVisitor from DotNetObject
 	Func Visit P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
 
-	Func VisitAndConvert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
-
-	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
 	Func getTranslationErrorDetails
-		return dnRequest("get",[new DotNetObject(nHandle),"TranslationErrorDetails"])
+		return dnRequest("get",[self,"TranslationErrorDetails"])
 
 	Func setTranslationErrorDetails P1
 		raise("DotNet Error: TranslationErrorDetails is a read-only property")

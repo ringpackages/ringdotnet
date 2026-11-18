@@ -32,17 +32,17 @@ Class PixelShader from Animatable
 		return self
 
 	Func getUriSource
-		return dnRequest("get",[new DotNetObject(nHandle),"UriSource"])
+		return dnRequest("get",[self,"UriSource"])
 
 	Func setUriSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"UriSource",P1])
+		dnRequest("set",[self,"UriSource",P1])
 		return self
 
 	Func getShaderRenderMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ShaderRenderMode"])
+		return dnRequest("get",[self,"ShaderRenderMode"])
 
 	Func setShaderRenderMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShaderRenderMode",P1])
+		dnRequest("set",[self,"ShaderRenderMode",P1])
 		return self
 
 	Func getUriSourceProperty

@@ -22,7 +22,7 @@ Class ILiftableConstantProcessor from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"LiftConstants",P1,P2,P3])
 
 	Func getLiftedConstants
-		return dnRequest("get",[new DotNetObject(nHandle),"LiftedConstants"])
+		return dnRequest("get",[self,"LiftedConstants"])
 
 	Func setLiftedConstants P1
 		raise("DotNet Error: LiftedConstants is a read-only property")

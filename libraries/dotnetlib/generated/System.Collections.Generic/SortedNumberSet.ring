@@ -121,25 +121,25 @@ Class SortedNumberSet from Object
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
+		return dnRequest("get",[self,"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getMin
-		return dnRequest("get",[new DotNetObject(nHandle),"Min"])
+		return dnRequest("get",[self,"Min"])
 
 	Func setMin P1
 		raise("DotNet Error: Min is a read-only property")
 
 	Func getMax
-		return dnRequest("get",[new DotNetObject(nHandle),"Max"])
+		return dnRequest("get",[self,"Max"])
 
 	Func setMax P1
 		raise("DotNet Error: Max is a read-only property")

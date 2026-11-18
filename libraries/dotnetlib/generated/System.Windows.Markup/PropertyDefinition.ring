@@ -22,21 +22,21 @@ Class PropertyDefinition from MemberDefinition
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
-		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
+		dnRequest("set",[self,"Type",P1])
 		return self
 
 	Func getModifier
-		return dnRequest("get",[new DotNetObject(nHandle),"Modifier"])
+		return dnRequest("get",[self,"Modifier"])
 
 	Func setModifier P1
-		dnRequest("set",[new DotNetObject(nHandle),"Modifier",P1])
+		dnRequest("set",[self,"Modifier",P1])
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")

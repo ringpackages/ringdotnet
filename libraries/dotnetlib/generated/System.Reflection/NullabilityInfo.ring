@@ -26,31 +26,31 @@ Class NullabilityInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getReadState
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadState"])
+		return dnRequest("get",[self,"ReadState"])
 
 	Func setReadState P1
 		raise("DotNet Error: ReadState is a read-only property")
 
 	Func getWriteState
-		return dnRequest("get",[new DotNetObject(nHandle),"WriteState"])
+		return dnRequest("get",[self,"WriteState"])
 
 	Func setWriteState P1
 		raise("DotNet Error: WriteState is a read-only property")
 
 	Func getElementType
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementType"])
+		return dnRequest("get",[self,"ElementType"])
 
 	Func setElementType P1
 		raise("DotNet Error: ElementType is a read-only property")
 
 	Func getGenericTypeArguments
-		return dnRequest("get",[new DotNetObject(nHandle),"GenericTypeArguments"])
+		return dnRequest("get",[self,"GenericTypeArguments"])
 
 	Func setGenericTypeArguments P1
 		raise("DotNet Error: GenericTypeArguments is a read-only property")

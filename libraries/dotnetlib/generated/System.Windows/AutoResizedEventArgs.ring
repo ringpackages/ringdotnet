@@ -17,7 +17,7 @@ Class AutoResizedEventArgs from EventArgs
 		return self
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")

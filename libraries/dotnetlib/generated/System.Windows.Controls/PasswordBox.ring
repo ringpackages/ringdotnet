@@ -55,71 +55,71 @@ Class PasswordBox from WpfControl
 		return self
 
 	Func getPassword
-		return dnRequest("get",[new DotNetObject(nHandle),"Password"])
+		return dnRequest("get",[self,"Password"])
 
 	Func setPassword P1
-		dnRequest("set",[new DotNetObject(nHandle),"Password",P1])
+		dnRequest("set",[self,"Password",P1])
 		return self
 
 	Func getSecurePassword
-		return dnRequest("get",[new DotNetObject(nHandle),"SecurePassword"])
+		return dnRequest("get",[self,"SecurePassword"])
 
 	Func setSecurePassword P1
 		raise("DotNet Error: SecurePassword is a read-only property")
 
 	Func getPasswordChar
-		return dnRequest("get",[new DotNetObject(nHandle),"PasswordChar"])
+		return dnRequest("get",[self,"PasswordChar"])
 
 	Func setPasswordChar P1
-		dnRequest("set",[new DotNetObject(nHandle),"PasswordChar",P1])
+		dnRequest("set",[self,"PasswordChar",P1])
 		return self
 
 	Func getMaxLength
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxLength"])
+		return dnRequest("get",[self,"MaxLength"])
 
 	Func setMaxLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxLength",P1])
+		dnRequest("set",[self,"MaxLength",P1])
 		return self
 
 	Func getSelectionBrush
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionBrush"])
+		return dnRequest("get",[self,"SelectionBrush"])
 
 	Func setSelectionBrush P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionBrush",P1])
+		dnRequest("set",[self,"SelectionBrush",P1])
 		return self
 
 	Func getSelectionTextBrush
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionTextBrush"])
+		return dnRequest("get",[self,"SelectionTextBrush"])
 
 	Func setSelectionTextBrush P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionTextBrush",P1])
+		dnRequest("set",[self,"SelectionTextBrush",P1])
 		return self
 
 	Func getSelectionOpacity
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionOpacity"])
+		return dnRequest("get",[self,"SelectionOpacity"])
 
 	Func setSelectionOpacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionOpacity",P1])
+		dnRequest("set",[self,"SelectionOpacity",P1])
 		return self
 
 	Func getCaretBrush
-		return dnRequest("get",[new DotNetObject(nHandle),"CaretBrush"])
+		return dnRequest("get",[self,"CaretBrush"])
 
 	Func setCaretBrush P1
-		dnRequest("set",[new DotNetObject(nHandle),"CaretBrush",P1])
+		dnRequest("set",[self,"CaretBrush",P1])
 		return self
 
 	Func getIsSelectionActive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelectionActive"])
+		return dnRequest("get",[self,"IsSelectionActive"])
 
 	Func setIsSelectionActive P1
 		raise("DotNet Error: IsSelectionActive is a read-only property")
 
 	Func getIsInactiveSelectionHighlightEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInactiveSelectionHighlightEnabled"])
+		return dnRequest("get",[self,"IsInactiveSelectionHighlightEnabled"])
 
 	Func setIsInactiveSelectionHighlightEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsInactiveSelectionHighlightEnabled",P1])
+		dnRequest("set",[self,"IsInactiveSelectionHighlightEnabled",P1])
 		return self
 
 	Func getPasswordCharProperty

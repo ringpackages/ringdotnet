@@ -38,17 +38,17 @@ Class Expander from HeaderedContentControl
 		return self
 
 	Func getExpandDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"ExpandDirection"])
+		return dnRequest("get",[self,"ExpandDirection"])
 
 	Func setExpandDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExpandDirection",P1])
+		dnRequest("set",[self,"ExpandDirection",P1])
 		return self
 
 	Func getIsExpanded
-		return dnRequest("get",[new DotNetObject(nHandle),"IsExpanded"])
+		return dnRequest("get",[self,"IsExpanded"])
 
 	Func setIsExpanded P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsExpanded",P1])
+		dnRequest("set",[self,"IsExpanded",P1])
 		return self
 
 	Func getExpandDirectionProperty

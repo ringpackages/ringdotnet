@@ -17,7 +17,7 @@ Class PrintEventArgs from CancelEventArgs
 		return self
 
 	Func getPrintAction
-		return dnRequest("get",[new DotNetObject(nHandle),"PrintAction"])
+		return dnRequest("get",[self,"PrintAction"])
 
 	Func setPrintAction P1
 		raise("DotNet Error: PrintAction is a read-only property")

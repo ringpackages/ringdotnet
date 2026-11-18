@@ -49,25 +49,25 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getModelName
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelName"])
+		return dnRequest("get",[self,"ModelName"])
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
+		return dnRequest("get",[self,"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getSql
-		return dnRequest("get",[new DotNetObject(nHandle),"Sql"])
+		return dnRequest("get",[self,"Sql"])
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")

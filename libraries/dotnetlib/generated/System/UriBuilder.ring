@@ -48,63 +48,63 @@ Class UriBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
+		return dnRequest("get",[self,"Scheme"])
 
 	Func setScheme P1
-		dnRequest("set",[new DotNetObject(nHandle),"Scheme",P1])
+		dnRequest("set",[self,"Scheme",P1])
 		return self
 
 	Func getUserName
-		return dnRequest("get",[new DotNetObject(nHandle),"UserName"])
+		return dnRequest("get",[self,"UserName"])
 
 	Func setUserName P1
-		dnRequest("set",[new DotNetObject(nHandle),"UserName",P1])
+		dnRequest("set",[self,"UserName",P1])
 		return self
 
 	Func getPassword
-		return dnRequest("get",[new DotNetObject(nHandle),"Password"])
+		return dnRequest("get",[self,"Password"])
 
 	Func setPassword P1
-		dnRequest("set",[new DotNetObject(nHandle),"Password",P1])
+		dnRequest("set",[self,"Password",P1])
 		return self
 
 	Func getHost
-		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
+		return dnRequest("get",[self,"Host"])
 
 	Func setHost P1
-		dnRequest("set",[new DotNetObject(nHandle),"Host",P1])
+		dnRequest("set",[self,"Host",P1])
 		return self
 
 	Func getPort
-		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
+		return dnRequest("get",[self,"Port"])
 
 	Func setPort P1
-		dnRequest("set",[new DotNetObject(nHandle),"Port",P1])
+		dnRequest("set",[self,"Port",P1])
 		return self
 
 	Func getPath
-		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
+		return dnRequest("get",[self,"Path"])
 
 	Func setPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
+		dnRequest("set",[self,"Path",P1])
 		return self
 
 	Func getQuery
-		return dnRequest("get",[new DotNetObject(nHandle),"Query"])
+		return dnRequest("get",[self,"Query"])
 
 	Func setQuery P1
-		dnRequest("set",[new DotNetObject(nHandle),"Query",P1])
+		dnRequest("set",[self,"Query",P1])
 		return self
 
 	Func getFragment
-		return dnRequest("get",[new DotNetObject(nHandle),"Fragment"])
+		return dnRequest("get",[self,"Fragment"])
 
 	Func setFragment P1
-		dnRequest("set",[new DotNetObject(nHandle),"Fragment",P1])
+		dnRequest("set",[self,"Fragment",P1])
 		return self
 
 	Func getUri
-		return dnRequest("get",[new DotNetObject(nHandle),"Uri"])
+		return dnRequest("get",[self,"Uri"])
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")

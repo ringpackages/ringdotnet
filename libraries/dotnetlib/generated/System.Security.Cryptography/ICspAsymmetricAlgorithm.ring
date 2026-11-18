@@ -23,7 +23,7 @@ Class ICspAsymmetricAlgorithm from DotNetObject
 		return self
 
 	Func getCspKeyContainerInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"CspKeyContainerInfo"])
+		return dnRequest("get",[self,"CspKeyContainerInfo"])
 
 	Func setCspKeyContainerInfo P1
 		raise("DotNet Error: CspKeyContainerInfo is a read-only property")

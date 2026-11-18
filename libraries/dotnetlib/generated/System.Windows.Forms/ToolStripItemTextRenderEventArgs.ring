@@ -22,44 +22,44 @@ Class ToolStripItemTextRenderEventArgs from ToolStripItemRenderEventArgs
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getTextColor
-		return dnRequest("get",[new DotNetObject(nHandle),"TextColor"])
+		return dnRequest("get",[self,"TextColor"])
 
 	Func setTextColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextColor",P1])
+		dnRequest("set",[self,"TextColor",P1])
 		return self
 
 	Func getTextFont
-		return dnRequest("get",[new DotNetObject(nHandle),"TextFont"])
+		return dnRequest("get",[self,"TextFont"])
 
 	Func setTextFont P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextFont",P1])
+		dnRequest("set",[self,"TextFont",P1])
 		return self
 
 	Func getTextRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"TextRectangle"])
+		return dnRequest("get",[self,"TextRectangle"])
 
 	Func setTextRectangle P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextRectangle",P1])
+		dnRequest("set",[self,"TextRectangle",P1])
 		return self
 
 	Func getTextFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"TextFormat"])
+		return dnRequest("get",[self,"TextFormat"])
 
 	Func setTextFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextFormat",P1])
+		dnRequest("set",[self,"TextFormat",P1])
 		return self
 
 	Func getTextDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"TextDirection"])
+		return dnRequest("get",[self,"TextDirection"])
 
 	Func setTextDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextDirection",P1])
+		dnRequest("set",[self,"TextDirection",P1])
 		return self
 

@@ -4,12 +4,25 @@ dnImport("System.ComponentModel")
 dnImport("System.Collections")
 dnImport("System.IO")
 dnImport("System.Collections.Specialized")
+dnRegisterClass("System.Diagnostics.Activity","Activity",1)
+dnRegisterClass("System.Diagnostics.ActivityChangedEventArgs","ActivityChangedEventArgs",0)
+dnRegisterClass("System.Diagnostics.ActivityContext","ActivityContext",0)
+dnRegisterClass("System.Diagnostics.ActivityEvent","ActivityEvent",0)
+dnRegisterClass("System.Diagnostics.ActivityLink","ActivityLink",0)
+dnRegisterClass("System.Diagnostics.ActivityListener","ActivityListener",0)
+dnRegisterClass("System.Diagnostics.ActivitySource","ActivitySource",1)
+dnRegisterClass("System.Diagnostics.ActivitySpanId","ActivitySpanId",0)
+dnRegisterClass("System.Diagnostics.ActivityTagsCollection","ActivityTagsCollection",0)
+dnRegisterClass("System.Diagnostics.ActivityTraceId","ActivityTraceId",0)
 dnRegisterClass("System.Diagnostics.CorrelationManager","CorrelationManager",0)
 dnRegisterClass("System.Diagnostics.DataReceivedEventArgs","DataReceivedEventArgs",0)
 dnRegisterClass("System.Diagnostics.Debug","Debug",0)
 dnRegisterClass("System.Diagnostics.DebugProvider","DebugProvider",0)
 dnRegisterClass("System.Diagnostics.Debugger","Debugger",0)
 dnRegisterClass("System.Diagnostics.DiagnosticMethodInfo","DiagnosticMethodInfo",0)
+dnRegisterClass("System.Diagnostics.DiagnosticSource","DiagnosticSource",0)
+dnRegisterClass("System.Diagnostics.DistributedContextPropagator","DistributedContextPropagator",0)
+dnRegisterClass("System.Diagnostics.FileVersionInfo","FileVersionInfo",0)
 dnRegisterClass("System.Diagnostics.InitializingSwitchEventArgs","InitializingSwitchEventArgs",1)
 dnRegisterClass("System.Diagnostics.InitializingTraceSourceEventArgs","InitializingTraceSourceEventArgs",1)
 dnRegisterClass("System.Diagnostics.Process","Process",0)
@@ -23,6 +36,7 @@ dnRegisterClass("System.Diagnostics.StackFrameExtensions","StackFrameExtensions"
 dnRegisterClass("System.Diagnostics.StackTrace","StackTrace",0)
 dnRegisterClass("System.Diagnostics.Stopwatch","Stopwatch",0)
 dnRegisterClass("System.Diagnostics.Switch","Switch_",0)
+dnRegisterClass("System.Diagnostics.TagList","TagList",0)
 dnRegisterClass("System.Diagnostics.Trace","Trace",0)
 dnRegisterClass("System.Diagnostics.TraceEventCache","TraceEventCache",0)
 dnRegisterClass("System.Diagnostics.TraceFilter","TraceFilter",0)
@@ -31,16 +45,34 @@ dnRegisterClass("System.Diagnostics.TraceListenerCollection","TraceListenerColle
 dnRegisterClass("System.Diagnostics.TraceSource","TraceSource",1)
 dnRegisterClass("System.Diagnostics.BooleanSwitch","BooleanSwitch",2)
 dnRegisterClass("System.Diagnostics.DefaultTraceListener","DefaultTraceListener",0)
+dnRegisterClass("System.Diagnostics.DiagnosticListener","DiagnosticListener",1)
 dnRegisterClass("System.Diagnostics.EventTypeFilter","EventTypeFilter",1)
 dnRegisterClass("System.Diagnostics.SourceFilter","SourceFilter",1)
 dnRegisterClass("System.Diagnostics.SourceSwitch","SourceSwitch",1)
+dnRegisterClass("System.Diagnostics.TextWriterTraceListener","TextWriterTraceListener",0)
 dnRegisterClass("System.Diagnostics.TraceSwitch","TraceSwitch",2)
+dnRegisterClass("System.Diagnostics.ConsoleTraceListener","ConsoleTraceListener",0)
+dnRegisterClass("System.Diagnostics.DelimitedListTraceListener","DelimitedListTraceListener",1)
+dnRegisterClass("System.Diagnostics.XmlWriterTraceListener","XmlWriterTraceListener",1)
+load "System.Diagnostics/Activity.ring"
+load "System.Diagnostics/ActivityChangedEventArgs.ring"
+load "System.Diagnostics/ActivityContext.ring"
+load "System.Diagnostics/ActivityEvent.ring"
+load "System.Diagnostics/ActivityLink.ring"
+load "System.Diagnostics/ActivityListener.ring"
+load "System.Diagnostics/ActivitySource.ring"
+load "System.Diagnostics/ActivitySpanId.ring"
+load "System.Diagnostics/ActivityTagsCollection.ring"
+load "System.Diagnostics/ActivityTraceId.ring"
 load "System.Diagnostics/CorrelationManager.ring"
 load "System.Diagnostics/DataReceivedEventArgs.ring"
 load "System.Diagnostics/Debug.ring"
 load "System.Diagnostics/DebugProvider.ring"
 load "System.Diagnostics/Debugger.ring"
 load "System.Diagnostics/DiagnosticMethodInfo.ring"
+load "System.Diagnostics/DiagnosticSource.ring"
+load "System.Diagnostics/DistributedContextPropagator.ring"
+load "System.Diagnostics/FileVersionInfo.ring"
 load "System.Diagnostics/InitializingSwitchEventArgs.ring"
 load "System.Diagnostics/InitializingTraceSourceEventArgs.ring"
 load "System.Diagnostics/Process.ring"
@@ -54,6 +86,7 @@ load "System.Diagnostics/StackFrameExtensions.ring"
 load "System.Diagnostics/StackTrace.ring"
 load "System.Diagnostics/Stopwatch.ring"
 load "System.Diagnostics/Switch_.ring"
+load "System.Diagnostics/TagList.ring"
 load "System.Diagnostics/Trace.ring"
 load "System.Diagnostics/TraceEventCache.ring"
 load "System.Diagnostics/TraceFilter.ring"
@@ -62,7 +95,12 @@ load "System.Diagnostics/TraceListenerCollection.ring"
 load "System.Diagnostics/TraceSource.ring"
 load "System.Diagnostics/BooleanSwitch.ring"
 load "System.Diagnostics/DefaultTraceListener.ring"
+load "System.Diagnostics/DiagnosticListener.ring"
 load "System.Diagnostics/EventTypeFilter.ring"
 load "System.Diagnostics/SourceFilter.ring"
 load "System.Diagnostics/SourceSwitch.ring"
+load "System.Diagnostics/TextWriterTraceListener.ring"
 load "System.Diagnostics/TraceSwitch.ring"
+load "System.Diagnostics/ConsoleTraceListener.ring"
+load "System.Diagnostics/DelimitedListTraceListener.ring"
+load "System.Diagnostics/XmlWriterTraceListener.ring"

@@ -38,76 +38,76 @@ Class ColumnHeader from Component
 		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
 
 	Func getDisplayIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayIndex"])
+		return dnRequest("get",[self,"DisplayIndex"])
 
 	Func setDisplayIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayIndex",P1])
+		dnRequest("set",[self,"DisplayIndex",P1])
 		return self
 
 	Func getIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
+		return dnRequest("get",[self,"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getImageIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageIndex"])
+		return dnRequest("get",[self,"ImageIndex"])
 
 	Func setImageIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageIndex",P1])
+		dnRequest("set",[self,"ImageIndex",P1])
 		return self
 
 	Func getImageList
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageList"])
+		return dnRequest("get",[self,"ImageList"])
 
 	Func setImageList P1
 		raise("DotNet Error: ImageList is a read-only property")
 
 	Func getImageKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageKey"])
+		return dnRequest("get",[self,"ImageKey"])
 
 	Func setImageKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageKey",P1])
+		dnRequest("set",[self,"ImageKey",P1])
 		return self
 
 	Func getListView
-		return dnRequest("get",[new DotNetObject(nHandle),"ListView"])
+		return dnRequest("get",[self,"ListView"])
 
 	Func setListView P1
 		raise("DotNet Error: ListView is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getTextAlign
-		return dnRequest("get",[new DotNetObject(nHandle),"TextAlign"])
+		return dnRequest("get",[self,"TextAlign"])
 
 	Func setTextAlign P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextAlign",P1])
+		dnRequest("set",[self,"TextAlign",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
+		dnRequest("set",[self,"Width",P1])
 		return self
 

@@ -24,19 +24,19 @@ Class IMigrationsAssembly from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateMigration",P1,P2])
 
 	Func getMigrations
-		return dnRequest("get",[new DotNetObject(nHandle),"Migrations"])
+		return dnRequest("get",[self,"Migrations"])
 
 	Func setMigrations P1
 		raise("DotNet Error: Migrations is a read-only property")
 
 	Func getModelSnapshot
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelSnapshot"])
+		return dnRequest("get",[self,"ModelSnapshot"])
 
 	Func setModelSnapshot P1
 		raise("DotNet Error: ModelSnapshot is a read-only property")
 
 	Func getAssembly
-		return dnRequest("get",[new DotNetObject(nHandle),"Assembly"])
+		return dnRequest("get",[self,"Assembly"])
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")

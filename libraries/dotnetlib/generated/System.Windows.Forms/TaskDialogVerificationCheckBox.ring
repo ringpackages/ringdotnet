@@ -34,16 +34,16 @@ Class TaskDialogVerificationCheckBox from TaskDialogControl
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getChecked
-		return dnRequest("get",[new DotNetObject(nHandle),"Checked"])
+		return dnRequest("get",[self,"Checked"])
 
 	Func setChecked P1
-		dnRequest("set",[new DotNetObject(nHandle),"Checked",P1])
+		dnRequest("set",[self,"Checked",P1])
 		return self
 

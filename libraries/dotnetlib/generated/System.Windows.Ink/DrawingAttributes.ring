@@ -67,59 +67,59 @@ Class DrawingAttributes from Object
 		return self
 
 	Func getColor
-		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
+		return dnRequest("get",[self,"Color"])
 
 	Func setColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
+		dnRequest("set",[self,"Color",P1])
 		return self
 
 	Func getStylusTip
-		return dnRequest("get",[new DotNetObject(nHandle),"StylusTip"])
+		return dnRequest("get",[self,"StylusTip"])
 
 	Func setStylusTip P1
-		dnRequest("set",[new DotNetObject(nHandle),"StylusTip",P1])
+		dnRequest("set",[self,"StylusTip",P1])
 		return self
 
 	Func getStylusTipTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"StylusTipTransform"])
+		return dnRequest("get",[self,"StylusTipTransform"])
 
 	Func setStylusTipTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"StylusTipTransform",P1])
+		dnRequest("set",[self,"StylusTipTransform",P1])
 		return self
 
 	Func getHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
+		return dnRequest("get",[self,"Height"])
 
 	Func setHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"Height",P1])
+		dnRequest("set",[self,"Height",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
+		dnRequest("set",[self,"Width",P1])
 		return self
 
 	Func getFitToCurve
-		return dnRequest("get",[new DotNetObject(nHandle),"FitToCurve"])
+		return dnRequest("get",[self,"FitToCurve"])
 
 	Func setFitToCurve P1
-		dnRequest("set",[new DotNetObject(nHandle),"FitToCurve",P1])
+		dnRequest("set",[self,"FitToCurve",P1])
 		return self
 
 	Func getIgnorePressure
-		return dnRequest("get",[new DotNetObject(nHandle),"IgnorePressure"])
+		return dnRequest("get",[self,"IgnorePressure"])
 
 	Func setIgnorePressure P1
-		dnRequest("set",[new DotNetObject(nHandle),"IgnorePressure",P1])
+		dnRequest("set",[self,"IgnorePressure",P1])
 		return self
 
 	Func getIsHighlighter
-		return dnRequest("get",[new DotNetObject(nHandle),"IsHighlighter"])
+		return dnRequest("get",[self,"IsHighlighter"])
 
 	Func setIsHighlighter P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsHighlighter",P1])
+		dnRequest("set",[self,"IsHighlighter",P1])
 		return self
 
 	Func getMinHeight

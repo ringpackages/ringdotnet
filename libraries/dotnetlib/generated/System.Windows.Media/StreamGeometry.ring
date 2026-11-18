@@ -25,10 +25,10 @@ Class StreamGeometry from Geometry
 		return self
 
 	Func getFillRule
-		return dnRequest("get",[new DotNetObject(nHandle),"FillRule"])
+		return dnRequest("get",[self,"FillRule"])
 
 	Func setFillRule P1
-		dnRequest("set",[new DotNetObject(nHandle),"FillRule",P1])
+		dnRequest("set",[self,"FillRule",P1])
 		return self
 
 	Func getFillRuleProperty

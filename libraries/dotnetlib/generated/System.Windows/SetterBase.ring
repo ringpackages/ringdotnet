@@ -19,7 +19,7 @@ Class SetterBase from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsSealed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSealed"])
+		return dnRequest("get",[self,"IsSealed"])
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")

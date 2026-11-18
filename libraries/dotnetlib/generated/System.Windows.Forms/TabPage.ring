@@ -27,30 +27,30 @@ Class TabPage from Panel
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TabPage, System.Windows.Forms'),"GetTabPageOfComponent",P1])
 
 	Func getImageIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageIndex"])
+		return dnRequest("get",[self,"ImageIndex"])
 
 	Func setImageIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageIndex",P1])
+		dnRequest("set",[self,"ImageIndex",P1])
 		return self
 
 	Func getImageKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageKey"])
+		return dnRequest("get",[self,"ImageKey"])
 
 	Func setImageKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageKey",P1])
+		dnRequest("set",[self,"ImageKey",P1])
 		return self
 
 	Func getUseVisualStyleBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"UseVisualStyleBackColor"])
+		return dnRequest("get",[self,"UseVisualStyleBackColor"])
 
 	Func setUseVisualStyleBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseVisualStyleBackColor",P1])
+		dnRequest("set",[self,"UseVisualStyleBackColor",P1])
 		return self
 
 	Func getToolTipText
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipText"])
+		return dnRequest("get",[self,"ToolTipText"])
 
 	Func setToolTipText P1
-		dnRequest("set",[new DotNetObject(nHandle),"ToolTipText",P1])
+		dnRequest("set",[self,"ToolTipText",P1])
 		return self
 

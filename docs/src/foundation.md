@@ -13,15 +13,18 @@ Every namespace below has generated classes, loaded on demand with `using { "Nam
 | Text | `System.Text`, `System.Text.RegularExpressions`, `System.Text.Json`, `System.Text.Json.Nodes`, `System.Text.Encodings.Web`, `System.Text.Unicode` |
 | Files and streams | `System.IO`, `System.IO.Compression`, `System.IO.Pipes`, `System.IO.MemoryMappedFiles`, `System.Formats.Tar` |
 | Collections | `System.Collections`, `.Generic`, `.Specialized`, `.Concurrent`, `.ObjectModel` |
-| Networking | `System.Net`, `.Http`, `.Http.Headers`, `.Sockets`, `.NetworkInformation`, `.Mail`, `.WebSockets`, `.Security`, `.Mime` |
+| Networking | `System.Net`, `.Http`, `.Http.Json`, `.Http.Headers`, `.Sockets`, `.NetworkInformation`, `.Mail`, `.WebSockets`, `.Security`, `.Mime` |
 | Security | `System.Security.Cryptography`, `.X509Certificates`, `System.Security.Claims`, `System.Security.Principal` |
-| XML and data | `System.Xml`, `.Linq`, `.XPath`, `.Schema`, `.Serialization`, `.Xsl`, `System.Data`, `.Common`, `.SqlTypes` |
+| XML and data | `System.Xml`, `.Linq`, `.XPath`, `.Schema`, `.Serialization`, `.Xsl`, `System.Data`, `.Common`, `.SqlTypes`, `System.Runtime.Serialization`, `System.ComponentModel.DataAnnotations` |
+| Expressions and transactions | `System.Linq.Expressions` (the expression class is `ExpressionsExpression`), `System.Transactions` |
 | Processes and threads | `System.Diagnostics`, `System.Threading`, `System.Threading.Tasks`, `System.Timers` |
 | Graphics | `System.Drawing`, `.Drawing2D`, `.Imaging`, `.Text`, `.Printing` |
 | UI | `System.Windows.Forms`, WPF — see [Windows Forms](winforms.html) and [WPF](wpf.html) |
 | Web and data | ASP.NET Core, Entity Framework Core — see [ASP.NET Core](aspnet.html) and [Entity Framework](ef.html) |
 
 Other namespaces and any DLL: [Your own assemblies](own-assemblies.html).
+
+> [!NOTE] `tools/auditcoverage.ring` compares the public types of the installed .NET framework with the generated classes. Enums need no class (they are texts), delegates are callbacks, and the rest is listed by the tool, so you can see what is not wrapped yet.
 
 ## Dates, strings, conversions, math
 

@@ -18,19 +18,19 @@ Class PriorityBindingExpression from BindingExpressionBase
 		return self
 
 	Func getParentPriorityBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"ParentPriorityBinding"])
+		return dnRequest("get",[self,"ParentPriorityBinding"])
 
 	Func setParentPriorityBinding P1
 		raise("DotNet Error: ParentPriorityBinding is a read-only property")
 
 	Func getBindingExpressions
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingExpressions"])
+		return dnRequest("get",[self,"BindingExpressions"])
 
 	Func setBindingExpressions P1
 		raise("DotNet Error: BindingExpressions is a read-only property")
 
 	Func getActiveBindingExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"ActiveBindingExpression"])
+		return dnRequest("get",[self,"ActiveBindingExpression"])
 
 	Func setActiveBindingExpression P1
 		raise("DotNet Error: ActiveBindingExpression is a read-only property")

@@ -139,25 +139,25 @@ Class X509Certificate from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography'),"CreateFromSignedFile",P1])
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getIssuer
-		return dnRequest("get",[new DotNetObject(nHandle),"Issuer"])
+		return dnRequest("get",[self,"Issuer"])
 
 	Func setIssuer P1
 		raise("DotNet Error: Issuer is a read-only property")
 
 	Func getSubject
-		return dnRequest("get",[new DotNetObject(nHandle),"Subject"])
+		return dnRequest("get",[self,"Subject"])
 
 	Func setSubject P1
 		raise("DotNet Error: Subject is a read-only property")
 
 	Func getSerialNumberBytes
-		return dnRequest("get",[new DotNetObject(nHandle),"SerialNumberBytes"])
+		return dnRequest("get",[self,"SerialNumberBytes"])
 
 	Func setSerialNumberBytes P1
 		raise("DotNet Error: SerialNumberBytes is a read-only property")

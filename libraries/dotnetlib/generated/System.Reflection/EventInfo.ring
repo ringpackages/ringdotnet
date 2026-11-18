@@ -60,43 +60,43 @@ Class EventInfo from MemberInfo
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getIsSpecialName
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSpecialName"])
+		return dnRequest("get",[self,"IsSpecialName"])
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getAddMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"AddMethod"])
+		return dnRequest("get",[self,"AddMethod"])
 
 	Func setAddMethod P1
 		raise("DotNet Error: AddMethod is a read-only property")
 
 	Func getRemoveMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"RemoveMethod"])
+		return dnRequest("get",[self,"RemoveMethod"])
 
 	Func setRemoveMethod P1
 		raise("DotNet Error: RemoveMethod is a read-only property")
 
 	Func getRaiseMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"RaiseMethod"])
+		return dnRequest("get",[self,"RaiseMethod"])
 
 	Func setRaiseMethod P1
 		raise("DotNet Error: RaiseMethod is a read-only property")
 
 	Func getIsMulticast
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMulticast"])
+		return dnRequest("get",[self,"IsMulticast"])
 
 	Func setIsMulticast P1
 		raise("DotNet Error: IsMulticast is a read-only property")
 
 	Func getEventHandlerType
-		return dnRequest("get",[new DotNetObject(nHandle),"EventHandlerType"])
+		return dnRequest("get",[self,"EventHandlerType"])
 
 	Func setEventHandlerType P1
 		raise("DotNet Error: EventHandlerType is a read-only property")

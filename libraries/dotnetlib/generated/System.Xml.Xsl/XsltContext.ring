@@ -28,7 +28,7 @@ Class XsltContext from XmlNamespaceManager
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareDocument",P1,P2])
 
 	Func getWhitespace
-		return dnRequest("get",[new DotNetObject(nHandle),"Whitespace"])
+		return dnRequest("get",[self,"Whitespace"])
 
 	Func setWhitespace P1
 		raise("DotNet Error: Whitespace is a read-only property")

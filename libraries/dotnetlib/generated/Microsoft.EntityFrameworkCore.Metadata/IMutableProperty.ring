@@ -97,36 +97,36 @@ Class IMutableProperty from DotNetObject
 		return self
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
+		return dnRequest("get",[self,"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsNullable",P1])
+		dnRequest("set",[self,"IsNullable",P1])
 		return self
 
 	Func getValueGenerated
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueGenerated"])
+		return dnRequest("get",[self,"ValueGenerated"])
 
 	Func setValueGenerated P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValueGenerated",P1])
+		dnRequest("set",[self,"ValueGenerated",P1])
 		return self
 
 	Func getIsConcurrencyToken
-		return dnRequest("get",[new DotNetObject(nHandle),"IsConcurrencyToken"])
+		return dnRequest("get",[self,"IsConcurrencyToken"])
 
 	Func setIsConcurrencyToken P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsConcurrencyToken",P1])
+		dnRequest("set",[self,"IsConcurrencyToken",P1])
 		return self
 
 	Func getSentinel
-		return dnRequest("get",[new DotNetObject(nHandle),"Sentinel"])
+		return dnRequest("get",[self,"Sentinel"])
 
 	Func setSentinel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sentinel",P1])
+		dnRequest("set",[self,"Sentinel",P1])
 		return self
 

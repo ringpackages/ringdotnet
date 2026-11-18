@@ -26,7 +26,7 @@ Class ProjectionMember from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLast
-		return dnRequest("get",[new DotNetObject(nHandle),"Last"])
+		return dnRequest("get",[self,"Last"])
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")

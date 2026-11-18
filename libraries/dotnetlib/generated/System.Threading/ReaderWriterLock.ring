@@ -62,19 +62,19 @@ Class ReaderWriterLock from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getIsReaderLockHeld
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReaderLockHeld"])
+		return dnRequest("get",[self,"IsReaderLockHeld"])
 
 	Func setIsReaderLockHeld P1
 		raise("DotNet Error: IsReaderLockHeld is a read-only property")
 
 	Func getIsWriterLockHeld
-		return dnRequest("get",[new DotNetObject(nHandle),"IsWriterLockHeld"])
+		return dnRequest("get",[self,"IsWriterLockHeld"])
 
 	Func setIsWriterLockHeld P1
 		raise("DotNet Error: IsWriterLockHeld is a read-only property")
 
 	Func getWriterSeqNum
-		return dnRequest("get",[new DotNetObject(nHandle),"WriterSeqNum"])
+		return dnRequest("get",[self,"WriterSeqNum"])
 
 	Func setWriterSeqNum P1
 		raise("DotNet Error: WriterSeqNum is a read-only property")

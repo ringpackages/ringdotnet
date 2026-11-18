@@ -17,7 +17,7 @@ Class MouseWheelEventArgs from WpfMouseEventArgs
 		return self
 
 	Func getDelta
-		return dnRequest("get",[new DotNetObject(nHandle),"Delta"])
+		return dnRequest("get",[self,"Delta"])
 
 	Func setDelta P1
 		raise("DotNet Error: Delta is a read-only property")

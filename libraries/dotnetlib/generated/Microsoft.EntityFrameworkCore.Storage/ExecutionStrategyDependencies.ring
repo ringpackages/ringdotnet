@@ -22,23 +22,23 @@ Class ExecutionStrategyDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"Options",P1])
+		dnRequest("set",[self,"Options",P1])
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentContext"])
+		return dnRequest("get",[self,"CurrentContext"])
 
 	Func setCurrentContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentContext",P1])
+		dnRequest("set",[self,"CurrentContext",P1])
 		return self
 
 	Func getLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
+		return dnRequest("get",[self,"Logger"])
 
 	Func setLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"Logger",P1])
+		dnRequest("set",[self,"Logger",P1])
 		return self
 

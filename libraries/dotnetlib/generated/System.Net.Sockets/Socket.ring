@@ -424,161 +424,161 @@ Class Socket from Object
 		return self
 
 	Func getAvailable
-		return dnRequest("get",[new DotNetObject(nHandle),"Available"])
+		return dnRequest("get",[self,"Available"])
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
 
 	Func getLocalEndPoint
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalEndPoint"])
+		return dnRequest("get",[self,"LocalEndPoint"])
 
 	Func setLocalEndPoint P1
 		raise("DotNet Error: LocalEndPoint is a read-only property")
 
 	Func getRemoteEndPoint
-		return dnRequest("get",[new DotNetObject(nHandle),"RemoteEndPoint"])
+		return dnRequest("get",[self,"RemoteEndPoint"])
 
 	Func setRemoteEndPoint P1
 		raise("DotNet Error: RemoteEndPoint is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getSafeHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"SafeHandle"])
+		return dnRequest("get",[self,"SafeHandle"])
 
 	Func setSafeHandle P1
 		raise("DotNet Error: SafeHandle is a read-only property")
 
 	Func getBlocking
-		return dnRequest("get",[new DotNetObject(nHandle),"Blocking"])
+		return dnRequest("get",[self,"Blocking"])
 
 	Func setBlocking P1
-		dnRequest("set",[new DotNetObject(nHandle),"Blocking",P1])
+		dnRequest("set",[self,"Blocking",P1])
 		return self
 
 	Func getUseOnlyOverlappedIO
-		return dnRequest("get",[new DotNetObject(nHandle),"UseOnlyOverlappedIO"])
+		return dnRequest("get",[self,"UseOnlyOverlappedIO"])
 
 	Func setUseOnlyOverlappedIO P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseOnlyOverlappedIO",P1])
+		dnRequest("set",[self,"UseOnlyOverlappedIO",P1])
 		return self
 
 	Func getConnected
-		return dnRequest("get",[new DotNetObject(nHandle),"Connected"])
+		return dnRequest("get",[self,"Connected"])
 
 	Func setConnected P1
 		raise("DotNet Error: Connected is a read-only property")
 
 	Func getAddressFamily
-		return dnRequest("get",[new DotNetObject(nHandle),"AddressFamily"])
+		return dnRequest("get",[self,"AddressFamily"])
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")
 
 	Func getSocketType
-		return dnRequest("get",[new DotNetObject(nHandle),"SocketType"])
+		return dnRequest("get",[self,"SocketType"])
 
 	Func setSocketType P1
 		raise("DotNet Error: SocketType is a read-only property")
 
 	Func getProtocolType
-		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolType"])
+		return dnRequest("get",[self,"ProtocolType"])
 
 	Func setProtocolType P1
 		raise("DotNet Error: ProtocolType is a read-only property")
 
 	Func getIsBound
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBound"])
+		return dnRequest("get",[self,"IsBound"])
 
 	Func setIsBound P1
 		raise("DotNet Error: IsBound is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[new DotNetObject(nHandle),"ExclusiveAddressUse"])
+		return dnRequest("get",[self,"ExclusiveAddressUse"])
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExclusiveAddressUse",P1])
+		dnRequest("set",[self,"ExclusiveAddressUse",P1])
 		return self
 
 	Func getReceiveBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceiveBufferSize"])
+		return dnRequest("get",[self,"ReceiveBufferSize"])
 
 	Func setReceiveBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReceiveBufferSize",P1])
+		dnRequest("set",[self,"ReceiveBufferSize",P1])
 		return self
 
 	Func getSendBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"SendBufferSize"])
+		return dnRequest("get",[self,"SendBufferSize"])
 
 	Func setSendBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"SendBufferSize",P1])
+		dnRequest("set",[self,"SendBufferSize",P1])
 		return self
 
 	Func getReceiveTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceiveTimeout"])
+		return dnRequest("get",[self,"ReceiveTimeout"])
 
 	Func setReceiveTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReceiveTimeout",P1])
+		dnRequest("set",[self,"ReceiveTimeout",P1])
 		return self
 
 	Func getSendTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"SendTimeout"])
+		return dnRequest("get",[self,"SendTimeout"])
 
 	Func setSendTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"SendTimeout",P1])
+		dnRequest("set",[self,"SendTimeout",P1])
 		return self
 
 	Func getLingerState
-		return dnRequest("get",[new DotNetObject(nHandle),"LingerState"])
+		return dnRequest("get",[self,"LingerState"])
 
 	Func setLingerState P1
-		dnRequest("set",[new DotNetObject(nHandle),"LingerState",P1])
+		dnRequest("set",[self,"LingerState",P1])
 		return self
 
 	Func getNoDelay
-		return dnRequest("get",[new DotNetObject(nHandle),"NoDelay"])
+		return dnRequest("get",[self,"NoDelay"])
 
 	Func setNoDelay P1
-		dnRequest("set",[new DotNetObject(nHandle),"NoDelay",P1])
+		dnRequest("set",[self,"NoDelay",P1])
 		return self
 
 	Func getTtl
-		return dnRequest("get",[new DotNetObject(nHandle),"Ttl"])
+		return dnRequest("get",[self,"Ttl"])
 
 	Func setTtl P1
-		dnRequest("set",[new DotNetObject(nHandle),"Ttl",P1])
+		dnRequest("set",[self,"Ttl",P1])
 		return self
 
 	Func getDontFragment
-		return dnRequest("get",[new DotNetObject(nHandle),"DontFragment"])
+		return dnRequest("get",[self,"DontFragment"])
 
 	Func setDontFragment P1
-		dnRequest("set",[new DotNetObject(nHandle),"DontFragment",P1])
+		dnRequest("set",[self,"DontFragment",P1])
 		return self
 
 	Func getMulticastLoopback
-		return dnRequest("get",[new DotNetObject(nHandle),"MulticastLoopback"])
+		return dnRequest("get",[self,"MulticastLoopback"])
 
 	Func setMulticastLoopback P1
-		dnRequest("set",[new DotNetObject(nHandle),"MulticastLoopback",P1])
+		dnRequest("set",[self,"MulticastLoopback",P1])
 		return self
 
 	Func getEnableBroadcast
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableBroadcast"])
+		return dnRequest("get",[self,"EnableBroadcast"])
 
 	Func setEnableBroadcast P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableBroadcast",P1])
+		dnRequest("set",[self,"EnableBroadcast",P1])
 		return self
 
 	Func getDualMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DualMode"])
+		return dnRequest("get",[self,"DualMode"])
 
 	Func setDualMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"DualMode",P1])
+		dnRequest("set",[self,"DualMode",P1])
 		return self
 
 	Func getSupportsIPv4

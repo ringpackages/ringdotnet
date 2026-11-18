@@ -19,25 +19,25 @@ Class IColumnMappingBase from DotNetObject
 		return self
 
 	Func getProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
+		return dnRequest("get",[self,"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getTypeMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMapping"])
+		return dnRequest("get",[self,"TypeMapping"])
 
 	Func setTypeMapping P1
 		raise("DotNet Error: TypeMapping is a read-only property")
 
 	Func getTableMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"TableMapping"])
+		return dnRequest("get",[self,"TableMapping"])
 
 	Func setTableMapping P1
 		raise("DotNet Error: TableMapping is a read-only property")

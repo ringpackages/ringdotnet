@@ -20,9 +20,9 @@ Class ProblemDetailsOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCustomizeProblemDetails
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomizeProblemDetails"])
+		return dnRequest("get",[self,"CustomizeProblemDetails"])
 
 	Func setCustomizeProblemDetails P1
-		dnRequest("set",[new DotNetObject(nHandle),"CustomizeProblemDetails",P1])
+		dnRequest("set",[self,"CustomizeProblemDetails",P1])
 		return self
 

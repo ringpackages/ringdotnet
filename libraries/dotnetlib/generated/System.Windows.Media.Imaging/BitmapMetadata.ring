@@ -45,103 +45,103 @@ Class BitmapMetadata from ImageMetadata
 		return dnRequest("call",[new DotNetObject(nHandle),"ContainsQuery",P1])
 
 	Func getFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
+		return dnRequest("get",[self,"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
+		return dnRequest("get",[self,"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedSize"])
+		return dnRequest("get",[self,"IsFixedSize"])
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getAuthor
-		return dnRequest("get",[new DotNetObject(nHandle),"Author"])
+		return dnRequest("get",[self,"Author"])
 
 	Func setAuthor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Author",P1])
+		dnRequest("set",[self,"Author",P1])
 		return self
 
 	Func getTitle
-		return dnRequest("get",[new DotNetObject(nHandle),"Title"])
+		return dnRequest("get",[self,"Title"])
 
 	Func setTitle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Title",P1])
+		dnRequest("set",[self,"Title",P1])
 		return self
 
 	Func getRating
-		return dnRequest("get",[new DotNetObject(nHandle),"Rating"])
+		return dnRequest("get",[self,"Rating"])
 
 	Func setRating P1
-		dnRequest("set",[new DotNetObject(nHandle),"Rating",P1])
+		dnRequest("set",[self,"Rating",P1])
 		return self
 
 	Func getSubject
-		return dnRequest("get",[new DotNetObject(nHandle),"Subject"])
+		return dnRequest("get",[self,"Subject"])
 
 	Func setSubject P1
-		dnRequest("set",[new DotNetObject(nHandle),"Subject",P1])
+		dnRequest("set",[self,"Subject",P1])
 		return self
 
 	Func getComment
-		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
+		return dnRequest("get",[self,"Comment"])
 
 	Func setComment P1
-		dnRequest("set",[new DotNetObject(nHandle),"Comment",P1])
+		dnRequest("set",[self,"Comment",P1])
 		return self
 
 	Func getDateTaken
-		return dnRequest("get",[new DotNetObject(nHandle),"DateTaken"])
+		return dnRequest("get",[self,"DateTaken"])
 
 	Func setDateTaken P1
-		dnRequest("set",[new DotNetObject(nHandle),"DateTaken",P1])
+		dnRequest("set",[self,"DateTaken",P1])
 		return self
 
 	Func getApplicationName
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationName"])
+		return dnRequest("get",[self,"ApplicationName"])
 
 	Func setApplicationName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApplicationName",P1])
+		dnRequest("set",[self,"ApplicationName",P1])
 		return self
 
 	Func getCopyright
-		return dnRequest("get",[new DotNetObject(nHandle),"Copyright"])
+		return dnRequest("get",[self,"Copyright"])
 
 	Func setCopyright P1
-		dnRequest("set",[new DotNetObject(nHandle),"Copyright",P1])
+		dnRequest("set",[self,"Copyright",P1])
 		return self
 
 	Func getCameraManufacturer
-		return dnRequest("get",[new DotNetObject(nHandle),"CameraManufacturer"])
+		return dnRequest("get",[self,"CameraManufacturer"])
 
 	Func setCameraManufacturer P1
-		dnRequest("set",[new DotNetObject(nHandle),"CameraManufacturer",P1])
+		dnRequest("set",[self,"CameraManufacturer",P1])
 		return self
 
 	Func getCameraModel
-		return dnRequest("get",[new DotNetObject(nHandle),"CameraModel"])
+		return dnRequest("get",[self,"CameraModel"])
 
 	Func setCameraModel P1
-		dnRequest("set",[new DotNetObject(nHandle),"CameraModel",P1])
+		dnRequest("set",[self,"CameraModel",P1])
 		return self
 
 	Func getKeywords
-		return dnRequest("get",[new DotNetObject(nHandle),"Keywords"])
+		return dnRequest("get",[self,"Keywords"])
 
 	Func setKeywords P1
-		dnRequest("set",[new DotNetObject(nHandle),"Keywords",P1])
+		dnRequest("set",[self,"Keywords",P1])
 		return self
 

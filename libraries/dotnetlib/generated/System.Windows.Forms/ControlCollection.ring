@@ -72,7 +72,7 @@ Class ControlCollection from ArrangedElementCollection
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getOwner
-		return dnRequest("get",[new DotNetObject(nHandle),"Owner"])
+		return dnRequest("get",[self,"Owner"])
 
 	Func setOwner P1
 		raise("DotNet Error: Owner is a read-only property")

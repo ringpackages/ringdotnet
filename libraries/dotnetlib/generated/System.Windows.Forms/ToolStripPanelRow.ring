@@ -27,51 +27,51 @@ Class ToolStripPanelRow from Component
 		return dnRequest("call",[new DotNetObject(nHandle),"CanMove",P1])
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getControls
-		return dnRequest("get",[new DotNetObject(nHandle),"Controls"])
+		return dnRequest("get",[self,"Controls"])
 
 	Func setControls P1
 		raise("DotNet Error: Controls is a read-only property")
 
 	Func getDisplayRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayRectangle"])
+		return dnRequest("get",[self,"DisplayRectangle"])
 
 	Func setDisplayRectangle P1
 		raise("DotNet Error: DisplayRectangle is a read-only property")
 
 	Func getLayoutEngine
-		return dnRequest("get",[new DotNetObject(nHandle),"LayoutEngine"])
+		return dnRequest("get",[self,"LayoutEngine"])
 
 	Func setLayoutEngine P1
 		raise("DotNet Error: LayoutEngine is a read-only property")
 
 	Func getMargin
-		return dnRequest("get",[new DotNetObject(nHandle),"Margin"])
+		return dnRequest("get",[self,"Margin"])
 
 	Func setMargin P1
-		dnRequest("set",[new DotNetObject(nHandle),"Margin",P1])
+		dnRequest("set",[self,"Margin",P1])
 		return self
 
 	Func getPadding
-		return dnRequest("get",[new DotNetObject(nHandle),"Padding"])
+		return dnRequest("get",[self,"Padding"])
 
 	Func setPadding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Padding",P1])
+		dnRequest("set",[self,"Padding",P1])
 		return self
 
 	Func getToolStripPanel
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripPanel"])
+		return dnRequest("get",[self,"ToolStripPanel"])
 
 	Func setToolStripPanel P1
 		raise("DotNet Error: ToolStripPanel is a read-only property")
 
 	Func getOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
+		return dnRequest("get",[self,"Orientation"])
 
 	Func setOrientation P1
 		raise("DotNet Error: Orientation is a read-only property")

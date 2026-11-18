@@ -19,19 +19,19 @@ Class PropertyDataChangedEventArgs from EventArgs
 		return self
 
 	Func getPropertyGuid
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyGuid"])
+		return dnRequest("get",[self,"PropertyGuid"])
 
 	Func setPropertyGuid P1
 		raise("DotNet Error: PropertyGuid is a read-only property")
 
 	Func getNewValue
-		return dnRequest("get",[new DotNetObject(nHandle),"NewValue"])
+		return dnRequest("get",[self,"NewValue"])
 
 	Func setNewValue P1
 		raise("DotNet Error: NewValue is a read-only property")
 
 	Func getPreviousValue
-		return dnRequest("get",[new DotNetObject(nHandle),"PreviousValue"])
+		return dnRequest("get",[self,"PreviousValue"])
 
 	Func setPreviousValue P1
 		raise("DotNet Error: PreviousValue is a read-only property")

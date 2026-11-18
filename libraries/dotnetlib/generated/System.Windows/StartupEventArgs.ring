@@ -16,7 +16,7 @@ Class StartupEventArgs from EventArgs
 		return self
 
 	Func getArgs
-		return dnRequest("get",[new DotNetObject(nHandle),"Args"])
+		return dnRequest("get",[self,"Args"])
 
 	Func setArgs P1
 		raise("DotNet Error: Args is a read-only property")

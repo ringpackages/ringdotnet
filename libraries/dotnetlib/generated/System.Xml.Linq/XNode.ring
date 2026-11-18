@@ -117,13 +117,13 @@ Class XNode from XObject
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"DeepEquals",P1,P2])
 
 	Func getNextNode
-		return dnRequest("get",[new DotNetObject(nHandle),"NextNode"])
+		return dnRequest("get",[self,"NextNode"])
 
 	Func setNextNode P1
 		raise("DotNet Error: NextNode is a read-only property")
 
 	Func getPreviousNode
-		return dnRequest("get",[new DotNetObject(nHandle),"PreviousNode"])
+		return dnRequest("get",[self,"PreviousNode"])
 
 	Func setPreviousNode P1
 		raise("DotNet Error: PreviousNode is a read-only property")

@@ -18,14 +18,14 @@ Class ConvertEventArgs from EventArgs
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getDesiredType
-		return dnRequest("get",[new DotNetObject(nHandle),"DesiredType"])
+		return dnRequest("get",[self,"DesiredType"])
 
 	Func setDesiredType P1
 		raise("DotNet Error: DesiredType is a read-only property")

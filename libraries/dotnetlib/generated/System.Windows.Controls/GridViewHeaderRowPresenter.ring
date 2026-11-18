@@ -30,52 +30,52 @@ Class GridViewHeaderRowPresenter from GridViewRowPresenterBase
 		return self
 
 	Func getColumnHeaderContainerStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderContainerStyle"])
+		return dnRequest("get",[self,"ColumnHeaderContainerStyle"])
 
 	Func setColumnHeaderContainerStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderContainerStyle",P1])
+		dnRequest("set",[self,"ColumnHeaderContainerStyle",P1])
 		return self
 
 	Func getColumnHeaderTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderTemplate"])
+		return dnRequest("get",[self,"ColumnHeaderTemplate"])
 
 	Func setColumnHeaderTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderTemplate",P1])
+		dnRequest("set",[self,"ColumnHeaderTemplate",P1])
 		return self
 
 	Func getColumnHeaderTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderTemplateSelector"])
+		return dnRequest("get",[self,"ColumnHeaderTemplateSelector"])
 
 	Func setColumnHeaderTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderTemplateSelector",P1])
+		dnRequest("set",[self,"ColumnHeaderTemplateSelector",P1])
 		return self
 
 	Func getColumnHeaderStringFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderStringFormat"])
+		return dnRequest("get",[self,"ColumnHeaderStringFormat"])
 
 	Func setColumnHeaderStringFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderStringFormat",P1])
+		dnRequest("set",[self,"ColumnHeaderStringFormat",P1])
 		return self
 
 	Func getAllowsColumnReorder
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowsColumnReorder"])
+		return dnRequest("get",[self,"AllowsColumnReorder"])
 
 	Func setAllowsColumnReorder P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowsColumnReorder",P1])
+		dnRequest("set",[self,"AllowsColumnReorder",P1])
 		return self
 
 	Func getColumnHeaderContextMenu
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderContextMenu"])
+		return dnRequest("get",[self,"ColumnHeaderContextMenu"])
 
 	Func setColumnHeaderContextMenu P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderContextMenu",P1])
+		dnRequest("set",[self,"ColumnHeaderContextMenu",P1])
 		return self
 
 	Func getColumnHeaderToolTip
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnHeaderToolTip"])
+		return dnRequest("get",[self,"ColumnHeaderToolTip"])
 
 	Func setColumnHeaderToolTip P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnHeaderToolTip",P1])
+		dnRequest("set",[self,"ColumnHeaderToolTip",P1])
 		return self
 
 	Func getColumnHeaderContainerStyleProperty

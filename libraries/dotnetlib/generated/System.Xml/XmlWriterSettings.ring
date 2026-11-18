@@ -41,106 +41,106 @@ Class XmlWriterSettings from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAsync
-		return dnRequest("get",[new DotNetObject(nHandle),"Async"])
+		return dnRequest("get",[self,"Async"])
 
 	Func setAsync P1
-		dnRequest("set",[new DotNetObject(nHandle),"Async",P1])
+		dnRequest("set",[self,"Async",P1])
 		return self
 
 	Func getEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
+		return dnRequest("get",[self,"Encoding"])
 
 	Func setEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"Encoding",P1])
+		dnRequest("set",[self,"Encoding",P1])
 		return self
 
 	Func getOmitXmlDeclaration
-		return dnRequest("get",[new DotNetObject(nHandle),"OmitXmlDeclaration"])
+		return dnRequest("get",[self,"OmitXmlDeclaration"])
 
 	Func setOmitXmlDeclaration P1
-		dnRequest("set",[new DotNetObject(nHandle),"OmitXmlDeclaration",P1])
+		dnRequest("set",[self,"OmitXmlDeclaration",P1])
 		return self
 
 	Func getNewLineHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"NewLineHandling"])
+		return dnRequest("get",[self,"NewLineHandling"])
 
 	Func setNewLineHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewLineHandling",P1])
+		dnRequest("set",[self,"NewLineHandling",P1])
 		return self
 
 	Func getNewLineChars
-		return dnRequest("get",[new DotNetObject(nHandle),"NewLineChars"])
+		return dnRequest("get",[self,"NewLineChars"])
 
 	Func setNewLineChars P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewLineChars",P1])
+		dnRequest("set",[self,"NewLineChars",P1])
 		return self
 
 	Func getIndent
-		return dnRequest("get",[new DotNetObject(nHandle),"Indent"])
+		return dnRequest("get",[self,"Indent"])
 
 	Func setIndent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Indent",P1])
+		dnRequest("set",[self,"Indent",P1])
 		return self
 
 	Func getIndentChars
-		return dnRequest("get",[new DotNetObject(nHandle),"IndentChars"])
+		return dnRequest("get",[self,"IndentChars"])
 
 	Func setIndentChars P1
-		dnRequest("set",[new DotNetObject(nHandle),"IndentChars",P1])
+		dnRequest("set",[self,"IndentChars",P1])
 		return self
 
 	Func getNewLineOnAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"NewLineOnAttributes"])
+		return dnRequest("get",[self,"NewLineOnAttributes"])
 
 	Func setNewLineOnAttributes P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewLineOnAttributes",P1])
+		dnRequest("set",[self,"NewLineOnAttributes",P1])
 		return self
 
 	Func getCloseOutput
-		return dnRequest("get",[new DotNetObject(nHandle),"CloseOutput"])
+		return dnRequest("get",[self,"CloseOutput"])
 
 	Func setCloseOutput P1
-		dnRequest("set",[new DotNetObject(nHandle),"CloseOutput",P1])
+		dnRequest("set",[self,"CloseOutput",P1])
 		return self
 
 	Func getConformanceLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"ConformanceLevel"])
+		return dnRequest("get",[self,"ConformanceLevel"])
 
 	Func setConformanceLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConformanceLevel",P1])
+		dnRequest("set",[self,"ConformanceLevel",P1])
 		return self
 
 	Func getCheckCharacters
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckCharacters"])
+		return dnRequest("get",[self,"CheckCharacters"])
 
 	Func setCheckCharacters P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckCharacters",P1])
+		dnRequest("set",[self,"CheckCharacters",P1])
 		return self
 
 	Func getNamespaceHandling
-		return dnRequest("get",[new DotNetObject(nHandle),"NamespaceHandling"])
+		return dnRequest("get",[self,"NamespaceHandling"])
 
 	Func setNamespaceHandling P1
-		dnRequest("set",[new DotNetObject(nHandle),"NamespaceHandling",P1])
+		dnRequest("set",[self,"NamespaceHandling",P1])
 		return self
 
 	Func getWriteEndDocumentOnClose
-		return dnRequest("get",[new DotNetObject(nHandle),"WriteEndDocumentOnClose"])
+		return dnRequest("get",[self,"WriteEndDocumentOnClose"])
 
 	Func setWriteEndDocumentOnClose P1
-		dnRequest("set",[new DotNetObject(nHandle),"WriteEndDocumentOnClose",P1])
+		dnRequest("set",[self,"WriteEndDocumentOnClose",P1])
 		return self
 
 	Func getOutputMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"OutputMethod"])
+		return dnRequest("get",[self,"OutputMethod"])
 
 	Func setOutputMethod P1
 		raise("DotNet Error: OutputMethod is a read-only property")
 
 	Func getDoNotEscapeUriAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"DoNotEscapeUriAttributes"])
+		return dnRequest("get",[self,"DoNotEscapeUriAttributes"])
 
 	Func setDoNotEscapeUriAttributes P1
-		dnRequest("set",[new DotNetObject(nHandle),"DoNotEscapeUriAttributes",P1])
+		dnRequest("set",[self,"DoNotEscapeUriAttributes",P1])
 		return self
 

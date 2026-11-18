@@ -69,58 +69,58 @@ Class DbCommandBuilder from Component
 		return dnRequest("call",[new DotNetObject(nHandle),"UnquoteIdentifier",P1])
 
 	Func getConflictOption
-		return dnRequest("get",[new DotNetObject(nHandle),"ConflictOption"])
+		return dnRequest("get",[self,"ConflictOption"])
 
 	Func setConflictOption P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConflictOption",P1])
+		dnRequest("set",[self,"ConflictOption",P1])
 		return self
 
 	Func getCatalogLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"CatalogLocation"])
+		return dnRequest("get",[self,"CatalogLocation"])
 
 	Func setCatalogLocation P1
-		dnRequest("set",[new DotNetObject(nHandle),"CatalogLocation",P1])
+		dnRequest("set",[self,"CatalogLocation",P1])
 		return self
 
 	Func getCatalogSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"CatalogSeparator"])
+		return dnRequest("get",[self,"CatalogSeparator"])
 
 	Func setCatalogSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"CatalogSeparator",P1])
+		dnRequest("set",[self,"CatalogSeparator",P1])
 		return self
 
 	Func getDataAdapter
-		return dnRequest("get",[new DotNetObject(nHandle),"DataAdapter"])
+		return dnRequest("get",[self,"DataAdapter"])
 
 	Func setDataAdapter P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataAdapter",P1])
+		dnRequest("set",[self,"DataAdapter",P1])
 		return self
 
 	Func getQuotePrefix
-		return dnRequest("get",[new DotNetObject(nHandle),"QuotePrefix"])
+		return dnRequest("get",[self,"QuotePrefix"])
 
 	Func setQuotePrefix P1
-		dnRequest("set",[new DotNetObject(nHandle),"QuotePrefix",P1])
+		dnRequest("set",[self,"QuotePrefix",P1])
 		return self
 
 	Func getQuoteSuffix
-		return dnRequest("get",[new DotNetObject(nHandle),"QuoteSuffix"])
+		return dnRequest("get",[self,"QuoteSuffix"])
 
 	Func setQuoteSuffix P1
-		dnRequest("set",[new DotNetObject(nHandle),"QuoteSuffix",P1])
+		dnRequest("set",[self,"QuoteSuffix",P1])
 		return self
 
 	Func getSchemaSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaSeparator"])
+		return dnRequest("get",[self,"SchemaSeparator"])
 
 	Func setSchemaSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"SchemaSeparator",P1])
+		dnRequest("set",[self,"SchemaSeparator",P1])
 		return self
 
 	Func getSetAllValues
-		return dnRequest("get",[new DotNetObject(nHandle),"SetAllValues"])
+		return dnRequest("get",[self,"SetAllValues"])
 
 	Func setSetAllValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"SetAllValues",P1])
+		dnRequest("set",[self,"SetAllValues",P1])
 		return self
 

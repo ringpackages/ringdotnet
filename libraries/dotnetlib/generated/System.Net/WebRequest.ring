@@ -74,100 +74,100 @@ Class WebRequest from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Net.WebRequest, System.Net.Requests'),"GetSystemWebProxy"])
 
 	Func getCachePolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"CachePolicy"])
+		return dnRequest("get",[self,"CachePolicy"])
 
 	Func setCachePolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"CachePolicy",P1])
+		dnRequest("set",[self,"CachePolicy",P1])
 		return self
 
 	Func getAuthenticationLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationLevel"])
+		return dnRequest("get",[self,"AuthenticationLevel"])
 
 	Func setAuthenticationLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationLevel",P1])
+		dnRequest("set",[self,"AuthenticationLevel",P1])
 		return self
 
 	Func getImpersonationLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"ImpersonationLevel"])
+		return dnRequest("get",[self,"ImpersonationLevel"])
 
 	Func setImpersonationLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImpersonationLevel",P1])
+		dnRequest("set",[self,"ImpersonationLevel",P1])
 		return self
 
 	Func getConnectionGroupName
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionGroupName"])
+		return dnRequest("get",[self,"ConnectionGroupName"])
 
 	Func setConnectionGroupName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConnectionGroupName",P1])
+		dnRequest("set",[self,"ConnectionGroupName",P1])
 		return self
 
 	Func getMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"Method"])
+		return dnRequest("get",[self,"Method"])
 
 	Func setMethod P1
-		dnRequest("set",[new DotNetObject(nHandle),"Method",P1])
+		dnRequest("set",[self,"Method",P1])
 		return self
 
 	Func getRequestUri
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestUri"])
+		return dnRequest("get",[self,"RequestUri"])
 
 	Func setRequestUri P1
 		raise("DotNet Error: RequestUri is a read-only property")
 
 	Func getHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
+		return dnRequest("get",[self,"Headers"])
 
 	Func setHeaders P1
-		dnRequest("set",[new DotNetObject(nHandle),"Headers",P1])
+		dnRequest("set",[self,"Headers",P1])
 		return self
 
 	Func getContentLength
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentLength"])
+		return dnRequest("get",[self,"ContentLength"])
 
 	Func setContentLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentLength",P1])
+		dnRequest("set",[self,"ContentLength",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
+		return dnRequest("get",[self,"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
+		dnRequest("set",[self,"ContentType",P1])
 		return self
 
 	Func getCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"Credentials"])
+		return dnRequest("get",[self,"Credentials"])
 
 	Func setCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
+		dnRequest("set",[self,"Credentials",P1])
 		return self
 
 	Func getTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"Timeout"])
+		return dnRequest("get",[self,"Timeout"])
 
 	Func setTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"Timeout",P1])
+		dnRequest("set",[self,"Timeout",P1])
 		return self
 
 	Func getUseDefaultCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"UseDefaultCredentials"])
+		return dnRequest("get",[self,"UseDefaultCredentials"])
 
 	Func setUseDefaultCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseDefaultCredentials",P1])
+		dnRequest("set",[self,"UseDefaultCredentials",P1])
 		return self
 
 	Func getPreAuthenticate
-		return dnRequest("get",[new DotNetObject(nHandle),"PreAuthenticate"])
+		return dnRequest("get",[self,"PreAuthenticate"])
 
 	Func setPreAuthenticate P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreAuthenticate",P1])
+		dnRequest("set",[self,"PreAuthenticate",P1])
 		return self
 
 	Func getProxy
-		return dnRequest("get",[new DotNetObject(nHandle),"Proxy"])
+		return dnRequest("get",[self,"Proxy"])
 
 	Func setProxy P1
-		dnRequest("set",[new DotNetObject(nHandle),"Proxy",P1])
+		dnRequest("set",[self,"Proxy",P1])
 		return self
 
 	Func getDefaultCachePolicy

@@ -26,10 +26,10 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		return dnRequest("get",[new DotNetObject(nHandle),"UseShortestPath"])
+		return dnRequest("get",[self,"UseShortestPath"])
 
 	Func setUseShortestPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseShortestPath",P1])
+		dnRequest("set",[self,"UseShortestPath",P1])
 		return self
 
 	Func getUseShortestPathProperty

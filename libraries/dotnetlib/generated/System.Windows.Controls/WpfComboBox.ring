@@ -53,74 +53,74 @@ Class WpfComboBox from Selector
 		return self
 
 	Func getMaxDropDownHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxDropDownHeight"])
+		return dnRequest("get",[self,"MaxDropDownHeight"])
 
 	Func setMaxDropDownHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxDropDownHeight",P1])
+		dnRequest("set",[self,"MaxDropDownHeight",P1])
 		return self
 
 	Func getIsDropDownOpen
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDropDownOpen"])
+		return dnRequest("get",[self,"IsDropDownOpen"])
 
 	Func setIsDropDownOpen P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsDropDownOpen",P1])
+		dnRequest("set",[self,"IsDropDownOpen",P1])
 		return self
 
 	Func getShouldPreserveUserEnteredPrefix
-		return dnRequest("get",[new DotNetObject(nHandle),"ShouldPreserveUserEnteredPrefix"])
+		return dnRequest("get",[self,"ShouldPreserveUserEnteredPrefix"])
 
 	Func setShouldPreserveUserEnteredPrefix P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShouldPreserveUserEnteredPrefix",P1])
+		dnRequest("set",[self,"ShouldPreserveUserEnteredPrefix",P1])
 		return self
 
 	Func getIsEditable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEditable"])
+		return dnRequest("get",[self,"IsEditable"])
 
 	Func setIsEditable P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsEditable",P1])
+		dnRequest("set",[self,"IsEditable",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsReadOnly",P1])
+		dnRequest("set",[self,"IsReadOnly",P1])
 		return self
 
 	Func getSelectionBoxItem
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionBoxItem"])
+		return dnRequest("get",[self,"SelectionBoxItem"])
 
 	Func setSelectionBoxItem P1
 		raise("DotNet Error: SelectionBoxItem is a read-only property")
 
 	Func getSelectionBoxItemTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionBoxItemTemplate"])
+		return dnRequest("get",[self,"SelectionBoxItemTemplate"])
 
 	Func setSelectionBoxItemTemplate P1
 		raise("DotNet Error: SelectionBoxItemTemplate is a read-only property")
 
 	Func getSelectionBoxItemStringFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionBoxItemStringFormat"])
+		return dnRequest("get",[self,"SelectionBoxItemStringFormat"])
 
 	Func setSelectionBoxItemStringFormat P1
 		raise("DotNet Error: SelectionBoxItemStringFormat is a read-only property")
 
 	Func getStaysOpenOnEdit
-		return dnRequest("get",[new DotNetObject(nHandle),"StaysOpenOnEdit"])
+		return dnRequest("get",[self,"StaysOpenOnEdit"])
 
 	Func setStaysOpenOnEdit P1
-		dnRequest("set",[new DotNetObject(nHandle),"StaysOpenOnEdit",P1])
+		dnRequest("set",[self,"StaysOpenOnEdit",P1])
 		return self
 
 	Func getIsSelectionBoxHighlighted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelectionBoxHighlighted"])
+		return dnRequest("get",[self,"IsSelectionBoxHighlighted"])
 
 	Func setIsSelectionBoxHighlighted P1
 		raise("DotNet Error: IsSelectionBoxHighlighted is a read-only property")

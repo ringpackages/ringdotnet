@@ -16,7 +16,7 @@ Class DispatcherEventArgs from EventArgs
 		return self
 
 	Func getDispatcher
-		return dnRequest("get",[new DotNetObject(nHandle),"Dispatcher"])
+		return dnRequest("get",[self,"Dispatcher"])
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")

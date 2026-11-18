@@ -26,13 +26,13 @@ Class ServiceParameterBinding from ParameterBinding
 		return dnRequest("call",[new DotNetObject(nHandle),"BindToParameter",P1,P2])
 
 	Func getServiceType
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceType"])
+		return dnRequest("get",[self,"ServiceType"])
 
 	Func setServiceType P1
 		raise("DotNet Error: ServiceType is a read-only property")
 
 	Func getServiceDelegate
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceDelegate"])
+		return dnRequest("get",[self,"ServiceDelegate"])
 
 	Func setServiceDelegate P1
 		raise("DotNet Error: ServiceDelegate is a read-only property")

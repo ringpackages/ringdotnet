@@ -24,7 +24,7 @@ Class NotFoundDirectoryContents from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getExists
-		return dnRequest("get",[new DotNetObject(nHandle),"Exists"])
+		return dnRequest("get",[self,"Exists"])
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")

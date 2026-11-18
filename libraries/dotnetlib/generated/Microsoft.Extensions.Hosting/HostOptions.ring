@@ -24,37 +24,37 @@ Class HostOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getShutdownTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"ShutdownTimeout"])
+		return dnRequest("get",[self,"ShutdownTimeout"])
 
 	Func setShutdownTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShutdownTimeout",P1])
+		dnRequest("set",[self,"ShutdownTimeout",P1])
 		return self
 
 	Func getStartupTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"StartupTimeout"])
+		return dnRequest("get",[self,"StartupTimeout"])
 
 	Func setStartupTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"StartupTimeout",P1])
+		dnRequest("set",[self,"StartupTimeout",P1])
 		return self
 
 	Func getServicesStartConcurrently
-		return dnRequest("get",[new DotNetObject(nHandle),"ServicesStartConcurrently"])
+		return dnRequest("get",[self,"ServicesStartConcurrently"])
 
 	Func setServicesStartConcurrently P1
-		dnRequest("set",[new DotNetObject(nHandle),"ServicesStartConcurrently",P1])
+		dnRequest("set",[self,"ServicesStartConcurrently",P1])
 		return self
 
 	Func getServicesStopConcurrently
-		return dnRequest("get",[new DotNetObject(nHandle),"ServicesStopConcurrently"])
+		return dnRequest("get",[self,"ServicesStopConcurrently"])
 
 	Func setServicesStopConcurrently P1
-		dnRequest("set",[new DotNetObject(nHandle),"ServicesStopConcurrently",P1])
+		dnRequest("set",[self,"ServicesStopConcurrently",P1])
 		return self
 
 	Func getBackgroundServiceExceptionBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"BackgroundServiceExceptionBehavior"])
+		return dnRequest("get",[self,"BackgroundServiceExceptionBehavior"])
 
 	Func setBackgroundServiceExceptionBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"BackgroundServiceExceptionBehavior",P1])
+		dnRequest("set",[self,"BackgroundServiceExceptionBehavior",P1])
 		return self
 

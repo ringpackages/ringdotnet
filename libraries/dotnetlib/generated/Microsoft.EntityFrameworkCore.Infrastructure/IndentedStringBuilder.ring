@@ -69,13 +69,13 @@ Class IndentedStringBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIndentCount
-		return dnRequest("get",[new DotNetObject(nHandle),"IndentCount"])
+		return dnRequest("get",[self,"IndentCount"])
 
 	Func setIndentCount P1
 		raise("DotNet Error: IndentCount is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

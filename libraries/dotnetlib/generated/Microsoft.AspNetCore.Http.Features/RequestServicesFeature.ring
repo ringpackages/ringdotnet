@@ -27,9 +27,9 @@ Class RequestServicesFeature from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequestServices
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestServices"])
+		return dnRequest("get",[self,"RequestServices"])
 
 	Func setRequestServices P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestServices",P1])
+		dnRequest("set",[self,"RequestServices",P1])
 		return self
 

@@ -21,13 +21,13 @@ Class RawSqlCommand from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRelationalCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"RelationalCommand"])
+		return dnRequest("get",[self,"RelationalCommand"])
 
 	Func setRelationalCommand P1
 		raise("DotNet Error: RelationalCommand is a read-only property")
 
 	Func getParameterValues
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterValues"])
+		return dnRequest("get",[self,"ParameterValues"])
 
 	Func setParameterValues P1
 		raise("DotNet Error: ParameterValues is a read-only property")

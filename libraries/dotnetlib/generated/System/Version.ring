@@ -60,37 +60,37 @@ Class Version from Object
 		return dnRequest("call",[dnTypeCached('System.Version, System.Private.CoreLib'),"TryParse",P1])
 
 	Func getMajor
-		return dnRequest("get",[new DotNetObject(nHandle),"Major"])
+		return dnRequest("get",[self,"Major"])
 
 	Func setMajor P1
 		raise("DotNet Error: Major is a read-only property")
 
 	Func getMinor
-		return dnRequest("get",[new DotNetObject(nHandle),"Minor"])
+		return dnRequest("get",[self,"Minor"])
 
 	Func setMinor P1
 		raise("DotNet Error: Minor is a read-only property")
 
 	Func getBuild
-		return dnRequest("get",[new DotNetObject(nHandle),"Build"])
+		return dnRequest("get",[self,"Build"])
 
 	Func setBuild P1
 		raise("DotNet Error: Build is a read-only property")
 
 	Func getRevision
-		return dnRequest("get",[new DotNetObject(nHandle),"Revision"])
+		return dnRequest("get",[self,"Revision"])
 
 	Func setRevision P1
 		raise("DotNet Error: Revision is a read-only property")
 
 	Func getMajorRevision
-		return dnRequest("get",[new DotNetObject(nHandle),"MajorRevision"])
+		return dnRequest("get",[self,"MajorRevision"])
 
 	Func setMajorRevision P1
 		raise("DotNet Error: MajorRevision is a read-only property")
 
 	Func getMinorRevision
-		return dnRequest("get",[new DotNetObject(nHandle),"MinorRevision"])
+		return dnRequest("get",[self,"MinorRevision"])
 
 	Func setMinorRevision P1
 		raise("DotNet Error: MinorRevision is a read-only property")

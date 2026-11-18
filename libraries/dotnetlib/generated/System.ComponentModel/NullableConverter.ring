@@ -19,19 +19,19 @@ Class NullableConverter from TypeConverter
 		return self
 
 	Func getNullableType
-		return dnRequest("get",[new DotNetObject(nHandle),"NullableType"])
+		return dnRequest("get",[self,"NullableType"])
 
 	Func setNullableType P1
 		raise("DotNet Error: NullableType is a read-only property")
 
 	Func getUnderlyingType
-		return dnRequest("get",[new DotNetObject(nHandle),"UnderlyingType"])
+		return dnRequest("get",[self,"UnderlyingType"])
 
 	Func setUnderlyingType P1
 		raise("DotNet Error: UnderlyingType is a read-only property")
 
 	Func getUnderlyingTypeConverter
-		return dnRequest("get",[new DotNetObject(nHandle),"UnderlyingTypeConverter"])
+		return dnRequest("get",[self,"UnderlyingTypeConverter"])
 
 	Func setUnderlyingTypeConverter P1
 		raise("DotNet Error: UnderlyingTypeConverter is a read-only property")

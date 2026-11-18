@@ -22,13 +22,13 @@ Class ItemDragEventArgs from EventArgs
 		return self
 
 	Func getButton
-		return dnRequest("get",[new DotNetObject(nHandle),"Button"])
+		return dnRequest("get",[self,"Button"])
 
 	Func setButton P1
 		raise("DotNet Error: Button is a read-only property")
 
 	Func getItem
-		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
+		return dnRequest("get",[self,"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")

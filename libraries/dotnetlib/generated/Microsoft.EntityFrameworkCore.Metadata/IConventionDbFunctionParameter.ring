@@ -43,10 +43,10 @@ Class IConventionDbFunctionParameter from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeMappingConfigurationSource"])
 
 	Func getFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"Function"])
+		return dnRequest("get",[self,"Function"])
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")

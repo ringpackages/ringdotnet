@@ -52,25 +52,25 @@ Class DbProviderFactory from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCanCreateBatch
-		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateBatch"])
+		return dnRequest("get",[self,"CanCreateBatch"])
 
 	Func setCanCreateBatch P1
 		raise("DotNet Error: CanCreateBatch is a read-only property")
 
 	Func getCanCreateDataSourceEnumerator
-		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateDataSourceEnumerator"])
+		return dnRequest("get",[self,"CanCreateDataSourceEnumerator"])
 
 	Func setCanCreateDataSourceEnumerator P1
 		raise("DotNet Error: CanCreateDataSourceEnumerator is a read-only property")
 
 	Func getCanCreateDataAdapter
-		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateDataAdapter"])
+		return dnRequest("get",[self,"CanCreateDataAdapter"])
 
 	Func setCanCreateDataAdapter P1
 		raise("DotNet Error: CanCreateDataAdapter is a read-only property")
 
 	Func getCanCreateCommandBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateCommandBuilder"])
+		return dnRequest("get",[self,"CanCreateCommandBuilder"])
 
 	Func setCanCreateCommandBuilder P1
 		raise("DotNet Error: CanCreateCommandBuilder is a read-only property")

@@ -148,140 +148,140 @@ Class ComboBox from ListControl
 		return self
 
 	Func getAutoCompleteMode
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteMode"])
+		return dnRequest("get",[self,"AutoCompleteMode"])
 
 	Func setAutoCompleteMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteMode",P1])
+		dnRequest("set",[self,"AutoCompleteMode",P1])
 		return self
 
 	Func getAutoCompleteSource
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteSource"])
+		return dnRequest("get",[self,"AutoCompleteSource"])
 
 	Func setAutoCompleteSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteSource",P1])
+		dnRequest("set",[self,"AutoCompleteSource",P1])
 		return self
 
 	Func getAutoCompleteCustomSource
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoCompleteCustomSource"])
+		return dnRequest("get",[self,"AutoCompleteCustomSource"])
 
 	Func setAutoCompleteCustomSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoCompleteCustomSource",P1])
+		dnRequest("set",[self,"AutoCompleteCustomSource",P1])
 		return self
 
 	Func getDrawMode
-		return dnRequest("get",[new DotNetObject(nHandle),"DrawMode"])
+		return dnRequest("get",[self,"DrawMode"])
 
 	Func setDrawMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"DrawMode",P1])
+		dnRequest("set",[self,"DrawMode",P1])
 		return self
 
 	Func getDropDownWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownWidth"])
+		return dnRequest("get",[self,"DropDownWidth"])
 
 	Func setDropDownWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropDownWidth",P1])
+		dnRequest("set",[self,"DropDownWidth",P1])
 		return self
 
 	Func getDropDownHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownHeight"])
+		return dnRequest("get",[self,"DropDownHeight"])
 
 	Func setDropDownHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropDownHeight",P1])
+		dnRequest("set",[self,"DropDownHeight",P1])
 		return self
 
 	Func getDroppedDown
-		return dnRequest("get",[new DotNetObject(nHandle),"DroppedDown"])
+		return dnRequest("get",[self,"DroppedDown"])
 
 	Func setDroppedDown P1
-		dnRequest("set",[new DotNetObject(nHandle),"DroppedDown",P1])
+		dnRequest("set",[self,"DroppedDown",P1])
 		return self
 
 	Func getFlatStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"FlatStyle"])
+		return dnRequest("get",[self,"FlatStyle"])
 
 	Func setFlatStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlatStyle",P1])
+		dnRequest("set",[self,"FlatStyle",P1])
 		return self
 
 	Func getIntegralHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"IntegralHeight"])
+		return dnRequest("get",[self,"IntegralHeight"])
 
 	Func setIntegralHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"IntegralHeight",P1])
+		dnRequest("set",[self,"IntegralHeight",P1])
 		return self
 
 	Func getItemHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemHeight"])
+		return dnRequest("get",[self,"ItemHeight"])
 
 	Func setItemHeight P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemHeight",P1])
+		dnRequest("set",[self,"ItemHeight",P1])
 		return self
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getMaxDropDownItems
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxDropDownItems"])
+		return dnRequest("get",[self,"MaxDropDownItems"])
 
 	Func setMaxDropDownItems P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxDropDownItems",P1])
+		dnRequest("set",[self,"MaxDropDownItems",P1])
 		return self
 
 	Func getMaxLength
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxLength"])
+		return dnRequest("get",[self,"MaxLength"])
 
 	Func setMaxLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxLength",P1])
+		dnRequest("set",[self,"MaxLength",P1])
 		return self
 
 	Func getPreferredHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"PreferredHeight"])
+		return dnRequest("get",[self,"PreferredHeight"])
 
 	Func setPreferredHeight P1
 		raise("DotNet Error: PreferredHeight is a read-only property")
 
 	Func getSelectedItem
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItem"])
+		return dnRequest("get",[self,"SelectedItem"])
 
 	Func setSelectedItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedItem",P1])
+		dnRequest("set",[self,"SelectedItem",P1])
 		return self
 
 	Func getSelectedText
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedText"])
+		return dnRequest("get",[self,"SelectedText"])
 
 	Func setSelectedText P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedText",P1])
+		dnRequest("set",[self,"SelectedText",P1])
 		return self
 
 	Func getSelectionLength
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionLength"])
+		return dnRequest("get",[self,"SelectionLength"])
 
 	Func setSelectionLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionLength",P1])
+		dnRequest("set",[self,"SelectionLength",P1])
 		return self
 
 	Func getSelectionStart
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionStart"])
+		return dnRequest("get",[self,"SelectionStart"])
 
 	Func setSelectionStart P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionStart",P1])
+		dnRequest("set",[self,"SelectionStart",P1])
 		return self
 
 	Func getSorted
-		return dnRequest("get",[new DotNetObject(nHandle),"Sorted"])
+		return dnRequest("get",[self,"Sorted"])
 
 	Func setSorted P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sorted",P1])
+		dnRequest("set",[self,"Sorted",P1])
 		return self
 
 	Func getDropDownStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownStyle"])
+		return dnRequest("get",[self,"DropDownStyle"])
 
 	Func setDropDownStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropDownStyle",P1])
+		dnRequest("set",[self,"DropDownStyle",P1])
 		return self
 

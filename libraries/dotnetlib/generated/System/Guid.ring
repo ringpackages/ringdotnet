@@ -92,13 +92,13 @@ Class Guid from ValueType
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"NewGuid"])
 
 	Func getVariant
-		return dnRequest("get",[new DotNetObject(nHandle),"Variant"])
+		return dnRequest("get",[self,"Variant"])
 
 	Func setVariant P1
 		raise("DotNet Error: Variant is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

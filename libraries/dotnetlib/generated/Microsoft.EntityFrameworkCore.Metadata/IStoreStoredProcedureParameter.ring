@@ -22,25 +22,25 @@ Class IStoreStoredProcedureParameter from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"FindParameterMapping",P1])
 
 	Func getStoredProcedure
-		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedure"])
+		return dnRequest("get",[self,"StoredProcedure"])
 
 	Func setStoredProcedure P1
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getPropertyMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyMappings"])
+		return dnRequest("get",[self,"PropertyMappings"])
 
 	Func setPropertyMappings P1
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
+		return dnRequest("get",[self,"Direction"])
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
 
 	Func getPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
+		return dnRequest("get",[self,"Position"])
 
 	Func setPosition P1
 		raise("DotNet Error: Position is a read-only property")

@@ -26,24 +26,24 @@ Class BitmapCacheBrush from WpfBrush
 		return self
 
 	Func getTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
+		return dnRequest("get",[self,"Target"])
 
 	Func setTarget P1
-		dnRequest("set",[new DotNetObject(nHandle),"Target",P1])
+		dnRequest("set",[self,"Target",P1])
 		return self
 
 	Func getBitmapCache
-		return dnRequest("get",[new DotNetObject(nHandle),"BitmapCache"])
+		return dnRequest("get",[self,"BitmapCache"])
 
 	Func setBitmapCache P1
-		dnRequest("set",[new DotNetObject(nHandle),"BitmapCache",P1])
+		dnRequest("set",[self,"BitmapCache",P1])
 		return self
 
 	Func getAutoLayoutContent
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoLayoutContent"])
+		return dnRequest("get",[self,"AutoLayoutContent"])
 
 	Func setAutoLayoutContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoLayoutContent",P1])
+		dnRequest("set",[self,"AutoLayoutContent",P1])
 		return self
 
 	Func getTargetProperty

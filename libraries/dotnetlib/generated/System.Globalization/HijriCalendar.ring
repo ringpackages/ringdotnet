@@ -18,10 +18,10 @@ Class HijriCalendar from Calendar
 		return self
 
 	Func getHijriAdjustment
-		return dnRequest("get",[new DotNetObject(nHandle),"HijriAdjustment"])
+		return dnRequest("get",[self,"HijriAdjustment"])
 
 	Func setHijriAdjustment P1
-		dnRequest("set",[new DotNetObject(nHandle),"HijriAdjustment",P1])
+		dnRequest("set",[self,"HijriAdjustment",P1])
 		return self
 
 	Func getHijriEra

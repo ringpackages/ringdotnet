@@ -16,7 +16,7 @@ Class IActionHttpMethodProvider from DotNetObject
 		return self
 
 	Func getHttpMethods
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpMethods"])
+		return dnRequest("get",[self,"HttpMethods"])
 
 	Func setHttpMethods P1
 		raise("DotNet Error: HttpMethods is a read-only property")

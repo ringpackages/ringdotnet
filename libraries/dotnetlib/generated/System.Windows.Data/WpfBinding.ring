@@ -78,149 +78,149 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func getValidationRules
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidationRules"])
+		return dnRequest("get",[self,"ValidationRules"])
 
 	Func setValidationRules P1
 		raise("DotNet Error: ValidationRules is a read-only property")
 
 	Func getValidatesOnExceptions
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidatesOnExceptions"])
+		return dnRequest("get",[self,"ValidatesOnExceptions"])
 
 	Func setValidatesOnExceptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidatesOnExceptions",P1])
+		dnRequest("set",[self,"ValidatesOnExceptions",P1])
 		return self
 
 	Func getValidatesOnDataErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidatesOnDataErrors"])
+		return dnRequest("get",[self,"ValidatesOnDataErrors"])
 
 	Func setValidatesOnDataErrors P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidatesOnDataErrors",P1])
+		dnRequest("set",[self,"ValidatesOnDataErrors",P1])
 		return self
 
 	Func getValidatesOnNotifyDataErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidatesOnNotifyDataErrors"])
+		return dnRequest("get",[self,"ValidatesOnNotifyDataErrors"])
 
 	Func setValidatesOnNotifyDataErrors P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidatesOnNotifyDataErrors",P1])
+		dnRequest("set",[self,"ValidatesOnNotifyDataErrors",P1])
 		return self
 
 	Func getPath
-		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
+		return dnRequest("get",[self,"Path"])
 
 	Func setPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
+		dnRequest("set",[self,"Path",P1])
 		return self
 
 	Func getXPath
-		return dnRequest("get",[new DotNetObject(nHandle),"XPath"])
+		return dnRequest("get",[self,"XPath"])
 
 	Func setXPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"XPath",P1])
+		dnRequest("set",[self,"XPath",P1])
 		return self
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
+		dnRequest("set",[self,"Mode",P1])
 		return self
 
 	Func getUpdateSourceTrigger
-		return dnRequest("get",[new DotNetObject(nHandle),"UpdateSourceTrigger"])
+		return dnRequest("get",[self,"UpdateSourceTrigger"])
 
 	Func setUpdateSourceTrigger P1
-		dnRequest("set",[new DotNetObject(nHandle),"UpdateSourceTrigger",P1])
+		dnRequest("set",[self,"UpdateSourceTrigger",P1])
 		return self
 
 	Func getNotifyOnSourceUpdated
-		return dnRequest("get",[new DotNetObject(nHandle),"NotifyOnSourceUpdated"])
+		return dnRequest("get",[self,"NotifyOnSourceUpdated"])
 
 	Func setNotifyOnSourceUpdated P1
-		dnRequest("set",[new DotNetObject(nHandle),"NotifyOnSourceUpdated",P1])
+		dnRequest("set",[self,"NotifyOnSourceUpdated",P1])
 		return self
 
 	Func getNotifyOnTargetUpdated
-		return dnRequest("get",[new DotNetObject(nHandle),"NotifyOnTargetUpdated"])
+		return dnRequest("get",[self,"NotifyOnTargetUpdated"])
 
 	Func setNotifyOnTargetUpdated P1
-		dnRequest("set",[new DotNetObject(nHandle),"NotifyOnTargetUpdated",P1])
+		dnRequest("set",[self,"NotifyOnTargetUpdated",P1])
 		return self
 
 	Func getNotifyOnValidationError
-		return dnRequest("get",[new DotNetObject(nHandle),"NotifyOnValidationError"])
+		return dnRequest("get",[self,"NotifyOnValidationError"])
 
 	Func setNotifyOnValidationError P1
-		dnRequest("set",[new DotNetObject(nHandle),"NotifyOnValidationError",P1])
+		dnRequest("set",[self,"NotifyOnValidationError",P1])
 		return self
 
 	Func getConverter
-		return dnRequest("get",[new DotNetObject(nHandle),"Converter"])
+		return dnRequest("get",[self,"Converter"])
 
 	Func setConverter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Converter",P1])
+		dnRequest("set",[self,"Converter",P1])
 		return self
 
 	Func getConverterParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"ConverterParameter"])
+		return dnRequest("get",[self,"ConverterParameter"])
 
 	Func setConverterParameter P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConverterParameter",P1])
+		dnRequest("set",[self,"ConverterParameter",P1])
 		return self
 
 	Func getConverterCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"ConverterCulture"])
+		return dnRequest("get",[self,"ConverterCulture"])
 
 	Func setConverterCulture P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConverterCulture",P1])
+		dnRequest("set",[self,"ConverterCulture",P1])
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getRelativeSource
-		return dnRequest("get",[new DotNetObject(nHandle),"RelativeSource"])
+		return dnRequest("get",[self,"RelativeSource"])
 
 	Func setRelativeSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"RelativeSource",P1])
+		dnRequest("set",[self,"RelativeSource",P1])
 		return self
 
 	Func getElementName
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementName"])
+		return dnRequest("get",[self,"ElementName"])
 
 	Func setElementName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ElementName",P1])
+		dnRequest("set",[self,"ElementName",P1])
 		return self
 
 	Func getIsAsync
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
+		return dnRequest("get",[self,"IsAsync"])
 
 	Func setIsAsync P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsAsync",P1])
+		dnRequest("set",[self,"IsAsync",P1])
 		return self
 
 	Func getAsyncState
-		return dnRequest("get",[new DotNetObject(nHandle),"AsyncState"])
+		return dnRequest("get",[self,"AsyncState"])
 
 	Func setAsyncState P1
-		dnRequest("set",[new DotNetObject(nHandle),"AsyncState",P1])
+		dnRequest("set",[self,"AsyncState",P1])
 		return self
 
 	Func getBindsDirectlyToSource
-		return dnRequest("get",[new DotNetObject(nHandle),"BindsDirectlyToSource"])
+		return dnRequest("get",[self,"BindsDirectlyToSource"])
 
 	Func setBindsDirectlyToSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"BindsDirectlyToSource",P1])
+		dnRequest("set",[self,"BindsDirectlyToSource",P1])
 		return self
 
 	Func getUpdateSourceExceptionFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"UpdateSourceExceptionFilter"])
+		return dnRequest("get",[self,"UpdateSourceExceptionFilter"])
 
 	Func setUpdateSourceExceptionFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"UpdateSourceExceptionFilter",P1])
+		dnRequest("set",[self,"UpdateSourceExceptionFilter",P1])
 		return self
 
 	Func getSourceUpdatedEvent

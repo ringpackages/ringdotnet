@@ -189,48 +189,48 @@ Class WpfApplication from DispatcherObject
 		return self
 
 	Func getWindows
-		return dnRequest("get",[new DotNetObject(nHandle),"Windows"])
+		return dnRequest("get",[self,"Windows"])
 
 	Func setWindows P1
 		raise("DotNet Error: Windows is a read-only property")
 
 	Func getMainWindow
-		return dnRequest("get",[new DotNetObject(nHandle),"MainWindow"])
+		return dnRequest("get",[self,"MainWindow"])
 
 	Func setMainWindow P1
-		dnRequest("set",[new DotNetObject(nHandle),"MainWindow",P1])
+		dnRequest("set",[self,"MainWindow",P1])
 		return self
 
 	Func getShutdownMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ShutdownMode"])
+		return dnRequest("get",[self,"ShutdownMode"])
 
 	Func setShutdownMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShutdownMode",P1])
+		dnRequest("set",[self,"ShutdownMode",P1])
 		return self
 
 	Func getResources
-		return dnRequest("get",[new DotNetObject(nHandle),"Resources"])
+		return dnRequest("get",[self,"Resources"])
 
 	Func setResources P1
-		dnRequest("set",[new DotNetObject(nHandle),"Resources",P1])
+		dnRequest("set",[self,"Resources",P1])
 		return self
 
 	Func getThemeMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ThemeMode"])
+		return dnRequest("get",[self,"ThemeMode"])
 
 	Func setThemeMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ThemeMode",P1])
+		dnRequest("set",[self,"ThemeMode",P1])
 		return self
 
 	Func getStartupUri
-		return dnRequest("get",[new DotNetObject(nHandle),"StartupUri"])
+		return dnRequest("get",[self,"StartupUri"])
 
 	Func setStartupUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"StartupUri",P1])
+		dnRequest("set",[self,"StartupUri",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

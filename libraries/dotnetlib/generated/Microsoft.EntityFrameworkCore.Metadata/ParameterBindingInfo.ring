@@ -28,31 +28,31 @@ Class ParameterBindingInfo from ValueType
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValueBufferIndex",P1])
 
 	Func getStructuralType
-		return dnRequest("get",[new DotNetObject(nHandle),"StructuralType"])
+		return dnRequest("get",[self,"StructuralType"])
 
 	Func setStructuralType P1
 		raise("DotNet Error: StructuralType is a read-only property")
 
 	Func getInstanceName
-		return dnRequest("get",[new DotNetObject(nHandle),"InstanceName"])
+		return dnRequest("get",[self,"InstanceName"])
 
 	Func setInstanceName P1
 		raise("DotNet Error: InstanceName is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryTrackingBehavior"])
+		return dnRequest("get",[self,"QueryTrackingBehavior"])
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
 
 	Func getMaterializationContextExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"MaterializationContextExpression"])
+		return dnRequest("get",[self,"MaterializationContextExpression"])
 
 	Func setMaterializationContextExpression P1
 		raise("DotNet Error: MaterializationContextExpression is a read-only property")
 
 	Func getServiceInstances
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceInstances"])
+		return dnRequest("get",[self,"ServiceInstances"])
 
 	Func setServiceInstances P1
 		raise("DotNet Error: ServiceInstances is a read-only property")

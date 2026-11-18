@@ -84,19 +84,19 @@ Class StringPriorityQueue from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getComparer
-		return dnRequest("get",[new DotNetObject(nHandle),"Comparer"])
+		return dnRequest("get",[self,"Comparer"])
 
 	Func setComparer P1
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getUnorderedItems
-		return dnRequest("get",[new DotNetObject(nHandle),"UnorderedItems"])
+		return dnRequest("get",[self,"UnorderedItems"])
 
 	Func setUnorderedItems P1
 		raise("DotNet Error: UnorderedItems is a read-only property")

@@ -26,51 +26,51 @@ Class FileStreamOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
+		dnRequest("set",[self,"Mode",P1])
 		return self
 
 	Func getAccess
-		return dnRequest("get",[new DotNetObject(nHandle),"Access"])
+		return dnRequest("get",[self,"Access"])
 
 	Func setAccess P1
-		dnRequest("set",[new DotNetObject(nHandle),"Access",P1])
+		dnRequest("set",[self,"Access",P1])
 		return self
 
 	Func getShare
-		return dnRequest("get",[new DotNetObject(nHandle),"Share"])
+		return dnRequest("get",[self,"Share"])
 
 	Func setShare P1
-		dnRequest("set",[new DotNetObject(nHandle),"Share",P1])
+		dnRequest("set",[self,"Share",P1])
 		return self
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"Options",P1])
+		dnRequest("set",[self,"Options",P1])
 		return self
 
 	Func getPreallocationSize
-		return dnRequest("get",[new DotNetObject(nHandle),"PreallocationSize"])
+		return dnRequest("get",[self,"PreallocationSize"])
 
 	Func setPreallocationSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreallocationSize",P1])
+		dnRequest("set",[self,"PreallocationSize",P1])
 		return self
 
 	Func getBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"BufferSize"])
+		return dnRequest("get",[self,"BufferSize"])
 
 	Func setBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"BufferSize",P1])
+		dnRequest("set",[self,"BufferSize",P1])
 		return self
 
 	Func getUnixCreateMode
-		return dnRequest("get",[new DotNetObject(nHandle),"UnixCreateMode"])
+		return dnRequest("get",[self,"UnixCreateMode"])
 
 	Func setUnixCreateMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"UnixCreateMode",P1])
+		dnRequest("set",[self,"UnixCreateMode",P1])
 		return self
 

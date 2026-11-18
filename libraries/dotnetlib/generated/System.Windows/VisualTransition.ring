@@ -19,37 +19,37 @@ Class VisualTransition from DependencyObject
 		return self
 
 	Func getFrom
-		return dnRequest("get",[new DotNetObject(nHandle),"From"])
+		return dnRequest("get",[self,"From"])
 
 	Func setFrom P1
-		dnRequest("set",[new DotNetObject(nHandle),"From",P1])
+		dnRequest("set",[self,"From",P1])
 		return self
 
 	Func getTo
-		return dnRequest("get",[new DotNetObject(nHandle),"To"])
+		return dnRequest("get",[self,"To"])
 
 	Func setTo P1
-		dnRequest("set",[new DotNetObject(nHandle),"To",P1])
+		dnRequest("set",[self,"To",P1])
 		return self
 
 	Func getStoryboard
-		return dnRequest("get",[new DotNetObject(nHandle),"Storyboard"])
+		return dnRequest("get",[self,"Storyboard"])
 
 	Func setStoryboard P1
-		dnRequest("set",[new DotNetObject(nHandle),"Storyboard",P1])
+		dnRequest("set",[self,"Storyboard",P1])
 		return self
 
 	Func getGeneratedDuration
-		return dnRequest("get",[new DotNetObject(nHandle),"GeneratedDuration"])
+		return dnRequest("get",[self,"GeneratedDuration"])
 
 	Func setGeneratedDuration P1
-		dnRequest("set",[new DotNetObject(nHandle),"GeneratedDuration",P1])
+		dnRequest("set",[self,"GeneratedDuration",P1])
 		return self
 
 	Func getGeneratedEasingFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"GeneratedEasingFunction"])
+		return dnRequest("get",[self,"GeneratedEasingFunction"])
 
 	Func setGeneratedEasingFunction P1
-		dnRequest("set",[new DotNetObject(nHandle),"GeneratedEasingFunction",P1])
+		dnRequest("set",[self,"GeneratedEasingFunction",P1])
 		return self
 

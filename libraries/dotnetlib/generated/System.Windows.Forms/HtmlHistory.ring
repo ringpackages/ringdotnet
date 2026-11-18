@@ -36,13 +36,13 @@ Class HtmlHistory from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getDomHistory
-		return dnRequest("get",[new DotNetObject(nHandle),"DomHistory"])
+		return dnRequest("get",[self,"DomHistory"])
 
 	Func setDomHistory P1
 		raise("DotNet Error: DomHistory is a read-only property")

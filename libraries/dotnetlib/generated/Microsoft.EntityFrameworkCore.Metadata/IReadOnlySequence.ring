@@ -40,61 +40,61 @@ Class IReadOnlySequence from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getModelSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelSchema"])
+		return dnRequest("get",[self,"ModelSchema"])
 
 	Func setModelSchema P1
 		raise("DotNet Error: ModelSchema is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
+		return dnRequest("get",[self,"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getStartValue
-		return dnRequest("get",[new DotNetObject(nHandle),"StartValue"])
+		return dnRequest("get",[self,"StartValue"])
 
 	Func setStartValue P1
 		raise("DotNet Error: StartValue is a read-only property")
 
 	Func getIncrementBy
-		return dnRequest("get",[new DotNetObject(nHandle),"IncrementBy"])
+		return dnRequest("get",[self,"IncrementBy"])
 
 	Func setIncrementBy P1
 		raise("DotNet Error: IncrementBy is a read-only property")
 
 	Func getMinValue
-		return dnRequest("get",[new DotNetObject(nHandle),"MinValue"])
+		return dnRequest("get",[self,"MinValue"])
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxValue"])
+		return dnRequest("get",[self,"MaxValue"])
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getIsCyclic
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCyclic"])
+		return dnRequest("get",[self,"IsCyclic"])
 
 	Func setIsCyclic P1
 		raise("DotNet Error: IsCyclic is a read-only property")

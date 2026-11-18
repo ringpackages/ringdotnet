@@ -31,45 +31,45 @@ Class DataGridColumnHeader from WpfButtonBase
 		return self
 
 	Func getColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"Column"])
+		return dnRequest("get",[self,"Column"])
 
 	Func setColumn P1
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getSeparatorBrush
-		return dnRequest("get",[new DotNetObject(nHandle),"SeparatorBrush"])
+		return dnRequest("get",[self,"SeparatorBrush"])
 
 	Func setSeparatorBrush P1
-		dnRequest("set",[new DotNetObject(nHandle),"SeparatorBrush",P1])
+		dnRequest("set",[self,"SeparatorBrush",P1])
 		return self
 
 	Func getSeparatorVisibility
-		return dnRequest("get",[new DotNetObject(nHandle),"SeparatorVisibility"])
+		return dnRequest("get",[self,"SeparatorVisibility"])
 
 	Func setSeparatorVisibility P1
-		dnRequest("set",[new DotNetObject(nHandle),"SeparatorVisibility",P1])
+		dnRequest("set",[self,"SeparatorVisibility",P1])
 		return self
 
 	Func getDisplayIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayIndex"])
+		return dnRequest("get",[self,"DisplayIndex"])
 
 	Func setDisplayIndex P1
 		raise("DotNet Error: DisplayIndex is a read-only property")
 
 	Func getCanUserSort
-		return dnRequest("get",[new DotNetObject(nHandle),"CanUserSort"])
+		return dnRequest("get",[self,"CanUserSort"])
 
 	Func setCanUserSort P1
 		raise("DotNet Error: CanUserSort is a read-only property")
 
 	Func getSortDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"SortDirection"])
+		return dnRequest("get",[self,"SortDirection"])
 
 	Func setSortDirection P1
 		raise("DotNet Error: SortDirection is a read-only property")
 
 	Func getIsFrozen
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFrozen"])
+		return dnRequest("get",[self,"IsFrozen"])
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")

@@ -33,74 +33,74 @@ Class HttpContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFeatures
-		return dnRequest("get",[new DotNetObject(nHandle),"Features"])
+		return dnRequest("get",[self,"Features"])
 
 	Func setFeatures P1
 		raise("DotNet Error: Features is a read-only property")
 
 	Func getRequest
-		return dnRequest("get",[new DotNetObject(nHandle),"Request"])
+		return dnRequest("get",[self,"Request"])
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getResponse
-		return dnRequest("get",[new DotNetObject(nHandle),"Response"])
+		return dnRequest("get",[self,"Response"])
 
 	Func setResponse P1
 		raise("DotNet Error: Response is a read-only property")
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getWebSockets
-		return dnRequest("get",[new DotNetObject(nHandle),"WebSockets"])
+		return dnRequest("get",[self,"WebSockets"])
 
 	Func setWebSockets P1
 		raise("DotNet Error: WebSockets is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[new DotNetObject(nHandle),"User"])
+		return dnRequest("get",[self,"User"])
 
 	Func setUser P1
-		dnRequest("set",[new DotNetObject(nHandle),"User",P1])
+		dnRequest("set",[self,"User",P1])
 		return self
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
-		dnRequest("set",[new DotNetObject(nHandle),"Items",P1])
+		dnRequest("set",[self,"Items",P1])
 		return self
 
 	Func getRequestServices
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestServices"])
+		return dnRequest("get",[self,"RequestServices"])
 
 	Func setRequestServices P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestServices",P1])
+		dnRequest("set",[self,"RequestServices",P1])
 		return self
 
 	Func getRequestAborted
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestAborted"])
+		return dnRequest("get",[self,"RequestAborted"])
 
 	Func setRequestAborted P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestAborted",P1])
+		dnRequest("set",[self,"RequestAborted",P1])
 		return self
 
 	Func getTraceIdentifier
-		return dnRequest("get",[new DotNetObject(nHandle),"TraceIdentifier"])
+		return dnRequest("get",[self,"TraceIdentifier"])
 
 	Func setTraceIdentifier P1
-		dnRequest("set",[new DotNetObject(nHandle),"TraceIdentifier",P1])
+		dnRequest("set",[self,"TraceIdentifier",P1])
 		return self
 
 	Func getSession
-		return dnRequest("get",[new DotNetObject(nHandle),"Session"])
+		return dnRequest("get",[self,"Session"])
 
 	Func setSession P1
-		dnRequest("set",[new DotNetObject(nHandle),"Session",P1])
+		dnRequest("set",[self,"Session",P1])
 		return self
 

@@ -26,19 +26,19 @@ Class MaterializationInterceptionData from ValueType
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyValue",P1])
 
 	Func getContext
-		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
+		return dnRequest("get",[self,"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
+		return dnRequest("get",[self,"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryTrackingBehavior"])
+		return dnRequest("get",[self,"QueryTrackingBehavior"])
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")

@@ -53,15 +53,15 @@ Class IMutableElementType from DotNetObject
 		return self
 
 	Func getCollectionProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"CollectionProperty"])
+		return dnRequest("get",[self,"CollectionProperty"])
 
 	Func setCollectionProperty P1
 		raise("DotNet Error: CollectionProperty is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsNullable",P1])
+		dnRequest("set",[self,"IsNullable",P1])
 		return self
 

@@ -29,47 +29,47 @@ Class ManipulationInertiaStartingEventArgs from InputEventArgs
 		return self
 
 	Func getManipulationContainer
-		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationContainer"])
+		return dnRequest("get",[self,"ManipulationContainer"])
 
 	Func setManipulationContainer P1
 		raise("DotNet Error: ManipulationContainer is a read-only property")
 
 	Func getManipulationOrigin
-		return dnRequest("get",[new DotNetObject(nHandle),"ManipulationOrigin"])
+		return dnRequest("get",[self,"ManipulationOrigin"])
 
 	Func setManipulationOrigin P1
-		dnRequest("set",[new DotNetObject(nHandle),"ManipulationOrigin",P1])
+		dnRequest("set",[self,"ManipulationOrigin",P1])
 		return self
 
 	Func getInitialVelocities
-		return dnRequest("get",[new DotNetObject(nHandle),"InitialVelocities"])
+		return dnRequest("get",[self,"InitialVelocities"])
 
 	Func setInitialVelocities P1
 		raise("DotNet Error: InitialVelocities is a read-only property")
 
 	Func getTranslationBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"TranslationBehavior"])
+		return dnRequest("get",[self,"TranslationBehavior"])
 
 	Func setTranslationBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"TranslationBehavior",P1])
+		dnRequest("set",[self,"TranslationBehavior",P1])
 		return self
 
 	Func getRotationBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"RotationBehavior"])
+		return dnRequest("get",[self,"RotationBehavior"])
 
 	Func setRotationBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"RotationBehavior",P1])
+		dnRequest("set",[self,"RotationBehavior",P1])
 		return self
 
 	Func getExpansionBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"ExpansionBehavior"])
+		return dnRequest("get",[self,"ExpansionBehavior"])
 
 	Func setExpansionBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExpansionBehavior",P1])
+		dnRequest("set",[self,"ExpansionBehavior",P1])
 		return self
 
 	Func getManipulators
-		return dnRequest("get",[new DotNetObject(nHandle),"Manipulators"])
+		return dnRequest("get",[self,"Manipulators"])
 
 	Func setManipulators P1
 		raise("DotNet Error: Manipulators is a read-only property")

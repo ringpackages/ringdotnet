@@ -17,9 +17,9 @@ Class UriCreationOptions from ValueType
 		return self
 
 	Func getDangerousDisablePathAndQueryCanonicalization
-		return dnRequest("get",[new DotNetObject(nHandle),"DangerousDisablePathAndQueryCanonicalization"])
+		return dnRequest("get",[self,"DangerousDisablePathAndQueryCanonicalization"])
 
 	Func setDangerousDisablePathAndQueryCanonicalization P1
-		dnRequest("set",[new DotNetObject(nHandle),"DangerousDisablePathAndQueryCanonicalization",P1])
+		dnRequest("set",[self,"DangerousDisablePathAndQueryCanonicalization",P1])
 		return self
 

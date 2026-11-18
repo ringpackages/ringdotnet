@@ -16,9 +16,9 @@ Class DataGridViewCellToolTipTextNeededEventArgs from DataGridViewCellEventArgs
 		return self
 
 	Func getToolTipText
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipText"])
+		return dnRequest("get",[self,"ToolTipText"])
 
 	Func setToolTipText P1
-		dnRequest("set",[new DotNetObject(nHandle),"ToolTipText",P1])
+		dnRequest("set",[self,"ToolTipText",P1])
 		return self
 

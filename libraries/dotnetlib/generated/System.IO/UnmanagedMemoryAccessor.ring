@@ -83,19 +83,19 @@ Class UnmanagedMemoryAccessor from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCapacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
+		return dnRequest("get",[self,"Capacity"])
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getCanRead
-		return dnRequest("get",[new DotNetObject(nHandle),"CanRead"])
+		return dnRequest("get",[self,"CanRead"])
 
 	Func setCanRead P1
 		raise("DotNet Error: CanRead is a read-only property")
 
 	Func getCanWrite
-		return dnRequest("get",[new DotNetObject(nHandle),"CanWrite"])
+		return dnRequest("get",[self,"CanWrite"])
 
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")

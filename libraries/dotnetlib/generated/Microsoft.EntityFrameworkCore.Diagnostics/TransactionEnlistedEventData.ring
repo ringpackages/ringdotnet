@@ -19,19 +19,19 @@ Class TransactionEnlistedEventData from EventData
 		return self
 
 	Func getTransaction
-		return dnRequest("get",[new DotNetObject(nHandle),"Transaction"])
+		return dnRequest("get",[self,"Transaction"])
 
 	Func setTransaction P1
 		raise("DotNet Error: Transaction is a read-only property")
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getConnectionId
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionId"])
+		return dnRequest("get",[self,"ConnectionId"])
 
 	Func setConnectionId P1
 		raise("DotNet Error: ConnectionId is a read-only property")

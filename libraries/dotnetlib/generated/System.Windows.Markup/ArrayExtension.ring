@@ -33,14 +33,14 @@ Class ArrayExtension from MarkupExtension
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
-		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
+		dnRequest("set",[self,"Type",P1])
 		return self
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")

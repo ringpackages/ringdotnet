@@ -16,7 +16,7 @@ Class XsltMessageEncounteredEventArgs from EventArgs
 		return self
 
 	Func getMessage
-		return dnRequest("get",[new DotNetObject(nHandle),"Message"])
+		return dnRequest("get",[self,"Message"])
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")

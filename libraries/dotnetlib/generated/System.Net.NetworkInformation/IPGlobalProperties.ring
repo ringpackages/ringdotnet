@@ -71,31 +71,31 @@ Class IPGlobalProperties from Object
 		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation'),"GetIPGlobalProperties"])
 
 	Func getDhcpScopeName
-		return dnRequest("get",[new DotNetObject(nHandle),"DhcpScopeName"])
+		return dnRequest("get",[self,"DhcpScopeName"])
 
 	Func setDhcpScopeName P1
 		raise("DotNet Error: DhcpScopeName is a read-only property")
 
 	Func getDomainName
-		return dnRequest("get",[new DotNetObject(nHandle),"DomainName"])
+		return dnRequest("get",[self,"DomainName"])
 
 	Func setDomainName P1
 		raise("DotNet Error: DomainName is a read-only property")
 
 	Func getHostName
-		return dnRequest("get",[new DotNetObject(nHandle),"HostName"])
+		return dnRequest("get",[self,"HostName"])
 
 	Func setHostName P1
 		raise("DotNet Error: HostName is a read-only property")
 
 	Func getIsWinsProxy
-		return dnRequest("get",[new DotNetObject(nHandle),"IsWinsProxy"])
+		return dnRequest("get",[self,"IsWinsProxy"])
 
 	Func setIsWinsProxy P1
 		raise("DotNet Error: IsWinsProxy is a read-only property")
 
 	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
+		return dnRequest("get",[self,"NodeType"])
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")

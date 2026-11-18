@@ -119,7 +119,7 @@ Class ServiceCollectionMap from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getServiceCollection
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceCollection"])
+		return dnRequest("get",[self,"ServiceCollection"])
 
 	Func setServiceCollection P1
 		raise("DotNet Error: ServiceCollection is a read-only property")

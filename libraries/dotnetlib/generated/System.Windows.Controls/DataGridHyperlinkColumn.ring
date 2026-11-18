@@ -21,17 +21,17 @@ Class DataGridHyperlinkColumn from DataGridBoundColumn
 		return self
 
 	Func getTargetName
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetName"])
+		return dnRequest("get",[self,"TargetName"])
 
 	Func setTargetName P1
-		dnRequest("set",[new DotNetObject(nHandle),"TargetName",P1])
+		dnRequest("set",[self,"TargetName",P1])
 		return self
 
 	Func getContentBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentBinding"])
+		return dnRequest("get",[self,"ContentBinding"])
 
 	Func setContentBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentBinding",P1])
+		dnRequest("set",[self,"ContentBinding",P1])
 		return self
 
 	Func getDefaultElementStyle

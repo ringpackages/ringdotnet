@@ -20,9 +20,9 @@ Class CookieTempDataProviderOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCookie
-		return dnRequest("get",[new DotNetObject(nHandle),"Cookie"])
+		return dnRequest("get",[self,"Cookie"])
 
 	Func setCookie P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cookie",P1])
+		dnRequest("set",[self,"Cookie",P1])
 		return self
 

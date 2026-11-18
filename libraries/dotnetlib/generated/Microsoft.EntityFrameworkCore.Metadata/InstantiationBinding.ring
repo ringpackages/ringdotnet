@@ -26,13 +26,13 @@ Class InstantiationBinding from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParameterBindings
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterBindings"])
+		return dnRequest("get",[self,"ParameterBindings"])
 
 	Func setParameterBindings P1
 		raise("DotNet Error: ParameterBindings is a read-only property")
 
 	Func getRuntimeType
-		return dnRequest("get",[new DotNetObject(nHandle),"RuntimeType"])
+		return dnRequest("get",[self,"RuntimeType"])
 
 	Func setRuntimeType P1
 		raise("DotNet Error: RuntimeType is a read-only property")

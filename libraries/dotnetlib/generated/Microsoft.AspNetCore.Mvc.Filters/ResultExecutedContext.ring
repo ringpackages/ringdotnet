@@ -22,41 +22,41 @@ Class ResultExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dnRequest("get",[new DotNetObject(nHandle),"Canceled"])
+		return dnRequest("get",[self,"Canceled"])
 
 	Func setCanceled P1
-		dnRequest("set",[new DotNetObject(nHandle),"Canceled",P1])
+		dnRequest("set",[self,"Canceled",P1])
 		return self
 
 	Func getController
-		return dnRequest("get",[new DotNetObject(nHandle),"Controller"])
+		return dnRequest("get",[self,"Controller"])
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getException
-		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
+		return dnRequest("get",[self,"Exception"])
 
 	Func setException P1
-		dnRequest("set",[new DotNetObject(nHandle),"Exception",P1])
+		dnRequest("set",[self,"Exception",P1])
 		return self
 
 	Func getExceptionDispatchInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionDispatchInfo"])
+		return dnRequest("get",[self,"ExceptionDispatchInfo"])
 
 	Func setExceptionDispatchInfo P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExceptionDispatchInfo",P1])
+		dnRequest("set",[self,"ExceptionDispatchInfo",P1])
 		return self
 
 	Func getExceptionHandled
-		return dnRequest("get",[new DotNetObject(nHandle),"ExceptionHandled"])
+		return dnRequest("get",[self,"ExceptionHandled"])
 
 	Func setExceptionHandled P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExceptionHandled",P1])
+		dnRequest("set",[self,"ExceptionHandled",P1])
 		return self
 
 	Func getResult
-		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
+		return dnRequest("get",[self,"Result"])
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")

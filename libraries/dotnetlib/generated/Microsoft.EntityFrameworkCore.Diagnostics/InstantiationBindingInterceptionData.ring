@@ -21,7 +21,7 @@ Class InstantiationBindingInterceptionData from ValueType
 		return self
 
 	Func getTypeBase
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeBase"])
+		return dnRequest("get",[self,"TypeBase"])
 
 	Func setTypeBase P1
 		raise("DotNet Error: TypeBase is a read-only property")

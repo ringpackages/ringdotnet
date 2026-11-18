@@ -21,13 +21,13 @@ Class RequestDelegateResult from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequestDelegate
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestDelegate"])
+		return dnRequest("get",[self,"RequestDelegate"])
 
 	Func setRequestDelegate P1
 		raise("DotNet Error: RequestDelegate is a read-only property")
 
 	Func getEndpointMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"EndpointMetadata"])
+		return dnRequest("get",[self,"EndpointMetadata"])
 
 	Func setEndpointMetadata P1
 		raise("DotNet Error: EndpointMetadata is a read-only property")

@@ -46,209 +46,209 @@ Class HttpRequestHeaders from HttpHeaders
 		return self
 
 	Func getAccept
-		return dnRequest("get",[new DotNetObject(nHandle),"Accept"])
+		return dnRequest("get",[self,"Accept"])
 
 	Func setAccept P1
 		raise("DotNet Error: Accept is a read-only property")
 
 	Func getAcceptCharset
-		return dnRequest("get",[new DotNetObject(nHandle),"AcceptCharset"])
+		return dnRequest("get",[self,"AcceptCharset"])
 
 	Func setAcceptCharset P1
 		raise("DotNet Error: AcceptCharset is a read-only property")
 
 	Func getAcceptEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"AcceptEncoding"])
+		return dnRequest("get",[self,"AcceptEncoding"])
 
 	Func setAcceptEncoding P1
 		raise("DotNet Error: AcceptEncoding is a read-only property")
 
 	Func getAcceptLanguage
-		return dnRequest("get",[new DotNetObject(nHandle),"AcceptLanguage"])
+		return dnRequest("get",[self,"AcceptLanguage"])
 
 	Func setAcceptLanguage P1
 		raise("DotNet Error: AcceptLanguage is a read-only property")
 
 	Func getAuthorization
-		return dnRequest("get",[new DotNetObject(nHandle),"Authorization"])
+		return dnRequest("get",[self,"Authorization"])
 
 	Func setAuthorization P1
-		dnRequest("set",[new DotNetObject(nHandle),"Authorization",P1])
+		dnRequest("set",[self,"Authorization",P1])
 		return self
 
 	Func getExpectContinue
-		return dnRequest("get",[new DotNetObject(nHandle),"ExpectContinue"])
+		return dnRequest("get",[self,"ExpectContinue"])
 
 	Func setExpectContinue P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExpectContinue",P1])
+		dnRequest("set",[self,"ExpectContinue",P1])
 		return self
 
 	Func getFrom
-		return dnRequest("get",[new DotNetObject(nHandle),"From"])
+		return dnRequest("get",[self,"From"])
 
 	Func setFrom P1
-		dnRequest("set",[new DotNetObject(nHandle),"From",P1])
+		dnRequest("set",[self,"From",P1])
 		return self
 
 	Func getHost
-		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
+		return dnRequest("get",[self,"Host"])
 
 	Func setHost P1
-		dnRequest("set",[new DotNetObject(nHandle),"Host",P1])
+		dnRequest("set",[self,"Host",P1])
 		return self
 
 	Func getIfMatch
-		return dnRequest("get",[new DotNetObject(nHandle),"IfMatch"])
+		return dnRequest("get",[self,"IfMatch"])
 
 	Func setIfMatch P1
 		raise("DotNet Error: IfMatch is a read-only property")
 
 	Func getIfModifiedSince
-		return dnRequest("get",[new DotNetObject(nHandle),"IfModifiedSince"])
+		return dnRequest("get",[self,"IfModifiedSince"])
 
 	Func setIfModifiedSince P1
-		dnRequest("set",[new DotNetObject(nHandle),"IfModifiedSince",P1])
+		dnRequest("set",[self,"IfModifiedSince",P1])
 		return self
 
 	Func getIfNoneMatch
-		return dnRequest("get",[new DotNetObject(nHandle),"IfNoneMatch"])
+		return dnRequest("get",[self,"IfNoneMatch"])
 
 	Func setIfNoneMatch P1
 		raise("DotNet Error: IfNoneMatch is a read-only property")
 
 	Func getIfRange
-		return dnRequest("get",[new DotNetObject(nHandle),"IfRange"])
+		return dnRequest("get",[self,"IfRange"])
 
 	Func setIfRange P1
-		dnRequest("set",[new DotNetObject(nHandle),"IfRange",P1])
+		dnRequest("set",[self,"IfRange",P1])
 		return self
 
 	Func getIfUnmodifiedSince
-		return dnRequest("get",[new DotNetObject(nHandle),"IfUnmodifiedSince"])
+		return dnRequest("get",[self,"IfUnmodifiedSince"])
 
 	Func setIfUnmodifiedSince P1
-		dnRequest("set",[new DotNetObject(nHandle),"IfUnmodifiedSince",P1])
+		dnRequest("set",[self,"IfUnmodifiedSince",P1])
 		return self
 
 	Func getMaxForwards
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxForwards"])
+		return dnRequest("get",[self,"MaxForwards"])
 
 	Func setMaxForwards P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxForwards",P1])
+		dnRequest("set",[self,"MaxForwards",P1])
 		return self
 
 	Func getProtocol
-		return dnRequest("get",[new DotNetObject(nHandle),"Protocol"])
+		return dnRequest("get",[self,"Protocol"])
 
 	Func setProtocol P1
-		dnRequest("set",[new DotNetObject(nHandle),"Protocol",P1])
+		dnRequest("set",[self,"Protocol",P1])
 		return self
 
 	Func getProxyAuthorization
-		return dnRequest("get",[new DotNetObject(nHandle),"ProxyAuthorization"])
+		return dnRequest("get",[self,"ProxyAuthorization"])
 
 	Func setProxyAuthorization P1
-		dnRequest("set",[new DotNetObject(nHandle),"ProxyAuthorization",P1])
+		dnRequest("set",[self,"ProxyAuthorization",P1])
 		return self
 
 	Func getRange
-		return dnRequest("get",[new DotNetObject(nHandle),"Range"])
+		return dnRequest("get",[self,"Range"])
 
 	Func setRange P1
-		dnRequest("set",[new DotNetObject(nHandle),"Range",P1])
+		dnRequest("set",[self,"Range",P1])
 		return self
 
 	Func getReferrer
-		return dnRequest("get",[new DotNetObject(nHandle),"Referrer"])
+		return dnRequest("get",[self,"Referrer"])
 
 	Func setReferrer P1
-		dnRequest("set",[new DotNetObject(nHandle),"Referrer",P1])
+		dnRequest("set",[self,"Referrer",P1])
 		return self
 
 	Func getTE
-		return dnRequest("get",[new DotNetObject(nHandle),"TE"])
+		return dnRequest("get",[self,"TE"])
 
 	Func setTE P1
 		raise("DotNet Error: TE is a read-only property")
 
 	Func getUserAgent
-		return dnRequest("get",[new DotNetObject(nHandle),"UserAgent"])
+		return dnRequest("get",[self,"UserAgent"])
 
 	Func setUserAgent P1
 		raise("DotNet Error: UserAgent is a read-only property")
 
 	Func getExpect
-		return dnRequest("get",[new DotNetObject(nHandle),"Expect"])
+		return dnRequest("get",[self,"Expect"])
 
 	Func setExpect P1
 		raise("DotNet Error: Expect is a read-only property")
 
 	Func getCacheControl
-		return dnRequest("get",[new DotNetObject(nHandle),"CacheControl"])
+		return dnRequest("get",[self,"CacheControl"])
 
 	Func setCacheControl P1
-		dnRequest("set",[new DotNetObject(nHandle),"CacheControl",P1])
+		dnRequest("set",[self,"CacheControl",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getConnectionClose
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionClose"])
+		return dnRequest("get",[self,"ConnectionClose"])
 
 	Func setConnectionClose P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConnectionClose",P1])
+		dnRequest("set",[self,"ConnectionClose",P1])
 		return self
 
 	Func getDate
-		return dnRequest("get",[new DotNetObject(nHandle),"Date"])
+		return dnRequest("get",[self,"Date"])
 
 	Func setDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"Date",P1])
+		dnRequest("set",[self,"Date",P1])
 		return self
 
 	Func getPragma
-		return dnRequest("get",[new DotNetObject(nHandle),"Pragma"])
+		return dnRequest("get",[self,"Pragma"])
 
 	Func setPragma P1
 		raise("DotNet Error: Pragma is a read-only property")
 
 	Func getTrailer
-		return dnRequest("get",[new DotNetObject(nHandle),"Trailer"])
+		return dnRequest("get",[self,"Trailer"])
 
 	Func setTrailer P1
 		raise("DotNet Error: Trailer is a read-only property")
 
 	Func getTransferEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"TransferEncoding"])
+		return dnRequest("get",[self,"TransferEncoding"])
 
 	Func setTransferEncoding P1
 		raise("DotNet Error: TransferEncoding is a read-only property")
 
 	Func getTransferEncodingChunked
-		return dnRequest("get",[new DotNetObject(nHandle),"TransferEncodingChunked"])
+		return dnRequest("get",[self,"TransferEncodingChunked"])
 
 	Func setTransferEncodingChunked P1
-		dnRequest("set",[new DotNetObject(nHandle),"TransferEncodingChunked",P1])
+		dnRequest("set",[self,"TransferEncodingChunked",P1])
 		return self
 
 	Func getUpgrade
-		return dnRequest("get",[new DotNetObject(nHandle),"Upgrade"])
+		return dnRequest("get",[self,"Upgrade"])
 
 	Func setUpgrade P1
 		raise("DotNet Error: Upgrade is a read-only property")
 
 	Func getVia
-		return dnRequest("get",[new DotNetObject(nHandle),"Via"])
+		return dnRequest("get",[self,"Via"])
 
 	Func setVia P1
 		raise("DotNet Error: Via is a read-only property")
 
 	Func getWarning
-		return dnRequest("get",[new DotNetObject(nHandle),"Warning"])
+		return dnRequest("get",[self,"Warning"])
 
 	Func setWarning P1
 		raise("DotNet Error: Warning is a read-only property")

@@ -20,9 +20,9 @@ Class RelationalTransactionFactoryDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSqlGenerationHelper
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlGenerationHelper"])
+		return dnRequest("get",[self,"SqlGenerationHelper"])
 
 	Func setSqlGenerationHelper P1
-		dnRequest("set",[new DotNetObject(nHandle),"SqlGenerationHelper",P1])
+		dnRequest("set",[self,"SqlGenerationHelper",P1])
 		return self
 

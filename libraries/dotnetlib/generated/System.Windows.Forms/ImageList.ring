@@ -48,55 +48,55 @@ Class ImageList from Component
 		return self
 
 	Func getColorDepth
-		return dnRequest("get",[new DotNetObject(nHandle),"ColorDepth"])
+		return dnRequest("get",[self,"ColorDepth"])
 
 	Func setColorDepth P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColorDepth",P1])
+		dnRequest("set",[self,"ColorDepth",P1])
 		return self
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getHandleCreated
-		return dnRequest("get",[new DotNetObject(nHandle),"HandleCreated"])
+		return dnRequest("get",[self,"HandleCreated"])
 
 	Func setHandleCreated P1
 		raise("DotNet Error: HandleCreated is a read-only property")
 
 	Func getImages
-		return dnRequest("get",[new DotNetObject(nHandle),"Images"])
+		return dnRequest("get",[self,"Images"])
 
 	Func setImages P1
 		raise("DotNet Error: Images is a read-only property")
 
 	Func getImageSize
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageSize"])
+		return dnRequest("get",[self,"ImageSize"])
 
 	Func setImageSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageSize",P1])
+		dnRequest("set",[self,"ImageSize",P1])
 		return self
 
 	Func getImageStream
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageStream"])
+		return dnRequest("get",[self,"ImageStream"])
 
 	Func setImageStream P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageStream",P1])
+		dnRequest("set",[self,"ImageStream",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getTransparentColor
-		return dnRequest("get",[new DotNetObject(nHandle),"TransparentColor"])
+		return dnRequest("get",[self,"TransparentColor"])
 
 	Func setTransparentColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"TransparentColor",P1])
+		dnRequest("set",[self,"TransparentColor",P1])
 		return self
 

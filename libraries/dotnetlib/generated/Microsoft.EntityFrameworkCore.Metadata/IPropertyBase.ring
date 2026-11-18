@@ -28,7 +28,7 @@ Class IPropertyBase from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentValueComparer"])
 
 	Func getDeclaringType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringType"])
+		return dnRequest("get",[self,"DeclaringType"])
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")

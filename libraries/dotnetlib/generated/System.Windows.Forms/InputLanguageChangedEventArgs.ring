@@ -19,19 +19,19 @@ Class InputLanguageChangedEventArgs from EventArgs
 		return self
 
 	Func getInputLanguage
-		return dnRequest("get",[new DotNetObject(nHandle),"InputLanguage"])
+		return dnRequest("get",[self,"InputLanguage"])
 
 	Func setInputLanguage P1
 		raise("DotNet Error: InputLanguage is a read-only property")
 
 	Func getCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
+		return dnRequest("get",[self,"Culture"])
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getCharSet
-		return dnRequest("get",[new DotNetObject(nHandle),"CharSet"])
+		return dnRequest("get",[self,"CharSet"])
 
 	Func setCharSet P1
 		raise("DotNet Error: CharSet is a read-only property")

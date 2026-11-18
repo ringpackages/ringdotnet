@@ -28,35 +28,35 @@ Class ContentType from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBoundary
-		return dnRequest("get",[new DotNetObject(nHandle),"Boundary"])
+		return dnRequest("get",[self,"Boundary"])
 
 	Func setBoundary P1
-		dnRequest("set",[new DotNetObject(nHandle),"Boundary",P1])
+		dnRequest("set",[self,"Boundary",P1])
 		return self
 
 	Func getCharSet
-		return dnRequest("get",[new DotNetObject(nHandle),"CharSet"])
+		return dnRequest("get",[self,"CharSet"])
 
 	Func setCharSet P1
-		dnRequest("set",[new DotNetObject(nHandle),"CharSet",P1])
+		dnRequest("set",[self,"CharSet",P1])
 		return self
 
 	Func getMediaType
-		return dnRequest("get",[new DotNetObject(nHandle),"MediaType"])
+		return dnRequest("get",[self,"MediaType"])
 
 	Func setMediaType P1
-		dnRequest("set",[new DotNetObject(nHandle),"MediaType",P1])
+		dnRequest("set",[self,"MediaType",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
+		return dnRequest("get",[self,"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")

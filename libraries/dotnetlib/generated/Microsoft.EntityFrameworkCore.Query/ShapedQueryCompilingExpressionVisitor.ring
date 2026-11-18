@@ -3,7 +3,7 @@
 Func DotNetNew_ShapedQueryCompilingExpressionVisitor
 	oDotNetNew = new ShapedQueryCompilingExpressionVisitor()
 
-Class ShapedQueryCompilingExpressionVisitor from DotNetObject
+Class ShapedQueryCompilingExpressionVisitor from ExpressionVisitor
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -15,21 +15,6 @@ Class ShapedQueryCompilingExpressionVisitor from DotNetObject
 
 	Func Visit P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
-
-	Func VisitAndConvert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
-
-	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func SingleAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleAsync",P1,P2])

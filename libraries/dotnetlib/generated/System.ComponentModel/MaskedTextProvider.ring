@@ -163,131 +163,131 @@ Class MaskedTextProvider from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
 	Func getAllowPromptAsInput
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowPromptAsInput"])
+		return dnRequest("get",[self,"AllowPromptAsInput"])
 
 	Func setAllowPromptAsInput P1
 		raise("DotNet Error: AllowPromptAsInput is a read-only property")
 
 	Func getAssignedEditPositionCount
-		return dnRequest("get",[new DotNetObject(nHandle),"AssignedEditPositionCount"])
+		return dnRequest("get",[self,"AssignedEditPositionCount"])
 
 	Func setAssignedEditPositionCount P1
 		raise("DotNet Error: AssignedEditPositionCount is a read-only property")
 
 	Func getAvailableEditPositionCount
-		return dnRequest("get",[new DotNetObject(nHandle),"AvailableEditPositionCount"])
+		return dnRequest("get",[self,"AvailableEditPositionCount"])
 
 	Func setAvailableEditPositionCount P1
 		raise("DotNet Error: AvailableEditPositionCount is a read-only property")
 
 	Func getCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
+		return dnRequest("get",[self,"Culture"])
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getEditPositionCount
-		return dnRequest("get",[new DotNetObject(nHandle),"EditPositionCount"])
+		return dnRequest("get",[self,"EditPositionCount"])
 
 	Func setEditPositionCount P1
 		raise("DotNet Error: EditPositionCount is a read-only property")
 
 	Func getEditPositions
-		return dnRequest("get",[new DotNetObject(nHandle),"EditPositions"])
+		return dnRequest("get",[self,"EditPositions"])
 
 	Func setEditPositions P1
 		raise("DotNet Error: EditPositions is a read-only property")
 
 	Func getIncludeLiterals
-		return dnRequest("get",[new DotNetObject(nHandle),"IncludeLiterals"])
+		return dnRequest("get",[self,"IncludeLiterals"])
 
 	Func setIncludeLiterals P1
-		dnRequest("set",[new DotNetObject(nHandle),"IncludeLiterals",P1])
+		dnRequest("set",[self,"IncludeLiterals",P1])
 		return self
 
 	Func getIncludePrompt
-		return dnRequest("get",[new DotNetObject(nHandle),"IncludePrompt"])
+		return dnRequest("get",[self,"IncludePrompt"])
 
 	Func setIncludePrompt P1
-		dnRequest("set",[new DotNetObject(nHandle),"IncludePrompt",P1])
+		dnRequest("set",[self,"IncludePrompt",P1])
 		return self
 
 	Func getAsciiOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"AsciiOnly"])
+		return dnRequest("get",[self,"AsciiOnly"])
 
 	Func setAsciiOnly P1
 		raise("DotNet Error: AsciiOnly is a read-only property")
 
 	Func getIsPassword
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPassword"])
+		return dnRequest("get",[self,"IsPassword"])
 
 	Func setIsPassword P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsPassword",P1])
+		dnRequest("set",[self,"IsPassword",P1])
 		return self
 
 	Func getLastAssignedPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"LastAssignedPosition"])
+		return dnRequest("get",[self,"LastAssignedPosition"])
 
 	Func setLastAssignedPosition P1
 		raise("DotNet Error: LastAssignedPosition is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getMask
-		return dnRequest("get",[new DotNetObject(nHandle),"Mask"])
+		return dnRequest("get",[self,"Mask"])
 
 	Func setMask P1
 		raise("DotNet Error: Mask is a read-only property")
 
 	Func getMaskCompleted
-		return dnRequest("get",[new DotNetObject(nHandle),"MaskCompleted"])
+		return dnRequest("get",[self,"MaskCompleted"])
 
 	Func setMaskCompleted P1
 		raise("DotNet Error: MaskCompleted is a read-only property")
 
 	Func getMaskFull
-		return dnRequest("get",[new DotNetObject(nHandle),"MaskFull"])
+		return dnRequest("get",[self,"MaskFull"])
 
 	Func setMaskFull P1
 		raise("DotNet Error: MaskFull is a read-only property")
 
 	Func getPasswordChar
-		return dnRequest("get",[new DotNetObject(nHandle),"PasswordChar"])
+		return dnRequest("get",[self,"PasswordChar"])
 
 	Func setPasswordChar P1
-		dnRequest("set",[new DotNetObject(nHandle),"PasswordChar",P1])
+		dnRequest("set",[self,"PasswordChar",P1])
 		return self
 
 	Func getPromptChar
-		return dnRequest("get",[new DotNetObject(nHandle),"PromptChar"])
+		return dnRequest("get",[self,"PromptChar"])
 
 	Func setPromptChar P1
-		dnRequest("set",[new DotNetObject(nHandle),"PromptChar",P1])
+		dnRequest("set",[self,"PromptChar",P1])
 		return self
 
 	Func getResetOnPrompt
-		return dnRequest("get",[new DotNetObject(nHandle),"ResetOnPrompt"])
+		return dnRequest("get",[self,"ResetOnPrompt"])
 
 	Func setResetOnPrompt P1
-		dnRequest("set",[new DotNetObject(nHandle),"ResetOnPrompt",P1])
+		dnRequest("set",[self,"ResetOnPrompt",P1])
 		return self
 
 	Func getResetOnSpace
-		return dnRequest("get",[new DotNetObject(nHandle),"ResetOnSpace"])
+		return dnRequest("get",[self,"ResetOnSpace"])
 
 	Func setResetOnSpace P1
-		dnRequest("set",[new DotNetObject(nHandle),"ResetOnSpace",P1])
+		dnRequest("set",[self,"ResetOnSpace",P1])
 		return self
 
 	Func getSkipLiterals
-		return dnRequest("get",[new DotNetObject(nHandle),"SkipLiterals"])
+		return dnRequest("get",[self,"SkipLiterals"])
 
 	Func setSkipLiterals P1
-		dnRequest("set",[new DotNetObject(nHandle),"SkipLiterals",P1])
+		dnRequest("set",[self,"SkipLiterals",P1])
 		return self
 
 	Func getDefaultPasswordChar

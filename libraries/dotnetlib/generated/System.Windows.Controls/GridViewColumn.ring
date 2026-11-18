@@ -34,70 +34,70 @@ Class GridViewColumn from DependencyObject
 		return self
 
 	Func getHeader
-		return dnRequest("get",[new DotNetObject(nHandle),"Header"])
+		return dnRequest("get",[self,"Header"])
 
 	Func setHeader P1
-		dnRequest("set",[new DotNetObject(nHandle),"Header",P1])
+		dnRequest("set",[self,"Header",P1])
 		return self
 
 	Func getHeaderContainerStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderContainerStyle"])
+		return dnRequest("get",[self,"HeaderContainerStyle"])
 
 	Func setHeaderContainerStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderContainerStyle",P1])
+		dnRequest("set",[self,"HeaderContainerStyle",P1])
 		return self
 
 	Func getHeaderTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplate"])
+		return dnRequest("get",[self,"HeaderTemplate"])
 
 	Func setHeaderTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplate",P1])
+		dnRequest("set",[self,"HeaderTemplate",P1])
 		return self
 
 	Func getHeaderTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplateSelector"])
+		return dnRequest("get",[self,"HeaderTemplateSelector"])
 
 	Func setHeaderTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplateSelector",P1])
+		dnRequest("set",[self,"HeaderTemplateSelector",P1])
 		return self
 
 	Func getHeaderStringFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderStringFormat"])
+		return dnRequest("get",[self,"HeaderStringFormat"])
 
 	Func setHeaderStringFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderStringFormat",P1])
+		dnRequest("set",[self,"HeaderStringFormat",P1])
 		return self
 
 	Func getDisplayMemberBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayMemberBinding"])
+		return dnRequest("get",[self,"DisplayMemberBinding"])
 
 	Func setDisplayMemberBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayMemberBinding",P1])
+		dnRequest("set",[self,"DisplayMemberBinding",P1])
 		return self
 
 	Func getCellTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"CellTemplate"])
+		return dnRequest("get",[self,"CellTemplate"])
 
 	Func setCellTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"CellTemplate",P1])
+		dnRequest("set",[self,"CellTemplate",P1])
 		return self
 
 	Func getCellTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"CellTemplateSelector"])
+		return dnRequest("get",[self,"CellTemplateSelector"])
 
 	Func setCellTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"CellTemplateSelector",P1])
+		dnRequest("set",[self,"CellTemplateSelector",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"Width"])
+		return dnRequest("get",[self,"Width"])
 
 	Func setWidth P1
-		dnRequest("set",[new DotNetObject(nHandle),"Width",P1])
+		dnRequest("set",[self,"Width",P1])
 		return self
 
 	Func getActualWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"ActualWidth"])
+		return dnRequest("get",[self,"ActualWidth"])
 
 	Func setActualWidth P1
 		raise("DotNet Error: ActualWidth is a read-only property")

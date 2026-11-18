@@ -46,39 +46,39 @@ Class DrawListViewItemEventArgs from EventArgs
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
+		return dnRequest("get",[self,"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getItem
-		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
+		return dnRequest("get",[self,"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getItemIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemIndex"])
+		return dnRequest("get",[self,"ItemIndex"])
 
 	Func setItemIndex P1
 		raise("DotNet Error: ItemIndex is a read-only property")
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getDrawDefault
-		return dnRequest("get",[new DotNetObject(nHandle),"DrawDefault"])
+		return dnRequest("get",[self,"DrawDefault"])
 
 	Func setDrawDefault P1
-		dnRequest("set",[new DotNetObject(nHandle),"DrawDefault",P1])
+		dnRequest("set",[self,"DrawDefault",P1])
 		return self
 

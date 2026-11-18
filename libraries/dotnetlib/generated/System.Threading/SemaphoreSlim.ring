@@ -62,13 +62,13 @@ Class SemaphoreSlim from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCurrentCount
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentCount"])
+		return dnRequest("get",[self,"CurrentCount"])
 
 	Func setCurrentCount P1
 		raise("DotNet Error: CurrentCount is a read-only property")
 
 	Func getAvailableWaitHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"AvailableWaitHandle"])
+		return dnRequest("get",[self,"AvailableWaitHandle"])
 
 	Func setAvailableWaitHandle P1
 		raise("DotNet Error: AvailableWaitHandle is a read-only property")

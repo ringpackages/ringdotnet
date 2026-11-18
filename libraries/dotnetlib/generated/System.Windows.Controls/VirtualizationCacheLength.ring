@@ -26,13 +26,13 @@ Class VirtualizationCacheLength from ValueType
 		return self
 
 	Func getCacheBeforeViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"CacheBeforeViewport"])
+		return dnRequest("get",[self,"CacheBeforeViewport"])
 
 	Func setCacheBeforeViewport P1
 		raise("DotNet Error: CacheBeforeViewport is a read-only property")
 
 	Func getCacheAfterViewport
-		return dnRequest("get",[new DotNetObject(nHandle),"CacheAfterViewport"])
+		return dnRequest("get",[self,"CacheAfterViewport"])
 
 	Func setCacheAfterViewport P1
 		raise("DotNet Error: CacheAfterViewport is a read-only property")

@@ -32,59 +32,59 @@ Class DataGridComboBoxColumn from DataGridColumn
 		return self
 
 	Func getSelectedValueBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValueBinding"])
+		return dnRequest("get",[self,"SelectedValueBinding"])
 
 	Func setSelectedValueBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedValueBinding",P1])
+		dnRequest("set",[self,"SelectedValueBinding",P1])
 		return self
 
 	Func getSelectedItemBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedItemBinding"])
+		return dnRequest("get",[self,"SelectedItemBinding"])
 
 	Func setSelectedItemBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedItemBinding",P1])
+		dnRequest("set",[self,"SelectedItemBinding",P1])
 		return self
 
 	Func getTextBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"TextBinding"])
+		return dnRequest("get",[self,"TextBinding"])
 
 	Func setTextBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextBinding",P1])
+		dnRequest("set",[self,"TextBinding",P1])
 		return self
 
 	Func getElementStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementStyle"])
+		return dnRequest("get",[self,"ElementStyle"])
 
 	Func setElementStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ElementStyle",P1])
+		dnRequest("set",[self,"ElementStyle",P1])
 		return self
 
 	Func getEditingElementStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingElementStyle"])
+		return dnRequest("get",[self,"EditingElementStyle"])
 
 	Func setEditingElementStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingElementStyle",P1])
+		dnRequest("set",[self,"EditingElementStyle",P1])
 		return self
 
 	Func getItemsSource
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemsSource"])
+		return dnRequest("get",[self,"ItemsSource"])
 
 	Func setItemsSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemsSource",P1])
+		dnRequest("set",[self,"ItemsSource",P1])
 		return self
 
 	Func getDisplayMemberPath
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayMemberPath"])
+		return dnRequest("get",[self,"DisplayMemberPath"])
 
 	Func setDisplayMemberPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayMemberPath",P1])
+		dnRequest("set",[self,"DisplayMemberPath",P1])
 		return self
 
 	Func getSelectedValuePath
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValuePath"])
+		return dnRequest("get",[self,"SelectedValuePath"])
 
 	Func setSelectedValuePath P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedValuePath",P1])
+		dnRequest("set",[self,"SelectedValuePath",P1])
 		return self
 
 	Func getTextBlockComboBoxStyleKey

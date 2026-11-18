@@ -19,20 +19,20 @@ Class RuntimeServiceProperty from RuntimePropertyBase
 		return self
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
+		return dnRequest("get",[self,"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getParameterBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterBinding"])
+		return dnRequest("get",[self,"ParameterBinding"])
 
 	Func setParameterBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"ParameterBinding",P1])
+		dnRequest("set",[self,"ParameterBinding",P1])
 		return self
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

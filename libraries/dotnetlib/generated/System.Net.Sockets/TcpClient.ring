@@ -75,70 +75,70 @@ Class TcpClient from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAvailable
-		return dnRequest("get",[new DotNetObject(nHandle),"Available"])
+		return dnRequest("get",[self,"Available"])
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
 
 	Func getClient
-		return dnRequest("get",[new DotNetObject(nHandle),"Client"])
+		return dnRequest("get",[self,"Client"])
 
 	Func setClient P1
-		dnRequest("set",[new DotNetObject(nHandle),"Client",P1])
+		dnRequest("set",[self,"Client",P1])
 		return self
 
 	Func getConnected
-		return dnRequest("get",[new DotNetObject(nHandle),"Connected"])
+		return dnRequest("get",[self,"Connected"])
 
 	Func setConnected P1
 		raise("DotNet Error: Connected is a read-only property")
 
 	Func getExclusiveAddressUse
-		return dnRequest("get",[new DotNetObject(nHandle),"ExclusiveAddressUse"])
+		return dnRequest("get",[self,"ExclusiveAddressUse"])
 
 	Func setExclusiveAddressUse P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExclusiveAddressUse",P1])
+		dnRequest("set",[self,"ExclusiveAddressUse",P1])
 		return self
 
 	Func getReceiveBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceiveBufferSize"])
+		return dnRequest("get",[self,"ReceiveBufferSize"])
 
 	Func setReceiveBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReceiveBufferSize",P1])
+		dnRequest("set",[self,"ReceiveBufferSize",P1])
 		return self
 
 	Func getSendBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"SendBufferSize"])
+		return dnRequest("get",[self,"SendBufferSize"])
 
 	Func setSendBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"SendBufferSize",P1])
+		dnRequest("set",[self,"SendBufferSize",P1])
 		return self
 
 	Func getReceiveTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceiveTimeout"])
+		return dnRequest("get",[self,"ReceiveTimeout"])
 
 	Func setReceiveTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReceiveTimeout",P1])
+		dnRequest("set",[self,"ReceiveTimeout",P1])
 		return self
 
 	Func getSendTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"SendTimeout"])
+		return dnRequest("get",[self,"SendTimeout"])
 
 	Func setSendTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"SendTimeout",P1])
+		dnRequest("set",[self,"SendTimeout",P1])
 		return self
 
 	Func getLingerState
-		return dnRequest("get",[new DotNetObject(nHandle),"LingerState"])
+		return dnRequest("get",[self,"LingerState"])
 
 	Func setLingerState P1
-		dnRequest("set",[new DotNetObject(nHandle),"LingerState",P1])
+		dnRequest("set",[self,"LingerState",P1])
 		return self
 
 	Func getNoDelay
-		return dnRequest("get",[new DotNetObject(nHandle),"NoDelay"])
+		return dnRequest("get",[self,"NoDelay"])
 
 	Func setNoDelay P1
-		dnRequest("set",[new DotNetObject(nHandle),"NoDelay",P1])
+		dnRequest("set",[self,"NoDelay",P1])
 		return self
 

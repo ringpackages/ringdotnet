@@ -22,50 +22,50 @@ Class IMutableSequence from DotNetObject
 		return self
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getStartValue
-		return dnRequest("get",[new DotNetObject(nHandle),"StartValue"])
+		return dnRequest("get",[self,"StartValue"])
 
 	Func setStartValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"StartValue",P1])
+		dnRequest("set",[self,"StartValue",P1])
 		return self
 
 	Func getIncrementBy
-		return dnRequest("get",[new DotNetObject(nHandle),"IncrementBy"])
+		return dnRequest("get",[self,"IncrementBy"])
 
 	Func setIncrementBy P1
-		dnRequest("set",[new DotNetObject(nHandle),"IncrementBy",P1])
+		dnRequest("set",[self,"IncrementBy",P1])
 		return self
 
 	Func getMinValue
-		return dnRequest("get",[new DotNetObject(nHandle),"MinValue"])
+		return dnRequest("get",[self,"MinValue"])
 
 	Func setMinValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinValue",P1])
+		dnRequest("set",[self,"MinValue",P1])
 		return self
 
 	Func getMaxValue
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxValue"])
+		return dnRequest("get",[self,"MaxValue"])
 
 	Func setMaxValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxValue",P1])
+		dnRequest("set",[self,"MaxValue",P1])
 		return self
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
-		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
+		dnRequest("set",[self,"Type",P1])
 		return self
 
 	Func getIsCyclic
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCyclic"])
+		return dnRequest("get",[self,"IsCyclic"])
 
 	Func setIsCyclic P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsCyclic",P1])
+		dnRequest("set",[self,"IsCyclic",P1])
 		return self
 

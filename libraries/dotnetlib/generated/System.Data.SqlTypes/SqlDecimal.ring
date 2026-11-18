@@ -144,40 +144,40 @@ Class SqlDecimal from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
+		return dnRequest("get",[self,"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsPositive
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPositive"])
+		return dnRequest("get",[self,"IsPositive"])
 
 	Func setIsPositive P1
 		raise("DotNet Error: IsPositive is a read-only property")
 
 	Func getPrecision
-		return dnRequest("get",[new DotNetObject(nHandle),"Precision"])
+		return dnRequest("get",[self,"Precision"])
 
 	Func setPrecision P1
 		raise("DotNet Error: Precision is a read-only property")
 
 	Func getScale
-		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
+		return dnRequest("get",[self,"Scale"])
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getData
-		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
+		return dnRequest("get",[self,"Data"])
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")
 
 	Func getBinData
-		return dnRequest("get",[new DotNetObject(nHandle),"BinData"])
+		return dnRequest("get",[self,"BinData"])
 
 	Func setBinData P1
 		raise("DotNet Error: BinData is a read-only property")

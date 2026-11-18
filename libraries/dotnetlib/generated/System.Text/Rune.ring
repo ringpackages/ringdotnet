@@ -103,37 +103,37 @@ Class Rune from ValueType
 		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"ToUpperInvariant",P1])
 
 	Func getIsAscii
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAscii"])
+		return dnRequest("get",[self,"IsAscii"])
 
 	Func setIsAscii P1
 		raise("DotNet Error: IsAscii is a read-only property")
 
 	Func getIsBmp
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBmp"])
+		return dnRequest("get",[self,"IsBmp"])
 
 	Func setIsBmp P1
 		raise("DotNet Error: IsBmp is a read-only property")
 
 	Func getPlane
-		return dnRequest("get",[new DotNetObject(nHandle),"Plane"])
+		return dnRequest("get",[self,"Plane"])
 
 	Func setPlane P1
 		raise("DotNet Error: Plane is a read-only property")
 
 	Func getUtf16SequenceLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Utf16SequenceLength"])
+		return dnRequest("get",[self,"Utf16SequenceLength"])
 
 	Func setUtf16SequenceLength P1
 		raise("DotNet Error: Utf16SequenceLength is a read-only property")
 
 	Func getUtf8SequenceLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Utf8SequenceLength"])
+		return dnRequest("get",[self,"Utf8SequenceLength"])
 
 	Func setUtf8SequenceLength P1
 		raise("DotNet Error: Utf8SequenceLength is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

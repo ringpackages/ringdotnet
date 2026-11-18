@@ -58,7 +58,7 @@ Class IConventionDiscriminatorBuilder from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"CanSetValue",P1,P2,P3])
 
 	Func getEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
+		return dnRequest("get",[self,"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")

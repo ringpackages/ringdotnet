@@ -3,15 +3,12 @@
 Func DotNetNew_StructuralTypeShaperExpression
 	oDotNetNew = new StructuralTypeShaperExpression(0,0,0)
 
-Class StructuralTypeShaperExpression from DotNetObject
+Class StructuralTypeShaperExpression from ExpressionsExpression
 
 	StructuralType
 	ValueBufferExpression
 	IsNullable
 	MaterializationCondition
-	Type
-	NodeType
-	CanReduce
 
 	Func init P1,P2,P3
 		if nDotNetWrapHandle != 0
@@ -43,69 +40,30 @@ Class StructuralTypeShaperExpression from DotNetObject
 	Func DebuggerDisplay 
 		return dnRequest("call",[new DotNetObject(nHandle),"DebuggerDisplay"])
 
-	Func Reduce 
-		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
-
-	Func ReduceAndCheck 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
-
-	Func ReduceExtensions 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
 	Func CreateUnableToDiscriminateException P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore'),"CreateUnableToDiscriminateException",P1,P2])
 
 	Func getStructuralType
-		return dnRequest("get",[new DotNetObject(nHandle),"StructuralType"])
+		return dnRequest("get",[self,"StructuralType"])
 
 	Func setStructuralType P1
 		raise("DotNet Error: StructuralType is a read-only property")
 
 	Func getValueBufferExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueBufferExpression"])
+		return dnRequest("get",[self,"ValueBufferExpression"])
 
 	Func setValueBufferExpression P1
 		raise("DotNet Error: ValueBufferExpression is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getMaterializationCondition
-		return dnRequest("get",[new DotNetObject(nHandle),"MaterializationCondition"])
+		return dnRequest("get",[self,"MaterializationCondition"])
 
 	Func setMaterializationCondition P1
 		raise("DotNet Error: MaterializationCondition is a read-only property")
-
-	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
-
-	Func setType P1
-		raise("DotNet Error: Type is a read-only property")
-
-	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
-
-	Func setNodeType P1
-		raise("DotNet Error: NodeType is a read-only property")
-
-	Func getCanReduce
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
-
-	Func setCanReduce P1
-		raise("DotNet Error: CanReduce is a read-only property")
 

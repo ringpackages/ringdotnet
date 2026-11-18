@@ -77,7 +77,7 @@ Class TaskCompletionSource from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTask
-		return dnRequest("get",[new DotNetObject(nHandle),"Task"])
+		return dnRequest("get",[self,"Task"])
 
 	Func setTask P1
 		raise("DotNet Error: Task is a read-only property")

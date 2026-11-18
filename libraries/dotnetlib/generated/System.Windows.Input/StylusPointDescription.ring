@@ -42,7 +42,7 @@ Class StylusPointDescription from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.StylusPointDescription, PresentationCore'),"GetCommonDescription",P1,P2])
 
 	Func getPropertyCount
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyCount"])
+		return dnRequest("get",[self,"PropertyCount"])
 
 	Func setPropertyCount P1
 		raise("DotNet Error: PropertyCount is a read-only property")

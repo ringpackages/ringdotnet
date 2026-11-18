@@ -17,16 +17,16 @@ Class IKeyFrame from DotNetObject
 		return self
 
 	Func getKeyTime
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyTime"])
+		return dnRequest("get",[self,"KeyTime"])
 
 	Func setKeyTime P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeyTime",P1])
+		dnRequest("set",[self,"KeyTime",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 

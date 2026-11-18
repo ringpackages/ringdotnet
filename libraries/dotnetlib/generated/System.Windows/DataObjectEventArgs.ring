@@ -21,13 +21,13 @@ Class DataObjectEventArgs from RoutedEventArgs
 		return self
 
 	Func getIsDragDrop
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDragDrop"])
+		return dnRequest("get",[self,"IsDragDrop"])
 
 	Func setIsDragDrop P1
 		raise("DotNet Error: IsDragDrop is a read-only property")
 
 	Func getCommandCancelled
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandCancelled"])
+		return dnRequest("get",[self,"CommandCancelled"])
 
 	Func setCommandCancelled P1
 		raise("DotNet Error: CommandCancelled is a read-only property")

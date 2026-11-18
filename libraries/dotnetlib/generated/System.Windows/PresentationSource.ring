@@ -41,20 +41,20 @@ Class PresentationSource from DispatcherObject
 		return self
 
 	Func getCompositionTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"CompositionTarget"])
+		return dnRequest("get",[self,"CompositionTarget"])
 
 	Func setCompositionTarget P1
 		raise("DotNet Error: CompositionTarget is a read-only property")
 
 	Func getRootVisual
-		return dnRequest("get",[new DotNetObject(nHandle),"RootVisual"])
+		return dnRequest("get",[self,"RootVisual"])
 
 	Func setRootVisual P1
-		dnRequest("set",[new DotNetObject(nHandle),"RootVisual",P1])
+		dnRequest("set",[self,"RootVisual",P1])
 		return self
 
 	Func getIsDisposed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDisposed"])
+		return dnRequest("get",[self,"IsDisposed"])
 
 	Func setIsDisposed P1
 		raise("DotNet Error: IsDisposed is a read-only property")

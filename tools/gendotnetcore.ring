@@ -545,12 +545,14 @@ func buildPlan cTypeName, nForceInit
 	next
 
 	# Properties and fields: getName() / setName(value)
+	# (the target is "self" here, not "new DotNetObject(nHandle)": creating an object inside a getter or a setter breaks the assignment that
+	#  is running, oMessage.Text = "" ends with a null target. Methods can create the small target object, it saves copying the whole object.)
 	for aMember in aMembers
 		cName = aMember[1]
 		if aMember[4]
 			cTarget = "dnTypeCached('" + cTypeName + "')"
 		else
-			cTarget = "new DotNetObject(nHandle)"
+			cTarget = "self"
 		ok
 		if aMember[2] and (find(aNames,lower("get" + cName)) = 0)
 			aNames + lower("get" + cName)

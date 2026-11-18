@@ -20,25 +20,25 @@ Class GCGenerationInfo from ValueType
 		return self
 
 	Func getSizeBeforeBytes
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeBeforeBytes"])
+		return dnRequest("get",[self,"SizeBeforeBytes"])
 
 	Func setSizeBeforeBytes P1
 		raise("DotNet Error: SizeBeforeBytes is a read-only property")
 
 	Func getFragmentationBeforeBytes
-		return dnRequest("get",[new DotNetObject(nHandle),"FragmentationBeforeBytes"])
+		return dnRequest("get",[self,"FragmentationBeforeBytes"])
 
 	Func setFragmentationBeforeBytes P1
 		raise("DotNet Error: FragmentationBeforeBytes is a read-only property")
 
 	Func getSizeAfterBytes
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeAfterBytes"])
+		return dnRequest("get",[self,"SizeAfterBytes"])
 
 	Func setSizeAfterBytes P1
 		raise("DotNet Error: SizeAfterBytes is a read-only property")
 
 	Func getFragmentationAfterBytes
-		return dnRequest("get",[new DotNetObject(nHandle),"FragmentationAfterBytes"])
+		return dnRequest("get",[self,"FragmentationAfterBytes"])
 
 	Func setFragmentationAfterBytes P1
 		raise("DotNet Error: FragmentationAfterBytes is a read-only property")

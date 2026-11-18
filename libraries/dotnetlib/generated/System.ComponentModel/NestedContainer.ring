@@ -17,7 +17,7 @@ Class NestedContainer from Container
 		return self
 
 	Func getOwner
-		return dnRequest("get",[new DotNetObject(nHandle),"Owner"])
+		return dnRequest("get",[self,"Owner"])
 
 	Func setOwner P1
 		raise("DotNet Error: Owner is a read-only property")

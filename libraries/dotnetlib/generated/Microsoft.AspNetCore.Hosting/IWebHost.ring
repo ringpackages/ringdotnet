@@ -45,13 +45,13 @@ Class IWebHost from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func getServerFeatures
-		return dnRequest("get",[new DotNetObject(nHandle),"ServerFeatures"])
+		return dnRequest("get",[self,"ServerFeatures"])
 
 	Func setServerFeatures P1
 		raise("DotNet Error: ServerFeatures is a read-only property")
 
 	Func getServices
-		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
+		return dnRequest("get",[self,"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")

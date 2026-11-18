@@ -19,20 +19,20 @@ Class ItemCheckEventArgs from EventArgs
 		return self
 
 	Func getIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"Index"])
+		return dnRequest("get",[self,"Index"])
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getNewValue
-		return dnRequest("get",[new DotNetObject(nHandle),"NewValue"])
+		return dnRequest("get",[self,"NewValue"])
 
 	Func setNewValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewValue",P1])
+		dnRequest("set",[self,"NewValue",P1])
 		return self
 
 	Func getCurrentValue
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentValue"])
+		return dnRequest("get",[self,"CurrentValue"])
 
 	Func setCurrentValue P1
 		raise("DotNet Error: CurrentValue is a read-only property")

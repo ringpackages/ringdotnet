@@ -24,9 +24,9 @@ Class SourceSwitch from Switch_
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldTrace",P1])
 
 	Func getLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"Level"])
+		return dnRequest("get",[self,"Level"])
 
 	Func setLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Level",P1])
+		dnRequest("set",[self,"Level",P1])
 		return self
 

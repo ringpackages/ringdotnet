@@ -55,61 +55,61 @@ Class MetafileHeader from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getMetafileSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MetafileSize"])
+		return dnRequest("get",[self,"MetafileSize"])
 
 	Func setMetafileSize P1
 		raise("DotNet Error: MetafileSize is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getDpiX
-		return dnRequest("get",[new DotNetObject(nHandle),"DpiX"])
+		return dnRequest("get",[self,"DpiX"])
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		return dnRequest("get",[new DotNetObject(nHandle),"DpiY"])
+		return dnRequest("get",[self,"DpiY"])
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getWmfHeader
-		return dnRequest("get",[new DotNetObject(nHandle),"WmfHeader"])
+		return dnRequest("get",[self,"WmfHeader"])
 
 	Func setWmfHeader P1
 		raise("DotNet Error: WmfHeader is a read-only property")
 
 	Func getEmfPlusHeaderSize
-		return dnRequest("get",[new DotNetObject(nHandle),"EmfPlusHeaderSize"])
+		return dnRequest("get",[self,"EmfPlusHeaderSize"])
 
 	Func setEmfPlusHeaderSize P1
 		raise("DotNet Error: EmfPlusHeaderSize is a read-only property")
 
 	Func getLogicalDpiX
-		return dnRequest("get",[new DotNetObject(nHandle),"LogicalDpiX"])
+		return dnRequest("get",[self,"LogicalDpiX"])
 
 	Func setLogicalDpiX P1
 		raise("DotNet Error: LogicalDpiX is a read-only property")
 
 	Func getLogicalDpiY
-		return dnRequest("get",[new DotNetObject(nHandle),"LogicalDpiY"])
+		return dnRequest("get",[self,"LogicalDpiY"])
 
 	Func setLogicalDpiY P1
 		raise("DotNet Error: LogicalDpiY is a read-only property")

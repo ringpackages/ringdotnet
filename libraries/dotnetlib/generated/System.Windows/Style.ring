@@ -42,41 +42,41 @@ Class Style from DispatcherObject
 		return self
 
 	Func getIsSealed
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSealed"])
+		return dnRequest("get",[self,"IsSealed"])
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getTargetType
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetType"])
+		return dnRequest("get",[self,"TargetType"])
 
 	Func setTargetType P1
-		dnRequest("set",[new DotNetObject(nHandle),"TargetType",P1])
+		dnRequest("set",[self,"TargetType",P1])
 		return self
 
 	Func getBasedOn
-		return dnRequest("get",[new DotNetObject(nHandle),"BasedOn"])
+		return dnRequest("get",[self,"BasedOn"])
 
 	Func setBasedOn P1
-		dnRequest("set",[new DotNetObject(nHandle),"BasedOn",P1])
+		dnRequest("set",[self,"BasedOn",P1])
 		return self
 
 	Func getTriggers
-		return dnRequest("get",[new DotNetObject(nHandle),"Triggers"])
+		return dnRequest("get",[self,"Triggers"])
 
 	Func setTriggers P1
 		raise("DotNet Error: Triggers is a read-only property")
 
 	Func getSetters
-		return dnRequest("get",[new DotNetObject(nHandle),"Setters"])
+		return dnRequest("get",[self,"Setters"])
 
 	Func setSetters P1
 		raise("DotNet Error: Setters is a read-only property")
 
 	Func getResources
-		return dnRequest("get",[new DotNetObject(nHandle),"Resources"])
+		return dnRequest("get",[self,"Resources"])
 
 	Func setResources P1
-		dnRequest("set",[new DotNetObject(nHandle),"Resources",P1])
+		dnRequest("set",[self,"Resources",P1])
 		return self
 

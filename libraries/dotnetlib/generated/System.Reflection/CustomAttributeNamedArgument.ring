@@ -24,25 +24,25 @@ Class CustomAttributeNamedArgument from ValueType
 		return self
 
 	Func getMemberInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"MemberInfo"])
+		return dnRequest("get",[self,"MemberInfo"])
 
 	Func setMemberInfo P1
 		raise("DotNet Error: MemberInfo is a read-only property")
 
 	Func getTypedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"TypedValue"])
+		return dnRequest("get",[self,"TypedValue"])
 
 	Func setTypedValue P1
 		raise("DotNet Error: TypedValue is a read-only property")
 
 	Func getMemberName
-		return dnRequest("get",[new DotNetObject(nHandle),"MemberName"])
+		return dnRequest("get",[self,"MemberName"])
 
 	Func setMemberName P1
 		raise("DotNet Error: MemberName is a read-only property")
 
 	Func getIsField
-		return dnRequest("get",[new DotNetObject(nHandle),"IsField"])
+		return dnRequest("get",[self,"IsField"])
 
 	Func setIsField P1
 		raise("DotNet Error: IsField is a read-only property")

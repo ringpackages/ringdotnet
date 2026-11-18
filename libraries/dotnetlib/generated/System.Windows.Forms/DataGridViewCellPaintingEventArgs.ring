@@ -40,73 +40,73 @@ Class DataGridViewCellPaintingEventArgs from HandledEventArgs
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
+		return dnRequest("get",[self,"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getAdvancedBorderStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"AdvancedBorderStyle"])
+		return dnRequest("get",[self,"AdvancedBorderStyle"])
 
 	Func setAdvancedBorderStyle P1
 		raise("DotNet Error: AdvancedBorderStyle is a read-only property")
 
 	Func getCellBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"CellBounds"])
+		return dnRequest("get",[self,"CellBounds"])
 
 	Func setCellBounds P1
 		raise("DotNet Error: CellBounds is a read-only property")
 
 	Func getClipBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"ClipBounds"])
+		return dnRequest("get",[self,"ClipBounds"])
 
 	Func setClipBounds P1
 		raise("DotNet Error: ClipBounds is a read-only property")
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getColumnIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
+		return dnRequest("get",[self,"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getFormattedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"FormattedValue"])
+		return dnRequest("get",[self,"FormattedValue"])
 
 	Func setFormattedValue P1
 		raise("DotNet Error: FormattedValue is a read-only property")
 
 	Func getErrorText
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorText"])
+		return dnRequest("get",[self,"ErrorText"])
 
 	Func setErrorText P1
 		raise("DotNet Error: ErrorText is a read-only property")
 
 	Func getCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"CellStyle"])
+		return dnRequest("get",[self,"CellStyle"])
 
 	Func setCellStyle P1
 		raise("DotNet Error: CellStyle is a read-only property")
 
 	Func getPaintParts
-		return dnRequest("get",[new DotNetObject(nHandle),"PaintParts"])
+		return dnRequest("get",[self,"PaintParts"])
 
 	Func setPaintParts P1
 		raise("DotNet Error: PaintParts is a read-only property")

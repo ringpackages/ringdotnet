@@ -97,64 +97,64 @@ Class PathGradientBrush from Brush
 		return self
 
 	Func getCenterColor
-		return dnRequest("get",[new DotNetObject(nHandle),"CenterColor"])
+		return dnRequest("get",[self,"CenterColor"])
 
 	Func setCenterColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"CenterColor",P1])
+		dnRequest("set",[self,"CenterColor",P1])
 		return self
 
 	Func getSurroundColors
-		return dnRequest("get",[new DotNetObject(nHandle),"SurroundColors"])
+		return dnRequest("get",[self,"SurroundColors"])
 
 	Func setSurroundColors P1
-		dnRequest("set",[new DotNetObject(nHandle),"SurroundColors",P1])
+		dnRequest("set",[self,"SurroundColors",P1])
 		return self
 
 	Func getCenterPoint
-		return dnRequest("get",[new DotNetObject(nHandle),"CenterPoint"])
+		return dnRequest("get",[self,"CenterPoint"])
 
 	Func setCenterPoint P1
-		dnRequest("set",[new DotNetObject(nHandle),"CenterPoint",P1])
+		dnRequest("set",[self,"CenterPoint",P1])
 		return self
 
 	Func getRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"Rectangle"])
+		return dnRequest("get",[self,"Rectangle"])
 
 	Func setRectangle P1
 		raise("DotNet Error: Rectangle is a read-only property")
 
 	Func getBlend
-		return dnRequest("get",[new DotNetObject(nHandle),"Blend"])
+		return dnRequest("get",[self,"Blend"])
 
 	Func setBlend P1
-		dnRequest("set",[new DotNetObject(nHandle),"Blend",P1])
+		dnRequest("set",[self,"Blend",P1])
 		return self
 
 	Func getInterpolationColors
-		return dnRequest("get",[new DotNetObject(nHandle),"InterpolationColors"])
+		return dnRequest("get",[self,"InterpolationColors"])
 
 	Func setInterpolationColors P1
-		dnRequest("set",[new DotNetObject(nHandle),"InterpolationColors",P1])
+		dnRequest("set",[self,"InterpolationColors",P1])
 		return self
 
 	Func getTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
+		return dnRequest("get",[self,"Transform"])
 
 	Func setTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"Transform",P1])
+		dnRequest("set",[self,"Transform",P1])
 		return self
 
 	Func getFocusScales
-		return dnRequest("get",[new DotNetObject(nHandle),"FocusScales"])
+		return dnRequest("get",[self,"FocusScales"])
 
 	Func setFocusScales P1
-		dnRequest("set",[new DotNetObject(nHandle),"FocusScales",P1])
+		dnRequest("set",[self,"FocusScales",P1])
 		return self
 
 	Func getWrapMode
-		return dnRequest("get",[new DotNetObject(nHandle),"WrapMode"])
+		return dnRequest("get",[self,"WrapMode"])
 
 	Func setWrapMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"WrapMode",P1])
+		dnRequest("set",[self,"WrapMode",P1])
 		return self
 

@@ -20,9 +20,9 @@ Class LogDefineOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSkipEnabledCheck
-		return dnRequest("get",[new DotNetObject(nHandle),"SkipEnabledCheck"])
+		return dnRequest("get",[self,"SkipEnabledCheck"])
 
 	Func setSkipEnabledCheck P1
-		dnRequest("set",[new DotNetObject(nHandle),"SkipEnabledCheck",P1])
+		dnRequest("set",[self,"SkipEnabledCheck",P1])
 		return self
 

@@ -17,15 +17,15 @@ Class IMutableComplexProperty from DotNetObject
 		return self
 
 	Func getComplexType
-		return dnRequest("get",[new DotNetObject(nHandle),"ComplexType"])
+		return dnRequest("get",[self,"ComplexType"])
 
 	Func setComplexType P1
 		raise("DotNet Error: ComplexType is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsNullable",P1])
+		dnRequest("set",[self,"IsNullable",P1])
 		return self
 

@@ -27,13 +27,13 @@ Class AspRangeConditionHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.RangeConditionHeaderValue, Microsoft.Net.Http.Headers'),"TryParse",P1])
 
 	Func getLastModified
-		return dnRequest("get",[new DotNetObject(nHandle),"LastModified"])
+		return dnRequest("get",[self,"LastModified"])
 
 	Func setLastModified P1
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getEntityTag
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityTag"])
+		return dnRequest("get",[self,"EntityTag"])
 
 	Func setEntityTag P1
 		raise("DotNet Error: EntityTag is a read-only property")

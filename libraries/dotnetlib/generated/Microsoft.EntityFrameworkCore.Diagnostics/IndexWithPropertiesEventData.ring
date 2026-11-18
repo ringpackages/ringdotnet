@@ -23,43 +23,43 @@ Class IndexWithPropertiesEventData from EventData
 		return self
 
 	Func getEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityType"])
+		return dnRequest("get",[self,"EntityType"])
 
 	Func setEntityType P1
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyNames
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyNames"])
+		return dnRequest("get",[self,"PropertyNames"])
 
 	Func setPropertyNames P1
 		raise("DotNet Error: PropertyNames is a read-only property")
 
 	Func getProperty1Name
-		return dnRequest("get",[new DotNetObject(nHandle),"Property1Name"])
+		return dnRequest("get",[self,"Property1Name"])
 
 	Func setProperty1Name P1
 		raise("DotNet Error: Property1Name is a read-only property")
 
 	Func getTablesMappedToProperty1
-		return dnRequest("get",[new DotNetObject(nHandle),"TablesMappedToProperty1"])
+		return dnRequest("get",[self,"TablesMappedToProperty1"])
 
 	Func setTablesMappedToProperty1 P1
 		raise("DotNet Error: TablesMappedToProperty1 is a read-only property")
 
 	Func getProperty2Name
-		return dnRequest("get",[new DotNetObject(nHandle),"Property2Name"])
+		return dnRequest("get",[self,"Property2Name"])
 
 	Func setProperty2Name P1
 		raise("DotNet Error: Property2Name is a read-only property")
 
 	Func getTablesMappedToProperty2
-		return dnRequest("get",[new DotNetObject(nHandle),"TablesMappedToProperty2"])
+		return dnRequest("get",[self,"TablesMappedToProperty2"])
 
 	Func setTablesMappedToProperty2 P1
 		raise("DotNet Error: TablesMappedToProperty2 is a read-only property")

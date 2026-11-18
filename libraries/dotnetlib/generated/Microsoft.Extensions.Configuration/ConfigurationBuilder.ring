@@ -27,13 +27,13 @@ Class ConfigurationBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSources
-		return dnRequest("get",[new DotNetObject(nHandle),"Sources"])
+		return dnRequest("get",[self,"Sources"])
 
 	Func setSources P1
 		raise("DotNet Error: Sources is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

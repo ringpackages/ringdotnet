@@ -22,22 +22,22 @@ Class TypeMappingSourceDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getValueConverterSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueConverterSelector"])
+		return dnRequest("get",[self,"ValueConverterSelector"])
 
 	Func setValueConverterSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValueConverterSelector",P1])
+		dnRequest("set",[self,"ValueConverterSelector",P1])
 		return self
 
 	Func getJsonValueReaderWriterSource
-		return dnRequest("get",[new DotNetObject(nHandle),"JsonValueReaderWriterSource"])
+		return dnRequest("get",[self,"JsonValueReaderWriterSource"])
 
 	Func setJsonValueReaderWriterSource P1
 		raise("DotNet Error: JsonValueReaderWriterSource is a read-only property")
 
 	Func getPlugins
-		return dnRequest("get",[new DotNetObject(nHandle),"Plugins"])
+		return dnRequest("get",[self,"Plugins"])
 
 	Func setPlugins P1
-		dnRequest("set",[new DotNetObject(nHandle),"Plugins",P1])
+		dnRequest("set",[self,"Plugins",P1])
 		return self
 

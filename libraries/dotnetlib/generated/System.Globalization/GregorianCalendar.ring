@@ -22,10 +22,10 @@ Class GregorianCalendar from Calendar
 		return self
 
 	Func getCalendarType
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarType"])
+		return dnRequest("get",[self,"CalendarType"])
 
 	Func setCalendarType P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarType",P1])
+		dnRequest("set",[self,"CalendarType",P1])
 		return self
 
 	Func getADEra

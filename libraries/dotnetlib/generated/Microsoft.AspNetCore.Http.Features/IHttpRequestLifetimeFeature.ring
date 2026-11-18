@@ -20,9 +20,9 @@ Class IHttpRequestLifetimeFeature from DotNetObject
 		return self
 
 	Func getRequestAborted
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestAborted"])
+		return dnRequest("get",[self,"RequestAborted"])
 
 	Func setRequestAborted P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestAborted",P1])
+		dnRequest("set",[self,"RequestAborted",P1])
 		return self
 

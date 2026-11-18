@@ -62,19 +62,19 @@ Class Barrier from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getParticipantsRemaining
-		return dnRequest("get",[new DotNetObject(nHandle),"ParticipantsRemaining"])
+		return dnRequest("get",[self,"ParticipantsRemaining"])
 
 	Func setParticipantsRemaining P1
 		raise("DotNet Error: ParticipantsRemaining is a read-only property")
 
 	Func getParticipantCount
-		return dnRequest("get",[new DotNetObject(nHandle),"ParticipantCount"])
+		return dnRequest("get",[self,"ParticipantCount"])
 
 	Func setParticipantCount P1
 		raise("DotNet Error: ParticipantCount is a read-only property")
 
 	Func getCurrentPhaseNumber
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentPhaseNumber"])
+		return dnRequest("get",[self,"CurrentPhaseNumber"])
 
 	Func setCurrentPhaseNumber P1
 		raise("DotNet Error: CurrentPhaseNumber is a read-only property")

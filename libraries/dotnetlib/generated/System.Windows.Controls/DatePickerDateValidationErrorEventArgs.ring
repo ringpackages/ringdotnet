@@ -19,21 +19,21 @@ Class DatePickerDateValidationErrorEventArgs from EventArgs
 		return self
 
 	Func getException
-		return dnRequest("get",[new DotNetObject(nHandle),"Exception"])
+		return dnRequest("get",[self,"Exception"])
 
 	Func setException P1
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getThrowException
-		return dnRequest("get",[new DotNetObject(nHandle),"ThrowException"])
+		return dnRequest("get",[self,"ThrowException"])
 
 	Func setThrowException P1
-		dnRequest("set",[new DotNetObject(nHandle),"ThrowException",P1])
+		dnRequest("set",[self,"ThrowException",P1])
 		return self
 

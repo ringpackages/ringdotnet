@@ -22,19 +22,19 @@ Class IHostApplicationLifetime from DotNetObject
 		return self
 
 	Func getApplicationStarted
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationStarted"])
+		return dnRequest("get",[self,"ApplicationStarted"])
 
 	Func setApplicationStarted P1
 		raise("DotNet Error: ApplicationStarted is a read-only property")
 
 	Func getApplicationStopping
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationStopping"])
+		return dnRequest("get",[self,"ApplicationStopping"])
 
 	Func setApplicationStopping P1
 		raise("DotNet Error: ApplicationStopping is a read-only property")
 
 	Func getApplicationStopped
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationStopped"])
+		return dnRequest("get",[self,"ApplicationStopped"])
 
 	Func setApplicationStopped P1
 		raise("DotNet Error: ApplicationStopped is a read-only property")

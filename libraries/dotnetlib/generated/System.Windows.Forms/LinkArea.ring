@@ -23,21 +23,21 @@ Class LinkArea from ValueType
 		return self
 
 	Func getStart
-		return dnRequest("get",[new DotNetObject(nHandle),"Start"])
+		return dnRequest("get",[self,"Start"])
 
 	Func setStart P1
-		dnRequest("set",[new DotNetObject(nHandle),"Start",P1])
+		dnRequest("set",[self,"Start",P1])
 		return self
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"Length",P1])
+		dnRequest("set",[self,"Length",P1])
 		return self
 
 	Func getIsEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEmpty"])
+		return dnRequest("get",[self,"IsEmpty"])
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")

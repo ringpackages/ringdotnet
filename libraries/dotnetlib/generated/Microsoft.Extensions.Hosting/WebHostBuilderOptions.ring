@@ -20,9 +20,9 @@ Class WebHostBuilderOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSuppressEnvironmentConfiguration
-		return dnRequest("get",[new DotNetObject(nHandle),"SuppressEnvironmentConfiguration"])
+		return dnRequest("get",[self,"SuppressEnvironmentConfiguration"])
 
 	Func setSuppressEnvironmentConfiguration P1
-		dnRequest("set",[new DotNetObject(nHandle),"SuppressEnvironmentConfiguration",P1])
+		dnRequest("set",[self,"SuppressEnvironmentConfiguration",P1])
 		return self
 

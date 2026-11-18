@@ -102,37 +102,37 @@ Class IReadOnlyTypeBase from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"FindIndexerPropertyInfo"])
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContainingEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainingEntityType"])
+		return dnRequest("get",[self,"ContainingEntityType"])
 
 	Func setContainingEntityType P1
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getClrType
-		return dnRequest("get",[new DotNetObject(nHandle),"ClrType"])
+		return dnRequest("get",[self,"ClrType"])
 
 	Func setClrType P1
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getHasSharedClrType
-		return dnRequest("get",[new DotNetObject(nHandle),"HasSharedClrType"])
+		return dnRequest("get",[self,"HasSharedClrType"])
 
 	Func setHasSharedClrType P1
 		raise("DotNet Error: HasSharedClrType is a read-only property")
 
 	Func getIsPropertyBag
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPropertyBag"])
+		return dnRequest("get",[self,"IsPropertyBag"])
 
 	Func setIsPropertyBag P1
 		raise("DotNet Error: IsPropertyBag is a read-only property")

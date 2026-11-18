@@ -60,43 +60,43 @@ Class PropertyGroupDescription from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getPropertyName
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyName"])
+		return dnRequest("get",[self,"PropertyName"])
 
 	Func setPropertyName P1
-		dnRequest("set",[new DotNetObject(nHandle),"PropertyName",P1])
+		dnRequest("set",[self,"PropertyName",P1])
 		return self
 
 	Func getConverter
-		return dnRequest("get",[new DotNetObject(nHandle),"Converter"])
+		return dnRequest("get",[self,"Converter"])
 
 	Func setConverter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Converter",P1])
+		dnRequest("set",[self,"Converter",P1])
 		return self
 
 	Func getStringComparison
-		return dnRequest("get",[new DotNetObject(nHandle),"StringComparison"])
+		return dnRequest("get",[self,"StringComparison"])
 
 	Func setStringComparison P1
-		dnRequest("set",[new DotNetObject(nHandle),"StringComparison",P1])
+		dnRequest("set",[self,"StringComparison",P1])
 		return self
 
 	Func getGroupNames
-		return dnRequest("get",[new DotNetObject(nHandle),"GroupNames"])
+		return dnRequest("get",[self,"GroupNames"])
 
 	Func setGroupNames P1
 		raise("DotNet Error: GroupNames is a read-only property")
 
 	Func getSortDescriptions
-		return dnRequest("get",[new DotNetObject(nHandle),"SortDescriptions"])
+		return dnRequest("get",[self,"SortDescriptions"])
 
 	Func setSortDescriptions P1
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getCustomSort
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomSort"])
+		return dnRequest("get",[self,"CustomSort"])
 
 	Func setCustomSort P1
-		dnRequest("set",[new DotNetObject(nHandle),"CustomSort",P1])
+		dnRequest("set",[self,"CustomSort",P1])
 		return self
 
 	Func getCompareNameAscending

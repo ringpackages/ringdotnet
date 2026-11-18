@@ -18,13 +18,13 @@ Class DragDeltaEventArgs from RoutedEventArgs
 		return self
 
 	Func getHorizontalChange
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalChange"])
+		return dnRequest("get",[self,"HorizontalChange"])
 
 	Func setHorizontalChange P1
 		raise("DotNet Error: HorizontalChange is a read-only property")
 
 	Func getVerticalChange
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalChange"])
+		return dnRequest("get",[self,"VerticalChange"])
 
 	Func setVerticalChange P1
 		raise("DotNet Error: VerticalChange is a read-only property")

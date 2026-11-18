@@ -17,9 +17,9 @@ Class DataGridViewRowCancelEventArgs from CancelEventArgs
 		return self
 
 	Func getRow
-		return dnRequest("get",[new DotNetObject(nHandle),"Row"])
+		return dnRequest("get",[self,"Row"])
 
 	Func setRow P1
-		dnRequest("set",[new DotNetObject(nHandle),"Row",P1])
+		dnRequest("set",[self,"Row",P1])
 		return self
 

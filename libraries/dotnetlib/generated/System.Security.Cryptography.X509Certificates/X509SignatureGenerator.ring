@@ -31,7 +31,7 @@ Class X509SignatureGenerator from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography'),"CreateForRSA",P1,P2])
 
 	Func getPublicKey
-		return dnRequest("get",[new DotNetObject(nHandle),"PublicKey"])
+		return dnRequest("get",[self,"PublicKey"])
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")

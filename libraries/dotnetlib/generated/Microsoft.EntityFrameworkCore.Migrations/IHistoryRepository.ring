@@ -113,7 +113,7 @@ Class IHistoryRepository from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEndIfScript"])
 
 	Func getLockReleaseBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"LockReleaseBehavior"])
+		return dnRequest("get",[self,"LockReleaseBehavior"])
 
 	Func setLockReleaseBehavior P1
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")

@@ -161,187 +161,187 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func getAutoWordSelection
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoWordSelection"])
+		return dnRequest("get",[self,"AutoWordSelection"])
 
 	Func setAutoWordSelection P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoWordSelection",P1])
+		dnRequest("set",[self,"AutoWordSelection",P1])
 		return self
 
 	Func getBulletIndent
-		return dnRequest("get",[new DotNetObject(nHandle),"BulletIndent"])
+		return dnRequest("get",[self,"BulletIndent"])
 
 	Func setBulletIndent P1
-		dnRequest("set",[new DotNetObject(nHandle),"BulletIndent",P1])
+		dnRequest("set",[self,"BulletIndent",P1])
 		return self
 
 	Func getCanRedo
-		return dnRequest("get",[new DotNetObject(nHandle),"CanRedo"])
+		return dnRequest("get",[self,"CanRedo"])
 
 	Func setCanRedo P1
 		raise("DotNet Error: CanRedo is a read-only property")
 
 	Func getDetectUrls
-		return dnRequest("get",[new DotNetObject(nHandle),"DetectUrls"])
+		return dnRequest("get",[self,"DetectUrls"])
 
 	Func setDetectUrls P1
-		dnRequest("set",[new DotNetObject(nHandle),"DetectUrls",P1])
+		dnRequest("set",[self,"DetectUrls",P1])
 		return self
 
 	Func getEnableAutoDragDrop
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableAutoDragDrop"])
+		return dnRequest("get",[self,"EnableAutoDragDrop"])
 
 	Func setEnableAutoDragDrop P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableAutoDragDrop",P1])
+		dnRequest("set",[self,"EnableAutoDragDrop",P1])
 		return self
 
 	Func getLanguageOption
-		return dnRequest("get",[new DotNetObject(nHandle),"LanguageOption"])
+		return dnRequest("get",[self,"LanguageOption"])
 
 	Func setLanguageOption P1
-		dnRequest("set",[new DotNetObject(nHandle),"LanguageOption",P1])
+		dnRequest("set",[self,"LanguageOption",P1])
 		return self
 
 	Func getRedoActionName
-		return dnRequest("get",[new DotNetObject(nHandle),"RedoActionName"])
+		return dnRequest("get",[self,"RedoActionName"])
 
 	Func setRedoActionName P1
 		raise("DotNet Error: RedoActionName is a read-only property")
 
 	Func getRichTextShortcutsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"RichTextShortcutsEnabled"])
+		return dnRequest("get",[self,"RichTextShortcutsEnabled"])
 
 	Func setRichTextShortcutsEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"RichTextShortcutsEnabled",P1])
+		dnRequest("set",[self,"RichTextShortcutsEnabled",P1])
 		return self
 
 	Func getRightMargin
-		return dnRequest("get",[new DotNetObject(nHandle),"RightMargin"])
+		return dnRequest("get",[self,"RightMargin"])
 
 	Func setRightMargin P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightMargin",P1])
+		dnRequest("set",[self,"RightMargin",P1])
 		return self
 
 	Func getRtf
-		return dnRequest("get",[new DotNetObject(nHandle),"Rtf"])
+		return dnRequest("get",[self,"Rtf"])
 
 	Func setRtf P1
-		dnRequest("set",[new DotNetObject(nHandle),"Rtf",P1])
+		dnRequest("set",[self,"Rtf",P1])
 		return self
 
 	Func getScrollBars
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollBars"])
+		return dnRequest("get",[self,"ScrollBars"])
 
 	Func setScrollBars P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScrollBars",P1])
+		dnRequest("set",[self,"ScrollBars",P1])
 		return self
 
 	Func getSelectionAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionAlignment"])
+		return dnRequest("get",[self,"SelectionAlignment"])
 
 	Func setSelectionAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionAlignment",P1])
+		dnRequest("set",[self,"SelectionAlignment",P1])
 		return self
 
 	Func getSelectionBullet
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionBullet"])
+		return dnRequest("get",[self,"SelectionBullet"])
 
 	Func setSelectionBullet P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionBullet",P1])
+		dnRequest("set",[self,"SelectionBullet",P1])
 		return self
 
 	Func getSelectionCharOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionCharOffset"])
+		return dnRequest("get",[self,"SelectionCharOffset"])
 
 	Func setSelectionCharOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionCharOffset",P1])
+		dnRequest("set",[self,"SelectionCharOffset",P1])
 		return self
 
 	Func getSelectionColor
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionColor"])
+		return dnRequest("get",[self,"SelectionColor"])
 
 	Func setSelectionColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionColor",P1])
+		dnRequest("set",[self,"SelectionColor",P1])
 		return self
 
 	Func getSelectionBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionBackColor"])
+		return dnRequest("get",[self,"SelectionBackColor"])
 
 	Func setSelectionBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionBackColor",P1])
+		dnRequest("set",[self,"SelectionBackColor",P1])
 		return self
 
 	Func getSelectionFont
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionFont"])
+		return dnRequest("get",[self,"SelectionFont"])
 
 	Func setSelectionFont P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionFont",P1])
+		dnRequest("set",[self,"SelectionFont",P1])
 		return self
 
 	Func getSelectionHangingIndent
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionHangingIndent"])
+		return dnRequest("get",[self,"SelectionHangingIndent"])
 
 	Func setSelectionHangingIndent P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionHangingIndent",P1])
+		dnRequest("set",[self,"SelectionHangingIndent",P1])
 		return self
 
 	Func getSelectionIndent
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionIndent"])
+		return dnRequest("get",[self,"SelectionIndent"])
 
 	Func setSelectionIndent P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionIndent",P1])
+		dnRequest("set",[self,"SelectionIndent",P1])
 		return self
 
 	Func getSelectionProtected
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionProtected"])
+		return dnRequest("get",[self,"SelectionProtected"])
 
 	Func setSelectionProtected P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionProtected",P1])
+		dnRequest("set",[self,"SelectionProtected",P1])
 		return self
 
 	Func getSelectedRtf
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedRtf"])
+		return dnRequest("get",[self,"SelectedRtf"])
 
 	Func setSelectedRtf P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedRtf",P1])
+		dnRequest("set",[self,"SelectedRtf",P1])
 		return self
 
 	Func getSelectionRightIndent
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionRightIndent"])
+		return dnRequest("get",[self,"SelectionRightIndent"])
 
 	Func setSelectionRightIndent P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionRightIndent",P1])
+		dnRequest("set",[self,"SelectionRightIndent",P1])
 		return self
 
 	Func getSelectionTabs
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionTabs"])
+		return dnRequest("get",[self,"SelectionTabs"])
 
 	Func setSelectionTabs P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionTabs",P1])
+		dnRequest("set",[self,"SelectionTabs",P1])
 		return self
 
 	Func getSelectionType
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionType"])
+		return dnRequest("get",[self,"SelectionType"])
 
 	Func setSelectionType P1
 		raise("DotNet Error: SelectionType is a read-only property")
 
 	Func getShowSelectionMargin
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowSelectionMargin"])
+		return dnRequest("get",[self,"ShowSelectionMargin"])
 
 	Func setShowSelectionMargin P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowSelectionMargin",P1])
+		dnRequest("set",[self,"ShowSelectionMargin",P1])
 		return self
 
 	Func getUndoActionName
-		return dnRequest("get",[new DotNetObject(nHandle),"UndoActionName"])
+		return dnRequest("get",[self,"UndoActionName"])
 
 	Func setUndoActionName P1
 		raise("DotNet Error: UndoActionName is a read-only property")
 
 	Func getZoomFactor
-		return dnRequest("get",[new DotNetObject(nHandle),"ZoomFactor"])
+		return dnRequest("get",[self,"ZoomFactor"])
 
 	Func setZoomFactor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ZoomFactor",P1])
+		dnRequest("set",[self,"ZoomFactor",P1])
 		return self
 

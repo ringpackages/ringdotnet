@@ -35,20 +35,20 @@ Class ApplicationBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getApplicationServices
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationServices"])
+		return dnRequest("get",[self,"ApplicationServices"])
 
 	Func setApplicationServices P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApplicationServices",P1])
+		dnRequest("set",[self,"ApplicationServices",P1])
 		return self
 
 	Func getServerFeatures
-		return dnRequest("get",[new DotNetObject(nHandle),"ServerFeatures"])
+		return dnRequest("get",[self,"ServerFeatures"])
 
 	Func setServerFeatures P1
 		raise("DotNet Error: ServerFeatures is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")

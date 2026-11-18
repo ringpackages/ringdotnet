@@ -30,6 +30,7 @@ dnRegisterClass("System.Net.IPAddress","IPAddress",0)
 dnRegisterClass("System.Net.IPHostEntry","IPHostEntry",0)
 dnRegisterClass("System.Net.IPNetwork","IPNetwork",0)
 dnRegisterClass("System.Net.IWebProxy","IWebProxy",0)
+dnRegisterClass("System.Net.IWebProxyScript","IWebProxyScript",0)
 dnRegisterClass("System.Net.IWebRequestCreate","IWebRequestCreate",0)
 dnRegisterClass("System.Net.NetworkCredential","NetworkCredential",0)
 dnRegisterClass("System.Net.OpenReadCompletedEventArgs","OpenReadCompletedEventArgs",0)
@@ -45,6 +46,7 @@ dnRegisterClass("System.Net.UploadStringCompletedEventArgs","UploadStringComplet
 dnRegisterClass("System.Net.UploadValuesCompletedEventArgs","UploadValuesCompletedEventArgs",0)
 dnRegisterClass("System.Net.WebClient","WebClient",0)
 dnRegisterClass("System.Net.WebHeaderCollection","WebHeaderCollection",0)
+dnRegisterClass("System.Net.WebProxy","WebProxy",0)
 dnRegisterClass("System.Net.WebRequest","WebRequest",0)
 dnRegisterClass("System.Net.WebRequestMethods","WebRequestMethods",0)
 dnRegisterClass("System.Net.WebResponse","WebResponse",0)
@@ -84,6 +86,7 @@ load "System.Net/IPAddress.ring"
 load "System.Net/IPHostEntry.ring"
 load "System.Net/IPNetwork.ring"
 load "System.Net/IWebProxy.ring"
+load "System.Net/IWebProxyScript.ring"
 load "System.Net/IWebRequestCreate.ring"
 load "System.Net/NetworkCredential.ring"
 load "System.Net/OpenReadCompletedEventArgs.ring"
@@ -99,6 +102,7 @@ load "System.Net/UploadStringCompletedEventArgs.ring"
 load "System.Net/UploadValuesCompletedEventArgs.ring"
 load "System.Net/WebClient.ring"
 load "System.Net/WebHeaderCollection.ring"
+load "System.Net/WebProxy.ring"
 load "System.Net/WebRequest.ring"
 load "System.Net/WebRequestMethods.ring"
 load "System.Net/WebResponse.ring"

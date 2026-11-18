@@ -24,17 +24,17 @@ Class QuadraticBezierSegment from PathSegment
 		return self
 
 	Func getPoint1
-		return dnRequest("get",[new DotNetObject(nHandle),"Point1"])
+		return dnRequest("get",[self,"Point1"])
 
 	Func setPoint1 P1
-		dnRequest("set",[new DotNetObject(nHandle),"Point1",P1])
+		dnRequest("set",[self,"Point1",P1])
 		return self
 
 	Func getPoint2
-		return dnRequest("get",[new DotNetObject(nHandle),"Point2"])
+		return dnRequest("get",[self,"Point2"])
 
 	Func setPoint2 P1
-		dnRequest("set",[new DotNetObject(nHandle),"Point2",P1])
+		dnRequest("set",[self,"Point2",P1])
 		return self
 
 	Func getPoint1Property

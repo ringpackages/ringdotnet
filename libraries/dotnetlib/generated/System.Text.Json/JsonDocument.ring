@@ -48,7 +48,7 @@ Class JsonDocument from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1])
 
 	Func getRootElement
-		return dnRequest("get",[new DotNetObject(nHandle),"RootElement"])
+		return dnRequest("get",[self,"RootElement"])
 
 	Func setRootElement P1
 		raise("DotNet Error: RootElement is a read-only property")

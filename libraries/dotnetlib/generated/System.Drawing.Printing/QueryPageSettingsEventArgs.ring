@@ -17,9 +17,9 @@ Class QueryPageSettingsEventArgs from PrintEventArgs
 		return self
 
 	Func getPageSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"PageSettings"])
+		return dnRequest("get",[self,"PageSettings"])
 
 	Func setPageSettings P1
-		dnRequest("set",[new DotNetObject(nHandle),"PageSettings",P1])
+		dnRequest("set",[self,"PageSettings",P1])
 		return self
 

@@ -59,13 +59,13 @@ Class IConventionAnnotatable from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"SetOrRemoveAnnotation",P1,P2])
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getIsInModel
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInModel"])
+		return dnRequest("get",[self,"IsInModel"])
 
 	Func setIsInModel P1
 		raise("DotNet Error: IsInModel is a read-only property")

@@ -28,44 +28,44 @@ Class ProblemDetails from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
-		dnRequest("set",[new DotNetObject(nHandle),"Type",P1])
+		dnRequest("set",[self,"Type",P1])
 		return self
 
 	Func getTitle
-		return dnRequest("get",[new DotNetObject(nHandle),"Title"])
+		return dnRequest("get",[self,"Title"])
 
 	Func setTitle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Title",P1])
+		dnRequest("set",[self,"Title",P1])
 		return self
 
 	Func getStatus
-		return dnRequest("get",[new DotNetObject(nHandle),"Status"])
+		return dnRequest("get",[self,"Status"])
 
 	Func setStatus P1
-		dnRequest("set",[new DotNetObject(nHandle),"Status",P1])
+		dnRequest("set",[self,"Status",P1])
 		return self
 
 	Func getDetail
-		return dnRequest("get",[new DotNetObject(nHandle),"Detail"])
+		return dnRequest("get",[self,"Detail"])
 
 	Func setDetail P1
-		dnRequest("set",[new DotNetObject(nHandle),"Detail",P1])
+		dnRequest("set",[self,"Detail",P1])
 		return self
 
 	Func getInstance
-		return dnRequest("get",[new DotNetObject(nHandle),"Instance"])
+		return dnRequest("get",[self,"Instance"])
 
 	Func setInstance P1
-		dnRequest("set",[new DotNetObject(nHandle),"Instance",P1])
+		dnRequest("set",[self,"Instance",P1])
 		return self
 
 	Func getExtensions
-		return dnRequest("get",[new DotNetObject(nHandle),"Extensions"])
+		return dnRequest("get",[self,"Extensions"])
 
 	Func setExtensions P1
-		dnRequest("set",[new DotNetObject(nHandle),"Extensions",P1])
+		dnRequest("set",[self,"Extensions",P1])
 		return self
 

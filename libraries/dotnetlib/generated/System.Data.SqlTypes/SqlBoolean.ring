@@ -104,28 +104,28 @@ Class SqlBoolean from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"GetXsdType",P1])
 
 	Func getIsNull
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNull"])
+		return dnRequest("get",[self,"IsNull"])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsTrue
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTrue"])
+		return dnRequest("get",[self,"IsTrue"])
 
 	Func setIsTrue P1
 		raise("DotNet Error: IsTrue is a read-only property")
 
 	Func getIsFalse
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFalse"])
+		return dnRequest("get",[self,"IsFalse"])
 
 	Func setIsFalse P1
 		raise("DotNet Error: IsFalse is a read-only property")
 
 	Func getByteValue
-		return dnRequest("get",[new DotNetObject(nHandle),"ByteValue"])
+		return dnRequest("get",[self,"ByteValue"])
 
 	Func setByteValue P1
 		raise("DotNet Error: ByteValue is a read-only property")

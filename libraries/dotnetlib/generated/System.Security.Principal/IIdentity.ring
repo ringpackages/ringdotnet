@@ -18,19 +18,19 @@ Class IIdentity from DotNetObject
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getAuthenticationType
-		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationType"])
+		return dnRequest("get",[self,"AuthenticationType"])
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")
 
 	Func getIsAuthenticated
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAuthenticated"])
+		return dnRequest("get",[self,"IsAuthenticated"])
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")

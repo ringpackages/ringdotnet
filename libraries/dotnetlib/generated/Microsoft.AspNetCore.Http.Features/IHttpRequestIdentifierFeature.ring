@@ -16,9 +16,9 @@ Class IHttpRequestIdentifierFeature from DotNetObject
 		return self
 
 	Func getTraceIdentifier
-		return dnRequest("get",[new DotNetObject(nHandle),"TraceIdentifier"])
+		return dnRequest("get",[self,"TraceIdentifier"])
 
 	Func setTraceIdentifier P1
-		dnRequest("set",[new DotNetObject(nHandle),"TraceIdentifier",P1])
+		dnRequest("set",[self,"TraceIdentifier",P1])
 		return self
 

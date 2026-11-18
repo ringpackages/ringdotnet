@@ -18,14 +18,14 @@ Class StatusStrip from ToolStrip
 		return self
 
 	Func getSizingGrip
-		return dnRequest("get",[new DotNetObject(nHandle),"SizingGrip"])
+		return dnRequest("get",[self,"SizingGrip"])
 
 	Func setSizingGrip P1
-		dnRequest("set",[new DotNetObject(nHandle),"SizingGrip",P1])
+		dnRequest("set",[self,"SizingGrip",P1])
 		return self
 
 	Func getSizeGripBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeGripBounds"])
+		return dnRequest("get",[self,"SizeGripBounds"])
 
 	Func setSizeGripBounds P1
 		raise("DotNet Error: SizeGripBounds is a read-only property")

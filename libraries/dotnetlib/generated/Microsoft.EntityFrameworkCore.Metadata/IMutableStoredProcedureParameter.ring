@@ -18,22 +18,22 @@ Class IMutableStoredProcedureParameter from DotNetObject
 		return self
 
 	Func getStoredProcedure
-		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedure"])
+		return dnRequest("get",[self,"StoredProcedure"])
 
 	Func setStoredProcedure P1
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
+		return dnRequest("get",[self,"Direction"])
 
 	Func setDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Direction",P1])
+		dnRequest("set",[self,"Direction",P1])
 		return self
 

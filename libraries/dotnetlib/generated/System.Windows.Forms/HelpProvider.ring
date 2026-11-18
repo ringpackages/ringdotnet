@@ -53,16 +53,16 @@ Class HelpProvider from Component
 		return self
 
 	Func getHelpNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"HelpNamespace"])
+		return dnRequest("get",[self,"HelpNamespace"])
 
 	Func setHelpNamespace P1
-		dnRequest("set",[new DotNetObject(nHandle),"HelpNamespace",P1])
+		dnRequest("set",[self,"HelpNamespace",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 

@@ -63,115 +63,115 @@ Class CollectionViewSource from DependencyObject
 		return self
 
 	Func getView
-		return dnRequest("get",[new DotNetObject(nHandle),"View"])
+		return dnRequest("get",[self,"View"])
 
 	Func setView P1
 		raise("DotNet Error: View is a read-only property")
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getCollectionViewType
-		return dnRequest("get",[new DotNetObject(nHandle),"CollectionViewType"])
+		return dnRequest("get",[self,"CollectionViewType"])
 
 	Func setCollectionViewType P1
-		dnRequest("set",[new DotNetObject(nHandle),"CollectionViewType",P1])
+		dnRequest("set",[self,"CollectionViewType",P1])
 		return self
 
 	Func getCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"Culture"])
+		return dnRequest("get",[self,"Culture"])
 
 	Func setCulture P1
-		dnRequest("set",[new DotNetObject(nHandle),"Culture",P1])
+		dnRequest("set",[self,"Culture",P1])
 		return self
 
 	Func getSortDescriptions
-		return dnRequest("get",[new DotNetObject(nHandle),"SortDescriptions"])
+		return dnRequest("get",[self,"SortDescriptions"])
 
 	Func setSortDescriptions P1
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getGroupDescriptions
-		return dnRequest("get",[new DotNetObject(nHandle),"GroupDescriptions"])
+		return dnRequest("get",[self,"GroupDescriptions"])
 
 	Func setGroupDescriptions P1
 		raise("DotNet Error: GroupDescriptions is a read-only property")
 
 	Func getCanChangeLiveSorting
-		return dnRequest("get",[new DotNetObject(nHandle),"CanChangeLiveSorting"])
+		return dnRequest("get",[self,"CanChangeLiveSorting"])
 
 	Func setCanChangeLiveSorting P1
 		raise("DotNet Error: CanChangeLiveSorting is a read-only property")
 
 	Func getIsLiveSortingRequested
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLiveSortingRequested"])
+		return dnRequest("get",[self,"IsLiveSortingRequested"])
 
 	Func setIsLiveSortingRequested P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsLiveSortingRequested",P1])
+		dnRequest("set",[self,"IsLiveSortingRequested",P1])
 		return self
 
 	Func getIsLiveSorting
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLiveSorting"])
+		return dnRequest("get",[self,"IsLiveSorting"])
 
 	Func setIsLiveSorting P1
 		raise("DotNet Error: IsLiveSorting is a read-only property")
 
 	Func getLiveSortingProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"LiveSortingProperties"])
+		return dnRequest("get",[self,"LiveSortingProperties"])
 
 	Func setLiveSortingProperties P1
 		raise("DotNet Error: LiveSortingProperties is a read-only property")
 
 	Func getCanChangeLiveFiltering
-		return dnRequest("get",[new DotNetObject(nHandle),"CanChangeLiveFiltering"])
+		return dnRequest("get",[self,"CanChangeLiveFiltering"])
 
 	Func setCanChangeLiveFiltering P1
 		raise("DotNet Error: CanChangeLiveFiltering is a read-only property")
 
 	Func getIsLiveFilteringRequested
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLiveFilteringRequested"])
+		return dnRequest("get",[self,"IsLiveFilteringRequested"])
 
 	Func setIsLiveFilteringRequested P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsLiveFilteringRequested",P1])
+		dnRequest("set",[self,"IsLiveFilteringRequested",P1])
 		return self
 
 	Func getIsLiveFiltering
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLiveFiltering"])
+		return dnRequest("get",[self,"IsLiveFiltering"])
 
 	Func setIsLiveFiltering P1
 		raise("DotNet Error: IsLiveFiltering is a read-only property")
 
 	Func getLiveFilteringProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"LiveFilteringProperties"])
+		return dnRequest("get",[self,"LiveFilteringProperties"])
 
 	Func setLiveFilteringProperties P1
 		raise("DotNet Error: LiveFilteringProperties is a read-only property")
 
 	Func getCanChangeLiveGrouping
-		return dnRequest("get",[new DotNetObject(nHandle),"CanChangeLiveGrouping"])
+		return dnRequest("get",[self,"CanChangeLiveGrouping"])
 
 	Func setCanChangeLiveGrouping P1
 		raise("DotNet Error: CanChangeLiveGrouping is a read-only property")
 
 	Func getIsLiveGroupingRequested
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLiveGroupingRequested"])
+		return dnRequest("get",[self,"IsLiveGroupingRequested"])
 
 	Func setIsLiveGroupingRequested P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsLiveGroupingRequested",P1])
+		dnRequest("set",[self,"IsLiveGroupingRequested",P1])
 		return self
 
 	Func getIsLiveGrouping
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLiveGrouping"])
+		return dnRequest("get",[self,"IsLiveGrouping"])
 
 	Func setIsLiveGrouping P1
 		raise("DotNet Error: IsLiveGrouping is a read-only property")
 
 	Func getLiveGroupingProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"LiveGroupingProperties"])
+		return dnRequest("get",[self,"LiveGroupingProperties"])
 
 	Func setLiveGroupingProperties P1
 		raise("DotNet Error: LiveGroupingProperties is a read-only property")

@@ -120,58 +120,58 @@ Class NavigationWindow from Window
 		return self
 
 	Func getSandboxExternalContent
-		return dnRequest("get",[new DotNetObject(nHandle),"SandboxExternalContent"])
+		return dnRequest("get",[self,"SandboxExternalContent"])
 
 	Func setSandboxExternalContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"SandboxExternalContent",P1])
+		dnRequest("set",[self,"SandboxExternalContent",P1])
 		return self
 
 	Func getNavigationService
-		return dnRequest("get",[new DotNetObject(nHandle),"NavigationService"])
+		return dnRequest("get",[self,"NavigationService"])
 
 	Func setNavigationService P1
 		raise("DotNet Error: NavigationService is a read-only property")
 
 	Func getBackStack
-		return dnRequest("get",[new DotNetObject(nHandle),"BackStack"])
+		return dnRequest("get",[self,"BackStack"])
 
 	Func setBackStack P1
 		raise("DotNet Error: BackStack is a read-only property")
 
 	Func getForwardStack
-		return dnRequest("get",[new DotNetObject(nHandle),"ForwardStack"])
+		return dnRequest("get",[self,"ForwardStack"])
 
 	Func setForwardStack P1
 		raise("DotNet Error: ForwardStack is a read-only property")
 
 	Func getShowsNavigationUI
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowsNavigationUI"])
+		return dnRequest("get",[self,"ShowsNavigationUI"])
 
 	Func setShowsNavigationUI P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowsNavigationUI",P1])
+		dnRequest("set",[self,"ShowsNavigationUI",P1])
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getCurrentSource
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentSource"])
+		return dnRequest("get",[self,"CurrentSource"])
 
 	Func setCurrentSource P1
 		raise("DotNet Error: CurrentSource is a read-only property")
 
 	Func getCanGoForward
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoForward"])
+		return dnRequest("get",[self,"CanGoForward"])
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getCanGoBack
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoBack"])
+		return dnRequest("get",[self,"CanGoBack"])
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")

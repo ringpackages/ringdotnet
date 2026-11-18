@@ -17,7 +17,7 @@ Class SaveChangesCompletedEventData from DbContextEventData
 		return self
 
 	Func getEntitiesSavedCount
-		return dnRequest("get",[new DotNetObject(nHandle),"EntitiesSavedCount"])
+		return dnRequest("get",[self,"EntitiesSavedCount"])
 
 	Func setEntitiesSavedCount P1
 		raise("DotNet Error: EntitiesSavedCount is a read-only property")

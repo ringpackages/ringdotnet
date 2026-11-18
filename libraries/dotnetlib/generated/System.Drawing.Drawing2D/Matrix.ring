@@ -117,38 +117,38 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func getElements
-		return dnRequest("get",[new DotNetObject(nHandle),"Elements"])
+		return dnRequest("get",[self,"Elements"])
 
 	Func setElements P1
 		raise("DotNet Error: Elements is a read-only property")
 
 	Func getMatrixElements
-		return dnRequest("get",[new DotNetObject(nHandle),"MatrixElements"])
+		return dnRequest("get",[self,"MatrixElements"])
 
 	Func setMatrixElements P1
-		dnRequest("set",[new DotNetObject(nHandle),"MatrixElements",P1])
+		dnRequest("set",[self,"MatrixElements",P1])
 		return self
 
 	Func getOffsetX
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetX"])
+		return dnRequest("get",[self,"OffsetX"])
 
 	Func setOffsetX P1
 		raise("DotNet Error: OffsetX is a read-only property")
 
 	Func getOffsetY
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetY"])
+		return dnRequest("get",[self,"OffsetY"])
 
 	Func setOffsetY P1
 		raise("DotNet Error: OffsetY is a read-only property")
 
 	Func getIsInvertible
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInvertible"])
+		return dnRequest("get",[self,"IsInvertible"])
 
 	Func setIsInvertible P1
 		raise("DotNet Error: IsInvertible is a read-only property")
 
 	Func getIsIdentity
-		return dnRequest("get",[new DotNetObject(nHandle),"IsIdentity"])
+		return dnRequest("get",[self,"IsIdentity"])
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")

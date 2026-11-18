@@ -22,23 +22,23 @@ Class RelationalDatabaseDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBatchPreparer
-		return dnRequest("get",[new DotNetObject(nHandle),"BatchPreparer"])
+		return dnRequest("get",[self,"BatchPreparer"])
 
 	Func setBatchPreparer P1
-		dnRequest("set",[new DotNetObject(nHandle),"BatchPreparer",P1])
+		dnRequest("set",[self,"BatchPreparer",P1])
 		return self
 
 	Func getBatchExecutor
-		return dnRequest("get",[new DotNetObject(nHandle),"BatchExecutor"])
+		return dnRequest("get",[self,"BatchExecutor"])
 
 	Func setBatchExecutor P1
-		dnRequest("set",[new DotNetObject(nHandle),"BatchExecutor",P1])
+		dnRequest("set",[self,"BatchExecutor",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
+		dnRequest("set",[self,"Connection",P1])
 		return self
 

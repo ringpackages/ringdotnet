@@ -22,23 +22,23 @@ Class IISOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAutomaticAuthentication
-		return dnRequest("get",[new DotNetObject(nHandle),"AutomaticAuthentication"])
+		return dnRequest("get",[self,"AutomaticAuthentication"])
 
 	Func setAutomaticAuthentication P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutomaticAuthentication",P1])
+		dnRequest("set",[self,"AutomaticAuthentication",P1])
 		return self
 
 	Func getAuthenticationDisplayName
-		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationDisplayName"])
+		return dnRequest("get",[self,"AuthenticationDisplayName"])
 
 	Func setAuthenticationDisplayName P1
-		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationDisplayName",P1])
+		dnRequest("set",[self,"AuthenticationDisplayName",P1])
 		return self
 
 	Func getForwardClientCertificate
-		return dnRequest("get",[new DotNetObject(nHandle),"ForwardClientCertificate"])
+		return dnRequest("get",[self,"ForwardClientCertificate"])
 
 	Func setForwardClientCertificate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ForwardClientCertificate",P1])
+		dnRequest("set",[self,"ForwardClientCertificate",P1])
 		return self
 

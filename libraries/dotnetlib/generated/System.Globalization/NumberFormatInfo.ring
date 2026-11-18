@@ -61,198 +61,198 @@ Class NumberFormatInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"ReadOnly",P1])
 
 	Func getCurrencyDecimalDigits
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyDecimalDigits"])
+		return dnRequest("get",[self,"CurrencyDecimalDigits"])
 
 	Func setCurrencyDecimalDigits P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrencyDecimalDigits",P1])
+		dnRequest("set",[self,"CurrencyDecimalDigits",P1])
 		return self
 
 	Func getCurrencyDecimalSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyDecimalSeparator"])
+		return dnRequest("get",[self,"CurrencyDecimalSeparator"])
 
 	Func setCurrencyDecimalSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrencyDecimalSeparator",P1])
+		dnRequest("set",[self,"CurrencyDecimalSeparator",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCurrencyGroupSizes
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyGroupSizes"])
+		return dnRequest("get",[self,"CurrencyGroupSizes"])
 
 	Func setCurrencyGroupSizes P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrencyGroupSizes",P1])
+		dnRequest("set",[self,"CurrencyGroupSizes",P1])
 		return self
 
 	Func getNumberGroupSizes
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberGroupSizes"])
+		return dnRequest("get",[self,"NumberGroupSizes"])
 
 	Func setNumberGroupSizes P1
-		dnRequest("set",[new DotNetObject(nHandle),"NumberGroupSizes",P1])
+		dnRequest("set",[self,"NumberGroupSizes",P1])
 		return self
 
 	Func getPercentGroupSizes
-		return dnRequest("get",[new DotNetObject(nHandle),"PercentGroupSizes"])
+		return dnRequest("get",[self,"PercentGroupSizes"])
 
 	Func setPercentGroupSizes P1
-		dnRequest("set",[new DotNetObject(nHandle),"PercentGroupSizes",P1])
+		dnRequest("set",[self,"PercentGroupSizes",P1])
 		return self
 
 	Func getCurrencyGroupSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyGroupSeparator"])
+		return dnRequest("get",[self,"CurrencyGroupSeparator"])
 
 	Func setCurrencyGroupSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrencyGroupSeparator",P1])
+		dnRequest("set",[self,"CurrencyGroupSeparator",P1])
 		return self
 
 	Func getCurrencySymbol
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencySymbol"])
+		return dnRequest("get",[self,"CurrencySymbol"])
 
 	Func setCurrencySymbol P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrencySymbol",P1])
+		dnRequest("set",[self,"CurrencySymbol",P1])
 		return self
 
 	Func getNaNSymbol
-		return dnRequest("get",[new DotNetObject(nHandle),"NaNSymbol"])
+		return dnRequest("get",[self,"NaNSymbol"])
 
 	Func setNaNSymbol P1
-		dnRequest("set",[new DotNetObject(nHandle),"NaNSymbol",P1])
+		dnRequest("set",[self,"NaNSymbol",P1])
 		return self
 
 	Func getCurrencyNegativePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyNegativePattern"])
+		return dnRequest("get",[self,"CurrencyNegativePattern"])
 
 	Func setCurrencyNegativePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrencyNegativePattern",P1])
+		dnRequest("set",[self,"CurrencyNegativePattern",P1])
 		return self
 
 	Func getNumberNegativePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberNegativePattern"])
+		return dnRequest("get",[self,"NumberNegativePattern"])
 
 	Func setNumberNegativePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"NumberNegativePattern",P1])
+		dnRequest("set",[self,"NumberNegativePattern",P1])
 		return self
 
 	Func getPercentPositivePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"PercentPositivePattern"])
+		return dnRequest("get",[self,"PercentPositivePattern"])
 
 	Func setPercentPositivePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"PercentPositivePattern",P1])
+		dnRequest("set",[self,"PercentPositivePattern",P1])
 		return self
 
 	Func getPercentNegativePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"PercentNegativePattern"])
+		return dnRequest("get",[self,"PercentNegativePattern"])
 
 	Func setPercentNegativePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"PercentNegativePattern",P1])
+		dnRequest("set",[self,"PercentNegativePattern",P1])
 		return self
 
 	Func getNegativeInfinitySymbol
-		return dnRequest("get",[new DotNetObject(nHandle),"NegativeInfinitySymbol"])
+		return dnRequest("get",[self,"NegativeInfinitySymbol"])
 
 	Func setNegativeInfinitySymbol P1
-		dnRequest("set",[new DotNetObject(nHandle),"NegativeInfinitySymbol",P1])
+		dnRequest("set",[self,"NegativeInfinitySymbol",P1])
 		return self
 
 	Func getNegativeSign
-		return dnRequest("get",[new DotNetObject(nHandle),"NegativeSign"])
+		return dnRequest("get",[self,"NegativeSign"])
 
 	Func setNegativeSign P1
-		dnRequest("set",[new DotNetObject(nHandle),"NegativeSign",P1])
+		dnRequest("set",[self,"NegativeSign",P1])
 		return self
 
 	Func getNumberDecimalDigits
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberDecimalDigits"])
+		return dnRequest("get",[self,"NumberDecimalDigits"])
 
 	Func setNumberDecimalDigits P1
-		dnRequest("set",[new DotNetObject(nHandle),"NumberDecimalDigits",P1])
+		dnRequest("set",[self,"NumberDecimalDigits",P1])
 		return self
 
 	Func getNumberDecimalSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberDecimalSeparator"])
+		return dnRequest("get",[self,"NumberDecimalSeparator"])
 
 	Func setNumberDecimalSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"NumberDecimalSeparator",P1])
+		dnRequest("set",[self,"NumberDecimalSeparator",P1])
 		return self
 
 	Func getNumberGroupSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberGroupSeparator"])
+		return dnRequest("get",[self,"NumberGroupSeparator"])
 
 	Func setNumberGroupSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"NumberGroupSeparator",P1])
+		dnRequest("set",[self,"NumberGroupSeparator",P1])
 		return self
 
 	Func getCurrencyPositivePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyPositivePattern"])
+		return dnRequest("get",[self,"CurrencyPositivePattern"])
 
 	Func setCurrencyPositivePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrencyPositivePattern",P1])
+		dnRequest("set",[self,"CurrencyPositivePattern",P1])
 		return self
 
 	Func getPositiveInfinitySymbol
-		return dnRequest("get",[new DotNetObject(nHandle),"PositiveInfinitySymbol"])
+		return dnRequest("get",[self,"PositiveInfinitySymbol"])
 
 	Func setPositiveInfinitySymbol P1
-		dnRequest("set",[new DotNetObject(nHandle),"PositiveInfinitySymbol",P1])
+		dnRequest("set",[self,"PositiveInfinitySymbol",P1])
 		return self
 
 	Func getPositiveSign
-		return dnRequest("get",[new DotNetObject(nHandle),"PositiveSign"])
+		return dnRequest("get",[self,"PositiveSign"])
 
 	Func setPositiveSign P1
-		dnRequest("set",[new DotNetObject(nHandle),"PositiveSign",P1])
+		dnRequest("set",[self,"PositiveSign",P1])
 		return self
 
 	Func getPercentDecimalDigits
-		return dnRequest("get",[new DotNetObject(nHandle),"PercentDecimalDigits"])
+		return dnRequest("get",[self,"PercentDecimalDigits"])
 
 	Func setPercentDecimalDigits P1
-		dnRequest("set",[new DotNetObject(nHandle),"PercentDecimalDigits",P1])
+		dnRequest("set",[self,"PercentDecimalDigits",P1])
 		return self
 
 	Func getPercentDecimalSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"PercentDecimalSeparator"])
+		return dnRequest("get",[self,"PercentDecimalSeparator"])
 
 	Func setPercentDecimalSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"PercentDecimalSeparator",P1])
+		dnRequest("set",[self,"PercentDecimalSeparator",P1])
 		return self
 
 	Func getPercentGroupSeparator
-		return dnRequest("get",[new DotNetObject(nHandle),"PercentGroupSeparator"])
+		return dnRequest("get",[self,"PercentGroupSeparator"])
 
 	Func setPercentGroupSeparator P1
-		dnRequest("set",[new DotNetObject(nHandle),"PercentGroupSeparator",P1])
+		dnRequest("set",[self,"PercentGroupSeparator",P1])
 		return self
 
 	Func getPercentSymbol
-		return dnRequest("get",[new DotNetObject(nHandle),"PercentSymbol"])
+		return dnRequest("get",[self,"PercentSymbol"])
 
 	Func setPercentSymbol P1
-		dnRequest("set",[new DotNetObject(nHandle),"PercentSymbol",P1])
+		dnRequest("set",[self,"PercentSymbol",P1])
 		return self
 
 	Func getPerMilleSymbol
-		return dnRequest("get",[new DotNetObject(nHandle),"PerMilleSymbol"])
+		return dnRequest("get",[self,"PerMilleSymbol"])
 
 	Func setPerMilleSymbol P1
-		dnRequest("set",[new DotNetObject(nHandle),"PerMilleSymbol",P1])
+		dnRequest("set",[self,"PerMilleSymbol",P1])
 		return self
 
 	Func getNativeDigits
-		return dnRequest("get",[new DotNetObject(nHandle),"NativeDigits"])
+		return dnRequest("get",[self,"NativeDigits"])
 
 	Func setNativeDigits P1
-		dnRequest("set",[new DotNetObject(nHandle),"NativeDigits",P1])
+		dnRequest("set",[self,"NativeDigits",P1])
 		return self
 
 	Func getDigitSubstitution
-		return dnRequest("get",[new DotNetObject(nHandle),"DigitSubstitution"])
+		return dnRequest("get",[self,"DigitSubstitution"])
 
 	Func setDigitSubstitution P1
-		dnRequest("set",[new DotNetObject(nHandle),"DigitSubstitution",P1])
+		dnRequest("set",[self,"DigitSubstitution",P1])
 		return self
 
 	Func getInvariantInfo

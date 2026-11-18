@@ -18,7 +18,7 @@ Class ComboBoxItem from ListBoxItem
 		return self
 
 	Func getIsHighlighted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsHighlighted"])
+		return dnRequest("get",[self,"IsHighlighted"])
 
 	Func setIsHighlighted P1
 		raise("DotNet Error: IsHighlighted is a read-only property")

@@ -44,13 +44,13 @@ Class XPathExpression from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1,P2])
 
 	Func getExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"Expression"])
+		return dnRequest("get",[self,"Expression"])
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getReturnType
-		return dnRequest("get",[new DotNetObject(nHandle),"ReturnType"])
+		return dnRequest("get",[self,"ReturnType"])
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")

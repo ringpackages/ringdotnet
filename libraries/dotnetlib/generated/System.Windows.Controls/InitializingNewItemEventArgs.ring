@@ -17,7 +17,7 @@ Class InitializingNewItemEventArgs from EventArgs
 		return self
 
 	Func getNewItem
-		return dnRequest("get",[new DotNetObject(nHandle),"NewItem"])
+		return dnRequest("get",[self,"NewItem"])
 
 	Func setNewItem P1
 		raise("DotNet Error: NewItem is a read-only property")

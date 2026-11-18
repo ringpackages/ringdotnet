@@ -33,57 +33,57 @@ Class ListenOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEndPoint
-		return dnRequest("get",[new DotNetObject(nHandle),"EndPoint"])
+		return dnRequest("get",[self,"EndPoint"])
 
 	Func setEndPoint P1
 		raise("DotNet Error: EndPoint is a read-only property")
 
 	Func getIPEndPoint
-		return dnRequest("get",[new DotNetObject(nHandle),"IPEndPoint"])
+		return dnRequest("get",[self,"IPEndPoint"])
 
 	Func setIPEndPoint P1
 		raise("DotNet Error: IPEndPoint is a read-only property")
 
 	Func getSocketPath
-		return dnRequest("get",[new DotNetObject(nHandle),"SocketPath"])
+		return dnRequest("get",[self,"SocketPath"])
 
 	Func setSocketPath P1
 		raise("DotNet Error: SocketPath is a read-only property")
 
 	Func getPipeName
-		return dnRequest("get",[new DotNetObject(nHandle),"PipeName"])
+		return dnRequest("get",[self,"PipeName"])
 
 	Func setPipeName P1
 		raise("DotNet Error: PipeName is a read-only property")
 
 	Func getFileHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"FileHandle"])
+		return dnRequest("get",[self,"FileHandle"])
 
 	Func setFileHandle P1
 		raise("DotNet Error: FileHandle is a read-only property")
 
 	Func getKestrelServerOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"KestrelServerOptions"])
+		return dnRequest("get",[self,"KestrelServerOptions"])
 
 	Func setKestrelServerOptions P1
 		raise("DotNet Error: KestrelServerOptions is a read-only property")
 
 	Func getProtocols
-		return dnRequest("get",[new DotNetObject(nHandle),"Protocols"])
+		return dnRequest("get",[self,"Protocols"])
 
 	Func setProtocols P1
-		dnRequest("set",[new DotNetObject(nHandle),"Protocols",P1])
+		dnRequest("set",[self,"Protocols",P1])
 		return self
 
 	Func getDisableAltSvcHeader
-		return dnRequest("get",[new DotNetObject(nHandle),"DisableAltSvcHeader"])
+		return dnRequest("get",[self,"DisableAltSvcHeader"])
 
 	Func setDisableAltSvcHeader P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisableAltSvcHeader",P1])
+		dnRequest("set",[self,"DisableAltSvcHeader",P1])
 		return self
 
 	Func getApplicationServices
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationServices"])
+		return dnRequest("get",[self,"ApplicationServices"])
 
 	Func setApplicationServices P1
 		raise("DotNet Error: ApplicationServices is a read-only property")

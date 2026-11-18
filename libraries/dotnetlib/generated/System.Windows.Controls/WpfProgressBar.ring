@@ -20,17 +20,17 @@ Class WpfProgressBar from RangeBase
 		return self
 
 	Func getIsIndeterminate
-		return dnRequest("get",[new DotNetObject(nHandle),"IsIndeterminate"])
+		return dnRequest("get",[self,"IsIndeterminate"])
 
 	Func setIsIndeterminate P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsIndeterminate",P1])
+		dnRequest("set",[self,"IsIndeterminate",P1])
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
+		return dnRequest("get",[self,"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
+		dnRequest("set",[self,"Orientation",P1])
 		return self
 
 	Func getIsIndeterminateProperty

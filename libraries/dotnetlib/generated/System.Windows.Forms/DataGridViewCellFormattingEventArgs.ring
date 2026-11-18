@@ -20,27 +20,27 @@ Class DataGridViewCellFormattingEventArgs from ConvertEventArgs
 		return self
 
 	Func getCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"CellStyle"])
+		return dnRequest("get",[self,"CellStyle"])
 
 	Func setCellStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"CellStyle",P1])
+		dnRequest("set",[self,"CellStyle",P1])
 		return self
 
 	Func getColumnIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
+		return dnRequest("get",[self,"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getFormattingApplied
-		return dnRequest("get",[new DotNetObject(nHandle),"FormattingApplied"])
+		return dnRequest("get",[self,"FormattingApplied"])
 
 	Func setFormattingApplied P1
-		dnRequest("set",[new DotNetObject(nHandle),"FormattingApplied",P1])
+		dnRequest("set",[self,"FormattingApplied",P1])
 		return self
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")

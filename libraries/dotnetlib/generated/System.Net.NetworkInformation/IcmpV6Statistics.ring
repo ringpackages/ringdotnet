@@ -50,193 +50,193 @@ Class IcmpV6Statistics from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDestinationUnreachableMessagesReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"DestinationUnreachableMessagesReceived"])
+		return dnRequest("get",[self,"DestinationUnreachableMessagesReceived"])
 
 	Func setDestinationUnreachableMessagesReceived P1
 		raise("DotNet Error: DestinationUnreachableMessagesReceived is a read-only property")
 
 	Func getDestinationUnreachableMessagesSent
-		return dnRequest("get",[new DotNetObject(nHandle),"DestinationUnreachableMessagesSent"])
+		return dnRequest("get",[self,"DestinationUnreachableMessagesSent"])
 
 	Func setDestinationUnreachableMessagesSent P1
 		raise("DotNet Error: DestinationUnreachableMessagesSent is a read-only property")
 
 	Func getEchoRepliesReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"EchoRepliesReceived"])
+		return dnRequest("get",[self,"EchoRepliesReceived"])
 
 	Func setEchoRepliesReceived P1
 		raise("DotNet Error: EchoRepliesReceived is a read-only property")
 
 	Func getEchoRepliesSent
-		return dnRequest("get",[new DotNetObject(nHandle),"EchoRepliesSent"])
+		return dnRequest("get",[self,"EchoRepliesSent"])
 
 	Func setEchoRepliesSent P1
 		raise("DotNet Error: EchoRepliesSent is a read-only property")
 
 	Func getEchoRequestsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"EchoRequestsReceived"])
+		return dnRequest("get",[self,"EchoRequestsReceived"])
 
 	Func setEchoRequestsReceived P1
 		raise("DotNet Error: EchoRequestsReceived is a read-only property")
 
 	Func getEchoRequestsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"EchoRequestsSent"])
+		return dnRequest("get",[self,"EchoRequestsSent"])
 
 	Func setEchoRequestsSent P1
 		raise("DotNet Error: EchoRequestsSent is a read-only property")
 
 	Func getErrorsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorsReceived"])
+		return dnRequest("get",[self,"ErrorsReceived"])
 
 	Func setErrorsReceived P1
 		raise("DotNet Error: ErrorsReceived is a read-only property")
 
 	Func getErrorsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorsSent"])
+		return dnRequest("get",[self,"ErrorsSent"])
 
 	Func setErrorsSent P1
 		raise("DotNet Error: ErrorsSent is a read-only property")
 
 	Func getMembershipQueriesReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"MembershipQueriesReceived"])
+		return dnRequest("get",[self,"MembershipQueriesReceived"])
 
 	Func setMembershipQueriesReceived P1
 		raise("DotNet Error: MembershipQueriesReceived is a read-only property")
 
 	Func getMembershipQueriesSent
-		return dnRequest("get",[new DotNetObject(nHandle),"MembershipQueriesSent"])
+		return dnRequest("get",[self,"MembershipQueriesSent"])
 
 	Func setMembershipQueriesSent P1
 		raise("DotNet Error: MembershipQueriesSent is a read-only property")
 
 	Func getMembershipReductionsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"MembershipReductionsReceived"])
+		return dnRequest("get",[self,"MembershipReductionsReceived"])
 
 	Func setMembershipReductionsReceived P1
 		raise("DotNet Error: MembershipReductionsReceived is a read-only property")
 
 	Func getMembershipReductionsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"MembershipReductionsSent"])
+		return dnRequest("get",[self,"MembershipReductionsSent"])
 
 	Func setMembershipReductionsSent P1
 		raise("DotNet Error: MembershipReductionsSent is a read-only property")
 
 	Func getMembershipReportsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"MembershipReportsReceived"])
+		return dnRequest("get",[self,"MembershipReportsReceived"])
 
 	Func setMembershipReportsReceived P1
 		raise("DotNet Error: MembershipReportsReceived is a read-only property")
 
 	Func getMembershipReportsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"MembershipReportsSent"])
+		return dnRequest("get",[self,"MembershipReportsSent"])
 
 	Func setMembershipReportsSent P1
 		raise("DotNet Error: MembershipReportsSent is a read-only property")
 
 	Func getMessagesReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"MessagesReceived"])
+		return dnRequest("get",[self,"MessagesReceived"])
 
 	Func setMessagesReceived P1
 		raise("DotNet Error: MessagesReceived is a read-only property")
 
 	Func getMessagesSent
-		return dnRequest("get",[new DotNetObject(nHandle),"MessagesSent"])
+		return dnRequest("get",[self,"MessagesSent"])
 
 	Func setMessagesSent P1
 		raise("DotNet Error: MessagesSent is a read-only property")
 
 	Func getNeighborAdvertisementsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"NeighborAdvertisementsReceived"])
+		return dnRequest("get",[self,"NeighborAdvertisementsReceived"])
 
 	Func setNeighborAdvertisementsReceived P1
 		raise("DotNet Error: NeighborAdvertisementsReceived is a read-only property")
 
 	Func getNeighborAdvertisementsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"NeighborAdvertisementsSent"])
+		return dnRequest("get",[self,"NeighborAdvertisementsSent"])
 
 	Func setNeighborAdvertisementsSent P1
 		raise("DotNet Error: NeighborAdvertisementsSent is a read-only property")
 
 	Func getNeighborSolicitsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"NeighborSolicitsReceived"])
+		return dnRequest("get",[self,"NeighborSolicitsReceived"])
 
 	Func setNeighborSolicitsReceived P1
 		raise("DotNet Error: NeighborSolicitsReceived is a read-only property")
 
 	Func getNeighborSolicitsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"NeighborSolicitsSent"])
+		return dnRequest("get",[self,"NeighborSolicitsSent"])
 
 	Func setNeighborSolicitsSent P1
 		raise("DotNet Error: NeighborSolicitsSent is a read-only property")
 
 	Func getPacketTooBigMessagesReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"PacketTooBigMessagesReceived"])
+		return dnRequest("get",[self,"PacketTooBigMessagesReceived"])
 
 	Func setPacketTooBigMessagesReceived P1
 		raise("DotNet Error: PacketTooBigMessagesReceived is a read-only property")
 
 	Func getPacketTooBigMessagesSent
-		return dnRequest("get",[new DotNetObject(nHandle),"PacketTooBigMessagesSent"])
+		return dnRequest("get",[self,"PacketTooBigMessagesSent"])
 
 	Func setPacketTooBigMessagesSent P1
 		raise("DotNet Error: PacketTooBigMessagesSent is a read-only property")
 
 	Func getParameterProblemsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterProblemsReceived"])
+		return dnRequest("get",[self,"ParameterProblemsReceived"])
 
 	Func setParameterProblemsReceived P1
 		raise("DotNet Error: ParameterProblemsReceived is a read-only property")
 
 	Func getParameterProblemsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"ParameterProblemsSent"])
+		return dnRequest("get",[self,"ParameterProblemsSent"])
 
 	Func setParameterProblemsSent P1
 		raise("DotNet Error: ParameterProblemsSent is a read-only property")
 
 	Func getRedirectsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"RedirectsReceived"])
+		return dnRequest("get",[self,"RedirectsReceived"])
 
 	Func setRedirectsReceived P1
 		raise("DotNet Error: RedirectsReceived is a read-only property")
 
 	Func getRedirectsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"RedirectsSent"])
+		return dnRequest("get",[self,"RedirectsSent"])
 
 	Func setRedirectsSent P1
 		raise("DotNet Error: RedirectsSent is a read-only property")
 
 	Func getRouterAdvertisementsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"RouterAdvertisementsReceived"])
+		return dnRequest("get",[self,"RouterAdvertisementsReceived"])
 
 	Func setRouterAdvertisementsReceived P1
 		raise("DotNet Error: RouterAdvertisementsReceived is a read-only property")
 
 	Func getRouterAdvertisementsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"RouterAdvertisementsSent"])
+		return dnRequest("get",[self,"RouterAdvertisementsSent"])
 
 	Func setRouterAdvertisementsSent P1
 		raise("DotNet Error: RouterAdvertisementsSent is a read-only property")
 
 	Func getRouterSolicitsReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"RouterSolicitsReceived"])
+		return dnRequest("get",[self,"RouterSolicitsReceived"])
 
 	Func setRouterSolicitsReceived P1
 		raise("DotNet Error: RouterSolicitsReceived is a read-only property")
 
 	Func getRouterSolicitsSent
-		return dnRequest("get",[new DotNetObject(nHandle),"RouterSolicitsSent"])
+		return dnRequest("get",[self,"RouterSolicitsSent"])
 
 	Func setRouterSolicitsSent P1
 		raise("DotNet Error: RouterSolicitsSent is a read-only property")
 
 	Func getTimeExceededMessagesReceived
-		return dnRequest("get",[new DotNetObject(nHandle),"TimeExceededMessagesReceived"])
+		return dnRequest("get",[self,"TimeExceededMessagesReceived"])
 
 	Func setTimeExceededMessagesReceived P1
 		raise("DotNet Error: TimeExceededMessagesReceived is a read-only property")
 
 	Func getTimeExceededMessagesSent
-		return dnRequest("get",[new DotNetObject(nHandle),"TimeExceededMessagesSent"])
+		return dnRequest("get",[self,"TimeExceededMessagesSent"])
 
 	Func setTimeExceededMessagesSent P1
 		raise("DotNet Error: TimeExceededMessagesSent is a read-only property")

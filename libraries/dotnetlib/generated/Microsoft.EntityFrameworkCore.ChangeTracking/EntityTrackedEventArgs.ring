@@ -17,7 +17,7 @@ Class EntityTrackedEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getFromQuery
-		return dnRequest("get",[new DotNetObject(nHandle),"FromQuery"])
+		return dnRequest("get",[self,"FromQuery"])
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")

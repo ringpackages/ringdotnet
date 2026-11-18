@@ -39,7 +39,7 @@ Class StackTrace from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFrameCount
-		return dnRequest("get",[new DotNetObject(nHandle),"FrameCount"])
+		return dnRequest("get",[self,"FrameCount"])
 
 	Func setFrameCount P1
 		raise("DotNet Error: FrameCount is a read-only property")

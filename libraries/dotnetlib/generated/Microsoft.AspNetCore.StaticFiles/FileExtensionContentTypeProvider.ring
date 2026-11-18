@@ -27,7 +27,7 @@ Class FileExtensionContentTypeProvider from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"Mappings"])
+		return dnRequest("get",[self,"Mappings"])
 
 	Func setMappings P1
 		raise("DotNet Error: Mappings is a read-only property")

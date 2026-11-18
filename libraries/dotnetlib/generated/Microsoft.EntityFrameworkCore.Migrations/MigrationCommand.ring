@@ -47,19 +47,19 @@ Class MigrationCommand from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getTransactionSuppressed
-		return dnRequest("get",[new DotNetObject(nHandle),"TransactionSuppressed"])
+		return dnRequest("get",[self,"TransactionSuppressed"])
 
 	Func setTransactionSuppressed P1
 		raise("DotNet Error: TransactionSuppressed is a read-only property")
 
 	Func getCommandText
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandText"])
+		return dnRequest("get",[self,"CommandText"])
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
 
 	Func getCommandLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
+		return dnRequest("get",[self,"CommandLogger"])
 
 	Func setCommandLogger P1
 		raise("DotNet Error: CommandLogger is a read-only property")

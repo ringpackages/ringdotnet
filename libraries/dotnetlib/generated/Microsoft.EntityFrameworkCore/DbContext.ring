@@ -166,25 +166,25 @@ Class DbContext from Object
 		return self
 
 	Func getDatabase
-		return dnRequest("get",[new DotNetObject(nHandle),"Database"])
+		return dnRequest("get",[self,"Database"])
 
 	Func setDatabase P1
 		raise("DotNet Error: Database is a read-only property")
 
 	Func getChangeTracker
-		return dnRequest("get",[new DotNetObject(nHandle),"ChangeTracker"])
+		return dnRequest("get",[self,"ChangeTracker"])
 
 	Func setChangeTracker P1
 		raise("DotNet Error: ChangeTracker is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getContextId
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextId"])
+		return dnRequest("get",[self,"ContextId"])
 
 	Func setContextId P1
 		raise("DotNet Error: ContextId is a read-only property")

@@ -25,14 +25,14 @@ Class HttpMethodMetadata from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAcceptCorsPreflight
-		return dnRequest("get",[new DotNetObject(nHandle),"AcceptCorsPreflight"])
+		return dnRequest("get",[self,"AcceptCorsPreflight"])
 
 	Func setAcceptCorsPreflight P1
-		dnRequest("set",[new DotNetObject(nHandle),"AcceptCorsPreflight",P1])
+		dnRequest("set",[self,"AcceptCorsPreflight",P1])
 		return self
 
 	Func getHttpMethods
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpMethods"])
+		return dnRequest("get",[self,"HttpMethods"])
 
 	Func setHttpMethods P1
 		raise("DotNet Error: HttpMethods is a read-only property")

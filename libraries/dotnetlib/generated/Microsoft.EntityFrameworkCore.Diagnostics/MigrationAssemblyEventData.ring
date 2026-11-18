@@ -17,7 +17,7 @@ Class MigrationAssemblyEventData from MigratorEventData
 		return self
 
 	Func getMigrationsAssembly
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsAssembly"])
+		return dnRequest("get",[self,"MigrationsAssembly"])
 
 	Func setMigrationsAssembly P1
 		raise("DotNet Error: MigrationsAssembly is a read-only property")

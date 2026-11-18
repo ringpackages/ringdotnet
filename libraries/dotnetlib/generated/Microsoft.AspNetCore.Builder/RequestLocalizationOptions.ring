@@ -36,58 +36,58 @@ Class RequestLocalizationOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCultureInfoUseUserOverride
-		return dnRequest("get",[new DotNetObject(nHandle),"CultureInfoUseUserOverride"])
+		return dnRequest("get",[self,"CultureInfoUseUserOverride"])
 
 	Func setCultureInfoUseUserOverride P1
-		dnRequest("set",[new DotNetObject(nHandle),"CultureInfoUseUserOverride",P1])
+		dnRequest("set",[self,"CultureInfoUseUserOverride",P1])
 		return self
 
 	Func getDefaultRequestCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultRequestCulture"])
+		return dnRequest("get",[self,"DefaultRequestCulture"])
 
 	Func setDefaultRequestCulture P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultRequestCulture",P1])
+		dnRequest("set",[self,"DefaultRequestCulture",P1])
 		return self
 
 	Func getFallBackToParentCultures
-		return dnRequest("get",[new DotNetObject(nHandle),"FallBackToParentCultures"])
+		return dnRequest("get",[self,"FallBackToParentCultures"])
 
 	Func setFallBackToParentCultures P1
-		dnRequest("set",[new DotNetObject(nHandle),"FallBackToParentCultures",P1])
+		dnRequest("set",[self,"FallBackToParentCultures",P1])
 		return self
 
 	Func getFallBackToParentUICultures
-		return dnRequest("get",[new DotNetObject(nHandle),"FallBackToParentUICultures"])
+		return dnRequest("get",[self,"FallBackToParentUICultures"])
 
 	Func setFallBackToParentUICultures P1
-		dnRequest("set",[new DotNetObject(nHandle),"FallBackToParentUICultures",P1])
+		dnRequest("set",[self,"FallBackToParentUICultures",P1])
 		return self
 
 	Func getApplyCurrentCultureToResponseHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplyCurrentCultureToResponseHeaders"])
+		return dnRequest("get",[self,"ApplyCurrentCultureToResponseHeaders"])
 
 	Func setApplyCurrentCultureToResponseHeaders P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApplyCurrentCultureToResponseHeaders",P1])
+		dnRequest("set",[self,"ApplyCurrentCultureToResponseHeaders",P1])
 		return self
 
 	Func getSupportedCultures
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportedCultures"])
+		return dnRequest("get",[self,"SupportedCultures"])
 
 	Func setSupportedCultures P1
-		dnRequest("set",[new DotNetObject(nHandle),"SupportedCultures",P1])
+		dnRequest("set",[self,"SupportedCultures",P1])
 		return self
 
 	Func getSupportedUICultures
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportedUICultures"])
+		return dnRequest("get",[self,"SupportedUICultures"])
 
 	Func setSupportedUICultures P1
-		dnRequest("set",[new DotNetObject(nHandle),"SupportedUICultures",P1])
+		dnRequest("set",[self,"SupportedUICultures",P1])
 		return self
 
 	Func getRequestCultureProviders
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestCultureProviders"])
+		return dnRequest("get",[self,"RequestCultureProviders"])
 
 	Func setRequestCultureProviders P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestCultureProviders",P1])
+		dnRequest("set",[self,"RequestCultureProviders",P1])
 		return self
 

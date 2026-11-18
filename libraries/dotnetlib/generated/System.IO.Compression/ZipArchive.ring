@@ -50,20 +50,20 @@ Class ZipArchive from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getComment
-		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
+		return dnRequest("get",[self,"Comment"])
 
 	Func setComment P1
-		dnRequest("set",[new DotNetObject(nHandle),"Comment",P1])
+		dnRequest("set",[self,"Comment",P1])
 		return self
 
 	Func getEntries
-		return dnRequest("get",[new DotNetObject(nHandle),"Entries"])
+		return dnRequest("get",[self,"Entries"])
 
 	Func setEntries P1
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")

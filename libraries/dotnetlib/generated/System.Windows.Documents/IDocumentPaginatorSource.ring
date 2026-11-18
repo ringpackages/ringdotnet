@@ -16,7 +16,7 @@ Class IDocumentPaginatorSource from DotNetObject
 		return self
 
 	Func getDocumentPaginator
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentPaginator"])
+		return dnRequest("get",[self,"DocumentPaginator"])
 
 	Func setDocumentPaginator P1
 		raise("DotNet Error: DocumentPaginator is a read-only property")

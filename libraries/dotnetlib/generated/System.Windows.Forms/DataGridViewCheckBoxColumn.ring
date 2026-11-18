@@ -25,37 +25,37 @@ Class DataGridViewCheckBoxColumn from DataGridViewColumn
 		return self
 
 	Func getFalseValue
-		return dnRequest("get",[new DotNetObject(nHandle),"FalseValue"])
+		return dnRequest("get",[self,"FalseValue"])
 
 	Func setFalseValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"FalseValue",P1])
+		dnRequest("set",[self,"FalseValue",P1])
 		return self
 
 	Func getFlatStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"FlatStyle"])
+		return dnRequest("get",[self,"FlatStyle"])
 
 	Func setFlatStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlatStyle",P1])
+		dnRequest("set",[self,"FlatStyle",P1])
 		return self
 
 	Func getIndeterminateValue
-		return dnRequest("get",[new DotNetObject(nHandle),"IndeterminateValue"])
+		return dnRequest("get",[self,"IndeterminateValue"])
 
 	Func setIndeterminateValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"IndeterminateValue",P1])
+		dnRequest("set",[self,"IndeterminateValue",P1])
 		return self
 
 	Func getThreeState
-		return dnRequest("get",[new DotNetObject(nHandle),"ThreeState"])
+		return dnRequest("get",[self,"ThreeState"])
 
 	Func setThreeState P1
-		dnRequest("set",[new DotNetObject(nHandle),"ThreeState",P1])
+		dnRequest("set",[self,"ThreeState",P1])
 		return self
 
 	Func getTrueValue
-		return dnRequest("get",[new DotNetObject(nHandle),"TrueValue"])
+		return dnRequest("get",[self,"TrueValue"])
 
 	Func setTrueValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"TrueValue",P1])
+		dnRequest("set",[self,"TrueValue",P1])
 		return self
 

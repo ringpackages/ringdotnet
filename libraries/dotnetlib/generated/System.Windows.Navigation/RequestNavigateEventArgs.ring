@@ -18,13 +18,13 @@ Class RequestNavigateEventArgs from RoutedEventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[new DotNetObject(nHandle),"Uri"])
+		return dnRequest("get",[self,"Uri"])
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"Target"])
+		return dnRequest("get",[self,"Target"])
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")

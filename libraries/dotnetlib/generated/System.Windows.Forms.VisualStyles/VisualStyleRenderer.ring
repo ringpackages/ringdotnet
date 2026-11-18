@@ -138,28 +138,28 @@ Class VisualStyleRenderer from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"IsElementDefined",P1])
 
 	Func getClass
-		return dnRequest("get",[new DotNetObject(nHandle),"Class"])
+		return dnRequest("get",[self,"Class"])
 
 	Func getPart
-		return dnRequest("get",[new DotNetObject(nHandle),"Part"])
+		return dnRequest("get",[self,"Part"])
 
 	Func setPart P1
 		raise("DotNet Error: Part is a read-only property")
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getLastHResult
-		return dnRequest("get",[new DotNetObject(nHandle),"LastHResult"])
+		return dnRequest("get",[self,"LastHResult"])
 
 	Func setLastHResult P1
 		raise("DotNet Error: LastHResult is a read-only property")

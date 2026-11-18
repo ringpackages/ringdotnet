@@ -51,29 +51,29 @@ Class DispatcherTimer from Object
 		return self
 
 	Func getDispatcher
-		return dnRequest("get",[new DotNetObject(nHandle),"Dispatcher"])
+		return dnRequest("get",[self,"Dispatcher"])
 
 	Func setDispatcher P1
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getIsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEnabled"])
+		return dnRequest("get",[self,"IsEnabled"])
 
 	Func setIsEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsEnabled",P1])
+		dnRequest("set",[self,"IsEnabled",P1])
 		return self
 
 	Func getInterval
-		return dnRequest("get",[new DotNetObject(nHandle),"Interval"])
+		return dnRequest("get",[self,"Interval"])
 
 	Func setInterval P1
-		dnRequest("set",[new DotNetObject(nHandle),"Interval",P1])
+		dnRequest("set",[self,"Interval",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 

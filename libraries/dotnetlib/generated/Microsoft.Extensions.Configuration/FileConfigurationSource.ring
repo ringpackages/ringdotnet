@@ -35,44 +35,44 @@ Class FileConfigurationSource from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFileProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"FileProvider"])
+		return dnRequest("get",[self,"FileProvider"])
 
 	Func setFileProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"FileProvider",P1])
+		dnRequest("set",[self,"FileProvider",P1])
 		return self
 
 	Func getPath
-		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
+		return dnRequest("get",[self,"Path"])
 
 	Func setPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
+		dnRequest("set",[self,"Path",P1])
 		return self
 
 	Func getOptional
-		return dnRequest("get",[new DotNetObject(nHandle),"Optional"])
+		return dnRequest("get",[self,"Optional"])
 
 	Func setOptional P1
-		dnRequest("set",[new DotNetObject(nHandle),"Optional",P1])
+		dnRequest("set",[self,"Optional",P1])
 		return self
 
 	Func getReloadOnChange
-		return dnRequest("get",[new DotNetObject(nHandle),"ReloadOnChange"])
+		return dnRequest("get",[self,"ReloadOnChange"])
 
 	Func setReloadOnChange P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReloadOnChange",P1])
+		dnRequest("set",[self,"ReloadOnChange",P1])
 		return self
 
 	Func getReloadDelay
-		return dnRequest("get",[new DotNetObject(nHandle),"ReloadDelay"])
+		return dnRequest("get",[self,"ReloadDelay"])
 
 	Func setReloadDelay P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReloadDelay",P1])
+		dnRequest("set",[self,"ReloadDelay",P1])
 		return self
 
 	Func getOnLoadException
-		return dnRequest("get",[new DotNetObject(nHandle),"OnLoadException"])
+		return dnRequest("get",[self,"OnLoadException"])
 
 	Func setOnLoadException P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnLoadException",P1])
+		dnRequest("set",[self,"OnLoadException",P1])
 		return self
 

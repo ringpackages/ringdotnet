@@ -22,14 +22,14 @@ Class ControlTemplate from FrameworkTemplate
 		return self
 
 	Func getTargetType
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetType"])
+		return dnRequest("get",[self,"TargetType"])
 
 	Func setTargetType P1
-		dnRequest("set",[new DotNetObject(nHandle),"TargetType",P1])
+		dnRequest("set",[self,"TargetType",P1])
 		return self
 
 	Func getTriggers
-		return dnRequest("get",[new DotNetObject(nHandle),"Triggers"])
+		return dnRequest("get",[self,"Triggers"])
 
 	Func setTriggers P1
 		raise("DotNet Error: Triggers is a read-only property")

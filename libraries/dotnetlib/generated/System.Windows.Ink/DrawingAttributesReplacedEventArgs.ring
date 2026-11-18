@@ -18,13 +18,13 @@ Class DrawingAttributesReplacedEventArgs from EventArgs
 		return self
 
 	Func getNewDrawingAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"NewDrawingAttributes"])
+		return dnRequest("get",[self,"NewDrawingAttributes"])
 
 	Func setNewDrawingAttributes P1
 		raise("DotNet Error: NewDrawingAttributes is a read-only property")
 
 	Func getPreviousDrawingAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"PreviousDrawingAttributes"])
+		return dnRequest("get",[self,"PreviousDrawingAttributes"])
 
 	Func setPreviousDrawingAttributes P1
 		raise("DotNet Error: PreviousDrawingAttributes is a read-only property")

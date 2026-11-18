@@ -19,7 +19,7 @@ Class IFilterFactory from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1])
 
 	Func getIsReusable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReusable"])
+		return dnRequest("get",[self,"IsReusable"])
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")

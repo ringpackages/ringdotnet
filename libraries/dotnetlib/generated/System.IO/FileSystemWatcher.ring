@@ -89,57 +89,57 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func getNotifyFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"NotifyFilter"])
+		return dnRequest("get",[self,"NotifyFilter"])
 
 	Func setNotifyFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"NotifyFilter",P1])
+		dnRequest("set",[self,"NotifyFilter",P1])
 		return self
 
 	Func getFilters
-		return dnRequest("get",[new DotNetObject(nHandle),"Filters"])
+		return dnRequest("get",[self,"Filters"])
 
 	Func setFilters P1
 		raise("DotNet Error: Filters is a read-only property")
 
 	Func getEnableRaisingEvents
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableRaisingEvents"])
+		return dnRequest("get",[self,"EnableRaisingEvents"])
 
 	Func setEnableRaisingEvents P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableRaisingEvents",P1])
+		dnRequest("set",[self,"EnableRaisingEvents",P1])
 		return self
 
 	Func getFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"Filter"])
+		return dnRequest("get",[self,"Filter"])
 
 	Func setFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Filter",P1])
+		dnRequest("set",[self,"Filter",P1])
 		return self
 
 	Func getIncludeSubdirectories
-		return dnRequest("get",[new DotNetObject(nHandle),"IncludeSubdirectories"])
+		return dnRequest("get",[self,"IncludeSubdirectories"])
 
 	Func setIncludeSubdirectories P1
-		dnRequest("set",[new DotNetObject(nHandle),"IncludeSubdirectories",P1])
+		dnRequest("set",[self,"IncludeSubdirectories",P1])
 		return self
 
 	Func getInternalBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"InternalBufferSize"])
+		return dnRequest("get",[self,"InternalBufferSize"])
 
 	Func setInternalBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"InternalBufferSize",P1])
+		dnRequest("set",[self,"InternalBufferSize",P1])
 		return self
 
 	Func getPath
-		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
+		return dnRequest("get",[self,"Path"])
 
 	Func setPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
+		dnRequest("set",[self,"Path",P1])
 		return self
 
 	Func getSynchronizingObject
-		return dnRequest("get",[new DotNetObject(nHandle),"SynchronizingObject"])
+		return dnRequest("get",[self,"SynchronizingObject"])
 
 	Func setSynchronizingObject P1
-		dnRequest("set",[new DotNetObject(nHandle),"SynchronizingObject",P1])
+		dnRequest("set",[self,"SynchronizingObject",P1])
 		return self
 

@@ -35,54 +35,54 @@ Class HttpRequestMessage from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
-		dnRequest("set",[new DotNetObject(nHandle),"Version",P1])
+		dnRequest("set",[self,"Version",P1])
 		return self
 
 	Func getVersionPolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"VersionPolicy"])
+		return dnRequest("get",[self,"VersionPolicy"])
 
 	Func setVersionPolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"VersionPolicy",P1])
+		dnRequest("set",[self,"VersionPolicy",P1])
 		return self
 
 	Func getContent
-		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
+		return dnRequest("get",[self,"Content"])
 
 	Func setContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
+		dnRequest("set",[self,"Content",P1])
 		return self
 
 	Func getMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"Method"])
+		return dnRequest("get",[self,"Method"])
 
 	Func setMethod P1
-		dnRequest("set",[new DotNetObject(nHandle),"Method",P1])
+		dnRequest("set",[self,"Method",P1])
 		return self
 
 	Func getRequestUri
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestUri"])
+		return dnRequest("get",[self,"RequestUri"])
 
 	Func setRequestUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestUri",P1])
+		dnRequest("set",[self,"RequestUri",P1])
 		return self
 
 	Func getHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"Headers"])
+		return dnRequest("get",[self,"Headers"])
 
 	Func setHeaders P1
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")

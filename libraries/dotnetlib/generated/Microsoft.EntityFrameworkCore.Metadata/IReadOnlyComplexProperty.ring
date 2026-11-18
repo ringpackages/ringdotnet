@@ -33,19 +33,19 @@ Class IReadOnlyComplexProperty from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getComplexType
-		return dnRequest("get",[new DotNetObject(nHandle),"ComplexType"])
+		return dnRequest("get",[self,"ComplexType"])
 
 	Func setComplexType P1
 		raise("DotNet Error: ComplexType is a read-only property")
 
 	Func getIsNullable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNullable"])
+		return dnRequest("get",[self,"IsNullable"])
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getIsCollection
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCollection"])
+		return dnRequest("get",[self,"IsCollection"])
 
 	Func setIsCollection P1
 		raise("DotNet Error: IsCollection is a read-only property")

@@ -29,31 +29,31 @@ Class XmlSerializerImplementation from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getReader
-		return dnRequest("get",[new DotNetObject(nHandle),"Reader"])
+		return dnRequest("get",[self,"Reader"])
 
 	Func setReader P1
 		raise("DotNet Error: Reader is a read-only property")
 
 	Func getWriter
-		return dnRequest("get",[new DotNetObject(nHandle),"Writer"])
+		return dnRequest("get",[self,"Writer"])
 
 	Func setWriter P1
 		raise("DotNet Error: Writer is a read-only property")
 
 	Func getReadMethods
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadMethods"])
+		return dnRequest("get",[self,"ReadMethods"])
 
 	Func setReadMethods P1
 		raise("DotNet Error: ReadMethods is a read-only property")
 
 	Func getWriteMethods
-		return dnRequest("get",[new DotNetObject(nHandle),"WriteMethods"])
+		return dnRequest("get",[self,"WriteMethods"])
 
 	Func setWriteMethods P1
 		raise("DotNet Error: WriteMethods is a read-only property")
 
 	Func getTypedSerializers
-		return dnRequest("get",[new DotNetObject(nHandle),"TypedSerializers"])
+		return dnRequest("get",[self,"TypedSerializers"])
 
 	Func setTypedSerializers P1
 		raise("DotNet Error: TypedSerializers is a read-only property")

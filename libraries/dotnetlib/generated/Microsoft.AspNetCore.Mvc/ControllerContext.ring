@@ -21,9 +21,9 @@ Class ControllerContext from ActionContext
 		return self
 
 	Func getValueProviderFactories
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueProviderFactories"])
+		return dnRequest("get",[self,"ValueProviderFactories"])
 
 	Func setValueProviderFactories P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValueProviderFactories",P1])
+		dnRequest("set",[self,"ValueProviderFactories",P1])
 		return self
 

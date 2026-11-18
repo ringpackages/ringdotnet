@@ -17,7 +17,7 @@ Class ToolStripDropDownClosingEventArgs from CancelEventArgs
 		return self
 
 	Func getCloseReason
-		return dnRequest("get",[new DotNetObject(nHandle),"CloseReason"])
+		return dnRequest("get",[self,"CloseReason"])
 
 	Func setCloseReason P1
 		raise("DotNet Error: CloseReason is a read-only property")

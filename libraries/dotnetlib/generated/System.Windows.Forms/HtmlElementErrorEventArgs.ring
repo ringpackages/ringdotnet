@@ -19,26 +19,26 @@ Class HtmlElementErrorEventArgs from EventArgs
 		return self
 
 	Func getDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
+		return dnRequest("get",[self,"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
+		return dnRequest("get",[self,"Handled"])
 
 	Func setHandled P1
-		dnRequest("set",[new DotNetObject(nHandle),"Handled",P1])
+		dnRequest("set",[self,"Handled",P1])
 		return self
 
 	Func getLineNumber
-		return dnRequest("get",[new DotNetObject(nHandle),"LineNumber"])
+		return dnRequest("get",[self,"LineNumber"])
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getUrl
-		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
+		return dnRequest("get",[self,"Url"])
 
 	Func setUrl P1
 		raise("DotNet Error: Url is a read-only property")

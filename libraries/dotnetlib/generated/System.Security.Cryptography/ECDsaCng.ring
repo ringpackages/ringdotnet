@@ -49,14 +49,14 @@ Class ECDsaCng from ECDsa
 		return self
 
 	Func getHashAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
+		return dnRequest("get",[self,"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
-		dnRequest("set",[new DotNetObject(nHandle),"HashAlgorithm",P1])
+		dnRequest("set",[self,"HashAlgorithm",P1])
 		return self
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")

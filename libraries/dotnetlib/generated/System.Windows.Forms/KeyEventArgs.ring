@@ -25,58 +25,58 @@ Class KeyEventArgs from EventArgs
 		return self
 
 	Func getAlt
-		return dnRequest("get",[new DotNetObject(nHandle),"Alt"])
+		return dnRequest("get",[self,"Alt"])
 
 	Func setAlt P1
 		raise("DotNet Error: Alt is a read-only property")
 
 	Func getControl
-		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
+		return dnRequest("get",[self,"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getHandled
-		return dnRequest("get",[new DotNetObject(nHandle),"Handled"])
+		return dnRequest("get",[self,"Handled"])
 
 	Func setHandled P1
-		dnRequest("set",[new DotNetObject(nHandle),"Handled",P1])
+		dnRequest("set",[self,"Handled",P1])
 		return self
 
 	Func getKeyCode
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyCode"])
+		return dnRequest("get",[self,"KeyCode"])
 
 	Func setKeyCode P1
 		raise("DotNet Error: KeyCode is a read-only property")
 
 	Func getKeyValue
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyValue"])
+		return dnRequest("get",[self,"KeyValue"])
 
 	Func setKeyValue P1
 		raise("DotNet Error: KeyValue is a read-only property")
 
 	Func getKeyData
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyData"])
+		return dnRequest("get",[self,"KeyData"])
 
 	Func setKeyData P1
 		raise("DotNet Error: KeyData is a read-only property")
 
 	Func getModifiers
-		return dnRequest("get",[new DotNetObject(nHandle),"Modifiers"])
+		return dnRequest("get",[self,"Modifiers"])
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
 
 	Func getShift
-		return dnRequest("get",[new DotNetObject(nHandle),"Shift"])
+		return dnRequest("get",[self,"Shift"])
 
 	Func setShift P1
 		raise("DotNet Error: Shift is a read-only property")
 
 	Func getSuppressKeyPress
-		return dnRequest("get",[new DotNetObject(nHandle),"SuppressKeyPress"])
+		return dnRequest("get",[self,"SuppressKeyPress"])
 
 	Func setSuppressKeyPress P1
-		dnRequest("set",[new DotNetObject(nHandle),"SuppressKeyPress",P1])
+		dnRequest("set",[self,"SuppressKeyPress",P1])
 		return self
 

@@ -39,13 +39,13 @@ Class CollectionCollectionBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLeftNavigation
-		return dnRequest("get",[new DotNetObject(nHandle),"LeftNavigation"])
+		return dnRequest("get",[self,"LeftNavigation"])
 
 	Func setLeftNavigation P1
 		raise("DotNet Error: LeftNavigation is a read-only property")
 
 	Func getRightNavigation
-		return dnRequest("get",[new DotNetObject(nHandle),"RightNavigation"])
+		return dnRequest("get",[self,"RightNavigation"])
 
 	Func setRightNavigation P1
 		raise("DotNet Error: RightNavigation is a read-only property")

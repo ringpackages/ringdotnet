@@ -26,35 +26,35 @@ Class EndpointBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getFilterFactories
-		return dnRequest("get",[new DotNetObject(nHandle),"FilterFactories"])
+		return dnRequest("get",[self,"FilterFactories"])
 
 	Func setFilterFactories P1
 		raise("DotNet Error: FilterFactories is a read-only property")
 
 	Func getRequestDelegate
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestDelegate"])
+		return dnRequest("get",[self,"RequestDelegate"])
 
 	Func setRequestDelegate P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestDelegate",P1])
+		dnRequest("set",[self,"RequestDelegate",P1])
 		return self
 
 	Func getDisplayName
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
+		return dnRequest("get",[self,"DisplayName"])
 
 	Func setDisplayName P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayName",P1])
+		dnRequest("set",[self,"DisplayName",P1])
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getApplicationServices
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationServices"])
+		return dnRequest("get",[self,"ApplicationServices"])
 
 	Func setApplicationServices P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApplicationServices",P1])
+		dnRequest("set",[self,"ApplicationServices",P1])
 		return self
 

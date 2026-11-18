@@ -16,7 +16,7 @@ Class IPropertyFilterProvider from DotNetObject
 		return self
 
 	Func getPropertyFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyFilter"])
+		return dnRequest("get",[self,"PropertyFilter"])
 
 	Func setPropertyFilter P1
 		raise("DotNet Error: PropertyFilter is a read-only property")

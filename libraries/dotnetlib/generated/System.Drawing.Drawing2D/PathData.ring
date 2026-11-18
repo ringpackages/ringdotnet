@@ -21,16 +21,16 @@ Class PathData from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPoints
-		return dnRequest("get",[new DotNetObject(nHandle),"Points"])
+		return dnRequest("get",[self,"Points"])
 
 	Func setPoints P1
-		dnRequest("set",[new DotNetObject(nHandle),"Points",P1])
+		dnRequest("set",[self,"Points",P1])
 		return self
 
 	Func getTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"Types"])
+		return dnRequest("get",[self,"Types"])
 
 	Func setTypes P1
-		dnRequest("set",[new DotNetObject(nHandle),"Types",P1])
+		dnRequest("set",[self,"Types",P1])
 		return self
 

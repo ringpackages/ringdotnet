@@ -24,30 +24,30 @@ Class CornerRadius from ValueType
 		return self
 
 	Func getTopLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"TopLeft"])
+		return dnRequest("get",[self,"TopLeft"])
 
 	Func setTopLeft P1
-		dnRequest("set",[new DotNetObject(nHandle),"TopLeft",P1])
+		dnRequest("set",[self,"TopLeft",P1])
 		return self
 
 	Func getTopRight
-		return dnRequest("get",[new DotNetObject(nHandle),"TopRight"])
+		return dnRequest("get",[self,"TopRight"])
 
 	Func setTopRight P1
-		dnRequest("set",[new DotNetObject(nHandle),"TopRight",P1])
+		dnRequest("set",[self,"TopRight",P1])
 		return self
 
 	Func getBottomRight
-		return dnRequest("get",[new DotNetObject(nHandle),"BottomRight"])
+		return dnRequest("get",[self,"BottomRight"])
 
 	Func setBottomRight P1
-		dnRequest("set",[new DotNetObject(nHandle),"BottomRight",P1])
+		dnRequest("set",[self,"BottomRight",P1])
 		return self
 
 	Func getBottomLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"BottomLeft"])
+		return dnRequest("get",[self,"BottomLeft"])
 
 	Func setBottomLeft P1
-		dnRequest("set",[new DotNetObject(nHandle),"BottomLeft",P1])
+		dnRequest("set",[self,"BottomLeft",P1])
 		return self
 

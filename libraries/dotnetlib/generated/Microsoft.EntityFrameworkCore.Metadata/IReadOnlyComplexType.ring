@@ -34,7 +34,7 @@ Class IReadOnlyComplexType from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getComplexProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"ComplexProperty"])
+		return dnRequest("get",[self,"ComplexProperty"])
 
 	Func setComplexProperty P1
 		raise("DotNet Error: ComplexProperty is a read-only property")

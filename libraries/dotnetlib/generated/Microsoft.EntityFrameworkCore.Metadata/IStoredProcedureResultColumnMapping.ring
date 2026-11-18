@@ -33,19 +33,19 @@ Class IStoredProcedureResultColumnMapping from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getStoreResultColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreResultColumn"])
+		return dnRequest("get",[self,"StoreResultColumn"])
 
 	Func setStoreResultColumn P1
 		raise("DotNet Error: StoreResultColumn is a read-only property")
 
 	Func getResultColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"ResultColumn"])
+		return dnRequest("get",[self,"ResultColumn"])
 
 	Func setResultColumn P1
 		raise("DotNet Error: ResultColumn is a read-only property")
 
 	Func getStoredProcedureMapping
-		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedureMapping"])
+		return dnRequest("get",[self,"StoredProcedureMapping"])
 
 	Func setStoredProcedureMapping P1
 		raise("DotNet Error: StoredProcedureMapping is a read-only property")

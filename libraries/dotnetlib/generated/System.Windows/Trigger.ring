@@ -31,28 +31,28 @@ Class Trigger from TriggerBase
 		return self
 
 	Func getProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
+		return dnRequest("get",[self,"Property"])
 
 	Func setProperty P1
-		dnRequest("set",[new DotNetObject(nHandle),"Property",P1])
+		dnRequest("set",[self,"Property",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getSourceName
-		return dnRequest("get",[new DotNetObject(nHandle),"SourceName"])
+		return dnRequest("get",[self,"SourceName"])
 
 	Func setSourceName P1
-		dnRequest("set",[new DotNetObject(nHandle),"SourceName",P1])
+		dnRequest("set",[self,"SourceName",P1])
 		return self
 
 	Func getSetters
-		return dnRequest("get",[new DotNetObject(nHandle),"Setters"])
+		return dnRequest("get",[self,"Setters"])
 
 	Func setSetters P1
 		raise("DotNet Error: Setters is a read-only property")

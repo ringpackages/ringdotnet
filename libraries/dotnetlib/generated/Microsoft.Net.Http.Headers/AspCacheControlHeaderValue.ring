@@ -52,110 +52,110 @@ Class AspCacheControlHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"TryParse",P1])
 
 	Func getNoCache
-		return dnRequest("get",[new DotNetObject(nHandle),"NoCache"])
+		return dnRequest("get",[self,"NoCache"])
 
 	Func setNoCache P1
-		dnRequest("set",[new DotNetObject(nHandle),"NoCache",P1])
+		dnRequest("set",[self,"NoCache",P1])
 		return self
 
 	Func getNoCacheHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"NoCacheHeaders"])
+		return dnRequest("get",[self,"NoCacheHeaders"])
 
 	Func setNoCacheHeaders P1
 		raise("DotNet Error: NoCacheHeaders is a read-only property")
 
 	Func getNoStore
-		return dnRequest("get",[new DotNetObject(nHandle),"NoStore"])
+		return dnRequest("get",[self,"NoStore"])
 
 	Func setNoStore P1
-		dnRequest("set",[new DotNetObject(nHandle),"NoStore",P1])
+		dnRequest("set",[self,"NoStore",P1])
 		return self
 
 	Func getMaxAge
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxAge"])
+		return dnRequest("get",[self,"MaxAge"])
 
 	Func setMaxAge P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxAge",P1])
+		dnRequest("set",[self,"MaxAge",P1])
 		return self
 
 	Func getSharedMaxAge
-		return dnRequest("get",[new DotNetObject(nHandle),"SharedMaxAge"])
+		return dnRequest("get",[self,"SharedMaxAge"])
 
 	Func setSharedMaxAge P1
-		dnRequest("set",[new DotNetObject(nHandle),"SharedMaxAge",P1])
+		dnRequest("set",[self,"SharedMaxAge",P1])
 		return self
 
 	Func getMaxStale
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxStale"])
+		return dnRequest("get",[self,"MaxStale"])
 
 	Func setMaxStale P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxStale",P1])
+		dnRequest("set",[self,"MaxStale",P1])
 		return self
 
 	Func getMaxStaleLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxStaleLimit"])
+		return dnRequest("get",[self,"MaxStaleLimit"])
 
 	Func setMaxStaleLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxStaleLimit",P1])
+		dnRequest("set",[self,"MaxStaleLimit",P1])
 		return self
 
 	Func getMinFresh
-		return dnRequest("get",[new DotNetObject(nHandle),"MinFresh"])
+		return dnRequest("get",[self,"MinFresh"])
 
 	Func setMinFresh P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinFresh",P1])
+		dnRequest("set",[self,"MinFresh",P1])
 		return self
 
 	Func getNoTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"NoTransform"])
+		return dnRequest("get",[self,"NoTransform"])
 
 	Func setNoTransform P1
-		dnRequest("set",[new DotNetObject(nHandle),"NoTransform",P1])
+		dnRequest("set",[self,"NoTransform",P1])
 		return self
 
 	Func getOnlyIfCached
-		return dnRequest("get",[new DotNetObject(nHandle),"OnlyIfCached"])
+		return dnRequest("get",[self,"OnlyIfCached"])
 
 	Func setOnlyIfCached P1
-		dnRequest("set",[new DotNetObject(nHandle),"OnlyIfCached",P1])
+		dnRequest("set",[self,"OnlyIfCached",P1])
 		return self
 
 	Func getPublic
-		return dnRequest("get",[new DotNetObject(nHandle),"Public"])
+		return dnRequest("get",[self,"Public"])
 
 	Func setPublic P1
-		dnRequest("set",[new DotNetObject(nHandle),"Public",P1])
+		dnRequest("set",[self,"Public",P1])
 		return self
 
 	Func getPrivate
-		return dnRequest("get",[new DotNetObject(nHandle),"Private"])
+		return dnRequest("get",[self,"Private"])
 
 	Func setPrivate P1
-		dnRequest("set",[new DotNetObject(nHandle),"Private",P1])
+		dnRequest("set",[self,"Private",P1])
 		return self
 
 	Func getPrivateHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"PrivateHeaders"])
+		return dnRequest("get",[self,"PrivateHeaders"])
 
 	Func setPrivateHeaders P1
 		raise("DotNet Error: PrivateHeaders is a read-only property")
 
 	Func getMustRevalidate
-		return dnRequest("get",[new DotNetObject(nHandle),"MustRevalidate"])
+		return dnRequest("get",[self,"MustRevalidate"])
 
 	Func setMustRevalidate P1
-		dnRequest("set",[new DotNetObject(nHandle),"MustRevalidate",P1])
+		dnRequest("set",[self,"MustRevalidate",P1])
 		return self
 
 	Func getProxyRevalidate
-		return dnRequest("get",[new DotNetObject(nHandle),"ProxyRevalidate"])
+		return dnRequest("get",[self,"ProxyRevalidate"])
 
 	Func setProxyRevalidate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ProxyRevalidate",P1])
+		dnRequest("set",[self,"ProxyRevalidate",P1])
 		return self
 
 	Func getExtensions
-		return dnRequest("get",[new DotNetObject(nHandle),"Extensions"])
+		return dnRequest("get",[self,"Extensions"])
 
 	Func setExtensions P1
 		raise("DotNet Error: Extensions is a read-only property")

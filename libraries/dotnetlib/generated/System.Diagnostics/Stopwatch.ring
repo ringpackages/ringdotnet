@@ -56,25 +56,25 @@ Class Stopwatch from Object
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1,P2])
 
 	Func getIsRunning
-		return dnRequest("get",[new DotNetObject(nHandle),"IsRunning"])
+		return dnRequest("get",[self,"IsRunning"])
 
 	Func setIsRunning P1
 		raise("DotNet Error: IsRunning is a read-only property")
 
 	Func getElapsed
-		return dnRequest("get",[new DotNetObject(nHandle),"Elapsed"])
+		return dnRequest("get",[self,"Elapsed"])
 
 	Func setElapsed P1
 		raise("DotNet Error: Elapsed is a read-only property")
 
 	Func getElapsedMilliseconds
-		return dnRequest("get",[new DotNetObject(nHandle),"ElapsedMilliseconds"])
+		return dnRequest("get",[self,"ElapsedMilliseconds"])
 
 	Func setElapsedMilliseconds P1
 		raise("DotNet Error: ElapsedMilliseconds is a read-only property")
 
 	Func getElapsedTicks
-		return dnRequest("get",[new DotNetObject(nHandle),"ElapsedTicks"])
+		return dnRequest("get",[self,"ElapsedTicks"])
 
 	Func setElapsedTicks P1
 		raise("DotNet Error: ElapsedTicks is a read-only property")

@@ -56,7 +56,7 @@ Class DSACryptoServiceProvider from DSA
 		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3])
 
 	Func getCspKeyContainerInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"CspKeyContainerInfo"])
+		return dnRequest("get",[self,"CspKeyContainerInfo"])
 
 	Func setCspKeyContainerInfo P1
 		raise("DotNet Error: CspKeyContainerInfo is a read-only property")
@@ -65,14 +65,14 @@ Class DSACryptoServiceProvider from DSA
 		raise("DotNet Error: KeySize is a read-only property")
 
 	Func getPersistKeyInCsp
-		return dnRequest("get",[new DotNetObject(nHandle),"PersistKeyInCsp"])
+		return dnRequest("get",[self,"PersistKeyInCsp"])
 
 	Func setPersistKeyInCsp P1
-		dnRequest("set",[new DotNetObject(nHandle),"PersistKeyInCsp",P1])
+		dnRequest("set",[self,"PersistKeyInCsp",P1])
 		return self
 
 	Func getPublicOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"PublicOnly"])
+		return dnRequest("get",[self,"PublicOnly"])
 
 	Func setPublicOnly P1
 		raise("DotNet Error: PublicOnly is a read-only property")

@@ -86,31 +86,31 @@ Class RelationalSqlGenerationHelper from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getStatementTerminator
-		return dnRequest("get",[new DotNetObject(nHandle),"StatementTerminator"])
+		return dnRequest("get",[self,"StatementTerminator"])
 
 	Func setStatementTerminator P1
 		raise("DotNet Error: StatementTerminator is a read-only property")
 
 	Func getBatchTerminator
-		return dnRequest("get",[new DotNetObject(nHandle),"BatchTerminator"])
+		return dnRequest("get",[self,"BatchTerminator"])
 
 	Func setBatchTerminator P1
 		raise("DotNet Error: BatchTerminator is a read-only property")
 
 	Func getStartTransactionStatement
-		return dnRequest("get",[new DotNetObject(nHandle),"StartTransactionStatement"])
+		return dnRequest("get",[self,"StartTransactionStatement"])
 
 	Func setStartTransactionStatement P1
 		raise("DotNet Error: StartTransactionStatement is a read-only property")
 
 	Func getCommitTransactionStatement
-		return dnRequest("get",[new DotNetObject(nHandle),"CommitTransactionStatement"])
+		return dnRequest("get",[self,"CommitTransactionStatement"])
 
 	Func setCommitTransactionStatement P1
 		raise("DotNet Error: CommitTransactionStatement is a read-only property")
 
 	Func getSingleLineCommentToken
-		return dnRequest("get",[new DotNetObject(nHandle),"SingleLineCommentToken"])
+		return dnRequest("get",[self,"SingleLineCommentToken"])
 
 	Func setSingleLineCommentToken P1
 		raise("DotNet Error: SingleLineCommentToken is a read-only property")

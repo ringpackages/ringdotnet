@@ -26,21 +26,21 @@ Class EventTrigger from TriggerBase
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeActions"])
 
 	Func getRoutedEvent
-		return dnRequest("get",[new DotNetObject(nHandle),"RoutedEvent"])
+		return dnRequest("get",[self,"RoutedEvent"])
 
 	Func setRoutedEvent P1
-		dnRequest("set",[new DotNetObject(nHandle),"RoutedEvent",P1])
+		dnRequest("set",[self,"RoutedEvent",P1])
 		return self
 
 	Func getSourceName
-		return dnRequest("get",[new DotNetObject(nHandle),"SourceName"])
+		return dnRequest("get",[self,"SourceName"])
 
 	Func setSourceName P1
-		dnRequest("set",[new DotNetObject(nHandle),"SourceName",P1])
+		dnRequest("set",[self,"SourceName",P1])
 		return self
 
 	Func getActions
-		return dnRequest("get",[new DotNetObject(nHandle),"Actions"])
+		return dnRequest("get",[self,"Actions"])
 
 	Func setActions P1
 		raise("DotNet Error: Actions is a read-only property")

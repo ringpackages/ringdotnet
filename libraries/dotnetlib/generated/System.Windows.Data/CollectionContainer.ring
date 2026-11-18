@@ -21,10 +21,10 @@ Class CollectionContainer from DependencyObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeCollection"])
 
 	Func getCollection
-		return dnRequest("get",[new DotNetObject(nHandle),"Collection"])
+		return dnRequest("get",[self,"Collection"])
 
 	Func setCollection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Collection",P1])
+		dnRequest("set",[self,"Collection",P1])
 		return self
 
 	Func getCollectionProperty

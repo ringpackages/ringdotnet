@@ -32,7 +32,7 @@ Class DecoderFallbackBuffer from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRemaining
-		return dnRequest("get",[new DotNetObject(nHandle),"Remaining"])
+		return dnRequest("get",[self,"Remaining"])
 
 	Func setRemaining P1
 		raise("DotNet Error: Remaining is a read-only property")

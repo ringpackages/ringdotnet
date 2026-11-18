@@ -18,13 +18,13 @@ Class SelectionChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func getRemovedItems
-		return dnRequest("get",[new DotNetObject(nHandle),"RemovedItems"])
+		return dnRequest("get",[self,"RemovedItems"])
 
 	Func setRemovedItems P1
 		raise("DotNet Error: RemovedItems is a read-only property")
 
 	Func getAddedItems
-		return dnRequest("get",[new DotNetObject(nHandle),"AddedItems"])
+		return dnRequest("get",[self,"AddedItems"])
 
 	Func setAddedItems P1
 		raise("DotNet Error: AddedItems is a read-only property")

@@ -54,55 +54,55 @@ Class IBindingList from DotNetObject
 		return self
 
 	Func getAllowNew
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowNew"])
+		return dnRequest("get",[self,"AllowNew"])
 
 	Func setAllowNew P1
 		raise("DotNet Error: AllowNew is a read-only property")
 
 	Func getAllowEdit
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowEdit"])
+		return dnRequest("get",[self,"AllowEdit"])
 
 	Func setAllowEdit P1
 		raise("DotNet Error: AllowEdit is a read-only property")
 
 	Func getAllowRemove
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowRemove"])
+		return dnRequest("get",[self,"AllowRemove"])
 
 	Func setAllowRemove P1
 		raise("DotNet Error: AllowRemove is a read-only property")
 
 	Func getSupportsChangeNotification
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsChangeNotification"])
+		return dnRequest("get",[self,"SupportsChangeNotification"])
 
 	Func setSupportsChangeNotification P1
 		raise("DotNet Error: SupportsChangeNotification is a read-only property")
 
 	Func getSupportsSearching
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsSearching"])
+		return dnRequest("get",[self,"SupportsSearching"])
 
 	Func setSupportsSearching P1
 		raise("DotNet Error: SupportsSearching is a read-only property")
 
 	Func getSupportsSorting
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsSorting"])
+		return dnRequest("get",[self,"SupportsSorting"])
 
 	Func setSupportsSorting P1
 		raise("DotNet Error: SupportsSorting is a read-only property")
 
 	Func getIsSorted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSorted"])
+		return dnRequest("get",[self,"IsSorted"])
 
 	Func setIsSorted P1
 		raise("DotNet Error: IsSorted is a read-only property")
 
 	Func getSortProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"SortProperty"])
+		return dnRequest("get",[self,"SortProperty"])
 
 	Func setSortProperty P1
 		raise("DotNet Error: SortProperty is a read-only property")
 
 	Func getSortDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"SortDirection"])
+		return dnRequest("get",[self,"SortDirection"])
 
 	Func setSortDirection P1
 		raise("DotNet Error: SortDirection is a read-only property")

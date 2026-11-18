@@ -20,17 +20,17 @@ Class ElasticEase from EasingFunctionBase
 		return self
 
 	Func getOscillations
-		return dnRequest("get",[new DotNetObject(nHandle),"Oscillations"])
+		return dnRequest("get",[self,"Oscillations"])
 
 	Func setOscillations P1
-		dnRequest("set",[new DotNetObject(nHandle),"Oscillations",P1])
+		dnRequest("set",[self,"Oscillations",P1])
 		return self
 
 	Func getSpringiness
-		return dnRequest("get",[new DotNetObject(nHandle),"Springiness"])
+		return dnRequest("get",[self,"Springiness"])
 
 	Func setSpringiness P1
-		dnRequest("set",[new DotNetObject(nHandle),"Springiness",P1])
+		dnRequest("set",[self,"Springiness",P1])
 		return self
 
 	Func getOscillationsProperty

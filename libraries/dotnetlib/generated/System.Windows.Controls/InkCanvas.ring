@@ -252,98 +252,98 @@ Class InkCanvas from FrameworkElement
 		return self
 
 	Func getBackground
-		return dnRequest("get",[new DotNetObject(nHandle),"Background"])
+		return dnRequest("get",[self,"Background"])
 
 	Func setBackground P1
-		dnRequest("set",[new DotNetObject(nHandle),"Background",P1])
+		dnRequest("set",[self,"Background",P1])
 		return self
 
 	Func getStrokes
-		return dnRequest("get",[new DotNetObject(nHandle),"Strokes"])
+		return dnRequest("get",[self,"Strokes"])
 
 	Func setStrokes P1
-		dnRequest("set",[new DotNetObject(nHandle),"Strokes",P1])
+		dnRequest("set",[self,"Strokes",P1])
 		return self
 
 	Func getIsGestureRecognizerAvailable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsGestureRecognizerAvailable"])
+		return dnRequest("get",[self,"IsGestureRecognizerAvailable"])
 
 	Func setIsGestureRecognizerAvailable P1
 		raise("DotNet Error: IsGestureRecognizerAvailable is a read-only property")
 
 	Func getChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
+		return dnRequest("get",[self,"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")
 
 	Func getDefaultDrawingAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultDrawingAttributes"])
+		return dnRequest("get",[self,"DefaultDrawingAttributes"])
 
 	Func setDefaultDrawingAttributes P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultDrawingAttributes",P1])
+		dnRequest("set",[self,"DefaultDrawingAttributes",P1])
 		return self
 
 	Func getEraserShape
-		return dnRequest("get",[new DotNetObject(nHandle),"EraserShape"])
+		return dnRequest("get",[self,"EraserShape"])
 
 	Func setEraserShape P1
-		dnRequest("set",[new DotNetObject(nHandle),"EraserShape",P1])
+		dnRequest("set",[self,"EraserShape",P1])
 		return self
 
 	Func getActiveEditingMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ActiveEditingMode"])
+		return dnRequest("get",[self,"ActiveEditingMode"])
 
 	Func setActiveEditingMode P1
 		raise("DotNet Error: ActiveEditingMode is a read-only property")
 
 	Func getEditingMode
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingMode"])
+		return dnRequest("get",[self,"EditingMode"])
 
 	Func setEditingMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingMode",P1])
+		dnRequest("set",[self,"EditingMode",P1])
 		return self
 
 	Func getEditingModeInverted
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingModeInverted"])
+		return dnRequest("get",[self,"EditingModeInverted"])
 
 	Func setEditingModeInverted P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingModeInverted",P1])
+		dnRequest("set",[self,"EditingModeInverted",P1])
 		return self
 
 	Func getUseCustomCursor
-		return dnRequest("get",[new DotNetObject(nHandle),"UseCustomCursor"])
+		return dnRequest("get",[self,"UseCustomCursor"])
 
 	Func setUseCustomCursor P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseCustomCursor",P1])
+		dnRequest("set",[self,"UseCustomCursor",P1])
 		return self
 
 	Func getMoveEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"MoveEnabled"])
+		return dnRequest("get",[self,"MoveEnabled"])
 
 	Func setMoveEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"MoveEnabled",P1])
+		dnRequest("set",[self,"MoveEnabled",P1])
 		return self
 
 	Func getResizeEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"ResizeEnabled"])
+		return dnRequest("get",[self,"ResizeEnabled"])
 
 	Func setResizeEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"ResizeEnabled",P1])
+		dnRequest("set",[self,"ResizeEnabled",P1])
 		return self
 
 	Func getDefaultStylusPointDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultStylusPointDescription"])
+		return dnRequest("get",[self,"DefaultStylusPointDescription"])
 
 	Func setDefaultStylusPointDescription P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultStylusPointDescription",P1])
+		dnRequest("set",[self,"DefaultStylusPointDescription",P1])
 		return self
 
 	Func getPreferredPasteFormats
-		return dnRequest("get",[new DotNetObject(nHandle),"PreferredPasteFormats"])
+		return dnRequest("get",[self,"PreferredPasteFormats"])
 
 	Func setPreferredPasteFormats P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreferredPasteFormats",P1])
+		dnRequest("set",[self,"PreferredPasteFormats",P1])
 		return self
 
 	Func getBackgroundProperty

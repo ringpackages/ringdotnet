@@ -224,14 +224,14 @@ Class IntList from Object
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Capacity"])
+		return dnRequest("get",[self,"Capacity"])
 
 	Func setCapacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"Capacity",P1])
+		dnRequest("set",[self,"Capacity",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

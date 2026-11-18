@@ -19,20 +19,20 @@ Class RuntimeComplexType from RuntimeTypeBase
 		return self
 
 	Func getComplexProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"ComplexProperty"])
+		return dnRequest("get",[self,"ComplexProperty"])
 
 	Func setComplexProperty P1
 		raise("DotNet Error: ComplexProperty is a read-only property")
 
 	Func getServiceOnlyConstructorBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceOnlyConstructorBinding"])
+		return dnRequest("get",[self,"ServiceOnlyConstructorBinding"])
 
 	Func setServiceOnlyConstructorBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"ServiceOnlyConstructorBinding",P1])
+		dnRequest("set",[self,"ServiceOnlyConstructorBinding",P1])
 		return self
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

@@ -17,9 +17,9 @@ Class TiffBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getCompression
-		return dnRequest("get",[new DotNetObject(nHandle),"Compression"])
+		return dnRequest("get",[self,"Compression"])
 
 	Func setCompression P1
-		dnRequest("set",[new DotNetObject(nHandle),"Compression",P1])
+		dnRequest("set",[self,"Compression",P1])
 		return self
 

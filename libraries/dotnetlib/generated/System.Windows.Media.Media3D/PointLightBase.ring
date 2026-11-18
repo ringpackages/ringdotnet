@@ -25,38 +25,38 @@ Class PointLightBase from Light
 		return self
 
 	Func getPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
+		return dnRequest("get",[self,"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
+		dnRequest("set",[self,"Position",P1])
 		return self
 
 	Func getRange
-		return dnRequest("get",[new DotNetObject(nHandle),"Range"])
+		return dnRequest("get",[self,"Range"])
 
 	Func setRange P1
-		dnRequest("set",[new DotNetObject(nHandle),"Range",P1])
+		dnRequest("set",[self,"Range",P1])
 		return self
 
 	Func getConstantAttenuation
-		return dnRequest("get",[new DotNetObject(nHandle),"ConstantAttenuation"])
+		return dnRequest("get",[self,"ConstantAttenuation"])
 
 	Func setConstantAttenuation P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConstantAttenuation",P1])
+		dnRequest("set",[self,"ConstantAttenuation",P1])
 		return self
 
 	Func getLinearAttenuation
-		return dnRequest("get",[new DotNetObject(nHandle),"LinearAttenuation"])
+		return dnRequest("get",[self,"LinearAttenuation"])
 
 	Func setLinearAttenuation P1
-		dnRequest("set",[new DotNetObject(nHandle),"LinearAttenuation",P1])
+		dnRequest("set",[self,"LinearAttenuation",P1])
 		return self
 
 	Func getQuadraticAttenuation
-		return dnRequest("get",[new DotNetObject(nHandle),"QuadraticAttenuation"])
+		return dnRequest("get",[self,"QuadraticAttenuation"])
 
 	Func setQuadraticAttenuation P1
-		dnRequest("set",[new DotNetObject(nHandle),"QuadraticAttenuation",P1])
+		dnRequest("set",[self,"QuadraticAttenuation",P1])
 		return self
 
 	Func getPositionProperty

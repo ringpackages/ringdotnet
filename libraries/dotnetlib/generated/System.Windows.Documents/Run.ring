@@ -29,10 +29,10 @@ Class Run from Inline
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeText",P1])
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getTextProperty

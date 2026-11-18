@@ -66,49 +66,49 @@ Class PropertyDescriptor from MemberDescriptor
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeValue",P1])
 
 	Func getComponentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ComponentType"])
+		return dnRequest("get",[self,"ComponentType"])
 
 	Func setComponentType P1
 		raise("DotNet Error: ComponentType is a read-only property")
 
 	Func getConverter
-		return dnRequest("get",[new DotNetObject(nHandle),"Converter"])
+		return dnRequest("get",[self,"Converter"])
 
 	Func setConverter P1
 		raise("DotNet Error: Converter is a read-only property")
 
 	Func getConverterFromRegisteredType
-		return dnRequest("get",[new DotNetObject(nHandle),"ConverterFromRegisteredType"])
+		return dnRequest("get",[self,"ConverterFromRegisteredType"])
 
 	Func setConverterFromRegisteredType P1
 		raise("DotNet Error: ConverterFromRegisteredType is a read-only property")
 
 	Func getIsLocalizable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLocalizable"])
+		return dnRequest("get",[self,"IsLocalizable"])
 
 	Func setIsLocalizable P1
 		raise("DotNet Error: IsLocalizable is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getSerializationVisibility
-		return dnRequest("get",[new DotNetObject(nHandle),"SerializationVisibility"])
+		return dnRequest("get",[self,"SerializationVisibility"])
 
 	Func setSerializationVisibility P1
 		raise("DotNet Error: SerializationVisibility is a read-only property")
 
 	Func getPropertyType
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyType"])
+		return dnRequest("get",[self,"PropertyType"])
 
 	Func setPropertyType P1
 		raise("DotNet Error: PropertyType is a read-only property")
 
 	Func getSupportsChangeEvents
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsChangeEvents"])
+		return dnRequest("get",[self,"SupportsChangeEvents"])
 
 	Func setSupportsChangeEvents P1
 		raise("DotNet Error: SupportsChangeEvents is a read-only property")

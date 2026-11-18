@@ -22,10 +22,10 @@ Class QuaternionRotation3D from Rotation3D
 		return self
 
 	Func getQuaternion
-		return dnRequest("get",[new DotNetObject(nHandle),"Quaternion"])
+		return dnRequest("get",[self,"Quaternion"])
 
 	Func setQuaternion P1
-		dnRequest("set",[new DotNetObject(nHandle),"Quaternion",P1])
+		dnRequest("set",[self,"Quaternion",P1])
 		return self
 
 	Func getQuaternionProperty

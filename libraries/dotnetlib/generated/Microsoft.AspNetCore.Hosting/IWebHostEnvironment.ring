@@ -17,16 +17,16 @@ Class IWebHostEnvironment from DotNetObject
 		return self
 
 	Func getWebRootPath
-		return dnRequest("get",[new DotNetObject(nHandle),"WebRootPath"])
+		return dnRequest("get",[self,"WebRootPath"])
 
 	Func setWebRootPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"WebRootPath",P1])
+		dnRequest("set",[self,"WebRootPath",P1])
 		return self
 
 	Func getWebRootFileProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"WebRootFileProvider"])
+		return dnRequest("get",[self,"WebRootFileProvider"])
 
 	Func setWebRootFileProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"WebRootFileProvider",P1])
+		dnRequest("set",[self,"WebRootFileProvider",P1])
 		return self
 

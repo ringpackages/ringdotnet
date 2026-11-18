@@ -26,23 +26,23 @@ Class MulticastOption from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getGroup
-		return dnRequest("get",[new DotNetObject(nHandle),"Group"])
+		return dnRequest("get",[self,"Group"])
 
 	Func setGroup P1
-		dnRequest("set",[new DotNetObject(nHandle),"Group",P1])
+		dnRequest("set",[self,"Group",P1])
 		return self
 
 	Func getLocalAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalAddress"])
+		return dnRequest("get",[self,"LocalAddress"])
 
 	Func setLocalAddress P1
-		dnRequest("set",[new DotNetObject(nHandle),"LocalAddress",P1])
+		dnRequest("set",[self,"LocalAddress",P1])
 		return self
 
 	Func getInterfaceIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"InterfaceIndex"])
+		return dnRequest("get",[self,"InterfaceIndex"])
 
 	Func setInterfaceIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"InterfaceIndex",P1])
+		dnRequest("set",[self,"InterfaceIndex",P1])
 		return self
 

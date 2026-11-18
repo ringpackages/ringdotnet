@@ -41,13 +41,13 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectionConfigurationSource"])
 
 	Func getStoredProcedure
-		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedure"])
+		return dnRequest("get",[self,"StoredProcedure"])
 
 	Func setStoredProcedure P1
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")

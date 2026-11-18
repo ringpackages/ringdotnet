@@ -101,27 +101,27 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func setXmlResolver P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
+		dnRequest("set",[self,"XmlResolver",P1])
 		return self
 
 	Func getLineInfoProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"LineInfoProvider"])
+		return dnRequest("get",[self,"LineInfoProvider"])
 
 	Func setLineInfoProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"LineInfoProvider",P1])
+		dnRequest("set",[self,"LineInfoProvider",P1])
 		return self
 
 	Func getSourceUri
-		return dnRequest("get",[new DotNetObject(nHandle),"SourceUri"])
+		return dnRequest("get",[self,"SourceUri"])
 
 	Func setSourceUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"SourceUri",P1])
+		dnRequest("set",[self,"SourceUri",P1])
 		return self
 
 	Func getValidationEventSender
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidationEventSender"])
+		return dnRequest("get",[self,"ValidationEventSender"])
 
 	Func setValidationEventSender P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidationEventSender",P1])
+		dnRequest("set",[self,"ValidationEventSender",P1])
 		return self
 

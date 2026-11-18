@@ -238,43 +238,43 @@ Class Array from Object
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"TrueForAll",P1,P2])
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLongLength
-		return dnRequest("get",[new DotNetObject(nHandle),"LongLength"])
+		return dnRequest("get",[self,"LongLength"])
 
 	Func setLongLength P1
 		raise("DotNet Error: LongLength is a read-only property")
 
 	Func getRank
-		return dnRequest("get",[new DotNetObject(nHandle),"Rank"])
+		return dnRequest("get",[self,"Rank"])
 
 	Func setRank P1
 		raise("DotNet Error: Rank is a read-only property")
 
 	Func getSyncRoot
-		return dnRequest("get",[new DotNetObject(nHandle),"SyncRoot"])
+		return dnRequest("get",[self,"SyncRoot"])
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedSize"])
+		return dnRequest("get",[self,"IsFixedSize"])
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSynchronized"])
+		return dnRequest("get",[self,"IsSynchronized"])
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")

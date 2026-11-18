@@ -18,16 +18,16 @@ Class RelationalMaterializerLiftableConstantContext from MaterializerLiftableCon
 		return self
 
 	Func getRelationalDependencies
-		return dnRequest("get",[new DotNetObject(nHandle),"RelationalDependencies"])
+		return dnRequest("get",[self,"RelationalDependencies"])
 
 	Func setRelationalDependencies P1
-		dnRequest("set",[new DotNetObject(nHandle),"RelationalDependencies",P1])
+		dnRequest("set",[self,"RelationalDependencies",P1])
 		return self
 
 	Func getCommandBuilderDependencies
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandBuilderDependencies"])
+		return dnRequest("get",[self,"CommandBuilderDependencies"])
 
 	Func setCommandBuilderDependencies P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandBuilderDependencies",P1])
+		dnRequest("set",[self,"CommandBuilderDependencies",P1])
 		return self
 

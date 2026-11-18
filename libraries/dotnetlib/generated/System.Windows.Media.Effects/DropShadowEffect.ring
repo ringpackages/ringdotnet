@@ -28,45 +28,45 @@ Class DropShadowEffect from Effect
 		return self
 
 	Func getShadowDepth
-		return dnRequest("get",[new DotNetObject(nHandle),"ShadowDepth"])
+		return dnRequest("get",[self,"ShadowDepth"])
 
 	Func setShadowDepth P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShadowDepth",P1])
+		dnRequest("set",[self,"ShadowDepth",P1])
 		return self
 
 	Func getColor
-		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
+		return dnRequest("get",[self,"Color"])
 
 	Func setColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
+		dnRequest("set",[self,"Color",P1])
 		return self
 
 	Func getDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
+		return dnRequest("get",[self,"Direction"])
 
 	Func setDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Direction",P1])
+		dnRequest("set",[self,"Direction",P1])
 		return self
 
 	Func getOpacity
-		return dnRequest("get",[new DotNetObject(nHandle),"Opacity"])
+		return dnRequest("get",[self,"Opacity"])
 
 	Func setOpacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"Opacity",P1])
+		dnRequest("set",[self,"Opacity",P1])
 		return self
 
 	Func getBlurRadius
-		return dnRequest("get",[new DotNetObject(nHandle),"BlurRadius"])
+		return dnRequest("get",[self,"BlurRadius"])
 
 	Func setBlurRadius P1
-		dnRequest("set",[new DotNetObject(nHandle),"BlurRadius",P1])
+		dnRequest("set",[self,"BlurRadius",P1])
 		return self
 
 	Func getRenderingBias
-		return dnRequest("get",[new DotNetObject(nHandle),"RenderingBias"])
+		return dnRequest("get",[self,"RenderingBias"])
 
 	Func setRenderingBias P1
-		dnRequest("set",[new DotNetObject(nHandle),"RenderingBias",P1])
+		dnRequest("set",[self,"RenderingBias",P1])
 		return self
 
 	Func getShadowDepthProperty

@@ -30,49 +30,49 @@ Class BindingAddress from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http'),"Parse",P1])
 
 	Func getHost
-		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
+		return dnRequest("get",[self,"Host"])
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPathBase
-		return dnRequest("get",[new DotNetObject(nHandle),"PathBase"])
+		return dnRequest("get",[self,"PathBase"])
 
 	Func setPathBase P1
 		raise("DotNet Error: PathBase is a read-only property")
 
 	Func getPort
-		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
+		return dnRequest("get",[self,"Port"])
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")
 
 	Func getScheme
-		return dnRequest("get",[new DotNetObject(nHandle),"Scheme"])
+		return dnRequest("get",[self,"Scheme"])
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getIsUnixPipe
-		return dnRequest("get",[new DotNetObject(nHandle),"IsUnixPipe"])
+		return dnRequest("get",[self,"IsUnixPipe"])
 
 	Func setIsUnixPipe P1
 		raise("DotNet Error: IsUnixPipe is a read-only property")
 
 	Func getIsNamedPipe
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNamedPipe"])
+		return dnRequest("get",[self,"IsNamedPipe"])
 
 	Func setIsNamedPipe P1
 		raise("DotNet Error: IsNamedPipe is a read-only property")
 
 	Func getUnixPipePath
-		return dnRequest("get",[new DotNetObject(nHandle),"UnixPipePath"])
+		return dnRequest("get",[self,"UnixPipePath"])
 
 	Func setUnixPipePath P1
 		raise("DotNet Error: UnixPipePath is a read-only property")
 
 	Func getNamedPipeName
-		return dnRequest("get",[new DotNetObject(nHandle),"NamedPipeName"])
+		return dnRequest("get",[self,"NamedPipeName"])
 
 	Func setNamedPipeName P1
 		raise("DotNet Error: NamedPipeName is a read-only property")

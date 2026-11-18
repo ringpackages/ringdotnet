@@ -22,13 +22,13 @@ Class RelationalQueryCompilationContext from QueryCompilationContext
 		return self
 
 	Func getQuerySplittingBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"QuerySplittingBehavior"])
+		return dnRequest("get",[self,"QuerySplittingBehavior"])
 
 	Func setQuerySplittingBehavior P1
 		raise("DotNet Error: QuerySplittingBehavior is a read-only property")
 
 	Func getSqlAliasManager
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlAliasManager"])
+		return dnRequest("get",[self,"SqlAliasManager"])
 
 	Func setSqlAliasManager P1
 		raise("DotNet Error: SqlAliasManager is a read-only property")

@@ -25,25 +25,25 @@ Class RoutedEvent from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getRoutingStrategy
-		return dnRequest("get",[new DotNetObject(nHandle),"RoutingStrategy"])
+		return dnRequest("get",[self,"RoutingStrategy"])
 
 	Func setRoutingStrategy P1
 		raise("DotNet Error: RoutingStrategy is a read-only property")
 
 	Func getHandlerType
-		return dnRequest("get",[new DotNetObject(nHandle),"HandlerType"])
+		return dnRequest("get",[self,"HandlerType"])
 
 	Func setHandlerType P1
 		raise("DotNet Error: HandlerType is a read-only property")
 
 	Func getOwnerType
-		return dnRequest("get",[new DotNetObject(nHandle),"OwnerType"])
+		return dnRequest("get",[self,"OwnerType"])
 
 	Func setOwnerType P1
 		raise("DotNet Error: OwnerType is a read-only property")

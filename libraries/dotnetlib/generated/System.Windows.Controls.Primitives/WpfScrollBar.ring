@@ -49,21 +49,21 @@ Class WpfScrollBar from RangeBase
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
+		return dnRequest("get",[self,"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
+		dnRequest("set",[self,"Orientation",P1])
 		return self
 
 	Func getViewportSize
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewportSize"])
+		return dnRequest("get",[self,"ViewportSize"])
 
 	Func setViewportSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ViewportSize",P1])
+		dnRequest("set",[self,"ViewportSize",P1])
 		return self
 
 	Func getTrack
-		return dnRequest("get",[new DotNetObject(nHandle),"Track"])
+		return dnRequest("get",[self,"Track"])
 
 	Func setTrack P1
 		raise("DotNet Error: Track is a read-only property")

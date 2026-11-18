@@ -20,9 +20,9 @@ Class LoggerFactoryOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getActivityTrackingOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"ActivityTrackingOptions"])
+		return dnRequest("get",[self,"ActivityTrackingOptions"])
 
 	Func setActivityTrackingOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActivityTrackingOptions",P1])
+		dnRequest("set",[self,"ActivityTrackingOptions",P1])
 		return self
 

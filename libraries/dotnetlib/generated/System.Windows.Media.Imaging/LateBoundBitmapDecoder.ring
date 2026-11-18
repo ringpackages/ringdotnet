@@ -16,7 +16,7 @@ Class LateBoundBitmapDecoder from BitmapDecoder
 		return self
 
 	Func getDecoder
-		return dnRequest("get",[new DotNetObject(nHandle),"Decoder"])
+		return dnRequest("get",[self,"Decoder"])
 
 	Func setDecoder P1
 		raise("DotNet Error: Decoder is a read-only property")

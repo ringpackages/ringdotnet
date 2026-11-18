@@ -35,7 +35,7 @@ Class HashAlgorithmName from ValueType
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"FromOid",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

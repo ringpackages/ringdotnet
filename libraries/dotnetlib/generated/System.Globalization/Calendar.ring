@@ -151,40 +151,40 @@ Class Calendar from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib'),"ReadOnly",P1])
 
 	Func getMinSupportedDateTime
-		return dnRequest("get",[new DotNetObject(nHandle),"MinSupportedDateTime"])
+		return dnRequest("get",[self,"MinSupportedDateTime"])
 
 	Func setMinSupportedDateTime P1
 		raise("DotNet Error: MinSupportedDateTime is a read-only property")
 
 	Func getMaxSupportedDateTime
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxSupportedDateTime"])
+		return dnRequest("get",[self,"MaxSupportedDateTime"])
 
 	Func setMaxSupportedDateTime P1
 		raise("DotNet Error: MaxSupportedDateTime is a read-only property")
 
 	Func getAlgorithmType
-		return dnRequest("get",[new DotNetObject(nHandle),"AlgorithmType"])
+		return dnRequest("get",[self,"AlgorithmType"])
 
 	Func setAlgorithmType P1
 		raise("DotNet Error: AlgorithmType is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getEras
-		return dnRequest("get",[new DotNetObject(nHandle),"Eras"])
+		return dnRequest("get",[self,"Eras"])
 
 	Func setEras P1
 		raise("DotNet Error: Eras is a read-only property")
 
 	Func getTwoDigitYearMax
-		return dnRequest("get",[new DotNetObject(nHandle),"TwoDigitYearMax"])
+		return dnRequest("get",[self,"TwoDigitYearMax"])
 
 	Func setTwoDigitYearMax P1
-		dnRequest("set",[new DotNetObject(nHandle),"TwoDigitYearMax",P1])
+		dnRequest("set",[self,"TwoDigitYearMax",P1])
 		return self
 
 	Func getCurrentEra

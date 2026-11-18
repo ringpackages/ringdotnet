@@ -21,13 +21,13 @@ Class ITransactionEnlistmentManager from DotNetObject
 		return self
 
 	Func getCurrentAmbientTransaction
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentAmbientTransaction"])
+		return dnRequest("get",[self,"CurrentAmbientTransaction"])
 
 	Func setCurrentAmbientTransaction P1
 		raise("DotNet Error: CurrentAmbientTransaction is a read-only property")
 
 	Func getEnlistedTransaction
-		return dnRequest("get",[new DotNetObject(nHandle),"EnlistedTransaction"])
+		return dnRequest("get",[self,"EnlistedTransaction"])
 
 	Func setEnlistedTransaction P1
 		raise("DotNet Error: EnlistedTransaction is a read-only property")

@@ -40,80 +40,80 @@ Class TarEntry from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getChecksum
-		return dnRequest("get",[new DotNetObject(nHandle),"Checksum"])
+		return dnRequest("get",[self,"Checksum"])
 
 	Func setChecksum P1
 		raise("DotNet Error: Checksum is a read-only property")
 
 	Func getEntryType
-		return dnRequest("get",[new DotNetObject(nHandle),"EntryType"])
+		return dnRequest("get",[self,"EntryType"])
 
 	Func setEntryType P1
 		raise("DotNet Error: EntryType is a read-only property")
 
 	Func getFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
+		return dnRequest("get",[self,"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getGid
-		return dnRequest("get",[new DotNetObject(nHandle),"Gid"])
+		return dnRequest("get",[self,"Gid"])
 
 	Func setGid P1
-		dnRequest("set",[new DotNetObject(nHandle),"Gid",P1])
+		dnRequest("set",[self,"Gid",P1])
 		return self
 
 	Func getModificationTime
-		return dnRequest("get",[new DotNetObject(nHandle),"ModificationTime"])
+		return dnRequest("get",[self,"ModificationTime"])
 
 	Func setModificationTime P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModificationTime",P1])
+		dnRequest("set",[self,"ModificationTime",P1])
 		return self
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLinkName
-		return dnRequest("get",[new DotNetObject(nHandle),"LinkName"])
+		return dnRequest("get",[self,"LinkName"])
 
 	Func setLinkName P1
-		dnRequest("set",[new DotNetObject(nHandle),"LinkName",P1])
+		dnRequest("set",[self,"LinkName",P1])
 		return self
 
 	Func getMode
-		return dnRequest("get",[new DotNetObject(nHandle),"Mode"])
+		return dnRequest("get",[self,"Mode"])
 
 	Func setMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"Mode",P1])
+		dnRequest("set",[self,"Mode",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getUid
-		return dnRequest("get",[new DotNetObject(nHandle),"Uid"])
+		return dnRequest("get",[self,"Uid"])
 
 	Func setUid P1
-		dnRequest("set",[new DotNetObject(nHandle),"Uid",P1])
+		dnRequest("set",[self,"Uid",P1])
 		return self
 
 	Func getDataStream
-		return dnRequest("get",[new DotNetObject(nHandle),"DataStream"])
+		return dnRequest("get",[self,"DataStream"])
 
 	Func setDataStream P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataStream",P1])
+		dnRequest("set",[self,"DataStream",P1])
 		return self
 
 	Func getDataOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"DataOffset"])
+		return dnRequest("get",[self,"DataOffset"])
 
 	Func setDataOffset P1
 		raise("DotNet Error: DataOffset is a read-only property")

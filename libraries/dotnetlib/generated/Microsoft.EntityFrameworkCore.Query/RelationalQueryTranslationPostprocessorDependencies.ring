@@ -21,16 +21,16 @@ Class RelationalQueryTranslationPostprocessorDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSqlExpressionFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlExpressionFactory"])
+		return dnRequest("get",[self,"SqlExpressionFactory"])
 
 	Func setSqlExpressionFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"SqlExpressionFactory",P1])
+		dnRequest("set",[self,"SqlExpressionFactory",P1])
 		return self
 
 	Func getTypeMappingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeMappingSource"])
+		return dnRequest("get",[self,"TypeMappingSource"])
 
 	Func setTypeMappingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"TypeMappingSource",P1])
+		dnRequest("set",[self,"TypeMappingSource",P1])
 		return self
 

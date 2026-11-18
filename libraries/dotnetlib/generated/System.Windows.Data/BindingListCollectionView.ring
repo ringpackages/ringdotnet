@@ -69,140 +69,140 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func getCustomFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomFilter"])
+		return dnRequest("get",[self,"CustomFilter"])
 
 	Func setCustomFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"CustomFilter",P1])
+		dnRequest("set",[self,"CustomFilter",P1])
 		return self
 
 	Func getCanCustomFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"CanCustomFilter"])
+		return dnRequest("get",[self,"CanCustomFilter"])
 
 	Func setCanCustomFilter P1
 		raise("DotNet Error: CanCustomFilter is a read-only property")
 
 	Func getGroupBySelector
-		return dnRequest("get",[new DotNetObject(nHandle),"GroupBySelector"])
+		return dnRequest("get",[self,"GroupBySelector"])
 
 	Func setGroupBySelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"GroupBySelector",P1])
+		dnRequest("set",[self,"GroupBySelector",P1])
 		return self
 
 	Func getIsDataInGroupOrder
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDataInGroupOrder"])
+		return dnRequest("get",[self,"IsDataInGroupOrder"])
 
 	Func setIsDataInGroupOrder P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsDataInGroupOrder",P1])
+		dnRequest("set",[self,"IsDataInGroupOrder",P1])
 		return self
 
 	Func getNewItemPlaceholderPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"NewItemPlaceholderPosition"])
+		return dnRequest("get",[self,"NewItemPlaceholderPosition"])
 
 	Func setNewItemPlaceholderPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewItemPlaceholderPosition",P1])
+		dnRequest("set",[self,"NewItemPlaceholderPosition",P1])
 		return self
 
 	Func getCanAddNew
-		return dnRequest("get",[new DotNetObject(nHandle),"CanAddNew"])
+		return dnRequest("get",[self,"CanAddNew"])
 
 	Func setCanAddNew P1
 		raise("DotNet Error: CanAddNew is a read-only property")
 
 	Func getIsAddingNew
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAddingNew"])
+		return dnRequest("get",[self,"IsAddingNew"])
 
 	Func setIsAddingNew P1
 		raise("DotNet Error: IsAddingNew is a read-only property")
 
 	Func getCurrentAddItem
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentAddItem"])
+		return dnRequest("get",[self,"CurrentAddItem"])
 
 	Func setCurrentAddItem P1
 		raise("DotNet Error: CurrentAddItem is a read-only property")
 
 	Func getCanRemove
-		return dnRequest("get",[new DotNetObject(nHandle),"CanRemove"])
+		return dnRequest("get",[self,"CanRemove"])
 
 	Func setCanRemove P1
 		raise("DotNet Error: CanRemove is a read-only property")
 
 	Func getCanCancelEdit
-		return dnRequest("get",[new DotNetObject(nHandle),"CanCancelEdit"])
+		return dnRequest("get",[self,"CanCancelEdit"])
 
 	Func setCanCancelEdit P1
 		raise("DotNet Error: CanCancelEdit is a read-only property")
 
 	Func getIsEditingItem
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEditingItem"])
+		return dnRequest("get",[self,"IsEditingItem"])
 
 	Func setIsEditingItem P1
 		raise("DotNet Error: IsEditingItem is a read-only property")
 
 	Func getCurrentEditItem
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentEditItem"])
+		return dnRequest("get",[self,"CurrentEditItem"])
 
 	Func setCurrentEditItem P1
 		raise("DotNet Error: CurrentEditItem is a read-only property")
 
 	Func getCanChangeLiveSorting
-		return dnRequest("get",[new DotNetObject(nHandle),"CanChangeLiveSorting"])
+		return dnRequest("get",[self,"CanChangeLiveSorting"])
 
 	Func setCanChangeLiveSorting P1
 		raise("DotNet Error: CanChangeLiveSorting is a read-only property")
 
 	Func getCanChangeLiveFiltering
-		return dnRequest("get",[new DotNetObject(nHandle),"CanChangeLiveFiltering"])
+		return dnRequest("get",[self,"CanChangeLiveFiltering"])
 
 	Func setCanChangeLiveFiltering P1
 		raise("DotNet Error: CanChangeLiveFiltering is a read-only property")
 
 	Func getCanChangeLiveGrouping
-		return dnRequest("get",[new DotNetObject(nHandle),"CanChangeLiveGrouping"])
+		return dnRequest("get",[self,"CanChangeLiveGrouping"])
 
 	Func setCanChangeLiveGrouping P1
 		raise("DotNet Error: CanChangeLiveGrouping is a read-only property")
 
 	Func getIsLiveSorting
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLiveSorting"])
+		return dnRequest("get",[self,"IsLiveSorting"])
 
 	Func setIsLiveSorting P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsLiveSorting",P1])
+		dnRequest("set",[self,"IsLiveSorting",P1])
 		return self
 
 	Func getIsLiveFiltering
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLiveFiltering"])
+		return dnRequest("get",[self,"IsLiveFiltering"])
 
 	Func setIsLiveFiltering P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsLiveFiltering",P1])
+		dnRequest("set",[self,"IsLiveFiltering",P1])
 		return self
 
 	Func getIsLiveGrouping
-		return dnRequest("get",[new DotNetObject(nHandle),"IsLiveGrouping"])
+		return dnRequest("get",[self,"IsLiveGrouping"])
 
 	Func setIsLiveGrouping P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsLiveGrouping",P1])
+		dnRequest("set",[self,"IsLiveGrouping",P1])
 		return self
 
 	Func getLiveSortingProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"LiveSortingProperties"])
+		return dnRequest("get",[self,"LiveSortingProperties"])
 
 	Func setLiveSortingProperties P1
 		raise("DotNet Error: LiveSortingProperties is a read-only property")
 
 	Func getLiveFilteringProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"LiveFilteringProperties"])
+		return dnRequest("get",[self,"LiveFilteringProperties"])
 
 	Func setLiveFilteringProperties P1
 		raise("DotNet Error: LiveFilteringProperties is a read-only property")
 
 	Func getLiveGroupingProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"LiveGroupingProperties"])
+		return dnRequest("get",[self,"LiveGroupingProperties"])
 
 	Func setLiveGroupingProperties P1
 		raise("DotNet Error: LiveGroupingProperties is a read-only property")
 
 	Func getItemProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemProperties"])
+		return dnRequest("get",[self,"ItemProperties"])
 
 	Func setItemProperties P1
 		raise("DotNet Error: ItemProperties is a read-only property")

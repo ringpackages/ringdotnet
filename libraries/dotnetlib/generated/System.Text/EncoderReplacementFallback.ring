@@ -21,7 +21,7 @@ Class EncoderReplacementFallback from EncoderFallback
 		return self
 
 	Func getDefaultString
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultString"])
+		return dnRequest("get",[self,"DefaultString"])
 
 	Func setDefaultString P1
 		raise("DotNet Error: DefaultString is a read-only property")

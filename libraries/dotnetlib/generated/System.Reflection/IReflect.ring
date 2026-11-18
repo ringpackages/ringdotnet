@@ -49,7 +49,7 @@ Class IReflect from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func getUnderlyingSystemType
-		return dnRequest("get",[new DotNetObject(nHandle),"UnderlyingSystemType"])
+		return dnRequest("get",[self,"UnderlyingSystemType"])
 
 	Func setUnderlyingSystemType P1
 		raise("DotNet Error: UnderlyingSystemType is a read-only property")

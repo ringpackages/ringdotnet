@@ -51,49 +51,49 @@ Class AuthenticationProperties from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
+		return dnRequest("get",[self,"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getIsPersistent
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPersistent"])
+		return dnRequest("get",[self,"IsPersistent"])
 
 	Func setIsPersistent P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsPersistent",P1])
+		dnRequest("set",[self,"IsPersistent",P1])
 		return self
 
 	Func getRedirectUri
-		return dnRequest("get",[new DotNetObject(nHandle),"RedirectUri"])
+		return dnRequest("get",[self,"RedirectUri"])
 
 	Func setRedirectUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"RedirectUri",P1])
+		dnRequest("set",[self,"RedirectUri",P1])
 		return self
 
 	Func getIssuedUtc
-		return dnRequest("get",[new DotNetObject(nHandle),"IssuedUtc"])
+		return dnRequest("get",[self,"IssuedUtc"])
 
 	Func setIssuedUtc P1
-		dnRequest("set",[new DotNetObject(nHandle),"IssuedUtc",P1])
+		dnRequest("set",[self,"IssuedUtc",P1])
 		return self
 
 	Func getExpiresUtc
-		return dnRequest("get",[new DotNetObject(nHandle),"ExpiresUtc"])
+		return dnRequest("get",[self,"ExpiresUtc"])
 
 	Func setExpiresUtc P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExpiresUtc",P1])
+		dnRequest("set",[self,"ExpiresUtc",P1])
 		return self
 
 	Func getAllowRefresh
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowRefresh"])
+		return dnRequest("get",[self,"AllowRefresh"])
 
 	Func setAllowRefresh P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowRefresh",P1])
+		dnRequest("set",[self,"AllowRefresh",P1])
 		return self
 

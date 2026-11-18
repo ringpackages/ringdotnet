@@ -16,9 +16,9 @@ Class IHttpResponseTrailersFeature from DotNetObject
 		return self
 
 	Func getTrailers
-		return dnRequest("get",[new DotNetObject(nHandle),"Trailers"])
+		return dnRequest("get",[self,"Trailers"])
 
 	Func setTrailers P1
-		dnRequest("set",[new DotNetObject(nHandle),"Trailers",P1])
+		dnRequest("set",[self,"Trailers",P1])
 		return self
 

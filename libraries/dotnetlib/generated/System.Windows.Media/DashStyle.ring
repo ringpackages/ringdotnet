@@ -24,17 +24,17 @@ Class DashStyle from Animatable
 		return self
 
 	Func getOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"Offset"])
+		return dnRequest("get",[self,"Offset"])
 
 	Func setOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"Offset",P1])
+		dnRequest("set",[self,"Offset",P1])
 		return self
 
 	Func getDashes
-		return dnRequest("get",[new DotNetObject(nHandle),"Dashes"])
+		return dnRequest("get",[self,"Dashes"])
 
 	Func setDashes P1
-		dnRequest("set",[new DotNetObject(nHandle),"Dashes",P1])
+		dnRequest("set",[self,"Dashes",P1])
 		return self
 
 	Func getOffsetProperty

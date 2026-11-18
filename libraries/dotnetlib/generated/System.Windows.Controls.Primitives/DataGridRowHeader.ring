@@ -22,21 +22,21 @@ Class DataGridRowHeader from WpfButtonBase
 		return self
 
 	Func getSeparatorBrush
-		return dnRequest("get",[new DotNetObject(nHandle),"SeparatorBrush"])
+		return dnRequest("get",[self,"SeparatorBrush"])
 
 	Func setSeparatorBrush P1
-		dnRequest("set",[new DotNetObject(nHandle),"SeparatorBrush",P1])
+		dnRequest("set",[self,"SeparatorBrush",P1])
 		return self
 
 	Func getSeparatorVisibility
-		return dnRequest("get",[new DotNetObject(nHandle),"SeparatorVisibility"])
+		return dnRequest("get",[self,"SeparatorVisibility"])
 
 	Func setSeparatorVisibility P1
-		dnRequest("set",[new DotNetObject(nHandle),"SeparatorVisibility",P1])
+		dnRequest("set",[self,"SeparatorVisibility",P1])
 		return self
 
 	Func getIsRowSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsRowSelected"])
+		return dnRequest("get",[self,"IsRowSelected"])
 
 	Func setIsRowSelected P1
 		raise("DotNet Error: IsRowSelected is a read-only property")

@@ -22,23 +22,23 @@ Class RouteValuesAddress from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRouteName
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteName"])
+		return dnRequest("get",[self,"RouteName"])
 
 	Func setRouteName P1
-		dnRequest("set",[new DotNetObject(nHandle),"RouteName",P1])
+		dnRequest("set",[self,"RouteName",P1])
 		return self
 
 	Func getExplicitValues
-		return dnRequest("get",[new DotNetObject(nHandle),"ExplicitValues"])
+		return dnRequest("get",[self,"ExplicitValues"])
 
 	Func setExplicitValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExplicitValues",P1])
+		dnRequest("set",[self,"ExplicitValues",P1])
 		return self
 
 	Func getAmbientValues
-		return dnRequest("get",[new DotNetObject(nHandle),"AmbientValues"])
+		return dnRequest("get",[self,"AmbientValues"])
 
 	Func setAmbientValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"AmbientValues",P1])
+		dnRequest("set",[self,"AmbientValues",P1])
 		return self
 

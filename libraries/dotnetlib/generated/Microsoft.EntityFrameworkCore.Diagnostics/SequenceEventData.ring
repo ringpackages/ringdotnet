@@ -17,7 +17,7 @@ Class SequenceEventData from EventData
 		return self
 
 	Func getSequence
-		return dnRequest("get",[new DotNetObject(nHandle),"Sequence"])
+		return dnRequest("get",[self,"Sequence"])
 
 	Func setSequence P1
 		raise("DotNet Error: Sequence is a read-only property")

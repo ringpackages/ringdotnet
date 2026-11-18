@@ -199,138 +199,138 @@ Class WebBrowser from WebBrowserBase
 		return self
 
 	Func getAllowNavigation
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowNavigation"])
+		return dnRequest("get",[self,"AllowNavigation"])
 
 	Func setAllowNavigation P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowNavigation",P1])
+		dnRequest("set",[self,"AllowNavigation",P1])
 		return self
 
 	Func getAllowWebBrowserDrop
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowWebBrowserDrop"])
+		return dnRequest("get",[self,"AllowWebBrowserDrop"])
 
 	Func setAllowWebBrowserDrop P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowWebBrowserDrop",P1])
+		dnRequest("set",[self,"AllowWebBrowserDrop",P1])
 		return self
 
 	Func getScriptErrorsSuppressed
-		return dnRequest("get",[new DotNetObject(nHandle),"ScriptErrorsSuppressed"])
+		return dnRequest("get",[self,"ScriptErrorsSuppressed"])
 
 	Func setScriptErrorsSuppressed P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScriptErrorsSuppressed",P1])
+		dnRequest("set",[self,"ScriptErrorsSuppressed",P1])
 		return self
 
 	Func getWebBrowserShortcutsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"WebBrowserShortcutsEnabled"])
+		return dnRequest("get",[self,"WebBrowserShortcutsEnabled"])
 
 	Func setWebBrowserShortcutsEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"WebBrowserShortcutsEnabled",P1])
+		dnRequest("set",[self,"WebBrowserShortcutsEnabled",P1])
 		return self
 
 	Func getCanGoBack
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoBack"])
+		return dnRequest("get",[self,"CanGoBack"])
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")
 
 	Func getCanGoForward
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoForward"])
+		return dnRequest("get",[self,"CanGoForward"])
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getDocumentStream
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentStream"])
+		return dnRequest("get",[self,"DocumentStream"])
 
 	Func setDocumentStream P1
-		dnRequest("set",[new DotNetObject(nHandle),"DocumentStream",P1])
+		dnRequest("set",[self,"DocumentStream",P1])
 		return self
 
 	Func getDocumentText
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentText"])
+		return dnRequest("get",[self,"DocumentText"])
 
 	Func setDocumentText P1
-		dnRequest("set",[new DotNetObject(nHandle),"DocumentText",P1])
+		dnRequest("set",[self,"DocumentText",P1])
 		return self
 
 	Func getDocumentTitle
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentTitle"])
+		return dnRequest("get",[self,"DocumentTitle"])
 
 	Func setDocumentTitle P1
 		raise("DotNet Error: DocumentTitle is a read-only property")
 
 	Func getDocumentType
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentType"])
+		return dnRequest("get",[self,"DocumentType"])
 
 	Func setDocumentType P1
 		raise("DotNet Error: DocumentType is a read-only property")
 
 	Func getEncryptionLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"EncryptionLevel"])
+		return dnRequest("get",[self,"EncryptionLevel"])
 
 	Func setEncryptionLevel P1
 		raise("DotNet Error: EncryptionLevel is a read-only property")
 
 	Func getIsBusy
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBusy"])
+		return dnRequest("get",[self,"IsBusy"])
 
 	Func setIsBusy P1
 		raise("DotNet Error: IsBusy is a read-only property")
 
 	Func getIsOffline
-		return dnRequest("get",[new DotNetObject(nHandle),"IsOffline"])
+		return dnRequest("get",[self,"IsOffline"])
 
 	Func setIsOffline P1
 		raise("DotNet Error: IsOffline is a read-only property")
 
 	Func getIsWebBrowserContextMenuEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsWebBrowserContextMenuEnabled"])
+		return dnRequest("get",[self,"IsWebBrowserContextMenuEnabled"])
 
 	Func setIsWebBrowserContextMenuEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsWebBrowserContextMenuEnabled",P1])
+		dnRequest("set",[self,"IsWebBrowserContextMenuEnabled",P1])
 		return self
 
 	Func getObjectForScripting
-		return dnRequest("get",[new DotNetObject(nHandle),"ObjectForScripting"])
+		return dnRequest("get",[self,"ObjectForScripting"])
 
 	Func setObjectForScripting P1
-		dnRequest("set",[new DotNetObject(nHandle),"ObjectForScripting",P1])
+		dnRequest("set",[self,"ObjectForScripting",P1])
 		return self
 
 	Func getReadyState
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadyState"])
+		return dnRequest("get",[self,"ReadyState"])
 
 	Func setReadyState P1
 		raise("DotNet Error: ReadyState is a read-only property")
 
 	Func getStatusText
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusText"])
+		return dnRequest("get",[self,"StatusText"])
 
 	Func setStatusText P1
 		raise("DotNet Error: StatusText is a read-only property")
 
 	Func getUrl
-		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
+		return dnRequest("get",[self,"Url"])
 
 	Func setUrl P1
-		dnRequest("set",[new DotNetObject(nHandle),"Url",P1])
+		dnRequest("set",[self,"Url",P1])
 		return self
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getScrollBarsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollBarsEnabled"])
+		return dnRequest("get",[self,"ScrollBarsEnabled"])
 
 	Func setScrollBarsEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScrollBarsEnabled",P1])
+		dnRequest("set",[self,"ScrollBarsEnabled",P1])
 		return self
 

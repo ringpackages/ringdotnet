@@ -90,58 +90,58 @@ Class ListControl from Control
 		return self
 
 	Func getDataSource
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
+		return dnRequest("get",[self,"DataSource"])
 
 	Func setDataSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataSource",P1])
+		dnRequest("set",[self,"DataSource",P1])
 		return self
 
 	Func getDisplayMember
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayMember"])
+		return dnRequest("get",[self,"DisplayMember"])
 
 	Func setDisplayMember P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayMember",P1])
+		dnRequest("set",[self,"DisplayMember",P1])
 		return self
 
 	Func getFormatInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"FormatInfo"])
+		return dnRequest("get",[self,"FormatInfo"])
 
 	Func setFormatInfo P1
-		dnRequest("set",[new DotNetObject(nHandle),"FormatInfo",P1])
+		dnRequest("set",[self,"FormatInfo",P1])
 		return self
 
 	Func getFormatString
-		return dnRequest("get",[new DotNetObject(nHandle),"FormatString"])
+		return dnRequest("get",[self,"FormatString"])
 
 	Func setFormatString P1
-		dnRequest("set",[new DotNetObject(nHandle),"FormatString",P1])
+		dnRequest("set",[self,"FormatString",P1])
 		return self
 
 	Func getFormattingEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"FormattingEnabled"])
+		return dnRequest("get",[self,"FormattingEnabled"])
 
 	Func setFormattingEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"FormattingEnabled",P1])
+		dnRequest("set",[self,"FormattingEnabled",P1])
 		return self
 
 	Func getValueMember
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueMember"])
+		return dnRequest("get",[self,"ValueMember"])
 
 	Func setValueMember P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValueMember",P1])
+		dnRequest("set",[self,"ValueMember",P1])
 		return self
 
 	Func getSelectedIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedIndex"])
+		return dnRequest("get",[self,"SelectedIndex"])
 
 	Func setSelectedIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedIndex",P1])
+		dnRequest("set",[self,"SelectedIndex",P1])
 		return self
 
 	Func getSelectedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedValue"])
+		return dnRequest("get",[self,"SelectedValue"])
 
 	Func setSelectedValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedValue",P1])
+		dnRequest("set",[self,"SelectedValue",P1])
 		return self
 

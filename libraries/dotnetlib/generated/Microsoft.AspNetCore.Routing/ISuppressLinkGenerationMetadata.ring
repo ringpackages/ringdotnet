@@ -16,7 +16,7 @@ Class ISuppressLinkGenerationMetadata from DotNetObject
 		return self
 
 	Func getSuppressLinkGeneration
-		return dnRequest("get",[new DotNetObject(nHandle),"SuppressLinkGeneration"])
+		return dnRequest("get",[self,"SuppressLinkGeneration"])
 
 	Func setSuppressLinkGeneration P1
 		raise("DotNet Error: SuppressLinkGeneration is a read-only property")

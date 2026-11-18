@@ -64,9 +64,9 @@ Class CommandBinding from Object
 		return self
 
 	Func getCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
+		return dnRequest("get",[self,"Command"])
 
 	Func setCommand P1
-		dnRequest("set",[new DotNetObject(nHandle),"Command",P1])
+		dnRequest("set",[self,"Command",P1])
 		return self
 

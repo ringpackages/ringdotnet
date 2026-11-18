@@ -17,7 +17,7 @@ Class TransactionEndEventData from TransactionEventData
 		return self
 
 	Func getDuration
-		return dnRequest("get",[new DotNetObject(nHandle),"Duration"])
+		return dnRequest("get",[self,"Duration"])
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")

@@ -18,13 +18,13 @@ Class SelectedCellsChangedEventArgs from EventArgs
 		return self
 
 	Func getAddedCells
-		return dnRequest("get",[new DotNetObject(nHandle),"AddedCells"])
+		return dnRequest("get",[self,"AddedCells"])
 
 	Func setAddedCells P1
 		raise("DotNet Error: AddedCells is a read-only property")
 
 	Func getRemovedCells
-		return dnRequest("get",[new DotNetObject(nHandle),"RemovedCells"])
+		return dnRequest("get",[self,"RemovedCells"])
 
 	Func setRemovedCells P1
 		raise("DotNet Error: RemovedCells is a read-only property")

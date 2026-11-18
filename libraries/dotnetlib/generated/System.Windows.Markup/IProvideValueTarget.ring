@@ -17,13 +17,13 @@ Class IProvideValueTarget from DotNetObject
 		return self
 
 	Func getTargetObject
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetObject"])
+		return dnRequest("get",[self,"TargetObject"])
 
 	Func setTargetObject P1
 		raise("DotNet Error: TargetObject is a read-only property")
 
 	Func getTargetProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetProperty"])
+		return dnRequest("get",[self,"TargetProperty"])
 
 	Func setTargetProperty P1
 		raise("DotNet Error: TargetProperty is a read-only property")

@@ -29,31 +29,31 @@ Class RouteBase from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConstraints
-		return dnRequest("get",[new DotNetObject(nHandle),"Constraints"])
+		return dnRequest("get",[self,"Constraints"])
 
 	Func setConstraints P1
 		raise("DotNet Error: Constraints is a read-only property")
 
 	Func getDataTokens
-		return dnRequest("get",[new DotNetObject(nHandle),"DataTokens"])
+		return dnRequest("get",[self,"DataTokens"])
 
 	Func setDataTokens P1
 		raise("DotNet Error: DataTokens is a read-only property")
 
 	Func getDefaults
-		return dnRequest("get",[new DotNetObject(nHandle),"Defaults"])
+		return dnRequest("get",[self,"Defaults"])
 
 	Func setDefaults P1
 		raise("DotNet Error: Defaults is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getParsedTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"ParsedTemplate"])
+		return dnRequest("get",[self,"ParsedTemplate"])
 
 	Func setParsedTemplate P1
 		raise("DotNet Error: ParsedTemplate is a read-only property")

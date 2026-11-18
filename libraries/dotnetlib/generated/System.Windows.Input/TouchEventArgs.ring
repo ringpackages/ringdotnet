@@ -23,7 +23,7 @@ Class TouchEventArgs from InputEventArgs
 		return dnRequest("call",[new DotNetObject(nHandle),"GetIntermediateTouchPoints",P1])
 
 	Func getTouchDevice
-		return dnRequest("get",[new DotNetObject(nHandle),"TouchDevice"])
+		return dnRequest("get",[self,"TouchDevice"])
 
 	Func setTouchDevice P1
 		raise("DotNet Error: TouchDevice is a read-only property")

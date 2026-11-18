@@ -22,27 +22,27 @@ Class MemberEntry from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsModified
-		return dnRequest("get",[new DotNetObject(nHandle),"IsModified"])
+		return dnRequest("get",[self,"IsModified"])
 
 	Func setIsModified P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsModified",P1])
+		dnRequest("set",[self,"IsModified",P1])
 		return self
 
 	Func getMetadata
-		return dnRequest("get",[new DotNetObject(nHandle),"Metadata"])
+		return dnRequest("get",[self,"Metadata"])
 
 	Func setMetadata P1
 		raise("DotNet Error: Metadata is a read-only property")
 
 	Func getCurrentValue
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentValue"])
+		return dnRequest("get",[self,"CurrentValue"])
 
 	Func setCurrentValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentValue",P1])
+		dnRequest("set",[self,"CurrentValue",P1])
 		return self
 
 	Func getEntityEntry
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityEntry"])
+		return dnRequest("get",[self,"EntityEntry"])
 
 	Func setEntityEntry P1
 		raise("DotNet Error: EntityEntry is a read-only property")

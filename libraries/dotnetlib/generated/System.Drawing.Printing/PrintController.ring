@@ -34,7 +34,7 @@ Class PrintController from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsPreview
-		return dnRequest("get",[new DotNetObject(nHandle),"IsPreview"])
+		return dnRequest("get",[self,"IsPreview"])
 
 	Func setIsPreview P1
 		raise("DotNet Error: IsPreview is a read-only property")

@@ -84,129 +84,129 @@ Class CultureInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfoByIetfLanguageTag",P1])
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getLCID
-		return dnRequest("get",[new DotNetObject(nHandle),"LCID"])
+		return dnRequest("get",[self,"LCID"])
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
 
 	Func getKeyboardLayoutId
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyboardLayoutId"])
+		return dnRequest("get",[self,"KeyboardLayoutId"])
 
 	Func setKeyboardLayoutId P1
 		raise("DotNet Error: KeyboardLayoutId is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIetfLanguageTag
-		return dnRequest("get",[new DotNetObject(nHandle),"IetfLanguageTag"])
+		return dnRequest("get",[self,"IetfLanguageTag"])
 
 	Func setIetfLanguageTag P1
 		raise("DotNet Error: IetfLanguageTag is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
+		return dnRequest("get",[self,"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getNativeName
-		return dnRequest("get",[new DotNetObject(nHandle),"NativeName"])
+		return dnRequest("get",[self,"NativeName"])
 
 	Func setNativeName P1
 		raise("DotNet Error: NativeName is a read-only property")
 
 	Func getEnglishName
-		return dnRequest("get",[new DotNetObject(nHandle),"EnglishName"])
+		return dnRequest("get",[self,"EnglishName"])
 
 	Func setEnglishName P1
 		raise("DotNet Error: EnglishName is a read-only property")
 
 	Func getTwoLetterISOLanguageName
-		return dnRequest("get",[new DotNetObject(nHandle),"TwoLetterISOLanguageName"])
+		return dnRequest("get",[self,"TwoLetterISOLanguageName"])
 
 	Func setTwoLetterISOLanguageName P1
 		raise("DotNet Error: TwoLetterISOLanguageName is a read-only property")
 
 	Func getThreeLetterISOLanguageName
-		return dnRequest("get",[new DotNetObject(nHandle),"ThreeLetterISOLanguageName"])
+		return dnRequest("get",[self,"ThreeLetterISOLanguageName"])
 
 	Func setThreeLetterISOLanguageName P1
 		raise("DotNet Error: ThreeLetterISOLanguageName is a read-only property")
 
 	Func getThreeLetterWindowsLanguageName
-		return dnRequest("get",[new DotNetObject(nHandle),"ThreeLetterWindowsLanguageName"])
+		return dnRequest("get",[self,"ThreeLetterWindowsLanguageName"])
 
 	Func setThreeLetterWindowsLanguageName P1
 		raise("DotNet Error: ThreeLetterWindowsLanguageName is a read-only property")
 
 	Func getCompareInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"CompareInfo"])
+		return dnRequest("get",[self,"CompareInfo"])
 
 	Func setCompareInfo P1
 		raise("DotNet Error: CompareInfo is a read-only property")
 
 	Func getTextInfo
-		return dnRequest("get",[new DotNetObject(nHandle),"TextInfo"])
+		return dnRequest("get",[self,"TextInfo"])
 
 	Func setTextInfo P1
 		raise("DotNet Error: TextInfo is a read-only property")
 
 	Func getIsNeutralCulture
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNeutralCulture"])
+		return dnRequest("get",[self,"IsNeutralCulture"])
 
 	Func setIsNeutralCulture P1
 		raise("DotNet Error: IsNeutralCulture is a read-only property")
 
 	Func getCultureTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"CultureTypes"])
+		return dnRequest("get",[self,"CultureTypes"])
 
 	Func setCultureTypes P1
 		raise("DotNet Error: CultureTypes is a read-only property")
 
 	Func getNumberFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberFormat"])
+		return dnRequest("get",[self,"NumberFormat"])
 
 	Func setNumberFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"NumberFormat",P1])
+		dnRequest("set",[self,"NumberFormat",P1])
 		return self
 
 	Func getDateTimeFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"DateTimeFormat"])
+		return dnRequest("get",[self,"DateTimeFormat"])
 
 	Func setDateTimeFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"DateTimeFormat",P1])
+		dnRequest("set",[self,"DateTimeFormat",P1])
 		return self
 
 	Func getCalendar
-		return dnRequest("get",[new DotNetObject(nHandle),"Calendar"])
+		return dnRequest("get",[self,"Calendar"])
 
 	Func setCalendar P1
 		raise("DotNet Error: Calendar is a read-only property")
 
 	Func getOptionalCalendars
-		return dnRequest("get",[new DotNetObject(nHandle),"OptionalCalendars"])
+		return dnRequest("get",[self,"OptionalCalendars"])
 
 	Func setOptionalCalendars P1
 		raise("DotNet Error: OptionalCalendars is a read-only property")
 
 	Func getUseUserOverride
-		return dnRequest("get",[new DotNetObject(nHandle),"UseUserOverride"])
+		return dnRequest("get",[self,"UseUserOverride"])
 
 	Func setUseUserOverride P1
 		raise("DotNet Error: UseUserOverride is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")

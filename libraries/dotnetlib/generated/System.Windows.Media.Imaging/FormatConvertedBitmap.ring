@@ -36,31 +36,31 @@ Class FormatConvertedBitmap from BitmapSource
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getDestinationFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"DestinationFormat"])
+		return dnRequest("get",[self,"DestinationFormat"])
 
 	Func setDestinationFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"DestinationFormat",P1])
+		dnRequest("set",[self,"DestinationFormat",P1])
 		return self
 
 	Func getDestinationPalette
-		return dnRequest("get",[new DotNetObject(nHandle),"DestinationPalette"])
+		return dnRequest("get",[self,"DestinationPalette"])
 
 	Func setDestinationPalette P1
-		dnRequest("set",[new DotNetObject(nHandle),"DestinationPalette",P1])
+		dnRequest("set",[self,"DestinationPalette",P1])
 		return self
 
 	Func getAlphaThreshold
-		return dnRequest("get",[new DotNetObject(nHandle),"AlphaThreshold"])
+		return dnRequest("get",[self,"AlphaThreshold"])
 
 	Func setAlphaThreshold P1
-		dnRequest("set",[new DotNetObject(nHandle),"AlphaThreshold",P1])
+		dnRequest("set",[self,"AlphaThreshold",P1])
 		return self
 
 	Func getSourceProperty

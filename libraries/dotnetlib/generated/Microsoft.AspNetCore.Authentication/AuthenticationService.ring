@@ -38,25 +38,25 @@ Class AuthenticationService from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSchemes
-		return dnRequest("get",[new DotNetObject(nHandle),"Schemes"])
+		return dnRequest("get",[self,"Schemes"])
 
 	Func setSchemes P1
 		raise("DotNet Error: Schemes is a read-only property")
 
 	Func getHandlers
-		return dnRequest("get",[new DotNetObject(nHandle),"Handlers"])
+		return dnRequest("get",[self,"Handlers"])
 
 	Func setHandlers P1
 		raise("DotNet Error: Handlers is a read-only property")
 
 	Func getTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"Transform"])
+		return dnRequest("get",[self,"Transform"])
 
 	Func setTransform P1
 		raise("DotNet Error: Transform is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")

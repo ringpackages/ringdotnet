@@ -27,25 +27,25 @@ Class FileMultipartSection from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSection
-		return dnRequest("get",[new DotNetObject(nHandle),"Section"])
+		return dnRequest("get",[self,"Section"])
 
 	Func setSection P1
 		raise("DotNet Error: Section is a read-only property")
 
 	Func getFileStream
-		return dnRequest("get",[new DotNetObject(nHandle),"FileStream"])
+		return dnRequest("get",[self,"FileStream"])
 
 	Func setFileStream P1
 		raise("DotNet Error: FileStream is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		return dnRequest("get",[new DotNetObject(nHandle),"FileName"])
+		return dnRequest("get",[self,"FileName"])
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")

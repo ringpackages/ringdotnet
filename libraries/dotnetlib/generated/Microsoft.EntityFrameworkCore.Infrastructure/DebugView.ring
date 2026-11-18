@@ -21,13 +21,13 @@ Class DebugView from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLongView
-		return dnRequest("get",[new DotNetObject(nHandle),"LongView"])
+		return dnRequest("get",[self,"LongView"])
 
 	Func setLongView P1
 		raise("DotNet Error: LongView is a read-only property")
 
 	Func getShortView
-		return dnRequest("get",[new DotNetObject(nHandle),"ShortView"])
+		return dnRequest("get",[self,"ShortView"])
 
 	Func setShortView P1
 		raise("DotNet Error: ShortView is a read-only property")

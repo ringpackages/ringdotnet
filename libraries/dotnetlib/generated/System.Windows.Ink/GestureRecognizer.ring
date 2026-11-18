@@ -35,7 +35,7 @@ Class GestureRecognizer from DependencyObject
 		return self
 
 	Func getIsRecognizerAvailable
-		return dnRequest("get",[new DotNetObject(nHandle),"IsRecognizerAvailable"])
+		return dnRequest("get",[self,"IsRecognizerAvailable"])
 
 	Func setIsRecognizerAvailable P1
 		raise("DotNet Error: IsRecognizerAvailable is a read-only property")

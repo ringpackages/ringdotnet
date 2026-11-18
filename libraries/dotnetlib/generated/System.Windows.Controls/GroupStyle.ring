@@ -29,59 +29,59 @@ Class GroupStyle from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPanel
-		return dnRequest("get",[new DotNetObject(nHandle),"Panel"])
+		return dnRequest("get",[self,"Panel"])
 
 	Func setPanel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Panel",P1])
+		dnRequest("set",[self,"Panel",P1])
 		return self
 
 	Func getContainerStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainerStyle"])
+		return dnRequest("get",[self,"ContainerStyle"])
 
 	Func setContainerStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContainerStyle",P1])
+		dnRequest("set",[self,"ContainerStyle",P1])
 		return self
 
 	Func getContainerStyleSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ContainerStyleSelector"])
+		return dnRequest("get",[self,"ContainerStyleSelector"])
 
 	Func setContainerStyleSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContainerStyleSelector",P1])
+		dnRequest("set",[self,"ContainerStyleSelector",P1])
 		return self
 
 	Func getHeaderTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplate"])
+		return dnRequest("get",[self,"HeaderTemplate"])
 
 	Func setHeaderTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplate",P1])
+		dnRequest("set",[self,"HeaderTemplate",P1])
 		return self
 
 	Func getHeaderTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderTemplateSelector"])
+		return dnRequest("get",[self,"HeaderTemplateSelector"])
 
 	Func setHeaderTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderTemplateSelector",P1])
+		dnRequest("set",[self,"HeaderTemplateSelector",P1])
 		return self
 
 	Func getHeaderStringFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderStringFormat"])
+		return dnRequest("get",[self,"HeaderStringFormat"])
 
 	Func setHeaderStringFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"HeaderStringFormat",P1])
+		dnRequest("set",[self,"HeaderStringFormat",P1])
 		return self
 
 	Func getHidesIfEmpty
-		return dnRequest("get",[new DotNetObject(nHandle),"HidesIfEmpty"])
+		return dnRequest("get",[self,"HidesIfEmpty"])
 
 	Func setHidesIfEmpty P1
-		dnRequest("set",[new DotNetObject(nHandle),"HidesIfEmpty",P1])
+		dnRequest("set",[self,"HidesIfEmpty",P1])
 		return self
 
 	Func getAlternationCount
-		return dnRequest("get",[new DotNetObject(nHandle),"AlternationCount"])
+		return dnRequest("get",[self,"AlternationCount"])
 
 	Func setAlternationCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"AlternationCount",P1])
+		dnRequest("set",[self,"AlternationCount",P1])
 		return self
 
 	Func getDefault

@@ -18,13 +18,13 @@ Class MultiTrigger from TriggerBase
 		return self
 
 	Func getConditions
-		return dnRequest("get",[new DotNetObject(nHandle),"Conditions"])
+		return dnRequest("get",[self,"Conditions"])
 
 	Func setConditions P1
 		raise("DotNet Error: Conditions is a read-only property")
 
 	Func getSetters
-		return dnRequest("get",[new DotNetObject(nHandle),"Setters"])
+		return dnRequest("get",[self,"Setters"])
 
 	Func setSetters P1
 		raise("DotNet Error: Setters is a read-only property")

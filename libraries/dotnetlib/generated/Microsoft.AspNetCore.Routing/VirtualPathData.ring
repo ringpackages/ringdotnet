@@ -26,22 +26,22 @@ Class VirtualPathData from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDataTokens
-		return dnRequest("get",[new DotNetObject(nHandle),"DataTokens"])
+		return dnRequest("get",[self,"DataTokens"])
 
 	Func setDataTokens P1
 		raise("DotNet Error: DataTokens is a read-only property")
 
 	Func getRouter
-		return dnRequest("get",[new DotNetObject(nHandle),"Router"])
+		return dnRequest("get",[self,"Router"])
 
 	Func setRouter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Router",P1])
+		dnRequest("set",[self,"Router",P1])
 		return self
 
 	Func getVirtualPath
-		return dnRequest("get",[new DotNetObject(nHandle),"VirtualPath"])
+		return dnRequest("get",[self,"VirtualPath"])
 
 	Func setVirtualPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"VirtualPath",P1])
+		dnRequest("set",[self,"VirtualPath",P1])
 		return self
 

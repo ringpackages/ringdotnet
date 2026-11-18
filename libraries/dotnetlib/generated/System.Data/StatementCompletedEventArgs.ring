@@ -17,7 +17,7 @@ Class StatementCompletedEventArgs from EventArgs
 		return self
 
 	Func getRecordCount
-		return dnRequest("get",[new DotNetObject(nHandle),"RecordCount"])
+		return dnRequest("get",[self,"RecordCount"])
 
 	Func setRecordCount P1
 		raise("DotNet Error: RecordCount is a read-only property")

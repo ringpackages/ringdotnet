@@ -33,98 +33,98 @@ Class KestrelServerLimits from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMaxResponseBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxResponseBufferSize"])
+		return dnRequest("get",[self,"MaxResponseBufferSize"])
 
 	Func setMaxResponseBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxResponseBufferSize",P1])
+		dnRequest("set",[self,"MaxResponseBufferSize",P1])
 		return self
 
 	Func getMaxRequestBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestBufferSize"])
+		return dnRequest("get",[self,"MaxRequestBufferSize"])
 
 	Func setMaxRequestBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestBufferSize",P1])
+		dnRequest("set",[self,"MaxRequestBufferSize",P1])
 		return self
 
 	Func getMaxRequestLineSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestLineSize"])
+		return dnRequest("get",[self,"MaxRequestLineSize"])
 
 	Func setMaxRequestLineSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestLineSize",P1])
+		dnRequest("set",[self,"MaxRequestLineSize",P1])
 		return self
 
 	Func getMaxRequestHeadersTotalSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestHeadersTotalSize"])
+		return dnRequest("get",[self,"MaxRequestHeadersTotalSize"])
 
 	Func setMaxRequestHeadersTotalSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestHeadersTotalSize",P1])
+		dnRequest("set",[self,"MaxRequestHeadersTotalSize",P1])
 		return self
 
 	Func getMaxRequestHeaderCount
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestHeaderCount"])
+		return dnRequest("get",[self,"MaxRequestHeaderCount"])
 
 	Func setMaxRequestHeaderCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestHeaderCount",P1])
+		dnRequest("set",[self,"MaxRequestHeaderCount",P1])
 		return self
 
 	Func getMaxRequestBodySize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxRequestBodySize"])
+		return dnRequest("get",[self,"MaxRequestBodySize"])
 
 	Func setMaxRequestBodySize P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxRequestBodySize",P1])
+		dnRequest("set",[self,"MaxRequestBodySize",P1])
 		return self
 
 	Func getKeepAliveTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"KeepAliveTimeout"])
+		return dnRequest("get",[self,"KeepAliveTimeout"])
 
 	Func setKeepAliveTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeepAliveTimeout",P1])
+		dnRequest("set",[self,"KeepAliveTimeout",P1])
 		return self
 
 	Func getRequestHeadersTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestHeadersTimeout"])
+		return dnRequest("get",[self,"RequestHeadersTimeout"])
 
 	Func setRequestHeadersTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestHeadersTimeout",P1])
+		dnRequest("set",[self,"RequestHeadersTimeout",P1])
 		return self
 
 	Func getMaxConcurrentConnections
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxConcurrentConnections"])
+		return dnRequest("get",[self,"MaxConcurrentConnections"])
 
 	Func setMaxConcurrentConnections P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxConcurrentConnections",P1])
+		dnRequest("set",[self,"MaxConcurrentConnections",P1])
 		return self
 
 	Func getMaxConcurrentUpgradedConnections
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxConcurrentUpgradedConnections"])
+		return dnRequest("get",[self,"MaxConcurrentUpgradedConnections"])
 
 	Func setMaxConcurrentUpgradedConnections P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxConcurrentUpgradedConnections",P1])
+		dnRequest("set",[self,"MaxConcurrentUpgradedConnections",P1])
 		return self
 
 	Func getHttp2
-		return dnRequest("get",[new DotNetObject(nHandle),"Http2"])
+		return dnRequest("get",[self,"Http2"])
 
 	Func setHttp2 P1
 		raise("DotNet Error: Http2 is a read-only property")
 
 	Func getHttp3
-		return dnRequest("get",[new DotNetObject(nHandle),"Http3"])
+		return dnRequest("get",[self,"Http3"])
 
 	Func setHttp3 P1
 		raise("DotNet Error: Http3 is a read-only property")
 
 	Func getMinRequestBodyDataRate
-		return dnRequest("get",[new DotNetObject(nHandle),"MinRequestBodyDataRate"])
+		return dnRequest("get",[self,"MinRequestBodyDataRate"])
 
 	Func setMinRequestBodyDataRate P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinRequestBodyDataRate",P1])
+		dnRequest("set",[self,"MinRequestBodyDataRate",P1])
 		return self
 
 	Func getMinResponseDataRate
-		return dnRequest("get",[new DotNetObject(nHandle),"MinResponseDataRate"])
+		return dnRequest("get",[self,"MinResponseDataRate"])
 
 	Func setMinResponseDataRate P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinResponseDataRate",P1])
+		dnRequest("set",[self,"MinResponseDataRate",P1])
 		return self
 

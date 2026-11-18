@@ -44,7 +44,7 @@ Class CurrencyManager from BindingManagerBase
 		return self
 
 	Func getList
-		return dnRequest("get",[new DotNetObject(nHandle),"List"])
+		return dnRequest("get",[self,"List"])
 
 	Func setList P1
 		raise("DotNet Error: List is a read-only property")

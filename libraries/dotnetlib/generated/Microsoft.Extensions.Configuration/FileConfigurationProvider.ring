@@ -36,7 +36,7 @@ Class FileConfigurationProvider from ConfigurationProvider
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")

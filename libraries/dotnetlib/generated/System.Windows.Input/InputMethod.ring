@@ -116,55 +116,55 @@ Class InputMethod from DispatcherObject
 		return self
 
 	Func getImeState
-		return dnRequest("get",[new DotNetObject(nHandle),"ImeState"])
+		return dnRequest("get",[self,"ImeState"])
 
 	Func setImeState P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImeState",P1])
+		dnRequest("set",[self,"ImeState",P1])
 		return self
 
 	Func getMicrophoneState
-		return dnRequest("get",[new DotNetObject(nHandle),"MicrophoneState"])
+		return dnRequest("get",[self,"MicrophoneState"])
 
 	Func setMicrophoneState P1
-		dnRequest("set",[new DotNetObject(nHandle),"MicrophoneState",P1])
+		dnRequest("set",[self,"MicrophoneState",P1])
 		return self
 
 	Func getHandwritingState
-		return dnRequest("get",[new DotNetObject(nHandle),"HandwritingState"])
+		return dnRequest("get",[self,"HandwritingState"])
 
 	Func setHandwritingState P1
-		dnRequest("set",[new DotNetObject(nHandle),"HandwritingState",P1])
+		dnRequest("set",[self,"HandwritingState",P1])
 		return self
 
 	Func getSpeechMode
-		return dnRequest("get",[new DotNetObject(nHandle),"SpeechMode"])
+		return dnRequest("get",[self,"SpeechMode"])
 
 	Func setSpeechMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"SpeechMode",P1])
+		dnRequest("set",[self,"SpeechMode",P1])
 		return self
 
 	Func getImeConversionMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ImeConversionMode"])
+		return dnRequest("get",[self,"ImeConversionMode"])
 
 	Func setImeConversionMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImeConversionMode",P1])
+		dnRequest("set",[self,"ImeConversionMode",P1])
 		return self
 
 	Func getImeSentenceMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ImeSentenceMode"])
+		return dnRequest("get",[self,"ImeSentenceMode"])
 
 	Func setImeSentenceMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImeSentenceMode",P1])
+		dnRequest("set",[self,"ImeSentenceMode",P1])
 		return self
 
 	Func getCanShowConfigurationUI
-		return dnRequest("get",[new DotNetObject(nHandle),"CanShowConfigurationUI"])
+		return dnRequest("get",[self,"CanShowConfigurationUI"])
 
 	Func setCanShowConfigurationUI P1
 		raise("DotNet Error: CanShowConfigurationUI is a read-only property")
 
 	Func getCanShowRegisterWordUI
-		return dnRequest("get",[new DotNetObject(nHandle),"CanShowRegisterWordUI"])
+		return dnRequest("get",[self,"CanShowRegisterWordUI"])
 
 	Func setCanShowRegisterWordUI P1
 		raise("DotNet Error: CanShowRegisterWordUI is a read-only property")

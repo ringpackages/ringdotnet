@@ -20,28 +20,28 @@ Class DataGridViewCellParsingEventArgs from ConvertEventArgs
 		return self
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getColumnIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
+		return dnRequest("get",[self,"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getInheritedCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"InheritedCellStyle"])
+		return dnRequest("get",[self,"InheritedCellStyle"])
 
 	Func setInheritedCellStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"InheritedCellStyle",P1])
+		dnRequest("set",[self,"InheritedCellStyle",P1])
 		return self
 
 	Func getParsingApplied
-		return dnRequest("get",[new DotNetObject(nHandle),"ParsingApplied"])
+		return dnRequest("get",[self,"ParsingApplied"])
 
 	Func setParsingApplied P1
-		dnRequest("set",[new DotNetObject(nHandle),"ParsingApplied",P1])
+		dnRequest("set",[self,"ParsingApplied",P1])
 		return self
 

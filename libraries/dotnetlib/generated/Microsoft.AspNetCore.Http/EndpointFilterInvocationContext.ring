@@ -53,13 +53,13 @@ Class EndpointFilterInvocationContext from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func getHttpContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
+		return dnRequest("get",[self,"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getArguments
-		return dnRequest("get",[new DotNetObject(nHandle),"Arguments"])
+		return dnRequest("get",[self,"Arguments"])
 
 	Func setArguments P1
 		raise("DotNet Error: Arguments is a read-only property")

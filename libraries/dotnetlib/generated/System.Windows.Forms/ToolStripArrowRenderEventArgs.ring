@@ -21,34 +21,34 @@ Class ToolStripArrowRenderEventArgs from EventArgs
 		return self
 
 	Func getArrowRectangle
-		return dnRequest("get",[new DotNetObject(nHandle),"ArrowRectangle"])
+		return dnRequest("get",[self,"ArrowRectangle"])
 
 	Func setArrowRectangle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ArrowRectangle",P1])
+		dnRequest("set",[self,"ArrowRectangle",P1])
 		return self
 
 	Func getArrowColor
-		return dnRequest("get",[new DotNetObject(nHandle),"ArrowColor"])
+		return dnRequest("get",[self,"ArrowColor"])
 
 	Func setArrowColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"ArrowColor",P1])
+		dnRequest("set",[self,"ArrowColor",P1])
 		return self
 
 	Func getDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
+		return dnRequest("get",[self,"Direction"])
 
 	Func setDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Direction",P1])
+		dnRequest("set",[self,"Direction",P1])
 		return self
 
 	Func getGraphics
-		return dnRequest("get",[new DotNetObject(nHandle),"Graphics"])
+		return dnRequest("get",[self,"Graphics"])
 
 	Func setGraphics P1
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getItem
-		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
+		return dnRequest("get",[self,"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")

@@ -17,7 +17,7 @@ Class NavigationEventData from EventData
 		return self
 
 	Func getNavigation
-		return dnRequest("get",[new DotNetObject(nHandle),"Navigation"])
+		return dnRequest("get",[self,"Navigation"])
 
 	Func setNavigation P1
 		raise("DotNet Error: Navigation is a read-only property")

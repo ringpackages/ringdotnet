@@ -17,13 +17,13 @@ Class IConventionComplexType from DotNetObject
 		return self
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getComplexProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"ComplexProperty"])
+		return dnRequest("get",[self,"ComplexProperty"])
 
 	Func setComplexProperty P1
 		raise("DotNet Error: ComplexProperty is a read-only property")

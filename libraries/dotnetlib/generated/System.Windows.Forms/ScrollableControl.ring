@@ -39,47 +39,47 @@ Class ScrollableControl from Control
 		return self
 
 	Func getAutoScroll
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoScroll"])
+		return dnRequest("get",[self,"AutoScroll"])
 
 	Func setAutoScroll P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoScroll",P1])
+		dnRequest("set",[self,"AutoScroll",P1])
 		return self
 
 	Func getAutoScrollMargin
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoScrollMargin"])
+		return dnRequest("get",[self,"AutoScrollMargin"])
 
 	Func setAutoScrollMargin P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoScrollMargin",P1])
+		dnRequest("set",[self,"AutoScrollMargin",P1])
 		return self
 
 	Func getAutoScrollPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoScrollPosition"])
+		return dnRequest("get",[self,"AutoScrollPosition"])
 
 	Func setAutoScrollPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoScrollPosition",P1])
+		dnRequest("set",[self,"AutoScrollPosition",P1])
 		return self
 
 	Func getAutoScrollMinSize
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoScrollMinSize"])
+		return dnRequest("get",[self,"AutoScrollMinSize"])
 
 	Func setAutoScrollMinSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoScrollMinSize",P1])
+		dnRequest("set",[self,"AutoScrollMinSize",P1])
 		return self
 
 	Func getHorizontalScroll
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalScroll"])
+		return dnRequest("get",[self,"HorizontalScroll"])
 
 	Func setHorizontalScroll P1
 		raise("DotNet Error: HorizontalScroll is a read-only property")
 
 	Func getVerticalScroll
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalScroll"])
+		return dnRequest("get",[self,"VerticalScroll"])
 
 	Func setVerticalScroll P1
 		raise("DotNet Error: VerticalScroll is a read-only property")
 
 	Func getDockPadding
-		return dnRequest("get",[new DotNetObject(nHandle),"DockPadding"])
+		return dnRequest("get",[self,"DockPadding"])
 
 	Func setDockPadding P1
 		raise("DotNet Error: DockPadding is a read-only property")

@@ -27,7 +27,7 @@ Class SpellingError from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSuggestions
-		return dnRequest("get",[new DotNetObject(nHandle),"Suggestions"])
+		return dnRequest("get",[self,"Suggestions"])
 
 	Func setSuggestions P1
 		raise("DotNet Error: Suggestions is a read-only property")

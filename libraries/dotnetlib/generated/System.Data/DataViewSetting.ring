@@ -24,42 +24,42 @@ Class DataViewSetting from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getApplyDefaultSort
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplyDefaultSort"])
+		return dnRequest("get",[self,"ApplyDefaultSort"])
 
 	Func setApplyDefaultSort P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApplyDefaultSort",P1])
+		dnRequest("set",[self,"ApplyDefaultSort",P1])
 		return self
 
 	Func getDataViewManager
-		return dnRequest("get",[new DotNetObject(nHandle),"DataViewManager"])
+		return dnRequest("get",[self,"DataViewManager"])
 
 	Func setDataViewManager P1
 		raise("DotNet Error: DataViewManager is a read-only property")
 
 	Func getTable
-		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
+		return dnRequest("get",[self,"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getRowFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"RowFilter"])
+		return dnRequest("get",[self,"RowFilter"])
 
 	Func setRowFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowFilter",P1])
+		dnRequest("set",[self,"RowFilter",P1])
 		return self
 
 	Func getRowStateFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"RowStateFilter"])
+		return dnRequest("get",[self,"RowStateFilter"])
 
 	Func setRowStateFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowStateFilter",P1])
+		dnRequest("set",[self,"RowStateFilter",P1])
 		return self
 
 	Func getSort
-		return dnRequest("get",[new DotNetObject(nHandle),"Sort"])
+		return dnRequest("get",[self,"Sort"])
 
 	Func setSort P1
-		dnRequest("set",[new DotNetObject(nHandle),"Sort",P1])
+		dnRequest("set",[self,"Sort",P1])
 		return self
 

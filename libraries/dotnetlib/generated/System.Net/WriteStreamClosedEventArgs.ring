@@ -17,7 +17,7 @@ Class WriteStreamClosedEventArgs from EventArgs
 		return self
 
 	Func getError
-		return dnRequest("get",[new DotNetObject(nHandle),"Error"])
+		return dnRequest("get",[self,"Error"])
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")

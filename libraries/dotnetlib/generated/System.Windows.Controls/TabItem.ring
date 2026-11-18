@@ -20,14 +20,14 @@ Class TabItem from HeaderedContentControl
 		return self
 
 	Func getIsSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSelected"])
+		return dnRequest("get",[self,"IsSelected"])
 
 	Func setIsSelected P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsSelected",P1])
+		dnRequest("set",[self,"IsSelected",P1])
 		return self
 
 	Func getTabStripPlacement
-		return dnRequest("get",[new DotNetObject(nHandle),"TabStripPlacement"])
+		return dnRequest("get",[self,"TabStripPlacement"])
 
 	Func setTabStripPlacement P1
 		raise("DotNet Error: TabStripPlacement is a read-only property")

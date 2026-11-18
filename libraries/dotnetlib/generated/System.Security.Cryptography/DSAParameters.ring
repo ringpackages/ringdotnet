@@ -24,58 +24,58 @@ Class DSAParameters from ValueType
 		return self
 
 	Func getP
-		return dnRequest("get",[new DotNetObject(nHandle),"P"])
+		return dnRequest("get",[self,"P"])
 
 	Func setP P1
-		dnRequest("set",[new DotNetObject(nHandle),"P",P1])
+		dnRequest("set",[self,"P",P1])
 		return self
 
 	Func getQ
-		return dnRequest("get",[new DotNetObject(nHandle),"Q"])
+		return dnRequest("get",[self,"Q"])
 
 	Func setQ P1
-		dnRequest("set",[new DotNetObject(nHandle),"Q",P1])
+		dnRequest("set",[self,"Q",P1])
 		return self
 
 	Func getG
-		return dnRequest("get",[new DotNetObject(nHandle),"G"])
+		return dnRequest("get",[self,"G"])
 
 	Func setG P1
-		dnRequest("set",[new DotNetObject(nHandle),"G",P1])
+		dnRequest("set",[self,"G",P1])
 		return self
 
 	Func getY
-		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
+		return dnRequest("get",[self,"Y"])
 
 	Func setY P1
-		dnRequest("set",[new DotNetObject(nHandle),"Y",P1])
+		dnRequest("set",[self,"Y",P1])
 		return self
 
 	Func getJ
-		return dnRequest("get",[new DotNetObject(nHandle),"J"])
+		return dnRequest("get",[self,"J"])
 
 	Func setJ P1
-		dnRequest("set",[new DotNetObject(nHandle),"J",P1])
+		dnRequest("set",[self,"J",P1])
 		return self
 
 	Func getX
-		return dnRequest("get",[new DotNetObject(nHandle),"X"])
+		return dnRequest("get",[self,"X"])
 
 	Func setX P1
-		dnRequest("set",[new DotNetObject(nHandle),"X",P1])
+		dnRequest("set",[self,"X",P1])
 		return self
 
 	Func getSeed
-		return dnRequest("get",[new DotNetObject(nHandle),"Seed"])
+		return dnRequest("get",[self,"Seed"])
 
 	Func setSeed P1
-		dnRequest("set",[new DotNetObject(nHandle),"Seed",P1])
+		dnRequest("set",[self,"Seed",P1])
 		return self
 
 	Func getCounter
-		return dnRequest("get",[new DotNetObject(nHandle),"Counter"])
+		return dnRequest("get",[self,"Counter"])
 
 	Func setCounter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Counter",P1])
+		dnRequest("set",[self,"Counter",P1])
 		return self
 

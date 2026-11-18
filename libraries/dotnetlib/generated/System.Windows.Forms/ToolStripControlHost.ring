@@ -100,27 +100,27 @@ Class ToolStripControlHost from ToolStripItem
 		return self
 
 	Func getCausesValidation
-		return dnRequest("get",[new DotNetObject(nHandle),"CausesValidation"])
+		return dnRequest("get",[self,"CausesValidation"])
 
 	Func setCausesValidation P1
-		dnRequest("set",[new DotNetObject(nHandle),"CausesValidation",P1])
+		dnRequest("set",[self,"CausesValidation",P1])
 		return self
 
 	Func getControlAlign
-		return dnRequest("get",[new DotNetObject(nHandle),"ControlAlign"])
+		return dnRequest("get",[self,"ControlAlign"])
 
 	Func setControlAlign P1
-		dnRequest("set",[new DotNetObject(nHandle),"ControlAlign",P1])
+		dnRequest("set",[self,"ControlAlign",P1])
 		return self
 
 	Func getControl
-		return dnRequest("get",[new DotNetObject(nHandle),"Control"])
+		return dnRequest("get",[self,"Control"])
 
 	Func setControl P1
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getFocused
-		return dnRequest("get",[new DotNetObject(nHandle),"Focused"])
+		return dnRequest("get",[self,"Focused"])
 
 	Func setFocused P1
 		raise("DotNet Error: Focused is a read-only property")

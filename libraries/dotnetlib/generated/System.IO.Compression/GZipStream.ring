@@ -21,7 +21,7 @@ Class GZipStream from Stream
 		return self
 
 	Func getBaseStream
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseStream"])
+		return dnRequest("get",[self,"BaseStream"])
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")

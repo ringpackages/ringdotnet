@@ -30,10 +30,10 @@ Class SplineByteKeyFrame from ByteKeyFrame
 		return self
 
 	Func getKeySpline
-		return dnRequest("get",[new DotNetObject(nHandle),"KeySpline"])
+		return dnRequest("get",[self,"KeySpline"])
 
 	Func setKeySpline P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeySpline",P1])
+		dnRequest("set",[self,"KeySpline",P1])
 		return self
 
 	Func getKeySplineProperty

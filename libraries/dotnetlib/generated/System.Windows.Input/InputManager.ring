@@ -88,31 +88,31 @@ Class InputManager from DispatcherObject
 		return self
 
 	Func getInputProviders
-		return dnRequest("get",[new DotNetObject(nHandle),"InputProviders"])
+		return dnRequest("get",[self,"InputProviders"])
 
 	Func setInputProviders P1
 		raise("DotNet Error: InputProviders is a read-only property")
 
 	Func getPrimaryKeyboardDevice
-		return dnRequest("get",[new DotNetObject(nHandle),"PrimaryKeyboardDevice"])
+		return dnRequest("get",[self,"PrimaryKeyboardDevice"])
 
 	Func setPrimaryKeyboardDevice P1
 		raise("DotNet Error: PrimaryKeyboardDevice is a read-only property")
 
 	Func getPrimaryMouseDevice
-		return dnRequest("get",[new DotNetObject(nHandle),"PrimaryMouseDevice"])
+		return dnRequest("get",[self,"PrimaryMouseDevice"])
 
 	Func setPrimaryMouseDevice P1
 		raise("DotNet Error: PrimaryMouseDevice is a read-only property")
 
 	Func getMostRecentInputDevice
-		return dnRequest("get",[new DotNetObject(nHandle),"MostRecentInputDevice"])
+		return dnRequest("get",[self,"MostRecentInputDevice"])
 
 	Func setMostRecentInputDevice P1
 		raise("DotNet Error: MostRecentInputDevice is a read-only property")
 
 	Func getIsInMenuMode
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInMenuMode"])
+		return dnRequest("get",[self,"IsInMenuMode"])
 
 	Func setIsInMenuMode P1
 		raise("DotNet Error: IsInMenuMode is a read-only property")

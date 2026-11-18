@@ -41,25 +41,25 @@ Class FromBase64Transform from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getInputBlockSize
-		return dnRequest("get",[new DotNetObject(nHandle),"InputBlockSize"])
+		return dnRequest("get",[self,"InputBlockSize"])
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dnRequest("get",[new DotNetObject(nHandle),"OutputBlockSize"])
+		return dnRequest("get",[self,"OutputBlockSize"])
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dnRequest("get",[new DotNetObject(nHandle),"CanTransformMultipleBlocks"])
+		return dnRequest("get",[self,"CanTransformMultipleBlocks"])
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReuseTransform"])
+		return dnRequest("get",[self,"CanReuseTransform"])
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")

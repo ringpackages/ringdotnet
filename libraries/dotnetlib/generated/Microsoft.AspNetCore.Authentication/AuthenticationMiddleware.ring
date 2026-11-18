@@ -23,9 +23,9 @@ Class AuthenticationMiddleware from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSchemes
-		return dnRequest("get",[new DotNetObject(nHandle),"Schemes"])
+		return dnRequest("get",[self,"Schemes"])
 
 	Func setSchemes P1
-		dnRequest("set",[new DotNetObject(nHandle),"Schemes",P1])
+		dnRequest("set",[self,"Schemes",P1])
 		return self
 

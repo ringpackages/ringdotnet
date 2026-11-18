@@ -31,7 +31,7 @@ Class IUrlHelper from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"Link",P1,P2])
 
 	Func getActionContext
-		return dnRequest("get",[new DotNetObject(nHandle),"ActionContext"])
+		return dnRequest("get",[self,"ActionContext"])
 
 	Func setActionContext P1
 		raise("DotNet Error: ActionContext is a read-only property")

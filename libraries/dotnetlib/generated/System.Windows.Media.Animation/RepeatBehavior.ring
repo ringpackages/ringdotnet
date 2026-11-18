@@ -40,25 +40,25 @@ Class RepeatBehavior from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"Equals",P1,P2])
 
 	Func getHasCount
-		return dnRequest("get",[new DotNetObject(nHandle),"HasCount"])
+		return dnRequest("get",[self,"HasCount"])
 
 	Func setHasCount P1
 		raise("DotNet Error: HasCount is a read-only property")
 
 	Func getHasDuration
-		return dnRequest("get",[new DotNetObject(nHandle),"HasDuration"])
+		return dnRequest("get",[self,"HasDuration"])
 
 	Func setHasDuration P1
 		raise("DotNet Error: HasDuration is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getDuration
-		return dnRequest("get",[new DotNetObject(nHandle),"Duration"])
+		return dnRequest("get",[self,"Duration"])
 
 	Func setDuration P1
 		raise("DotNet Error: Duration is a read-only property")

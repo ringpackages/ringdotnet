@@ -19,30 +19,30 @@ Class IDbDataAdapter from DotNetObject
 		return self
 
 	Func getSelectCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectCommand"])
+		return dnRequest("get",[self,"SelectCommand"])
 
 	Func setSelectCommand P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectCommand",P1])
+		dnRequest("set",[self,"SelectCommand",P1])
 		return self
 
 	Func getInsertCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"InsertCommand"])
+		return dnRequest("get",[self,"InsertCommand"])
 
 	Func setInsertCommand P1
-		dnRequest("set",[new DotNetObject(nHandle),"InsertCommand",P1])
+		dnRequest("set",[self,"InsertCommand",P1])
 		return self
 
 	Func getUpdateCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"UpdateCommand"])
+		return dnRequest("get",[self,"UpdateCommand"])
 
 	Func setUpdateCommand P1
-		dnRequest("set",[new DotNetObject(nHandle),"UpdateCommand",P1])
+		dnRequest("set",[self,"UpdateCommand",P1])
 		return self
 
 	Func getDeleteCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"DeleteCommand"])
+		return dnRequest("get",[self,"DeleteCommand"])
 
 	Func setDeleteCommand P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeleteCommand",P1])
+		dnRequest("set",[self,"DeleteCommand",P1])
 		return self
 

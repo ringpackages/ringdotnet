@@ -232,109 +232,109 @@ Class Assembly from Object
 		return self
 
 	Func getDefinedTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"DefinedTypes"])
+		return dnRequest("get",[self,"DefinedTypes"])
 
 	Func setDefinedTypes P1
 		raise("DotNet Error: DefinedTypes is a read-only property")
 
 	Func getExportedTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"ExportedTypes"])
+		return dnRequest("get",[self,"ExportedTypes"])
 
 	Func setExportedTypes P1
 		raise("DotNet Error: ExportedTypes is a read-only property")
 
 	Func getCodeBase
-		return dnRequest("get",[new DotNetObject(nHandle),"CodeBase"])
+		return dnRequest("get",[self,"CodeBase"])
 
 	Func setCodeBase P1
 		raise("DotNet Error: CodeBase is a read-only property")
 
 	Func getEntryPoint
-		return dnRequest("get",[new DotNetObject(nHandle),"EntryPoint"])
+		return dnRequest("get",[self,"EntryPoint"])
 
 	Func setEntryPoint P1
 		raise("DotNet Error: EntryPoint is a read-only property")
 
 	Func getFullName
-		return dnRequest("get",[new DotNetObject(nHandle),"FullName"])
+		return dnRequest("get",[self,"FullName"])
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getImageRuntimeVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageRuntimeVersion"])
+		return dnRequest("get",[self,"ImageRuntimeVersion"])
 
 	Func setImageRuntimeVersion P1
 		raise("DotNet Error: ImageRuntimeVersion is a read-only property")
 
 	Func getIsDynamic
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDynamic"])
+		return dnRequest("get",[self,"IsDynamic"])
 
 	Func setIsDynamic P1
 		raise("DotNet Error: IsDynamic is a read-only property")
 
 	Func getLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
+		return dnRequest("get",[self,"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getReflectionOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"ReflectionOnly"])
+		return dnRequest("get",[self,"ReflectionOnly"])
 
 	Func setReflectionOnly P1
 		raise("DotNet Error: ReflectionOnly is a read-only property")
 
 	Func getIsCollectible
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCollectible"])
+		return dnRequest("get",[self,"IsCollectible"])
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getIsFullyTrusted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFullyTrusted"])
+		return dnRequest("get",[self,"IsFullyTrusted"])
 
 	Func setIsFullyTrusted P1
 		raise("DotNet Error: IsFullyTrusted is a read-only property")
 
 	Func getCustomAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomAttributes"])
+		return dnRequest("get",[self,"CustomAttributes"])
 
 	Func setCustomAttributes P1
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getEscapedCodeBase
-		return dnRequest("get",[new DotNetObject(nHandle),"EscapedCodeBase"])
+		return dnRequest("get",[self,"EscapedCodeBase"])
 
 	Func setEscapedCodeBase P1
 		raise("DotNet Error: EscapedCodeBase is a read-only property")
 
 	Func getManifestModule
-		return dnRequest("get",[new DotNetObject(nHandle),"ManifestModule"])
+		return dnRequest("get",[self,"ManifestModule"])
 
 	Func setManifestModule P1
 		raise("DotNet Error: ManifestModule is a read-only property")
 
 	Func getModules
-		return dnRequest("get",[new DotNetObject(nHandle),"Modules"])
+		return dnRequest("get",[self,"Modules"])
 
 	Func setModules P1
 		raise("DotNet Error: Modules is a read-only property")
 
 	Func getGlobalAssemblyCache
-		return dnRequest("get",[new DotNetObject(nHandle),"GlobalAssemblyCache"])
+		return dnRequest("get",[self,"GlobalAssemblyCache"])
 
 	Func setGlobalAssemblyCache P1
 		raise("DotNet Error: GlobalAssemblyCache is a read-only property")
 
 	Func getHostContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HostContext"])
+		return dnRequest("get",[self,"HostContext"])
 
 	Func setHostContext P1
 		raise("DotNet Error: HostContext is a read-only property")
 
 	Func getSecurityRuleSet
-		return dnRequest("get",[new DotNetObject(nHandle),"SecurityRuleSet"])
+		return dnRequest("get",[self,"SecurityRuleSet"])
 
 	Func setSecurityRuleSet P1
 		raise("DotNet Error: SecurityRuleSet is a read-only property")

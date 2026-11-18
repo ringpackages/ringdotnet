@@ -24,7 +24,7 @@ Class DecoderFallback from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getMaxCharCount
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxCharCount"])
+		return dnRequest("get",[self,"MaxCharCount"])
 
 	Func setMaxCharCount P1
 		raise("DotNet Error: MaxCharCount is a read-only property")

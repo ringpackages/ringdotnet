@@ -20,17 +20,17 @@ Class Viewbox from Decorator
 		return self
 
 	Func getStretch
-		return dnRequest("get",[new DotNetObject(nHandle),"Stretch"])
+		return dnRequest("get",[self,"Stretch"])
 
 	Func setStretch P1
-		dnRequest("set",[new DotNetObject(nHandle),"Stretch",P1])
+		dnRequest("set",[self,"Stretch",P1])
 		return self
 
 	Func getStretchDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"StretchDirection"])
+		return dnRequest("get",[self,"StretchDirection"])
 
 	Func setStretchDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"StretchDirection",P1])
+		dnRequest("set",[self,"StretchDirection",P1])
 		return self
 
 	Func getStretchProperty

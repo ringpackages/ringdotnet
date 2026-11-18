@@ -17,13 +17,13 @@ Class ValidationErrorEventArgs from RoutedEventArgs
 		return self
 
 	Func getError
-		return dnRequest("get",[new DotNetObject(nHandle),"Error"])
+		return dnRequest("get",[self,"Error"])
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")
 
 	Func getAction
-		return dnRequest("get",[new DotNetObject(nHandle),"Action"])
+		return dnRequest("get",[self,"Action"])
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")

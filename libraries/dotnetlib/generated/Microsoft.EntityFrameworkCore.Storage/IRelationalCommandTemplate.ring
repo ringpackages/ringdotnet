@@ -20,13 +20,13 @@ Class IRelationalCommandTemplate from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateDbCommand",P1,P2,P3])
 
 	Func getCommandText
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandText"])
+		return dnRequest("get",[self,"CommandText"])
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
 
 	Func getParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameters"])
+		return dnRequest("get",[self,"Parameters"])
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")

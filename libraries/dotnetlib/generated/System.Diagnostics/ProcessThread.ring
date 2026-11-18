@@ -33,83 +33,83 @@ Class ProcessThread from Component
 		return self
 
 	Func getBasePriority
-		return dnRequest("get",[new DotNetObject(nHandle),"BasePriority"])
+		return dnRequest("get",[self,"BasePriority"])
 
 	Func setBasePriority P1
 		raise("DotNet Error: BasePriority is a read-only property")
 
 	Func getCurrentPriority
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentPriority"])
+		return dnRequest("get",[self,"CurrentPriority"])
 
 	Func setCurrentPriority P1
 		raise("DotNet Error: CurrentPriority is a read-only property")
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getPriorityBoostEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"PriorityBoostEnabled"])
+		return dnRequest("get",[self,"PriorityBoostEnabled"])
 
 	Func setPriorityBoostEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"PriorityBoostEnabled",P1])
+		dnRequest("set",[self,"PriorityBoostEnabled",P1])
 		return self
 
 	Func getPriorityLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"PriorityLevel"])
+		return dnRequest("get",[self,"PriorityLevel"])
 
 	Func setPriorityLevel P1
-		dnRequest("set",[new DotNetObject(nHandle),"PriorityLevel",P1])
+		dnRequest("set",[self,"PriorityLevel",P1])
 		return self
 
 	Func getStartAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"StartAddress"])
+		return dnRequest("get",[self,"StartAddress"])
 
 	Func setStartAddress P1
 		raise("DotNet Error: StartAddress is a read-only property")
 
 	Func getThreadState
-		return dnRequest("get",[new DotNetObject(nHandle),"ThreadState"])
+		return dnRequest("get",[self,"ThreadState"])
 
 	Func setThreadState P1
 		raise("DotNet Error: ThreadState is a read-only property")
 
 	Func getWaitReason
-		return dnRequest("get",[new DotNetObject(nHandle),"WaitReason"])
+		return dnRequest("get",[self,"WaitReason"])
 
 	Func setWaitReason P1
 		raise("DotNet Error: WaitReason is a read-only property")
 
 	Func getStartTime
-		return dnRequest("get",[new DotNetObject(nHandle),"StartTime"])
+		return dnRequest("get",[self,"StartTime"])
 
 	Func setStartTime P1
 		raise("DotNet Error: StartTime is a read-only property")
 
 	Func setIdealProcessor P1
-		dnRequest("set",[new DotNetObject(nHandle),"IdealProcessor",P1])
+		dnRequest("set",[self,"IdealProcessor",P1])
 		return self
 
 	Func setProcessorAffinity P1
-		dnRequest("set",[new DotNetObject(nHandle),"ProcessorAffinity",P1])
+		dnRequest("set",[self,"ProcessorAffinity",P1])
 		return self
 
 	Func getPrivilegedProcessorTime
-		return dnRequest("get",[new DotNetObject(nHandle),"PrivilegedProcessorTime"])
+		return dnRequest("get",[self,"PrivilegedProcessorTime"])
 
 	Func setPrivilegedProcessorTime P1
 		raise("DotNet Error: PrivilegedProcessorTime is a read-only property")
 
 	Func getTotalProcessorTime
-		return dnRequest("get",[new DotNetObject(nHandle),"TotalProcessorTime"])
+		return dnRequest("get",[self,"TotalProcessorTime"])
 
 	Func setTotalProcessorTime P1
 		raise("DotNet Error: TotalProcessorTime is a read-only property")
 
 	Func getUserProcessorTime
-		return dnRequest("get",[new DotNetObject(nHandle),"UserProcessorTime"])
+		return dnRequest("get",[self,"UserProcessorTime"])
 
 	Func setUserProcessorTime P1
 		raise("DotNet Error: UserProcessorTime is a read-only property")

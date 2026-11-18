@@ -104,196 +104,196 @@ Class DataGridViewCell from DataGridViewElement
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"MeasureTextWidth",P1,P2,P3,P4,P5])
 
 	Func getAccessibilityObject
-		return dnRequest("get",[new DotNetObject(nHandle),"AccessibilityObject"])
+		return dnRequest("get",[self,"AccessibilityObject"])
 
 	Func setAccessibilityObject P1
 		raise("DotNet Error: AccessibilityObject is a read-only property")
 
 	Func getColumnIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnIndex"])
+		return dnRequest("get",[self,"ColumnIndex"])
 
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getContentBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentBounds"])
+		return dnRequest("get",[self,"ContentBounds"])
 
 	Func setContentBounds P1
 		raise("DotNet Error: ContentBounds is a read-only property")
 
 	Func getContextMenuStrip
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextMenuStrip"])
+		return dnRequest("get",[self,"ContextMenuStrip"])
 
 	Func setContextMenuStrip P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContextMenuStrip",P1])
+		dnRequest("set",[self,"ContextMenuStrip",P1])
 		return self
 
 	Func getDefaultNewRowValue
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultNewRowValue"])
+		return dnRequest("get",[self,"DefaultNewRowValue"])
 
 	Func setDefaultNewRowValue P1
 		raise("DotNet Error: DefaultNewRowValue is a read-only property")
 
 	Func getDisplayed
-		return dnRequest("get",[new DotNetObject(nHandle),"Displayed"])
+		return dnRequest("get",[self,"Displayed"])
 
 	Func setDisplayed P1
 		raise("DotNet Error: Displayed is a read-only property")
 
 	Func getEditedFormattedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"EditedFormattedValue"])
+		return dnRequest("get",[self,"EditedFormattedValue"])
 
 	Func setEditedFormattedValue P1
 		raise("DotNet Error: EditedFormattedValue is a read-only property")
 
 	Func getEditType
-		return dnRequest("get",[new DotNetObject(nHandle),"EditType"])
+		return dnRequest("get",[self,"EditType"])
 
 	Func setEditType P1
 		raise("DotNet Error: EditType is a read-only property")
 
 	Func getErrorIconBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorIconBounds"])
+		return dnRequest("get",[self,"ErrorIconBounds"])
 
 	Func setErrorIconBounds P1
 		raise("DotNet Error: ErrorIconBounds is a read-only property")
 
 	Func getErrorText
-		return dnRequest("get",[new DotNetObject(nHandle),"ErrorText"])
+		return dnRequest("get",[self,"ErrorText"])
 
 	Func setErrorText P1
-		dnRequest("set",[new DotNetObject(nHandle),"ErrorText",P1])
+		dnRequest("set",[self,"ErrorText",P1])
 		return self
 
 	Func getFormattedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"FormattedValue"])
+		return dnRequest("get",[self,"FormattedValue"])
 
 	Func setFormattedValue P1
 		raise("DotNet Error: FormattedValue is a read-only property")
 
 	Func getFormattedValueType
-		return dnRequest("get",[new DotNetObject(nHandle),"FormattedValueType"])
+		return dnRequest("get",[self,"FormattedValueType"])
 
 	Func setFormattedValueType P1
 		raise("DotNet Error: FormattedValueType is a read-only property")
 
 	Func getFrozen
-		return dnRequest("get",[new DotNetObject(nHandle),"Frozen"])
+		return dnRequest("get",[self,"Frozen"])
 
 	Func setFrozen P1
 		raise("DotNet Error: Frozen is a read-only property")
 
 	Func getHasStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"HasStyle"])
+		return dnRequest("get",[self,"HasStyle"])
 
 	Func setHasStyle P1
 		raise("DotNet Error: HasStyle is a read-only property")
 
 	Func getInheritedState
-		return dnRequest("get",[new DotNetObject(nHandle),"InheritedState"])
+		return dnRequest("get",[self,"InheritedState"])
 
 	Func setInheritedState P1
 		raise("DotNet Error: InheritedState is a read-only property")
 
 	Func getInheritedStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"InheritedStyle"])
+		return dnRequest("get",[self,"InheritedStyle"])
 
 	Func setInheritedStyle P1
 		raise("DotNet Error: InheritedStyle is a read-only property")
 
 	Func getIsInEditMode
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInEditMode"])
+		return dnRequest("get",[self,"IsInEditMode"])
 
 	Func setIsInEditMode P1
 		raise("DotNet Error: IsInEditMode is a read-only property")
 
 	Func getOwningColumn
-		return dnRequest("get",[new DotNetObject(nHandle),"OwningColumn"])
+		return dnRequest("get",[self,"OwningColumn"])
 
 	Func setOwningColumn P1
 		raise("DotNet Error: OwningColumn is a read-only property")
 
 	Func getOwningRow
-		return dnRequest("get",[new DotNetObject(nHandle),"OwningRow"])
+		return dnRequest("get",[self,"OwningRow"])
 
 	Func setOwningRow P1
 		raise("DotNet Error: OwningRow is a read-only property")
 
 	Func getPreferredSize
-		return dnRequest("get",[new DotNetObject(nHandle),"PreferredSize"])
+		return dnRequest("get",[self,"PreferredSize"])
 
 	Func setPreferredSize P1
 		raise("DotNet Error: PreferredSize is a read-only property")
 
 	Func getReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnly"])
+		return dnRequest("get",[self,"ReadOnly"])
 
 	Func setReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadOnly",P1])
+		dnRequest("set",[self,"ReadOnly",P1])
 		return self
 
 	Func getResizable
-		return dnRequest("get",[new DotNetObject(nHandle),"Resizable"])
+		return dnRequest("get",[self,"Resizable"])
 
 	Func setResizable P1
 		raise("DotNet Error: Resizable is a read-only property")
 
 	Func getRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"RowIndex"])
+		return dnRequest("get",[self,"RowIndex"])
 
 	Func setRowIndex P1
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"Selected"])
+		return dnRequest("get",[self,"Selected"])
 
 	Func setSelected P1
-		dnRequest("set",[new DotNetObject(nHandle),"Selected",P1])
+		dnRequest("set",[self,"Selected",P1])
 		return self
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
+		return dnRequest("get",[self,"Style"])
 
 	Func setStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Style",P1])
+		dnRequest("set",[self,"Style",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[new DotNetObject(nHandle),"Tag"])
+		return dnRequest("get",[self,"Tag"])
 
 	Func setTag P1
-		dnRequest("set",[new DotNetObject(nHandle),"Tag",P1])
+		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getToolTipText
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolTipText"])
+		return dnRequest("get",[self,"ToolTipText"])
 
 	Func setToolTipText P1
-		dnRequest("set",[new DotNetObject(nHandle),"ToolTipText",P1])
+		dnRequest("set",[self,"ToolTipText",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getValueType
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueType"])
+		return dnRequest("get",[self,"ValueType"])
 
 	Func setValueType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValueType",P1])
+		dnRequest("set",[self,"ValueType",P1])
 		return self
 
 	Func getVisible
-		return dnRequest("get",[new DotNetObject(nHandle),"Visible"])
+		return dnRequest("get",[self,"Visible"])
 
 	Func setVisible P1
 		raise("DotNet Error: Visible is a read-only property")

@@ -49,7 +49,7 @@ Class IProperty from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetElementType"])
 
 	Func getDeclaringEntityType
-		return dnRequest("get",[new DotNetObject(nHandle),"DeclaringEntityType"])
+		return dnRequest("get",[self,"DeclaringEntityType"])
 
 	Func setDeclaringEntityType P1
 		raise("DotNet Error: DeclaringEntityType is a read-only property")

@@ -28,7 +28,7 @@ Class GeneralTransform from Animatable
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getInverse
-		return dnRequest("get",[new DotNetObject(nHandle),"Inverse"])
+		return dnRequest("get",[self,"Inverse"])
 
 	Func setInverse P1
 		raise("DotNet Error: Inverse is a read-only property")

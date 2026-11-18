@@ -22,15 +22,15 @@ Class ToolStripProfessionalRenderer from ToolStripRenderer
 		return self
 
 	Func getColorTable
-		return dnRequest("get",[new DotNetObject(nHandle),"ColorTable"])
+		return dnRequest("get",[self,"ColorTable"])
 
 	Func setColorTable P1
 		raise("DotNet Error: ColorTable is a read-only property")
 
 	Func getRoundedEdges
-		return dnRequest("get",[new DotNetObject(nHandle),"RoundedEdges"])
+		return dnRequest("get",[self,"RoundedEdges"])
 
 	Func setRoundedEdges P1
-		dnRequest("set",[new DotNetObject(nHandle),"RoundedEdges",P1])
+		dnRequest("set",[self,"RoundedEdges",P1])
 		return self
 

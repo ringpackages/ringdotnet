@@ -38,7 +38,7 @@ Class FileBufferingWriteStream from Stream
 		return dnRequest("call",[new DotNetObject(nHandle),"DrainBufferAsync",P1])
 
 	Func getMemoryThreshold
-		return dnRequest("get",[new DotNetObject(nHandle),"MemoryThreshold"])
+		return dnRequest("get",[self,"MemoryThreshold"])
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")

@@ -27,7 +27,7 @@ Class CancellationTokenRegistration from ValueType
 		return dnRequest("call",[new DotNetObject(nHandle),"Unregister"])
 
 	Func getToken
-		return dnRequest("get",[new DotNetObject(nHandle),"Token"])
+		return dnRequest("get",[self,"Token"])
 
 	Func setToken P1
 		raise("DotNet Error: Token is a read-only property")

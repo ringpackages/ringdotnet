@@ -16,9 +16,9 @@ Class IItemsFeature from DotNetObject
 		return self
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
-		dnRequest("set",[new DotNetObject(nHandle),"Items",P1])
+		dnRequest("set",[self,"Items",P1])
 		return self
 

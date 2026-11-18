@@ -40,13 +40,13 @@ Class SecurityIdentifier from IdentityReference
 		return dnRequest("call",[new DotNetObject(nHandle),"IsEqualDomainSid",P1])
 
 	Func getBinaryLength
-		return dnRequest("get",[new DotNetObject(nHandle),"BinaryLength"])
+		return dnRequest("get",[self,"BinaryLength"])
 
 	Func setBinaryLength P1
 		raise("DotNet Error: BinaryLength is a read-only property")
 
 	Func getAccountDomainSid
-		return dnRequest("get",[new DotNetObject(nHandle),"AccountDomainSid"])
+		return dnRequest("get",[self,"AccountDomainSid"])
 
 	Func setAccountDomainSid P1
 		raise("DotNet Error: AccountDomainSid is a read-only property")

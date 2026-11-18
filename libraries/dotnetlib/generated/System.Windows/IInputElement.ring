@@ -438,63 +438,63 @@ Class IInputElement from DotNetObject
 		return self
 
 	Func getIsMouseOver
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseOver"])
+		return dnRequest("get",[self,"IsMouseOver"])
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsMouseDirectlyOver
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseDirectlyOver"])
+		return dnRequest("get",[self,"IsMouseDirectlyOver"])
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseCaptured
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMouseCaptured"])
+		return dnRequest("get",[self,"IsMouseCaptured"])
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsStylusOver
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusOver"])
+		return dnRequest("get",[self,"IsStylusOver"])
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusDirectlyOver"])
+		return dnRequest("get",[self,"IsStylusDirectlyOver"])
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStylusCaptured"])
+		return dnRequest("get",[self,"IsStylusCaptured"])
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyboardFocusWithin"])
+		return dnRequest("get",[self,"IsKeyboardFocusWithin"])
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyboardFocused"])
+		return dnRequest("get",[self,"IsKeyboardFocused"])
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsEnabled"])
+		return dnRequest("get",[self,"IsEnabled"])
 
 	Func setIsEnabled P1
 		raise("DotNet Error: IsEnabled is a read-only property")
 
 	Func getFocusable
-		return dnRequest("get",[new DotNetObject(nHandle),"Focusable"])
+		return dnRequest("get",[self,"Focusable"])
 
 	Func setFocusable P1
-		dnRequest("set",[new DotNetObject(nHandle),"Focusable",P1])
+		dnRequest("set",[self,"Focusable",P1])
 		return self
 

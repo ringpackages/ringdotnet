@@ -104,7 +104,7 @@ Class MemoryMappedFile from Object
 		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1,P2,P3,P4,P5])
 
 	Func getSafeMemoryMappedFileHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"SafeMemoryMappedFileHandle"])
+		return dnRequest("get",[self,"SafeMemoryMappedFileHandle"])
 
 	Func setSafeMemoryMappedFileHandle P1
 		raise("DotNet Error: SafeMemoryMappedFileHandle is a read-only property")

@@ -19,30 +19,30 @@ Class PosixTarEntry from TarEntry
 		return self
 
 	Func getDeviceMajor
-		return dnRequest("get",[new DotNetObject(nHandle),"DeviceMajor"])
+		return dnRequest("get",[self,"DeviceMajor"])
 
 	Func setDeviceMajor P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeviceMajor",P1])
+		dnRequest("set",[self,"DeviceMajor",P1])
 		return self
 
 	Func getDeviceMinor
-		return dnRequest("get",[new DotNetObject(nHandle),"DeviceMinor"])
+		return dnRequest("get",[self,"DeviceMinor"])
 
 	Func setDeviceMinor P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeviceMinor",P1])
+		dnRequest("set",[self,"DeviceMinor",P1])
 		return self
 
 	Func getGroupName
-		return dnRequest("get",[new DotNetObject(nHandle),"GroupName"])
+		return dnRequest("get",[self,"GroupName"])
 
 	Func setGroupName P1
-		dnRequest("set",[new DotNetObject(nHandle),"GroupName",P1])
+		dnRequest("set",[self,"GroupName",P1])
 		return self
 
 	Func getUserName
-		return dnRequest("get",[new DotNetObject(nHandle),"UserName"])
+		return dnRequest("get",[self,"UserName"])
 
 	Func setUserName P1
-		dnRequest("set",[new DotNetObject(nHandle),"UserName",P1])
+		dnRequest("set",[self,"UserName",P1])
 		return self
 

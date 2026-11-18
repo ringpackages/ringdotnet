@@ -21,16 +21,16 @@ Class FileDialogCustomPlace from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPath
-		return dnRequest("get",[new DotNetObject(nHandle),"Path"])
+		return dnRequest("get",[self,"Path"])
 
 	Func setPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"Path",P1])
+		dnRequest("set",[self,"Path",P1])
 		return self
 
 	Func getKnownFolderGuid
-		return dnRequest("get",[new DotNetObject(nHandle),"KnownFolderGuid"])
+		return dnRequest("get",[self,"KnownFolderGuid"])
 
 	Func setKnownFolderGuid P1
-		dnRequest("set",[new DotNetObject(nHandle),"KnownFolderGuid",P1])
+		dnRequest("set",[self,"KnownFolderGuid",P1])
 		return self
 

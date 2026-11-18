@@ -18,13 +18,13 @@ Class EntityTrackingEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getFromQuery
-		return dnRequest("get",[new DotNetObject(nHandle),"FromQuery"])
+		return dnRequest("get",[self,"FromQuery"])
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")

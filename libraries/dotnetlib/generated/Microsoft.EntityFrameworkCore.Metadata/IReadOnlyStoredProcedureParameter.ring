@@ -36,37 +36,37 @@ Class IReadOnlyStoredProcedureParameter from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getStoredProcedure
-		return dnRequest("get",[new DotNetObject(nHandle),"StoredProcedure"])
+		return dnRequest("get",[self,"StoredProcedure"])
 
 	Func setStoredProcedure P1
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyName
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyName"])
+		return dnRequest("get",[self,"PropertyName"])
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"Direction"])
+		return dnRequest("get",[self,"Direction"])
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
 
 	Func getForOriginalValue
-		return dnRequest("get",[new DotNetObject(nHandle),"ForOriginalValue"])
+		return dnRequest("get",[self,"ForOriginalValue"])
 
 	Func setForOriginalValue P1
 		raise("DotNet Error: ForOriginalValue is a read-only property")
 
 	Func getForRowsAffected
-		return dnRequest("get",[new DotNetObject(nHandle),"ForRowsAffected"])
+		return dnRequest("get",[self,"ForRowsAffected"])
 
 	Func setForRowsAffected P1
 		raise("DotNet Error: ForRowsAffected is a read-only property")

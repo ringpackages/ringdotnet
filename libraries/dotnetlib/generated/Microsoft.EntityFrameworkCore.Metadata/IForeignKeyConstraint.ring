@@ -38,49 +38,49 @@ Class IForeignKeyConstraint from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getMappedForeignKeys
-		return dnRequest("get",[new DotNetObject(nHandle),"MappedForeignKeys"])
+		return dnRequest("get",[self,"MappedForeignKeys"])
 
 	Func setMappedForeignKeys P1
 		raise("DotNet Error: MappedForeignKeys is a read-only property")
 
 	Func getTable
-		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
+		return dnRequest("get",[self,"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getPrincipalTable
-		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalTable"])
+		return dnRequest("get",[self,"PrincipalTable"])
 
 	Func setPrincipalTable P1
 		raise("DotNet Error: PrincipalTable is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
+		return dnRequest("get",[self,"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getPrincipalColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalColumns"])
+		return dnRequest("get",[self,"PrincipalColumns"])
 
 	Func setPrincipalColumns P1
 		raise("DotNet Error: PrincipalColumns is a read-only property")
 
 	Func getPrincipalUniqueConstraint
-		return dnRequest("get",[new DotNetObject(nHandle),"PrincipalUniqueConstraint"])
+		return dnRequest("get",[self,"PrincipalUniqueConstraint"])
 
 	Func setPrincipalUniqueConstraint P1
 		raise("DotNet Error: PrincipalUniqueConstraint is a read-only property")
 
 	Func getOnDeleteAction
-		return dnRequest("get",[new DotNetObject(nHandle),"OnDeleteAction"])
+		return dnRequest("get",[self,"OnDeleteAction"])
 
 	Func setOnDeleteAction P1
 		raise("DotNet Error: OnDeleteAction is a read-only property")

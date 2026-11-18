@@ -18,13 +18,13 @@ Class LazyLoadingEventData from DbContextEventData
 		return self
 
 	Func getEntity
-		return dnRequest("get",[new DotNetObject(nHandle),"Entity"])
+		return dnRequest("get",[self,"Entity"])
 
 	Func setEntity P1
 		raise("DotNet Error: Entity is a read-only property")
 
 	Func getNavigationPropertyName
-		return dnRequest("get",[new DotNetObject(nHandle),"NavigationPropertyName"])
+		return dnRequest("get",[self,"NavigationPropertyName"])
 
 	Func setNavigationPropertyName P1
 		raise("DotNet Error: NavigationPropertyName is a read-only property")

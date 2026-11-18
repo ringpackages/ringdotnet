@@ -24,17 +24,17 @@ Class MatrixCamera from Camera
 		return self
 
 	Func getViewMatrix
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewMatrix"])
+		return dnRequest("get",[self,"ViewMatrix"])
 
 	Func setViewMatrix P1
-		dnRequest("set",[new DotNetObject(nHandle),"ViewMatrix",P1])
+		dnRequest("set",[self,"ViewMatrix",P1])
 		return self
 
 	Func getProjectionMatrix
-		return dnRequest("get",[new DotNetObject(nHandle),"ProjectionMatrix"])
+		return dnRequest("get",[self,"ProjectionMatrix"])
 
 	Func setProjectionMatrix P1
-		dnRequest("set",[new DotNetObject(nHandle),"ProjectionMatrix",P1])
+		dnRequest("set",[self,"ProjectionMatrix",P1])
 		return self
 
 	Func getViewMatrixProperty

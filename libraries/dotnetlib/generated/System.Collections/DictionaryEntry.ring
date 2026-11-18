@@ -25,16 +25,16 @@ Class DictionaryEntry from ValueType
 		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"Key",P1])
+		dnRequest("set",[self,"Key",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 

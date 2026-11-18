@@ -77,121 +77,121 @@ Class DateTimePicker from Control
 		return self
 
 	Func getCalendarForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarForeColor"])
+		return dnRequest("get",[self,"CalendarForeColor"])
 
 	Func setCalendarForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarForeColor",P1])
+		dnRequest("set",[self,"CalendarForeColor",P1])
 		return self
 
 	Func getCalendarFont
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarFont"])
+		return dnRequest("get",[self,"CalendarFont"])
 
 	Func setCalendarFont P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarFont",P1])
+		dnRequest("set",[self,"CalendarFont",P1])
 		return self
 
 	Func getCalendarTitleBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarTitleBackColor"])
+		return dnRequest("get",[self,"CalendarTitleBackColor"])
 
 	Func setCalendarTitleBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarTitleBackColor",P1])
+		dnRequest("set",[self,"CalendarTitleBackColor",P1])
 		return self
 
 	Func getCalendarTitleForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarTitleForeColor"])
+		return dnRequest("get",[self,"CalendarTitleForeColor"])
 
 	Func setCalendarTitleForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarTitleForeColor",P1])
+		dnRequest("set",[self,"CalendarTitleForeColor",P1])
 		return self
 
 	Func getCalendarTrailingForeColor
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarTrailingForeColor"])
+		return dnRequest("get",[self,"CalendarTrailingForeColor"])
 
 	Func setCalendarTrailingForeColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarTrailingForeColor",P1])
+		dnRequest("set",[self,"CalendarTrailingForeColor",P1])
 		return self
 
 	Func getCalendarMonthBackground
-		return dnRequest("get",[new DotNetObject(nHandle),"CalendarMonthBackground"])
+		return dnRequest("get",[self,"CalendarMonthBackground"])
 
 	Func setCalendarMonthBackground P1
-		dnRequest("set",[new DotNetObject(nHandle),"CalendarMonthBackground",P1])
+		dnRequest("set",[self,"CalendarMonthBackground",P1])
 		return self
 
 	Func getChecked
-		return dnRequest("get",[new DotNetObject(nHandle),"Checked"])
+		return dnRequest("get",[self,"Checked"])
 
 	Func setChecked P1
-		dnRequest("set",[new DotNetObject(nHandle),"Checked",P1])
+		dnRequest("set",[self,"Checked",P1])
 		return self
 
 	Func getCustomFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomFormat"])
+		return dnRequest("get",[self,"CustomFormat"])
 
 	Func setCustomFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"CustomFormat",P1])
+		dnRequest("set",[self,"CustomFormat",P1])
 		return self
 
 	Func getDropDownAlign
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownAlign"])
+		return dnRequest("get",[self,"DropDownAlign"])
 
 	Func setDropDownAlign P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropDownAlign",P1])
+		dnRequest("set",[self,"DropDownAlign",P1])
 		return self
 
 	Func getFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
+		return dnRequest("get",[self,"Format"])
 
 	Func setFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"Format",P1])
+		dnRequest("set",[self,"Format",P1])
 		return self
 
 	Func getMaxDate
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxDate"])
+		return dnRequest("get",[self,"MaxDate"])
 
 	Func setMaxDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxDate",P1])
+		dnRequest("set",[self,"MaxDate",P1])
 		return self
 
 	Func getMinDate
-		return dnRequest("get",[new DotNetObject(nHandle),"MinDate"])
+		return dnRequest("get",[self,"MinDate"])
 
 	Func setMinDate P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinDate",P1])
+		dnRequest("set",[self,"MinDate",P1])
 		return self
 
 	Func getPreferredHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"PreferredHeight"])
+		return dnRequest("get",[self,"PreferredHeight"])
 
 	Func setPreferredHeight P1
 		raise("DotNet Error: PreferredHeight is a read-only property")
 
 	Func getRightToLeftLayout
-		return dnRequest("get",[new DotNetObject(nHandle),"RightToLeftLayout"])
+		return dnRequest("get",[self,"RightToLeftLayout"])
 
 	Func setRightToLeftLayout P1
-		dnRequest("set",[new DotNetObject(nHandle),"RightToLeftLayout",P1])
+		dnRequest("set",[self,"RightToLeftLayout",P1])
 		return self
 
 	Func getShowCheckBox
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowCheckBox"])
+		return dnRequest("get",[self,"ShowCheckBox"])
 
 	Func setShowCheckBox P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowCheckBox",P1])
+		dnRequest("set",[self,"ShowCheckBox",P1])
 		return self
 
 	Func getShowUpDown
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowUpDown"])
+		return dnRequest("get",[self,"ShowUpDown"])
 
 	Func setShowUpDown P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowUpDown",P1])
+		dnRequest("set",[self,"ShowUpDown",P1])
 		return self
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getMaximumDateTime

@@ -23,19 +23,19 @@ Class ConsoleKeyInfo from ValueType
 		return self
 
 	Func getKeyChar
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyChar"])
+		return dnRequest("get",[self,"KeyChar"])
 
 	Func setKeyChar P1
 		raise("DotNet Error: KeyChar is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getModifiers
-		return dnRequest("get",[new DotNetObject(nHandle),"Modifiers"])
+		return dnRequest("get",[self,"Modifiers"])
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")

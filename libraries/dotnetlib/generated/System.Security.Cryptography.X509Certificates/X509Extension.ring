@@ -21,9 +21,9 @@ Class X509Extension from AsnEncodedData
 		return self
 
 	Func getCritical
-		return dnRequest("get",[new DotNetObject(nHandle),"Critical"])
+		return dnRequest("get",[self,"Critical"])
 
 	Func setCritical P1
-		dnRequest("set",[new DotNetObject(nHandle),"Critical",P1])
+		dnRequest("set",[self,"Critical",P1])
 		return self
 

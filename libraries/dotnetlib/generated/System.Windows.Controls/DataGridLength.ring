@@ -40,55 +40,55 @@ Class DataGridLength from ValueType
 		return self
 
 	Func getIsAbsolute
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAbsolute"])
+		return dnRequest("get",[self,"IsAbsolute"])
 
 	Func setIsAbsolute P1
 		raise("DotNet Error: IsAbsolute is a read-only property")
 
 	Func getIsAuto
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAuto"])
+		return dnRequest("get",[self,"IsAuto"])
 
 	Func setIsAuto P1
 		raise("DotNet Error: IsAuto is a read-only property")
 
 	Func getIsStar
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStar"])
+		return dnRequest("get",[self,"IsStar"])
 
 	Func setIsStar P1
 		raise("DotNet Error: IsStar is a read-only property")
 
 	Func getIsSizeToCells
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSizeToCells"])
+		return dnRequest("get",[self,"IsSizeToCells"])
 
 	Func setIsSizeToCells P1
 		raise("DotNet Error: IsSizeToCells is a read-only property")
 
 	Func getIsSizeToHeader
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSizeToHeader"])
+		return dnRequest("get",[self,"IsSizeToHeader"])
 
 	Func setIsSizeToHeader P1
 		raise("DotNet Error: IsSizeToHeader is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getUnitType
-		return dnRequest("get",[new DotNetObject(nHandle),"UnitType"])
+		return dnRequest("get",[self,"UnitType"])
 
 	Func setUnitType P1
 		raise("DotNet Error: UnitType is a read-only property")
 
 	Func getDesiredValue
-		return dnRequest("get",[new DotNetObject(nHandle),"DesiredValue"])
+		return dnRequest("get",[self,"DesiredValue"])
 
 	Func setDesiredValue P1
 		raise("DotNet Error: DesiredValue is a read-only property")
 
 	Func getDisplayValue
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayValue"])
+		return dnRequest("get",[self,"DisplayValue"])
 
 	Func setDisplayValue P1
 		raise("DotNet Error: DisplayValue is a read-only property")

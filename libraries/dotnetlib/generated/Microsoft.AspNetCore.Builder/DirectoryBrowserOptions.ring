@@ -36,30 +36,30 @@ Class DirectoryBrowserOptions from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func getFormatter
-		return dnRequest("get",[new DotNetObject(nHandle),"Formatter"])
+		return dnRequest("get",[self,"Formatter"])
 
 	Func setFormatter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Formatter",P1])
+		dnRequest("set",[self,"Formatter",P1])
 		return self
 
 	Func getRequestPath
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestPath"])
+		return dnRequest("get",[self,"RequestPath"])
 
 	Func setRequestPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestPath",P1])
+		dnRequest("set",[self,"RequestPath",P1])
 		return self
 
 	Func getFileProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"FileProvider"])
+		return dnRequest("get",[self,"FileProvider"])
 
 	Func setFileProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"FileProvider",P1])
+		dnRequest("set",[self,"FileProvider",P1])
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dnRequest("get",[new DotNetObject(nHandle),"RedirectToAppendTrailingSlash"])
+		return dnRequest("get",[self,"RedirectToAppendTrailingSlash"])
 
 	Func setRedirectToAppendTrailingSlash P1
-		dnRequest("set",[new DotNetObject(nHandle),"RedirectToAppendTrailingSlash",P1])
+		dnRequest("set",[self,"RedirectToAppendTrailingSlash",P1])
 		return self
 

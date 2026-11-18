@@ -25,16 +25,16 @@ Class ColorBlend from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getColors
-		return dnRequest("get",[new DotNetObject(nHandle),"Colors"])
+		return dnRequest("get",[self,"Colors"])
 
 	Func setColors P1
-		dnRequest("set",[new DotNetObject(nHandle),"Colors",P1])
+		dnRequest("set",[self,"Colors",P1])
 		return self
 
 	Func getPositions
-		return dnRequest("get",[new DotNetObject(nHandle),"Positions"])
+		return dnRequest("get",[self,"Positions"])
 
 	Func setPositions P1
-		dnRequest("set",[new DotNetObject(nHandle),"Positions",P1])
+		dnRequest("set",[self,"Positions",P1])
 		return self
 

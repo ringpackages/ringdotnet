@@ -22,23 +22,23 @@ Class SessionOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getCookie
-		return dnRequest("get",[new DotNetObject(nHandle),"Cookie"])
+		return dnRequest("get",[self,"Cookie"])
 
 	Func setCookie P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cookie",P1])
+		dnRequest("set",[self,"Cookie",P1])
 		return self
 
 	Func getIdleTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"IdleTimeout"])
+		return dnRequest("get",[self,"IdleTimeout"])
 
 	Func setIdleTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"IdleTimeout",P1])
+		dnRequest("set",[self,"IdleTimeout",P1])
 		return self
 
 	Func getIOTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"IOTimeout"])
+		return dnRequest("get",[self,"IOTimeout"])
 
 	Func setIOTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"IOTimeout",P1])
+		dnRequest("set",[self,"IOTimeout",P1])
 		return self
 

@@ -23,7 +23,7 @@ Class ColorContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getProfileUri
-		return dnRequest("get",[new DotNetObject(nHandle),"ProfileUri"])
+		return dnRequest("get",[self,"ProfileUri"])
 
 	Func setProfileUri P1
 		raise("DotNet Error: ProfileUri is a read-only property")

@@ -68,7 +68,7 @@ Class NamedPipeClientStream from PipeStream
 		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2])
 
 	Func getNumberOfServerInstances
-		return dnRequest("get",[new DotNetObject(nHandle),"NumberOfServerInstances"])
+		return dnRequest("get",[self,"NumberOfServerInstances"])
 
 	Func setNumberOfServerInstances P1
 		raise("DotNet Error: NumberOfServerInstances is a read-only property")

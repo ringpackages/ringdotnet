@@ -182,13 +182,13 @@ Class IEntityType from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDeclaredTriggers"])
 
 	Func getBaseType
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseType"])
+		return dnRequest("get",[self,"BaseType"])
 
 	Func setBaseType P1
 		raise("DotNet Error: BaseType is a read-only property")
 
 	Func getServiceOnlyConstructorBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceOnlyConstructorBinding"])
+		return dnRequest("get",[self,"ServiceOnlyConstructorBinding"])
 
 	Func setServiceOnlyConstructorBinding P1
 		raise("DotNet Error: ServiceOnlyConstructorBinding is a read-only property")

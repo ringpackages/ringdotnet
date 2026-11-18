@@ -37,26 +37,26 @@ Class BitmapFrame from BitmapSource
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"Create",P1,P2,P3,P4])
 
 	Func getBaseUri
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseUri"])
+		return dnRequest("get",[self,"BaseUri"])
 
 	Func setBaseUri P1
-		dnRequest("set",[new DotNetObject(nHandle),"BaseUri",P1])
+		dnRequest("set",[self,"BaseUri",P1])
 		return self
 
 	Func getThumbnail
-		return dnRequest("get",[new DotNetObject(nHandle),"Thumbnail"])
+		return dnRequest("get",[self,"Thumbnail"])
 
 	Func setThumbnail P1
 		raise("DotNet Error: Thumbnail is a read-only property")
 
 	Func getDecoder
-		return dnRequest("get",[new DotNetObject(nHandle),"Decoder"])
+		return dnRequest("get",[self,"Decoder"])
 
 	Func setDecoder P1
 		raise("DotNet Error: Decoder is a read-only property")
 
 	Func getColorContexts
-		return dnRequest("get",[new DotNetObject(nHandle),"ColorContexts"])
+		return dnRequest("get",[self,"ColorContexts"])
 
 	Func setColorContexts P1
 		raise("DotNet Error: ColorContexts is a read-only property")

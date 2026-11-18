@@ -158,31 +158,31 @@ Class RegistryKey from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1,P2])
 
 	Func getSubKeyCount
-		return dnRequest("get",[new DotNetObject(nHandle),"SubKeyCount"])
+		return dnRequest("get",[self,"SubKeyCount"])
 
 	Func setSubKeyCount P1
 		raise("DotNet Error: SubKeyCount is a read-only property")
 
 	Func getView
-		return dnRequest("get",[new DotNetObject(nHandle),"View"])
+		return dnRequest("get",[self,"View"])
 
 	Func setView P1
 		raise("DotNet Error: View is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getValueCount
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueCount"])
+		return dnRequest("get",[self,"ValueCount"])
 
 	Func setValueCount P1
 		raise("DotNet Error: ValueCount is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

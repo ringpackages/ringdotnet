@@ -62,111 +62,111 @@ Class XmlSchema from XmlSchemaObject
 		return dnRequest("call",[dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml'),"Read",P1,P2])
 
 	Func getAttributeFormDefault
-		return dnRequest("get",[new DotNetObject(nHandle),"AttributeFormDefault"])
+		return dnRequest("get",[self,"AttributeFormDefault"])
 
 	Func setAttributeFormDefault P1
-		dnRequest("set",[new DotNetObject(nHandle),"AttributeFormDefault",P1])
+		dnRequest("set",[self,"AttributeFormDefault",P1])
 		return self
 
 	Func getBlockDefault
-		return dnRequest("get",[new DotNetObject(nHandle),"BlockDefault"])
+		return dnRequest("get",[self,"BlockDefault"])
 
 	Func setBlockDefault P1
-		dnRequest("set",[new DotNetObject(nHandle),"BlockDefault",P1])
+		dnRequest("set",[self,"BlockDefault",P1])
 		return self
 
 	Func getFinalDefault
-		return dnRequest("get",[new DotNetObject(nHandle),"FinalDefault"])
+		return dnRequest("get",[self,"FinalDefault"])
 
 	Func setFinalDefault P1
-		dnRequest("set",[new DotNetObject(nHandle),"FinalDefault",P1])
+		dnRequest("set",[self,"FinalDefault",P1])
 		return self
 
 	Func getElementFormDefault
-		return dnRequest("get",[new DotNetObject(nHandle),"ElementFormDefault"])
+		return dnRequest("get",[self,"ElementFormDefault"])
 
 	Func setElementFormDefault P1
-		dnRequest("set",[new DotNetObject(nHandle),"ElementFormDefault",P1])
+		dnRequest("set",[self,"ElementFormDefault",P1])
 		return self
 
 	Func getTargetNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetNamespace"])
+		return dnRequest("get",[self,"TargetNamespace"])
 
 	Func setTargetNamespace P1
-		dnRequest("set",[new DotNetObject(nHandle),"TargetNamespace",P1])
+		dnRequest("set",[self,"TargetNamespace",P1])
 		return self
 
 	Func getVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"Version"])
+		return dnRequest("get",[self,"Version"])
 
 	Func setVersion P1
-		dnRequest("set",[new DotNetObject(nHandle),"Version",P1])
+		dnRequest("set",[self,"Version",P1])
 		return self
 
 	Func getIncludes
-		return dnRequest("get",[new DotNetObject(nHandle),"Includes"])
+		return dnRequest("get",[self,"Includes"])
 
 	Func setIncludes P1
 		raise("DotNet Error: Includes is a read-only property")
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getIsCompiled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompiled"])
+		return dnRequest("get",[self,"IsCompiled"])
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getAttributeGroups
-		return dnRequest("get",[new DotNetObject(nHandle),"AttributeGroups"])
+		return dnRequest("get",[self,"AttributeGroups"])
 
 	Func setAttributeGroups P1
 		raise("DotNet Error: AttributeGroups is a read-only property")
 
 	Func getSchemaTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaTypes"])
+		return dnRequest("get",[self,"SchemaTypes"])
 
 	Func setSchemaTypes P1
 		raise("DotNet Error: SchemaTypes is a read-only property")
 
 	Func getElements
-		return dnRequest("get",[new DotNetObject(nHandle),"Elements"])
+		return dnRequest("get",[self,"Elements"])
 
 	Func setElements P1
 		raise("DotNet Error: Elements is a read-only property")
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
-		dnRequest("set",[new DotNetObject(nHandle),"Id",P1])
+		dnRequest("set",[self,"Id",P1])
 		return self
 
 	Func getUnhandledAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"UnhandledAttributes"])
+		return dnRequest("get",[self,"UnhandledAttributes"])
 
 	Func setUnhandledAttributes P1
-		dnRequest("set",[new DotNetObject(nHandle),"UnhandledAttributes",P1])
+		dnRequest("set",[self,"UnhandledAttributes",P1])
 		return self
 
 	Func getGroups
-		return dnRequest("get",[new DotNetObject(nHandle),"Groups"])
+		return dnRequest("get",[self,"Groups"])
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")
 
 	Func getNotations
-		return dnRequest("get",[new DotNetObject(nHandle),"Notations"])
+		return dnRequest("get",[self,"Notations"])
 
 	Func setNotations P1
 		raise("DotNet Error: Notations is a read-only property")

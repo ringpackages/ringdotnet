@@ -29,60 +29,60 @@ Class DragEventArgs from EventArgs
 		return self
 
 	Func getData
-		return dnRequest("get",[new DotNetObject(nHandle),"Data"])
+		return dnRequest("get",[self,"Data"])
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")
 
 	Func getKeyState
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyState"])
+		return dnRequest("get",[self,"KeyState"])
 
 	Func setKeyState P1
 		raise("DotNet Error: KeyState is a read-only property")
 
 	Func getX
-		return dnRequest("get",[new DotNetObject(nHandle),"X"])
+		return dnRequest("get",[self,"X"])
 
 	Func setX P1
 		raise("DotNet Error: X is a read-only property")
 
 	Func getY
-		return dnRequest("get",[new DotNetObject(nHandle),"Y"])
+		return dnRequest("get",[self,"Y"])
 
 	Func setY P1
 		raise("DotNet Error: Y is a read-only property")
 
 	Func getAllowedEffect
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowedEffect"])
+		return dnRequest("get",[self,"AllowedEffect"])
 
 	Func setAllowedEffect P1
 		raise("DotNet Error: AllowedEffect is a read-only property")
 
 	Func getEffect
-		return dnRequest("get",[new DotNetObject(nHandle),"Effect"])
+		return dnRequest("get",[self,"Effect"])
 
 	Func setEffect P1
-		dnRequest("set",[new DotNetObject(nHandle),"Effect",P1])
+		dnRequest("set",[self,"Effect",P1])
 		return self
 
 	Func getDropImageType
-		return dnRequest("get",[new DotNetObject(nHandle),"DropImageType"])
+		return dnRequest("get",[self,"DropImageType"])
 
 	Func setDropImageType P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropImageType",P1])
+		dnRequest("set",[self,"DropImageType",P1])
 		return self
 
 	Func getMessage
-		return dnRequest("get",[new DotNetObject(nHandle),"Message"])
+		return dnRequest("get",[self,"Message"])
 
 	Func setMessage P1
-		dnRequest("set",[new DotNetObject(nHandle),"Message",P1])
+		dnRequest("set",[self,"Message",P1])
 		return self
 
 	Func getMessageReplacementToken
-		return dnRequest("get",[new DotNetObject(nHandle),"MessageReplacementToken"])
+		return dnRequest("get",[self,"MessageReplacementToken"])
 
 	Func setMessageReplacementToken P1
-		dnRequest("set",[new DotNetObject(nHandle),"MessageReplacementToken",P1])
+		dnRequest("set",[self,"MessageReplacementToken",P1])
 		return self
 

@@ -121,37 +121,37 @@ Class WebApplication from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateEmptyBuilder",P1])
 
 	Func getServices
-		return dnRequest("get",[new DotNetObject(nHandle),"Services"])
+		return dnRequest("get",[self,"Services"])
 
 	Func setServices P1
 		raise("DotNet Error: Services is a read-only property")
 
 	Func getConfiguration
-		return dnRequest("get",[new DotNetObject(nHandle),"Configuration"])
+		return dnRequest("get",[self,"Configuration"])
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
 
 	Func getEnvironment
-		return dnRequest("get",[new DotNetObject(nHandle),"Environment"])
+		return dnRequest("get",[self,"Environment"])
 
 	Func setEnvironment P1
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getLifetime
-		return dnRequest("get",[new DotNetObject(nHandle),"Lifetime"])
+		return dnRequest("get",[self,"Lifetime"])
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")
 
 	Func getLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"Logger"])
+		return dnRequest("get",[self,"Logger"])
 
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getUrls
-		return dnRequest("get",[new DotNetObject(nHandle),"Urls"])
+		return dnRequest("get",[self,"Urls"])
 
 	Func setUrls P1
 		raise("DotNet Error: Urls is a read-only property")

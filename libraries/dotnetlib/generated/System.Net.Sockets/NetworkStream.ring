@@ -42,13 +42,13 @@ Class NetworkStream from Stream
 		return self
 
 	Func getSocket
-		return dnRequest("get",[new DotNetObject(nHandle),"Socket"])
+		return dnRequest("get",[self,"Socket"])
 
 	Func setSocket P1
 		raise("DotNet Error: Socket is a read-only property")
 
 	Func getDataAvailable
-		return dnRequest("get",[new DotNetObject(nHandle),"DataAvailable"])
+		return dnRequest("get",[self,"DataAvailable"])
 
 	Func setDataAvailable P1
 		raise("DotNet Error: DataAvailable is a read-only property")

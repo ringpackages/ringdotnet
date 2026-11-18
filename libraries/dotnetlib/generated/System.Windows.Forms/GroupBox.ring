@@ -19,23 +19,23 @@ Class GroupBox from Control
 		return self
 
 	Func getAutoSizeMode
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoSizeMode"])
+		return dnRequest("get",[self,"AutoSizeMode"])
 
 	Func setAutoSizeMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoSizeMode",P1])
+		dnRequest("set",[self,"AutoSizeMode",P1])
 		return self
 
 	Func getFlatStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"FlatStyle"])
+		return dnRequest("get",[self,"FlatStyle"])
 
 	Func setFlatStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlatStyle",P1])
+		dnRequest("set",[self,"FlatStyle",P1])
 		return self
 
 	Func getUseCompatibleTextRendering
-		return dnRequest("get",[new DotNetObject(nHandle),"UseCompatibleTextRendering"])
+		return dnRequest("get",[self,"UseCompatibleTextRendering"])
 
 	Func setUseCompatibleTextRendering P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseCompatibleTextRendering",P1])
+		dnRequest("set",[self,"UseCompatibleTextRendering",P1])
 		return self
 

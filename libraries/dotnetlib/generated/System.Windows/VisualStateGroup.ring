@@ -36,26 +36,26 @@ Class VisualStateGroup from DependencyObject
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getStates
-		return dnRequest("get",[new DotNetObject(nHandle),"States"])
+		return dnRequest("get",[self,"States"])
 
 	Func setStates P1
 		raise("DotNet Error: States is a read-only property")
 
 	Func getTransitions
-		return dnRequest("get",[new DotNetObject(nHandle),"Transitions"])
+		return dnRequest("get",[self,"Transitions"])
 
 	Func setTransitions P1
 		raise("DotNet Error: Transitions is a read-only property")
 
 	Func getCurrentState
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentState"])
+		return dnRequest("get",[self,"CurrentState"])
 
 	Func setCurrentState P1
 		raise("DotNet Error: CurrentState is a read-only property")

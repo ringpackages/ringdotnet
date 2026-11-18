@@ -23,23 +23,23 @@ Class TemplateBindingExtension from MarkupExtension
 		return self
 
 	Func getProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
+		return dnRequest("get",[self,"Property"])
 
 	Func setProperty P1
-		dnRequest("set",[new DotNetObject(nHandle),"Property",P1])
+		dnRequest("set",[self,"Property",P1])
 		return self
 
 	Func getConverter
-		return dnRequest("get",[new DotNetObject(nHandle),"Converter"])
+		return dnRequest("get",[self,"Converter"])
 
 	Func setConverter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Converter",P1])
+		dnRequest("set",[self,"Converter",P1])
 		return self
 
 	Func getConverterParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"ConverterParameter"])
+		return dnRequest("get",[self,"ConverterParameter"])
 
 	Func setConverterParameter P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConverterParameter",P1])
+		dnRequest("set",[self,"ConverterParameter",P1])
 		return self
 

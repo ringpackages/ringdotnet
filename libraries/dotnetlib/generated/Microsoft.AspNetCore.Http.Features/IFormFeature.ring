@@ -23,15 +23,15 @@ Class IFormFeature from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 
 	Func getHasFormContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"HasFormContentType"])
+		return dnRequest("get",[self,"HasFormContentType"])
 
 	Func setHasFormContentType P1
 		raise("DotNet Error: HasFormContentType is a read-only property")
 
 	Func getForm
-		return dnRequest("get",[new DotNetObject(nHandle),"Form"])
+		return dnRequest("get",[self,"Form"])
 
 	Func setForm P1
-		dnRequest("set",[new DotNetObject(nHandle),"Form",P1])
+		dnRequest("set",[self,"Form",P1])
 		return self
 

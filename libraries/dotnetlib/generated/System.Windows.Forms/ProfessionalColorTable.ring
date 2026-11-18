@@ -77,350 +77,350 @@ Class ProfessionalColorTable from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUseSystemColors
-		return dnRequest("get",[new DotNetObject(nHandle),"UseSystemColors"])
+		return dnRequest("get",[self,"UseSystemColors"])
 
 	Func setUseSystemColors P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseSystemColors",P1])
+		dnRequest("set",[self,"UseSystemColors",P1])
 		return self
 
 	Func getButtonSelectedHighlight
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonSelectedHighlight"])
+		return dnRequest("get",[self,"ButtonSelectedHighlight"])
 
 	Func setButtonSelectedHighlight P1
 		raise("DotNet Error: ButtonSelectedHighlight is a read-only property")
 
 	Func getButtonSelectedHighlightBorder
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonSelectedHighlightBorder"])
+		return dnRequest("get",[self,"ButtonSelectedHighlightBorder"])
 
 	Func setButtonSelectedHighlightBorder P1
 		raise("DotNet Error: ButtonSelectedHighlightBorder is a read-only property")
 
 	Func getButtonPressedHighlight
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonPressedHighlight"])
+		return dnRequest("get",[self,"ButtonPressedHighlight"])
 
 	Func setButtonPressedHighlight P1
 		raise("DotNet Error: ButtonPressedHighlight is a read-only property")
 
 	Func getButtonPressedHighlightBorder
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonPressedHighlightBorder"])
+		return dnRequest("get",[self,"ButtonPressedHighlightBorder"])
 
 	Func setButtonPressedHighlightBorder P1
 		raise("DotNet Error: ButtonPressedHighlightBorder is a read-only property")
 
 	Func getButtonCheckedHighlight
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonCheckedHighlight"])
+		return dnRequest("get",[self,"ButtonCheckedHighlight"])
 
 	Func setButtonCheckedHighlight P1
 		raise("DotNet Error: ButtonCheckedHighlight is a read-only property")
 
 	Func getButtonCheckedHighlightBorder
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonCheckedHighlightBorder"])
+		return dnRequest("get",[self,"ButtonCheckedHighlightBorder"])
 
 	Func setButtonCheckedHighlightBorder P1
 		raise("DotNet Error: ButtonCheckedHighlightBorder is a read-only property")
 
 	Func getButtonPressedBorder
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonPressedBorder"])
+		return dnRequest("get",[self,"ButtonPressedBorder"])
 
 	Func setButtonPressedBorder P1
 		raise("DotNet Error: ButtonPressedBorder is a read-only property")
 
 	Func getButtonSelectedBorder
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonSelectedBorder"])
+		return dnRequest("get",[self,"ButtonSelectedBorder"])
 
 	Func setButtonSelectedBorder P1
 		raise("DotNet Error: ButtonSelectedBorder is a read-only property")
 
 	Func getButtonCheckedGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonCheckedGradientBegin"])
+		return dnRequest("get",[self,"ButtonCheckedGradientBegin"])
 
 	Func setButtonCheckedGradientBegin P1
 		raise("DotNet Error: ButtonCheckedGradientBegin is a read-only property")
 
 	Func getButtonCheckedGradientMiddle
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonCheckedGradientMiddle"])
+		return dnRequest("get",[self,"ButtonCheckedGradientMiddle"])
 
 	Func setButtonCheckedGradientMiddle P1
 		raise("DotNet Error: ButtonCheckedGradientMiddle is a read-only property")
 
 	Func getButtonCheckedGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonCheckedGradientEnd"])
+		return dnRequest("get",[self,"ButtonCheckedGradientEnd"])
 
 	Func setButtonCheckedGradientEnd P1
 		raise("DotNet Error: ButtonCheckedGradientEnd is a read-only property")
 
 	Func getButtonSelectedGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonSelectedGradientBegin"])
+		return dnRequest("get",[self,"ButtonSelectedGradientBegin"])
 
 	Func setButtonSelectedGradientBegin P1
 		raise("DotNet Error: ButtonSelectedGradientBegin is a read-only property")
 
 	Func getButtonSelectedGradientMiddle
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonSelectedGradientMiddle"])
+		return dnRequest("get",[self,"ButtonSelectedGradientMiddle"])
 
 	Func setButtonSelectedGradientMiddle P1
 		raise("DotNet Error: ButtonSelectedGradientMiddle is a read-only property")
 
 	Func getButtonSelectedGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonSelectedGradientEnd"])
+		return dnRequest("get",[self,"ButtonSelectedGradientEnd"])
 
 	Func setButtonSelectedGradientEnd P1
 		raise("DotNet Error: ButtonSelectedGradientEnd is a read-only property")
 
 	Func getButtonPressedGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonPressedGradientBegin"])
+		return dnRequest("get",[self,"ButtonPressedGradientBegin"])
 
 	Func setButtonPressedGradientBegin P1
 		raise("DotNet Error: ButtonPressedGradientBegin is a read-only property")
 
 	Func getButtonPressedGradientMiddle
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonPressedGradientMiddle"])
+		return dnRequest("get",[self,"ButtonPressedGradientMiddle"])
 
 	Func setButtonPressedGradientMiddle P1
 		raise("DotNet Error: ButtonPressedGradientMiddle is a read-only property")
 
 	Func getButtonPressedGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"ButtonPressedGradientEnd"])
+		return dnRequest("get",[self,"ButtonPressedGradientEnd"])
 
 	Func setButtonPressedGradientEnd P1
 		raise("DotNet Error: ButtonPressedGradientEnd is a read-only property")
 
 	Func getCheckBackground
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckBackground"])
+		return dnRequest("get",[self,"CheckBackground"])
 
 	Func setCheckBackground P1
 		raise("DotNet Error: CheckBackground is a read-only property")
 
 	Func getCheckSelectedBackground
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckSelectedBackground"])
+		return dnRequest("get",[self,"CheckSelectedBackground"])
 
 	Func setCheckSelectedBackground P1
 		raise("DotNet Error: CheckSelectedBackground is a read-only property")
 
 	Func getCheckPressedBackground
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckPressedBackground"])
+		return dnRequest("get",[self,"CheckPressedBackground"])
 
 	Func setCheckPressedBackground P1
 		raise("DotNet Error: CheckPressedBackground is a read-only property")
 
 	Func getGripDark
-		return dnRequest("get",[new DotNetObject(nHandle),"GripDark"])
+		return dnRequest("get",[self,"GripDark"])
 
 	Func setGripDark P1
 		raise("DotNet Error: GripDark is a read-only property")
 
 	Func getGripLight
-		return dnRequest("get",[new DotNetObject(nHandle),"GripLight"])
+		return dnRequest("get",[self,"GripLight"])
 
 	Func setGripLight P1
 		raise("DotNet Error: GripLight is a read-only property")
 
 	Func getImageMarginGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageMarginGradientBegin"])
+		return dnRequest("get",[self,"ImageMarginGradientBegin"])
 
 	Func setImageMarginGradientBegin P1
 		raise("DotNet Error: ImageMarginGradientBegin is a read-only property")
 
 	Func getImageMarginGradientMiddle
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageMarginGradientMiddle"])
+		return dnRequest("get",[self,"ImageMarginGradientMiddle"])
 
 	Func setImageMarginGradientMiddle P1
 		raise("DotNet Error: ImageMarginGradientMiddle is a read-only property")
 
 	Func getImageMarginGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageMarginGradientEnd"])
+		return dnRequest("get",[self,"ImageMarginGradientEnd"])
 
 	Func setImageMarginGradientEnd P1
 		raise("DotNet Error: ImageMarginGradientEnd is a read-only property")
 
 	Func getImageMarginRevealedGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageMarginRevealedGradientBegin"])
+		return dnRequest("get",[self,"ImageMarginRevealedGradientBegin"])
 
 	Func setImageMarginRevealedGradientBegin P1
 		raise("DotNet Error: ImageMarginRevealedGradientBegin is a read-only property")
 
 	Func getImageMarginRevealedGradientMiddle
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageMarginRevealedGradientMiddle"])
+		return dnRequest("get",[self,"ImageMarginRevealedGradientMiddle"])
 
 	Func setImageMarginRevealedGradientMiddle P1
 		raise("DotNet Error: ImageMarginRevealedGradientMiddle is a read-only property")
 
 	Func getImageMarginRevealedGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageMarginRevealedGradientEnd"])
+		return dnRequest("get",[self,"ImageMarginRevealedGradientEnd"])
 
 	Func setImageMarginRevealedGradientEnd P1
 		raise("DotNet Error: ImageMarginRevealedGradientEnd is a read-only property")
 
 	Func getMenuStripGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuStripGradientBegin"])
+		return dnRequest("get",[self,"MenuStripGradientBegin"])
 
 	Func setMenuStripGradientBegin P1
 		raise("DotNet Error: MenuStripGradientBegin is a read-only property")
 
 	Func getMenuStripGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuStripGradientEnd"])
+		return dnRequest("get",[self,"MenuStripGradientEnd"])
 
 	Func setMenuStripGradientEnd P1
 		raise("DotNet Error: MenuStripGradientEnd is a read-only property")
 
 	Func getMenuItemSelected
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuItemSelected"])
+		return dnRequest("get",[self,"MenuItemSelected"])
 
 	Func setMenuItemSelected P1
 		raise("DotNet Error: MenuItemSelected is a read-only property")
 
 	Func getMenuItemBorder
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuItemBorder"])
+		return dnRequest("get",[self,"MenuItemBorder"])
 
 	Func setMenuItemBorder P1
 		raise("DotNet Error: MenuItemBorder is a read-only property")
 
 	Func getMenuBorder
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuBorder"])
+		return dnRequest("get",[self,"MenuBorder"])
 
 	Func setMenuBorder P1
 		raise("DotNet Error: MenuBorder is a read-only property")
 
 	Func getMenuItemSelectedGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuItemSelectedGradientBegin"])
+		return dnRequest("get",[self,"MenuItemSelectedGradientBegin"])
 
 	Func setMenuItemSelectedGradientBegin P1
 		raise("DotNet Error: MenuItemSelectedGradientBegin is a read-only property")
 
 	Func getMenuItemSelectedGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuItemSelectedGradientEnd"])
+		return dnRequest("get",[self,"MenuItemSelectedGradientEnd"])
 
 	Func setMenuItemSelectedGradientEnd P1
 		raise("DotNet Error: MenuItemSelectedGradientEnd is a read-only property")
 
 	Func getMenuItemPressedGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuItemPressedGradientBegin"])
+		return dnRequest("get",[self,"MenuItemPressedGradientBegin"])
 
 	Func setMenuItemPressedGradientBegin P1
 		raise("DotNet Error: MenuItemPressedGradientBegin is a read-only property")
 
 	Func getMenuItemPressedGradientMiddle
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuItemPressedGradientMiddle"])
+		return dnRequest("get",[self,"MenuItemPressedGradientMiddle"])
 
 	Func setMenuItemPressedGradientMiddle P1
 		raise("DotNet Error: MenuItemPressedGradientMiddle is a read-only property")
 
 	Func getMenuItemPressedGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"MenuItemPressedGradientEnd"])
+		return dnRequest("get",[self,"MenuItemPressedGradientEnd"])
 
 	Func setMenuItemPressedGradientEnd P1
 		raise("DotNet Error: MenuItemPressedGradientEnd is a read-only property")
 
 	Func getRaftingContainerGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"RaftingContainerGradientBegin"])
+		return dnRequest("get",[self,"RaftingContainerGradientBegin"])
 
 	Func setRaftingContainerGradientBegin P1
 		raise("DotNet Error: RaftingContainerGradientBegin is a read-only property")
 
 	Func getRaftingContainerGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"RaftingContainerGradientEnd"])
+		return dnRequest("get",[self,"RaftingContainerGradientEnd"])
 
 	Func setRaftingContainerGradientEnd P1
 		raise("DotNet Error: RaftingContainerGradientEnd is a read-only property")
 
 	Func getSeparatorDark
-		return dnRequest("get",[new DotNetObject(nHandle),"SeparatorDark"])
+		return dnRequest("get",[self,"SeparatorDark"])
 
 	Func setSeparatorDark P1
 		raise("DotNet Error: SeparatorDark is a read-only property")
 
 	Func getSeparatorLight
-		return dnRequest("get",[new DotNetObject(nHandle),"SeparatorLight"])
+		return dnRequest("get",[self,"SeparatorLight"])
 
 	Func setSeparatorLight P1
 		raise("DotNet Error: SeparatorLight is a read-only property")
 
 	Func getStatusStripBorder
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusStripBorder"])
+		return dnRequest("get",[self,"StatusStripBorder"])
 
 	Func setStatusStripBorder P1
 		raise("DotNet Error: StatusStripBorder is a read-only property")
 
 	Func getStatusStripGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusStripGradientBegin"])
+		return dnRequest("get",[self,"StatusStripGradientBegin"])
 
 	Func setStatusStripGradientBegin P1
 		raise("DotNet Error: StatusStripGradientBegin is a read-only property")
 
 	Func getStatusStripGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"StatusStripGradientEnd"])
+		return dnRequest("get",[self,"StatusStripGradientEnd"])
 
 	Func setStatusStripGradientEnd P1
 		raise("DotNet Error: StatusStripGradientEnd is a read-only property")
 
 	Func getToolStripBorder
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripBorder"])
+		return dnRequest("get",[self,"ToolStripBorder"])
 
 	Func setToolStripBorder P1
 		raise("DotNet Error: ToolStripBorder is a read-only property")
 
 	Func getToolStripDropDownBackground
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripDropDownBackground"])
+		return dnRequest("get",[self,"ToolStripDropDownBackground"])
 
 	Func setToolStripDropDownBackground P1
 		raise("DotNet Error: ToolStripDropDownBackground is a read-only property")
 
 	Func getToolStripGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripGradientBegin"])
+		return dnRequest("get",[self,"ToolStripGradientBegin"])
 
 	Func setToolStripGradientBegin P1
 		raise("DotNet Error: ToolStripGradientBegin is a read-only property")
 
 	Func getToolStripGradientMiddle
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripGradientMiddle"])
+		return dnRequest("get",[self,"ToolStripGradientMiddle"])
 
 	Func setToolStripGradientMiddle P1
 		raise("DotNet Error: ToolStripGradientMiddle is a read-only property")
 
 	Func getToolStripGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripGradientEnd"])
+		return dnRequest("get",[self,"ToolStripGradientEnd"])
 
 	Func setToolStripGradientEnd P1
 		raise("DotNet Error: ToolStripGradientEnd is a read-only property")
 
 	Func getToolStripContentPanelGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripContentPanelGradientBegin"])
+		return dnRequest("get",[self,"ToolStripContentPanelGradientBegin"])
 
 	Func setToolStripContentPanelGradientBegin P1
 		raise("DotNet Error: ToolStripContentPanelGradientBegin is a read-only property")
 
 	Func getToolStripContentPanelGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripContentPanelGradientEnd"])
+		return dnRequest("get",[self,"ToolStripContentPanelGradientEnd"])
 
 	Func setToolStripContentPanelGradientEnd P1
 		raise("DotNet Error: ToolStripContentPanelGradientEnd is a read-only property")
 
 	Func getToolStripPanelGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripPanelGradientBegin"])
+		return dnRequest("get",[self,"ToolStripPanelGradientBegin"])
 
 	Func setToolStripPanelGradientBegin P1
 		raise("DotNet Error: ToolStripPanelGradientBegin is a read-only property")
 
 	Func getToolStripPanelGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"ToolStripPanelGradientEnd"])
+		return dnRequest("get",[self,"ToolStripPanelGradientEnd"])
 
 	Func setToolStripPanelGradientEnd P1
 		raise("DotNet Error: ToolStripPanelGradientEnd is a read-only property")
 
 	Func getOverflowButtonGradientBegin
-		return dnRequest("get",[new DotNetObject(nHandle),"OverflowButtonGradientBegin"])
+		return dnRequest("get",[self,"OverflowButtonGradientBegin"])
 
 	Func setOverflowButtonGradientBegin P1
 		raise("DotNet Error: OverflowButtonGradientBegin is a read-only property")
 
 	Func getOverflowButtonGradientMiddle
-		return dnRequest("get",[new DotNetObject(nHandle),"OverflowButtonGradientMiddle"])
+		return dnRequest("get",[self,"OverflowButtonGradientMiddle"])
 
 	Func setOverflowButtonGradientMiddle P1
 		raise("DotNet Error: OverflowButtonGradientMiddle is a read-only property")
 
 	Func getOverflowButtonGradientEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"OverflowButtonGradientEnd"])
+		return dnRequest("get",[self,"OverflowButtonGradientEnd"])
 
 	Func setOverflowButtonGradientEnd P1
 		raise("DotNet Error: OverflowButtonGradientEnd is a read-only property")

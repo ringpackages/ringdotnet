@@ -145,25 +145,25 @@ Class BlockingObjectCollection from Object
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1,P2,P3])
 
 	Func getBoundedCapacity
-		return dnRequest("get",[new DotNetObject(nHandle),"BoundedCapacity"])
+		return dnRequest("get",[self,"BoundedCapacity"])
 
 	Func setBoundedCapacity P1
 		raise("DotNet Error: BoundedCapacity is a read-only property")
 
 	Func getIsAddingCompleted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAddingCompleted"])
+		return dnRequest("get",[self,"IsAddingCompleted"])
 
 	Func setIsAddingCompleted P1
 		raise("DotNet Error: IsAddingCompleted is a read-only property")
 
 	Func getIsCompleted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompleted"])
+		return dnRequest("get",[self,"IsCompleted"])
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

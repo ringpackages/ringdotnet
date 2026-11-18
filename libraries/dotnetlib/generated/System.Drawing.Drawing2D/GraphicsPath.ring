@@ -267,32 +267,32 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func getFillMode
-		return dnRequest("get",[new DotNetObject(nHandle),"FillMode"])
+		return dnRequest("get",[self,"FillMode"])
 
 	Func setFillMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"FillMode",P1])
+		dnRequest("set",[self,"FillMode",P1])
 		return self
 
 	Func getPathData
-		return dnRequest("get",[new DotNetObject(nHandle),"PathData"])
+		return dnRequest("get",[self,"PathData"])
 
 	Func setPathData P1
 		raise("DotNet Error: PathData is a read-only property")
 
 	Func getPointCount
-		return dnRequest("get",[new DotNetObject(nHandle),"PointCount"])
+		return dnRequest("get",[self,"PointCount"])
 
 	Func setPointCount P1
 		raise("DotNet Error: PointCount is a read-only property")
 
 	Func getPathTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"PathTypes"])
+		return dnRequest("get",[self,"PathTypes"])
 
 	Func setPathTypes P1
 		raise("DotNet Error: PathTypes is a read-only property")
 
 	Func getPathPoints
-		return dnRequest("get",[new DotNetObject(nHandle),"PathPoints"])
+		return dnRequest("get",[self,"PathPoints"])
 
 	Func setPathPoints P1
 		raise("DotNet Error: PathPoints is a read-only property")

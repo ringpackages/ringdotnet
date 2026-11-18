@@ -54,106 +54,106 @@ Class ButtonBase from Control
 		return self
 
 	Func getAutoEllipsis
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoEllipsis"])
+		return dnRequest("get",[self,"AutoEllipsis"])
 
 	Func setAutoEllipsis P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoEllipsis",P1])
+		dnRequest("set",[self,"AutoEllipsis",P1])
 		return self
 
 	Func getCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
+		return dnRequest("get",[self,"Command"])
 
 	Func setCommand P1
-		dnRequest("set",[new DotNetObject(nHandle),"Command",P1])
+		dnRequest("set",[self,"Command",P1])
 		return self
 
 	Func getCommandParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandParameter"])
+		return dnRequest("get",[self,"CommandParameter"])
 
 	Func setCommandParameter P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandParameter",P1])
+		dnRequest("set",[self,"CommandParameter",P1])
 		return self
 
 	Func getFlatStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"FlatStyle"])
+		return dnRequest("get",[self,"FlatStyle"])
 
 	Func setFlatStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"FlatStyle",P1])
+		dnRequest("set",[self,"FlatStyle",P1])
 		return self
 
 	Func getFlatAppearance
-		return dnRequest("get",[new DotNetObject(nHandle),"FlatAppearance"])
+		return dnRequest("get",[self,"FlatAppearance"])
 
 	Func setFlatAppearance P1
 		raise("DotNet Error: FlatAppearance is a read-only property")
 
 	Func getImage
-		return dnRequest("get",[new DotNetObject(nHandle),"Image"])
+		return dnRequest("get",[self,"Image"])
 
 	Func setImage P1
-		dnRequest("set",[new DotNetObject(nHandle),"Image",P1])
+		dnRequest("set",[self,"Image",P1])
 		return self
 
 	Func getImageAlign
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageAlign"])
+		return dnRequest("get",[self,"ImageAlign"])
 
 	Func setImageAlign P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageAlign",P1])
+		dnRequest("set",[self,"ImageAlign",P1])
 		return self
 
 	Func getImageIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageIndex"])
+		return dnRequest("get",[self,"ImageIndex"])
 
 	Func setImageIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageIndex",P1])
+		dnRequest("set",[self,"ImageIndex",P1])
 		return self
 
 	Func getImageKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageKey"])
+		return dnRequest("get",[self,"ImageKey"])
 
 	Func setImageKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageKey",P1])
+		dnRequest("set",[self,"ImageKey",P1])
 		return self
 
 	Func getImageList
-		return dnRequest("get",[new DotNetObject(nHandle),"ImageList"])
+		return dnRequest("get",[self,"ImageList"])
 
 	Func setImageList P1
-		dnRequest("set",[new DotNetObject(nHandle),"ImageList",P1])
+		dnRequest("set",[self,"ImageList",P1])
 		return self
 
 	Func getTextAlign
-		return dnRequest("get",[new DotNetObject(nHandle),"TextAlign"])
+		return dnRequest("get",[self,"TextAlign"])
 
 	Func setTextAlign P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextAlign",P1])
+		dnRequest("set",[self,"TextAlign",P1])
 		return self
 
 	Func getTextImageRelation
-		return dnRequest("get",[new DotNetObject(nHandle),"TextImageRelation"])
+		return dnRequest("get",[self,"TextImageRelation"])
 
 	Func setTextImageRelation P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextImageRelation",P1])
+		dnRequest("set",[self,"TextImageRelation",P1])
 		return self
 
 	Func getUseMnemonic
-		return dnRequest("get",[new DotNetObject(nHandle),"UseMnemonic"])
+		return dnRequest("get",[self,"UseMnemonic"])
 
 	Func setUseMnemonic P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseMnemonic",P1])
+		dnRequest("set",[self,"UseMnemonic",P1])
 		return self
 
 	Func getUseCompatibleTextRendering
-		return dnRequest("get",[new DotNetObject(nHandle),"UseCompatibleTextRendering"])
+		return dnRequest("get",[self,"UseCompatibleTextRendering"])
 
 	Func setUseCompatibleTextRendering P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseCompatibleTextRendering",P1])
+		dnRequest("set",[self,"UseCompatibleTextRendering",P1])
 		return self
 
 	Func getUseVisualStyleBackColor
-		return dnRequest("get",[new DotNetObject(nHandle),"UseVisualStyleBackColor"])
+		return dnRequest("get",[self,"UseVisualStyleBackColor"])
 
 	Func setUseVisualStyleBackColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseVisualStyleBackColor",P1])
+		dnRequest("set",[self,"UseVisualStyleBackColor",P1])
 		return self
 

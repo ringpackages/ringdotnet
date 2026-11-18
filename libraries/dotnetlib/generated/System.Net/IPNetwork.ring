@@ -31,13 +31,13 @@ Class IPNetwork from ValueType
 		return dnRequest("call",[dnTypeCached('System.Net.IPNetwork, System.Net.Primitives'),"TryParse",P1])
 
 	Func getBaseAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseAddress"])
+		return dnRequest("get",[self,"BaseAddress"])
 
 	Func setBaseAddress P1
 		raise("DotNet Error: BaseAddress is a read-only property")
 
 	Func getPrefixLength
-		return dnRequest("get",[new DotNetObject(nHandle),"PrefixLength"])
+		return dnRequest("get",[self,"PrefixLength"])
 
 	Func setPrefixLength P1
 		raise("DotNet Error: PrefixLength is a read-only property")

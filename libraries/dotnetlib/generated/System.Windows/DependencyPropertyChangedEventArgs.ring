@@ -23,19 +23,19 @@ Class DependencyPropertyChangedEventArgs from ValueType
 		return self
 
 	Func getProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
+		return dnRequest("get",[self,"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getOldValue
-		return dnRequest("get",[new DotNetObject(nHandle),"OldValue"])
+		return dnRequest("get",[self,"OldValue"])
 
 	Func setOldValue P1
 		raise("DotNet Error: OldValue is a read-only property")
 
 	Func getNewValue
-		return dnRequest("get",[new DotNetObject(nHandle),"NewValue"])
+		return dnRequest("get",[self,"NewValue"])
 
 	Func setNewValue P1
 		raise("DotNet Error: NewValue is a read-only property")

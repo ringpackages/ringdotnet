@@ -22,22 +22,22 @@ Class RouteContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHandler
-		return dnRequest("get",[new DotNetObject(nHandle),"Handler"])
+		return dnRequest("get",[self,"Handler"])
 
 	Func setHandler P1
-		dnRequest("set",[new DotNetObject(nHandle),"Handler",P1])
+		dnRequest("set",[self,"Handler",P1])
 		return self
 
 	Func getHttpContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
+		return dnRequest("get",[self,"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRouteData
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteData"])
+		return dnRequest("get",[self,"RouteData"])
 
 	Func setRouteData P1
-		dnRequest("set",[new DotNetObject(nHandle),"RouteData",P1])
+		dnRequest("set",[self,"RouteData",P1])
 		return self
 

@@ -20,24 +20,24 @@ Class BeginStoryboard from TriggerAction
 		return self
 
 	Func getStoryboard
-		return dnRequest("get",[new DotNetObject(nHandle),"Storyboard"])
+		return dnRequest("get",[self,"Storyboard"])
 
 	Func setStoryboard P1
-		dnRequest("set",[new DotNetObject(nHandle),"Storyboard",P1])
+		dnRequest("set",[self,"Storyboard",P1])
 		return self
 
 	Func getHandoffBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"HandoffBehavior"])
+		return dnRequest("get",[self,"HandoffBehavior"])
 
 	Func setHandoffBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"HandoffBehavior",P1])
+		dnRequest("set",[self,"HandoffBehavior",P1])
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getStoryboardProperty

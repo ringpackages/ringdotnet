@@ -79,31 +79,31 @@ Class CertificateRequest from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1,P2])
 
 	Func getSubjectName
-		return dnRequest("get",[new DotNetObject(nHandle),"SubjectName"])
+		return dnRequest("get",[self,"SubjectName"])
 
 	Func setSubjectName P1
 		raise("DotNet Error: SubjectName is a read-only property")
 
 	Func getCertificateExtensions
-		return dnRequest("get",[new DotNetObject(nHandle),"CertificateExtensions"])
+		return dnRequest("get",[self,"CertificateExtensions"])
 
 	Func setCertificateExtensions P1
 		raise("DotNet Error: CertificateExtensions is a read-only property")
 
 	Func getOtherRequestAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"OtherRequestAttributes"])
+		return dnRequest("get",[self,"OtherRequestAttributes"])
 
 	Func setOtherRequestAttributes P1
 		raise("DotNet Error: OtherRequestAttributes is a read-only property")
 
 	Func getPublicKey
-		return dnRequest("get",[new DotNetObject(nHandle),"PublicKey"])
+		return dnRequest("get",[self,"PublicKey"])
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")
 
 	Func getHashAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"HashAlgorithm"])
+		return dnRequest("get",[self,"HashAlgorithm"])
 
 	Func setHashAlgorithm P1
 		raise("DotNet Error: HashAlgorithm is a read-only property")

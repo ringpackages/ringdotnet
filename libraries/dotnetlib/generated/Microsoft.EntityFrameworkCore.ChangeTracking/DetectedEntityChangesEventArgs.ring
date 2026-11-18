@@ -17,7 +17,7 @@ Class DetectedEntityChangesEventArgs from DetectedChangesEventArgs
 		return self
 
 	Func getEntry
-		return dnRequest("get",[new DotNetObject(nHandle),"Entry"])
+		return dnRequest("get",[self,"Entry"])
 
 	Func setEntry P1
 		raise("DotNet Error: Entry is a read-only property")

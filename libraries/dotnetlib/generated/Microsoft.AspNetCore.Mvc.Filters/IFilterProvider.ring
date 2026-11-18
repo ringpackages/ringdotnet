@@ -24,7 +24,7 @@ Class IFilterProvider from DotNetObject
 		return self
 
 	Func getOrder
-		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
+		return dnRequest("get",[self,"Order"])
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")

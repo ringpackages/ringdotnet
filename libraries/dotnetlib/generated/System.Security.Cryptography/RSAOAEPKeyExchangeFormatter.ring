@@ -22,16 +22,16 @@ Class RSAOAEPKeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 		return self
 
 	Func getParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"Parameter"])
+		return dnRequest("get",[self,"Parameter"])
 
 	Func setParameter P1
-		dnRequest("set",[new DotNetObject(nHandle),"Parameter",P1])
+		dnRequest("set",[self,"Parameter",P1])
 		return self
 
 	Func getRng
-		return dnRequest("get",[new DotNetObject(nHandle),"Rng"])
+		return dnRequest("get",[self,"Rng"])
 
 	Func setRng P1
-		dnRequest("set",[new DotNetObject(nHandle),"Rng",P1])
+		dnRequest("set",[self,"Rng",P1])
 		return self
 

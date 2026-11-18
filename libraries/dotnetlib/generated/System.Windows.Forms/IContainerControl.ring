@@ -19,9 +19,9 @@ Class IContainerControl from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ActivateControl",P1])
 
 	Func getActiveControl
-		return dnRequest("get",[new DotNetObject(nHandle),"ActiveControl"])
+		return dnRequest("get",[self,"ActiveControl"])
 
 	Func setActiveControl P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActiveControl",P1])
+		dnRequest("set",[self,"ActiveControl",P1])
 		return self
 

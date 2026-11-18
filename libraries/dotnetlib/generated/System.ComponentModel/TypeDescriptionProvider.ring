@@ -74,7 +74,7 @@ Class TypeDescriptionProvider from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequireRegisteredTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"RequireRegisteredTypes"])
+		return dnRequest("get",[self,"RequireRegisteredTypes"])
 
 	Func setRequireRegisteredTypes P1
 		raise("DotNet Error: RequireRegisteredTypes is a read-only property")

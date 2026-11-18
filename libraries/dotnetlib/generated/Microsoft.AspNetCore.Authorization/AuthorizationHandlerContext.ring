@@ -46,43 +46,43 @@ Class AuthorizationHandlerContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRequirements
-		return dnRequest("get",[new DotNetObject(nHandle),"Requirements"])
+		return dnRequest("get",[self,"Requirements"])
 
 	Func setRequirements P1
 		raise("DotNet Error: Requirements is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[new DotNetObject(nHandle),"User"])
+		return dnRequest("get",[self,"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getResource
-		return dnRequest("get",[new DotNetObject(nHandle),"Resource"])
+		return dnRequest("get",[self,"Resource"])
 
 	Func setResource P1
 		raise("DotNet Error: Resource is a read-only property")
 
 	Func getPendingRequirements
-		return dnRequest("get",[new DotNetObject(nHandle),"PendingRequirements"])
+		return dnRequest("get",[self,"PendingRequirements"])
 
 	Func setPendingRequirements P1
 		raise("DotNet Error: PendingRequirements is a read-only property")
 
 	Func getFailureReasons
-		return dnRequest("get",[new DotNetObject(nHandle),"FailureReasons"])
+		return dnRequest("get",[self,"FailureReasons"])
 
 	Func setFailureReasons P1
 		raise("DotNet Error: FailureReasons is a read-only property")
 
 	Func getHasFailed
-		return dnRequest("get",[new DotNetObject(nHandle),"HasFailed"])
+		return dnRequest("get",[self,"HasFailed"])
 
 	Func setHasFailed P1
 		raise("DotNet Error: HasFailed is a read-only property")
 
 	Func getHasSucceeded
-		return dnRequest("get",[new DotNetObject(nHandle),"HasSucceeded"])
+		return dnRequest("get",[self,"HasSucceeded"])
 
 	Func setHasSucceeded P1
 		raise("DotNet Error: HasSucceeded is a read-only property")

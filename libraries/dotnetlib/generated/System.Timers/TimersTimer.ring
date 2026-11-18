@@ -52,30 +52,30 @@ Class TimersTimer from Component
 		return self
 
 	Func getAutoReset
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoReset"])
+		return dnRequest("get",[self,"AutoReset"])
 
 	Func setAutoReset P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoReset",P1])
+		dnRequest("set",[self,"AutoReset",P1])
 		return self
 
 	Func getEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"Enabled"])
+		return dnRequest("get",[self,"Enabled"])
 
 	Func setEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"Enabled",P1])
+		dnRequest("set",[self,"Enabled",P1])
 		return self
 
 	Func getInterval
-		return dnRequest("get",[new DotNetObject(nHandle),"Interval"])
+		return dnRequest("get",[self,"Interval"])
 
 	Func setInterval P1
-		dnRequest("set",[new DotNetObject(nHandle),"Interval",P1])
+		dnRequest("set",[self,"Interval",P1])
 		return self
 
 	Func getSynchronizingObject
-		return dnRequest("get",[new DotNetObject(nHandle),"SynchronizingObject"])
+		return dnRequest("get",[self,"SynchronizingObject"])
 
 	Func setSynchronizingObject P1
-		dnRequest("set",[new DotNetObject(nHandle),"SynchronizingObject",P1])
+		dnRequest("set",[self,"SynchronizingObject",P1])
 		return self
 

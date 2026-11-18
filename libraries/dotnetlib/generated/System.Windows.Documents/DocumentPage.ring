@@ -40,25 +40,25 @@ Class DocumentPage from Object
 		return self
 
 	Func getVisual
-		return dnRequest("get",[new DotNetObject(nHandle),"Visual"])
+		return dnRequest("get",[self,"Visual"])
 
 	Func setVisual P1
 		raise("DotNet Error: Visual is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getBleedBox
-		return dnRequest("get",[new DotNetObject(nHandle),"BleedBox"])
+		return dnRequest("get",[self,"BleedBox"])
 
 	Func setBleedBox P1
 		raise("DotNet Error: BleedBox is a read-only property")
 
 	Func getContentBox
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentBox"])
+		return dnRequest("get",[self,"ContentBox"])
 
 	Func setContentBox P1
 		raise("DotNet Error: ContentBox is a read-only property")

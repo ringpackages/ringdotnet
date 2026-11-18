@@ -25,7 +25,7 @@ Class EndpointDataSource from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getEndpoints
-		return dnRequest("get",[new DotNetObject(nHandle),"Endpoints"])
+		return dnRequest("get",[self,"Endpoints"])
 
 	Func setEndpoints P1
 		raise("DotNet Error: Endpoints is a read-only property")

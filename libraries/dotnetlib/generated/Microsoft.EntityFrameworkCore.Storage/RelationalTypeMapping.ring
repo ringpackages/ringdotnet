@@ -70,55 +70,55 @@ Class RelationalTypeMapping from CoreTypeMapping
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
 
 	Func getStoreTypePostfix
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreTypePostfix"])
+		return dnRequest("get",[self,"StoreTypePostfix"])
 
 	Func setStoreTypePostfix P1
 		raise("DotNet Error: StoreTypePostfix is a read-only property")
 
 	Func getStoreType
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
+		return dnRequest("get",[self,"StoreType"])
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getStoreTypeNameBase
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreTypeNameBase"])
+		return dnRequest("get",[self,"StoreTypeNameBase"])
 
 	Func setStoreTypeNameBase P1
 		raise("DotNet Error: StoreTypeNameBase is a read-only property")
 
 	Func getDbType
-		return dnRequest("get",[new DotNetObject(nHandle),"DbType"])
+		return dnRequest("get",[self,"DbType"])
 
 	Func setDbType P1
 		raise("DotNet Error: DbType is a read-only property")
 
 	Func getIsUnicode
-		return dnRequest("get",[new DotNetObject(nHandle),"IsUnicode"])
+		return dnRequest("get",[self,"IsUnicode"])
 
 	Func setIsUnicode P1
 		raise("DotNet Error: IsUnicode is a read-only property")
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getPrecision
-		return dnRequest("get",[new DotNetObject(nHandle),"Precision"])
+		return dnRequest("get",[self,"Precision"])
 
 	Func setPrecision P1
 		raise("DotNet Error: Precision is a read-only property")
 
 	Func getScale
-		return dnRequest("get",[new DotNetObject(nHandle),"Scale"])
+		return dnRequest("get",[self,"Scale"])
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getIsFixedLength
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFixedLength"])
+		return dnRequest("get",[self,"IsFixedLength"])
 
 	Func setIsFixedLength P1
 		raise("DotNet Error: IsFixedLength is a read-only property")

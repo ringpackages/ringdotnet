@@ -39,19 +39,19 @@ Class StreamReader from TextReader
 		return self
 
 	Func getCurrentEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentEncoding"])
+		return dnRequest("get",[self,"CurrentEncoding"])
 
 	Func setCurrentEncoding P1
 		raise("DotNet Error: CurrentEncoding is a read-only property")
 
 	Func getBaseStream
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseStream"])
+		return dnRequest("get",[self,"BaseStream"])
 
 	Func setBaseStream P1
 		raise("DotNet Error: BaseStream is a read-only property")
 
 	Func getEndOfStream
-		return dnRequest("get",[new DotNetObject(nHandle),"EndOfStream"])
+		return dnRequest("get",[self,"EndOfStream"])
 
 	Func setEndOfStream P1
 		raise("DotNet Error: EndOfStream is a read-only property")

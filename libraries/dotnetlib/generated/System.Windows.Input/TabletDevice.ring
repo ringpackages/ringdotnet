@@ -25,43 +25,43 @@ Class TabletDevice from InputDevice
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getProductId
-		return dnRequest("get",[new DotNetObject(nHandle),"ProductId"])
+		return dnRequest("get",[self,"ProductId"])
 
 	Func setProductId P1
 		raise("DotNet Error: ProductId is a read-only property")
 
 	Func getTabletHardwareCapabilities
-		return dnRequest("get",[new DotNetObject(nHandle),"TabletHardwareCapabilities"])
+		return dnRequest("get",[self,"TabletHardwareCapabilities"])
 
 	Func setTabletHardwareCapabilities P1
 		raise("DotNet Error: TabletHardwareCapabilities is a read-only property")
 
 	Func getSupportedStylusPointProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportedStylusPointProperties"])
+		return dnRequest("get",[self,"SupportedStylusPointProperties"])
 
 	Func setSupportedStylusPointProperties P1
 		raise("DotNet Error: SupportedStylusPointProperties is a read-only property")
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getStylusDevices
-		return dnRequest("get",[new DotNetObject(nHandle),"StylusDevices"])
+		return dnRequest("get",[self,"StylusDevices"])
 
 	Func setStylusDevices P1
 		raise("DotNet Error: StylusDevices is a read-only property")

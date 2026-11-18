@@ -21,9 +21,9 @@ Class BlockUIContainer from Block
 		return self
 
 	Func getChild
-		return dnRequest("get",[new DotNetObject(nHandle),"Child"])
+		return dnRequest("get",[self,"Child"])
 
 	Func setChild P1
-		dnRequest("set",[new DotNetObject(nHandle),"Child",P1])
+		dnRequest("set",[self,"Child",P1])
 		return self
 

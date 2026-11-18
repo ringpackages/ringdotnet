@@ -26,29 +26,29 @@ Class AttachmentBase from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getContentStream
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentStream"])
+		return dnRequest("get",[self,"ContentStream"])
 
 	Func setContentStream P1
 		raise("DotNet Error: ContentStream is a read-only property")
 
 	Func getContentId
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentId"])
+		return dnRequest("get",[self,"ContentId"])
 
 	Func setContentId P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentId",P1])
+		dnRequest("set",[self,"ContentId",P1])
 		return self
 
 	Func getContentType
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentType"])
+		return dnRequest("get",[self,"ContentType"])
 
 	Func setContentType P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentType",P1])
+		dnRequest("set",[self,"ContentType",P1])
 		return self
 
 	Func getTransferEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"TransferEncoding"])
+		return dnRequest("get",[self,"TransferEncoding"])
 
 	Func setTransferEncoding P1
-		dnRequest("set",[new DotNetObject(nHandle),"TransferEncoding",P1])
+		dnRequest("set",[self,"TransferEncoding",P1])
 		return self
 

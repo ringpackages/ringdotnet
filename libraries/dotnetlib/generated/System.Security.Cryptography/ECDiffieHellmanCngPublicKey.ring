@@ -25,7 +25,7 @@ Class ECDiffieHellmanCngPublicKey from ECDiffieHellmanPublicKey
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellmanCngPublicKey, System.Security.Cryptography'),"FromByteArray",P1,P2])
 
 	Func getBlobFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"BlobFormat"])
+		return dnRequest("get",[self,"BlobFormat"])
 
 	Func setBlobFormat P1
 		raise("DotNet Error: BlobFormat is a read-only property")

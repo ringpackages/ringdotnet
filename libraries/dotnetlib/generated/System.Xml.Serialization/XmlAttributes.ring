@@ -37,96 +37,96 @@ Class XmlAttributes from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getXmlElements
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlElements"])
+		return dnRequest("get",[self,"XmlElements"])
 
 	Func setXmlElements P1
 		raise("DotNet Error: XmlElements is a read-only property")
 
 	Func getXmlAttribute
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlAttribute"])
+		return dnRequest("get",[self,"XmlAttribute"])
 
 	Func setXmlAttribute P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlAttribute",P1])
+		dnRequest("set",[self,"XmlAttribute",P1])
 		return self
 
 	Func getXmlEnum
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlEnum"])
+		return dnRequest("get",[self,"XmlEnum"])
 
 	Func setXmlEnum P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlEnum",P1])
+		dnRequest("set",[self,"XmlEnum",P1])
 		return self
 
 	Func getXmlText
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlText"])
+		return dnRequest("get",[self,"XmlText"])
 
 	Func setXmlText P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlText",P1])
+		dnRequest("set",[self,"XmlText",P1])
 		return self
 
 	Func getXmlArray
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlArray"])
+		return dnRequest("get",[self,"XmlArray"])
 
 	Func setXmlArray P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlArray",P1])
+		dnRequest("set",[self,"XmlArray",P1])
 		return self
 
 	Func getXmlArrayItems
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlArrayItems"])
+		return dnRequest("get",[self,"XmlArrayItems"])
 
 	Func setXmlArrayItems P1
 		raise("DotNet Error: XmlArrayItems is a read-only property")
 
 	Func getXmlDefaultValue
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlDefaultValue"])
+		return dnRequest("get",[self,"XmlDefaultValue"])
 
 	Func setXmlDefaultValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlDefaultValue",P1])
+		dnRequest("set",[self,"XmlDefaultValue",P1])
 		return self
 
 	Func getXmlIgnore
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlIgnore"])
+		return dnRequest("get",[self,"XmlIgnore"])
 
 	Func setXmlIgnore P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlIgnore",P1])
+		dnRequest("set",[self,"XmlIgnore",P1])
 		return self
 
 	Func getXmlType
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlType"])
+		return dnRequest("get",[self,"XmlType"])
 
 	Func setXmlType P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlType",P1])
+		dnRequest("set",[self,"XmlType",P1])
 		return self
 
 	Func getXmlRoot
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlRoot"])
+		return dnRequest("get",[self,"XmlRoot"])
 
 	Func setXmlRoot P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlRoot",P1])
+		dnRequest("set",[self,"XmlRoot",P1])
 		return self
 
 	Func getXmlAnyElements
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlAnyElements"])
+		return dnRequest("get",[self,"XmlAnyElements"])
 
 	Func setXmlAnyElements P1
 		raise("DotNet Error: XmlAnyElements is a read-only property")
 
 	Func getXmlAnyAttribute
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlAnyAttribute"])
+		return dnRequest("get",[self,"XmlAnyAttribute"])
 
 	Func setXmlAnyAttribute P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlAnyAttribute",P1])
+		dnRequest("set",[self,"XmlAnyAttribute",P1])
 		return self
 
 	Func getXmlChoiceIdentifier
-		return dnRequest("get",[new DotNetObject(nHandle),"XmlChoiceIdentifier"])
+		return dnRequest("get",[self,"XmlChoiceIdentifier"])
 
 	Func setXmlChoiceIdentifier P1
 		raise("DotNet Error: XmlChoiceIdentifier is a read-only property")
 
 	Func getXmlns
-		return dnRequest("get",[new DotNetObject(nHandle),"Xmlns"])
+		return dnRequest("get",[self,"Xmlns"])
 
 	Func setXmlns P1
-		dnRequest("set",[new DotNetObject(nHandle),"Xmlns",P1])
+		dnRequest("set",[self,"Xmlns",P1])
 		return self
 

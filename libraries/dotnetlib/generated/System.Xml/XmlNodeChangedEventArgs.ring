@@ -22,37 +22,37 @@ Class XmlNodeChangedEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnRequest("get",[new DotNetObject(nHandle),"Action"])
+		return dnRequest("get",[self,"Action"])
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getNode
-		return dnRequest("get",[new DotNetObject(nHandle),"Node"])
+		return dnRequest("get",[self,"Node"])
 
 	Func setNode P1
 		raise("DotNet Error: Node is a read-only property")
 
 	Func getOldParent
-		return dnRequest("get",[new DotNetObject(nHandle),"OldParent"])
+		return dnRequest("get",[self,"OldParent"])
 
 	Func setOldParent P1
 		raise("DotNet Error: OldParent is a read-only property")
 
 	Func getNewParent
-		return dnRequest("get",[new DotNetObject(nHandle),"NewParent"])
+		return dnRequest("get",[self,"NewParent"])
 
 	Func setNewParent P1
 		raise("DotNet Error: NewParent is a read-only property")
 
 	Func getOldValue
-		return dnRequest("get",[new DotNetObject(nHandle),"OldValue"])
+		return dnRequest("get",[self,"OldValue"])
 
 	Func setOldValue P1
 		raise("DotNet Error: OldValue is a read-only property")
 
 	Func getNewValue
-		return dnRequest("get",[new DotNetObject(nHandle),"NewValue"])
+		return dnRequest("get",[self,"NewValue"])
 
 	Func setNewValue P1
 		raise("DotNet Error: NewValue is a read-only property")

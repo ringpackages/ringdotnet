@@ -117,33 +117,33 @@ Class NavigationService from Object
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getCurrentSource
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentSource"])
+		return dnRequest("get",[self,"CurrentSource"])
 
 	Func setCurrentSource P1
 		raise("DotNet Error: CurrentSource is a read-only property")
 
 	Func getContent
-		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
+		return dnRequest("get",[self,"Content"])
 
 	Func setContent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Content",P1])
+		dnRequest("set",[self,"Content",P1])
 		return self
 
 	Func getCanGoForward
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoForward"])
+		return dnRequest("get",[self,"CanGoForward"])
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getCanGoBack
-		return dnRequest("get",[new DotNetObject(nHandle),"CanGoBack"])
+		return dnRequest("get",[self,"CanGoBack"])
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")

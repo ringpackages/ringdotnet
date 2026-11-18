@@ -161,51 +161,51 @@ Class Stream from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.IO.Stream, System.Private.CoreLib'),"Synchronized",P1])
 
 	Func getCanRead
-		return dnRequest("get",[new DotNetObject(nHandle),"CanRead"])
+		return dnRequest("get",[self,"CanRead"])
 
 	Func setCanRead P1
 		raise("DotNet Error: CanRead is a read-only property")
 
 	Func getCanWrite
-		return dnRequest("get",[new DotNetObject(nHandle),"CanWrite"])
+		return dnRequest("get",[self,"CanWrite"])
 
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")
 
 	Func getCanSeek
-		return dnRequest("get",[new DotNetObject(nHandle),"CanSeek"])
+		return dnRequest("get",[self,"CanSeek"])
 
 	Func setCanSeek P1
 		raise("DotNet Error: CanSeek is a read-only property")
 
 	Func getCanTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"CanTimeout"])
+		return dnRequest("get",[self,"CanTimeout"])
 
 	Func setCanTimeout P1
 		raise("DotNet Error: CanTimeout is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func getPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"Position"])
+		return dnRequest("get",[self,"Position"])
 
 	Func setPosition P1
-		dnRequest("set",[new DotNetObject(nHandle),"Position",P1])
+		dnRequest("set",[self,"Position",P1])
 		return self
 
 	Func getReadTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadTimeout"])
+		return dnRequest("get",[self,"ReadTimeout"])
 
 	Func setReadTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadTimeout",P1])
+		dnRequest("set",[self,"ReadTimeout",P1])
 		return self
 
 	Func getWriteTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"WriteTimeout"])
+		return dnRequest("get",[self,"WriteTimeout"])
 
 	Func setWriteTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"WriteTimeout",P1])
+		dnRequest("set",[self,"WriteTimeout",P1])
 		return self
 
 	Func getNull

@@ -57,77 +57,77 @@ Class BindingGroup from DependencyObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func getOwner
-		return dnRequest("get",[new DotNetObject(nHandle),"Owner"])
+		return dnRequest("get",[self,"Owner"])
 
 	Func setOwner P1
 		raise("DotNet Error: Owner is a read-only property")
 
 	Func getValidationRules
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidationRules"])
+		return dnRequest("get",[self,"ValidationRules"])
 
 	Func setValidationRules P1
 		raise("DotNet Error: ValidationRules is a read-only property")
 
 	Func getBindingExpressions
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingExpressions"])
+		return dnRequest("get",[self,"BindingExpressions"])
 
 	Func setBindingExpressions P1
 		raise("DotNet Error: BindingExpressions is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getNotifyOnValidationError
-		return dnRequest("get",[new DotNetObject(nHandle),"NotifyOnValidationError"])
+		return dnRequest("get",[self,"NotifyOnValidationError"])
 
 	Func setNotifyOnValidationError P1
-		dnRequest("set",[new DotNetObject(nHandle),"NotifyOnValidationError",P1])
+		dnRequest("set",[self,"NotifyOnValidationError",P1])
 		return self
 
 	Func getValidatesOnNotifyDataError
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidatesOnNotifyDataError"])
+		return dnRequest("get",[self,"ValidatesOnNotifyDataError"])
 
 	Func setValidatesOnNotifyDataError P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidatesOnNotifyDataError",P1])
+		dnRequest("set",[self,"ValidatesOnNotifyDataError",P1])
 		return self
 
 	Func getSharesProposedValues
-		return dnRequest("get",[new DotNetObject(nHandle),"SharesProposedValues"])
+		return dnRequest("get",[self,"SharesProposedValues"])
 
 	Func setSharesProposedValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"SharesProposedValues",P1])
+		dnRequest("set",[self,"SharesProposedValues",P1])
 		return self
 
 	Func getCanRestoreValues
-		return dnRequest("get",[new DotNetObject(nHandle),"CanRestoreValues"])
+		return dnRequest("get",[self,"CanRestoreValues"])
 
 	Func setCanRestoreValues P1
 		raise("DotNet Error: CanRestoreValues is a read-only property")
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getIsDirty
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDirty"])
+		return dnRequest("get",[self,"IsDirty"])
 
 	Func setIsDirty P1
 		raise("DotNet Error: IsDirty is a read-only property")
 
 	Func getHasValidationError
-		return dnRequest("get",[new DotNetObject(nHandle),"HasValidationError"])
+		return dnRequest("get",[self,"HasValidationError"])
 
 	Func setHasValidationError P1
 		raise("DotNet Error: HasValidationError is a read-only property")
 
 	Func getValidationErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidationErrors"])
+		return dnRequest("get",[self,"ValidationErrors"])
 
 	Func setValidationErrors P1
 		raise("DotNet Error: ValidationErrors is a read-only property")

@@ -16,9 +16,9 @@ Class IKeyFrameAnimation from DotNetObject
 		return self
 
 	Func getKeyFrames
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyFrames"])
+		return dnRequest("get",[self,"KeyFrames"])
 
 	Func setKeyFrames P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeyFrames",P1])
+		dnRequest("set",[self,"KeyFrames",P1])
 		return self
 

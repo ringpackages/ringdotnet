@@ -24,7 +24,7 @@ Class FallbackEventDefinition from EventDefinitionBase
 		return self
 
 	Func getMessageFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"MessageFormat"])
+		return dnRequest("get",[self,"MessageFormat"])
 
 	Func setMessageFormat P1
 		raise("DotNet Error: MessageFormat is a read-only property")

@@ -26,48 +26,48 @@ Class OpenFileDialog from FileDialog
 		return dnRequest("call",[new DotNetObject(nHandle),"OpenFile"])
 
 	Func getMultiselect
-		return dnRequest("get",[new DotNetObject(nHandle),"Multiselect"])
+		return dnRequest("get",[self,"Multiselect"])
 
 	Func setMultiselect P1
-		dnRequest("set",[new DotNetObject(nHandle),"Multiselect",P1])
+		dnRequest("set",[self,"Multiselect",P1])
 		return self
 
 	Func getReadOnlyChecked
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadOnlyChecked"])
+		return dnRequest("get",[self,"ReadOnlyChecked"])
 
 	Func setReadOnlyChecked P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadOnlyChecked",P1])
+		dnRequest("set",[self,"ReadOnlyChecked",P1])
 		return self
 
 	Func getSelectReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectReadOnly"])
+		return dnRequest("get",[self,"SelectReadOnly"])
 
 	Func setSelectReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectReadOnly",P1])
+		dnRequest("set",[self,"SelectReadOnly",P1])
 		return self
 
 	Func getShowPreview
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowPreview"])
+		return dnRequest("get",[self,"ShowPreview"])
 
 	Func setShowPreview P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowPreview",P1])
+		dnRequest("set",[self,"ShowPreview",P1])
 		return self
 
 	Func getShowReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowReadOnly"])
+		return dnRequest("get",[self,"ShowReadOnly"])
 
 	Func setShowReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowReadOnly",P1])
+		dnRequest("set",[self,"ShowReadOnly",P1])
 		return self
 
 	Func getSafeFileName
-		return dnRequest("get",[new DotNetObject(nHandle),"SafeFileName"])
+		return dnRequest("get",[self,"SafeFileName"])
 
 	Func setSafeFileName P1
 		raise("DotNet Error: SafeFileName is a read-only property")
 
 	Func getSafeFileNames
-		return dnRequest("get",[new DotNetObject(nHandle),"SafeFileNames"])
+		return dnRequest("get",[self,"SafeFileNames"])
 
 	Func setSafeFileNames P1
 		raise("DotNet Error: SafeFileNames is a read-only property")

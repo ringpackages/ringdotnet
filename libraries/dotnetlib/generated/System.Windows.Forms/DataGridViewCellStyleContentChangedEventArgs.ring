@@ -17,13 +17,13 @@ Class DataGridViewCellStyleContentChangedEventArgs from EventArgs
 		return self
 
 	Func getCellStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"CellStyle"])
+		return dnRequest("get",[self,"CellStyle"])
 
 	Func setCellStyle P1
 		raise("DotNet Error: CellStyle is a read-only property")
 
 	Func getCellStyleScope
-		return dnRequest("get",[new DotNetObject(nHandle),"CellStyleScope"])
+		return dnRequest("get",[self,"CellStyleScope"])
 
 	Func setCellStyleScope P1
 		raise("DotNet Error: CellStyleScope is a read-only property")

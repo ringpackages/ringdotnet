@@ -23,30 +23,30 @@ Class SaveFileDialog from FileDialog
 		return dnRequest("call",[new DotNetObject(nHandle),"OpenFile"])
 
 	Func getCheckWriteAccess
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckWriteAccess"])
+		return dnRequest("get",[self,"CheckWriteAccess"])
 
 	Func setCheckWriteAccess P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckWriteAccess",P1])
+		dnRequest("set",[self,"CheckWriteAccess",P1])
 		return self
 
 	Func getCreatePrompt
-		return dnRequest("get",[new DotNetObject(nHandle),"CreatePrompt"])
+		return dnRequest("get",[self,"CreatePrompt"])
 
 	Func setCreatePrompt P1
-		dnRequest("set",[new DotNetObject(nHandle),"CreatePrompt",P1])
+		dnRequest("set",[self,"CreatePrompt",P1])
 		return self
 
 	Func getExpandedMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ExpandedMode"])
+		return dnRequest("get",[self,"ExpandedMode"])
 
 	Func setExpandedMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ExpandedMode",P1])
+		dnRequest("set",[self,"ExpandedMode",P1])
 		return self
 
 	Func getOverwritePrompt
-		return dnRequest("get",[new DotNetObject(nHandle),"OverwritePrompt"])
+		return dnRequest("get",[self,"OverwritePrompt"])
 
 	Func setOverwritePrompt P1
-		dnRequest("set",[new DotNetObject(nHandle),"OverwritePrompt",P1])
+		dnRequest("set",[self,"OverwritePrompt",P1])
 		return self
 

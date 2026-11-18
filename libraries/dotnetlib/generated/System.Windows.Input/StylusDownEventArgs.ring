@@ -17,7 +17,7 @@ Class StylusDownEventArgs from StylusEventArgs
 		return self
 
 	Func getTapCount
-		return dnRequest("get",[new DotNetObject(nHandle),"TapCount"])
+		return dnRequest("get",[self,"TapCount"])
 
 	Func setTapCount P1
 		raise("DotNet Error: TapCount is a read-only property")

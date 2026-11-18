@@ -27,30 +27,30 @@ Class List from Block
 		return self
 
 	Func getListItems
-		return dnRequest("get",[new DotNetObject(nHandle),"ListItems"])
+		return dnRequest("get",[self,"ListItems"])
 
 	Func setListItems P1
 		raise("DotNet Error: ListItems is a read-only property")
 
 	Func getMarkerStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"MarkerStyle"])
+		return dnRequest("get",[self,"MarkerStyle"])
 
 	Func setMarkerStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"MarkerStyle",P1])
+		dnRequest("set",[self,"MarkerStyle",P1])
 		return self
 
 	Func getMarkerOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"MarkerOffset"])
+		return dnRequest("get",[self,"MarkerOffset"])
 
 	Func setMarkerOffset P1
-		dnRequest("set",[new DotNetObject(nHandle),"MarkerOffset",P1])
+		dnRequest("set",[self,"MarkerOffset",P1])
 		return self
 
 	Func getStartIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"StartIndex"])
+		return dnRequest("get",[self,"StartIndex"])
 
 	Func setStartIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"StartIndex",P1])
+		dnRequest("set",[self,"StartIndex",P1])
 		return self
 
 	Func getMarkerStyleProperty

@@ -27,51 +27,51 @@ Class PipeStream from Stream
 		return self
 
 	Func getIsConnected
-		return dnRequest("get",[new DotNetObject(nHandle),"IsConnected"])
+		return dnRequest("get",[self,"IsConnected"])
 
 	Func setIsConnected P1
 		raise("DotNet Error: IsConnected is a read-only property")
 
 	Func getIsAsync
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAsync"])
+		return dnRequest("get",[self,"IsAsync"])
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getIsMessageComplete
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMessageComplete"])
+		return dnRequest("get",[self,"IsMessageComplete"])
 
 	Func setIsMessageComplete P1
 		raise("DotNet Error: IsMessageComplete is a read-only property")
 
 	Func getSafePipeHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"SafePipeHandle"])
+		return dnRequest("get",[self,"SafePipeHandle"])
 
 	Func setSafePipeHandle P1
 		raise("DotNet Error: SafePipeHandle is a read-only property")
 
 	Func getTransmissionMode
-		return dnRequest("get",[new DotNetObject(nHandle),"TransmissionMode"])
+		return dnRequest("get",[self,"TransmissionMode"])
 
 	Func setTransmissionMode P1
 		raise("DotNet Error: TransmissionMode is a read-only property")
 
 	Func getInBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"InBufferSize"])
+		return dnRequest("get",[self,"InBufferSize"])
 
 	Func setInBufferSize P1
 		raise("DotNet Error: InBufferSize is a read-only property")
 
 	Func getOutBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"OutBufferSize"])
+		return dnRequest("get",[self,"OutBufferSize"])
 
 	Func setOutBufferSize P1
 		raise("DotNet Error: OutBufferSize is a read-only property")
 
 	Func getReadMode
-		return dnRequest("get",[new DotNetObject(nHandle),"ReadMode"])
+		return dnRequest("get",[self,"ReadMode"])
 
 	Func setReadMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReadMode",P1])
+		dnRequest("set",[self,"ReadMode",P1])
 		return self
 

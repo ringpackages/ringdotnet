@@ -37,30 +37,30 @@ Class NetworkCredential from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getUserName
-		return dnRequest("get",[new DotNetObject(nHandle),"UserName"])
+		return dnRequest("get",[self,"UserName"])
 
 	Func setUserName P1
-		dnRequest("set",[new DotNetObject(nHandle),"UserName",P1])
+		dnRequest("set",[self,"UserName",P1])
 		return self
 
 	Func getPassword
-		return dnRequest("get",[new DotNetObject(nHandle),"Password"])
+		return dnRequest("get",[self,"Password"])
 
 	Func setPassword P1
-		dnRequest("set",[new DotNetObject(nHandle),"Password",P1])
+		dnRequest("set",[self,"Password",P1])
 		return self
 
 	Func getSecurePassword
-		return dnRequest("get",[new DotNetObject(nHandle),"SecurePassword"])
+		return dnRequest("get",[self,"SecurePassword"])
 
 	Func setSecurePassword P1
-		dnRequest("set",[new DotNetObject(nHandle),"SecurePassword",P1])
+		dnRequest("set",[self,"SecurePassword",P1])
 		return self
 
 	Func getDomain
-		return dnRequest("get",[new DotNetObject(nHandle),"Domain"])
+		return dnRequest("get",[self,"Domain"])
 
 	Func setDomain P1
-		dnRequest("set",[new DotNetObject(nHandle),"Domain",P1])
+		dnRequest("set",[self,"Domain",P1])
 		return self
 

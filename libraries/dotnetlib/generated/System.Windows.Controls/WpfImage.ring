@@ -40,24 +40,24 @@ Class WpfImage from FrameworkElement
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getStretch
-		return dnRequest("get",[new DotNetObject(nHandle),"Stretch"])
+		return dnRequest("get",[self,"Stretch"])
 
 	Func setStretch P1
-		dnRequest("set",[new DotNetObject(nHandle),"Stretch",P1])
+		dnRequest("set",[self,"Stretch",P1])
 		return self
 
 	Func getStretchDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"StretchDirection"])
+		return dnRequest("get",[self,"StretchDirection"])
 
 	Func setStretchDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"StretchDirection",P1])
+		dnRequest("set",[self,"StretchDirection",P1])
 		return self
 
 	Func getSourceProperty

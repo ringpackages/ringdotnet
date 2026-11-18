@@ -24,7 +24,7 @@ Class ISupportInitializeNotification from DotNetObject
 		return self
 
 	Func getIsInitialized
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialized"])
+		return dnRequest("get",[self,"IsInitialized"])
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")

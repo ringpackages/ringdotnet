@@ -18,16 +18,16 @@ Class XmlSchemaAppInfo from XmlSchemaObject
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getMarkup
-		return dnRequest("get",[new DotNetObject(nHandle),"Markup"])
+		return dnRequest("get",[self,"Markup"])
 
 	Func setMarkup P1
-		dnRequest("set",[new DotNetObject(nHandle),"Markup",P1])
+		dnRequest("set",[self,"Markup",P1])
 		return self
 

@@ -19,19 +19,19 @@ Class DataTableClearEventArgs from EventArgs
 		return self
 
 	Func getTable
-		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
+		return dnRequest("get",[self,"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getTableName
-		return dnRequest("get",[new DotNetObject(nHandle),"TableName"])
+		return dnRequest("get",[self,"TableName"])
 
 	Func setTableName P1
 		raise("DotNet Error: TableName is a read-only property")
 
 	Func getTableNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"TableNamespace"])
+		return dnRequest("get",[self,"TableNamespace"])
 
 	Func setTableNamespace P1
 		raise("DotNet Error: TableNamespace is a read-only property")

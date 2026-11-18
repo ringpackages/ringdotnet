@@ -26,31 +26,31 @@ Class GridLength from ValueType
 		return self
 
 	Func getIsAbsolute
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAbsolute"])
+		return dnRequest("get",[self,"IsAbsolute"])
 
 	Func setIsAbsolute P1
 		raise("DotNet Error: IsAbsolute is a read-only property")
 
 	Func getIsAuto
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAuto"])
+		return dnRequest("get",[self,"IsAuto"])
 
 	Func setIsAuto P1
 		raise("DotNet Error: IsAuto is a read-only property")
 
 	Func getIsStar
-		return dnRequest("get",[new DotNetObject(nHandle),"IsStar"])
+		return dnRequest("get",[self,"IsStar"])
 
 	Func setIsStar P1
 		raise("DotNet Error: IsStar is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getGridUnitType
-		return dnRequest("get",[new DotNetObject(nHandle),"GridUnitType"])
+		return dnRequest("get",[self,"GridUnitType"])
 
 	Func setGridUnitType P1
 		raise("DotNet Error: GridUnitType is a read-only property")

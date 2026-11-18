@@ -90,84 +90,84 @@ Class SmtpClient from Object
 		return self
 
 	Func getHost
-		return dnRequest("get",[new DotNetObject(nHandle),"Host"])
+		return dnRequest("get",[self,"Host"])
 
 	Func setHost P1
-		dnRequest("set",[new DotNetObject(nHandle),"Host",P1])
+		dnRequest("set",[self,"Host",P1])
 		return self
 
 	Func getPort
-		return dnRequest("get",[new DotNetObject(nHandle),"Port"])
+		return dnRequest("get",[self,"Port"])
 
 	Func setPort P1
-		dnRequest("set",[new DotNetObject(nHandle),"Port",P1])
+		dnRequest("set",[self,"Port",P1])
 		return self
 
 	Func getUseDefaultCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"UseDefaultCredentials"])
+		return dnRequest("get",[self,"UseDefaultCredentials"])
 
 	Func setUseDefaultCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseDefaultCredentials",P1])
+		dnRequest("set",[self,"UseDefaultCredentials",P1])
 		return self
 
 	Func getCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"Credentials"])
+		return dnRequest("get",[self,"Credentials"])
 
 	Func setCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
+		dnRequest("set",[self,"Credentials",P1])
 		return self
 
 	Func getTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"Timeout"])
+		return dnRequest("get",[self,"Timeout"])
 
 	Func setTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"Timeout",P1])
+		dnRequest("set",[self,"Timeout",P1])
 		return self
 
 	Func getServicePoint
-		return dnRequest("get",[new DotNetObject(nHandle),"ServicePoint"])
+		return dnRequest("get",[self,"ServicePoint"])
 
 	Func setServicePoint P1
 		raise("DotNet Error: ServicePoint is a read-only property")
 
 	Func getDeliveryMethod
-		return dnRequest("get",[new DotNetObject(nHandle),"DeliveryMethod"])
+		return dnRequest("get",[self,"DeliveryMethod"])
 
 	Func setDeliveryMethod P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeliveryMethod",P1])
+		dnRequest("set",[self,"DeliveryMethod",P1])
 		return self
 
 	Func getDeliveryFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"DeliveryFormat"])
+		return dnRequest("get",[self,"DeliveryFormat"])
 
 	Func setDeliveryFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeliveryFormat",P1])
+		dnRequest("set",[self,"DeliveryFormat",P1])
 		return self
 
 	Func getPickupDirectoryLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"PickupDirectoryLocation"])
+		return dnRequest("get",[self,"PickupDirectoryLocation"])
 
 	Func setPickupDirectoryLocation P1
-		dnRequest("set",[new DotNetObject(nHandle),"PickupDirectoryLocation",P1])
+		dnRequest("set",[self,"PickupDirectoryLocation",P1])
 		return self
 
 	Func getEnableSsl
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableSsl"])
+		return dnRequest("get",[self,"EnableSsl"])
 
 	Func setEnableSsl P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableSsl",P1])
+		dnRequest("set",[self,"EnableSsl",P1])
 		return self
 
 	Func getClientCertificates
-		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificates"])
+		return dnRequest("get",[self,"ClientCertificates"])
 
 	Func setClientCertificates P1
 		raise("DotNet Error: ClientCertificates is a read-only property")
 
 	Func getTargetName
-		return dnRequest("get",[new DotNetObject(nHandle),"TargetName"])
+		return dnRequest("get",[self,"TargetName"])
 
 	Func setTargetName P1
-		dnRequest("set",[new DotNetObject(nHandle),"TargetName",P1])
+		dnRequest("set",[self,"TargetName",P1])
 		return self
 

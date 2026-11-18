@@ -49,83 +49,83 @@ Class ViewComponent from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHttpContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
+		return dnRequest("get",[self,"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRequest
-		return dnRequest("get",[new DotNetObject(nHandle),"Request"])
+		return dnRequest("get",[self,"Request"])
 
 	Func setRequest P1
 		raise("DotNet Error: Request is a read-only property")
 
 	Func getUser
-		return dnRequest("get",[new DotNetObject(nHandle),"User"])
+		return dnRequest("get",[self,"User"])
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getUserClaimsPrincipal
-		return dnRequest("get",[new DotNetObject(nHandle),"UserClaimsPrincipal"])
+		return dnRequest("get",[self,"UserClaimsPrincipal"])
 
 	Func setUserClaimsPrincipal P1
 		raise("DotNet Error: UserClaimsPrincipal is a read-only property")
 
 	Func getRouteData
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteData"])
+		return dnRequest("get",[self,"RouteData"])
 
 	Func setRouteData P1
 		raise("DotNet Error: RouteData is a read-only property")
 
 	Func getViewBag
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewBag"])
+		return dnRequest("get",[self,"ViewBag"])
 
 	Func setViewBag P1
 		raise("DotNet Error: ViewBag is a read-only property")
 
 	Func getModelState
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelState"])
+		return dnRequest("get",[self,"ModelState"])
 
 	Func setModelState P1
 		raise("DotNet Error: ModelState is a read-only property")
 
 	Func getUrl
-		return dnRequest("get",[new DotNetObject(nHandle),"Url"])
+		return dnRequest("get",[self,"Url"])
 
 	Func setUrl P1
-		dnRequest("set",[new DotNetObject(nHandle),"Url",P1])
+		dnRequest("set",[self,"Url",P1])
 		return self
 
 	Func getViewComponentContext
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewComponentContext"])
+		return dnRequest("get",[self,"ViewComponentContext"])
 
 	Func setViewComponentContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"ViewComponentContext",P1])
+		dnRequest("set",[self,"ViewComponentContext",P1])
 		return self
 
 	Func getViewContext
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewContext"])
+		return dnRequest("get",[self,"ViewContext"])
 
 	Func setViewContext P1
 		raise("DotNet Error: ViewContext is a read-only property")
 
 	Func getViewData
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewData"])
+		return dnRequest("get",[self,"ViewData"])
 
 	Func setViewData P1
 		raise("DotNet Error: ViewData is a read-only property")
 
 	Func getTempData
-		return dnRequest("get",[new DotNetObject(nHandle),"TempData"])
+		return dnRequest("get",[self,"TempData"])
 
 	Func setTempData P1
 		raise("DotNet Error: TempData is a read-only property")
 
 	Func getViewEngine
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewEngine"])
+		return dnRequest("get",[self,"ViewEngine"])
 
 	Func setViewEngine P1
-		dnRequest("set",[new DotNetObject(nHandle),"ViewEngine",P1])
+		dnRequest("set",[self,"ViewEngine",P1])
 		return self
 

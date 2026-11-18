@@ -42,51 +42,51 @@ Class BindingInfo from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1,P2])
 
 	Func getBindingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingSource"])
+		return dnRequest("get",[self,"BindingSource"])
 
 	Func setBindingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"BindingSource",P1])
+		dnRequest("set",[self,"BindingSource",P1])
 		return self
 
 	Func getBinderModelName
-		return dnRequest("get",[new DotNetObject(nHandle),"BinderModelName"])
+		return dnRequest("get",[self,"BinderModelName"])
 
 	Func setBinderModelName P1
-		dnRequest("set",[new DotNetObject(nHandle),"BinderModelName",P1])
+		dnRequest("set",[self,"BinderModelName",P1])
 		return self
 
 	Func getBinderType
-		return dnRequest("get",[new DotNetObject(nHandle),"BinderType"])
+		return dnRequest("get",[self,"BinderType"])
 
 	Func setBinderType P1
-		dnRequest("set",[new DotNetObject(nHandle),"BinderType",P1])
+		dnRequest("set",[self,"BinderType",P1])
 		return self
 
 	Func getPropertyFilterProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyFilterProvider"])
+		return dnRequest("get",[self,"PropertyFilterProvider"])
 
 	Func setPropertyFilterProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"PropertyFilterProvider",P1])
+		dnRequest("set",[self,"PropertyFilterProvider",P1])
 		return self
 
 	Func getRequestPredicate
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestPredicate"])
+		return dnRequest("get",[self,"RequestPredicate"])
 
 	Func setRequestPredicate P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestPredicate",P1])
+		dnRequest("set",[self,"RequestPredicate",P1])
 		return self
 
 	Func getEmptyBodyBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"EmptyBodyBehavior"])
+		return dnRequest("get",[self,"EmptyBodyBehavior"])
 
 	Func setEmptyBodyBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"EmptyBodyBehavior",P1])
+		dnRequest("set",[self,"EmptyBodyBehavior",P1])
 		return self
 
 	Func getServiceKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceKey"])
+		return dnRequest("get",[self,"ServiceKey"])
 
 	Func setServiceKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"ServiceKey",P1])
+		dnRequest("set",[self,"ServiceKey",P1])
 		return self
 

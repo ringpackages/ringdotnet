@@ -30,13 +30,13 @@ Class PixelFormat from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.PixelFormat, PresentationCore'),"Equals",P1,P2])
 
 	Func getBitsPerPixel
-		return dnRequest("get",[new DotNetObject(nHandle),"BitsPerPixel"])
+		return dnRequest("get",[self,"BitsPerPixel"])
 
 	Func setBitsPerPixel P1
 		raise("DotNet Error: BitsPerPixel is a read-only property")
 
 	Func getMasks
-		return dnRequest("get",[new DotNetObject(nHandle),"Masks"])
+		return dnRequest("get",[self,"Masks"])
 
 	Func setMasks P1
 		raise("DotNet Error: Masks is a read-only property")

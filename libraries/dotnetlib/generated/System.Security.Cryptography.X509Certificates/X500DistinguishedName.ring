@@ -36,7 +36,7 @@ Class X500DistinguishedName from AsnEncodedData
 		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateRelativeDistinguishedNames",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

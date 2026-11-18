@@ -26,61 +26,61 @@ Class WpfKeyEventArgs from KeyboardEventArgs
 		return self
 
 	Func getInputSource
-		return dnRequest("get",[new DotNetObject(nHandle),"InputSource"])
+		return dnRequest("get",[self,"InputSource"])
 
 	Func setInputSource P1
 		raise("DotNet Error: InputSource is a read-only property")
 
 	Func getKey
-		return dnRequest("get",[new DotNetObject(nHandle),"Key"])
+		return dnRequest("get",[self,"Key"])
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getImeProcessedKey
-		return dnRequest("get",[new DotNetObject(nHandle),"ImeProcessedKey"])
+		return dnRequest("get",[self,"ImeProcessedKey"])
 
 	Func setImeProcessedKey P1
 		raise("DotNet Error: ImeProcessedKey is a read-only property")
 
 	Func getSystemKey
-		return dnRequest("get",[new DotNetObject(nHandle),"SystemKey"])
+		return dnRequest("get",[self,"SystemKey"])
 
 	Func setSystemKey P1
 		raise("DotNet Error: SystemKey is a read-only property")
 
 	Func getDeadCharProcessedKey
-		return dnRequest("get",[new DotNetObject(nHandle),"DeadCharProcessedKey"])
+		return dnRequest("get",[self,"DeadCharProcessedKey"])
 
 	Func setDeadCharProcessedKey P1
 		raise("DotNet Error: DeadCharProcessedKey is a read-only property")
 
 	Func getKeyStates
-		return dnRequest("get",[new DotNetObject(nHandle),"KeyStates"])
+		return dnRequest("get",[self,"KeyStates"])
 
 	Func setKeyStates P1
 		raise("DotNet Error: KeyStates is a read-only property")
 
 	Func getIsRepeat
-		return dnRequest("get",[new DotNetObject(nHandle),"IsRepeat"])
+		return dnRequest("get",[self,"IsRepeat"])
 
 	Func setIsRepeat P1
 		raise("DotNet Error: IsRepeat is a read-only property")
 
 	Func getIsDown
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDown"])
+		return dnRequest("get",[self,"IsDown"])
 
 	Func setIsDown P1
 		raise("DotNet Error: IsDown is a read-only property")
 
 	Func getIsUp
-		return dnRequest("get",[new DotNetObject(nHandle),"IsUp"])
+		return dnRequest("get",[self,"IsUp"])
 
 	Func setIsUp P1
 		raise("DotNet Error: IsUp is a read-only property")
 
 	Func getIsToggled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsToggled"])
+		return dnRequest("get",[self,"IsToggled"])
 
 	Func setIsToggled P1
 		raise("DotNet Error: IsToggled is a read-only property")

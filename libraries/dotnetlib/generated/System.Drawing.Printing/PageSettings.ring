@@ -45,75 +45,75 @@ Class PageSettings from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBounds
-		return dnRequest("get",[new DotNetObject(nHandle),"Bounds"])
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getColor
-		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
+		return dnRequest("get",[self,"Color"])
 
 	Func setColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
+		dnRequest("set",[self,"Color",P1])
 		return self
 
 	Func getHardMarginX
-		return dnRequest("get",[new DotNetObject(nHandle),"HardMarginX"])
+		return dnRequest("get",[self,"HardMarginX"])
 
 	Func setHardMarginX P1
 		raise("DotNet Error: HardMarginX is a read-only property")
 
 	Func getHardMarginY
-		return dnRequest("get",[new DotNetObject(nHandle),"HardMarginY"])
+		return dnRequest("get",[self,"HardMarginY"])
 
 	Func setHardMarginY P1
 		raise("DotNet Error: HardMarginY is a read-only property")
 
 	Func getLandscape
-		return dnRequest("get",[new DotNetObject(nHandle),"Landscape"])
+		return dnRequest("get",[self,"Landscape"])
 
 	Func setLandscape P1
-		dnRequest("set",[new DotNetObject(nHandle),"Landscape",P1])
+		dnRequest("set",[self,"Landscape",P1])
 		return self
 
 	Func getMargins
-		return dnRequest("get",[new DotNetObject(nHandle),"Margins"])
+		return dnRequest("get",[self,"Margins"])
 
 	Func setMargins P1
-		dnRequest("set",[new DotNetObject(nHandle),"Margins",P1])
+		dnRequest("set",[self,"Margins",P1])
 		return self
 
 	Func getPaperSize
-		return dnRequest("get",[new DotNetObject(nHandle),"PaperSize"])
+		return dnRequest("get",[self,"PaperSize"])
 
 	Func setPaperSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"PaperSize",P1])
+		dnRequest("set",[self,"PaperSize",P1])
 		return self
 
 	Func getPaperSource
-		return dnRequest("get",[new DotNetObject(nHandle),"PaperSource"])
+		return dnRequest("get",[self,"PaperSource"])
 
 	Func setPaperSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"PaperSource",P1])
+		dnRequest("set",[self,"PaperSource",P1])
 		return self
 
 	Func getPrintableArea
-		return dnRequest("get",[new DotNetObject(nHandle),"PrintableArea"])
+		return dnRequest("get",[self,"PrintableArea"])
 
 	Func setPrintableArea P1
 		raise("DotNet Error: PrintableArea is a read-only property")
 
 	Func getPrinterResolution
-		return dnRequest("get",[new DotNetObject(nHandle),"PrinterResolution"])
+		return dnRequest("get",[self,"PrinterResolution"])
 
 	Func setPrinterResolution P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrinterResolution",P1])
+		dnRequest("set",[self,"PrinterResolution",P1])
 		return self
 
 	Func getPrinterSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"PrinterSettings"])
+		return dnRequest("get",[self,"PrinterSettings"])
 
 	Func setPrinterSettings P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrinterSettings",P1])
+		dnRequest("set",[self,"PrinterSettings",P1])
 		return self
 

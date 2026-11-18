@@ -22,10 +22,10 @@ Class MatrixTransform3D from Transform3D
 		return self
 
 	Func getMatrix
-		return dnRequest("get",[new DotNetObject(nHandle),"Matrix"])
+		return dnRequest("get",[self,"Matrix"])
 
 	Func setMatrix P1
-		dnRequest("set",[new DotNetObject(nHandle),"Matrix",P1])
+		dnRequest("set",[self,"Matrix",P1])
 		return self
 
 	Func getMatrixProperty

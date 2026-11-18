@@ -18,13 +18,13 @@ Class RefreshEventArgs from EventArgs
 		return self
 
 	Func getComponentChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"ComponentChanged"])
+		return dnRequest("get",[self,"ComponentChanged"])
 
 	Func setComponentChanged P1
 		raise("DotNet Error: ComponentChanged is a read-only property")
 
 	Func getTypeChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"TypeChanged"])
+		return dnRequest("get",[self,"TypeChanged"])
 
 	Func setTypeChanged P1
 		raise("DotNet Error: TypeChanged is a read-only property")

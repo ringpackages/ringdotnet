@@ -18,13 +18,13 @@ Class PagesChangedEventArgs from EventArgs
 		return self
 
 	Func getStart
-		return dnRequest("get",[new DotNetObject(nHandle),"Start"])
+		return dnRequest("get",[self,"Start"])
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[new DotNetObject(nHandle),"Count"])
+		return dnRequest("get",[self,"Count"])
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

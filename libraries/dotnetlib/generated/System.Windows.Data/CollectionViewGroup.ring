@@ -22,25 +22,25 @@ Class CollectionViewGroup from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getItems
-		return dnRequest("get",[new DotNetObject(nHandle),"Items"])
+		return dnRequest("get",[self,"Items"])
 
 	Func setItems P1
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getItemCount
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemCount"])
+		return dnRequest("get",[self,"ItemCount"])
 
 	Func setItemCount P1
 		raise("DotNet Error: ItemCount is a read-only property")
 
 	Func getIsBottomLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBottomLevel"])
+		return dnRequest("get",[self,"IsBottomLevel"])
 
 	Func setIsBottomLevel P1
 		raise("DotNet Error: IsBottomLevel is a read-only property")

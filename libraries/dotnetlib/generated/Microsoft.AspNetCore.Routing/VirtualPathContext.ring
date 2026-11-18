@@ -27,27 +27,27 @@ Class VirtualPathContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAmbientValues
-		return dnRequest("get",[new DotNetObject(nHandle),"AmbientValues"])
+		return dnRequest("get",[self,"AmbientValues"])
 
 	Func setAmbientValues P1
 		raise("DotNet Error: AmbientValues is a read-only property")
 
 	Func getHttpContext
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpContext"])
+		return dnRequest("get",[self,"HttpContext"])
 
 	Func setHttpContext P1
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRouteName
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteName"])
+		return dnRequest("get",[self,"RouteName"])
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
 
 	Func getValues
-		return dnRequest("get",[new DotNetObject(nHandle),"Values"])
+		return dnRequest("get",[self,"Values"])
 
 	Func setValues P1
-		dnRequest("set",[new DotNetObject(nHandle),"Values",P1])
+		dnRequest("set",[self,"Values",P1])
 		return self
 

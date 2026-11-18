@@ -162,55 +162,55 @@ Class Module from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType",P1])
 
 	Func getAssembly
-		return dnRequest("get",[new DotNetObject(nHandle),"Assembly"])
+		return dnRequest("get",[self,"Assembly"])
 
 	Func setAssembly P1
 		raise("DotNet Error: Assembly is a read-only property")
 
 	Func getFullyQualifiedName
-		return dnRequest("get",[new DotNetObject(nHandle),"FullyQualifiedName"])
+		return dnRequest("get",[self,"FullyQualifiedName"])
 
 	Func setFullyQualifiedName P1
 		raise("DotNet Error: FullyQualifiedName is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getMDStreamVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"MDStreamVersion"])
+		return dnRequest("get",[self,"MDStreamVersion"])
 
 	Func setMDStreamVersion P1
 		raise("DotNet Error: MDStreamVersion is a read-only property")
 
 	Func getModuleVersionId
-		return dnRequest("get",[new DotNetObject(nHandle),"ModuleVersionId"])
+		return dnRequest("get",[self,"ModuleVersionId"])
 
 	Func setModuleVersionId P1
 		raise("DotNet Error: ModuleVersionId is a read-only property")
 
 	Func getScopeName
-		return dnRequest("get",[new DotNetObject(nHandle),"ScopeName"])
+		return dnRequest("get",[self,"ScopeName"])
 
 	Func setScopeName P1
 		raise("DotNet Error: ScopeName is a read-only property")
 
 	Func getModuleHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"ModuleHandle"])
+		return dnRequest("get",[self,"ModuleHandle"])
 
 	Func setModuleHandle P1
 		raise("DotNet Error: ModuleHandle is a read-only property")
 
 	Func getCustomAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"CustomAttributes"])
+		return dnRequest("get",[self,"CustomAttributes"])
 
 	Func setCustomAttributes P1
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getMetadataToken
-		return dnRequest("get",[new DotNetObject(nHandle),"MetadataToken"])
+		return dnRequest("get",[self,"MetadataToken"])
 
 	Func setMetadataToken P1
 		raise("DotNet Error: MetadataToken is a read-only property")

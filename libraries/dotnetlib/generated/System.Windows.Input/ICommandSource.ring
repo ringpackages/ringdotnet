@@ -18,19 +18,19 @@ Class ICommandSource from DotNetObject
 		return self
 
 	Func getCommand
-		return dnRequest("get",[new DotNetObject(nHandle),"Command"])
+		return dnRequest("get",[self,"Command"])
 
 	Func setCommand P1
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getCommandParameter
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandParameter"])
+		return dnRequest("get",[self,"CommandParameter"])
 
 	Func setCommandParameter P1
 		raise("DotNet Error: CommandParameter is a read-only property")
 
 	Func getCommandTarget
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandTarget"])
+		return dnRequest("get",[self,"CommandTarget"])
 
 	Func setCommandTarget P1
 		raise("DotNet Error: CommandTarget is a read-only property")

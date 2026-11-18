@@ -21,16 +21,16 @@ Class FilterProviderContext from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getActionContext
-		return dnRequest("get",[new DotNetObject(nHandle),"ActionContext"])
+		return dnRequest("get",[self,"ActionContext"])
 
 	Func setActionContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActionContext",P1])
+		dnRequest("set",[self,"ActionContext",P1])
 		return self
 
 	Func getResults
-		return dnRequest("get",[new DotNetObject(nHandle),"Results"])
+		return dnRequest("get",[self,"Results"])
 
 	Func setResults P1
-		dnRequest("set",[new DotNetObject(nHandle),"Results",P1])
+		dnRequest("set",[self,"Results",P1])
 		return self
 

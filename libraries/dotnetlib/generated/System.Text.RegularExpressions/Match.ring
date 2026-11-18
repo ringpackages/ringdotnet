@@ -26,7 +26,7 @@ Class Match from Group
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Match, System.Text.RegularExpressions'),"Synchronized",P1])
 
 	Func getGroups
-		return dnRequest("get",[new DotNetObject(nHandle),"Groups"])
+		return dnRequest("get",[self,"Groups"])
 
 	Func setGroups P1
 		raise("DotNet Error: Groups is a read-only property")

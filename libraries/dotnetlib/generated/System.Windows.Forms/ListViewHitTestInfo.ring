@@ -22,19 +22,19 @@ Class ListViewHitTestInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getLocation
-		return dnRequest("get",[new DotNetObject(nHandle),"Location"])
+		return dnRequest("get",[self,"Location"])
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getItem
-		return dnRequest("get",[new DotNetObject(nHandle),"Item"])
+		return dnRequest("get",[self,"Item"])
 
 	Func setItem P1
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getSubItem
-		return dnRequest("get",[new DotNetObject(nHandle),"SubItem"])
+		return dnRequest("get",[self,"SubItem"])
 
 	Func setSubItem P1
 		raise("DotNet Error: SubItem is a read-only property")

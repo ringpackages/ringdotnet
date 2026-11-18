@@ -34,61 +34,61 @@ Class IPInterfaceProperties from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsDnsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDnsEnabled"])
+		return dnRequest("get",[self,"IsDnsEnabled"])
 
 	Func setIsDnsEnabled P1
 		raise("DotNet Error: IsDnsEnabled is a read-only property")
 
 	Func getDnsSuffix
-		return dnRequest("get",[new DotNetObject(nHandle),"DnsSuffix"])
+		return dnRequest("get",[self,"DnsSuffix"])
 
 	Func setDnsSuffix P1
 		raise("DotNet Error: DnsSuffix is a read-only property")
 
 	Func getIsDynamicDnsEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDynamicDnsEnabled"])
+		return dnRequest("get",[self,"IsDynamicDnsEnabled"])
 
 	Func setIsDynamicDnsEnabled P1
 		raise("DotNet Error: IsDynamicDnsEnabled is a read-only property")
 
 	Func getUnicastAddresses
-		return dnRequest("get",[new DotNetObject(nHandle),"UnicastAddresses"])
+		return dnRequest("get",[self,"UnicastAddresses"])
 
 	Func setUnicastAddresses P1
 		raise("DotNet Error: UnicastAddresses is a read-only property")
 
 	Func getMulticastAddresses
-		return dnRequest("get",[new DotNetObject(nHandle),"MulticastAddresses"])
+		return dnRequest("get",[self,"MulticastAddresses"])
 
 	Func setMulticastAddresses P1
 		raise("DotNet Error: MulticastAddresses is a read-only property")
 
 	Func getAnycastAddresses
-		return dnRequest("get",[new DotNetObject(nHandle),"AnycastAddresses"])
+		return dnRequest("get",[self,"AnycastAddresses"])
 
 	Func setAnycastAddresses P1
 		raise("DotNet Error: AnycastAddresses is a read-only property")
 
 	Func getDnsAddresses
-		return dnRequest("get",[new DotNetObject(nHandle),"DnsAddresses"])
+		return dnRequest("get",[self,"DnsAddresses"])
 
 	Func setDnsAddresses P1
 		raise("DotNet Error: DnsAddresses is a read-only property")
 
 	Func getGatewayAddresses
-		return dnRequest("get",[new DotNetObject(nHandle),"GatewayAddresses"])
+		return dnRequest("get",[self,"GatewayAddresses"])
 
 	Func setGatewayAddresses P1
 		raise("DotNet Error: GatewayAddresses is a read-only property")
 
 	Func getDhcpServerAddresses
-		return dnRequest("get",[new DotNetObject(nHandle),"DhcpServerAddresses"])
+		return dnRequest("get",[self,"DhcpServerAddresses"])
 
 	Func setDhcpServerAddresses P1
 		raise("DotNet Error: DhcpServerAddresses is a read-only property")
 
 	Func getWinsServersAddresses
-		return dnRequest("get",[new DotNetObject(nHandle),"WinsServersAddresses"])
+		return dnRequest("get",[self,"WinsServersAddresses"])
 
 	Func setWinsServersAddresses P1
 		raise("DotNet Error: WinsServersAddresses is a read-only property")

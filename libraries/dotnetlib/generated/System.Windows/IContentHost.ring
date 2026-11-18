@@ -26,7 +26,7 @@ Class IContentHost from DotNetObject
 		return self
 
 	Func getHostedElements
-		return dnRequest("get",[new DotNetObject(nHandle),"HostedElements"])
+		return dnRequest("get",[self,"HostedElements"])
 
 	Func setHostedElements P1
 		raise("DotNet Error: HostedElements is a read-only property")

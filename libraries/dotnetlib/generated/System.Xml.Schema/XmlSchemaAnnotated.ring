@@ -19,23 +19,23 @@ Class XmlSchemaAnnotated from XmlSchemaObject
 		return self
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
-		dnRequest("set",[new DotNetObject(nHandle),"Id",P1])
+		dnRequest("set",[self,"Id",P1])
 		return self
 
 	Func getAnnotation
-		return dnRequest("get",[new DotNetObject(nHandle),"Annotation"])
+		return dnRequest("get",[self,"Annotation"])
 
 	Func setAnnotation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Annotation",P1])
+		dnRequest("set",[self,"Annotation",P1])
 		return self
 
 	Func getUnhandledAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"UnhandledAttributes"])
+		return dnRequest("get",[self,"UnhandledAttributes"])
 
 	Func setUnhandledAttributes P1
-		dnRequest("set",[new DotNetObject(nHandle),"UnhandledAttributes",P1])
+		dnRequest("set",[self,"UnhandledAttributes",P1])
 		return self
 

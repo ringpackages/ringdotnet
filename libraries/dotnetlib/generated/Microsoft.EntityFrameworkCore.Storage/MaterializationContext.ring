@@ -23,13 +23,13 @@ Class MaterializationContext from ValueType
 		return self
 
 	Func getValueBuffer
-		return dnRequest("get",[new DotNetObject(nHandle),"ValueBuffer"])
+		return dnRequest("get",[self,"ValueBuffer"])
 
 	Func setValueBuffer P1
 		raise("DotNet Error: ValueBuffer is a read-only property")
 
 	Func getContext
-		return dnRequest("get",[new DotNetObject(nHandle),"Context"])
+		return dnRequest("get",[self,"Context"])
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")

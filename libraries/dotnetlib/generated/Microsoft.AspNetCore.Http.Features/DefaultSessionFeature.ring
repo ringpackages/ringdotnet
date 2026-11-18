@@ -20,9 +20,9 @@ Class DefaultSessionFeature from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSession
-		return dnRequest("get",[new DotNetObject(nHandle),"Session"])
+		return dnRequest("get",[self,"Session"])
 
 	Func setSession P1
-		dnRequest("set",[new DotNetObject(nHandle),"Session",P1])
+		dnRequest("set",[self,"Session",P1])
 		return self
 

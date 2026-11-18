@@ -33,9 +33,9 @@ Class MenuStrip from ToolStrip
 		return self
 
 	Func getMdiWindowListItem
-		return dnRequest("get",[new DotNetObject(nHandle),"MdiWindowListItem"])
+		return dnRequest("get",[self,"MdiWindowListItem"])
 
 	Func setMdiWindowListItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"MdiWindowListItem",P1])
+		dnRequest("set",[self,"MdiWindowListItem",P1])
 		return self
 

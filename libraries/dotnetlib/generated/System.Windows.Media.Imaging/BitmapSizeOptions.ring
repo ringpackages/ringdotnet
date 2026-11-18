@@ -37,25 +37,25 @@ Class BitmapSizeOptions from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"FromRotation",P1])
 
 	Func getPreservesAspectRatio
-		return dnRequest("get",[new DotNetObject(nHandle),"PreservesAspectRatio"])
+		return dnRequest("get",[self,"PreservesAspectRatio"])
 
 	Func setPreservesAspectRatio P1
 		raise("DotNet Error: PreservesAspectRatio is a read-only property")
 
 	Func getPixelWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelWidth"])
+		return dnRequest("get",[self,"PixelWidth"])
 
 	Func setPixelWidth P1
 		raise("DotNet Error: PixelWidth is a read-only property")
 
 	Func getPixelHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"PixelHeight"])
+		return dnRequest("get",[self,"PixelHeight"])
 
 	Func setPixelHeight P1
 		raise("DotNet Error: PixelHeight is a read-only property")
 
 	Func getRotation
-		return dnRequest("get",[new DotNetObject(nHandle),"Rotation"])
+		return dnRequest("get",[self,"Rotation"])
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")

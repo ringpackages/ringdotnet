@@ -31,13 +31,13 @@ Class IFeatureCollection from DotNetObject
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getRevision
-		return dnRequest("get",[new DotNetObject(nHandle),"Revision"])
+		return dnRequest("get",[self,"Revision"])
 
 	Func setRevision P1
 		raise("DotNet Error: Revision is a read-only property")

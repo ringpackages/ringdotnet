@@ -61,9 +61,9 @@ Class DynamicDocumentPaginator from DocumentPaginator
 		return self
 
 	Func getIsBackgroundPaginationEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBackgroundPaginationEnabled"])
+		return dnRequest("get",[self,"IsBackgroundPaginationEnabled"])
 
 	Func setIsBackgroundPaginationEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsBackgroundPaginationEnabled",P1])
+		dnRequest("set",[self,"IsBackgroundPaginationEnabled",P1])
 		return self
 

@@ -55,35 +55,35 @@ Class TableLayoutSettings from LayoutSettings
 		return self
 
 	Func getColumnCount
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnCount"])
+		return dnRequest("get",[self,"ColumnCount"])
 
 	Func setColumnCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnCount",P1])
+		dnRequest("set",[self,"ColumnCount",P1])
 		return self
 
 	Func getRowCount
-		return dnRequest("get",[new DotNetObject(nHandle),"RowCount"])
+		return dnRequest("get",[self,"RowCount"])
 
 	Func setRowCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"RowCount",P1])
+		dnRequest("set",[self,"RowCount",P1])
 		return self
 
 	Func getRowStyles
-		return dnRequest("get",[new DotNetObject(nHandle),"RowStyles"])
+		return dnRequest("get",[self,"RowStyles"])
 
 	Func setRowStyles P1
 		raise("DotNet Error: RowStyles is a read-only property")
 
 	Func getColumnStyles
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnStyles"])
+		return dnRequest("get",[self,"ColumnStyles"])
 
 	Func setColumnStyles P1
 		raise("DotNet Error: ColumnStyles is a read-only property")
 
 	Func getGrowStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"GrowStyle"])
+		return dnRequest("get",[self,"GrowStyle"])
 
 	Func setGrowStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"GrowStyle",P1])
+		dnRequest("set",[self,"GrowStyle",P1])
 		return self
 

@@ -42,23 +42,23 @@ Class PageContent from FrameworkElement
 		return self
 
 	Func getSource
-		return dnRequest("get",[new DotNetObject(nHandle),"Source"])
+		return dnRequest("get",[self,"Source"])
 
 	Func setSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"Source",P1])
+		dnRequest("set",[self,"Source",P1])
 		return self
 
 	Func getLinkTargets
-		return dnRequest("get",[new DotNetObject(nHandle),"LinkTargets"])
+		return dnRequest("get",[self,"LinkTargets"])
 
 	Func setLinkTargets P1
 		raise("DotNet Error: LinkTargets is a read-only property")
 
 	Func getChild
-		return dnRequest("get",[new DotNetObject(nHandle),"Child"])
+		return dnRequest("get",[self,"Child"])
 
 	Func setChild P1
-		dnRequest("set",[new DotNetObject(nHandle),"Child",P1])
+		dnRequest("set",[self,"Child",P1])
 		return self
 
 	Func getSourceProperty

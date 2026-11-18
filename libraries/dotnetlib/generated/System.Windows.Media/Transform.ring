@@ -23,7 +23,7 @@ Class Transform from GeneralTransform
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Transform, PresentationCore'),"Parse",P1])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func getIdentity
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Transform, PresentationCore'),"Identity"])

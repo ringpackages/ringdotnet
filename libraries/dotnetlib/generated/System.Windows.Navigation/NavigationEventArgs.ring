@@ -21,37 +21,37 @@ Class NavigationEventArgs from EventArgs
 		return self
 
 	Func getUri
-		return dnRequest("get",[new DotNetObject(nHandle),"Uri"])
+		return dnRequest("get",[self,"Uri"])
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getContent
-		return dnRequest("get",[new DotNetObject(nHandle),"Content"])
+		return dnRequest("get",[self,"Content"])
 
 	Func setContent P1
 		raise("DotNet Error: Content is a read-only property")
 
 	Func getIsNavigationInitiator
-		return dnRequest("get",[new DotNetObject(nHandle),"IsNavigationInitiator"])
+		return dnRequest("get",[self,"IsNavigationInitiator"])
 
 	Func setIsNavigationInitiator P1
 		raise("DotNet Error: IsNavigationInitiator is a read-only property")
 
 	Func getExtraData
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtraData"])
+		return dnRequest("get",[self,"ExtraData"])
 
 	Func setExtraData P1
 		raise("DotNet Error: ExtraData is a read-only property")
 
 	Func getWebResponse
-		return dnRequest("get",[new DotNetObject(nHandle),"WebResponse"])
+		return dnRequest("get",[self,"WebResponse"])
 
 	Func setWebResponse P1
 		raise("DotNet Error: WebResponse is a read-only property")
 
 	Func getNavigator
-		return dnRequest("get",[new DotNetObject(nHandle),"Navigator"])
+		return dnRequest("get",[self,"Navigator"])
 
 	Func setNavigator P1
 		raise("DotNet Error: Navigator is a read-only property")

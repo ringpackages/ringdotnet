@@ -35,16 +35,16 @@ Class Oid from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Oid, System.Security.Cryptography'),"FromOidValue",P1,P2])
 
 	Func getValue
-		return dnRequest("get",[new DotNetObject(nHandle),"Value"])
+		return dnRequest("get",[self,"Value"])
 
 	Func setValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Value",P1])
+		dnRequest("set",[self,"Value",P1])
 		return self
 
 	Func getFriendlyName
-		return dnRequest("get",[new DotNetObject(nHandle),"FriendlyName"])
+		return dnRequest("get",[self,"FriendlyName"])
 
 	Func setFriendlyName P1
-		dnRequest("set",[new DotNetObject(nHandle),"FriendlyName",P1])
+		dnRequest("set",[self,"FriendlyName",P1])
 		return self
 

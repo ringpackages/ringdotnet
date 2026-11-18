@@ -20,22 +20,22 @@ Class FixedDocumentSequence from FrameworkContentElement
 		return self
 
 	Func getDocumentPaginator
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentPaginator"])
+		return dnRequest("get",[self,"DocumentPaginator"])
 
 	Func setDocumentPaginator P1
 		raise("DotNet Error: DocumentPaginator is a read-only property")
 
 	Func getReferences
-		return dnRequest("get",[new DotNetObject(nHandle),"References"])
+		return dnRequest("get",[self,"References"])
 
 	Func setReferences P1
 		raise("DotNet Error: References is a read-only property")
 
 	Func getPrintTicket
-		return dnRequest("get",[new DotNetObject(nHandle),"PrintTicket"])
+		return dnRequest("get",[self,"PrintTicket"])
 
 	Func setPrintTicket P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrintTicket",P1])
+		dnRequest("set",[self,"PrintTicket",P1])
 		return self
 
 	Func getPrintTicketProperty

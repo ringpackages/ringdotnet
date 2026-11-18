@@ -50,25 +50,25 @@ Class ValueTask from ValueType
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"FromException",P1])
 
 	Func getIsCompleted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompleted"])
+		return dnRequest("get",[self,"IsCompleted"])
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getIsCompletedSuccessfully
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCompletedSuccessfully"])
+		return dnRequest("get",[self,"IsCompletedSuccessfully"])
 
 	Func setIsCompletedSuccessfully P1
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
 
 	Func getIsFaulted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsFaulted"])
+		return dnRequest("get",[self,"IsFaulted"])
 
 	Func setIsFaulted P1
 		raise("DotNet Error: IsFaulted is a read-only property")
 
 	Func getIsCanceled
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCanceled"])
+		return dnRequest("get",[self,"IsCanceled"])
 
 	Func setIsCanceled P1
 		raise("DotNet Error: IsCanceled is a read-only property")

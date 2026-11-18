@@ -35,13 +35,13 @@ Class FormattableString from Object
 		return dnRequest("call",[dnTypeCached('System.FormattableString, System.Private.CoreLib'),"CurrentCulture",P1])
 
 	Func getFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"Format"])
+		return dnRequest("get",[self,"Format"])
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getArgumentCount
-		return dnRequest("get",[new DotNetObject(nHandle),"ArgumentCount"])
+		return dnRequest("get",[self,"ArgumentCount"])
 
 	Func setArgumentCount P1
 		raise("DotNet Error: ArgumentCount is a read-only property")

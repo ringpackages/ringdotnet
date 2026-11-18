@@ -3,7 +3,7 @@
 Func DotNetNew_SqlTreePruner
 	oDotNetNew = new SqlTreePruner()
 
-Class SqlTreePruner from DotNetObject
+Class SqlTreePruner from ExpressionVisitor
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -19,19 +19,4 @@ Class SqlTreePruner from DotNetObject
 
 	Func Visit P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
-
-	Func VisitAndConvert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
-
-	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 

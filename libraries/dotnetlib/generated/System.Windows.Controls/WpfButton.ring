@@ -22,21 +22,21 @@ Class WpfButton from WpfButtonBase
 		return self
 
 	Func getIsDefault
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDefault"])
+		return dnRequest("get",[self,"IsDefault"])
 
 	Func setIsDefault P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsDefault",P1])
+		dnRequest("set",[self,"IsDefault",P1])
 		return self
 
 	Func getIsCancel
-		return dnRequest("get",[new DotNetObject(nHandle),"IsCancel"])
+		return dnRequest("get",[self,"IsCancel"])
 
 	Func setIsCancel P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsCancel",P1])
+		dnRequest("set",[self,"IsCancel",P1])
 		return self
 
 	Func getIsDefaulted
-		return dnRequest("get",[new DotNetObject(nHandle),"IsDefaulted"])
+		return dnRequest("get",[self,"IsDefaulted"])
 
 	Func setIsDefaulted P1
 		raise("DotNet Error: IsDefaulted is a read-only property")

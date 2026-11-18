@@ -18,13 +18,13 @@ Class InvalidIncludePathEventData from EventData
 		return self
 
 	Func getNavigationChain
-		return dnRequest("get",[new DotNetObject(nHandle),"NavigationChain"])
+		return dnRequest("get",[self,"NavigationChain"])
 
 	Func setNavigationChain P1
 		raise("DotNet Error: NavigationChain is a read-only property")
 
 	Func getNavigationName
-		return dnRequest("get",[new DotNetObject(nHandle),"NavigationName"])
+		return dnRequest("get",[self,"NavigationName"])
 
 	Func setNavigationName P1
 		raise("DotNet Error: NavigationName is a read-only property")

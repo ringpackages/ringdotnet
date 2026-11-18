@@ -34,7 +34,7 @@ Class CngAlgorithm from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"Algorithm"])
+		return dnRequest("get",[self,"Algorithm"])
 
 	Func setAlgorithm P1
 		raise("DotNet Error: Algorithm is a read-only property")

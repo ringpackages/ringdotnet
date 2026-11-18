@@ -130,22 +130,22 @@ Class TextWriter from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.IO.TextWriter, System.Private.CoreLib'),"CreateBroadcasting",P1])
 
 	Func getFormatProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"FormatProvider"])
+		return dnRequest("get",[self,"FormatProvider"])
 
 	Func setFormatProvider P1
 		raise("DotNet Error: FormatProvider is a read-only property")
 
 	Func getEncoding
-		return dnRequest("get",[new DotNetObject(nHandle),"Encoding"])
+		return dnRequest("get",[self,"Encoding"])
 
 	Func setEncoding P1
 		raise("DotNet Error: Encoding is a read-only property")
 
 	Func getNewLine
-		return dnRequest("get",[new DotNetObject(nHandle),"NewLine"])
+		return dnRequest("get",[self,"NewLine"])
 
 	Func setNewLine P1
-		dnRequest("set",[new DotNetObject(nHandle),"NewLine",P1])
+		dnRequest("set",[self,"NewLine",P1])
 		return self
 
 	Func getNull

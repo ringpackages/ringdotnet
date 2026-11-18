@@ -53,72 +53,72 @@ Class BindingNavigator from ToolStrip
 		return self
 
 	Func getBindingSource
-		return dnRequest("get",[new DotNetObject(nHandle),"BindingSource"])
+		return dnRequest("get",[self,"BindingSource"])
 
 	Func setBindingSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"BindingSource",P1])
+		dnRequest("set",[self,"BindingSource",P1])
 		return self
 
 	Func getMoveFirstItem
-		return dnRequest("get",[new DotNetObject(nHandle),"MoveFirstItem"])
+		return dnRequest("get",[self,"MoveFirstItem"])
 
 	Func setMoveFirstItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"MoveFirstItem",P1])
+		dnRequest("set",[self,"MoveFirstItem",P1])
 		return self
 
 	Func getMovePreviousItem
-		return dnRequest("get",[new DotNetObject(nHandle),"MovePreviousItem"])
+		return dnRequest("get",[self,"MovePreviousItem"])
 
 	Func setMovePreviousItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"MovePreviousItem",P1])
+		dnRequest("set",[self,"MovePreviousItem",P1])
 		return self
 
 	Func getMoveNextItem
-		return dnRequest("get",[new DotNetObject(nHandle),"MoveNextItem"])
+		return dnRequest("get",[self,"MoveNextItem"])
 
 	Func setMoveNextItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"MoveNextItem",P1])
+		dnRequest("set",[self,"MoveNextItem",P1])
 		return self
 
 	Func getMoveLastItem
-		return dnRequest("get",[new DotNetObject(nHandle),"MoveLastItem"])
+		return dnRequest("get",[self,"MoveLastItem"])
 
 	Func setMoveLastItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"MoveLastItem",P1])
+		dnRequest("set",[self,"MoveLastItem",P1])
 		return self
 
 	Func getAddNewItem
-		return dnRequest("get",[new DotNetObject(nHandle),"AddNewItem"])
+		return dnRequest("get",[self,"AddNewItem"])
 
 	Func setAddNewItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"AddNewItem",P1])
+		dnRequest("set",[self,"AddNewItem",P1])
 		return self
 
 	Func getDeleteItem
-		return dnRequest("get",[new DotNetObject(nHandle),"DeleteItem"])
+		return dnRequest("get",[self,"DeleteItem"])
 
 	Func setDeleteItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"DeleteItem",P1])
+		dnRequest("set",[self,"DeleteItem",P1])
 		return self
 
 	Func getPositionItem
-		return dnRequest("get",[new DotNetObject(nHandle),"PositionItem"])
+		return dnRequest("get",[self,"PositionItem"])
 
 	Func setPositionItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"PositionItem",P1])
+		dnRequest("set",[self,"PositionItem",P1])
 		return self
 
 	Func getCountItem
-		return dnRequest("get",[new DotNetObject(nHandle),"CountItem"])
+		return dnRequest("get",[self,"CountItem"])
 
 	Func setCountItem P1
-		dnRequest("set",[new DotNetObject(nHandle),"CountItem",P1])
+		dnRequest("set",[self,"CountItem",P1])
 		return self
 
 	Func getCountItemFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"CountItemFormat"])
+		return dnRequest("get",[self,"CountItemFormat"])
 
 	Func setCountItemFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"CountItemFormat",P1])
+		dnRequest("set",[self,"CountItemFormat",P1])
 		return self
 

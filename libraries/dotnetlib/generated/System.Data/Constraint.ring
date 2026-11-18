@@ -21,20 +21,20 @@ Class Constraint from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getConstraintName
-		return dnRequest("get",[new DotNetObject(nHandle),"ConstraintName"])
+		return dnRequest("get",[self,"ConstraintName"])
 
 	Func setConstraintName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConstraintName",P1])
+		dnRequest("set",[self,"ConstraintName",P1])
 		return self
 
 	Func getTable
-		return dnRequest("get",[new DotNetObject(nHandle),"Table"])
+		return dnRequest("get",[self,"Table"])
 
 	Func setTable P1
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getExtendedProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedProperties"])
+		return dnRequest("get",[self,"ExtendedProperties"])
 
 	Func setExtendedProperties P1
 		raise("DotNet Error: ExtendedProperties is a read-only property")

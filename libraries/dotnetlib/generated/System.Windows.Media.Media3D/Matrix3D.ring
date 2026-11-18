@@ -121,139 +121,139 @@ Class Matrix3D from ValueType
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"Parse",P1])
 
 	Func getIsIdentity
-		return dnRequest("get",[new DotNetObject(nHandle),"IsIdentity"])
+		return dnRequest("get",[self,"IsIdentity"])
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getIsAffine
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAffine"])
+		return dnRequest("get",[self,"IsAffine"])
 
 	Func setIsAffine P1
 		raise("DotNet Error: IsAffine is a read-only property")
 
 	Func getDeterminant
-		return dnRequest("get",[new DotNetObject(nHandle),"Determinant"])
+		return dnRequest("get",[self,"Determinant"])
 
 	Func setDeterminant P1
 		raise("DotNet Error: Determinant is a read-only property")
 
 	Func getHasInverse
-		return dnRequest("get",[new DotNetObject(nHandle),"HasInverse"])
+		return dnRequest("get",[self,"HasInverse"])
 
 	Func setHasInverse P1
 		raise("DotNet Error: HasInverse is a read-only property")
 
 	Func getM11
-		return dnRequest("get",[new DotNetObject(nHandle),"M11"])
+		return dnRequest("get",[self,"M11"])
 
 	Func setM11 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M11",P1])
+		dnRequest("set",[self,"M11",P1])
 		return self
 
 	Func getM12
-		return dnRequest("get",[new DotNetObject(nHandle),"M12"])
+		return dnRequest("get",[self,"M12"])
 
 	Func setM12 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M12",P1])
+		dnRequest("set",[self,"M12",P1])
 		return self
 
 	Func getM13
-		return dnRequest("get",[new DotNetObject(nHandle),"M13"])
+		return dnRequest("get",[self,"M13"])
 
 	Func setM13 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M13",P1])
+		dnRequest("set",[self,"M13",P1])
 		return self
 
 	Func getM14
-		return dnRequest("get",[new DotNetObject(nHandle),"M14"])
+		return dnRequest("get",[self,"M14"])
 
 	Func setM14 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M14",P1])
+		dnRequest("set",[self,"M14",P1])
 		return self
 
 	Func getM21
-		return dnRequest("get",[new DotNetObject(nHandle),"M21"])
+		return dnRequest("get",[self,"M21"])
 
 	Func setM21 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M21",P1])
+		dnRequest("set",[self,"M21",P1])
 		return self
 
 	Func getM22
-		return dnRequest("get",[new DotNetObject(nHandle),"M22"])
+		return dnRequest("get",[self,"M22"])
 
 	Func setM22 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M22",P1])
+		dnRequest("set",[self,"M22",P1])
 		return self
 
 	Func getM23
-		return dnRequest("get",[new DotNetObject(nHandle),"M23"])
+		return dnRequest("get",[self,"M23"])
 
 	Func setM23 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M23",P1])
+		dnRequest("set",[self,"M23",P1])
 		return self
 
 	Func getM24
-		return dnRequest("get",[new DotNetObject(nHandle),"M24"])
+		return dnRequest("get",[self,"M24"])
 
 	Func setM24 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M24",P1])
+		dnRequest("set",[self,"M24",P1])
 		return self
 
 	Func getM31
-		return dnRequest("get",[new DotNetObject(nHandle),"M31"])
+		return dnRequest("get",[self,"M31"])
 
 	Func setM31 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M31",P1])
+		dnRequest("set",[self,"M31",P1])
 		return self
 
 	Func getM32
-		return dnRequest("get",[new DotNetObject(nHandle),"M32"])
+		return dnRequest("get",[self,"M32"])
 
 	Func setM32 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M32",P1])
+		dnRequest("set",[self,"M32",P1])
 		return self
 
 	Func getM33
-		return dnRequest("get",[new DotNetObject(nHandle),"M33"])
+		return dnRequest("get",[self,"M33"])
 
 	Func setM33 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M33",P1])
+		dnRequest("set",[self,"M33",P1])
 		return self
 
 	Func getM34
-		return dnRequest("get",[new DotNetObject(nHandle),"M34"])
+		return dnRequest("get",[self,"M34"])
 
 	Func setM34 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M34",P1])
+		dnRequest("set",[self,"M34",P1])
 		return self
 
 	Func getOffsetX
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetX"])
+		return dnRequest("get",[self,"OffsetX"])
 
 	Func setOffsetX P1
-		dnRequest("set",[new DotNetObject(nHandle),"OffsetX",P1])
+		dnRequest("set",[self,"OffsetX",P1])
 		return self
 
 	Func getOffsetY
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetY"])
+		return dnRequest("get",[self,"OffsetY"])
 
 	Func setOffsetY P1
-		dnRequest("set",[new DotNetObject(nHandle),"OffsetY",P1])
+		dnRequest("set",[self,"OffsetY",P1])
 		return self
 
 	Func getOffsetZ
-		return dnRequest("get",[new DotNetObject(nHandle),"OffsetZ"])
+		return dnRequest("get",[self,"OffsetZ"])
 
 	Func setOffsetZ P1
-		dnRequest("set",[new DotNetObject(nHandle),"OffsetZ",P1])
+		dnRequest("set",[self,"OffsetZ",P1])
 		return self
 
 	Func getM44
-		return dnRequest("get",[new DotNetObject(nHandle),"M44"])
+		return dnRequest("get",[self,"M44"])
 
 	Func setM44 P1
-		dnRequest("set",[new DotNetObject(nHandle),"M44",P1])
+		dnRequest("set",[self,"M44",P1])
 		return self
 
 	Func getIdentity

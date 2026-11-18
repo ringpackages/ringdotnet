@@ -45,16 +45,16 @@ Class IdnMapping from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getAllowUnassigned
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowUnassigned"])
+		return dnRequest("get",[self,"AllowUnassigned"])
 
 	Func setAllowUnassigned P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowUnassigned",P1])
+		dnRequest("set",[self,"AllowUnassigned",P1])
 		return self
 
 	Func getUseStd3AsciiRules
-		return dnRequest("get",[new DotNetObject(nHandle),"UseStd3AsciiRules"])
+		return dnRequest("get",[self,"UseStd3AsciiRules"])
 
 	Func setUseStd3AsciiRules P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseStd3AsciiRules",P1])
+		dnRequest("set",[self,"UseStd3AsciiRules",P1])
 		return self
 

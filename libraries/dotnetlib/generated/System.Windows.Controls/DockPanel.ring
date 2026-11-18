@@ -26,10 +26,10 @@ Class DockPanel from WpfPanel
 		return self
 
 	Func getLastChildFill
-		return dnRequest("get",[new DotNetObject(nHandle),"LastChildFill"])
+		return dnRequest("get",[self,"LastChildFill"])
 
 	Func setLastChildFill P1
-		dnRequest("set",[new DotNetObject(nHandle),"LastChildFill",P1])
+		dnRequest("set",[self,"LastChildFill",P1])
 		return self
 
 	Func getLastChildFillProperty

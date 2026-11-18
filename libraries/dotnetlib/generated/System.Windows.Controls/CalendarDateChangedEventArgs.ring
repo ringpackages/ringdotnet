@@ -17,13 +17,13 @@ Class CalendarDateChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func getAddedDate
-		return dnRequest("get",[new DotNetObject(nHandle),"AddedDate"])
+		return dnRequest("get",[self,"AddedDate"])
 
 	Func setAddedDate P1
 		raise("DotNet Error: AddedDate is a read-only property")
 
 	Func getRemovedDate
-		return dnRequest("get",[new DotNetObject(nHandle),"RemovedDate"])
+		return dnRequest("get",[self,"RemovedDate"])
 
 	Func setRemovedDate P1
 		raise("DotNet Error: RemovedDate is a read-only property")

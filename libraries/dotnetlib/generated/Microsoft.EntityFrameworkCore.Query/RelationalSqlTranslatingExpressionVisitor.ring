@@ -3,7 +3,7 @@
 Func DotNetNew_RelationalSqlTranslatingExpressionVisitor
 	oDotNetNew = new RelationalSqlTranslatingExpressionVisitor(0,0,0)
 
-Class RelationalSqlTranslatingExpressionVisitor from DotNetObject
+Class RelationalSqlTranslatingExpressionVisitor from ExpressionVisitor
 
 	TranslationErrorDetails
 
@@ -46,21 +46,6 @@ Class RelationalSqlTranslatingExpressionVisitor from DotNetObject
 	Func Visit P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
 
-	Func VisitAndConvert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
-
-	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
 	Func ParameterValueExtractor P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"ParameterValueExtractor",P1,P2,P3,P4])
 
@@ -68,7 +53,7 @@ Class RelationalSqlTranslatingExpressionVisitor from DotNetObject
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"ParameterListValueExtractor",P1,P2,P3])
 
 	Func getTranslationErrorDetails
-		return dnRequest("get",[new DotNetObject(nHandle),"TranslationErrorDetails"])
+		return dnRequest("get",[self,"TranslationErrorDetails"])
 
 	Func setTranslationErrorDetails P1
 		raise("DotNet Error: TranslationErrorDetails is a read-only property")

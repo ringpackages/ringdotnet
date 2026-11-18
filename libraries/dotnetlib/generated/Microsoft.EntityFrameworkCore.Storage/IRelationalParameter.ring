@@ -20,7 +20,7 @@ Class IRelationalParameter from DotNetObject
 		return self
 
 	Func getInvariantName
-		return dnRequest("get",[new DotNetObject(nHandle),"InvariantName"])
+		return dnRequest("get",[self,"InvariantName"])
 
 	Func setInvariantName P1
 		raise("DotNet Error: InvariantName is a read-only property")

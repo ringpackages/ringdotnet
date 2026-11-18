@@ -49,226 +49,226 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getUseCookies
-		return dnRequest("get",[new DotNetObject(nHandle),"UseCookies"])
+		return dnRequest("get",[self,"UseCookies"])
 
 	Func setUseCookies P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseCookies",P1])
+		dnRequest("set",[self,"UseCookies",P1])
 		return self
 
 	Func getCookieContainer
-		return dnRequest("get",[new DotNetObject(nHandle),"CookieContainer"])
+		return dnRequest("get",[self,"CookieContainer"])
 
 	Func setCookieContainer P1
-		dnRequest("set",[new DotNetObject(nHandle),"CookieContainer",P1])
+		dnRequest("set",[self,"CookieContainer",P1])
 		return self
 
 	Func getAutomaticDecompression
-		return dnRequest("get",[new DotNetObject(nHandle),"AutomaticDecompression"])
+		return dnRequest("get",[self,"AutomaticDecompression"])
 
 	Func setAutomaticDecompression P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutomaticDecompression",P1])
+		dnRequest("set",[self,"AutomaticDecompression",P1])
 		return self
 
 	Func getUseProxy
-		return dnRequest("get",[new DotNetObject(nHandle),"UseProxy"])
+		return dnRequest("get",[self,"UseProxy"])
 
 	Func setUseProxy P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseProxy",P1])
+		dnRequest("set",[self,"UseProxy",P1])
 		return self
 
 	Func getProxy
-		return dnRequest("get",[new DotNetObject(nHandle),"Proxy"])
+		return dnRequest("get",[self,"Proxy"])
 
 	Func setProxy P1
-		dnRequest("set",[new DotNetObject(nHandle),"Proxy",P1])
+		dnRequest("set",[self,"Proxy",P1])
 		return self
 
 	Func getDefaultProxyCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultProxyCredentials"])
+		return dnRequest("get",[self,"DefaultProxyCredentials"])
 
 	Func setDefaultProxyCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultProxyCredentials",P1])
+		dnRequest("set",[self,"DefaultProxyCredentials",P1])
 		return self
 
 	Func getPreAuthenticate
-		return dnRequest("get",[new DotNetObject(nHandle),"PreAuthenticate"])
+		return dnRequest("get",[self,"PreAuthenticate"])
 
 	Func setPreAuthenticate P1
-		dnRequest("set",[new DotNetObject(nHandle),"PreAuthenticate",P1])
+		dnRequest("set",[self,"PreAuthenticate",P1])
 		return self
 
 	Func getCredentials
-		return dnRequest("get",[new DotNetObject(nHandle),"Credentials"])
+		return dnRequest("get",[self,"Credentials"])
 
 	Func setCredentials P1
-		dnRequest("set",[new DotNetObject(nHandle),"Credentials",P1])
+		dnRequest("set",[self,"Credentials",P1])
 		return self
 
 	Func getAllowAutoRedirect
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowAutoRedirect"])
+		return dnRequest("get",[self,"AllowAutoRedirect"])
 
 	Func setAllowAutoRedirect P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowAutoRedirect",P1])
+		dnRequest("set",[self,"AllowAutoRedirect",P1])
 		return self
 
 	Func getMaxAutomaticRedirections
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxAutomaticRedirections"])
+		return dnRequest("get",[self,"MaxAutomaticRedirections"])
 
 	Func setMaxAutomaticRedirections P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxAutomaticRedirections",P1])
+		dnRequest("set",[self,"MaxAutomaticRedirections",P1])
 		return self
 
 	Func getMaxConnectionsPerServer
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxConnectionsPerServer"])
+		return dnRequest("get",[self,"MaxConnectionsPerServer"])
 
 	Func setMaxConnectionsPerServer P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxConnectionsPerServer",P1])
+		dnRequest("set",[self,"MaxConnectionsPerServer",P1])
 		return self
 
 	Func getMaxResponseDrainSize
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxResponseDrainSize"])
+		return dnRequest("get",[self,"MaxResponseDrainSize"])
 
 	Func setMaxResponseDrainSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxResponseDrainSize",P1])
+		dnRequest("set",[self,"MaxResponseDrainSize",P1])
 		return self
 
 	Func getResponseDrainTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"ResponseDrainTimeout"])
+		return dnRequest("get",[self,"ResponseDrainTimeout"])
 
 	Func setResponseDrainTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"ResponseDrainTimeout",P1])
+		dnRequest("set",[self,"ResponseDrainTimeout",P1])
 		return self
 
 	Func getMaxResponseHeadersLength
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxResponseHeadersLength"])
+		return dnRequest("get",[self,"MaxResponseHeadersLength"])
 
 	Func setMaxResponseHeadersLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxResponseHeadersLength",P1])
+		dnRequest("set",[self,"MaxResponseHeadersLength",P1])
 		return self
 
 	Func getSslOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"SslOptions"])
+		return dnRequest("get",[self,"SslOptions"])
 
 	Func setSslOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"SslOptions",P1])
+		dnRequest("set",[self,"SslOptions",P1])
 		return self
 
 	Func getPooledConnectionLifetime
-		return dnRequest("get",[new DotNetObject(nHandle),"PooledConnectionLifetime"])
+		return dnRequest("get",[self,"PooledConnectionLifetime"])
 
 	Func setPooledConnectionLifetime P1
-		dnRequest("set",[new DotNetObject(nHandle),"PooledConnectionLifetime",P1])
+		dnRequest("set",[self,"PooledConnectionLifetime",P1])
 		return self
 
 	Func getPooledConnectionIdleTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"PooledConnectionIdleTimeout"])
+		return dnRequest("get",[self,"PooledConnectionIdleTimeout"])
 
 	Func setPooledConnectionIdleTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"PooledConnectionIdleTimeout",P1])
+		dnRequest("set",[self,"PooledConnectionIdleTimeout",P1])
 		return self
 
 	Func getConnectTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectTimeout"])
+		return dnRequest("get",[self,"ConnectTimeout"])
 
 	Func setConnectTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConnectTimeout",P1])
+		dnRequest("set",[self,"ConnectTimeout",P1])
 		return self
 
 	Func getExpect100ContinueTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"Expect100ContinueTimeout"])
+		return dnRequest("get",[self,"Expect100ContinueTimeout"])
 
 	Func setExpect100ContinueTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"Expect100ContinueTimeout",P1])
+		dnRequest("set",[self,"Expect100ContinueTimeout",P1])
 		return self
 
 	Func getInitialHttp2StreamWindowSize
-		return dnRequest("get",[new DotNetObject(nHandle),"InitialHttp2StreamWindowSize"])
+		return dnRequest("get",[self,"InitialHttp2StreamWindowSize"])
 
 	Func setInitialHttp2StreamWindowSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"InitialHttp2StreamWindowSize",P1])
+		dnRequest("set",[self,"InitialHttp2StreamWindowSize",P1])
 		return self
 
 	Func getKeepAlivePingDelay
-		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlivePingDelay"])
+		return dnRequest("get",[self,"KeepAlivePingDelay"])
 
 	Func setKeepAlivePingDelay P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeepAlivePingDelay",P1])
+		dnRequest("set",[self,"KeepAlivePingDelay",P1])
 		return self
 
 	Func getKeepAlivePingTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlivePingTimeout"])
+		return dnRequest("get",[self,"KeepAlivePingTimeout"])
 
 	Func setKeepAlivePingTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeepAlivePingTimeout",P1])
+		dnRequest("set",[self,"KeepAlivePingTimeout",P1])
 		return self
 
 	Func getKeepAlivePingPolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"KeepAlivePingPolicy"])
+		return dnRequest("get",[self,"KeepAlivePingPolicy"])
 
 	Func setKeepAlivePingPolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"KeepAlivePingPolicy",P1])
+		dnRequest("set",[self,"KeepAlivePingPolicy",P1])
 		return self
 
 	Func getEnableMultipleHttp2Connections
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableMultipleHttp2Connections"])
+		return dnRequest("get",[self,"EnableMultipleHttp2Connections"])
 
 	Func setEnableMultipleHttp2Connections P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableMultipleHttp2Connections",P1])
+		dnRequest("set",[self,"EnableMultipleHttp2Connections",P1])
 		return self
 
 	Func getEnableMultipleHttp3Connections
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableMultipleHttp3Connections"])
+		return dnRequest("get",[self,"EnableMultipleHttp3Connections"])
 
 	Func setEnableMultipleHttp3Connections P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableMultipleHttp3Connections",P1])
+		dnRequest("set",[self,"EnableMultipleHttp3Connections",P1])
 		return self
 
 	Func getConnectCallback
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectCallback"])
+		return dnRequest("get",[self,"ConnectCallback"])
 
 	Func setConnectCallback P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConnectCallback",P1])
+		dnRequest("set",[self,"ConnectCallback",P1])
 		return self
 
 	Func getPlaintextStreamFilter
-		return dnRequest("get",[new DotNetObject(nHandle),"PlaintextStreamFilter"])
+		return dnRequest("get",[self,"PlaintextStreamFilter"])
 
 	Func setPlaintextStreamFilter P1
-		dnRequest("set",[new DotNetObject(nHandle),"PlaintextStreamFilter",P1])
+		dnRequest("set",[self,"PlaintextStreamFilter",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getRequestHeaderEncodingSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"RequestHeaderEncodingSelector"])
+		return dnRequest("get",[self,"RequestHeaderEncodingSelector"])
 
 	Func setRequestHeaderEncodingSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"RequestHeaderEncodingSelector",P1])
+		dnRequest("set",[self,"RequestHeaderEncodingSelector",P1])
 		return self
 
 	Func getResponseHeaderEncodingSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ResponseHeaderEncodingSelector"])
+		return dnRequest("get",[self,"ResponseHeaderEncodingSelector"])
 
 	Func setResponseHeaderEncodingSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ResponseHeaderEncodingSelector",P1])
+		dnRequest("set",[self,"ResponseHeaderEncodingSelector",P1])
 		return self
 
 	Func getActivityHeadersPropagator
-		return dnRequest("get",[new DotNetObject(nHandle),"ActivityHeadersPropagator"])
+		return dnRequest("get",[self,"ActivityHeadersPropagator"])
 
 	Func setActivityHeadersPropagator P1
-		dnRequest("set",[new DotNetObject(nHandle),"ActivityHeadersPropagator",P1])
+		dnRequest("set",[self,"ActivityHeadersPropagator",P1])
 		return self
 
 	Func getMeterFactory
-		return dnRequest("get",[new DotNetObject(nHandle),"MeterFactory"])
+		return dnRequest("get",[self,"MeterFactory"])
 
 	Func setMeterFactory P1
-		dnRequest("set",[new DotNetObject(nHandle),"MeterFactory",P1])
+		dnRequest("set",[self,"MeterFactory",P1])
 		return self
 
 	Func getIsSupported

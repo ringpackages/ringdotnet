@@ -95,97 +95,97 @@ Class Font from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromHdc",P1])
 
 	Func getSize
-		return dnRequest("get",[new DotNetObject(nHandle),"Size"])
+		return dnRequest("get",[self,"Size"])
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"Style"])
+		return dnRequest("get",[self,"Style"])
 
 	Func setStyle P1
 		raise("DotNet Error: Style is a read-only property")
 
 	Func getBold
-		return dnRequest("get",[new DotNetObject(nHandle),"Bold"])
+		return dnRequest("get",[self,"Bold"])
 
 	Func setBold P1
 		raise("DotNet Error: Bold is a read-only property")
 
 	Func getItalic
-		return dnRequest("get",[new DotNetObject(nHandle),"Italic"])
+		return dnRequest("get",[self,"Italic"])
 
 	Func setItalic P1
 		raise("DotNet Error: Italic is a read-only property")
 
 	Func getStrikeout
-		return dnRequest("get",[new DotNetObject(nHandle),"Strikeout"])
+		return dnRequest("get",[self,"Strikeout"])
 
 	Func setStrikeout P1
 		raise("DotNet Error: Strikeout is a read-only property")
 
 	Func getUnderline
-		return dnRequest("get",[new DotNetObject(nHandle),"Underline"])
+		return dnRequest("get",[self,"Underline"])
 
 	Func setUnderline P1
 		raise("DotNet Error: Underline is a read-only property")
 
 	Func getFontFamily
-		return dnRequest("get",[new DotNetObject(nHandle),"FontFamily"])
+		return dnRequest("get",[self,"FontFamily"])
 
 	Func setFontFamily P1
 		raise("DotNet Error: FontFamily is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getUnit
-		return dnRequest("get",[new DotNetObject(nHandle),"Unit"])
+		return dnRequest("get",[self,"Unit"])
 
 	Func setUnit P1
 		raise("DotNet Error: Unit is a read-only property")
 
 	Func getGdiCharSet
-		return dnRequest("get",[new DotNetObject(nHandle),"GdiCharSet"])
+		return dnRequest("get",[self,"GdiCharSet"])
 
 	Func setGdiCharSet P1
 		raise("DotNet Error: GdiCharSet is a read-only property")
 
 	Func getGdiVerticalFont
-		return dnRequest("get",[new DotNetObject(nHandle),"GdiVerticalFont"])
+		return dnRequest("get",[self,"GdiVerticalFont"])
 
 	Func setGdiVerticalFont P1
 		raise("DotNet Error: GdiVerticalFont is a read-only property")
 
 	Func getOriginalFontName
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalFontName"])
+		return dnRequest("get",[self,"OriginalFontName"])
 
 	Func setOriginalFontName P1
 		raise("DotNet Error: OriginalFontName is a read-only property")
 
 	Func getSystemFontName
-		return dnRequest("get",[new DotNetObject(nHandle),"SystemFontName"])
+		return dnRequest("get",[self,"SystemFontName"])
 
 	Func setSystemFontName P1
 		raise("DotNet Error: SystemFontName is a read-only property")
 
 	Func getIsSystemFont
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSystemFont"])
+		return dnRequest("get",[self,"IsSystemFont"])
 
 	Func setIsSystemFont P1
 		raise("DotNet Error: IsSystemFont is a read-only property")
 
 	Func getHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"Height"])
+		return dnRequest("get",[self,"Height"])
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getSizeInPoints
-		return dnRequest("get",[new DotNetObject(nHandle),"SizeInPoints"])
+		return dnRequest("get",[self,"SizeInPoints"])
 
 	Func setSizeInPoints P1
 		raise("DotNet Error: SizeInPoints is a read-only property")

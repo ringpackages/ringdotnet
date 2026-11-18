@@ -87,49 +87,49 @@ Class TextPointer from ContentPosition
 		return dnRequest("call",[new DotNetObject(nHandle),"InsertLineBreak"])
 
 	Func getHasValidLayout
-		return dnRequest("get",[new DotNetObject(nHandle),"HasValidLayout"])
+		return dnRequest("get",[self,"HasValidLayout"])
 
 	Func setHasValidLayout P1
 		raise("DotNet Error: HasValidLayout is a read-only property")
 
 	Func getLogicalDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"LogicalDirection"])
+		return dnRequest("get",[self,"LogicalDirection"])
 
 	Func setLogicalDirection P1
 		raise("DotNet Error: LogicalDirection is a read-only property")
 
 	Func getParent
-		return dnRequest("get",[new DotNetObject(nHandle),"Parent"])
+		return dnRequest("get",[self,"Parent"])
 
 	Func setParent P1
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getIsAtInsertionPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAtInsertionPosition"])
+		return dnRequest("get",[self,"IsAtInsertionPosition"])
 
 	Func setIsAtInsertionPosition P1
 		raise("DotNet Error: IsAtInsertionPosition is a read-only property")
 
 	Func getIsAtLineStartPosition
-		return dnRequest("get",[new DotNetObject(nHandle),"IsAtLineStartPosition"])
+		return dnRequest("get",[self,"IsAtLineStartPosition"])
 
 	Func setIsAtLineStartPosition P1
 		raise("DotNet Error: IsAtLineStartPosition is a read-only property")
 
 	Func getParagraph
-		return dnRequest("get",[new DotNetObject(nHandle),"Paragraph"])
+		return dnRequest("get",[self,"Paragraph"])
 
 	Func setParagraph P1
 		raise("DotNet Error: Paragraph is a read-only property")
 
 	Func getDocumentStart
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentStart"])
+		return dnRequest("get",[self,"DocumentStart"])
 
 	Func setDocumentStart P1
 		raise("DotNet Error: DocumentStart is a read-only property")
 
 	Func getDocumentEnd
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentEnd"])
+		return dnRequest("get",[self,"DocumentEnd"])
 
 	Func setDocumentEnd P1
 		raise("DotNet Error: DocumentEnd is a read-only property")

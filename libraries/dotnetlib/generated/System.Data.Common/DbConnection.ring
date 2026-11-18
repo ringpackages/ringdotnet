@@ -139,44 +139,44 @@ Class DbConnection from Component
 		return self
 
 	Func getConnectionString
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionString"])
+		return dnRequest("get",[self,"ConnectionString"])
 
 	Func setConnectionString P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConnectionString",P1])
+		dnRequest("set",[self,"ConnectionString",P1])
 		return self
 
 	Func getConnectionTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionTimeout"])
+		return dnRequest("get",[self,"ConnectionTimeout"])
 
 	Func setConnectionTimeout P1
 		raise("DotNet Error: ConnectionTimeout is a read-only property")
 
 	Func getDatabase
-		return dnRequest("get",[new DotNetObject(nHandle),"Database"])
+		return dnRequest("get",[self,"Database"])
 
 	Func setDatabase P1
 		raise("DotNet Error: Database is a read-only property")
 
 	Func getDataSource
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSource"])
+		return dnRequest("get",[self,"DataSource"])
 
 	Func setDataSource P1
 		raise("DotNet Error: DataSource is a read-only property")
 
 	Func getServerVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"ServerVersion"])
+		return dnRequest("get",[self,"ServerVersion"])
 
 	Func setServerVersion P1
 		raise("DotNet Error: ServerVersion is a read-only property")
 
 	Func getState
-		return dnRequest("get",[new DotNetObject(nHandle),"State"])
+		return dnRequest("get",[self,"State"])
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
 
 	Func getCanCreateBatch
-		return dnRequest("get",[new DotNetObject(nHandle),"CanCreateBatch"])
+		return dnRequest("get",[self,"CanCreateBatch"])
 
 	Func setCanCreateBatch P1
 		raise("DotNet Error: CanCreateBatch is a read-only property")

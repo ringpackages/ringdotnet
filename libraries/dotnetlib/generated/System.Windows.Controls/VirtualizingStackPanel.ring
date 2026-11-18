@@ -95,61 +95,61 @@ Class VirtualizingStackPanel from VirtualizingPanel
 		return self
 
 	Func getOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"Orientation"])
+		return dnRequest("get",[self,"Orientation"])
 
 	Func setOrientation P1
-		dnRequest("set",[new DotNetObject(nHandle),"Orientation",P1])
+		dnRequest("set",[self,"Orientation",P1])
 		return self
 
 	Func getCanHorizontallyScroll
-		return dnRequest("get",[new DotNetObject(nHandle),"CanHorizontallyScroll"])
+		return dnRequest("get",[self,"CanHorizontallyScroll"])
 
 	Func setCanHorizontallyScroll P1
-		dnRequest("set",[new DotNetObject(nHandle),"CanHorizontallyScroll",P1])
+		dnRequest("set",[self,"CanHorizontallyScroll",P1])
 		return self
 
 	Func getCanVerticallyScroll
-		return dnRequest("get",[new DotNetObject(nHandle),"CanVerticallyScroll"])
+		return dnRequest("get",[self,"CanVerticallyScroll"])
 
 	Func setCanVerticallyScroll P1
-		dnRequest("set",[new DotNetObject(nHandle),"CanVerticallyScroll",P1])
+		dnRequest("set",[self,"CanVerticallyScroll",P1])
 		return self
 
 	Func getExtentWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtentWidth"])
+		return dnRequest("get",[self,"ExtentWidth"])
 
 	Func setExtentWidth P1
 		raise("DotNet Error: ExtentWidth is a read-only property")
 
 	Func getExtentHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtentHeight"])
+		return dnRequest("get",[self,"ExtentHeight"])
 
 	Func setExtentHeight P1
 		raise("DotNet Error: ExtentHeight is a read-only property")
 
 	Func getViewportWidth
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewportWidth"])
+		return dnRequest("get",[self,"ViewportWidth"])
 
 	Func setViewportWidth P1
 		raise("DotNet Error: ViewportWidth is a read-only property")
 
 	Func getViewportHeight
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewportHeight"])
+		return dnRequest("get",[self,"ViewportHeight"])
 
 	Func setViewportHeight P1
 		raise("DotNet Error: ViewportHeight is a read-only property")
 
 	Func getHorizontalOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"HorizontalOffset"])
+		return dnRequest("get",[self,"HorizontalOffset"])
 
 	Func getVerticalOffset
-		return dnRequest("get",[new DotNetObject(nHandle),"VerticalOffset"])
+		return dnRequest("get",[self,"VerticalOffset"])
 
 	Func getScrollOwner
-		return dnRequest("get",[new DotNetObject(nHandle),"ScrollOwner"])
+		return dnRequest("get",[self,"ScrollOwner"])
 
 	Func setScrollOwner P1
-		dnRequest("set",[new DotNetObject(nHandle),"ScrollOwner",P1])
+		dnRequest("set",[self,"ScrollOwner",P1])
 		return self
 
 	Func getIsVirtualizingProperty

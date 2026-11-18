@@ -34,28 +34,28 @@ Class IStoreFunctionParameter from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getFunction
-		return dnRequest("get",[new DotNetObject(nHandle),"Function"])
+		return dnRequest("get",[self,"Function"])
 
 	Func getDbFunctionParameters
-		return dnRequest("get",[new DotNetObject(nHandle),"DbFunctionParameters"])
+		return dnRequest("get",[self,"DbFunctionParameters"])
 
 	Func setDbFunctionParameters P1
 		raise("DotNet Error: DbFunctionParameters is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnRequest("get",[new DotNetObject(nHandle),"StoreType"])
+		return dnRequest("get",[self,"StoreType"])
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")

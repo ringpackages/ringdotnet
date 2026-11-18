@@ -28,58 +28,58 @@ Class HierarchicalDataTemplate from DataTemplate
 		return self
 
 	Func getItemsSource
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemsSource"])
+		return dnRequest("get",[self,"ItemsSource"])
 
 	Func setItemsSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemsSource",P1])
+		dnRequest("set",[self,"ItemsSource",P1])
 		return self
 
 	Func getItemTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemTemplate"])
+		return dnRequest("get",[self,"ItemTemplate"])
 
 	Func setItemTemplate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemTemplate",P1])
+		dnRequest("set",[self,"ItemTemplate",P1])
 		return self
 
 	Func getItemTemplateSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemTemplateSelector"])
+		return dnRequest("get",[self,"ItemTemplateSelector"])
 
 	Func setItemTemplateSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemTemplateSelector",P1])
+		dnRequest("set",[self,"ItemTemplateSelector",P1])
 		return self
 
 	Func getItemContainerStyle
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerStyle"])
+		return dnRequest("get",[self,"ItemContainerStyle"])
 
 	Func setItemContainerStyle P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemContainerStyle",P1])
+		dnRequest("set",[self,"ItemContainerStyle",P1])
 		return self
 
 	Func getItemContainerStyleSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemContainerStyleSelector"])
+		return dnRequest("get",[self,"ItemContainerStyleSelector"])
 
 	Func setItemContainerStyleSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemContainerStyleSelector",P1])
+		dnRequest("set",[self,"ItemContainerStyleSelector",P1])
 		return self
 
 	Func getItemStringFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemStringFormat"])
+		return dnRequest("get",[self,"ItemStringFormat"])
 
 	Func setItemStringFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemStringFormat",P1])
+		dnRequest("set",[self,"ItemStringFormat",P1])
 		return self
 
 	Func getAlternationCount
-		return dnRequest("get",[new DotNetObject(nHandle),"AlternationCount"])
+		return dnRequest("get",[self,"AlternationCount"])
 
 	Func setAlternationCount P1
-		dnRequest("set",[new DotNetObject(nHandle),"AlternationCount",P1])
+		dnRequest("set",[self,"AlternationCount",P1])
 		return self
 
 	Func getItemBindingGroup
-		return dnRequest("get",[new DotNetObject(nHandle),"ItemBindingGroup"])
+		return dnRequest("get",[self,"ItemBindingGroup"])
 
 	Func setItemBindingGroup P1
-		dnRequest("set",[new DotNetObject(nHandle),"ItemBindingGroup",P1])
+		dnRequest("set",[self,"ItemBindingGroup",P1])
 		return self
 

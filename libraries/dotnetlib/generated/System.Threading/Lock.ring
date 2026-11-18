@@ -43,7 +43,7 @@ Class Lock from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getIsHeldByCurrentThread
-		return dnRequest("get",[new DotNetObject(nHandle),"IsHeldByCurrentThread"])
+		return dnRequest("get",[self,"IsHeldByCurrentThread"])
 
 	Func setIsHeldByCurrentThread P1
 		raise("DotNet Error: IsHeldByCurrentThread is a read-only property")

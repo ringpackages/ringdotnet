@@ -29,23 +29,23 @@ Class AuthorizationOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getInvokeHandlersAfterFailure
-		return dnRequest("get",[new DotNetObject(nHandle),"InvokeHandlersAfterFailure"])
+		return dnRequest("get",[self,"InvokeHandlersAfterFailure"])
 
 	Func setInvokeHandlersAfterFailure P1
-		dnRequest("set",[new DotNetObject(nHandle),"InvokeHandlersAfterFailure",P1])
+		dnRequest("set",[self,"InvokeHandlersAfterFailure",P1])
 		return self
 
 	Func getDefaultPolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultPolicy"])
+		return dnRequest("get",[self,"DefaultPolicy"])
 
 	Func setDefaultPolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultPolicy",P1])
+		dnRequest("set",[self,"DefaultPolicy",P1])
 		return self
 
 	Func getFallbackPolicy
-		return dnRequest("get",[new DotNetObject(nHandle),"FallbackPolicy"])
+		return dnRequest("get",[self,"FallbackPolicy"])
 
 	Func setFallbackPolicy P1
-		dnRequest("set",[new DotNetObject(nHandle),"FallbackPolicy",P1])
+		dnRequest("set",[self,"FallbackPolicy",P1])
 		return self
 

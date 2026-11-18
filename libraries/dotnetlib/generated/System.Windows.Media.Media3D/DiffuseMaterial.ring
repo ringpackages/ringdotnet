@@ -26,24 +26,24 @@ Class DiffuseMaterial from Material
 		return self
 
 	Func getColor
-		return dnRequest("get",[new DotNetObject(nHandle),"Color"])
+		return dnRequest("get",[self,"Color"])
 
 	Func setColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"Color",P1])
+		dnRequest("set",[self,"Color",P1])
 		return self
 
 	Func getAmbientColor
-		return dnRequest("get",[new DotNetObject(nHandle),"AmbientColor"])
+		return dnRequest("get",[self,"AmbientColor"])
 
 	Func setAmbientColor P1
-		dnRequest("set",[new DotNetObject(nHandle),"AmbientColor",P1])
+		dnRequest("set",[self,"AmbientColor",P1])
 		return self
 
 	Func getBrush
-		return dnRequest("get",[new DotNetObject(nHandle),"Brush"])
+		return dnRequest("get",[self,"Brush"])
 
 	Func setBrush P1
-		dnRequest("set",[new DotNetObject(nHandle),"Brush",P1])
+		dnRequest("set",[self,"Brush",P1])
 		return self
 
 	Func getColorProperty

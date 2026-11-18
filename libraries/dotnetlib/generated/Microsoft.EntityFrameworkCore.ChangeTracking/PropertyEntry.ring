@@ -18,16 +18,16 @@ Class PropertyEntry from MemberEntry
 		return self
 
 	Func getIsTemporary
-		return dnRequest("get",[new DotNetObject(nHandle),"IsTemporary"])
+		return dnRequest("get",[self,"IsTemporary"])
 
 	Func setIsTemporary P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsTemporary",P1])
+		dnRequest("set",[self,"IsTemporary",P1])
 		return self
 
 	Func getOriginalValue
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginalValue"])
+		return dnRequest("get",[self,"OriginalValue"])
 
 	Func setOriginalValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"OriginalValue",P1])
+		dnRequest("set",[self,"OriginalValue",P1])
 		return self
 

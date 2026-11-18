@@ -37,25 +37,25 @@ Class ViaHeaderValue from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http'),"TryParse",P1])
 
 	Func getProtocolName
-		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolName"])
+		return dnRequest("get",[self,"ProtocolName"])
 
 	Func setProtocolName P1
 		raise("DotNet Error: ProtocolName is a read-only property")
 
 	Func getProtocolVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolVersion"])
+		return dnRequest("get",[self,"ProtocolVersion"])
 
 	Func setProtocolVersion P1
 		raise("DotNet Error: ProtocolVersion is a read-only property")
 
 	Func getReceivedBy
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceivedBy"])
+		return dnRequest("get",[self,"ReceivedBy"])
 
 	Func setReceivedBy P1
 		raise("DotNet Error: ReceivedBy is a read-only property")
 
 	Func getComment
-		return dnRequest("get",[new DotNetObject(nHandle),"Comment"])
+		return dnRequest("get",[self,"Comment"])
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")

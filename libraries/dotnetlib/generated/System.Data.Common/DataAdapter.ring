@@ -53,56 +53,56 @@ Class DataAdapter from Component
 		return self
 
 	Func getAcceptChangesDuringFill
-		return dnRequest("get",[new DotNetObject(nHandle),"AcceptChangesDuringFill"])
+		return dnRequest("get",[self,"AcceptChangesDuringFill"])
 
 	Func setAcceptChangesDuringFill P1
-		dnRequest("set",[new DotNetObject(nHandle),"AcceptChangesDuringFill",P1])
+		dnRequest("set",[self,"AcceptChangesDuringFill",P1])
 		return self
 
 	Func getAcceptChangesDuringUpdate
-		return dnRequest("get",[new DotNetObject(nHandle),"AcceptChangesDuringUpdate"])
+		return dnRequest("get",[self,"AcceptChangesDuringUpdate"])
 
 	Func setAcceptChangesDuringUpdate P1
-		dnRequest("set",[new DotNetObject(nHandle),"AcceptChangesDuringUpdate",P1])
+		dnRequest("set",[self,"AcceptChangesDuringUpdate",P1])
 		return self
 
 	Func getContinueUpdateOnError
-		return dnRequest("get",[new DotNetObject(nHandle),"ContinueUpdateOnError"])
+		return dnRequest("get",[self,"ContinueUpdateOnError"])
 
 	Func setContinueUpdateOnError P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContinueUpdateOnError",P1])
+		dnRequest("set",[self,"ContinueUpdateOnError",P1])
 		return self
 
 	Func getFillLoadOption
-		return dnRequest("get",[new DotNetObject(nHandle),"FillLoadOption"])
+		return dnRequest("get",[self,"FillLoadOption"])
 
 	Func setFillLoadOption P1
-		dnRequest("set",[new DotNetObject(nHandle),"FillLoadOption",P1])
+		dnRequest("set",[self,"FillLoadOption",P1])
 		return self
 
 	Func getMissingMappingAction
-		return dnRequest("get",[new DotNetObject(nHandle),"MissingMappingAction"])
+		return dnRequest("get",[self,"MissingMappingAction"])
 
 	Func setMissingMappingAction P1
-		dnRequest("set",[new DotNetObject(nHandle),"MissingMappingAction",P1])
+		dnRequest("set",[self,"MissingMappingAction",P1])
 		return self
 
 	Func getMissingSchemaAction
-		return dnRequest("get",[new DotNetObject(nHandle),"MissingSchemaAction"])
+		return dnRequest("get",[self,"MissingSchemaAction"])
 
 	Func setMissingSchemaAction P1
-		dnRequest("set",[new DotNetObject(nHandle),"MissingSchemaAction",P1])
+		dnRequest("set",[self,"MissingSchemaAction",P1])
 		return self
 
 	Func getReturnProviderSpecificTypes
-		return dnRequest("get",[new DotNetObject(nHandle),"ReturnProviderSpecificTypes"])
+		return dnRequest("get",[self,"ReturnProviderSpecificTypes"])
 
 	Func setReturnProviderSpecificTypes P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReturnProviderSpecificTypes",P1])
+		dnRequest("set",[self,"ReturnProviderSpecificTypes",P1])
 		return self
 
 	Func getTableMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"TableMappings"])
+		return dnRequest("get",[self,"TableMappings"])
 
 	Func setTableMappings P1
 		raise("DotNet Error: TableMappings is a read-only property")

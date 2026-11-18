@@ -48,7 +48,7 @@ Class XslCompiledTransform from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getOutputSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"OutputSettings"])
+		return dnRequest("get",[self,"OutputSettings"])
 
 	Func setOutputSettings P1
 		raise("DotNet Error: OutputSettings is a read-only property")

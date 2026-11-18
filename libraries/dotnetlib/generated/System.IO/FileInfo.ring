@@ -85,27 +85,27 @@ Class FileInfo from FileSystemInfo
 		return self
 
 	Func getLength
-		return dnRequest("get",[new DotNetObject(nHandle),"Length"])
+		return dnRequest("get",[self,"Length"])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getDirectoryName
-		return dnRequest("get",[new DotNetObject(nHandle),"DirectoryName"])
+		return dnRequest("get",[self,"DirectoryName"])
 
 	Func setDirectoryName P1
 		raise("DotNet Error: DirectoryName is a read-only property")
 
 	Func getDirectory
-		return dnRequest("get",[new DotNetObject(nHandle),"Directory"])
+		return dnRequest("get",[self,"Directory"])
 
 	Func setDirectory P1
 		raise("DotNet Error: Directory is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
-		dnRequest("set",[new DotNetObject(nHandle),"IsReadOnly",P1])
+		dnRequest("set",[self,"IsReadOnly",P1])
 		return self
 

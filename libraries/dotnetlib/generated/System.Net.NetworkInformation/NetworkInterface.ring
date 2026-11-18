@@ -49,49 +49,49 @@ Class NetworkInterface from Object
 		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"GetIsNetworkAvailable"])
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDescription
-		return dnRequest("get",[new DotNetObject(nHandle),"Description"])
+		return dnRequest("get",[self,"Description"])
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getOperationalStatus
-		return dnRequest("get",[new DotNetObject(nHandle),"OperationalStatus"])
+		return dnRequest("get",[self,"OperationalStatus"])
 
 	Func setOperationalStatus P1
 		raise("DotNet Error: OperationalStatus is a read-only property")
 
 	Func getSpeed
-		return dnRequest("get",[new DotNetObject(nHandle),"Speed"])
+		return dnRequest("get",[self,"Speed"])
 
 	Func setSpeed P1
 		raise("DotNet Error: Speed is a read-only property")
 
 	Func getIsReceiveOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReceiveOnly"])
+		return dnRequest("get",[self,"IsReceiveOnly"])
 
 	Func setIsReceiveOnly P1
 		raise("DotNet Error: IsReceiveOnly is a read-only property")
 
 	Func getSupportsMulticast
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsMulticast"])
+		return dnRequest("get",[self,"SupportsMulticast"])
 
 	Func setSupportsMulticast P1
 		raise("DotNet Error: SupportsMulticast is a read-only property")
 
 	Func getNetworkInterfaceType
-		return dnRequest("get",[new DotNetObject(nHandle),"NetworkInterfaceType"])
+		return dnRequest("get",[self,"NetworkInterfaceType"])
 
 	Func setNetworkInterfaceType P1
 		raise("DotNet Error: NetworkInterfaceType is a read-only property")

@@ -33,9 +33,9 @@ Class ToolStripDropDownButton from ToolStripDropDownItem
 		return self
 
 	Func getShowDropDownArrow
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowDropDownArrow"])
+		return dnRequest("get",[self,"ShowDropDownArrow"])
 
 	Func setShowDropDownArrow P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowDropDownArrow",P1])
+		dnRequest("set",[self,"ShowDropDownArrow",P1])
 		return self
 

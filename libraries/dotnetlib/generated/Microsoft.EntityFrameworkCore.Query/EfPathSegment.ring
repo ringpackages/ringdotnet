@@ -25,13 +25,13 @@ Class EfPathSegment from ValueType
 		return dnRequest("call",[new DotNetObject(nHandle),"Quote"])
 
 	Func getPropertyName
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyName"])
+		return dnRequest("get",[self,"PropertyName"])
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getArrayIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"ArrayIndex"])
+		return dnRequest("get",[self,"ArrayIndex"])
 
 	Func setArrayIndex P1
 		raise("DotNet Error: ArrayIndex is a read-only property")

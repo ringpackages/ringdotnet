@@ -26,16 +26,16 @@ Class ChallengeResult from ActionResult
 		return self
 
 	Func getAuthenticationSchemes
-		return dnRequest("get",[new DotNetObject(nHandle),"AuthenticationSchemes"])
+		return dnRequest("get",[self,"AuthenticationSchemes"])
 
 	Func setAuthenticationSchemes P1
-		dnRequest("set",[new DotNetObject(nHandle),"AuthenticationSchemes",P1])
+		dnRequest("set",[self,"AuthenticationSchemes",P1])
 		return self
 
 	Func getProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"Properties"])
+		return dnRequest("get",[self,"Properties"])
 
 	Func setProperties P1
-		dnRequest("set",[new DotNetObject(nHandle),"Properties",P1])
+		dnRequest("set",[self,"Properties",P1])
 		return self
 

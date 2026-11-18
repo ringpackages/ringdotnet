@@ -19,23 +19,23 @@ Class DataGridColumnReorderingEventArgs from DataGridColumnEventArgs
 		return self
 
 	Func getCancel
-		return dnRequest("get",[new DotNetObject(nHandle),"Cancel"])
+		return dnRequest("get",[self,"Cancel"])
 
 	Func setCancel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cancel",P1])
+		dnRequest("set",[self,"Cancel",P1])
 		return self
 
 	Func getDropLocationIndicator
-		return dnRequest("get",[new DotNetObject(nHandle),"DropLocationIndicator"])
+		return dnRequest("get",[self,"DropLocationIndicator"])
 
 	Func setDropLocationIndicator P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropLocationIndicator",P1])
+		dnRequest("set",[self,"DropLocationIndicator",P1])
 		return self
 
 	Func getDragIndicator
-		return dnRequest("get",[new DotNetObject(nHandle),"DragIndicator"])
+		return dnRequest("get",[self,"DragIndicator"])
 
 	Func setDragIndicator P1
-		dnRequest("set",[new DotNetObject(nHandle),"DragIndicator",P1])
+		dnRequest("set",[self,"DragIndicator",P1])
 		return self
 

@@ -23,23 +23,23 @@ Class EventSetter from SetterBase
 		return self
 
 	Func getEvent
-		return dnRequest("get",[new DotNetObject(nHandle),"Event"])
+		return dnRequest("get",[self,"Event"])
 
 	Func setEvent P1
-		dnRequest("set",[new DotNetObject(nHandle),"Event",P1])
+		dnRequest("set",[self,"Event",P1])
 		return self
 
 	Func getHandler
-		return dnRequest("get",[new DotNetObject(nHandle),"Handler"])
+		return dnRequest("get",[self,"Handler"])
 
 	Func setHandler P1
-		dnRequest("set",[new DotNetObject(nHandle),"Handler",P1])
+		dnRequest("set",[self,"Handler",P1])
 		return self
 
 	Func getHandledEventsToo
-		return dnRequest("get",[new DotNetObject(nHandle),"HandledEventsToo"])
+		return dnRequest("get",[self,"HandledEventsToo"])
 
 	Func setHandledEventsToo P1
-		dnRequest("set",[new DotNetObject(nHandle),"HandledEventsToo",P1])
+		dnRequest("set",[self,"HandledEventsToo",P1])
 		return self
 

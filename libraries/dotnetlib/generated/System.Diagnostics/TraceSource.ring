@@ -75,33 +75,33 @@ Class TraceSource from Object
 		return self
 
 	Func getAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"Attributes"])
+		return dnRequest("get",[self,"Attributes"])
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getDefaultLevel
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultLevel"])
+		return dnRequest("get",[self,"DefaultLevel"])
 
 	Func setDefaultLevel P1
 		raise("DotNet Error: DefaultLevel is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getListeners
-		return dnRequest("get",[new DotNetObject(nHandle),"Listeners"])
+		return dnRequest("get",[self,"Listeners"])
 
 	Func setListeners P1
 		raise("DotNet Error: Listeners is a read-only property")
 
 	Func getSwitch
-		return dnRequest("get",[new DotNetObject(nHandle),"Switch"])
+		return dnRequest("get",[self,"Switch"])
 
 	Func setSwitch P1
-		dnRequest("set",[new DotNetObject(nHandle),"Switch",P1])
+		dnRequest("set",[self,"Switch",P1])
 		return self
 

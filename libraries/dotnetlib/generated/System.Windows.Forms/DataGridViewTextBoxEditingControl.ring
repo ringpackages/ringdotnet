@@ -36,41 +36,41 @@ Class DataGridViewTextBoxEditingControl from TextBox
 		return self
 
 	Func getEditingControlDataGridView
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingControlDataGridView"])
+		return dnRequest("get",[self,"EditingControlDataGridView"])
 
 	Func setEditingControlDataGridView P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingControlDataGridView",P1])
+		dnRequest("set",[self,"EditingControlDataGridView",P1])
 		return self
 
 	Func getEditingControlFormattedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingControlFormattedValue"])
+		return dnRequest("get",[self,"EditingControlFormattedValue"])
 
 	Func setEditingControlFormattedValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingControlFormattedValue",P1])
+		dnRequest("set",[self,"EditingControlFormattedValue",P1])
 		return self
 
 	Func getEditingControlRowIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingControlRowIndex"])
+		return dnRequest("get",[self,"EditingControlRowIndex"])
 
 	Func setEditingControlRowIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingControlRowIndex",P1])
+		dnRequest("set",[self,"EditingControlRowIndex",P1])
 		return self
 
 	Func getEditingControlValueChanged
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingControlValueChanged"])
+		return dnRequest("get",[self,"EditingControlValueChanged"])
 
 	Func setEditingControlValueChanged P1
-		dnRequest("set",[new DotNetObject(nHandle),"EditingControlValueChanged",P1])
+		dnRequest("set",[self,"EditingControlValueChanged",P1])
 		return self
 
 	Func getEditingPanelCursor
-		return dnRequest("get",[new DotNetObject(nHandle),"EditingPanelCursor"])
+		return dnRequest("get",[self,"EditingPanelCursor"])
 
 	Func setEditingPanelCursor P1
 		raise("DotNet Error: EditingPanelCursor is a read-only property")
 
 	Func getRepositionEditingControlOnValueChange
-		return dnRequest("get",[new DotNetObject(nHandle),"RepositionEditingControlOnValueChange"])
+		return dnRequest("get",[self,"RepositionEditingControlOnValueChange"])
 
 	Func setRepositionEditingControlOnValueChange P1
 		raise("DotNet Error: RepositionEditingControlOnValueChange is a read-only property")

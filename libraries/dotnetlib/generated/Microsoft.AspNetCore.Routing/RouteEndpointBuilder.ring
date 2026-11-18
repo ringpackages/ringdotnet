@@ -18,16 +18,16 @@ Class RouteEndpointBuilder from EndpointBuilder
 		return self
 
 	Func getRoutePattern
-		return dnRequest("get",[new DotNetObject(nHandle),"RoutePattern"])
+		return dnRequest("get",[self,"RoutePattern"])
 
 	Func setRoutePattern P1
-		dnRequest("set",[new DotNetObject(nHandle),"RoutePattern",P1])
+		dnRequest("set",[self,"RoutePattern",P1])
 		return self
 
 	Func getOrder
-		return dnRequest("get",[new DotNetObject(nHandle),"Order"])
+		return dnRequest("get",[self,"Order"])
 
 	Func setOrder P1
-		dnRequest("set",[new DotNetObject(nHandle),"Order",P1])
+		dnRequest("set",[self,"Order",P1])
 		return self
 

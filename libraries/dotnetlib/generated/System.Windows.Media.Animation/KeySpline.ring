@@ -32,16 +32,16 @@ Class KeySpline from Freezable
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getControlPoint1
-		return dnRequest("get",[new DotNetObject(nHandle),"ControlPoint1"])
+		return dnRequest("get",[self,"ControlPoint1"])
 
 	Func setControlPoint1 P1
-		dnRequest("set",[new DotNetObject(nHandle),"ControlPoint1",P1])
+		dnRequest("set",[self,"ControlPoint1",P1])
 		return self
 
 	Func getControlPoint2
-		return dnRequest("get",[new DotNetObject(nHandle),"ControlPoint2"])
+		return dnRequest("get",[self,"ControlPoint2"])
 
 	Func setControlPoint2 P1
-		dnRequest("set",[new DotNetObject(nHandle),"ControlPoint2",P1])
+		dnRequest("set",[self,"ControlPoint2",P1])
 		return self
 

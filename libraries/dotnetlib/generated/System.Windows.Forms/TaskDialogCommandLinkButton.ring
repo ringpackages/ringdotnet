@@ -33,9 +33,9 @@ Class TaskDialogCommandLinkButton from TaskDialogButton
 		return self
 
 	Func getDescriptionText
-		return dnRequest("get",[new DotNetObject(nHandle),"DescriptionText"])
+		return dnRequest("get",[self,"DescriptionText"])
 
 	Func setDescriptionText P1
-		dnRequest("set",[new DotNetObject(nHandle),"DescriptionText",P1])
+		dnRequest("set",[self,"DescriptionText",P1])
 		return self
 

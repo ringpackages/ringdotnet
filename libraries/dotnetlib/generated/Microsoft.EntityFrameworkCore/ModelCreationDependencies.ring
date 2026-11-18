@@ -24,37 +24,37 @@ Class ModelCreationDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getModelSource
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelSource"])
+		return dnRequest("get",[self,"ModelSource"])
 
 	Func setModelSource P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelSource",P1])
+		dnRequest("set",[self,"ModelSource",P1])
 		return self
 
 	Func getConventionSetBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"ConventionSetBuilder"])
+		return dnRequest("get",[self,"ConventionSetBuilder"])
 
 	Func setConventionSetBuilder P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConventionSetBuilder",P1])
+		dnRequest("set",[self,"ConventionSetBuilder",P1])
 		return self
 
 	Func getModelDependencies
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelDependencies"])
+		return dnRequest("get",[self,"ModelDependencies"])
 
 	Func setModelDependencies P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelDependencies",P1])
+		dnRequest("set",[self,"ModelDependencies",P1])
 		return self
 
 	Func getModelRuntimeInitializer
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelRuntimeInitializer"])
+		return dnRequest("get",[self,"ModelRuntimeInitializer"])
 
 	Func setModelRuntimeInitializer P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelRuntimeInitializer",P1])
+		dnRequest("set",[self,"ModelRuntimeInitializer",P1])
 		return self
 
 	Func getValidationLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidationLogger"])
+		return dnRequest("get",[self,"ValidationLogger"])
 
 	Func setValidationLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidationLogger",P1])
+		dnRequest("set",[self,"ValidationLogger",P1])
 		return self
 

@@ -33,79 +33,79 @@ Class RegionInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getEnglishName
-		return dnRequest("get",[new DotNetObject(nHandle),"EnglishName"])
+		return dnRequest("get",[self,"EnglishName"])
 
 	Func setEnglishName P1
 		raise("DotNet Error: EnglishName is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayName"])
+		return dnRequest("get",[self,"DisplayName"])
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getNativeName
-		return dnRequest("get",[new DotNetObject(nHandle),"NativeName"])
+		return dnRequest("get",[self,"NativeName"])
 
 	Func setNativeName P1
 		raise("DotNet Error: NativeName is a read-only property")
 
 	Func getTwoLetterISORegionName
-		return dnRequest("get",[new DotNetObject(nHandle),"TwoLetterISORegionName"])
+		return dnRequest("get",[self,"TwoLetterISORegionName"])
 
 	Func setTwoLetterISORegionName P1
 		raise("DotNet Error: TwoLetterISORegionName is a read-only property")
 
 	Func getThreeLetterISORegionName
-		return dnRequest("get",[new DotNetObject(nHandle),"ThreeLetterISORegionName"])
+		return dnRequest("get",[self,"ThreeLetterISORegionName"])
 
 	Func setThreeLetterISORegionName P1
 		raise("DotNet Error: ThreeLetterISORegionName is a read-only property")
 
 	Func getThreeLetterWindowsRegionName
-		return dnRequest("get",[new DotNetObject(nHandle),"ThreeLetterWindowsRegionName"])
+		return dnRequest("get",[self,"ThreeLetterWindowsRegionName"])
 
 	Func setThreeLetterWindowsRegionName P1
 		raise("DotNet Error: ThreeLetterWindowsRegionName is a read-only property")
 
 	Func getIsMetric
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMetric"])
+		return dnRequest("get",[self,"IsMetric"])
 
 	Func setIsMetric P1
 		raise("DotNet Error: IsMetric is a read-only property")
 
 	Func getGeoId
-		return dnRequest("get",[new DotNetObject(nHandle),"GeoId"])
+		return dnRequest("get",[self,"GeoId"])
 
 	Func setGeoId P1
 		raise("DotNet Error: GeoId is a read-only property")
 
 	Func getCurrencyEnglishName
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyEnglishName"])
+		return dnRequest("get",[self,"CurrencyEnglishName"])
 
 	Func setCurrencyEnglishName P1
 		raise("DotNet Error: CurrencyEnglishName is a read-only property")
 
 	Func getCurrencyNativeName
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencyNativeName"])
+		return dnRequest("get",[self,"CurrencyNativeName"])
 
 	Func setCurrencyNativeName P1
 		raise("DotNet Error: CurrencyNativeName is a read-only property")
 
 	Func getCurrencySymbol
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrencySymbol"])
+		return dnRequest("get",[self,"CurrencySymbol"])
 
 	Func setCurrencySymbol P1
 		raise("DotNet Error: CurrencySymbol is a read-only property")
 
 	Func getISOCurrencySymbol
-		return dnRequest("get",[new DotNetObject(nHandle),"ISOCurrencySymbol"])
+		return dnRequest("get",[self,"ISOCurrencySymbol"])
 
 	Func setISOCurrencySymbol P1
 		raise("DotNet Error: ISOCurrencySymbol is a read-only property")

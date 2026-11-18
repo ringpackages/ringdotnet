@@ -150,93 +150,93 @@ Class Encoding from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1,P2,P3])
 
 	Func getPreamble
-		return dnRequest("get",[new DotNetObject(nHandle),"Preamble"])
+		return dnRequest("get",[self,"Preamble"])
 
 	Func setPreamble P1
 		raise("DotNet Error: Preamble is a read-only property")
 
 	Func getBodyName
-		return dnRequest("get",[new DotNetObject(nHandle),"BodyName"])
+		return dnRequest("get",[self,"BodyName"])
 
 	Func setBodyName P1
 		raise("DotNet Error: BodyName is a read-only property")
 
 	Func getEncodingName
-		return dnRequest("get",[new DotNetObject(nHandle),"EncodingName"])
+		return dnRequest("get",[self,"EncodingName"])
 
 	Func setEncodingName P1
 		raise("DotNet Error: EncodingName is a read-only property")
 
 	Func getHeaderName
-		return dnRequest("get",[new DotNetObject(nHandle),"HeaderName"])
+		return dnRequest("get",[self,"HeaderName"])
 
 	Func setHeaderName P1
 		raise("DotNet Error: HeaderName is a read-only property")
 
 	Func getWebName
-		return dnRequest("get",[new DotNetObject(nHandle),"WebName"])
+		return dnRequest("get",[self,"WebName"])
 
 	Func setWebName P1
 		raise("DotNet Error: WebName is a read-only property")
 
 	Func getWindowsCodePage
-		return dnRequest("get",[new DotNetObject(nHandle),"WindowsCodePage"])
+		return dnRequest("get",[self,"WindowsCodePage"])
 
 	Func setWindowsCodePage P1
 		raise("DotNet Error: WindowsCodePage is a read-only property")
 
 	Func getIsBrowserDisplay
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBrowserDisplay"])
+		return dnRequest("get",[self,"IsBrowserDisplay"])
 
 	Func setIsBrowserDisplay P1
 		raise("DotNet Error: IsBrowserDisplay is a read-only property")
 
 	Func getIsBrowserSave
-		return dnRequest("get",[new DotNetObject(nHandle),"IsBrowserSave"])
+		return dnRequest("get",[self,"IsBrowserSave"])
 
 	Func setIsBrowserSave P1
 		raise("DotNet Error: IsBrowserSave is a read-only property")
 
 	Func getIsMailNewsDisplay
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMailNewsDisplay"])
+		return dnRequest("get",[self,"IsMailNewsDisplay"])
 
 	Func setIsMailNewsDisplay P1
 		raise("DotNet Error: IsMailNewsDisplay is a read-only property")
 
 	Func getIsMailNewsSave
-		return dnRequest("get",[new DotNetObject(nHandle),"IsMailNewsSave"])
+		return dnRequest("get",[self,"IsMailNewsSave"])
 
 	Func setIsMailNewsSave P1
 		raise("DotNet Error: IsMailNewsSave is a read-only property")
 
 	Func getIsSingleByte
-		return dnRequest("get",[new DotNetObject(nHandle),"IsSingleByte"])
+		return dnRequest("get",[self,"IsSingleByte"])
 
 	Func setIsSingleByte P1
 		raise("DotNet Error: IsSingleByte is a read-only property")
 
 	Func getEncoderFallback
-		return dnRequest("get",[new DotNetObject(nHandle),"EncoderFallback"])
+		return dnRequest("get",[self,"EncoderFallback"])
 
 	Func setEncoderFallback P1
-		dnRequest("set",[new DotNetObject(nHandle),"EncoderFallback",P1])
+		dnRequest("set",[self,"EncoderFallback",P1])
 		return self
 
 	Func getDecoderFallback
-		return dnRequest("get",[new DotNetObject(nHandle),"DecoderFallback"])
+		return dnRequest("get",[self,"DecoderFallback"])
 
 	Func setDecoderFallback P1
-		dnRequest("set",[new DotNetObject(nHandle),"DecoderFallback",P1])
+		dnRequest("set",[self,"DecoderFallback",P1])
 		return self
 
 	Func getIsReadOnly
-		return dnRequest("get",[new DotNetObject(nHandle),"IsReadOnly"])
+		return dnRequest("get",[self,"IsReadOnly"])
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCodePage
-		return dnRequest("get",[new DotNetObject(nHandle),"CodePage"])
+		return dnRequest("get",[self,"CodePage"])
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")

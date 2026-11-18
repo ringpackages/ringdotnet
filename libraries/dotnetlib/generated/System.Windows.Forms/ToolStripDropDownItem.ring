@@ -60,33 +60,33 @@ Class ToolStripDropDownItem from ToolStripItem
 		return self
 
 	Func getDropDown
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDown"])
+		return dnRequest("get",[self,"DropDown"])
 
 	Func setDropDown P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropDown",P1])
+		dnRequest("set",[self,"DropDown",P1])
 		return self
 
 	Func getDropDownDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownDirection"])
+		return dnRequest("get",[self,"DropDownDirection"])
 
 	Func setDropDownDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"DropDownDirection",P1])
+		dnRequest("set",[self,"DropDownDirection",P1])
 		return self
 
 	Func getDropDownItems
-		return dnRequest("get",[new DotNetObject(nHandle),"DropDownItems"])
+		return dnRequest("get",[self,"DropDownItems"])
 
 	Func setDropDownItems P1
 		raise("DotNet Error: DropDownItems is a read-only property")
 
 	Func getHasDropDownItems
-		return dnRequest("get",[new DotNetObject(nHandle),"HasDropDownItems"])
+		return dnRequest("get",[self,"HasDropDownItems"])
 
 	Func setHasDropDownItems P1
 		raise("DotNet Error: HasDropDownItems is a read-only property")
 
 	Func getHasDropDown
-		return dnRequest("get",[new DotNetObject(nHandle),"HasDropDown"])
+		return dnRequest("get",[self,"HasDropDown"])
 
 	Func setHasDropDown P1
 		raise("DotNet Error: HasDropDown is a read-only property")

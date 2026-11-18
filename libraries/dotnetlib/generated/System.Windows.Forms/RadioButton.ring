@@ -40,30 +40,30 @@ Class RadioButton from ButtonBase
 		return self
 
 	Func getAutoCheck
-		return dnRequest("get",[new DotNetObject(nHandle),"AutoCheck"])
+		return dnRequest("get",[self,"AutoCheck"])
 
 	Func setAutoCheck P1
-		dnRequest("set",[new DotNetObject(nHandle),"AutoCheck",P1])
+		dnRequest("set",[self,"AutoCheck",P1])
 		return self
 
 	Func getAppearance
-		return dnRequest("get",[new DotNetObject(nHandle),"Appearance"])
+		return dnRequest("get",[self,"Appearance"])
 
 	Func setAppearance P1
-		dnRequest("set",[new DotNetObject(nHandle),"Appearance",P1])
+		dnRequest("set",[self,"Appearance",P1])
 		return self
 
 	Func getCheckAlign
-		return dnRequest("get",[new DotNetObject(nHandle),"CheckAlign"])
+		return dnRequest("get",[self,"CheckAlign"])
 
 	Func setCheckAlign P1
-		dnRequest("set",[new DotNetObject(nHandle),"CheckAlign",P1])
+		dnRequest("set",[self,"CheckAlign",P1])
 		return self
 
 	Func getChecked
-		return dnRequest("get",[new DotNetObject(nHandle),"Checked"])
+		return dnRequest("get",[self,"Checked"])
 
 	Func setChecked P1
-		dnRequest("set",[new DotNetObject(nHandle),"Checked",P1])
+		dnRequest("set",[self,"Checked",P1])
 		return self
 

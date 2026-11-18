@@ -27,40 +27,40 @@ Class ModelStateEntry from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getRawValue
-		return dnRequest("get",[new DotNetObject(nHandle),"RawValue"])
+		return dnRequest("get",[self,"RawValue"])
 
 	Func setRawValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"RawValue",P1])
+		dnRequest("set",[self,"RawValue",P1])
 		return self
 
 	Func getAttemptedValue
-		return dnRequest("get",[new DotNetObject(nHandle),"AttemptedValue"])
+		return dnRequest("get",[self,"AttemptedValue"])
 
 	Func setAttemptedValue P1
-		dnRequest("set",[new DotNetObject(nHandle),"AttemptedValue",P1])
+		dnRequest("set",[self,"AttemptedValue",P1])
 		return self
 
 	Func getErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"Errors"])
+		return dnRequest("get",[self,"Errors"])
 
 	Func setErrors P1
 		raise("DotNet Error: Errors is a read-only property")
 
 	Func getValidationState
-		return dnRequest("get",[new DotNetObject(nHandle),"ValidationState"])
+		return dnRequest("get",[self,"ValidationState"])
 
 	Func setValidationState P1
-		dnRequest("set",[new DotNetObject(nHandle),"ValidationState",P1])
+		dnRequest("set",[self,"ValidationState",P1])
 		return self
 
 	Func getIsContainerNode
-		return dnRequest("get",[new DotNetObject(nHandle),"IsContainerNode"])
+		return dnRequest("get",[self,"IsContainerNode"])
 
 	Func setIsContainerNode P1
 		raise("DotNet Error: IsContainerNode is a read-only property")
 
 	Func getChildren
-		return dnRequest("get",[new DotNetObject(nHandle),"Children"])
+		return dnRequest("get",[self,"Children"])
 
 	Func setChildren P1
 		raise("DotNet Error: Children is a read-only property")

@@ -30,20 +30,20 @@ Class CompositionTarget from DispatcherObject
 		return self
 
 	Func getRootVisual
-		return dnRequest("get",[new DotNetObject(nHandle),"RootVisual"])
+		return dnRequest("get",[self,"RootVisual"])
 
 	Func setRootVisual P1
-		dnRequest("set",[new DotNetObject(nHandle),"RootVisual",P1])
+		dnRequest("set",[self,"RootVisual",P1])
 		return self
 
 	Func getTransformToDevice
-		return dnRequest("get",[new DotNetObject(nHandle),"TransformToDevice"])
+		return dnRequest("get",[self,"TransformToDevice"])
 
 	Func setTransformToDevice P1
 		raise("DotNet Error: TransformToDevice is a read-only property")
 
 	Func getTransformFromDevice
-		return dnRequest("get",[new DotNetObject(nHandle),"TransformFromDevice"])
+		return dnRequest("get",[self,"TransformFromDevice"])
 
 	Func setTransformFromDevice P1
 		raise("DotNet Error: TransformFromDevice is a read-only property")

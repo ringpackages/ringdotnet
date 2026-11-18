@@ -17,13 +17,13 @@ Class IRouteValueProvider from DotNetObject
 		return self
 
 	Func getRouteKey
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteKey"])
+		return dnRequest("get",[self,"RouteKey"])
 
 	Func setRouteKey P1
 		raise("DotNet Error: RouteKey is a read-only property")
 
 	Func getRouteValue
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteValue"])
+		return dnRequest("get",[self,"RouteValue"])
 
 	Func setRouteValue P1
 		raise("DotNet Error: RouteValue is a read-only property")

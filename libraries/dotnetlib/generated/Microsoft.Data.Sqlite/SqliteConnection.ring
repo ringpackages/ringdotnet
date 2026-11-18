@@ -109,15 +109,15 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getDefaultTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultTimeout"])
+		return dnRequest("get",[self,"DefaultTimeout"])
 
 	Func setDefaultTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultTimeout",P1])
+		dnRequest("set",[self,"DefaultTimeout",P1])
 		return self
 

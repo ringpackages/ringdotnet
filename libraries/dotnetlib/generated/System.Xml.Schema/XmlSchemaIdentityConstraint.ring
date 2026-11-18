@@ -20,27 +20,27 @@ Class XmlSchemaIdentityConstraint from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
-		dnRequest("set",[new DotNetObject(nHandle),"Name",P1])
+		dnRequest("set",[self,"Name",P1])
 		return self
 
 	Func getSelector
-		return dnRequest("get",[new DotNetObject(nHandle),"Selector"])
+		return dnRequest("get",[self,"Selector"])
 
 	Func setSelector P1
-		dnRequest("set",[new DotNetObject(nHandle),"Selector",P1])
+		dnRequest("set",[self,"Selector",P1])
 		return self
 
 	Func getFields
-		return dnRequest("get",[new DotNetObject(nHandle),"Fields"])
+		return dnRequest("get",[self,"Fields"])
 
 	Func setFields P1
 		raise("DotNet Error: Fields is a read-only property")
 
 	Func getQualifiedName
-		return dnRequest("get",[new DotNetObject(nHandle),"QualifiedName"])
+		return dnRequest("get",[self,"QualifiedName"])
 
 	Func setQualifiedName P1
 		raise("DotNet Error: QualifiedName is a read-only property")

@@ -25,14 +25,14 @@ Class IInputLanguageSource from DotNetObject
 		return self
 
 	Func getCurrentInputLanguage
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentInputLanguage"])
+		return dnRequest("get",[self,"CurrentInputLanguage"])
 
 	Func setCurrentInputLanguage P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentInputLanguage",P1])
+		dnRequest("set",[self,"CurrentInputLanguage",P1])
 		return self
 
 	Func getInputLanguageList
-		return dnRequest("get",[new DotNetObject(nHandle),"InputLanguageList"])
+		return dnRequest("get",[self,"InputLanguageList"])
 
 	Func setInputLanguageList P1
 		raise("DotNet Error: InputLanguageList is a read-only property")

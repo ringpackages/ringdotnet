@@ -24,25 +24,25 @@ Class SourceChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func getOldSource
-		return dnRequest("get",[new DotNetObject(nHandle),"OldSource"])
+		return dnRequest("get",[self,"OldSource"])
 
 	Func setOldSource P1
 		raise("DotNet Error: OldSource is a read-only property")
 
 	Func getNewSource
-		return dnRequest("get",[new DotNetObject(nHandle),"NewSource"])
+		return dnRequest("get",[self,"NewSource"])
 
 	Func setNewSource P1
 		raise("DotNet Error: NewSource is a read-only property")
 
 	Func getElement
-		return dnRequest("get",[new DotNetObject(nHandle),"Element"])
+		return dnRequest("get",[self,"Element"])
 
 	Func setElement P1
 		raise("DotNet Error: Element is a read-only property")
 
 	Func getOldParent
-		return dnRequest("get",[new DotNetObject(nHandle),"OldParent"])
+		return dnRequest("get",[self,"OldParent"])
 
 	Func setOldParent P1
 		raise("DotNet Error: OldParent is a read-only property")

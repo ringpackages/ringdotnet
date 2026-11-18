@@ -21,16 +21,16 @@ Class ListSortDescription from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getPropertyDescriptor
-		return dnRequest("get",[new DotNetObject(nHandle),"PropertyDescriptor"])
+		return dnRequest("get",[self,"PropertyDescriptor"])
 
 	Func setPropertyDescriptor P1
-		dnRequest("set",[new DotNetObject(nHandle),"PropertyDescriptor",P1])
+		dnRequest("set",[self,"PropertyDescriptor",P1])
 		return self
 
 	Func getSortDirection
-		return dnRequest("get",[new DotNetObject(nHandle),"SortDirection"])
+		return dnRequest("get",[self,"SortDirection"])
 
 	Func setSortDirection P1
-		dnRequest("set",[new DotNetObject(nHandle),"SortDirection",P1])
+		dnRequest("set",[self,"SortDirection",P1])
 		return self
 

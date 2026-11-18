@@ -95,97 +95,97 @@ Class WpfTextBox from WpfTextBoxBase
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeText",P1])
 
 	Func getTextWrapping
-		return dnRequest("get",[new DotNetObject(nHandle),"TextWrapping"])
+		return dnRequest("get",[self,"TextWrapping"])
 
 	Func setTextWrapping P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextWrapping",P1])
+		dnRequest("set",[self,"TextWrapping",P1])
 		return self
 
 	Func getMinLines
-		return dnRequest("get",[new DotNetObject(nHandle),"MinLines"])
+		return dnRequest("get",[self,"MinLines"])
 
 	Func setMinLines P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinLines",P1])
+		dnRequest("set",[self,"MinLines",P1])
 		return self
 
 	Func getMaxLines
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxLines"])
+		return dnRequest("get",[self,"MaxLines"])
 
 	Func setMaxLines P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxLines",P1])
+		dnRequest("set",[self,"MaxLines",P1])
 		return self
 
 	Func getText
-		return dnRequest("get",[new DotNetObject(nHandle),"Text"])
+		return dnRequest("get",[self,"Text"])
 
 	Func setText P1
-		dnRequest("set",[new DotNetObject(nHandle),"Text",P1])
+		dnRequest("set",[self,"Text",P1])
 		return self
 
 	Func getCharacterCasing
-		return dnRequest("get",[new DotNetObject(nHandle),"CharacterCasing"])
+		return dnRequest("get",[self,"CharacterCasing"])
 
 	Func setCharacterCasing P1
-		dnRequest("set",[new DotNetObject(nHandle),"CharacterCasing",P1])
+		dnRequest("set",[self,"CharacterCasing",P1])
 		return self
 
 	Func getMaxLength
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxLength"])
+		return dnRequest("get",[self,"MaxLength"])
 
 	Func setMaxLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxLength",P1])
+		dnRequest("set",[self,"MaxLength",P1])
 		return self
 
 	Func getTextAlignment
-		return dnRequest("get",[new DotNetObject(nHandle),"TextAlignment"])
+		return dnRequest("get",[self,"TextAlignment"])
 
 	Func setTextAlignment P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextAlignment",P1])
+		dnRequest("set",[self,"TextAlignment",P1])
 		return self
 
 	Func getSelectedText
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectedText"])
+		return dnRequest("get",[self,"SelectedText"])
 
 	Func setSelectedText P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectedText",P1])
+		dnRequest("set",[self,"SelectedText",P1])
 		return self
 
 	Func getSelectionLength
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionLength"])
+		return dnRequest("get",[self,"SelectionLength"])
 
 	Func setSelectionLength P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionLength",P1])
+		dnRequest("set",[self,"SelectionLength",P1])
 		return self
 
 	Func getSelectionStart
-		return dnRequest("get",[new DotNetObject(nHandle),"SelectionStart"])
+		return dnRequest("get",[self,"SelectionStart"])
 
 	Func setSelectionStart P1
-		dnRequest("set",[new DotNetObject(nHandle),"SelectionStart",P1])
+		dnRequest("set",[self,"SelectionStart",P1])
 		return self
 
 	Func getCaretIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"CaretIndex"])
+		return dnRequest("get",[self,"CaretIndex"])
 
 	Func setCaretIndex P1
-		dnRequest("set",[new DotNetObject(nHandle),"CaretIndex",P1])
+		dnRequest("set",[self,"CaretIndex",P1])
 		return self
 
 	Func getLineCount
-		return dnRequest("get",[new DotNetObject(nHandle),"LineCount"])
+		return dnRequest("get",[self,"LineCount"])
 
 	Func setLineCount P1
 		raise("DotNet Error: LineCount is a read-only property")
 
 	Func getTextDecorations
-		return dnRequest("get",[new DotNetObject(nHandle),"TextDecorations"])
+		return dnRequest("get",[self,"TextDecorations"])
 
 	Func setTextDecorations P1
-		dnRequest("set",[new DotNetObject(nHandle),"TextDecorations",P1])
+		dnRequest("set",[self,"TextDecorations",P1])
 		return self
 
 	Func getTypography
-		return dnRequest("get",[new DotNetObject(nHandle),"Typography"])
+		return dnRequest("get",[self,"Typography"])
 
 	Func setTypography P1
 		raise("DotNet Error: Typography is a read-only property")

@@ -40,98 +40,98 @@ Class ServicePoint from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBindIPEndPointDelegate
-		return dnRequest("get",[new DotNetObject(nHandle),"BindIPEndPointDelegate"])
+		return dnRequest("get",[self,"BindIPEndPointDelegate"])
 
 	Func setBindIPEndPointDelegate P1
-		dnRequest("set",[new DotNetObject(nHandle),"BindIPEndPointDelegate",P1])
+		dnRequest("set",[self,"BindIPEndPointDelegate",P1])
 		return self
 
 	Func getConnectionLeaseTimeout
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionLeaseTimeout"])
+		return dnRequest("get",[self,"ConnectionLeaseTimeout"])
 
 	Func setConnectionLeaseTimeout P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConnectionLeaseTimeout",P1])
+		dnRequest("set",[self,"ConnectionLeaseTimeout",P1])
 		return self
 
 	Func getAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"Address"])
+		return dnRequest("get",[self,"Address"])
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getMaxIdleTime
-		return dnRequest("get",[new DotNetObject(nHandle),"MaxIdleTime"])
+		return dnRequest("get",[self,"MaxIdleTime"])
 
 	Func setMaxIdleTime P1
-		dnRequest("set",[new DotNetObject(nHandle),"MaxIdleTime",P1])
+		dnRequest("set",[self,"MaxIdleTime",P1])
 		return self
 
 	Func getUseNagleAlgorithm
-		return dnRequest("get",[new DotNetObject(nHandle),"UseNagleAlgorithm"])
+		return dnRequest("get",[self,"UseNagleAlgorithm"])
 
 	Func setUseNagleAlgorithm P1
-		dnRequest("set",[new DotNetObject(nHandle),"UseNagleAlgorithm",P1])
+		dnRequest("set",[self,"UseNagleAlgorithm",P1])
 		return self
 
 	Func getReceiveBufferSize
-		return dnRequest("get",[new DotNetObject(nHandle),"ReceiveBufferSize"])
+		return dnRequest("get",[self,"ReceiveBufferSize"])
 
 	Func setReceiveBufferSize P1
-		dnRequest("set",[new DotNetObject(nHandle),"ReceiveBufferSize",P1])
+		dnRequest("set",[self,"ReceiveBufferSize",P1])
 		return self
 
 	Func getExpect100Continue
-		return dnRequest("get",[new DotNetObject(nHandle),"Expect100Continue"])
+		return dnRequest("get",[self,"Expect100Continue"])
 
 	Func setExpect100Continue P1
-		dnRequest("set",[new DotNetObject(nHandle),"Expect100Continue",P1])
+		dnRequest("set",[self,"Expect100Continue",P1])
 		return self
 
 	Func getIdleSince
-		return dnRequest("get",[new DotNetObject(nHandle),"IdleSince"])
+		return dnRequest("get",[self,"IdleSince"])
 
 	Func setIdleSince P1
 		raise("DotNet Error: IdleSince is a read-only property")
 
 	Func getProtocolVersion
-		return dnRequest("get",[new DotNetObject(nHandle),"ProtocolVersion"])
+		return dnRequest("get",[self,"ProtocolVersion"])
 
 	Func setProtocolVersion P1
 		raise("DotNet Error: ProtocolVersion is a read-only property")
 
 	Func getConnectionName
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionName"])
+		return dnRequest("get",[self,"ConnectionName"])
 
 	Func setConnectionName P1
 		raise("DotNet Error: ConnectionName is a read-only property")
 
 	Func getConnectionLimit
-		return dnRequest("get",[new DotNetObject(nHandle),"ConnectionLimit"])
+		return dnRequest("get",[self,"ConnectionLimit"])
 
 	Func setConnectionLimit P1
-		dnRequest("set",[new DotNetObject(nHandle),"ConnectionLimit",P1])
+		dnRequest("set",[self,"ConnectionLimit",P1])
 		return self
 
 	Func getCurrentConnections
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentConnections"])
+		return dnRequest("get",[self,"CurrentConnections"])
 
 	Func setCurrentConnections P1
 		raise("DotNet Error: CurrentConnections is a read-only property")
 
 	Func getCertificate
-		return dnRequest("get",[new DotNetObject(nHandle),"Certificate"])
+		return dnRequest("get",[self,"Certificate"])
 
 	Func setCertificate P1
 		raise("DotNet Error: Certificate is a read-only property")
 
 	Func getClientCertificate
-		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificate"])
+		return dnRequest("get",[self,"ClientCertificate"])
 
 	Func setClientCertificate P1
 		raise("DotNet Error: ClientCertificate is a read-only property")
 
 	Func getSupportsPipelining
-		return dnRequest("get",[new DotNetObject(nHandle),"SupportsPipelining"])
+		return dnRequest("get",[self,"SupportsPipelining"])
 
 	Func setSupportsPipelining P1
 		raise("DotNet Error: SupportsPipelining is a read-only property")

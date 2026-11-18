@@ -21,15 +21,15 @@ Class IMutableRelationalPropertyOverrides from DotNetObject
 		return self
 
 	Func getProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"Property"])
+		return dnRequest("get",[self,"Property"])
 
 	Func setProperty P1
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getColumnName
-		return dnRequest("get",[new DotNetObject(nHandle),"ColumnName"])
+		return dnRequest("get",[self,"ColumnName"])
 
 	Func setColumnName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ColumnName",P1])
+		dnRequest("set",[self,"ColumnName",P1])
 		return self
 

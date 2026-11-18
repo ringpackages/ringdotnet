@@ -284,125 +284,125 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func getCaseSensitive
-		return dnRequest("get",[new DotNetObject(nHandle),"CaseSensitive"])
+		return dnRequest("get",[self,"CaseSensitive"])
 
 	Func setCaseSensitive P1
-		dnRequest("set",[new DotNetObject(nHandle),"CaseSensitive",P1])
+		dnRequest("set",[self,"CaseSensitive",P1])
 		return self
 
 	Func getIsInitialized
-		return dnRequest("get",[new DotNetObject(nHandle),"IsInitialized"])
+		return dnRequest("get",[self,"IsInitialized"])
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getRemotingFormat
-		return dnRequest("get",[new DotNetObject(nHandle),"RemotingFormat"])
+		return dnRequest("get",[self,"RemotingFormat"])
 
 	Func setRemotingFormat P1
-		dnRequest("set",[new DotNetObject(nHandle),"RemotingFormat",P1])
+		dnRequest("set",[self,"RemotingFormat",P1])
 		return self
 
 	Func getChildRelations
-		return dnRequest("get",[new DotNetObject(nHandle),"ChildRelations"])
+		return dnRequest("get",[self,"ChildRelations"])
 
 	Func setChildRelations P1
 		raise("DotNet Error: ChildRelations is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
+		return dnRequest("get",[self,"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getConstraints
-		return dnRequest("get",[new DotNetObject(nHandle),"Constraints"])
+		return dnRequest("get",[self,"Constraints"])
 
 	Func setConstraints P1
 		raise("DotNet Error: Constraints is a read-only property")
 
 	Func getDataSet
-		return dnRequest("get",[new DotNetObject(nHandle),"DataSet"])
+		return dnRequest("get",[self,"DataSet"])
 
 	Func setDataSet P1
 		raise("DotNet Error: DataSet is a read-only property")
 
 	Func getDefaultView
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultView"])
+		return dnRequest("get",[self,"DefaultView"])
 
 	Func setDefaultView P1
 		raise("DotNet Error: DefaultView is a read-only property")
 
 	Func getDisplayExpression
-		return dnRequest("get",[new DotNetObject(nHandle),"DisplayExpression"])
+		return dnRequest("get",[self,"DisplayExpression"])
 
 	Func setDisplayExpression P1
-		dnRequest("set",[new DotNetObject(nHandle),"DisplayExpression",P1])
+		dnRequest("set",[self,"DisplayExpression",P1])
 		return self
 
 	Func getExtendedProperties
-		return dnRequest("get",[new DotNetObject(nHandle),"ExtendedProperties"])
+		return dnRequest("get",[self,"ExtendedProperties"])
 
 	Func setExtendedProperties P1
 		raise("DotNet Error: ExtendedProperties is a read-only property")
 
 	Func getHasErrors
-		return dnRequest("get",[new DotNetObject(nHandle),"HasErrors"])
+		return dnRequest("get",[self,"HasErrors"])
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")
 
 	Func getLocale
-		return dnRequest("get",[new DotNetObject(nHandle),"Locale"])
+		return dnRequest("get",[self,"Locale"])
 
 	Func setLocale P1
-		dnRequest("set",[new DotNetObject(nHandle),"Locale",P1])
+		dnRequest("set",[self,"Locale",P1])
 		return self
 
 	Func getMinimumCapacity
-		return dnRequest("get",[new DotNetObject(nHandle),"MinimumCapacity"])
+		return dnRequest("get",[self,"MinimumCapacity"])
 
 	Func setMinimumCapacity P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinimumCapacity",P1])
+		dnRequest("set",[self,"MinimumCapacity",P1])
 		return self
 
 	Func getParentRelations
-		return dnRequest("get",[new DotNetObject(nHandle),"ParentRelations"])
+		return dnRequest("get",[self,"ParentRelations"])
 
 	Func setParentRelations P1
 		raise("DotNet Error: ParentRelations is a read-only property")
 
 	Func getPrimaryKey
-		return dnRequest("get",[new DotNetObject(nHandle),"PrimaryKey"])
+		return dnRequest("get",[self,"PrimaryKey"])
 
 	Func setPrimaryKey P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrimaryKey",P1])
+		dnRequest("set",[self,"PrimaryKey",P1])
 		return self
 
 	Func getRows
-		return dnRequest("get",[new DotNetObject(nHandle),"Rows"])
+		return dnRequest("get",[self,"Rows"])
 
 	Func setRows P1
 		raise("DotNet Error: Rows is a read-only property")
 
 	Func getTableName
-		return dnRequest("get",[new DotNetObject(nHandle),"TableName"])
+		return dnRequest("get",[self,"TableName"])
 
 	Func setTableName P1
-		dnRequest("set",[new DotNetObject(nHandle),"TableName",P1])
+		dnRequest("set",[self,"TableName",P1])
 		return self
 
 	Func getNamespace
-		return dnRequest("get",[new DotNetObject(nHandle),"Namespace"])
+		return dnRequest("get",[self,"Namespace"])
 
 	Func setNamespace P1
-		dnRequest("set",[new DotNetObject(nHandle),"Namespace",P1])
+		dnRequest("set",[self,"Namespace",P1])
 		return self
 
 	Func getPrefix
-		return dnRequest("get",[new DotNetObject(nHandle),"Prefix"])
+		return dnRequest("get",[self,"Prefix"])
 
 	Func setPrefix P1
-		dnRequest("set",[new DotNetObject(nHandle),"Prefix",P1])
+		dnRequest("set",[self,"Prefix",P1])
 		return self
 

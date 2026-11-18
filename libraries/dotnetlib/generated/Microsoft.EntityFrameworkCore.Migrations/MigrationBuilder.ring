@@ -480,13 +480,13 @@ Class MigrationBuilder from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getActiveProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"ActiveProvider"])
+		return dnRequest("get",[self,"ActiveProvider"])
 
 	Func setActiveProvider P1
 		raise("DotNet Error: ActiveProvider is a read-only property")
 
 	Func getOperations
-		return dnRequest("get",[new DotNetObject(nHandle),"Operations"])
+		return dnRequest("get",[self,"Operations"])
 
 	Func setOperations P1
 		raise("DotNet Error: Operations is a read-only property")

@@ -19,30 +19,30 @@ Class IHostEnvironment from DotNetObject
 		return self
 
 	Func getEnvironmentName
-		return dnRequest("get",[new DotNetObject(nHandle),"EnvironmentName"])
+		return dnRequest("get",[self,"EnvironmentName"])
 
 	Func setEnvironmentName P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnvironmentName",P1])
+		dnRequest("set",[self,"EnvironmentName",P1])
 		return self
 
 	Func getApplicationName
-		return dnRequest("get",[new DotNetObject(nHandle),"ApplicationName"])
+		return dnRequest("get",[self,"ApplicationName"])
 
 	Func setApplicationName P1
-		dnRequest("set",[new DotNetObject(nHandle),"ApplicationName",P1])
+		dnRequest("set",[self,"ApplicationName",P1])
 		return self
 
 	Func getContentRootPath
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentRootPath"])
+		return dnRequest("get",[self,"ContentRootPath"])
 
 	Func setContentRootPath P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentRootPath",P1])
+		dnRequest("set",[self,"ContentRootPath",P1])
 		return self
 
 	Func getContentRootFileProvider
-		return dnRequest("get",[new DotNetObject(nHandle),"ContentRootFileProvider"])
+		return dnRequest("get",[self,"ContentRootFileProvider"])
 
 	Func setContentRootFileProvider P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContentRootFileProvider",P1])
+		dnRequest("set",[self,"ContentRootFileProvider",P1])
 		return self
 

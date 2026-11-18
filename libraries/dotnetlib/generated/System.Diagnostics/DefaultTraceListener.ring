@@ -18,16 +18,16 @@ Class DefaultTraceListener from TraceListener
 		return self
 
 	Func getAssertUiEnabled
-		return dnRequest("get",[new DotNetObject(nHandle),"AssertUiEnabled"])
+		return dnRequest("get",[self,"AssertUiEnabled"])
 
 	Func setAssertUiEnabled P1
-		dnRequest("set",[new DotNetObject(nHandle),"AssertUiEnabled",P1])
+		dnRequest("set",[self,"AssertUiEnabled",P1])
 		return self
 
 	Func getLogFileName
-		return dnRequest("get",[new DotNetObject(nHandle),"LogFileName"])
+		return dnRequest("get",[self,"LogFileName"])
 
 	Func setLogFileName P1
-		dnRequest("set",[new DotNetObject(nHandle),"LogFileName",P1])
+		dnRequest("set",[self,"LogFileName",P1])
 		return self
 

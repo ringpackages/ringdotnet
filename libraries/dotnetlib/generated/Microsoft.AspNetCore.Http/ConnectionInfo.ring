@@ -40,44 +40,44 @@ Class ConnectionInfo from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getId
-		return dnRequest("get",[new DotNetObject(nHandle),"Id"])
+		return dnRequest("get",[self,"Id"])
 
 	Func setId P1
-		dnRequest("set",[new DotNetObject(nHandle),"Id",P1])
+		dnRequest("set",[self,"Id",P1])
 		return self
 
 	Func getRemoteIpAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"RemoteIpAddress"])
+		return dnRequest("get",[self,"RemoteIpAddress"])
 
 	Func setRemoteIpAddress P1
-		dnRequest("set",[new DotNetObject(nHandle),"RemoteIpAddress",P1])
+		dnRequest("set",[self,"RemoteIpAddress",P1])
 		return self
 
 	Func getRemotePort
-		return dnRequest("get",[new DotNetObject(nHandle),"RemotePort"])
+		return dnRequest("get",[self,"RemotePort"])
 
 	Func setRemotePort P1
-		dnRequest("set",[new DotNetObject(nHandle),"RemotePort",P1])
+		dnRequest("set",[self,"RemotePort",P1])
 		return self
 
 	Func getLocalIpAddress
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalIpAddress"])
+		return dnRequest("get",[self,"LocalIpAddress"])
 
 	Func setLocalIpAddress P1
-		dnRequest("set",[new DotNetObject(nHandle),"LocalIpAddress",P1])
+		dnRequest("set",[self,"LocalIpAddress",P1])
 		return self
 
 	Func getLocalPort
-		return dnRequest("get",[new DotNetObject(nHandle),"LocalPort"])
+		return dnRequest("get",[self,"LocalPort"])
 
 	Func setLocalPort P1
-		dnRequest("set",[new DotNetObject(nHandle),"LocalPort",P1])
+		dnRequest("set",[self,"LocalPort",P1])
 		return self
 
 	Func getClientCertificate
-		return dnRequest("get",[new DotNetObject(nHandle),"ClientCertificate"])
+		return dnRequest("get",[self,"ClientCertificate"])
 
 	Func setClientCertificate P1
-		dnRequest("set",[new DotNetObject(nHandle),"ClientCertificate",P1])
+		dnRequest("set",[self,"ClientCertificate",P1])
 		return self
 

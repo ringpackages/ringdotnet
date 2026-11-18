@@ -50,49 +50,49 @@ Class ITableBase from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDebugString",P1])
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnRequest("get",[new DotNetObject(nHandle),"Schema"])
+		return dnRequest("get",[self,"Schema"])
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnRequest("get",[new DotNetObject(nHandle),"SchemaQualifiedName"])
+		return dnRequest("get",[self,"SchemaQualifiedName"])
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
 
 	Func getModel
-		return dnRequest("get",[new DotNetObject(nHandle),"Model"])
+		return dnRequest("get",[self,"Model"])
 
 	Func setModel P1
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getIsShared
-		return dnRequest("get",[new DotNetObject(nHandle),"IsShared"])
+		return dnRequest("get",[self,"IsShared"])
 
 	Func setIsShared P1
 		raise("DotNet Error: IsShared is a read-only property")
 
 	Func getEntityTypeMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"EntityTypeMappings"])
+		return dnRequest("get",[self,"EntityTypeMappings"])
 
 	Func setEntityTypeMappings P1
 		raise("DotNet Error: EntityTypeMappings is a read-only property")
 
 	Func getComplexTypeMappings
-		return dnRequest("get",[new DotNetObject(nHandle),"ComplexTypeMappings"])
+		return dnRequest("get",[self,"ComplexTypeMappings"])
 
 	Func setComplexTypeMappings P1
 		raise("DotNet Error: ComplexTypeMappings is a read-only property")
 
 	Func getColumns
-		return dnRequest("get",[new DotNetObject(nHandle),"Columns"])
+		return dnRequest("get",[self,"Columns"])
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")

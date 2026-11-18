@@ -57,37 +57,37 @@ Class PrintDocument from Component
 		return self
 
 	Func getDefaultPageSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultPageSettings"])
+		return dnRequest("get",[self,"DefaultPageSettings"])
 
 	Func setDefaultPageSettings P1
-		dnRequest("set",[new DotNetObject(nHandle),"DefaultPageSettings",P1])
+		dnRequest("set",[self,"DefaultPageSettings",P1])
 		return self
 
 	Func getDocumentName
-		return dnRequest("get",[new DotNetObject(nHandle),"DocumentName"])
+		return dnRequest("get",[self,"DocumentName"])
 
 	Func setDocumentName P1
-		dnRequest("set",[new DotNetObject(nHandle),"DocumentName",P1])
+		dnRequest("set",[self,"DocumentName",P1])
 		return self
 
 	Func getOriginAtMargins
-		return dnRequest("get",[new DotNetObject(nHandle),"OriginAtMargins"])
+		return dnRequest("get",[self,"OriginAtMargins"])
 
 	Func setOriginAtMargins P1
-		dnRequest("set",[new DotNetObject(nHandle),"OriginAtMargins",P1])
+		dnRequest("set",[self,"OriginAtMargins",P1])
 		return self
 
 	Func getPrintController
-		return dnRequest("get",[new DotNetObject(nHandle),"PrintController"])
+		return dnRequest("get",[self,"PrintController"])
 
 	Func setPrintController P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrintController",P1])
+		dnRequest("set",[self,"PrintController",P1])
 		return self
 
 	Func getPrinterSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"PrinterSettings"])
+		return dnRequest("get",[self,"PrinterSettings"])
 
 	Func setPrinterSettings P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrinterSettings",P1])
+		dnRequest("set",[self,"PrinterSettings",P1])
 		return self
 

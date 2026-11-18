@@ -25,7 +25,7 @@ Class Route from RouteBase
 		return self
 
 	Func getRouteTemplate
-		return dnRequest("get",[new DotNetObject(nHandle),"RouteTemplate"])
+		return dnRequest("get",[self,"RouteTemplate"])
 
 	Func setRouteTemplate P1
 		raise("DotNet Error: RouteTemplate is a read-only property")

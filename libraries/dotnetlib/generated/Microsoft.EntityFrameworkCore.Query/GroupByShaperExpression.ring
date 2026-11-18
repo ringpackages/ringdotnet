@@ -3,13 +3,10 @@
 Func DotNetNew_GroupByShaperExpression
 	oDotNetNew = new GroupByShaperExpression(0,0)
 
-Class GroupByShaperExpression from DotNetObject
+Class GroupByShaperExpression from ExpressionsExpression
 
 	KeySelector
 	GroupingEnumerable
-	Type
-	NodeType
-	CanReduce
 
 	Func init P1,P2
 		if nDotNetWrapHandle != 0
@@ -27,54 +24,15 @@ Class GroupByShaperExpression from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
 		return self
 
-	Func Reduce 
-		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
-
-	Func ReduceAndCheck 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
-
-	Func ReduceExtensions 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
 	Func getKeySelector
-		return dnRequest("get",[new DotNetObject(nHandle),"KeySelector"])
+		return dnRequest("get",[self,"KeySelector"])
 
 	Func setKeySelector P1
 		raise("DotNet Error: KeySelector is a read-only property")
 
 	Func getGroupingEnumerable
-		return dnRequest("get",[new DotNetObject(nHandle),"GroupingEnumerable"])
+		return dnRequest("get",[self,"GroupingEnumerable"])
 
 	Func setGroupingEnumerable P1
 		raise("DotNet Error: GroupingEnumerable is a read-only property")
-
-	Func getType
-		return dnRequest("get",[new DotNetObject(nHandle),"Type"])
-
-	Func setType P1
-		raise("DotNet Error: Type is a read-only property")
-
-	Func getNodeType
-		return dnRequest("get",[new DotNetObject(nHandle),"NodeType"])
-
-	Func setNodeType P1
-		raise("DotNet Error: NodeType is a read-only property")
-
-	Func getCanReduce
-		return dnRequest("get",[new DotNetObject(nHandle),"CanReduce"])
-
-	Func setCanReduce P1
-		raise("DotNet Error: CanReduce is a read-only property")
 

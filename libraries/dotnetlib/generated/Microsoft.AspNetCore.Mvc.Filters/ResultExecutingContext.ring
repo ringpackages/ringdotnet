@@ -19,22 +19,22 @@ Class ResultExecutingContext from FilterContext
 		return self
 
 	Func getController
-		return dnRequest("get",[new DotNetObject(nHandle),"Controller"])
+		return dnRequest("get",[self,"Controller"])
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getResult
-		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
+		return dnRequest("get",[self,"Result"])
 
 	Func setResult P1
-		dnRequest("set",[new DotNetObject(nHandle),"Result",P1])
+		dnRequest("set",[self,"Result",P1])
 		return self
 
 	Func getCancel
-		return dnRequest("get",[new DotNetObject(nHandle),"Cancel"])
+		return dnRequest("get",[self,"Cancel"])
 
 	Func setCancel P1
-		dnRequest("set",[new DotNetObject(nHandle),"Cancel",P1])
+		dnRequest("set",[self,"Cancel",P1])
 		return self
 

@@ -27,79 +27,79 @@ Class PageSetupDialog from CommonDialog
 		return self
 
 	Func getAllowMargins
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowMargins"])
+		return dnRequest("get",[self,"AllowMargins"])
 
 	Func setAllowMargins P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowMargins",P1])
+		dnRequest("set",[self,"AllowMargins",P1])
 		return self
 
 	Func getAllowOrientation
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowOrientation"])
+		return dnRequest("get",[self,"AllowOrientation"])
 
 	Func setAllowOrientation P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowOrientation",P1])
+		dnRequest("set",[self,"AllowOrientation",P1])
 		return self
 
 	Func getAllowPaper
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowPaper"])
+		return dnRequest("get",[self,"AllowPaper"])
 
 	Func setAllowPaper P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowPaper",P1])
+		dnRequest("set",[self,"AllowPaper",P1])
 		return self
 
 	Func getAllowPrinter
-		return dnRequest("get",[new DotNetObject(nHandle),"AllowPrinter"])
+		return dnRequest("get",[self,"AllowPrinter"])
 
 	Func setAllowPrinter P1
-		dnRequest("set",[new DotNetObject(nHandle),"AllowPrinter",P1])
+		dnRequest("set",[self,"AllowPrinter",P1])
 		return self
 
 	Func getDocument
-		return dnRequest("get",[new DotNetObject(nHandle),"Document"])
+		return dnRequest("get",[self,"Document"])
 
 	Func setDocument P1
-		dnRequest("set",[new DotNetObject(nHandle),"Document",P1])
+		dnRequest("set",[self,"Document",P1])
 		return self
 
 	Func getEnableMetric
-		return dnRequest("get",[new DotNetObject(nHandle),"EnableMetric"])
+		return dnRequest("get",[self,"EnableMetric"])
 
 	Func setEnableMetric P1
-		dnRequest("set",[new DotNetObject(nHandle),"EnableMetric",P1])
+		dnRequest("set",[self,"EnableMetric",P1])
 		return self
 
 	Func getMinMargins
-		return dnRequest("get",[new DotNetObject(nHandle),"MinMargins"])
+		return dnRequest("get",[self,"MinMargins"])
 
 	Func setMinMargins P1
-		dnRequest("set",[new DotNetObject(nHandle),"MinMargins",P1])
+		dnRequest("set",[self,"MinMargins",P1])
 		return self
 
 	Func getPageSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"PageSettings"])
+		return dnRequest("get",[self,"PageSettings"])
 
 	Func setPageSettings P1
-		dnRequest("set",[new DotNetObject(nHandle),"PageSettings",P1])
+		dnRequest("set",[self,"PageSettings",P1])
 		return self
 
 	Func getPrinterSettings
-		return dnRequest("get",[new DotNetObject(nHandle),"PrinterSettings"])
+		return dnRequest("get",[self,"PrinterSettings"])
 
 	Func setPrinterSettings P1
-		dnRequest("set",[new DotNetObject(nHandle),"PrinterSettings",P1])
+		dnRequest("set",[self,"PrinterSettings",P1])
 		return self
 
 	Func getShowHelp
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowHelp"])
+		return dnRequest("get",[self,"ShowHelp"])
 
 	Func setShowHelp P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowHelp",P1])
+		dnRequest("set",[self,"ShowHelp",P1])
 		return self
 
 	Func getShowNetwork
-		return dnRequest("get",[new DotNetObject(nHandle),"ShowNetwork"])
+		return dnRequest("get",[self,"ShowNetwork"])
 
 	Func setShowNetwork P1
-		dnRequest("set",[new DotNetObject(nHandle),"ShowNetwork",P1])
+		dnRequest("set",[self,"ShowNetwork",P1])
 		return self
 

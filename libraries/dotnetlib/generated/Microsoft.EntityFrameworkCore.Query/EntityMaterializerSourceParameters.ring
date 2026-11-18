@@ -26,23 +26,23 @@ Class EntityMaterializerSourceParameters from ValueType
 		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
 
 	Func getStructuralType
-		return dnRequest("get",[new DotNetObject(nHandle),"StructuralType"])
+		return dnRequest("get",[self,"StructuralType"])
 
 	Func setStructuralType P1
-		dnRequest("set",[new DotNetObject(nHandle),"StructuralType",P1])
+		dnRequest("set",[self,"StructuralType",P1])
 		return self
 
 	Func getInstanceName
-		return dnRequest("get",[new DotNetObject(nHandle),"InstanceName"])
+		return dnRequest("get",[self,"InstanceName"])
 
 	Func setInstanceName P1
-		dnRequest("set",[new DotNetObject(nHandle),"InstanceName",P1])
+		dnRequest("set",[self,"InstanceName",P1])
 		return self
 
 	Func getQueryTrackingBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"QueryTrackingBehavior"])
+		return dnRequest("get",[self,"QueryTrackingBehavior"])
 
 	Func setQueryTrackingBehavior P1
-		dnRequest("set",[new DotNetObject(nHandle),"QueryTrackingBehavior",P1])
+		dnRequest("set",[self,"QueryTrackingBehavior",P1])
 		return self
 

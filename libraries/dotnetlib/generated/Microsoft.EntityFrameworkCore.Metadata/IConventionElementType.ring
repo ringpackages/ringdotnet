@@ -140,13 +140,13 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetJsonValueReaderWriterTypeConfigurationSource"])
 
 	Func getCollectionProperty
-		return dnRequest("get",[new DotNetObject(nHandle),"CollectionProperty"])
+		return dnRequest("get",[self,"CollectionProperty"])
 
 	Func setCollectionProperty P1
 		raise("DotNet Error: CollectionProperty is a read-only property")
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")

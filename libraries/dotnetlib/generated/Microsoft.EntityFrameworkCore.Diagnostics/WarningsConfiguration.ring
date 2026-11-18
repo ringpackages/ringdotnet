@@ -47,7 +47,7 @@ Class WarningsConfiguration from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getDefaultBehavior
-		return dnRequest("get",[new DotNetObject(nHandle),"DefaultBehavior"])
+		return dnRequest("get",[self,"DefaultBehavior"])
 
 	Func setDefaultBehavior P1
 		raise("DotNet Error: DefaultBehavior is a read-only property")

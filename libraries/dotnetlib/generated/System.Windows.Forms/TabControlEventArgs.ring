@@ -19,19 +19,19 @@ Class TabControlEventArgs from EventArgs
 		return self
 
 	Func getTabPage
-		return dnRequest("get",[new DotNetObject(nHandle),"TabPage"])
+		return dnRequest("get",[self,"TabPage"])
 
 	Func setTabPage P1
 		raise("DotNet Error: TabPage is a read-only property")
 
 	Func getTabPageIndex
-		return dnRequest("get",[new DotNetObject(nHandle),"TabPageIndex"])
+		return dnRequest("get",[self,"TabPageIndex"])
 
 	Func setTabPageIndex P1
 		raise("DotNet Error: TabPageIndex is a read-only property")
 
 	Func getAction
-		return dnRequest("get",[new DotNetObject(nHandle),"Action"])
+		return dnRequest("get",[self,"Action"])
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")

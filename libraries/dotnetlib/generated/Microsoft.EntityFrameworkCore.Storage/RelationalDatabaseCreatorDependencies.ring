@@ -28,64 +28,64 @@ Class RelationalDatabaseCreatorDependencies from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getModelDiffer
-		return dnRequest("get",[new DotNetObject(nHandle),"ModelDiffer"])
+		return dnRequest("get",[self,"ModelDiffer"])
 
 	Func setModelDiffer P1
-		dnRequest("set",[new DotNetObject(nHandle),"ModelDiffer",P1])
+		dnRequest("set",[self,"ModelDiffer",P1])
 		return self
 
 	Func getMigrationsSqlGenerator
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationsSqlGenerator"])
+		return dnRequest("get",[self,"MigrationsSqlGenerator"])
 
 	Func setMigrationsSqlGenerator P1
-		dnRequest("set",[new DotNetObject(nHandle),"MigrationsSqlGenerator",P1])
+		dnRequest("set",[self,"MigrationsSqlGenerator",P1])
 		return self
 
 	Func getConnection
-		return dnRequest("get",[new DotNetObject(nHandle),"Connection"])
+		return dnRequest("get",[self,"Connection"])
 
 	Func setConnection P1
-		dnRequest("set",[new DotNetObject(nHandle),"Connection",P1])
+		dnRequest("set",[self,"Connection",P1])
 		return self
 
 	Func getMigrationCommandExecutor
-		return dnRequest("get",[new DotNetObject(nHandle),"MigrationCommandExecutor"])
+		return dnRequest("get",[self,"MigrationCommandExecutor"])
 
 	Func setMigrationCommandExecutor P1
-		dnRequest("set",[new DotNetObject(nHandle),"MigrationCommandExecutor",P1])
+		dnRequest("set",[self,"MigrationCommandExecutor",P1])
 		return self
 
 	Func getSqlGenerationHelper
-		return dnRequest("get",[new DotNetObject(nHandle),"SqlGenerationHelper"])
+		return dnRequest("get",[self,"SqlGenerationHelper"])
 
 	Func setSqlGenerationHelper P1
-		dnRequest("set",[new DotNetObject(nHandle),"SqlGenerationHelper",P1])
+		dnRequest("set",[self,"SqlGenerationHelper",P1])
 		return self
 
 	Func getExecutionStrategy
-		return dnRequest("get",[new DotNetObject(nHandle),"ExecutionStrategy"])
+		return dnRequest("get",[self,"ExecutionStrategy"])
 
 	Func setExecutionStrategy P1
 		raise("DotNet Error: ExecutionStrategy is a read-only property")
 
 	Func getCommandLogger
-		return dnRequest("get",[new DotNetObject(nHandle),"CommandLogger"])
+		return dnRequest("get",[self,"CommandLogger"])
 
 	Func setCommandLogger P1
-		dnRequest("set",[new DotNetObject(nHandle),"CommandLogger",P1])
+		dnRequest("set",[self,"CommandLogger",P1])
 		return self
 
 	Func getContextOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"ContextOptions"])
+		return dnRequest("get",[self,"ContextOptions"])
 
 	Func setContextOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"ContextOptions",P1])
+		dnRequest("set",[self,"ContextOptions",P1])
 		return self
 
 	Func getCurrentContext
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentContext"])
+		return dnRequest("get",[self,"CurrentContext"])
 
 	Func setCurrentContext P1
-		dnRequest("set",[new DotNetObject(nHandle),"CurrentContext",P1])
+		dnRequest("set",[self,"CurrentContext",P1])
 		return self
 

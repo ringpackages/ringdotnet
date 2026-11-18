@@ -17,7 +17,7 @@ Class CommandExecutedEventData from CommandEndEventData
 		return self
 
 	Func getResult
-		return dnRequest("get",[new DotNetObject(nHandle),"Result"])
+		return dnRequest("get",[self,"Result"])
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")

@@ -20,7 +20,7 @@ Class DrawingVisual from ContainerVisual
 		return dnRequest("call",[new DotNetObject(nHandle),"RenderOpen"])
 
 	Func getDrawing
-		return dnRequest("get",[new DotNetObject(nHandle),"Drawing"])
+		return dnRequest("get",[self,"Drawing"])
 
 	Func setDrawing P1
 		raise("DotNet Error: Drawing is a read-only property")

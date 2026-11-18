@@ -25,13 +25,13 @@ Class HandleRef from ValueType
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib'),"ToIntPtr",P1])
 
 	Func getWrapper
-		return dnRequest("get",[new DotNetObject(nHandle),"Wrapper"])
+		return dnRequest("get",[self,"Wrapper"])
 
 	Func setWrapper P1
 		raise("DotNet Error: Wrapper is a read-only property")
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")

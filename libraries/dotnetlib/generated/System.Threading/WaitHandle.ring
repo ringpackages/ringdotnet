@@ -71,17 +71,17 @@ Class WaitHandle from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"SignalAndWait",P1,P2,P3,P4])
 
 	Func getHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"Handle"])
+		return dnRequest("get",[self,"Handle"])
 
 	Func setHandle P1
-		dnRequest("set",[new DotNetObject(nHandle),"Handle",P1])
+		dnRequest("set",[self,"Handle",P1])
 		return self
 
 	Func getSafeWaitHandle
-		return dnRequest("get",[new DotNetObject(nHandle),"SafeWaitHandle"])
+		return dnRequest("get",[self,"SafeWaitHandle"])
 
 	Func setSafeWaitHandle P1
-		dnRequest("set",[new DotNetObject(nHandle),"SafeWaitHandle",P1])
+		dnRequest("set",[self,"SafeWaitHandle",P1])
 		return self
 
 	Func getWaitTimeout

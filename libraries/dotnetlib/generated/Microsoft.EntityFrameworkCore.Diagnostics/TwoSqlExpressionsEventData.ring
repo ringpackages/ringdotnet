@@ -18,13 +18,13 @@ Class TwoSqlExpressionsEventData from EventData
 		return self
 
 	Func getLeft
-		return dnRequest("get",[new DotNetObject(nHandle),"Left"])
+		return dnRequest("get",[self,"Left"])
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getRight
-		return dnRequest("get",[new DotNetObject(nHandle),"Right"])
+		return dnRequest("get",[self,"Right"])
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")

@@ -333,14 +333,14 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"GetNavigationAccessModeConfigurationSource"])
 
 	Func getBuilder
-		return dnRequest("get",[new DotNetObject(nHandle),"Builder"])
+		return dnRequest("get",[self,"Builder"])
 
 	Func setBuilder P1
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getBaseType
-		return dnRequest("get",[new DotNetObject(nHandle),"BaseType"])
+		return dnRequest("get",[self,"BaseType"])
 
 	Func getIsKeyless
-		return dnRequest("get",[new DotNetObject(nHandle),"IsKeyless"])
+		return dnRequest("get",[self,"IsKeyless"])
 

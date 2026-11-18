@@ -24,9 +24,9 @@ Class IButtonControl from DotNetObject
 		return self
 
 	Func getDialogResult
-		return dnRequest("get",[new DotNetObject(nHandle),"DialogResult"])
+		return dnRequest("get",[self,"DialogResult"])
 
 	Func setDialogResult P1
-		dnRequest("set",[new DotNetObject(nHandle),"DialogResult",P1])
+		dnRequest("set",[self,"DialogResult",P1])
 		return self
 

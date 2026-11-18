@@ -148,16 +148,16 @@ Class Stroke from Object
 		return self
 
 	Func getDrawingAttributes
-		return dnRequest("get",[new DotNetObject(nHandle),"DrawingAttributes"])
+		return dnRequest("get",[self,"DrawingAttributes"])
 
 	Func setDrawingAttributes P1
-		dnRequest("set",[new DotNetObject(nHandle),"DrawingAttributes",P1])
+		dnRequest("set",[self,"DrawingAttributes",P1])
 		return self
 
 	Func getStylusPoints
-		return dnRequest("get",[new DotNetObject(nHandle),"StylusPoints"])
+		return dnRequest("get",[self,"StylusPoints"])
 
 	Func setStylusPoints P1
-		dnRequest("set",[new DotNetObject(nHandle),"StylusPoints",P1])
+		dnRequest("set",[self,"StylusPoints",P1])
 		return self
 

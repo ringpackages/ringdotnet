@@ -22,13 +22,13 @@ Class SslClientHelloInfo from ValueType
 		return self
 
 	Func getServerName
-		return dnRequest("get",[new DotNetObject(nHandle),"ServerName"])
+		return dnRequest("get",[self,"ServerName"])
 
 	Func setServerName P1
 		raise("DotNet Error: ServerName is a read-only property")
 
 	Func getSslProtocols
-		return dnRequest("get",[new DotNetObject(nHandle),"SslProtocols"])
+		return dnRequest("get",[self,"SslProtocols"])
 
 	Func setSslProtocols P1
 		raise("DotNet Error: SslProtocols is a read-only property")

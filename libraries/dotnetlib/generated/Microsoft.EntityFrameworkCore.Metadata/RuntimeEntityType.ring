@@ -198,21 +198,21 @@ Class RuntimeEntityType from RuntimeTypeBase
 		return self
 
 	Func getServiceOnlyConstructorBinding
-		return dnRequest("get",[new DotNetObject(nHandle),"ServiceOnlyConstructorBinding"])
+		return dnRequest("get",[self,"ServiceOnlyConstructorBinding"])
 
 	Func setServiceOnlyConstructorBinding P1
-		dnRequest("set",[new DotNetObject(nHandle),"ServiceOnlyConstructorBinding",P1])
+		dnRequest("set",[self,"ServiceOnlyConstructorBinding",P1])
 		return self
 
 	Func getCounts
-		return dnRequest("get",[new DotNetObject(nHandle),"Counts"])
+		return dnRequest("get",[self,"Counts"])
 
 	Func setCounts P1
-		dnRequest("set",[new DotNetObject(nHandle),"Counts",P1])
+		dnRequest("set",[self,"Counts",P1])
 		return self
 
 	Func getDebugView
-		return dnRequest("get",[new DotNetObject(nHandle),"DebugView"])
+		return dnRequest("get",[self,"DebugView"])
 
 	Func setDebugView P1
 		raise("DotNet Error: DebugView is a read-only property")

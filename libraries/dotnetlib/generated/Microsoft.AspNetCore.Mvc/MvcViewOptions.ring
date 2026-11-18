@@ -22,20 +22,20 @@ Class MvcViewOptions from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getHtmlHelperOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"HtmlHelperOptions"])
+		return dnRequest("get",[self,"HtmlHelperOptions"])
 
 	Func setHtmlHelperOptions P1
-		dnRequest("set",[new DotNetObject(nHandle),"HtmlHelperOptions",P1])
+		dnRequest("set",[self,"HtmlHelperOptions",P1])
 		return self
 
 	Func getViewEngines
-		return dnRequest("get",[new DotNetObject(nHandle),"ViewEngines"])
+		return dnRequest("get",[self,"ViewEngines"])
 
 	Func setViewEngines P1
 		raise("DotNet Error: ViewEngines is a read-only property")
 
 	Func getClientModelValidatorProviders
-		return dnRequest("get",[new DotNetObject(nHandle),"ClientModelValidatorProviders"])
+		return dnRequest("get",[self,"ClientModelValidatorProviders"])
 
 	Func setClientModelValidatorProviders P1
 		raise("DotNet Error: ClientModelValidatorProviders is a read-only property")

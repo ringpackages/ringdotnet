@@ -28,21 +28,21 @@ Class ClientWebSocket from WebSocket
 		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4])
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getHttpStatusCode
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpStatusCode"])
+		return dnRequest("get",[self,"HttpStatusCode"])
 
 	Func setHttpStatusCode P1
 		raise("DotNet Error: HttpStatusCode is a read-only property")
 
 	Func getHttpResponseHeaders
-		return dnRequest("get",[new DotNetObject(nHandle),"HttpResponseHeaders"])
+		return dnRequest("get",[self,"HttpResponseHeaders"])
 
 	Func setHttpResponseHeaders P1
-		dnRequest("set",[new DotNetObject(nHandle),"HttpResponseHeaders",P1])
+		dnRequest("set",[self,"HttpResponseHeaders",P1])
 		return self
 

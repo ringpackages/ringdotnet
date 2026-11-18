@@ -42,13 +42,13 @@ Class IHttpResponseBodyFeature from DotNetObject
 		return dnRequest("call",[new DotNetObject(nHandle),"CompleteAsync"])
 
 	Func getStream
-		return dnRequest("get",[new DotNetObject(nHandle),"Stream"])
+		return dnRequest("get",[self,"Stream"])
 
 	Func setStream P1
 		raise("DotNet Error: Stream is a read-only property")
 
 	Func getWriter
-		return dnRequest("get",[new DotNetObject(nHandle),"Writer"])
+		return dnRequest("get",[self,"Writer"])
 
 	Func setWriter P1
 		raise("DotNet Error: Writer is a read-only property")

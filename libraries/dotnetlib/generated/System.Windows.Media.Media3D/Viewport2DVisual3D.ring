@@ -32,31 +32,31 @@ Class Viewport2DVisual3D from Visual3D
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore'),"GetIsVisualHostMaterial",P1])
 
 	Func getVisual
-		return dnRequest("get",[new DotNetObject(nHandle),"Visual"])
+		return dnRequest("get",[self,"Visual"])
 
 	Func setVisual P1
-		dnRequest("set",[new DotNetObject(nHandle),"Visual",P1])
+		dnRequest("set",[self,"Visual",P1])
 		return self
 
 	Func getGeometry
-		return dnRequest("get",[new DotNetObject(nHandle),"Geometry"])
+		return dnRequest("get",[self,"Geometry"])
 
 	Func setGeometry P1
-		dnRequest("set",[new DotNetObject(nHandle),"Geometry",P1])
+		dnRequest("set",[self,"Geometry",P1])
 		return self
 
 	Func getMaterial
-		return dnRequest("get",[new DotNetObject(nHandle),"Material"])
+		return dnRequest("get",[self,"Material"])
 
 	Func setMaterial P1
-		dnRequest("set",[new DotNetObject(nHandle),"Material",P1])
+		dnRequest("set",[self,"Material",P1])
 		return self
 
 	Func getCacheMode
-		return dnRequest("get",[new DotNetObject(nHandle),"CacheMode"])
+		return dnRequest("get",[self,"CacheMode"])
 
 	Func setCacheMode P1
-		dnRequest("set",[new DotNetObject(nHandle),"CacheMode",P1])
+		dnRequest("set",[self,"CacheMode",P1])
 		return self
 
 	Func getVisualProperty

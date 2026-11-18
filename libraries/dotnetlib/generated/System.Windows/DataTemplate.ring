@@ -23,20 +23,20 @@ Class DataTemplate from FrameworkTemplate
 		return self
 
 	Func getDataType
-		return dnRequest("get",[new DotNetObject(nHandle),"DataType"])
+		return dnRequest("get",[self,"DataType"])
 
 	Func setDataType P1
-		dnRequest("set",[new DotNetObject(nHandle),"DataType",P1])
+		dnRequest("set",[self,"DataType",P1])
 		return self
 
 	Func getTriggers
-		return dnRequest("get",[new DotNetObject(nHandle),"Triggers"])
+		return dnRequest("get",[self,"Triggers"])
 
 	Func setTriggers P1
 		raise("DotNet Error: Triggers is a read-only property")
 
 	Func getDataTemplateKey
-		return dnRequest("get",[new DotNetObject(nHandle),"DataTemplateKey"])
+		return dnRequest("get",[self,"DataTemplateKey"])
 
 	Func setDataTemplateKey P1
 		raise("DotNet Error: DataTemplateKey is a read-only property")

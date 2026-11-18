@@ -42,6 +42,6 @@ Class XslTransform from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func setXmlResolver P1
-		dnRequest("set",[new DotNetObject(nHandle),"XmlResolver",P1])
+		dnRequest("set",[self,"XmlResolver",P1])
 		return self
 

@@ -3,7 +3,7 @@
 Func DotNetNew_ReplacingExpressionVisitor
 	oDotNetNew = new ReplacingExpressionVisitor(0,0)
 
-Class ReplacingExpressionVisitor from DotNetObject
+Class ReplacingExpressionVisitor from ExpressionVisitor
 
 	Func init P1,P2
 		if nDotNetWrapHandle != 0
@@ -16,21 +16,6 @@ Class ReplacingExpressionVisitor from DotNetObject
 
 	Func Visit P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
-
-	Func VisitAndConvert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
-
-	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
-	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 
 	Func Replace P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ReplacingExpressionVisitor, Microsoft.EntityFrameworkCore'),"Replace",P1,P2,P3])

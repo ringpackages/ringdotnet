@@ -158,25 +158,25 @@ Class Utf8JsonWriter from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getBytesPending
-		return dnRequest("get",[new DotNetObject(nHandle),"BytesPending"])
+		return dnRequest("get",[self,"BytesPending"])
 
 	Func setBytesPending P1
 		raise("DotNet Error: BytesPending is a read-only property")
 
 	Func getBytesCommitted
-		return dnRequest("get",[new DotNetObject(nHandle),"BytesCommitted"])
+		return dnRequest("get",[self,"BytesCommitted"])
 
 	Func setBytesCommitted P1
 		raise("DotNet Error: BytesCommitted is a read-only property")
 
 	Func getOptions
-		return dnRequest("get",[new DotNetObject(nHandle),"Options"])
+		return dnRequest("get",[self,"Options"])
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getCurrentDepth
-		return dnRequest("get",[new DotNetObject(nHandle),"CurrentDepth"])
+		return dnRequest("get",[self,"CurrentDepth"])
 
 	Func setCurrentDepth P1
 		raise("DotNet Error: CurrentDepth is a read-only property")

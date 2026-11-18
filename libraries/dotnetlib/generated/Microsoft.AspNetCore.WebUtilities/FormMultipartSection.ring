@@ -37,13 +37,13 @@ Class FormMultipartSection from Object
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getSection
-		return dnRequest("get",[new DotNetObject(nHandle),"Section"])
+		return dnRequest("get",[self,"Section"])
 
 	Func setSection P1
 		raise("DotNet Error: Section is a read-only property")
 
 	Func getName
-		return dnRequest("get",[new DotNetObject(nHandle),"Name"])
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
