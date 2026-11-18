@@ -306,3 +306,11 @@ System, System.Text(.Json/.Encodings/.RegularExpressions/.Unicode), System.IO(.C
 
 * Callbacks from other threads or after the call returned, generic methods, `ref`/`out` parameters, indexers
 * Automatic release of handles (use `release()`)
+
+## Packaging
+
+The package installs from one zip file, `extensions/ringdotnet.zip` (`setup.ring` extracts it into the Ring folder and `uninstall.ring` removes it), like the RingQt6 package. After changing the library, the samples, the DLLs or the tests, rebuild the zip before you commit:
+
+```
+python tools/makepackage.py
+```

@@ -22,7 +22,7 @@ Install the package with **RingPM**, the Ring package manager, in one step:
 ringpm install ringdotnet from ringpackages
 ```
 
-That is all. The command copies the library, the extension (`ring_dotnet.dll`), the managed assemblies, the samples and the applications into your Ring folder, so every program can start with:
+That is all. The package is one zip file (`extensions/ringdotnet.zip`): RingPM copies it and its `setup.ring` extracts it into your Ring folder, which is much faster than installing thousands of files one by one. It brings the library, the extension (`ring_dotnet.dll`), the managed assemblies, the samples and the applications, so every program can start with:
 
 ```ring
 load "dotnet.ring"

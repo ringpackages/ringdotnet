@@ -123,7 +123,7 @@
 <h2 id="install">Install<a class="anchor" href="#install">#</a></h2>
 <p>Install the package with <strong>RingPM</strong>, the Ring package manager, in one step:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ringpm install ringdotnet from ringpackages</code></pre></div>
-<p>That is all. The command copies the library, the extension (<code>ring_dotnet.dll</code>), the managed assemblies, the samples and the applications into your Ring folder, so every program can start with:</p>
+<p>That is all. The package is one zip file (<code>extensions/ringdotnet.zip</code>): RingPM copies it and its <code>setup.ring</code> extracts it into your Ring folder, which is much faster than installing thousands of files one by one. It brings the library, the extension (<code>ring_dotnet.dll</code>), the managed assemblies, the samples and the applications, so every program can start with:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span></code></pre></div>
 <p>You do not need to set a path or copy files. To test the installation, run a sample:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring samples/UsingDotNet/introduction/test00_first.ring</code></pre></div>
