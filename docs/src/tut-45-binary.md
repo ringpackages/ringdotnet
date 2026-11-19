@@ -71,4 +71,4 @@ The reader and writer hold the file open. An open file cannot be deleted or repl
 
 ## Next
 
-[Compression](tut-88-compression.html)
+[Random access and file locks](tut-130-random-access.html)

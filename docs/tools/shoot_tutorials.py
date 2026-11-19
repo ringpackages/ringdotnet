@@ -46,6 +46,7 @@ SHOTS = [
     ("g63_filters.ring", "g63-edges", "\tuiTest(", "\tapplyFilter('Edges')\n", 2500, "forms"),
     ("g127_clipboard.ring", "g127", "\tuiTest(", "\toStatus.Text = 'Copied a table of 4 rows'\n", 2500, "forms"),
     ("g128_inputs.ring", "g128", None, "", 2500, "forms"),
+    ("g131_wpf_binding.ring", "g131", "\twpfTest(", "\twpfFind(oWindow,'amount').Value = 75\n\twpfFind(oWindow,'colors').SelectedIndex = 1\n", 1300, "wpf"),
 ]
 
 

@@ -82,6 +82,7 @@ Regular expressions, Unicode and encodings, comparing and escaping text, URLs an
 
 <div class="cards">
 <a class="card" href="tut-29-regex.html"><div class="ic">🔤</div><b>Regular expressions in depth</b><span>Patterns, groups, replace, split, greedy and lazy, validation.</span></a>
+<a class="card" href="tut-129-formatting.html"><div class="ic">🔤</div><b>Formatting numbers and dates</b><span>Format strings: decimals, thousands, percent, patterns, alignment, dates and durations.</span></a>
 <a class="card" href="tut-52-unicode.html"><div class="ic">🔤</div><b>Unicode and encodings</b><span>Bytes, code points and letters; UTF-8, UTF-16 and mojibake.</span></a>
 <a class="card" href="tut-97-comparers.html"><div class="ic">🔤</div><b>Comparing text</b><span>Ordinal and culture comparison, StringComparer, and the Turkish i.</span></a>
 <a class="card" href="tut-104-text-readers-writers.html"><div class="ic">🔤</div><b>Text readers and writers</b><span>StringWriter, StringReader, capturing Console output, String.Format.</span></a>
@@ -141,6 +142,7 @@ Paths, streams, binary files, compression (GZip, ZIP, tar), file patterns, and p
 <a class="card" href="tut-59-paths.html"><div class="ic">📁</div><b>Paths and the environment</b><span>Path.Combine, special folders, valid names and environment variables.</span></a>
 <a class="card" href="tut-56-streams.html"><div class="ic">📁</div><b>Streams and compression</b><span>MemoryStream, StreamWriter, GZip, and one pattern for memory and files.</span></a>
 <a class="card" href="tut-45-binary.html"><div class="ic">📁</div><b>Binary files</b><span>BinaryWriter and BinaryReader, a file format, a hex dump, little endian.</span></a>
+<a class="card" href="tut-130-random-access.html"><div class="ic">📁</div><b>Random access and file locks</b><span>Fixed-size records, Seek, changing a record in place, SetLength and FileShare.</span></a>
 <a class="card" href="tut-88-compression.html"><div class="ic">📁</div><b>Compression</b><span>GZip, Deflate and Brotli streams, sizes, round trips and a .gz file.</span></a>
 <a class="card" href="tut-108-zip-in-memory.html"><div class="ic">📁</div><b>ZIP archives in memory</b><span>ZipArchive on a MemoryStream: entries, levels and updates.</span></a>
 <a class="card" href="tut-96-tar.html"><div class="ic">📁</div><b>Tar archives</b><span>Create, list, read and unpack tar files.</span></a>
@@ -247,6 +249,7 @@ XAML windows, layout and styles, and animation (Windows only).
 <div class="cards">
 <a class="card" href="tut-15-wpf.html"><div class="ic">🎨</div><b>WPF</b><span>XAML windows, finding elements, events and data binding.</span></a>
 <a class="card" href="tut-38-wpf-layout.html"><div class="ic">🎨</div><b>WPF layout and styles</b><span>Grid rows and columns, one Style for all buttons, a keypad.</span></a>
+<a class="card" href="tut-131-wpf-binding.html"><div class="ic">🎨</div><b>WPF data binding</b><span>Controls that follow each other in XAML: slider, text box, check box and list.</span></a>
 <a class="card" href="tut-70-wpf-animation.html"><div class="ic">🎨</div><b>WPF animation</b><span>Move, fade and rotate with DoubleAnimation, easing and AutoReverse.</span></a>
 </div>
 

@@ -1,0 +1,23 @@
+1. five records written, the file has 100 bytes (5 x 20)
+
+2. record 3: Sugar, quantity 100
+   the position is now 60, right after that record
+
+3. after selling 10 of the sugar:
+   1. Tea, quantity 40
+   2. Coffee, quantity 25
+   3. Sugar, quantity 90
+   4. Milk, quantity 8
+   5. Honey, quantity 12
+
+4. a sixth record was added: the file has 120 bytes, 6 records
+
+5. after SetLength(3 * 20): 3 records, the last is Sugar, quantity 90
+
+6. the file is open with FileShare.None:
+   a second open for reading: System.IO.IOException
+   after the first stream was closed: ok
+
+7. the file is open for reading with FileShare.Read:
+   another reader: ok
+   a writer:       System.IO.IOException

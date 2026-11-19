@@ -1,0 +1,53 @@
+1. standard numeric formats for 1234.5678:
+   {0:F0}   1235
+   {0:F2}   1234.57
+   {0:N0}   1,235
+   {0:N2}   1,234.57
+   {0:E3}   1.235E+003
+   {0:P1}   123,456.8 %
+   {0:C}    ¤1,234.57
+   {0:G}    1234.5678
+   F = fixed decimals, N = with thousands separators, E = scientific, P = percent (the value is multiplied by 100),
+   C = money (the invariant culture has no money symbol and shows the sign of an unknown currency; a country culture shows its own),
+   G = general (the shortest form)
+   {0:P1} of 0.256 = 25.6 %
+
+2. whole numbers, 255:
+   base 16: ff, base 2: 11111111, base 8: 377
+   zeros in front (the width 6):  000255
+   upper case hexadecimal:        FF
+   thousands separators:          1,234,567
+
+3. custom patterns:
+   0.00      3.14     (for 3.14159)
+   000.0     003.1     (for 3.14159)
+   #,##0.00  1,234,567.89     (for 1234567.891)
+   #.##      .5     (for 0.5)
+   #.##      12     (for 12)
+   0.0%      25.6%     (for 0.256)
+   0 'kg'    72 kg     (for 72)
+
+4. a table with alignment (names to the left, numbers to the right):
+   |Tea           |     2.50|
+   |Coffee        |    13.25|
+   |Orange juice  |   104.00|
+
+5. dates (2030-03-09 14:05:07):
+   yyyy-MM-dd        2030-03-09
+   dd/MM/yyyy        09/03/2030
+   d MMMM yyyy       9 March 2030
+   dddd              Saturday
+   MMM d, yyyy       Mar 9, 2030
+   HH:mm:ss          14:05:07
+   h:mm tt           2:05 PM
+   yyyyMMdd_HHmmss   20300309_140507
+   d                 03/09/2030
+   D                 Saturday, 09 March 2030
+   t                 14:05
+   o                 2030-03-09T14:05:07.0000000
+
+6. a duration of 3725 seconds:
+   hh\:mm\:ss = 01:02:05
+   h 'h' m 'min' = 1 h 2 min
+
+7. a wrong format: System.FormatException
