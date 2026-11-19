@@ -25,7 +25,7 @@ oSB.Append(", Ring!")
 ## Learn and try
 
 * **Documentation:** `docs/index.html` (start with *Getting started*, then *Core concepts*).
-* **Tutorials:** step-by-step lessons grouped in chapters (the basics, text and data formats, numbers and dates, collections, files, processes, networking, security, databases, Windows Forms, WPF, projects, libraries and release). Each lesson has a program in `samples/UsingDotNet/tutorials`; the files are named by chapter, `chNN_name.ring` (`ch01_first_look.ring`, `ch05_watch_folder.ring`...), and a program that has a window can run its own test with `ring chNN_name.ring --selftest`. Run a program from its folder: `cd samples/UsingDotNet/tutorials` and `ring ch01_first_look.ring`.
+* **Tutorials:** step-by-step lessons grouped in chapters (the basics, text and data formats, numbers and dates, collections, files, processes, networking, security, databases, Windows Forms, WPF, projects, libraries and release). Each lesson has a program in `samples/UsingDotNet/tutorials`; the files are named by chapter, `chNN_name.ring` (`ch01_first_look.ring`, `ch05_watch_folder.ring`...), and a program that has a window can run its own test with `ring chNN_name.ring --selftest` (the checks are in `selftest/chNN_name.ring` next to it). Run a program from its folder: `cd samples/UsingDotNet/tutorials` and `ring ch01_first_look.ring`.
 * **Samples:** `samples/UsingDotNet/introduction` (short programs for each area), `Forms` and `Wpf` (one small window program for each feature), `applications` (complete programs: calculators, an editor, games, a web API, a contacts book) and `tests` (the automated tests).
 
 ```

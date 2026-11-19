@@ -14,17 +14,19 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 - `dnBuffer(size)` is a byte buffer that .NET can fill (`Stream.Read`, `Socket.Receive`...) and that is accepted by `byte[]` and `object` parameters (registry `Binary` values); `dnBufferBytes` reads it back.
 - .NET objects are released when Ring drops them (managed pointers, handles released in groups); `release()` releases at once.
 - Callbacks from .NET to Ring (`dnCallback`) and events (`setXXXEvent`) while a call from Ring is running on the Ring thread.
-- LINQ helpers (`dnQuery`), closed generic collections, generic types with `dnNewGeneric`.
+- LINQ helpers (`dnQuery`), ready classes for the common closed generic types (`StringList`, `NumberDictionary`, `StringSet`, `ResponseTask`...), other generic types with `dnNewGeneric`.
+- Object code first: `new`, the dot and braces cover almost every call. The generic functions (`dnNew` with names, `dnStatic`, `dnType`, `callMethod`, `getProp`) are for the few cases that have no class.
 
 **Desktop**
-- Windows Forms and WPF classes, helper functions (`uiForm`, `wpfXaml`...), self-testing programs (`--selftest`), keys typed into your own form for tests.
+- Windows Forms and WPF classes, helper functions (`uiForm`, `wpfXaml`...), keys typed into your own form for tests.
+- Self-testing programs: the checks of a window program are in `selftest/<program>.ring` next to it, and `uiRun` / `wpfRun` run them when the program starts with `--selftest`. The programs themselves stay free of test code.
 
 **Web and data**
 - A web server on ASP.NET Core with Ring handlers (`WebServer`), and the ASP.NET Core classes.
 - Entity Framework Core with SQLite from data written as Ring lists (`RingEntityDb`, `RingDatabase`), and ODBC (for example Microsoft Access).
 
 **Platforms**
-- Windows (tested), Linux (tested on x64 with the GUI parts excluded), macOS and arm64 (not tested yet).
+- Windows (tested), Linux (tested on x64 with gcc, Ubuntu 24.04 and .NET 9; the Windows Forms and WPF programs are excluded), macOS and arm64 (not tested yet). The extension builds without compiler warnings of its own.
 
 **Learning material**
-- A manual (`docs/index.html`, also as a PDF), tutorials in chapters with their programs in `samples/UsingDotNet/tutorials` (`chNN_name.ring`), samples for each area, complete applications, and an automated test suite (`samples/UsingDotNet/tests/run.sh`).
+- A manual (`docs/index.html`, also as a PDF), tutorials in chapters with their programs in `samples/UsingDotNet/tutorials` (`chNN_name.ring`; the early chapters use object code, and a lesson explains the generic functions), samples for each area, complete applications, and an automated test suite (`samples/UsingDotNet/tests/run.sh`).
