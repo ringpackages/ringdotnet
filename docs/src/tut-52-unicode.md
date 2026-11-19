@@ -27,7 +27,7 @@ An **encoding** turns text into bytes. **UTF-8** uses 1 byte for English letters
 
 ## How it works
 
-The table compares four counts for six texts. For `Ring` they are all the same; for `café` the byte count is 5 but you see 4 letters; Russian and Arabic use two bytes per letter; Japanese three; an emoji four (two units in UTF-16). `StringInfo.LengthInTextElements` counts what a person sees. A constructor with an argument is written `dnNew("StringInfo",[ :value = cText ])`.
+The table compares four counts for six texts. For `Ring` they are all the same; for `café` the byte count is 5 but you see 4 letters; Russian and Arabic use two bytes per letter; Japanese three; an emoji four (two units in UTF-16). `StringInfo.LengthInTextElements` counts what a person sees. Its constructor that takes the text is written `new StringInfo().New_([ :value = cText ])`.
 
 Step 2 turns `é` into two bytes (195 and 169) and reads them again as **Latin-1**: the result is `Ã©`, the classic *mojibake*. The rule: **the encoding that wrote the bytes must be the one that reads them**. When you read text files, say it: `File.ReadAllText(path, encoding)`.
 

@@ -41,7 +41,7 @@ A path that has no handler answers `404 Not found`.
 
 ### The client
 
-`HttpClient.GetAsync(url)` sends a `GET`; `PostAsync(url, content)` sends data. These methods are **asynchronous**: they return at once with a **Task**, an object that stands for "the answer will come". `Wait(NULL)` waits for it, and its property `Result` is the answer (the response). The body is also asynchronous: `ReadAsStringAsync(NULL)` is another Task.
+`HttpClient.GetAsync(url)` sends a `GET`; `PostAsync([ :requestUri = url, :content = content ])` sends data. These methods are **asynchronous**: they return at once with a **Task**, an object that stands for "the answer will come". `Wait(NULL)` waits for it, and its property `Result` is the answer (the response). The body is also asynchronous: `ReadAsStringAsync(NULL)` is another Task.
 
 ### Why serveOne
 

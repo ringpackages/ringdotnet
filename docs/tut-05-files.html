@@ -331,7 +331,7 @@ Cleaned up         : 1</code></pre></div>
 <h3 id="information-copy-list">Information, copy, list<a class="anchor" href="#information-copy-list">#</a></h3>
 <p><code>FileInfo</code> gives <code>Name</code>, <code>Length</code> (the size in bytes), dates. <code>File.Copy([ :sourceFileName = from, :destFileName = to ])</code>, <code>Directory.GetFiles(folder)</code> and <code>File.Delete(path)</code> do what they say. <code>Write</code> and <code>Copy</code> have several versions, so they take a list of named values, like <code>Round</code> in the last lesson.</p>
 <h3 id="zip">Zip<a class="anchor" href="#zip">#</a></h3>
-<p><code>ZipFile.CreateFromDirectory(folder, zipFile)</code> compresses a whole folder; <code>ZipFile.ExtractToDirectory</code> opens it again.</p>
+<p><code>ZipFile.CreateFromDirectory([ :sourceDirectoryName = folder, :destinationArchiveFileName = zipFile ])</code> compresses a whole folder; <code>ZipFile.ExtractToDirectory</code> opens it again.</p>
 <h3 id="clean-up">Clean up<a class="anchor" href="#clean-up">#</a></h3>
 <p>A program that creates temporary files deletes them at the end. This tutorial's last line checks that the folder is gone.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>

@@ -272,7 +272,7 @@ oPress.<span class="f">setClickEvent</span>(<span class="s">"oMessage.Text = 'Th
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oSlider = <span class="k">new</span> <span class="t">Slider</span>()
 oSlider.Maximum = <span class="n">100</span>
 oText = <span class="k">new</span> <span class="t">WpfTextBox</span>()
-oBinding = <span class="f">dnNew</span>(<span class="s">"WpfBinding"</span>,[ :path = <span class="s">"Value"</span> ])
+oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().<span class="f">New_</span>([ :path = <span class="s">"Value"</span> ])
 oBinding.Source = oSlider
 oText.<span class="f">SetBinding</span>(oText.TextProperty,oBinding)</code></pre></div>
 <figure class="shot"><img src="img/shots/wpf-03_binding_slider.png" alt="Binding a slider to a text box" loading="lazy"><figcaption>samples/UsingDotNet/Wpf/03_binding_slider.ring — the text follows the slider</figcaption></figure>

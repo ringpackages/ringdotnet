@@ -8,15 +8,18 @@ The package hosts the .NET runtime inside the Ring process (through `hostfxr`) a
 
 ```ring
 load "dotnet.ring"
+using {
+	"System"
+	"System.Text"
+}
 
 ? dnVersion()                                   # .NET 9.0.x
-dnType("System.Console").callMethod("WriteLine",["Hello from .NET"])
-? dnStatic("System.Math","Max",[3,9])           # 9
+? new Math().Max(3,9)                           # 9: a static method
 
-oSB = dnNew("System.Text.StringBuilder",["Hello"])
-oSB.callMethod("Append",[", Ring!"])
-? oSB.toString()                                # Hello, Ring!
-? oSB.getProp("Length")                         # 12
+oSB = new StringBuilder("Hello")
+oSB.Append(", Ring!")
+? oSB.ToString()                                # Hello, Ring!
+? oSB.Length                                    # 12
 ```
 
 ## Learn and try
@@ -109,7 +112,7 @@ Ring passes optional, order-independent arguments as a list of `:name = value` p
 ? new Math().Round([ :value = 3.14159, :digits = 2 ])
 oProcess = new Process().Start([ :startInfo = oInfo ])
 oProcess.WaitForExit(NULL)                       # the parameterless overload of an overloaded method
-oSB = dnNew("StringBuilder",[ :value = "Hello" ])
+oSB = new StringBuilder("Hello")                # a constructor that takes a value
 ```
 
 A name whose overloads all have the same number of parameters stays positional. `ToString` and `ToList` keep their plain forms (`Format(format)` is the form of `ToString` with parameters).

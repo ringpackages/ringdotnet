@@ -411,9 +411,9 @@ cUrl = <span class="s">""</span>
 <p>The ASP.NET Core classes are wrapped too: <code>Microsoft.AspNetCore.*</code> (Http, Routing, Authentication, Authorization, Mvc, Builder, Hosting, StaticFiles...), <code>Microsoft.Extensions.*</code> (DependencyInjection, Configuration, Logging, Hosting, Caching...) and <code>Microsoft.Net.Http.Headers</code>. Class names that clash with other namespaces start with <code>Asp</code>.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"Microsoft.AspNetCore.Http"</span> }
 
-oPath = <span class="f">dnNew</span>(<span class="s">"PathString"</span>,[ :value = <span class="s">"/api/items"</span> ])
+oPath = <span class="k">new</span> <span class="t">PathString</span>().<span class="f">New_</span>([ :value = <span class="s">"/api/items"</span> ])
 ? oPath.Value                                   <span class="c"># /api/items</span>
-? oPath.<span class="f">StartsWithSegments</span>(<span class="f">dnNew</span>(<span class="s">"PathString"</span>,[ :value = <span class="s">"/api"</span> ]))
+? oPath.<span class="f">StartsWithSegments</span>(<span class="k">new</span> <span class="t">PathString</span>().<span class="f">New_</span>([ :value = <span class="s">"/api"</span> ]))
 
 oQuery = <span class="k">new</span> <span class="t">QueryString</span>().<span class="f">Create</span>([ :name = <span class="s">"name"</span>, :value = <span class="s">"ring dotnet"</span> ])
 ? oQuery.Value                                  <span class="c"># ?name=ring%20dotnet</span></code></pre></div>

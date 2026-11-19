@@ -34,7 +34,7 @@ lead: HTTP is built on top of simpler connections called sockets. This lesson bu
 
 ### The client side
 
-`new TcpClient()` is the client; `Connect("127.0.0.1", nPort)` connects. The operating system accepts the connection at once, even before the program calls `AcceptTcpClient`; this is why client and server can live in one program, without threads.
+`new TcpClient()` is the client; `Connect([ :hostname = "127.0.0.1", :port = nPort ])` connects. The operating system accepts the connection at once, even before the program calls `AcceptTcpClient`; this is why client and server can live in one program, without threads.
 
 ### Accepting
 

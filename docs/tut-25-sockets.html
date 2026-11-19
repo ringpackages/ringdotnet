@@ -305,7 +305,7 @@ STEP 5: closed</code></pre></div>
 <h3 id="the-server-side">The server side<a class="anchor" href="#the-server-side">#</a></h3>
 <p><code>new TcpListener(new IPAddress().Loopback, 0)</code> prepares a listener on the <em>loopback</em> address (<code>127.0.0.1</code>, reachable only from this computer) and port <code>0</code>, which means "any free port". <code>Start(NULL)</code> starts it, and <code>LocalEndpoint.Port</code> tells which port was chosen.</p>
 <h3 id="the-client-side">The client side<a class="anchor" href="#the-client-side">#</a></h3>
-<p><code>new TcpClient()</code> is the client; <code>Connect("127.0.0.1", nPort)</code> connects. The operating system accepts the connection at once, even before the program calls <code>AcceptTcpClient</code>; this is why client and server can live in one program, without threads.</p>
+<p><code>new TcpClient()</code> is the client; <code>Connect([ :hostname = "127.0.0.1", :port = nPort ])</code> connects. The operating system accepts the connection at once, even before the program calls <code>AcceptTcpClient</code>; this is why client and server can live in one program, without threads.</p>
 <h3 id="accepting">Accepting<a class="anchor" href="#accepting">#</a></h3>
 <p><code>oListener.AcceptTcpClient()</code> returns the server's end of the connection. Each end has a <strong>stream</strong> (<code>GetStream()</code>): bytes go in on one side and come out on the other.</p>
 <h3 id="readers-and-writers">Readers and writers<a class="anchor" href="#readers-and-writers">#</a></h3>

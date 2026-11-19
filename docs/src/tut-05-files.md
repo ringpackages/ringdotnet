@@ -58,7 +58,7 @@ Never build a path by joining texts with `/` or `\`. `Path.Combine([a,b])` uses 
 
 ### Zip
 
-`ZipFile.CreateFromDirectory(folder, zipFile)` compresses a whole folder; `ZipFile.ExtractToDirectory` opens it again.
+`ZipFile.CreateFromDirectory([ :sourceDirectoryName = folder, :destinationArchiveFileName = zipFile ])` compresses a whole folder; `ZipFile.ExtractToDirectory` opens it again.
 
 ### Clean up
 

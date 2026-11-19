@@ -34,7 +34,7 @@ lead: Copy a folder into a zip file named by date, keep only the newest few, and
 
 ### Making a backup
 
-`ZipFile.CreateFromDirectory(folder, zipFile)` compresses the folder, with its subfolders, into a zip. It raises an error if the zip file already exists: another reason for a unique name.
+`ZipFile.CreateFromDirectory([ :sourceDirectoryName = folder, :destinationArchiveFileName = zipFile ])` compresses the folder, with its subfolders, into a zip. It raises an error if the zip file already exists: another reason for a unique name.
 
 ### Retention
 
@@ -42,7 +42,7 @@ lead: Copy a folder into a zip file named by date, keep only the newest few, and
 
 ### Restoring
 
-`ZipFile.ExtractToDirectory(zip, folder)` unzips into a folder (which must not exist yet). The program restores the newest backup and checks two facts: the report file has the *latest* text, and the number of files is the same as in the original. A real backup tool should do this check after every backup.
+`ZipFile.ExtractToDirectory([ :sourceArchiveFileName = zip, :destinationDirectoryName = folder ])` unzips into a folder (which must not exist yet). The program restores the newest backup and checks two facts: the report file has the *latest* text, and the number of files is the same as in the original. A real backup tool should do this check after every backup.
 
 ### A program that is safe to repeat
 

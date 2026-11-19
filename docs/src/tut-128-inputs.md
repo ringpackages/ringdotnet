@@ -26,7 +26,7 @@ The tutorial [A form with many controls](tut-12-controls.html) used text boxes, 
 
 ### The date picker
 
-`DateTimePicker.Value` is a `DateTime`. `MinDate` and `MaxDate` limit what the user can choose (here the year 2030), and the value is always kept inside them. `Format = "Short"` shows the date in the short form of the user's culture; `Long`, `Time` and `Custom` (with `CustomFormat`) are the others. To make a date the program uses `dnNew("DateTime",[ :year = 2030, :month = 5, :day = 10 ])`, and to show it `Value.Format("d MMMM yyyy")` (the tutorial [Dates and times](tut-103-dates-and-times.html)).
+`DateTimePicker.Value` is a `DateTime`. `MinDate` and `MaxDate` limit what the user can choose (here the year 2030), and the value is always kept inside them. `Format = "Short"` shows the date in the short form of the user's culture; `Long`, `Time` and `Custom` (with `CustomFormat`) are the others. To make a date the program uses `new DateTime(2030,5,10)`, and to show it `Value.Format("d MMMM yyyy")` (the tutorial [Dates and times](tut-103-dates-and-times.html)).
 
 ### The track bar
 

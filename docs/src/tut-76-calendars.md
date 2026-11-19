@@ -29,7 +29,7 @@ Every calendar has the same three methods, so one helper (`dateText`) works for 
 
 ### Going back
 
-`calendar.ToDateTime(year, month, day, hour, minute, second, millisecond)` builds the `DateTime` from a date in that calendar: `oHijri.ToDateTime(1445,9,1,0,0,0,0)` is 2024-03-11. Step 3 uses it to print the start of each Hijri month: the lengths come from `GetDaysInMonth(1445, month)` and are 29 or 30 days.
+`calendar.ToDateTime(year, month, day, hour, minute, second, millisecond)` builds the `DateTime` from a date in that calendar: `oHijri.ToDateTime([ :year = 1445, :month = 9, :day = 1, :hour = 0, :minute = 0, :second = 0, :millisecond = 0 ])` is 2024-03-11. Step 3 uses it to print the start of each Hijri month: the lengths come from `GetDaysInMonth([ :year = 1445, :month = nMonth ])` and are 29 or 30 days.
 
 > [!NOTE] A calendar method with several forms is one Ring method that takes one value or a list of named values: `GetDaysInMonth([ :year = 1445, :month = 9 ])`. `ToDateTime` takes seven values here.
 

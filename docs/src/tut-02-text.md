@@ -59,7 +59,7 @@ A *regular expression* (regex) is a pattern for text. `[a-z]+@[a-z]+\.com` means
 | Method | Job |
 |---|---|
 | `Matches(text)` | find all the places that match |
-| `Replace(text, replacement)` | replace every match |
+| `Replace([ :input = text, :replacement = r ])` | replace every match |
 | `IsMatch(text)` | does the text match? |
 
 `^[0-9]+$` means "only digits from the start to the end": the text `12345` matches, `12x45` does not.
