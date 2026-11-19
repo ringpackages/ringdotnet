@@ -44,6 +44,10 @@ The program does not draw on the screen. It draws on a `Bitmap` (the tutorial [I
 
 The test acts like a user: a stroke from `(50, 100)` to `(150, 100)` in steps of 10 pixels, then it reads the pixel in the middle (black) and the one above the line (white). A move with the button up leaves the canvas white. A click in red with a thick pen leaves a red dot. `Save` writes a PNG, and **Clear** makes the picture white again. The test needs no mouse and no screen position, and it checks the *result*: the pixels.
 
+The checks of this program are in a separate file, `selftest/ch10_paint.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_paint.ring}}
+
 > [!NOTE] The picture box has the size of the bitmap. If a picture box is bigger than the bitmap and `SizeMode` stretches it, the pointer positions must be scaled to the bitmap first.
 
 ## What you learned

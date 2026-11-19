@@ -362,6 +362,32 @@ lLoading = <span class="k">False</span>
 <p><code>loadTasks</code> runs before the window is shown. <code>setFormClosingEvent("saveTasks()")</code> saves once more when the window closes. While loading, a flag <code>lLoading</code> stops <code>saveTasks</code> from rewriting the file in the middle of the loading.</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
 <p><code>selfTest</code> adds tasks, ticks one, saves, clears the list, loads again and checks the contents, the JSON text and the status. It uses a separate file name when started with <code>--selftest</code>, so that it never touches your real list.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch12_todo.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_todo.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_todo.ring: run with  ring ch12_todo.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	oNew.Text = <span class="s">"Buy milk"</span>
+	addTask()
+	oNew.Text = <span class="s">"Write the tutorial"</span>
+	addTask()
+	oNew.Text = <span class="s">"   "</span>
+	addTask()                                         <span class="c"># blank: ignored</span>
+	<span class="f">dnAssert</span>(<span class="s">"two tasks"</span>,oTasks.Items.Count,<span class="n">2</span>)
+	oTasks.<span class="f">SetItemChecked</span>(<span class="n">0</span>,<span class="k">True</span>)
+	saveTasks()
+	refreshStatus()
+	<span class="f">dnAssert</span>(<span class="s">"status"</span>,oStatus.Text,<span class="s">"  1 of 2 done"</span>)
+	<span class="c"># the file holds the tasks</span>
+	<span class="f">dnAssert</span>(<span class="s">"saved as JSON"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile),<span class="s">'[[1,"Buy milk"],[0,"Write the tutorial"]]'</span>)
+	<span class="c"># a second load shows the same tasks</span>
+	oTasks.Items.<span class="f">Clear</span>()
+	loadTasks()
+	<span class="f">dnAssert</span>(<span class="s">"loaded again"</span>,oTasks.Items.Count,<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the checked state"</span>,oTasks.<span class="f">GetItemChecked</span>(<span class="n">0</span>),<span class="k">True</span>)
+	oTasks.SelectedIndex = <span class="n">1</span>
+	removeTask()
+	<span class="f">dnAssert</span>(<span class="s">"removed"</span>,oTasks.Items.Count,<span class="n">1</span>)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>design first: data, window, behaviour, saving,</li><li><code>CheckedListBox</code>, events after a click,</li><li>JSON for saving, with the <em>pair list</em> trap in mind,</li><li>a flag to avoid saving while loading,</li><li>tests that use their own file.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

@@ -48,6 +48,10 @@ Radio buttons that have the same parent are one group: turning one on turns the 
 
 The test sets `oNights.Value = 7` as a user would move the slider, and the change event updates the label and the price. It checks that choosing *Double* turns *Single* off, that **Book** without a name sets the error text and does not book, and that with a name the error is gone and the booking line is right.
 
+The checks of this program are in a separate file, `selftest/ch10_inputs.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_inputs.ring}}
+
 > [!NOTE] The names of the controls that the event code uses are global variables (the tutorial [Your first window](tut-11-first-window.html)). The button is kept in `oBook`, so the test does not need to count the controls of the form.
 
 ## What you learned

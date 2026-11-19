@@ -370,6 +370,16 @@ cNextName = <span class="s">""</span>
 <p>After <code>ShowDialog(NULL)</code> returns, the controls still exist: read <code>oNameBox.Text</code> and <code>oAgeBox.Value</code>, then <code>Dispose()</code> the dialog. (<code>ShowDialog</code> has several versions, so the plain call passes <code>NULL</code>.)</p>
 <h3 id="testing-a-modal-dialog">Testing a modal dialog<a class="anchor" href="#testing-a-modal-dialog">#</a></h3>
 <p>A modal dialog stops the test at <code>ShowDialog</code> — nobody will click. The trick is a <strong>timer</strong>: a Windows Forms timer keeps ticking <em>inside</em> the dialog's own message loop. The test starts a timer before <code>ShowDialog</code>; the timer acts as the user. Tick 1 types a blank name and presses OK (and the test checks that the dialog complained, and is still there); tick 2 types <code>Bob</code>, sets the age and presses OK, and stops the timer. The main test then checks that the answer was used.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_dialog.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_dialog.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_dialog.ring: run with  ring ch10_dialog.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	cNextName = <span class="s">"Bob"</span>
+	nStep = <span class="n">0</span>
+	editProfile()
+	<span class="f">dnAssert</span>(<span class="s">"the answer was used"</span>,cName,<span class="s">"Bob"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the age was used"</span>,nAge,<span class="n">44</span>)
+	<span class="f">dnAssert</span>(<span class="s">"shown in the window"</span>,oShow.Text,<span class="s">"Bob"</span> + nl + <span class="s">"44 years old"</span>)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li><code>ShowDialog</code> is modal: it waits and returns the result,</li><li><code>AcceptButton</code>, <code>CancelButton</code>, <code>DialogResult</code>,</li><li>validate before closing with OK,</li><li>a dialog function that returns data or <code>""</code>,</li><li>a timer drives a modal dialog in a test.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

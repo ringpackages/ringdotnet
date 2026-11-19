@@ -54,6 +54,10 @@ The width available for one bar is `nSlot`, the plot width divided by the number
 
 You cannot look at a picture in a test, but you can **read pixels**. `oCanvas.pixel(x,y)` returns the colour: the background is `ffffffff` (white), and a point inside the April bar is `ffdc143c` (crimson). The test also checks the helper functions `maxOf` and `niceMax` with plain `dnAssert`s. Pixel positions must be whole numbers: `floor(...)`.
 
+The checks of this program are in a separate file, `selftest/ch10_chart.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_chart.ring}}
+
 ## What you learned
 
 - chart = scale + bars + text,

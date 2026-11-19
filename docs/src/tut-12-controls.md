@@ -72,6 +72,10 @@ The control only appears in the window after `oForm.Controls.Add(...)`.
 
 The test finds the **Register** button with `oForm.Controls.Item(7)` — the seventh control added — and calls `PerformClick()`. Then it checks the messages and the list. Controls are numbered in the order they were added, starting at 0.
 
+The checks of this program are in a separate file, `selftest/ch10_registration.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_registration.ring}}
+
 ## What you learned
 
 - controls are objects; read and write their properties,

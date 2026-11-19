@@ -344,6 +344,24 @@ lRunning = <span class="k">False</span>
 <p><code>Minimum</code>, <code>Maximum</code> and <code>Value</code>. For a job of unknown length use <code>Style = "Marquee"</code>, which shows a moving bar.</p>
 <h3 id="testing-time">Testing time<a class="anchor" href="#testing-time">#</a></h3>
 <p>A test cannot wait for ticks. <code>selfTest</code> stops the clock timer, calls <code>toggleWatch</code>, sleeps 150 ms with <code>Thread.Sleep</code>, stops the watch and checks that at least 100 ms were measured. It calls <code>jobStep()</code> twenty times by hand and checks that the bar is full. Design for this: put the real work in functions that a timer <em>calls</em>, so a test can call them directly.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_timers.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_timers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_timers.ring: run with  ring ch10_timers.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	oClock.<span class="f">Stop</span>()
+	toggleWatch()                                   <span class="c"># start</span>
+	<span class="k">new</span> <span class="t">Thread</span>().<span class="f">Sleep</span>(<span class="n">150</span>)
+	toggleWatch()                                   <span class="c"># stop</span>
+	showTime()
+	<span class="f">dnAssert</span>(<span class="s">"the stopwatch measured time"</span>,oWatch.ElapsedMilliseconds &gt;= <span class="n">100</span>,<span class="k">True</span>)
+	resetWatch()
+	<span class="f">dnAssert</span>(<span class="s">"reset"</span>,oTime.Text,<span class="s">"0:00.0"</span>)
+	startJob()
+	<span class="k">for</span> nStep = <span class="n">1</span> <span class="k">to</span> <span class="n">20</span>
+		jobStep()
+	<span class="k">next</span>
+	<span class="f">dnAssert</span>(<span class="s">"the job finished"</span>,oInfo.Text,<span class="s">"Finished"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the bar is full"</span>,oBar.Value,<span class="n">100</span>)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>never run a long job in one go inside an event,</li><li>a timer calls a small step again and again,</li><li><code>Stopwatch</code> measures, <code>Timer</code> displays,</li><li>put the work in functions so tests can call them.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

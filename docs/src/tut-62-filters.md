@@ -61,6 +61,10 @@ Numbers in the header are **little-endian**: the least significant byte comes fi
 
 `showPixels` writes `imageN.bmp` and loads it with `dnNew("Bitmap",[ :filename = cFile ])`. A new name for each image is used because a loaded image keeps its file open; the folder is deleted when the window closes. The self test reads one pixel back from the picture box (the sun, red 255 and blue 0) to prove that the file was written correctly.
 
+The checks of this program are in a separate file, `selftest/ch12_filters.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch12_filters.ring}}
+
 > [!TIP] Try the same with `uiPictureBox` and a photo of your own: load it with `Bitmap`, read the pixels once into lists, and use the filters from this tutorial. Reading one pixel at a time is slow, so keep photos small, or look at `LockBits` for fast access.
 
 ## What you learned

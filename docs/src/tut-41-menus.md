@@ -48,6 +48,10 @@ A `ContextMenuStrip` is a menu without a bar: assign it to a control (`oText.Con
 
 Every action calls `say(message)`, which writes into the status bar and counts the calls. The test uses the counter: three actions from three different places, three reports.
 
+The checks of this program are in a separate file, `selftest/ch10_menus.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_menus.ring}}
+
 ### Testing
 
 `PerformClick()` runs a menu item, a toolbar button or a context menu entry as if it were clicked. The test reaches each one through the control collections (`Items.Item(n)`) and checks that the **same function** ran: the text was turned to upper case in all three cases. It also toggles the tick and checks word wrap and the status text, and reads the `ShortcutKeys` property of *Copy*: `C, Control` (a combination of two flags, written in this order by .NET).

@@ -50,6 +50,10 @@ Using `cmd /c` lets the user type anything that the command prompt understands, 
 
 If the program cannot be started at all (a wrong `FileName`), `Process.Start` raises an error: the `try` / `catch` shows it in the output box and sets the status to *Failed*. A program that starts and *returns an error code* is a different case: you see its messages in `StandardError` and the exit code in the status line, as the test shows with a folder that does not exist.
 
+The checks of this program are in a separate file, `selftest/ch12_runner.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch12_runner.ring}}
+
 ### The output box
 
 A `TextBox` with `Multiline`, `ReadOnly` (the user cannot type in it), a monospaced `Font` (`Consolas`) and black background with green text looks like a console. `ScrollBars` come from `uiMemo`.

@@ -46,6 +46,10 @@ The tray keeps the icon of a program that ended without removing it, until the m
 
 The test checks the icon, the tip and the menu, hides the window and checks that the window is hidden and the icon is not, then brings the window back through `showFromTray` and through the menu item (`PerformClick`). Nothing needs the real tray.
 
+The checks of this program are in a separate file, `selftest/ch10_tray.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_tray.ring}}
+
 ## What you learned
 
 - a tray icon with a tip and a menu,

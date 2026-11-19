@@ -43,6 +43,10 @@ Cells on the path are small orange squares, the start is green and the exit red.
 
 You cannot test a random maze against a fixed picture. The self test checks **properties** instead: the number of openings, the path starts at the exit and ends at the start, every step moves to a neighbour, and **no step crosses a wall**. Tests for properties keep working when you change the generator.
 
+The checks of this program are in a separate file, `selftest/ch12_maze.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch12_maze.ring}}
+
 ## What you learned
 
 - stack and queue in real algorithms,

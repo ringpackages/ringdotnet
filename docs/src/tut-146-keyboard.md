@@ -53,6 +53,10 @@ The `Enter` event of a box (not the key!) runs when the box gets the focus; `Sel
 
 `uiSendKeys(oForm, "1a2-3")` posts the keys to the focused control of **this form** through the real key processing, so `KeyPress`, `MaxLength`, `AcceptButton` and `Tab` work as they do for a user, and the keys can never reach another program. The test types the letters and the minus sign between the digits, and only `123` stays; two characters were refused (`nRejected` counts them: the letter and the minus sign). A fourth digit is stopped by `MaxLength`, and Backspace works because the filter lets it through. The letters that a test types depend on the **keyboard layout** of the computer: the key *A* gives `ش` on an Arabic layout. That character is not ASCII, so it arrives as a text of two bytes, and `filterKey` gives it the code 0 and refuses it, like any other character that is not a digit. For the same reason the test sets the name with `Text` and types only digits and the keys `{ENTER}`, `{TAB}`, `{ESC}` and `{BACKSPACE}`, which do not depend on the layout.
 
+The checks of this program are in a separate file, `selftest/ch10_keyboard.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_keyboard.ring}}
+
 ## What you learned
 
 - filtering the characters of a box,

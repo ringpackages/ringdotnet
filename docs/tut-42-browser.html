@@ -375,6 +375,23 @@ cRoot = <span class="s">""</span>
 <p><code>sizeText</code> turns <code>1536</code> into <code>1.5 KB</code>. <code>uiNumber(...)</code> formats a number without Ring's fixed two decimals (otherwise <code>1.5</code> would be written <code>1.50</code>).</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
 <p>The test checks the tree (one root, three subfolders), selects a node by code (<code>oTree.SelectedNode = ...</code>, which raises the same event as a click), and checks the list and the status line. It also tests <code>sizeText</code> as a plain function.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_browser.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_browser.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_browser.ring: run with  ring ch10_browser.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="f">dnAssert</span>(<span class="s">"the root node"</span>,oTree.Nodes.Count,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the root has three subfolders"</span>,oTree.Nodes.<span class="f">Item</span>(<span class="n">0</span>).Nodes.Count,<span class="n">3</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the root folder has one file"</span>,oList.Items.Count,<span class="n">1</span>)
+	<span class="c"># pick the folder Projects &gt; Ring</span>
+	oProjects = oTree.Nodes.<span class="f">Item</span>(<span class="n">0</span>).Nodes.<span class="f">Item</span>(<span class="n">2</span>)          <span class="c"># sorted: Documents, Pictures, Projects</span>
+	<span class="f">dnAssert</span>(<span class="s">"the node is Projects"</span>,oProjects.Text,<span class="s">"Projects"</span>)
+	oTree.SelectedNode = oProjects.Nodes.<span class="f">Item</span>(<span class="n">0</span>)
+	<span class="f">dnAssert</span>(<span class="s">"two files in Ring"</span>,oList.Items.Count,<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the first file"</span>,oList.Items.<span class="f">Item</span>(<span class="n">0</span>).Text,<span class="s">"main.ring"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the status shows the folder and the totals"</span>,substr(oStatus.Text,<span class="s">"2 files"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a size text"</span>,sizeText(<span class="n">1536</span>),<span class="s">"1.5 KB"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a small size"</span>,sizeText(<span class="n">300</span>),<span class="s">"300 B"</span>)
+	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cRoot, :recursive = <span class="k">True</span> ])</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>recursion builds a tree,</li><li><code>Tag</code> carries data on a node,</li><li><code>ListView</code> details mode,</li><li>selection events fill the other control.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

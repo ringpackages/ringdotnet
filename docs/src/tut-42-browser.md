@@ -60,6 +60,10 @@ oNode.Tag = cFolder
 
 The test checks the tree (one root, three subfolders), selects a node by code (`oTree.SelectedNode = ...`, which raises the same event as a click), and checks the list and the status line. It also tests `sizeText` as a plain function.
 
+The checks of this program are in a separate file, `selftest/ch10_browser.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_browser.ring}}
+
 ## What you learned
 
 - recursion builds a tree,

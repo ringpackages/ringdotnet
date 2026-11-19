@@ -30,6 +30,10 @@ The tutorial [Your own dialog](tut-40-dialog.html) used a *modal* dialog: the ma
 
 Clicking *Open the tool window* twice must not make two tool windows. `openTool` first looks at `lToolOpen`: when the window is open it only calls `Activate()`, which brings it to the front, and returns. `nToolOpened` counts how many windows were really made; the test shows 1 after two clicks.
 
+The checks of this program are in a separate file, `selftest/ch10_windows.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_windows.ring}}
+
 ### Talking
 
 A window is made of controls, and the controls are variables. The tool window calls `applyTool()`, a function that reads the text box of the tool and writes the label of the main window: `oShown.Text = "Applied: " + oToolBox.Text`. There is nothing special about it: both windows are in one program. (A bigger program keeps the data in one place and lets both windows read it.)

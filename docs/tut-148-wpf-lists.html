@@ -341,6 +341,61 @@ oWindow = <span class="s">""</span>
 <p><code>oChips.Children.Clear()</code> removes the old buttons, and a loop makes one <code>wpfButton(text, code)</code> for each item, sets its <code>Margin</code> and adds it with <code>Children.Add</code>. The code of each button is a text that includes the number of the item (<code>"showItem(" + i + ")"</code>), so the button knows which item it shows. A <code>WrapPanel</code> puts the buttons in a row and starts a new row when the row is full.</p>
 <h3 id="the-test">The test<a class="anchor" href="#the-test">#</a></h3>
 <p>The test acts like the user: it types into the text box and clicks <strong>Add</strong> three times, checks the items, the count and the buttons, clicks one of the made buttons, selects an item and moves it, removes the selected item, and clears the list. Buttons are clicked by raising their <code>Click</code> event (<code>RaiseEvent</code>), as in the tutorial <a href="tut-38-wpf-layout.html">WPF layout and styles</a>.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch11_wpf_lists.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch11_wpf_lists.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch11_wpf_lists.ring: run with  ring ch11_wpf_lists.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="c"># the items as one text, for the test</span>
+<span class="k">func</span> <span class="f">itemsText</span>
+	cText = <span class="s">""</span>
+	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> listBox().Items.Count - <span class="n">1</span>
+		<span class="k">if</span> cText != <span class="s">""</span>
+			cText += <span class="s">","</span>
+		<span class="k">ok</span>
+		cText += listBox().Items.<span class="f">Item</span>(i)
+	<span class="k">next</span>
+	<span class="k">return</span> cText
+
+<span class="k">func</span> <span class="f">clickButton</span> oButton
+	oButton.<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_</span>([ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="c"># add three items through the text box and the Add button</span>
+	<span class="k">for</span> cText <span class="k">in</span> [ <span class="s">"tea"</span>,<span class="s">"coffee"</span>,<span class="s">"milk"</span> ]
+		<span class="f">wpfFind</span>(oWindow,<span class="s">"input"</span>).Text = cText
+		clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"add"</span>))
+	<span class="k">next</span>
+	<span class="f">dnAssert</span>(<span class="s">"three items"</span>,itemsText(),<span class="s">"tea,coffee,milk"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the count"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text,<span class="s">"3 items"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the text box is empty again"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"input"</span>).Text,<span class="s">""</span>)
+	<span class="f">dnAssert</span>(<span class="s">"an empty text adds nothing"</span>,itemsText(),<span class="s">"tea,coffee,milk"</span>)
+
+	<span class="c"># a button was made for each item</span>
+	<span class="f">dnAssert</span>(<span class="s">"three chips"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>).Children.Count,<span class="n">3</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the chip text"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>).Children.<span class="f">Item</span>(<span class="n">1</span>).Content,<span class="s">"coffee"</span>)
+	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>).Children.<span class="f">Item</span>(<span class="n">2</span>))
+	<span class="f">dnAssert</span>(<span class="s">"a chip was clicked"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text,<span class="s">"Item 3: milk"</span>)
+
+	<span class="c"># selecting and moving: coffee down, then up twice</span>
+	listBox().SelectedIndex = <span class="n">1</span>
+	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"down"</span>))
+	<span class="f">dnAssert</span>(<span class="s">"coffee down"</span>,itemsText(),<span class="s">"tea,milk,coffee"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the selection follows"</span>,listBox().SelectedIndex,<span class="n">2</span>)
+	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"up"</span>))
+	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"up"</span>))
+	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"up"</span>))                       <span class="c"># the first place: nothing to do</span>
+	<span class="f">dnAssert</span>(<span class="s">"coffee up"</span>,itemsText(),<span class="s">"coffee,tea,milk"</span>)
+
+	<span class="c"># remove the selected item, and with nothing selected remove nothing</span>
+	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"remove"</span>))
+	<span class="f">dnAssert</span>(<span class="s">"removed"</span>,itemsText(),<span class="s">"tea,milk"</span>)
+	listBox().SelectedIndex = -<span class="n">1</span>
+	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"remove"</span>))
+	<span class="f">dnAssert</span>(<span class="s">"nothing selected, nothing removed"</span>,itemsText(),<span class="s">"tea,milk"</span>)
+
+	<span class="c"># clear</span>
+	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"clear"</span>))
+	<span class="f">dnAssert</span>(<span class="s">"empty"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text,<span class="s">"0 items"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"no chips"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>).Children.Count,<span class="n">0</span>)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>adding, inserting, removing and clearing items,</li><li>the selection and its <code>-1</code>,</li><li>one function that keeps the window in step with the data,</li><li>controls that the program makes and adds to a panel.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

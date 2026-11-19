@@ -49,6 +49,10 @@ How big should a part be? Small enough that one step takes well under 50 ms, so 
 
 A test cannot wait for ticks. `selfTest` stops the clock timer, calls `toggleWatch`, sleeps 150 ms with `Thread.Sleep`, stops the watch and checks that at least 100 ms were measured. It calls `jobStep()` twenty times by hand and checks that the bar is full. Design for this: put the real work in functions that a timer *calls*, so a test can call them directly.
 
+The checks of this program are in a separate file, `selftest/ch10_timers.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_timers.ring}}
+
 ## What you learned
 
 - never run a long job in one go inside an event,

@@ -326,6 +326,41 @@ lClosed = <span class="k">False</span>
 <p>The <code>Enter</code> event of a box (not the key!) runs when the box gets the focus; <code>SelectAll()</code> selects its text, so the user can type over it. Many programs do this for every text box.</p>
 <h3 id="typing-keys-in-a-test">Typing keys in a test<a class="anchor" href="#typing-keys-in-a-test">#</a></h3>
 <p><code>uiSendKeys(oForm, "1a2-3")</code> posts the keys to the focused control of <strong>this form</strong> through the real key processing, so <code>KeyPress</code>, <code>MaxLength</code>, <code>AcceptButton</code> and <code>Tab</code> work as they do for a user, and the keys can never reach another program. The test types the letters and the minus sign between the digits, and only <code>123</code> stays; two characters were refused (<code>nRejected</code> counts them: the letter and the minus sign). A fourth digit is stopped by <code>MaxLength</code>, and Backspace works because the filter lets it through. The letters that a test types depend on the <strong>keyboard layout</strong> of the computer: the key <em>A</em> gives <code>ش</code> on an Arabic layout. That character is not ASCII, so it arrives as a text of two bytes, and <code>filterKey</code> gives it the code 0 and refuses it, like any other character that is not a digit. For the same reason the test sets the name with <code>Text</code> and types only digits and the keys <code>{ENTER}</code>, <code>{TAB}</code>, <code>{ESC}</code> and <code>{BACKSPACE}</code>, which do not depend on the layout.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_keyboard.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_keyboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_keyboard.ring: run with  ring ch10_keyboard.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="c"># the keys go to the box that has the focus, through the real key processing</span>
+	oForm.ActiveControl = oAge
+	<span class="f">uiSendKeys</span>(oForm,<span class="s">"1a2-3"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"only digits"</span>,oAge.Text,<span class="s">"123"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the other keys were refused"</span>,nRejected,<span class="n">2</span>)
+
+	<span class="c"># MaxLength: a fourth digit is not accepted</span>
+	<span class="f">uiSendKeys</span>(oForm,<span class="s">"9"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"at most three characters"</span>,oAge.Text,<span class="s">"123"</span>)
+
+	<span class="c"># Backspace works, because the filter lets it through</span>
+	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{BACKSPACE}"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"backspace"</span>,oAge.Text,<span class="s">"12"</span>)
+
+	<span class="c"># Enter presses the OK button (the AcceptButton) from any box: with the name empty the program asks for it</span>
+	oForm.ActiveControl = oAge
+	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{ENTER}"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"an empty name"</span>,oResult.Text,<span class="s">"Please fill in both boxes"</span>)
+	oName.Text = <span class="s">"Ann"</span>                                   <span class="c"># (letters typed by a test depend on the keyboard layout of the computer, so it is set)</span>
+	oForm.ActiveControl = oName
+	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{ENTER}"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the result"</span>,oResult.Text,<span class="s">"Ann is 12 years old"</span>)
+
+	<span class="c"># the tab order: Tab goes name -&gt; age -&gt; OK</span>
+	oForm.ActiveControl = oName
+	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{TAB}"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"tab to the age box"</span>,oForm.ActiveControl.TabIndex,<span class="n">2</span>)
+
+	<span class="c"># Escape presses the CancelButton: the form closes</span>
+	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{ESC}"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"escape closed the form"</span>,lClosed,<span class="k">True</span>)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>filtering the characters of a box,</li><li>Enter and Escape buttons,</li><li>the tab order and access keys,</li><li>select-all on entering,</li><li>testing with real key presses.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

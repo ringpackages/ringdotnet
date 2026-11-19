@@ -56,6 +56,10 @@ The file holds a list of lists, one `[done, text]` per task: `[[1,"Buy milk"],[0
 
 `selfTest` adds tasks, ticks one, saves, clears the list, loads again and checks the contents, the JSON text and the status. It uses a separate file name when started with `--selftest`, so that it never touches your real list.
 
+The checks of this program are in a separate file, `selftest/ch12_todo.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch12_todo.ring}}
+
 ## What you learned
 
 - design first: data, window, behaviour, saving,

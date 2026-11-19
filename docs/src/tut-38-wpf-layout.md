@@ -81,6 +81,10 @@ After the window exists, a loop connects every digit key: `setClickEvent("pressK
 
 A test raises the click event on a key: `RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new WpfButtonBase().ClickEvent ]))`, and checks the display: `42`, backspace gives `4`, clear gives `0`. It also reads the `Margin` of a key and finds `4`: the style was applied.
 
+The checks of this program are in a separate file, `selftest/ch11_wpf_layout.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch11_wpf_layout.ring}}
+
 ## What you learned
 
 - `Grid` rows and columns with `Auto` and `*`,

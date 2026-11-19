@@ -355,6 +355,41 @@ cTempFile = <span class="s">""</span>
 <p>The rows are made as <code>ListViewItem</code> with two sub items and sorted by the name of the property (a small bubble sort with <code>strcmp</code>, as in the tutorial <a href="tut-134-listview.html">A list with columns</a>). Choosing another object in the combo box runs <code>inspect</code> again, which clears the list and fills it for the new object.</p>
 <h3 id="the-test">The test<a class="anchor" href="#the-test">#</a></h3>
 <p><code>valueOf("Host")</code> finds the row with that name and returns its value. The test checks values that it knows: the host, the port and the scheme of the address; the year, the day of the week and the hour of the date; the name and the length (16 bytes) of the file that the program wrote; and the length of the text of the builder. It selects each object through the combo box, so the change event is part of the test too.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch13_inspector.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch13_inspector.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch13_inspector.ring: run with  ring ch13_inspector.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="c"># the value of a property that the list shows, found by the name of the property</span>
+<span class="k">func</span> <span class="f">valueOf</span> cName
+	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oList.Items.Count - <span class="n">1</span>
+		<span class="k">if</span> oList.Items.<span class="f">Item</span>(i).Text = cName
+			<span class="k">return</span> oList.Items.<span class="f">Item</span>(i).SubItems.<span class="f">Item</span>(<span class="n">2</span>).Text
+		<span class="k">ok</span>
+	<span class="k">next</span>
+	<span class="k">return</span> <span class="s">"(not in the list)"</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="c"># the Uri</span>
+	<span class="f">dnAssert</span>(<span class="s">"the host"</span>,valueOf(<span class="s">"Host"</span>),<span class="s">"example.com"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the port"</span>,valueOf(<span class="s">"Port"</span>),<span class="s">"8080"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the scheme"</span>,valueOf(<span class="s">"Scheme"</span>),<span class="s">"https"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the fragment"</span>,valueOf(<span class="s">"Fragment"</span>),<span class="s">"#top"</span>)
+
+	<span class="c"># a DateTime: choose it in the combo box (the event fills the list again)</span>
+	oChoice.SelectedIndex = <span class="n">1</span>
+	<span class="f">dnAssert</span>(<span class="s">"the year"</span>,valueOf(<span class="s">"Year"</span>),<span class="s">"2030"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the day of the week"</span>,valueOf(<span class="s">"DayOfWeek"</span>),<span class="s">"Saturday"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the hour"</span>,valueOf(<span class="s">"Hour"</span>),<span class="s">"14"</span>)
+
+	<span class="c"># a FileInfo of a real file</span>
+	oChoice.SelectedIndex = <span class="n">2</span>
+	<span class="f">dnAssert</span>(<span class="s">"the name"</span>,valueOf(<span class="s">"Name"</span>),<span class="s">"ringdotnet-inspect.txt"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the length"</span>,valueOf(<span class="s">"Length"</span>),<span class="s">"16"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"it exists"</span>,valueOf(<span class="s">"Exists"</span>),<span class="s">"1"</span>)
+
+	<span class="c"># a StringBuilder: the property Chars is an indexer and is not listed</span>
+	oChoice.SelectedIndex = <span class="n">3</span>
+	<span class="f">dnAssert</span>(<span class="s">"the length of the text"</span>,valueOf(<span class="s">"Length"</span>),<span class="s">"5"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"an indexer is skipped"</span>,valueOf(<span class="s">"Chars"</span>),<span class="s">"(not in the list)"</span>)</code></pre></div>
 <div class="callout note"><span class="t">Note</span><p>This is the idea of the object inspectors of every debugger. A property can have side effects (it may start work), so inspecting a <em>foreign</em> object can change it; the properties of these four objects only read.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li><code>GetType()</code>, <code>GetProperties()</code> and <code>GetValue()</code>,</li><li>indexers and errors in reflection,</li><li>showing .NET values in a list,</li><li>a test that reads the list.</li></ul>

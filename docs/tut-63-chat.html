@@ -426,6 +426,35 @@ oTimer = <span class="s">""</span>
 <div class="callout note"><span class="t">Note</span><p>Two details of Ring used in this lesson: <code>for x in object.method()</code> calls the method <em>again for every item</em>, so a method that consumes data must be assigned to a variable first; and a variable named <code>oR</code> is read as the keyword <code>or</code>.</p></div>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
 <p>The self test sends a line from Alice and calls <code>waitForText</code>, which pumps up to 50 times with a 20 ms sleep until both windows show the line — network messages arrive a little later, so a test must wait for them instead of checking at once. Then it checks that Bob's line arrives in both windows, that the server has two clients, and that an empty text is not sent.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch12_chat.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_chat.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_chat.ring: run with  ring ch12_chat.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="c"># wait (at most about a second) until the logs have changed: network messages arrive a little later</span>
+<span class="k">func</span> <span class="f">waitForText</span> cText
+	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">50</span>
+		pump()
+		<span class="k">if</span> substr(aLogs[<span class="n">1</span>].Text,cText) &gt; <span class="n">0</span> <span class="k">and</span> substr(aLogs[<span class="n">2</span>].Text,cText) &gt; <span class="n">0</span>
+			<span class="k">return</span> <span class="k">True</span>
+		<span class="k">ok</span>
+		<span class="k">new</span> <span class="t">Thread</span>().<span class="f">Sleep</span>(<span class="n">20</span>)
+	<span class="k">next</span>
+	<span class="k">return</span> <span class="k">False</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	oTimer.<span class="f">Stop</span>()
+	aInputs[<span class="n">1</span>].Text = <span class="s">"Hello Bob"</span>
+	sendFrom(<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"Bob received Alice's line"</span>,waitForText(<span class="s">"Alice: Hello Bob"</span>),<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"Alice sees her own line too"</span>,substr(aLogs[<span class="n">1</span>].Text,<span class="s">"Alice: Hello Bob"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	aInputs[<span class="n">2</span>].Text = <span class="s">"Hi Alice"</span>
+	sendFrom(<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"both windows show Bob's line"</span>,waitForText(<span class="s">"Bob: Hi Alice"</span>),<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the server has two clients"</span>,oServer.<span class="f">count</span>(),<span class="n">2</span>)
+	aInputs[<span class="n">1</span>].Text = <span class="s">"   "</span>
+	sendFrom(<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"an empty line is not sent"</span>,len(aClients[<span class="n">1</span>].<span class="f">sent</span>()),<span class="n">1</span>)
+
+<span class="c"># ---------------------------------------------------------------- reading lines without waiting</span></code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>server and clients with <code>TcpListener</code> and <code>TcpClient</code>,</li><li>a line-based protocol,</li><li>polling with a timer instead of waiting,</li><li><code>DataAvailable</code> and <code>ReadByte</code>,</li><li>testing asynchronous code with a bounded wait.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

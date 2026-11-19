@@ -46,6 +46,10 @@ The button says **Check** at first. The first click checks the answer: it adds t
 
 The function `play(n)` chooses answer `n` and clicks the button. The test answers the questions: nothing chosen, right, wrong (and the feedback names the right answer), right, right, and the score is 3 of 4. It checks the progress text, the feedback, the button text and the best scores. No mouse is needed, and the test is written in the words of the quiz.
 
+The checks of this program are in a separate file, `selftest/ch12_quiz.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch12_quiz.ring}}
+
 > [!NOTE] The program sets the state in the functions (`showQuestion`, `checkAnswer`) and never in the event code, which is only `nextStep()`. This keeps the events short and the test simple.
 
 ## What you learned

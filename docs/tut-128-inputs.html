@@ -387,6 +387,35 @@ oBook = <span class="s">""</span>
 <p><code>ToolTip.SetToolTip(control, text)</code> gives a control a tip. <code>ErrorProvider.SetError(control, text)</code> shows a small red icon next to the control, and the text appears when the mouse rests on the icon. An empty text removes it. This is better than a message box: the user sees <em>which</em> field is wrong and can go on typing.</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
 <p>The test sets <code>oNights.Value = 7</code> as a user would move the slider, and the change event updates the label and the price. It checks that choosing <em>Double</em> turns <em>Single</em> off, that <strong>Book</strong> without a name sets the error text and does not book, and that with a name the error is gone and the booking line is right.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_inputs.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_inputs.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_inputs.ring: run with  ring ch10_inputs.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="c"># the starting state</span>
+	<span class="f">dnAssert</span>(<span class="s">"price at the start"</span>,oPrice.Text,<span class="s">"3 nights, Single: 210 (a week or more: 10 percent off)"</span>)
+
+	<span class="c"># a track bar and a radio button change the price</span>
+	oNights.Value = <span class="n">7</span>
+	<span class="f">dnAssert</span>(<span class="s">"track bar label"</span>,oNightsLabel.Text,<span class="s">"7"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a week is cheaper"</span>,total(),<span class="n">441</span>)                  <span class="c"># 7 x 70 = 490, 10 percent off</span>
+	oDouble.Checked = <span class="k">True</span>
+	<span class="f">dnAssert</span>(<span class="s">"only one room"</span>,oSingle.Checked,<span class="k">False</span>)
+	<span class="f">dnAssert</span>(<span class="s">"double for a week"</span>,total(),<span class="n">693</span>)
+
+	<span class="c"># without a name there is an error marker, and no booking</span>
+	oBook.<span class="f">PerformClick</span>()
+	<span class="f">dnAssert</span>(<span class="s">"error message"</span>,oErrors.<span class="f">GetError</span>(oName),<span class="s">"Please type a name"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"no booking yet"</span>,oResult.Text,<span class="s">""</span>)
+
+	<span class="c"># with a name the marker goes away</span>
+	oName.Text = <span class="s">"Ann"</span>
+	oBook.<span class="f">PerformClick</span>()
+	<span class="f">dnAssert</span>(<span class="s">"no error"</span>,oErrors.<span class="f">GetError</span>(oName),<span class="s">""</span>)
+	<span class="f">dnAssert</span>(<span class="s">"booked"</span>,oResult.Text,<span class="s">"Booked for Ann: arrival 10 May 2030, 693"</span>)
+
+	<span class="c"># the date picker keeps its limits</span>
+	oDate.Value = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2030</span>,<span class="n">12</span>,<span class="n">31</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the last day"</span>,oDate.Value.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>),<span class="s">"2030-12-31"</span>)</code></pre></div>
 <div class="callout note"><span class="t">Note</span><p>The names of the controls that the event code uses are global variables (the tutorial <a href="tut-11-first-window.html">Your first window</a>). The button is kept in <code>oBook</code>, so the test does not need to count the controls of the form.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>the date picker with limits and formats,</li><li>the track bar and its change event,</li><li>radio buttons in a group box,</li><li>tool tips and the error marker,</li><li>a price that is calculated in one function.</li></ul>

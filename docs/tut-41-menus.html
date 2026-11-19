@@ -353,6 +353,27 @@ nActions = <span class="n">0</span>
 <div class="callout note"><span class="t">Note</span><p>Windows Forms places docked controls starting from the <strong>last added</strong>. The text area (<code>Dock = "Fill"</code>) is added first, then the toolbar, then the menu bar, then the status bar. The menu bar ends up at the very top, the toolbar below it, the status bar at the bottom, and the text area gets what is left. If you add the menu before the toolbar, the toolbar is placed above the menu. See the tutorial <a href="tut-13-editor.html">A small text editor</a>.</p></div>
 <h3 id="telling-the-user-what-happened">Telling the user what happened<a class="anchor" href="#telling-the-user-what-happened">#</a></h3>
 <p>Every action calls <code>say(message)</code>, which writes into the status bar and counts the calls. The test uses the counter: three actions from three different places, three reports.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_menus.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_menus.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_menus.ring: run with  ring ch10_menus.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="c"># the same action from the menu, the toolbar and the context menu</span>
+	oText.Text = <span class="s">"hello menus"</span>
+	oForm.MainMenuStrip.Items.<span class="f">Item</span>(<span class="n">2</span>).DropDownItems.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">PerformClick</span>()       <span class="c"># Text &gt; Upper case</span>
+	<span class="f">dnAssert</span>(<span class="s">"the menu item ran the action"</span>,oText.Text,<span class="s">"HELLO MENUS"</span>)
+	oText.Text = <span class="s">"second"</span>
+	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).Items.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">PerformClick</span>()                           <span class="c"># the toolbar (the 2nd control added): button "Upper"</span>
+	<span class="f">dnAssert</span>(<span class="s">"the toolbar button ran the same action"</span>,oText.Text,<span class="s">"SECOND"</span>)
+	oText.Text = <span class="s">"third"</span>
+	oText.ContextMenuStrip.Items.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()                           <span class="c"># the context menu "Upper case"</span>
+	<span class="f">dnAssert</span>(<span class="s">"the context menu too"</span>,oText.Text,<span class="s">"THIRD"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"three actions were reported"</span>,nActions,<span class="n">3</span>)
+	<span class="c"># the ticked item</span>
+	oWrapItem.Checked = <span class="k">False</span>
+	<span class="f">dnAssert</span>(<span class="s">"word wrap off"</span>,oText.WordWrap,<span class="k">False</span>)
+	<span class="f">dnAssert</span>(<span class="s">"and the status says so"</span>,oStatus.Items.<span class="f">Item</span>(<span class="n">0</span>).Text,<span class="s">"Word wrap is off"</span>)
+	<span class="c"># the shortcut keys are properties of the items</span>
+	<span class="f">dnAssert</span>(<span class="s">"a shortcut key (a combination of flags: C and Control)"</span>,oForm.MainMenuStrip.Items.<span class="f">Item</span>(<span class="n">1</span>).DropDownItems.<span class="f">Item</span>(<span class="n">1</span>).ShortcutKeys,<span class="s">"C, Control"</span>)</code></pre></div>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
 <p><code>PerformClick()</code> runs a menu item, a toolbar button or a context menu entry as if it were clicked. The test reaches each one through the control collections (<code>Items.Item(n)</code>) and checks that the <strong>same function</strong> ran: the text was turned to upper case in all three cases. It also toggles the tick and checks word wrap and the status text, and reads the <code>ShortcutKeys</code> property of <em>Copy</em>: <code>C, Control</code> (a combination of two flags, written in this order by .NET).</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>

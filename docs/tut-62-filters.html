@@ -471,6 +471,36 @@ nFile = <span class="n">0</span>
 <ul><li>a 14-byte file header (<code>"BM"</code>, the file size, where the pixels start),</li><li>a 40-byte picture header (width, height, 24 bits per pixel, ...),</li><li>the pixels: row by row <strong>from the bottom row up</strong>, each pixel as <strong>blue, green, red</strong>, each row padded to a multiple of 4 bytes (120 pixels × 3 = 360 is).</li></ul>
 <p>Numbers in the header are <strong>little-endian</strong>: the least significant byte comes first (<code>le32</code> and <code>le16</code>). The same idea is in the tutorial <a href="tut-45-binary.html">Binary files</a>. A Ring text is a list of bytes, so <code>char(n)</code> builds a byte and <code>write(file, text)</code> writes them.</p>
 <p><code>showPixels</code> writes <code>imageN.bmp</code> and loads it with <code>dnNew("Bitmap",[ :filename = cFile ])</code>. A new name for each image is used because a loaded image keeps its file open; the folder is deleted when the window closes. The self test reads one pixel back from the picture box (the sun, red 255 and blue 0) to prove that the file was written correctly.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch12_filters.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_filters.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_filters.ring: run with  ring ch12_filters.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	applyFilter(<span class="s">"Gray"</span>)
+	lGray = <span class="k">True</span>
+	<span class="k">for</span> aRow <span class="k">in</span> aResult
+		<span class="k">for</span> aPixel <span class="k">in</span> aRow
+			<span class="k">if</span> aPixel[<span class="n">1</span>] != aPixel[<span class="n">2</span>] <span class="k">or</span> aPixel[<span class="n">2</span>] != aPixel[<span class="n">3</span>]
+				lGray = <span class="k">False</span>
+			<span class="k">ok</span>
+		<span class="k">next</span>
+	<span class="k">next</span>
+	<span class="f">dnAssert</span>(<span class="s">"gray: red, green and blue are equal"</span>,lGray,<span class="k">True</span>)
+	applyFilter(<span class="s">"Invert"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"invert: the sky red channel"</span>,aResult[<span class="n">1</span>][<span class="n">1</span>][<span class="n">1</span>],<span class="n">255</span> - aSource[<span class="n">1</span>][<span class="n">1</span>][<span class="n">1</span>])
+	applyFilter(<span class="s">"Brighter"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"brighter never goes over 255"</span>,clamp(<span class="n">250</span> + <span class="n">40</span>),<span class="n">255</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the white sun cannot get brighter"</span>,aResult[<span class="n">1</span>][<span class="n">1</span>][<span class="n">3</span>] &lt;= <span class="n">255</span>,<span class="k">True</span>)
+	applyFilter(<span class="s">"Blur"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"blur keeps the size"</span>,len(aResult) = C_HEIGHT <span class="k">and</span> len(aResult[<span class="n">1</span>]) = C_WIDTH,<span class="k">True</span>)
+	applyFilter(<span class="s">"Edges"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a flat area has no edge"</span>,aResult[<span class="n">85</span>][<span class="n">5</span>][<span class="n">1</span>],<span class="n">0</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the house wall has an edge"</span>,aResult[<span class="n">60</span>][<span class="n">20</span>][<span class="n">1</span>] &gt; <span class="n">0</span> <span class="k">or</span> aResult[<span class="n">60</span>][<span class="n">19</span>][<span class="n">1</span>] &gt; <span class="n">0</span>,<span class="k">True</span>)
+	applyFilter(<span class="s">"Original"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"original is unchanged"</span>,aResult[<span class="n">1</span>][<span class="n">1</span>][<span class="n">1</span>],aSource[<span class="n">1</span>][<span class="n">1</span>][<span class="n">1</span>])
+	<span class="f">dnAssert</span>(<span class="s">"the picture box shows a bitmap of the right size"</span>,oAfter.Image.Width = C_WIDTH <span class="k">and</span> oAfter.Image.Height = C_HEIGHT,<span class="k">True</span>)
+	oColor = oAfter.Image.<span class="f">GetPixel</span>(<span class="n">94</span>,<span class="n">22</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the sun was written to the file correctly (red)"</span>,oColor.R,<span class="n">255</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the sun was written to the file correctly (blue)"</span>,oColor.B,<span class="n">0</span>)</code></pre></div>
 <div class="callout tip"><span class="t">Tip</span><p>Try the same with <code>uiPictureBox</code> and a photo of your own: load it with <code>Bitmap</code>, read the pixels once into lists, and use the filters from this tutorial. Reading one pixel at a time is slow, so keep photos small, or look at <code>LockBits</code> for fast access.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>pixels as numbers and filters as functions,</li><li>3 × 3 neighbourhoods and writing to a new list,</li><li>clamping,</li><li>writing a BMP file and little-endian numbers,</li><li>avoiding thousands of bridge calls.</li></ul>

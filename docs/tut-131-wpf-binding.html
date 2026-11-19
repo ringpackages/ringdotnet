@@ -286,6 +286,44 @@ oWindow = <span class="s">""</span>
 <p><code>IsEnabled="{Binding ElementName=allow, Path=IsChecked}"</code> connects a button to a check box: unchecking switches the button off. <code>Path=SelectedItem.Content</code> follows the chosen item of a list and takes its text. These are the cases where a program without bindings needs an event for each control and a function that updates the others.</p>
 <h3 id="the-test">The test<a class="anchor" href="#the-test">#</a></h3>
 <p>The test acts like the user: it sets the slider value, types into the text box, clears the check box and chooses an item, and after each step it reads the property that should have followed. The checks are the proof that the bindings are right.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch11_wpf_binding.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch11_wpf_binding.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch11_wpf_binding.ring: run with  ring ch11_wpf_binding.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	oSlider = <span class="f">wpfFind</span>(oWindow,<span class="s">"amount"</span>)
+	oBox = <span class="f">wpfFind</span>(oWindow,<span class="s">"box"</span>)
+	oBar = <span class="f">wpfFind</span>(oWindow,<span class="s">"bar"</span>)
+	oText = <span class="f">wpfFind</span>(oWindow,<span class="s">"text"</span>)
+	oSend = <span class="f">wpfFind</span>(oWindow,<span class="s">"send"</span>)
+	oAllow = <span class="f">wpfFind</span>(oWindow,<span class="s">"allow"</span>)
+	oColors = <span class="f">wpfFind</span>(oWindow,<span class="s">"colors"</span>)
+	oChosen = <span class="f">wpfFind</span>(oWindow,<span class="s">"chosen"</span>)
+
+	<span class="c"># the starting values follow the slider</span>
+	<span class="f">dnAssert</span>(<span class="s">"the text box shows the slider"</span>,oBox.Text,<span class="s">"20"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the bar shows the slider"</span>,oBar.Value,<span class="n">20</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the text shows the slider"</span>,oText.Text,<span class="s">"20 percent"</span>)
+
+	<span class="c"># moving the slider (the program does what the user does) changes the three of them</span>
+	oSlider.Value = <span class="n">75</span>
+	<span class="f">dnAssert</span>(<span class="s">"slider to text box"</span>,oBox.Text,<span class="s">"75"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"slider to bar"</span>,oBar.Value,<span class="n">75</span>)
+	<span class="f">dnAssert</span>(<span class="s">"slider to text"</span>,oText.Text,<span class="s">"75 percent"</span>)
+
+	<span class="c"># TwoWay: typing in the text box moves the slider</span>
+	oBox.Text = <span class="s">"40"</span>
+	<span class="f">dnAssert</span>(<span class="s">"text box to slider"</span>,oSlider.Value,<span class="n">40</span>)
+	<span class="f">dnAssert</span>(<span class="s">"and so to the bar"</span>,oBar.Value,<span class="n">40</span>)
+
+	<span class="c"># a check box switches the button on and off</span>
+	<span class="f">dnAssert</span>(<span class="s">"the button is on"</span>,oSend.IsEnabled,<span class="k">True</span>)
+	oAllow.IsChecked = <span class="k">False</span>
+	<span class="f">dnAssert</span>(<span class="s">"the button is off"</span>,oSend.IsEnabled,<span class="k">False</span>)
+
+	<span class="c"># a list: nothing chosen shows the fallback text, a choice shows the item</span>
+	<span class="f">dnAssert</span>(<span class="s">"fallback"</span>,oChosen.Text,<span class="s">"nothing chosen"</span>)
+	oColors.SelectedIndex = <span class="n">1</span>
+	<span class="f">dnAssert</span>(<span class="s">"the chosen item"</span>,oChosen.Text,<span class="s">"Green"</span>)</code></pre></div>
 <div class="callout note"><span class="t">Note</span><p>The controls here are bound to each other. A binding to the <em>data</em> of your program (a list of objects) needs .NET objects that tell WPF when they change (<code>INotifyPropertyChanged</code>), which cannot be written in Ring; a program of this kind puts the values into the controls with code, as the tutorial <a href="tut-15-wpf.html">WPF</a> does.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>the binding syntax with <code>ElementName</code> and <code>Path</code>,</li><li>one-way and two-way bindings,</li><li><code>StringFormat</code> and <code>FallbackValue</code>,</li><li>bindings between a check box and a button, and between a list and a text,</li><li>a test that reads the result of the bindings.</li></ul>

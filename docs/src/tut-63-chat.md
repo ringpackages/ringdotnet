@@ -49,6 +49,10 @@ The two windows live in the same program only to make the tutorial easy to run; 
 
 The self test sends a line from Alice and calls `waitForText`, which pumps up to 50 times with a 20 ms sleep until both windows show the line — network messages arrive a little later, so a test must wait for them instead of checking at once. Then it checks that Bob's line arrives in both windows, that the server has two clients, and that an empty text is not sent.
 
+The checks of this program are in a separate file, `selftest/ch12_chat.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch12_chat.ring}}
+
 ## What you learned
 
 - server and clients with `TcpListener` and `TcpClient`,

@@ -314,6 +314,21 @@ oStatus = <span class="s">""</span>
 <div class="callout note"><span class="t">Note</span><p>Read the output <strong>before</strong> <code>WaitForExit</code>, as the program does. If the output is big and nobody reads it, the program blocks when its buffer is full and <code>WaitForExit</code> waits forever. (For both streams of a very chatty program you would read one of them asynchronously.)</p></div>
 <h3 id="failure">Failure<a class="anchor" href="#failure">#</a></h3>
 <p>If the program cannot be started at all (a wrong <code>FileName</code>), <code>Process.Start</code> raises an error: the <code>try</code> / <code>catch</code> shows it in the output box and sets the status to <em>Failed</em>. A program that starts and <em>returns an error code</em> is a different case: you see its messages in <code>StandardError</code> and the exit code in the status line, as the test shows with a folder that does not exist.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch12_runner.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_runner.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_runner.ring: run with  ring ch12_runner.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	oCommand.Text = <span class="s">"echo one &amp;&amp; echo two"</span>
+	runCommand()
+	<span class="f">dnAssert</span>(<span class="s">"the output has both lines"</span>,substr(oOutput.Text,<span class="s">"one"</span>) &gt; <span class="n">0</span> <span class="k">and</span> substr(oOutput.Text,<span class="s">"two"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the exit code is shown"</span>,substr(oStatus.Text,<span class="s">"Exit code 0"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	oCommand.Text = <span class="s">"dir c:\folder\that\does\not\exist"</span>
+	runCommand()
+	<span class="f">dnAssert</span>(<span class="s">"an error text appears"</span>,len(trim(oOutput.Text)) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the exit code is not 0"</span>,substr(oStatus.Text,<span class="s">"Exit code 0"</span>) = <span class="n">0</span>,<span class="k">True</span>)
+	oCommand.Text = <span class="s">"echo done"</span>
+	runCommand()
+	<span class="f">dnAssert</span>(<span class="s">"the status"</span>,substr(oStatus.Text,<span class="s">" ms"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div>
 <h3 id="the-output-box">The output box<a class="anchor" href="#the-output-box">#</a></h3>
 <p>A <code>TextBox</code> with <code>Multiline</code>, <code>ReadOnly</code> (the user cannot type in it), a monospaced <code>Font</code> (<code>Consolas</code>) and black background with green text looks like a console. <code>ScrollBars</code> come from <code>uiMemo</code>.</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>

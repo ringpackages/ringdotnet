@@ -337,6 +337,22 @@ lChanged = <span class="k">False</span>
 <div class="callout note"><span class="t">Note</span><p>Look at <code>loadFile</code>: the text is first read into a variable (<code>cContent = new File().ReadAllText(cPath)</code>) and then assigned (<code>oEditor.Text = cContent</code>). Writing <code>oEditor.Text = new File().ReadAllText(cPath)</code> loses the assignment in Ring — a method of a <em>new</em> object on the right side of a property assignment. Use a variable.</p></div>
 <h3 id="the-test">The test<a class="anchor" href="#the-test">#</a></h3>
 <p><code>selfTest</code> types into the editor, saves to a temporary file, creates a new document, opens the file again and checks each step. Because the real dialogs would wait for a person, the test calls <code>loadFile</code> and <code>saveFile</code> with a known file name.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_editor.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_editor.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_editor.ring: run with  ring ch10_editor.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	oEditor.Text = <span class="s">"Hello from the test"</span>
+	<span class="f">dnAssert</span>(<span class="s">"the text changed"</span>,lChanged,<span class="k">True</span>)
+	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial13.txt"</span>])
+	cFileName = cTemp
+	saveFile()
+	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cTemp),<span class="s">"Hello from the test"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"no longer changed"</span>,lChanged,<span class="k">False</span>)
+	newFile()
+	<span class="f">dnAssert</span>(<span class="s">"new file is empty"</span>,oEditor.Text,<span class="s">""</span>)
+	loadFile(cTemp)
+	<span class="f">dnAssert</span>(<span class="s">"opened again"</span>,oEditor.Text,<span class="s">"Hello from the test"</span>)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cTemp)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Idea</th><th>Example</th></tr></thead><tbody><tr><td>a menu from a list</td><td><code>uiMenu(oForm, [...])</code></td></tr><tr><td>fill the window</td><td><code>Dock = "Fill"</code></td></tr><tr><td>add the filling control first</td><td>editor, then menu, then status bar</td></tr><tr><td>status information</td><td><code>StatusStrip</code></td></tr><tr><td>file dialogs</td><td><code>uiOpenFileName</code>, <code>uiSaveFileName</code></td></tr><tr><td>react to changes</td><td><code>setTextChangedEvent</code></td></tr></tbody></table></div>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

@@ -355,6 +355,46 @@ nStrokes = <span class="n">0</span>
 <p><code>Pen</code> has a color and a <code>Width</code>. <code>StartCap = "Round"</code> and <code>EndCap = "Round"</code> make the ends of each line round, so the small steps join without gaps. A line of length zero draws nothing, so the first point of a stroke is a filled circle with the size of the pen: a click without a move leaves a dot.</p>
 <h3 id="the-test">The test<a class="anchor" href="#the-test">#</a></h3>
 <p>The test acts like a user: a stroke from <code>(50, 100)</code> to <code>(150, 100)</code> in steps of 10 pixels, then it reads the pixel in the middle (black) and the one above the line (white). A move with the button up leaves the canvas white. A click in red with a thick pen leaves a red dot. <code>Save</code> writes a PNG, and <strong>Clear</strong> makes the picture white again. The test needs no mouse and no screen position, and it checks the <em>result</em>: the pixels.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_paint.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_paint.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_paint.ring: run with  ring ch10_paint.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="c"># a new canvas is white</span>
+	<span class="f">dnAssert</span>(<span class="s">"white at the start"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">100</span>).Name,<span class="s">"ffffffff"</span>)
+
+	<span class="c"># a stroke from (50,100) to (150,100): the mouse goes down, moves in steps and goes up</span>
+	mouseDown(<span class="n">50</span>,<span class="n">100</span>)
+	<span class="k">for</span> nX = <span class="n">60</span> <span class="k">to</span> <span class="n">150</span> <span class="k">step</span> <span class="n">10</span>
+		mouseMove(nX,<span class="n">100</span>)
+	<span class="k">next</span>
+	mouseUp()
+	<span class="f">dnAssert</span>(<span class="s">"black in the middle"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">100</span>).Name,<span class="s">"ff000000"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"white above"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">80</span>).Name,<span class="s">"ffffffff"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"one stroke"</span>,nStrokes,<span class="n">1</span>)
+
+	<span class="c"># moving with the button up draws nothing</span>
+	mouseMove(<span class="n">200</span>,<span class="n">200</span>)
+	mouseMove(<span class="n">250</span>,<span class="n">200</span>)
+	<span class="f">dnAssert</span>(<span class="s">"no line without the button"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">225</span>,<span class="n">200</span>).Name,<span class="s">"ffffffff"</span>)
+
+	<span class="c"># a click without a move leaves a dot, in another color and a thick pen</span>
+	setColor(<span class="s">"Red"</span>)
+	nPenSize = <span class="n">12</span>
+	mouseDown(<span class="n">300</span>,<span class="n">150</span>)
+	mouseUp()
+	<span class="f">dnAssert</span>(<span class="s">"a red dot"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">300</span>,<span class="n">150</span>).Name,<span class="s">"ffff0000"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"two strokes"</span>,nStrokes,<span class="n">2</span>)
+
+	<span class="c"># the picture can be saved</span>
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([ <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-paint.png"</span> ])
+	oBitmap.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
+	<span class="f">dnAssert</span>(<span class="s">"the file has data"</span>,<span class="k">new</span> <span class="t">FileInfo</span>(cFile).Length &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
+
+	<span class="c"># clear: white again</span>
+	clearCanvas()
+	<span class="f">dnAssert</span>(<span class="s">"white after clear"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">100</span>).Name,<span class="s">"ffffffff"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"no strokes after clear"</span>,nStrokes,<span class="n">0</span>)</code></pre></div>
 <div class="callout note"><span class="t">Note</span><p>The picture box has the size of the bitmap. If a picture box is bigger than the bitmap and <code>SizeMode</code> stretches it, the pointer positions must be scaled to the bitmap first.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>the three mouse events and their arguments,</li><li>a stroke with a flag,</li><li>drawing on a bitmap and showing it in a picture box,</li><li>a test that calls the functions of the events and reads pixels.</li></ul>

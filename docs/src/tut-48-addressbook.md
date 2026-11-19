@@ -73,6 +73,10 @@ The key column `Id` is needed to know *which* contact a row is, but the user sho
 
 The test adds three contacts through the fields and the **Add** button, checks the database count and the grid rows, tries a contact without a name, searches `cairo`, selects a row and checks that the fields follow, updates, deletes (the test `uiAsk` answers yes) and checks the database and the grid again. This test is the best documentation of how the program should behave.
 
+The checks of this program are in a separate file, `selftest/ch12_addressbook.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch12_addressbook.ring}}
+
 ## What you learned
 
 - the database is the truth, the grid is a view,

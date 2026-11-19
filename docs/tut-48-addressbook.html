@@ -407,6 +407,34 @@ SELFTEST OK (9 checks)</code></pre></div>
 <p><code>reload()</code> clears the grid, and with it the selection: after an update the program does not know which row the user had. A friendlier version remembers the key and selects that row again (exercise 2).</p>
 <h3 id="the-test">The test<a class="anchor" href="#the-test">#</a></h3>
 <p>The test adds three contacts through the fields and the <strong>Add</strong> button, checks the database count and the grid rows, tries a contact without a name, searches <code>cairo</code>, selects a row and checks that the fields follow, updates, deletes (the test <code>uiAsk</code> answers yes) and checks the database and the grid again. This test is the best documentation of how the program should behave.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch12_addressbook.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_addressbook.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_addressbook.ring: run with  ring ch12_addressbook.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="k">for</span> aPerson <span class="k">in</span> [[<span class="s">"Ann"</span>,<span class="s">"555-0101"</span>,<span class="s">"Cairo"</span>],[<span class="s">"Bob"</span>,<span class="s">"555-0102"</span>,<span class="s">"Oslo"</span>],[<span class="s">"Cy"</span>,<span class="s">"555-0103"</span>,<span class="s">"Cairo"</span>]]
+		oName.Text = aPerson[<span class="n">1</span>]
+		oPhone.Text = aPerson[<span class="n">2</span>]
+		oCity.Text = aPerson[<span class="n">3</span>]
+		addContact()
+	<span class="k">next</span>
+	<span class="f">dnAssert</span>(<span class="s">"three contacts in the database"</span>,oDb.<span class="f">count</span>(<span class="s">"Contacts"</span>),<span class="n">3</span>)
+	<span class="f">dnAssert</span>(<span class="s">"three rows in the grid"</span>,oGrid.Rows.Count,<span class="n">3</span>)
+	oName.Text = <span class="s">""</span>
+	addContact()
+	<span class="f">dnAssert</span>(<span class="s">"a name is required"</span>,oStatus.Text,<span class="s">"  A contact needs a name"</span>)
+	oSearch.Text = <span class="s">"cairo"</span>
+	<span class="f">dnAssert</span>(<span class="s">"the search narrows the grid (case does not matter)"</span>,oGrid.Rows.Count,<span class="n">2</span>)
+	oSearch.Text = <span class="s">""</span>
+	oGrid.Rows.<span class="f">Item</span>(<span class="n">1</span>).Selected = <span class="k">True</span>
+	<span class="f">dnAssert</span>(<span class="s">"choosing a row fills the fields"</span>,oName.Text,<span class="s">"Bob"</span>)
+	oName.Text = <span class="s">"Robert"</span>
+	updateContact()
+	<span class="f">dnAssert</span>(<span class="s">"an update reaches the database"</span>,<span class="f">dbValue</span>(oDb.<span class="f">byKey</span>(<span class="s">"Contacts"</span>,<span class="n">2</span>),<span class="s">"Name"</span>),<span class="s">"Robert"</span>)
+	oGrid.Rows.<span class="f">Item</span>(<span class="n">1</span>).Selected = <span class="k">True</span>              <span class="c"># reload() cleared the selection: choose Robert again</span>
+	deleteContact()                                  <span class="c"># a test answers the question with yes</span>
+	<span class="f">dnAssert</span>(<span class="s">"a delete"</span>,oDb.<span class="f">count</span>(<span class="s">"Contacts"</span>),<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"Robert is gone"</span>,oDb.<span class="f">byKey</span>(<span class="s">"Contacts"</span>,<span class="n">2</span>),<span class="s">""</span>)
+	<span class="f">dnAssert</span>(<span class="s">"and the grid follows"</span>,oGrid.Rows.Count,<span class="n">2</span>)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>the database is the truth, the grid is a view,</li><li>one <code>reload()</code> after every change,</li><li>search with <code>LIKE</code> and parameters,</li><li><code>DataBindingComplete</code> for column settings,</li><li>test through the same controls the user uses.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

@@ -346,6 +346,51 @@ oFilesList = <span class="s">""</span>
 <p>A file dropped from the explorer arrives in the format <strong>FileDrop</strong>, and its data is a list of paths. <code>dropFiles</code> goes through the list with <code>toList()</code> and shows the file names (<code>Path.GetFileName</code>). A window or a list needs only <code>AllowDrop</code> and the two events; the paths are real, so the program can open the files.</p>
 <h3 id="testing-without-a-mouse">Testing without a mouse<a class="anchor" href="#testing-without-a-mouse">#</a></h3>
 <p>A test cannot drag with a mouse, so it makes the arguments that .NET would make: <code>new DataObject().New_([ :format = "Text", :data = "banana" ])</code> is the data, and <code>new DragEventArgs(data, keys, x, y, allowed, effect)</code> is the event argument. The test calls <code>dragEnter</code> and <code>dragDrop</code> with them and reads <code>Effect</code> and the lists. The functions are the same that the events call. Only <code>beginDrag</code>, which starts a real drag, is not called by the test.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_dragdrop.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_dragdrop.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_dragdrop.ring: run with  ring ch10_dragdrop.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="c"># a drag made by the test: a DataObject with the data, and the arguments that .NET would give to the event</span>
+<span class="k">func</span> <span class="f">makeArgs</span> cFormat,xData,nKeys
+	oData = <span class="k">new</span> <span class="t">DataObject</span>().<span class="f">New_</span>([ :format = cFormat, :data = xData ])
+	<span class="k">return</span> <span class="k">new</span> <span class="t">DragEventArgs</span>(oData, nKeys, <span class="n">10</span>, <span class="n">10</span>, <span class="s">"Copy, Move"</span>, <span class="s">"None"</span>)
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="f">dnAssert</span>(<span class="s">"four fruits"</span>,oSource.Items.Count,<span class="n">4</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the basket accepts drops"</span>,oBasket.AllowDrop,<span class="k">True</span>)
+
+	<span class="c"># the mouse comes in with a text: without Ctrl the effect is Move, with Ctrl it is Copy</span>
+	oArgs = makeArgs(<span class="s">"Text"</span>,<span class="s">"apple"</span>,<span class="n">0</span>)
+	dragEnter(oArgs)
+	<span class="f">dnAssert</span>(<span class="s">"a move"</span>,oArgs.Effect,<span class="s">"Move"</span>)
+	oArgs = makeArgs(<span class="s">"Text"</span>,<span class="s">"apple"</span>,<span class="n">8</span>)
+	dragEnter(oArgs)
+	<span class="f">dnAssert</span>(<span class="s">"a copy with Ctrl"</span>,oArgs.Effect,<span class="s">"Copy"</span>)
+
+	<span class="c"># data that the target does not understand (a picture format): refused</span>
+	oArgs = makeArgs(<span class="s">"Bitmap"</span>,<span class="s">"not a text"</span>,<span class="n">0</span>)
+	dragEnter(oArgs)
+	<span class="f">dnAssert</span>(<span class="s">"refused"</span>,oArgs.Effect,<span class="s">"None"</span>)
+
+	<span class="c"># the drop: the text is in the basket</span>
+	oArgs = makeArgs(<span class="s">"Text"</span>,<span class="s">"banana"</span>,<span class="n">0</span>)
+	dragEnter(oArgs)
+	dragDrop(oArgs)
+	<span class="f">dnAssert</span>(<span class="s">"the basket has it"</span>,oBasket.Items.<span class="f">Item</span>(<span class="n">0</span>),<span class="s">"banana"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the status"</span>,oStatus.Text,<span class="s">"Dropped: banana (Move)"</span>)
+
+	<span class="c"># the same fruit again: not added twice, and the source is told that nothing was taken</span>
+	oArgs = makeArgs(<span class="s">"Text"</span>,<span class="s">"banana"</span>,<span class="n">0</span>)
+	dragEnter(oArgs)
+	dragDrop(oArgs)
+	<span class="f">dnAssert</span>(<span class="s">"not twice"</span>,oBasket.Items.Count,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"nothing taken"</span>,oArgs.Effect,<span class="s">"None"</span>)
+
+	<span class="c"># the drop of files</span>
+	oArgs = makeArgs(<span class="s">"FileDrop"</span>,[ <span class="s">"C:/work/report.txt"</span>,<span class="s">"C:/work/photo.png"</span> ],<span class="n">0</span>)
+	dropFiles(oArgs)
+	<span class="f">dnAssert</span>(<span class="s">"two files"</span>,oFilesList.Items.Count,<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the first name"</span>,oFilesList.Items.<span class="f">Item</span>(<span class="n">0</span>),<span class="s">"report.txt"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the files status"</span>,oStatus.Text,<span class="s">"2 files dropped"</span>)</code></pre></div>
 <div class="callout note"><span class="t">Note</span><p>Ring code runs on the Ring thread, and the drag events do too, so the handlers can use the controls directly. <code>DoDragDrop</code> runs its own message loop until the drop, which is why events keep arriving during it.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>starting a drag and the meaning of its result,</li><li>accepting a drop and choosing the effect,</li><li>Ctrl for copy and the bit test <code>&amp; 8</code>,</li><li>dropping files,</li><li>building the data and the arguments for a test.</li></ul>

@@ -66,6 +66,10 @@ The position comes from arithmetic: the row is the cell number divided by 3, the
 
 The test first checks the **rules** with boards made on the spot: an empty board, a row, a column, a diagonal, a full board with no winner. Then it **plays** games by calling `play` — X takes the top row, the extra move is refused, `newGame` resets, and a full game ends in a draw. No mouse involved, and the tests run in a fraction of a second.
 
+The checks of this program are in a separate file, `selftest/ch12_tictactoe.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch12_tictactoe.ring}}
+
 ## What you learned
 
 - state, rules, moves, window: four layers,

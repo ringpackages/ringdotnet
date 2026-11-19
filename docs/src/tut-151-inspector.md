@@ -50,6 +50,10 @@ The rows are made as `ListViewItem` with two sub items and sorted by the name of
 
 `valueOf("Host")` finds the row with that name and returns its value. The test checks values that it knows: the host, the port and the scheme of the address; the year, the day of the week and the hour of the date; the name and the length (16 bytes) of the file that the program wrote; and the length of the text of the builder. It selects each object through the combo box, so the change event is part of the test too.
 
+The checks of this program are in a separate file, `selftest/ch13_inspector.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch13_inspector.ring}}
+
 > [!NOTE] This is the idea of the object inspectors of every debugger. A property can have side effects (it may start work), so inspecting a *foreign* object can change it; the properties of these four objects only read.
 
 ## What you learned

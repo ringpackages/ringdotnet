@@ -38,6 +38,10 @@ The text box has the event `TextChanged`; its code sets the global `lChanged` to
 
 A message box waits for a person, so the function `askSave` first looks at `cTestAnswer`: when a test has set it, that is the answer. The test sets `"Cancel"` and calls `oForm.Close()`: the form stays open, was asked once, and nothing was written. Then it sets `"Yes"` and closes again: the file has the new text, the flag is false and the form closed. The same function asks a real person when `cTestAnswer` is empty. Writing a question as a function with an answer that can be set from outside is the way to test any program that waits for the user.
 
+The checks of this program are in a separate file, `selftest/ch10_closing.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_closing.ring}}
+
 > [!NOTE] `Close()` on a form that was shown with `ShowDialog` also raises `FormClosing`; the dialog result is set by the button. A form that was **hidden** with `Hide()` is not closed and does not raise the event.
 
 ## What you learned

@@ -351,6 +351,25 @@ aButtons = []
 <p><code>play(nCell)</code> ignores the move when the game is over or the cell is taken. Otherwise it puts the letter into the board <em>and</em> on the button, checks for a winner or a full board, and changes the turn. The status label always tells what happens next.</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
 <p>The test first checks the <strong>rules</strong> with boards made on the spot: an empty board, a row, a column, a diagonal, a full board with no winner. Then it <strong>plays</strong> games by calling <code>play</code> — X takes the top row, the extra move is refused, <code>newGame</code> resets, and a full game ends in a draw. No mouse involved, and the tests run in a fraction of a second.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch12_tictactoe.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_tictactoe.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_tictactoe.ring: run with  ring ch12_tictactoe.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="f">dnAssert</span>(<span class="s">"an empty board has no winner"</span>,winnerOf([<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>]),<span class="s">""</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a row"</span>,winnerOf([<span class="s">"X"</span>,<span class="s">"X"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">"O"</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>]),<span class="s">"X"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a column"</span>,winnerOf([<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">""</span>,<span class="s">""</span>]),<span class="s">"O"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a diagonal"</span>,winnerOf([<span class="s">"X"</span>,<span class="s">"O"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">"X"</span>]),<span class="s">"X"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a full board without a winner"</span>,boardFull([<span class="s">"X"</span>,<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">"X"</span>,<span class="s">"O"</span>,<span class="s">"O"</span>,<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">"X"</span>]),<span class="k">True</span>)
+
+	<span class="c"># a game: X takes the top row while O plays elsewhere</span>
+	play(<span class="n">1</span>) play(<span class="n">4</span>) play(<span class="n">2</span>) play(<span class="n">5</span>) play(<span class="n">3</span>)
+	<span class="f">dnAssert</span>(<span class="s">"X wins"</span>,oStatus.Text,<span class="s">"X wins!"</span>)
+	play(<span class="n">9</span>)                                          <span class="c"># the game is over: ignored</span>
+	<span class="f">dnAssert</span>(<span class="s">"no more moves after the end"</span>,aBoard[<span class="n">9</span>],<span class="s">""</span>)
+	newGame()
+	<span class="f">dnAssert</span>(<span class="s">"a new game"</span>,oStatus.Text,<span class="s">"X to play"</span>)
+	play(<span class="n">1</span>) play(<span class="n">2</span>) play(<span class="n">3</span>) play(<span class="n">5</span>) play(<span class="n">4</span>) play(<span class="n">6</span>) play(<span class="n">8</span>) play(<span class="n">7</span>) play(<span class="n">9</span>)
+	<span class="f">dnAssert</span>(<span class="s">"a draw"</span>,oStatus.Text,<span class="s">"A draw"</span>)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>state, rules, moves, window: four layers,</li><li>data that describes the game (the eight lines),</li><li>controls from a loop, with click code built as a text,</li><li>tests that play.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

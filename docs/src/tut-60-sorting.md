@@ -43,6 +43,10 @@ Press **Sort** with each algorithm on the same bars (**Shuffle** makes a new ord
 
 `nextRandom` is a tiny random generator with a fixed start (`nSeed`), so that the screenshot and the test are always the same. Use `Random` with no fixed seed when you want different bars each time.
 
+The checks of this program are in a separate file, `selftest/ch12_sorting.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch12_sorting.ring}}
+
 > [!TIP] The pattern "record a list of events, then play it back" is useful in many places: a replay of a game, an undo history (the tutorial [Undo, redo and queues](tut-58-undo.html)), or a slow motion view of any algorithm.
 
 ## What you learned

@@ -306,6 +306,28 @@ nShown = <span class="n">0</span>                        <span class="c"># how m
 <p>The tray keeps the icon of a program that ended without removing it, until the mouse moves over it. The <code>FormClosed</code> event sets <code>Visible = False</code> and calls <code>Dispose()</code> so the icon goes away with the program.</p>
 <h3 id="the-test">The test<a class="anchor" href="#the-test">#</a></h3>
 <p>The test checks the icon, the tip and the menu, hides the window and checks that the window is hidden and the icon is not, then brings the window back through <code>showFromTray</code> and through the menu item (<code>PerformClick</code>). Nothing needs the real tray.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_tray.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_tray.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_tray.ring: run with  ring ch10_tray.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="f">dnAssert</span>(<span class="s">"the icon is visible"</span>,oTray.Visible,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the tip"</span>,oTray.Text,<span class="s">"Tray demo (double-click to open)"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"two menu items"</span>,oMenu.Items.Count,<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the first menu item"</span>,oMenu.Items.<span class="f">Item</span>(<span class="n">0</span>).Text,<span class="s">"Open"</span>)
+
+	<span class="c"># hide: the window is not visible, the icon still is</span>
+	hideToTray()
+	<span class="f">dnAssert</span>(<span class="s">"the window is hidden"</span>,oForm.Visible,<span class="k">False</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the icon stays"</span>,oTray.Visible,<span class="k">True</span>)
+
+	<span class="c"># the double click (or the menu item Open) brings it back</span>
+	showFromTray()
+	<span class="f">dnAssert</span>(<span class="s">"the window is back"</span>,oForm.Visible,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the status"</span>,oStatus.Text,<span class="s">"Back from the tray 1 time(s)"</span>)
+
+	<span class="c"># the menu item runs the same function</span>
+	oMenu.Items.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">PerformClick</span>()
+	<span class="f">dnAssert</span>(<span class="s">"the menu item Open"</span>,nShown,<span class="n">2</span>)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>a tray icon with a tip and a menu,</li><li>hiding a window and bringing it back,</li><li>the balloon message,</li><li>removing the icon at the end.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

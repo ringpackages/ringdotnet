@@ -329,6 +329,17 @@ oForm.<span class="f">setKeyDownEvent</span>(<span class="s">"keyPressed(aDotNet
 <p>By default the <em>control that has the focus</em> gets the keys. <code>KeyPreview = True</code> lets the form see them first. The event arguments are <code>[sender, eventArgs]</code>; <code>aDotNetArgs[2].KeyCode</code> is the key as a text: <code>"Left"</code>, <code>"Right"</code>, <code>"A"</code>, <code>"Space"</code>. (If the form contains buttons that steal the arrow keys, use <code>uiGameKeys</code>: see <a href="winforms.html#keyboard-in-games">Windows Forms</a>.)</p>
 <h3 id="testing-a-game">Testing a game<a class="anchor" href="#testing-a-game">#</a></h3>
 <p>A test cannot wait for animation. <code>selfTest</code> stops the timer, calls <code>step()</code> three times and checks the numbers. It also presses <code>Left</code> by calling <code>keyPressed("Left")</code> and checks the paddle position, and reads a pixel from the canvas (<code>oCanvas.pixel(x,y)</code>) to prove that the ball is drawn.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_bounce.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_bounce.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_bounce.ring: run with  ring ch10_bounce.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	oTimer.<span class="f">Stop</span>()
+	nBefore = nX
+	<span class="k">step</span>() <span class="k">step</span>() <span class="k">step</span>()
+	<span class="f">dnAssert</span>(<span class="s">"the ball moved"</span>,nX,nBefore + <span class="n">3</span> * nDX)
+	keyPressed(<span class="s">"Left"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the paddle moved"</span>,nPaddle,<span class="n">130</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the ball is orange"</span>,oCanvas.<span class="f">pixel</span>(nX,nY),<span class="s">"ffffa500"</span>)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>state, update, draw, timer, input,</li><li><code>UiCanvas</code> for drawing, <code>show()</code> to display,</li><li><code>KeyPreview</code> and <code>KeyCode</code>,</li><li>stop the timer in tests and call the update by hand.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

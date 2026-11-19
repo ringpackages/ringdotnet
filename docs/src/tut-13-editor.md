@@ -50,6 +50,10 @@ A `StatusStrip` holds `ToolStripStatusLabel` items. Change a label's `Text` to s
 
 `selfTest` types into the editor, saves to a temporary file, creates a new document, opens the file again and checks each step. Because the real dialogs would wait for a person, the test calls `loadFile` and `saveFile` with a known file name.
 
+The checks of this program are in a separate file, `selftest/ch10_editor.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_editor.ring}}
+
 ## What you learned
 
 | Idea | Example |

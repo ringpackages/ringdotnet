@@ -313,6 +313,29 @@ lClosed = <span class="k">False</span>
 <p><code>setFormClosedEvent</code> runs <em>after</em> the form closed. It is too late to stop the close, but it is the place to release things (a timer, a file, a connection). The test uses it to know that the form really closed: after the answer Cancel <code>lClosed</code> is false, after Yes it is true.</p>
 <h3 id="a-question-that-a-test-can-answer">A question that a test can answer<a class="anchor" href="#a-question-that-a-test-can-answer">#</a></h3>
 <p>A message box waits for a person, so the function <code>askSave</code> first looks at <code>cTestAnswer</code>: when a test has set it, that is the answer. The test sets <code>"Cancel"</code> and calls <code>oForm.Close()</code>: the form stays open, was asked once, and nothing was written. Then it sets <code>"Yes"</code> and closes again: the file has the new text, the flag is false and the form closed. The same function asks a real person when <code>cTestAnswer</code> is empty. Writing a question as a function with an answer that can be set from outside is the way to test any program that waits for the user.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_closing.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_closing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_closing.ring: run with  ring ch10_closing.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="c"># no changes yet: closing would not ask anything</span>
+	<span class="f">dnAssert</span>(<span class="s">"no changes"</span>,lChanged,<span class="k">False</span>)
+
+	<span class="c"># a change, and the user answers Cancel: the form stays open</span>
+	oEdit.Text = <span class="s">"my notes, changed"</span>
+	<span class="f">dnAssert</span>(<span class="s">"the change is known"</span>,lChanged,<span class="k">True</span>)
+	cTestAnswer = <span class="s">"Cancel"</span>
+	oForm.<span class="f">Close</span>()
+	<span class="f">dnAssert</span>(<span class="s">"asked once"</span>,nCloseAttempts,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"not closed after Cancel"</span>,lClosed,<span class="k">False</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the file was not written"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="k">False</span>)
+
+	<span class="c"># the user answers Yes: the changes are saved, and the form closes (here the test form is closed by uiTest after this code)</span>
+	cTestAnswer = <span class="s">"Yes"</span>
+	oForm.<span class="f">Close</span>()
+	<span class="f">dnAssert</span>(<span class="s">"asked again"</span>,nCloseAttempts,<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"saved on Yes"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile),<span class="s">"my notes, changed"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the form closed"</span>,lClosed,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"no changes left"</span>,lChanged,<span class="k">False</span>)</code></pre></div>
 <div class="callout note"><span class="t">Note</span><p><code>Close()</code> on a form that was shown with <code>ShowDialog</code> also raises <code>FormClosing</code>; the dialog result is set by the button. A form that was <strong>hidden</strong> with <code>Hide()</code> is not closed and does not raise the event.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li><code>FormClosing</code> and <code>Cancel</code>,</li><li>a flag for unsaved changes,</li><li>the Yes, No and Cancel answers,</li><li><code>FormClosed</code> for the clean up,</li><li>a question that a test can answer.</li></ul>

@@ -63,6 +63,10 @@ By default the *control that has the focus* gets the keys. `KeyPreview = True` l
 
 A test cannot wait for animation. `selfTest` stops the timer, calls `step()` three times and checks the numbers. It also presses `Left` by calling `keyPressed("Left")` and checks the paddle position, and reads a pixel from the canvas (`oCanvas.pixel(x,y)`) to prove that the ball is drawn.
 
+The checks of this program are in a separate file, `selftest/ch10_bounce.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_bounce.ring}}
+
 ## What you learned
 
 - state, update, draw, timer, input,

@@ -48,6 +48,10 @@ After each change the program calls `refresh`, which sets the count text and mak
 
 The test acts like the user: it types into the text box and clicks **Add** three times, checks the items, the count and the buttons, clicks one of the made buttons, selects an item and moves it, removes the selected item, and clears the list. Buttons are clicked by raising their `Click` event (`RaiseEvent`), as in the tutorial [WPF layout and styles](tut-38-wpf-layout.html).
 
+The checks of this program are in a separate file, `selftest/ch11_wpf_lists.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch11_wpf_lists.ring}}
+
 ## What you learned
 
 - adding, inserting, removing and clearing items,

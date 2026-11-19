@@ -31,6 +31,10 @@ The clipboard belongs to the whole computer: every program can read and replace 
 
 The clipboard belongs to the whole computer, and another program (a clipboard manager, for example) can have it open for a moment, so a read can answer *nothing* although there is text. `readText` therefore asks again, up to twenty times with a pause of 50 milliseconds, and returns an empty text only when there is really none. The same is done for the picture (`waitForImage`). A test that reads the clipboard needs this; a program that reads it for a user can show an error after the tries.
 
+The checks of this program are in a separate file, `selftest/ch10_clipboard.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_clipboard.ring}}
+
 ### A table
 
 A spreadsheet (Excel, LibreOffice, Google Sheets) pastes text as a **table** when the columns are separated by a tab (`char(9)`) and the rows by a new line. `copyTable` builds this text from a Ring list of rows, and nothing else is needed: paste it into a spreadsheet and the cells appear. The same text pasted into a plain text box shows the tabs as spaces.

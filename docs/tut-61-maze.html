@@ -419,6 +419,47 @@ nSeed = <span class="n">2024</span>
 <p>Cells on the path are small orange squares, the start is green and the exit red. Each cell draws only the walls that are not open (north and west for each cell, and the south and east borders at the edge). <code>oCanvas.line(x1, y1, x2, y2, color, width)</code> draws a wall.</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>
 <p>You cannot test a random maze against a fixed picture. The self test checks <strong>properties</strong> instead: the number of openings, the path starts at the exit and ends at the start, every step moves to a neighbour, and <strong>no step crosses a wall</strong>. Tests for properties keep working when you change the generator.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch12_maze.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_maze.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_maze.ring: run with  ring ch12_maze.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="c"># a perfect maze: C_COLUMNS * C_ROWS cells joined by exactly (cells - 1) openings</span>
+	nOpenings = <span class="n">0</span>
+	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> C_ROWS
+		<span class="k">for</span> nColumn = <span class="n">1</span> <span class="k">to</span> C_COLUMNS
+			nOpenings += len(aOpen[nRow][nColumn])
+		<span class="k">next</span>
+	<span class="k">next</span>
+	<span class="f">dnAssert</span>(<span class="s">"a perfect maze has cells - 1 openings"</span>,nOpenings / <span class="n">2</span>,C_COLUMNS * C_ROWS - <span class="n">1</span>)
+	solve()
+	<span class="f">dnAssert</span>(<span class="s">"the path starts at the exit"</span>,aPath[<span class="n">1</span>][<span class="n">1</span>] = C_ROWS <span class="k">and</span> aPath[<span class="n">1</span>][<span class="n">2</span>] = C_COLUMNS,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the path ends at the start"</span>,aPath[len(aPath)][<span class="n">1</span>] = <span class="n">1</span> <span class="k">and</span> aPath[len(aPath)][<span class="n">2</span>] = <span class="n">1</span>,<span class="k">True</span>)
+	lConnected = <span class="k">True</span>
+	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> len(aPath) - <span class="n">1</span>
+		<span class="k">if</span> fabs(aPath[nI][<span class="n">1</span>] - aPath[nI + <span class="n">1</span>][<span class="n">1</span>]) + fabs(aPath[nI][<span class="n">2</span>] - aPath[nI + <span class="n">1</span>][<span class="n">2</span>]) != <span class="n">1</span>
+			lConnected = <span class="k">False</span>
+		<span class="k">ok</span>
+	<span class="k">next</span>
+	<span class="f">dnAssert</span>(<span class="s">"every step of the path moves to a neighbour cell"</span>,lConnected,<span class="k">True</span>)
+	lThroughOpenings = <span class="k">True</span>
+	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> len(aPath) - <span class="n">1</span>
+		aThis = aPath[nI]
+		aThat = aPath[nI + <span class="n">1</span>]
+		cSide = <span class="s">"N"</span>
+		<span class="k">if</span> aThat[<span class="n">1</span>] &gt; aThis[<span class="n">1</span>]
+			cSide = <span class="s">"S"</span>
+		<span class="k">but</span> aThat[<span class="n">2</span>] &gt; aThis[<span class="n">2</span>]
+			cSide = <span class="s">"E"</span>
+		<span class="k">but</span> aThat[<span class="n">2</span>] &lt; aThis[<span class="n">2</span>]
+			cSide = <span class="s">"W"</span>
+		<span class="k">ok</span>
+		<span class="k">if</span> substr(aOpen[aThis[<span class="n">1</span>]][aThis[<span class="n">2</span>]],cSide) = <span class="n">0</span>
+			lThroughOpenings = <span class="k">False</span>
+		<span class="k">ok</span>
+	<span class="k">next</span>
+	<span class="f">dnAssert</span>(<span class="s">"the path never crosses a wall"</span>,lThroughOpenings,<span class="k">True</span>)
+	newMaze()
+	<span class="f">dnAssert</span>(<span class="s">"a new maze has no path yet"</span>,len(aPath),<span class="n">0</span>)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>stack and queue in real algorithms,</li><li>a grid as a list of lists,</li><li>shortest path by breadth-first search,</li><li>testing properties.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

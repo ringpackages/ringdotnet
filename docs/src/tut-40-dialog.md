@@ -56,6 +56,10 @@ After `ShowDialog(NULL)` returns, the controls still exist: read `oNameBox.Text`
 
 A modal dialog stops the test at `ShowDialog` — nobody will click. The trick is a **timer**: a Windows Forms timer keeps ticking *inside* the dialog's own message loop. The test starts a timer before `ShowDialog`; the timer acts as the user. Tick 1 types a blank name and presses OK (and the test checks that the dialog complained, and is still there); tick 2 types `Bob`, sets the age and presses OK, and stops the timer. The main test then checks that the answer was used.
 
+The checks of this program are in a separate file, `selftest/ch10_dialog.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_dialog.ring}}
+
 ## What you learned
 
 - `ShowDialog` is modal: it waits and returns the result,

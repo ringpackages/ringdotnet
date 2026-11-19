@@ -304,6 +304,36 @@ cApplied = <span class="s">""</span>
 <p><code>oTool.Show(oForm)</code> opens the tool window and <strong>returns at once</strong>, so the main window can still be used. The argument is the <strong>owner</strong>: an owned window always stays in front of its owner, is minimized and restored with it, and is closed with it. Without an owner (<code>Show(NULL)</code>) the two windows are separate. The test reads <code>oTool.Owner.Text</code> and gets the title of the main window.</p>
 <h3 id="one-copy">One copy<a class="anchor" href="#one-copy">#</a></h3>
 <p>Clicking <em>Open the tool window</em> twice must not make two tool windows. <code>openTool</code> first looks at <code>lToolOpen</code>: when the window is open it only calls <code>Activate()</code>, which brings it to the front, and returns. <code>nToolOpened</code> counts how many windows were really made; the test shows 1 after two clicks.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_windows.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_windows.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_windows.ring: run with  ring ch10_windows.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="f">dnAssert</span>(<span class="s">"one window at the start"</span>,openForms(),<span class="n">1</span>)
+
+	<span class="c"># open the tool window: two windows, and the tool has the main window as owner</span>
+	openTool()
+	<span class="f">dnAssert</span>(<span class="s">"two windows"</span>,openForms(),<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the owner"</span>,oTool.Owner.Text,<span class="s">"Main window"</span>)
+
+	<span class="c"># a second click on the button does not make a second window</span>
+	openTool()
+	<span class="f">dnAssert</span>(<span class="s">"still two windows"</span>,openForms(),<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"one tool window was made"</span>,nToolOpened,<span class="n">1</span>)
+
+	<span class="c"># the tool talks to the main window</span>
+	oToolBox.Text = <span class="s">"blue"</span>
+	applyTool()
+	<span class="f">dnAssert</span>(<span class="s">"the main window shows it"</span>,oShown.Text,<span class="s">"Applied: blue"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the tool says so"</span>,oToolStatus.Text,<span class="s">"Sent to the main window"</span>)
+
+	<span class="c"># closing the tool: the main window stays; the tool can be opened again (a new window)</span>
+	oTool.<span class="f">Close</span>()
+	<span class="f">dnAssert</span>(<span class="s">"the tool closed"</span>,cApplied,<span class="s">"[tool closed]"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"one window again"</span>,openForms(),<span class="n">1</span>)
+	openTool()
+	<span class="f">dnAssert</span>(<span class="s">"a new tool window"</span>,nToolOpened,<span class="n">2</span>)
+	<span class="f">dnAssert</span>(<span class="s">"two windows again"</span>,openForms(),<span class="n">2</span>)
+	<span class="c"># the form of this test is closed by uiTest after this code: the owned tool window closes with its owner</span></code></pre></div>
 <h3 id="talking">Talking<a class="anchor" href="#talking">#</a></h3>
 <p>A window is made of controls, and the controls are variables. The tool window calls <code>applyTool()</code>, a function that reads the text box of the tool and writes the label of the main window: <code>oShown.Text = "Applied: " + oToolBox.Text</code>. There is nothing special about it: both windows are in one program. (A bigger program keeps the data in one place and lets both windows read it.)</p>
 <h3 id="counting-windows">Counting windows<a class="anchor" href="#counting-windows">#</a></h3>

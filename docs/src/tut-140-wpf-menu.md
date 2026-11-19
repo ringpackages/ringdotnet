@@ -49,6 +49,10 @@ A `ComboBox` has items (`ComboBoxItem`); `IsSelected="True"` chooses one at the 
 
 The test cannot click a menu with a mouse, so it raises the `Click` event of the item itself: `RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new MenuItem().ClickEvent ]))`. After each action it reads the property that should have changed: the status text, the `Visibility` of the status bar, the selected tab, the chosen speed. The menu item *New* resets the combo box and the check box, and the test checks that too.
 
+The checks of this program are in a separate file, `selftest/ch11_wpf_menu.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch11_wpf_menu.ring}}
+
 ## What you learned
 
 - a window with a menu, tabs and a status bar in XAML,

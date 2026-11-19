@@ -51,6 +51,10 @@ A check box or a combo box cell keeps the change *pending* until the cell loses 
 
 The test changes cells like a user: a quantity, a check box, a size, a wrong price. After each change it reads the *Total* cell and the label. A new row is added, calculated and counted. Because the logic is in `rowChanged` and `cellNumber`, the test does not need the mouse.
 
+The checks of this program are in a separate file, `selftest/ch10_grid.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch10_grid.ring}}
+
 ## What you learned
 
 - typed columns and read-only columns,

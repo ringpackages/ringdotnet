@@ -44,6 +44,10 @@ A binding to a property such as `ProgressBar.Value` goes one way: the slider is 
 
 The test acts like the user: it sets the slider value, types into the text box, clears the check box and chooses an item, and after each step it reads the property that should have followed. The checks are the proof that the bindings are right.
 
+The checks of this program are in a separate file, `selftest/ch11_wpf_binding.ring`:
+
+{{file:samples/UsingDotNet/tutorials/selftest/ch11_wpf_binding.ring}}
+
 > [!NOTE] The controls here are bound to each other. A binding to the *data* of your program (a list of objects) needs .NET objects that tell WPF when they change (`INotifyPropertyChanged`), which cannot be written in Ring; a program of this kind puts the values into the controls with code, as the tutorial [WPF](tut-15-wpf.html) does.
 
 ## What you learned

@@ -345,6 +345,24 @@ oCanvas = <span class="s">""</span>
 <p><code>oCanvas.oBitmap</code> is the .NET bitmap that the canvas draws on: <code>Save([ :filename = ..., :format = ... ])</code> writes a PNG (the tutorial <a href="tut-22-images.html">Images</a>).</p>
 <h3 id="testing-a-drawing">Testing a drawing<a class="anchor" href="#testing-a-drawing">#</a></h3>
 <p>You cannot look at a picture in a test, but you can <strong>read pixels</strong>. <code>oCanvas.pixel(x,y)</code> returns the colour: the background is <code>ffffffff</code> (white), and a point inside the April bar is <code>ffdc143c</code> (crimson). The test also checks the helper functions <code>maxOf</code> and <code>niceMax</code> with plain <code>dnAssert</code>s. Pixel positions must be whole numbers: <code>floor(...)</code>.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_chart.ring</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_chart.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_chart.ring: run with  ring ch10_chart.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	<span class="f">dnAssert</span>(<span class="s">"the biggest value"</span>,maxOf(aValues),<span class="n">25</span>)
+	<span class="f">dnAssert</span>(<span class="s">"round axis for 25"</span>,niceMax(<span class="n">25</span>),<span class="n">30</span>)
+	<span class="f">dnAssert</span>(<span class="s">"round axis for 8"</span>,niceMax(<span class="n">8</span>),<span class="n">8</span>)
+	<span class="f">dnAssert</span>(<span class="s">"round axis for 120"</span>,niceMax(<span class="n">120</span>),<span class="n">150</span>)
+	<span class="c"># the chart is really drawn: the April bar (the biggest) is crimson, and the background is white</span>
+	<span class="f">dnAssert</span>(<span class="s">"white background"</span>,oCanvas.<span class="f">pixel</span>(<span class="n">5</span>,<span class="n">5</span>),<span class="s">"ffffffff"</span>)
+	nSlot = (C_WIDTH - <span class="n">20</span> - <span class="n">50</span>) / <span class="n">6</span>
+	nAprilX = floor(<span class="n">50</span> + <span class="n">3</span> * nSlot + nSlot / <span class="n">2</span>)          <span class="c"># pixel positions are whole numbers</span>
+	<span class="f">dnAssert</span>(<span class="s">"the April bar is crimson"</span>,oCanvas.<span class="f">pixel</span>(nAprilX,C_HEIGHT - <span class="n">60</span>),<span class="s">"ffdc143c"</span>)
+	<span class="c"># save it</span>
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"sales-chart-test.png"</span>])
+	oCanvas.oBitmap.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
+	<span class="f">dnAssert</span>(<span class="s">"the file was saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="k">True</span>)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>chart = scale + bars + text,</li><li>y grows downwards,</li><li>a round axis maximum,</li><li>tests can read pixels.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
