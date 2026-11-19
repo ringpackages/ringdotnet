@@ -62,6 +62,6 @@ Every value is a **text**. `ConfigurationBinder.GetValue(configuration, type, ke
 3. Write `setting(cKey, xDefault)` that reads a value and keeps the default when the key is missing.
 4. Read the command line (`AddCommandLine` with `sysargv`, [tutorial 50](tut-50-cli.html)) as the last source.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 112: File patterns (globbing)](tut-112-globbing.html)

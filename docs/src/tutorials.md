@@ -157,6 +157,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-109-memory-cache.html"><div class="ic">109</div><b>Caching</b><span>MemoryCache, absolute and sliding expiration, GetOrCreate.</span></a>
 <a class="card" href="tut-110-dependency-injection.html"><div class="ic">110</div><b>Dependency injection</b><span>The service container, three lifetimes and scopes.</span></a>
 <a class="card" href="tut-111-configuration.html"><div class="ic">111</div><b>Configuration</b><span>JSON, memory and environment sources; the last one wins.</span></a>
+<a class="card" href="tut-112-globbing.html"><div class="ic">112</div><b>File patterns (globbing)</b><span>**/*.ring, include and exclude rules, matching lists of paths.</span></a>
+<a class="card" href="tut-113-data-protection.html"><div class="ic">113</div><b>Protecting data</b><span>The Data Protection API: purposes, tampering, keys and expiring tokens.</span></a>
+<a class="card" href="tut-114-rate-limiting.html"><div class="ic">114</div><b>Rate limiting</b><span>Token bucket, concurrency limiter, leases and one limiter per client.</span></a>
 </div>
 
 ## Learning path

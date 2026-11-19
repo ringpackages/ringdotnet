@@ -1,0 +1,25 @@
+1. **/*.ring :
+   src/main.ring
+   src/old_main.ring
+   src/util/tools.ring
+   tests/test1.ring
+   (4 files)
+
+2. **/*.ring without tests/** and old_* :
+   src/main.ring
+   src/util/tools.ring
+   (2 files)
+
+3. src/*.ring (one folder only) and docs/**/*.md :
+   docs/guide/intro.md
+   docs/readme.md
+   src/main.ring
+   src/old_main.ring
+   (4 files)
+
+4. which of the names are matched: has matches = 1
+   src/main.ring
+   src/old_main.ring
+   docs/guide/intro.md
+
+5. with Ordinal comparison, **/*.RING matches only: b.RING

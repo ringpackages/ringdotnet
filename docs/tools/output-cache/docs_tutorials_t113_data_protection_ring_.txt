@@ -1,0 +1,15 @@
+1. the protected text starts with CfDJ8 (every token of this API does): 1
+   it does not show the data: 1, and it is longer than the data: 1
+   Unprotect gives back: user=ann;role=admin
+
+2. two tokens of the same text are different: 1; the second also gives: user=ann;role=admin
+
+3. unprotect with another purpose: refused (a cryptographic error)
+
+4. unprotect a token with one changed character: refused (a cryptographic error)
+
+5. key files in the folder: 1, a second provider on the same folder opens the token: user=ann;role=admin
+   a provider with other keys: refused (a cryptographic error)
+
+6. a token that is valid for 1.2 seconds: now valid, it gives 'reset:42'
+   after 2 seconds: refused (it expired or it is not valid)

@@ -447,6 +447,19 @@ namespace RingDotNet
 					}
 				}
 				catch (Exception) { }
+				/* Microsoft.AspNetCore.DataProtection.IDataProtector is in the assembly ...DataProtection.Abstractions, ...DataProtectionProvider in ...Extensions */
+				foreach (string suffix in new[] { ".Abstractions", ".Extensions" })
+				{
+					try
+					{
+						t = Assembly.Load(prefix + suffix).GetType(name, false);
+						if (t != null)
+						{
+							return t;
+						}
+					}
+					catch (Exception) { }
+				}
 				dot = prefix.LastIndexOf('.');
 				if (dot > 0)
 				{

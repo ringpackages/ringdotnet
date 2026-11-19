@@ -1,0 +1,20 @@
+1. a bucket of 3 tokens, 5 requests at once:
+   request 1: allowed
+   request 2: allowed
+   request 3: allowed
+   request 4: refused
+   request 5: refused
+   after the period, TryReplenish adds a token: 1
+   the next request: allowed   (how many tokens come back depends on how long the pause was)
+
+2. tokens left (not more than the bucket holds): 1, granted in total: 4, refused in total: 2
+
+3. three requests at once, 2 allowed: allowed, allowed, refused
+   after the first one finished, a new request: allowed
+
+4. the bucket is empty: refused, a retry time is offered: 1
+   try again after about 5 seconds
+
+5. two clients with 2 requests each; the first client asks 4 times, the second twice:
+   10.0.0.1: allowed allowed refused refused 
+   10.0.0.2: allowed allowed
