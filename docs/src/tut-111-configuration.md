@@ -22,6 +22,8 @@ The tutorial [Settings](tut-32-settings.html) saved the settings of a program in
 
 {{output:samples/UsingDotNet/tutorials/ch09_configuration.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Layers

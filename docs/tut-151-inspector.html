@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html" class="cur">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -262,9 +263,9 @@ cTempFile = <span class="s">""</span>
 	<span class="c"># Some objects to look at. They are made here; the inspector does not care what they are.</span>
 	cTempFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([ <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-inspect.txt"</span> ])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cTempFile, :contents = <span class="s">"Hello, inspector"</span> ])
-	aObjects + [ <span class="s">"A Uri"</span>, <span class="f">dnNew</span>(<span class="s">"Uri"</span>,[ <span class="s">"https://example.com:8080/docs/page?x=1#top"</span> ]) ]
+	aObjects + [ <span class="s">"A Uri"</span>, <span class="k">new</span> <span class="t">Uri</span>(<span class="s">"https://example.com:8080/docs/page?x=1#top"</span>) ]
 	aObjects + [ <span class="s">"A DateTime"</span>, <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2030</span>, :month = <span class="n">3</span>, :day = <span class="n">9</span>, :hour = <span class="n">14</span>, :minute = <span class="n">5</span>, :second = <span class="n">7</span> ]) ]
-	aObjects + [ <span class="s">"A FileInfo"</span>, <span class="f">dnNew</span>(<span class="s">"FileInfo"</span>,[ cTempFile ]) ]
+	aObjects + [ <span class="s">"A FileInfo"</span>, <span class="k">new</span> <span class="t">FileInfo</span>(cTempFile) ]
 	aObjects + [ <span class="s">"A StringBuilder"</span>, <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"Hello"</span>) ]
 
 	oForm = <span class="f">uiForm</span>(<span class="s">"Inspector"</span>,<span class="n">560</span>,<span class="n">380</span>)
@@ -375,6 +376,7 @@ cTempFile = <span class="s">""</span>
 	<span class="f">dnAssert</span>(<span class="s">"an indexer is skipped"</span>,valueOf(<span class="s">"Chars"</span>),<span class="s">"(not in the list)"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g151.png" alt="The inspector" loading="lazy"><figcaption>The inspector showing a Uri</figcaption></figure>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (12 checks)</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="objects-of-any-kind">Objects of any kind<a class="anchor" href="#objects-of-any-kind">#</a></h3>
 <p>The list <code>aObjects</code> has four objects of different classes: a <code>Uri</code>, a <code>DateTime</code>, a <code>FileInfo</code> and a <code>StringBuilder</code>. The inspector does not know which is which. It takes an object, asks <code>GetType()</code> for its type and <code>GetProperties(NULL)</code> for the properties of that type, and for each property <code>oProperty.GetValue(oObject)</code> gives the value that this object has now.</p>

@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -285,7 +286,7 @@ using {
 	<span class="c"># 6. A compressed file: write a .gz file, read it back line by line with a StreamReader on top of the decompressor</span>
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_tutorial88.txt.gz"</span>])
 	oFile = <span class="k">new</span> <span class="t">FileStream</span>(cFile,<span class="s">"Create"</span>)
-	oGzip = <span class="f">dnNew</span>(<span class="s">"GZipStream"</span>,[ :stream = oFile, :mode = <span class="s">"Compress"</span> ])
+	oGzip = <span class="k">new</span> <span class="t">GZipStream</span>(oFile,<span class="s">"Compress"</span>)
 	oWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(oGzip)
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> <span class="n">3</span>
 		oWriter.<span class="f">WriteLine</span>(<span class="s">"line "</span> + i + <span class="s">" of the compressed file"</span>)
@@ -293,7 +294,7 @@ using {
 	oWriter.<span class="f">Dispose</span>()                          <span class="c"># closing the writer also closes the compressor and the file</span>
 	? nl + <span class="s">"6. file size on disk: "</span> + <span class="k">new</span> <span class="t">FileInfo</span>(cFile).Length + <span class="s">" bytes"</span>
 	oFile = <span class="k">new</span> <span class="t">FileStream</span>(cFile,<span class="s">"Open"</span>)
-	oGzip = <span class="f">dnNew</span>(<span class="s">"GZipStream"</span>,[ :stream = oFile, :mode = <span class="s">"Decompress"</span> ])
+	oGzip = <span class="k">new</span> <span class="t">GZipStream</span>(oFile,<span class="s">"Decompress"</span>)
 	oReader = <span class="k">new</span> <span class="t">StreamReader</span>(oGzip)
 	<span class="k">while</span> <span class="k">not</span> oReader.EndOfStream
 		? <span class="s">"   read: "</span> + oReader.<span class="f">ReadLine</span>()
@@ -309,7 +310,7 @@ using {
 	<span class="k">return</span> oMemory.<span class="f">ToArray</span>()
 
 <span class="k">func</span> <span class="f">decompress</span> cFormat,cData
-	oSource = <span class="f">dnNew</span>(<span class="s">"MemoryStream"</span>,[ :buffer = cData ])
+	oSource = <span class="k">new</span> <span class="t">MemoryStream</span>().<span class="f">New_</span>([ :buffer = cData ])
 	oUnpacker = packer(cFormat,oSource,<span class="s">"Decompress"</span>)
 	oOut = <span class="k">new</span> <span class="t">MemoryStream</span>()
 	oUnpacker.<span class="f">CopyTo</span>(oOut)
@@ -317,9 +318,9 @@ using {
 
 <span class="k">func</span> <span class="f">packer</span> cFormat,oStream,oMode
 	<span class="k">switch</span> cFormat
-	<span class="k">on</span> <span class="s">"GZip"</span>    <span class="k">return</span> <span class="f">dnNew</span>(<span class="s">"GZipStream"</span>,[ :stream = oStream, :mode = oMode ])
-	<span class="k">on</span> <span class="s">"Deflate"</span> <span class="k">return</span> <span class="f">dnNew</span>(<span class="s">"DeflateStream"</span>,[ :stream = oStream, :mode = oMode ])
-	<span class="k">on</span> <span class="s">"Brotli"</span>  <span class="k">return</span> <span class="f">dnNew</span>(<span class="s">"BrotliStream"</span>,[ :stream = oStream, :mode = oMode ])
+	<span class="k">on</span> <span class="s">"GZip"</span>    <span class="k">return</span> <span class="k">new</span> <span class="t">GZipStream</span>(oStream,oMode)
+	<span class="k">on</span> <span class="s">"Deflate"</span> <span class="k">return</span> <span class="k">new</span> <span class="t">DeflateStream</span>(oStream,oMode)
+	<span class="k">on</span> <span class="s">"Brotli"</span>  <span class="k">return</span> <span class="k">new</span> <span class="t">BrotliStream</span>(oStream,oMode)
 	<span class="k">off</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
@@ -343,7 +344,7 @@ using {
    read: line 3 of the compressed file</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="streams-that-wrap-streams">Streams that wrap streams<a class="anchor" href="#streams-that-wrap-streams">#</a></h3>
-<p>A compression stream does not hold data itself: it is built <strong>on top of</strong> another stream and a mode (<code>Compress</code> or <code>Decompress</code>). Bytes written to a compressor are packed and written to the stream below it; bytes read from a decompressor come from the stream below it, unpacked. The stream below can be a <code>MemoryStream</code> (bytes in memory) or a <code>FileStream</code> (a file). The three classes have the same members, so the function <code>packer</code> is the only place that knows the format. The constructor has several forms, so it is called with names: <code>dnNew("GZipStream",[ :stream = oStream, :mode = "Compress" ])</code>. The mode is an enum, so it is a text.</p>
+<p>A compression stream does not hold data itself: it is built <strong>on top of</strong> another stream and a mode (<code>Compress</code> or <code>Decompress</code>). Bytes written to a compressor are packed and written to the stream below it; bytes read from a decompressor come from the stream below it, unpacked. The stream below can be a <code>MemoryStream</code> (bytes in memory) or a <code>FileStream</code> (a file). The three classes have the same members, so the function <code>packer</code> is the only place that knows the format. It is made with <code>new GZipStream(oStream, "Compress")</code>. The mode is an enum, so it is a text.</p>
 <h3 id="compress-and-decompress">Compress and decompress<a class="anchor" href="#compress-and-decompress">#</a></h3>
 <p><code>compress</code> writes the bytes into the compressor (<code>Write(bytes, 0, count)</code>) and calls <code>Dispose()</code>. **<code>Dispose</code> matters**: it writes the end of the compressed data. If you only read the memory stream without it, the result is cut and cannot be decompressed. <code>decompress</code> opens a <code>MemoryStream</code> on the packed bytes (<code>[ :buffer = ... ]</code>), wraps it in a decompressor and copies everything to another stream with <code>CopyTo</code>. A <code>byte[]</code> is a Ring text of bytes in this package, so <code>len()</code> is the number of bytes and <code>cBack = aBytes</code> compares them.</p>
 <h3 id="sizes">Sizes<a class="anchor" href="#sizes">#</a></h3>

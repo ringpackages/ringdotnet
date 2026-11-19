@@ -17,6 +17,8 @@ lead: .NET frees the memory of objects that nothing uses any more. This lesson l
 
 {{output:samples/UsingDotNet/tutorials/ch06_memory.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### The garbage collector

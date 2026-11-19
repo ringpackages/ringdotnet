@@ -37,7 +37,7 @@ func main
 	oLeaseB = oConcurrency.callMethod("AttemptAcquire",[1])
 	oLeaseC = oConcurrency.callMethod("AttemptAcquire",[1])
 	? nl + "3. three requests at once, 2 allowed: " + answer(oLeaseA.getProp("IsAcquired")) + ", " + answer(oLeaseB.getProp("IsAcquired")) + ", " + answer(oLeaseC.getProp("IsAcquired"))
-	oLeaseA.callMethod("Dispose",[])                  # the first request is finished: its place is free
+	oLeaseA.Dispose()                  # the first request is finished: its place is free
 	oLeaseD = oConcurrency.callMethod("AttemptAcquire",[1])
 	? "   after the first one finished, a new request: " + answer(oLeaseD.getProp("IsAcquired"))
 
@@ -49,7 +49,7 @@ func main
 	aRetry = oRefused.callMethod("TryGetMetadata",["RETRY_AFTER"])
 	? nl + "4. the bucket is empty: refused, a retry time is offered: " + aRetry[1]
 	if aRetry[1]
-		? "   try again after about " + floor(aRetry[2].getProp("TotalSeconds") + 0.5) + " seconds"
+		? "   try again after about " + floor(aRetry[2].TotalSeconds + 0.5) + " seconds"
 	ok
 
 	# 5. One limiter for each client: a Ring list keeps a bucket for every client name (an IP address, a user id), so that one noisy
@@ -66,7 +66,7 @@ func makeBucket nTokens,nPeriodMs
 	oOptions = dnNew(cNs + "TokenBucketRateLimiterOptions",[])
 	oOptions.setProp("TokenLimit",nTokens)
 	oOptions.setProp("TokensPerPeriod",1)
-	oOptions.setProp("ReplenishmentPeriod",dnStatic("System.TimeSpan","FromMilliseconds",[nPeriodMs]))
+	oOptions.setProp("ReplenishmentPeriod",new TimeSpan().FromMilliseconds(nPeriodMs))
 	oOptions.setProp("AutoReplenishment",False)
 	oOptions.setProp("QueueLimit",0)
 	return dnNew(cNs + "TokenBucketRateLimiter",[oOptions])

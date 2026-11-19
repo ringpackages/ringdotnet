@@ -39,7 +39,7 @@ func main
 	# 6. .NET's memory manager: the memory used by .NET objects, and what happens after a collection
 	oGC = new GC()
 	nBefore = oGC.GetTotalMemory(False)
-	oBig = dnNew("StringBuilder",[ :capacity = 5000000 ])
+	oBig = new StringBuilder(5000000)
 	nWith = oGC.GetTotalMemory(False)
 	? nl + "6. a StringBuilder with 5 million characters made the .NET memory grow: " + yesNo(nWith > nBefore + 1000000)
 

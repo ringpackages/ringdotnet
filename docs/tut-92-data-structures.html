@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -284,22 +285,22 @@ using {
 
 	<span class="c"># 4. LinkedList: items are linked to their neighbours. Adding or removing at either end, or next to a known node, is quick.</span>
 	oList = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.LinkedList"</span>,[cText],[])
-	oList.<span class="f">callMethod</span>(<span class="s">"AddLast"</span>,[<span class="s">"b"</span>])
-	oList.<span class="f">callMethod</span>(<span class="s">"AddLast"</span>,[<span class="s">"c"</span>])
-	oList.<span class="f">callMethod</span>(<span class="s">"AddFirst"</span>,[<span class="s">"a"</span>])
-	oNodeB = oList.<span class="f">getProp</span>(<span class="s">"First"</span>).<span class="f">getProp</span>(<span class="s">"Next"</span>)
-	oList.<span class="f">callMethod</span>(<span class="s">"AddAfter"</span>,[oNodeB,<span class="s">"b2"</span>])
-	? nl + <span class="s">"4. linked list: "</span> + list2str2(oList.<span class="f">toList</span>()) + <span class="s">" (first = "</span> + oList.<span class="f">getProp</span>(<span class="s">"First"</span>).<span class="f">getProp</span>(<span class="s">"Value"</span>) + <span class="s">", last = "</span> + oList.<span class="f">getProp</span>(<span class="s">"Last"</span>).<span class="f">getProp</span>(<span class="s">"Value"</span>) + <span class="s">")"</span>
-	oList.<span class="f">callMethod</span>(<span class="s">"Remove"</span>,[<span class="s">"b"</span>])
+	oList.<span class="f">AddLast</span>(<span class="s">"b"</span>)
+	oList.<span class="f">AddLast</span>(<span class="s">"c"</span>)
+	oList.<span class="f">AddFirst</span>(<span class="s">"a"</span>)
+	oNodeB = oList.First.<span class="f">getProp</span>(<span class="s">"Next"</span>)
+	oList.<span class="f">AddAfter</span>(oNodeB,<span class="s">"b2"</span>)
+	? nl + <span class="s">"4. linked list: "</span> + list2str2(oList.<span class="f">toList</span>()) + <span class="s">" (first = "</span> + oList.First.<span class="f">getProp</span>(<span class="s">"Value"</span>) + <span class="s">", last = "</span> + oList.Last.<span class="f">getProp</span>(<span class="s">"Value"</span>) + <span class="s">")"</span>
+	oList.<span class="f">Remove</span>(<span class="s">"b"</span>)
 	? <span class="s">"   after Remove(b): "</span> + list2str2(oList.<span class="f">toList</span>())
 
 	<span class="c"># 5. BitArray: one bit for each item, so a million yes/no values take 125 KB. Set, Get and the logic methods And, Or, Xor, Not.</span>
 	<span class="c">#    (Get, And and Or are reserved words after a dot, so they are called with callMethod. And and Or change the array they are called on.)</span>
-	oBits = <span class="f">dnNew</span>(<span class="s">"BitArray"</span>,[ :length = <span class="n">10</span> ])
+	oBits = <span class="k">new</span> <span class="t">BitArray</span>(<span class="n">10</span>)
 	oBits.<span class="f">Set</span>(<span class="n">1</span>,<span class="k">True</span>)
 	oBits.<span class="f">Set</span>(<span class="n">3</span>,<span class="k">True</span>)
 	oBits.<span class="f">Set</span>(<span class="n">4</span>,<span class="k">True</span>)
-	oOther = <span class="f">dnNew</span>(<span class="s">"BitArray"</span>,[ :length = <span class="n">10</span> ])
+	oOther = <span class="k">new</span> <span class="t">BitArray</span>(<span class="n">10</span>)
 	oOther.<span class="f">Set</span>(<span class="n">3</span>,<span class="k">True</span>)
 	oOther.<span class="f">Set</span>(<span class="n">9</span>,<span class="k">True</span>)
 	? nl + <span class="s">"5. bits:  "</span> + bitText(oBits)
@@ -308,7 +309,7 @@ using {
 	? <span class="s">"   OR:    "</span> + bitText(<span class="f">dnCopyBits</span>(oBits).<span class="f">callMethod</span>(<span class="s">"Or"</span>,[oOther]))
 
 <span class="k">func</span> <span class="f">dnCopyBits</span> oBits
-	<span class="k">return</span> <span class="f">dnNew</span>(<span class="s">"BitArray"</span>,[ :bits = oBits ])
+	<span class="k">return</span> <span class="k">new</span> <span class="t">BitArray</span>(oBits)
 
 <span class="k">func</span> <span class="f">bitText</span> oBits
 	cText = <span class="s">""</span>
@@ -342,9 +343,10 @@ using {
    other: 0001000001
    AND:   0001000000
    OR:    0101100001</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="closed-generic-types">Closed generic types<a class="anchor" href="#closed-generic-types">#</a></h3>
-<p>All of them but <code>BitArray</code> are generic: <code>dnNewGeneric(type, [type arguments], [constructor values])</code> makes a closed type such as <code>PriorityQueue&lt;string, int&gt;</code>. They have no Ring class, so the objects are used in the plain style: <code>callMethod("Add", [value])</code>, <code>getProp("Count")</code>, and <code>toList()</code> to copy a collection into a Ring list (<a href="concepts.html">Core concepts</a>).</p>
+<p>All of them but <code>BitArray</code> are generic: <code>dnNewGeneric(type, [type arguments], [constructor values])</code> makes a closed type such as <code>PriorityQueue&lt;string, int&gt;</code>. Most have no Ring class, so those objects are used in the plain style: <code>callMethod("Add", [value])</code>, <code>getProp("Count")</code>, and <code>toList()</code> to copy a collection into a Ring list (<a href="concepts.html">Core concepts</a>).</p>
 <h3 id="priorityqueue">PriorityQueue<a class="anchor" href="#priorityqueue">#</a></h3>
 <p><code>Enqueue(element, priority)</code> adds; <code>Dequeue()</code> returns the element with the <strong>smallest priority number</strong>, whatever the order of adding. It is the right tool for a to-do list by urgency, for events by time, and for algorithms such as the shortest path. It does not keep the whole list sorted (it only knows the next item), so it is faster than sorting again and again.</p>
 <h3 id="sortedset">SortedSet<a class="anchor" href="#sortedset">#</a></h3>

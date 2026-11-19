@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -479,6 +480,7 @@ using {
    report_final_(copy).txt
 
 7. after undo the folder has the first names again: yes</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-four-steps">The four steps<a class="anchor" href="#the-four-steps">#</a></h3>
 <p>The program lists the names, makes the new names with a rule, <strong>shows them without renaming anything</strong> (the preview), checks the plan for problems, and only then renames. Each step is a function: <code>fileNames</code>, <code>makePlan</code>, <code>findConflicts</code> and <code>applyPlan</code>. The plan is a Ring list of <code>[old, new]</code> pairs, so it can be printed, checked, saved and undone.</p>

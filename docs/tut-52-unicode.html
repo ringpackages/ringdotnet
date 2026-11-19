@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -302,7 +303,7 @@ using {
 
 <span class="c"># a StringInfo knows the letters you see (text elements) of a text</span>
 <span class="k">func</span> <span class="f">textElements</span> cText
-	<span class="k">return</span> <span class="f">dnNew</span>(<span class="s">"StringInfo"</span>,[ :value = cText ])
+	<span class="k">return</span> <span class="k">new</span> <span class="t">StringInfo</span>().<span class="f">New_</span>([ :value = cText ])
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
 	<span class="k">if</span> lValue

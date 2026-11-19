@@ -59,7 +59,7 @@ func padRight cText, nWidth
 
 # a StringInfo knows the letters you see (text elements) of a text
 func textElements cText
-	return dnNew("StringInfo",[ :value = cText ])
+	return new StringInfo().New_([ :value = cText ])
 
 func yesNo lValue
 	if lValue

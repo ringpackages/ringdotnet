@@ -19,6 +19,8 @@ The tutorial [Cultures](tut-33-cultures.html) formatted numbers and dates for a 
 
 {{output:samples/UsingDotNet/tutorials/ch02_comparers.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Ordinal and culture

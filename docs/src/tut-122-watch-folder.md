@@ -27,7 +27,7 @@ A watcher has nothing to report if nobody changes the folder, and the program th
 
 ### The watcher
 
-`dnNew("FileSystemWatcher",[ :path = cFolder, :filter = "*.txt" ])` watches one folder. The filter is a file name pattern: only the names that match it are reported (it has `*` and `?`; the tutorial [File patterns (globbing)](tut-112-globbing.html) shows richer patterns for your own code). `IncludeSubdirectories = True` watches the folders below as well. Each change is a **kind** (`Created`, `Changed`, `Renamed`, `Deleted`) and the name of the file; a rename also has the old name.
+`new FileSystemWatcher().New_([ :path = cFolder, :filter = "*.txt" ])` watches one folder. The filter is a file name pattern: only the names that match it are reported (it has `*` and `?`; the tutorial [File patterns (globbing)](tut-112-globbing.html) shows richer patterns for your own code). `IncludeSubdirectories = True` watches the folders below as well. Each change is a **kind** (`Created`, `Changed`, `Renamed`, `Deleted`) and the name of the file; a rename also has the old name.
 
 ### Waiting for a change
 

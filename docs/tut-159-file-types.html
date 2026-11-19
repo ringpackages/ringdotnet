@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -409,6 +410,7 @@ aSignatures = []                  <span class="c"># [ name, mime type, the first
    photo.jpg     yes
    animation.gif yes
    program.exe   no</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-first-bytes">The first bytes<a class="anchor" href="#the-first-bytes">#</a></h3>
 <p>A PNG picture always starts with the bytes <code>137 80 78 71 13 10 26 10</code> (the second to the fourth are the letters <code>PNG</code>), a GIF with <code>GIF8</code>, a JPEG with <code>255 216 255</code>, a ZIP file with <code>PK</code> and the codes 3 and 4, a GZip file with <code>31 139</code>, a PDF with <code>%PDF-</code> and a Windows program with <code>MZ</code>. <code>firstBytes</code> opens the file with a <code>FileStream</code>, reads up to 16 bytes into a byte buffer and returns them as a Ring text; it does not read the rest of the file, so it is fast for any size. A file that is shorter than 16 bytes gives fewer bytes, and an empty file gives none.</p>

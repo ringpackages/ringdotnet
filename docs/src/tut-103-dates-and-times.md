@@ -20,13 +20,15 @@ The tutorial [Numbers, dates and times](tut-03-numbers-dates.html) made `DateTim
 
 {{output:samples/UsingDotNet/tutorials/ch03_dates_and_times.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Date and time apart
 
 A `DateTime` always has both a date and a time, so a birthday is *midnight on that day* and an opening hour is *that hour on 1 January of year 1*. Neither is true. `DateOnly` is a day (year, month, day) and `TimeOnly` a time of day, so the program cannot mix them up. `DateOnly` knows the `DayOfWeek` and the `DayOfYear` (the 28th of February is day 59) and `AddDays` goes over the end of the month and over a leap day. `TimeOnly.AddHours(3)` after 22:30 gives 01:30: a time of day goes round the clock and has no date to move to.
 
-These structs have several constructors, so they are made by names (`dnNew("DateOnly",[ :year = 2024, :month = 2, :day = 28 ])`, the function `makeDate`). A method that formats with a pattern is `Format("yyyy-MM-dd")` (the plain `ToString()` has no parameters, see [Core concepts](concepts.html)).
+These structs have several constructors: `new TimeOnly().New_([ :hour = 22, :minute = 30, :second = 0 ])` chooses one by the names of its parameters (the function `makeDate` does the same for dates). A method that formats with a pattern is `Format("yyyy-MM-dd")` (the plain `ToString()` has no parameters, see [Core concepts](concepts.html)).
 
 ### TimeSpan
 

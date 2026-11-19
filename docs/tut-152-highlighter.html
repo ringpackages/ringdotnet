@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -413,6 +414,7 @@ x = &lt;span class="number"&gt;3.14&lt;/span&gt; * radius
 
 6. a # inside a string:
    text = &lt;span class="string"&gt;"not # a comment"&lt;/span&gt;</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="one-pattern-for-all-the-tokens">One pattern for all the tokens<a class="anchor" href="#one-pattern-for-all-the-tokens">#</a></h3>
 <p>The pattern is a list of alternatives separated by <code>|</code>, each one a <strong>named group</strong>: <code>(?&lt;comment&gt;#[^\n]*)</code> is a <code>#</code> and everything to the end of the line, <code>(?&lt;string&gt;"[^"\n]*")</code> is a double quote, characters that are not a quote or a line break, and a double quote, <code>(?&lt;number&gt;\b\d+(?:\.\d+)?\b)</code> is a whole number or a number with a decimal point, <code>(?&lt;word&gt;[A-Za-z_]\w*)</code> is a name or a keyword, and <code>(?&lt;other&gt;[\s\S])</code> is <em>any</em> character, including line breaks. Because the last alternative matches every character, the matches cover the whole text, and every character belongs to one token. The pattern is in single quotes in Ring because it has double quotes.</p>

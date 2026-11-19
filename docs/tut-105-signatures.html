@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -253,9 +254,9 @@ using {
 	<span class="c"># A digital signature proves two things about a message: who sent it (only the owner of the PRIVATE key can make the signature) and</span>
 	<span class="c"># that it was not changed (the signature fits only this exact message). Everybody with the PUBLIC key can check it.</span>
 	<span class="c"># ECDsa uses elliptic curves: small keys and fast signatures. (the tutorial "Protecting and signing messages" used RSA and hashes)</span>
-	oCurve = <span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.ECCurve"</span>,<span class="s">"CreateFromFriendlyName"</span>,[<span class="s">"nistP256"</span>])          <span class="c"># a named curve</span>
-	oKey = <span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.ECDsa"</span>,<span class="s">"Create"</span>,[oCurve])
-	? <span class="s">"1. a key pair was made on the curve nistP256, key size "</span> + oKey.<span class="f">getProp</span>(<span class="s">"KeySize"</span>) + <span class="s">" bits"</span>
+	oCurve = <span class="k">new</span> <span class="t">ECCurve</span>().<span class="f">CreateFromFriendlyName</span>(<span class="s">"nistP256"</span>)          <span class="c"># a named curve</span>
+	oKey = <span class="k">new</span> <span class="t">ECDsa</span>().<span class="f">Create</span>(oCurve)
+	? <span class="s">"1. a key pair was made on the curve nistP256, key size "</span> + oKey.KeySize + <span class="s">" bits"</span>
 
 	<span class="c"># 2. Sign a message: the data is hashed (SHA-256) and the hash is signed. The signature of ECDsa has 64 bytes for this curve.</span>
 	aMessage = oUtf8.<span class="f">GetBytes</span>(<span class="s">"Pay 100 to Bob"</span>)
@@ -272,14 +273,14 @@ using {
 	? <span class="s">"   a second signature of the same message is also valid: "</span> + oKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aMessage,aOther,oSha]) + <span class="s">", but different from the first: "</span> + (aOther != aSignature)
 
 	<span class="c"># 4. A signature of one key is not valid for another key: somebody else can not sign in your name</span>
-	oOtherKey = <span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.ECDsa"</span>,<span class="s">"Create"</span>,[oCurve])
+	oOtherKey = <span class="k">new</span> <span class="t">ECDsa</span>().<span class="f">Create</span>(oCurve)
 	? nl + <span class="s">"4. verified with another key: "</span> + oOtherKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aMessage,aSignature,oSha])
 
 	<span class="c"># 5. Share only the PUBLIC part of the key: ExportParameters(False) gives the curve and the public point, without the private number.</span>
 	<span class="c">#    The receiver imports it into a new key object and can only VERIFY, never sign in your name.</span>
-	oPublic = oKey.<span class="f">callMethod</span>(<span class="s">"ExportParameters"</span>,[<span class="k">False</span>])
-	oReceiver = <span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.ECDsa"</span>,<span class="s">"Create"</span>,[oCurve])
-	oReceiver.<span class="f">callMethod</span>(<span class="s">"ImportParameters"</span>,[oPublic])
+	oPublic = oKey.<span class="f">ExportParameters</span>(<span class="k">False</span>)
+	oReceiver = <span class="k">new</span> <span class="t">ECDsa</span>().<span class="f">Create</span>(oCurve)
+	oReceiver.<span class="f">ImportParameters</span>(oPublic)
 	? nl + <span class="s">"5. the receiver has only the public key and can verify the message: "</span> + oReceiver.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aMessage,aSignature,oSha])
 	lCanSign = <span class="k">True</span>
 	<span class="k">try</span>
@@ -290,9 +291,9 @@ using {
 	? <span class="s">"   the receiver can sign with it: "</span> + lCanSign + <span class="s">"   (there is no private key)"</span>
 
 	<span class="c"># 6. A signature is not encryption: the message itself is not hidden. If the message must be secret too, encrypt it (the tutorial "Protecting and signing messages").</span>
-	oKey.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])
-	oOtherKey.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])
-	oReceiver.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])</code></pre></div>
+	oKey.<span class="f">Dispose</span>()
+	oOtherKey.<span class="f">Dispose</span>()
+	oReceiver.<span class="f">Dispose</span>()</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. a key pair was made on the curve nistP256, key size 256 bits
 
 2. the signature has 64 bytes
@@ -306,6 +307,7 @@ using {
 
 5. the receiver has only the public key and can verify the message: 1
    the receiver can sign with it: 0   (there is no private key)</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="what-a-signature-proves">What a signature proves<a class="anchor" href="#what-a-signature-proves">#</a></h3>
 <p>A key pair has two parts that fit each other. The <strong>private key</strong> stays with its owner and makes signatures. The <strong>public key</strong> can be given to everybody and only <em>checks</em> signatures. A valid signature proves two things: the message was signed by the <strong>owner of the private key</strong>, and the message is <strong>exactly</strong> the signed one — changing a single character makes the check fail. It does <strong>not</strong> hide the message (that is encryption) and it does not prove that the owner is the person you think; for that you need a certificate from somebody you trust.</p>

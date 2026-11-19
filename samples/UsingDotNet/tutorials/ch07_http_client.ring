@@ -83,12 +83,12 @@ func fetchPage cPath
 		ok
 	next
 	oTask.Wait(NULL)
-	return oTask.getProp("Result")
+	return oTask.Result
 
 func bodyOf oResponse
 	oBody = oResponse.Content.ReadAsStringAsync(NULL)
 	oBody.Wait(NULL)
-	return oBody.getProp("Result")
+	return oBody.Result
 
 func yesNo lValue
 	if lValue

@@ -22,6 +22,8 @@ lead: A picture is a table of numbers. This lesson holds the pixels in Ring list
 
 {{output:samples/UsingDotNet/tutorials/ch12_filters.ring --selftest}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Pixels as numbers

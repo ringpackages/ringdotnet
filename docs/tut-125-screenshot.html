@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -263,7 +264,7 @@ using {
 	<span class="c">#    two numbers are the place on the screen, the next two the place in the bitmap, and the last the size of the part.</span>
 	oShot = <span class="k">new</span> <span class="t">Bitmap</span>(<span class="n">120</span>,<span class="n">80</span>)
 	oGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oShot)
-	oGraphics.<span class="f">CopyFromScreen</span>([ :sourceX = <span class="n">0</span>, :sourceY = <span class="n">0</span>, :destinationX = <span class="n">0</span>, :destinationY = <span class="n">0</span>, :blockRegionSize = <span class="f">dnNew</span>(<span class="s">"Size"</span>,[ <span class="n">120</span>, <span class="n">80</span> ]) ])
+	oGraphics.<span class="f">CopyFromScreen</span>([ :sourceX = <span class="n">0</span>, :sourceY = <span class="n">0</span>, :destinationX = <span class="n">0</span>, :destinationY = <span class="n">0</span>, :blockRegionSize = <span class="k">new</span> <span class="t">Size</span>(<span class="n">120</span>, <span class="n">80</span>) ])
 	oGraphics.<span class="f">Dispose</span>()
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([ <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-shot.png"</span> ])
 	oShot.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
@@ -283,7 +284,7 @@ using {
 	nPanelWidth = oPanel.Width
 	nPanelHeight = oPanel.Height
 	oPicture = <span class="k">new</span> <span class="t">Bitmap</span>(nPanelWidth,nPanelHeight)
-	oPanel.<span class="f">DrawToBitmap</span>(oPicture,<span class="f">dnNew</span>(<span class="s">"Rectangle"</span>,[ :x = <span class="n">0</span>, :y = <span class="n">0</span>, :width = nPanelWidth, :height = nPanelHeight ]))
+	oPanel.<span class="f">DrawToBitmap</span>(oPicture,<span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">0</span>,<span class="n">0</span>,nPanelWidth,nPanelHeight))
 	? nl + <span class="s">"3. a picture of the panel: "</span> + oPicture.Width + <span class="s">" x "</span> + oPicture.Height + <span class="s">" pixels"</span>
 
 	<span class="c"># 4. What is in the picture? GetPixel reads one pixel, so the program can check what the panel looks like. A pixel far from the label is</span>
@@ -326,6 +327,7 @@ using {
    (the color is shown as alpha, red, green and blue in hexadecimal)
 
 5. most of the panel is the red background: yes</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="screens">Screens<a class="anchor" href="#screens">#</a></h3>
 <p><code>Screen.PrimaryScreen</code> is the main monitor and <code>Screen.AllScreens</code> all of them. <code>Bounds</code> is the size of a screen and <code>WorkingArea</code> the part that windows use (the screen without the taskbar). The values depend on the computer, so the program checks relations that are true everywhere: the working area fits in the screen.</p>

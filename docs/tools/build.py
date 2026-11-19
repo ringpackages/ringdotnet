@@ -176,6 +176,7 @@ PAGES = [
     ("tut-151-inspector", "An object inspector", "Tutorials: Libraries, testing and release"),
     ("tut-87-expressions", "Expression trees", "Tutorials: Libraries, testing and release"),
     ("tut-18-csharp-library", "A C# library", "Tutorials: Libraries, testing and release"),
+    ("tut-160-generic-calls", "The generic functions", "Tutorials: Libraries, testing and release"),
     ("tut-28-testing", "Testing", "Tutorials: Libraries, testing and release"),
     ("tut-119-distribution", "Giving your program to others", "Tutorials: Libraries, testing and release"),
     ("concepts", "Core concepts", "Guide: the language bridge"),

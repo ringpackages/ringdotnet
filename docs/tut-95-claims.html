@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -249,12 +250,12 @@ using {
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># A claim is a statement about a user: a type and a value ("Role" = "Admin", "Email" = "ann@example.com").</span>
 	<span class="c"># An identity is a list of claims from one source; a principal holds identities. ASP.NET uses these classes for every login.</span>
-	oIdentity = <span class="f">dnNew</span>(<span class="s">"ClaimsIdentity"</span>,[ :authenticationType = <span class="s">"Password"</span> ])
+	oIdentity = <span class="k">new</span> <span class="t">ClaimsIdentity</span>().<span class="f">New_</span>([ :authenticationType = <span class="s">"Password"</span> ])
 	oIdentity.<span class="f">AddClaim</span>(<span class="f">dnNew</span>(<span class="s">"Claim"</span>,[ :type = <span class="s">"Name"</span>, :value = <span class="s">"Ann"</span> ]))
 	oIdentity.<span class="f">AddClaim</span>(<span class="f">dnNew</span>(<span class="s">"Claim"</span>,[ :type = <span class="s">"Email"</span>, :value = <span class="s">"ann@example.com"</span> ]))
 	oIdentity.<span class="f">AddClaim</span>(<span class="f">dnNew</span>(<span class="s">"Claim"</span>,[ :type = <span class="s">"Role"</span>, :value = <span class="s">"Editor"</span> ]))
 	oIdentity.<span class="f">AddClaim</span>(<span class="f">dnNew</span>(<span class="s">"Claim"</span>,[ :type = <span class="s">"Role"</span>, :value = <span class="s">"Reviewer"</span> ]))
-	oPrincipal = <span class="f">dnNew</span>(<span class="s">"ClaimsPrincipal"</span>,[ :identity = oIdentity ])
+	oPrincipal = <span class="k">new</span> <span class="t">ClaimsPrincipal</span>().<span class="f">New_</span>([ :identity = oIdentity ])
 
 	? <span class="s">"1. authentication type: "</span> + oIdentity.AuthenticationType + <span class="s">", authenticated: "</span> + oIdentity.IsAuthenticated
 	? <span class="s">"   claims: "</span> + len(oIdentity.Claims.<span class="f">toList</span>())
@@ -272,10 +273,10 @@ using {
 	? <span class="s">"   has claim Role=Editor: "</span> + oPrincipal.<span class="f">HasClaim</span>([ :type = <span class="s">"Role"</span>, :value = <span class="s">"Editor"</span> ]) + <span class="s">", has claim Role=Admin: "</span> + oPrincipal.<span class="f">HasClaim</span>([ :type = <span class="s">"Role"</span>, :value = <span class="s">"Admin"</span> ])
 
 	<span class="c"># 3. Roles: IsInRole looks at the claims of the role type. A new identity must say which claim type is the role.</span>
-	oRoleIdentity = <span class="f">dnNew</span>(<span class="s">"ClaimsIdentity"</span>,[ :authenticationType = <span class="s">"Password"</span>, :nameType = <span class="s">"Name"</span>, :roleType = <span class="s">"Role"</span> ])
+	oRoleIdentity = <span class="k">new</span> <span class="t">ClaimsIdentity</span>().<span class="f">New_</span>([ :authenticationType = <span class="s">"Password"</span>, :nameType = <span class="s">"Name"</span>, :roleType = <span class="s">"Role"</span> ])
 	oRoleIdentity.<span class="f">AddClaim</span>(<span class="f">dnNew</span>(<span class="s">"Claim"</span>,[ :type = <span class="s">"Name"</span>, :value = <span class="s">"Ann"</span> ]))
 	oRoleIdentity.<span class="f">AddClaim</span>(<span class="f">dnNew</span>(<span class="s">"Claim"</span>,[ :type = <span class="s">"Role"</span>, :value = <span class="s">"Editor"</span> ]))
-	oRolePrincipal = <span class="f">dnNew</span>(<span class="s">"ClaimsPrincipal"</span>,[ :identity = oRoleIdentity ])
+	oRolePrincipal = <span class="k">new</span> <span class="t">ClaimsPrincipal</span>().<span class="f">New_</span>([ :identity = oRoleIdentity ])
 	? nl + <span class="s">"3. name: "</span> + oRoleIdentity.Name
 	? <span class="s">"   is Editor: "</span> + oRolePrincipal.<span class="f">IsInRole</span>(<span class="s">"Editor"</span>) + <span class="s">", is Admin: "</span> + oRolePrincipal.<span class="f">IsInRole</span>(<span class="s">"Admin"</span>)
 
@@ -315,11 +316,12 @@ using {
    write: 1
    comment: 1
    delete: 0</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="claims-identities-principals">Claims, identities, principals<a class="anchor" href="#claims-identities-principals">#</a></h3>
 <p>A <strong>claim</strong> is one statement about a user: <code>Name = Ann</code>, <code>Email = ann@example.com</code>, <code>Role = Editor</code>. The type is just a text; .NET has standard names (<code>ClaimTypes.Email</code> is a long address-like text) but your own short names work in your own program. A user can have several claims of the same type, like the two roles here.</p>
 <p>An <strong>identity</strong> is a list of claims that came from one source (a password login, a certificate, a token) together with the name of that source (<code>AuthenticationType</code>). A <strong>principal</strong> is the user as the program sees them, and can hold several identities. <code>IsAuthenticated</code> is true when the identity has an authentication type.</p>
-<p>All the constructors have several forms, so they are made with named values: <code>dnNew("ClaimsIdentity",[ :authenticationType = "Password" ])</code>.</p>
+<p>The constructors have several forms, so an identity is made with named values: <code>new ClaimsIdentity().New_([ :authenticationType = "Password" ])</code>.</p>
 <h3 id="finding-claims">Finding claims<a class="anchor" href="#finding-claims">#</a></h3>
 <p><code>FindFirst(type)</code> returns the first claim of that type (or null), <code>FindAll(type)</code> all of them as a collection (<code>toList()</code> gives a Ring list), and <code>HasClaim</code> answers yes or no. <code>HasClaim</code> has two forms, so it takes a list of names: <code>[ :type = "Role", :value = "Editor" ]</code>.</p>
 <h3 id="roles">Roles<a class="anchor" href="#roles">#</a></h3>

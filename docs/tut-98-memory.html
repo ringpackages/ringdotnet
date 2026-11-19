@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -302,6 +303,7 @@ using {
    after dropping it and a collection: alive = 0
 
 5. generation of a new object: 0, after one collection: 1 (it survived, so it moved up)</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-garbage-collector">The garbage collector<a class="anchor" href="#the-garbage-collector">#</a></h3>
 <p>In .NET you never free an object by hand. The GC finds the objects that no variable can reach any more and frees them. You do not choose the moment: it runs when memory gets short, or when the runtime decides. <code>GC.Collect()</code> forces a collection, and <code>GC.GetTotalMemory(True)</code> collects first and then returns the number of bytes in use. Both are useful for <strong>learning and testing</strong>; in a real program calling <code>Collect</code> is almost always wrong, because the GC knows better than you when to run (and a forced collection can slow the program).</p>

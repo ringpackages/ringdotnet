@@ -95,7 +95,7 @@ func selfTest
 	dnAssert("gift wrap",wpfFind(oWindow,"gift").IsChecked,True)
 
 	# a date picker: SelectedDate is a DateTime (empty until a date is chosen)
-	wpfFind(oWindow,"day").SelectedDate = dnNew("DateTime",[ :year = 2030, :month = 5, :day = 10 ])
+	wpfFind(oWindow,"day").SelectedDate = new DateTime(2030,5,10)
 	dnAssert("the chosen date",wpfFind(oWindow,"day").SelectedDate.Format("yyyy-MM-dd"),"2030-05-10")
 
 	# the menu item New puts everything back

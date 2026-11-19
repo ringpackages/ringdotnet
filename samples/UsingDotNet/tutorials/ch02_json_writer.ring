@@ -11,7 +11,7 @@ func main
 	# 1. Utf8JsonWriter writes a JSON text piece by piece into a stream, without building a tree in memory first.
 	#    It is the right tool for big documents and for output that must be exactly formatted.
 	oStream = new MemoryStream
-	oOptions = dnNew("JsonWriterOptions",[])
+	oOptions = new JsonWriterOptions()
 	oOptions.Indented = True
 	oWriter = dnNew("Utf8JsonWriter",[ :utf8Json = oStream, :options = oOptions ])
 	oWriter.WriteStartObject(NULL)
@@ -35,7 +35,7 @@ func main
 
 	# 2. The same document in one line (not indented): the writer adds no spaces
 	oStream2 = new MemoryStream
-	oWriter2 = dnNew("Utf8JsonWriter",[ :utf8Json = oStream2 ])
+	oWriter2 = new Utf8JsonWriter(oStream2)
 	oWriter2.WriteStartArray(NULL)
 	for n = 1 to 3
 		oWriter2.WriteNumberValue(n * n)
@@ -48,7 +48,7 @@ func main
 	# 3. Escaping is done for you. The writer also refuses a document that is not valid: a value without a property name inside an
 	#    object, or an end without a start, raises an error (that is a test of your own program).
 	oStream3 = new MemoryStream
-	oWriter3 = dnNew("Utf8JsonWriter",[ :utf8Json = oStream3 ])
+	oWriter3 = new Utf8JsonWriter(oStream3)
 	oWriter3.WriteStartObject(NULL)
 	oWriter3.WriteString("text",'a "quoted" line' + nl + 'and a <tag> & more')
 	oWriter3.WriteEndObject()
@@ -66,12 +66,12 @@ func main
 	oSerializer = new JsonSerializer()
 	aNumbers = dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])
 	for n in [3,1,2]
-		aNumbers.callMethod("Add",[n])
+		aNumbers.Add(n)
 	next
 	? nl + "4. a list: " + oSerializer.Serialize(aNumbers)
 	oScores = dnNewGeneric("System.Collections.Generic.Dictionary",["System.String","System.Double"],[])
-	oScores.callMethod("Add",["ann",9.5])
-	oScores.callMethod("Add",["bob",7])
+	oScores.Add("ann",9.5)
+	oScores.Add("bob",7)
 	? "   a dictionary: " + oSerializer.Serialize(oScores)
 	oIndent = new JsonSerializerOptions()
 	oIndent.WriteIndented = True

@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -316,7 +317,8 @@ STEP 3: Ann's goals in the database: 8
 
 STEP 4: team Red has 2 players
 STEP 5: after removing Bob there are 1 player(s)</code></pre></div>
-<h3 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h3>
+<p>#&gt; [!NOTE] This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p>
+<h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <p><strong>Properties.</strong> <code>oDb.properties("Players")</code> lists them: one per column (<code>Id Name Goals TeamId</code>) and one <strong>navigation</strong> (<code>Team</code>), generated from the foreign key <code>TeamId</code>. The team has <code>Players</code>, a collection of its players.</p>
 <p><strong>Create.</strong> <code>newEntity("Teams")</code> gives an empty object, <code>setProp</code> sets a property, <code>add</code> stores it and fills in the key. For a player, <code>oAnn.setProp("Team", oRed)</code> sets the <em>navigation</em>, and EF fills in <code>TeamId</code> itself (<code>1</code>). You can also set <code>TeamId</code> directly.</p>
 <p><strong>Read.</strong> <code>query(table, spec)</code> returns objects. <code>["include",["Team"]]</code> loads the related team in the same query; without it the navigation is empty. Read it with <code>oPlayer.getProp("Team").getProp("Name")</code>.</p>

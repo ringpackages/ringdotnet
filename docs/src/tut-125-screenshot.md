@@ -19,6 +19,8 @@ The tutorial [Images](tut-22-images.html) made pictures from nothing. Here the p
 
 {{output:samples/UsingDotNet/tutorials/ch10_screenshot.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Screens

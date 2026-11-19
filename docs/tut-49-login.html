@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -379,7 +380,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 
 <span class="c"># send a request (with the cookie when there is one); returns [status, body, the cookie that the server sent, if any]</span>
 <span class="k">func</span> <span class="f">visit</span> cMethod, cPath, cForm, cCookie
-	oMessage = <span class="f">dnNew</span>(<span class="s">"HttpRequestMessage"</span>,[ :method = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().<span class="f">New_</span>([ :method = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
 	<span class="k">if</span> cForm != <span class="s">""</span>
 		oContent = <span class="f">dnNew</span>(<span class="s">"StringContent"</span>,[ :content = cForm, :encoding = <span class="k">new</span> <span class="t">Encoding</span>().UTF8, :mediaType = <span class="s">"application/x-www-form-urlencoded"</span> ])
 		oMessage.Content = oContent
@@ -394,7 +395,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 		<span class="k">ok</span>
 	<span class="k">next</span>
 	oTask.<span class="f">Wait</span>(<span class="k">NULL</span>)
-	oResponse = oTask.<span class="f">getProp</span>(<span class="s">"Result"</span>)
+	oResponse = oTask.Result
 	oBody = oResponse.Content.<span class="f">ReadAsStringAsync</span>(<span class="k">NULL</span>)
 	oBody.<span class="f">Wait</span>(<span class="k">NULL</span>)
 	<span class="c"># the cookie: the "Set-Cookie" header of the response, up to the first ";"</span>
@@ -404,7 +405,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 		cValue = aFound[<span class="n">2</span>].<span class="f">toList</span>()[<span class="n">1</span>]
 		cNewCookie = trim(str2list(substr(cValue,<span class="s">";"</span>,nl))[<span class="n">1</span>])
 	<span class="k">ok</span>
-	<span class="k">return</span> [oResponse.StatusCode,oBody.<span class="f">getProp</span>(<span class="s">"Result"</span>),cNewCookie]</code></pre></div>
+	<span class="k">return</span> [oResponse.StatusCode,oBody.Result,cNewCookie]</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>register ann              -&gt; Created welcome, ann
 register ann again        -&gt; Conflict that name is taken
 profile, not logged in    -&gt; Unauthorized please log in
@@ -413,6 +414,7 @@ login, right password     -&gt; OK logged in as ann   (a cookie was sent: 1)
 profile, with the cookie  -&gt; OK this is the profile of ann
 logout                    -&gt; OK logged out
 profile, old cookie       -&gt; Unauthorized please log in</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="registering">Registering<a class="anchor" href="#registering">#</a></h3>
 <p><code>registerUser</code> reads the form fields. It refuses a missing name or a short password with <code>400</code>, creates a random <strong>salt</strong>, and stores the name, the salt and a <strong>hash</strong> of the password (<code>PBKDF2</code>, the tutorial <a href="tut-08-security.html">Hashing and encryption</a>) — never the password itself. The <code>unique</code> option of the name column makes the database refuse a duplicate, which the handler turns into <code>409 Conflict</code>.</p>

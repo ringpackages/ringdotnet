@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -398,6 +399,7 @@ using {
    c.txt: not UTF-8: try Latin-1
 
 7. a file with mixed line endings has 3 lines: one, two, three</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="bytes-and-encodings">Bytes and encodings<a class="anchor" href="#bytes-and-encodings">#</a></h3>
 <p>The text <code>Café €</code> has six characters. In <strong>UTF-8</strong> it has 9 bytes: the letters of English take 1 byte each, <code>é</code> takes 2 and <code>€</code> takes 3. In <strong>UTF-16</strong> (called <em>Unicode</em> by .NET) each character takes 2 bytes here: 12 bytes. <strong>Latin-1</strong> has one byte for each of 256 characters, so the text takes 6 bytes, and the euro sign, which Latin-1 does not have, becomes <code>?</code>. <strong>ASCII</strong> has only 128 characters, so <code>é</code> and <code>€</code> both become <code>?</code>. A <code>byte[]</code> is a Ring text of bytes in this package, and the function <code>toHex</code> shows each byte with <code>ascii</code> and <code>hex</code>.</p>

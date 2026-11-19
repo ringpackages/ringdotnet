@@ -32,7 +32,7 @@ The tutorial [Paths and the environment](tut-59-paths.html) gave the special fol
 
 ### The drive of a folder
 
-`Path.GetPathRoot(path)` gives the root of a path (`C:\` on Windows, `/` on Linux) and `dnNew("DriveInfo",[ root ])` describes that drive.
+`Path.GetPathRoot(path)` gives the root of a path (`C:\` on Windows, `/` on Linux) and `new DriveInfo(root)` describes that drive.
 
 ### Three sizes
 

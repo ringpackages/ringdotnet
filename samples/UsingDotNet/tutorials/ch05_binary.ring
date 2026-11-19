@@ -52,7 +52,7 @@ func main
 	# 6. Reading into a BUFFER. Stream.Read(buffer, offset, count) writes into an array that you pass in, so it needs a live .NET array and not
 	#    a Ring text (a text is copied on the way in). dnBuffer makes such an array; Read gives the number of bytes that it wrote, and
 	#    dnBufferBytes copies them back into a Ring text. The file is the one of step 4, a text that starts with "just".
-	oStream = dnNew("FileStream",[ :path = cFile, :mode = "Open" ])
+	oStream = new FileStream(cFile,"Open")
 	oBuffer = dnBuffer(16)
 	nRead = oStream.Read(oBuffer,0,16)
 	oStream.Dispose()

@@ -21,6 +21,8 @@ The tutorial [Unicode and encodings](tut-52-unicode.html) explained characters, 
 
 {{output:samples/UsingDotNet/tutorials/ch02_text_encodings.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Bytes and encodings

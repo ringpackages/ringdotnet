@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -369,6 +370,7 @@ using {
    buffer of     4096 bytes: 733 calls
    buffer of    65536 bytes: 46 calls
    buffer of  1048576 bytes: 3 calls</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-loop">The loop<a class="anchor" href="#the-loop">#</a></h3>
 <p><code>copyFile</code> opens the source for reading and the target for writing (<code>Create</code> makes a new file), and makes <strong>one buffer</strong> of 64 KB. The loop is always the same: <code>Read</code> fills the buffer and answers how many bytes it wrote, <code>Write</code> sends <em>those</em> bytes on, and the loop ends when <code>Read</code> answers <code>0</code>, the end of the file. The same buffer is used again and again, so the program needs 64 KB of memory for a file of any size.</p>

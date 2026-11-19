@@ -24,7 +24,7 @@ func main
 
 func runParent
 	# 1. A named mutex is a lock that the whole computer shares. The first program that gets it is "the only copy".
-	oLock = dnNew("Mutex",[ :initiallyOwned = False, :name = C_MUTEX ])
+	oLock = new Mutex().New_([ :initiallyOwned = False, :name = C_MUTEX ])
 	? "1. the parent got the lock: " + yesNo(oLock.WaitOne(0))              # WaitOne(0): do not wait, just try
 
 	# 2. A named pipe server waits for a client. The pipe has a name that any program of this computer can open.
@@ -32,7 +32,7 @@ func runParent
 	? nl + "2. the pipe server is listening on '" + C_PIPE + "'"
 
 	# 3. Start the child: a second copy of this program, with its output redirected so that the parent can read it
-	oInfo = dnNew("ProcessStartInfo",[ :fileName = exefilename(), :arguments = '"' + filename() + '" --child' ])
+	oInfo = new ProcessStartInfo().New_([ :fileName = exefilename(), :arguments = '"' + filename() + '" --child' ])
 	oInfo {
 		UseShellExecute = False
 		CreateNoWindow = True
@@ -63,7 +63,7 @@ func runParent
 # ---------------------------------------------------------------- the child
 
 func runChild
-	oLock = dnNew("Mutex",[ :initiallyOwned = False, :name = C_MUTEX ])
+	oLock = new Mutex().New_([ :initiallyOwned = False, :name = C_MUTEX ])
 	if oLock.WaitOne(0)
 		? "I got the lock: no other copy was running"
 	else

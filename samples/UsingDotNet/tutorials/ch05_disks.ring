@@ -16,7 +16,7 @@ func main
 	next
 
 	# 2. DriveInfo.GetDrives() lists the drives (the letters of Windows, the mounted file systems of Linux and macOS)
-	oAny = dnNew("DriveInfo",[ new Path().GetPathRoot(new Path().GetTempPath()) ])     # static methods are called through any object of the class
+	oAny = new DriveInfo(new Path().GetPathRoot(new Path().GetTempPath()))     # static methods are called through any object of the class
 	aDrives = oAny.GetDrives().toList()
 	nReady = 0
 	for oDrive in aDrives
@@ -30,7 +30,7 @@ func main
 	#    temporary files.
 	cFolder = new Path().GetTempPath()
 	cRoot = new Path().GetPathRoot(cFolder)
-	oDrive = dnNew("DriveInfo",[ cRoot ])
+	oDrive = new DriveInfo(cRoot)
 	? nl + "3. the drive of the temporary folder: ready " + yesNo(oDrive.IsReady) + ", type " + oDrive.DriveType
 
 	# 4. Sizes: TotalSize is the whole drive, TotalFreeSpace all the free space, AvailableFreeSpace the free space for the current user
@@ -51,7 +51,7 @@ func main
 
 	# 6. A name that is not a drive name raises an error; the program prints the kind of the error.
 	try
-		oOther = dnNew("DriveInfo",[ "?" ])
+		oOther = new DriveInfo("?")
 		? nl + "6. a drive with an impossible name was accepted"
 	catch
 		? nl + "6. a drive with an impossible name: " + errorKind(cCatchError)

@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -258,7 +259,7 @@ using {
 	oFile.<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"Line one"</span> + nl + <span class="s">"Line two"</span> + nl ])
 
 	<span class="c"># 1. FileInfo describes one file: the name, the extension, the size and the folder. It is made from a path and it does not open the file.</span>
-	oInfo = <span class="f">dnNew</span>(<span class="s">"FileInfo"</span>,[ cFile ])
+	oInfo = <span class="k">new</span> <span class="t">FileInfo</span>(cFile)
 	? <span class="s">"1. name: "</span> + oInfo.Name + <span class="s">", extension: "</span> + oInfo.Extension + <span class="s">", exists: "</span> + yesNo(oInfo.Exists)
 	? <span class="s">"   name without extension: "</span> + oPath.<span class="f">GetFileNameWithoutExtension</span>(cFile) + <span class="s">", size: "</span> + oInfo.Length + <span class="s">" bytes"</span>
 
@@ -272,7 +273,7 @@ using {
 	<span class="c"># 3. Attributes: a file can be read-only, hidden, and more. They are flags in one value (a text such as "ReadOnly, Archive").</span>
 	? nl + <span class="s">"3. attributes: "</span> + oFile.<span class="f">GetAttributes</span>(cFile)
 	oFile.<span class="f">SetAttributes</span>(cFile,<span class="s">"ReadOnly"</span>)
-	? <span class="s">"   after SetAttributes: "</span> + oFile.<span class="f">GetAttributes</span>(cFile) + <span class="s">", IsReadOnly: "</span> + yesNo(<span class="f">dnNew</span>(<span class="s">"FileInfo"</span>,[ cFile ]).IsReadOnly)
+	? <span class="s">"   after SetAttributes: "</span> + oFile.<span class="f">GetAttributes</span>(cFile) + <span class="s">", IsReadOnly: "</span> + yesNo(<span class="k">new</span> <span class="t">FileInfo</span>(cFile).IsReadOnly)
 
 	<span class="c"># 4. A read-only file is protected: writing to it raises an error. The program shows the message and then removes the flag.</span>
 	<span class="k">try</span>
@@ -294,17 +295,17 @@ using {
 		? nl + <span class="s">"5. second copy: "</span> + errorKind(cCatchError)
 	<span class="k">done</span>
 	oFile.<span class="f">Copy</span>([ :sourceFileName = cFile, :destFileName = cCopy, :overwrite = <span class="k">True</span> ])
-	? <span class="s">"   with overwrite = True: ok, size "</span> + <span class="f">dnNew</span>(<span class="s">"FileInfo"</span>,[ cCopy ]).Length + <span class="s">" bytes"</span>
+	? <span class="s">"   with overwrite = True: ok, size "</span> + <span class="k">new</span> <span class="t">FileInfo</span>(cCopy).Length + <span class="s">" bytes"</span>
 
 	<span class="c"># 6. Temporary files: GetTempFileName creates an empty file with a unique name in the folder for temporary files. The program that asked for</span>
 	<span class="c">#    it must delete it.</span>
 	cTemp = oPath.<span class="f">GetTempFileName</span>()
-	? nl + <span class="s">"6. a temporary file: exists "</span> + yesNo(oFile.<span class="f">Exists</span>(cTemp)) + <span class="s">", size "</span> + <span class="f">dnNew</span>(<span class="s">"FileInfo"</span>,[ cTemp ]).Length + <span class="s">" bytes"</span>
+	? nl + <span class="s">"6. a temporary file: exists "</span> + yesNo(oFile.<span class="f">Exists</span>(cTemp)) + <span class="s">", size "</span> + <span class="k">new</span> <span class="t">FileInfo</span>(cTemp).Length + <span class="s">" bytes"</span>
 	oFile.<span class="f">Delete</span>(cTemp)
 	? <span class="s">"   after Delete: exists "</span> + yesNo(oFile.<span class="f">Exists</span>(cTemp))
 
 	<span class="c"># 7. The files of a folder with their sizes, from DirectoryInfo (the names are sorted so that the output is always the same)</span>
-	oFolder = <span class="f">dnNew</span>(<span class="s">"DirectoryInfo"</span>,[ cFolder ])
+	oFolder = <span class="k">new</span> <span class="t">DirectoryInfo</span>(cFolder)
 	aNames = []
 	<span class="k">for</span> oItem <span class="k">in</span> oFolder.<span class="f">GetFiles</span>(<span class="k">NULL</span>).<span class="f">toList</span>()
 		aNames + (oItem.Name + <span class="s">" ("</span> + oItem.Length + <span class="s">" bytes)"</span>)
@@ -362,6 +363,7 @@ using {
 7. in the folder:
    copy.txt (8 bytes)
    report.txt (8 bytes)</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="file-and-fileinfo">File and FileInfo<a class="anchor" href="#file-and-fileinfo">#</a></h3>
 <p><code>File</code> has static methods that take a path (<code>File.Exists</code>, <code>File.Copy</code>, <code>File.Delete</code>...). <code>FileInfo</code> is an object made from a path: it gives <code>Name</code>, <code>Extension</code>, <code>Length</code> (bytes), <code>Exists</code>, <code>IsReadOnly</code>, the times and more, and it has the same actions as methods. <code>FileInfo</code> reads the information once and keeps it: when the file changes, <code>Refresh()</code> reads it again (step 2 needs it after the time was set).</p>

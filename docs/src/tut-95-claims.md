@@ -19,6 +19,8 @@ ASP.NET Core uses exactly these classes for every login, so what you learn here 
 
 {{output:samples/UsingDotNet/tutorials/ch08_claims.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Claims, identities, principals
@@ -27,7 +29,7 @@ A **claim** is one statement about a user: `Name = Ann`, `Email = ann@example.co
 
 An **identity** is a list of claims that came from one source (a password login, a certificate, a token) together with the name of that source (`AuthenticationType`). A **principal** is the user as the program sees them, and can hold several identities. `IsAuthenticated` is true when the identity has an authentication type.
 
-All the constructors have several forms, so they are made with named values: `dnNew("ClaimsIdentity",[ :authenticationType = "Password" ])`.
+The constructors have several forms, so an identity is made with named values: `new ClaimsIdentity().New_([ :authenticationType = "Password" ])`.
 
 ### Finding claims
 

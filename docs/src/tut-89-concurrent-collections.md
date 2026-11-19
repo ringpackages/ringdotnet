@@ -22,11 +22,13 @@ If two threads add to one `List` at the same moment, the list can lose an item o
 
 {{output:samples/UsingDotNet/tutorials/ch04_concurrent_collections.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Generic types
 
-These classes are generic (`ConcurrentQueue<T>`), so a Ring program creates a *closed* type with `dnNewGeneric(type, [type arguments], [constructor values])`. Some closed types have a Ring class and work like any object (the queue of names in step 1); for the others the object is a plain `DotNetObject` and you use `callMethod("Name", [arguments])` and `getProp("Name")` ([Core concepts](concepts.html)). The result is the same, only the way of writing differs. A dictionary item is read with `callMethod("get_Item", [key])`.
+These classes are generic (`ConcurrentQueue<T>`), so a Ring program creates a *closed* type with `dnNewGeneric(type, [type arguments], [constructor values])`. Some closed types have a Ring class and work like any object (the queue of names in step 1: `oQueue.Enqueue(...)`, `oQueue.Count`); for the others the object is a plain `DotNetObject` and you use `callMethod("Name", [arguments])` and `getProp("Name")` ([Core concepts](concepts.html)). The result is the same, only the way of writing differs. A dictionary item is read with `callMethod("get_Item", [key])`.
 
 ### Try methods
 

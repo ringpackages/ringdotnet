@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -323,7 +324,7 @@ using {
 <span class="k">func</span> <span class="f">stringList</span> aList
 	oList = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.String"</span>],[])
 	<span class="k">for</span> cItem <span class="k">in</span> aList
-		oList.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[cItem])
+		oList.<span class="f">Add</span>(cItem)
 	<span class="k">next</span>
 	<span class="k">return</span> oList</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. **/*.ring :
@@ -351,6 +352,7 @@ using {
    docs/guide/intro.md
 
 5. with Ordinal comparison, **/*.RING matches only: b.RING</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-wildcards">The wildcards<a class="anchor" href="#the-wildcards">#</a></h3>
 <div class="tablewrap"><table><thead><tr><th>Pattern</th><th>Matches</th></tr></thead><tbody><tr><td><code>*.ring</code></td><td>any file name that ends with <code>.ring</code>, in <strong>one</strong> folder</td></tr><tr><td><code>?</code></td><td>exactly one character: <code>file?.txt</code> is <code>file1.txt</code> and <code>fileA.txt</code></td></tr><tr><td><code>**</code></td><td>any number of folders, <strong>also none</strong>: <code>**/*.ring</code> is <code>a.ring</code>, <code>src/a.ring</code> and <code>src/util/a.ring</code></td></tr><tr><td><code>src/*.ring</code></td><td>files in <code>src</code>, <strong>not</strong> in its sub-folders</td></tr><tr><td><code>docs/**/*.md</code></td><td>every <code>.md</code> file below <code>docs</code>, at any depth</td></tr></tbody></table></div>

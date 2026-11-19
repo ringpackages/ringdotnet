@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -325,12 +326,12 @@ oClient = <span class="s">""</span>
 		<span class="k">ok</span>
 	<span class="k">next</span>
 	oTask.<span class="f">Wait</span>(<span class="k">NULL</span>)
-	<span class="k">return</span> oTask.<span class="f">getProp</span>(<span class="s">"Result"</span>)
+	<span class="k">return</span> oTask.Result
 
 <span class="k">func</span> <span class="f">bodyOf</span> oResponse
 	oBody = oResponse.Content.<span class="f">ReadAsStringAsync</span>(<span class="k">NULL</span>)
 	oBody.<span class="f">Wait</span>(<span class="k">NULL</span>)
-	<span class="k">return</span> oBody.<span class="f">getProp</span>(<span class="s">"Result"</span>)
+	<span class="k">return</span> oBody.Result
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
 	<span class="k">if</span> lValue

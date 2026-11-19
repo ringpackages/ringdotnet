@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -252,42 +253,42 @@ using {
 	<span class="c"># very fast, even with a million values, because a set uses a hash table (a list has to look at every item).</span>
 	oSetA = makeSet([<span class="s">"ring"</span>,<span class="s">"dotnet"</span>,<span class="s">"linq"</span>,<span class="s">"json"</span>,<span class="s">"web"</span>])
 	oSetB = makeSet([<span class="s">"web"</span>,<span class="s">"json"</span>,<span class="s">"tcp"</span>,<span class="s">"udp"</span>,<span class="s">"ring"</span>,<span class="s">"ring"</span>])
-	? <span class="s">"1. A has "</span> + oSetA.<span class="f">getProp</span>(<span class="s">"Count"</span>) + <span class="s">" items: "</span> + sortedText(oSetA)
-	? <span class="s">"   B has "</span> + oSetB.<span class="f">getProp</span>(<span class="s">"Count"</span>) + <span class="s">" items (the list had 6, 'ring' twice): "</span> + sortedText(oSetB)
+	? <span class="s">"1. A has "</span> + oSetA.Count + <span class="s">" items: "</span> + sortedText(oSetA)
+	? <span class="s">"   B has "</span> + oSetB.Count + <span class="s">" items (the list had 6, 'ring' twice): "</span> + sortedText(oSetB)
 
 	<span class="c"># 2. The result of Add says whether the value was new</span>
-	? nl + <span class="s">"2. Add('tcp') to A: "</span> + oSetA.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span class="s">"tcp"</span>]) + <span class="s">" (new), Add('tcp') again: "</span> + oSetA.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span class="s">"tcp"</span>]) + <span class="s">" (already there)"</span>
-	oSetA.<span class="f">callMethod</span>(<span class="s">"Remove"</span>,[<span class="s">"tcp"</span>])
+	? nl + <span class="s">"2. Add('tcp') to A: "</span> + oSetA.<span class="f">Add</span>(<span class="s">"tcp"</span>) + <span class="s">" (new), Add('tcp') again: "</span> + oSetA.<span class="f">Add</span>(<span class="s">"tcp"</span>) + <span class="s">" (already there)"</span>
+	oSetA.<span class="f">Remove</span>(<span class="s">"tcp"</span>)
 
 	<span class="c"># 3. The four operations of set theory. They CHANGE the set they are called on, so each one works on a copy.</span>
 	? nl + <span class="s">"3. A = "</span> + sortedText(oSetA) + <span class="s">"   B = "</span> + sortedText(oSetB)
 	oUnion = copySet(oSetA)
-	oUnion.<span class="f">callMethod</span>(<span class="s">"UnionWith"</span>,[oSetB])
+	oUnion.<span class="f">UnionWith</span>(oSetB)
 	? <span class="s">"   union (in A or B):               "</span> + sortedText(oUnion)
 	oBoth = copySet(oSetA)
-	oBoth.<span class="f">callMethod</span>(<span class="s">"IntersectWith"</span>,[oSetB])
+	oBoth.<span class="f">IntersectWith</span>(oSetB)
 	? <span class="s">"   intersection (in A and in B):    "</span> + sortedText(oBoth)
 	oOnlyA = copySet(oSetA)
-	oOnlyA.<span class="f">callMethod</span>(<span class="s">"ExceptWith"</span>,[oSetB])
+	oOnlyA.<span class="f">ExceptWith</span>(oSetB)
 	? <span class="s">"   difference (in A but not in B):  "</span> + sortedText(oOnlyA)
 	oEither = copySet(oSetA)
-	oEither.<span class="f">callMethod</span>(<span class="s">"SymmetricExceptWith"</span>,[oSetB])
+	oEither.<span class="f">SymmetricExceptWith</span>(oSetB)
 	? <span class="s">"   in A or B but not in both:       "</span> + sortedText(oEither)
 
 	<span class="c"># 4. Questions about two sets</span>
 	oSmall = makeSet([<span class="s">"ring"</span>,<span class="s">"json"</span>])
-	? nl + <span class="s">"4. {ring, json} is a subset of A:  "</span> + oSmall.<span class="f">callMethod</span>(<span class="s">"IsSubsetOf"</span>,[oSetA])
-	? <span class="s">"   A is a superset of {ring, json}: "</span> + oSetA.<span class="f">callMethod</span>(<span class="s">"IsSupersetOf"</span>,[oSmall])
-	? <span class="s">"   A and B have items in common:  "</span> + oSetA.<span class="f">callMethod</span>(<span class="s">"Overlaps"</span>,[oSetB])
-	? <span class="s">"   A and {tcp, udp} have items in common: "</span> + oSetA.<span class="f">callMethod</span>(<span class="s">"Overlaps"</span>,[makeSet([<span class="s">"tcp"</span>,<span class="s">"udp"</span>])])
-	? <span class="s">"   A equals A with the same items in another order: "</span> + oSetA.<span class="f">callMethod</span>(<span class="s">"SetEquals"</span>,[makeSet([<span class="s">"web"</span>,<span class="s">"json"</span>,<span class="s">"linq"</span>,<span class="s">"dotnet"</span>,<span class="s">"ring"</span>])])
+	? nl + <span class="s">"4. {ring, json} is a subset of A:  "</span> + oSmall.<span class="f">IsSubsetOf</span>(oSetA)
+	? <span class="s">"   A is a superset of {ring, json}: "</span> + oSetA.<span class="f">IsSupersetOf</span>(oSmall)
+	? <span class="s">"   A and B have items in common:  "</span> + oSetA.<span class="f">Overlaps</span>(oSetB)
+	? <span class="s">"   A and {tcp, udp} have items in common: "</span> + oSetA.<span class="f">Overlaps</span>(makeSet([<span class="s">"tcp"</span>,<span class="s">"udp"</span>]))
+	? <span class="s">"   A equals A with the same items in another order: "</span> + oSetA.<span class="f">SetEquals</span>(makeSet([<span class="s">"web"</span>,<span class="s">"json"</span>,<span class="s">"linq"</span>,<span class="s">"dotnet"</span>,<span class="s">"ring"</span>]))
 
 	<span class="c"># 5. A set with a comparer: names that differ only in case are the same item (the tutorial "Comparing text")</span>
 	oNames = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.HashSet"</span>,[cText],[<span class="k">new</span> <span class="t">StringComparer</span>().OrdinalIgnoreCase])
 	<span class="k">for</span> cName <span class="k">in</span> [<span class="s">"Ann"</span>,<span class="s">"ann"</span>,<span class="s">"BOB"</span>,<span class="s">"Bob"</span>,<span class="s">"Cy"</span>]
-		oNames.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[cName])
+		oNames.<span class="f">Add</span>(cName)
 	<span class="k">next</span>
-	? nl + <span class="s">"5. five names, case ignored: "</span> + oNames.<span class="f">getProp</span>(<span class="s">"Count"</span>) + <span class="s">" different people"</span>
+	? nl + <span class="s">"5. five names, case ignored: "</span> + oNames.Count + <span class="s">" different people"</span>
 
 	<span class="c"># 6. Removing duplicates from a Ring list is one line with a set. The order of a HashSet is not defined: sort when it matters.</span>
 	aWithDuplicates = [<span class="n">5</span>,<span class="n">3</span>,<span class="n">5</span>,<span class="n">1</span>,<span class="n">3</span>,<span class="n">8</span>,<span class="n">1</span>,<span class="n">5</span>]
@@ -301,7 +302,7 @@ using {
 <span class="k">func</span> <span class="f">makeSet</span> aList
 	oSet = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.HashSet"</span>,[<span class="s">"System.String"</span>],[])
 	<span class="k">for</span> cItem <span class="k">in</span> aList
-		oSet.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[cItem])
+		oSet.<span class="f">Add</span>(cItem)
 	<span class="k">next</span>
 	<span class="k">return</span> oSet
 
@@ -338,10 +339,11 @@ using {
 5. five names, case ignored: 3 different people
 
 6. 8 numbers, 4 different: 1 3 5 8</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="one-copy-of-each-value">One copy of each value<a class="anchor" href="#one-copy-of-each-value">#</a></h3>
 <p>A set holds a value <strong>once</strong>. The list for set B has six words, <code>ring</code> twice, and the set has five items. <code>Add</code> answers whether the value was new (<em>true</em>) or already there (<em>false</em>); <code>Remove</code> takes a value away. There is <strong>no order</strong>: the items come out in an order that you must not depend on, so the program sorts them before printing. The set is stored in a <strong>hash table</strong>: a value is turned into a number that points at the place where it lives, so <code>Contains</code> takes the same short time for ten values and for ten million, while a list has to look at every item. When a program asks "have I seen this before?" many times, a set is the right tool.</p>
-<p>The closed generic type is made with <code>dnNewGeneric("System.Collections.Generic.HashSet",["System.String"],[])</code> and used with <code>callMethod</code> and <code>getProp</code>; <code>toList()</code> copies the items into a Ring list (the tutorial <a href="tut-89-concurrent-collections.html">Collections for many threads</a>).</p>
+<p><code>StringSet</code> is the ready class for <code>HashSet&lt;string&gt;</code>, and it is used like any object (<code>oSet.Add(...)</code>, <code>oSet.Count</code>); <code>toList()</code> copies the items into a Ring list (the tutorial <a href="tut-89-concurrent-collections.html">Collections for many threads</a>).</p>
 <h3 id="the-operations">The operations<a class="anchor" href="#the-operations">#</a></h3>
 <p>Take A = {dotnet, json, linq, ring, web} and B = {json, ring, tcp, udp, web}:</p>
 <div class="tablewrap"><table><thead><tr><th>Method</th><th>Meaning</th><th>Result</th></tr></thead><tbody><tr><td><code>UnionWith(B)</code></td><td>in A <strong>or</strong> B</td><td>dotnet json linq ring tcp udp web</td></tr><tr><td><code>IntersectWith(B)</code></td><td>in A <strong>and</strong> in B</td><td>json ring web</td></tr><tr><td><code>ExceptWith(B)</code></td><td>in A but <strong>not</strong> in B</td><td>dotnet linq</td></tr><tr><td><code>SymmetricExceptWith(B)</code></td><td>in one of them, <strong>not in both</strong></td><td>dotnet linq tcp udp</td></tr></tbody></table></div>

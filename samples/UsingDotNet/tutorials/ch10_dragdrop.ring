@@ -96,8 +96,8 @@ func dropFiles oArgs
 
 # a drag made by the test: a DataObject with the data, and the arguments that .NET would give to the event
 func makeArgs cFormat,xData,nKeys
-	oData = dnNew("DataObject",[ :format = cFormat, :data = xData ])
-	return dnNew("DragEventArgs",[ oData, nKeys, 10, 10, "Copy, Move", "None" ])
+	oData = new DataObject().New_([ :format = cFormat, :data = xData ])
+	return new DragEventArgs(oData, nKeys, 10, 10, "Copy, Move", "None")
 
 func selfTest
 	dnAssert("four fruits",oSource.Items.Count,4)

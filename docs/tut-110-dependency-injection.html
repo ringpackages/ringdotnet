@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -262,7 +263,7 @@ nScoped = <span class="n">0</span>
 	<span class="f">dnStatic</span>(cExt,<span class="s">"AddSingleton"</span>,[oServices,<span class="f">dnType</span>(<span class="s">"System.Collections.ArrayList"</span>),<span class="f">dnCallback</span>(<span class="s">"makeSingleton"</span>)])
 	<span class="f">dnStatic</span>(cExt,<span class="s">"AddTransient"</span>,[oServices,<span class="f">dnType</span>(<span class="s">"System.Random"</span>),<span class="f">dnCallback</span>(<span class="s">"makeTransient"</span>)])
 	<span class="f">dnStatic</span>(cExt,<span class="s">"AddScoped"</span>,[oServices,<span class="f">dnType</span>(<span class="s">"System.IO.MemoryStream"</span>),<span class="f">dnCallback</span>(<span class="s">"makeScoped"</span>)])
-	oProvider = <span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions"</span>,<span class="s">"BuildServiceProvider"</span>,[oServices])
+	oProvider = <span class="k">new</span> <span class="t">ServiceCollectionContainerBuilderExtensions</span>().<span class="f">BuildServiceProvider</span>(oServices)
 	? <span class="s">"1. "</span> + oServices.Count + <span class="s">" services are registered; the provider is built"</span>
 
 	<span class="c"># 2. SINGLETON: one object for the whole program. It is made the first time somebody asks.</span>
@@ -280,8 +281,8 @@ nScoped = <span class="n">0</span>
 	<span class="c"># 4. SCOPED: one object for each SCOPE. A scope is one unit of work: in a web server, one request. Inside a scope the same object comes</span>
 	<span class="c">#    back; another scope gets its own.</span>
 	oStream = <span class="f">dnType</span>(<span class="s">"System.IO.MemoryStream"</span>)
-	oScope1 = <span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions"</span>,<span class="s">"CreateScope"</span>,[oProvider])
-	oScope2 = <span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions"</span>,<span class="s">"CreateScope"</span>,[oProvider])
+	oScope1 = <span class="k">new</span> <span class="t">ServiceProviderServiceExtensions</span>().<span class="f">CreateScope</span>(oProvider)
+	oScope2 = <span class="k">new</span> <span class="t">ServiceProviderServiceExtensions</span>().<span class="f">CreateScope</span>(oProvider)
 	oInScope1a = oScope1.ServiceProvider.<span class="f">callMethod</span>(<span class="s">"GetService"</span>,[oStream])
 	oInScope1b = oScope1.ServiceProvider.<span class="f">callMethod</span>(<span class="s">"GetService"</span>,[oStream])
 	oInScope2 = oScope2.ServiceProvider.<span class="f">callMethod</span>(<span class="s">"GetService"</span>,[oStream])
@@ -331,6 +332,7 @@ nScoped = <span class="n">0</span>
 5. the singleton list now says: 2 entries, from the first scope and the second scope
 
 6. total made: singleton 1, transient 2, scoped 2</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-idea">The idea<a class="anchor" href="#the-idea">#</a></h3>
 <p>Without DI, a function that sends mail creates its own mail client, and a test of that function sends real mail. With DI, the function <strong>asks</strong> the container for a mail client; the program registers the real one, and a test registers a fake one. The code that <em>uses</em> a service does not know how it is made, and the code that <em>makes</em> it does not know who uses it.</p>

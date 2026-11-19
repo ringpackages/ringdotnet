@@ -19,11 +19,13 @@ The tutorial [Drawing and animation](tut-14-animation.html) moved shapes with Ri
 
 {{output:samples/UsingDotNet/tutorials/ch03_vectors.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Vectors
 
-A `Vector3` holds three numbers `X`, `Y`, `Z`. It can be a **position** (a point in space) or a **direction** with a length (a speed, a force). `Vector2` has two numbers and `Vector4` four. They are value types (structs): `dnNew("Vector3",[ :x = 3, :y = 4, :z = 0 ])` makes one by names, and `oV.X` reads a component. The numbers are *single-precision* floats (about 7 digits), so a result such as `0.6` can really be `0.6000000238`; the program rounds before printing (`roundNumber`), and so should yours when you compare.
+A `Vector3` holds three numbers `X`, `Y`, `Z`. It can be a **position** (a point in space) or a **direction** with a length (a speed, a force). `Vector2` has two numbers and `Vector4` four. They are value types (structs): `new Vector3().New_([ :x = 3, :y = 4, :z = 0 ])` makes one by names, and `oV.X` reads a component. The numbers are *single-precision* floats (about 7 digits), so a result such as `0.6` can really be `0.6000000238`; the program rounds before printing (`roundNumber`), and so should yours when you compare.
 
 ### Operations
 
@@ -41,7 +43,7 @@ The operations are **static methods**: `Add(a, b)`, `Subtract(a, b)`, `Multiply(
 
 A matrix describes a transformation of space as a block of numbers. `Matrix3x2` works in the plane: `CreateTranslation(x, y)` moves, `CreateScale` scales and `CreateRotation(angle)` rotates around the origin, with the angle in **radians** (half a turn is `3.14159...`, a quarter is half of that). `Vector2.Transform(point, matrix)` applies it. Turning (1, 0) by 90 degrees gives (0, 1); moving it by (10, 5) gives (11, 5).
 
-`Matrix3x2.Multiply(first, second)` combines two transformations into one: *first turn, then move* gives (10, 6), because the point is turned to (0, 1) and then moved. The **order** matters — moving first and turning second gives another point — which is the most common mistake with matrices. These methods have several forms, so the program calls them with `dnStatic(type, method, [arguments])`, where the bridge chooses the form from the arguments. `Matrix4x4` does the same in three dimensions (with `CreatePerspective`, `CreateLookAt`...) and `Quaternion` describes 3D rotations without the problems of angles.
+`Matrix3x2.Multiply(first, second)` combines two transformations into one: *first turn, then move* gives (10, 6), because the point is turned to (0, 1) and then moved. The **order** matters — moving first and turning second gives another point — which is the most common mistake with matrices. These methods have several forms, so the bridge chooses the form from the arguments (`new Matrix3x2().CreateRotation(...)`). `Matrix4x4` does the same in three dimensions (with `CreatePerspective`, `CreateLookAt`...) and `Quaternion` describes 3D rotations without the problems of angles.
 
 > [!NOTE] These types are made for speed in .NET code. Each call from Ring crosses the bridge (about 50 microseconds), so use them for the *logic* of your program, and let .NET do the heavy loops (for example a LINQ query, the tutorial [Collections and LINQ](tut-04-collections.html)) when you have thousands of points.
 

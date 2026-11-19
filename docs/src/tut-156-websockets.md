@@ -21,6 +21,8 @@ The tutorials [Sockets](tut-25-sockets.html) and [UDP](tut-91-udp.html) sent byt
 
 {{output:samples/UsingDotNet/tutorials/ch07_websockets.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### The upgrade

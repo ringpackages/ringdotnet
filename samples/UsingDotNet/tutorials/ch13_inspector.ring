@@ -21,9 +21,9 @@ func main
 	# Some objects to look at. They are made here; the inspector does not care what they are.
 	cTempFile = new Path().Combine([ new Path().GetTempPath(), "ringdotnet-inspect.txt" ])
 	new File().WriteAllText([ :path = cTempFile, :contents = "Hello, inspector" ])
-	aObjects + [ "A Uri", dnNew("Uri",[ "https://example.com:8080/docs/page?x=1#top" ]) ]
+	aObjects + [ "A Uri", new Uri("https://example.com:8080/docs/page?x=1#top") ]
 	aObjects + [ "A DateTime", dnNew("DateTime",[ :year = 2030, :month = 3, :day = 9, :hour = 14, :minute = 5, :second = 7 ]) ]
-	aObjects + [ "A FileInfo", dnNew("FileInfo",[ cTempFile ]) ]
+	aObjects + [ "A FileInfo", new FileInfo(cTempFile) ]
 	aObjects + [ "A StringBuilder", new StringBuilder("Hello") ]
 
 	oForm = uiForm("Inspector",560,380)

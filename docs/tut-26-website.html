@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -342,10 +343,10 @@ aEntries = []                 <span class="c"># the guestbook: [name, message]</
 		<span class="k">ok</span>
 	<span class="k">next</span>
 	oTask.<span class="f">Wait</span>(<span class="k">NULL</span>)
-	oResponse = oTask.<span class="f">getProp</span>(<span class="s">"Result"</span>)
+	oResponse = oTask.Result
 	oBody = oResponse.Content.<span class="f">ReadAsStringAsync</span>(<span class="k">NULL</span>)
 	oBody.<span class="f">Wait</span>(<span class="k">NULL</span>)
-	<span class="k">return</span> [oResponse.StatusCode,oBody.<span class="f">getProp</span>(<span class="s">"Result"</span>)]
+	<span class="k">return</span> [oResponse.StatusCode,oBody.Result]
 
 <span class="k">func</span> <span class="f">summary</span> aResult
 	cBody = aResult[<span class="n">2</span>]
@@ -366,6 +367,7 @@ entries stored  : 1</code></pre></div>
 <p>then open <code>http://localhost:5090/</code> in a browser.</p>
 <figure class="shot"><img src="img/shots/tut-g26-home.png" alt="The home page" loading="lazy"><figcaption>GET /</figcaption></figure>
 <figure class="shot"><img src="img/shots/tut-g26-guestbook.png" alt="The guestbook after two entries" loading="lazy"><figcaption>GET /guestbook</figcaption></figure>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="one-frame-for-all-pages">One frame for all pages<a class="anchor" href="#one-frame-for-all-pages">#</a></h3>
 <p>The function <code>page(cTitle, cBody)</code> builds the whole HTML text: a title, a few lines of style, a navigation bar and the body. Every handler calls it, so every page looks the same and a change of design is made in one place. A handler returns a <em>text</em>; the server sends it as <code>text/html</code>.</p>

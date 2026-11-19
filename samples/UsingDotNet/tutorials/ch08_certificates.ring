@@ -18,67 +18,67 @@ func main
 
 	# 1. A key pair (RSA, 2048 bits), then a request that says who the certificate is for
 	oRsa = dnStatic(cCrypto + "RSA","Create",[2048])
-	oName = dnNew("X500DistinguishedName",[ :distinguishedName = "CN=Demo Server, O=RingDotNet, C=EG" ])
+	oName = new X500DistinguishedName("CN=Demo Server, O=RingDotNet, C=EG")
 	oSha = dnStatic(cCrypto + "HashAlgorithmName","get_SHA256",[])
 	oPadding = dnStatic(cCrypto + "RSASignaturePadding","get_Pkcs1",[])
 	oRequest = dnNew("CertificateRequest",[ :subjectName = oName, :key = oRsa, :hashAlgorithm = oSha, :padding = oPadding ])
 
 	# 2. Extensions say what the certificate may be used for. This one is a plain server certificate (not a CA that signs others).
-	oBasic = dnNew("X509BasicConstraintsExtension",[ :certificateAuthority = False, :hasPathLengthConstraint = False, :pathLengthConstraint = 0, :critical = True ])
-	oRequest.getProp("CertificateExtensions").callMethod("Add",[oBasic])
+	oBasic = new X509BasicConstraintsExtension().New_([ :certificateAuthority = False, :hasPathLengthConstraint = False, :pathLengthConstraint = 0, :critical = True ])
+	oRequest.CertificateExtensions.callMethod("Add",[oBasic])
 
 	# 3. Create it: valid from yesterday (a margin for computers whose clocks differ) until a year from today
 	oNow = dnStatic("System.DateTimeOffset","get_UtcNow",[])
-	oCertificate = oRequest.callMethod("CreateSelfSigned",[oNow.callMethod("AddDays",[-1]),oNow.callMethod("AddDays",[365])])
-	? "1. subject:     " + oCertificate.getProp("Subject")
-	? "   issuer:      " + oCertificate.getProp("Issuer") + "   (the same: self-signed)"
-	? "   thumbprint:  " + len(oCertificate.getProp("Thumbprint")) + " hex characters (the SHA-1 of the certificate: it identifies it)"
-	? "   has a private key: " + oCertificate.getProp("HasPrivateKey")
-	? "   valid for " + floor(oCertificate.getProp("NotAfter").Subtract(oCertificate.getProp("NotBefore")).getProp("TotalDays") + 0.5) + " days, and it is valid now: " + isValidNow(oCertificate)
+	oCertificate = oRequest.CreateSelfSigned(oNow.AddDays(-1),oNow.AddDays(365))
+	? "1. subject:     " + oCertificate.Subject
+	? "   issuer:      " + oCertificate.Issuer + "   (the same: self-signed)"
+	? "   thumbprint:  " + len(oCertificate.Thumbprint) + " hex characters (the SHA-1 of the certificate: it identifies it)"
+	? "   has a private key: " + oCertificate.HasPrivateKey
+	? "   valid for " + floor(oCertificate.NotAfter.Subtract(oCertificate.NotBefore).TotalDays + 0.5) + " days, and it is valid now: " + isValidNow(oCertificate)
 
 	# 4. Export WITH the private key as PFX (a file with a password), and load it again. A PFX is the secret: protect it like a password.
 	aPfx = oCertificate.callMethod("Export",["Pfx","correct horse battery"])
-	oLoaded = dnNew("X509Certificate2",[ :rawData = aPfx, :password = "correct horse battery" ])
-	? nl + "2. the PFX is bigger than 1000 bytes: " + (len(aPfx) > 1000) + "; loaded again it has the same thumbprint: " + (oLoaded.getProp("Thumbprint") = oCertificate.getProp("Thumbprint")) + " and a private key: " + oLoaded.getProp("HasPrivateKey")
+	oLoaded = new X509Certificate2().New_([ :rawData = aPfx, :password = "correct horse battery" ])
+	? nl + "2. the PFX is bigger than 1000 bytes: " + (len(aPfx) > 1000) + "; loaded again it has the same thumbprint: " + (oLoaded.Thumbprint = oCertificate.Thumbprint) + " and a private key: " + oLoaded.HasPrivateKey
 	lWrong = False
 	try
-		dnNew("X509Certificate2",[ :rawData = aPfx, :password = "wrong password" ])
+		new X509Certificate2().New_([ :rawData = aPfx, :password = "wrong password" ])
 	catch
 		lWrong = True
 	done
 	? "   a wrong password is refused: " + lWrong
 
 	# 5. Export the PUBLIC part only (a .cer or PEM file): this is what you give to others. It has no private key.
-	cPem = oCertificate.callMethod("ExportCertificatePem",[])
+	cPem = oCertificate.ExportCertificatePem()
 	? nl + "3. the public certificate as PEM starts with: " + left(substr(cPem,char(13),""),27)
-	aCer = oCertificate.callMethod("Export",["Cert"])
-	oPublic = dnNew("X509Certificate2",[ :rawData = aCer ])
-	? "   loaded from the public export: same thumbprint " + (oPublic.getProp("Thumbprint") = oCertificate.getProp("Thumbprint")) + ", private key: " + oPublic.getProp("HasPrivateKey")
+	aCer = oCertificate.Export("Cert")
+	oPublic = new X509Certificate2().New_([ :rawData = aCer ])
+	? "   loaded from the public export: same thumbprint " + (oPublic.Thumbprint = oCertificate.Thumbprint) + ", private key: " + oPublic.HasPrivateKey
 
 	# 6. Signing: the owner signs with the private key, anybody with the public certificate verifies
 	aMessage = oUtf8.GetBytes("Invoice 2024-001: 1250.00")
-	oPrivateKey = dnStatic("System.Security.Cryptography.X509Certificates.RSACertificateExtensions","GetRSAPrivateKey",[oCertificate])
+	oPrivateKey = new RSACertificateExtensions().GetRSAPrivateKey(oCertificate)
 	aSignature = oPrivateKey.callMethod("SignData",[aMessage,oSha,oPadding])
-	oPublicKey = dnStatic("System.Security.Cryptography.X509Certificates.RSACertificateExtensions","GetRSAPublicKey",[oPublic])
+	oPublicKey = new RSACertificateExtensions().GetRSAPublicKey(oPublic)
 	aChanged = oUtf8.GetBytes("Invoice 2024-001: 9250.00")
 	? nl + "4. signature of " + len(aSignature) + " bytes (2048-bit key); verified with the public certificate: " + oPublicKey.callMethod("VerifyData",[aMessage,aSignature,oSha,oPadding])
 	? "   the message changed: " + oPublicKey.callMethod("VerifyData",[aChanged,aSignature,oSha,oPadding])
 	? "   the public certificate can not sign: " + canSign(oPublic)
 
 	# 7. Is it trusted? A chain check asks whether the issuer is one that this computer trusts. For a self-signed certificate it is not.
-	oChain = dnNew("X509Chain",[])
-	oChain.getProp("ChainPolicy").setProp("RevocationMode","NoCheck")
-	? nl + "5. the system trusts this self-signed certificate: " + oChain.callMethod("Build",[oPublic]) + "   (nobody else vouches for it)"
+	oChain = new X509Chain()
+	oChain.ChainPolicy.setProp("RevocationMode","NoCheck")
+	? nl + "5. the system trusts this self-signed certificate: " + oChain.Build(oPublic) + "   (nobody else vouches for it)"
 
-	oRsa.callMethod("Dispose",[])
+	oRsa.Dispose()
 
 func isValidNow oCertificate
 	oNow = dnStatic("System.DateTime","get_Now",[])
-	return oNow.CompareTo(oCertificate.getProp("NotBefore")) >= 0 and oNow.CompareTo(oCertificate.getProp("NotAfter")) <= 0
+	return oNow.CompareTo(oCertificate.NotBefore) >= 0 and oNow.CompareTo(oCertificate.NotAfter) <= 0
 
 func canSign oPublic
 	try
-		dnStatic("System.Security.Cryptography.X509Certificates.RSACertificateExtensions","GetRSAPrivateKey",[oPublic]).callMethod("SignData",[new UTF8Encoding().GetBytes("x"),dnStatic("System.Security.Cryptography.HashAlgorithmName","get_SHA256",[]),dnStatic("System.Security.Cryptography.RSASignaturePadding","get_Pkcs1",[])])
+		new RSACertificateExtensions().GetRSAPrivateKey(oPublic).SignData(new UTF8Encoding().GetBytes("x"),new HashAlgorithmName().get_SHA256(),new RSASignaturePadding().get_Pkcs1())
 		return True
 	catch
 		return False

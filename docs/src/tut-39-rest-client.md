@@ -32,6 +32,8 @@ For this tutorial the service is started in the same program, so that it needs n
 
 {{output:samples/UsingDotNet/tutorials/ch07_rest_client.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### One helper for all requests
@@ -42,7 +44,7 @@ For this tutorial the service is started in the same program, so that it needs n
 
 ### The Task pattern
 
-`SendAsync` returns a `Task` at once; `Wait(NULL)` waits for the answer; `getProp("Result")` is the `HttpResponseMessage`. Reading the body is again asynchronous (`ReadAsStringAsync`). Here, because the server lives in the same program, the helper calls `serveOne` while it waits; with a real server on the internet you would just wait.
+`SendAsync` returns a `Task` at once; `Wait(NULL)` waits for the answer; `.Result` is the `HttpResponseMessage`. Reading the body is again asynchronous (`ReadAsStringAsync`). Here, because the server lives in the same program, the helper calls `serveOne` while it waits; with a real server on the internet you would just wait.
 
 ### Reading JSON
 

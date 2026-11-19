@@ -17,7 +17,7 @@ func main
 	oFile.WriteAllText([ :path = cFile, :contents = "Line one" + nl + "Line two" + nl ])
 
 	# 1. FileInfo describes one file: the name, the extension, the size and the folder. It is made from a path and it does not open the file.
-	oInfo = dnNew("FileInfo",[ cFile ])
+	oInfo = new FileInfo(cFile)
 	? "1. name: " + oInfo.Name + ", extension: " + oInfo.Extension + ", exists: " + yesNo(oInfo.Exists)
 	? "   name without extension: " + oPath.GetFileNameWithoutExtension(cFile) + ", size: " + oInfo.Length + " bytes"
 
@@ -31,7 +31,7 @@ func main
 	# 3. Attributes: a file can be read-only, hidden, and more. They are flags in one value (a text such as "ReadOnly, Archive").
 	? nl + "3. attributes: " + oFile.GetAttributes(cFile)
 	oFile.SetAttributes(cFile,"ReadOnly")
-	? "   after SetAttributes: " + oFile.GetAttributes(cFile) + ", IsReadOnly: " + yesNo(dnNew("FileInfo",[ cFile ]).IsReadOnly)
+	? "   after SetAttributes: " + oFile.GetAttributes(cFile) + ", IsReadOnly: " + yesNo(new FileInfo(cFile).IsReadOnly)
 
 	# 4. A read-only file is protected: writing to it raises an error. The program shows the message and then removes the flag.
 	try
@@ -53,17 +53,17 @@ func main
 		? nl + "5. second copy: " + errorKind(cCatchError)
 	done
 	oFile.Copy([ :sourceFileName = cFile, :destFileName = cCopy, :overwrite = True ])
-	? "   with overwrite = True: ok, size " + dnNew("FileInfo",[ cCopy ]).Length + " bytes"
+	? "   with overwrite = True: ok, size " + new FileInfo(cCopy).Length + " bytes"
 
 	# 6. Temporary files: GetTempFileName creates an empty file with a unique name in the folder for temporary files. The program that asked for
 	#    it must delete it.
 	cTemp = oPath.GetTempFileName()
-	? nl + "6. a temporary file: exists " + yesNo(oFile.Exists(cTemp)) + ", size " + dnNew("FileInfo",[ cTemp ]).Length + " bytes"
+	? nl + "6. a temporary file: exists " + yesNo(oFile.Exists(cTemp)) + ", size " + new FileInfo(cTemp).Length + " bytes"
 	oFile.Delete(cTemp)
 	? "   after Delete: exists " + yesNo(oFile.Exists(cTemp))
 
 	# 7. The files of a folder with their sizes, from DirectoryInfo (the names are sorted so that the output is always the same)
-	oFolder = dnNew("DirectoryInfo",[ cFolder ])
+	oFolder = new DirectoryInfo(cFolder)
 	aNames = []
 	for oItem in oFolder.GetFiles(NULL).toList()
 		aNames + (oItem.Name + " (" + oItem.Length + " bytes)")

@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -384,7 +385,7 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
 		<span class="k">ok</span>
 	<span class="k">next</span>
 	oTask.<span class="f">Wait</span>(<span class="k">NULL</span>)
-	oResponse = oTask.<span class="f">getProp</span>(<span class="s">"Result"</span>)
+	oResponse = oTask.Result
 	oBody = oResponse.Content.<span class="f">ReadAsStringAsync</span>(<span class="k">NULL</span>)
 	oBody.<span class="f">Wait</span>(<span class="k">NULL</span>)
 	cLocation = <span class="s">""</span>
@@ -392,7 +393,7 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
 	<span class="k">if</span> aFound[<span class="n">1</span>]
 		cLocation = aFound[<span class="n">2</span>].<span class="f">toList</span>()[<span class="n">1</span>]
 	<span class="k">ok</span>
-	<span class="k">return</span> [ <span class="s">""</span> + oResponse.StatusCode, oBody.<span class="f">getProp</span>(<span class="s">"Result"</span>), cLocation ]</code></pre></div>
+	<span class="k">return</span> [ <span class="s">""</span> + oResponse.StatusCode, oBody.Result, cLocation ]</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. numbers as codes: 1000 -&gt; g8, 1001 -&gt; g9, 3844 -&gt; 100, 238328 -&gt; 1000
 
 2. POST /shorten
@@ -411,6 +412,7 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
    POST /shorten, no address   -&gt; BadRequest
    POST /shorten, not a URL    -&gt; BadRequest
    POST /shorten, a script     -&gt; BadRequest</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-routes">The routes<a class="anchor" href="#the-routes">#</a></h3>
 <p><code>onPost("/shorten", "shorten")</code> makes a short link, <code>onGet("/stats", "statsOverview")</code> lists the visits, and <code>notFound("visit")</code> handles every other path: the text after the first <code>/</code> is a code. The handler of an unknown path is the way to make a service whose addresses are <em>data</em>, not a fixed list. (The status names in the output, <code>Created</code>, <code>Found</code>, <code>NotFound</code> and <code>BadRequest</code>, are the names of the status codes 201, 302, 404 and 400.)</p>

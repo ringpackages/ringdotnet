@@ -13,7 +13,7 @@ func main
 
 	# 1. UDP sends separate messages (datagrams) without a connection: no Accept, no stream. A socket that listens binds to a port
 	#    (0 = the system chooses a free one); LocalEndPoint tells which.
-	oServer = dnNew("UdpClient",[ :port = 0 ])
+	oServer = new UdpClient().New_([ :port = 0 ])
 	nPort = oServer.Client.LocalEndPoint.Port
 	? "1. the server socket is bound to a port: " + (nPort > 0)
 
@@ -26,7 +26,7 @@ func main
 	next
 	? nl + "2. three datagrams sent; the server has data waiting: " + oServer.Available
 	for i = 1 to 3
-		oRemote = dnNew("IPEndPoint",[ :address = oLoop, :port = 0 ])
+		oRemote = new IPEndPoint(oLoop,0)
 		aGot = oServer.Receive(oRemote)
 		cData = aGot[1]
 		? "   datagram " + i + ": '" + oUtf8.GetString(cData) + "' (" + len(cData) + " bytes)"
@@ -37,12 +37,12 @@ func main
 	oTask = oServer.ReceiveAsync(NULL)
 	oTask.Wait(NULL)
 	oResult = oTask.getProp("Result")
-	? nl + "3. the server got '" + oUtf8.GetString(oResult.getProp("Buffer")) + "' from the port of the client socket: " + (oResult.getProp("RemoteEndPoint").Port > 0)
+	? nl + "3. the server got '" + oUtf8.GetString(oResult.Buffer) + "' from the port of the client socket: " + (oResult.RemoteEndPoint.Port > 0)
 	cAnswer = oUtf8.GetBytes("pong")
-	oServer.Send([ :dgram = cAnswer, :bytes = len(cAnswer), :endPoint = oResult.getProp("RemoteEndPoint") ])
+	oServer.Send([ :dgram = cAnswer, :bytes = len(cAnswer), :endPoint = oResult.RemoteEndPoint ])
 	oTask2 = oClient.ReceiveAsync(NULL)
 	oTask2.Wait(NULL)
-	? "   the client got '" + oUtf8.GetString(oTask2.getProp("Result").getProp("Buffer")) + "'"
+	? "   the client got '" + oUtf8.GetString(oTask2.getProp("Result").Buffer) + "'"
 
 	# 4. UDP does not promise delivery. Nothing is waiting now, so a Receive with a time limit ends without data:
 	#    ReceiveAsync + Wait(ms) answers false when nothing arrived.

@@ -59,7 +59,7 @@ func main
 	next
 
 func makeDate nYear,nMonth,nDay
-	return dnNew("DateTime",[ :year = nYear, :month = nMonth, :day = nDay ])
+	return new DateTime(nYear,nMonth,nDay)
 
 # the weekend in one place (Saturday and Sunday here; use ["Friday","Saturday"] for the countries with that weekend)
 func isWeekend oDate
@@ -96,10 +96,10 @@ func countWorkdays oFrom,oTo
 	return nCount
 
 func isoWeek oDate
-	return dnStatic("System.Globalization.ISOWeek","GetWeekOfYear",[ oDate ])
+	return new ISOWeek().GetWeekOfYear(oDate)
 
 func isoYear oDate
-	return dnStatic("System.Globalization.ISOWeek","GetYear",[ oDate ])
+	return new ISOWeek().GetYear(oDate)
 
 func daysInMonth nYear,nMonth
 	return dnStatic("System.DateTime","DaysInMonth",[ nYear, nMonth ])

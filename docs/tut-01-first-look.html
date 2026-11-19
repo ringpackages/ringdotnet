@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -279,8 +280,8 @@ using {
 	oNames.<span class="f">Add</span>(<span class="s">"Bob"</span>)
 	? <span class="s">"A list of names  : "</span> + oNames.Count + <span class="s">" items, first is "</span> + oNames.<span class="f">Item</span>(<span class="n">0</span>)
 
-	<span class="c"># 7. null means "no object"</span>
-	oMissing = <span class="f">dnNull</span>()
+	<span class="c"># 7. null means "no object". The base type of StringBuilder is Object, and Object has no base type: the answer is null</span>
+	oMissing = oText.<span class="f">GetType</span>().BaseType.BaseType
 	? <span class="s">"Is it null?      : "</span> + oMissing.<span class="f">isNull</span>()</code></pre></div>
 <p>Run it:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring ch01_first_look.ring</code></pre></div>
@@ -313,9 +314,9 @@ Is it null?      : 1</code></pre></div>
 <h3 id="6-collections">6. Collections<a class="anchor" href="#6-collections">#</a></h3>
 <p><code>StringList</code> holds texts, in order. <code>Add</code> adds one, <code>Count</code> says how many, <code>Item(0)</code> reads the first (the position starts at 0, like in .NET).</p>
 <h3 id="7-null">7. null<a class="anchor" href="#7-null">#</a></h3>
-<p><code>dnNull()</code> is the .NET <code>null</code>: "no object". <code>isNull()</code> checks it. Ring prints <code>1</code> for true.</p>
+<p><strong>null</strong> is "no object". A method that finds nothing returns it: the type <code>Object</code> has no base type, so <code>oText.GetType().BaseType.BaseType</code> (the base type of the base type of a <code>StringBuilder</code>) is null. <code>isNull()</code> checks it. Ring prints <code>1</code> for true.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<div class="tablewrap"><table><thead><tr><th>Idea</th><th>Example</th></tr></thead><tbody><tr><td>a runtime inside your program</td><td><code>new Environment().Version</code></td></tr><tr><td>create an object</td><td><code>new StringBuilder("Hello")</code></td></tr><tr><td>a property</td><td><code>oText.Length</code></td></tr><tr><td>a method</td><td><code>oText.Append(", .NET")</code></td></tr><tr><td>a static member</td><td><code>new Math().Max(3,9)</code></td></tr><tr><td>a struct and an enum</td><td><code>DateTime</code>, <code>DayOfWeek</code></td></tr><tr><td>a collection</td><td><code>StringList</code></td></tr><tr><td>no object</td><td><code>dnNull()</code></td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Idea</th><th>Example</th></tr></thead><tbody><tr><td>a runtime inside your program</td><td><code>new Environment().Version</code></td></tr><tr><td>create an object</td><td><code>new StringBuilder("Hello")</code></td></tr><tr><td>a property</td><td><code>oText.Length</code></td></tr><tr><td>a method</td><td><code>oText.Append(", .NET")</code></td></tr><tr><td>a static member</td><td><code>new Math().Max(3,9)</code></td></tr><tr><td>a struct and an enum</td><td><code>DateTime</code>, <code>DayOfWeek</code></td></tr><tr><td>a collection</td><td><code>StringList</code></td></tr><tr><td>no object</td><td><code>isNull()</code></td></tr></tbody></table></div>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Change the program to print the type of a <code>DateTime</code> object. Which namespace is it in?</li><li>Create a <code>StringBuilder</code> and append your name five times with a loop. What is its <code>Length</code>?</li><li>Use <code>new Math()</code> to print the square root of 2 and the larger of <code>7</code> and <code>19</code>.</li><li>Find <code>Environment.MachineName</code> in the <a href="api.html">class reference</a> (namespace <code>System</code>) and print it.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

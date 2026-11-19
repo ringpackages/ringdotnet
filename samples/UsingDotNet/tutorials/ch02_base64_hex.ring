@@ -65,10 +65,10 @@ func main
 	? "   " + hashHex("abc")
 
 func toBase64 cBytes
-	return dnStatic("System.Convert","ToBase64String",[ cBytes ])
+	return new Convert().ToBase64String(cBytes)
 
 func fromBase64 cText
-	return dnStatic("System.Convert","FromBase64String",[ cText ])
+	return new Convert().FromBase64String(cText)
 
 # a Base64 text needs a length that is a multiple of 4: = fills the missing places
 func addPadding cText

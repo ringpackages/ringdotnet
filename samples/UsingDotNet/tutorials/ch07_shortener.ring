@@ -143,7 +143,7 @@ func exchange oTask
 		ok
 	next
 	oTask.Wait(NULL)
-	oResponse = oTask.getProp("Result")
+	oResponse = oTask.Result
 	oBody = oResponse.Content.ReadAsStringAsync(NULL)
 	oBody.Wait(NULL)
 	cLocation = ""
@@ -151,4 +151,4 @@ func exchange oTask
 	if aFound[1]
 		cLocation = aFound[2].toList()[1]
 	ok
-	return [ "" + oResponse.StatusCode, oBody.getProp("Result"), cLocation ]
+	return [ "" + oResponse.StatusCode, oBody.Result, cLocation ]

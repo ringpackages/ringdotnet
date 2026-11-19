@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -393,6 +394,7 @@ using {
 
 5. the checksum of the list: 9ddec6614911...
    after somebody edited the list the checksum is the same: no</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-checksum">The checksum<a class="anchor" href="#the-checksum">#</a></h3>
 <p><code>SHA256.ComputeHash(bytes)</code> gives 32 bytes, and <code>Convert.ToHexString</code> writes them as 64 hexadecimal characters (the tutorial <a href="tut-138-base64-hex.html">Bytes as text: Base64 and hexadecimal</a>). The program writes them in lower case, as <code>sha256sum</code> does. A change of one bit anywhere in the file gives a completely different checksum, and nobody can find another file with the same checksum by chance. The checksum of a file that is read as <em>bytes</em> does not depend on the encoding or the line endings: it is the file as it is.</p>

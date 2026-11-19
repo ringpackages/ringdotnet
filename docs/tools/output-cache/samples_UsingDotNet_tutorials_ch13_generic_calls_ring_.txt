@@ -1,0 +1,15 @@
+1. a LinkedList<string> has 3 items, the first is a
+   as a Ring list: a, b, c
+
+2. dnType(...).callMethod: 9   the same with a class: 9
+   a static property: 3.14
+
+3. a FileStream made by names: 20 bytes, can read: 1
+
+4. dnStatic: ff (255 in base 16), 11111111 (in base 2)
+
+5. an ArrayList with a null item has 2 items; the second is null: 1
+
+6. a buffer of 8 bytes
+
+7. the same call in two styles: 9 and 9

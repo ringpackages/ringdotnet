@@ -34,8 +34,8 @@ func main
 	# 2. The connection string names the driver and the file (Dbq). The ODBC classes have no generated Ring classes: dnNew makes the
 	#    objects and callMethod / getProp use them.
 	oConnection = dnNew("System.Data.Odbc.OdbcConnection",["Driver={" + cDriver + "};Dbq=" + cFile + ";"])
-	oConnection.callMethod("Open",[])
-	? "   the connection is: " + oConnection.getProp("State")
+	oConnection.Open()
+	? "   the connection is: " + oConnection.State
 
 	# 3. Tables. Access has its own names for the column types: AUTOINCREMENT (a number that counts by itself), TEXT(n), LONG (a whole
 	#    number), CURRENCY (money with 4 decimals, exact), DATETIME, YESNO.
@@ -97,7 +97,7 @@ func main
 	try
 		runSqlIn(oConnection,oTransaction,"UPDATE Customers SET City = ? WHERE Id = ?",["Luxor",1])
 		runSqlIn(oConnection,oTransaction,"UPDATE NoSuchTable SET x = 1",[])
-		oTransaction.callMethod("Commit",[])
+		oTransaction.Commit()
 	catch
 		lFailed = True
 		oTransaction.callMethod("Rollback",[])
@@ -106,8 +106,8 @@ func main
 
 	# 12. Close the connection. The pool of ODBC keeps connections for reuse, so it is emptied too. The Access engine keeps the FILE open
 	#     until the program ends, so the program does not delete it here.
-	oConnection.callMethod("Close",[])
-	oConnection.callMethod("Dispose",[])
+	oConnection.Close()
+	oConnection.Dispose()
 	dnStatic("System.Data.Odbc.OdbcConnection","ReleaseObjectPool",[])
 	? nl + "11. the connection is closed; the file stays on the disk until the next run of the program deletes it"
 
@@ -117,11 +117,11 @@ func main
 func driverInstalled cDriver
 	try
 		oMachine = dnType("Microsoft.Win32.Registry").getProp("LocalMachine")
-		oKey = oMachine.callMethod("OpenSubKey",["SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers"])
+		oKey = oMachine.OpenSubKey("SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers")
 		if oKey.isNull()
 			return false
 		ok
-		xValue = oKey.callMethod("GetValue",[cDriver])          # the text "Installed", or null when the driver is not registered
+		xValue = oKey.GetValue(cDriver)          # the text "Installed", or null when the driver is not registered
 		if isObject(xValue)
 			return not xValue.isNull()
 		ok
@@ -133,11 +133,11 @@ func driverInstalled cDriver
 # a new Access file made with ADOX (a COM component of Windows); false when it is not available
 func createDatabase cFile
 	try
-		oType = dnStatic("System.Type","GetTypeFromProgID",["ADOX.Catalog"])
+		oType = new Type().GetTypeFromProgID("ADOX.Catalog")
 		if oType.isNull()
 			return false
 		ok
-		oCatalog = dnStatic("System.Activator","CreateInstance",[oType])
+		oCatalog = new Activator().CreateInstance(oType)
 		oType.callMethod("InvokeMember",["Create","InvokeMethod",dnNull(),oCatalog,["Provider=Microsoft.ACE.OLEDB.16.0;Data Source=" + cFile]])
 		return new File().Exists(cFile)
 	catch
@@ -146,9 +146,9 @@ func createDatabase cFile
 
 # a command with its parameters (the driver uses them in the order of the ? marks)
 func makeCommand oConnection,cSql,aValues
-	oCommand = oConnection.callMethod("CreateCommand",[])
+	oCommand = oConnection.CreateCommand()
 	oCommand.setProp("CommandText",cSql)
-	oParameters = oCommand.getProp("Parameters")
+	oParameters = oCommand.Parameters
 	nNumber = 0
 	for xValue in aValues
 		nNumber++
@@ -158,26 +158,26 @@ func makeCommand oConnection,cSql,aValues
 
 # a statement that changes data: answers the number of rows
 func runSql oConnection,cSql,aValues
-	return makeCommand(oConnection,cSql,aValues).callMethod("ExecuteNonQuery",[])
+	return makeCommand(oConnection,cSql,aValues).ExecuteNonQuery()
 
 func runSqlIn oConnection,oTransaction,cSql,aValues
 	oCommand = makeCommand(oConnection,cSql,aValues)
 	oCommand.setProp("Transaction",oTransaction)
-	return oCommand.callMethod("ExecuteNonQuery",[])
+	return oCommand.ExecuteNonQuery()
 
 # one value: the first column of the first row
 func scalar oConnection,cSql,aValues
-	return makeCommand(oConnection,cSql,aValues).callMethod("ExecuteScalar",[])
+	return makeCommand(oConnection,cSql,aValues).ExecuteScalar()
 
 # all the rows as a list of lists. A date comes back as a text "yyyy-MM-dd", the other values as Ring numbers and texts.
 func rows oConnection,cSql,aValues
 	aRows = []
 	oReader = makeCommand(oConnection,cSql,aValues).callMethod("ExecuteReader",[])
-	nColumns = oReader.getProp("FieldCount")
-	while oReader.callMethod("Read",[])
+	nColumns = oReader.FieldCount
+	while oReader.Read()
 		aRow = []
 		for nColumn = 0 to nColumns - 1
-			xValue = oReader.callMethod("GetValue",[nColumn])
+			xValue = oReader.GetValue(nColumn)
 			if isObject(xValue)
 				if xValue.typeName() = "System.DateTime"
 					xValue = xValue.Format("yyyy-MM-dd")
@@ -189,13 +189,13 @@ func rows oConnection,cSql,aValues
 		next
 		aRows + aRow
 	end
-	oReader.callMethod("Dispose",[])
+	oReader.Dispose()
 	return aRows
 
 # the user tables (the schema also lists the system tables of Access)
 func tableNames oConnection
 	aNames = []
-	for oRow in oConnection.callMethod("GetSchema",["Tables"]).getProp("Rows").toList()
+	for oRow in oConnection.GetSchema("Tables").Rows.toList()
 		if oRow.callMethod("get_Item",["TABLE_TYPE"]) = "TABLE"
 			aNames + oRow.callMethod("get_Item",["TABLE_NAME"])
 		ok
@@ -206,10 +206,10 @@ func tableNames oConnection
 func columnNames oConnection,cTable
 	aNames = []
 	oReader = makeCommand(oConnection,"SELECT * FROM " + cTable + " WHERE 1 = 0",[]).callMethod("ExecuteReader",[])
-	for nColumn = 0 to oReader.getProp("FieldCount") - 1
-		aNames + (oReader.callMethod("GetName",[nColumn]) + " (" + lower(oReader.callMethod("GetDataTypeName",[nColumn])) + ")")
+	for nColumn = 0 to oReader.FieldCount - 1
+		aNames + (oReader.GetName(nColumn) + " (" + lower(oReader.GetDataTypeName(nColumn)) + ")")
 	next
-	oReader.callMethod("Dispose",[])
+	oReader.Dispose()
 	return aNames
 
 # ---------------------------------------------------------------- small helpers

@@ -21,7 +21,7 @@ func main
 	? "   private address 192.168.1.20 is not the loopback: " + yesNo(not oParser.IsLoopback(oAddress))
 
 	# 2. An address plus a port is an IPEndPoint. Built from named arguments, because the constructor has several forms.
-	oEndPoint = dnNew("IPEndPoint",[ :address = oAddress, :port = 8080 ])
+	oEndPoint = new IPEndPoint(oAddress,8080)
 	? nl + "2. the endpoint " + oEndPoint.ToString() + ": address " + oEndPoint.Address.ToString() + ", port " + oEndPoint.Port
 
 	# 3. DNS: names to addresses. "localhost" is always known, also without a network.

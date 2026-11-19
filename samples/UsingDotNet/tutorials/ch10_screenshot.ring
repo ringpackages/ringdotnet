@@ -22,7 +22,7 @@ func main
 	#    two numbers are the place on the screen, the next two the place in the bitmap, and the last the size of the part.
 	oShot = new Bitmap(120,80)
 	oGraphics = new Graphics().FromImage(oShot)
-	oGraphics.CopyFromScreen([ :sourceX = 0, :sourceY = 0, :destinationX = 0, :destinationY = 0, :blockRegionSize = dnNew("Size",[ 120, 80 ]) ])
+	oGraphics.CopyFromScreen([ :sourceX = 0, :sourceY = 0, :destinationX = 0, :destinationY = 0, :blockRegionSize = new Size(120, 80) ])
 	oGraphics.Dispose()
 	cFile = new Path().Combine([ new Path().GetTempPath(), "ringdotnet-shot.png" ])
 	oShot.Save([ :filename = cFile, :format = new ImageFormat().Png ])
@@ -42,7 +42,7 @@ func main
 	nPanelWidth = oPanel.Width
 	nPanelHeight = oPanel.Height
 	oPicture = new Bitmap(nPanelWidth,nPanelHeight)
-	oPanel.DrawToBitmap(oPicture,dnNew("Rectangle",[ :x = 0, :y = 0, :width = nPanelWidth, :height = nPanelHeight ]))
+	oPanel.DrawToBitmap(oPicture,new Rectangle(0,0,nPanelWidth,nPanelHeight))
 	? nl + "3. a picture of the panel: " + oPicture.Width + " x " + oPicture.Height + " pixels"
 
 	# 4. What is in the picture? GetPixel reads one pixel, so the program can check what the panel looks like. A pixel far from the label is

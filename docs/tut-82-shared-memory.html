@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -286,7 +287,7 @@ C_NAME = <span class="s">"ringdotnet_tutorial82"</span>
 	? <span class="s">"2. the parent wrote a text at position 100"</span>
 
 	<span class="c"># 4. Start the child and read what it prints. It finds the memory by its name, reads the numbers and the text, and answers in the same memory.</span>
-	oInfo = <span class="f">dnNew</span>(<span class="s">"ProcessStartInfo"</span>,[ :fileName = exefilename(), :arguments = <span class="s">'"'</span> + filename() + <span class="s">'" --child'</span> ])
+	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().<span class="f">New_</span>([ :fileName = exefilename(), :arguments = <span class="s">'"'</span> + filename() + <span class="s">'" --child'</span> ])
 	oInfo {
 		UseShellExecute = <span class="k">False</span>
 		CreateNoWindow = <span class="k">True</span>

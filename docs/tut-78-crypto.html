@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -333,7 +334,7 @@ using {
 	<span class="k">return</span> [<span class="s">"ok"</span>,cPlain]
 
 <span class="k">func</span> <span class="f">tagOf</span> cBody, cMacKey
-	oHmac = <span class="f">dnNew</span>(<span class="s">"HMACSHA256"</span>,[ :key = cMacKey ])
+	oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().<span class="f">New_</span>([ :key = cMacKey ])
 	cTag = oHmac.<span class="f">ComputeHash</span>(cBody)
 	oHmac.<span class="f">Dispose</span>()
 	<span class="k">return</span> cTag
@@ -368,6 +369,7 @@ using {
 6. the signature has 256 bytes (a 2048-bit key)
    verified with the public key: yes
    the order was changed to 'Pay 900 to Ann': no</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="keys-from-a-password">Keys from a password<a class="anchor" href="#keys-from-a-password">#</a></h3>
 <p>A password is short and predictable; a key must be 32 random-looking bytes. <code>Rfc2898DeriveBytes</code> (PBKDF2) repeats a hash 100,000 times with a random <strong>salt</strong> and returns as many bytes as you ask for. 64 bytes are split in two: <strong>one key for encryption and a different one for the HMAC</strong> — never use one key for two jobs. The salt is not secret: store it next to the package. The constructor has several forms, so it is made with named arguments: <code>dnNew("Rfc2898DeriveBytes",[ :password = ..., :salt = ..., :iterations = ..., :hashAlgorithm = ... ])</code>.</p>

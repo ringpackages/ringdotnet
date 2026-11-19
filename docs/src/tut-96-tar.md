@@ -31,11 +31,11 @@ Linux programs combine the last two: a `.tar.gz` (or `.tgz`) file is a tar archi
 
 ### Making the archive
 
-`TarFile.CreateFromDirectory(source folder, tar file, include the folder itself)` packs a whole folder. It is a static method of a static class, so the program calls it with `dnStatic(type, method, [arguments])` with the arguments in order. Here the folder itself is not included, so the entries are `readme.txt` and `notes/a.txt`, not `source/readme.txt`. A tar file is built from blocks of 512 bytes, which step 1 checks: the size is a multiple of 512.
+`TarFile.CreateFromDirectory(source folder, tar file, include the folder itself)` packs a whole folder. It is a static method of a static class, so the program calls it on `new TarFile()` with the arguments in order. Here the folder itself is not included, so the entries are `readme.txt` and `notes/a.txt`, not `source/readme.txt`. A tar file is built from blocks of 512 bytes, which step 1 checks: the size is a multiple of 512.
 
 ### Reading the entries
 
-A `TarReader` is made on a stream (`dnNew("TarReader",[ :archiveStream = oStream ])`). `GetNextEntry` gives the next `TarEntry`, and *null* at the end, which `isNull()` tests. Each entry has `Name`, `EntryType` (`RegularFile`, `Directory`, `SymbolicLink`, ...) and `Length`. `GetNextEntry` has two forms, so it is called with `NULL` for the plain one. The entries come in the order of the folder, which depends on the file system, so the program sorts its lines before printing them: a test must not depend on the order of a disk.
+A `TarReader` is made on a stream (`new TarReader(oStream)`). `GetNextEntry` gives the next `TarEntry`, and *null* at the end, which `isNull()` tests. Each entry has `Name`, `EntryType` (`RegularFile`, `Directory`, `SymbolicLink`, ...) and `Length`. `GetNextEntry` has two forms, so it is called with `NULL` for the plain one. The entries come in the order of the folder, which depends on the file system, so the program sorts its lines before printing them: a test must not depend on the order of a disk.
 
 ### One file from the archive
 
@@ -50,7 +50,7 @@ Reading is *sequential*: a tar file has no index, so to find `notes/b.txt` the r
 ## What you learned
 
 - tar collects files without compressing them,
-- `CreateFromDirectory` and `ExtractToDirectory` with `dnStatic`,
+- `CreateFromDirectory` and `ExtractToDirectory` as static methods of `TarFile`,
 - `TarReader`, `GetNextEntry`, `EntryType`, `DataStream`,
 - reading is sequential,
 - the danger of names that leave the target folder.

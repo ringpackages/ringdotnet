@@ -24,7 +24,7 @@ The tutorial [Files and folders](tut-05-files.html) made a ZIP archive of files.
 
 ### Streams that wrap streams
 
-A compression stream does not hold data itself: it is built **on top of** another stream and a mode (`Compress` or `Decompress`). Bytes written to a compressor are packed and written to the stream below it; bytes read from a decompressor come from the stream below it, unpacked. The stream below can be a `MemoryStream` (bytes in memory) or a `FileStream` (a file). The three classes have the same members, so the function `packer` is the only place that knows the format. The constructor has several forms, so it is called with names: `dnNew("GZipStream",[ :stream = oStream, :mode = "Compress" ])`. The mode is an enum, so it is a text.
+A compression stream does not hold data itself: it is built **on top of** another stream and a mode (`Compress` or `Decompress`). Bytes written to a compressor are packed and written to the stream below it; bytes read from a decompressor come from the stream below it, unpacked. The stream below can be a `MemoryStream` (bytes in memory) or a `FileStream` (a file). The three classes have the same members, so the function `packer` is the only place that knows the format. It is made with `new GZipStream(oStream, "Compress")`. The mode is an enum, so it is a text.
 
 ### Compress and decompress
 

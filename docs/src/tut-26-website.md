@@ -38,6 +38,8 @@ then open `http://localhost:5090/` in a browser.
 
 ![The guestbook after two entries](img/shots/tut-g26-guestbook.png "GET /guestbook")
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### One frame for all pages

@@ -19,6 +19,8 @@ The tutorial [Hashing and encryption](tut-08-security.html) used hashes and encr
 
 {{output:samples/UsingDotNet/tutorials/ch08_signatures.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### What a signature proves

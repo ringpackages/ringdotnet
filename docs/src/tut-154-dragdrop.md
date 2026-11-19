@@ -42,7 +42,7 @@ A file dropped from the explorer arrives in the format **FileDrop**, and its dat
 
 ### Testing without a mouse
 
-A test cannot drag with a mouse, so it makes the arguments that .NET would make: `dnNew("DataObject", [ :format = "Text", :data = "banana" ])` is the data, and `dnNew("DragEventArgs", [ data, keys, x, y, allowed, effect ])` is the event argument. The test calls `dragEnter` and `dragDrop` with them and reads `Effect` and the lists. The functions are the same that the events call. Only `beginDrag`, which starts a real drag, is not called by the test.
+A test cannot drag with a mouse, so it makes the arguments that .NET would make: `new DataObject().New_([ :format = "Text", :data = "banana" ])` is the data, and `new DragEventArgs(data, keys, x, y, allowed, effect)` is the event argument. The test calls `dragEnter` and `dragDrop` with them and reads `Effect` and the lists. The functions are the same that the events call. Only `beginDrag`, which starts a real drag, is not called by the test.
 
 > [!NOTE] Ring code runs on the Ring thread, and the drag events do too, so the handlers can use the controls directly. `DoDragDrop` runs its own message loop until the drop, which is why events keep arriving during it.
 

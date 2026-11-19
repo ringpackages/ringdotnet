@@ -20,11 +20,13 @@ The tutorial [Collections and LINQ](tut-04-collections.html) used `List` and `Di
 
 {{output:samples/UsingDotNet/tutorials/ch04_data_structures.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Closed generic types
 
-All of them but `BitArray` are generic: `dnNewGeneric(type, [type arguments], [constructor values])` makes a closed type such as `PriorityQueue<string, int>`. They have no Ring class, so the objects are used in the plain style: `callMethod("Add", [value])`, `getProp("Count")`, and `toList()` to copy a collection into a Ring list ([Core concepts](concepts.html)).
+All of them but `BitArray` are generic: `dnNewGeneric(type, [type arguments], [constructor values])` makes a closed type such as `PriorityQueue<string, int>`. Most have no Ring class, so those objects are used in the plain style: `callMethod("Add", [value])`, `getProp("Count")`, and `toList()` to copy a collection into a Ring list ([Core concepts](concepts.html)).
 
 ### PriorityQueue
 

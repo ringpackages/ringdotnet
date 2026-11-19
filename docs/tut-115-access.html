@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -278,8 +279,8 @@ using {
 	<span class="c"># 2. The connection string names the driver and the file (Dbq). The ODBC classes have no generated Ring classes: dnNew makes the</span>
 	<span class="c">#    objects and callMethod / getProp use them.</span>
 	oConnection = <span class="f">dnNew</span>(<span class="s">"System.Data.Odbc.OdbcConnection"</span>,[<span class="s">"Driver={"</span> + cDriver + <span class="s">"};Dbq="</span> + cFile + <span class="s">";"</span>])
-	oConnection.<span class="f">callMethod</span>(<span class="s">"Open"</span>,[])
-	? <span class="s">"   the connection is: "</span> + oConnection.<span class="f">getProp</span>(<span class="s">"State"</span>)
+	oConnection.<span class="f">Open</span>()
+	? <span class="s">"   the connection is: "</span> + oConnection.State
 
 	<span class="c"># 3. Tables. Access has its own names for the column types: AUTOINCREMENT (a number that counts by itself), TEXT(n), LONG (a whole</span>
 	<span class="c">#    number), CURRENCY (money with 4 decimals, exact), DATETIME, YESNO.</span>
@@ -341,7 +342,7 @@ using {
 	<span class="k">try</span>
 		runSqlIn(oConnection,oTransaction,<span class="s">"UPDATE Customers SET City = ? WHERE Id = ?"</span>,[<span class="s">"Luxor"</span>,<span class="n">1</span>])
 		runSqlIn(oConnection,oTransaction,<span class="s">"UPDATE NoSuchTable SET x = 1"</span>,[])
-		oTransaction.<span class="f">callMethod</span>(<span class="s">"Commit"</span>,[])
+		oTransaction.<span class="f">Commit</span>()
 	<span class="k">catch</span>
 		lFailed = <span class="k">True</span>
 		oTransaction.<span class="f">callMethod</span>(<span class="s">"Rollback"</span>,[])
@@ -350,8 +351,8 @@ using {
 
 	<span class="c"># 12. Close the connection. The pool of ODBC keeps connections for reuse, so it is emptied too. The Access engine keeps the FILE open</span>
 	<span class="c">#     until the program ends, so the program does not delete it here.</span>
-	oConnection.<span class="f">callMethod</span>(<span class="s">"Close"</span>,[])
-	oConnection.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])
+	oConnection.<span class="f">Close</span>()
+	oConnection.<span class="f">Dispose</span>()
 	<span class="f">dnStatic</span>(<span class="s">"System.Data.Odbc.OdbcConnection"</span>,<span class="s">"ReleaseObjectPool"</span>,[])
 	? nl + <span class="s">"11. the connection is closed; the file stays on the disk until the next run of the program deletes it"</span>
 
@@ -361,11 +362,11 @@ using {
 <span class="k">func</span> <span class="f">driverInstalled</span> cDriver
 	<span class="k">try</span>
 		oMachine = <span class="f">dnType</span>(<span class="s">"Microsoft.Win32.Registry"</span>).<span class="f">getProp</span>(<span class="s">"LocalMachine"</span>)
-		oKey = oMachine.<span class="f">callMethod</span>(<span class="s">"OpenSubKey"</span>,[<span class="s">"SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers"</span>])
+		oKey = oMachine.<span class="f">OpenSubKey</span>(<span class="s">"SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers"</span>)
 		<span class="k">if</span> oKey.<span class="f">isNull</span>()
 			<span class="k">return</span> <span class="k">false</span>
 		<span class="k">ok</span>
-		xValue = oKey.<span class="f">callMethod</span>(<span class="s">"GetValue"</span>,[cDriver])          <span class="c"># the text "Installed", or null when the driver is not registered</span>
+		xValue = oKey.<span class="f">GetValue</span>(cDriver)          <span class="c"># the text "Installed", or null when the driver is not registered</span>
 		<span class="k">if</span> isObject(xValue)
 			<span class="k">return</span> <span class="k">not</span> xValue.<span class="f">isNull</span>()
 		<span class="k">ok</span>
@@ -377,11 +378,11 @@ using {
 <span class="c"># a new Access file made with ADOX (a COM component of Windows); false when it is not available</span>
 <span class="k">func</span> <span class="f">createDatabase</span> cFile
 	<span class="k">try</span>
-		oType = <span class="f">dnStatic</span>(<span class="s">"System.Type"</span>,<span class="s">"GetTypeFromProgID"</span>,[<span class="s">"ADOX.Catalog"</span>])
+		oType = <span class="k">new</span> <span class="t">Type</span>().<span class="f">GetTypeFromProgID</span>(<span class="s">"ADOX.Catalog"</span>)
 		<span class="k">if</span> oType.<span class="f">isNull</span>()
 			<span class="k">return</span> <span class="k">false</span>
 		<span class="k">ok</span>
-		oCatalog = <span class="f">dnStatic</span>(<span class="s">"System.Activator"</span>,<span class="s">"CreateInstance"</span>,[oType])
+		oCatalog = <span class="k">new</span> <span class="t">Activator</span>().<span class="f">CreateInstance</span>(oType)
 		oType.<span class="f">callMethod</span>(<span class="s">"InvokeMember"</span>,[<span class="s">"Create"</span>,<span class="s">"InvokeMethod"</span>,<span class="f">dnNull</span>(),oCatalog,[<span class="s">"Provider=Microsoft.ACE.OLEDB.16.0;Data Source="</span> + cFile]])
 		<span class="k">return</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 	<span class="k">catch</span>
@@ -390,9 +391,9 @@ using {
 
 <span class="c"># a command with its parameters (the driver uses them in the order of the ? marks)</span>
 <span class="k">func</span> <span class="f">makeCommand</span> oConnection,cSql,aValues
-	oCommand = oConnection.<span class="f">callMethod</span>(<span class="s">"CreateCommand"</span>,[])
+	oCommand = oConnection.<span class="f">CreateCommand</span>()
 	oCommand.<span class="f">setProp</span>(<span class="s">"CommandText"</span>,cSql)
-	oParameters = oCommand.<span class="f">getProp</span>(<span class="s">"Parameters"</span>)
+	oParameters = oCommand.Parameters
 	nNumber = <span class="n">0</span>
 	<span class="k">for</span> xValue <span class="k">in</span> aValues
 		nNumber++
@@ -402,26 +403,26 @@ using {
 
 <span class="c"># a statement that changes data: answers the number of rows</span>
 <span class="k">func</span> <span class="f">runSql</span> oConnection,cSql,aValues
-	<span class="k">return</span> makeCommand(oConnection,cSql,aValues).<span class="f">callMethod</span>(<span class="s">"ExecuteNonQuery"</span>,[])
+	<span class="k">return</span> makeCommand(oConnection,cSql,aValues).<span class="f">ExecuteNonQuery</span>()
 
 <span class="k">func</span> <span class="f">runSqlIn</span> oConnection,oTransaction,cSql,aValues
 	oCommand = makeCommand(oConnection,cSql,aValues)
 	oCommand.<span class="f">setProp</span>(<span class="s">"Transaction"</span>,oTransaction)
-	<span class="k">return</span> oCommand.<span class="f">callMethod</span>(<span class="s">"ExecuteNonQuery"</span>,[])
+	<span class="k">return</span> oCommand.<span class="f">ExecuteNonQuery</span>()
 
 <span class="c"># one value: the first column of the first row</span>
 <span class="k">func</span> <span class="f">scalar</span> oConnection,cSql,aValues
-	<span class="k">return</span> makeCommand(oConnection,cSql,aValues).<span class="f">callMethod</span>(<span class="s">"ExecuteScalar"</span>,[])
+	<span class="k">return</span> makeCommand(oConnection,cSql,aValues).<span class="f">ExecuteScalar</span>()
 
 <span class="c"># all the rows as a list of lists. A date comes back as a text "yyyy-MM-dd", the other values as Ring numbers and texts.</span>
 <span class="k">func</span> <span class="f">rows</span> oConnection,cSql,aValues
 	aRows = []
 	oReader = makeCommand(oConnection,cSql,aValues).<span class="f">callMethod</span>(<span class="s">"ExecuteReader"</span>,[])
-	nColumns = oReader.<span class="f">getProp</span>(<span class="s">"FieldCount"</span>)
-	<span class="k">while</span> oReader.<span class="f">callMethod</span>(<span class="s">"Read"</span>,[])
+	nColumns = oReader.FieldCount
+	<span class="k">while</span> oReader.<span class="f">Read</span>()
 		aRow = []
 		<span class="k">for</span> nColumn = <span class="n">0</span> <span class="k">to</span> nColumns - <span class="n">1</span>
-			xValue = oReader.<span class="f">callMethod</span>(<span class="s">"GetValue"</span>,[nColumn])
+			xValue = oReader.<span class="f">GetValue</span>(nColumn)
 			<span class="k">if</span> isObject(xValue)
 				<span class="k">if</span> xValue.<span class="f">typeName</span>() = <span class="s">"System.DateTime"</span>
 					xValue = xValue.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>)
@@ -433,13 +434,13 @@ using {
 		<span class="k">next</span>
 		aRows + aRow
 	<span class="k">end</span>
-	oReader.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])
+	oReader.<span class="f">Dispose</span>()
 	<span class="k">return</span> aRows
 
 <span class="c"># the user tables (the schema also lists the system tables of Access)</span>
 <span class="k">func</span> <span class="f">tableNames</span> oConnection
 	aNames = []
-	<span class="k">for</span> oRow <span class="k">in</span> oConnection.<span class="f">callMethod</span>(<span class="s">"GetSchema"</span>,[<span class="s">"Tables"</span>]).<span class="f">getProp</span>(<span class="s">"Rows"</span>).<span class="f">toList</span>()
+	<span class="k">for</span> oRow <span class="k">in</span> oConnection.<span class="f">GetSchema</span>(<span class="s">"Tables"</span>).Rows.<span class="f">toList</span>()
 		<span class="k">if</span> oRow.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"TABLE_TYPE"</span>]) = <span class="s">"TABLE"</span>
 			aNames + oRow.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"TABLE_NAME"</span>])
 		<span class="k">ok</span>
@@ -450,10 +451,10 @@ using {
 <span class="k">func</span> <span class="f">columnNames</span> oConnection,cTable
 	aNames = []
 	oReader = makeCommand(oConnection,<span class="s">"SELECT * FROM "</span> + cTable + <span class="s">" WHERE 1 = 0"</span>,[]).<span class="f">callMethod</span>(<span class="s">"ExecuteReader"</span>,[])
-	<span class="k">for</span> nColumn = <span class="n">0</span> <span class="k">to</span> oReader.<span class="f">getProp</span>(<span class="s">"FieldCount"</span>) - <span class="n">1</span>
-		aNames + (oReader.<span class="f">callMethod</span>(<span class="s">"GetName"</span>,[nColumn]) + <span class="s">" ("</span> + lower(oReader.<span class="f">callMethod</span>(<span class="s">"GetDataTypeName"</span>,[nColumn])) + <span class="s">")"</span>)
+	<span class="k">for</span> nColumn = <span class="n">0</span> <span class="k">to</span> oReader.FieldCount - <span class="n">1</span>
+		aNames + (oReader.<span class="f">GetName</span>(nColumn) + <span class="s">" ("</span> + lower(oReader.<span class="f">GetDataTypeName</span>(nColumn)) + <span class="s">")"</span>)
 	<span class="k">next</span>
-	oReader.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])
+	oReader.<span class="f">Dispose</span>()
 	<span class="k">return</span> aNames
 
 <span class="c"># ---------------------------------------------------------------- small helpers</span>
@@ -547,6 +548,7 @@ using {
 10. the second statement failed: 1; the city of Ann is still Cairo
 
 11. the connection is closed; the file stays on the disk until the next run of the program deletes it</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="a-new-file">A new file<a class="anchor" href="#a-new-file">#</a></h3>
 <p>The ODBC driver opens Access files but <strong>cannot create</strong> one. <strong>ADOX</strong> can: it is a COM component that comes with Access, and <code>Catalog.Create(connection string)</code> makes an empty <code>.accdb</code>. The program reaches it through reflection: <code>Type.GetTypeFromProgID("ADOX.Catalog")</code>, <code>Activator.CreateInstance</code>, and <code>Type.InvokeMember("Create", ...)</code> with the connection string of the OLEDB provider (<code>Provider=Microsoft.ACE.OLEDB.16.0;Data Source=file</code>). If you already have an Access file, skip this step and just open it.</p>

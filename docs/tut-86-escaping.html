@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -280,7 +281,7 @@ using {
 	? nl + <span class="s">"5. JSON string: "</span> + <span class="k">new</span> <span class="t">JsonEncodedText</span>().<span class="f">Encode</span>(cJsonText).<span class="f">ToString</span>()
 
 	<span class="c"># 6. XML: XElement escapes for you. Never build XML by adding strings.</span>
-	oNote = <span class="f">dnNew</span>(<span class="s">"XElement"</span>,[ :name = <span class="s">"note"</span>, :content = cText ])
+	oNote = <span class="k">new</span> <span class="t">XElement</span>(<span class="s">"note"</span>,cText)
 	? nl + <span class="s">"6. XML element: "</span> + oNote.<span class="f">ToString</span>()
 
 	<span class="c"># 7. Regular expressions: characters like + . * ( ) have a meaning. Regex.Escape makes a text that matches ITSELF.</span>

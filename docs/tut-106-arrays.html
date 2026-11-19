@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -251,20 +252,20 @@ using {
 	<span class="c"># 1. A .NET array has a fixed size and one type. A Ring list becomes an array when a method asks for one: the bridge makes an int[],</span>
 	<span class="c">#    string[] or double[] from the values of the list. An array that comes back is a DotNetObject: toList() makes a Ring list of it.</span>
 	aNumbers = [<span class="n">42</span>,<span class="n">7</span>,<span class="n">19</span>,<span class="n">3</span>,<span class="n">25</span>]
-	oSorted = <span class="f">dnStatic</span>(<span class="s">"System.Array"</span>,<span class="s">"Sort"</span>,[aNumbers])
+	oSorted = <span class="k">new</span> <span class="t">Array</span>().<span class="f">Sort</span>(aNumbers)
 	? <span class="s">"1. a list given to Array.Sort comes back unchanged: "</span> + list2text(aNumbers) + <span class="s">"(the bridge sorted its own copy)"</span>
 
 	<span class="c"># 2. So to sort, reverse or search an array, make the array first: a List&lt;Int32&gt; filled with Add, and ToArray()</span>
 	oInts = makeIntArray([<span class="n">42</span>,<span class="n">7</span>,<span class="n">19</span>,<span class="n">3</span>,<span class="n">25</span>])
 	? nl + <span class="s">"2. an Int32 array of "</span> + oInts.Length + <span class="s">" items: "</span> + arrayText(oInts)
-	<span class="f">dnStatic</span>(<span class="s">"System.Array"</span>,<span class="s">"Sort"</span>,[oInts])
+	<span class="k">new</span> <span class="t">Array</span>().<span class="f">Sort</span>(oInts)
 	? <span class="s">"   after Array.Sort:     "</span> + arrayText(oInts)
-	<span class="f">dnStatic</span>(<span class="s">"System.Array"</span>,<span class="s">"Reverse"</span>,[oInts])
+	<span class="k">new</span> <span class="t">Array</span>().<span class="f">Reverse</span>(oInts)
 	? <span class="s">"   after Array.Reverse:  "</span> + arrayText(oInts)
 
 	<span class="c"># 3. Searching: IndexOf answers the position (0-based, as in .NET) or -1. BinarySearch is much faster, but the array must be</span>
 	<span class="c">#    SORTED; it answers a negative number (the complement of the place to insert) when the value is not there.</span>
-	<span class="f">dnStatic</span>(<span class="s">"System.Array"</span>,<span class="s">"Sort"</span>,[oInts])
+	<span class="k">new</span> <span class="t">Array</span>().<span class="f">Sort</span>(oInts)
 	? nl + <span class="s">"3. IndexOf(19) in the sorted array: "</span> + <span class="f">dnStatic</span>(<span class="s">"System.Array"</span>,<span class="s">"IndexOf"</span>,[oInts,<span class="n">19</span>]) + <span class="s">"   (0-based: Ring would say 3)"</span>
 	? <span class="s">"   IndexOf(99): "</span> + <span class="f">dnStatic</span>(<span class="s">"System.Array"</span>,<span class="s">"IndexOf"</span>,[oInts,<span class="n">99</span>])
 	nFound = <span class="f">dnStatic</span>(<span class="s">"System.Array"</span>,<span class="s">"BinarySearch"</span>,[oInts,<span class="n">19</span>])
@@ -281,10 +282,10 @@ using {
 	<span class="c"># 5. An array of texts, and the join of a list into one text</span>
 	oWordList = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.String"</span>],[])
 	<span class="k">for</span> cWord <span class="k">in</span> [<span class="s">"pear"</span>,<span class="s">"apple"</span>,<span class="s">"fig"</span>]
-		oWordList.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[cWord])
+		oWordList.<span class="f">Add</span>(cWord)
 	<span class="k">next</span>
-	oWords = oWordList.<span class="f">callMethod</span>(<span class="s">"ToArray"</span>,[])
-	<span class="f">dnStatic</span>(<span class="s">"System.Array"</span>,<span class="s">"Sort"</span>,[oWords])
+	oWords = oWordList.<span class="f">ToArray</span>()
+	<span class="k">new</span> <span class="t">Array</span>().<span class="f">Sort</span>(oWords)
 	? nl + <span class="s">"5. sorted words: "</span> + arrayText(oWords)
 
 	<span class="c"># 6. Two dimensions: a table with rows and columns. Array.CreateInstance(type, rows, columns); items are written with SetValue(value, row, column)</span>
@@ -309,9 +310,9 @@ using {
 <span class="k">func</span> <span class="f">makeIntArray</span> aList
 	oList = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.Int32"</span>],[])
 	<span class="k">for</span> nValue <span class="k">in</span> aList
-		oList.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[nValue])
+		oList.<span class="f">Add</span>(nValue)
 	<span class="k">next</span>
-	<span class="k">return</span> oList.<span class="f">callMethod</span>(<span class="s">"ToArray"</span>,[])
+	<span class="k">return</span> oList.<span class="f">ToArray</span>()
 
 <span class="k">func</span> <span class="f">arrayText</span> oArray
 	cText = <span class="s">""</span>
@@ -348,6 +349,7 @@ using {
       0   1   2   3
      10  11  12  13
      20  21  22  23</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="arrays-and-lists">Arrays and lists<a class="anchor" href="#arrays-and-lists">#</a></h3>
 <p>A .NET <strong>array</strong> has a fixed length and <strong>one type</strong> (<code>int[]</code>, <code>string[]</code>, <code>double[]</code>), so it is compact and fast and an array of numbers never holds a text. A Ring list can change size and hold any mix. When a method wants an array and you pass a list, the bridge makes an array from the values (an <code>int[]</code> for whole numbers, a <code>string[]</code> for texts) <strong>for that call only</strong>. The array that the method sorts or changes is a <em>copy</em>: in step 1 the Ring list is unchanged after <code>Array.Sort</code>. To work on an array you must <strong>have</strong> the array, as a .NET object.</p>

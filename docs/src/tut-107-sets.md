@@ -20,13 +20,15 @@ The tutorial [More data structures](tut-92-data-structures.html) showed `SortedS
 
 {{output:samples/UsingDotNet/tutorials/ch04_sets.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### One copy of each value
 
 A set holds a value **once**. The list for set B has six words, `ring` twice, and the set has five items. `Add` answers whether the value was new (*true*) or already there (*false*); `Remove` takes a value away. There is **no order**: the items come out in an order that you must not depend on, so the program sorts them before printing. The set is stored in a **hash table**: a value is turned into a number that points at the place where it lives, so `Contains` takes the same short time for ten values and for ten million, while a list has to look at every item. When a program asks "have I seen this before?" many times, a set is the right tool.
 
-The closed generic type is made with `dnNewGeneric("System.Collections.Generic.HashSet",["System.String"],[])` and used with `callMethod` and `getProp`; `toList()` copies the items into a Ring list (the tutorial [Collections for many threads](tut-89-concurrent-collections.html)).
+`StringSet` is the ready class for `HashSet<string>`, and it is used like any object (`oSet.Add(...)`, `oSet.Count`); `toList()` copies the items into a Ring list (the tutorial [Collections for many threads](tut-89-concurrent-collections.html)).
 
 ### The operations
 

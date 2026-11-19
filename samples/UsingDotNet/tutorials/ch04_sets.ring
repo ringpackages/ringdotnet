@@ -11,42 +11,42 @@ func main
 	# very fast, even with a million values, because a set uses a hash table (a list has to look at every item).
 	oSetA = makeSet(["ring","dotnet","linq","json","web"])
 	oSetB = makeSet(["web","json","tcp","udp","ring","ring"])
-	? "1. A has " + oSetA.getProp("Count") + " items: " + sortedText(oSetA)
-	? "   B has " + oSetB.getProp("Count") + " items (the list had 6, 'ring' twice): " + sortedText(oSetB)
+	? "1. A has " + oSetA.Count + " items: " + sortedText(oSetA)
+	? "   B has " + oSetB.Count + " items (the list had 6, 'ring' twice): " + sortedText(oSetB)
 
 	# 2. The result of Add says whether the value was new
-	? nl + "2. Add('tcp') to A: " + oSetA.callMethod("Add",["tcp"]) + " (new), Add('tcp') again: " + oSetA.callMethod("Add",["tcp"]) + " (already there)"
-	oSetA.callMethod("Remove",["tcp"])
+	? nl + "2. Add('tcp') to A: " + oSetA.Add("tcp") + " (new), Add('tcp') again: " + oSetA.Add("tcp") + " (already there)"
+	oSetA.Remove("tcp")
 
 	# 3. The four operations of set theory. They CHANGE the set they are called on, so each one works on a copy.
 	? nl + "3. A = " + sortedText(oSetA) + "   B = " + sortedText(oSetB)
 	oUnion = copySet(oSetA)
-	oUnion.callMethod("UnionWith",[oSetB])
+	oUnion.UnionWith(oSetB)
 	? "   union (in A or B):               " + sortedText(oUnion)
 	oBoth = copySet(oSetA)
-	oBoth.callMethod("IntersectWith",[oSetB])
+	oBoth.IntersectWith(oSetB)
 	? "   intersection (in A and in B):    " + sortedText(oBoth)
 	oOnlyA = copySet(oSetA)
-	oOnlyA.callMethod("ExceptWith",[oSetB])
+	oOnlyA.ExceptWith(oSetB)
 	? "   difference (in A but not in B):  " + sortedText(oOnlyA)
 	oEither = copySet(oSetA)
-	oEither.callMethod("SymmetricExceptWith",[oSetB])
+	oEither.SymmetricExceptWith(oSetB)
 	? "   in A or B but not in both:       " + sortedText(oEither)
 
 	# 4. Questions about two sets
 	oSmall = makeSet(["ring","json"])
-	? nl + "4. {ring, json} is a subset of A:  " + oSmall.callMethod("IsSubsetOf",[oSetA])
-	? "   A is a superset of {ring, json}: " + oSetA.callMethod("IsSupersetOf",[oSmall])
-	? "   A and B have items in common:  " + oSetA.callMethod("Overlaps",[oSetB])
-	? "   A and {tcp, udp} have items in common: " + oSetA.callMethod("Overlaps",[makeSet(["tcp","udp"])])
-	? "   A equals A with the same items in another order: " + oSetA.callMethod("SetEquals",[makeSet(["web","json","linq","dotnet","ring"])])
+	? nl + "4. {ring, json} is a subset of A:  " + oSmall.IsSubsetOf(oSetA)
+	? "   A is a superset of {ring, json}: " + oSetA.IsSupersetOf(oSmall)
+	? "   A and B have items in common:  " + oSetA.Overlaps(oSetB)
+	? "   A and {tcp, udp} have items in common: " + oSetA.Overlaps(makeSet(["tcp","udp"]))
+	? "   A equals A with the same items in another order: " + oSetA.SetEquals(makeSet(["web","json","linq","dotnet","ring"]))
 
 	# 5. A set with a comparer: names that differ only in case are the same item (the tutorial "Comparing text")
 	oNames = dnNewGeneric("System.Collections.Generic.HashSet",[cText],[new StringComparer().OrdinalIgnoreCase])
 	for cName in ["Ann","ann","BOB","Bob","Cy"]
-		oNames.callMethod("Add",[cName])
+		oNames.Add(cName)
 	next
-	? nl + "5. five names, case ignored: " + oNames.getProp("Count") + " different people"
+	? nl + "5. five names, case ignored: " + oNames.Count + " different people"
 
 	# 6. Removing duplicates from a Ring list is one line with a set. The order of a HashSet is not defined: sort when it matters.
 	aWithDuplicates = [5,3,5,1,3,8,1,5]
@@ -60,7 +60,7 @@ func main
 func makeSet aList
 	oSet = dnNewGeneric("System.Collections.Generic.HashSet",["System.String"],[])
 	for cItem in aList
-		oSet.callMethod("Add",[cItem])
+		oSet.Add(cItem)
 	next
 	return oSet
 

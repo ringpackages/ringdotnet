@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -263,7 +264,7 @@ using {
 
 	<span class="c"># A task that has a result</span>
 	oResult = <span class="k">new</span> <span class="t">Task</span>().<span class="f">FromResult</span>(<span class="s">"done"</span>)
-	? <span class="s">"Task result              : "</span> + oResult.<span class="f">getProp</span>(<span class="s">"Result"</span>)
+	? <span class="s">"Task result              : "</span> + oResult.Result
 
 	<span class="c"># The environment</span>
 	oEnvironment = <span class="k">new</span> <span class="t">Environment</span>()
@@ -306,7 +307,7 @@ Its exit code            : 0</code></pre></div>
 <h3 id="stopwatch">Stopwatch<a class="anchor" href="#stopwatch">#</a></h3>
 <p><code>Start()</code>, <code>Stop()</code>, then <code>ElapsedMilliseconds</code> (or <code>Elapsed</code> for a <code>TimeSpan</code>). <code>Thread.Sleep(120)</code> pauses the program for 120 ms. Measure the parts of a program that feel slow before you try to speed anything up.</p>
 <h3 id="tasks">Tasks<a class="anchor" href="#tasks">#</a></h3>
-<p>A <code>Task</code> represents work that happens "in the background" or in the future. <code>Task.Delay(100)</code> is a task that completes after 100 ms. <code>IsCompleted</code> says whether it is done; <code>Wait(NULL)</code> blocks until it is. <code>Task.FromResult("done")</code> is a task that is already finished, with the result <code>done</code>, read with <code>getProp("Result")</code>.</p>
+<p>A <code>Task</code> represents work that happens "in the background" or in the future. <code>Task.Delay(100)</code> is a task that completes after 100 ms. <code>IsCompleted</code> says whether it is done; <code>Wait(NULL)</code> blocks until it is. <code>Task.FromResult("done")</code> is a task that is already finished, with the result <code>done</code>, read with its property <code>Result</code>.</p>
 <h3 id="the-rule-ring-runs-on-one-thread">The rule: Ring runs on one thread<a class="anchor" href="#the-rule-ring-runs-on-one-thread">#</a></h3>
 <div class="callout note"><span class="t">Note</span><p>.NET can do many things at once on many <em>threads</em>. <strong>Ring code runs on one thread only.</strong> A Ring callback that .NET invokes from another thread is not run. So use tasks for waiting and for pure .NET work (HTTP, files, hashing), and keep your Ring code on the Ring thread. Timers of Windows Forms (<code>uiTimer</code>) are safe: they tick on the Ring thread.</p></div>
 <h3 id="the-environment">The environment<a class="anchor" href="#the-environment">#</a></h3>

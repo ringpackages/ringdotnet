@@ -10,20 +10,20 @@ func main
 	# 1. A .NET array has a fixed size and one type. A Ring list becomes an array when a method asks for one: the bridge makes an int[],
 	#    string[] or double[] from the values of the list. An array that comes back is a DotNetObject: toList() makes a Ring list of it.
 	aNumbers = [42,7,19,3,25]
-	oSorted = dnStatic("System.Array","Sort",[aNumbers])
+	oSorted = new Array().Sort(aNumbers)
 	? "1. a list given to Array.Sort comes back unchanged: " + list2text(aNumbers) + "(the bridge sorted its own copy)"
 
 	# 2. So to sort, reverse or search an array, make the array first: a List<Int32> filled with Add, and ToArray()
 	oInts = makeIntArray([42,7,19,3,25])
 	? nl + "2. an Int32 array of " + oInts.Length + " items: " + arrayText(oInts)
-	dnStatic("System.Array","Sort",[oInts])
+	new Array().Sort(oInts)
 	? "   after Array.Sort:     " + arrayText(oInts)
-	dnStatic("System.Array","Reverse",[oInts])
+	new Array().Reverse(oInts)
 	? "   after Array.Reverse:  " + arrayText(oInts)
 
 	# 3. Searching: IndexOf answers the position (0-based, as in .NET) or -1. BinarySearch is much faster, but the array must be
 	#    SORTED; it answers a negative number (the complement of the place to insert) when the value is not there.
-	dnStatic("System.Array","Sort",[oInts])
+	new Array().Sort(oInts)
 	? nl + "3. IndexOf(19) in the sorted array: " + dnStatic("System.Array","IndexOf",[oInts,19]) + "   (0-based: Ring would say 3)"
 	? "   IndexOf(99): " + dnStatic("System.Array","IndexOf",[oInts,99])
 	nFound = dnStatic("System.Array","BinarySearch",[oInts,19])
@@ -40,10 +40,10 @@ func main
 	# 5. An array of texts, and the join of a list into one text
 	oWordList = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
 	for cWord in ["pear","apple","fig"]
-		oWordList.callMethod("Add",[cWord])
+		oWordList.Add(cWord)
 	next
-	oWords = oWordList.callMethod("ToArray",[])
-	dnStatic("System.Array","Sort",[oWords])
+	oWords = oWordList.ToArray()
+	new Array().Sort(oWords)
 	? nl + "5. sorted words: " + arrayText(oWords)
 
 	# 6. Two dimensions: a table with rows and columns. Array.CreateInstance(type, rows, columns); items are written with SetValue(value, row, column)
@@ -68,9 +68,9 @@ func main
 func makeIntArray aList
 	oList = dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])
 	for nValue in aList
-		oList.callMethod("Add",[nValue])
+		oList.Add(nValue)
 	next
-	return oList.callMethod("ToArray",[])
+	return oList.ToArray()
 
 func arrayText oArray
 	cText = ""

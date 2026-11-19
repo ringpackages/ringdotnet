@@ -66,7 +66,7 @@ func showMatch cTemplate,cPath
 		return "no match"
 	ok
 	cText = ""
-	for cKey in sort(oValues.getProp("Keys").toList())
+	for cKey in sort(oValues.Keys.toList())
 		cText += cKey + " = " + oValues.callMethod("get_Item",[cKey]) + "   "
 	next
 	return "match   " + cText
@@ -78,7 +78,7 @@ func matches cTemplate,cPath,oValues
 	for oPart in oTemplate.getProp("Parameters").toList()
 		xDefault = oPart.getProp("DefaultValue")
 		if not isObject(xDefault)
-			oDefaults.callMethod("Add",[oPart.getProp("Name"),xDefault])
+			oDefaults.Add(oPart.getProp("Name"),xDefault)
 		ok
 	next
 	oMatcher = dnNew(cRouting + "Template.TemplateMatcher",[oTemplate,oDefaults])

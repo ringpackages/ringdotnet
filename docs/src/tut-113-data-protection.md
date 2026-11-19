@@ -22,6 +22,8 @@ The tutorial [Hashing and encryption](tut-08-security.html) and the tutorial [Pr
 
 {{output:samples/UsingDotNet/tutorials/ch08_data_protection.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### A provider and a protector

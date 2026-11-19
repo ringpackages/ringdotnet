@@ -20,6 +20,8 @@ The tutorial [Logging](tut-51-logging.html) wrote a log that the program owns. T
 
 {{output:samples/UsingDotNet/tutorials/ch06_tracing.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Trace and listeners

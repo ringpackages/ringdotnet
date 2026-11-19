@@ -43,22 +43,22 @@ func main
 
 	# 4. LinkedList: items are linked to their neighbours. Adding or removing at either end, or next to a known node, is quick.
 	oList = dnNewGeneric("System.Collections.Generic.LinkedList",[cText],[])
-	oList.callMethod("AddLast",["b"])
-	oList.callMethod("AddLast",["c"])
-	oList.callMethod("AddFirst",["a"])
-	oNodeB = oList.getProp("First").getProp("Next")
-	oList.callMethod("AddAfter",[oNodeB,"b2"])
-	? nl + "4. linked list: " + list2str2(oList.toList()) + " (first = " + oList.getProp("First").getProp("Value") + ", last = " + oList.getProp("Last").getProp("Value") + ")"
-	oList.callMethod("Remove",["b"])
+	oList.AddLast("b")
+	oList.AddLast("c")
+	oList.AddFirst("a")
+	oNodeB = oList.First.getProp("Next")
+	oList.AddAfter(oNodeB,"b2")
+	? nl + "4. linked list: " + list2str2(oList.toList()) + " (first = " + oList.First.getProp("Value") + ", last = " + oList.Last.getProp("Value") + ")"
+	oList.Remove("b")
 	? "   after Remove(b): " + list2str2(oList.toList())
 
 	# 5. BitArray: one bit for each item, so a million yes/no values take 125 KB. Set, Get and the logic methods And, Or, Xor, Not.
 	#    (Get, And and Or are reserved words after a dot, so they are called with callMethod. And and Or change the array they are called on.)
-	oBits = dnNew("BitArray",[ :length = 10 ])
+	oBits = new BitArray(10)
 	oBits.Set(1,True)
 	oBits.Set(3,True)
 	oBits.Set(4,True)
-	oOther = dnNew("BitArray",[ :length = 10 ])
+	oOther = new BitArray(10)
 	oOther.Set(3,True)
 	oOther.Set(9,True)
 	? nl + "5. bits:  " + bitText(oBits)
@@ -67,7 +67,7 @@ func main
 	? "   OR:    " + bitText(dnCopyBits(oBits).callMethod("Or",[oOther]))
 
 func dnCopyBits oBits
-	return dnNew("BitArray",[ :bits = oBits ])
+	return new BitArray(oBits)
 
 func bitText oBits
 	cText = ""

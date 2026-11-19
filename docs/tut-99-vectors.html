@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -249,8 +250,8 @@ using {
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># 1. A Vector3 holds three numbers (X, Y, Z): a point or a direction in space (Vector2 has two numbers, Vector4 four).</span>
 	<span class="c">#    The numbers are single-precision floats, so results are shown rounded.</span>
-	oA = <span class="f">dnNew</span>(<span class="s">"Vector3"</span>,[ :x = <span class="n">3</span>, :y = <span class="n">4</span>, :z = <span class="n">0</span> ])
-	oB = <span class="f">dnNew</span>(<span class="s">"Vector3"</span>,[ :x = <span class="n">1</span>, :y = <span class="n">2</span>, :z = <span class="n">3</span> ])
+	oA = <span class="k">new</span> <span class="t">Vector3</span>().<span class="f">New_</span>([ :x = <span class="n">3</span>, :y = <span class="n">4</span>, :z = <span class="n">0</span> ])
+	oB = <span class="k">new</span> <span class="t">Vector3</span>().<span class="f">New_</span>([ :x = <span class="n">1</span>, :y = <span class="n">2</span>, :z = <span class="n">3</span> ])
 	? <span class="s">"1. a = "</span> + show3(oA) + <span class="s">", length of a = "</span> + oA.<span class="f">Length</span>() + <span class="s">", squared length = "</span> + oA.<span class="f">LengthSquared</span>()
 
 	<span class="c"># 2. The operations are static methods: Add, Subtract, Multiply (by a number), Negate</span>
@@ -261,8 +262,8 @@ using {
 	? <span class="s">"   -a    = "</span> + show3(oVector.<span class="f">Negate</span>(oA))
 
 	<span class="c"># 3. Dot product: a number that is 0 when two directions are at a right angle. Cross product: a vector at a right angle to both.</span>
-	oX = <span class="f">dnNew</span>(<span class="s">"Vector3"</span>,[ :x = <span class="n">1</span>, :y = <span class="n">0</span>, :z = <span class="n">0</span> ])
-	oY = <span class="f">dnNew</span>(<span class="s">"Vector3"</span>,[ :x = <span class="n">0</span>, :y = <span class="n">1</span>, :z = <span class="n">0</span> ])
+	oX = <span class="k">new</span> <span class="t">Vector3</span>().<span class="f">New_</span>([ :x = <span class="n">1</span>, :y = <span class="n">0</span>, :z = <span class="n">0</span> ])
+	oY = <span class="k">new</span> <span class="t">Vector3</span>().<span class="f">New_</span>([ :x = <span class="n">0</span>, :y = <span class="n">1</span>, :z = <span class="n">0</span> ])
 	? nl + <span class="s">"3. x . y = "</span> + oVector.<span class="f">Dot</span>(oX,oY) + <span class="s">" (a right angle), a . b = "</span> + oVector.<span class="f">Dot</span>(oA,oB)
 	? <span class="s">"   x cross y = "</span> + show3(oVector.<span class="f">Cross</span>(oX,oY)) + <span class="s">" (the z axis)"</span>
 
@@ -274,15 +275,15 @@ using {
 	? nl + <span class="s">"5. the middle of a and b = "</span> + show3(oVector.<span class="f">Lerp</span>(oA,oB,<span class="n">0.5</span>))
 
 	<span class="c"># 6. A rotation of a 2D point with a matrix. Matrix3x2 does move, scale and rotate in the plane; the angle is in radians.</span>
-	oPoint = <span class="f">dnNew</span>(<span class="s">"Vector2"</span>,[ :x = <span class="n">1</span>, :y = <span class="n">0</span> ])
-	oMatrix = <span class="f">dnStatic</span>(<span class="s">"System.Numerics.Matrix3x2"</span>,<span class="s">"CreateRotation"</span>,[<span class="n">3.14159265358979</span> / <span class="n">2</span>])       <span class="c"># a quarter of a turn</span>
-	oRotated = <span class="f">dnStatic</span>(<span class="s">"System.Numerics.Vector2"</span>,<span class="s">"Transform"</span>,[oPoint,oMatrix])
+	oPoint = <span class="k">new</span> <span class="t">Vector2</span>().<span class="f">New_</span>([ :x = <span class="n">1</span>, :y = <span class="n">0</span> ])
+	oMatrix = <span class="k">new</span> <span class="t">Matrix3x2</span>().<span class="f">CreateRotation</span>(<span class="n">3.14159265358979</span> / <span class="n">2</span>)       <span class="c"># a quarter of a turn</span>
+	oRotated = <span class="k">new</span> <span class="t">Vector2</span>().<span class="f">Transform</span>(oPoint,oMatrix)
 	? nl + <span class="s">"6. the point (1, 0) turned by 90 degrees is ("</span> + roundNumber(oRotated.X) + <span class="s">", "</span> + roundNumber(oRotated.Y) + <span class="s">")"</span>
 	oMove = <span class="f">dnStatic</span>(<span class="s">"System.Numerics.Matrix3x2"</span>,<span class="s">"CreateTranslation"</span>,[<span class="n">10</span>,<span class="n">5</span>])
-	oMoved = <span class="f">dnStatic</span>(<span class="s">"System.Numerics.Vector2"</span>,<span class="s">"Transform"</span>,[oPoint,oMove])
+	oMoved = <span class="k">new</span> <span class="t">Vector2</span>().<span class="f">Transform</span>(oPoint,oMove)
 	? <span class="s">"   moved by (10, 5): ("</span> + oMoved.X + <span class="s">", "</span> + oMoved.Y + <span class="s">")"</span>
-	oBoth = <span class="f">dnStatic</span>(<span class="s">"System.Numerics.Matrix3x2"</span>,<span class="s">"Multiply"</span>,[oMatrix,oMove])           <span class="c"># first turn, then move</span>
-	oResult = <span class="f">dnStatic</span>(<span class="s">"System.Numerics.Vector2"</span>,<span class="s">"Transform"</span>,[oPoint,oBoth])
+	oBoth = <span class="k">new</span> <span class="t">Matrix3x2</span>().<span class="f">Multiply</span>(oMatrix,oMove)           <span class="c"># first turn, then move</span>
+	oResult = <span class="k">new</span> <span class="t">Vector2</span>().<span class="f">Transform</span>(oPoint,oBoth)
 	? <span class="s">"   turned and then moved: ("</span> + roundNumber(oResult.X) + <span class="s">", "</span> + roundNumber(oResult.Y) + <span class="s">")"</span>
 
 <span class="k">func</span> <span class="f">show3</span> oVector
@@ -313,9 +314,10 @@ using {
 6. the point (1, 0) turned by 90 degrees is (0, 1)
    moved by (10, 5): (11, 5)
    turned and then moved: (10, 6)</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="vectors">Vectors<a class="anchor" href="#vectors">#</a></h3>
-<p>A <code>Vector3</code> holds three numbers <code>X</code>, <code>Y</code>, <code>Z</code>. It can be a <strong>position</strong> (a point in space) or a <strong>direction</strong> with a length (a speed, a force). <code>Vector2</code> has two numbers and <code>Vector4</code> four. They are value types (structs): <code>dnNew("Vector3",[ :x = 3, :y = 4, :z = 0 ])</code> makes one by names, and <code>oV.X</code> reads a component. The numbers are <em>single-precision</em> floats (about 7 digits), so a result such as <code>0.6</code> can really be <code>0.6000000238</code>; the program rounds before printing (<code>roundNumber</code>), and so should yours when you compare.</p>
+<p>A <code>Vector3</code> holds three numbers <code>X</code>, <code>Y</code>, <code>Z</code>. It can be a <strong>position</strong> (a point in space) or a <strong>direction</strong> with a length (a speed, a force). <code>Vector2</code> has two numbers and <code>Vector4</code> four. They are value types (structs): <code>new Vector3().New_([ :x = 3, :y = 4, :z = 0 ])</code> makes one by names, and <code>oV.X</code> reads a component. The numbers are <em>single-precision</em> floats (about 7 digits), so a result such as <code>0.6</code> can really be <code>0.6000000238</code>; the program rounds before printing (<code>roundNumber</code>), and so should yours when you compare.</p>
 <h3 id="operations">Operations<a class="anchor" href="#operations">#</a></h3>
 <p>The operations are <strong>static methods</strong>: <code>Add(a, b)</code>, <code>Subtract(a, b)</code>, <code>Multiply(a, number)</code>, <code>Negate(a)</code>. In Ring you call them on any object of the class (<code>oVector = new Vector3()</code>, then <code>oVector.Add(oA, oB)</code>). <code>Length()</code> is the distance from zero (3, 4, 0 has length 5), <code>Distance(a, b)</code> the distance between two points, and <code>Normalize(a)</code> the direction of <code>a</code> with length 1 — the <em>unit vector</em>, useful when you want a direction without a size. <code>Lerp(a, b, t)</code> is the point at the fraction <code>t</code> between <code>a</code> and <code>b</code> (0.5 is the middle): the base of every smooth movement.</p>
 <h3 id="dot-product">Dot product<a class="anchor" href="#dot-product">#</a></h3>
@@ -324,7 +326,7 @@ using {
 <p><code>Cross(a, b)</code> is a <strong>vector</strong> at a right angle to both <code>a</code> and <code>b</code>. The cross product of the x axis and the y axis is the z axis (step 3). It is used for the <em>normal</em> of a surface, for the axis of a turn, and for the sign of a turn in 2D.</p>
 <h3 id="matrices">Matrices<a class="anchor" href="#matrices">#</a></h3>
 <p>A matrix describes a transformation of space as a block of numbers. <code>Matrix3x2</code> works in the plane: <code>CreateTranslation(x, y)</code> moves, <code>CreateScale</code> scales and <code>CreateRotation(angle)</code> rotates around the origin, with the angle in <strong>radians</strong> (half a turn is <code>3.14159...</code>, a quarter is half of that). <code>Vector2.Transform(point, matrix)</code> applies it. Turning (1, 0) by 90 degrees gives (0, 1); moving it by (10, 5) gives (11, 5).</p>
-<p><code>Matrix3x2.Multiply(first, second)</code> combines two transformations into one: <em>first turn, then move</em> gives (10, 6), because the point is turned to (0, 1) and then moved. The <strong>order</strong> matters — moving first and turning second gives another point — which is the most common mistake with matrices. These methods have several forms, so the program calls them with <code>dnStatic(type, method, [arguments])</code>, where the bridge chooses the form from the arguments. <code>Matrix4x4</code> does the same in three dimensions (with <code>CreatePerspective</code>, <code>CreateLookAt</code>...) and <code>Quaternion</code> describes 3D rotations without the problems of angles.</p>
+<p><code>Matrix3x2.Multiply(first, second)</code> combines two transformations into one: <em>first turn, then move</em> gives (10, 6), because the point is turned to (0, 1) and then moved. The <strong>order</strong> matters — moving first and turning second gives another point — which is the most common mistake with matrices. These methods have several forms, so the bridge chooses the form from the arguments (<code>new Matrix3x2().CreateRotation(...)</code>). <code>Matrix4x4</code> does the same in three dimensions (with <code>CreatePerspective</code>, <code>CreateLookAt</code>...) and <code>Quaternion</code> describes 3D rotations without the problems of angles.</p>
 <div class="callout note"><span class="t">Note</span><p>These types are made for speed in .NET code. Each call from Ring crosses the bridge (about 50 microseconds), so use them for the <em>logic</em> of your program, and let .NET do the heavy loops (for example a LINQ query, the tutorial <a href="tut-04-collections.html">Collections and LINQ</a>) when you have thousands of points.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>vectors as points and directions,</li><li>length, distance, unit vectors and <code>Lerp</code>,</li><li>the dot product (a number) and the cross product (a vector),</li><li>matrices that move and rotate, and combining them,</li><li>the order of transformations matters.</li></ul>

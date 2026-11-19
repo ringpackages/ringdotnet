@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -300,6 +301,7 @@ using {
 4. sorted versions: 1.2.0 1.9.0 1.10.0 2.0.1 10.0.0 
 
 5. the runtime version is 6 or later: 1</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="guid">Guid<a class="anchor" href="#guid">#</a></h3>
 <p>A <code>Guid</code> is a 128-bit number. A new one is random, with so many possible values that two programs on two computers never make the same one in practice, so no server or counter has to hand them out. That makes a Guid a good key for a record that is created offline, a name for a temporary file and an id in a message. <code>NewGuid()</code> gives a new one; the output of step 1 shows only its shape (36 characters with dashes in fixed places), because the value is different at every run.</p>

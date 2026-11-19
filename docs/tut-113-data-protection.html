@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -260,7 +261,7 @@ using {
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cKeys, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cKeys)
-	oProvider = <span class="f">dnStatic</span>(cProviderType,<span class="s">"Create"</span>,[<span class="f">dnNew</span>(<span class="s">"DirectoryInfo"</span>,[ :path = cKeys ])])
+	oProvider = <span class="f">dnStatic</span>(cProviderType,<span class="s">"Create"</span>,[<span class="k">new</span> <span class="t">DirectoryInfo</span>(cKeys)])
 
 	<span class="c"># 1. A protector is made for a PURPOSE (a text that names what the data is for). Protect turns a text into an unreadable token</span>
 	<span class="c">#    and Unprotect gives the text back.</span>
@@ -286,18 +287,18 @@ using {
 	<span class="c"># 5. The keys are on disk, so a NEW provider on the same folder opens the old tokens (after a restart of the program, or in another</span>
 	<span class="c">#    copy of it). Without the key folder the tokens can not be opened: it is as secret as a password.</span>
 	aFiles = <span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>(cKeys)
-	oProvider2 = <span class="f">dnStatic</span>(cProviderType,<span class="s">"Create"</span>,[<span class="f">dnNew</span>(<span class="s">"DirectoryInfo"</span>,[ :path = cKeys ])])
+	oProvider2 = <span class="f">dnStatic</span>(cProviderType,<span class="s">"Create"</span>,[<span class="k">new</span> <span class="t">DirectoryInfo</span>(cKeys)])
 	oProtector2 = oProvider2.<span class="f">callMethod</span>(<span class="s">"CreateProtector"</span>,[<span class="s">"tutorial.cookies"</span>])
 	? nl + <span class="s">"5. key files in the folder: "</span> + len(aFiles.<span class="f">toList</span>()) + <span class="s">", a second provider on the same folder opens the token: "</span> + <span class="f">dnStatic</span>(cExt,<span class="s">"Unprotect"</span>,[oProtector2,cToken])
 	cOtherFolder = cKeys + <span class="s">"_other"</span>
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cOtherFolder)
-	oStranger = <span class="f">dnStatic</span>(cProviderType,<span class="s">"Create"</span>,[<span class="f">dnNew</span>(<span class="s">"DirectoryInfo"</span>,[ :path = cOtherFolder ])]).<span class="f">callMethod</span>(<span class="s">"CreateProtector"</span>,[<span class="s">"tutorial.cookies"</span>])
+	oStranger = <span class="f">dnStatic</span>(cProviderType,<span class="s">"Create"</span>,[<span class="k">new</span> <span class="t">DirectoryInfo</span>(cOtherFolder)]).<span class="f">callMethod</span>(<span class="s">"CreateProtector"</span>,[<span class="s">"tutorial.cookies"</span>])
 	? <span class="s">"   a provider with other keys: "</span> + tryUnprotect(cExt,oStranger,cToken)
 
 	<span class="c"># 6. Time limits: a token that is valid for a short time only (a link in an e-mail, a one-time code)</span>
 	cAdvanced = <span class="s">"Microsoft.AspNetCore.DataProtection.DataProtectionAdvancedExtensions"</span>          <span class="c"># (in the Extensions assembly of the API)</span>
 	oLimited = <span class="f">dnStatic</span>(cAdvanced,<span class="s">"ToTimeLimitedDataProtector"</span>,[oProtector])
-	cShort = <span class="f">dnStatic</span>(cAdvanced,<span class="s">"Protect"</span>,[oLimited,<span class="s">"reset:42"</span>,<span class="f">dnStatic</span>(<span class="s">"System.TimeSpan"</span>,<span class="s">"FromMilliseconds"</span>,[<span class="n">1200</span>])])
+	cShort = <span class="f">dnStatic</span>(cAdvanced,<span class="s">"Protect"</span>,[oLimited,<span class="s">"reset:42"</span>,<span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromMilliseconds</span>(<span class="n">1200</span>)])
 	? nl + <span class="s">"6. a token that is valid for 1.2 seconds: now "</span> + tryUnprotectLimited(cAdvanced,oLimited,cShort)
 	<span class="f">dnStatic</span>(<span class="s">"System.Threading.Thread"</span>,<span class="s">"Sleep"</span>,[<span class="n">2000</span>])
 	? <span class="s">"   after 2 seconds: "</span> + tryUnprotectLimited(cAdvanced,oLimited,cShort)
@@ -344,6 +345,7 @@ using {
 
 6. a token that is valid for 1.2 seconds: now valid, it gives 'reset:42'
    after 2 seconds: refused (it expired or it is not valid)</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="a-provider-and-a-protector">A provider and a protector<a class="anchor" href="#a-provider-and-a-protector">#</a></h3>
 <p><code>DataProtectionProvider.Create(folder)</code> makes a provider whose <strong>keys are kept in the folder</strong> as files (it makes the first key itself and renews keys before they expire). <code>CreateProtector("purpose")</code> makes a protector for a purpose. <code>Protect(text)</code> returns a <strong>token</strong>: encrypted with AES and signed, so nobody can read it and nobody can change it. <code>Unprotect(token)</code> returns the text. <code>Protect</code> and <code>Unprotect</code> for texts are extension methods, so they are called with <code>dnStatic("...DataProtectionCommonExtensions","Protect",[protector,text])</code> (the tutorial <a href="tut-109-memory-cache.html">Caching</a>); <code>CreateProtector</code> is a method of the provider object.</p>

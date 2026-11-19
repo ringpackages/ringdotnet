@@ -17,6 +17,8 @@ lead: Build an e-mail in a program — check addresses, set the sender and the r
 
 {{output:samples/UsingDotNet/tutorials/ch07_mail_messages.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Addresses

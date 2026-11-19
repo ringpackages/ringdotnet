@@ -21,6 +21,8 @@ The tutorial [URLs and encodings](tut-64-urls.html) used Base64 for one purpose.
 
 {{output:samples/UsingDotNet/tutorials/ch02_base64_hex.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### Base64

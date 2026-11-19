@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -262,7 +263,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 	<span class="k">next</span>
 
 	<span class="c"># 2. The mapping can be extended: a type of your own for your own extension</span>
-	oProvider.<span class="f">getProp</span>(<span class="s">"Mappings"</span>).<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span class="s">".ring"</span>,<span class="s">"text/x-ring"</span>])
+	oProvider.Mappings.<span class="f">Add</span>(<span class="s">".ring"</span>,<span class="s">"text/x-ring"</span>)
 	? nl + <span class="s">"2. after adding .ring: "</span> + contentTypeOf(oProvider,<span class="s">"program.ring"</span>)
 	? <span class="s">"   (a file with an unknown type is sent as application/octet-stream: 'some bytes, download them')"</span>
 
@@ -270,7 +271,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 	oContentType = <span class="f">dnNew</span>(<span class="s">"ContentType"</span>,[<span class="s">"text/html; charset=utf-8"</span>])
 	? nl + <span class="s">"3. text/html; charset=utf-8  -&gt;  media type: "</span> + oContentType.MediaType + <span class="s">", charset: "</span> + oContentType.CharSet
 	oSplit = <span class="f">dnStatic</span>(cHeaders + <span class="s">"MediaTypeHeaderValue"</span>,<span class="s">"Parse"</span>,[<span class="s">"application/json; charset=utf-8; q=0.9"</span>])
-	? <span class="s">"   with the headers library: type "</span> + oSplit.<span class="f">getProp</span>(<span class="s">"Type"</span>).<span class="f">toString</span>() + <span class="s">", subtype "</span> + oSplit.<span class="f">getProp</span>(<span class="s">"SubType"</span>).<span class="f">toString</span>() + <span class="s">", quality "</span> + oSplit.<span class="f">getProp</span>(<span class="s">"Quality"</span>)
+	? <span class="s">"   with the headers library: type "</span> + oSplit.Type.<span class="f">toString</span>() + <span class="s">", subtype "</span> + oSplit.SubType.<span class="f">toString</span>() + <span class="s">", quality "</span> + oSplit.Quality
 
 	<span class="c"># 4. The Accept header lists what the client understands, with a QUALITY (q) from 0 to 1 for each: the higher, the better. */* means</span>
 	<span class="c">#    "anything"; text/* means "any text type". The default quality is 1.</span>
@@ -293,7 +294,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 	? nl + <span class="s">"6. Accept: application/json, the server offers text/csv: "</span> + negotiate(aStrict,[<span class="s">"text/csv"</span>])
 
 <span class="k">func</span> <span class="f">contentTypeOf</span> oProvider,cFile
-	aResult = oProvider.<span class="f">callMethod</span>(<span class="s">"TryGetContentType"</span>,[cFile])
+	aResult = oProvider.<span class="f">TryGetContentType</span>(cFile)
 	<span class="k">if</span> aResult[<span class="n">1</span>]
 		<span class="k">return</span> aResult[<span class="n">2</span>]
 	<span class="k">ok</span>
@@ -304,11 +305,11 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 	aItems = []
 	<span class="k">for</span> cPart <span class="k">in</span> str2list(substr(cAccept,<span class="s">","</span>,nl))
 		oValue = <span class="f">dnStatic</span>(cHeaders + <span class="s">"MediaTypeHeaderValue"</span>,<span class="s">"Parse"</span>,[trim(cPart)])
-		nQuality = oValue.<span class="f">getProp</span>(<span class="s">"Quality"</span>)
+		nQuality = oValue.Quality
 		<span class="k">if</span> isObject(nQuality)
 			nQuality = <span class="n">1</span>                                        <span class="c"># no q parameter: quality 1</span>
 		<span class="k">ok</span>
-		aItems + [ oValue.<span class="f">getProp</span>(<span class="s">"MediaType"</span>).<span class="f">toString</span>(), nQuality ]
+		aItems + [ oValue.MediaType.<span class="f">toString</span>(), nQuality ]
 	<span class="k">next</span>
 	nCount = len(aItems)
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> nCount - <span class="n">1</span>
@@ -388,6 +389,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
    offers text/html, application/json -&gt; text/html  (matched text/html, quality 1)
 
 6. Accept: application/json, the server offers text/csv: 406 Not Acceptable</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="type-and-subtype">Type and subtype<a class="anchor" href="#type-and-subtype">#</a></h3>
 <p>A MIME type has the form **<code>type/subtype</code>**: the type is the family (<code>text</code>, <code>image</code>, <code>audio</code>, <code>video</code>, <code>application</code>) and the subtype the exact format (<code>html</code>, <code>png</code>, <code>json</code>). After a semicolon come <strong>parameters</strong>: <code>text/html; charset=utf-8</code> says that the text is encoded in UTF-8 (the tutorial <a href="tut-52-unicode.html">Unicode and encodings</a> explains encodings). A server that sends the wrong type causes real problems: a browser that receives a script as <code>text/plain</code> does not run it, and one that receives a page as <code>text/plain</code> shows the source.</p>

@@ -10,7 +10,7 @@ nRuns = 0
 func main
 	# A cache keeps the result of slow work (a database query, a web request, a big calculation) for a while, so the next request
 	# gets it at once. MemoryCache keeps the values in memory, with a key for each one and rules for when a value must go.
-	oCache = dnNew("MemoryCache",[ :optionsAccessor = new MemoryCacheOptions() ])
+	oCache = new MemoryCache(new MemoryCacheOptions())
 
 	# 1. Set stores a value under a key. TryGetValue answers [ found, value ].
 	cacheSet(oCache,"user:1","Ann",NULL)

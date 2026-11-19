@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -266,13 +267,13 @@ using {
 	oCulture = <span class="k">new</span> <span class="t">StringComparer</span>().InvariantCulture
 	aWords = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.String"</span>],[])
 	<span class="k">for</span> cWord <span class="k">in</span> [<span class="s">"banana"</span>,<span class="s">"Cherry"</span>,<span class="s">"apple"</span>,<span class="s">"Banana"</span>,<span class="s">"cherry"</span>,<span class="s">"Apple"</span>]
-		aWords.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[cWord])
+		aWords.<span class="f">Add</span>(cWord)
 	<span class="k">next</span>
-	aWords.<span class="f">callMethod</span>(<span class="s">"Sort"</span>,[oOrdinal])
+	aWords.<span class="f">Sort</span>(oOrdinal)
 	? nl + <span class="s">"3. ordinal order:  "</span> + joinList(aWords.<span class="f">toList</span>())
-	aWords.<span class="f">callMethod</span>(<span class="s">"Sort"</span>,[oCulture])
+	aWords.<span class="f">Sort</span>(oCulture)
 	? <span class="s">"   culture order:  "</span> + joinList(aWords.<span class="f">toList</span>())
-	aWords.<span class="f">callMethod</span>(<span class="s">"Sort"</span>,[<span class="k">new</span> <span class="t">StringComparer</span>().OrdinalIgnoreCase])
+	aWords.<span class="f">Sort</span>(<span class="k">new</span> <span class="t">StringComparer</span>().OrdinalIgnoreCase)
 	? <span class="s">"   ignore case:    "</span> + joinList(aWords.<span class="f">toList</span>()) + <span class="s">"   (equal words can come in any order)"</span>
 
 	<span class="c"># 4. A dictionary that ignores case: the comparer is the second argument of the constructor</span>
@@ -286,9 +287,9 @@ using {
 	<span class="c"># 5. A sorted set with the same idea keeps one of 'Apple' and 'apple'</span>
 	oSet = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.SortedSet"</span>,[<span class="s">"System.String"</span>],[<span class="k">new</span> <span class="t">StringComparer</span>().OrdinalIgnoreCase])
 	<span class="k">for</span> cWord <span class="k">in</span> [<span class="s">"Apple"</span>,<span class="s">"apple"</span>,<span class="s">"Pear"</span>,<span class="s">"APPLE"</span>,<span class="s">"pear"</span>]
-		oSet.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[cWord])
+		oSet.<span class="f">Add</span>(cWord)
 	<span class="k">next</span>
-	? nl + <span class="s">"5. "</span> + oSet.<span class="f">getProp</span>(<span class="s">"Count"</span>) + <span class="s">" words stay in the set: "</span> + joinList(oSet.<span class="f">toList</span>())
+	? nl + <span class="s">"5. "</span> + oSet.Count + <span class="s">" words stay in the set: "</span> + joinList(oSet.<span class="f">toList</span>())
 
 	<span class="c"># 6. The same letter is not the same in every culture. In Turkish the capital of "i" is "İ" (with a dot) and the small</span>
 	<span class="c">#    letter of "I" is "ı" (without a dot): upper-casing with the wrong culture breaks a comparison like "TITLE" = "title"</span>
@@ -324,6 +325,7 @@ using {
 
 6. 'title' in capitals, invariant culture: TITLE
    'title' in capitals, Turkish culture:   TİTLE</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="ordinal-and-culture">Ordinal and culture<a class="anchor" href="#ordinal-and-culture">#</a></h3>
 <p><strong>Ordinal</strong> comparison looks at the number (code) of every character. It is exact and fast and gives the same answer on every computer, so it is the right choice for <em>technical</em> text: file names, identifiers, keys, protocols. <strong>Culture</strong> comparison follows the rules of a language: letters with accents are close to their base letters and <code>a</code> and <code>A</code> are neighbours. Use it for text that people read, such as a sorted list of names on the screen. The comparison type is an enum, so it is a text: <code>"Ordinal"</code>, <code>"OrdinalIgnoreCase"</code>, <code>"InvariantCulture"</code>, <code>"InvariantCultureIgnoreCase"</code>, <code>"CurrentCulture"</code>.</p>

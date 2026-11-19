@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -279,7 +280,7 @@ cNs = <span class="s">"System.Threading.RateLimiting."</span>
 	oLeaseB = oConcurrency.<span class="f">callMethod</span>(<span class="s">"AttemptAcquire"</span>,[<span class="n">1</span>])
 	oLeaseC = oConcurrency.<span class="f">callMethod</span>(<span class="s">"AttemptAcquire"</span>,[<span class="n">1</span>])
 	? nl + <span class="s">"3. three requests at once, 2 allowed: "</span> + answer(oLeaseA.<span class="f">getProp</span>(<span class="s">"IsAcquired"</span>)) + <span class="s">", "</span> + answer(oLeaseB.<span class="f">getProp</span>(<span class="s">"IsAcquired"</span>)) + <span class="s">", "</span> + answer(oLeaseC.<span class="f">getProp</span>(<span class="s">"IsAcquired"</span>))
-	oLeaseA.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])                  <span class="c"># the first request is finished: its place is free</span>
+	oLeaseA.<span class="f">Dispose</span>()                  <span class="c"># the first request is finished: its place is free</span>
 	oLeaseD = oConcurrency.<span class="f">callMethod</span>(<span class="s">"AttemptAcquire"</span>,[<span class="n">1</span>])
 	? <span class="s">"   after the first one finished, a new request: "</span> + answer(oLeaseD.<span class="f">getProp</span>(<span class="s">"IsAcquired"</span>))
 
@@ -291,7 +292,7 @@ cNs = <span class="s">"System.Threading.RateLimiting."</span>
 	aRetry = oRefused.<span class="f">callMethod</span>(<span class="s">"TryGetMetadata"</span>,[<span class="s">"RETRY_AFTER"</span>])
 	? nl + <span class="s">"4. the bucket is empty: refused, a retry time is offered: "</span> + aRetry[<span class="n">1</span>]
 	<span class="k">if</span> aRetry[<span class="n">1</span>]
-		? <span class="s">"   try again after about "</span> + floor(aRetry[<span class="n">2</span>].<span class="f">getProp</span>(<span class="s">"TotalSeconds"</span>) + <span class="n">0.5</span>) + <span class="s">" seconds"</span>
+		? <span class="s">"   try again after about "</span> + floor(aRetry[<span class="n">2</span>].TotalSeconds + <span class="n">0.5</span>) + <span class="s">" seconds"</span>
 	<span class="k">ok</span>
 
 	<span class="c"># 5. One limiter for each client: a Ring list keeps a bucket for every client name (an IP address, a user id), so that one noisy</span>
@@ -308,7 +309,7 @@ cNs = <span class="s">"System.Threading.RateLimiting."</span>
 	oOptions = <span class="f">dnNew</span>(cNs + <span class="s">"TokenBucketRateLimiterOptions"</span>,[])
 	oOptions.<span class="f">setProp</span>(<span class="s">"TokenLimit"</span>,nTokens)
 	oOptions.<span class="f">setProp</span>(<span class="s">"TokensPerPeriod"</span>,<span class="n">1</span>)
-	oOptions.<span class="f">setProp</span>(<span class="s">"ReplenishmentPeriod"</span>,<span class="f">dnStatic</span>(<span class="s">"System.TimeSpan"</span>,<span class="s">"FromMilliseconds"</span>,[nPeriodMs]))
+	oOptions.<span class="f">setProp</span>(<span class="s">"ReplenishmentPeriod"</span>,<span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromMilliseconds</span>(nPeriodMs))
 	oOptions.<span class="f">setProp</span>(<span class="s">"AutoReplenishment"</span>,<span class="k">False</span>)
 	oOptions.<span class="f">setProp</span>(<span class="s">"QueueLimit"</span>,<span class="n">0</span>)
 	<span class="k">return</span> <span class="f">dnNew</span>(cNs + <span class="s">"TokenBucketRateLimiter"</span>,[oOptions])
@@ -352,6 +353,7 @@ cNs = <span class="s">"System.Threading.RateLimiting."</span>
 5. two clients with 2 requests each; the first client asks 4 times, the second twice:
    10.0.0.1: allowed allowed refused refused 
    10.0.0.2: allowed allowed</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="yes-or-no-at-once">Yes or no at once<a class="anchor" href="#yes-or-no-at-once">#</a></h3>
 <p><code>AttemptAcquire(1)</code> asks for one <strong>permit</strong> and answers immediately with a <strong>lease</strong>; <code>IsAcquired</code> says whether the permit was given. The limiter never waits in this call: what a <em>no</em> means is the program's decision (an error to the client, a pause, a message). (<code>AcquireAsync</code> can wait in a queue; with <code>QueueLimit = 0</code>, as here, nothing waits.)</p>

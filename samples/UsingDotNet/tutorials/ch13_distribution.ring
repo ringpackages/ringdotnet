@@ -39,11 +39,11 @@ func sqliteWorks
 		dnLoadName("SQLitePCLRaw.batteries_v2")               # the assembly that starts the native SQLite library
 		dnStatic("SQLitePCL.Batteries_V2","Init",[])
 		oConnection = dnNew("Microsoft.Data.Sqlite.SqliteConnection",["Data Source=:memory:"])
-		oConnection.callMethod("Open",[])
-		oCommand = oConnection.callMethod("CreateCommand",[])
+		oConnection.Open()
+		oCommand = oConnection.CreateCommand()
 		oCommand.setProp("CommandText","SELECT 40 + 2")
-		xAnswer = oCommand.callMethod("ExecuteScalar",[])
-		oConnection.callMethod("Dispose",[])
+		xAnswer = oCommand.ExecuteScalar()
+		oConnection.Dispose()
 		return (xAnswer = 42)
 	catch
 		return False

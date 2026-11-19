@@ -22,6 +22,8 @@ This is the pattern of any wizard or exam program: a list of steps, a current st
 
 {{output:samples/UsingDotNet/tutorials/ch12_quiz.ring --selftest}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### The questions are data

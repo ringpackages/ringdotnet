@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -342,6 +343,7 @@ oCheck = <span class="s">""</span>
 	oWindow.<span class="f">Close</span>()</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g70.png" alt="The animation window" loading="lazy"><figcaption>A moment of the animation: the ball is half way, the blue box is fading, the green square is turning</figcaption></figure>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (4 checks)</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-window">The window<a class="anchor" href="#the-window">#</a></h3>
 <p>The window is described in XAML (the tutorial <a href="tut-15-wpf.html">WPF</a>): a <code>Canvas</code> for free positions with an ellipse, a rectangle and a second rectangle that has a <code>RotateTransform</code> named <code>spin</code> as its <code>RenderTransform</code>; and a row with two buttons and a text.</p>

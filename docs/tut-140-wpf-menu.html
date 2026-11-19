@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -336,7 +337,7 @@ nNew = <span class="n">0</span>
 	<span class="f">dnAssert</span>(<span class="s">"gift wrap"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"gift"</span>).IsChecked,<span class="k">True</span>)
 
 	<span class="c"># a date picker: SelectedDate is a DateTime (empty until a date is chosen)</span>
-	<span class="f">wpfFind</span>(oWindow,<span class="s">"day"</span>).SelectedDate = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2030</span>, :month = <span class="n">5</span>, :day = <span class="n">10</span> ])
+	<span class="f">wpfFind</span>(oWindow,<span class="s">"day"</span>).SelectedDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2030</span>,<span class="n">5</span>,<span class="n">10</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the chosen date"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"day"</span>).SelectedDate.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>),<span class="s">"2030-05-10"</span>)
 
 	<span class="c"># the menu item New puts everything back</span>

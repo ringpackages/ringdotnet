@@ -22,6 +22,8 @@ The tutorial [Files and folders](tut-05-files.html) listed the files of a folder
 
 {{output:samples/UsingDotNet/tutorials/ch05_globbing.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### The wildcards

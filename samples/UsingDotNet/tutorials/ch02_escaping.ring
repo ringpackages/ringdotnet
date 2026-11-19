@@ -37,7 +37,7 @@ func main
 	? nl + "5. JSON string: " + new JsonEncodedText().Encode(cJsonText).ToString()
 
 	# 6. XML: XElement escapes for you. Never build XML by adding strings.
-	oNote = dnNew("XElement",[ :name = "note", :content = cText ])
+	oNote = new XElement("note",cText)
 	? nl + "6. XML element: " + oNote.ToString()
 
 	# 7. Regular expressions: characters like + . * ( ) have a meaning. Regex.Escape makes a text that matches ITSELF.

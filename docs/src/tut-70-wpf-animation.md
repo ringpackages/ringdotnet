@@ -24,6 +24,8 @@ In the tutorial [Drawing and animation](tut-14-animation.html) a timer changes t
 
 {{output:samples/UsingDotNet/tutorials/ch11_wpf_animation.ring --selftest}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### The window

@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -259,67 +260,67 @@ using {
 
 	<span class="c"># 1. A key pair (RSA, 2048 bits), then a request that says who the certificate is for</span>
 	oRsa = <span class="f">dnStatic</span>(cCrypto + <span class="s">"RSA"</span>,<span class="s">"Create"</span>,[<span class="n">2048</span>])
-	oName = <span class="f">dnNew</span>(<span class="s">"X500DistinguishedName"</span>,[ :distinguishedName = <span class="s">"CN=Demo Server, O=RingDotNet, C=EG"</span> ])
+	oName = <span class="k">new</span> <span class="t">X500DistinguishedName</span>(<span class="s">"CN=Demo Server, O=RingDotNet, C=EG"</span>)
 	oSha = <span class="f">dnStatic</span>(cCrypto + <span class="s">"HashAlgorithmName"</span>,<span class="s">"get_SHA256"</span>,[])
 	oPadding = <span class="f">dnStatic</span>(cCrypto + <span class="s">"RSASignaturePadding"</span>,<span class="s">"get_Pkcs1"</span>,[])
 	oRequest = <span class="f">dnNew</span>(<span class="s">"CertificateRequest"</span>,[ :subjectName = oName, :key = oRsa, :hashAlgorithm = oSha, :padding = oPadding ])
 
 	<span class="c"># 2. Extensions say what the certificate may be used for. This one is a plain server certificate (not a CA that signs others).</span>
-	oBasic = <span class="f">dnNew</span>(<span class="s">"X509BasicConstraintsExtension"</span>,[ :certificateAuthority = <span class="k">False</span>, :hasPathLengthConstraint = <span class="k">False</span>, :pathLengthConstraint = <span class="n">0</span>, :critical = <span class="k">True</span> ])
-	oRequest.<span class="f">getProp</span>(<span class="s">"CertificateExtensions"</span>).<span class="f">callMethod</span>(<span class="s">"Add"</span>,[oBasic])
+	oBasic = <span class="k">new</span> <span class="t">X509BasicConstraintsExtension</span>().<span class="f">New_</span>([ :certificateAuthority = <span class="k">False</span>, :hasPathLengthConstraint = <span class="k">False</span>, :pathLengthConstraint = <span class="n">0</span>, :critical = <span class="k">True</span> ])
+	oRequest.CertificateExtensions.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[oBasic])
 
 	<span class="c"># 3. Create it: valid from yesterday (a margin for computers whose clocks differ) until a year from today</span>
 	oNow = <span class="f">dnStatic</span>(<span class="s">"System.DateTimeOffset"</span>,<span class="s">"get_UtcNow"</span>,[])
-	oCertificate = oRequest.<span class="f">callMethod</span>(<span class="s">"CreateSelfSigned"</span>,[oNow.<span class="f">callMethod</span>(<span class="s">"AddDays"</span>,[-<span class="n">1</span>]),oNow.<span class="f">callMethod</span>(<span class="s">"AddDays"</span>,[<span class="n">365</span>])])
-	? <span class="s">"1. subject:     "</span> + oCertificate.<span class="f">getProp</span>(<span class="s">"Subject"</span>)
-	? <span class="s">"   issuer:      "</span> + oCertificate.<span class="f">getProp</span>(<span class="s">"Issuer"</span>) + <span class="s">"   (the same: self-signed)"</span>
-	? <span class="s">"   thumbprint:  "</span> + len(oCertificate.<span class="f">getProp</span>(<span class="s">"Thumbprint"</span>)) + <span class="s">" hex characters (the SHA-1 of the certificate: it identifies it)"</span>
-	? <span class="s">"   has a private key: "</span> + oCertificate.<span class="f">getProp</span>(<span class="s">"HasPrivateKey"</span>)
-	? <span class="s">"   valid for "</span> + floor(oCertificate.<span class="f">getProp</span>(<span class="s">"NotAfter"</span>).<span class="f">Subtract</span>(oCertificate.<span class="f">getProp</span>(<span class="s">"NotBefore"</span>)).<span class="f">getProp</span>(<span class="s">"TotalDays"</span>) + <span class="n">0.5</span>) + <span class="s">" days, and it is valid now: "</span> + isValidNow(oCertificate)
+	oCertificate = oRequest.<span class="f">CreateSelfSigned</span>(oNow.<span class="f">AddDays</span>(-<span class="n">1</span>),oNow.<span class="f">AddDays</span>(<span class="n">365</span>))
+	? <span class="s">"1. subject:     "</span> + oCertificate.Subject
+	? <span class="s">"   issuer:      "</span> + oCertificate.Issuer + <span class="s">"   (the same: self-signed)"</span>
+	? <span class="s">"   thumbprint:  "</span> + len(oCertificate.Thumbprint) + <span class="s">" hex characters (the SHA-1 of the certificate: it identifies it)"</span>
+	? <span class="s">"   has a private key: "</span> + oCertificate.HasPrivateKey
+	? <span class="s">"   valid for "</span> + floor(oCertificate.NotAfter.<span class="f">Subtract</span>(oCertificate.NotBefore).TotalDays + <span class="n">0.5</span>) + <span class="s">" days, and it is valid now: "</span> + isValidNow(oCertificate)
 
 	<span class="c"># 4. Export WITH the private key as PFX (a file with a password), and load it again. A PFX is the secret: protect it like a password.</span>
 	aPfx = oCertificate.<span class="f">callMethod</span>(<span class="s">"Export"</span>,[<span class="s">"Pfx"</span>,<span class="s">"correct horse battery"</span>])
-	oLoaded = <span class="f">dnNew</span>(<span class="s">"X509Certificate2"</span>,[ :rawData = aPfx, :password = <span class="s">"correct horse battery"</span> ])
-	? nl + <span class="s">"2. the PFX is bigger than 1000 bytes: "</span> + (len(aPfx) &gt; <span class="n">1000</span>) + <span class="s">"; loaded again it has the same thumbprint: "</span> + (oLoaded.<span class="f">getProp</span>(<span class="s">"Thumbprint"</span>) = oCertificate.<span class="f">getProp</span>(<span class="s">"Thumbprint"</span>)) + <span class="s">" and a private key: "</span> + oLoaded.<span class="f">getProp</span>(<span class="s">"HasPrivateKey"</span>)
+	oLoaded = <span class="k">new</span> <span class="t">X509Certificate2</span>().<span class="f">New_</span>([ :rawData = aPfx, :password = <span class="s">"correct horse battery"</span> ])
+	? nl + <span class="s">"2. the PFX is bigger than 1000 bytes: "</span> + (len(aPfx) &gt; <span class="n">1000</span>) + <span class="s">"; loaded again it has the same thumbprint: "</span> + (oLoaded.Thumbprint = oCertificate.Thumbprint) + <span class="s">" and a private key: "</span> + oLoaded.HasPrivateKey
 	lWrong = <span class="k">False</span>
 	<span class="k">try</span>
-		<span class="f">dnNew</span>(<span class="s">"X509Certificate2"</span>,[ :rawData = aPfx, :password = <span class="s">"wrong password"</span> ])
+		<span class="k">new</span> <span class="t">X509Certificate2</span>().<span class="f">New_</span>([ :rawData = aPfx, :password = <span class="s">"wrong password"</span> ])
 	<span class="k">catch</span>
 		lWrong = <span class="k">True</span>
 	<span class="k">done</span>
 	? <span class="s">"   a wrong password is refused: "</span> + lWrong
 
 	<span class="c"># 5. Export the PUBLIC part only (a .cer or PEM file): this is what you give to others. It has no private key.</span>
-	cPem = oCertificate.<span class="f">callMethod</span>(<span class="s">"ExportCertificatePem"</span>,[])
+	cPem = oCertificate.<span class="f">ExportCertificatePem</span>()
 	? nl + <span class="s">"3. the public certificate as PEM starts with: "</span> + left(substr(cPem,char(<span class="n">13</span>),<span class="s">""</span>),<span class="n">27</span>)
-	aCer = oCertificate.<span class="f">callMethod</span>(<span class="s">"Export"</span>,[<span class="s">"Cert"</span>])
-	oPublic = <span class="f">dnNew</span>(<span class="s">"X509Certificate2"</span>,[ :rawData = aCer ])
-	? <span class="s">"   loaded from the public export: same thumbprint "</span> + (oPublic.<span class="f">getProp</span>(<span class="s">"Thumbprint"</span>) = oCertificate.<span class="f">getProp</span>(<span class="s">"Thumbprint"</span>)) + <span class="s">", private key: "</span> + oPublic.<span class="f">getProp</span>(<span class="s">"HasPrivateKey"</span>)
+	aCer = oCertificate.<span class="f">Export</span>(<span class="s">"Cert"</span>)
+	oPublic = <span class="k">new</span> <span class="t">X509Certificate2</span>().<span class="f">New_</span>([ :rawData = aCer ])
+	? <span class="s">"   loaded from the public export: same thumbprint "</span> + (oPublic.Thumbprint = oCertificate.Thumbprint) + <span class="s">", private key: "</span> + oPublic.HasPrivateKey
 
 	<span class="c"># 6. Signing: the owner signs with the private key, anybody with the public certificate verifies</span>
 	aMessage = oUtf8.<span class="f">GetBytes</span>(<span class="s">"Invoice 2024-001: 1250.00"</span>)
-	oPrivateKey = <span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.X509Certificates.RSACertificateExtensions"</span>,<span class="s">"GetRSAPrivateKey"</span>,[oCertificate])
+	oPrivateKey = <span class="k">new</span> <span class="t">RSACertificateExtensions</span>().<span class="f">GetRSAPrivateKey</span>(oCertificate)
 	aSignature = oPrivateKey.<span class="f">callMethod</span>(<span class="s">"SignData"</span>,[aMessage,oSha,oPadding])
-	oPublicKey = <span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.X509Certificates.RSACertificateExtensions"</span>,<span class="s">"GetRSAPublicKey"</span>,[oPublic])
+	oPublicKey = <span class="k">new</span> <span class="t">RSACertificateExtensions</span>().<span class="f">GetRSAPublicKey</span>(oPublic)
 	aChanged = oUtf8.<span class="f">GetBytes</span>(<span class="s">"Invoice 2024-001: 9250.00"</span>)
 	? nl + <span class="s">"4. signature of "</span> + len(aSignature) + <span class="s">" bytes (2048-bit key); verified with the public certificate: "</span> + oPublicKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aMessage,aSignature,oSha,oPadding])
 	? <span class="s">"   the message changed: "</span> + oPublicKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aChanged,aSignature,oSha,oPadding])
 	? <span class="s">"   the public certificate can not sign: "</span> + canSign(oPublic)
 
 	<span class="c"># 7. Is it trusted? A chain check asks whether the issuer is one that this computer trusts. For a self-signed certificate it is not.</span>
-	oChain = <span class="f">dnNew</span>(<span class="s">"X509Chain"</span>,[])
-	oChain.<span class="f">getProp</span>(<span class="s">"ChainPolicy"</span>).<span class="f">setProp</span>(<span class="s">"RevocationMode"</span>,<span class="s">"NoCheck"</span>)
-	? nl + <span class="s">"5. the system trusts this self-signed certificate: "</span> + oChain.<span class="f">callMethod</span>(<span class="s">"Build"</span>,[oPublic]) + <span class="s">"   (nobody else vouches for it)"</span>
+	oChain = <span class="k">new</span> <span class="t">X509Chain</span>()
+	oChain.ChainPolicy.<span class="f">setProp</span>(<span class="s">"RevocationMode"</span>,<span class="s">"NoCheck"</span>)
+	? nl + <span class="s">"5. the system trusts this self-signed certificate: "</span> + oChain.<span class="f">Build</span>(oPublic) + <span class="s">"   (nobody else vouches for it)"</span>
 
-	oRsa.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])
+	oRsa.<span class="f">Dispose</span>()
 
 <span class="k">func</span> <span class="f">isValidNow</span> oCertificate
 	oNow = <span class="f">dnStatic</span>(<span class="s">"System.DateTime"</span>,<span class="s">"get_Now"</span>,[])
-	<span class="k">return</span> oNow.<span class="f">CompareTo</span>(oCertificate.<span class="f">getProp</span>(<span class="s">"NotBefore"</span>)) &gt;= <span class="n">0</span> <span class="k">and</span> oNow.<span class="f">CompareTo</span>(oCertificate.<span class="f">getProp</span>(<span class="s">"NotAfter"</span>)) &lt;= <span class="n">0</span>
+	<span class="k">return</span> oNow.<span class="f">CompareTo</span>(oCertificate.NotBefore) &gt;= <span class="n">0</span> <span class="k">and</span> oNow.<span class="f">CompareTo</span>(oCertificate.NotAfter) &lt;= <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">canSign</span> oPublic
 	<span class="k">try</span>
-		<span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.X509Certificates.RSACertificateExtensions"</span>,<span class="s">"GetRSAPrivateKey"</span>,[oPublic]).<span class="f">callMethod</span>(<span class="s">"SignData"</span>,[<span class="k">new</span> <span class="t">UTF8Encoding</span>().<span class="f">GetBytes</span>(<span class="s">"x"</span>),<span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.HashAlgorithmName"</span>,<span class="s">"get_SHA256"</span>,[]),<span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.RSASignaturePadding"</span>,<span class="s">"get_Pkcs1"</span>,[])])
+		<span class="k">new</span> <span class="t">RSACertificateExtensions</span>().<span class="f">GetRSAPrivateKey</span>(oPublic).<span class="f">SignData</span>(<span class="k">new</span> <span class="t">UTF8Encoding</span>().<span class="f">GetBytes</span>(<span class="s">"x"</span>),<span class="k">new</span> <span class="t">HashAlgorithmName</span>().<span class="f">get_SHA256</span>(),<span class="k">new</span> <span class="t">RSASignaturePadding</span>().<span class="f">get_Pkcs1</span>())
 		<span class="k">return</span> <span class="k">True</span>
 	<span class="k">catch</span>
 		<span class="k">return</span> <span class="k">False</span>
@@ -341,6 +342,7 @@ using {
    the public certificate can not sign: 0
 
 5. the system trusts this self-signed certificate: 0   (nobody else vouches for it)</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="what-a-certificate-says">What a certificate says<a class="anchor" href="#what-a-certificate-says">#</a></h3>
 <p>A certificate is a small document, signed by an <strong>issuer</strong>, that says: <em>the public key below belongs to the subject named here, and this is true from this date to that date</em>. The <strong>subject</strong> is a distinguished name such as <code>CN=Demo Server, O=RingDotNet, C=EG</code> (common name, organisation, country). The <strong>thumbprint</strong> is the SHA-1 hash of the whole certificate: a short identifier that you compare to be sure it is <em>this</em> certificate and not another one with the same name.</p>

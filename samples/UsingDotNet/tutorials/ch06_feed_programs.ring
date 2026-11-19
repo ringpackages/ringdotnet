@@ -37,7 +37,7 @@ func main
 	# 3. Environment variables and the working folder of the new program are set before it starts.
 	#    (a variable first: a "new" on the right side of an assignment to a property loses the assignment, see Gotchas)
 	cTemp = new Path().GetTempPath()
-	oInfo = dnNew("ProcessStartInfo",[ :fileName = "cmd.exe", :arguments = "/c echo %GREETING%" ])
+	oInfo = new ProcessStartInfo().New_([ :fileName = "cmd.exe", :arguments = "/c echo %GREETING%" ])
 	oInfo {
 		UseShellExecute = False
 		RedirectStandardOutput = True
@@ -69,7 +69,7 @@ func main
 
 # start a program; lRedirect = True gives the program's three streams to this program (input, output, error)
 func startProgram cFile, cArguments, lRedirect
-	oInfo = dnNew("ProcessStartInfo",[ :fileName = cFile, :arguments = cArguments ])
+	oInfo = new ProcessStartInfo().New_([ :fileName = cFile, :arguments = cArguments ])
 	oInfo.UseShellExecute = False
 	oInfo.CreateNoWindow = True
 	if lRedirect

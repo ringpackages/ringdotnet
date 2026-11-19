@@ -43,7 +43,7 @@ func runParent
 	? "2. the parent wrote a text at position 100"
 
 	# 4. Start the child and read what it prints. It finds the memory by its name, reads the numbers and the text, and answers in the same memory.
-	oInfo = dnNew("ProcessStartInfo",[ :fileName = exefilename(), :arguments = '"' + filename() + '" --child' ])
+	oInfo = new ProcessStartInfo().New_([ :fileName = exefilename(), :arguments = '"' + filename() + '" --child' ])
 	oInfo {
 		UseShellExecute = False
 		CreateNoWindow = True

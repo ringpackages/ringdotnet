@@ -44,7 +44,7 @@ func main
 	# 6. A compressed file: write a .gz file, read it back line by line with a StreamReader on top of the decompressor
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tutorial88.txt.gz"])
 	oFile = new FileStream(cFile,"Create")
-	oGzip = dnNew("GZipStream",[ :stream = oFile, :mode = "Compress" ])
+	oGzip = new GZipStream(oFile,"Compress")
 	oWriter = new StreamWriter(oGzip)
 	for i = 1 to 3
 		oWriter.WriteLine("line " + i + " of the compressed file")
@@ -52,7 +52,7 @@ func main
 	oWriter.Dispose()                          # closing the writer also closes the compressor and the file
 	? nl + "6. file size on disk: " + new FileInfo(cFile).Length + " bytes"
 	oFile = new FileStream(cFile,"Open")
-	oGzip = dnNew("GZipStream",[ :stream = oFile, :mode = "Decompress" ])
+	oGzip = new GZipStream(oFile,"Decompress")
 	oReader = new StreamReader(oGzip)
 	while not oReader.EndOfStream
 		? "   read: " + oReader.ReadLine()
@@ -68,7 +68,7 @@ func compress cFormat,cData
 	return oMemory.ToArray()
 
 func decompress cFormat,cData
-	oSource = dnNew("MemoryStream",[ :buffer = cData ])
+	oSource = new MemoryStream().New_([ :buffer = cData ])
 	oUnpacker = packer(cFormat,oSource,"Decompress")
 	oOut = new MemoryStream()
 	oUnpacker.CopyTo(oOut)
@@ -76,9 +76,9 @@ func decompress cFormat,cData
 
 func packer cFormat,oStream,oMode
 	switch cFormat
-	on "GZip"    return dnNew("GZipStream",[ :stream = oStream, :mode = oMode ])
-	on "Deflate" return dnNew("DeflateStream",[ :stream = oStream, :mode = oMode ])
-	on "Brotli"  return dnNew("BrotliStream",[ :stream = oStream, :mode = oMode ])
+	on "GZip"    return new GZipStream(oStream,oMode)
+	on "Deflate" return new DeflateStream(oStream,oMode)
+	on "Brotli"  return new BrotliStream(oStream,oMode)
 	off
 
 func padRight cText,nWidth

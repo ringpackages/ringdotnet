@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -286,8 +287,8 @@ using {
 	oNew = <span class="f">dnNew</span>(<span class="s">"XElement"</span>,[ :name = <span class="s">"book"</span> ])
 	oNew.<span class="f">SetAttributeValue</span>(<span class="s">"id"</span>,<span class="s">"4"</span>)
 	oNew.<span class="f">SetAttributeValue</span>(<span class="s">"year"</span>,<span class="s">"1951"</span>)
-	oNew.<span class="f">Add</span>(<span class="f">dnNew</span>(<span class="s">"XElement"</span>,[ :name = <span class="s">"title"</span>, :content = <span class="s">"Foundation"</span> ]))
-	oNew.<span class="f">Add</span>(<span class="f">dnNew</span>(<span class="s">"XElement"</span>,[ :name = <span class="s">"price"</span>, :content = <span class="s">"7.75"</span> ]))
+	oNew.<span class="f">Add</span>(<span class="k">new</span> <span class="t">XElement</span>(<span class="s">"title"</span>,<span class="s">"Foundation"</span>))
+	oNew.<span class="f">Add</span>(<span class="k">new</span> <span class="t">XElement</span>(<span class="s">"price"</span>,<span class="s">"7.75"</span>))
 	oDocument.Root.<span class="f">Add</span>(oNew)
 	? nl + <span class="s">"4. after adding a book there are "</span> + len(oDocument.Root.<span class="f">Elements</span>(<span class="k">NULL</span>).<span class="f">toList</span>()) + <span class="s">" books; the new one:"</span>
 	? oNew.<span class="f">ToString</span>()
@@ -338,6 +339,7 @@ using {
 6. the saved file has 3 books
 
 7. bad XML: DotNet Error: System.Xml.XmlException: The 'book' start tag on line 1</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="xdocument">XDocument<a class="anchor" href="#xdocument">#</a></h3>
 <p><code>new XDocument().Parse(text)</code> builds the tree. <code>oDocument.Root</code> is the root element. <code>Elements(NULL)</code> gives all child elements (<code>NULL</code> because the method has other forms, see <a href="concepts.html">Core concepts</a>), and <code>.toList()</code> makes a Ring list. For each element <code>Attribute("year").Value</code> reads an attribute and <code>Element("title").Value</code> the text of a child. The values are always <strong>texts</strong>: convert with <code>number()</code> when you need a number (step 2 adds the prices).</p>

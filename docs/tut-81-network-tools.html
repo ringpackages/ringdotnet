@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -261,7 +262,7 @@ using {
 	? <span class="s">"   private address 192.168.1.20 is not the loopback: "</span> + yesNo(<span class="k">not</span> oParser.<span class="f">IsLoopback</span>(oAddress))
 
 	<span class="c"># 2. An address plus a port is an IPEndPoint. Built from named arguments, because the constructor has several forms.</span>
-	oEndPoint = <span class="f">dnNew</span>(<span class="s">"IPEndPoint"</span>,[ :address = oAddress, :port = <span class="n">8080</span> ])
+	oEndPoint = <span class="k">new</span> <span class="t">IPEndPoint</span>(oAddress,<span class="n">8080</span>)
 	? nl + <span class="s">"2. the endpoint "</span> + oEndPoint.<span class="f">ToString</span>() + <span class="s">": address "</span> + oEndPoint.Address.<span class="f">ToString</span>() + <span class="s">", port "</span> + oEndPoint.Port
 
 	<span class="c"># 3. DNS: names to addresses. "localhost" is always known, also without a network.</span>
@@ -331,7 +332,7 @@ using {
 <p><code>IPAddress.Parse("192.168.1.20")</code> gives an object. <code>GetAddressBytes()</code> returns the four bytes as a Ring text (a <code>byte[]</code> is a text in this package), so <code>ascii(cBytes[1])</code> is 192. <code>AddressFamily</code> is <code>InterNetwork</code> for IPv4 and <code>InterNetworkV6</code> for IPv6, and <code>IsLoopback</code> tests for <code>127.0.0.1</code> and <code>::1</code>.</p>
 <p><code>IPAddress.TryParse(text, out address)</code> answers <em>yes or no</em> without raising an error. In .NET the address comes back through an <code>out</code> parameter; in Ring **a method with <code>out</code> parameters returns a list**: <code>[ success, the address ]</code>. So <code>aGood = oParser.TryParse("10.0.0.7")</code> gives <code>aGood[1]</code> = 1 and <code>aGood[2]</code> = the address. The same applies to every <code>TryParse</code> and <code>TryGetValue</code> of .NET.</p>
 <h3 id="endpoints">Endpoints<a class="anchor" href="#endpoints">#</a></h3>
-<p>An <code>IPEndPoint</code> is an address plus a port. Its constructor has several forms, so it is made with named arguments: <code>dnNew("IPEndPoint",[ :address = ..., :port = 8080 ])</code>.</p>
+<p>An <code>IPEndPoint</code> is an address plus a port. It is made with <code>new IPEndPoint(address, 8080)</code>.</p>
 <h3 id="dns">DNS<a class="anchor" href="#dns">#</a></h3>
 <p><code>Dns.GetHostEntry("localhost")</code> returns the names and addresses of a host. <code>localhost</code> is known without a network (usually both <code>127.0.0.1</code> and <code>::1</code>). A real name such as <code>example.com</code> needs the internet and can take seconds or raise an error: wrap it in <code>try</code> / <code>catch</code>.</p>
 <h3 id="ping">Ping<a class="anchor" href="#ping">#</a></h3>

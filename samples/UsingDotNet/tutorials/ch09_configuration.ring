@@ -33,17 +33,17 @@ func main
 	? nl + "2. the port as a number: " + nPort + " (+1 = " + (nPort + 1) + "), debug as a yes or no: " + lDebug + ", Retries (not set, default 3): " + nMissing
 
 	# 3. A section: GetSection gives a part of the tree. Its Key is the last name; GetChildren lists what is directly inside
-	oSection = oConfig.callMethod("GetSection",["Database"])
-	? nl + "3. the section " + oSection.getProp("Key") + " has:"
-	for oChild in oSection.callMethod("GetChildren",[]).toList()
-		? "   " + oChild.getProp("Key") + " = " + oChild.getProp("Value")
+	oSection = oConfig.GetSection("Database")
+	? nl + "3. the section " + oSection.Key + " has:"
+	for oChild in oSection.GetChildren().toList()
+		? "   " + oChild.Key + " = " + oChild.Value
 	next
 
 	# 4. More sources. AddInMemoryCollection adds values from a dictionary (good for defaults and for tests). Because it comes AFTER the
 	#    file, its values win.
 	oOverrides = dnNewGeneric("System.Collections.Generic.Dictionary",["System.String","System.String"],[])
-	oOverrides.callMethod("Add",["App:Port","9090"])
-	oOverrides.callMethod("Add",["App:Extra","only in memory"])
+	oOverrides.Add("App:Port","9090")
+	oOverrides.Add("App:Extra","only in memory")
 	dnStatic("Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions","AddInMemoryCollection",[oBuilder,oOverrides])
 	oConfig2 = oBuilder.Build()
 	? nl + "4. after the memory source: App:Port = " + oConfig2.callMethod("get_Item",["App:Port"]) + " (was 8080), App:Name = " + oConfig2.callMethod("get_Item",["App:Name"]) + " (not changed), App:Extra = " + oConfig2.callMethod("get_Item",["App:Extra"])

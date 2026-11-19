@@ -136,7 +136,7 @@ func hashPassword cPassword, cSalt
 
 # send a request (with the cookie when there is one); returns [status, body, the cookie that the server sent, if any]
 func visit cMethod, cPath, cForm, cCookie
-	oMessage = dnNew("HttpRequestMessage",[ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = new HttpRequestMessage().New_([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cForm != ""
 		oContent = dnNew("StringContent",[ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])
 		oMessage.Content = oContent
@@ -151,7 +151,7 @@ func visit cMethod, cPath, cForm, cCookie
 		ok
 	next
 	oTask.Wait(NULL)
-	oResponse = oTask.getProp("Result")
+	oResponse = oTask.Result
 	oBody = oResponse.Content.ReadAsStringAsync(NULL)
 	oBody.Wait(NULL)
 	# the cookie: the "Set-Cookie" header of the response, up to the first ";"
@@ -161,4 +161,4 @@ func visit cMethod, cPath, cForm, cCookie
 		cValue = aFound[2].toList()[1]
 		cNewCookie = trim(str2list(substr(cValue,";",nl))[1])
 	ok
-	return [oResponse.StatusCode,oBody.getProp("Result"),cNewCookie]
+	return [oResponse.StatusCode,oBody.Result,cNewCookie]

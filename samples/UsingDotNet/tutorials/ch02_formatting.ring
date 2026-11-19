@@ -56,7 +56,7 @@ func main
 	next
 
 	# 6. Time spans have their own patterns: hours, minutes and seconds of a duration
-	oSpan = dnStatic("System.TimeSpan","FromSeconds",[ 3725 ])
+	oSpan = new TimeSpan().FromSeconds(3725)
 	? nl + "6. a duration of 3725 seconds:"
 	? "   hh\:mm\:ss = " + oSpan.Format([ :format = "hh\:mm\:ss", :formatProvider = oInvariant ])
 	? "   h 'h' m 'min' = " + oSpan.Format([ :format = "h' h 'm' min'", :formatProvider = oInvariant ])

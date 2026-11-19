@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -308,7 +309,7 @@ cRouting = <span class="s">"Microsoft.AspNetCore.Routing."</span>
 		<span class="k">return</span> <span class="s">"no match"</span>
 	<span class="k">ok</span>
 	cText = <span class="s">""</span>
-	<span class="k">for</span> cKey <span class="k">in</span> sort(oValues.<span class="f">getProp</span>(<span class="s">"Keys"</span>).<span class="f">toList</span>())
+	<span class="k">for</span> cKey <span class="k">in</span> sort(oValues.Keys.<span class="f">toList</span>())
 		cText += cKey + <span class="s">" = "</span> + oValues.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[cKey]) + <span class="s">"   "</span>
 	<span class="k">next</span>
 	<span class="k">return</span> <span class="s">"match   "</span> + cText
@@ -320,7 +321,7 @@ cRouting = <span class="s">"Microsoft.AspNetCore.Routing."</span>
 	<span class="k">for</span> oPart <span class="k">in</span> oTemplate.<span class="f">getProp</span>(<span class="s">"Parameters"</span>).<span class="f">toList</span>()
 		xDefault = oPart.<span class="f">getProp</span>(<span class="s">"DefaultValue"</span>)
 		<span class="k">if</span> <span class="k">not</span> isObject(xDefault)
-			oDefaults.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[oPart.<span class="f">getProp</span>(<span class="s">"Name"</span>),xDefault])
+			oDefaults.<span class="f">Add</span>(oPart.<span class="f">getProp</span>(<span class="s">"Name"</span>),xDefault)
 		<span class="k">ok</span>
 	<span class="k">next</span>
 	oMatcher = <span class="f">dnNew</span>(cRouting + <span class="s">"Template.TemplateMatcher"</span>,[oTemplate,oDefaults])
@@ -364,6 +365,7 @@ cRouting = <span class="s">"Microsoft.AspNetCore.Routing."</span>
    /files/a/b.png          files/{*path}  -&gt;  send a file
    /about                  {page}  -&gt;  show a page
    /users                  {page}  -&gt;  show a page</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-syntax">The syntax<a class="anchor" href="#the-syntax">#</a></h3>
 <p>A template is a path whose parts are either <strong>literal text</strong> (<code>users</code>, <code>orders</code>: matched without regard to case) or <strong>parameters</strong> in braces:</p>

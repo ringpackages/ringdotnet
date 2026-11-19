@@ -33,9 +33,9 @@ func main
 	oDate.Location = new Point(110,54)
 	oDate.Size = new Size(150,24)
 	oDate.Format = "Short"
-	oDate.Value = dnNew("DateTime",[ :year = 2030, :month = 5, :day = 10 ])
-	oDate.MinDate = dnNew("DateTime",[ :year = 2030, :month = 1, :day = 1 ])
-	oDate.MaxDate = dnNew("DateTime",[ :year = 2030, :month = 12, :day = 31 ])
+	oDate.Value = new DateTime(2030,5,10)
+	oDate.MinDate = new DateTime(2030,1,1)
+	oDate.MaxDate = new DateTime(2030,12,31)
 	oForm.Controls.Add(oDate)
 
 	# a track bar: a slider with whole numbers
@@ -157,5 +157,5 @@ func selfTest
 	dnAssert("booked",oResult.Text,"Booked for Ann: arrival 10 May 2030, 693")
 
 	# the date picker keeps its limits
-	oDate.Value = dnNew("DateTime",[ :year = 2030, :month = 12, :day = 31 ])
+	oDate.Value = new DateTime(2030,12,31)
 	dnAssert("the last day",oDate.Value.Format("yyyy-MM-dd"),"2030-12-31")

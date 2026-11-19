@@ -31,6 +31,8 @@ The tutorial [Databases step by step](tut-17-databases.html) used SQLite and the
 
 {{output:samples/UsingDotNet/tutorials/ch09_access.ring}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### A new file

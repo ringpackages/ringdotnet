@@ -21,6 +21,8 @@ The tutorial [A small text editor](tut-13-editor.html) used a plain text box, wh
 
 {{output:samples/UsingDotNet/tutorials/ch10_richtext.ring --selftest}}
 
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
 ## How it works
 
 ### The selection

@@ -28,7 +28,9 @@ The tutorial [Databases step by step](tut-17-databases.html) used `RingDatabase`
 
 {{output:samples/UsingDotNet/tutorials/ch09_entities.ring}}
 
-### How it works
+#> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+
+## How it works
 
 **Properties.** `oDb.properties("Players")` lists them: one per column (`Id Name Goals TeamId`) and one **navigation** (`Team`), generated from the foreign key `TeamId`. The team has `Players`, a collection of its players.
 

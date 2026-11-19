@@ -27,13 +27,13 @@ func main
 	? "1. a folder to watch was created"
 
 	# 2. The watcher: the folder, and the file names that interest us ("*.txt"). IncludeSubdirectories = True would watch the folders below too.
-	oWatcher = dnNew("FileSystemWatcher",[ :path = cFolder, :filter = "*.txt" ])
+	oWatcher = new FileSystemWatcher().New_([ :path = cFolder, :filter = "*.txt" ])
 	oWatcher.IncludeSubdirectories = False
 	? "2. watching: " + oWatcher.Filter + ", subfolders: no"
 
 	# 3. Start the child. It waits a moment, and then it creates a file, writes into it, renames it and deletes it, with a pause
 	#    between the steps.
-	oInfo = dnNew("ProcessStartInfo",[ :fileName = exefilename(), :arguments = '"' + filename() + '" --child "' + cFolder + '"' ])
+	oInfo = new ProcessStartInfo().New_([ :fileName = exefilename(), :arguments = '"' + filename() + '" --child "' + cFolder + '"' ])
 	oInfo.UseShellExecute = False
 	oInfo.CreateNoWindow = True
 	oChild = new Process().Start(oInfo)

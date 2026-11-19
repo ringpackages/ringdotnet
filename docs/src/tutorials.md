@@ -305,6 +305,7 @@ Giving Ring code to .NET (callbacks and events), exploring code with reflection 
 <a class="card" href="tut-151-inspector.html"><div class="ic">📦</div><b>Project: an object inspector</b><span>GetType, GetProperties and GetValue: the properties of any object in a list.</span></a>
 <a class="card" href="tut-87-expressions.html"><div class="ic">📦</div><b>Expression trees</b><span>Code as data: build, print, compile and call functions at run time.</span></a>
 <a class="card" href="tut-18-csharp-library.html"><div class="ic">📦</div><b>A library written in C#</b><span>Build a small C# library, wrap it and call it from Ring.</span></a>
+<a class="card" href="tut-160-generic-calls.html"><div class="ic">📦</div><b>The generic functions</b><span>dnNewGeneric, dnType, dnNew with names, dnStatic, callMethod and getProp: what to use when there is no class.</span></a>
 <a class="card" href="tut-28-testing.html"><div class="ic">📦</div><b>Testing your programs</b><span>Testable functions, dnAssert, testing errors, self-testing windows.</span></a>
 <a class="card" href="tut-119-distribution.html"><div class="ic">📦</div><b>Giving your program to others</b><span>Ring2EXE, what the other computer needs, a self check.</span></a>
 </div>

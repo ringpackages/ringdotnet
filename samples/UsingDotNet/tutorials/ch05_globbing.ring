@@ -81,6 +81,6 @@ func makeTree
 func stringList aList
 	oList = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
 	for cItem in aList
-		oList.callMethod("Add",[cItem])
+		oList.Add(cItem)
 	next
 	return oList

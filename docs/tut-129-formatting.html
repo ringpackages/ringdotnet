@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -297,7 +298,7 @@ oInvariant = <span class="s">""</span>
 	<span class="k">next</span>
 
 	<span class="c"># 6. Time spans have their own patterns: hours, minutes and seconds of a duration</span>
-	oSpan = <span class="f">dnStatic</span>(<span class="s">"System.TimeSpan"</span>,<span class="s">"FromSeconds"</span>,[ <span class="n">3725</span> ])
+	oSpan = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">3725</span>)
 	? nl + <span class="s">"6. a duration of 3725 seconds:"</span>
 	? <span class="s">"   hh\:mm\:ss = "</span> + oSpan.<span class="f">Format</span>([ :format = <span class="s">"hh\:mm\:ss"</span>, :formatProvider = oInvariant ])
 	? <span class="s">"   h 'h' m 'min' = "</span> + oSpan.<span class="f">Format</span>([ :format = <span class="s">"h' h 'm' min'"</span>, :formatProvider = oInvariant ])
@@ -384,6 +385,7 @@ oInvariant = <span class="s">""</span>
    h 'h' m 'min' = 1 h 2 min
 
 7. a wrong format: System.FormatException</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-invariant-culture">The invariant culture<a class="anchor" href="#the-invariant-culture">#</a></h3>
 <p>Decimal separators, thousands separators, month names and money symbols depend on the <strong>culture</strong>. The program passes <code>new CultureInfo("en-US").InvariantCulture</code> to every call, so the output is the same on every computer. For text that goes to a file or to another program (data) use the invariant culture. For text that a person reads use the culture of that person, which is the default when you leave the provider out.</p>

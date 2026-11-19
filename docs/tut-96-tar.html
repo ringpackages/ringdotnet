@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -267,12 +268,12 @@ using {
 
 	<span class="c"># 1. Tar puts files and folders into ONE file (it does not compress: that is what gzip does, see the tutorial "Compression"). It is the usual</span>
 	<span class="c">#    format for packing a folder on Linux and macOS, and Docker images are tar files too.</span>
-	<span class="f">dnStatic</span>(<span class="s">"System.Formats.Tar.TarFile"</span>,<span class="s">"CreateFromDirectory"</span>,[cSource,cTar,<span class="k">False</span>])      <span class="c"># (source folder, tar file, include the folder itself)</span>
+	<span class="k">new</span> <span class="t">TarFile</span>().<span class="f">CreateFromDirectory</span>(cSource,cTar,<span class="k">False</span>)      <span class="c"># (source folder, tar file, include the folder itself)</span>
 	? <span class="s">"1. the tar file exists: "</span> + oFile.<span class="f">Exists</span>(cTar) + <span class="s">", size is a multiple of 512 bytes: "</span> + (<span class="k">new</span> <span class="t">FileInfo</span>(cTar).Length % <span class="n">512</span> = <span class="n">0</span>)
 
 	<span class="c"># 2. List what is inside: a TarReader gives the entries one after the other (GetNextEntry answers null at the end)</span>
 	oStream = <span class="k">new</span> <span class="t">FileStream</span>(cTar,<span class="s">"Open"</span>)
-	oReader = <span class="f">dnNew</span>(<span class="s">"TarReader"</span>,[ :archiveStream = oStream ])
+	oReader = <span class="k">new</span> <span class="t">TarReader</span>(oStream)
 	aLines = []
 	<span class="k">while</span> <span class="k">true</span>
 		oEntry = oReader.<span class="f">GetNextEntry</span>(<span class="k">NULL</span>)
@@ -288,7 +289,7 @@ using {
 
 	<span class="c"># 3. Read one file from the archive without unpacking the others: look at each entry and read the data of the one we want</span>
 	oStream = <span class="k">new</span> <span class="t">FileStream</span>(cTar,<span class="s">"Open"</span>)
-	oReader = <span class="f">dnNew</span>(<span class="s">"TarReader"</span>,[ :archiveStream = oStream ])
+	oReader = <span class="k">new</span> <span class="t">TarReader</span>(oStream)
 	cFound = <span class="s">""</span>
 	<span class="k">while</span> <span class="k">true</span>
 		oEntry = oReader.<span class="f">GetNextEntry</span>(<span class="k">NULL</span>)
@@ -304,7 +305,7 @@ using {
 
 	<span class="c"># 4. Unpack everything into a folder (it must exist) and read a file from there</span>
 	oDirectory.<span class="f">CreateDirectory</span>(cTarget)
-	<span class="f">dnStatic</span>(<span class="s">"System.Formats.Tar.TarFile"</span>,<span class="s">"ExtractToDirectory"</span>,[cTar,cTarget,<span class="k">True</span>])      <span class="c"># (tar file, target folder, overwrite files)</span>
+	<span class="k">new</span> <span class="t">TarFile</span>().<span class="f">ExtractToDirectory</span>(cTar,cTarget,<span class="k">True</span>)      <span class="c"># (tar file, target folder, overwrite files)</span>
 	? nl + <span class="s">"4. unpacked: "</span> + oFile.<span class="f">ReadAllText</span>(oPath.<span class="f">Combine</span>([cTarget,<span class="s">"readme.txt"</span>])) + <span class="s">" / "</span> + oFile.<span class="f">ReadAllText</span>(oPath.<span class="f">Combine</span>([cTarget,<span class="s">"notes"</span>,<span class="s">"a.txt"</span>]))
 
 	oDirectory.<span class="f">Delete</span>([ :path = cBase, :recursive = <span class="k">True</span> ])
@@ -324,16 +325,16 @@ using {
 4. unpacked: Read me first / Note A</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="making-the-archive">Making the archive<a class="anchor" href="#making-the-archive">#</a></h3>
-<p><code>TarFile.CreateFromDirectory(source folder, tar file, include the folder itself)</code> packs a whole folder. It is a static method of a static class, so the program calls it with <code>dnStatic(type, method, [arguments])</code> with the arguments in order. Here the folder itself is not included, so the entries are <code>readme.txt</code> and <code>notes/a.txt</code>, not <code>source/readme.txt</code>. A tar file is built from blocks of 512 bytes, which step 1 checks: the size is a multiple of 512.</p>
+<p><code>TarFile.CreateFromDirectory(source folder, tar file, include the folder itself)</code> packs a whole folder. It is a static method of a static class, so the program calls it on <code>new TarFile()</code> with the arguments in order. Here the folder itself is not included, so the entries are <code>readme.txt</code> and <code>notes/a.txt</code>, not <code>source/readme.txt</code>. A tar file is built from blocks of 512 bytes, which step 1 checks: the size is a multiple of 512.</p>
 <h3 id="reading-the-entries">Reading the entries<a class="anchor" href="#reading-the-entries">#</a></h3>
-<p>A <code>TarReader</code> is made on a stream (<code>dnNew("TarReader",[ :archiveStream = oStream ])</code>). <code>GetNextEntry</code> gives the next <code>TarEntry</code>, and <em>null</em> at the end, which <code>isNull()</code> tests. Each entry has <code>Name</code>, <code>EntryType</code> (<code>RegularFile</code>, <code>Directory</code>, <code>SymbolicLink</code>, ...) and <code>Length</code>. <code>GetNextEntry</code> has two forms, so it is called with <code>NULL</code> for the plain one. The entries come in the order of the folder, which depends on the file system, so the program sorts its lines before printing them: a test must not depend on the order of a disk.</p>
+<p>A <code>TarReader</code> is made on a stream (<code>new TarReader(oStream)</code>). <code>GetNextEntry</code> gives the next <code>TarEntry</code>, and <em>null</em> at the end, which <code>isNull()</code> tests. Each entry has <code>Name</code>, <code>EntryType</code> (<code>RegularFile</code>, <code>Directory</code>, <code>SymbolicLink</code>, ...) and <code>Length</code>. <code>GetNextEntry</code> has two forms, so it is called with <code>NULL</code> for the plain one. The entries come in the order of the folder, which depends on the file system, so the program sorts its lines before printing them: a test must not depend on the order of a disk.</p>
 <h3 id="one-file-from-the-archive">One file from the archive<a class="anchor" href="#one-file-from-the-archive">#</a></h3>
 <p>Reading is <em>sequential</em>: a tar file has no index, so to find <code>notes/b.txt</code> the reader goes through the entries until it meets the name. <code>DataStream</code> of the entry is a stream with the content, read here with a <code>StreamReader</code> (the tutorial <a href="tut-56-streams.html">Streams and compression</a>). The data is available only until you ask for the next entry. For a big archive this is both the strength of tar (it can be read as it arrives, from a network or a pipe) and its weakness (no quick access to the last file).</p>
 <h3 id="unpacking">Unpacking<a class="anchor" href="#unpacking">#</a></h3>
 <p><code>TarFile.ExtractToDirectory(tar file, target folder, overwrite)</code> writes all the entries to a folder, which <strong>must exist</strong>.</p>
 <div class="callout warn"><span class="t">Warning</span><p>Never unpack an archive from an unknown source without checking the names of the entries. A bad archive can contain names such as <code>../../important.txt</code> that try to write outside the target folder (the attack is called <em>path traversal</em> or <em>zip slip</em>). <code>ExtractToDirectory</code> refuses such names, but if you write your own loop with <code>TarReader</code>, check each <code>Name</code> with <code>Path.GetFullPath</code> first (the tutorial <a href="tut-59-paths.html">Paths and the environment</a>).</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>tar collects files without compressing them,</li><li><code>CreateFromDirectory</code> and <code>ExtractToDirectory</code> with <code>dnStatic</code>,</li><li><code>TarReader</code>, <code>GetNextEntry</code>, <code>EntryType</code>, <code>DataStream</code>,</li><li>reading is sequential,</li><li>the danger of names that leave the target folder.</li></ul>
+<ul><li>tar collects files without compressing them,</li><li><code>CreateFromDirectory</code> and <code>ExtractToDirectory</code> as static methods of <code>TarFile</code>,</li><li><code>TarReader</code>, <code>GetNextEntry</code>, <code>EntryType</code>, <code>DataStream</code>,</li><li>reading is sequential,</li><li>the danger of names that leave the target folder.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Make a <code>.tar.gz</code>: create the tar file, then compress it with <code>GZipStream</code> (the tutorial <a href="tut-88-compression.html">Compression</a>).</li><li>Write <code>listTar(cFile)</code> that returns the names of the entries as a Ring list.</li><li>Write a function that adds one more file to an archive with <code>TarWriter</code>.</li><li>Make an archive with an empty folder and look at how it is listed.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -257,7 +258,7 @@ using {
 	<span class="k">next</span>
 
 	<span class="c"># 2. DriveInfo.GetDrives() lists the drives (the letters of Windows, the mounted file systems of Linux and macOS)</span>
-	oAny = <span class="f">dnNew</span>(<span class="s">"DriveInfo"</span>,[ <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetPathRoot</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>()) ])     <span class="c"># static methods are called through any object of the class</span>
+	oAny = <span class="k">new</span> <span class="t">DriveInfo</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetPathRoot</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>()))     <span class="c"># static methods are called through any object of the class</span>
 	aDrives = oAny.<span class="f">GetDrives</span>().<span class="f">toList</span>()
 	nReady = <span class="n">0</span>
 	<span class="k">for</span> oDrive <span class="k">in</span> aDrives
@@ -271,7 +272,7 @@ using {
 	<span class="c">#    temporary files.</span>
 	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>()
 	cRoot = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetPathRoot</span>(cFolder)
-	oDrive = <span class="f">dnNew</span>(<span class="s">"DriveInfo"</span>,[ cRoot ])
+	oDrive = <span class="k">new</span> <span class="t">DriveInfo</span>(cRoot)
 	? nl + <span class="s">"3. the drive of the temporary folder: ready "</span> + yesNo(oDrive.IsReady) + <span class="s">", type "</span> + oDrive.DriveType
 
 	<span class="c"># 4. Sizes: TotalSize is the whole drive, TotalFreeSpace all the free space, AvailableFreeSpace the free space for the current user</span>
@@ -292,7 +293,7 @@ using {
 
 	<span class="c"># 6. A name that is not a drive name raises an error; the program prints the kind of the error.</span>
 	<span class="k">try</span>
-		oOther = <span class="f">dnNew</span>(<span class="s">"DriveInfo"</span>,[ <span class="s">"?"</span> ])
+		oOther = <span class="k">new</span> <span class="t">DriveInfo</span>(<span class="s">"?"</span>)
 		? nl + <span class="s">"6. a drive with an impossible name was accepted"</span>
 	<span class="k">catch</span>
 		? nl + <span class="s">"6. a drive with an impossible name: "</span> + errorKind(cCatchError)
@@ -368,7 +369,7 @@ using {
 <h3 id="the-drives">The drives<a class="anchor" href="#the-drives">#</a></h3>
 <p><code>GetDrives()</code> returns one <code>DriveInfo</code> for each drive: the letters of Windows (<code>C:\</code>), or the mounted file systems of Linux and macOS. It is a static method, called through any object of the class (the program makes one for the drive of the temporary folder). A drive that is not ready (an empty card reader) answers <code>false</code> to <code>IsReady</code>, and reading its sizes raises an error, so check <code>IsReady</code> first.</p>
 <h3 id="the-drive-of-a-folder">The drive of a folder<a class="anchor" href="#the-drive-of-a-folder">#</a></h3>
-<p><code>Path.GetPathRoot(path)</code> gives the root of a path (<code>C:\</code> on Windows, <code>/</code> on Linux) and <code>dnNew("DriveInfo",[ root ])</code> describes that drive.</p>
+<p><code>Path.GetPathRoot(path)</code> gives the root of a path (<code>C:\</code> on Windows, <code>/</code> on Linux) and <code>new DriveInfo(root)</code> describes that drive.</p>
 <h3 id="three-sizes">Three sizes<a class="anchor" href="#three-sizes">#</a></h3>
 <p><code>TotalSize</code> is the capacity, <code>TotalFreeSpace</code> all the free room, and <code>AvailableFreeSpace</code> the free room <strong>for the current user</strong>: a disk quota can make it smaller than the free space. Use <code>AvailableFreeSpace</code> when the question is <em>will it fit?</em>. The sizes are long whole numbers: a Ring number is a double, which keeps every digit up to about nine quadrillion (9 PB), enough for any disk.</p>
 <h3 id="will-it-fit">Will it fit?<a class="anchor" href="#will-it-fit">#</a></h3>

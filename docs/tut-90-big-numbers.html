@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -287,10 +288,10 @@ using {
 
 	<span class="c"># 7. Complex numbers: a real part and an imaginary part. Math with them is done by the static methods of Complex.</span>
 	oC = <span class="k">new</span> <span class="t">Complex</span>()
-	oI = <span class="f">dnNew</span>(<span class="s">"Complex"</span>,[ :real = <span class="n">0</span>, :imaginary = <span class="n">1</span> ])        <span class="c"># i</span>
+	oI = <span class="k">new</span> <span class="t">Complex</span>().<span class="f">New_</span>([ :real = <span class="n">0</span>, :imaginary = <span class="n">1</span> ])        <span class="c"># i</span>
 	oMinusOne = oC.<span class="f">Multiply</span>(oI,oI)
 	? nl + <span class="s">"7. i * i = "</span> + oMinusOne.Real + <span class="s">" (real part), "</span> + oMinusOne.Imaginary + <span class="s">" (imaginary part)"</span>
-	oZ = <span class="f">dnNew</span>(<span class="s">"Complex"</span>,[ :real = <span class="n">3</span>, :imaginary = <span class="n">4</span> ])
+	oZ = <span class="k">new</span> <span class="t">Complex</span>().<span class="f">New_</span>([ :real = <span class="n">3</span>, :imaginary = <span class="n">4</span> ])
 	? <span class="s">"   |3 + 4i| = "</span> + oZ.Magnitude + <span class="s">",  3+4i squared = "</span> + oC.<span class="f">Multiply</span>(oZ,oZ).<span class="f">ToString</span>()</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. Ring: 9007199254740992 + 1 = 9007199254740992.00   (the +1 is lost)
 
@@ -320,7 +321,7 @@ using {
 <h3 id="comparing">Comparing<a class="anchor" href="#comparing">#</a></h3>
 <p>Compare big numbers with <code>Compare</code>: it answers -1, 0 or 1. Do not compare their texts: as texts <code>"9"</code> is larger than <code>"10"</code>.</p>
 <h3 id="complex-numbers">Complex numbers<a class="anchor" href="#complex-numbers">#</a></h3>
-<p>A <code>Complex</code> has <code>Real</code> and <code>Imaginary</code> parts. <code>i</code> is <code>Complex(0, 1)</code> and <code>i * i</code> is -1, which step 7 shows. The constructor has several forms, so it is made with names (<code>dnNew("Complex",[ :real = 0, :imaginary = 1 ])</code>). <code>Magnitude</code> is the distance from zero: 5 for 3 + 4i. <code>Multiply</code>, <code>Add</code>, <code>Divide</code>, <code>Sqrt</code>, <code>Exp</code>, <code>Pow</code> and the trigonometric functions are static methods. Functions such as <code>Pow</code> work with doubles inside and may give results like -6.999999999999998; use <code>Multiply</code> when you need exact whole values.</p>
+<p>A <code>Complex</code> has <code>Real</code> and <code>Imaginary</code> parts. <code>i</code> is <code>Complex(0, 1)</code> and <code>i * i</code> is -1, which step 7 shows. It is made by the names of its parameters (<code>new Complex().New_([ :real = 0, :imaginary = 1 ])</code>). <code>Magnitude</code> is the distance from zero: 5 for 3 + 4i. <code>Multiply</code>, <code>Add</code>, <code>Divide</code>, <code>Sqrt</code>, <code>Exp</code>, <code>Pow</code> and the trigonometric functions are static methods. Functions such as <code>Pow</code> work with doubles inside and may give results like -6.999999999999998; use <code>Multiply</code> when you need exact whole values.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>Ring numbers are exact up to 2^53,</li><li><code>BigInteger</code> is created from a text and used through static methods,</li><li><code>Pow</code>, <code>ModPow</code>, <code>GreatestCommonDivisor</code>, <code>Compare</code>,</li><li><code>Complex</code> with <code>Real</code>, <code>Imaginary</code> and <code>Magnitude</code>.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

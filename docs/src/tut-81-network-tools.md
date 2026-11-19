@@ -29,7 +29,7 @@ lead: IP addresses, names, ping, network interfaces and "is this port open?" —
 
 ### Endpoints
 
-An `IPEndPoint` is an address plus a port. Its constructor has several forms, so it is made with named arguments: `dnNew("IPEndPoint",[ :address = ..., :port = 8080 ])`.
+An `IPEndPoint` is an address plus a port. It is made with `new IPEndPoint(address, 8080)`.
 
 ### DNS
 

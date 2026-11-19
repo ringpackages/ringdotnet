@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -274,9 +275,9 @@ oBook = <span class="s">""</span>
 	oDate.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">110</span>,<span class="n">54</span>)
 	oDate.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">150</span>,<span class="n">24</span>)
 	oDate.Format = <span class="s">"Short"</span>
-	oDate.Value = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2030</span>, :month = <span class="n">5</span>, :day = <span class="n">10</span> ])
-	oDate.MinDate = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2030</span>, :month = <span class="n">1</span>, :day = <span class="n">1</span> ])
-	oDate.MaxDate = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2030</span>, :month = <span class="n">12</span>, :day = <span class="n">31</span> ])
+	oDate.Value = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2030</span>,<span class="n">5</span>,<span class="n">10</span>)
+	oDate.MinDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2030</span>,<span class="n">1</span>,<span class="n">1</span>)
+	oDate.MaxDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2030</span>,<span class="n">12</span>,<span class="n">31</span>)
 	oForm.Controls.<span class="f">Add</span>(oDate)
 
 	<span class="c"># a track bar: a slider with whole numbers</span>
@@ -398,7 +399,7 @@ oBook = <span class="s">""</span>
 	<span class="f">dnAssert</span>(<span class="s">"booked"</span>,oResult.Text,<span class="s">"Booked for Ann: arrival 10 May 2030, 693"</span>)
 
 	<span class="c"># the date picker keeps its limits</span>
-	oDate.Value = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2030</span>, :month = <span class="n">12</span>, :day = <span class="n">31</span> ])
+	oDate.Value = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2030</span>,<span class="n">12</span>,<span class="n">31</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the last day"</span>,oDate.Value.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>),<span class="s">"2030-12-31"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g128.png" alt="The booking form" loading="lazy"><figcaption>The booking form</figcaption></figure>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (10 checks)</code></pre></div>

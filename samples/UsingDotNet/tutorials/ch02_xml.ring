@@ -39,8 +39,8 @@ func main
 	oNew = dnNew("XElement",[ :name = "book" ])
 	oNew.SetAttributeValue("id","4")
 	oNew.SetAttributeValue("year","1951")
-	oNew.Add(dnNew("XElement",[ :name = "title", :content = "Foundation" ]))
-	oNew.Add(dnNew("XElement",[ :name = "price", :content = "7.75" ]))
+	oNew.Add(new XElement("title","Foundation"))
+	oNew.Add(new XElement("price","7.75"))
 	oDocument.Root.Add(oNew)
 	? nl + "4. after adding a book there are " + len(oDocument.Root.Elements(NULL).toList()) + " books; the new one:"
 	? oNew.ToString()

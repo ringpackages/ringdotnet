@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -279,7 +280,7 @@ using {
 	<span class="c"># 3. Environment variables and the working folder of the new program are set before it starts.</span>
 	<span class="c">#    (a variable first: a "new" on the right side of an assignment to a property loses the assignment, see Gotchas)</span>
 	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>()
-	oInfo = <span class="f">dnNew</span>(<span class="s">"ProcessStartInfo"</span>,[ :fileName = <span class="s">"cmd.exe"</span>, :arguments = <span class="s">"/c echo %GREETING%"</span> ])
+	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().<span class="f">New_</span>([ :fileName = <span class="s">"cmd.exe"</span>, :arguments = <span class="s">"/c echo %GREETING%"</span> ])
 	oInfo {
 		UseShellExecute = <span class="k">False</span>
 		RedirectStandardOutput = <span class="k">True</span>
@@ -311,7 +312,7 @@ using {
 
 <span class="c"># start a program; lRedirect = True gives the program's three streams to this program (input, output, error)</span>
 <span class="k">func</span> <span class="f">startProgram</span> cFile, cArguments, lRedirect
-	oInfo = <span class="f">dnNew</span>(<span class="s">"ProcessStartInfo"</span>,[ :fileName = cFile, :arguments = cArguments ])
+	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().<span class="f">New_</span>([ :fileName = cFile, :arguments = cArguments ])
 	oInfo.UseShellExecute = <span class="k">False</span>
 	oInfo.CreateNoWindow = <span class="k">True</span>
 	<span class="k">if</span> lRedirect

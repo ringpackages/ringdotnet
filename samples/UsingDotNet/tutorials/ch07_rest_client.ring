@@ -91,7 +91,7 @@ func addBook oRequest
 # ---------------------------------------------------------------- the client's helper: send, wait, return [status, body]
 
 func request cMethod, cPath, cBody
-	oMessage = dnNew("HttpRequestMessage",[ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = new HttpRequestMessage().New_([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
 		# (a variable first: a new object with a property inside the right side of an assignment loses the assignment)
 		oContent = dnNew("StringContent",[ :content = cBody, :encoding = new Encoding().UTF8, :mediaType = "application/json" ])
@@ -104,7 +104,7 @@ func request cMethod, cPath, cBody
 		ok
 	next
 	oTask.Wait(NULL)
-	oResponse = oTask.getProp("Result")
+	oResponse = oTask.Result
 	oBody = oResponse.Content.ReadAsStringAsync(NULL)
 	oBody.Wait(NULL)
-	return [oResponse.StatusCode,oBody.getProp("Result")]
+	return [oResponse.StatusCode,oBody.Result]

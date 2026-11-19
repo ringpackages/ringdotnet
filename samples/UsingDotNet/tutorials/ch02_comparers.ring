@@ -25,13 +25,13 @@ func main
 	oCulture = new StringComparer().InvariantCulture
 	aWords = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
 	for cWord in ["banana","Cherry","apple","Banana","cherry","Apple"]
-		aWords.callMethod("Add",[cWord])
+		aWords.Add(cWord)
 	next
-	aWords.callMethod("Sort",[oOrdinal])
+	aWords.Sort(oOrdinal)
 	? nl + "3. ordinal order:  " + joinList(aWords.toList())
-	aWords.callMethod("Sort",[oCulture])
+	aWords.Sort(oCulture)
 	? "   culture order:  " + joinList(aWords.toList())
-	aWords.callMethod("Sort",[new StringComparer().OrdinalIgnoreCase])
+	aWords.Sort(new StringComparer().OrdinalIgnoreCase)
 	? "   ignore case:    " + joinList(aWords.toList()) + "   (equal words can come in any order)"
 
 	# 4. A dictionary that ignores case: the comparer is the second argument of the constructor
@@ -45,9 +45,9 @@ func main
 	# 5. A sorted set with the same idea keeps one of 'Apple' and 'apple'
 	oSet = dnNewGeneric("System.Collections.Generic.SortedSet",["System.String"],[new StringComparer().OrdinalIgnoreCase])
 	for cWord in ["Apple","apple","Pear","APPLE","pear"]
-		oSet.callMethod("Add",[cWord])
+		oSet.Add(cWord)
 	next
-	? nl + "5. " + oSet.getProp("Count") + " words stay in the set: " + joinList(oSet.toList())
+	? nl + "5. " + oSet.Count + " words stay in the set: " + joinList(oSet.toList())
 
 	# 6. The same letter is not the same in every culture. In Turkish the capital of "i" is "İ" (with a dot) and the small
 	#    letter of "I" is "ı" (without a dot): upper-casing with the wrong culture breaks a comparison like "TITLE" = "title"

@@ -100,10 +100,10 @@ func send oTask
 		ok
 	next
 	oTask.Wait(NULL)
-	oResponse = oTask.getProp("Result")
+	oResponse = oTask.Result
 	oBody = oResponse.Content.ReadAsStringAsync(NULL)
 	oBody.Wait(NULL)
-	return [oResponse.StatusCode,oBody.getProp("Result")]
+	return [oResponse.StatusCode,oBody.Result]
 
 func summary aResult
 	cBody = aResult[2]

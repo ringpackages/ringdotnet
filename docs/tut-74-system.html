@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -279,7 +280,7 @@ using {
 	<span class="c"># 6. .NET's memory manager: the memory used by .NET objects, and what happens after a collection</span>
 	oGC = <span class="k">new</span> <span class="t">GC</span>()
 	nBefore = oGC.<span class="f">GetTotalMemory</span>(<span class="k">False</span>)
-	oBig = <span class="f">dnNew</span>(<span class="s">"StringBuilder"</span>,[ :capacity = <span class="n">5000000</span> ])
+	oBig = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="n">5000000</span>)
 	nWith = oGC.<span class="f">GetTotalMemory</span>(<span class="k">False</span>)
 	? nl + <span class="s">"6. a StringBuilder with 5 million characters made the .NET memory grow: "</span> + yesNo(nWith &gt; nBefore + <span class="n">1000000</span>)
 

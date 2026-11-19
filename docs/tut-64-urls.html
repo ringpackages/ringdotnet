@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -348,6 +349,7 @@ using {
 
 8. is 'not a url' valid? no
    is 'https://example.com' valid? yes</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="uri">Uri<a class="anchor" href="#uri">#</a></h3>
 <p><code>new Uri(text)</code> parses the address and gives you <code>Scheme</code>, <code>Host</code>, <code>Port</code>, <code>AbsolutePath</code>, <code>Query</code> and <code>Fragment</code>. Never cut an address with <code>substr</code> and <code>find</code>: ports, user names, <code>?</code> inside a fragment and many other details make it go wrong. If no port is written, the port of the scheme is used (80 for <code>http</code>, 443 for <code>https</code>).</p>

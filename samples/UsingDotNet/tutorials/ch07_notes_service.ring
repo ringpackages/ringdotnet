@@ -63,7 +63,7 @@ func deleteNote oRequest
 # ---------------------------------------------------------------- the client
 
 func send cMethod, cPath, cBody
-	oMessage = dnNew("HttpRequestMessage",[ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = new HttpRequestMessage().New_([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
 		oMessage.Content = new StringContent(cBody)
 	ok
@@ -74,7 +74,7 @@ func send cMethod, cPath, cBody
 		ok
 	next
 	oTask.Wait(NULL)
-	oResponse = oTask.getProp("Result")
+	oResponse = oTask.Result
 	oBody = oResponse.Content.ReadAsStringAsync(NULL)
 	oBody.Wait(NULL)
-	return oResponse.StatusCode + " " + oBody.getProp("Result")
+	return oResponse.StatusCode + " " + oBody.Result

@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -252,7 +253,7 @@ using {
 	<span class="c"># 1. Utf8JsonWriter writes a JSON text piece by piece into a stream, without building a tree in memory first.</span>
 	<span class="c">#    It is the right tool for big documents and for output that must be exactly formatted.</span>
 	oStream = <span class="k">new</span> <span class="t">MemoryStream</span>
-	oOptions = <span class="f">dnNew</span>(<span class="s">"JsonWriterOptions"</span>,[])
+	oOptions = <span class="k">new</span> <span class="t">JsonWriterOptions</span>()
 	oOptions.Indented = <span class="k">True</span>
 	oWriter = <span class="f">dnNew</span>(<span class="s">"Utf8JsonWriter"</span>,[ :utf8Json = oStream, :options = oOptions ])
 	oWriter.<span class="f">WriteStartObject</span>(<span class="k">NULL</span>)
@@ -276,7 +277,7 @@ using {
 
 	<span class="c"># 2. The same document in one line (not indented): the writer adds no spaces</span>
 	oStream2 = <span class="k">new</span> <span class="t">MemoryStream</span>
-	oWriter2 = <span class="f">dnNew</span>(<span class="s">"Utf8JsonWriter"</span>,[ :utf8Json = oStream2 ])
+	oWriter2 = <span class="k">new</span> <span class="t">Utf8JsonWriter</span>(oStream2)
 	oWriter2.<span class="f">WriteStartArray</span>(<span class="k">NULL</span>)
 	<span class="k">for</span> n = <span class="n">1</span> <span class="k">to</span> <span class="n">3</span>
 		oWriter2.<span class="f">WriteNumberValue</span>(n * n)
@@ -289,7 +290,7 @@ using {
 	<span class="c"># 3. Escaping is done for you. The writer also refuses a document that is not valid: a value without a property name inside an</span>
 	<span class="c">#    object, or an end without a start, raises an error (that is a test of your own program).</span>
 	oStream3 = <span class="k">new</span> <span class="t">MemoryStream</span>
-	oWriter3 = <span class="f">dnNew</span>(<span class="s">"Utf8JsonWriter"</span>,[ :utf8Json = oStream3 ])
+	oWriter3 = <span class="k">new</span> <span class="t">Utf8JsonWriter</span>(oStream3)
 	oWriter3.<span class="f">WriteStartObject</span>(<span class="k">NULL</span>)
 	oWriter3.<span class="f">WriteString</span>(<span class="s">"text"</span>,<span class="s">'a "quoted" line'</span> + nl + <span class="s">'and a &lt;tag&gt; &amp; more'</span>)
 	oWriter3.<span class="f">WriteEndObject</span>()
@@ -307,12 +308,12 @@ using {
 	oSerializer = <span class="k">new</span> <span class="t">JsonSerializer</span>()
 	aNumbers = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.Int32"</span>],[])
 	<span class="k">for</span> n <span class="k">in</span> [<span class="n">3</span>,<span class="n">1</span>,<span class="n">2</span>]
-		aNumbers.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[n])
+		aNumbers.<span class="f">Add</span>(n)
 	<span class="k">next</span>
 	? nl + <span class="s">"4. a list: "</span> + oSerializer.<span class="f">Serialize</span>(aNumbers)
 	oScores = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.Dictionary"</span>,[<span class="s">"System.String"</span>,<span class="s">"System.Double"</span>],[])
-	oScores.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span class="s">"ann"</span>,<span class="n">9.5</span>])
-	oScores.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span class="s">"bob"</span>,<span class="n">7</span>])
+	oScores.<span class="f">Add</span>(<span class="s">"ann"</span>,<span class="n">9.5</span>)
+	oScores.<span class="f">Add</span>(<span class="s">"bob"</span>,<span class="n">7</span>)
 	? <span class="s">"   a dictionary: "</span> + oSerializer.<span class="f">Serialize</span>(oScores)
 	oIndent = <span class="k">new</span> <span class="t">JsonSerializerOptions</span>()
 	oIndent.WriteIndented = <span class="k">True</span>
@@ -340,6 +341,7 @@ using {
 4. a list: [3,1,2]
    a dictionary: {"ann":9.5,"bob":7}
    indented: {   "ann": 9.5,   "bob": 7 }</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="writing-the-document">Writing the document<a class="anchor" href="#writing-the-document">#</a></h3>
 <p>The writer is made on a stream (<code>dnNew("Utf8JsonWriter",[ :utf8Json = oStream, :options = oOptions ])</code>). Then you call, in order, what the document contains:</p>

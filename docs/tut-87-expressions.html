@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html" class="cur">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -314,6 +315,7 @@ using {
    a - b with 12 and 4: 8
    a * b with 12 and 4: 48
    a / b with 12 and 4: 3</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-class-name">The class name<a class="anchor" href="#the-class-name">#</a></h3>
 <p>The static factory class of the namespace is <code>Expression</code>; another namespace already has a class with that name, so in Ring it is **<code>ExpressionsExpression</code>** (see <a href="gotchas.html">Rules and limits</a>). <code>new ExpressionsExpression()</code> is only a handle to reach the factory methods (<code>Add</code>, <code>Lambda</code>, …).</p>

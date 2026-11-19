@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -275,7 +276,7 @@ using {
 	? <span class="s">"Random 1..6       : "</span> + oRandom.<span class="f">Next_</span>([ :minValue = <span class="n">1</span>, :maxValue = <span class="n">7</span> ]) + <span class="s">" (the same every run: the seed is 42)"</span>
 
 	<span class="c"># Dates: DateTime is a struct with year, month, day, hour...</span>
-	oDate = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2024</span>, :month = <span class="n">12</span>, :day = <span class="n">25</span>, :hour = <span class="n">18</span>, :minute = <span class="n">30</span>, :second = <span class="n">0</span> ])
+	oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>).<span class="f">AddHours</span>(<span class="n">18</span>).<span class="f">AddMinutes</span>(<span class="n">30</span>)          <span class="c"># a date, then 18:30 on that day</span>
 	? <span class="s">"A date            : "</span> + oDate.<span class="f">Format</span>(<span class="s">"dddd, dd MMMM yyyy HH:mm"</span>)
 	? <span class="s">"Year, month, day  : "</span> + oDate.Year + <span class="s">", "</span> + oDate.Month + <span class="s">", "</span> + oDate.Day
 	? <span class="s">"Day of the week   : "</span> + oDate.DayOfWeek
@@ -328,9 +329,9 @@ German style      : Mittwoch, 25. Dezember 2024</code></pre></div>
 <h3 id="random">Random<a class="anchor" href="#random">#</a></h3>
 <p><code>new Random(42)</code> starts a random generator with a <em>seed</em>. The same seed always gives the same numbers, which is useful in tests. Leave the seed out (<code>new Random()</code>) for numbers that change every run. <code>Next_</code> takes a minimum and a maximum (the maximum is <em>not</em> included, so <code>1</code> and <code>7</code> give a die). The trailing <code>_</code> is there because <code>Next</code> is a Ring keyword.</p>
 <h3 id="datetime">DateTime<a class="anchor" href="#datetime">#</a></h3>
-<p>A <code>DateTime</code> has a year, month, day, hour, minute and second. Two ways to create one:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>)                                              <span class="c"># year, month, day</span>
-oDate = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2024</span>, :month = <span class="n">12</span>, :day = <span class="n">25</span>, :hour = <span class="n">18</span>, :minute = <span class="n">30</span>, :second = <span class="n">0</span> ])</code></pre></div>
+<p>A <code>DateTime</code> has a year, month, day, hour, minute and second. Make a date from the year, month and day, and add the time to it:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>)                         <span class="c"># year, month, day: midnight</span>
+oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>).<span class="f">AddHours</span>(<span class="n">18</span>).<span class="f">AddMinutes</span>(<span class="n">30</span>)       <span class="c"># 18:30: a method returns a new date, so the calls can be chained</span></code></pre></div>
 <p>Properties: <code>Year</code>, <code>Month</code>, <code>Day</code>, <code>DayOfWeek</code> (a text like <code>Wednesday</code>). <strong>Dates never change</strong>: <code>AddDays(10)</code> returns a <em>new</em> date. That is why you can chain: <code>oDate.AddDays(10).AddHours(-3)</code>.</p>
 <h3 id="timespan">TimeSpan<a class="anchor" href="#timespan">#</a></h3>
 <p>The difference between two dates is a <code>TimeSpan</code>: <code>Subtract</code> gives it, and it has <code>Days</code>, <code>Hours</code> and <code>TotalHours</code> (the whole span in hours, with decimals).</p>

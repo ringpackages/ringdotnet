@@ -202,6 +202,7 @@
 <a href="tut-151-inspector.html">An object inspector</a>
 <a href="tut-87-expressions.html">Expression trees</a>
 <a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-160-generic-calls.html">The generic functions</a>
 <a href="tut-28-testing.html">Testing</a>
 <a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
@@ -271,7 +272,7 @@ oText = <span class="k">new</span> <span class="t">StringBuilder</span>(<span cl
 <p>Most types are classes. Two kinds of types are special:</p>
 <ul><li>A <strong>struct</strong> is a small <em>value</em>: <code>DateTime</code> (a date and time), <code>TimeSpan</code> (a duration), <code>Point</code> (x and y). You use it like an object, but copying it copies the value.</li><li>An <strong>enum</strong> is a list of named choices: the day of the week (<code>Monday</code>, <code>Tuesday</code>...), a window state (<code>Normal</code>, <code>Maximized</code>). <strong>In Ring an enum value is a text</strong>: <code>oForm.WindowState = "Maximized"</code>.</li></ul>
 <h2 id="null">null<a class="anchor" href="#null">#</a></h2>
-<p><strong>null</strong> means "no object". A method that finds nothing may return null. In Ring <code>dnNull()</code> is the .NET null, and an object you got from .NET can be asked <code>oObject.isNull()</code>.</p>
+<p><strong>null</strong> means "no object". A method that finds nothing may return null. An object that you got from .NET can be asked <code>oObject.isNull()</code>.</p>
 <h2 id="exceptions">Exceptions<a class="anchor" href="#exceptions">#</a></h2>
 <p>When something goes wrong — the file does not exist, the text is not a number — .NET raises an <strong>exception</strong>. In Ring an exception is a normal Ring error, and you catch it with <code>try</code> ... <code>catch</code>. The tutorial <a href="tut-07-errors.html">When things go wrong</a> explains this.</p>
 <h2 id="generics-and-collections">Generics and collections<a class="anchor" href="#generics-and-collections">#</a></h2>

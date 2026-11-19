@@ -20,7 +20,7 @@ func main
 	next
 
 	# 2. The mapping can be extended: a type of your own for your own extension
-	oProvider.getProp("Mappings").callMethod("Add",[".ring","text/x-ring"])
+	oProvider.Mappings.Add(".ring","text/x-ring")
 	? nl + "2. after adding .ring: " + contentTypeOf(oProvider,"program.ring")
 	? "   (a file with an unknown type is sent as application/octet-stream: 'some bytes, download them')"
 
@@ -28,7 +28,7 @@ func main
 	oContentType = dnNew("ContentType",["text/html; charset=utf-8"])
 	? nl + "3. text/html; charset=utf-8  ->  media type: " + oContentType.MediaType + ", charset: " + oContentType.CharSet
 	oSplit = dnStatic(cHeaders + "MediaTypeHeaderValue","Parse",["application/json; charset=utf-8; q=0.9"])
-	? "   with the headers library: type " + oSplit.getProp("Type").toString() + ", subtype " + oSplit.getProp("SubType").toString() + ", quality " + oSplit.getProp("Quality")
+	? "   with the headers library: type " + oSplit.Type.toString() + ", subtype " + oSplit.SubType.toString() + ", quality " + oSplit.Quality
 
 	# 4. The Accept header lists what the client understands, with a QUALITY (q) from 0 to 1 for each: the higher, the better. */* means
 	#    "anything"; text/* means "any text type". The default quality is 1.
@@ -51,7 +51,7 @@ func main
 	? nl + "6. Accept: application/json, the server offers text/csv: " + negotiate(aStrict,["text/csv"])
 
 func contentTypeOf oProvider,cFile
-	aResult = oProvider.callMethod("TryGetContentType",[cFile])
+	aResult = oProvider.TryGetContentType(cFile)
 	if aResult[1]
 		return aResult[2]
 	ok
@@ -62,11 +62,11 @@ func parseAccept cAccept
 	aItems = []
 	for cPart in str2list(substr(cAccept,",",nl))
 		oValue = dnStatic(cHeaders + "MediaTypeHeaderValue","Parse",[trim(cPart)])
-		nQuality = oValue.getProp("Quality")
+		nQuality = oValue.Quality
 		if isObject(nQuality)
 			nQuality = 1                                        # no q parameter: quality 1
 		ok
-		aItems + [ oValue.getProp("MediaType").toString(), nQuality ]
+		aItems + [ oValue.MediaType.toString(), nQuality ]
 	next
 	nCount = len(aItems)
 	for i = 1 to nCount - 1
