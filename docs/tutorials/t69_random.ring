@@ -1,4 +1,4 @@
-# Tutorial 69: randomness - seeds, dice, shuffling cards, weighted choices, unique ids, and when "random" must be secure
+# randomness - seeds, dice, shuffling cards, weighted choices, unique ids, and when "random" must be secure
 load "dotnet.ring"
 using {
 	"System"

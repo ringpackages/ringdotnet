@@ -1,4 +1,4 @@
-# Tutorial 58: money - why 0.1 + 0.2 is not 0.3, cents as whole numbers, rounding rules and fair splitting
+# money - why 0.1 + 0.2 is not 0.3, cents as whole numbers, rounding rules and fair splitting
 load "dotnet.ring"
 using {
 	"System"

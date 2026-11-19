@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 44: Statistics and simulation"
+title: "Statistics and simulation"
 lead: Mean, median, mode, standard deviation, a histogram, prime numbers and an estimate of pi from random points — small formulas written as small functions, and checked against .NET.
 ---
 
@@ -39,7 +39,7 @@ The mean is pulled up by the single large value `42`; the median is not. That is
 
 ### One function per formula
 
-Each statistic is a small function with one job that takes a list and returns a number. You can test each alone (see [tutorial 28](tut-28-testing.html)), reuse them, and the main program reads like a description of the results. The program also asks LINQ for the average (`dnQuery(aData).Average("")`) and gets the same `14.3`: when two independent ways agree, you can trust the code.
+Each statistic is a small function with one job that takes a list and returns a number. You can test each alone (see the tutorial [Testing your programs](tut-28-testing.html)), reuse them, and the main program reads like a description of the results. The program also asks LINQ for the average (`dnQuery(aData).Average("")`) and gets the same `14.3`: when two independent ways agree, you can trust the code.
 
 ### The histogram
 
@@ -76,4 +76,4 @@ Throw random points into the unit square. The quarter circle of radius 1 has an 
 
 ## Next
 
-[Tutorial 103: Dates and times](tut-103-dates-and-times.html)
+[Dates and times](tut-103-dates-and-times.html)

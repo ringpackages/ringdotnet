@@ -1,4 +1,4 @@
-# Tutorial 77: XSLT - turn XML into text, CSV and HTML with a stylesheet (System.Xml.Xsl)
+# XSLT - turn XML into text, CSV and HTML with a stylesheet (System.Xml.Xsl)
 load "dotnet.ring"
 using {
 	"System"

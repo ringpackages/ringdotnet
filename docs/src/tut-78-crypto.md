@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 78: Protecting and signing messages"
+title: "Protecting and signing messages"
 lead: Encrypting a message is not enough: you must also be sure that nobody changed it. This lesson derives keys from a password, encrypts with AES, adds an HMAC (encrypt-then-MAC), detects tampering, and signs a message with an RSA key pair.
 ---
 
@@ -12,7 +12,7 @@ lead: Encrypting a message is not enough: you must also be sure that nobody chan
 - digital signatures with **RSA**,
 - how these classes are called from Ring (byte arrays are Ring texts).
 
-This builds on [tutorial 8](tut-08-security.html) (hashes and basic encryption).
+This builds on the tutorial [Hashing and encryption](tut-08-security.html) (hashes and basic encryption).
 
 ## Two different problems
 
@@ -77,4 +77,4 @@ It is a teaching construction. For real systems use a well-reviewed protocol (TL
 
 ## Next
 
-[Tutorial 105: Digital signatures](tut-105-signatures.html)
+[Digital signatures](tut-105-signatures.html)

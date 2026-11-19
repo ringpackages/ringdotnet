@@ -1,4 +1,4 @@
-# Tutorial 117: international domain names - Punycode with IdnMapping, Uri.IdnHost, invalid names, and look-alike letters (homograph attacks)
+# international domain names - Punycode with IdnMapping, Uri.IdnHost, invalid names, and look-alike letters (homograph attacks)
 load "dotnet.ring"
 using {
 	"System"

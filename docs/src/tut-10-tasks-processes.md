@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 10: Time, tasks and other programs"
+title: "Time, tasks and other programs"
 lead: Measure how long something takes, wait for background work, read the environment, and run another program and read what it prints.
 ---
 
@@ -65,4 +65,4 @@ This is how a Ring program uses any command-line tool: `git`, `ping`, `ffmpeg`, 
 
 ## Where to go next
 
-This was the last tutorial of the chapter **The basics**. The next chapter is **Text and data formats**: it starts with [Tutorial 29: Regular expressions](tut-29-regex.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **The basics**. The next chapter is **Text and data formats**: it starts with [Regular expressions in depth](tut-29-regex.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

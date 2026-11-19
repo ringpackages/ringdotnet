@@ -1,4 +1,4 @@
-# Tutorial 27, part 1: entity objects - the rows of a table as real objects with navigation properties
+# the tutorial "Entity objects and migrations", part 1: entity objects - the rows of a table as real objects with navigation properties
 load "dotnet.ring"
 using { "RingDotNet.Data" }
 

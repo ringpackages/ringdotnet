@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tutorial 115: Microsoft Access databases · RingDotNet</title>
+<title>Microsoft Access databases · RingDotNet</title>
 <meta name="description" content="Many small businesses keep their data in an Access file. This lesson uses an .accdb file from Ring through ODBC — it makes the file, creates tables, inserts rows with parameters, runs joins and totals, works with dates, and uses a transaction. It runs on Windows with the Microsoft Access Database Engine.">
 <link rel="stylesheet" href="assets/style.css">
 <script>window.SITE_ROOT="";</script>
@@ -33,139 +33,139 @@
 <a href="tut-concepts.html">.NET for Ring programmers</a>
 <a href="tut-reading-docs.html">Reading the .NET docs</a>
 <h4>Tutorials: The basics</h4>
-<a href="tut-01-first-look.html">1. A first look</a>
-<a href="tut-02-text.html">2. Working with text</a>
-<a href="tut-03-numbers-dates.html">3. Numbers, dates, times</a>
-<a href="tut-04-collections.html">4. Collections and LINQ</a>
-<a href="tut-05-files.html">5. Files and folders</a>
-<a href="tut-06-json-xml.html">6. JSON and XML</a>
-<a href="tut-07-errors.html">7. When things go wrong</a>
-<a href="tut-08-security.html">8. Hashing and encryption</a>
-<a href="tut-09-http.html">9. HTTP</a>
-<a href="tut-10-tasks-processes.html">10. Tasks and programs</a>
+<a href="tut-01-first-look.html">A first look</a>
+<a href="tut-02-text.html">Working with text</a>
+<a href="tut-03-numbers-dates.html">Numbers, dates, times</a>
+<a href="tut-04-collections.html">Collections and LINQ</a>
+<a href="tut-05-files.html">Files and folders</a>
+<a href="tut-06-json-xml.html">JSON and XML</a>
+<a href="tut-07-errors.html">When things go wrong</a>
+<a href="tut-08-security.html">Hashing and encryption</a>
+<a href="tut-09-http.html">HTTP</a>
+<a href="tut-10-tasks-processes.html">Tasks and programs</a>
 <h4>Tutorials: Text and data formats</h4>
-<a href="tut-29-regex.html">29. Regular expressions</a>
-<a href="tut-52-unicode.html">52. Unicode and encodings</a>
-<a href="tut-97-comparers.html">97. Comparing text</a>
-<a href="tut-104-text-readers-writers.html">104. Text readers and writers</a>
-<a href="tut-86-escaping.html">86. Escaping</a>
-<a href="tut-64-urls.html">64. URLs and encodings</a>
-<a href="tut-117-domain-names.html">117. International domain names</a>
-<a href="tut-121-mime-types.html">121. MIME types</a>
-<a href="tut-100-json-writer.html">100. Writing JSON as a stream</a>
-<a href="tut-80-json-nodes.html">80. JSON as a tree</a>
-<a href="tut-72-xml.html">72. XML in depth</a>
-<a href="tut-77-xslt.html">77. XSLT</a>
-<a href="tut-47-markdown.html">47. Markdown to HTML</a>
-<a href="tut-66-spelling.html">66. A spell checker</a>
+<a href="tut-29-regex.html">Regular expressions</a>
+<a href="tut-52-unicode.html">Unicode and encodings</a>
+<a href="tut-97-comparers.html">Comparing text</a>
+<a href="tut-104-text-readers-writers.html">Text readers and writers</a>
+<a href="tut-86-escaping.html">Escaping</a>
+<a href="tut-64-urls.html">URLs and encodings</a>
+<a href="tut-117-domain-names.html">International domain names</a>
+<a href="tut-121-mime-types.html">MIME types</a>
+<a href="tut-100-json-writer.html">Writing JSON as a stream</a>
+<a href="tut-80-json-nodes.html">JSON as a tree</a>
+<a href="tut-72-xml.html">XML in depth</a>
+<a href="tut-77-xslt.html">XSLT</a>
+<a href="tut-47-markdown.html">Markdown to HTML</a>
+<a href="tut-66-spelling.html">A spell checker</a>
 <h4>Tutorials: Numbers, dates and money</h4>
-<a href="tut-101-number-types.html">101. Number types</a>
-<a href="tut-90-big-numbers.html">90. Big numbers</a>
-<a href="tut-67-bases.html">67. Number systems and big numbers</a>
-<a href="tut-57-money.html">57. Money</a>
-<a href="tut-99-vectors.html">99. Vectors and matrices</a>
-<a href="tut-69-random.html">69. Randomness</a>
-<a href="tut-44-statistics.html">44. Statistics, simulation</a>
-<a href="tut-103-dates-and-times.html">103. Dates and times</a>
-<a href="tut-68-timezones.html">68. Time zones</a>
-<a href="tut-43-calendar.html">43. Calendars and dates</a>
-<a href="tut-76-calendars.html">76. Other calendars</a>
-<a href="tut-33-cultures.html">33. Cultures</a>
+<a href="tut-101-number-types.html">Number types</a>
+<a href="tut-90-big-numbers.html">Big numbers</a>
+<a href="tut-67-bases.html">Number systems and big numbers</a>
+<a href="tut-57-money.html">Money</a>
+<a href="tut-99-vectors.html">Vectors and matrices</a>
+<a href="tut-69-random.html">Randomness</a>
+<a href="tut-44-statistics.html">Statistics, simulation</a>
+<a href="tut-103-dates-and-times.html">Dates and times</a>
+<a href="tut-68-timezones.html">Time zones</a>
+<a href="tut-43-calendar.html">Calendars and dates</a>
+<a href="tut-76-calendars.html">Other calendars</a>
+<a href="tut-33-cultures.html">Cultures</a>
 <h4>Tutorials: Collections and algorithms</h4>
-<a href="tut-106-arrays.html">106. Arrays</a>
-<a href="tut-107-sets.html">107. Sets</a>
-<a href="tut-92-data-structures.html">92. More data structures</a>
-<a href="tut-89-concurrent-collections.html">89. Collections for many threads</a>
-<a href="tut-65-enums.html">65. Enums and flags</a>
-<a href="tut-93-identifiers.html">93. Identifiers and versions</a>
-<a href="tut-58-undo.html">58. Undo, redo and queues</a>
-<a href="tut-75-recursion.html">75. Recursion</a>
-<a href="tut-54-expression.html">54. An expression calculator</a>
+<a href="tut-106-arrays.html">Arrays</a>
+<a href="tut-107-sets.html">Sets</a>
+<a href="tut-92-data-structures.html">More data structures</a>
+<a href="tut-89-concurrent-collections.html">Collections for many threads</a>
+<a href="tut-65-enums.html">Enums and flags</a>
+<a href="tut-93-identifiers.html">Identifiers and versions</a>
+<a href="tut-58-undo.html">Undo, redo and queues</a>
+<a href="tut-75-recursion.html">Recursion</a>
+<a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
-<a href="tut-59-paths.html">59. Paths and the environment</a>
-<a href="tut-56-streams.html">56. Streams and compression</a>
-<a href="tut-45-binary.html">45. Binary files</a>
-<a href="tut-88-compression.html">88. Compression</a>
-<a href="tut-108-zip-in-memory.html">108. ZIP archives in memory</a>
-<a href="tut-96-tar.html">96. Tar archives</a>
-<a href="tut-112-globbing.html">112. File patterns (globbing)</a>
-<a href="tut-21-log-analyzer.html">21. A log analyzer</a>
-<a href="tut-31-duplicates.html">31. Duplicate files</a>
-<a href="tut-46-backup.html">46. A backup tool</a>
+<a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-56-streams.html">Streams and compression</a>
+<a href="tut-45-binary.html">Binary files</a>
+<a href="tut-88-compression.html">Compression</a>
+<a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
+<a href="tut-96-tar.html">Tar archives</a>
+<a href="tut-112-globbing.html">File patterns (globbing)</a>
+<a href="tut-21-log-analyzer.html">A log analyzer</a>
+<a href="tut-31-duplicates.html">Duplicate files</a>
+<a href="tut-46-backup.html">A backup tool</a>
 <h4>Tutorials: Processes and performance</h4>
-<a href="tut-74-system.html">74. Asking the computer</a>
-<a href="tut-50-cli.html">50. A command-line tool</a>
-<a href="tut-51-logging.html">51. Logging</a>
-<a href="tut-85-feed-programs.html">85. Working with other programs</a>
-<a href="tut-79-processes-talk.html">79. Two programs talking</a>
-<a href="tut-82-shared-memory.html">82. Shared memory</a>
-<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
-<a href="tut-71-dispose.html">71. Releasing resources</a>
-<a href="tut-53-speed.html">53. Speed: measure first</a>
-<a href="tut-98-memory.html">98. Memory and the garbage collector</a>
-<a href="tut-118-registry.html">118. The Windows Registry</a>
+<a href="tut-74-system.html">Asking the computer</a>
+<a href="tut-50-cli.html">A command-line tool</a>
+<a href="tut-51-logging.html">Logging</a>
+<a href="tut-85-feed-programs.html">Working with other programs</a>
+<a href="tut-79-processes-talk.html">Two programs talking</a>
+<a href="tut-82-shared-memory.html">Shared memory</a>
+<a href="tut-83-tasks-waiting.html">Tasks that wait</a>
+<a href="tut-71-dispose.html">Releasing resources</a>
+<a href="tut-53-speed.html">Speed: measure first</a>
+<a href="tut-98-memory.html">Memory and the garbage collector</a>
+<a href="tut-118-registry.html">The Windows Registry</a>
 <h4>Tutorials: Networking and the web</h4>
-<a href="tut-81-network-tools.html">81. Network tools</a>
-<a href="tut-102-ip-networks.html">102. IP networks</a>
-<a href="tut-25-sockets.html">25. Sockets</a>
-<a href="tut-91-udp.html">91. UDP</a>
-<a href="tut-84-http-client.html">84. HttpClient in depth</a>
-<a href="tut-39-rest-client.html">39. A REST client</a>
-<a href="tut-16-web-service.html">16. A web service</a>
-<a href="tut-26-website.html">26. A small web site</a>
-<a href="tut-55-miniweb.html">55. A tiny web framework</a>
-<a href="tut-120-routes.html">120. Route templates</a>
-<a href="tut-94-mail-messages.html">94. E-mail messages</a>
+<a href="tut-81-network-tools.html">Network tools</a>
+<a href="tut-102-ip-networks.html">IP networks</a>
+<a href="tut-25-sockets.html">Sockets</a>
+<a href="tut-91-udp.html">UDP</a>
+<a href="tut-84-http-client.html">HttpClient in depth</a>
+<a href="tut-39-rest-client.html">A REST client</a>
+<a href="tut-16-web-service.html">A web service</a>
+<a href="tut-26-website.html">A small web site</a>
+<a href="tut-55-miniweb.html">A tiny web framework</a>
+<a href="tut-120-routes.html">Route templates</a>
+<a href="tut-94-mail-messages.html">E-mail messages</a>
 <h4>Tutorials: Security</h4>
-<a href="tut-78-crypto.html">78. Protecting and signing messages</a>
-<a href="tut-105-signatures.html">105. Digital signatures</a>
-<a href="tut-116-certificates.html">116. Certificates</a>
-<a href="tut-113-data-protection.html">113. Protecting data</a>
-<a href="tut-49-login.html">49. Login and sessions</a>
-<a href="tut-95-claims.html">95. Identities and claims</a>
-<a href="tut-114-rate-limiting.html">114. Rate limiting</a>
+<a href="tut-78-crypto.html">Protecting and signing messages</a>
+<a href="tut-105-signatures.html">Digital signatures</a>
+<a href="tut-116-certificates.html">Certificates</a>
+<a href="tut-113-data-protection.html">Protecting data</a>
+<a href="tut-49-login.html">Login and sessions</a>
+<a href="tut-95-claims.html">Identities and claims</a>
+<a href="tut-114-rate-limiting.html">Rate limiting</a>
 <h4>Tutorials: Databases and services</h4>
-<a href="tut-17-databases.html">17. Databases</a>
-<a href="tut-30-tables.html">30. Tabular data</a>
-<a href="tut-73-sql-reports.html">73. Reports with SQL</a>
-<a href="tut-27-entities.html">27. Entities, migrations</a>
-<a href="tut-115-access.html" class="cur">115. Microsoft Access databases</a>
-<a href="tut-32-settings.html">32. Settings</a>
-<a href="tut-111-configuration.html">111. Configuration</a>
-<a href="tut-109-memory-cache.html">109. Caching</a>
-<a href="tut-110-dependency-injection.html">110. Dependency injection</a>
+<a href="tut-17-databases.html">Databases</a>
+<a href="tut-30-tables.html">Tabular data</a>
+<a href="tut-73-sql-reports.html">Reports with SQL</a>
+<a href="tut-27-entities.html">Entities, migrations</a>
+<a href="tut-115-access.html" class="cur">Microsoft Access databases</a>
+<a href="tut-32-settings.html">Settings</a>
+<a href="tut-111-configuration.html">Configuration</a>
+<a href="tut-109-memory-cache.html">Caching</a>
+<a href="tut-110-dependency-injection.html">Dependency injection</a>
 <h4>Tutorials: Windows Forms</h4>
-<a href="tut-11-first-window.html">11. Your first window</a>
-<a href="tut-12-controls.html">12. Many controls</a>
-<a href="tut-23-layout.html">23. Layout and controls</a>
-<a href="tut-13-editor.html">13. A text editor</a>
-<a href="tut-40-dialog.html">40. Your own dialog</a>
-<a href="tut-41-menus.html">41. Menus, toolbars, shortcuts</a>
-<a href="tut-34-timers.html">34. Timers and progress</a>
-<a href="tut-14-animation.html">14. Drawing and animation</a>
-<a href="tut-22-images.html">22. Images</a>
-<a href="tut-36-chart.html">36. A chart</a>
-<a href="tut-42-browser.html">42. A folder browser</a>
+<a href="tut-11-first-window.html">Your first window</a>
+<a href="tut-12-controls.html">Many controls</a>
+<a href="tut-23-layout.html">Layout and controls</a>
+<a href="tut-13-editor.html">A text editor</a>
+<a href="tut-40-dialog.html">Your own dialog</a>
+<a href="tut-41-menus.html">Menus, toolbars, shortcuts</a>
+<a href="tut-34-timers.html">Timers and progress</a>
+<a href="tut-14-animation.html">Drawing and animation</a>
+<a href="tut-22-images.html">Images</a>
+<a href="tut-36-chart.html">A chart</a>
+<a href="tut-42-browser.html">A folder browser</a>
 <h4>Tutorials: WPF</h4>
-<a href="tut-15-wpf.html">15. WPF</a>
-<a href="tut-38-wpf-layout.html">38. WPF layout, styles</a>
-<a href="tut-70-wpf-animation.html">70. WPF animation</a>
+<a href="tut-15-wpf.html">WPF</a>
+<a href="tut-38-wpf-layout.html">WPF layout, styles</a>
+<a href="tut-70-wpf-animation.html">WPF animation</a>
 <h4>Tutorials: Projects with windows</h4>
-<a href="tut-24-todo.html">24. A to-do list</a>
-<a href="tut-35-tictactoe.html">35. Tic-Tac-Toe</a>
-<a href="tut-37-runner.html">37. A command runner</a>
-<a href="tut-48-addressbook.html">48. An address book</a>
-<a href="tut-60-sorting.html">60. Watching sorting algorithms</a>
-<a href="tut-61-maze.html">61. A maze</a>
-<a href="tut-62-filters.html">62. An image filter lab</a>
-<a href="tut-63-chat.html">63. A chat over TCP</a>
+<a href="tut-24-todo.html">A to-do list</a>
+<a href="tut-35-tictactoe.html">Tic-Tac-Toe</a>
+<a href="tut-37-runner.html">A command runner</a>
+<a href="tut-48-addressbook.html">An address book</a>
+<a href="tut-60-sorting.html">Watching sorting algorithms</a>
+<a href="tut-61-maze.html">A maze</a>
+<a href="tut-62-filters.html">An image filter lab</a>
+<a href="tut-63-chat.html">A chat over TCP</a>
 <h4>Tutorials: Libraries, testing and release</h4>
-<a href="tut-19-callbacks.html">19. Callbacks and events</a>
-<a href="tut-20-reflection.html">20. Reflection</a>
-<a href="tut-87-expressions.html">87. Expression trees</a>
-<a href="tut-18-csharp-library.html">18. A C# library</a>
-<a href="tut-28-testing.html">28. Testing</a>
-<a href="tut-119-distribution.html">119. Giving your program to others</a>
+<a href="tut-19-callbacks.html">Callbacks and events</a>
+<a href="tut-20-reflection.html">Reflection</a>
+<a href="tut-87-expressions.html">Expression trees</a>
+<a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-28-testing.html">Testing</a>
+<a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -196,15 +196,15 @@
 </nav>
 <main>
 <article>
-<h1>Tutorial 115: Microsoft Access databases</h1><p class="lead">Many small businesses keep their data in an Access file. This lesson uses an .accdb file from Ring through ODBC — it makes the file, creates tables, inserts rows with parameters, runs joins and totals, works with dates, and uses a transaction. It runs on Windows with the Microsoft Access Database Engine.</p>
+<h1>Microsoft Access databases</h1><p class="lead">Many small businesses keep their data in an Access file. This lesson uses an .accdb file from Ring through ODBC — it makes the file, creates tables, inserts rows with parameters, runs joins and totals, works with dates, and uses a transaction. It runs on Windows with the Microsoft Access Database Engine.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li>what is needed to use Access from Ring (and why it works only on Windows),</li><li>making a new <code>.accdb</code> file (ADOX) and connecting with <code>OdbcConnection</code>,</li><li>the Access column types and SQL dialect,</li><li>parameters (<code>?</code>) instead of text joined into a statement,</li><li>reading rows with a reader, joins, <code>GROUP BY</code>, <code>TOP</code>, <code>LIKE</code>,</li><li>dates, transactions, closing,</li><li>the limits of Access and when to choose another database.</li></ul>
-<p><a href="tut-17-databases.html">Tutorial 17</a> used SQLite and <a href="tut-73-sql-reports.html">tutorial 73</a> wrote reports with SQL. The ideas are the same; only the driver and a few details of the SQL change.</p>
+<p>The tutorial <a href="tut-17-databases.html">Databases step by step</a> used SQLite and the tutorial <a href="tut-73-sql-reports.html">Reports with SQL</a> wrote reports with SQL. The ideas are the same; only the driver and a few details of the SQL change.</p>
 <h2 id="what-you-need">What you need<a class="anchor" href="#what-you-need">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Need</th><th>Why</th></tr></thead><tbody><tr><td><strong>Windows</strong></td><td>the Access drivers exist only there</td></tr><tr><td>the <strong>Microsoft Access Database Engine</strong>, <strong>64-bit</strong></td><td>it brings the ODBC driver <em>Microsoft Access Driver (\</em>.mdb, \<em>.accdb)</em> and the OLEDB provider. It is installed with Microsoft Access or Microsoft 365, or from the free "Access Database Engine Redistributable"</td></tr><tr><td><code>System.Data.Odbc.dll</code></td><td>the .NET classes for ODBC. They are a NuGet package, not part of the runtime; the RingDotNet package has the file in its <code>bin</code> folder and the program loads it with <code>dnLoad</code></td></tr></tbody></table></div>
 <p><strong>The bitness must match.</strong> Ring and the .NET runtime here are 64-bit, so the driver must be 64-bit. If a 32-bit Microsoft Office is installed, the 64-bit engine cannot be installed next to it, and the connection fails with <em>"Data source name not found"</em> or <em>"provider not registered"</em>. The program checks the registry for the driver and, when anything is missing, prints what is missing and stops without an error (the output below shows the real run of this computer; on Linux the program says that Access needs Windows).</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t115_access.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 115: Microsoft Access databases - an .accdb file through ODBC: tables, parameters, joins, totals, dates, transactions</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t115_access.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Microsoft Access databases - an .accdb file through ODBC: tables, parameters, joins, totals, dates, transactions</span>
 <span class="c"># (Windows only: it needs the Microsoft Access Database Engine; anywhere else the program says why it stops)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
@@ -523,7 +523,7 @@ using {
 <h3 id="reading-rows">Reading rows<a class="anchor" href="#reading-rows">#</a></h3>
 <p><code>ExecuteReader()</code> gives a reader; <code>Read()</code> moves to the next row and answers <em>false</em> at the end; <code>GetValue(n)</code> reads column n (0 is the first). <code>FieldCount</code>, <code>GetName</code> and <code>GetDataTypeName</code> describe the columns. Numbers and <code>CURRENCY</code> come back as Ring numbers, text as text and a <code>DATETIME</code> as a .NET <code>DateTime</code>, which the program formats with <code>Format("yyyy-MM-dd")</code>. A column without a value is a <strong>NULL</strong> (<code>System.DBNull</code>): test for it before you use the value, and remember that <code>COUNT(column)</code> does not count NULL values while <code>COUNT(*)</code> counts rows. Dispose the reader (<code>Dispose()</code>) before you run the next command on the same connection.</p>
 <h3 id="joins-and-totals">Joins and totals<a class="anchor" href="#joins-and-totals">#</a></h3>
-<p><code>INNER JOIN ... ON c.Id = o.CustomerId</code> puts the orders next to their customers. <code>GROUP BY</code> makes one row for each group with <code>COUNT</code>, <code>SUM</code> and <code>AVG</code>; <code>HAVING</code> filters the <strong>groups</strong> (where <code>WHERE</code> filters the <strong>rows</strong> before they are grouped). The result shows that customers with fewer than two orders are not listed. <code>SUM</code> of a currency column is exact, which is why money is <code>CURRENCY</code> and not a floating-point number (<a href="tut-57-money.html">tutorial 58</a>).</p>
+<p><code>INNER JOIN ... ON c.Id = o.CustomerId</code> puts the orders next to their customers. <code>GROUP BY</code> makes one row for each group with <code>COUNT</code>, <code>SUM</code> and <code>AVG</code>; <code>HAVING</code> filters the <strong>groups</strong> (where <code>WHERE</code> filters the <strong>rows</strong> before they are grouped). The result shows that customers with fewer than two orders are not listed. <code>SUM</code> of a currency column is exact, which is why money is <code>CURRENCY</code> and not a floating-point number (the tutorial <a href="tut-57-money.html">Money</a>).</p>
 <h3 id="dates">Dates<a class="anchor" href="#dates">#</a></h3>
 <p>A <code>DateTime</code> object goes in as a parameter and the comparison <code>Ordered &gt; ?</code> works with real dates, so there is no need for the Access date literal <code>#2/15/2024#</code> (which also depends on the format of the computer). Access has date functions in SQL: <code>Year(d)</code>, <code>Month(d)</code>, <code>Day(d)</code>, <code>DateAdd</code>, <code>DateDiff</code> and <code>Format(d, "yyyy-mm")</code>.</p>
 <h3 id="transactions">Transactions<a class="anchor" href="#transactions">#</a></h3>
@@ -531,15 +531,15 @@ using {
 <h3 id="closing">Closing<a class="anchor" href="#closing">#</a></h3>
 <p>Close the connection (<code>Close()</code>, <code>Dispose()</code>) and call <code>OdbcConnection.ReleaseObjectPool()</code>: ODBC keeps closed connections for reuse. The <strong>Access engine keeps the file open until the program ends</strong>, so the program cannot delete its test file at once (a <code>.laccdb</code> lock file appears next to the database while it is open). The program removes the old file at the start of the next run.</p>
 <h2 id="limits-and-advice">Limits and advice<a class="anchor" href="#limits-and-advice">#</a></h2>
-<ul><li><strong>Size and users.</strong> An Access file is limited to <strong>2 GB</strong> and is meant for a <strong>few users</strong> on a fast local disk; there is no server, every program opens the file itself. It is not a good choice for a web site with many visitors or for a file on a slow network share.</li><li><strong>Backups.</strong> The file is the database: copy it when no program has it open (or after <em>compact and repair</em>, which the <code>JRO.JetEngine</code> COM object does).</li><li><strong>Old files.</strong> <code>.mdb</code> files of Access 97 or 2000 may need the older <em>Jet</em> engine, which has no 64-bit version; open them in Access and save them as <code>.accdb</code>.</li><li><strong>Moving on.</strong> When the data grows or many users need it, move it to <strong>SQLite</strong> (<a href="tut-17-databases.html">tutorial 17</a>, a file without a server) or to <strong>SQL Server</strong> and use Entity Framework (<a href="tut-27-entities.html">tutorial 27</a>). The Access driver can read the old file for the copy. The same ODBC driver family also reads <strong>Excel</strong> and <strong>text/CSV</strong> files (<code>Microsoft Excel Driver</code>, <code>Microsoft Access Text Driver</code>) with the same code.</li></ul>
+<ul><li><strong>Size and users.</strong> An Access file is limited to <strong>2 GB</strong> and is meant for a <strong>few users</strong> on a fast local disk; there is no server, every program opens the file itself. It is not a good choice for a web site with many visitors or for a file on a slow network share.</li><li><strong>Backups.</strong> The file is the database: copy it when no program has it open (or after <em>compact and repair</em>, which the <code>JRO.JetEngine</code> COM object does).</li><li><strong>Old files.</strong> <code>.mdb</code> files of Access 97 or 2000 may need the older <em>Jet</em> engine, which has no 64-bit version; open them in Access and save them as <code>.accdb</code>.</li><li><strong>Moving on.</strong> When the data grows or many users need it, move it to <strong>SQLite</strong> (the tutorial <a href="tut-17-databases.html">Databases step by step</a>, a file without a server) or to <strong>SQL Server</strong> and use Entity Framework (the tutorial <a href="tut-27-entities.html">Entity objects and migrations</a>). The Access driver can read the old file for the copy. The same ODBC driver family also reads <strong>Excel</strong> and <strong>text/CSV</strong> files (<code>Microsoft Excel Driver</code>, <code>Microsoft Access Text Driver</code>) with the same code.</li></ul>
 <div class="callout note"><span class="t">Note</span><p><code>samples/UsingDotNet/tests/test_access.ring</code> tests all of this with 29 checks (Unicode, NULL, transactions, an attack text) and skips itself where Access is not available.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>Access needs Windows, the 64-bit Access Database Engine and <code>System.Data.Odbc.dll</code>,</li><li>ADOX makes a new file; ODBC opens it,</li><li>the Access column types and the small differences of its SQL,</li><li>parameters instead of text in statements,</li><li>readers, joins, grouping, dates and transactions,</li><li>the limits of Access.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Add a table <code>Products</code> and a table <code>OrderLines</code> and make a report of the quantity sold for each product.</li><li>Write <code>insertMany(oConnection, cSql, aRows)</code> that inserts a list of rows inside <strong>one</strong> transaction, and compare its time with single inserts for 1000 rows (<a href="tut-53-speed.html">tutorial 53</a>).</li><li>Write <code>export(oConnection, cTable, cFile)</code> that writes a table as JSON (<a href="tut-100-json-writer.html">tutorial 100</a>).</li><li>Open an existing <code>.accdb</code> file of your own and list its tables and columns.</li></ol>
+<ol><li>Add a table <code>Products</code> and a table <code>OrderLines</code> and make a report of the quantity sold for each product.</li><li>Write <code>insertMany(oConnection, cSql, aRows)</code> that inserts a list of rows inside <strong>one</strong> transaction, and compare its time with single inserts for 1000 rows (the tutorial <a href="tut-53-speed.html">Speed — measure first</a>).</li><li>Write <code>export(oConnection, cTable, cFile)</code> that writes a table as JSON (the tutorial <a href="tut-100-json-writer.html">Writing JSON as a stream</a>).</li><li>Open an existing <code>.accdb</code> file of your own and list its tables and columns.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
-<p><a href="tut-32-settings.html">Tutorial 32: Settings</a></p>
-<div class="pager"><a href="tut-27-entities.html"><small>Previous</small>27. Entities, migrations</a><a class="next" href="tut-32-settings.html"><small>Next</small>32. Settings</a></div>
+<p><a href="tut-32-settings.html">Settings</a></p>
+<div class="pager"><a href="tut-27-entities.html"><small>Previous</small>Entities, migrations</a><a class="next" href="tut-32-settings.html"><small>Next</small>Settings</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>
 <aside class="toc" id="toc"></aside>

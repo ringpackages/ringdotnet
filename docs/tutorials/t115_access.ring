@@ -1,4 +1,4 @@
-# Tutorial 115: Microsoft Access databases - an .accdb file through ODBC: tables, parameters, joins, totals, dates, transactions
+# Microsoft Access databases - an .accdb file through ODBC: tables, parameters, joins, totals, dates, transactions
 # (Windows only: it needs the Microsoft Access Database Engine; anywhere else the program says why it stops)
 load "dotnet.ring"
 using {

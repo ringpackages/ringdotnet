@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 34: Timers and progress"
+title: "Timers and progress"
 lead: A window must never freeze. This lesson builds a stopwatch and a progress bar, and shows how to do a long job in small steps so that the window keeps responding.
 ---
 
@@ -65,4 +65,4 @@ A test cannot wait for ticks. `selfTest` stops the clock timer, calls `toggleWat
 
 ## Next
 
-[Tutorial 14: Drawing and animation](tut-14-animation.html)
+[Drawing and animation](tut-14-animation.html)

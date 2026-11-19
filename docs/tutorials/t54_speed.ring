@@ -1,4 +1,4 @@
-# Tutorial 54: speed - measure first, then choose: Stopwatch, StringBuilder, a cache (memoization) and fewer calls
+# speed - measure first, then choose: Stopwatch, StringBuilder, a cache (memoization) and fewer calls
 load "dotnet.ring"
 using {
 	"System"

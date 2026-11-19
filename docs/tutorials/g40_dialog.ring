@@ -1,4 +1,4 @@
-# Tutorial 40: your own dialog - a modal form that asks for data and gives it back
+# your own dialog - a modal form that asks for data and gives it back
 load "dotnet.ring"
 using {
 	"System.Drawing"

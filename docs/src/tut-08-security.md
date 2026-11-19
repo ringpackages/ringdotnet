@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 8: Hashing and encryption"
+title: "Hashing and encryption"
 lead: Checksums that fingerprint data, password hashes that are safe to store, a key that proves a message was not changed, random tokens and real encryption with AES.
 ---
 
@@ -74,4 +74,4 @@ AES is the standard encryption. `Aes.Create(NULL)` makes an encryptor; `Generate
 
 ## Next
 
-[Tutorial 9: HTTP](tut-09-http.html)
+[HTTP](tut-09-http.html)

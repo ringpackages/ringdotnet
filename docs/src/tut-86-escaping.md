@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 86: Escaping"
+title: "Escaping"
 lead: Text from a user must never be put into HTML, a URL, JavaScript, JSON, XML, a regular expression or SQL as it is. Each place has its own special characters and its own encoder. This lesson shows the tool for each place and the attack that it stops.
 ---
 
@@ -42,11 +42,11 @@ A text has no meaning by itself; the **place** gives it one. `<b>` is just lette
 
 ### URL, JavaScript, JSON
 
-`UrlEncoder` turns space, `&`, `/` and non-ASCII letters into `%XX`; encode each *value*, not the whole address ([tutorial 64](tut-64-urls.html)). `JavaScriptEncoder` writes quotes and `<` as `\u0022` and `\u003C`, so a text inside a script cannot close the string or the script tag. `JsonEncodedText.Encode` gives `\n`, `\t` and `\u0022`; for a whole document build a `JsonObject` ([tutorial 80](tut-80-json-nodes.html)) and let it write the text.
+`UrlEncoder` turns space, `&`, `/` and non-ASCII letters into `%XX`; encode each *value*, not the whole address (the tutorial [URLs and encodings](tut-64-urls.html)). `JavaScriptEncoder` writes quotes and `<` as `\u0022` and `\u003C`, so a text inside a script cannot close the string or the script tag. `JsonEncodedText.Encode` gives `\n`, `\t` and `\u0022`; for a whole document build a `JsonObject` (the tutorial [JSON as a tree](tut-80-json-nodes.html)) and let it write the text.
 
 ### XML
 
-`XElement` stores the text and writes it with the correct escapes (`&lt;script&gt;`) when you call `ToString()` ([tutorial 72](tut-72-xml.html)). Never build XML by joining strings.
+`XElement` stores the text and writes it with the correct escapes (`&lt;script&gt;`) when you call `ToString()` (the tutorial [XML in depth](tut-72-xml.html)). Never build XML by joining strings.
 
 ### Regular expressions
 
@@ -67,11 +67,11 @@ A user who searches for `1+1=2 (a.b)*` means **those characters**, not a pattern
 
 ## Exercises
 
-1. Make the tiny web site of [tutorial 26](tut-26-website.html) safe: where does it show a visitor's text?
+1. Make the tiny web site of the tutorial [A small web site](tut-26-website.html) safe: where does it show a visitor's text?
 2. Write a function `link(cText, cAddress)` that builds `<a href="…">…</a>` with the right encoding for the address and for the text.
 3. Search a text file for a phrase that the user types, using `Regex.Escape`.
 4. Try the attack text `'; DROP TABLE People; --` as a parameter and check that the table is still there.
 
 ## Next
 
-[Tutorial 64: URLs and encodings](tut-64-urls.html)
+[URLs and encodings](tut-64-urls.html)

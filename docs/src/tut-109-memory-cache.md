@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 109: Caching"
+title: "Caching"
 lead: A cache keeps the result of slow work for a while, so the next request gets it at once. This lesson uses MemoryCache with absolute and sliding expiration, GetOrCreate with a Ring function that makes the value, and Remove and Clear — and says when a cache is the wrong tool.
 ---
 
@@ -12,7 +12,7 @@ lead: A cache keeps the result of slow work for a while, so the next request get
 - extension methods and `dnStatic`,
 - the rules that keep a cache safe.
 
-[Tutorial 53](tut-53-speed.html) measured how fast calls are. The fastest call is the one you do not make: a result that was already calculated, fetched or read can be reused.
+The tutorial [Speed — measure first](tut-53-speed.html) measured how fast calls are. The fastest call is the one you do not make: a result that was already calculated, fetched or read can be reused.
 
 ## The program
 
@@ -24,7 +24,7 @@ lead: A cache keeps the result of slow work for a while, so the next request get
 
 ### The cache
 
-`MemoryCache` (namespace `Microsoft.Extensions.Caching.Memory`) is a dictionary with rules. Each value has a **key** (a text such as `"user:1"`) and may have an expiration. `TryGetValue(key)` answers `[ found, value ]` ([tutorial 81](tut-81-network-tools.html) explains the out value). A cache is made with options (`MemoryCacheOptions`), for example a size limit; the defaults are fine for this lesson.
+`MemoryCache` (namespace `Microsoft.Extensions.Caching.Memory`) is a dictionary with rules. Each value has a **key** (a text such as `"user:1"`) and may have an expiration. `TryGetValue(key)` answers `[ found, value ]` (the tutorial [Network tools](tut-81-network-tools.html) explains the out value). A cache is made with options (`MemoryCacheOptions`), for example a size limit; the defaults are fine for this lesson.
 
 ### Extension methods
 
@@ -48,7 +48,7 @@ When the real data changes (a record is updated in the database), remove its key
 
 ### When not to cache
 
-A cache gives **old** data on purpose. Do not cache what must be exact (a bank balance, a stock count at the moment of an order), give every value an expiration so that the worst case is a value that is only a few seconds old, and watch the size: a cache without a limit that keeps a value for every user is a memory leak ([tutorial 98](tut-98-memory.html)). Also remember that the cache lives *inside the program*: two copies of the program have two caches that can disagree.
+A cache gives **old** data on purpose. Do not cache what must be exact (a bank balance, a stock count at the moment of an order), give every value an expiration so that the worst case is a value that is only a few seconds old, and watch the size: a cache without a limit that keeps a value for every user is a memory leak (the tutorial [Memory and the garbage collector](tut-98-memory.html)). Also remember that the cache lives *inside the program*: two copies of the program have two caches that can disagree.
 
 ## What you learned
 
@@ -60,11 +60,11 @@ A cache gives **old** data on purpose. Do not cache what must be exact (a bank b
 
 ## Exercises
 
-1. Cache the result of a slow function ([tutorial 53](tut-53-speed.html)) and measure the time of the first and the second call.
+1. Cache the result of a slow function (the tutorial [Speed — measure first](tut-53-speed.html)) and measure the time of the first and the second call.
 2. Combine a sliding and an absolute expiration for a session.
 3. Count how often `GetOrCreate` found the value (a *hit*) and how often it made it (a *miss*) and print the hit rate.
 4. Set a size limit (`MemoryCacheOptions.SizeLimit`) and see what happens when entries are added without a size.
 
 ## Next
 
-[Tutorial 110: Dependency injection](tut-110-dependency-injection.html)
+[Dependency injection](tut-110-dependency-injection.html)

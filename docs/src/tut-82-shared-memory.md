@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 82: Shared memory"
+title: "Shared memory"
 lead: Two programs on one computer can use the same block of memory. This lesson creates a named memory-mapped file, writes numbers and text into it, lets a second copy of the program read and answer, and edits a file in place through a mapping.
 ---
 
@@ -15,7 +15,7 @@ lead: Two programs on one computer can use the same block of memory. This lesson
 
 A normal file is read and written through calls. A **memory-mapped file** is a file (or just a block of memory with a name) that the system shows to your program as ordinary memory: what one program writes into it, another program that mapped the same name sees at once. It is the fastest way for programs on one computer to share data, and it is also a comfortable way to work with a very big file without loading it.
 
-Compare the tools of the last tutorials: a **named pipe** ([tutorial 79](tut-79-processes-talk.html)) sends messages one after another; **shared memory** is a place both programs can read and write at any time.
+Compare the tools of the last tutorials: a **named pipe** (the tutorial [Two programs talking](tut-79-processes-talk.html)) sends messages one after another; **shared memory** is a place both programs can read and write at any time.
 
 ## The program
 
@@ -27,7 +27,7 @@ Compare the tools of the last tutorials: a **named pipe** ([tutorial 79](tut-79-
 
 ### One name, two programs
 
-The parent calls `MemoryMappedFile.CreateNew([ :mapName = "...", :capacity = 4096 ])`: a block of 4,096 bytes with a name. The child (a second copy of the same program, started with `--child` as in tutorial 79) calls `OpenExisting(name)` and gets *the same block*. Nothing is copied.
+The parent calls `MemoryMappedFile.CreateNew([ :mapName = "...", :capacity = 4096 ])`: a block of 4,096 bytes with a name. The child (a second copy of the same program, started with `--child` as in [Two programs talking](tut-79-processes-talk.html)) calls `OpenExisting(name)` and gets *the same block*. Nothing is copied.
 
 ### Numbers
 
@@ -37,11 +37,11 @@ The parent calls `MemoryMappedFile.CreateNew([ :mapName = "...", :capacity = 409
 
 ### Text
 
-`CreateViewStream([ :offset = 100, :size = 200 ])` is a `Stream` over a part of the memory, so `StreamWriter` and `StreamReader` work on it exactly like on a file ([tutorial 56](tut-56-streams.html)). The memory starts **filled with zero bytes**: a reader that reads the whole view sees the text and then zeros, so `textOf` cuts the text at the first zero byte. If you design a protocol on shared memory, store the **length** first, or end texts with a zero.
+`CreateViewStream([ :offset = 100, :size = 200 ])` is a `Stream` over a part of the memory, so `StreamWriter` and `StreamReader` work on it exactly like on a file (the tutorial [Streams and compression](tut-56-streams.html)). The memory starts **filled with zero bytes**: a reader that reads the whole view sees the text and then zeros, so `textOf` cuts the text at the first zero byte. If you design a protocol on shared memory, store the **length** first, or end texts with a zero.
 
 ### The conversation
 
-Parent: writes the numbers and the text, starts the child and reads its output. Child: opens the memory, reads, writes `21 × 2` at position 4 and a text at position 300. Parent: reads both after the child ended. In a real program the two programs would run at the same time, so they need a way to say "my data is ready": a flag in the memory that the other side polls, or a named mutex or event ([tutorial 79](tut-79-processes-talk.html)).
+Parent: writes the numbers and the text, starts the child and reads its output. Child: opens the memory, reads, writes `21 × 2` at position 4 and a text at position 300. Parent: reads both after the child ended. In a real program the two programs would run at the same time, so they need a way to say "my data is ready": a flag in the memory that the other side polls, or a named mutex or event (the tutorial [Two programs talking](tut-79-processes-talk.html)).
 
 ### A file edited in place
 
@@ -68,4 +68,4 @@ This is the usual way to patch a large file, to read a huge file piece by piece,
 
 ## Next
 
-[Tutorial 83: Tasks that wait](tut-83-tasks-waiting.html)
+[Tasks that wait](tut-83-tasks-waiting.html)

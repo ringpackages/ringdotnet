@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 48: A project: an address book with a database"
+title: "A project: an address book with a database"
 lead: A real application: contacts stored in a database, shown in a data grid, searched as you type, added, changed and deleted. Windows Forms and Entity Framework working together.
 ---
 
@@ -13,7 +13,7 @@ lead: A real application: contacts stored in a database, shown in a data grid, s
 
 ## The design
 
-Three layers, as in [tutorial 35](tut-35-tictactoe.html):
+Three layers, as in the tutorial [A project: Tic-Tac-Toe](tut-35-tictactoe.html):
 
 | Layer | Holds |
 |---|---|
@@ -35,7 +35,7 @@ The golden rule: **the database changes first, then the grid is reloaded**. The 
 
 ### The database
 
-A table `Contacts` with a required `Name` (at most 60 characters), `Phone` and `City`. The program uses a file `addressbook.db` next to it, so the contacts are there the next time; a test uses memory (`:memory:`) so it leaves nothing behind. ([Tutorial 17](tut-17-databases.html) explains the schema.)
+A table `Contacts` with a required `Name` (at most 60 characters), `Phone` and `City`. The program uses a file `addressbook.db` next to it, so the contacts are there the next time; a test uses memory (`:memory:`) so it leaves nothing behind. (The tutorial [Databases step by step](tut-17-databases.html) explains the schema.)
 
 ### The grid and `reload`
 
@@ -83,11 +83,11 @@ The test adds three contacts through the fields and the **Add** button, checks t
 
 ## Exercises
 
-1. Sort the contacts by name (`["orderby",...]` with `query`, [tutorial 17](tut-17-databases.html)).
+1. Sort the contacts by name (`["orderby",...]` with `query`, the tutorial [Databases step by step](tut-17-databases.html)).
 2. After an update, select the row with the same key again.
-3. Add a `Notes` table with several notes per contact and show them in a second grid ([tutorial 27](tut-27-entities.html)).
-4. Export the contacts to CSV ([tutorial 30](tut-30-tables.html)).
+3. Add a `Notes` table with several notes per contact and show them in a second grid (the tutorial [Entity objects and migrations](tut-27-entities.html)).
+4. Export the contacts to CSV (the tutorial [Tabular data](tut-30-tables.html)).
 
 ## Next
 
-[Tutorial 60: Watching sorting algorithms](tut-60-sorting.html)
+[Watching sorting algorithms](tut-60-sorting.html)

@@ -1,4 +1,4 @@
-# Tutorial 90: numbers that do not fit - BigInteger for exact big whole numbers, Complex numbers and the limits of Ring numbers
+# numbers that do not fit - BigInteger for exact big whole numbers, Complex numbers and the limits of Ring numbers
 load "dotnet.ring"
 using {
 	"System"

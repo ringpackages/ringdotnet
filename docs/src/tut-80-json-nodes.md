@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 80: JSON as a tree"
+title: "JSON as a tree"
 lead: JsonDocument reads JSON but cannot change it. JsonNode, JsonObject and JsonArray give you a tree that you can read, edit and build. This lesson changes a configuration, builds a report, merges settings with defaults, and clones a tree.
 ---
 
@@ -12,7 +12,7 @@ lead: JsonDocument reads JSON but cannot change it. JsonNode, JsonObject and Jso
 - merging two documents,
 - `DeepClone` and `DeepEquals`.
 
-These classes are in `System.Text.Json.Nodes`. [Tutorial 6](tut-06-json-xml.html) read JSON with `JsonDocument`; that class is fast but read-only. Use the nodes when you need to **change** JSON: configuration files, request bodies, data you assemble.
+These classes are in `System.Text.Json.Nodes`. The tutorial [JSON and XML](tut-06-json-xml.html) read JSON with `JsonDocument`; that class is fast but read-only. Use the nodes when you need to **change** JSON: configuration files, request bodies, data you assemble.
 
 ## The program
 
@@ -39,7 +39,7 @@ These classes are in `System.Text.Json.Nodes`. [Tutorial 6](tut-06-json-xml.html
 
 ### Missing keys
 
-`oRoot.Item("nothing")` does not raise an error: it gives the **.NET null**, which arrives in Ring as an object that answers `isNull()` ([tutorial 59](tut-59-paths.html)). Check with `ContainsKey` when a key is optional.
+`oRoot.Item("nothing")` does not raise an error: it gives the **.NET null**, which arrives in Ring as an object that answers `isNull()` (the tutorial [Paths and the environment](tut-59-paths.html)). Check with `ContainsKey` when a key is optional.
 
 ### Building
 
@@ -65,11 +65,11 @@ Step 5 builds a report: a `JsonObject` with values, a `JsonArray` of `JsonObject
 
 ## Exercises
 
-1. Read a configuration file ([tutorial 32](tut-32-settings.html)) into a node, change one value and save it again.
+1. Read a configuration file (the tutorial [Settings](tut-32-settings.html)) into a node, change one value and save it again.
 2. Write `getPath(oRoot, "database.host")` that follows a dotted path.
 3. Write `removeNulls(oNode)` that deletes all keys with `null` values, at every depth.
-4. Send the JSON of step 5 through the pipe of [tutorial 79](tut-79-processes-talk.html).
+4. Send the JSON of step 5 through the pipe of the tutorial [Two programs talking](tut-79-processes-talk.html).
 
 ## Next
 
-[Tutorial 72: XML in depth](tut-72-xml.html)
+[XML in depth](tut-72-xml.html)

@@ -1,4 +1,4 @@
-# Tutorial 1: a first look at .NET from Ring - runtime, types, objects, namespaces
+# a first look at .NET from Ring - runtime, types, objects, namespaces
 load "dotnet.ring"
 using {
 	"System"

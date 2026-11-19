@@ -1,4 +1,4 @@
-# Tutorial 11, step 1: the smallest window
+# Your first window, step 1: the smallest window
 load "dotnet.ring"
 using {
 	"System.Drawing"

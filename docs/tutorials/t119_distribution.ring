@@ -1,4 +1,4 @@
-# Tutorial 119: giving your program to others - a self check that a program made with Ring2EXE can run when it starts
+# giving your program to others - a self check that a program made with Ring2EXE can run when it starts
 #   ring ring2exe.ring t119_distribution.ring -dist -dotnet        (the page explains the steps)
 load "dotnet.ring"
 using {
@@ -24,7 +24,7 @@ func main
 	# 3. The database libraries (Entity Framework and SQLite) with their native part: open a database in memory
 	? "3. SQLite works: " + sqliteWorks()
 
-	# 4. The web runtime. Programs that use the web server (tutorial 16) need the ASP.NET Core runtime on the computer; it is a separate
+	# 4. The web runtime. Programs that use the web server (the tutorial "A web service with a database") need the ASP.NET Core runtime on the computer; it is a separate
 	#    runtime next to the .NET runtime. The folder of the .NET runtime tells where to look.
 	? "4. the ASP.NET Core runtime is installed (needed only for web programs): " + aspNetInstalled()
 

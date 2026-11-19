@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 75: Recursion"
+title: "Recursion"
 lead: A recursive function solves a problem by solving a smaller copy of the same problem. This lesson uses it for factorials, the Towers of Hanoi, all the orders of a list, a folder tree and a paint-bucket fill.
 ---
 
@@ -30,7 +30,7 @@ If the step does not get closer to the stop, the function calls itself until the
 
 ### 1–2. Factorial and the depth
 
-`factorial(5)` waits for `factorial(4)`, which waits for `factorial(3)` … until `factorial(1)` returns 1; then every call finishes in reverse order. Step 2 prints one line for each call, indented by its depth: the calls pile up like a stack of plates ([tutorial 58](tut-58-undo.html)) and are removed in the opposite order.
+`factorial(5)` waits for `factorial(4)`, which waits for `factorial(3)` … until `factorial(1)` returns 1; then every call finishes in reverse order. Step 2 prints one line for each call, indented by its depth: the calls pile up like a stack of plates (the tutorial [Undo, redo and queues](tut-58-undo.html)) and are removed in the opposite order.
 
 ### 3. Towers of Hanoi
 
@@ -42,7 +42,7 @@ All orders of `[a, b, c]`: choose each item as the first one and put it in front
 
 ### 5. A tree of folders
 
-A folder contains files and other folders, each of which contains... `showTree` prints a folder, then calls itself for each subfolder with one more level of indentation; `folderSize` adds the size of the files and of the subfolders. Recursion is the natural way to walk any tree: folders, XML ([tutorial 72](tut-72-xml.html)), a menu, a family tree.
+A folder contains files and other folders, each of which contains... `showTree` prints a folder, then calls itself for each subfolder with one more level of indentation; `folderSize` adds the size of the files and of the subfolders. Recursion is the natural way to walk any tree: folders, XML (the tutorial [XML in depth](tut-72-xml.html)), a menu, a family tree.
 
 > [!TIP] .NET can also list all files below a folder in one call (`Directory.GetFiles([ :path = path, :searchPattern = "*", :searchOption = "AllDirectories" ])`). Write the recursion yourself when you need to do something at each level.
 
@@ -53,7 +53,7 @@ The paint bucket: if the cell is empty, fill it and do the same for the cell abo
 ## When not to use recursion
 
 - Ring (like most languages) keeps each call in memory; a depth of hundreds of thousands can exhaust it. A loop uses no extra memory.
-- A recursion that repeats the same work (the naive Fibonacci in [tutorial 53](tut-53-speed.html)) needs a cache.
+- A recursion that repeats the same work (the naive Fibonacci in the tutorial [Speed — measure first](tut-53-speed.html)) needs a cache.
 
 Use recursion when the problem has the shape of a **tree** or *"the same problem, but smaller"*; use a loop for simple repetition.
 
@@ -73,4 +73,4 @@ Use recursion when the problem has the shape of a **tree** or *"the same problem
 
 ## Next
 
-[Tutorial 54: An expression calculator](tut-54-expression.html)
+[An expression calculator](tut-54-expression.html)

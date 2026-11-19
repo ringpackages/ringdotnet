@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 116: Certificates"
+title: "Certificates"
 lead: A certificate ties a public key to a name and a time of validity. HTTPS sites, signed programs and services that must prove who they are all use them. This lesson makes a self-signed X.509 certificate, reads what it contains, exports it with and without the private key, signs with it, and shows why a computer does not trust it.
 ---
 
@@ -12,7 +12,7 @@ lead: A certificate ties a public key to a name and a time of validity. HTTPS si
 - signing with the private key and verifying with the public certificate,
 - trust and the **chain**.
 
-[Tutorial 105](tut-105-signatures.html) signed data with a bare key pair. A certificate adds the answer to *"whose key is this?"*.
+The tutorial [Digital signatures](tut-105-signatures.html) signed data with a bare key pair. A certificate adds the answer to *"whose key is this?"*.
 
 ## The program
 
@@ -39,7 +39,7 @@ In the real world the issuer is a **certificate authority** (CA) that your compu
 
 ### Signing and verifying
 
-The owner takes the private key out of the certificate (`RSACertificateExtensions.GetRSAPrivateKey`) and signs the data; anybody with the **public** certificate verifies it with `GetRSAPublicKey` and `VerifyData`. The signature has 256 bytes for a 2048-bit key. A changed message is refused, and the public-only certificate cannot sign at all (it has no private key). The two helper methods are extension methods, so they are called with `dnStatic` ([tutorial 109](tut-109-memory-cache.html)).
+The owner takes the private key out of the certificate (`RSACertificateExtensions.GetRSAPrivateKey`) and signs the data; anybody with the **public** certificate verifies it with `GetRSAPublicKey` and `VerifyData`. The signature has 256 bytes for a 2048-bit key. A changed message is refused, and the public-only certificate cannot sign at all (it has no private key). The two helper methods are extension methods, so they are called with `dnStatic` (the tutorial [Caching](tut-109-memory-cache.html)).
 
 ### Trust
 
@@ -58,10 +58,10 @@ The owner takes the private key out of the certificate (`RSACertificateExtension
 ## Exercises
 
 1. Add a subject alternative name (`SubjectAlternativeNameBuilder`) for `localhost` and `127.0.0.1`.
-2. Write the PEM to a file ([tutorial 5](tut-05-files.html)) and read it back with `X509Certificate2.CreateFromPem`.
+2. Write the PEM to a file (the tutorial [Files and folders](tut-05-files.html)) and read it back with `X509Certificate2.CreateFromPem`.
 3. Make a second certificate with a validity of one second and look at `NotAfter` and the check in `isValidNow` after a pause.
-4. Find the certificates of your own computer: open the store `Root` with `X509Store` and print the subjects of the first five ([tutorial 118](tut-118-registry.html) shows another store of Windows).
+4. Find the certificates of your own computer: open the store `Root` with `X509Store` and print the subjects of the first five (the tutorial [The Windows Registry](tut-118-registry.html) shows another store of Windows).
 
 ## Next
 
-[Tutorial 113: Protecting data](tut-113-data-protection.html)
+[Protecting data](tut-113-data-protection.html)

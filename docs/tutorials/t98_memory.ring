@@ -1,4 +1,4 @@
-# Tutorial 98: memory and the garbage collector - how much memory .NET uses, GC.Collect, WeakReference, generations and a big array
+# memory and the garbage collector - how much memory .NET uses, GC.Collect, WeakReference, generations and a big array
 load "dotnet.ring"
 using {
 	"System"

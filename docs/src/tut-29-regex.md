@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 29: Regular expressions in depth"
+title: "Regular expressions in depth"
 lead: A regular expression is a tiny language for describing text. This lesson builds the vocabulary step by step — characters, classes, quantifiers, anchors, groups, replacing, splitting and validating.
 ---
 
@@ -68,7 +68,7 @@ Characters such as `.` `*` `+` `?` `(` `[` `\` have a meaning in a pattern. If y
 - Build a pattern in small steps and test each step.
 - Put a pattern with comments in a variable with a clear name.
 - Prefer a simple pattern plus some code over one unreadable pattern.
-- Never use a regex to parse a language with nesting (HTML, JSON): use a parser ([tutorial 6](tut-06-json-xml.html)).
+- Never use a regex to parse a language with nesting (HTML, JSON): use a parser (the tutorial [JSON and XML](tut-06-json-xml.html)).
 
 ## What you learned
 
@@ -86,4 +86,4 @@ Characters such as `.` `*` `+` `?` `(` `[` `\` have a meaning in a pattern. If y
 
 ## Next
 
-[Tutorial 52: Unicode and encodings](tut-52-unicode.html)
+[Unicode and encodings](tut-52-unicode.html)

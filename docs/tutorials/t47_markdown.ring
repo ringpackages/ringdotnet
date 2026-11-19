@@ -1,4 +1,4 @@
-# Tutorial 47: a project - a small Markdown to HTML converter (regular expressions, StringBuilder, files)
+# a project - a small Markdown to HTML converter (regular expressions, StringBuilder, files)
 load "dotnet.ring"
 using {
 	"System"
@@ -76,7 +76,7 @@ func markdownToHtml cMarkdown
 
 # the formatting inside a line: FIRST make the text safe, THEN add our own tags
 func inlineHtml cText
-	# 1. escape: text typed by people must not become HTML (see tutorial 26)
+	# 1. escape: text typed by people must not become HTML (see the tutorial "A small web site")
 	cSafe = substr(cText,"&","&amp;")
 	cSafe = substr(cSafe,"<","&lt;")
 	cSafe = substr(cSafe,">","&gt;")

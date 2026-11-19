@@ -1,4 +1,4 @@
-# Tutorial 27, part 2: changing a database that already has data - migrations
+# the tutorial "Entity objects and migrations", part 2: changing a database that already has data - migrations
 load "dotnet.ring"
 using {
 	"System.IO"

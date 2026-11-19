@@ -1,4 +1,4 @@
-# Tutorial 111: configuration - settings from a JSON file, from memory and from environment variables, layered so that the last one wins
+# configuration - settings from a JSON file, from memory and from environment variables, layered so that the last one wins
 load "dotnet.ring"
 using {
 	"System"

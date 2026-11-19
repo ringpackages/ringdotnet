@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 11: Your first window"
+title: "Your first window"
 lead: Build a window in four small steps — an empty form, a label and a button, an event that counts clicks, and the same program written without the helper functions.
 ---
 
@@ -90,4 +90,4 @@ Note how the properties are written inside **braces**: `new Label() { Text = "..
 
 ## Next
 
-[Tutorial 12: Many controls](tut-12-controls.html)
+[A form with many controls](tut-12-controls.html)

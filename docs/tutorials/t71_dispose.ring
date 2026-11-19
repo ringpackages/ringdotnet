@@ -1,4 +1,4 @@
-# Tutorial 71: releasing resources - files that stay locked, Dispose, and cleaning up even when an error happens
+# releasing resources - files that stay locked, Dispose, and cleaning up even when an error happens
 load "dotnet.ring"
 using {
 	"System"

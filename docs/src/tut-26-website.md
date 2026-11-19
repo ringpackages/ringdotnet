@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 26: A small web site"
+title: "A small web site"
 lead: Serve real HTML pages from Ring: a home page, an about page and a guestbook with a form. You will meet HTML forms, POST requests and the one security rule every web programmer must know.
 ---
 
@@ -66,11 +66,11 @@ If a field is empty the handler answers `[400, "text/html", page(...)]`: **400 B
 
 ### State
 
-`aEntries` is a global list: all visitors share it, and it disappears when the server stops. For lasting data use a database as in [tutorial 16](tut-16-web-service.html).
+`aEntries` is a global list: all visitors share it, and it disappears when the server stops. For lasting data use a database as in the tutorial [A web service with a database](tut-16-web-service.html).
 
 ### The test client
 
-The program also acts as a visitor: it fetches pages and posts a form with `HttpClient`, using the same `serveOne` pattern as tutorial 9. Posting a form needs the content type `application/x-www-form-urlencoded`; the client builds the content with named arguments: `dnNew("StringContent",[ :content = ..., :encoding = ..., :mediaType = ... ])`.
+The program also acts as a visitor: it fetches pages and posts a form with `HttpClient`, using the same `serveOne` pattern as the tutorial [HTTP](tut-09-http.html). Posting a form needs the content type `application/x-www-form-urlencoded`; the client builds the content with named arguments: `dnNew("StringContent",[ :content = ..., :encoding = ..., :mediaType = ... ])`.
 
 ## What you learned
 
@@ -88,4 +88,4 @@ The program also acts as a visitor: it fetches pages and posts a form with `Http
 
 ## Next
 
-[Tutorial 55: A tiny web framework](tut-55-miniweb.html)
+[A tiny web framework](tut-55-miniweb.html)

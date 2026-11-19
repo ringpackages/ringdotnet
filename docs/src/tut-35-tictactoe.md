@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 35: A project: Tic-Tac-Toe"
+title: "A project: Tic-Tac-Toe"
 lead: A complete game. The lesson is the structure: the state and the rules in plain functions that can be tested, and a thin layer of buttons that shows the state.
 ---
 
@@ -84,4 +84,4 @@ The [TicTacToe](gallery-apps.html#tic-tac-toe) application is the full-size vers
 
 ## Next
 
-[Tutorial 37: A command runner](tut-37-runner.html)
+[A project: a command runner](tut-37-runner.html)

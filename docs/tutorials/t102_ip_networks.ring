@@ -1,4 +1,4 @@
-# Tutorial 102: IP networks - CIDR notation, the addresses of a subnet, "is this address in that network?" and a small allow list
+# IP networks - CIDR notation, the addresses of a subnet, "is this address in that network?" and a small allow list
 load "dotnet.ring"
 using {
 	"System"

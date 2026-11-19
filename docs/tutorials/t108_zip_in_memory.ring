@@ -1,4 +1,4 @@
-# Tutorial 108: ZIP archives in memory - ZipArchive on a MemoryStream, entries, reading one file, compression levels, and updating an archive
+# ZIP archives in memory - ZipArchive on a MemoryStream, entries, reading one file, compression levels, and updating an archive
 load "dotnet.ring"
 using {
 	"System"
@@ -64,7 +64,7 @@ func main
 	oCheck.Dispose()
 
 	# 6. Names inside an archive use / and must stay inside: an entry called ../../x would be written outside the target folder when
-	#    somebody unpacks it (tutorial 96 warns about it). Check each name before you unpack by hand.
+	#    somebody unpacks it (the tutorial "Tar archives" warns about it). Check each name before you unpack by hand.
 	? nl + "6. a safe name has no '..' part and does not start with '/': " + safeName("data/names.txt") + ", " + safeName("../../etc/passwd") + ", " + safeName("/absolute.txt")
 
 func addEntry oZip,cName,cText

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 14: Drawing and animation"
+title: "Drawing and animation"
 lead: Draw shapes and text on a canvas, move them with a timer and control them with the keyboard — the three ingredients of every simple game.
 ---
 
@@ -79,4 +79,4 @@ A test cannot wait for animation. `selfTest` stops the timer, calls `step()` thr
 
 ## Next
 
-[Tutorial 22: Images](tut-22-images.html)
+[Images](tut-22-images.html)

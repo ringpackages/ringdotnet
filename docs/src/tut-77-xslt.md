@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 77: XSLT"
+title: "XSLT"
 lead: XSLT is a language that turns an XML document into text, CSV, HTML or other XML by following a stylesheet. .NET compiles stylesheets with XslCompiledTransform; this lesson makes a report, a CSV file and an HTML table from the same data.
 ---
 
@@ -12,7 +12,7 @@ lead: XSLT is a language that turns an XML document into text, CSV, HTML or othe
 
 ## The idea
 
-You have data in XML ([tutorial 72](tut-72-xml.html)) and you want a report. You can walk the tree in Ring, or you can write a **stylesheet**: a small XML document of *templates* ("when you see this part of the input, write this"). The advantage is that the stylesheet is **data**: change it, and the report changes, without touching the program.
+You have data in XML (the tutorial [XML in depth](tut-72-xml.html)) and you want a report. You can walk the tree in Ring, or you can write a **stylesheet**: a small XML document of *templates* ("when you see this part of the input, write this"). The advantage is that the stylesheet is **data**: change it, and the report changes, without touching the program.
 
 ```xml
 <xsl:template match="/library">
@@ -23,7 +23,7 @@ You have data in XML ([tutorial 72](tut-72-xml.html)) and you want a report. You
 </xsl:template>
 ```
 
-`select` and `match` are **XPath** expressions ([tutorial 72](tut-72-xml.html)).
+`select` and `match` are **XPath** expressions (the tutorial [XML in depth](tut-72-xml.html)).
 
 ## The program
 
@@ -71,8 +71,8 @@ oTransform.Transform([ :inputUri = cInput, :resultsFile = cOutput ])     # input
 1. Write a stylesheet that outputs only the titles of the science fiction books.
 2. Add a `<xsl:if test="price > 10">` that marks expensive books with `*`.
 3. Make the HTML a complete page (`<html><body>…`) with a heading and the total price.
-4. Transform an XML file that you create with `XDocument` ([tutorial 72](tut-72-xml.html)).
+4. Transform an XML file that you create with `XDocument` (the tutorial [XML in depth](tut-72-xml.html)).
 
 ## Next
 
-[Tutorial 47: Markdown to HTML](tut-47-markdown.html)
+[A project: Markdown to HTML](tut-47-markdown.html)

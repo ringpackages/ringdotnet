@@ -1,4 +1,4 @@
-# Tutorial 94: e-mail messages - addresses, a MailMessage with several recipients, an attachment, a body in HTML and in text (nothing is sent)
+# e-mail messages - addresses, a MailMessage with several recipients, an attachment, a body in HTML and in text (nothing is sent)
 load "dotnet.ring"
 using {
 	"System"

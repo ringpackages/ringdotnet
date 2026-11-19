@@ -1,4 +1,4 @@
-# Tutorial 107: sets - HashSet, union, intersection, difference, subsets, and how a set removes duplicates and finds common items fast
+# sets - HashSet, union, intersection, difference, subsets, and how a set removes duplicates and finds common items fast
 load "dotnet.ring"
 using {
 	"System"
@@ -41,7 +41,7 @@ func main
 	? "   A and {tcp, udp} have items in common: " + oSetA.callMethod("Overlaps",[makeSet(["tcp","udp"])])
 	? "   A equals A with the same items in another order: " + oSetA.callMethod("SetEquals",[makeSet(["web","json","linq","dotnet","ring"])])
 
-	# 5. A set with a comparer: names that differ only in case are the same item (tutorial 97)
+	# 5. A set with a comparer: names that differ only in case are the same item (the tutorial "Comparing text")
 	oNames = dnNewGeneric("System.Collections.Generic.HashSet",[cText],[new StringComparer().OrdinalIgnoreCase])
 	for cName in ["Ann","ann","BOB","Bob","Cy"]
 		oNames.callMethod("Add",[cName])

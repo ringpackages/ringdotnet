@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 42: A folder browser"
+title: "A folder browser"
 lead: A tree of folders on the left, the files of the chosen folder on the right, and the totals at the bottom. A small Explorer, with TreeView and ListView.
 ---
 
@@ -78,4 +78,4 @@ The full-size version is the [FileExplorer](gallery-apps.html#file-explorer) app
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Windows Forms**. The next chapter is **WPF**: it starts with [Tutorial 15: WPF](tut-15-wpf.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Windows Forms**. The next chapter is **WPF**: it starts with [WPF](tut-15-wpf.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 64: URLs and encodings"
+title: "URLs and encodings"
 lead: Addresses, query strings and Base64 look simple until a space or an ampersand arrives. This lesson takes a URL apart, builds and reads query strings safely, resolves relative addresses and encodes bytes as text.
 ---
 
@@ -49,11 +49,11 @@ A page at `/docs/guide/index.html` that links to `../images/logo.png` means `/do
 
 ### Base64
 
-Base64 writes **any bytes** with 64 safe characters (letters, digits, `+`, `/`). It is used in e-mails, JSON and data URLs. It makes the data about a third bigger and it is **not encryption** — anyone can decode it. For secrets use [tutorial 8](tut-08-security.html).
+Base64 writes **any bytes** with 64 safe characters (letters, digits, `+`, `/`). It is used in e-mails, JSON and data URLs. It makes the data about a third bigger and it is **not encryption** — anyone can decode it. For secrets use the tutorial [Hashing and encryption](tut-08-security.html).
 
 ### Checking an address
 
-`IsWellFormedUriString(text, "Absolute")` answers yes or no without raising an error. The enum argument is written as text ([tutorial 65](tut-65-enums.html)).
+`IsWellFormedUriString(text, "Absolute")` answers yes or no without raising an error. The enum argument is written as text (the tutorial [Enums and flags](tut-65-enums.html)).
 
 ## What you learned
 
@@ -71,4 +71,4 @@ Base64 writes **any bytes** with 64 safe characters (letters, digits, `+`, `/`).
 
 ## Next
 
-[Tutorial 117: International domain names](tut-117-domain-names.html)
+[International domain names](tut-117-domain-names.html)

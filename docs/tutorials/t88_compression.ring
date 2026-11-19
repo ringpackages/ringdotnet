@@ -1,4 +1,4 @@
-# Tutorial 88: compression - GZip, Deflate and Brotli on streams, sizes, a round trip and a compressed file
+# compression - GZip, Deflate and Brotli on streams, sizes, a round trip and a compressed file
 load "dotnet.ring"
 using {
 	"System"

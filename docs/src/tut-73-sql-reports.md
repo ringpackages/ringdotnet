@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 73: Reports with SQL"
+title: "Reports with SQL"
 lead: Databases are good at questions. This lesson asks them with SQL — JOIN to combine tables, GROUP BY to total, HAVING and WHERE to filter, LEFT JOIN to keep everybody, and a sub-query to compare with an average.
 ---
 
@@ -14,7 +14,7 @@ lead: Databases are good at questions. This lesson asks them with SQL — JOIN t
 
 ## The data
 
-Two tables ([tutorial 17](tut-17-databases.html) explains how to create them): **Customers** (Ann and Cy in Cairo, Bob in Oslo, Dee in Tokyo) and **Orders** with a `CustomerId` that points to the customer, a product, an amount and a month. Dee has never ordered anything — that matters in step 4.
+Two tables (the tutorial [Databases step by step](tut-17-databases.html) explains how to create them): **Customers** (Ann and Cy in Cairo, Bob in Oslo, Dee in Tokyo) and **Orders** with a `CustomerId` that points to the customer, a product, an amount and a month. Dee has never ordered anything — that matters in step 4.
 
 ## The program
 
@@ -73,4 +73,4 @@ The city is in `Customers` and the amount in `Orders`; the join lets you total b
 
 ## Next
 
-[Tutorial 27: Entities, migrations](tut-27-entities.html)
+[Entity objects and migrations](tut-27-entities.html)

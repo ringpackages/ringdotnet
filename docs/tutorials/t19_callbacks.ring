@@ -1,4 +1,4 @@
-# Tutorial 19: callbacks and events - giving Ring code to .NET
+# callbacks and events - giving Ring code to .NET
 load "dotnet.ring"
 using {
 	"System.Collections.Generic"

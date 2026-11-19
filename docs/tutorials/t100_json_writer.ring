@@ -1,4 +1,4 @@
-# Tutorial 100: writing JSON as a stream - Utf8JsonWriter, indentation, nesting, escaping, and JsonSerializer options
+# writing JSON as a stream - Utf8JsonWriter, indentation, nesting, escaping, and JsonSerializer options
 load "dotnet.ring"
 using {
 	"System"

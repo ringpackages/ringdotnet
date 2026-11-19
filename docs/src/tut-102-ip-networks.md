@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 102: IP networks"
+title: "IP networks"
 lead: Which addresses belong to a network? Is this client allowed in? The IPNetwork type answers these questions with the CIDR notation that firewalls, cloud consoles and configuration files use. This lesson parses networks, counts their addresses, tests addresses and builds a small allow list.
 ---
 
@@ -12,7 +12,7 @@ lead: Which addresses belong to a network? Is this client allowed in? The IPNetw
 - an allow list for private addresses (RFC 1918),
 - IPv6.
 
-[Tutorial 81](tut-81-network-tools.html) used `IPAddress` and `IPEndPoint`. This lesson goes one level up: a *range* of addresses. A web program ([tutorial 16](tut-16-web-service.html)) uses it to allow or refuse a client by its address.
+The tutorial [Network tools](tut-81-network-tools.html) used `IPAddress` and `IPEndPoint`. This lesson goes one level up: a *range* of addresses. A web program (the tutorial [A web service with a database](tut-16-web-service.html)) uses it to allow or refuse a client by its address.
 
 ## The program
 
@@ -24,7 +24,7 @@ lead: Which addresses belong to a network? Is this client allowed in? The IPNetw
 
 ### CIDR notation
 
-An IPv4 address has 32 bits. A network is written as an address and a **prefix length**: the number of bits at the start that are the same for every address of the network. In `192.168.1.0/24` the first 24 bits (`192.168.1`) are fixed and the last 8 bits are free, so the network holds the addresses `192.168.1.0` to `192.168.1.255`. `IPNetwork.TryParse(text)` answers `[ success, network ]` ([tutorial 81](tut-81-network-tools.html)); the network has `BaseAddress`, `PrefixLength` and `ToString()`.
+An IPv4 address has 32 bits. A network is written as an address and a **prefix length**: the number of bits at the start that are the same for every address of the network. In `192.168.1.0/24` the first 24 bits (`192.168.1`) are fixed and the last 8 bits are free, so the network holds the addresses `192.168.1.0` to `192.168.1.255`. `IPNetwork.TryParse(text)` answers `[ success, network ]` (the tutorial [Network tools](tut-81-network-tools.html)); the network has `BaseAddress`, `PrefixLength` and `ToString()`.
 
 ### Contains
 
@@ -59,10 +59,10 @@ The same type works for IPv6: `2001:db8::/32` holds every address that starts wi
 ## Exercises
 
 1. Write `networkOf(cAddress, nPrefix)` that returns the network that contains an address.
-2. Write an allow list that reads its networks from a settings file ([tutorial 32](tut-32-settings.html)).
-3. Use the list in [tutorial 55](tut-55-miniweb.html) so that only addresses of `127.0.0.0/8` can see the page.
+2. Write an allow list that reads its networks from a settings file (the tutorial [Settings](tut-32-settings.html)).
+3. Use the list in the tutorial [A tiny web framework](tut-55-miniweb.html) so that only addresses of `127.0.0.0/8` can see the page.
 4. Print the first and last address of `192.168.1.64/26`.
 
 ## Next
 
-[Tutorial 25: Sockets](tut-25-sockets.html)
+[Sockets](tut-25-sockets.html)

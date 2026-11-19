@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 51: Logging"
+title: "Logging"
 lead: Programs that run without a person watching need a diary. This lesson writes a logger class with levels, timestamps, a file and rotation.
 ---
 
@@ -39,9 +39,9 @@ Step 3 shows the main reason for logs: `try` / `catch` writes the error text and
 ## Exercises
 
 1. Keep three old files (`.1`, `.2`, `.3`).
-2. Add a `fatal` level and a `--verbose` option like in [tutorial 50](tut-50-cli.html).
-3. Write a log line for each request of the web server in [tutorial 26](tut-26-website.html).
+2. Add a `fatal` level and a `--verbose` option like in the tutorial [A command-line tool](tut-50-cli.html).
+3. Write a log line for each request of the web server in the tutorial [A small web site](tut-26-website.html).
 
 ## Next
 
-[Tutorial 85: Working with other programs](tut-85-feed-programs.html)
+[Working with other programs](tut-85-feed-programs.html)

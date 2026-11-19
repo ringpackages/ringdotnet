@@ -1,4 +1,4 @@
-# Tutorial 20: exploring .NET from Ring - ask a class what it can do
+# exploring .NET from Ring - ask a class what it can do
 load "dotnet.ring"
 using {
 	"System"

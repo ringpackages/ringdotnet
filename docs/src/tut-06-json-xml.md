@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 6: JSON and XML"
+title: "JSON and XML"
 lead: Programs exchange data as text in a structure. JSON and XML are the two common structures; this lesson reads, searches, changes and writes both.
 ---
 
@@ -37,7 +37,7 @@ JSON is lighter and used by web services; XML is older and used in files and con
 
 ### JSON: write
 
-`JsonSerializer.Serialize(aList)` turns a Ring list into JSON text: a list of values becomes an *array*, nested lists become nested arrays. (To make a JSON *object* from `[name, value]` pairs, the web library has `webJson(...)`: see [tutorial 16](tut-16-web-service.html).)
+`JsonSerializer.Serialize(aList)` turns a Ring list into JSON text: a list of values becomes an *array*, nested lists become nested arrays. (To make a JSON *object* from `[name, value]` pairs, the web library has `webJson(...)`: see the tutorial [A web service with a database](tut-16-web-service.html).)
 
 ### JSON: read
 
@@ -85,4 +85,4 @@ Chain them to go deep: `oRoot.GetProperty("author").GetProperty("first").GetStri
 
 ## Next
 
-[Tutorial 7: When things go wrong](tut-07-errors.html)
+[When things go wrong](tut-07-errors.html)

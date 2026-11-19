@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 59: Paths and the environment"
+title: "Paths and the environment"
 lead: Programs that work on every computer build paths with Path.Combine, ask the system for special folders and read settings from environment variables. This lesson shows each one.
 ---
 
@@ -62,4 +62,4 @@ An environment variable is a named setting that lives outside the program (set b
 
 ## Next
 
-[Tutorial 56: Streams and compression](tut-56-streams.html)
+[Streams and compression](tut-56-streams.html)

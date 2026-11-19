@@ -1,4 +1,4 @@
-# Tutorial 67: number systems and big numbers - binary, hexadecimal, bits, and numbers that do not fit in a double
+# number systems and big numbers - binary, hexadecimal, bits, and numbers that do not fit in a double
 load "dotnet.ring"
 using {
 	"System"

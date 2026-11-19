@@ -1,4 +1,4 @@
-# Tutorial 12: a form with many controls - text boxes, check box, combo box, list box, validation
+# a form with many controls - text boxes, check box, combo box, list box, validation
 load "dotnet.ring"
 using {
 	"System.Drawing"

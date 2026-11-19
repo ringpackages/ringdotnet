@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 66: A spell checker"
+title: "A spell checker"
 lead: How does a program know that "brwn" probably means "brown"? This lesson keeps a dictionary in a set, measures how different two words are with the edit distance, and suggests the closest words.
 ---
 
@@ -21,7 +21,7 @@ lead: How does a program know that "brwn" probably means "brown"? This lesson ke
 
 ### The set
 
-A list answers "is this word in it?" by looking at the items one by one: ten times more words, ten times more work. A **set** (`StringSet`, a .NET `HashSet`) answers with `Contains` in about the same time however big it is. A real dictionary has hundreds of thousands of words, and a set is the right place for it ([tutorial 4](tut-04-collections.html)).
+A list answers "is this word in it?" by looking at the items one by one: ten times more words, ten times more work. A **set** (`StringSet`, a .NET `HashSet`) answers with `Contains` in about the same time however big it is. A real dictionary has hundreds of thousands of words, and a set is the right place for it (the tutorial [Collections and LINQ](tut-04-collections.html)).
 
 ### The edit distance
 
@@ -35,7 +35,7 @@ The program computes it with a **table**. `aTable[i][j]` holds the distance betw
 | the cell on the left | insert a letter | +1 |
 | the cell diagonally | replace a letter | +0 if the letters are equal, else +1 |
 
-The corner at the end is the answer. Each cell is computed from three neighbours that are already known, so the work is `length1 × length2` steps. This technique — fill a table so that nothing is computed twice — is the same idea as the cache in [tutorial 53](tut-53-speed.html).
+The corner at the end is the answer. Each cell is computed from three neighbours that are already known, so the work is `length1 × length2` steps. This technique — fill a table so that nothing is computed twice — is the same idea as the cache in the tutorial [Speed — measure first](tut-53-speed.html).
 
 ### Suggestions
 
@@ -59,8 +59,8 @@ The corner at the end is the answer. Each cell is computed from three neighbours
 1. Add the swap of neighbours (Damerau distance) and see `teh → the` become 1.
 2. Read the dictionary from a text file with one word per line.
 3. Print the checked text with `[brackets]` around the unknown words.
-4. Suggest only words that start with the same letter, and measure how much faster it is ([tutorial 53](tut-53-speed.html)).
+4. Suggest only words that start with the same letter, and measure how much faster it is (the tutorial [Speed — measure first](tut-53-speed.html)).
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Text and data formats**. The next chapter is **Numbers, dates and money**: it starts with [Tutorial 101: Number types](tut-101-number-types.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Text and data formats**. The next chapter is **Numbers, dates and money**: it starts with [Number types](tut-101-number-types.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

@@ -1,4 +1,4 @@
-# Tutorial 66: a spell checker - a set of words, edit distance (Levenshtein) and the best suggestions
+# a spell checker - a set of words, edit distance (Levenshtein) and the best suggestions
 load "dotnet.ring"
 using {
 	"System.Collections.Generic"

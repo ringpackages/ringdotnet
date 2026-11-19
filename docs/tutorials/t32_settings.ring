@@ -1,4 +1,4 @@
-# Tutorial 32: settings - defaults, a JSON file, loading, saving, and special folders
+# settings - defaults, a JSON file, loading, saving, and special folders
 load "dotnet.ring"
 using {
 	"System"

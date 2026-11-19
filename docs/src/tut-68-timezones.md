@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 68: Time zones"
+title: "Time zones"
 lead: Two people in different cities cannot agree on "12 o'clock" without a zone. This lesson stores times in UTC, shows them in local time, handles daylight saving, and follows a flight across the ocean.
 ---
 
@@ -60,4 +60,4 @@ On 10 March 2024 clocks in New York jump from 02:00 to 03:00. The time 02:30 **d
 
 ## Next
 
-[Tutorial 43: Calendars and dates](tut-43-calendar.html)
+[Calendars and dates](tut-43-calendar.html)

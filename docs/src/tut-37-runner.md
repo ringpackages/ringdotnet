@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 37: A project: a command runner"
+title: "A project: a command runner"
 lead: Many useful programs are a friendly window around a command-line tool. This one lets you type a command, runs it, and shows everything it prints together with its exit code.
 ---
 
@@ -76,4 +76,4 @@ A `TextBox` with `Multiline`, `ReadOnly` (the user cannot type in it), a monospa
 
 ## Next
 
-[Tutorial 48: An address book](tut-48-addressbook.html)
+[A project: an address book with a database](tut-48-addressbook.html)

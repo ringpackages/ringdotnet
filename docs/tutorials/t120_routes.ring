@@ -1,4 +1,4 @@
-# Tutorial 120: route templates - "users/{id}/orders/{orderId?}", optional and default values, catch-all parameters, and choosing a route
+# route templates - "users/{id}/orders/{orderId?}", optional and default values, catch-all parameters, and choosing a route
 load "dotnet.ring"
 using {
 	"System"

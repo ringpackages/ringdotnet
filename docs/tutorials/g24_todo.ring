@@ -1,4 +1,4 @@
-# Tutorial 24: a project - a to-do list that remembers its tasks (Windows Forms + JSON + files)
+# a project - a to-do list that remembers its tasks (Windows Forms + JSON + files)
 load "dotnet.ring"
 using {
 	"System"
@@ -28,7 +28,7 @@ func main
 	oForm = uiForm("My tasks",360,320)
 
 	# The window: a text box and a button on top, the list in the middle, a status line at the bottom.
-	# (The control that fills is added FIRST: see tutorial 13.)
+	# (The control that fills is added FIRST: see the tutorial "A small text editor".)
 	oTasks = new CheckedListBox() {
 		Dock = "Fill"
 		CheckOnClick = True

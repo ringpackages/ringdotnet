@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 25: Sockets"
+title: "Sockets"
 lead: HTTP is built on top of simpler connections called sockets. This lesson builds a tiny TCP server and client in one program and has them talk, line by line.
 ---
 
@@ -54,7 +54,7 @@ Close the connections, then stop the listener.
 
 ## Real servers
 
-In a real system the server and the clients are different programs. A server loops: accept a client, talk, accept the next. Ring code runs on one thread, so a server that serves many clients at once checks `oListener.Pending()` and polls its clients in turn; for a web server use the ASP.NET `WebServer` ([tutorial 9](tut-09-http.html)), which handles the threading for you.
+In a real system the server and the clients are different programs. A server loops: accept a client, talk, accept the next. Ring code runs on one thread, so a server that serves many clients at once checks `oListener.Pending()` and polls its clients in turn; for a web server use the ASP.NET `WebServer` (the tutorial [HTTP](tut-09-http.html)), which handles the threading for you.
 
 ## What you learned
 
@@ -72,4 +72,4 @@ In a real system the server and the clients are different programs. A server loo
 
 ## Next
 
-[Tutorial 91: UDP](tut-91-udp.html)
+[UDP](tut-91-udp.html)

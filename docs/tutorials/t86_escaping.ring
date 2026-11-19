@@ -1,4 +1,4 @@
-# Tutorial 86: escaping - the right encoding for the right place (HTML, URL, JavaScript, JSON, XML, regular expressions and SQL)
+# escaping - the right encoding for the right place (HTML, URL, JavaScript, JSON, XML, regular expressions and SQL)
 load "dotnet.ring"
 using {
 	"System"

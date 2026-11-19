@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 106: Arrays"
+title: "Arrays"
 lead: A Ring list can hold anything and grow, but many .NET methods want an array — a fixed size and one type. This lesson shows how arrays come and go between Ring and .NET, and uses Array.Sort, Reverse, IndexOf, BinarySearch, Copy and Clear and an array with two dimensions.
 ---
 
@@ -12,7 +12,7 @@ lead: A Ring list can hold anything and grow, but many .NET methods want an arra
 - zero-based positions,
 - an array with two dimensions.
 
-[Tutorial 4](tut-04-collections.html) used lists and dictionaries, [tutorial 45](tut-45-binary.html) used arrays of bytes and [tutorial 92](tut-92-data-structures.html) other collections. Arrays are the base of all of them.
+The tutorial [Collections and LINQ](tut-04-collections.html) used lists and dictionaries, the tutorial [Binary files](tut-45-binary.html) used arrays of bytes and the tutorial [More data structures](tut-92-data-structures.html) other collections. Arrays are the base of all of them.
 
 ## The program
 
@@ -36,7 +36,7 @@ They are static methods of the `Array` class, called with `dnStatic("System.Arra
 
 | Call | Does |
 |---|---|
-| `Sort(array)` | sorts the array in place (numbers by value, texts by the culture, [tutorial 97](tut-97-comparers.html)) |
+| `Sort(array)` | sorts the array in place (numbers by value, texts by the culture, the tutorial [Comparing text](tut-97-comparers.html)) |
 | `Reverse(array)` | turns the order round |
 | `IndexOf(array, value)` | the position of the first item that is equal, or **-1** |
 | `BinarySearch(array, value)` | the position in a **sorted** array, very fast; for a missing value a negative number |
@@ -65,10 +65,10 @@ Looking at every item takes a long time in a big array. `BinarySearch` looks at 
 ## Exercises
 
 1. Write `contains(oArray, value)` with `IndexOf`.
-2. Fill an array with 100 000 random numbers ([tutorial 69](tut-69-random.html)), sort it and compare `IndexOf` and `BinarySearch` with a `Stopwatch`.
+2. Fill an array with 100 000 random numbers (the tutorial [Randomness](tut-69-random.html)), sort it and compare `IndexOf` and `BinarySearch` with a `Stopwatch`.
 3. Use `BinarySearch` to insert a value into a sorted list at the right place.
 4. Fill a 9 x 9 `Double` array with the multiplication table and print it.
 
 ## Next
 
-[Tutorial 107: Sets](tut-107-sets.html)
+[Sets](tut-107-sets.html)

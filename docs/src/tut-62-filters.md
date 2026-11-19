@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 62: An image filter lab"
+title: "An image filter lab"
 lead: A picture is a table of numbers. This lesson holds the pixels in Ring lists, writes each filter as a small function, saves the result as a BMP file written byte by byte, and shows the original and the result side by side.
 ---
 
@@ -45,7 +45,7 @@ Blur and edges look at neighbours, so they need two nested loops, and they must 
 
 ### The slow way and the fast way
 
-The obvious way to show the result is `Bitmap.SetPixel(x, y, color)` for every pixel. Every call crosses the bridge (and creating the colour is another call), so the 10,800 pixels of this small picture would take several seconds *for each click*. See [tutorial 53](tut-53-speed.html): fewer calls win. Instead, the program builds the whole **file** in Ring and lets .NET load it with one call.
+The obvious way to show the result is `Bitmap.SetPixel(x, y, color)` for every pixel. Every call crosses the bridge (and creating the colour is another call), so the 10,800 pixels of this small picture would take several seconds *for each click*. See the tutorial [Speed — measure first](tut-53-speed.html): fewer calls win. Instead, the program builds the whole **file** in Ring and lets .NET load it with one call.
 
 ### A BMP file
 
@@ -55,7 +55,7 @@ A BMP is one of the simplest picture formats:
 - a 40-byte picture header (width, height, 24 bits per pixel, ...),
 - the pixels: row by row **from the bottom row up**, each pixel as **blue, green, red**, each row padded to a multiple of 4 bytes (120 pixels × 3 = 360 is).
 
-Numbers in the header are **little-endian**: the least significant byte comes first (`le32` and `le16`). The same idea is in [tutorial 45](tut-45-binary.html). A Ring text is a list of bytes, so `char(n)` builds a byte and `write(file, text)` writes them.
+Numbers in the header are **little-endian**: the least significant byte comes first (`le32` and `le16`). The same idea is in the tutorial [Binary files](tut-45-binary.html). A Ring text is a list of bytes, so `char(n)` builds a byte and `write(file, text)` writes them.
 
 `showPixels` writes `imageN.bmp` and loads it with `dnNew("Bitmap",[ :filename = cFile ])`. A new name for each image is used because a loaded image keeps its file open; the folder is deleted when the window closes. The self test reads one pixel back from the picture box (the sun, red 255 and blue 0) to prove that the file was written correctly.
 
@@ -78,4 +78,4 @@ Numbers in the header are **little-endian**: the least significant byte comes fi
 
 ## Next
 
-[Tutorial 63: A chat over TCP](tut-63-chat.html)
+[A chat over TCP](tut-63-chat.html)

@@ -1,4 +1,4 @@
-# Tutorial 21: a project - analyze a log file (files, regular expressions, dictionaries, LINQ, JSON)
+# a project - analyze a log file (files, regular expressions, dictionaries, LINQ, JSON)
 load "dotnet.ring"
 using {
 	"System"

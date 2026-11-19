@@ -1,4 +1,4 @@
-# Tutorial 64: URLs and encodings - taking an address apart, building a query string safely, Base64 and percent-encoding
+# URLs and encodings - taking an address apart, building a query string safely, Base64 and percent-encoding
 load "dotnet.ring"
 using {
 	"System"

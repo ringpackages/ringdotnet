@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 16: A web service with a database"
+title: "A web service with a database"
 lead: Put the ideas of the last tutorials together: a web service that stores notes in a database and speaks JSON, with a client that uses it.
 ---
 
@@ -34,7 +34,7 @@ A *REST-style* API uses the HTTP method to say what to do and the address to say
 
 ### The database
 
-A `RingDatabase` with a table `Notes`: a numbered key `Id`, a required `Text` (at most 200 characters), and a `Done` flag with a default of 0. `"Data Source=:memory:"` keeps the data in memory, which is perfect for a tutorial; use `"Data Source=notes.db"` for a file. See [tutorial 17](tut-17-databases.html).
+A `RingDatabase` with a table `Notes`: a numbered key `Id`, a required `Text` (at most 200 characters), and a `Done` flag with a default of 0. `"Data Source=:memory:"` keeps the data in memory, which is perfect for a tutorial; use `"Data Source=notes.db"` for a file. See the tutorial [Databases step by step](tut-17-databases.html).
 
 ### The handlers
 
@@ -70,4 +70,4 @@ Nothing in a handler ends the program: a bad request gets `400`, a missing note 
 
 ## Next
 
-[Tutorial 26: A small web site](tut-26-website.html)
+[A small web site](tut-26-website.html)

@@ -1,4 +1,4 @@
-# Tutorial 87: building code while the program runs - expression trees (System.Linq.Expressions): build, show, compile and call
+# building code while the program runs - expression trees (System.Linq.Expressions): build, show, compile and call
 load "dotnet.ring"
 using {
 	"System"

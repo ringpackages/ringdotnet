@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 52: Unicode and encodings"
+title: "Unicode and encodings"
 lead: Why len() of a text is not the number of letters you see, what UTF-8 and UTF-16 are, and what goes wrong when the wrong encoding is used.
 ---
 
@@ -51,4 +51,4 @@ Steps 4 and 5 show that `é` can be one code point or two. They look the same, b
 
 ## Next
 
-[Tutorial 97: Comparing text](tut-97-comparers.html)
+[Comparing text](tut-97-comparers.html)

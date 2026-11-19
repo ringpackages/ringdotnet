@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 65: Enums and flags"
+title: "Enums and flags"
 lead: Many .NET methods take or return a choice from a fixed list — a day of the week, a file attribute, a mode. This lesson shows how enums look in Ring, how to check and parse them, how flags combine, and how to make your own bit flags.
 ---
 
@@ -28,7 +28,7 @@ Step 1 compares the value with a text: `oDate.DayOfWeek = "Friday"`. It reads li
 
 ### Names, `IsDefined` and `Parse`
 
-`Enum.GetNames(type)` lists all the names ([tutorial 20](tut-20-reflection.html) explains `dnType`). `IsDefined` asks whether a text is a valid name; use `IsDefined([ :enumType = type, :value = text ])` (the two-argument form). `Enum.Parse` checks and converts: a wrong name raises an error that says *Requested value 'Funday' was not found*. When the text comes from a user or a file, either test it first or `try` / `catch` ([tutorial 7](tut-07-errors.html)).
+`Enum.GetNames(type)` lists all the names (the tutorial [Exploring .NET with reflection](tut-20-reflection.html) explains `dnType`). `IsDefined` asks whether a text is a valid name; use `IsDefined([ :enumType = type, :value = text ])` (the two-argument form). `Enum.Parse` checks and converts: a wrong name raises an error that says *Requested value 'Funday' was not found*. When the text comes from a user or a file, either test it first or `try` / `catch` (the tutorial [When things go wrong](tut-07-errors.html)).
 
 ### Flags
 
@@ -63,4 +63,4 @@ Read and write are `1 | 2 = 3`; adding run (`4`) gives `7`; removing write leave
 
 ## Next
 
-[Tutorial 93: Identifiers and versions](tut-93-identifiers.html)
+[Identifiers and versions](tut-93-identifiers.html)

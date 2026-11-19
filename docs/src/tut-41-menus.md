@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 41: Menus, toolbars and shortcuts"
+title: "Menus, toolbars and shortcuts"
 lead: One action, many ways to reach it. This lesson writes each action once and connects it to a menu item, a toolbar button, a context menu and a keyboard shortcut.
 ---
 
@@ -42,7 +42,7 @@ A `ContextMenuStrip` is a menu without a bar: assign it to a control (`oText.Con
 
 ### The order of docked controls
 
-> [!NOTE] Windows Forms places docked controls starting from the **last added**. The text area (`Dock = "Fill"`) is added first, then the toolbar, then the menu bar, then the status bar. The menu bar ends up at the very top, the toolbar below it, the status bar at the bottom, and the text area gets what is left. If you add the menu before the toolbar, the toolbar is placed above the menu. See [tutorial 13](tut-13-editor.html).
+> [!NOTE] Windows Forms places docked controls starting from the **last added**. The text area (`Dock = "Fill"`) is added first, then the toolbar, then the menu bar, then the status bar. The menu bar ends up at the very top, the toolbar below it, the status bar at the bottom, and the text area gets what is left. If you add the menu before the toolbar, the toolbar is placed above the menu. See the tutorial [A small text editor](tut-13-editor.html).
 
 ### Telling the user what happened
 
@@ -65,8 +65,8 @@ Every action calls `say(message)`, which writes into the status bar and counts t
 1. Add *Redo* and *Undo* (`oText.Undo()`) with `Ctrl+Z`.
 2. Enable or disable *Cut* and *Copy* depending on whether text is selected (`Enabled`, `SelectionChanged`).
 3. Add a recent-files list that grows as the user opens files.
-4. Add a toolbar button with an image (`oButton.Image = new Bitmap(...)`, [tutorial 22](tut-22-images.html)).
+4. Add a toolbar button with an image (`oButton.Image = new Bitmap(...)`, the tutorial [Images](tut-22-images.html)).
 
 ## Next
 
-[Tutorial 34: Timers and progress](tut-34-timers.html)
+[Timers and progress](tut-34-timers.html)

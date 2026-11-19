@@ -24,9 +24,9 @@ ring r01_ring_basics.ring
 What to remember:
 
 - **No declarations.** A variable gets its type from the value. A name's first letter is a naming convention (`n` number, `c` text, `a` list, `o` object, `l` yes/no); this documentation uses it.
-- **All numbers are doubles.** `7 / 2` is `3.5` (printed as `3.50`), and a number is exact only up to 2⁵³ ([tutorial 67](tut-67-bases.html)).
+- **All numbers are doubles.** `7 / 2` is `3.5` (printed as `3.50`), and a number is exact only up to 2⁵³ (the tutorial [Number systems and big numbers](tut-67-bases.html)).
 - **`+` follows its left side.** `"Count: " + 3` joins, `5 + "5"` adds, and `3 + " items"` is an error. Use `string(n)` when in doubt.
-- **Indexes start at 1**, also for text. `len()` counts bytes ([tutorial 52](tut-52-unicode.html)).
+- **Indexes start at 1**, also for text. `len()` counts bytes (the tutorial [Unicode and encodings](tut-52-unicode.html)).
 - **`^` is a bit operation**; power is `**` or `pow()`.
 - `True` and `False` are `1` and `0`.
 
@@ -68,9 +68,9 @@ A **list** is the only collection. It can hold numbers, texts, lists and objects
 
 {{output:docs/tutorials/r05_ring_errors_files.ring}}
 
-- `try … catch … done` catches errors; the message is in `cCatchError`. `raise("text")` makes an error. This is how every .NET exception arrives in Ring ([tutorial 7](tut-07-errors.html)).
+- `try … catch … done` catches errors; the message is in `cCatchError`. `raise("text")` makes an error. This is how every .NET exception arrives in Ring (the tutorial [When things go wrong](tut-07-errors.html)).
 - `load "file.ring"` runs another file. The first line of every RingDotNet program is `load "dotnet.ring"`.
-- `sysargv` holds the command line ([tutorial 50](tut-50-cli.html)).
+- `sysargv` holds the command line (the tutorial [A command-line tool](tut-50-cli.html)).
 
 ## Ring and other languages
 

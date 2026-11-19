@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 88: Compression"
+title: "Compression"
 lead: Compression makes data smaller by finding repetition. This lesson uses the GZip, Deflate and Brotli streams to compress and decompress bytes in memory and to write and read a compressed file.
 ---
 
@@ -12,7 +12,7 @@ lead: Compression makes data smaller by finding repetition. This lesson uses the
 - why random data does not shrink,
 - writing and reading a `.gz` file with `StreamWriter` and `StreamReader`.
 
-[Tutorial 5](tut-05-files.html) made a ZIP archive of files. This lesson compresses **data** (one stream of bytes). GZip is the format of `.gz` files and of `Content-Encoding: gzip` on the web.
+The tutorial [Files and folders](tut-05-files.html) made a ZIP archive of files. This lesson compresses **data** (one stream of bytes). GZip is the format of `.gz` files and of `Content-Encoding: gzip` on the web.
 
 ## The program
 
@@ -40,7 +40,7 @@ Compression needs repetition. Random bytes have none, so the result is slightly 
 
 ### A compressed file
 
-Step 6 puts a `GZipStream` on a `FileStream` and a `StreamWriter` on the compressor. Everything written with `WriteLine` is compressed on its way to the disk. Disposing the **writer** closes the whole chain. Reading is the same chain in the other direction: `StreamReader` on `GZipStream` on `FileStream`, and `EndOfStream` tells when the lines are finished. ([Tutorial 56](tut-56-streams.html) explains streams.)
+Step 6 puts a `GZipStream` on a `FileStream` and a `StreamWriter` on the compressor. Everything written with `WriteLine` is compressed on its way to the disk. Disposing the **writer** closes the whole chain. Reading is the same chain in the other direction: `StreamReader` on `GZipStream` on `FileStream`, and `EndOfStream` tells when the lines are finished. (The tutorial [Streams and compression](tut-56-streams.html) explains streams.)
 
 > [!NOTE] `BrotliStream` lives in another assembly (`System.IO.Compression.Brotli`); RingDotNet finds it for you. `CompressionLevel` (`"Optimal"`, `"Fastest"`, `"SmallestSize"`) is an optional second value of the constructor when the mode is `Compress`.
 
@@ -54,11 +54,11 @@ Step 6 puts a `GZipStream` on a `FileStream` and a `StreamWriter` on the compres
 
 ## Exercises
 
-1. Compress the text of a real file (a log from [tutorial 21](tut-21-log-analyzer.html)) and print the ratio for each format.
+1. Compress the text of a real file (a log from the tutorial [A project: analyze a log file](tut-21-log-analyzer.html)) and print the ratio for each format.
 2. Add `CompressionLevel` and compare `"Fastest"` with `"SmallestSize"` with a `Stopwatch`.
 3. Write a function `gzipFile(source, target)` that uses `CopyTo` between two file streams.
 4. Compress the same bytes twice and look at the size of the second result.
 
 ## Next
 
-[Tutorial 108: ZIP archives in memory](tut-108-zip-in-memory.html)
+[ZIP archives in memory](tut-108-zip-in-memory.html)

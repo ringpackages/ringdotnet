@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 76: Other calendars"
+title: "Other calendars"
 lead: A date is one moment, but people write it in different calendars. .NET knows the Hijri (Umm al-Qura), Persian, Hebrew, Japanese and Thai Buddhist calendars. This lesson reads one day in each, converts a Hijri date back, and prints dates in Arabic.
 ---
 
@@ -39,13 +39,13 @@ The Hijri year has 354 or 355 days, about eleven days fewer than the Gregorian y
 
 ### Names in the language of a culture
 
-A `CultureInfo("ar-SA")` has Arabic names *and* uses the Umm al-Qura calendar by default. `oDate.Format([ :format = "dddd, d MMMM yyyy", :provider = oArabic ])` prints the weekday, day, month and year of the *culture's own calendar*: «الاثنين, 1 رمضان 1445». With `en-US` the same date prints as «Monday, 11 March 2024». The format letters come from [tutorial 3](tut-03-numbers-dates.html) and the cultures from [tutorial 33](tut-33-cultures.html).
+A `CultureInfo("ar-SA")` has Arabic names *and* uses the Umm al-Qura calendar by default. `oDate.Format([ :format = "dddd, d MMMM yyyy", :provider = oArabic ])` prints the weekday, day, month and year of the *culture's own calendar*: «الاثنين, 1 رمضان 1445». With `en-US` the same date prints as «Monday, 11 March 2024». The format letters come from the tutorial [Numbers, dates and times](tut-03-numbers-dates.html) and the cultures from the tutorial [Cultures](tut-33-cultures.html).
 
 ### Leap years
 
 `GregorianCalendar.IsLeapYear` follows the rule *every 4 years, except every 100, except every 400*: 2024 and 2000 are leap years, 2100 is not.
 
-> [!WARNING] The Umm al-Qura calendar is only defined for a range of years (about 1318–1500 Hijri, that is 1900–2077). Outside the range a calendar method raises an error. Catch it with `try` / `catch` ([tutorial 7](tut-07-errors.html)). Real moon sighting can also differ from the tables by a day.
+> [!WARNING] The Umm al-Qura calendar is only defined for a range of years (about 1318–1500 Hijri, that is 1900–2077). Outside the range a calendar method raises an error. Catch it with `try` / `catch` (the tutorial [When things go wrong](tut-07-errors.html)). Real moon sighting can also differ from the tables by a day.
 
 ## What you learned
 
@@ -63,4 +63,4 @@ A `CultureInfo("ar-SA")` has Arabic names *and* uses the Umm al-Qura calendar by
 
 ## Next
 
-[Tutorial 33: Cultures](tut-33-cultures.html)
+[Cultures](tut-33-cultures.html)

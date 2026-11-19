@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 2: Working with text"
+title: "Working with text"
 lead: Ring already has good text functions. This lesson shows when to use Ring's own, and what .NET adds — joining, formatting, building long texts, regular expressions, Base64 and encodings.
 ---
 
@@ -84,4 +84,4 @@ A computer stores bytes, not letters. An *encoding* says how letters become byte
 
 ## Next
 
-[Tutorial 3: Numbers, dates, times](tut-03-numbers-dates.html)
+[Numbers, dates and times](tut-03-numbers-dates.html)

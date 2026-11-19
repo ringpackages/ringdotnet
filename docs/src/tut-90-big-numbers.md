@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 90: Big numbers"
+title: "Big numbers"
 lead: A Ring number is a double, so whole numbers are exact only up to about nine quadrillion. BigInteger keeps every digit of a whole number of any size, and Complex works with numbers that have an imaginary part.
 ---
 
@@ -10,7 +10,7 @@ lead: A Ring number is a double, so whole numbers are exact only up to about nin
 - exact factorials and Fibonacci numbers,
 - `Complex`: the real and imaginary parts, `Magnitude`, `Multiply`.
 
-([Tutorial 57](tut-57-money.html) used `Decimal` for exact decimals; this lesson is about exact *large* whole numbers.)
+(The tutorial [Money](tut-57-money.html) used `Decimal` for exact decimals; this lesson is about exact *large* whole numbers.)
 
 ## The program
 
@@ -30,7 +30,7 @@ A `BigInteger` is a struct from `System.Numerics`. In Ring you create it from a 
 
 ### Factorials, powers, Fibonacci
 
-The loops of steps 3 and 5 are the ordinary ones, with `Multiply` and `Add` in place of `*` and `+`. 30! has 33 digits and fib(100) has 21; the results are exact. `Pow(number, exponent)` takes a normal whole exponent. `ModPow(number, exponent, modulus)` computes the remainder of a huge power **without ever building** the huge number; public-key cryptography is built on it ([tutorial 78](tut-78-crypto.html)). Step 4 shows that `ModPow` and `Remainder(Pow(...))` give the same answer.
+The loops of steps 3 and 5 are the ordinary ones, with `Multiply` and `Add` in place of `*` and `+`. 30! has 33 digits and fib(100) has 21; the results are exact. `Pow(number, exponent)` takes a normal whole exponent. `ModPow(number, exponent, modulus)` computes the remainder of a huge power **without ever building** the huge number; public-key cryptography is built on it (the tutorial [Protecting and signing messages](tut-78-crypto.html)). Step 4 shows that `ModPow` and `Remainder(Pow(...))` give the same answer.
 
 ### Comparing
 
@@ -56,4 +56,4 @@ A `Complex` has `Real` and `Imaginary` parts. `i` is `Complex(0, 1)` and `i * i`
 
 ## Next
 
-[Tutorial 67: Number systems and big numbers](tut-67-bases.html)
+[Number systems and big numbers](tut-67-bases.html)

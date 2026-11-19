@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 57: Money"
+title: "Money"
 lead: Why 0.1 + 0.2 is not 0.3, why money is kept as whole cents, how rounding rules differ, and how to split 100.00 into three shares without losing a cent.
 ---
 
@@ -57,9 +57,9 @@ The invoice calculates the tax **once on the subtotal**. Rounding the tax of eac
 ## Exercises
 
 1. Add a discount of 15 % to the invoice and decide when to round.
-2. Write `showMoneyIn(nCents, cCulture)` using `CultureInfo` ([tutorial 33](tut-33-cultures.html)).
+2. Write `showMoneyIn(nCents, cCulture)` using `CultureInfo` (the tutorial [Cultures](tut-33-cultures.html)).
 3. Split 10.00 between 7 people and check the sum.
 
 ## Next
 
-[Tutorial 99: Vectors and matrices](tut-99-vectors.html)
+[Vectors and matrices](tut-99-vectors.html)

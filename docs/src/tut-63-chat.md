@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 63: A chat over TCP"
+title: "A chat over TCP"
 lead: A server that relays every line to all clients, two chat windows that connect to it, and a timer that polls the sockets so the windows never freeze. A real network program in one file.
 ---
 
@@ -14,7 +14,7 @@ lead: A server that relays every line to all clients, two chat windows that conn
 
 ## The idea
 
-The server listens on a port. Each client connects and sends lines such as `Alice: Hello`. The server sends **every** line it receives to **all** clients, including the sender, so everybody sees the same conversation in the same order. The protocol is the simplest possible: one message per line, the sender's name at the start. [Tutorial 25](tut-25-sockets.html) explains sockets; here they are used in a window program.
+The server listens on a port. Each client connects and sends lines such as `Alice: Hello`. The server sends **every** line it receives to **all** clients, including the sender, so everybody sees the same conversation in the same order. The protocol is the simplest possible: one message per line, the sender's name at the start. The tutorial [Sockets](tut-25-sockets.html) explains sockets; here they are used in a window program.
 
 ## The program
 
@@ -66,4 +66,4 @@ The self test sends a line from Alice and calls `waitForText`, which pumps up to
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Projects with windows**. The next chapter is **Libraries, testing and release**: it starts with [Tutorial 19: Callbacks and events](tut-19-callbacks.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Projects with windows**. The next chapter is **Libraries, testing and release**: it starts with [Callbacks and events](tut-19-callbacks.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

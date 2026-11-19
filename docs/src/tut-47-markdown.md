@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 47: A project: Markdown to HTML"
+title: "A project: Markdown to HTML"
 lead: Write a small converter from the Markdown that people like to type into the HTML that browsers need — headings, paragraphs, lists, bold, italic, code and links — with regular expressions and a StringBuilder.
 ---
 
@@ -47,7 +47,7 @@ The function goes through the lines. The one thing it must remember is whether i
 | `\*(.+?)\*` | `<em>$1</em>` | italic |
 | `\[([^\]]+)\]\(([^)]+)\)` | `<a href='$2'>$1</a>` | link |
 
-`$1` and `$2` are the captured groups ([tutorial 29](tut-29-regex.html)); `.+?` is lazy so that two bold parts in one line are two separate matches. **Bold before italic**: both use the star, and `**x**` must be taken first.
+`$1` and `$2` are the captured groups (the tutorial [Regular expressions in depth](tut-29-regex.html)); `.+?` is lazy so that two bold parts in one line are two separate matches. **Bold before italic**: both use the star, and `**x**` must be taken first.
 
 ### Using objects during definition
 
@@ -70,4 +70,4 @@ Look at how the steps are written: each result goes to a **new variable** (`cSaf
 
 ## Next
 
-[Tutorial 66: A spell checker](tut-66-spelling.html)
+[A spell checker](tut-66-spelling.html)

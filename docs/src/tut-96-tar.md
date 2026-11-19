@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 96: Tar archives"
+title: "Tar archives"
 lead: Tar puts many files and folders into one file; it is the usual way to pack a folder on Linux and macOS, and Docker images are made of tar files. This lesson creates, lists, reads and unpacks tar archives with System.Formats.Tar.
 ---
 
@@ -15,8 +15,8 @@ lead: Tar puts many files and folders into one file; it is the usual way to pack
 
 | Format | What it does |
 |---|---|
-| **ZIP** ([tutorial 5](tut-05-files.html)) | collects files and compresses each one |
-| **GZip** ([tutorial 88](tut-88-compression.html)) | compresses *one* stream of data |
+| **ZIP** (the tutorial [Files and folders](tut-05-files.html)) | collects files and compresses each one |
+| **GZip** (the tutorial [Compression](tut-88-compression.html)) | compresses *one* stream of data |
 | **tar** | collects files and folders into one file, **without** compressing |
 
 Linux programs combine the last two: a `.tar.gz` (or `.tgz`) file is a tar archive compressed with GZip. Tar also keeps things that ZIP does not always keep, such as Unix permissions and links.
@@ -39,13 +39,13 @@ A `TarReader` is made on a stream (`dnNew("TarReader",[ :archiveStream = oStream
 
 ### One file from the archive
 
-Reading is *sequential*: a tar file has no index, so to find `notes/b.txt` the reader goes through the entries until it meets the name. `DataStream` of the entry is a stream with the content, read here with a `StreamReader` ([tutorial 56](tut-56-streams.html)). The data is available only until you ask for the next entry. For a big archive this is both the strength of tar (it can be read as it arrives, from a network or a pipe) and its weakness (no quick access to the last file).
+Reading is *sequential*: a tar file has no index, so to find `notes/b.txt` the reader goes through the entries until it meets the name. `DataStream` of the entry is a stream with the content, read here with a `StreamReader` (the tutorial [Streams and compression](tut-56-streams.html)). The data is available only until you ask for the next entry. For a big archive this is both the strength of tar (it can be read as it arrives, from a network or a pipe) and its weakness (no quick access to the last file).
 
 ### Unpacking
 
 `TarFile.ExtractToDirectory(tar file, target folder, overwrite)` writes all the entries to a folder, which **must exist**. 
 
-> [!WARNING] Never unpack an archive from an unknown source without checking the names of the entries. A bad archive can contain names such as `../../important.txt` that try to write outside the target folder (the attack is called *path traversal* or *zip slip*). `ExtractToDirectory` refuses such names, but if you write your own loop with `TarReader`, check each `Name` with `Path.GetFullPath` first ([tutorial 59](tut-59-paths.html)).
+> [!WARNING] Never unpack an archive from an unknown source without checking the names of the entries. A bad archive can contain names such as `../../important.txt` that try to write outside the target folder (the attack is called *path traversal* or *zip slip*). `ExtractToDirectory` refuses such names, but if you write your own loop with `TarReader`, check each `Name` with `Path.GetFullPath` first (the tutorial [Paths and the environment](tut-59-paths.html)).
 
 ## What you learned
 
@@ -57,11 +57,11 @@ Reading is *sequential*: a tar file has no index, so to find `notes/b.txt` the r
 
 ## Exercises
 
-1. Make a `.tar.gz`: create the tar file, then compress it with `GZipStream` ([tutorial 88](tut-88-compression.html)).
+1. Make a `.tar.gz`: create the tar file, then compress it with `GZipStream` (the tutorial [Compression](tut-88-compression.html)).
 2. Write `listTar(cFile)` that returns the names of the entries as a Ring list.
 3. Write a function that adds one more file to an archive with `TarWriter`.
 4. Make an archive with an empty folder and look at how it is listed.
 
 ## Next
 
-[Tutorial 112: File patterns (globbing)](tut-112-globbing.html)
+[File patterns (globbing)](tut-112-globbing.html)

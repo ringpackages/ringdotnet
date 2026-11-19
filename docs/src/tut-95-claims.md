@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 95: Identities and claims"
+title: "Identities and claims"
 lead: Programs that have users need a way to say who the user is and what the user may do. .NET describes a user with claims — small statements such as a name, an e-mail address and a role. This lesson builds an identity, finds claims, checks roles and writes a permission check.
 ---
 
@@ -11,7 +11,7 @@ lead: Programs that have users need a way to say who the user is and what the us
 - roles and `IsInRole`,
 - a permission check where the rules are data.
 
-ASP.NET Core uses exactly these classes for every login, so what you learn here is what a web program ([tutorial 16](tut-16-web-service.html)) receives after the user signed in. [Tutorial 49](tut-49-login.html) made a login with a password hash; this lesson is about what happens *after* the login.
+ASP.NET Core uses exactly these classes for every login, so what you learn here is what a web program (the tutorial [A web service with a database](tut-16-web-service.html)) receives after the user signed in. The tutorial [Login, sessions and cookies](tut-49-login.html) made a login with a password hash; this lesson is about what happens *after* the login.
 
 ## The program
 
@@ -39,9 +39,9 @@ All the constructors have several forms, so they are made with named values: `dn
 
 ### Rules as data
 
-Step 4 keeps *what a role may do* in a Ring list (`:Editor = ["read", "write"]`, ...) and the function `mayDo` asks: does any role of the user allow this action? The user has the roles Editor and Reviewer, so `read`, `write` and `comment` are allowed and `delete` is not. Rules in a list can be changed, saved ([tutorial 32](tut-32-settings.html)) and tested without changing the code, and this is the same idea as the *policies* of ASP.NET.
+Step 4 keeps *what a role may do* in a Ring list (`:Editor = ["read", "write"]`, ...) and the function `mayDo` asks: does any role of the user allow this action? The user has the roles Editor and Reviewer, so `read`, `write` and `comment` are allowed and `delete` is not. Rules in a list can be changed, saved (the tutorial [Settings](tut-32-settings.html)) and tested without changing the code, and this is the same idea as the *policies* of ASP.NET.
 
-> [!WARNING] A claim is only as trustworthy as its source. Claims that come from the user (a form field, a cookie that is not signed) prove nothing. Build the identity on the server, from your own database, after you checked the password ([tutorial 49](tut-49-login.html)) — and check the permission on the server for every action, not only by hiding a button.
+> [!WARNING] A claim is only as trustworthy as its source. Claims that come from the user (a form field, a cookie that is not signed) prove nothing. Build the identity on the server, from your own database, after you checked the password (the tutorial [Login, sessions and cookies](tut-49-login.html)) — and check the permission on the server for every action, not only by hiding a button.
 
 ## What you learned
 
@@ -54,9 +54,9 @@ Step 4 keeps *what a role may do* in a Ring list (`:Editor = ["read", "write"]`,
 
 1. Add the claim `Department = Sales` and write a rule that allows `delete` only for the Sales department.
 2. Make `hasAllRoles(oPrincipal, aRoles)`.
-3. Serialize the claims of a user to JSON ([tutorial 80](tut-80-json-nodes.html)) and build the identity again from the JSON.
+3. Serialize the claims of a user to JSON (the tutorial [JSON as a tree](tut-80-json-nodes.html)) and build the identity again from the JSON.
 4. Make an identity with no authentication type and look at `IsAuthenticated`.
 
 ## Next
 
-[Tutorial 114: Rate limiting](tut-114-rate-limiting.html)
+[Rate limiting](tut-114-rate-limiting.html)

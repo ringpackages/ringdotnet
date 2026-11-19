@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 31: A project: find duplicate files"
+title: "A project: find duplicate files"
 lead: Which files in this folder are copies of each other? A hash of the content answers it, even when the names differ. A project that combines folders, hashing and dictionaries.
 ---
 
@@ -59,8 +59,8 @@ A real tool avoids hashing every file: files with different **sizes** cannot be 
 1. Group by file size first; hash only the files whose size occurs more than once.
 2. Also compare the first 1 MB only for a quick check of very big files.
 3. Add an option to *move* duplicates to a `duplicates` folder instead of just reporting.
-4. Make it a window: a folder box, a *Scan* button, and the result in a `TreeView` ([tutorial 23](tut-23-layout.html)).
+4. Make it a window: a folder box, a *Scan* button, and the result in a `TreeView` (the tutorial [Layout and richer controls](tut-23-layout.html)).
 
 ## Next
 
-[Tutorial 46: A backup tool](tut-46-backup.html)
+[A project: a backup tool](tut-46-backup.html)

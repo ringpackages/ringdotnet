@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 89: Collections for many threads"
+title: "Collections for many threads"
 lead: The classes of System.Collections.Concurrent are safe when several threads use them at the same time. This lesson shows the queue, the stack, the blocking collection and the dictionary, and how closed generic types look when no Ring class exists for them.
 ---
 
@@ -14,7 +14,7 @@ lead: The classes of System.Collections.Concurrent are safe when several threads
 
 ## Why
 
-If two threads add to one `List` at the same moment, the list can lose an item or break. The concurrent collections do each step (add, remove, "add if missing") as **one indivisible step**. They are the tool for a producer that adds work and a consumer that takes it. The program in this lesson uses one thread, so that its output is always the same; the *calls* are the same as in a program with many threads. ([Tutorial 83](tut-83-tasks-waiting.html) shows tasks.)
+If two threads add to one `List` at the same moment, the list can lose an item or break. The concurrent collections do each step (add, remove, "add if missing") as **one indivisible step**. They are the tool for a producer that adds work and a consumer that takes it. The program in this lesson uses one thread, so that its output is always the same; the *calls* are the same as in a program with many threads. (The tutorial [Tasks that wait](tut-83-tasks-waiting.html) shows tasks.)
 
 ## The program
 
@@ -63,4 +63,4 @@ A queue is *first in, first out*; a stack is *last in, first out*: pushes of 1, 
 
 ## Next
 
-[Tutorial 65: Enums and flags](tut-65-enums.html)
+[Enums and flags](tut-65-enums.html)

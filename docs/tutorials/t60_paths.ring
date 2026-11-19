@@ -1,4 +1,4 @@
-# Tutorial 60: paths and the environment - building paths safely, splitting them, special folders and environment variables
+# paths and the environment - building paths safely, splitting them, special folders and environment variables
 load "dotnet.ring"
 using {
 	"System"

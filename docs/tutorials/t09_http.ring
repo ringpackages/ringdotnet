@@ -1,4 +1,4 @@
-# Tutorial 9: HTTP - a web server and a web client in one program
+# HTTP - a web server and a web client in one program
 load "dotnet.ring"
 using {
 	"System.Net.Http"

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 79: Two programs talking"
+title: "Two programs talking"
 lead: Programs on one computer can send each other messages through a named pipe, and they can share a lock so that only one copy of a program runs. This lesson starts a second copy of the program, talks to it, and shows what the lock does.
 ---
 
@@ -13,7 +13,7 @@ lead: Programs on one computer can send each other messages through a named pipe
 
 ## Pipes and mutexes
 
-A **named pipe** is a channel between two processes on one computer. One side is the *server*: it creates the pipe with a name and waits. The other side is the *client*: it connects to the name. Both sides get a stream and use it like a file or a socket ([tutorial 56](tut-56-streams.html), [tutorial 25](tut-25-sockets.html)). Pipes are fast and need no network and no port number.
+A **named pipe** is a channel between two processes on one computer. One side is the *server*: it creates the pipe with a name and waits. The other side is the *client*: it connects to the name. Both sides get a stream and use it like a file or a socket (the tutorial [Streams and compression](tut-56-streams.html), the tutorial [Sockets](tut-25-sockets.html)). Pipes are fast and need no network and no port number.
 
 A **named mutex** is a lock with a name. The first program that gets it holds it; another program that asks for the same name does not get it. Typical use: *a program that must not run twice* (a tray application, a database service, an installer).
 
@@ -45,7 +45,7 @@ The child tries the same mutex with `WaitOne(0)`: it does **not** get it, becaus
 
 A *protocol* is an agreement about what the messages look like. Here: one request per line, one answer per line, `quit` to finish, and `error: ...` for requests the child does not understand. Everything that goes over a pipe or a socket needs such an agreement; keep it as simple as this one.
 
-> [!WARNING] `ReadLine` waits until a line arrives; a window program must not wait like this ([tutorial 63](tut-63-chat.html) shows how to poll). Also set time limits (`Connect(5000)`) so that a missing partner cannot block your program for ever.
+> [!WARNING] `ReadLine` waits until a line arrives; a window program must not wait like this (the tutorial [A chat over TCP](tut-63-chat.html) shows how to poll). Also set time limits (`Connect(5000)`) so that a missing partner cannot block your program for ever.
 
 ## What you learned
 
@@ -59,8 +59,8 @@ A *protocol* is an agreement about what the messages look like. Here: one reques
 1. Make the child answer `time` with the current time.
 2. Let the parent start *two* children one after the other, each using the pipe in turn.
 3. Make a program that exits with a message when it cannot get the mutex, and start it twice from two terminals.
-4. Send a list as a line of JSON ([tutorial 80](tut-80-json-nodes.html)) and parse it on the other side.
+4. Send a list as a line of JSON (the tutorial [JSON as a tree](tut-80-json-nodes.html)) and parse it on the other side.
 
 ## Next
 
-[Tutorial 82: Shared memory](tut-82-shared-memory.html)
+[Shared memory](tut-82-shared-memory.html)

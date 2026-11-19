@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 43: Calendars and dates"
+title: "Calendars and dates"
 lead: Dates are harder than they look — months of different length, leap years, weekends. This lesson builds a text calendar, an age calculator and a business-day counter, using what .NET already knows.
 ---
 
@@ -74,4 +74,4 @@ Always use these methods, never `AddDays(30)` for a month.
 
 ## Next
 
-[Tutorial 76: Other calendars](tut-76-calendars.html)
+[Other calendars](tut-76-calendars.html)

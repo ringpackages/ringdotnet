@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 30: Tabular data"
+title: "Tabular data"
 lead: Rows and columns are everywhere — spreadsheets, CSV files, database results. This lesson reads a CSV text into a DataTable, then filters, sorts, summarises and writes it back.
 ---
 
@@ -23,7 +23,7 @@ South,Bob,800
 
 Spreadsheets, databases and many programs read and write it.
 
-> [!NOTE] Real CSV files can contain commas inside quoted values (`"Smith, John"`). This tutorial's data has none, so splitting on commas is enough. For messy files use a CSV library (a NuGet package, [tutorial 18](tut-18-csharp-library.html)) or a regular expression.
+> [!NOTE] Real CSV files can contain commas inside quoted values (`"Smith, John"`). This tutorial's data has none, so splitting on commas is enough. For messy files use a CSV library (a NuGet package, the tutorial [A library written in C#](tut-18-csharp-library.html)) or a regular expression.
 
 ## The program
 
@@ -52,11 +52,11 @@ The filter is a text such as `Region = 'North'` or `Amount > 500`: a small SQL-l
 
 ### Step 4: a DataView
 
-A `DataView` is a **window onto the table** with its own sort order and filter. `oView.Sort = "Amount DESC"` sorts, `oView.RowFilter = "Region = 'South'"` hides other rows, and `oView.Count` counts what is visible. The table itself is not changed; `RowFilter = ""` shows everything again. A grid bound to a view ([tutorial 23](tut-23-layout.html)) updates by itself.
+A `DataView` is a **window onto the table** with its own sort order and filter. `oView.Sort = "Amount DESC"` sorts, `oView.RowFilter = "Region = 'South'"` hides other rows, and `oView.Count` counts what is visible. The table itself is not changed; `RowFilter = ""` shows everything again. A grid bound to a view (the tutorial [Layout and richer controls](tut-23-layout.html)) updates by itself.
 
 ### Step 5: groups
 
-`Compute` has no "group by". Collect the different regions, then ask for the sum of each: a loop, `find` to avoid duplicates, `sort` to order them. (A database does this with `GROUP BY`; with a SQLite table, `groupCount` and `sqlRows` in [tutorial 17](tut-17-databases.html).)
+`Compute` has no "group by". Collect the different regions, then ask for the sum of each: a loop, `find` to avoid duplicates, `sort` to order them. (A database does this with `GROUP BY`; with a SQLite table, `groupCount` and `sqlRows` in the tutorial [Databases step by step](tut-17-databases.html).)
 
 ### Step 6: writing CSV
 
@@ -78,4 +78,4 @@ Loop over the rows and build lines. Join the values with commas and the lines wi
 
 ## Next
 
-[Tutorial 73: Reports with SQL](tut-73-sql-reports.html)
+[Reports with SQL](tut-73-sql-reports.html)

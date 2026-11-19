@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 104: Text readers and writers"
+title: "Text readers and writers"
 lead: StringWriter and StringReader are text streams that live in memory. This lesson uses them to write code that works with any writer (a string, a file, the console), to read text line by line, to capture the output of code that prints, and to format text with String.Format.
 ---
 
@@ -11,7 +11,7 @@ lead: StringWriter and StringReader are text streams that live in memory. This l
 - `Console.SetOut` to capture output,
 - composite formatting with `String.Format` (`{0}`, alignment, formats).
 
-[Tutorial 5](tut-05-files.html) wrote and read files and [tutorial 56](tut-56-streams.html) explained streams. A **string** can be a stream too, and that is very useful.
+The tutorial [Files and folders](tut-05-files.html) wrote and read files and the tutorial [Streams and compression](tut-56-streams.html) explained streams. A **string** can be a stream too, and that is very useful.
 
 ## The program
 
@@ -54,8 +54,8 @@ A `StringWriter` has the same methods as a `StreamWriter` (`Write`, `WriteLine`)
 1. Write `numberedLines(oReader, oWriter)` that copies a text and puts a line number before each line.
 2. Write a test that captures the output of `Console.WriteLine` and checks it.
 3. Make a table with `String.Format` and aligned columns for a list of products and prices.
-4. Read a CSV text with `StringReader` and `Split` ([tutorial 2](tut-02-text.html)).
+4. Read a CSV text with `StringReader` and `Split` (the tutorial [Working with text](tut-02-text.html)).
 
 ## Next
 
-[Tutorial 86: Escaping](tut-86-escaping.html)
+[Escaping](tut-86-escaping.html)

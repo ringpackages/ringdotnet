@@ -1,4 +1,4 @@
-# Tutorial 76: other calendars - Hijri (Umm al-Qura), Persian, Hebrew, Japanese and Thai Buddhist dates with System.Globalization
+# other calendars - Hijri (Umm al-Qura), Persian, Hebrew, Japanese and Thai Buddhist dates with System.Globalization
 load "dotnet.ring"
 using {
 	"System"

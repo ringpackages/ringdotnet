@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 85: Working with other programs"
+title: "Working with other programs"
 lead: A program can start other programs, send them text on their standard input, read what they print, set their environment, check their exit codes, and stop them when they take too long. This lesson does all of it with the Process class.
 ---
 
@@ -12,7 +12,7 @@ lead: A program can start other programs, send them text on their standard input
 - exit codes: `0` means success,
 - `WaitForExit(ms)` as a time limit and `Kill`.
 
-[Tutorial 10](tut-10-tasks-processes.html) started programs and [tutorial 37](tut-37-runner.html) showed their output in a window. This lesson adds the input side and the control of the new program.
+The tutorial [Time, tasks and other programs](tut-10-tasks-processes.html) started programs and the tutorial [A project: a command runner](tut-37-runner.html) showed their output in a window. This lesson adds the input side and the control of the new program.
 
 > [!NOTE] The examples use the Windows commands `sort`, `find` and `cmd`. On Linux and macOS use `sort`, `grep` and `sh -c`; the Ring code stays the same.
 
@@ -62,9 +62,9 @@ A program tells its result with an **exit code**: `0` is success, anything else 
 
 1. Write a function `runAndCapture(cFile, cArguments)` that returns `[exit code, output, error]`.
 2. Run `ping` with a time limit of two seconds and stop it if it is slower.
-3. Write a little program that reads lines from its input and prints them in upper case (the child of [tutorial 79](tut-79-processes-talk.html)) and feed it from the parent.
+3. Write a little program that reads lines from its input and prints them in upper case (the child of the tutorial [Two programs talking](tut-79-processes-talk.html)) and feed it from the parent.
 4. Chain three programs: sort, remove duplicates (`uniq` or `sort /unique`), count lines.
 
 ## Next
 
-[Tutorial 79: Two programs talking](tut-79-processes-talk.html)
+[Two programs talking](tut-79-processes-talk.html)

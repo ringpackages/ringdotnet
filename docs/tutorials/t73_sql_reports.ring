@@ -1,4 +1,4 @@
-# Tutorial 73: reports with SQL - JOIN, GROUP BY, HAVING, LEFT JOIN, sub-queries and parameters
+# reports with SQL - JOIN, GROUP BY, HAVING, LEFT JOIN, sub-queries and parameters
 load "dotnet.ring"
 using { "RingDotNet.Data" }
 

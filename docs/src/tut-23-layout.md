@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 23: Layout and richer controls"
+title: "Layout and richer controls"
 lead: Make a window that looks right at every size, with a draggable split bar, tabs, a table of labels and a data grid that shows a filtered table.
 ---
 
@@ -12,7 +12,7 @@ lead: Make a window that looks right at every size, with a draggable split bar, 
 
 ## Layout in Windows Forms
 
-Placing controls with x and y numbers (as in tutorial 11) is fine for a small fixed window. A window that the user can resize needs **layout containers**:
+Placing controls with x and y numbers (as in [Your first window](tut-11-first-window.html)) is fine for a small fixed window. A window that the user can resize needs **layout containers**:
 
 | Tool | What it does |
 |---|---|
@@ -73,8 +73,8 @@ A table with columns and rows. `oTable.Controls.Add([ :control = oTitle, :column
 1. Add a `FlowLayoutPanel` at the bottom with three buttons that wrap when the window is narrow.
 2. Sort the grid by quantity when the user clicks a button (`oView.Sort = "Quantity DESC"`).
 3. Add a text box that filters the *customer list* by what the user types.
-4. Add a third tab with a `PictureBox` that shows the picture made in tutorial 22.
+4. Add a third tab with a `PictureBox` that shows the picture made in the tutorial [Images](tut-22-images.html).
 
 ## Next
 
-[Tutorial 13: A text editor](tut-13-editor.html)
+[A small text editor](tut-13-editor.html)

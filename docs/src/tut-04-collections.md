@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 4: Collections and LINQ"
+title: "Collections and LINQ"
 lead: Lists, dictionaries, sets, queues and stacks, how to sort them, and how to ask questions about them with LINQ.
 ---
 
@@ -73,4 +73,4 @@ Read it as: from `aSales`, *where* the item is at least 100, *order by* the item
 
 ## Next
 
-[Tutorial 5: Files and folders](tut-05-files.html)
+[Files and folders](tut-05-files.html)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 36: A chart"
+title: "A chart"
 lead: Turn numbers into a picture. A bar chart needs only a little arithmetic — scaling values to pixels, a round-numbered axis — and the drawing calls you already know.
 ---
 
@@ -48,7 +48,7 @@ The width available for one bar is `nSlot`, the plot width divided by the number
 
 ### Saving
 
-`oCanvas.oBitmap` is the .NET bitmap that the canvas draws on: `Save([ :filename = ..., :format = ... ])` writes a PNG ([tutorial 22](tut-22-images.html)).
+`oCanvas.oBitmap` is the .NET bitmap that the canvas draws on: `Save([ :filename = ..., :format = ... ])` writes a PNG (the tutorial [Images](tut-22-images.html)).
 
 ### Testing a drawing
 
@@ -65,9 +65,9 @@ You cannot look at a picture in a test, but you can **read pixels**. `oCanvas.pi
 
 1. Draw a **line chart**: points joined by `oCanvas.line`.
 2. Add a legend that lists the months with their colours.
-3. Read the data from a CSV file ([tutorial 30](tut-30-tables.html)).
+3. Read the data from a CSV file (the tutorial [Tabular data](tut-30-tables.html)).
 4. Draw a **pie chart** with `FillPie` (`Graphics`), using the percentage of each value.
 
 ## Next
 
-[Tutorial 42: A folder browser](tut-42-browser.html)
+[A folder browser](tut-42-browser.html)

@@ -1,4 +1,4 @@
-# Tutorial 121: MIME types - file extensions to content types, reading a Content-Type header, and choosing what to send for an Accept header
+# MIME types - file extensions to content types, reading a Content-Type header, and choosing what to send for an Accept header
 load "dotnet.ring"
 using {
 	"System"

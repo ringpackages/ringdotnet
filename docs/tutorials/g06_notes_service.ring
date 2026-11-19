@@ -1,4 +1,4 @@
-# Tutorial 16: a web service with a database - JSON over HTTP, stored with Entity Framework
+# a web service with a database - JSON over HTTP, stored with Entity Framework
 load "dotnet.ring"
 using {
 	"System.Net.Http"

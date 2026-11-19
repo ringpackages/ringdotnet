@@ -1,4 +1,4 @@
-# Tutorial 99: vectors and matrices - Vector3 (length, dot and cross product, distance), Vector2 and a rotation with Matrix3x2
+# vectors and matrices - Vector3 (length, dot and cross product, distance), Vector2 and a rotation with Matrix3x2
 load "dotnet.ring"
 using {
 	"System"

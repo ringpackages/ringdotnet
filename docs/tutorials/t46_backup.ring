@@ -1,4 +1,4 @@
-# Tutorial 46: a project - a backup tool (zip a folder, name by date, keep the newest few, restore)
+# a project - a backup tool (zip a folder, name by date, keep the newest few, restore)
 load "dotnet.ring"
 using {
 	"System"

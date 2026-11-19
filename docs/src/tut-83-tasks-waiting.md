@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 83: Tasks that wait"
+title: "Tasks that wait"
 lead: A Task is something that finishes later. .NET can start many of them at once, wait for all or for the first, give up after a time limit, and cancel the ones that are no longer needed. This lesson uses delays to show it, without any threads of your own.
 ---
 
@@ -42,7 +42,7 @@ The tasks go into a Ring list, which `WhenAll` and `WhenAny` take as an array of
 
 ### Cancellation
 
-A `CancellationTokenSource` is a switch. `CancelAfter(100)` turns it on after 100 ms. Its `Token` goes with the work: `Task.Delay([ :millisecondsDelay = 5000, :cancellationToken = oSource.Token ])` is a delay of five seconds that ends *cancelled* when the switch turns on. Waiting for a cancelled task raises an error (the `catch` sees it), `IsCanceled` is true and `Status` is `Canceled`. Most asynchronous methods of .NET accept a token as their last parameter, for example `HttpClient.GetAsync` ([tutorial 84](tut-84-http-client.html)).
+A `CancellationTokenSource` is a switch. `CancelAfter(100)` turns it on after 100 ms. Its `Token` goes with the work: `Task.Delay([ :millisecondsDelay = 5000, :cancellationToken = oSource.Token ])` is a delay of five seconds that ends *cancelled* when the switch turns on. Waiting for a cancelled task raises an error (the `catch` sees it), `IsCanceled` is true and `Status` is `Canceled`. Most asynchronous methods of .NET accept a token as their last parameter, for example `HttpClient.GetAsync` (the tutorial [HttpClient in depth](tut-84-http-client.html)).
 
 > [!TIP] Dispose a `CancellationTokenSource` when you are done with it (`oSource.Dispose()`).
 
@@ -60,11 +60,11 @@ Step 6 starts five delays and waits for them with one `WhenAll`: the total is ab
 
 ## Exercises
 
-1. Start three `HttpClient` requests ([tutorial 84](tut-84-http-client.html)) and wait for all with `WhenAll`; compare the time with doing them one after another.
+1. Start three `HttpClient` requests (the tutorial [HttpClient in depth](tut-84-http-client.html)) and wait for all with `WhenAll`; compare the time with doing them one after another.
 2. Print the elapsed milliseconds for each step and see how close they are to the delays.
 3. Use `WhenAny` with a delay as a **timeout**: whichever of a request and a 2-second delay ends first wins.
 4. Cancel a `Process.WaitForExitAsync` of a program that runs for a minute.
 
 ## Next
 
-[Tutorial 71: Releasing resources](tut-71-dispose.html)
+[Releasing resources](tut-71-dispose.html)

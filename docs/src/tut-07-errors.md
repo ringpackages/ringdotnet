@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 7: When things go wrong"
+title: "When things go wrong"
 lead: Files go missing, text is not a number, networks fail. This lesson shows how .NET reports problems, how to catch them, and how to write programs that handle them calmly.
 ---
 
@@ -79,4 +79,4 @@ While developing, set the environment variable `RINGDOTNET_TRACE=1` and the erro
 
 ## Next
 
-[Tutorial 8: Hashing and encryption](tut-08-security.html)
+[Hashing and encryption](tut-08-security.html)

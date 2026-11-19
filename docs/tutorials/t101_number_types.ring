@@ -1,4 +1,4 @@
-# Tutorial 101: number types - the limits of Byte, Int16, Int32, Int64 and Int128, overflow, checked conversion, Half and Single
+# number types - the limits of Byte, Int16, Int32, Int64 and Int128, overflow, checked conversion, Half and Single
 load "dotnet.ring"
 using {
 	"System"

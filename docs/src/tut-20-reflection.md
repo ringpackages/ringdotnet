@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 20: Exploring .NET with reflection"
+title: "Exploring .NET with reflection"
 lead: You do not have to guess what a class can do. A program can ask: this lesson lists the properties, methods and parameters of a class, and shows where to find the same information in the manual.
 ---
 
@@ -68,4 +68,4 @@ You often need only to *look*. The [class reference](api.html) shows, for every 
 
 ## Next
 
-[Tutorial 87: Expression trees](tut-87-expressions.html)
+[Expression trees](tut-87-expressions.html)

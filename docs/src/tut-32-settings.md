@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 32: Settings"
+title: "Settings"
 lead: Programs should remember how the user likes them. This lesson stores settings in a JSON file with defaults, handles a damaged file, and shows where programs keep such files.
 ---
 
@@ -48,7 +48,7 @@ Everything about settings is in one Ring class, `Settings`, so the rest of the p
 
 ### Saving
 
-`save` writes a JSON object by hand: texts in quotes, numbers without. For real data with arbitrary text use `JsonSerializer` ([tutorial 6](tut-06-json-xml.html)), which also escapes quotes and line breaks.
+`save` writes a JSON object by hand: texts in quotes, numbers without. For real data with arbitrary text use `JsonSerializer` (the tutorial [JSON and XML](tut-06-json-xml.html)), which also escapes quotes and line breaks.
 
 ### Loading
 
@@ -70,8 +70,8 @@ The program writes `this is not json {` to the file and creates a `Settings` obj
 1. Move the file to `ApplicationData\TutorialApp\settings.json` (create the folder if needed with `Directory.CreateDirectory`).
 2. Add a `recentFiles` setting that holds a list of up to five names.
 3. Make `setValue` refuse an unknown key with an error.
-4. Use the settings in a window: remember its position and size, and restore them when it opens ([tutorial 13](tut-13-editor.html)).
+4. Use the settings in a window: remember its position and size, and restore them when it opens (the tutorial [A small text editor](tut-13-editor.html)).
 
 ## Next
 
-[Tutorial 111: Configuration](tut-111-configuration.html)
+[Configuration](tut-111-configuration.html)

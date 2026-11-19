@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 87: Expression trees"
+title: "Expression trees"
 lead: An expression tree is code stored as data. This lesson builds functions from parts — parameters, additions, comparisons, method calls — prints them as readable code, compiles them and calls them. It is how a program can run a formula that the user typed.
 ---
 
@@ -11,7 +11,7 @@ lead: An expression tree is code stored as data. This lesson builds functions fr
 - compiling a tree (`Compile`) and calling the function,
 - building a tree from something the program receives at run time.
 
-Entity Framework builds its queries the same way ([tutorial 27](tut-27-entities.html)): a condition is first a *tree*, which can be turned into SQL, and only a compiled tree is a function you can run.
+Entity Framework builds its queries the same way (the tutorial [Entity objects and migrations](tut-27-entities.html)): a condition is first a *tree*, which can be turned into SQL, and only a compiled tree is a function you can run.
 
 ## The program
 
@@ -48,7 +48,7 @@ The factory methods have several forms, so they take a list of named values ([Co
 
 ### Built from data
 
-Step 5 receives only the *name of an operator* (`"+"`, `"-"`, `"*"`, `"/"`) and builds the function for it. A formula parser such as [tutorial 54](tut-54-expression.html) could produce the same kind of tree from the text of the user, and the result would be a compiled function. This is the use of expression trees: the program does not know the code in advance.
+Step 5 receives only the *name of an operator* (`"+"`, `"-"`, `"*"`, `"/"`) and builds the function for it. A formula parser such as the tutorial [An expression calculator](tut-54-expression.html) could produce the same kind of tree from the text of the user, and the result would be a compiled function. This is the use of expression trees: the program does not know the code in advance.
 
 > [!WARNING] A tree built from a user's text can do whatever the nodes allow, including calling methods. Only allow the nodes that your formula language needs (arithmetic, comparisons) and never let a user choose the method of a `Call_`.
 
@@ -64,8 +64,8 @@ Step 5 receives only the *name of an operator* (`"+"`, `"-"`, `"*"`, `"/"`) and 
 1. Build `a * a - b` and compile it.
 2. Build a function that returns `a` when `a` is positive and `0 - a` otherwise (the absolute value).
 3. Extend the helper `binaryFunction` with `%` (`Modulo`) and `>` (`GreaterThan`).
-4. Turn the parser of [tutorial 54](tut-54-expression.html) into a function that returns a tree instead of a number.
+4. Turn the parser of the tutorial [An expression calculator](tut-54-expression.html) into a function that returns a tree instead of a number.
 
 ## Next
 
-[Tutorial 18: A C# library](tut-18-csharp-library.html)
+[A library written in C#](tut-18-csharp-library.html)

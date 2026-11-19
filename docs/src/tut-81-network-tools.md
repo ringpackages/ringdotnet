@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 81: Network tools"
+title: "Network tools"
 lead: IP addresses, names, ping, network interfaces and "is this port open?" — the classes behind everyday network tools. Everything in this lesson runs on your own computer, so it works without internet.
 ---
 
@@ -67,4 +67,4 @@ The last step starts a `TcpListener` on port 0 (the system chooses a free port) 
 
 ## Next
 
-[Tutorial 102: IP networks](tut-102-ip-networks.html)
+[IP networks](tut-102-ip-networks.html)

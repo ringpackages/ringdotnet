@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 9: HTTP"
+title: "HTTP"
 lead: Almost every program talks to another over HTTP. This lesson builds a tiny web server and a web client in one program, so you can see both sides of the conversation.
 ---
 
@@ -67,4 +67,4 @@ The web server runs on .NET's own threads, but your Ring code may only run on th
 
 ## Next
 
-[Tutorial 10: Tasks and programs](tut-10-tasks-processes.html)
+[Time, tasks and other programs](tut-10-tasks-processes.html)

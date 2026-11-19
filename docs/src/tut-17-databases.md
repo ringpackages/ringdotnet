@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 17: Databases step by step"
+title: "Databases step by step"
 lead: Store data that survives the end of the program. Describe tables, add and read rows, search, connect tables, ask questions, group a transaction, and keep everything in a file.
 ---
 
@@ -103,4 +103,4 @@ A **transaction** groups changes: `begin()`, several changes, then `commit()` to
 
 ## Next
 
-[Tutorial 30: Tabular data](tut-30-tables.html)
+[Tabular data](tut-30-tables.html)

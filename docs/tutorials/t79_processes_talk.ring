@@ -1,4 +1,4 @@
-# Tutorial 79: two programs talking - a named pipe between processes, and a mutex that allows only one copy
+# two programs talking - a named pipe between processes, and a mutex that allows only one copy
 #   ring t79_processes_talk.ring            the parent: it starts a second copy of this program (the child) and talks to it
 #   ring t79_processes_talk.ring --child    the child (the parent starts it, you do not)
 load "dotnet.ring"

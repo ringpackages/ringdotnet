@@ -1,4 +1,4 @@
-# Tutorial 84: HttpClient in depth - headers both ways, status codes, errors, time limits, cancelling and saving a download
+# HttpClient in depth - headers both ways, status codes, errors, time limits, cancelling and saving a download
 #   (a small server runs inside the program, so no internet is needed; the client code is what you write for a real service)
 load "dotnet.ring"
 using {

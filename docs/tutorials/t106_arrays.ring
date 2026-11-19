@@ -1,4 +1,4 @@
-# Tutorial 106: arrays - Ring lists and .NET arrays, Array.Sort, Reverse, IndexOf, BinarySearch, Copy and Clear, and arrays with two dimensions
+# arrays - Ring lists and .NET arrays, Array.Sort, Reverse, IndexOf, BinarySearch, Copy and Clear, and arrays with two dimensions
 load "dotnet.ring"
 using {
 	"System"

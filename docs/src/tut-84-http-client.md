@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 84: HttpClient in depth"
+title: "HttpClient in depth"
 lead: Headers in both directions, status codes that are answers and not errors, EnsureSuccessStatusCode, cancelling a request, and saving a download to a file without holding it in memory. A small server in the same program makes it work without the internet.
 ---
 
@@ -12,7 +12,7 @@ lead: Headers in both directions, status codes that are answers and not errors, 
 - cancelling a request that takes too long,
 - saving a download with `CopyToAsync`.
 
-[Tutorial 39](tut-39-rest-client.html) made a first REST client; [tutorial 9](tut-09-http.html) explained HTTP. This lesson adds what you need for real services.
+The tutorial [A REST client](tut-39-rest-client.html) made a first REST client; the tutorial [HTTP](tut-09-http.html) explained HTTP. This lesson adds what you need for real services.
 
 ## The program
 
@@ -38,11 +38,11 @@ Step 1 shows both directions. The request carried `X-Client`; the page read it w
 
 ### EnsureSuccessStatusCode
 
-When *anything but success* means "stop", call `oResponse.EnsureSuccessStatusCode()`: it raises an `HttpRequestException` that says which code came, and your `try` / `catch` handles it in one place ([tutorial 7](tut-07-errors.html)).
+When *anything but success* means "stop", call `oResponse.EnsureSuccessStatusCode()`: it raises an `HttpRequestException` that says which code came, and your `try` / `catch` handles it in one place (the tutorial [When things go wrong](tut-07-errors.html)).
 
 ### Cancelling
 
-A `CancellationTokenSource` ([tutorial 83](tut-83-tasks-waiting.html)) with `CancelAfter(300)` and its token in `GetAsync([ :requestUri = …, :cancellationToken = oSource.Token ])` cancels a request that is not finished after 300 ms. In the tutorial the `/slow` page is simply never served, so only the cancel can end it; the task ends *cancelled* and `Wait` raises an error. This is how a window program offers a **Cancel** button: the click calls `oSource.Cancel()`.
+A `CancellationTokenSource` (the tutorial [Tasks that wait](tut-83-tasks-waiting.html)) with `CancelAfter(300)` and its token in `GetAsync([ :requestUri = …, :cancellationToken = oSource.Token ])` cancels a request that is not finished after 300 ms. In the tutorial the `/slow` page is simply never served, so only the cancel can end it; the task ends *cancelled* and `Wait` raises an error. This is how a window program offers a **Cancel** button: the click calls `oSource.Cancel()`.
 
 > [!NOTE] The little server lives in this program and handles requests only while the program calls `serveOne`. The helper `fetchPage` keeps serving until its own request is finished, so it also serves requests of earlier, cancelled calls. A real server runs elsewhere and does not need that.
 
@@ -63,9 +63,9 @@ A `CancellationTokenSource` ([tutorial 83](tut-83-tasks-waiting.html)) with `Can
 
 1. Add a header `Authorization` with a fake token and let the server answer `401` when it is missing.
 2. Download the file with `ResponseHeadersRead` and print the `ContentLength` from the headers before copying.
-3. Send three requests together and wait with `WhenAll` ([tutorial 83](tut-83-tasks-waiting.html)).
+3. Send three requests together and wait with `WhenAll` (the tutorial [Tasks that wait](tut-83-tasks-waiting.html)).
 4. Retry a request three times with a pause when the status is `503`.
 
 ## Next
 
-[Tutorial 39: A REST client](tut-39-rest-client.html)
+[A REST client](tut-39-rest-client.html)

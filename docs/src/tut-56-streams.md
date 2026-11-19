@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 56: Streams and compression"
+title: "Streams and compression"
 lead: A stream is a flow of bytes that can come from memory, a file or the network. This lesson writes and reads a MemoryStream, compresses text with GZip, and shows why one pattern works for everything.
 ---
 
@@ -19,7 +19,7 @@ A stream is like a pipe: bytes go in at one end and come out at the other. The s
 |---|---|
 | `MemoryStream` | memory |
 | `FileStream` | a file (`File.Create`, `File.OpenRead`) |
-| `NetworkStream` | a socket ([tutorial 25](tut-25-sockets.html)) |
+| `NetworkStream` | a socket (the tutorial [Sockets](tut-25-sockets.html)) |
 | `GZipStream` | *wraps* another stream and compresses or decompresses what passes |
 | `StreamWriter` / `StreamReader` | turn text into bytes and back |
 
@@ -56,10 +56,10 @@ Step 5 stacks a `StreamWriter` on a `GZipStream` on a file created with `File.Cr
 
 ## Exercises
 
-1. Compress a text file to `.gz` and decompress it to a new file, then compare the two with a hash ([tutorial 8](tut-08-security.html)).
+1. Compress a text file to `.gz` and decompress it to a new file, then compare the two with a hash (the tutorial [Hashing and encryption](tut-08-security.html)).
 2. Try `ZipArchive` to put several files in one zip.
 3. Compress a text of 200 *different* lines and compare the size with the repeated text.
 
 ## Next
 
-[Tutorial 45: Binary files](tut-45-binary.html)
+[Binary files](tut-45-binary.html)

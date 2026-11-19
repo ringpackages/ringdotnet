@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 119: Giving your program to others"
+title: "Giving your program to others"
 lead: A program that works on your computer is not finished until it works on somebody else's. This lesson turns a RingDotNet program into a folder with a program file that runs without Ring, explains what must be on the other computer, and adds a self check that says what is missing instead of crashing.
 ---
 
@@ -32,7 +32,7 @@ ring ring2exe.ring myprogram.ring -dist -dotnet
 
 (`ring2exe.ring` is in `ring/tools/ring2exe`; give its path, or build `ring2exe.exe` once and use `ring2exe myprogram.ring -dist -dotnet`.) The option `-dist` prepares a folder for distribution and `-dotnet` adds the files of RingDotNet. Use `-gui` too for a program with a window, so that no console window opens behind it.
 
-**2. Look at the folder.** `target/windows` now holds the program (`myprogram.exe`), `ring.dll`, the compiled program (`ring.ringo`), the extension (`ring_dotnet.dll`), the **bridge** and its libraries (`RingDotNet.Bridge.dll`, `RingDotNet.Data.dll`, `RingDotNet.Web.dll` and the runtime configuration files), the libraries for databases (Entity Framework and SQLite with `e_sqlite3.dll`), and `System.Data.Odbc.dll` for Access ([tutorial 115](tut-115-access.html)). The list of files is in `tools/ring2exe/libs/dotnet.ring`; the folder is about 11 MB.
+**2. Look at the folder.** `target/windows` now holds the program (`myprogram.exe`), `ring.dll`, the compiled program (`ring.ringo`), the extension (`ring_dotnet.dll`), the **bridge** and its libraries (`RingDotNet.Bridge.dll`, `RingDotNet.Data.dll`, `RingDotNet.Web.dll` and the runtime configuration files), the libraries for databases (Entity Framework and SQLite with `e_sqlite3.dll`), and `System.Data.Odbc.dll` for Access (the tutorial [Microsoft Access databases](tut-115-access.html)). The list of files is in `tools/ring2exe/libs/dotnet.ring`; the folder is about 11 MB.
 
 **3. Test it without Ring.** The only real test is on a computer or a folder where Ring is *not* in the `PATH`: open a command window, go to `target/windows`, and run `myprogram.exe`. The self check of this lesson, built this way and run from its own folder, says *yes* to every line.
 
@@ -45,7 +45,7 @@ ring ring2exe.ring myprogram.ring -dist -dotnet
 | the **.NET runtime**, version 6 or newer (the files are made for .NET 9: install the 9.0 runtime) | always. This is the *runtime*, not the SDK. Without it the program stops with *".NET runtime not found"* |
 | the **ASP.NET Core runtime**, same version | programs with a web server, or that use `Microsoft.AspNetCore`, `Microsoft.Extensions.*` (configuration, data protection, rate limiting, routing...). It is installed together with the "ASP.NET Core Runtime" or the "Hosting Bundle" |
 | the **Windows Desktop runtime** | programs with Windows Forms or WPF windows (Windows only) |
-| the **Microsoft Access Database Engine** (64-bit) | programs that open Access files ([tutorial 115](tut-115-access.html)) |
+| the **Microsoft Access Database Engine** (64-bit) | programs that open Access files (the tutorial [Microsoft Access databases](tut-115-access.html)) |
 | 64-bit Windows | the files are 64-bit |
 
 The runtimes are free downloads from `dotnet.microsoft.com`; tell users the exact name. If the runtime is installed in an unusual place, the variable `DOTNET_ROOT` points to it.
@@ -88,7 +88,7 @@ The same options work (`ring ring2exe.ring myprogram.ring -dist -dotnet`), and t
 1. Build the self check as `selfcheck.exe` and run it from a folder where Ring is not in the `PATH`.
 2. Add your own library (`dnLoad`) and see what ring2exe does not copy; add it to your distribution by hand.
 3. Make the program print *"Install the .NET runtime 9.0 from dotnet.microsoft.com"* and stop when line 1 says no.
-4. Make a zip file of the folder with `ZipFile` ([tutorial 5](tut-05-files.html)) and check its size.
+4. Make a zip file of the folder with `ZipFile` (the tutorial [Files and folders](tut-05-files.html)) and check its size.
 
 ## Where to go next
 

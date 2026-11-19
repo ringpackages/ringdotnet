@@ -1,4 +1,4 @@
-# Tutorial 96: tar archives - make a .tar from a folder, list it, read one file from it and unpack it (System.Formats.Tar)
+# tar archives - make a .tar from a folder, list it, read one file from it and unpack it (System.Formats.Tar)
 load "dotnet.ring"
 using {
 	"System"
@@ -22,7 +22,7 @@ func main
 	oFile.WriteAllText([ :path = oPath.Combine([cSource,"notes","a.txt"]), :contents = "Note A" ])
 	oFile.WriteAllText([ :path = oPath.Combine([cSource,"notes","b.txt"]), :contents = "Note B, a little longer" ])
 
-	# 1. Tar puts files and folders into ONE file (it does not compress: that is what gzip does, see tutorial 88). It is the usual
+	# 1. Tar puts files and folders into ONE file (it does not compress: that is what gzip does, see the tutorial "Compression"). It is the usual
 	#    format for packing a folder on Linux and macOS, and Docker images are tar files too.
 	dnStatic("System.Formats.Tar.TarFile","CreateFromDirectory",[cSource,cTar,False])      # (source folder, tar file, include the folder itself)
 	? "1. the tar file exists: " + oFile.Exists(cTar) + ", size is a multiple of 512 bytes: " + (new FileInfo(cTar).Length % 512 = 0)

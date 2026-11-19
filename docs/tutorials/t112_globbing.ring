@@ -1,4 +1,4 @@
-# Tutorial 112: file patterns (globbing) - "**/*.ring", include and exclude rules, matching a list of paths, and finding files in a folder tree
+# file patterns (globbing) - "**/*.ring", include and exclude rules, matching a list of paths, and finding files in a folder tree
 load "dotnet.ring"
 using {
 	"System"
@@ -12,7 +12,7 @@ func main
 	#   **     any number of folders (also none)         **/*.ring  src/a.ring, src/sub/b.ring, a.ring
 	#   ?      one character                             file?.txt  file1.txt, fileA.txt
 	cBase = makeTree()
-	cExt = "Microsoft.Extensions.FileSystemGlobbing.MatcherExtensions"          # Match and GetResultsInFullPath are extension methods (tutorial 109)
+	cExt = "Microsoft.Extensions.FileSystemGlobbing.MatcherExtensions"          # Match and GetResultsInFullPath are extension methods (the tutorial "Caching")
 
 	# 1. A Matcher has include rules and exclude rules. A file is in the result when an include rule matches it and no exclude rule does.
 	oMatcher = dnNew("Microsoft.Extensions.FileSystemGlobbing.Matcher",[])
@@ -36,7 +36,7 @@ func main
 	showFiles(oMatcher3,cBase)
 
 	# 4. A pattern does not need files on a disk: Match(root, list of paths) tests a list of names, for example the files of an archive
-	#    (tutorial 108) or the changed files of a project. The paths use / and are relative to the root.
+	#    (the tutorial "ZIP archives in memory") or the changed files of a project. The paths use / and are relative to the root.
 	aPaths = ["src/main.ring","src/old_main.ring","README.md","docs/guide/intro.md","docs/logo.png"]
 	oResult = dnStatic(cExt,"Match",[oMatcher3,".",stringList(aPaths)])
 	? nl + "4. which of the names are matched: has matches = " + oResult.getProp("HasMatches")

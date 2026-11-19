@@ -1,4 +1,4 @@
-# Tutorial 75: recursion - a function that calls itself: factorial, the Hanoi towers, permutations, a folder tree and a flood fill
+# recursion - a function that calls itself: factorial, the Hanoi towers, permutations, a folder tree and a flood fill
 load "dotnet.ring"
 using {
 	"System"

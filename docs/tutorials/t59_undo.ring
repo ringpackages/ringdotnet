@@ -1,4 +1,4 @@
-# Tutorial 59: stacks and queues - undo/redo with two stacks, and a first-come-first-served job queue
+# stacks and queues - undo/redo with two stacks, and a first-come-first-served job queue
 load "dotnet.ring"
 using {
 	"System.Collections.Generic"

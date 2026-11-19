@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 93: Identifiers and versions"
+title: "Identifiers and versions"
 lead: Guid gives unique identifiers without a central counter, and Version compares version numbers by number and not as text. This lesson uses both, and shows why "1.10" comes after "1.9".
 ---
 
@@ -23,9 +23,9 @@ lead: Guid gives unique identifiers without a central counter, and Version compa
 
 A `Guid` is a 128-bit number. A new one is random, with so many possible values that two programs on two computers never make the same one in practice, so no server or counter has to hand them out. That makes a Guid a good key for a record that is created offline, a name for a temporary file and an id in a message. `NewGuid()` gives a new one; the output of step 1 shows only its shape (36 characters with dashes in fixed places), because the value is different at every run.
 
-`Parse` reads the usual text; `Format("N")` writes 32 digits without dashes, `"B"` writes with braces and `"D"` (the default) with dashes. `Guid.Empty` is all zeros: use it as "no value". `TryParse` answers `[ success, value ]` and does not raise an error for text such as `hello` ([tutorial 81](tut-81-network-tools.html) explains `out` values).
+`Parse` reads the usual text; `Format("N")` writes 32 digits without dashes, `"B"` writes with braces and `"D"` (the default) with dashes. `Guid.Empty` is all zeros: use it as "no value". `TryParse` answers `[ success, value ]` and does not raise an error for text such as `hello` (the tutorial [Network tools](tut-81-network-tools.html) explains `out` values).
 
-> [!WARNING] A Guid is unique, not secret. Do not use it as a password or a security token; use `RandomNumberGenerator` ([tutorial 78](tut-78-crypto.html)).
+> [!WARNING] A Guid is unique, not secret. Do not use it as a password or a security token; use `RandomNumberGenerator` (the tutorial [Protecting and signing messages](tut-78-crypto.html)).
 
 ### Version
 
@@ -39,7 +39,7 @@ A `List<Version>` (made with `dnNewGeneric`) sorts itself with `Sort()`, which c
 
 ### The running version
 
-`Environment.Version` is the version of the .NET runtime that runs the program; the program prints only a test, because the number depends on your computer. An assembly has its own version (`Assembly.GetName().Version`), which [tutorial 20](tut-20-reflection.html) can read.
+`Environment.Version` is the version of the .NET runtime that runs the program; the program prints only a test, because the number depends on your computer. An assembly has its own version (`Assembly.GetName().Version`), which the tutorial [Exploring .NET with reflection](tut-20-reflection.html) can read.
 
 ## What you learned
 
@@ -57,4 +57,4 @@ A `List<Version>` (made with `dnNewGeneric`) sorts itself with `Sort()`, which c
 
 ## Next
 
-[Tutorial 58: Undo, redo and queues](tut-58-undo.html)
+[Undo, redo and queues](tut-58-undo.html)

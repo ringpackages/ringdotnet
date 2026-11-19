@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 22: Images"
+title: "Images"
 lead: Create a picture in memory, draw on it, read and change pixels, convert it to gray, resize it and save it as a PNG — all without opening a window.
 ---
 
@@ -46,7 +46,7 @@ The three pictures that the program saves:
 
 Colours are `new Color().SteelBlue`, `new Color().Black`... (the names of the .NET `Color` properties). A pen's width is a property: `new Pen(color) { Width = 3 }`.
 
-> [!TIP] These drawing methods take their arguments **in order**: a `Rectangle` or a `Point` object carries the numbers. In [tutorial 14](tut-14-animation.html) `UiCanvas` gives shorter calls for simple drawing on screen.
+> [!TIP] These drawing methods take their arguments **in order**: a `Rectangle` or a `Point` object carries the numbers. In the tutorial [Drawing and animation](tut-14-animation.html) `UiCanvas` gives shorter calls for simple drawing on screen.
 
 ### Pixels
 
@@ -86,4 +86,4 @@ Draw the loaded image into a smaller rectangle of a new bitmap: `DrawImage(oLoad
 
 ## Next
 
-[Tutorial 36: A chart](tut-36-chart.html)
+[A chart](tut-36-chart.html)

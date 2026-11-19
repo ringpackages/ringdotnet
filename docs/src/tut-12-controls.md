@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 12: A form with many controls"
+title: "A form with many controls"
 lead: Build a registration form with text boxes, a number box, a combo box, a check box and a list box, read what the user typed, and check it before accepting.
 ---
 
@@ -88,4 +88,4 @@ The test finds the **Register** button with `oForm.Controls.Item(7)` — the sev
 
 ## Next
 
-[Tutorial 23: Layout and controls](tut-23-layout.html)
+[Layout and richer controls](tut-23-layout.html)

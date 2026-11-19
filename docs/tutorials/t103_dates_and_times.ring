@@ -1,4 +1,4 @@
-# Tutorial 103: dates and times - DateOnly, TimeOnly, DateTimeOffset, TimeSpan and calculations that do not break
+# dates and times - DateOnly, TimeOnly, DateTimeOffset, TimeSpan and calculations that do not break
 load "dotnet.ring"
 using {
 	"System"

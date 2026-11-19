@@ -1,4 +1,4 @@
-# Tutorial 89: collections for many threads - ConcurrentQueue, ConcurrentStack, BlockingCollection and ConcurrentDictionary
+# collections for many threads - ConcurrentQueue, ConcurrentStack, BlockingCollection and ConcurrentDictionary
 load "dotnet.ring"
 using {
 	"System"

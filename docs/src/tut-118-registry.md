@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 118: The Windows Registry"
+title: "The Windows Registry"
 lead: Windows and many programs keep their settings in the Registry, a tree of keys that hold values. This lesson reads and writes values of every common type in HKEY_CURRENT_USER, lists values and sub-keys, and cleans up after itself. It runs on Windows only.
 ---
 
@@ -12,7 +12,7 @@ lead: Windows and many programs keep their settings in the Registry, a tree of k
 - listing values and sub-keys, deleting them,
 - the rules for a program that writes to the Registry.
 
-[Tutorial 32](tut-32-settings.html) saved settings in a file. On Windows, programs often use the Registry for the same job, and a program that works *with* Windows (file types, start-up, system settings) must.
+The tutorial [Settings](tut-32-settings.html) saved settings in a file. On Windows, programs often use the Registry for the same job, and a program that works *with* Windows (file types, start-up, system settings) must.
 
 ## The program
 
@@ -41,7 +41,7 @@ The Registry looks like a file system: **keys** are the folders, and each key ho
 | `ExpandString` | text with `%NAME%` variables | a path such as `%USERPROFILE%\Data`: `GetValue` gives the text with the variable already replaced |
 | `Binary` | bytes | pictures, encrypted data |
 
-A `MultiString` needs a real `string[]`, so the program builds one from a `List<string>` with `ToArray()` (`stringArray`). A `Binary` value needs a real `byte[]` **object**; in this package a byte array that comes back from .NET is turned into a Ring text, and a Ring text goes back as a string, so a Ring program cannot hold the object to pass it. This lesson therefore does not write `Binary` values; store bytes as Base64 text in a `String` value ([tutorial 64](tut-64-urls.html)).
+A `MultiString` needs a real `string[]`, so the program builds one from a `List<string>` with `ToArray()` (`stringArray`). A `Binary` value needs a real `byte[]` **object**; in this package a byte array that comes back from .NET is turned into a Ring text, and a Ring text goes back as a string, so a Ring program cannot hold the object to pass it. This lesson therefore does not write `Binary` values; store bytes as Base64 text in a `String` value (the tutorial [URLs and encodings](tut-64-urls.html)).
 
 ### Reading
 
@@ -54,10 +54,10 @@ A `MultiString` needs a real `string[]`, so the program builds one from a `List<
 ## Rules for programs that use the Registry
 
 - Write only under `HKCU\Software\<your company>\<your program>`. Never change keys of other programs or of Windows.
-- Do not store **secrets** in plain text: any program of the same user can read HKCU. Use the Data Protection API ([tutorial 113](tut-113-data-protection.html)) or the Windows credential store.
+- Do not store **secrets** in plain text: any program of the same user can read HKCU. Use the Data Protection API (the tutorial [Protecting data](tut-113-data-protection.html)) or the Windows credential store.
 - Read with a **default** and handle an invalid value; users and other tools edit the Registry.
-- **Do not put data there that is big** (a few kilobytes is fine, megabytes are not): use a file ([tutorial 5](tut-05-files.html)).
-- Prefer a **settings file** when the program must also run on Linux or macOS, or when you want the user to copy the settings to another computer ([tutorial 111](tut-111-configuration.html)).
+- **Do not put data there that is big** (a few kilobytes is fine, megabytes are not): use a file (the tutorial [Files and folders](tut-05-files.html)).
+- Prefer a **settings file** when the program must also run on Linux or macOS, or when you want the user to copy the settings to another computer (the tutorial [Configuration](tut-111-configuration.html)).
 - Programs that start with Windows use the key `Software\Microsoft\Windows\CurrentVersion\Run`: add an entry only when the user asked for it, and remove it when the program is uninstalled.
 
 > [!WARNING] Changing the Registry can break programs and sometimes Windows. Use only your own keys, check each path before you delete, and never run code from the internet that edits the Registry.
@@ -75,8 +75,8 @@ A `MultiString` needs a real `string[]`, so the program builds one from a `List<
 1. Write a small class `Settings` with `load()` and `save()` that keeps a list of values (name, value) in a key.
 2. Read the version of Windows from `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion` (`ProductName`, `CurrentBuild`); it is read-only for you.
 3. Count how many sub-keys `HKCU\Software` has.
-4. Write the position and size of a window of [tutorial 11](tut-11-first-window.html) when it closes and restore them at the next start.
+4. Write the position and size of a window of the tutorial [Your first window](tut-11-first-window.html) when it closes and restore them at the next start.
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Processes and performance**. The next chapter is **Networking and the web**: it starts with [Tutorial 81: Network tools](tut-81-network-tools.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Processes and performance**. The next chapter is **Networking and the web**: it starts with [Network tools](tut-81-network-tools.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

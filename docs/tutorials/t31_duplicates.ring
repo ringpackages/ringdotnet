@@ -1,4 +1,4 @@
-# Tutorial 31: a project - find duplicate files (folders, hashes, dictionaries)
+# a project - find duplicate files (folders, hashes, dictionaries)
 load "dotnet.ring"
 using {
 	"System"

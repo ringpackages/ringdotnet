@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 117: International domain names"
+title: "International domain names"
 lead: Domain names can contain letters of any alphabet — and that makes it possible to build a name that looks exactly like another one. This lesson converts names to and from Punycode with IdnMapping, shows what makes a name invalid, builds a look-alike of apple.com, and detects it by checking the alphabets of each part.
 ---
 
@@ -12,7 +12,7 @@ lead: Domain names can contain letters of any alphabet — and that makes it pos
 - **homograph attacks** with look-alike letters,
 - a check of the **alphabets** in each part of a name.
 
-[Tutorial 64](tut-64-urls.html) took URLs apart and [tutorial 52](tut-52-unicode.html) looked at Unicode text. This lesson is where the two meet — and where it becomes a security question.
+The tutorial [URLs and encodings](tut-64-urls.html) took URLs apart and the tutorial [Unicode and encodings](tut-52-unicode.html) looked at Unicode text. This lesson is where the two meet — and where it becomes a security question.
 
 ## The program
 
@@ -32,7 +32,7 @@ The system of domain names (DNS) was made for the letters `a` to `z`, the digits
 
 ### Invalid names
 
-A label is at most 63 characters, it must not be empty (`empty..label`), and it must not start or end with a hyphen. `GetAscii` raises an error for these, so the program uses `try` / `catch` ([tutorial 7](tut-07-errors.html)) to answer *valid* or *not valid*. A space is allowed by the default mapper, which is a surprise; with `UseStd3AsciiRules = True` the mapper follows the strict rules (letters, digits and hyphens only) and refuses it. For names that come from a user, use the strict mapper.
+A label is at most 63 characters, it must not be empty (`empty..label`), and it must not start or end with a hyphen. `GetAscii` raises an error for these, so the program uses `try` / `catch` (the tutorial [When things go wrong](tut-07-errors.html)) to answer *valid* or *not valid*. A space is allowed by the default mapper, which is a surprise; with `UseStd3AsciiRules = True` the mapper follows the strict rules (letters, digits and hyphens only) and refuses it. For names that come from a user, use the strict mapper.
 
 ### Look-alike letters
 
@@ -57,8 +57,8 @@ A defence that browsers use: a name is shown in Unicode only when each part uses
 1. Write `sameSite(a, b)` that compares two URLs by their `IdnHost`, ignoring case.
 2. Add the Hebrew range (0590–05FF) and the Greek look-alike `ο` (U+03BF) to the check and test `gοogle.com`.
 3. Write `safeLink(text, address)` that warns when the visible text and the real address have different hosts.
-4. Read the e-mail address of a message ([tutorial 94](tut-94-mail-messages.html)) and check the part after `@`.
+4. Read the e-mail address of a message (the tutorial [E-mail messages](tut-94-mail-messages.html)) and check the part after `@`.
 
 ## Next
 
-[Tutorial 121: MIME types](tut-121-mime-types.html)
+[MIME types](tut-121-mime-types.html)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 103: Dates and times"
+title: "Dates and times"
 lead: Dates are full of traps — leap years, the end of the month, time zones, a "03/04" that means two different days. This lesson uses DateOnly, TimeOnly, DateTimeOffset and TimeSpan to make date calculations that do not break.
 ---
 
@@ -12,7 +12,7 @@ lead: Dates are full of traps — leap years, the end of the month, time zones, 
 - counting days and computing an age,
 - reading a date with an exact format.
 
-[Tutorial 3](tut-03-numbers-dates.html) made `DateTime` values and [tutorial 68](tut-68-timezones.html) converted between time zones. This lesson adds the types that make a program clearer and safer.
+The tutorial [Numbers, dates and times](tut-03-numbers-dates.html) made `DateTime` values and the tutorial [Time zones](tut-68-timezones.html) converted between time zones. This lesson adds the types that make a program clearer and safer.
 
 ## The program
 
@@ -34,7 +34,7 @@ Subtracting two `DateTime` values gives a `TimeSpan`: `Days`, `Hours` and `Minut
 
 ### DateTimeOffset
 
-`12:00` in Cairo (UTC+3) and `10:00` in London (UTC+1) in June are the **same moment**. A `DateTimeOffset` keeps the local time *and* the offset, so `Equals` knows they are equal and `UtcDateTime` gives 09:00 for both. Use it for anything that happens at a real moment — a log entry, an order, a meeting — and store it with its offset, or in UTC. A plain `DateTime` with no offset does not know which time zone it is in, and that is the source of many bugs ([tutorial 68](tut-68-timezones.html)).
+`12:00` in Cairo (UTC+3) and `10:00` in London (UTC+1) in June are the **same moment**. A `DateTimeOffset` keeps the local time *and* the offset, so `Equals` knows they are equal and `UtcDateTime` gives 09:00 for both. Use it for anything that happens at a real moment — a log entry, an order, a meeting — and store it with its offset, or in UTC. A plain `DateTime` with no offset does not know which time zone it is in, and that is the source of many bugs (the tutorial [Time zones](tut-68-timezones.html)).
 
 ### The end of the month
 
@@ -46,7 +46,7 @@ An age is not the difference of the years: the birthday of this year may not hav
 
 ### Reading a date
 
-`03/04/2024` is the 3rd of April in Egypt and the 4th of March in the USA. When a program reads a date that a person typed, give the **exact format** (`TryParseExact` with `dd/MM/yyyy` and the invariant culture) instead of trusting the culture of the computer ([tutorial 33](tut-33-cultures.html)). `TryParseExact` answers `[ success, date ]`, and the wrong `31/04/2024` is refused because April has 30 days. The method is static, so it is called with `dnStatic(type, method, [arguments])`.
+`03/04/2024` is the 3rd of April in Egypt and the 4th of March in the USA. When a program reads a date that a person typed, give the **exact format** (`TryParseExact` with `dd/MM/yyyy` and the invariant culture) instead of trusting the culture of the computer (the tutorial [Cultures](tut-33-cultures.html)). `TryParseExact` answers `[ success, date ]`, and the wrong `31/04/2024` is refused because April has 30 days. The method is static, so it is called with `dnStatic(type, method, [arguments])`.
 
 ## What you learned
 
@@ -66,4 +66,4 @@ An age is not the difference of the years: the birthday of this year may not hav
 
 ## Next
 
-[Tutorial 68: Time zones](tut-68-timezones.html)
+[Time zones](tut-68-timezones.html)

@@ -1,4 +1,4 @@
-# Tutorial 80: JSON as a tree you can change - JsonNode, JsonObject and JsonArray (System.Text.Json.Nodes)
+# JSON as a tree you can change - JsonNode, JsonObject and JsonArray (System.Text.Json.Nodes)
 load "dotnet.ring"
 using {
 	"System"

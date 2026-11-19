@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 61: A maze"
+title: "A maze"
 lead: Make a perfect maze with a stack, find the shortest way through it with a queue, and draw both on a canvas. Two classic algorithms and a picture you can see.
 ---
 
@@ -31,7 +31,7 @@ Start in the top left cell and walk: choose a random neighbour that has not been
 
 ### Solving: breadth-first with a queue
 
-The solver visits the cells in rings around the start — first the cells one step away, then two steps and so on — using a **queue** ([tutorial 58](tut-58-undo.html)). Each cell remembers the cell it was reached from (`aFrom`). The first time the exit is reached, the path found is the **shortest** one, because all closer cells were visited first. Follow the `aFrom` links back from the exit to the start to get the path, and draw it in orange. In a perfect maze there is only one path, but the same code finds the shortest way in a maze with loops.
+The solver visits the cells in rings around the start — first the cells one step away, then two steps and so on — using a **queue** (the tutorial [Undo, redo and queues](tut-58-undo.html)). Each cell remembers the cell it was reached from (`aFrom`). The first time the exit is reached, the path found is the **shortest** one, because all closer cells were visited first. Follow the `aFrom` links back from the exit to the start to get the path, and draw it in orange. In a perfect maze there is only one path, but the same code finds the shortest way in a maze with loops.
 
 > [!NOTE] Stack → goes deep first and finds *a* way. Queue → goes level by level and finds the *shortest* way. The only difference between the two algorithms is which end of the list you take the next cell from.
 
@@ -52,10 +52,10 @@ You cannot test a random maze against a fixed picture. The self test checks **pr
 
 ## Exercises
 
-1. Add a button that shows the maze being built, one step per timer tick ([tutorial 60](tut-60-sorting.html)).
+1. Add a button that shows the maze being built, one step per timer tick (the tutorial [Watching sorting algorithms](tut-60-sorting.html)).
 2. Remove some walls at random (a maze with loops) and check that the solver still finds the shortest way.
 3. Let the user move a dot with the arrow keys from the start to the exit.
 
 ## Next
 
-[Tutorial 62: An image filter lab](tut-62-filters.html)
+[An image filter lab](tut-62-filters.html)

@@ -1,4 +1,4 @@
-# Tutorial 57: streams and compression - the same data in memory, in a file, and squeezed with GZip
+# streams and compression - the same data in memory, in a file, and squeezed with GZip
 load "dotnet.ring"
 using {
 	"System"

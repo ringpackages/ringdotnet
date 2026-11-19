@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 58: Undo, redo and queues"
+title: "Undo, redo and queues"
 lead: Stacks and queues are two of the most useful data structures. This lesson builds undo and redo from two stacks and a job queue that serves the oldest job first.
 ---
 
@@ -46,7 +46,7 @@ Step 3 adds three jobs and serves them in the order they came. A worker program 
 
 ### Empty collections
 
-`Dequeue()` or `Pop()` on an empty collection raises an error (the last lines of the output). Look at `Count` first, or wrap the call in `try` / `catch` ([tutorial 7](tut-07-errors.html)).
+`Dequeue()` or `Pop()` on an empty collection raises an error (the last lines of the output). Look at `Count` first, or wrap the call in `try` / `catch` (the tutorial [When things go wrong](tut-07-errors.html)).
 
 ## What you learned
 
@@ -62,4 +62,4 @@ Step 3 adds three jobs and serves them in the order they came. A worker program 
 
 ## Next
 
-[Tutorial 75: Recursion](tut-75-recursion.html)
+[Recursion](tut-75-recursion.html)

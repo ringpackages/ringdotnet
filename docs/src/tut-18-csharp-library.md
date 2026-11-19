@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 18: A library written in C#"
+title: "A library written in C#"
 lead: Someone wrote a library in C# — a colleague, or a NuGet package. This lesson builds a tiny C# library and shows how to wrap it and use it from Ring like any other class.
 ---
 
@@ -80,4 +80,4 @@ A package is a set of `.dll` files. Download it (or copy it from `~/.nuget/packa
 
 ## Next
 
-[Tutorial 28: Testing](tut-28-testing.html)
+[Testing your programs](tut-28-testing.html)

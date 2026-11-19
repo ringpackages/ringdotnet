@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 113: Protecting data"
+title: "Protecting data"
 lead: Many programs hand a small piece of data to the outside and take it back later: a cookie, a "remember me" value, a link in an e-mail. The Data Protection API encrypts and signs such data for you, without keys to manage. This lesson protects and unprotects text, shows purposes, tampering and key folders, and makes tokens that expire.
 ---
 
@@ -12,7 +12,7 @@ lead: Many programs hand a small piece of data to the outside and take it back l
 - keys in a folder, and what happens with other keys,
 - time-limited tokens.
 
-[Tutorial 8](tut-08-security.html) and [tutorial 78](tut-78-crypto.html) used the cryptography classes directly: you choose the algorithm, the key and the mode, and every choice is a chance for a mistake. The Data Protection API is the **high-level** tool: you give it a text, it gives you a token.
+The tutorial [Hashing and encryption](tut-08-security.html) and the tutorial [Protecting and signing messages](tut-78-crypto.html) used the cryptography classes directly: you choose the algorithm, the key and the mode, and every choice is a chance for a mistake. The Data Protection API is the **high-level** tool: you give it a text, it gives you a token.
 
 > [!NOTE] The API is part of the ASP.NET Core runtime, so the program has `"RingDotNet.Web"` in its `using { }` ([Getting started](getting-started.html)).
 
@@ -26,7 +26,7 @@ lead: Many programs hand a small piece of data to the outside and take it back l
 
 ### A provider and a protector
 
-`DataProtectionProvider.Create(folder)` makes a provider whose **keys are kept in the folder** as files (it makes the first key itself and renews keys before they expire). `CreateProtector("purpose")` makes a protector for a purpose. `Protect(text)` returns a **token**: encrypted with AES and signed, so nobody can read it and nobody can change it. `Unprotect(token)` returns the text. `Protect` and `Unprotect` for texts are extension methods, so they are called with `dnStatic("...DataProtectionCommonExtensions","Protect",[protector,text])` ([tutorial 109](tut-109-memory-cache.html)); `CreateProtector` is a method of the provider object.
+`DataProtectionProvider.Create(folder)` makes a provider whose **keys are kept in the folder** as files (it makes the first key itself and renews keys before they expire). `CreateProtector("purpose")` makes a protector for a purpose. `Protect(text)` returns a **token**: encrypted with AES and signed, so nobody can read it and nobody can change it. `Unprotect(token)` returns the text. `Protect` and `Unprotect` for texts are extension methods, so they are called with `dnStatic("...DataProtectionCommonExtensions","Protect",[protector,text])` (the tutorial [Caching](tut-109-memory-cache.html)); `CreateProtector` is a method of the provider object.
 
 Every token of this API starts with `CfDJ8`, the Base64 text of a fixed header, and it does not show the data. A random value is part of each token, so protecting the same text twice gives two different tokens that both open to the same text.
 
@@ -46,7 +46,7 @@ The key folder is the secret. A second provider on the **same folder** opens the
 
 `ToTimeLimitedDataProtector` makes a protector whose `Protect(text, lifetime)` adds an expiration time inside the token. Before the time the token opens; after it, `Unprotect` raises an error. Use it for password-reset links, e-mail confirmations and one-time codes. The check happens inside the token, so the server does not need to keep a list. These methods are in the `DataProtectionAdvancedExtensions` class.
 
-> [!WARNING] This API is for data that **you** give out and take back. It is not a way to store passwords (use a slow password hash, [tutorial 49](tut-49-login.html)) and not a replacement for the encryption of a database.
+> [!WARNING] This API is for data that **you** give out and take back. It is not a way to store passwords (use a slow password hash, the tutorial [Login, sessions and cookies](tut-49-login.html)) and not a replacement for the encryption of a database.
 
 ## What you learned
 
@@ -59,10 +59,10 @@ The key folder is the secret. A second provider on the **same folder** opens the
 ## Exercises
 
 1. Make a "remember me" cookie: protect the user id and the time, and write a function that reads it back or answers *not valid*.
-2. Make a password-reset link that is valid for 15 minutes ([tutorial 62](tut-63-chat.html) shows a small server to send it from).
+2. Make a password-reset link that is valid for 15 minutes (the tutorial [A chat over TCP](tut-63-chat.html) shows a small server to send it from).
 3. Look at the key file in the folder: it is XML. Which parts are readable and which are not?
 4. Protect a long text (10 000 characters) and look at the size of the token.
 
 ## Next
 
-[Tutorial 49: Login and sessions](tut-49-login.html)
+[Login, sessions and cookies](tut-49-login.html)

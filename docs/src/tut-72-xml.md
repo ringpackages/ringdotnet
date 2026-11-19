@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 72: XML in depth"
+title: "XML in depth"
 lead: XML is still everywhere — configuration files, office documents, feeds, web services. This lesson reads a document with XDocument, finds nodes with XPath, builds a new element, changes and removes nodes, and handles broken XML.
 ---
 
@@ -22,7 +22,7 @@ lead: XML is still everywhere — configuration files, office documents, feeds, 
 </library>
 ```
 
-An **element** has a name and can contain text and other elements; an **attribute** (`id="1"`) belongs to an element. There is exactly one **root** element. [Tutorial 6](tut-06-json-xml.html) read XML in a simple way; here are the tools for real documents.
+An **element** has a name and can contain text and other elements; an **attribute** (`id="1"`) belongs to an element. There is exactly one **root** element. The tutorial [JSON and XML](tut-06-json-xml.html) read XML in a simple way; here are the tools for real documents.
 
 ## The program
 
@@ -55,7 +55,7 @@ An element is created with a name and optional content: `dnNew("XElement",[ :nam
 
 ### Bad XML
 
-XML is strict: every tag must be closed and tags must nest. `Parse` raises an error with the line and the problem (step 7). Always parse data that comes from outside inside `try` / `catch` ([tutorial 7](tut-07-errors.html)).
+XML is strict: every tag must be closed and tags must nest. `Parse` raises an error with the line and the problem (step 7). Always parse data that comes from outside inside `try` / `catch` (the tutorial [When things go wrong](tut-07-errors.html)).
 
 > [!WARNING] Text that you put into XML must be escaped (`<` → `&lt;`, `&` → `&amp;`). When you build elements with `XElement` this is done for you. Never build XML by adding strings together.
 
@@ -69,11 +69,11 @@ XML is strict: every tag must be closed and tags must nest. `Parse` raises an er
 
 ## Exercises
 
-1. Write the books as a table: title, year and price in columns ([tutorial 30](tut-30-tables.html)).
+1. Write the books as a table: title, year and price in columns (the tutorial [Tabular data](tut-30-tables.html)).
 2. Use XPath to find the books cheaper than 10.
 3. Add a `<tags>` element with several `<tag>` children to each book.
-4. Convert the list of books to JSON ([tutorial 6](tut-06-json-xml.html)) and back.
+4. Convert the list of books to JSON (the tutorial [JSON and XML](tut-06-json-xml.html)) and back.
 
 ## Next
 
-[Tutorial 77: XSLT](tut-77-xslt.html)
+[XSLT](tut-77-xslt.html)

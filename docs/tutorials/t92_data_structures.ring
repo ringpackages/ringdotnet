@@ -1,4 +1,4 @@
-# Tutorial 92: more data structures - PriorityQueue, SortedSet, SortedDictionary, LinkedList and BitArray
+# more data structures - PriorityQueue, SortedSet, SortedDictionary, LinkedList and BitArray
 load "dotnet.ring"
 using {
 	"System"

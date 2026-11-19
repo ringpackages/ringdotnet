@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 19: Callbacks and events"
+title: "Callbacks and events"
 lead: Many .NET methods ask you for a piece of code: how to compare, which items to keep, what to do when something happens. This lesson shows the three ways to give Ring code to .NET and the rules that keep it working.
 ---
 
@@ -95,4 +95,4 @@ An error raised inside a callback (`raise(...)`) travels back through .NET and c
 
 ## Next
 
-[Tutorial 20: Reflection](tut-20-reflection.html)
+[Exploring .NET with reflection](tut-20-reflection.html)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 13: A small text editor"
+title: "A small text editor"
 lead: Build a real tool in about eighty lines — a menu, a text area that fills the window, a status bar, open and save with file dialogs, and the layout rule that surprises everyone once.
 ---
 
@@ -72,4 +72,4 @@ The full-size version of this program is the [Notepad](gallery-apps.html#notepad
 
 ## Next
 
-[Tutorial 40: Your own dialog](tut-40-dialog.html)
+[Your own dialog](tut-40-dialog.html)

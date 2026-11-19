@@ -1,4 +1,4 @@
-# Tutorial 52: logging - levels, timestamps, a file, rotation, and what to write
+# logging - levels, timestamps, a file, rotation, and what to write
 load "dotnet.ring"
 using {
 	"System"

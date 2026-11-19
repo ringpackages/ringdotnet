@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 46: A project: a backup tool"
+title: "A project: a backup tool"
 lead: Copy a folder into a zip file named by date, keep only the newest few, and restore the latest. Folders, zip, sorting and cleanup in one small program.
 ---
 
@@ -58,10 +58,10 @@ Run it twice and nothing breaks: new backups get new names, old ones are trimmed
 ## Exercises
 
 1. Use the real clock for the stamp and run the program twice.
-2. Skip a backup when no file changed since the last one (compare file dates or hashes: [tutorial 31](tut-31-duplicates.html)).
-3. Put the list of folders to back up in a settings file ([tutorial 32](tut-32-settings.html)).
+2. Skip a backup when no file changed since the last one (compare file dates or hashes: the tutorial [A project: find duplicate files](tut-31-duplicates.html)).
+3. Put the list of folders to back up in a settings file (the tutorial [Settings](tut-32-settings.html)).
 4. Add a window with a *Back up now* button and a list of the backups.
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Files and streams**. The next chapter is **Processes and performance**: it starts with [Tutorial 74: Asking the computer](tut-74-system.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Files and streams**. The next chapter is **Processes and performance**: it starts with [Asking the computer](tut-74-system.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

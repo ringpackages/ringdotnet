@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 15: WPF"
+title: "WPF"
 lead: WPF is the newer Windows UI framework. A window is described in XAML, a text format of elements and attributes; this lesson loads a XAML window, reacts to events and binds a slider to a text.
 ---
 
@@ -84,4 +84,4 @@ Move the slider and the text changes by itself. In the test: `oSlider.Value = 10
 
 ## Next
 
-[Tutorial 38: WPF layout, styles](tut-38-wpf-layout.html)
+[WPF layout and styles](tut-38-wpf-layout.html)

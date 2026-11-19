@@ -1,4 +1,4 @@
-# Tutorial 10: time, tasks and other programs - Stopwatch, Task, Process, Environment
+# time, tasks and other programs - Stopwatch, Task, Process, Environment
 load "dotnet.ring"
 using {
 	"System"

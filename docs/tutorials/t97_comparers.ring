@@ -1,4 +1,4 @@
-# Tutorial 97: comparing text - ordinal and culture comparison, ignoring case, StringComparer and a sorted set that ignores case
+# comparing text - ordinal and culture comparison, ignoring case, StringComparer and a sorted set that ignores case
 load "dotnet.ring"
 using {
 	"System"

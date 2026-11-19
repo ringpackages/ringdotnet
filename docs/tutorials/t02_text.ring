@@ -1,4 +1,4 @@
-# Tutorial 2: working with text - Ring text functions, String helpers, StringBuilder, regular expressions, encodings
+# working with text - Ring text functions, String helpers, StringBuilder, regular expressions, encodings
 load "dotnet.ring"
 using {
 	"System"

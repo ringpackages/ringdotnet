@@ -1,4 +1,4 @@
-# Tutorial 17: databases step by step - a library catalog with Entity Framework Core
+# databases step by step - a library catalog with Entity Framework Core
 load "dotnet.ring"
 using { "RingDotNet.Data" }
 

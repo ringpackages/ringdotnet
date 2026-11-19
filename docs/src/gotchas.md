@@ -76,11 +76,11 @@ cText = new Regex("a").Replace(cText,"b")       # cText is already the Regex obj
 cResult = new Regex("a").Replace(cText,"b")     # works: a different variable
 ```
 
-Write the result to a **different** variable ([tutorial 47](tut-47-markdown.html)).
+Write the result to a **different** variable (the tutorial [A project: Markdown to HTML](tut-47-markdown.html)).
 
 ### A list of `[text, value]` pairs passed alone is read as named arguments
 
-A method with overloads reads a single list of `[text, value]` pairs as **named arguments**. `Serialize([["Buy milk",1],["Walk",0]])` would look for a parameter called "Buy milk". Put something that is not a text first in each pair, or wrap the list in another list, so that it is passed as a value ([tutorial 24](tut-24-todo.html)).
+A method with overloads reads a single list of `[text, value]` pairs as **named arguments**. `Serialize([["Buy milk",1],["Walk",0]])` would look for a parameter called "Buy milk". Put something that is not a text first in each pair, or wrap the list in another list, so that it is passed as a value (the tutorial [A project: a to-do list that remembers](tut-24-todo.html)).
 
 ### Side effects inside `for ... in call()`
 

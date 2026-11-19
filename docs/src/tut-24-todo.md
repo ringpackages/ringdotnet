@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 24: A project: a to-do list that remembers"
+title: "A project: a to-do list that remembers"
 lead: A complete small application — add, tick and remove tasks, see how many are done, and find them again the next time the program starts. Windows Forms, JSON and files together.
 ---
 
@@ -32,7 +32,7 @@ lead: A complete small application — add, tick and remove tasks, see how many 
 
 ### The window
 
-Remember [tutorial 13](tut-13-editor.html): the control that fills the window is added **first**, then the top panel and the status label (the helpers `uiPanel`, `uiLabel` and `Dock` do the rest). `CheckOnClick = True` makes one click tick or untick an item.
+Remember the tutorial [A small text editor](tut-13-editor.html): the control that fills the window is added **first**, then the top panel and the status label (the helpers `uiPanel`, `uiLabel` and `Dock` do the rest). `CheckOnClick = True` makes one click tick or untick an item.
 
 ### Add and remove
 
@@ -75,4 +75,4 @@ The full-size version is the [TodoList](gallery-apps.html#todo-list) application
 
 ## Next
 
-[Tutorial 35: Tic-Tac-Toe](tut-35-tictactoe.html)
+[A project: Tic-Tac-Toe](tut-35-tictactoe.html)

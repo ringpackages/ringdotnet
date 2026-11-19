@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 67: Number systems and big numbers"
+title: "Number systems and big numbers"
 lead: Binary, octal and hexadecimal, bits and shifts, and numbers too large for a normal Ring number. This lesson shows how to convert between bases, why hexadecimal is everywhere, and where a number stops being exact.
 ---
 
@@ -22,7 +22,7 @@ The number *two hundred fifty-five* can be written in any **base**:
 | 10 | decimal | 0–9 | `255` |
 | 16 | hexadecimal | 0–9 a–f | `ff` |
 
-Computers store bits, so base 2 is what they use; but it is long to read. **One hexadecimal digit is exactly 4 bits**, so a byte is exactly two hex digits (`00` to `ff`). That is why colors (`#ff8000`), memory addresses, hashes and byte dumps ([tutorial 45](tut-45-binary.html)) are written in hex.
+Computers store bits, so base 2 is what they use; but it is long to read. **One hexadecimal digit is exactly 4 bits**, so a byte is exactly two hex digits (`00` to `ff`). That is why colors (`#ff8000`), memory addresses, hashes and byte dumps (the tutorial [Binary files](tut-45-binary.html)) are written in hex.
 
 ## The program
 
@@ -38,7 +38,7 @@ Computers store bits, so base 2 is what they use; but it is long to read. **One 
 
 ### Bits
 
-`BitOperations.PopCount(n)` counts the one-bits (255 has 8, 256 has 1) and `IsPow2(n)` tests for a power of two — a number that is a power of two has exactly one bit set. In Ring, `1 << 10` shifts the bits left (multiplies by 2 ten times: 1024) and `1024 >> 3` shifts right (divides by 8). The operators `&`, `|` and `~` are explained in [tutorial 65](tut-65-enums.html).
+`BitOperations.PopCount(n)` counts the one-bits (255 has 8, 256 has 1) and `IsPow2(n)` tests for a power of two — a number that is a power of two has exactly one bit set. In Ring, `1 << 10` shifts the bits left (multiplies by 2 ten times: 1024) and `1024 >> 3` shifts right (divides by 8). The operators `&`, `|` and `~` are explained in the tutorial [Enums and flags](tut-65-enums.html).
 
 A negative number such as −5 is stored in **two's complement**: write 5 (`000…0101`), turn all the bits over (`111…1010`) and add 1 (`111…1011`). The output of step 5 is exactly that, 32 bits long.
 
@@ -69,4 +69,4 @@ A Ring number is a 64-bit `double`. It has 53 bits for the digits, so it is exac
 
 ## Next
 
-[Tutorial 57: Money](tut-57-money.html)
+[Money](tut-57-money.html)

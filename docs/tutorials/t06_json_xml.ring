@@ -1,4 +1,4 @@
-# Tutorial 6: JSON and XML - reading, writing and searching structured data
+# JSON and XML - reading, writing and searching structured data
 load "dotnet.ring"
 using {
 	"System.Text.Json"

@@ -1,4 +1,4 @@
-# Tutorial 42: a folder browser - a TreeView of folders, a ListView of files, and the details of a file
+# a folder browser - a TreeView of folders, a ListView of files, and the details of a file
 load "dotnet.ring"
 using {
 	"System"

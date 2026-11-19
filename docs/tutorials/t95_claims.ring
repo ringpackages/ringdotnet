@@ -1,4 +1,4 @@
-# Tutorial 95: identities and claims - ClaimsIdentity, ClaimsPrincipal, roles, claim types and a simple permission check
+# identities and claims - ClaimsIdentity, ClaimsPrincipal, roles, claim types and a simple permission check
 load "dotnet.ring"
 using {
 	"System"

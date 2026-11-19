@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 54: An expression calculator"
+title: "An expression calculator"
 lead: How does a program understand "2 * (3 + 4)"? This lesson turns the text into tokens with a regular expression and reads them with a small recursive-descent parser that knows operator precedence and reports clear errors.
 ---
 
@@ -67,4 +67,4 @@ When something is wrong the parser stores a message in `cError` and the loops st
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Collections and algorithms**. The next chapter is **Files and streams**: it starts with [Tutorial 59: Paths and the environment](tut-59-paths.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Collections and algorithms**. The next chapter is **Files and streams**: it starts with [Paths and the environment](tut-59-paths.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

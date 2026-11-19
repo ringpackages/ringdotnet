@@ -1,4 +1,4 @@
-# Tutorial 64: a chat over TCP - a server that relays lines, two clients, and a timer that polls the sockets
+# a chat over TCP - a server that relays lines, two clients, and a timer that polls the sockets
 load "dotnet.ring"
 using {
 	"System"

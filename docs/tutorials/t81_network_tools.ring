@@ -1,4 +1,4 @@
-# Tutorial 81: network tools - IP addresses, DNS, ping, network interfaces and checking whether a port is open (all on this computer)
+# network tools - IP addresses, DNS, ping, network interfaces and checking whether a port is open (all on this computer)
 load "dotnet.ring"
 using {
 	"System"

@@ -1,4 +1,4 @@
-# Tutorial 83: tasks that wait - Task.Delay, WhenAll, WhenAny, time limits and cancellation (System.Threading.Tasks)
+# tasks that wait - Task.Delay, WhenAll, WhenAny, time limits and cancellation (System.Threading.Tasks)
 load "dotnet.ring"
 using {
 	"System"

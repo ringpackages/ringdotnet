@@ -1,4 +1,4 @@
-# Tutorial 85: working with other programs - feeding standard input, environment variables, errors and exit codes, a time limit and Kill
+# working with other programs - feeding standard input, environment variables, errors and exit codes, a time limit and Kill
 #   (the examples use the Windows commands sort, find and cmd; on Linux and macOS use sort, grep and sh)
 load "dotnet.ring"
 using {

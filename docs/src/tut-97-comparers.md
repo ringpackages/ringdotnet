@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 97: Comparing text"
+title: "Comparing text"
 lead: Is "apple" equal to "APPLE"? Which comes first, "Zebra" or "apple"? The answers depend on how you compare. This lesson shows ordinal and culture-aware comparison, comparers for sorting, dictionaries and sets that ignore case, and the famous Turkish "i".
 ---
 
@@ -11,7 +11,7 @@ lead: Is "apple" equal to "APPLE"? Which comes first, "Zebra" or "apple"? The an
 - `StringComparer`: a comparer that you give to `Sort`, a dictionary or a set,
 - why `"TITLE".ToLower()` can be wrong in Turkish.
 
-[Tutorial 33](tut-33-cultures.html) formatted numbers and dates for a culture, and [tutorial 52](tut-52-unicode.html) looked at characters. This lesson is about *comparing* text, which every search box, sort order and dictionary of names needs.
+The tutorial [Cultures](tut-33-cultures.html) formatted numbers and dates for a culture, and the tutorial [Unicode and encodings](tut-52-unicode.html) looked at characters. This lesson is about *comparing* text, which every search box, sort order and dictionary of names needs.
 
 ## The program
 
@@ -53,11 +53,11 @@ In Turkish there are two letters `i`: the one with a dot and the one without. Th
 
 ## Exercises
 
-1. Sort the file names of a folder ([tutorial 5](tut-05-files.html)) in ordinal order and in culture order and look at the difference.
-2. Build a case-insensitive `Dictionary` of settings ([tutorial 32](tut-32-settings.html)).
+1. Sort the file names of a folder (the tutorial [Files and folders](tut-05-files.html)) in ordinal order and in culture order and look at the difference.
+2. Build a case-insensitive `Dictionary` of settings (the tutorial [Settings](tut-32-settings.html)).
 3. Compare `"Straße"` and `"STRASSE"` with the four comparison types.
 4. Write `sameName(a, b)` for user names that must ignore case and accents (look at `CompareOptions`).
 
 ## Next
 
-[Tutorial 104: Text readers and writers](tut-104-text-readers-writers.html)
+[Text readers and writers](tut-104-text-readers-writers.html)

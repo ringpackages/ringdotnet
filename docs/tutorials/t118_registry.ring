@@ -1,4 +1,4 @@
-# Tutorial 118: the Windows Registry - keys and values in HKEY_CURRENT_USER, value types, listing, a settings class, and deleting what you made
+# the Windows Registry - keys and values in HKEY_CURRENT_USER, value types, listing, a settings class, and deleting what you made
 # (Windows only: anywhere else the program says so and stops)
 load "dotnet.ring"
 using {

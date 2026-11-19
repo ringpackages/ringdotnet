@@ -1,4 +1,4 @@
-# Tutorial 11, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do
+# Your first window, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do
 load "dotnet.ring"
 using {
 	"System.Drawing"

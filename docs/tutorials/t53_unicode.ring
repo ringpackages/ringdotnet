@@ -1,4 +1,4 @@
-# Tutorial 53: Unicode and text encodings - characters, code points, bytes, and why len() is not the number of letters
+# Unicode and text encodings - characters, code points, bytes, and why len() is not the number of letters
 load "dotnet.ring"
 using {
 	"System"

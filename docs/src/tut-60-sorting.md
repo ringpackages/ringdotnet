@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 60: Watching sorting algorithms"
+title: "Watching sorting algorithms"
 lead: Sorting is the classic example of an algorithm. This lesson records the work of three algorithms — bubble, selection and insertion — and replays it on a canvas, one step per timer tick, while counting comparisons and swaps.
 ---
 
@@ -37,13 +37,13 @@ Press **Sort** with each algorithm on the same bars (**Shuffle** makes a new ord
 
 ### Drawing
 
-`draw` clears the canvas and draws one rectangle per bar; the height is the value, scaled to the window. A bar in `aHot` (the pair of the current step) is red. `oCanvas.show()` puts the finished picture on the screen — drawing everything first and showing it once avoids flicker ([tutorial 14](tut-14-animation.html)).
+`draw` clears the canvas and draws one rectangle per bar; the height is the value, scaled to the window. A bar in `aHot` (the pair of the current step) is red. `oCanvas.show()` puts the finished picture on the screen — drawing everything first and showing it once avoids flicker (the tutorial [Drawing and animation](tut-14-animation.html)).
 
 ### Same bars every time
 
 `nextRandom` is a tiny random generator with a fixed start (`nSeed`), so that the screenshot and the test are always the same. Use `Random` with no fixed seed when you want different bars each time.
 
-> [!TIP] The pattern "record a list of events, then play it back" is useful in many places: a replay of a game, an undo history ([tutorial 58](tut-58-undo.html)), or a slow motion view of any algorithm.
+> [!TIP] The pattern "record a list of events, then play it back" is useful in many places: a replay of a game, an undo history (the tutorial [Undo, redo and queues](tut-58-undo.html)), or a slow motion view of any algorithm.
 
 ## What you learned
 
@@ -61,4 +61,4 @@ Press **Sort** with each algorithm on the same bars (**Shuffle** makes a new ord
 
 ## Next
 
-[Tutorial 61: A maze](tut-61-maze.html)
+[A maze](tut-61-maze.html)

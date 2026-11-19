@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 40: Your own dialog"
+title: "Your own dialog"
 lead: Message boxes are not enough when you need several values. A dialog is a small modal window that asks for data and gives it back — with validation, default buttons, and a test that acts as the user.
 ---
 
@@ -73,4 +73,4 @@ A modal dialog stops the test at `ShowDialog` — nobody will click. The trick i
 
 ## Next
 
-[Tutorial 41: Menus, toolbars, shortcuts](tut-41-menus.html)
+[Menus, toolbars and shortcuts](tut-41-menus.html)

@@ -1,4 +1,4 @@
-# Tutorial 7: when things go wrong - exceptions, try/catch, checking before you act
+# when things go wrong - exceptions, try/catch, checking before you act
 load "dotnet.ring"
 using {
 	"System"

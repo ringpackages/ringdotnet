@@ -1,4 +1,4 @@
-# Tutorial 55: an expression calculator - tokens, a recursive-descent parser, precedence and clear errors
+# an expression calculator - tokens, a recursive-descent parser, precedence and clear errors
 load "dotnet.ring"
 using {
 	"System"

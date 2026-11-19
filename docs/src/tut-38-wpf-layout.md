@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 38: WPF layout and styles"
+title: "WPF layout and styles"
 lead: WPF windows arrange themselves. This lesson uses a Grid with rows and columns, a Style that gives every button the same look, and a keypad whose keys are made in a loop.
 ---
 
@@ -71,7 +71,7 @@ A `Style` with `TargetType="Button"` and no name applies to **every** button in 
 
 ### XAML from a loop
 
-The program builds the XAML text with a Ring loop: nine buttons whose row and column come from the key number (the same arithmetic as in [tutorial 35](tut-35-tictactoe.html)). The loop is simply text assembly: `'<Button x:Name="key' + nIndex + '" Grid.Row="' + nRow + '" ...'`. That keeps the program short; for a fixed layout you would write the XAML in a file.
+The program builds the XAML text with a Ring loop: nine buttons whose row and column come from the key number (the same arithmetic as in the tutorial [A project: Tic-Tac-Toe](tut-35-tictactoe.html)). The loop is simply text assembly: `'<Button x:Name="key' + nIndex + '" Grid.Row="' + nRow + '" ...'`. That keeps the program short; for a fixed layout you would write the XAML in a file.
 
 ### Many events, one function
 
@@ -97,4 +97,4 @@ A test raises the click event on a key: `RaiseEvent(new RoutedEventArgs().New_([
 
 ## Next
 
-[Tutorial 70: WPF animation](tut-70-wpf-animation.html)
+[WPF animation](tut-70-wpf-animation.html)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 92: More data structures"
+title: "More data structures"
 lead: Lists and dictionaries are not always the best tool. This lesson shows five collections of .NET that keep order for you or save memory — a priority queue, a sorted set, a sorted dictionary, a linked list and a bit array — and when each one is the right choice.
 ---
 
@@ -12,7 +12,7 @@ lead: Lists and dictionaries are not always the best tool. This lesson shows fiv
 - `BitArray`: a million yes/no values in 125 KB, with logic operations,
 - the Ring words that need `callMethod` (`Get`, `And`, `Or`).
 
-[Tutorial 4](tut-04-collections.html) used `List` and `Dictionary`, and [tutorial 89](tut-89-concurrent-collections.html) the collections for many threads.
+The tutorial [Collections and LINQ](tut-04-collections.html) used `List` and `Dictionary`, and the tutorial [Collections for many threads](tut-89-concurrent-collections.html) the collections for many threads.
 
 ## The program
 
@@ -64,4 +64,4 @@ One bit for each item. A million yes/no values (a sieve of primes, which seats a
 
 ## Next
 
-[Tutorial 89: Collections for many threads](tut-89-concurrent-collections.html)
+[Collections for many threads](tut-89-concurrent-collections.html)

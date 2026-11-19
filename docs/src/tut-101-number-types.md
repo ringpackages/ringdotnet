@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 101: Number types"
+title: "Number types"
 lead: A Ring number is always a double, but .NET has many number types with different sizes and limits. This lesson shows the limits of Byte, Int16, Int32, Int64 and Int128, what happens when a number does not fit, how to read a typed number safely, and why 0.1 + 0.2 is not 0.3.
 ---
 
@@ -13,7 +13,7 @@ lead: A Ring number is always a double, but .NET has many number types with diff
 - `Int128` and `UInt128`,
 - `Single` and `Double`, and comparing numbers with decimals.
 
-[Tutorial 3](tut-03-numbers-dates.html) used numbers and dates, [tutorial 57](tut-57-money.html) used `Decimal` for money and [tutorial 90](tut-90-big-numbers.html) used `BigInteger`. This lesson is about the **fixed-size** types that .NET methods ask for.
+The tutorial [Numbers, dates and times](tut-03-numbers-dates.html) used numbers and dates, the tutorial [Money](tut-57-money.html) used `Decimal` for money and the tutorial [Big numbers](tut-90-big-numbers.html) used `BigInteger`. This lesson is about the **fixed-size** types that .NET methods ask for.
 
 ## The program
 
@@ -27,7 +27,7 @@ lead: A Ring number is always a double, but .NET has many number types with diff
 
 In Ring there is one number type, a double (exact for whole numbers up to 9007199254740992). .NET has `Byte` (0 to 255), `Int16` (about plus or minus 32 thousand), `Int32` (about plus or minus 2 thousand million), `Int64`, `Int128` and others, signed and unsigned, and `Single`, `Double` and `Decimal` for fractions. When Ring calls a method, the bridge converts the Ring number into the type the method asks for. A number that **does not fit** raises an error instead of wrapping around, so a wrong value is found at the call.
 
-`Byte.MaxValue` and the other limits are static fields (read through any object of the class: `new Byte().MaxValue`). The limit of `Int64` is 9223372036854775807, but as a Ring number it cannot be shown exactly, so it prints rounded (step 1). For exact big values use a text: `Int64.Parse("9223372036854775807")`, and `Int128`/`BigInteger` ([tutorial 90](tut-90-big-numbers.html)).
+`Byte.MaxValue` and the other limits are static fields (read through any object of the class: `new Byte().MaxValue`). The limit of `Int64` is 9223372036854775807, but as a Ring number it cannot be shown exactly, so it prints rounded (step 1). For exact big values use a text: `Int64.Parse("9223372036854775807")`, and `Int128`/`BigInteger` (the tutorial [Big numbers](tut-90-big-numbers.html)).
 
 ### Checked conversion
 
@@ -35,7 +35,7 @@ In Ring there is one number type, a double (exact for whole numbers up to 900719
 
 ### TryParse
 
-For text that a user typed, `Int32.TryParse(text)` answers `[ success, number ]` ([tutorial 81](tut-81-network-tools.html) explains the out value). `"42"` and `"-7"` work, spaces around the number are allowed, and `"3000000000"` (too big for an Int32), `"12abc"` and `""` answer *no*. Always use `TryParse` for input: it is a yes or no, not an error.
+For text that a user typed, `Int32.TryParse(text)` answers `[ success, number ]` (the tutorial [Network tools](tut-81-network-tools.html) explains the out value). `"42"` and `"-7"` work, spaces around the number are allowed, and `"3000000000"` (too big for an Int32), `"12abc"` and `""` answer *no*. Always use `TryParse` for input: it is a yes or no, not an error.
 
 ### Division
 
@@ -69,4 +69,4 @@ A `Single` (float) has about 7 decimal digits and a `Double` about 15. `16777216
 
 ## Next
 
-[Tutorial 90: Big numbers](tut-90-big-numbers.html)
+[Big numbers](tut-90-big-numbers.html)

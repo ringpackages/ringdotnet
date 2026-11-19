@@ -1,4 +1,4 @@
-# Tutorial 17, part 2: relations, queries, transactions and a file database
+# the tutorial "Databases step by step", part 2: relations, queries, transactions and a file database
 load "dotnet.ring"
 using {
 	"System.IO"

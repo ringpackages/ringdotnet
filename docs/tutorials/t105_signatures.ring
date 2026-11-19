@@ -1,4 +1,4 @@
-# Tutorial 105: digital signatures - ECDsa keys, signing a message, verifying it, and what happens when the message or the key changes
+# digital signatures - ECDsa keys, signing a message, verifying it, and what happens when the message or the key changes
 load "dotnet.ring"
 using {
 	"System"
@@ -11,7 +11,7 @@ func main
 
 	# A digital signature proves two things about a message: who sent it (only the owner of the PRIVATE key can make the signature) and
 	# that it was not changed (the signature fits only this exact message). Everybody with the PUBLIC key can check it.
-	# ECDsa uses elliptic curves: small keys and fast signatures. (tutorial 78 used RSA and hashes)
+	# ECDsa uses elliptic curves: small keys and fast signatures. (the tutorial "Protecting and signing messages" used RSA and hashes)
 	oCurve = dnStatic("System.Security.Cryptography.ECCurve","CreateFromFriendlyName",["nistP256"])          # a named curve
 	oKey = dnStatic("System.Security.Cryptography.ECDsa","Create",[oCurve])
 	? "1. a key pair was made on the curve nistP256, key size " + oKey.getProp("KeySize") + " bits"
@@ -48,7 +48,7 @@ func main
 	done
 	? "   the receiver can sign with it: " + lCanSign + "   (there is no private key)"
 
-	# 6. A signature is not encryption: the message itself is not hidden. If the message must be secret too, encrypt it (tutorial 78).
+	# 6. A signature is not encryption: the message itself is not hidden. If the message must be secret too, encrypt it (the tutorial "Protecting and signing messages").
 	oKey.callMethod("Dispose",[])
 	oOtherKey.callMethod("Dispose",[])
 	oReceiver.callMethod("Dispose",[])

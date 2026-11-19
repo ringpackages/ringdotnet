@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 1: A first look"
+title: "A first look"
 lead: Meet objects, types, properties, methods, static members, structs, collections and null with a small program that prints what it finds.
 ---
 
@@ -87,4 +87,4 @@ A `DateTime` is a *struct*: a small value. `new DateTime(2024,12,25)` is a date.
 
 ## Next
 
-[Tutorial 2: Working with text](tut-02-text.html)
+[Working with text](tut-02-text.html)

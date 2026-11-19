@@ -1,4 +1,4 @@
-# Tutorial 29: regular expressions in depth - patterns, groups, replace, split, validation
+# regular expressions in depth - patterns, groups, replace, split, validation
 load "dotnet.ring"
 using {
 	"System"

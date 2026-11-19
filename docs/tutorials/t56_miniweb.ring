@@ -1,4 +1,4 @@
-# Tutorial 56: a tiny web framework - routes with parameters (/users/:id), templates ({{name}}) and one catch-all handler
+# a tiny web framework - routes with parameters (/users/:id), templates ({{name}}) and one catch-all handler
 load "dotnet.ring"
 using {
 	"System.Net"

@@ -1,4 +1,4 @@
-# Tutorial 109: caching - MemoryCache, absolute and sliding expiration, remove and update, and when a cache is a bad idea
+# caching - MemoryCache, absolute and sliding expiration, remove and update, and when a cache is a bad idea
 load "dotnet.ring"
 using {
 	"System"

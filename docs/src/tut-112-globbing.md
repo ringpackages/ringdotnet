@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 112: File patterns (globbing)"
+title: "File patterns (globbing)"
 lead: Patterns such as `**/*.ring` describe sets of files, the way a .gitignore file or a build tool does. This lesson uses the Matcher of .NET with include and exclude rules, finds files in a folder tree, and tests a plain list of paths without a disk.
 ---
 
@@ -12,7 +12,7 @@ lead: Patterns such as `**/*.ring` describe sets of files, the way a .gitignore 
 - the case rule of a matcher,
 - extension methods and `dnStatic`.
 
-[Tutorial 5](tut-05-files.html) listed the files of a folder and [tutorial 29](tut-29-regex.html) used regular expressions. A **glob** is simpler than a regular expression and made for paths, so it is the language of file selection: build files, ignore files, backup rules, "which files changed".
+The tutorial [Files and folders](tut-05-files.html) listed the files of a folder and the tutorial [Regular expressions in depth](tut-29-regex.html) used regular expressions. A **glob** is simpler than a regular expression and made for paths, so it is the language of file selection: build files, ignore files, backup rules, "which files changed".
 
 > [!NOTE] `Microsoft.Extensions.FileSystemGlobbing` is part of the ASP.NET Core runtime, so the program has `"RingDotNet.Web"` in its `using { }` ([Getting started](getting-started.html)).
 
@@ -42,11 +42,11 @@ A `Matcher` collects **include** rules (`AddInclude`) and **exclude** rules (`Ad
 
 ### Files on a disk
 
-`GetResultsInFullPath(matcher, folder)` walks the folder and gives the full paths of the matching files. The order is the order of the file system, which is not the same on every system, so the program sorts the names before printing. `GetResultsInFullPath` and `Match` are **extension methods** of `MatcherExtensions`, so they are called with `dnStatic(type, method, [arguments])` ([tutorial 109](tut-109-memory-cache.html)); `AddInclude` and `AddExclude` are real methods of the object. The class is made with `dnNew(type, [])` because the namespace has no generated Ring classes.
+`GetResultsInFullPath(matcher, folder)` walks the folder and gives the full paths of the matching files. The order is the order of the file system, which is not the same on every system, so the program sorts the names before printing. `GetResultsInFullPath` and `Match` are **extension methods** of `MatcherExtensions`, so they are called with `dnStatic(type, method, [arguments])` (the tutorial [Caching](tut-109-memory-cache.html)); `AddInclude` and `AddExclude` are real methods of the object. The class is made with `dnNew(type, [])` because the namespace has no generated Ring classes.
 
 ### A list of names
 
-`Match(root, files)` applies the patterns to a **list of paths** that need not exist: the names inside an archive ([tutorial 108](tut-108-zip-in-memory.html)), the files that a version control system reports as changed, the lines of a file. It needs a root (use `"."`, an empty text is read as a missing value) and a .NET collection of texts: the program makes a `List<string>` (`stringList`), because a plain Ring list is not accepted for an `IEnumerable<string>`. The result has `HasMatches` and `Files`, each file with its `Path`.
+`Match(root, files)` applies the patterns to a **list of paths** that need not exist: the names inside an archive (the tutorial [ZIP archives in memory](tut-108-zip-in-memory.html)), the files that a version control system reports as changed, the lines of a file. It needs a root (use `"."`, an empty text is read as a missing value) and a .NET collection of texts: the program makes a `List<string>` (`stringList`), because a plain Ring list is not accepted for an `IEnumerable<string>`. The result has `HasMatches` and `Files`, each file with its `Path`.
 
 ### Case
 
@@ -63,10 +63,10 @@ By default a matcher **ignores case**: `*.ring` also finds `B.RING`. The constru
 ## Exercises
 
 1. Write `findFiles(cFolder, aInclude, aExclude)` that returns the relative names as a Ring list.
-2. Read the patterns from a settings file ([tutorial 111](tut-111-configuration.html)) and use them for a backup program ([tutorial 46](tut-46-backup.html)).
+2. Read the patterns from a settings file (the tutorial [Configuration](tut-111-configuration.html)) and use them for a backup program (the tutorial [A project: a backup tool](tut-46-backup.html)).
 3. Make a matcher that finds the images (`**/*.png`, `**/*.jpg`) but not those in a folder `thumbs`.
 4. Test your patterns on a list of names with `Match` before you run them on the disk.
 
 ## Next
 
-[Tutorial 21: A log analyzer](tut-21-log-analyzer.html)
+[A project: analyze a log file](tut-21-log-analyzer.html)

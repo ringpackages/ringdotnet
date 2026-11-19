@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 50: A command-line tool"
+title: "A command-line tool"
 lead: A real command-line program has arguments, options with values, a usage text, clear error messages and an exit code that other programs can check.
 ---
 
@@ -42,4 +42,4 @@ The exit codes follow a habit: `0` fine, `1` the *command line* is wrong, `2` so
 
 ## Next
 
-[Tutorial 51: Logging](tut-51-logging.html)
+[Logging](tut-51-logging.html)

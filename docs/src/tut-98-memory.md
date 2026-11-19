@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 98: Memory and the garbage collector"
+title: "Memory and the garbage collector"
 lead: .NET frees the memory of objects that nothing uses any more. This lesson looks at how that works — how much memory the program uses, when a collection happens, weak references for caches, and generations — and at what the bridge adds to the picture.
 ---
 
@@ -31,7 +31,7 @@ When a .NET method returns an object to Ring, the bridge keeps a **handle** to i
 
 Two things remain your job:
 
-1. **`Dispose()`** ([tutorial 71](tut-71-dispose.html)) frees *resources* such as files and connections at once. Dropping the object frees its memory, but only some time later.
+1. **`Dispose()`** (the tutorial [Releasing resources](tut-71-dispose.html)) frees *resources* such as files and connections at once. Dropping the object frees its memory, but only some time later.
 2. **Timing.** Two things delay the release a little: Ring frees an object some moments after the last variable that held it is gone, and the handles are released in groups (the next .NET call does it when 32 are waiting). So the memory of one big object is not free at the moment you drop it. When it must go now, or before you look at the memory (`GC.GetTotalMemory`), write `callgc()` (Ring collects its garbage; it works for the function that calls it) and then `dnFlush()` (the waiting handles are released). `release()` is the other way: it releases one object immediately, and after it the object cannot be used any more.
 
 Step 2 of the program shows the effect: a list with room for 10 million bytes makes the memory grow by 10 MB, and after the variable is set to `NULL`, `callgc()`, `dnFlush()` and a collection the memory is smaller again.
@@ -63,4 +63,4 @@ The GC sorts objects by age, because most objects die young. Generation **0** ho
 
 ## Next
 
-[Tutorial 118: The Windows Registry](tut-118-registry.html)
+[The Windows Registry](tut-118-registry.html)

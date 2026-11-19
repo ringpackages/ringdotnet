@@ -1,4 +1,4 @@
-# Tutorial 72: XML in depth - reading with XDocument, searching with XPath, building and changing a document
+# XML in depth - reading with XDocument, searching with XPath, building and changing a document
 load "dotnet.ring"
 using {
 	"System"

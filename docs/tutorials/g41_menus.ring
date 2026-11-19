@@ -1,4 +1,4 @@
-# Tutorial 41: menus, toolbars, context menus and shortcuts - one action, several ways to reach it
+# menus, toolbars, context menus and shortcuts - one action, several ways to reach it
 load "dotnet.ring"
 using {
 	"System.Drawing"
@@ -14,7 +14,7 @@ nActions = 0
 func main
 	oForm = uiForm("Menus",480,300)
 
-	# The text area first (it fills the window: see tutorial 13)
+	# The text area first (it fills the window: see the tutorial "A small text editor")
 	oText = uiMemo(oForm,0,0,480,260)
 	oText {
 		Dock = "Fill"

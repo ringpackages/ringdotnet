@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tutorial 88: Compression · RingDotNet</title>
+<title>Compression · RingDotNet</title>
 <meta name="description" content="Compression makes data smaller by finding repetition. This lesson uses the GZip, Deflate and Brotli streams to compress and decompress bytes in memory and to write and read a compressed file.">
 <link rel="stylesheet" href="assets/style.css">
 <script>window.SITE_ROOT="";</script>
@@ -33,139 +33,139 @@
 <a href="tut-concepts.html">.NET for Ring programmers</a>
 <a href="tut-reading-docs.html">Reading the .NET docs</a>
 <h4>Tutorials: The basics</h4>
-<a href="tut-01-first-look.html">1. A first look</a>
-<a href="tut-02-text.html">2. Working with text</a>
-<a href="tut-03-numbers-dates.html">3. Numbers, dates, times</a>
-<a href="tut-04-collections.html">4. Collections and LINQ</a>
-<a href="tut-05-files.html">5. Files and folders</a>
-<a href="tut-06-json-xml.html">6. JSON and XML</a>
-<a href="tut-07-errors.html">7. When things go wrong</a>
-<a href="tut-08-security.html">8. Hashing and encryption</a>
-<a href="tut-09-http.html">9. HTTP</a>
-<a href="tut-10-tasks-processes.html">10. Tasks and programs</a>
+<a href="tut-01-first-look.html">A first look</a>
+<a href="tut-02-text.html">Working with text</a>
+<a href="tut-03-numbers-dates.html">Numbers, dates, times</a>
+<a href="tut-04-collections.html">Collections and LINQ</a>
+<a href="tut-05-files.html">Files and folders</a>
+<a href="tut-06-json-xml.html">JSON and XML</a>
+<a href="tut-07-errors.html">When things go wrong</a>
+<a href="tut-08-security.html">Hashing and encryption</a>
+<a href="tut-09-http.html">HTTP</a>
+<a href="tut-10-tasks-processes.html">Tasks and programs</a>
 <h4>Tutorials: Text and data formats</h4>
-<a href="tut-29-regex.html">29. Regular expressions</a>
-<a href="tut-52-unicode.html">52. Unicode and encodings</a>
-<a href="tut-97-comparers.html">97. Comparing text</a>
-<a href="tut-104-text-readers-writers.html">104. Text readers and writers</a>
-<a href="tut-86-escaping.html">86. Escaping</a>
-<a href="tut-64-urls.html">64. URLs and encodings</a>
-<a href="tut-117-domain-names.html">117. International domain names</a>
-<a href="tut-121-mime-types.html">121. MIME types</a>
-<a href="tut-100-json-writer.html">100. Writing JSON as a stream</a>
-<a href="tut-80-json-nodes.html">80. JSON as a tree</a>
-<a href="tut-72-xml.html">72. XML in depth</a>
-<a href="tut-77-xslt.html">77. XSLT</a>
-<a href="tut-47-markdown.html">47. Markdown to HTML</a>
-<a href="tut-66-spelling.html">66. A spell checker</a>
+<a href="tut-29-regex.html">Regular expressions</a>
+<a href="tut-52-unicode.html">Unicode and encodings</a>
+<a href="tut-97-comparers.html">Comparing text</a>
+<a href="tut-104-text-readers-writers.html">Text readers and writers</a>
+<a href="tut-86-escaping.html">Escaping</a>
+<a href="tut-64-urls.html">URLs and encodings</a>
+<a href="tut-117-domain-names.html">International domain names</a>
+<a href="tut-121-mime-types.html">MIME types</a>
+<a href="tut-100-json-writer.html">Writing JSON as a stream</a>
+<a href="tut-80-json-nodes.html">JSON as a tree</a>
+<a href="tut-72-xml.html">XML in depth</a>
+<a href="tut-77-xslt.html">XSLT</a>
+<a href="tut-47-markdown.html">Markdown to HTML</a>
+<a href="tut-66-spelling.html">A spell checker</a>
 <h4>Tutorials: Numbers, dates and money</h4>
-<a href="tut-101-number-types.html">101. Number types</a>
-<a href="tut-90-big-numbers.html">90. Big numbers</a>
-<a href="tut-67-bases.html">67. Number systems and big numbers</a>
-<a href="tut-57-money.html">57. Money</a>
-<a href="tut-99-vectors.html">99. Vectors and matrices</a>
-<a href="tut-69-random.html">69. Randomness</a>
-<a href="tut-44-statistics.html">44. Statistics, simulation</a>
-<a href="tut-103-dates-and-times.html">103. Dates and times</a>
-<a href="tut-68-timezones.html">68. Time zones</a>
-<a href="tut-43-calendar.html">43. Calendars and dates</a>
-<a href="tut-76-calendars.html">76. Other calendars</a>
-<a href="tut-33-cultures.html">33. Cultures</a>
+<a href="tut-101-number-types.html">Number types</a>
+<a href="tut-90-big-numbers.html">Big numbers</a>
+<a href="tut-67-bases.html">Number systems and big numbers</a>
+<a href="tut-57-money.html">Money</a>
+<a href="tut-99-vectors.html">Vectors and matrices</a>
+<a href="tut-69-random.html">Randomness</a>
+<a href="tut-44-statistics.html">Statistics, simulation</a>
+<a href="tut-103-dates-and-times.html">Dates and times</a>
+<a href="tut-68-timezones.html">Time zones</a>
+<a href="tut-43-calendar.html">Calendars and dates</a>
+<a href="tut-76-calendars.html">Other calendars</a>
+<a href="tut-33-cultures.html">Cultures</a>
 <h4>Tutorials: Collections and algorithms</h4>
-<a href="tut-106-arrays.html">106. Arrays</a>
-<a href="tut-107-sets.html">107. Sets</a>
-<a href="tut-92-data-structures.html">92. More data structures</a>
-<a href="tut-89-concurrent-collections.html">89. Collections for many threads</a>
-<a href="tut-65-enums.html">65. Enums and flags</a>
-<a href="tut-93-identifiers.html">93. Identifiers and versions</a>
-<a href="tut-58-undo.html">58. Undo, redo and queues</a>
-<a href="tut-75-recursion.html">75. Recursion</a>
-<a href="tut-54-expression.html">54. An expression calculator</a>
+<a href="tut-106-arrays.html">Arrays</a>
+<a href="tut-107-sets.html">Sets</a>
+<a href="tut-92-data-structures.html">More data structures</a>
+<a href="tut-89-concurrent-collections.html">Collections for many threads</a>
+<a href="tut-65-enums.html">Enums and flags</a>
+<a href="tut-93-identifiers.html">Identifiers and versions</a>
+<a href="tut-58-undo.html">Undo, redo and queues</a>
+<a href="tut-75-recursion.html">Recursion</a>
+<a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
-<a href="tut-59-paths.html">59. Paths and the environment</a>
-<a href="tut-56-streams.html">56. Streams and compression</a>
-<a href="tut-45-binary.html">45. Binary files</a>
-<a href="tut-88-compression.html" class="cur">88. Compression</a>
-<a href="tut-108-zip-in-memory.html">108. ZIP archives in memory</a>
-<a href="tut-96-tar.html">96. Tar archives</a>
-<a href="tut-112-globbing.html">112. File patterns (globbing)</a>
-<a href="tut-21-log-analyzer.html">21. A log analyzer</a>
-<a href="tut-31-duplicates.html">31. Duplicate files</a>
-<a href="tut-46-backup.html">46. A backup tool</a>
+<a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-56-streams.html">Streams and compression</a>
+<a href="tut-45-binary.html">Binary files</a>
+<a href="tut-88-compression.html" class="cur">Compression</a>
+<a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
+<a href="tut-96-tar.html">Tar archives</a>
+<a href="tut-112-globbing.html">File patterns (globbing)</a>
+<a href="tut-21-log-analyzer.html">A log analyzer</a>
+<a href="tut-31-duplicates.html">Duplicate files</a>
+<a href="tut-46-backup.html">A backup tool</a>
 <h4>Tutorials: Processes and performance</h4>
-<a href="tut-74-system.html">74. Asking the computer</a>
-<a href="tut-50-cli.html">50. A command-line tool</a>
-<a href="tut-51-logging.html">51. Logging</a>
-<a href="tut-85-feed-programs.html">85. Working with other programs</a>
-<a href="tut-79-processes-talk.html">79. Two programs talking</a>
-<a href="tut-82-shared-memory.html">82. Shared memory</a>
-<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
-<a href="tut-71-dispose.html">71. Releasing resources</a>
-<a href="tut-53-speed.html">53. Speed: measure first</a>
-<a href="tut-98-memory.html">98. Memory and the garbage collector</a>
-<a href="tut-118-registry.html">118. The Windows Registry</a>
+<a href="tut-74-system.html">Asking the computer</a>
+<a href="tut-50-cli.html">A command-line tool</a>
+<a href="tut-51-logging.html">Logging</a>
+<a href="tut-85-feed-programs.html">Working with other programs</a>
+<a href="tut-79-processes-talk.html">Two programs talking</a>
+<a href="tut-82-shared-memory.html">Shared memory</a>
+<a href="tut-83-tasks-waiting.html">Tasks that wait</a>
+<a href="tut-71-dispose.html">Releasing resources</a>
+<a href="tut-53-speed.html">Speed: measure first</a>
+<a href="tut-98-memory.html">Memory and the garbage collector</a>
+<a href="tut-118-registry.html">The Windows Registry</a>
 <h4>Tutorials: Networking and the web</h4>
-<a href="tut-81-network-tools.html">81. Network tools</a>
-<a href="tut-102-ip-networks.html">102. IP networks</a>
-<a href="tut-25-sockets.html">25. Sockets</a>
-<a href="tut-91-udp.html">91. UDP</a>
-<a href="tut-84-http-client.html">84. HttpClient in depth</a>
-<a href="tut-39-rest-client.html">39. A REST client</a>
-<a href="tut-16-web-service.html">16. A web service</a>
-<a href="tut-26-website.html">26. A small web site</a>
-<a href="tut-55-miniweb.html">55. A tiny web framework</a>
-<a href="tut-120-routes.html">120. Route templates</a>
-<a href="tut-94-mail-messages.html">94. E-mail messages</a>
+<a href="tut-81-network-tools.html">Network tools</a>
+<a href="tut-102-ip-networks.html">IP networks</a>
+<a href="tut-25-sockets.html">Sockets</a>
+<a href="tut-91-udp.html">UDP</a>
+<a href="tut-84-http-client.html">HttpClient in depth</a>
+<a href="tut-39-rest-client.html">A REST client</a>
+<a href="tut-16-web-service.html">A web service</a>
+<a href="tut-26-website.html">A small web site</a>
+<a href="tut-55-miniweb.html">A tiny web framework</a>
+<a href="tut-120-routes.html">Route templates</a>
+<a href="tut-94-mail-messages.html">E-mail messages</a>
 <h4>Tutorials: Security</h4>
-<a href="tut-78-crypto.html">78. Protecting and signing messages</a>
-<a href="tut-105-signatures.html">105. Digital signatures</a>
-<a href="tut-116-certificates.html">116. Certificates</a>
-<a href="tut-113-data-protection.html">113. Protecting data</a>
-<a href="tut-49-login.html">49. Login and sessions</a>
-<a href="tut-95-claims.html">95. Identities and claims</a>
-<a href="tut-114-rate-limiting.html">114. Rate limiting</a>
+<a href="tut-78-crypto.html">Protecting and signing messages</a>
+<a href="tut-105-signatures.html">Digital signatures</a>
+<a href="tut-116-certificates.html">Certificates</a>
+<a href="tut-113-data-protection.html">Protecting data</a>
+<a href="tut-49-login.html">Login and sessions</a>
+<a href="tut-95-claims.html">Identities and claims</a>
+<a href="tut-114-rate-limiting.html">Rate limiting</a>
 <h4>Tutorials: Databases and services</h4>
-<a href="tut-17-databases.html">17. Databases</a>
-<a href="tut-30-tables.html">30. Tabular data</a>
-<a href="tut-73-sql-reports.html">73. Reports with SQL</a>
-<a href="tut-27-entities.html">27. Entities, migrations</a>
-<a href="tut-115-access.html">115. Microsoft Access databases</a>
-<a href="tut-32-settings.html">32. Settings</a>
-<a href="tut-111-configuration.html">111. Configuration</a>
-<a href="tut-109-memory-cache.html">109. Caching</a>
-<a href="tut-110-dependency-injection.html">110. Dependency injection</a>
+<a href="tut-17-databases.html">Databases</a>
+<a href="tut-30-tables.html">Tabular data</a>
+<a href="tut-73-sql-reports.html">Reports with SQL</a>
+<a href="tut-27-entities.html">Entities, migrations</a>
+<a href="tut-115-access.html">Microsoft Access databases</a>
+<a href="tut-32-settings.html">Settings</a>
+<a href="tut-111-configuration.html">Configuration</a>
+<a href="tut-109-memory-cache.html">Caching</a>
+<a href="tut-110-dependency-injection.html">Dependency injection</a>
 <h4>Tutorials: Windows Forms</h4>
-<a href="tut-11-first-window.html">11. Your first window</a>
-<a href="tut-12-controls.html">12. Many controls</a>
-<a href="tut-23-layout.html">23. Layout and controls</a>
-<a href="tut-13-editor.html">13. A text editor</a>
-<a href="tut-40-dialog.html">40. Your own dialog</a>
-<a href="tut-41-menus.html">41. Menus, toolbars, shortcuts</a>
-<a href="tut-34-timers.html">34. Timers and progress</a>
-<a href="tut-14-animation.html">14. Drawing and animation</a>
-<a href="tut-22-images.html">22. Images</a>
-<a href="tut-36-chart.html">36. A chart</a>
-<a href="tut-42-browser.html">42. A folder browser</a>
+<a href="tut-11-first-window.html">Your first window</a>
+<a href="tut-12-controls.html">Many controls</a>
+<a href="tut-23-layout.html">Layout and controls</a>
+<a href="tut-13-editor.html">A text editor</a>
+<a href="tut-40-dialog.html">Your own dialog</a>
+<a href="tut-41-menus.html">Menus, toolbars, shortcuts</a>
+<a href="tut-34-timers.html">Timers and progress</a>
+<a href="tut-14-animation.html">Drawing and animation</a>
+<a href="tut-22-images.html">Images</a>
+<a href="tut-36-chart.html">A chart</a>
+<a href="tut-42-browser.html">A folder browser</a>
 <h4>Tutorials: WPF</h4>
-<a href="tut-15-wpf.html">15. WPF</a>
-<a href="tut-38-wpf-layout.html">38. WPF layout, styles</a>
-<a href="tut-70-wpf-animation.html">70. WPF animation</a>
+<a href="tut-15-wpf.html">WPF</a>
+<a href="tut-38-wpf-layout.html">WPF layout, styles</a>
+<a href="tut-70-wpf-animation.html">WPF animation</a>
 <h4>Tutorials: Projects with windows</h4>
-<a href="tut-24-todo.html">24. A to-do list</a>
-<a href="tut-35-tictactoe.html">35. Tic-Tac-Toe</a>
-<a href="tut-37-runner.html">37. A command runner</a>
-<a href="tut-48-addressbook.html">48. An address book</a>
-<a href="tut-60-sorting.html">60. Watching sorting algorithms</a>
-<a href="tut-61-maze.html">61. A maze</a>
-<a href="tut-62-filters.html">62. An image filter lab</a>
-<a href="tut-63-chat.html">63. A chat over TCP</a>
+<a href="tut-24-todo.html">A to-do list</a>
+<a href="tut-35-tictactoe.html">Tic-Tac-Toe</a>
+<a href="tut-37-runner.html">A command runner</a>
+<a href="tut-48-addressbook.html">An address book</a>
+<a href="tut-60-sorting.html">Watching sorting algorithms</a>
+<a href="tut-61-maze.html">A maze</a>
+<a href="tut-62-filters.html">An image filter lab</a>
+<a href="tut-63-chat.html">A chat over TCP</a>
 <h4>Tutorials: Libraries, testing and release</h4>
-<a href="tut-19-callbacks.html">19. Callbacks and events</a>
-<a href="tut-20-reflection.html">20. Reflection</a>
-<a href="tut-87-expressions.html">87. Expression trees</a>
-<a href="tut-18-csharp-library.html">18. A C# library</a>
-<a href="tut-28-testing.html">28. Testing</a>
-<a href="tut-119-distribution.html">119. Giving your program to others</a>
+<a href="tut-19-callbacks.html">Callbacks and events</a>
+<a href="tut-20-reflection.html">Reflection</a>
+<a href="tut-87-expressions.html">Expression trees</a>
+<a href="tut-18-csharp-library.html">A C# library</a>
+<a href="tut-28-testing.html">Testing</a>
+<a href="tut-119-distribution.html">Giving your program to others</a>
 <h4>Guide: the language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -196,12 +196,12 @@
 </nav>
 <main>
 <article>
-<h1>Tutorial 88: Compression</h1><p class="lead">Compression makes data smaller by finding repetition. This lesson uses the GZip, Deflate and Brotli streams to compress and decompress bytes in memory and to write and read a compressed file.</p>
+<h1>Compression</h1><p class="lead">Compression makes data smaller by finding repetition. This lesson uses the GZip, Deflate and Brotli streams to compress and decompress bytes in memory and to write and read a compressed file.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li>how a compression stream <strong>wraps</strong> another stream,</li><li><code>GZipStream</code>, <code>DeflateStream</code> and <code>BrotliStream</code>,</li><li>compressing and decompressing bytes in a <code>MemoryStream</code>,</li><li>why <code>Dispose</code> is needed to finish the data,</li><li>why random data does not shrink,</li><li>writing and reading a <code>.gz</code> file with <code>StreamWriter</code> and <code>StreamReader</code>.</li></ul>
-<p><a href="tut-05-files.html">Tutorial 5</a> made a ZIP archive of files. This lesson compresses <strong>data</strong> (one stream of bytes). GZip is the format of <code>.gz</code> files and of <code>Content-Encoding: gzip</code> on the web.</p>
+<p>The tutorial <a href="tut-05-files.html">Files and folders</a> made a ZIP archive of files. This lesson compresses <strong>data</strong> (one stream of bytes). GZip is the format of <code>.gz</code> files and of <code>Content-Encoding: gzip</code> on the web.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t88_compression.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 88: compression - GZip, Deflate and Brotli on streams, sizes, a round trip and a compressed file</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t88_compression.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># compression - GZip, Deflate and Brotli on streams, sizes, a round trip and a compressed file</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
@@ -313,15 +313,15 @@ using {
 <h3 id="random-data">Random data<a class="anchor" href="#random-data">#</a></h3>
 <p>Compression needs repetition. Random bytes have none, so the result is slightly <strong>larger</strong> than the original (the header and the bookkeeping cost a few bytes). Data that is already compressed (JPEG, PNG, ZIP, MP4) behaves the same: compressing it twice does not help.</p>
 <h3 id="a-compressed-file">A compressed file<a class="anchor" href="#a-compressed-file">#</a></h3>
-<p>Step 6 puts a <code>GZipStream</code> on a <code>FileStream</code> and a <code>StreamWriter</code> on the compressor. Everything written with <code>WriteLine</code> is compressed on its way to the disk. Disposing the <strong>writer</strong> closes the whole chain. Reading is the same chain in the other direction: <code>StreamReader</code> on <code>GZipStream</code> on <code>FileStream</code>, and <code>EndOfStream</code> tells when the lines are finished. (<a href="tut-56-streams.html">Tutorial 56</a> explains streams.)</p>
+<p>Step 6 puts a <code>GZipStream</code> on a <code>FileStream</code> and a <code>StreamWriter</code> on the compressor. Everything written with <code>WriteLine</code> is compressed on its way to the disk. Disposing the <strong>writer</strong> closes the whole chain. Reading is the same chain in the other direction: <code>StreamReader</code> on <code>GZipStream</code> on <code>FileStream</code>, and <code>EndOfStream</code> tells when the lines are finished. (The tutorial <a href="tut-56-streams.html">Streams and compression</a> explains streams.)</p>
 <div class="callout note"><span class="t">Note</span><p><code>BrotliStream</code> lives in another assembly (<code>System.IO.Compression.Brotli</code>); RingDotNet finds it for you. <code>CompressionLevel</code> (<code>"Optimal"</code>, <code>"Fastest"</code>, <code>"SmallestSize"</code>) is an optional second value of the constructor when the mode is <code>Compress</code>.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>a compression stream wraps another stream,</li><li><code>Dispose</code> finishes the compressed data,</li><li>the three formats have the same members,</li><li>repeated text shrinks, random or already compressed data does not,</li><li>a compressed file is a <code>StreamWriter</code> on a <code>GZipStream</code> on a <code>FileStream</code>.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Compress the text of a real file (a log from <a href="tut-21-log-analyzer.html">tutorial 21</a>) and print the ratio for each format.</li><li>Add <code>CompressionLevel</code> and compare <code>"Fastest"</code> with <code>"SmallestSize"</code> with a <code>Stopwatch</code>.</li><li>Write a function <code>gzipFile(source, target)</code> that uses <code>CopyTo</code> between two file streams.</li><li>Compress the same bytes twice and look at the size of the second result.</li></ol>
+<ol><li>Compress the text of a real file (a log from the tutorial <a href="tut-21-log-analyzer.html">A project: analyze a log file</a>) and print the ratio for each format.</li><li>Add <code>CompressionLevel</code> and compare <code>"Fastest"</code> with <code>"SmallestSize"</code> with a <code>Stopwatch</code>.</li><li>Write a function <code>gzipFile(source, target)</code> that uses <code>CopyTo</code> between two file streams.</li><li>Compress the same bytes twice and look at the size of the second result.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
-<p><a href="tut-108-zip-in-memory.html">Tutorial 108: ZIP archives in memory</a></p>
-<div class="pager"><a href="tut-45-binary.html"><small>Previous</small>45. Binary files</a><a class="next" href="tut-108-zip-in-memory.html"><small>Next</small>108. ZIP archives in memory</a></div>
+<p><a href="tut-108-zip-in-memory.html">ZIP archives in memory</a></p>
+<div class="pager"><a href="tut-45-binary.html"><small>Previous</small>Binary files</a><a class="next" href="tut-108-zip-in-memory.html"><small>Next</small>ZIP archives in memory</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>
 <aside class="toc" id="toc"></aside>

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 94: E-mail messages"
+title: "E-mail messages"
 lead: Build an e-mail in a program — check addresses, set the sender and the recipients, write the subject and the body, and add an HTML version next to the text. This lesson only builds messages; nothing is sent, so it runs without a mail server.
 ---
 
@@ -21,7 +21,7 @@ lead: Build an e-mail in a program — check addresses, set the sender and the r
 
 ### Addresses
 
-`new MailAddress("Ann Lee <ann.lee@example.com>")` splits the text into `DisplayName`, `User`, `Host` and `Address`. A text that is not an address raises an error, so the function `isAddress` uses `try` / `catch` ([tutorial 7](tut-07-errors.html)) to turn the error into a yes or no. The check is about the **form** (`user@host`); it cannot know whether the mailbox exists. `bob@` and `@example.com` are refused, `bob@example.com` is accepted.
+`new MailAddress("Ann Lee <ann.lee@example.com>")` splits the text into `DisplayName`, `User`, `Host` and `Address`. A text that is not an address raises an error, so the function `isAddress` uses `try` / `catch` (the tutorial [When things go wrong](tut-07-errors.html)) to turn the error into a yes or no. The check is about the **form** (`user@host`); it cannot know whether the mailbox exists. `bob@` and `@example.com` are refused, `bob@example.com` is accepted.
 
 > [!NOTE] .NET is generous with display names: `bob example@x.com` is read as the name *bob* and the address `example@x.com`. If your program needs exactly one address in a text box, also compare `oAddress.Address` with the text.
 
@@ -39,7 +39,7 @@ A mail with HTML is shown badly by programs that only show text. The solution is
 
 ### Sending
 
-`SmtpClient` connects to a mail server and sends a message (`Send`). It needs a server name, a port, a user and a password, and real recipients, so it is not part of a lesson that must run anywhere. Notes for your own program: use port 587 with `EnableSsl = True`, never write the password in the source (read it from the environment or a settings file, [tutorial 32](tut-32-settings.html)), and check with a test server or a test account first. Microsoft recommends a library such as MailKit for new programs, because `SmtpClient` is limited.
+`SmtpClient` connects to a mail server and sends a message (`Send`). It needs a server name, a port, a user and a password, and real recipients, so it is not part of a lesson that must run anywhere. Notes for your own program: use port 587 with `EnableSsl = True`, never write the password in the source (read it from the environment or a settings file, the tutorial [Settings](tut-32-settings.html)), and check with a test server or a test account first. Microsoft recommends a library such as MailKit for new programs, because `SmtpClient` is limited.
 
 ## What you learned
 
@@ -53,9 +53,9 @@ A mail with HTML is shown badly by programs that only show text. The solution is
 
 1. Write `addressList(cText)` that splits `a@x.com; b@y.com` into a list of `MailAddress` objects and skips the wrong ones.
 2. Add a `Bcc` recipient and print all the recipients of the mail.
-3. Add an attachment (`Attachments.Add`) made from a file of [tutorial 5](tut-05-files.html) and print its name.
+3. Add an attachment (`Attachments.Add`) made from a file of the tutorial [Files and folders](tut-05-files.html) and print its name.
 4. Read about `MailMessage.Headers` and add the header `X-Mailer`.
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Networking and the web**. The next chapter is **Security**: it starts with [Tutorial 78: Protecting and signing messages](tut-78-crypto.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Networking and the web**. The next chapter is **Security**: it starts with [Protecting and signing messages](tut-78-crypto.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

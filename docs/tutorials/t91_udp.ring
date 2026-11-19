@@ -1,4 +1,4 @@
-# Tutorial 91: UDP - datagrams between two sockets of this computer, Receive with a time limit, broadcast-style replies and lost data
+# UDP - datagrams between two sockets of this computer, Receive with a time limit, broadcast-style replies and lost data
 load "dotnet.ring"
 using {
 	"System"

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 114: Rate limiting"
+title: "Rate limiting"
 lead: A service that answers every request can be brought down by one client that asks too often. A rate limiter says yes or no to each request at once. This lesson uses a token bucket, a concurrency limiter with leases, statistics and the retry time, and keeps one limiter for each client.
 ---
 
@@ -12,7 +12,7 @@ lead: A service that answers every request can be brought down by one client tha
 - statistics and the retry time,
 - one limiter for each client.
 
-A web program ([tutorial 16](tut-16-web-service.html)) uses limiters to answer *429 Too Many Requests*, a client that calls an API ([tutorial 84](tut-84-http-client.html)) uses one to stay below the limit of the server, and a program that sends mail uses one so that it is not marked as spam.
+A web program (the tutorial [A web service with a database](tut-16-web-service.html)) uses limiters to answer *429 Too Many Requests*, a client that calls an API (the tutorial [HttpClient in depth](tut-84-http-client.html)) uses one to stay below the limit of the server, and a program that sends mail uses one so that it is not marked as spam.
 
 > [!NOTE] `System.Threading.RateLimiting` is part of the ASP.NET Core runtime, so the program has `"RingDotNet.Web"` in its `using { }` ([Getting started](getting-started.html)). The namespace has no generated Ring classes: the objects are made with `dnNew(type, [options])` and used with `callMethod` and `getProp` ([Core concepts](concepts.html)).
 
@@ -38,17 +38,17 @@ The bucket holds up to `TokenLimit` tokens (3). Each request takes one. Tokens c
 
 ### The concurrency limiter
 
-It limits not the **rate** but how many requests are **in progress at the same time**: with a limit of 2, the third request is refused until one of the first two ends. A request keeps its **lease** while it works and gives it back with `Dispose()`; then the place is free again, and the next request is allowed. Use it for a slow shared resource: a database with 10 connections, a report that uses a lot of memory. Always dispose the lease in every path, including errors (`try` / `catch`, [tutorial 7](tut-07-errors.html)), or the places are lost one by one.
+It limits not the **rate** but how many requests are **in progress at the same time**: with a limit of 2, the third request is refused until one of the first two ends. A request keeps its **lease** while it works and gives it back with `Dispose()`; then the place is free again, and the next request is allowed. Use it for a slow shared resource: a database with 10 connections, a report that uses a lot of memory. Always dispose the lease in every path, including errors (`try` / `catch`, the tutorial [When things go wrong](tut-07-errors.html)), or the places are lost one by one.
 
 ### The retry time
 
-A refused lease can say **when to try again**: `TryGetMetadata("RETRY_AFTER")` answers `[ found, TimeSpan ]` ([tutorial 81](tut-81-network-tools.html)). A web server puts the seconds in the `Retry-After` header of the *429* response, and a well-made client waits that long and does not hammer the server.
+A refused lease can say **when to try again**: `TryGetMetadata("RETRY_AFTER")` answers `[ found, TimeSpan ]` (the tutorial [Network tools](tut-81-network-tools.html)). A web server puts the seconds in the `Retry-After` header of the *429* response, and a well-made client waits that long and does not hammer the server.
 
 ### One limiter for each client
 
-A single bucket for the whole service lets one noisy client use up the allowance of everybody. The program keeps a bucket **for each client** in a Ring list (the key is an address or a user id): the first client is refused after 2 requests while the second still has its allowance. In a real service the list is a dictionary, and old clients are removed so that it does not grow for ever ([tutorial 109](tut-109-memory-cache.html) shows a cache with expiration for this).
+A single bucket for the whole service lets one noisy client use up the allowance of everybody. The program keeps a bucket **for each client** in a Ring list (the key is an address or a user id): the first client is refused after 2 requests while the second still has its allowance. In a real service the list is a dictionary, and old clients are removed so that it does not grow for ever (the tutorial [Caching](tut-109-memory-cache.html) shows a cache with expiration for this).
 
-> [!WARNING] The limiter lives **inside the program**: two copies of a service have two separate buckets, so a client can make twice as many requests. For a limit that holds across servers, count in a shared store (a database or a cache server). And the address of a client behind a proxy is the address of the proxy ([tutorial 102](tut-102-ip-networks.html)).
+> [!WARNING] The limiter lives **inside the program**: two copies of a service have two separate buckets, so a client can make twice as many requests. For a limit that holds across servers, count in a shared store (a database or a cache server). And the address of a client behind a proxy is the address of the proxy (the tutorial [IP networks](tut-102-ip-networks.html)).
 
 ## What you learned
 
@@ -63,8 +63,8 @@ A single bucket for the whole service lets one noisy client use up the allowance
 1. Write `handleRequest(cClient)` that returns *200* or *429* and the retry seconds, using one bucket for each client name.
 2. Use a `FixedWindowRateLimiter` (a window of 1 second, 5 permits) and make 10 requests with short pauses.
 3. Combine a concurrency limiter with a token bucket: a request must pass both.
-4. Print the statistics of every client after 100 random requests ([tutorial 69](tut-69-random.html)).
+4. Print the statistics of every client after 100 random requests (the tutorial [Randomness](tut-69-random.html)).
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Security**. The next chapter is **Databases and services**: it starts with [Tutorial 17: Databases](tut-17-databases.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Security**. The next chapter is **Databases and services**: it starts with [Databases step by step](tut-17-databases.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

@@ -1,4 +1,4 @@
-# Tutorial 78: protecting and signing messages - AES, HMAC (encrypt-then-MAC), a password-derived key and RSA signatures
+# protecting and signing messages - AES, HMAC (encrypt-then-MAC), a password-derived key and RSA signatures
 load "dotnet.ring"
 using {
 	"System"

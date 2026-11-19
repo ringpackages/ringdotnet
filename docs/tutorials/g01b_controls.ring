@@ -1,4 +1,4 @@
-# Tutorial 11, step 2: a label and a button
+# Your first window, step 2: a label and a button
 load "dotnet.ring"
 using {
 	"System.Drawing"

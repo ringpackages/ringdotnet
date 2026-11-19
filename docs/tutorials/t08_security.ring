@@ -1,4 +1,4 @@
-# Tutorial 8: hashing and encryption basics - checksums, password hashes, random tokens, AES
+# hashing and encryption basics - checksums, password hashes, random tokens, AES
 load "dotnet.ring"
 using {
 	"System"

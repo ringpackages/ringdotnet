@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 27: Entity objects and migrations"
+title: "Entity objects and migrations"
 lead: Work with the rows of your tables as real objects that EF Core tracks, and change a database that already holds data without losing it.
 ---
 
@@ -13,7 +13,7 @@ lead: Work with the rows of your tables as real objects that EF Core tracks, and
 
 ## Two styles, one schema
 
-[Tutorial 17](tut-17-databases.html) used `RingDatabase`: a row is a list of `[column, value]` pairs. `RingEntityDb` uses the **same schema** but turns each table into a real .NET class. A row is an object; related rows are properties of the object.
+The tutorial [Databases step by step](tut-17-databases.html) used `RingDatabase`: a row is a list of `[column, value]` pairs. `RingEntityDb` uses the **same schema** but turns each table into a real .NET class. A row is an object; related rows are properties of the object.
 
 | | `RingDatabase` | `RingEntityDb` |
 |---|---|---|
@@ -74,4 +74,4 @@ You shipped version 1 of a program. Users have data. In version 2 you need a `Ph
 
 ## Next
 
-[Tutorial 115: Microsoft Access databases](tut-115-access.html)
+[Microsoft Access databases](tut-115-access.html)

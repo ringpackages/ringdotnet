@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 110: Dependency injection"
+title: "Dependency injection"
 lead: A part of a program should ask for what it needs and not create it. A service container makes the objects and decides how long each one lives. This lesson uses the container of .NET with its three lifetimes — singleton, transient and scoped — and a service that needs another service.
 ---
 
@@ -12,7 +12,7 @@ lead: A part of a program should ask for what it needs and not create it. A serv
 - factories that ask the provider for other services,
 - the rules that avoid mistakes.
 
-Every ASP.NET Core program is built on this container, so what you learn here is what a web program ([tutorial 16](tut-16-web-service.html)) is using inside.
+Every ASP.NET Core program is built on this container, so what you learn here is what a web program (the tutorial [A web service with a database](tut-16-web-service.html)) is using inside.
 
 ## The program
 
@@ -26,11 +26,11 @@ Every ASP.NET Core program is built on this container, so what you learn here is
 
 Without DI, a function that sends mail creates its own mail client, and a test of that function sends real mail. With DI, the function **asks** the container for a mail client; the program registers the real one, and a test registers a fake one. The code that *uses* a service does not know how it is made, and the code that *makes* it does not know who uses it.
 
-The container is a `ServiceCollection` (the list of registrations); `BuildServiceProvider` turns it into a **provider** that makes the objects. A service is asked for with its type: `oProvider.GetService(type)`. The keys are .NET types, so in this lesson three ordinary types stand for three services: `ArrayList`, `Random` and `MemoryStream`. Ring classes cannot be registered (they are not .NET types), but a Ring function can be the **factory** that makes the object: `AddSingleton(serviceType, factory)` with `dnCallback("makeSingleton")`. `AddSingleton`, `AddTransient`, `AddScoped` and `BuildServiceProvider` are extension methods, so they are called with `dnStatic` ([tutorial 109](tut-109-memory-cache.html)).
+The container is a `ServiceCollection` (the list of registrations); `BuildServiceProvider` turns it into a **provider** that makes the objects. A service is asked for with its type: `oProvider.GetService(type)`. The keys are .NET types, so in this lesson three ordinary types stand for three services: `ArrayList`, `Random` and `MemoryStream`. Ring classes cannot be registered (they are not .NET types), but a Ring function can be the **factory** that makes the object: `AddSingleton(serviceType, factory)` with `dnCallback("makeSingleton")`. `AddSingleton`, `AddTransient`, `AddScoped` and `BuildServiceProvider` are extension methods, so they are called with `dnStatic` (the tutorial [Caching](tut-109-memory-cache.html)).
 
 ### Singleton
 
-**One object for the whole program**, made the first time somebody asks. Asked twice, the factory ran once and both answers are the *same object* (`Equals` of these types compares the object itself). Use it for things that are expensive to make or must be shared: a cache ([tutorial 109](tut-109-memory-cache.html)), a configuration ([tutorial 111](tut-111-configuration.html)), a logger. A singleton must be safe for use by many threads at once.
+**One object for the whole program**, made the first time somebody asks. Asked twice, the factory ran once and both answers are the *same object* (`Equals` of these types compares the object itself). Use it for things that are expensive to make or must be shared: a cache (the tutorial [Caching](tut-109-memory-cache.html)), a configuration (the tutorial [Configuration](tut-111-configuration.html)), a logger. A singleton must be safe for use by many threads at once.
 
 ### Transient
 
@@ -68,4 +68,4 @@ A factory receives the provider as its first value, so it can ask for what it ne
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Databases and services**. The next chapter is **Windows Forms**: it starts with [Tutorial 11: Your first window](tut-11-first-window.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Databases and services**. The next chapter is **Windows Forms**: it starts with [Your first window](tut-11-first-window.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

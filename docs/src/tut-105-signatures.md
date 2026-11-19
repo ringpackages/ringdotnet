@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 105: Digital signatures"
+title: "Digital signatures"
 lead: A digital signature shows who wrote a message and that nobody changed it. This lesson makes an ECDsa key pair, signs a message, verifies it, shows that a changed message or another key fails, and shares only the public key.
 ---
 
@@ -11,7 +11,7 @@ lead: A digital signature shows who wrote a message and that nobody changed it. 
 - why a changed message or a different key fails,
 - sharing the public key and nothing else.
 
-[Tutorial 8](tut-08-security.html) used hashes and encryption and [tutorial 78](tut-78-crypto.html) used RSA and more. A signature adds the answer to *"who?"*.
+The tutorial [Hashing and encryption](tut-08-security.html) used hashes and encryption and the tutorial [Protecting and signing messages](tut-78-crypto.html) used RSA and more. A signature adds the answer to *"who?"*.
 
 ## The program
 
@@ -53,11 +53,11 @@ A signature made with one key does not verify with another key (step 4). Nobody 
 
 ## Exercises
 
-1. Sign a file ([tutorial 5](tut-05-files.html)) and write the signature to another file; verify both later.
-2. Write `signedMessage(text)` that returns the text and its signature as Base64 in a JSON object ([tutorial 100](tut-100-json-writer.html)).
+1. Sign a file (the tutorial [Files and folders](tut-05-files.html)) and write the signature to another file; verify both later.
+2. Write `signedMessage(text)` that returns the text and its signature as Base64 in a JSON object (the tutorial [Writing JSON as a stream](tut-100-json-writer.html)).
 3. Change one byte of the signature and check that verification fails.
 4. Try the curve `nistP384` and look at the size of the signature.
 
 ## Next
 
-[Tutorial 116: Certificates](tut-116-certificates.html)
+[Certificates](tut-116-certificates.html)

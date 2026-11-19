@@ -1,4 +1,4 @@
-# Tutorial 116: certificates - a self-signed X.509 certificate, what it contains, export with and without the private key, and signing with it
+# certificates - a self-signed X.509 certificate, what it contains, export with and without the private key, and signing with it
 load "dotnet.ring"
 using {
 	"System"

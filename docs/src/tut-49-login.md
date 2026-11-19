@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 49: Login, sessions and cookies"
+title: "Login, sessions and cookies"
 lead: HTTP forgets who you are between requests. This lesson adds registration and login to a web site: safe passwords, a session cookie that the browser sends back, and a page that only logged-in users can see.
 ---
 
@@ -32,7 +32,7 @@ Every HTTP request stands alone: the server does not know that the request for `
 
 ### Registering
 
-`registerUser` reads the form fields. It refuses a missing name or a short password with `400`, creates a random **salt**, and stores the name, the salt and a **hash** of the password (`PBKDF2`, [tutorial 8](tut-08-security.html)) — never the password itself. The `unique` option of the name column makes the database refuse a duplicate, which the handler turns into `409 Conflict`.
+`registerUser` reads the form fields. It refuses a missing name or a short password with `400`, creates a random **salt**, and stores the name, the salt and a **hash** of the password (`PBKDF2`, the tutorial [Hashing and encryption](tut-08-security.html)) — never the password itself. The `unique` option of the name column makes the database refuse a duplicate, which the handler turns into `409 Conflict`.
 
 ### Logging in
 
@@ -68,7 +68,7 @@ A browser keeps cookies by itself. The test client does it manually: after a log
 | `HttpOnly` cookies | scripts cannot steal them |
 | use **HTTPS** (not shown here) and add `Secure` to the cookie | on plain HTTP the cookie travels readable |
 | expire sessions after some time | a forgotten login should not live forever |
-| escape text put into pages ([tutorial 26](tut-26-website.html)) | otherwise a script can act as the user |
+| escape text put into pages (the tutorial [A small web site](tut-26-website.html)) | otherwise a script can act as the user |
 
 > [!WARNING] This is a teaching example. For a real site use the full features of ASP.NET Core (HTTPS, anti-forgery tokens, rate limiting of login attempts) and think carefully about threats before you store other people's data.
 
@@ -89,4 +89,4 @@ A browser keeps cookies by itself. The test client does it manually: after a log
 
 ## Next
 
-[Tutorial 95: Identities and claims](tut-95-claims.html)
+[Identities and claims](tut-95-claims.html)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 45: Binary files"
+title: "Binary files"
 lead: Not every file is text. Pictures, archives and programs are bytes in a particular layout. This lesson writes and reads a tiny binary format, looks at its bytes with a hex dump, and learns the habits that protect against wrong files.
 ---
 
@@ -71,4 +71,4 @@ The reader and writer hold the file open. An open file cannot be deleted or repl
 
 ## Next
 
-[Tutorial 88: Compression](tut-88-compression.html)
+[Compression](tut-88-compression.html)

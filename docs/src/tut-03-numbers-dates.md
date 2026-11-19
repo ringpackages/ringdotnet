@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 3: Numbers, dates and times"
+title: "Numbers, dates and times"
 lead: Math functions, converting text to numbers without crashing, numbers of any size, random numbers, and the date and time classes DateTime and TimeSpan.
 ---
 
@@ -79,4 +79,4 @@ The difference between two dates is a `TimeSpan`: `Subtract` gives it, and it ha
 
 ## Next
 
-[Tutorial 4: Collections and LINQ](tut-04-collections.html)
+[Collections and LINQ](tut-04-collections.html)

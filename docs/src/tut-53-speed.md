@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 53: Speed — measure first"
+title: "Speed — measure first"
 lead: Programs get faster when you measure, not when you guess. This lesson times code with a Stopwatch, compares two ways of building text, adds a cache, and shows the cost of calls across the bridge.
 ---
 
@@ -57,4 +57,4 @@ Every call to .NET has a small cost. Reading 500 items with `oList.Item(i)` make
 
 ## Next
 
-[Tutorial 98: Memory and the garbage collector](tut-98-memory.html)
+[Memory and the garbage collector](tut-98-memory.html)

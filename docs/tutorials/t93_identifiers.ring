@@ -1,4 +1,4 @@
-# Tutorial 93: identifiers and versions - Guid, Version, and sorting version numbers by number and not as text
+# identifiers and versions - Guid, Version, and sorting version numbers by number and not as text
 load "dotnet.ring"
 using {
 	"System"

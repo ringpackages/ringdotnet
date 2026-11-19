@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 5: Files and folders"
+title: "Files and folders"
 lead: Read and write text files, build paths the right way, get information about files, copy, list and zip — with Path, Directory, File, StreamReader and ZipFile.
 ---
 
@@ -80,4 +80,4 @@ A program that creates temporary files deletes them at the end. This tutorial's 
 
 ## Next
 
-[Tutorial 6: JSON and XML](tut-06-json-xml.html)
+[JSON and XML](tut-06-json-xml.html)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 39: A REST client"
+title: "A REST client"
 lead: Most services on the internet speak JSON over HTTP. This lesson calls such a service, reads the answer, checks the status, sends data, and handles a server that is not there.
 ---
 
@@ -46,7 +46,7 @@ For this tutorial the service is started in the same program, so that it needs n
 
 ### Reading JSON
 
-Step 1 parses the array with `JsonDocument`: `GetArrayLength()`, `Item(i)`, and for each book `GetProperty("title").GetString()` and `GetProperty("year").GetInt32()`. Call `Dispose()` on the document when you are done ([tutorial 6](tut-06-json-xml.html)).
+Step 1 parses the array with `JsonDocument`: `GetArrayLength()`, `Item(i)`, and for each book `GetProperty("title").GetString()` and `GetProperty("year").GetInt32()`. Call `Dispose()` on the document when you are done (the tutorial [JSON and XML](tut-06-json-xml.html)).
 
 ### Status first
 
@@ -77,4 +77,4 @@ Step 4 posts `{"title":"Foundation","year":1951}`. The service answers `201 Crea
 
 ## Next
 
-[Tutorial 16: A web service](tut-16-web-service.html)
+[A web service with a database](tut-16-web-service.html)

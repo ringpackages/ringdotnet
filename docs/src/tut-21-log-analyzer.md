@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 21: A project: analyze a log file"
+title: "A project: analyze a log file"
 lead: Put several lessons to work in one useful program — read a text file, take each line apart with a regular expression, count with a dictionary, summarise with LINQ and write a JSON report.
 ---
 
@@ -83,4 +83,4 @@ A JSON object is simple text: the helper builds `{"lines":30,"errors":9,"differe
 
 ## Next
 
-[Tutorial 31: Duplicate files](tut-31-duplicates.html)
+[A project: find duplicate files](tut-31-duplicates.html)

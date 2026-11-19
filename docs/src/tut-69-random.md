@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 69: Randomness"
+title: "Randomness"
 lead: Dice, cards, loot tables and unique ids all need random numbers — but not the same kind. This lesson uses a seeded generator, shuffles a deck correctly, draws with weights, makes unique ids, and shows when ordinary random numbers are not safe.
 ---
 
@@ -42,7 +42,7 @@ A `Guid` has 128 random bits, written as 36 characters. Two Guids are equal with
 
 ### When it must be secure
 
-Because `Random` is a formula, a person who sees a few of its numbers can calculate the next ones. For **passwords, tokens, keys and anything that guards a secret** use `RandomNumberGenerator` ([tutorial 8](tut-08-security.html) and [tutorial 49](tut-49-login.html) use it). Rule of thumb: games and simulations → `Random`; security → `RandomNumberGenerator`.
+Because `Random` is a formula, a person who sees a few of its numbers can calculate the next ones. For **passwords, tokens, keys and anything that guards a secret** use `RandomNumberGenerator` (the tutorial [Hashing and encryption](tut-08-security.html) and the tutorial [Login, sessions and cookies](tut-49-login.html) use it). Rule of thumb: games and simulations → `Random`; security → `RandomNumberGenerator`.
 
 ## What you learned
 
@@ -62,4 +62,4 @@ Because `Random` is a formula, a person who sees a few of its numbers can calcul
 
 ## Next
 
-[Tutorial 44: Statistics, simulation](tut-44-statistics.html)
+[Statistics and simulation](tut-44-statistics.html)

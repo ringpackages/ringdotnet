@@ -1,4 +1,4 @@
-# Tutorial 33: cultures - the same number, date and text written, read and sorted in different languages
+# cultures - the same number, date and text written, read and sorted in different languages
 load "dotnet.ring"
 using {
 	"System"

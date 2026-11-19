@@ -1,4 +1,4 @@
-# Tutorial 68: time zones - UTC, local time, daylight saving, a meeting for several cities and a flight
+# time zones - UTC, local time, daylight saving, a meeting for several cities and a flight
 load "dotnet.ring"
 using {
 	"System"

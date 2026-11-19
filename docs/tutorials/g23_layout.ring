@@ -1,4 +1,4 @@
-# Tutorial 23: layout and richer controls - SplitContainer, TabControl, TableLayoutPanel, DataGridView with a filter
+# layout and richer controls - SplitContainer, TabControl, TableLayoutPanel, DataGridView with a filter
 load "dotnet.ring"
 using {
 	"System.Data"

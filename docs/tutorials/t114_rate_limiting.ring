@@ -1,4 +1,4 @@
-# Tutorial 114: rate limiting - a token bucket, a concurrency limiter with leases, statistics, and one limiter for each client
+# rate limiting - a token bucket, a concurrency limiter with leases, statistics, and one limiter for each client
 load "dotnet.ring"
 using {
 	"System"

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 115: Microsoft Access databases"
+title: "Microsoft Access databases"
 lead: Many small businesses keep their data in an Access file. This lesson uses an .accdb file from Ring through ODBC — it makes the file, creates tables, inserts rows with parameters, runs joins and totals, works with dates, and uses a transaction. It runs on Windows with the Microsoft Access Database Engine.
 ---
 
@@ -13,7 +13,7 @@ lead: Many small businesses keep their data in an Access file. This lesson uses 
 - dates, transactions, closing,
 - the limits of Access and when to choose another database.
 
-[Tutorial 17](tut-17-databases.html) used SQLite and [tutorial 73](tut-73-sql-reports.html) wrote reports with SQL. The ideas are the same; only the driver and a few details of the SQL change.
+The tutorial [Databases step by step](tut-17-databases.html) used SQLite and the tutorial [Reports with SQL](tut-73-sql-reports.html) wrote reports with SQL. The ideas are the same; only the driver and a few details of the SQL change.
 
 ## What you need
 
@@ -68,7 +68,7 @@ Searching with `LIKE` uses `%` and `_` through ODBC (in the Access program itsel
 
 ### Joins and totals
 
-`INNER JOIN ... ON c.Id = o.CustomerId` puts the orders next to their customers. `GROUP BY` makes one row for each group with `COUNT`, `SUM` and `AVG`; `HAVING` filters the **groups** (where `WHERE` filters the **rows** before they are grouped). The result shows that customers with fewer than two orders are not listed. `SUM` of a currency column is exact, which is why money is `CURRENCY` and not a floating-point number ([tutorial 58](tut-57-money.html)).
+`INNER JOIN ... ON c.Id = o.CustomerId` puts the orders next to their customers. `GROUP BY` makes one row for each group with `COUNT`, `SUM` and `AVG`; `HAVING` filters the **groups** (where `WHERE` filters the **rows** before they are grouped). The result shows that customers with fewer than two orders are not listed. `SUM` of a currency column is exact, which is why money is `CURRENCY` and not a floating-point number (the tutorial [Money](tut-57-money.html)).
 
 ### Dates
 
@@ -87,7 +87,7 @@ Close the connection (`Close()`, `Dispose()`) and call `OdbcConnection.ReleaseOb
 - **Size and users.** An Access file is limited to **2 GB** and is meant for a **few users** on a fast local disk; there is no server, every program opens the file itself. It is not a good choice for a web site with many visitors or for a file on a slow network share.
 - **Backups.** The file is the database: copy it when no program has it open (or after *compact and repair*, which the `JRO.JetEngine` COM object does).
 - **Old files.** `.mdb` files of Access 97 or 2000 may need the older *Jet* engine, which has no 64-bit version; open them in Access and save them as `.accdb`.
-- **Moving on.** When the data grows or many users need it, move it to **SQLite** ([tutorial 17](tut-17-databases.html), a file without a server) or to **SQL Server** and use Entity Framework ([tutorial 27](tut-27-entities.html)). The Access driver can read the old file for the copy. The same ODBC driver family also reads **Excel** and **text/CSV** files (`Microsoft Excel Driver`, `Microsoft Access Text Driver`) with the same code.
+- **Moving on.** When the data grows or many users need it, move it to **SQLite** (the tutorial [Databases step by step](tut-17-databases.html), a file without a server) or to **SQL Server** and use Entity Framework (the tutorial [Entity objects and migrations](tut-27-entities.html)). The Access driver can read the old file for the copy. The same ODBC driver family also reads **Excel** and **text/CSV** files (`Microsoft Excel Driver`, `Microsoft Access Text Driver`) with the same code.
 
 > [!NOTE] `samples/UsingDotNet/tests/test_access.ring` tests all of this with 29 checks (Unicode, NULL, transactions, an attack text) and skips itself where Access is not available.
 
@@ -103,10 +103,10 @@ Close the connection (`Close()`, `Dispose()`) and call `OdbcConnection.ReleaseOb
 ## Exercises
 
 1. Add a table `Products` and a table `OrderLines` and make a report of the quantity sold for each product.
-2. Write `insertMany(oConnection, cSql, aRows)` that inserts a list of rows inside **one** transaction, and compare its time with single inserts for 1000 rows ([tutorial 53](tut-53-speed.html)).
-3. Write `export(oConnection, cTable, cFile)` that writes a table as JSON ([tutorial 100](tut-100-json-writer.html)).
+2. Write `insertMany(oConnection, cSql, aRows)` that inserts a list of rows inside **one** transaction, and compare its time with single inserts for 1000 rows (the tutorial [Speed — measure first](tut-53-speed.html)).
+3. Write `export(oConnection, cTable, cFile)` that writes a table as JSON (the tutorial [Writing JSON as a stream](tut-100-json-writer.html)).
 4. Open an existing `.accdb` file of your own and list its tables and columns.
 
 ## Next
 
-[Tutorial 32: Settings](tut-32-settings.html)
+[Settings](tut-32-settings.html)

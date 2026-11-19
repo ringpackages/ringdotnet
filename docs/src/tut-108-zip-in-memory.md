@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 108: ZIP archives in memory"
+title: "ZIP archives in memory"
 lead: A ZIP archive does not have to be a file. ZipArchive works on any stream, so a MemoryStream can hold a whole archive in memory — useful for a download that a web program sends, or for a test that leaves no files behind. This lesson creates, reads, compresses and updates an archive.
 ---
 
@@ -11,7 +11,7 @@ lead: A ZIP archive does not have to be a file. ZipArchive works on any stream, 
 - compression levels,
 - checking the names of entries.
 
-[Tutorial 5](tut-05-files.html) made a ZIP file from a folder, [tutorial 88](tut-88-compression.html) compressed streams and [tutorial 96](tut-96-tar.html) made tar archives. This lesson works with the entries of an archive one by one.
+The tutorial [Files and folders](tut-05-files.html) made a ZIP file from a folder, the tutorial [Compression](tut-88-compression.html) compressed streams and the tutorial [Tar archives](tut-96-tar.html) made tar archives. This lesson works with the entries of an archive one by one.
 
 ## The program
 
@@ -43,7 +43,7 @@ Open the stream again (`Position = 0`) in `Read` mode. `Entries` lists every ent
 
 ### Names
 
-An entry name is just text, and a bad archive can contain `../../etc/passwd`. A program that unpacks entries by hand must check every name: no `..` part, no leading `/` or `\`, and the full path of the target must stay inside the target folder ([tutorial 59](tut-59-paths.html)). `ZipFile.ExtractToDirectory` does this check for you; your own loop does not.
+An entry name is just text, and a bad archive can contain `../../etc/passwd`. A program that unpacks entries by hand must check every name: no `..` part, no leading `/` or `\`, and the full path of the target must stay inside the target folder (the tutorial [Paths and the environment](tut-59-paths.html)). `ZipFile.ExtractToDirectory` does this check for you; your own loop does not.
 
 ## What you learned
 
@@ -55,11 +55,11 @@ An entry name is just text, and a bad archive can contain `../../etc/passwd`. A 
 
 ## Exercises
 
-1. Write `zipFiles(aNames)` that returns the bytes of an archive and send them in the web server of [tutorial 55](tut-55-miniweb.html).
+1. Write `zipFiles(aNames)` that returns the bytes of an archive and send them in the web server of the tutorial [A tiny web framework](tut-55-miniweb.html).
 2. Write `listArchive(oStream)` that returns the entry names as a Ring list.
 3. Compare the five levels for a real text file and a JPEG picture.
 4. Add a comment to an entry (`Comment`) and read it back.
 
 ## Next
 
-[Tutorial 96: Tar archives](tut-96-tar.html)
+[Tar archives](tut-96-tar.html)

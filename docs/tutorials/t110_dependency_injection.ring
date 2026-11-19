@@ -1,4 +1,4 @@
-# Tutorial 110: dependency injection - a service container, the three lifetimes (singleton, transient, scoped) and services that need other services
+# dependency injection - a service container, the three lifetimes (singleton, transient, scoped) and services that need other services
 load "dotnet.ring"
 using {
 	"System"

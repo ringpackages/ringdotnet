@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 70: WPF animation"
+title: "WPF animation"
 lead: In WPF you do not move a shape with a timer and a loop. You say "change this property from this value to that value in two seconds" and WPF does it on every frame. This lesson moves, fades and rotates shapes with animations.
 ---
 
@@ -14,7 +14,7 @@ lead: In WPF you do not move a shape with a timer and a loop. You say "change th
 
 ## Timer or animation?
 
-In [tutorial 14](tut-14-animation.html) a timer changes the position 50 times a second and the program redraws. In WPF the *rendering system* knows about time: you describe the change once and WPF calculates every frame, uses the graphics card and keeps the window responsive. You animate **dependency properties**: `Opacity`, `Width`, `Canvas.Left`, `Angle`, colors...
+In the tutorial [Drawing and animation](tut-14-animation.html) a timer changes the position 50 times a second and the program redraws. In WPF the *rendering system* knows about time: you describe the change once and WPF calculates every frame, uses the graphics card and keeps the window responsive. You animate **dependency properties**: `Opacity`, `Width`, `Canvas.Left`, `Angle`, colors...
 
 ## The program
 
@@ -28,7 +28,7 @@ In [tutorial 14](tut-14-animation.html) a timer changes the position 50 times a 
 
 ### The window
 
-The window is described in XAML ([tutorial 15](tut-15-wpf.html)): a `Canvas` for free positions with an ellipse, a rectangle and a second rectangle that has a `RotateTransform` named `spin` as its `RenderTransform`; and a row with two buttons and a text.
+The window is described in XAML (the tutorial [WPF](tut-15-wpf.html)): a `Canvas` for free positions with an ellipse, a rectangle and a second rectangle that has a `RotateTransform` named `spin` as its `RenderTransform`; and a row with two buttons and a text.
 
 ### One animation
 
@@ -79,4 +79,4 @@ You cannot take a picture in a test, but you can ask for **values**. In a self t
 
 ## Where to go next
 
-This was the last tutorial of the chapter **WPF**. The next chapter is **Projects with windows**: it starts with [Tutorial 24: A to-do list](tut-24-todo.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **WPF**. The next chapter is **Projects with windows**: it starts with [A project: a to-do list that remembers](tut-24-todo.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

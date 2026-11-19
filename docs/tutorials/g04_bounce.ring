@@ -1,4 +1,4 @@
-# Tutorial 14: drawing and animation - a canvas, a timer and the keyboard
+# drawing and animation - a canvas, a timer and the keyboard
 load "dotnet.ring"
 using {
 	"System.Drawing"

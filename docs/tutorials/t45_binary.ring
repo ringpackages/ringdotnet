@@ -1,4 +1,4 @@
-# Tutorial 45: binary files - bytes, BinaryWriter and BinaryReader, a file format, and a hex dump
+# binary files - bytes, BinaryWriter and BinaryReader, a file format, and a hex dump
 load "dotnet.ring"
 using {
 	"System"

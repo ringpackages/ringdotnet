@@ -1,4 +1,4 @@
-# Tutorial 22: images - create, draw, read pixels, resize, convert to gray and save (no window needed)
+# images - create, draw, read pixels, resize, convert to gray and save (no window needed)
 #   ring t22_images.ring [output folder]
 load "dotnet.ring"
 using {

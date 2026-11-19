@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 71: Releasing resources"
+title: "Releasing resources"
 lead: A file you opened stays locked until you give it back. This lesson shows what a leaked resource does, how Dispose gives it back, and how to be sure that the clean-up runs even when an error happens.
 ---
 
@@ -49,7 +49,7 @@ C# has a `using` statement and `finally` for this; in Ring the pattern is *open 
 
 ### What needs Dispose
 
-Streams and readers/writers, `HttpClient`, sockets and listeners, `JsonDocument` ([tutorial 6](tut-06-json-xml.html)), database contexts ([tutorial 17](tut-17-databases.html)), timers and bitmaps. Rule of thumb: if the class has a `Dispose` or `Close` method, use it. Methods that do everything for you in one call (`File.ReadAllText`, `File.WriteAllText`) open and close the file themselves — another reason to prefer them for small files.
+Streams and readers/writers, `HttpClient`, sockets and listeners, `JsonDocument` (the tutorial [JSON and XML](tut-06-json-xml.html)), database contexts (the tutorial [Databases step by step](tut-17-databases.html)), timers and bitmaps. Rule of thumb: if the class has a `Dispose` or `Close` method, use it. Methods that do everything for you in one call (`File.ReadAllText`, `File.WriteAllText`) open and close the file themselves — another reason to prefer them for small files.
 
 > [!TIP] Release in the **same function** that created the resource whenever you can. A resource that travels between functions is a resource that nobody releases.
 
@@ -69,4 +69,4 @@ Streams and readers/writers, `HttpClient`, sockets and listeners, `JsonDocument`
 
 ## Next
 
-[Tutorial 53: Speed: measure first](tut-53-speed.html)
+[Speed — measure first](tut-53-speed.html)

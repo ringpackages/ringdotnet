@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 111: Configuration"
+title: "Configuration"
 lead: A program needs settings that are not in its code — a port, a name, a path, a database address. The configuration system of .NET reads them from several sources into one tree of keys, and later sources override earlier ones. This lesson reads a JSON file, adds values from memory and from the environment, and converts the values to numbers and yes/no.
 ---
 
@@ -12,7 +12,7 @@ lead: A program needs settings that are not in its code — a port, a name, a pa
 - sections (`GetSection`, `GetChildren`),
 - where secrets belong.
 
-[Tutorial 32](tut-32-settings.html) saved the settings of a program in a file. This is the system that ASP.NET Core and most .NET programs use, and it works the same way for a web service and for a console tool.
+The tutorial [Settings](tut-32-settings.html) saved the settings of a program in a file. This is the system that ASP.NET Core and most .NET programs use, and it works the same way for a web service and for a console tool.
 
 > [!NOTE] The configuration providers (JSON, environment variables) are part of the ASP.NET Core runtime, so the program has the line `"RingDotNet.Web"` in its `using { }`: that starts the runtime with it ([Getting started](getting-started.html)).
 
@@ -26,7 +26,7 @@ lead: A program needs settings that are not in its code — a port, a name, a pa
 
 ### Layers
 
-A `ConfigurationBuilder` collects **sources**; `Build()` reads them and gives the configuration. The sources are added in order and **later sources override earlier ones**. So the usual setup is: the defaults in a JSON file that comes with the program, then the settings of one computer or one environment (testing or production), then environment variables, then the command line. The code that reads a value does not know or care which source gave it. Every source is added by an extension method, so each one is called with `dnStatic` ([tutorial 109](tut-109-memory-cache.html)): `AddJsonFile(builder, path)`, `AddInMemoryCollection(builder, dictionary)`, `AddEnvironmentVariables(builder, prefix)`.
+A `ConfigurationBuilder` collects **sources**; `Build()` reads them and gives the configuration. The sources are added in order and **later sources override earlier ones**. So the usual setup is: the defaults in a JSON file that comes with the program, then the settings of one computer or one environment (testing or production), then environment variables, then the command line. The code that reads a value does not know or care which source gave it. Every source is added by an extension method, so each one is called with `dnStatic` (the tutorial [Caching](tut-109-memory-cache.html)): `AddJsonFile(builder, path)`, `AddInMemoryCollection(builder, dictionary)`, `AddEnvironmentVariables(builder, prefix)`.
 
 ### Keys
 
@@ -60,8 +60,8 @@ Every value is a **text**. `ConfigurationBinder.GetValue(configuration, type, ke
 1. Add a second JSON file with the name `settings.local.json` that overrides some keys, and add it after the first.
 2. Print the whole tree (every key and value) with a recursive function that uses `GetChildren`.
 3. Write `setting(cKey, xDefault)` that reads a value and keeps the default when the key is missing.
-4. Read the command line (`AddCommandLine` with `sysargv`, [tutorial 50](tut-50-cli.html)) as the last source.
+4. Read the command line (`AddCommandLine` with `sysargv`, the tutorial [A command-line tool](tut-50-cli.html)) as the last source.
 
 ## Next
 
-[Tutorial 109: Caching](tut-109-memory-cache.html)
+[Caching](tut-109-memory-cache.html)

@@ -1,4 +1,4 @@
-# Tutorial 74: asking the computer - the operating system, the runtime, processors, memory, drives and running programs
+# asking the computer - the operating system, the runtime, processors, memory, drives and running programs
 load "dotnet.ring"
 using {
 	"System"

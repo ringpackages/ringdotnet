@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 99: Vectors and matrices"
+title: "Vectors and matrices"
 lead: Points, directions, distances and rotations are everywhere in graphics, games and simulations. System.Numerics has small, fast types for them. This lesson uses Vector3 and Vector2 for lengths, sums, dot and cross products, and Matrix3x2 for moving and rotating a point.
 ---
 
@@ -11,7 +11,7 @@ lead: Points, directions, distances and rotations are everywhere in graphics, ga
 - the **dot product** and the **cross product** and what they tell you,
 - `Matrix3x2`: a move, a rotation, and both together.
 
-[Tutorial 14](tut-14-animation.html) moved shapes with Ring numbers. With vectors you describe a position as one value, and a transformation as one matrix, so the same code works for one point or for a thousand.
+The tutorial [Drawing and animation](tut-14-animation.html) moved shapes with Ring numbers. With vectors you describe a position as one value, and a transformation as one matrix, so the same code works for one point or for a thousand.
 
 ## The program
 
@@ -43,7 +43,7 @@ A matrix describes a transformation of space as a block of numbers. `Matrix3x2` 
 
 `Matrix3x2.Multiply(first, second)` combines two transformations into one: *first turn, then move* gives (10, 6), because the point is turned to (0, 1) and then moved. The **order** matters — moving first and turning second gives another point — which is the most common mistake with matrices. These methods have several forms, so the program calls them with `dnStatic(type, method, [arguments])`, where the bridge chooses the form from the arguments. `Matrix4x4` does the same in three dimensions (with `CreatePerspective`, `CreateLookAt`...) and `Quaternion` describes 3D rotations without the problems of angles.
 
-> [!NOTE] These types are made for speed in .NET code. Each call from Ring crosses the bridge (about 50 microseconds), so use them for the *logic* of your program, and let .NET do the heavy loops (for example a LINQ query, [tutorial 4](tut-04-collections.html)) when you have thousands of points.
+> [!NOTE] These types are made for speed in .NET code. Each call from Ring crosses the bridge (about 50 microseconds), so use them for the *logic* of your program, and let .NET do the heavy loops (for example a LINQ query, the tutorial [Collections and LINQ](tut-04-collections.html)) when you have thousands of points.
 
 ## What you learned
 
@@ -55,11 +55,11 @@ A matrix describes a transformation of space as a block of numbers. `Matrix3x2` 
 
 ## Exercises
 
-1. Write `angleBetween(a, b)` with `Dot`, `Length` and `Acos` ([tutorial 3](tut-03-numbers-dates.html)).
+1. Write `angleBetween(a, b)` with `Dot`, `Length` and `Acos` (the tutorial [Numbers, dates and times](tut-03-numbers-dates.html)).
 2. Move a point along a straight line from A to B in 10 steps with `Lerp` and print the points.
 3. Rotate the four corners of a square by 45 degrees and print them.
 4. Try *move first, then turn* and compare the result with step 6.
 
 ## Next
 
-[Tutorial 69: Randomness](tut-69-random.html)
+[Randomness](tut-69-random.html)

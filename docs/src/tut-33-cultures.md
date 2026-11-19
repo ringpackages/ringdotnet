@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 33: Cultures"
+title: "Cultures"
 lead: "1,234.5" and "1.234,5" are the same number written in two languages. This lesson shows how .NET writes, reads, sorts and capitalises text for different cultures, and when to avoid culture altogether.
 ---
 
@@ -67,4 +67,4 @@ Every `ToString` and `Parse` that you call without saying a culture uses the cul
 
 ## Where to go next
 
-This was the last tutorial of the chapter **Numbers, dates and money**. The next chapter is **Collections and algorithms**: it starts with [Tutorial 106: Arrays](tut-106-arrays.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+This was the last tutorial of the chapter **Numbers, dates and money**. The next chapter is **Collections and algorithms**: it starts with [Arrays](tut-106-arrays.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

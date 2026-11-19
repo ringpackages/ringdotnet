@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 91: UDP"
+title: "UDP"
 lead: UDP sends separate messages without a connection. This lesson sends datagrams between two sockets of your own computer, answers the sender, waits with a time limit, and shows that UDP can lose data without telling anyone.
 ---
 
@@ -12,7 +12,7 @@ lead: UDP sends separate messages without a connection. This lesson sends datagr
 - a time limit with `Task.Wait(ms)`,
 - why a program that uses UDP must expect lost messages.
 
-[Tutorial 25](tut-25-sockets.html) used TCP: a connection, then a stream of bytes. UDP has no connection. Everything in this lesson runs on `127.0.0.1`, so it works without a network.
+The tutorial [Sockets](tut-25-sockets.html) used TCP: a connection, then a stream of bytes. UDP has no connection. Everything in this lesson runs on `127.0.0.1`, so it works without a network.
 
 ## The program
 
@@ -61,4 +61,4 @@ The sender's address is in the received datagram, so an answer is a `Send` to th
 
 ## Next
 
-[Tutorial 84: HttpClient in depth](tut-84-http-client.html)
+[HttpClient in depth](tut-84-http-client.html)

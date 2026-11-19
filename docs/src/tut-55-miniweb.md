@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 55: A tiny web framework"
+title: "A tiny web framework"
 lead: Real web frameworks map addresses like /users/ali to functions and fill templates with values. This lesson builds both ideas in a few dozen lines on top of WebServer.
 ---
 
@@ -33,7 +33,7 @@ lead: Real web frameworks map addresses like /users/ali to functions and fill te
 
 ### Pages and templates
 
-A page function gets the request and the parameters and returns the answer of `render`. `render("<h1>User {{name}}</h1>", aParams)` replaces each `{{key}}` with its value — **escaped**: the fourth request of the output asks for the user `<b>sara`, and the page shows `&lt;b&gt;sara`. If the value were put into the page as it is, a visitor could write HTML or scripts into your site ([tutorial 26](tut-26-website.html) and [tutorial 49](tut-49-login.html) explain why this matters).
+A page function gets the request and the parameters and returns the answer of `render`. `render("<h1>User {{name}}</h1>", aParams)` replaces each `{{key}}` with its value — **escaped**: the fourth request of the output asks for the user `<b>sara`, and the page shows `&lt;b&gt;sara`. If the value were put into the page as it is, a visitor could write HTML or scripts into your site (the tutorial [A small web site](tut-26-website.html) and the tutorial [Login, sessions and cookies](tut-49-login.html) explain why this matters).
 
 ### Order in a Ring file
 
@@ -55,4 +55,4 @@ The `class Router` is at the end of the file. In Ring, functions written *after*
 
 ## Next
 
-[Tutorial 120: Route templates](tut-120-routes.html)
+[Route templates](tut-120-routes.html)

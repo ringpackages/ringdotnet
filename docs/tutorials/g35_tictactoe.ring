@@ -1,4 +1,4 @@
-# Tutorial 35: a project - Tic-Tac-Toe (game logic in functions, nine buttons, a status line)
+# a project - Tic-Tac-Toe (game logic in functions, nine buttons, a status line)
 load "dotnet.ring"
 using {
 	"System.Drawing"

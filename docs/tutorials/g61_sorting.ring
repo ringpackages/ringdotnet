@@ -1,4 +1,4 @@
-# Tutorial 61: watching sorting algorithms - an animation, a timer and counting the work
+# watching sorting algorithms - an animation, a timer and counting the work
 load "dotnet.ring"
 using {
 	"System.Drawing"

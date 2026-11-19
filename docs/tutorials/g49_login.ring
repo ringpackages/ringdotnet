@@ -1,4 +1,4 @@
-# Tutorial 49: login, sessions and cookies - a web site that knows who you are
+# login, sessions and cookies - a web site that knows who you are
 load "dotnet.ring"
 using {
 	"System"
@@ -16,7 +16,7 @@ oDb = ""
 aSessions = []            # [token, user name]: who is logged in
 
 func main
-	# THE USERS: a table; the password is never stored, only a salted slow hash of it (tutorial 8)
+	# THE USERS: a table; the password is never stored, only a salted slow hash of it (the tutorial "Hashing and encryption")
 	oDb = new RingDatabase("Data Source=:memory:",[
 		["Users",[["Id","int",1],["Name","string",0,[["required",1],["unique",1]]],["Salt","string",0],["Hash","string",0]]]
 	])
@@ -123,7 +123,7 @@ func userOf oRequest
 	next
 	return ""
 
-# ---------------------------------------------------------------- passwords and tokens (see tutorial 8)
+# ---------------------------------------------------------------- passwords and tokens (see the tutorial "Hashing and encryption")
 
 func randomHex nBytes
 	return lower(new Convert().ToHexString(new RandomNumberGenerator().GetBytes(nBytes)))

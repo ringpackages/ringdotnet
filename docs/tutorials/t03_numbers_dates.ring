@@ -1,4 +1,4 @@
-# Tutorial 3: numbers, parsing, dates and times
+# numbers, parsing, dates and times
 load "dotnet.ring"
 using {
 	"System"

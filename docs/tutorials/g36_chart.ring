@@ -1,4 +1,4 @@
-# Tutorial 36: a chart - turn numbers into a bar chart with UiCanvas, show it in a window and save it as a PNG
+# a chart - turn numbers into a bar chart with UiCanvas, show it in a window and save it as a PNG
 load "dotnet.ring"
 using {
 	"System"

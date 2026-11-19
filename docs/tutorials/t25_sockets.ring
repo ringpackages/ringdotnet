@@ -1,4 +1,4 @@
-# Tutorial 25: sockets - a TCP server and client in one program
+# sockets - a TCP server and client in one program
 load "dotnet.ring"
 using {
 	"System.IO"

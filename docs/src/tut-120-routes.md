@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 120: Route templates"
+title: "Route templates"
 lead: A web program decides what to do from the path of the address. A route template describes such a path with named parts — users/{id}/orders/{orderId?} — and the routing classes of ASP.NET Core match paths against it and read the values. This lesson uses them with required, optional, default and catch-all parts, and chooses between several routes.
 ---
 
@@ -12,7 +12,7 @@ lead: A web program decides what to do from the path of the address. A route tem
 - why the **order** of routes matters,
 - what a template does *not* do.
 
-[Tutorial 16](tut-16-web-service.html) and [tutorial 55](tut-55-miniweb.html) made small web servers with simple routes. Real programs have many routes with parts that change (`/users/42`, `/users/43`). Templates are the standard way to write them, and the same classes work in your own Ring program.
+The tutorial [A web service with a database](tut-16-web-service.html) and the tutorial [A tiny web framework](tut-55-miniweb.html) made small web servers with simple routes. Real programs have many routes with parts that change (`/users/42`, `/users/43`). Templates are the standard way to write them, and the same classes work in your own Ring program.
 
 > [!NOTE] The routing classes are part of the ASP.NET Core runtime, so the program has `"RingDotNet.Web"` in its `using { }` ([Getting started](getting-started.html)).
 
@@ -46,7 +46,7 @@ Defaults are important for `{page=1}`: the matcher needs them in its dictionary,
 
 ### The catch-all
 
-`{*path}` takes **all the rest**, including the slashes: `/files/docs/guide/intro.md` gives `path = docs/guide/intro.md`. It is used for files, proxies and single-page applications. Because it takes everything, the program that uses it **must check the value** (no `..`, no absolute path) before it opens a file ([tutorial 59](tut-59-paths.html)).
+`{*path}` takes **all the rest**, including the slashes: `/files/docs/guide/intro.md` gives `path = docs/guide/intro.md`. It is used for files, proxies and single-page applications. Because it takes everything, the program that uses it **must check the value** (no `..`, no absolute path) before it opens a file (the tutorial [Paths and the environment](tut-59-paths.html)).
 
 ### Many routes
 
@@ -54,7 +54,7 @@ A program has a list of routes and uses the **first one that matches**, as in st
 
 ### What a template does not do
 
-A template describes the **path**. It does not read the query string (`?page=2`, [tutorial 64](tut-64-urls.html)), the method (GET or POST), the headers or the body. A program matches the path first, then looks at the method and the rest. ASP.NET also uses the templates the other way round, to **make** addresses from values (`TemplateBinder`), so a link is never written by hand.
+A template describes the **path**. It does not read the query string (`?page=2`, the tutorial [URLs and encodings](tut-64-urls.html)), the method (GET or POST), the headers or the body. A program matches the path first, then looks at the method and the rest. ASP.NET also uses the templates the other way round, to **make** addresses from values (`TemplateBinder`), so a link is never written by hand.
 
 ## What you learned
 
@@ -68,9 +68,9 @@ A template describes the **path**. It does not read the query string (`?page=2`,
 
 1. Make the table of routes for a small shop (`/`, `/products`, `/products/{id}`, `/cart`, `/checkout`) and test ten paths.
 2. Add a check to the `{id:int}` route: refuse the match when the value is not a number.
-3. Put the routes in the web server of [tutorial 55](tut-55-miniweb.html) and answer 404 when none matches.
+3. Put the routes in the web server of the tutorial [A tiny web framework](tut-55-miniweb.html) and answer 404 when none matches.
 4. Write `isSafePath(value)` for a catch-all `{*path}` and test `../secret.txt`.
 
 ## Next
 
-[Tutorial 94: E-mail messages](tut-94-mail-messages.html)
+[E-mail messages](tut-94-mail-messages.html)

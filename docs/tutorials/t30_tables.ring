@@ -1,4 +1,4 @@
-# Tutorial 30: tabular data - read a CSV text, use a DataTable, filter, sort, summarise, write a CSV
+# tabular data - read a CSV text, use a DataTable, filter, sort, summarise, write a CSV
 load "dotnet.ring"
 using {
 	"System"

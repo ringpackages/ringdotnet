@@ -1,4 +1,4 @@
-# Tutorial 11, step 3: the button does something - events and global variables
+# Your first window, step 3: the button does something - events and global variables
 load "dotnet.ring"
 using {
 	"System.Drawing"

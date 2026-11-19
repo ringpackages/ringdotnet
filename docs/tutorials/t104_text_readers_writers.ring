@@ -1,4 +1,4 @@
-# Tutorial 104: text readers and writers - StringWriter and StringReader, TextWriter in functions, and capturing Console output
+# text readers and writers - StringWriter and StringReader, TextWriter in functions, and capturing Console output
 load "dotnet.ring"
 using {
 	"System"

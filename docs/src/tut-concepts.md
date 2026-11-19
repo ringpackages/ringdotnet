@@ -89,24 +89,24 @@ Most types are classes. Two kinds of types are special:
 
 ## Exceptions
 
-When something goes wrong — the file does not exist, the text is not a number — .NET raises an **exception**. In Ring an exception is a normal Ring error, and you catch it with `try` ... `catch`. [Tutorial 7](tut-07-errors.html) explains this.
+When something goes wrong — the file does not exist, the text is not a number — .NET raises an **exception**. In Ring an exception is a normal Ring error, and you catch it with `try` ... `catch`. The tutorial [When things go wrong](tut-07-errors.html) explains this.
 
 ## Generics and collections
 
-A **collection** holds many items. .NET has a list (`List`), a dictionary (`Dictionary`), a set, a queue and a stack. They are *generic*: the same class works for any type of item (`List<string>`, `List<int>`). RingDotNet gives you ready names for the common ones: `StringList`, `NumberList`, `StringDictionary`... [Tutorial 4](tut-04-collections.html) shows them.
+A **collection** holds many items. .NET has a list (`List`), a dictionary (`Dictionary`), a set, a queue and a stack. They are *generic*: the same class works for any type of item (`List<string>`, `List<int>`). RingDotNet gives you ready names for the common ones: `StringList`, `NumberList`, `StringDictionary`... The tutorial [Collections and LINQ](tut-04-collections.html) shows them.
 
 ## The words around .NET
 
 | Word | Meaning |
 |---|---|
 | **C#** | The main language that .NET code is written in. You do not need to learn it to use .NET from Ring, but the documentation shows C# examples. |
-| **SDK** | The *software development kit*: the compiler and tools for **writing** .NET programs. You only need it to build C# code ([tutorial 18](tut-18-csharp-library.html)). |
+| **SDK** | The *software development kit*: the compiler and tools for **writing** .NET programs. You only need it to build C# code (the tutorial [A library written in C#](tut-18-csharp-library.html)). |
 | **Runtime** | What is needed to **run** .NET programs. RingDotNet needs the runtime (and the desktop or ASP.NET runtime for windows and web). |
 | **NuGet** | The package store of .NET. A NuGet package is a set of `.dll` files that you can wrap and use. |
 | **BCL** | The *base class library*: the part of .NET that every program has (`System`, `System.IO`, `System.Text`...). |
-| **Windows Forms / WPF** | Two ways to build windows. [Tutorial 11](tut-11-first-window.html) and [15](tut-15-wpf.html). |
-| **ASP.NET Core** | The web framework. [Tutorial 16](tut-16-web-service.html). |
-| **Entity Framework** | The database library. [Tutorial 17](tut-17-databases.html). |
+| **Windows Forms / WPF** | Two ways to build windows. The tutorial [Your first window](tut-11-first-window.html) and [15](tut-15-wpf.html). |
+| **ASP.NET Core** | The web framework. The tutorial [A web service with a database](tut-16-web-service.html). |
+| **Entity Framework** | The database library. The tutorial [Databases step by step](tut-17-databases.html). |
 
 ## How Ring and .NET meet
 

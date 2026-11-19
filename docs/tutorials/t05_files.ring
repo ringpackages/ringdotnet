@@ -1,4 +1,4 @@
-# Tutorial 5: files and folders - Path, Directory, File, reading and writing, zip
+# files and folders - Path, Directory, File, reading and writing, zip
 load "dotnet.ring"
 using {
 	"System"

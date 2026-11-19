@@ -1,4 +1,4 @@
-# Tutorial 65: enums and flags - named choices from .NET as text, checking and parsing them, and combining options with bits
+# enums and flags - named choices from .NET as text, checking and parsing them, and combining options with bits
 load "dotnet.ring"
 using {
 	"System"

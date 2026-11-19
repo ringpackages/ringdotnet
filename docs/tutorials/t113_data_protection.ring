@@ -1,4 +1,4 @@
-# Tutorial 113: protecting data - the Data Protection API: purposes, tampering, keys on disk, and values that expire
+# protecting data - the Data Protection API: purposes, tampering, keys on disk, and values that expire
 load "dotnet.ring"
 using {
 	"System"
