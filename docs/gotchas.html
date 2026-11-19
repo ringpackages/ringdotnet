@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gotchas &amp; limits · RingDotNet</title>
-<meta name="description" content="The things that surprise people the first time, why they happen, and what to do — plus what RingDotNet does not support.">
+<title>Rules and limits · RingDotNet</title>
+<meta name="description" content="How Ring behaves when it works with .NET objects, why, and what to write — plus what RingDotNet does not support.">
 <link rel="stylesheet" href="assets/style.css">
 <script>window.SITE_ROOT="";</script>
 <script src="assets/search-index.js"></script>
@@ -187,7 +187,7 @@
 <a href="generator.html">Class generator</a>
 <h4>Testing and limits</h4>
 <a href="testing.html">Testing</a>
-<a href="gotchas.html" class="cur">Gotchas & limits</a>
+<a href="gotchas.html" class="cur">Rules and limits</a>
 <h4>Reference</h4>
 <a href="reference.html">Function index</a>
 <a href="api.html">Class reference</a>
@@ -196,14 +196,14 @@
 </nav>
 <main>
 <article>
-<h1>Gotchas &amp; limits</h1><p class="lead">The things that surprise people the first time, why they happen, and what to do — plus what RingDotNet does not support.</p>
-<h2 id="ring-gotchas">Ring gotchas<a class="anchor" href="#ring-gotchas">#</a></h2>
+<h1>Rules and limits</h1><p class="lead">How Ring behaves when it works with .NET objects, why, and what to write — plus what RingDotNet does not support.</p>
+<h2 id="ring-rules-for-net-code">Ring rules for .NET code<a class="anchor" href="#ring-rules-for-net-code">#</a></h2>
 <h3 id="use-parentheses-with-new-when-you-pass-arguments">Use parentheses with <code>new</code> when you pass arguments<a class="anchor" href="#use-parentheses-with-new-when-you-pass-arguments">#</a></h3>
 <p><code>new StringBuilder("x")</code> — <strong>with</strong> parentheses, because Ring calls <code>init()</code> only then. A class without arguments works both ways (<code>new MemoryStream</code>, <code>new MemoryStream()</code>). For <code>StringBuilder</code>, <code>Random</code> and <code>Version</code>, which take an optional first argument, write <code>new StringBuilder</code> or <code>new StringBuilder("x")</code>, not <code>new StringBuilder()</code>.</p>
 <h3 id="strings-and-numbers">Strings and numbers<a class="anchor" href="#strings-and-numbers">#</a></h3>
-<p><code>"text" + number</code> works. <code>number + "text"</code> is an error. Write <code>string(n) + " items"</code>.</p>
+<p><code>"text" + number</code> works. <code>number + "text"</code> needs the number as text first: write <code>string(n) + " items"</code>.</p>
 <h3 id="do-not-call-a-method-on-a-new-object-on-the-right-of-an-attribute-assignment">Do not call a method on a new object on the right of an attribute assignment<a class="anchor" href="#do-not-call-a-method-on-a-new-object-on-the-right-of-an-attribute-assignment">#</a></h3>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm.Text = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFile)        <span class="c"># Ring loses the assignment!</span></code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm.Text = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFile)        <span class="c"># the assignment is not made</span></code></pre></div>
 <p>Use a variable first:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oPath = <span class="k">new</span> <span class="t">Path</span>()
 oForm.Text = oPath.<span class="f">GetFileName</span>(cFile)</code></pre></div>
@@ -221,11 +221,11 @@ nClicks = <span class="n">0</span>
 <p>In <code>oForm { Text = cTitle }</code> Ring looks for <code>Text</code> and <code>cTitle</code> as members of <code>oForm</code> before it looks for variables. A variable named like a member of the object (<code>text</code>, <code>width</code>, <code>count</code>...) is then not what you expect. Use prefixed names (<code>cText</code>, <code>nWidth</code>) for your variables.</p>
 <h3 id="put-the-program-in-functions">Put the program in functions<a class="anchor" href="#put-the-program-in-functions">#</a></h3>
 <p>In Ring a <strong>global variable named like an attribute</strong> (<code>x</code>, <code>width</code>, <code>text</code>...) makes <code>obj.x</code> fail, and a function that assigns a name that exists as a global changes the global. Write <code>func main</code> and keep only what event code needs global.</p>
-<h3 id="keywords-can-not-be-names">Keywords can not be names<a class="anchor" href="#keywords-can-not-be-names">#</a></h3>
-<p><code>ok</code>, <code>step</code>, <code>from</code>, <code>to</code>, <code>load</code>, <code>call</code>, <code>get</code>, <code>set</code>, <code>put</code>, <code>on</code>, <code>off</code>... can not be variable or function names, in any letter case. <code>oK</code> is <code>ok</code>. Names that are keywords get a trailing <code>_</code> in the generated classes (<code>ForEach_</code>, <code>Exit_</code>) and properties with a keyword name use <code>getFrom()</code> / <code>setFrom(value)</code>.</p>
+<h3 id="keywords-are-not-available-as-names">Keywords are not available as names<a class="anchor" href="#keywords-are-not-available-as-names">#</a></h3>
+<p><code>ok</code>, <code>step</code>, <code>from</code>, <code>to</code>, <code>load</code>, <code>call</code>, <code>get</code>, <code>set</code>, <code>put</code>, <code>on</code>, <code>off</code>... are Ring keywords, so they are not used as variable or function names, in any letter case. <code>oK</code> is <code>ok</code>. Names that are keywords get a trailing <code>_</code> in the generated classes (<code>ForEach_</code>, <code>Exit_</code>) and properties with a keyword name use <code>getFrom()</code> / <code>setFrom(value)</code>.</p>
 <p>Do not define your own functions named like built-ins the library uses (<code>isNumber</code>, <code>len</code>...).</p>
 <h3 id="define-functions-after-the-main-code">Define functions after the main code<a class="anchor" href="#define-functions-after-the-main-code">#</a></h3>
-<p>A <code>func</code> at the top of a file swallows the rest of the file into its body. Put the main code first (or put it in <code>func main</code> and call it at the end).</p>
+<p>A <code>func</code> at the top of a file takes the rest of the file as its body. Put the main code first (or put it in <code>func main</code> and call it at the end).</p>
 <h3 id="new-stringbuilder-needs-null"><code>new StringBuilder()</code> needs <code>NULL</code><a class="anchor" href="#new-stringbuilder-needs-null">#</a></h3>
 <p>Ring checks the number of arguments of <code>init()</code>. The classes whose <code>init</code> takes a value (<code>StringBuilder</code>, <code>Random</code>, <code>Version</code>) therefore need <code>NULL</code> for the parameterless constructor: <code>new StringBuilder(NULL)</code>, <code>new Random(NULL)</code>. With a value it is as usual: <code>new StringBuilder("Hello")</code>, <code>new Random(42)</code>.</p>
 <h3 id="a-variable-name-that-starts-like-a-keyword">A variable name that starts like a keyword<a class="anchor" href="#a-variable-name-that-starts-like-a-keyword">#</a></h3>
@@ -245,7 +245,7 @@ cResult = <span class="k">new</span> <span class="t">Regex</span>(<span class="s
 <span class="k">next</span></code></pre></div>
 <h3 id="dnnull"><code>dnNull()</code><a class="anchor" href="#dnnull">#</a></h3>
 <p><code>dnNull()</code> is the .NET null: <code>oPictureBox.Image = dnNull()</code>.</p>
-<h2 id="net-gotchas">.NET gotchas<a class="anchor" href="#net-gotchas">#</a></h2>
+<h2 id="net-rules">.NET rules<a class="anchor" href="#net-rules">#</a></h2>
 <h3 id="put-the-using-block-before-the-first-net-call">Put the <code>using</code> block before the first .NET call<a class="anchor" href="#put-the-using-block-before-the-first-net-call">#</a></h3>
 <p>The runtime mode (desktop, web, both) is chosen by the <code>using { }</code> block (or by <code>dnUseDesktop()</code>, <code>dnUseWeb()</code>, <code>dnUseAll()</code>) and must come <strong>before any other .NET call</strong>: the first call starts the runtime and the mode can not change afterwards. If a program needs both Windows Forms/WPF and ASP.NET Core, name both in the first <code>using</code> block.</p>
 <h3 id="callbacks-run-on-the-ring-thread-only">Callbacks run on the Ring thread only<a class="anchor" href="#callbacks-run-on-the-ring-thread-only">#</a></h3>

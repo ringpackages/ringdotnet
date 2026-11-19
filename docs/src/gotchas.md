@@ -1,9 +1,9 @@
 ---
-title: Gotchas & limits
-lead: The things that surprise people the first time, why they happen, and what to do — plus what RingDotNet does not support.
+title: Rules and limits
+lead: How Ring behaves when it works with .NET objects, why, and what to write — plus what RingDotNet does not support.
 ---
 
-## Ring gotchas
+## Ring rules for .NET code
 
 ### Use parentheses with `new` when you pass arguments
 
@@ -11,12 +11,12 @@ lead: The things that surprise people the first time, why they happen, and what 
 
 ### Strings and numbers
 
-`"text" + number` works. `number + "text"` is an error. Write `string(n) + " items"`.
+`"text" + number` works. `number + "text"` needs the number as text first: write `string(n) + " items"`.
 
 ### Do not call a method on a new object on the right of an attribute assignment
 
 ```ring
-oForm.Text = new Path().GetFileName(cFile)        # Ring loses the assignment!
+oForm.Text = new Path().GetFileName(cFile)        # the assignment is not made
 ```
 
 Use a variable first:
@@ -49,15 +49,15 @@ In `oForm { Text = cTitle }` Ring looks for `Text` and `cTitle` as members of `o
 
 In Ring a **global variable named like an attribute** (`x`, `width`, `text`...) makes `obj.x` fail, and a function that assigns a name that exists as a global changes the global. Write `func main` and keep only what event code needs global.
 
-### Keywords can not be names
+### Keywords are not available as names
 
-`ok`, `step`, `from`, `to`, `load`, `call`, `get`, `set`, `put`, `on`, `off`... can not be variable or function names, in any letter case. `oK` is `ok`. Names that are keywords get a trailing `_` in the generated classes (`ForEach_`, `Exit_`) and properties with a keyword name use `getFrom()` / `setFrom(value)`.
+`ok`, `step`, `from`, `to`, `load`, `call`, `get`, `set`, `put`, `on`, `off`... are Ring keywords, so they are not used as variable or function names, in any letter case. `oK` is `ok`. Names that are keywords get a trailing `_` in the generated classes (`ForEach_`, `Exit_`) and properties with a keyword name use `getFrom()` / `setFrom(value)`.
 
 Do not define your own functions named like built-ins the library uses (`isNumber`, `len`...).
 
 ### Define functions after the main code
 
-A `func` at the top of a file swallows the rest of the file into its body. Put the main code first (or put it in `func main` and call it at the end).
+A `func` at the top of a file takes the rest of the file as its body. Put the main code first (or put it in `func main` and call it at the end).
 
 ### `new StringBuilder()` needs `NULL`
 
@@ -97,7 +97,7 @@ next
 
 `dnNull()` is the .NET null: `oPictureBox.Image = dnNull()`.
 
-## .NET gotchas
+## .NET rules
 
 ### Put the `using` block before the first .NET call
 

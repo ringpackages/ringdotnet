@@ -47,4 +47,4 @@ func main
 	? "Its exit code            : " + oProcess.ExitCode
 
 	# Important: Ring code runs on ONE thread. A task is good for waiting or for pure .NET work.
-	# A callback that .NET runs on another thread can not call Ring (see 'Gotchas & limits').
+	# A callback that .NET runs on another thread can not call Ring (see 'Rules and limits').

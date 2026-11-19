@@ -87,5 +87,5 @@ The screenshots in this documentation are made by `docs/tools/shoot_all.sh`: it 
 
 ## Where to go next
 
-- [Gotchas & limits](gotchas.html): the points to know before a long program.
+- [Rules and limits](gotchas.html): the points to know before a long program.
 - The tutorial chapter [Libraries, testing and release](tutorials.html#libraries-testing-and-release) shows tests in a real project.

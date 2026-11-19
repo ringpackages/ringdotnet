@@ -23,7 +23,7 @@ Entity Framework builds its queries the same way (the tutorial [Entity objects a
 
 ### The class name
 
-The static factory class of the namespace is `Expression`; another namespace already has a class with that name, so in Ring it is **`ExpressionsExpression`** (see [Gotchas](gotchas.html)). `new ExpressionsExpression()` is only a handle to reach the factory methods (`Add`, `Lambda`, …).
+The static factory class of the namespace is `Expression`; another namespace already has a class with that name, so in Ring it is **`ExpressionsExpression`** (see [Rules and limits](gotchas.html)). `new ExpressionsExpression()` is only a handle to reach the factory methods (`Add`, `Lambda`, …).
 
 ### Nodes
 

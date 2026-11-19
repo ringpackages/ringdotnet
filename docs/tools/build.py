@@ -156,7 +156,7 @@ PAGES = [
     ("own-assemblies", "Your own assemblies", "Guide: extending"),
     ("generator", "Class generator", "Guide: extending"),
     ("testing", "Testing", "Testing and limits"),
-    ("gotchas", "Gotchas & limits", "Testing and limits"),
+    ("gotchas", "Rules and limits", "Testing and limits"),
     ("reference", "Function index", "Reference"),
     ("api", "Class reference", "Reference"),
     ("ring-intro", "Quick introduction to Ring", "Appendix"),

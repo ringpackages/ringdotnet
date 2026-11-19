@@ -106,4 +106,4 @@ Then:
 - [Getting started](getting-started.html): install the package and run the first program.
 - [Core concepts](concepts.html): how .NET names, overloads, properties and enums look in Ring.
 - The tutorial chapter [The basics](tutorials.html#the-basics): ten short lessons.
-- [Gotchas & limits](gotchas.html): the points of Ring that matter when you use .NET.
+- [Rules and limits](gotchas.html): the points of Ring that matter when you use .NET.
