@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html" class="cur">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -230,7 +230,7 @@
 <h1>Rounding and the Math class</h1><p class="lead">Rounding looks simple until a total is a cent wrong. This lesson uses the Math class for the two rounding modes, for the digits after the point, for Floor, Ceiling and Truncate, for Clamp-style limits, powers and logarithms, and shows how the rounding rule changes the total of a bill.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li><code>Round</code> and its <strong>modes</strong>: <code>ToEven</code> and <code>AwayFromZero</code>,</li><li><code>Round</code> with a number of digits,</li><li><code>Floor</code>, <code>Ceiling</code> and <code>Truncate</code>, and what they do to negative numbers,</li><li>the remainder operator <code>%</code>,</li><li>keeping a number between a minimum and a maximum,</li><li><code>Sign</code>, <code>Abs</code>, <code>Pow</code>, <code>Sqrt</code>, <code>Cbrt</code> and the logarithms,</li><li>why money needs <strong>one</strong> rounding rule.</li></ul>
-<p>The tutorial <a href="tut-03-numbers-dates.html">Numbers, dates, times</a> used the basic functions and the tutorial <a href="tut-57-money.html">Money</a> showed why money needs care. This lesson is about the rules of rounding.</p>
+<p>The tutorial <a href="tut-03-numbers-dates.html">Numbers, dates and times</a> used the basic functions and the tutorial <a href="tut-57-money.html">Money</a> showed why money needs care. This lesson is about the rules of rounding.</p>
 <div class="callout note"><span class="t">Note</span><p>Ring shows a number with two decimals unless you change it with <code>decimals(n)</code>. The program uses <code>decimals(3)</code> for the step with digits, so that the third decimal is visible.</p></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_rounding.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># rounding and the Math class - Round with its modes, Floor, Ceiling, Truncate, DivRem, Clamp, Sign and the rounding of money</span>

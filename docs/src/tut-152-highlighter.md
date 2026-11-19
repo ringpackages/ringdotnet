@@ -61,6 +61,6 @@ A pattern is not a parser. It does not know a string that continues on the next 
 3. Add an alternative for strings with single quotes.
 4. Count the tokens of each kind and print a table.
 
-## Next
+## Where to go next
 
-[Unicode and encodings](tut-52-unicode.html)
+This was the last tutorial of the chapter **Text and data formats**. The next chapter is **Numbers, dates and money**: it starts with [Number types](tut-101-number-types.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

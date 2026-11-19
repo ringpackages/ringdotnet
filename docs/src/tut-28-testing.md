@@ -81,7 +81,7 @@ A window program can run its own test: add `uiTest(oForm,"selfTest()")` before `
 A single script that runs every test and reports a total is what turns tests from a chore into a habit:
 
 ```bash
-sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe      # 0 failed
+sh samples/UsingDotNet/tests/run.sh ring.exe      # 0 failed
 ```
 
 ## What you learned

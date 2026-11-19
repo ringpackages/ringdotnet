@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -229,12 +229,12 @@
 <article>
 <h1>Testing</h1><p class="lead">Every feature has a test, every sample and application tests itself, and your own programs can do the same.</p>
 <h2 id="the-test-suite">The test suite<a class="anchor" href="#the-test-suite">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>sh samples/UsingDotNet/tests/run.sh ring.exe</code></pre></div>
 <p><code>samples/UsingDotNet/tests/run.sh</code> runs:</p>
 <ol><li>every <code>samples/UsingDotNet/tests/test_*.ring</code> (language bridge, collections, LINQ, system, IO, net, services, web, data, entity framework, keyboard, WPF...),</li><li>the console samples,</li><li>every Windows Forms and WPF sample with <code>--selftest</code>,</li><li>every application with <code>--selftest</code>,</li></ol>
 <p>and prints <code>0 failed</code> when everything passes. It needs the package <code>bin</code> folder on the PATH; the script adds it for you.</p>
 <p>Programs run four at a time, and the windows of the programs that run themselves are invisible and not in the taskbar, so the whole run takes about three minutes and does not take over your screen. While you work, run the <strong>quick tier</strong>, which is only the tests and the console samples and takes about 25 seconds:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe --quick</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>sh samples/UsingDotNet/tests/run.sh ring.exe --quick</code></pre></div>
 <p>Options: <code>--jobs N</code> runs N programs at the same time (<code>--jobs 1</code> runs them one after the other, which is easier to read when something fails), and <code>--show</code> keeps the windows visible so you can watch them (or set the environment variable <code>RINGDOTNET_SHOW</code>). Run everything before a commit.</p>
 <div class="tablewrap"><table><thead><tr><th>Test file</th><th>Covers</th></tr></thead><tbody><tr><td><code>test_foundation.ring</code>, <code>test_runtime.ring</code></td><td>the bridge: types, overloads, properties, enums, errors</td></tr><tr><td><code>test_collections.ring</code>, <code>test_linq.ring</code></td><td>typed collections, LINQ</td></tr><tr><td><code>test_system.ring</code>, <code>test_io.ring</code>, <code>test_net.ring</code>, <code>test_services.ring</code></td><td>the class library</td></tr><tr><td><code>test_access.ring</code></td><td>Microsoft Access through ODBC (<code>System.Data.Odbc</code>): makes an <code>.accdb</code> file with ADOX, tables, parameters, NULL, Unicode, transactions. Windows with the 64-bit Access Database Engine only; it prints <code>SKIPPED</code> and passes anywhere else</td></tr><tr><td><code>test_desktop.ring</code>, <code>test_keyboard.ring</code></td><td>Windows Forms, key handling</td></tr><tr><td><code>test_wpf.ring</code></td><td>WPF</td></tr><tr><td><code>test_web.ring</code></td><td>ASP.NET Core server</td></tr><tr><td><code>test_data*.ring</code></td><td>Entity Framework: schema, relations, transactions, migrations, providers, queries, hooks, entities</td></tr><tr><td><code>test_userassembly.ring</code></td><td>your own assemblies</td></tr></tbody></table></div>
 <h2 id="dnassert">dnAssert<a class="anchor" href="#dnassert">#</a></h2>

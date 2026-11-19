@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -232,7 +232,7 @@
 <ul><li>what JSON and XML are,</li><li>reading a JSON document and its nested values,</li><li>loading XML, looping over elements, XPath queries, adding an element.</li></ul>
 <h2 id="json-and-xml-in-one-minute">JSON and XML in one minute<a class="anchor" href="#json-and-xml-in-one-minute">#</a></h2>
 <p><strong>JSON</strong> looks like Ring lists and objects:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="copy" type="button">Copy</button></div><pre><code>{"name":"Ring","year":2016,"tags":["fast","small"],"author":{"first":"Mahmoud"}}</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="copy" type="button">Copy</button></div><pre><code>{"name":"Ring","year":2016,"tags":["fast","small"],"author":{"first":"Ann"}}</code></pre></div>
 <ul><li><code>{ }</code> an object of <em>properties</em>, <code>[ ]</code> an array, texts in quotes, numbers without.</li></ul>
 <p><strong>XML</strong> is a tree of <em>elements</em> with <em>attributes</em>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="copy" type="button">Copy</button></div><pre><code>&lt;book id="1" year="1999"&gt;&lt;title&gt;Learn Ring&lt;/title&gt;&lt;/book&gt;</code></pre></div>
@@ -251,7 +251,7 @@ using {
 	? <span class="s">"A Ring list as JSON : "</span> + oJson.<span class="f">Serialize</span>([<span class="n">1</span>,<span class="s">"two"</span>,[<span class="n">3</span>,<span class="n">4</span>]])
 
 	<span class="c"># JSON: read a document you received</span>
-	cJson = <span class="s">'{"name":"Ring","year":2016,"tags":["fast","small"],"author":{"first":"Mahmoud","country":"Egypt"}}'</span>
+	cJson = <span class="s">'{"name":"Ring","year":2016,"tags":["fast","small"],"author":{"first":"Ann","country":"Egypt"}}'</span>
 	oDocument = <span class="k">new</span> <span class="t">JsonDocument</span>().<span class="f">Parse</span>(cJson)
 	oRoot = oDocument.RootElement
 	? <span class="s">"The name            : "</span> + oRoot.<span class="f">GetProperty</span>(<span class="s">"name"</span>).<span class="f">GetString</span>()
@@ -292,7 +292,7 @@ The name            : Ring
 The year            : 2016
 Number of tags      : 2
 First tag           : fast
-Nested property     : Mahmoud
+Nested property     : Ann
 
 Books in the library: 3
   #1 Learn Ring (1999)

@@ -124,7 +124,7 @@ oForm.Controls.Add(oTree)
 | Graphics | `PictureBox`, `Bitmap`, `Graphics`, `Pen`, `Brush`, `Font` |
 | System | `Clipboard`, `Timer`, `Screen`, `Cursor`, `Application` |
 
-See the [32 samples](gallery-forms.html) — one idea each, with a screenshot and the source.
+See the [Forms samples](gallery-forms.html) — one idea each, with a screenshot and the source.
 
 ## Events
 
@@ -168,7 +168,7 @@ func selfTest
 
 ## More
 
-- [Forms samples](gallery-forms.html) — 32 short samples.
+- [Forms samples](gallery-forms.html) — short samples, one idea each.
 - [Applications](gallery-apps.html) — @APPS@ complete programs.
 - [WPF](wpf.html) — the other desktop UI framework.
 

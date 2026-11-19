@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -273,7 +273,7 @@ oSB.<span class="f">Append</span>(<span class="s">", "</span>).<span class="f">A
 <h2 id="how-the-documentation-is-organised">How the documentation is organised<a class="anchor" href="#how-the-documentation-is-organised">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Part</th><th>What it is for</th></tr></thead><tbody><tr><td><strong>Start</strong></td><td><a href="index.html">Overview</a>, <a href="getting-started.html">Getting started</a> (install, first program, the startup modes) and <a href="how-it-works.html">How it works</a></td></tr><tr><td><strong>Tutorials</strong></td><td>learning by building programs. They are grouped into <strong>chapters by topic</strong> (the basics, text and data formats, numbers and dates, collections, files, processes, networking, security, databases, Windows Forms, WPF, projects, libraries and release). Read <a href="tutorials.html#the-basics">The basics</a> first; then take the chapter you need</td></tr><tr><td><strong>Guides</strong></td><td>how each area works and which functions and classes it has: the language bridge (<a href="concepts.html">Core concepts</a> first), desktop programs, web and data, extending</td></tr><tr><td><strong>Testing and limits</strong></td><td>how the package is tested, and the <a href="gotchas.html">rules and limits</a> to read before a long program</td></tr><tr><td><strong>Reference</strong></td><td>the <a href="reference.html">function index</a> and the <a href="api.html">class reference</a> with every wrapped class</td></tr><tr><td><strong>Appendix</strong></td><td>a <a href="ring-intro.html">quick introduction to Ring</a>, for readers who are new to the language</td></tr></tbody></table></div>
 <h2 id="how-the-package-is-organised">How the package is organised<a class="anchor" href="#how-the-package-is-organised">#</a></h2>
-<div class="tablewrap"><table><thead><tr><th>Folder</th><th>Contents</th></tr></thead><tbody><tr><td><code>bin/</code></td><td><code>ring_dotnet.dll</code> (the C extension), the managed bridge, ASP.NET and EF assemblies</td></tr><tr><td><code>libraries/dotnetlib/</code></td><td>The Ring library: functions, the generated wrapper classes, GUI/WPF/web/data helpers</td></tr><tr><td><code>extensions/ringdotnet/</code></td><td>C source of the extension and C# source of the bridge, web server and data layer</td></tr><tr><td><code>samples/</code></td><td>32 Windows Forms samples, 10 WPF samples and console samples</td></tr><tr><td><code>applications/</code></td><td>Complete programs</td></tr><tr><td><code>samples/UsingDotNet/tests/</code></td><td>Automated tests (<code>run.sh</code>)</td></tr><tr><td><code>tools/</code></td><td>The class generators (<code>gendotnet.ring</code>, <code>wrapassembly.ring</code>) and the manifest</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Folder</th><th>Contents</th></tr></thead><tbody><tr><td><code>bin/</code></td><td><code>ring_dotnet.dll</code> (the C extension), the managed bridge, ASP.NET and EF assemblies</td></tr><tr><td><code>libraries/dotnetlib/</code></td><td>The Ring library: functions, the generated wrapper classes, GUI/WPF/web/data helpers</td></tr><tr><td><code>extensions/ringdotnet/</code></td><td>C source of the extension and C# source of the bridge, web server and data layer</td></tr><tr><td><code>samples/UsingDotNet/tutorials/</code></td><td>The program of each tutorial, named by chapter (<code>ch01_first_look.ring</code>...)</td></tr><tr><td><code>samples/UsingDotNet/introduction/</code></td><td>Short console samples for each area</td></tr><tr><td><code>samples/UsingDotNet/Forms/</code> and <code>Wpf/</code></td><td>One small window program for each feature</td></tr><tr><td><code>samples/UsingDotNet/applications/</code></td><td>Complete programs</td></tr><tr><td><code>samples/UsingDotNet/tests/</code></td><td>Automated tests (<code>run.sh</code>)</td></tr><tr><td><code>tools/</code></td><td>The class generators (<code>gendotnet.ring</code>, <code>wrapassembly.ring</code>) and the manifest</td></tr></tbody></table></div>
 <div class="callout tip"><span class="t">Tip</span><p>New here? Read <strong>Getting started</strong>, then <strong>Core concepts</strong>, then the tutorial chapter <strong>The basics</strong>. Everything after that is a topic you can read in any order.</p></div>
 <div class="pager"><span></span><a class="next" href="getting-started.html"><small>Next</small>Getting started</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>

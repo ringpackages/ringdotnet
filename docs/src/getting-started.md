@@ -9,7 +9,7 @@ New to Ring? The appendix has a [Quick introduction to Ring](ring-intro.html) (a
 
 | You need | Why |
 |---|---|
-| **Ring** 1.27 or newer | The language. The package is a normal Ring package. |
+| **Ring** 1.28 or newer | The language. The package is a normal Ring package. |
 | **.NET 6 or newer** (tested with .NET 9) | The runtime that RingDotNet hosts inside the Ring process. |
 | **Windows Desktop runtime** | Only for Windows Forms and WPF programs (it is part of the .NET Desktop runtime installer). |
 | **ASP.NET Core runtime** | Only for web programs (`"RingDotNet.Web"`). |
@@ -30,7 +30,7 @@ That is all. The package is one zip file (`extensions/ringdotnet.zip`): RingPM c
 load "dotnet.ring"
 ```
 
-You do not need to set a path or copy files. To test the installation, run a sample:
+You do not need to set a path or copy files. To test the installation, run a sample from the Ring folder:
 
 ```bash
 ring samples/UsingDotNet/introduction/test00_first.ring
@@ -103,12 +103,14 @@ If a method returns an object whose class belongs to a namespace you did not imp
 
 ![The click counter](img/shots/forms-02_button_click.png "samples/UsingDotNet/Forms/02_button_click.ring — a form, a label and a button")
 
+Run it with `ring samples/UsingDotNet/Forms/02_button_click.ring` (Windows). The tutorial [Your first window](tut-11-first-window.html) explains each line.
+
 ## Run the tests
 
 Every feature has a test, and every sample and application can test itself:
 
 ```bash
-sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe          # runs tests, samples and applications
+sh samples/UsingDotNet/tests/run.sh ring.exe          # runs tests, samples and applications (add --quick for a short run)
 ring samples/UsingDotNet/applications/Calculator/main.ring --selftest   # drives the form and prints SELFTEST OK
 ```
 
@@ -116,7 +118,7 @@ Read [Testing](testing.html) for how the self tests work.
 
 ## Where to go next
 
-- [Tutorials](tutorials.html): lessons grouped by topic; start with the chapter **The basics**.
+- [Tutorials](tutorials.html): lessons grouped by topic; start with the chapter **The basics**. The program of each lesson is in `samples/UsingDotNet/tutorials`.
 - [Core concepts](concepts.html): how .NET names, overloads, properties, enums and events look in Ring.
 - [Windows Forms](winforms.html) and the [applications](gallery-apps.html).
 - [ASP.NET Core](aspnet.html) and [Entity Framework Core](ef.html) for servers and databases.

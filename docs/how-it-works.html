@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -249,10 +249,12 @@
 </g></svg>
 <h2 id="the-extension-and-the-bridge">The extension and the bridge<a class="anchor" href="#the-extension-and-the-bridge">#</a></h2>
 <p><code>ring_dotnet.dll</code> is a normal Ring extension written in C. When the first .NET call is made it:</p>
-<ol><li>finds the installed .NET runtime and starts it <strong>inside the Ring process</strong> with <code>hostfxr</code> (no separate process, no IPC),</li><li>loads <code>RingDotNet.Bridge.dll</code>, a small C# assembly,</li><li>keeps one entry point: <code>dotnet_request(operation, data)</code>.</li></ol>
+<ol><li>finds the installed .NET runtime and starts it <strong>inside the Ring process</strong> with <code>hostfxr</code> (no separate process, no IPC),</li><li>loads <code>RingDotNet.Bridge.dll</code>, a small C# assembly,</li><li>keeps one entry point for requests: <code>dotnet_invoke(request)</code>. (The extension also has the functions for callbacks and for releasing objects, below.)</li></ol>
 <p>The bridge uses reflection. A Ring call such as <code>oSB.Append(", ")</code> becomes a request <code>call [handle, "Append", ", "]</code>; the bridge finds the right overload from the argument types, invokes it, and returns the result.</p>
 <h2 id="handles">Handles<a class="anchor" href="#handles">#</a></h2>
 <p>.NET objects never leave .NET. Ring holds a <strong>handle</strong> (a number) inside a <code>DotNetObject</code>, and the bridge keeps the real object in a table. The generated wrapper classes are <code>DotNetObject</code>s with typed methods, so <code>oSB.Append(...)</code> and <code>oSB.callMethod("Append",[...])</code> do the same thing.</p>
+<h3 id="releasing-objects">Releasing objects<a class="anchor" href="#releasing-objects">#</a></h3>
+<p>A handle keeps its object alive, so handles must be released. Each wrapper object holds a <strong>managed pointer</strong> (a Ring pointer with a function that runs when Ring drops the value). When the wrapper is dropped, the pointer queues the handle, and the queued handles are released in groups of 32, so a program that makes thousands of objects does not grow without end. <code>release()</code> releases one handle at once, and <code>dnFlush()</code> releases the queued ones now (the tutorial <a href="tut-98-memory.html">Memory and the garbage collector</a>).</p>
 <h2 id="the-wire-format">The wire format<a class="anchor" href="#the-wire-format">#</a></h2>
 <p>Values travel as a compact tagged text: <code>s5:Hello</code> (string), <code>n2:42</code> (number), <code>l...</code> (list), <code>o3:17</code> (object handle), <code>c...</code> (callback), <code>e...</code> (error). Numbers that are not whole travel as the 8 bytes of the double, so there is <strong>no loss of precision</strong>. Binary data (<code>byte[]</code>) travels as a Ring string.</p>
 <h2 id="generated-wrapper-classes">Generated wrapper classes<a class="anchor" href="#generated-wrapper-classes">#</a></h2>

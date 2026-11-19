@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -270,7 +270,7 @@ oText = <span class="k">new</span> <span class="t">StringBuilder</span>(<span cl
 <h2 id="generics-and-collections">Generics and collections<a class="anchor" href="#generics-and-collections">#</a></h2>
 <p>A <strong>collection</strong> holds many items. .NET has a list (<code>List</code>), a dictionary (<code>Dictionary</code>), a set, a queue and a stack. They are <em>generic</em>: the same class works for any type of item (<code>List&lt;string&gt;</code>, <code>List&lt;int&gt;</code>). RingDotNet gives you ready names for the common ones: <code>StringList</code>, <code>NumberList</code>, <code>StringDictionary</code>... The tutorial <a href="tut-04-collections.html">Collections and LINQ</a> shows them.</p>
 <h2 id="the-words-around-net">The words around .NET<a class="anchor" href="#the-words-around-net">#</a></h2>
-<div class="tablewrap"><table><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>C#</strong></td><td>The main language that .NET code is written in. You do not need to learn it to use .NET from Ring, but the documentation shows C# examples.</td></tr><tr><td><strong>SDK</strong></td><td>The <em>software development kit</em>: the compiler and tools for <strong>writing</strong> .NET programs. You only need it to build C# code (the tutorial <a href="tut-18-csharp-library.html">A library written in C#</a>).</td></tr><tr><td><strong>Runtime</strong></td><td>What is needed to <strong>run</strong> .NET programs. RingDotNet needs the runtime (and the desktop or ASP.NET runtime for windows and web).</td></tr><tr><td><strong>NuGet</strong></td><td>The package store of .NET. A NuGet package is a set of <code>.dll</code> files that you can wrap and use.</td></tr><tr><td><strong>BCL</strong></td><td>The <em>base class library</em>: the part of .NET that every program has (<code>System</code>, <code>System.IO</code>, <code>System.Text</code>...).</td></tr><tr><td><strong>Windows Forms / WPF</strong></td><td>Two ways to build windows. The tutorial <a href="tut-11-first-window.html">Your first window</a> and <a href="tut-15-wpf.html">15</a>.</td></tr><tr><td><strong>ASP.NET Core</strong></td><td>The web framework. The tutorial <a href="tut-16-web-service.html">A web service with a database</a>.</td></tr><tr><td><strong>Entity Framework</strong></td><td>The database library. The tutorial <a href="tut-17-databases.html">Databases step by step</a>.</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>C#</strong></td><td>The main language that .NET code is written in. You do not need to learn it to use .NET from Ring, but the documentation shows C# examples.</td></tr><tr><td><strong>SDK</strong></td><td>The <em>software development kit</em>: the compiler and tools for <strong>writing</strong> .NET programs. You only need it to build C# code (the tutorial <a href="tut-18-csharp-library.html">A library written in C#</a>).</td></tr><tr><td><strong>Runtime</strong></td><td>What is needed to <strong>run</strong> .NET programs. RingDotNet needs the runtime (and the desktop or ASP.NET runtime for windows and web).</td></tr><tr><td><strong>NuGet</strong></td><td>The package store of .NET. A NuGet package is a set of <code>.dll</code> files that you can wrap and use.</td></tr><tr><td><strong>BCL</strong></td><td>The <em>base class library</em>: the part of .NET that every program has (<code>System</code>, <code>System.IO</code>, <code>System.Text</code>...).</td></tr><tr><td><strong>Windows Forms / WPF</strong></td><td>Two ways to build windows. The tutorial <a href="tut-11-first-window.html">Your first window</a> and <a href="tut-15-wpf.html">WPF</a>.</td></tr><tr><td><strong>ASP.NET Core</strong></td><td>The web framework. The tutorial <a href="tut-16-web-service.html">A web service with a database</a>.</td></tr><tr><td><strong>Entity Framework</strong></td><td>The database library. The tutorial <a href="tut-17-databases.html">Databases step by step</a>.</td></tr></tbody></table></div>
 <h2 id="how-ring-and-net-meet">How Ring and .NET meet<a class="anchor" href="#how-ring-and-net-meet">#</a></h2>
 <p>Ring and .NET are two different systems. RingDotNet is the bridge between them:</p>
 <ul><li>A Ring <strong>text</strong> becomes a .NET string, a Ring <strong>number</strong> becomes a .NET number, a Ring <strong>list</strong> becomes an array.</li><li>A .NET <strong>object</strong> comes back to Ring as a Ring object with the same name as the .NET class.</li><li>A .NET <strong>enum</strong> is a text, a .NET <strong>bool</strong> is <code>1</code> or <code>0</code>.</li><li>Ring code runs on <strong>one thread</strong>; .NET may use many. Code that .NET wants to call back into Ring runs on the Ring thread.</li></ul>

@@ -27,28 +27,28 @@ ring ch10_counter.ring --selftest   # the same program checks itself and closes
 
 The tutorials are grouped by **topic**. Read **The basics** first, in order; after that, choose the chapter that you need. The pages inside a chapter lead from one to the next, and the last page of a chapter points to the next chapter.
 
-| Chapter | What it is about | Tutorials |
-|---|---|---|
-| [The basics](#the-basics) | Console programs that use the class library: text, numbers, collections, files, JSON and XML, errors, hashing, HTTP, tasks and processes | 10 |
-| [Text and data formats](#text-and-data-formats) | Regular expressions, Unicode and encodings, comparing and escaping text, URLs and domain names, MIME types, JSON in three styles, XML and XSLT, Markdown and spelling | 14 |
-| [Numbers, dates and money](#numbers-dates-and-money) | The number types and their limits, big numbers, number systems, exact money, vectors, randomness and statistics, then dates, time zones, calendars and cultures | 12 |
-| [Collections and algorithms](#collections-and-algorithms) | Arrays, sets and other data structures, collections for many threads, enums and identifiers, undo and queues, recursion and an expression calculator | 9 |
-| [Files and streams](#files-and-streams) | Paths, streams, binary files, compression (GZip, ZIP, tar), file patterns, and projects that work on many files: a log analyzer, a duplicate finder, a backup tool | 10 |
-| [Processes and performance](#processes-and-performance) | Asking the computer about itself, command-line tools and logging, starting and talking to other programs, tasks that wait, releasing resources, measuring speed and memory, and the Windows Registry | 11 |
-| [Networking and the web](#networking-and-the-web) | IP addresses and networks, TCP and UDP sockets, HttpClient and REST, web services and small web sites, route templates, and e-mail messages | 11 |
-| [Security](#security) | Hashing, encryption and signing, certificates, protecting data, logins and sessions, identities and claims, and rate limiting | 7 |
-| [Databases and services](#databases-and-services) | SQL and Entity Framework, reports, Microsoft Access, and the services of an application: settings and configuration, caching and dependency injection | 9 |
-| [Windows Forms](#windows-forms) | Windows with controls, layout, dialogs and menus, timers, drawing, images and charts (Windows only) | 11 |
-| [WPF](#wpf) | XAML windows, layout and styles, and animation (Windows only) | 3 |
-| [Projects with windows](#projects-with-windows) | Complete programs: a to-do list, Tic-Tac-Toe, a command runner, an address book with a database, a sorting lab, a maze, an image filter lab and a chat (Windows only) | 8 |
-| [Libraries, testing and release](#libraries-testing-and-release) | Giving Ring code to .NET (callbacks and events), exploring and building code with reflection and expression trees, using a library written in C#, testing, and giving your program to others | 6 |
+| Chapter | What it is about |
+|---|---|
+| [The basics](#the-basics) | Console programs that use the class library: text, numbers, collections, files, JSON and XML, errors, hashing, HTTP, tasks and processes. |
+| [Text and data formats](#text-and-data-formats) | Regular expressions, formatting, Unicode and text file encodings, comparing and escaping text, URLs, Base64 and hexadecimal, domain names, MIME types, JSON in two styles, XML and XSLT, Markdown, spelling, and two projects: a mail merge and a syntax highlighter. |
+| [Numbers, dates and money](#numbers-dates-and-money) | The number types and their limits, rounding, big numbers, number systems, exact money, vectors, randomness and statistics, then dates, time zones, calendars, working days and cultures. |
+| [Collections and algorithms](#collections-and-algorithms) | Arrays, sets and other data structures, collections for many threads, enums and identifiers, undo and queues, recursion and an expression calculator. |
+| [Files and streams](#files-and-streams) | Paths, file information and disks, streams, binary files and random access, compression (GZip, ZIP, tar), file patterns, watching a folder, and projects that work on many files: a log analyzer, a duplicate finder, a backup tool, a file renamer, a file comparison and a checksum list. |
+| [Processes and performance](#processes-and-performance) | Asking the computer about itself, command-line tools, logging and tracing, starting and talking to other programs, tasks that wait, releasing resources, measuring speed and memory, and the Windows Registry. |
+| [Networking and the web](#networking-and-the-web) | IP addresses and networks, TCP and UDP sockets, HttpClient and REST, web services and small web sites, route templates, a link shortener, and e-mail messages. |
+| [Security](#security) | Hashing, encryption and signing, certificates, protecting data, logins and sessions, identities and claims, and rate limiting. |
+| [Databases and services](#databases-and-services) | SQL and Entity Framework, reports, Microsoft Access, and the services of an application: settings and configuration, caching and dependency injection. |
+| [Windows Forms](#windows-forms) | Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, dialogs and more than one window, menus, timers, drawing, images and charts (Windows only). |
+| [WPF](#wpf) | XAML windows, layout and styles, data binding, menus and tabs, lists and dynamic content, and animation (Windows only). |
+| [Projects with windows](#projects-with-windows) | Complete programs: a to-do list, Tic-Tac-Toe, a quiz, a command runner, an address book with a database, a sorting lab, a maze, an image filter lab and a chat (Windows only). |
+| [Libraries, testing and release](#libraries-testing-and-release) | Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, using a library written in C#, testing, and giving your program to others. |
 
 ## Where to start
 
 | If you want to... | Read |
 |---|---|
 | understand the vocabulary | [.NET for Ring programmers](tut-concepts.html), [Reading the .NET documentation](tut-reading-docs.html) |
-| learn the class library step by step | the chapter **The basics** (ten tutorials) |
+| learn the class library step by step | the chapter **The basics** |
 | work with text, JSON and XML | **Text and data formats** |
 | calculate with numbers, dates and money | **Numbers, dates and money** |
 | read, write and pack files | **Files and streams** |
@@ -78,13 +78,11 @@ Console programs that use the class library: text, numbers, collections, files, 
 
 ## Text and data formats
 
-Regular expressions, Unicode and encodings, comparing and escaping text, URLs and domain names, MIME types, JSON in three styles, XML and XSLT, Markdown and spelling.
+Regular expressions, formatting, Unicode and text file encodings, comparing and escaping text, URLs, Base64 and hexadecimal, domain names, MIME types, JSON in two styles, XML and XSLT, Markdown, spelling, and two projects: a mail merge and a syntax highlighter.
 
 <div class="cards">
 <a class="card" href="tut-29-regex.html"><div class="ic">🔤</div><b>Regular expressions in depth</b><span>Patterns, groups, replace, split, greedy and lazy, validation.</span></a>
 <a class="card" href="tut-129-formatting.html"><div class="ic">🔤</div><b>Formatting numbers and dates</b><span>Format strings: decimals, thousands, percent, patterns, alignment, dates and durations.</span></a>
-<a class="card" href="tut-144-mailmerge.html"><div class="ic">🔤</div><b>Project: mail merge</b><span>A template with fields, CSV data, Regex.Replace with a callback and a check for missing data.</span></a>
-<a class="card" href="tut-152-highlighter.html"><div class="ic">🔤</div><b>Project: a syntax highlighter</b><span>One regular expression with named groups, tokens, HTML spans and escaped text.</span></a>
 <a class="card" href="tut-52-unicode.html"><div class="ic">🔤</div><b>Unicode and encodings</b><span>Bytes, code points and letters; UTF-8, UTF-16 and mojibake.</span></a>
 <a class="card" href="tut-132-text-encodings.html"><div class="ic">🔤</div><b>Text files and encodings</b><span>The bytes of a text, the BOM, reading Latin-1 and UTF-16 files, strict UTF-8 and line endings.</span></a>
 <a class="card" href="tut-97-comparers.html"><div class="ic">🔤</div><b>Comparing text</b><span>Ordinal and culture comparison, StringComparer, and the Turkish i.</span></a>
@@ -100,11 +98,13 @@ Regular expressions, Unicode and encodings, comparing and escaping text, URLs an
 <a class="card" href="tut-77-xslt.html"><div class="ic">🔤</div><b>XSLT</b><span>Turn XML into text, CSV and HTML with XslCompiledTransform.</span></a>
 <a class="card" href="tut-47-markdown.html"><div class="ic">🔤</div><b>Project: Markdown to HTML</b><span>Blocks, inline formatting, regular expressions, and escaping first.</span></a>
 <a class="card" href="tut-66-spelling.html"><div class="ic">🔤</div><b>A spell checker</b><span>A set of words, the edit distance table and the best suggestions.</span></a>
+<a class="card" href="tut-144-mailmerge.html"><div class="ic">🔤</div><b>Project: mail merge</b><span>A template with fields, CSV data, Regex.Replace with a callback and a check for missing data.</span></a>
+<a class="card" href="tut-152-highlighter.html"><div class="ic">🔤</div><b>Project: a syntax highlighter</b><span>One regular expression with named groups, tokens, HTML spans and escaped text.</span></a>
 </div>
 
 ## Numbers, dates and money
 
-The number types and their limits, big numbers, number systems, exact money, vectors, randomness and statistics, then dates, time zones, calendars and cultures.
+The number types and their limits, rounding, big numbers, number systems, exact money, vectors, randomness and statistics, then dates, time zones, calendars, working days and cultures.
 
 <div class="cards">
 <a class="card" href="tut-101-number-types.html"><div class="ic">🔢</div><b>Number types</b><span>Limits, checked conversion, TryParse, Int128 and floating point.</span></a>
@@ -141,10 +141,12 @@ Arrays, sets and other data structures, collections for many threads, enums and 
 
 ## Files and streams
 
-Paths, streams, binary files, compression (GZip, ZIP, tar), file patterns, and projects that work on many files: a log analyzer, a duplicate finder, a backup tool.
+Paths, file information and disks, streams, binary files and random access, compression (GZip, ZIP, tar), file patterns, watching a folder, and projects that work on many files: a log analyzer, a duplicate finder, a backup tool, a file renamer, a file comparison and a checksum list.
 
 <div class="cards">
 <a class="card" href="tut-59-paths.html"><div class="ic">📁</div><b>Paths and the environment</b><span>Path.Combine, special folders, valid names and environment variables.</span></a>
+<a class="card" href="tut-123-file-info.html"><div class="ic">📁</div><b>File information</b><span>FileInfo: size, times, attributes, read-only files, copying and temporary files.</span></a>
+<a class="card" href="tut-124-disks.html"><div class="ic">📁</div><b>Disks and free space</b><span>DriveInfo, the sizes of a disk, will it fit, and sizes for people.</span></a>
 <a class="card" href="tut-56-streams.html"><div class="ic">📁</div><b>Streams and compression</b><span>MemoryStream, StreamWriter, GZip, and one pattern for memory and files.</span></a>
 <a class="card" href="tut-45-binary.html"><div class="ic">📁</div><b>Binary files</b><span>BinaryWriter and BinaryReader, a file format, a hex dump, little endian.</span></a>
 <a class="card" href="tut-130-random-access.html"><div class="ic">📁</div><b>Random access and file locks</b><span>Fixed-size records, Seek, changing a record in place, SetLength and FileShare.</span></a>
@@ -152,8 +154,6 @@ Paths, streams, binary files, compression (GZip, ZIP, tar), file patterns, and p
 <a class="card" href="tut-108-zip-in-memory.html"><div class="ic">📁</div><b>ZIP archives in memory</b><span>ZipArchive on a MemoryStream: entries, levels and updates.</span></a>
 <a class="card" href="tut-96-tar.html"><div class="ic">📁</div><b>Tar archives</b><span>Create, list, read and unpack tar files.</span></a>
 <a class="card" href="tut-112-globbing.html"><div class="ic">📁</div><b>File patterns (globbing)</b><span>**/*.ring, include and exclude rules, matching lists of paths.</span></a>
-<a class="card" href="tut-123-file-info.html"><div class="ic">📁</div><b>File information</b><span>FileInfo: size, times, attributes, read-only files, copying and temporary files.</span></a>
-<a class="card" href="tut-124-disks.html"><div class="ic">📁</div><b>Disks and free space</b><span>DriveInfo, the sizes of a disk, will it fit, and sizes for people.</span></a>
 <a class="card" href="tut-122-watch-folder.html"><div class="ic">📁</div><b>Watching a folder</b><span>FileSystemWatcher: created, changed, renamed and deleted files, with a child program.</span></a>
 <a class="card" href="tut-21-log-analyzer.html"><div class="ic">📁</div><b>Project: a log analyzer</b><span>Files, regular expressions, dictionaries, LINQ and a JSON report in one program.</span></a>
 <a class="card" href="tut-31-duplicates.html"><div class="ic">📁</div><b>Project: duplicate files</b><span>Folders, content hashes and a dictionary find the copies.</span></a>
@@ -165,7 +165,7 @@ Paths, streams, binary files, compression (GZip, ZIP, tar), file patterns, and p
 
 ## Processes and performance
 
-Asking the computer about itself, command-line tools and logging, starting and talking to other programs, tasks that wait, releasing resources, measuring speed and memory, and the Windows Registry.
+Asking the computer about itself, command-line tools, logging and tracing, starting and talking to other programs, tasks that wait, releasing resources, measuring speed and memory, and the Windows Registry.
 
 <div class="cards">
 <a class="card" href="tut-74-system.html"><div class="ic">⚙️</div><b>Asking the computer</b><span>The system, processors, memory, drives and the running programs.</span></a>
@@ -184,7 +184,7 @@ Asking the computer about itself, command-line tools and logging, starting and t
 
 ## Networking and the web
 
-IP addresses and networks, TCP and UDP sockets, HttpClient and REST, web services and small web sites, route templates, and e-mail messages.
+IP addresses and networks, TCP and UDP sockets, HttpClient and REST, web services and small web sites, route templates, a link shortener, and e-mail messages.
 
 <div class="cards">
 <a class="card" href="tut-81-network-tools.html"><div class="ic">🌐</div><b>Network tools</b><span>IPAddress, Dns, Ping, interfaces and a port check, all on this computer.</span></a>
@@ -233,7 +233,7 @@ SQL and Entity Framework, reports, Microsoft Access, and the services of an appl
 
 ## Windows Forms
 
-Windows with controls, layout, dialogs and menus, timers, drawing, images and charts (Windows only).
+Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, dialogs and more than one window, menus, timers, drawing, images and charts (Windows only).
 
 <div class="cards">
 <a class="card" href="tut-11-first-window.html"><div class="ic">🪟</div><b>Your first window</b><span>A form, a label, a button, an event — with and without the helper functions.</span></a>
@@ -261,7 +261,7 @@ Windows with controls, layout, dialogs and menus, timers, drawing, images and ch
 
 ## WPF
 
-XAML windows, layout and styles, and animation (Windows only).
+XAML windows, layout and styles, data binding, menus and tabs, lists and dynamic content, and animation (Windows only).
 
 <div class="cards">
 <a class="card" href="tut-15-wpf.html"><div class="ic">🎨</div><b>WPF</b><span>XAML windows, finding elements, events and data binding.</span></a>
@@ -274,7 +274,7 @@ XAML windows, layout and styles, and animation (Windows only).
 
 ## Projects with windows
 
-Complete programs: a to-do list, Tic-Tac-Toe, a command runner, an address book with a database, a sorting lab, a maze, an image filter lab and a chat (Windows only).
+Complete programs: a to-do list, Tic-Tac-Toe, a quiz, a command runner, an address book with a database, a sorting lab, a maze, an image filter lab and a chat (Windows only).
 
 <div class="cards">
 <a class="card" href="tut-24-todo.html"><div class="ic">🧩</div><b>Project: a to-do list</b><span>A complete window application that remembers its tasks in a JSON file.</span></a>
@@ -290,7 +290,7 @@ Complete programs: a to-do list, Tic-Tac-Toe, a command runner, an address book 
 
 ## Libraries, testing and release
 
-Giving Ring code to .NET (callbacks and events), exploring and building code with reflection and expression trees, using a library written in C#, testing, and giving your program to others.
+Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, using a library written in C#, testing, and giving your program to others.
 
 <div class="cards">
 <a class="card" href="tut-19-callbacks.html"><div class="ic">📦</div><b>Callbacks and events</b><span>Give Ring code to .NET: function names, code texts, events, errors and the thread rule.</span></a>

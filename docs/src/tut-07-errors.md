@@ -70,6 +70,14 @@ While developing, set the environment variable `RINGDOTNET_TRACE=1` and the erro
 | show a friendly message, log the technical one | show `cCatchError` to end users |
 | close what you open | leave files open |
 
+## What you learned
+
+- a .NET exception is a Ring error, and `try` / `catch` handles it,
+- `cCatchError` starts with the name of the exception, which tells the kind of problem,
+- ask first (`Exists`, `TryParse`) when you can,
+- `raise("text")` makes your own error,
+- clean up after the `try` block.
+
 ## Exercises
 
 1. Write `readNumber(cText)` that returns the number, or `-1` if the text is not a number, using `TryParse`.

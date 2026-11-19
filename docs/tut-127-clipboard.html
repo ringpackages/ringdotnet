@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -230,7 +230,7 @@
 <h1>The clipboard</h1><p class="lead">Copy and paste is how programs share data on a computer. This lesson puts text, a table for a spreadsheet and a picture on the clipboard, reads text back, clears it, and leaves the clipboard as the user had it.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li><code>Clipboard.SetText</code>, <code>GetText</code> and <code>ContainsText</code>,</li><li>a <strong>table</strong> that a spreadsheet pastes as cells (tabs and new lines),</li><li><code>SetImage</code>, <code>ContainsImage</code> and <code>GetImage</code>,</li><li><code>Clear</code>,</li><li>why a program that tests the clipboard puts back what it found.</li></ul>
-<p>The clipboard belongs to the whole computer: every program can read and replace it. The tutorial <a href="tut-13-editor.html">A text editor</a> used the edit commands of a text box; this lesson uses the clipboard itself, which also copies to and from other programs.</p>
+<p>The clipboard belongs to the whole computer: every program can read and replace it. The tutorial <a href="tut-13-editor.html">A small text editor</a> used the edit commands of a text box; this lesson uses the clipboard itself, which also copies to and from other programs.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_clipboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the clipboard - text, a table for a spreadsheet, a picture, and leaving the clipboard as the user had it</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>

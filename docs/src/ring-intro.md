@@ -28,6 +28,9 @@ What to remember:
 - **`+` follows its left side.** `"Count: " + 3` joins, `5 + "5"` adds, and `3 + " items"` is an error. Use `string(n)` when in doubt.
 - **Indexes start at 1**, also for text. `len()` counts bytes (the tutorial [Unicode and encodings](tut-52-unicode.html)).
 - **`^` is a bit operation**; power is `**` or `pow()`.
+- **Comparing text:** `=` and `!=` compare text exactly (`"Abc"` and `"abc"` are different); `<` and `>` compare numbers, so for the order of two texts use `strcmp(a, b)` (less than 0, 0 or more than 0).
+- **A text that looks like a number is still a text:** `isNumber("12")` is false. `0 + "12"` converts it to 12 and raises an error when the text is not a number (use `try` and `catch`).
+- **Names are not case sensitive, keywords included:** `cAll` is the keyword `call` and `oR` is `or`, so a variable or a function is not given such a name.
 - `True` and `False` are `1` and `0`.
 
 ## 2. Lists

@@ -11,7 +11,7 @@ lead: A rich text box shows text in bold, in colors and in different fonts, and 
 - the difference between `Text` and `Rtf`,
 - `SaveFile` and `LoadFile` with the format `RichText`.
 
-The tutorial [A text editor](tut-13-editor.html) used a plain text box, where all the text has the same font. A `RichTextBox` keeps a format for each part of the text.
+The tutorial [A small text editor](tut-13-editor.html) used a plain text box, where all the text has the same font. A `RichTextBox` keeps a format for each part of the text.
 
 ## The program
 

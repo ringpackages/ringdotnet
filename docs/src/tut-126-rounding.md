@@ -13,7 +13,7 @@ lead: Rounding looks simple until a total is a cent wrong. This lesson uses the 
 - `Sign`, `Abs`, `Pow`, `Sqrt`, `Cbrt` and the logarithms,
 - why money needs **one** rounding rule.
 
-The tutorial [Numbers, dates, times](tut-03-numbers-dates.html) used the basic functions and the tutorial [Money](tut-57-money.html) showed why money needs care. This lesson is about the rules of rounding.
+The tutorial [Numbers, dates and times](tut-03-numbers-dates.html) used the basic functions and the tutorial [Money](tut-57-money.html) showed why money needs care. This lesson is about the rules of rounding.
 
 > [!NOTE] Ring shows a number with two decimals unless you change it with `decimals(n)`. The program uses `decimals(3)` for the step with digits, so that the third decimal is visible.
 

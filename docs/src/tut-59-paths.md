@@ -62,4 +62,4 @@ An environment variable is a named setting that lives outside the program (set b
 
 ## Next
 
-[Streams and compression](tut-56-streams.html)
+[File information](tut-123-file-info.html)

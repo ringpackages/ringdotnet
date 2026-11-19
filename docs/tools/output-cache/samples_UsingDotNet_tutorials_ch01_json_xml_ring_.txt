@@ -3,7 +3,7 @@ The name            : Ring
 The year            : 2016
 Number of tags      : 2
 First tag           : fast
-Nested property     : Mahmoud
+Nested property     : Ann
 
 Books in the library: 3
   #1 Learn Ring (1999)

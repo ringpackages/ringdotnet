@@ -74,8 +74,10 @@ The classes are real Ring classes with the same method names as the .NET ones â€
 | `bin/` | `ring_dotnet.dll` (the C extension), the managed bridge, ASP.NET and EF assemblies |
 | `libraries/dotnetlib/` | The Ring library: functions, the generated wrapper classes, GUI/WPF/web/data helpers |
 | `extensions/ringdotnet/` | C source of the extension and C# source of the bridge, web server and data layer |
-| `samples/` | 32 Windows Forms samples, 10 WPF samples and console samples |
-| `applications/` | Complete programs |
+| `samples/UsingDotNet/tutorials/` | The program of each tutorial, named by chapter (`ch01_first_look.ring`...) |
+| `samples/UsingDotNet/introduction/` | Short console samples for each area |
+| `samples/UsingDotNet/Forms/` and `Wpf/` | One small window program for each feature |
+| `samples/UsingDotNet/applications/` | Complete programs |
 | `samples/UsingDotNet/tests/` | Automated tests (`run.sh`) |
 | `tools/` | The class generators (`gendotnet.ring`, `wrapassembly.ring`) and the manifest |
 

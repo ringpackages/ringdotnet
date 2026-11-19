@@ -12,7 +12,7 @@ lead: Reflection lets a program look at any object: its type, its properties, th
 - showing values: a text or a number as it is, an object by its `ToString`,
 - filling a `ListView` and finding a value in it for a test.
 
-The tutorial [Reflection](tut-20-reflection.html) asked a *type* what it can do. An inspector asks an *object* what it is.
+The tutorial [Exploring .NET with reflection](tut-20-reflection.html) asked a *type* what it can do. An inspector asks an *object* what it is.
 
 ## The program
 

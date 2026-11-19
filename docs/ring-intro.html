@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -311,7 +311,7 @@ padded|
 
 the end</code></pre></div>
 <p>What to remember:</p>
-<ul><li><strong>No declarations.</strong> A variable gets its type from the value. A name's first letter is a naming convention (<code>n</code> number, <code>c</code> text, <code>a</code> list, <code>o</code> object, <code>l</code> yes/no); this documentation uses it.</li><li><strong>All numbers are doubles.</strong> <code>7 / 2</code> is <code>3.5</code> (printed as <code>3.50</code>), and a number is exact only up to 2⁵³ (the tutorial <a href="tut-67-bases.html">Number systems and big numbers</a>).</li><li>**<code>+</code> follows its left side.** <code>"Count: " + 3</code> joins, <code>5 + "5"</code> adds, and <code>3 + " items"</code> is an error. Use <code>string(n)</code> when in doubt.</li><li><strong>Indexes start at 1</strong>, also for text. <code>len()</code> counts bytes (the tutorial <a href="tut-52-unicode.html">Unicode and encodings</a>).</li><li>**<code>^</code> is a bit operation**; power is <code>**</code> or <code>pow()</code>.</li><li><code>True</code> and <code>False</code> are <code>1</code> and <code>0</code>.</li></ul>
+<ul><li><strong>No declarations.</strong> A variable gets its type from the value. A name's first letter is a naming convention (<code>n</code> number, <code>c</code> text, <code>a</code> list, <code>o</code> object, <code>l</code> yes/no); this documentation uses it.</li><li><strong>All numbers are doubles.</strong> <code>7 / 2</code> is <code>3.5</code> (printed as <code>3.50</code>), and a number is exact only up to 2⁵³ (the tutorial <a href="tut-67-bases.html">Number systems and big numbers</a>).</li><li>**<code>+</code> follows its left side.** <code>"Count: " + 3</code> joins, <code>5 + "5"</code> adds, and <code>3 + " items"</code> is an error. Use <code>string(n)</code> when in doubt.</li><li><strong>Indexes start at 1</strong>, also for text. <code>len()</code> counts bytes (the tutorial <a href="tut-52-unicode.html">Unicode and encodings</a>).</li><li>**<code>^</code> is a bit operation**; power is <code>**</code> or <code>pow()</code>.</li><li><strong>Comparing text:</strong> <code>=</code> and <code>!=</code> compare text exactly (<code>"Abc"</code> and <code>"abc"</code> are different); <code>&lt;</code> and <code>&gt;</code> compare numbers, so for the order of two texts use <code>strcmp(a, b)</code> (less than 0, 0 or more than 0).</li><li><strong>A text that looks like a number is still a text:</strong> <code>isNumber("12")</code> is false. <code>0 + "12"</code> converts it to 12 and raises an error when the text is not a number (use <code>try</code> and <code>catch</code>).</li><li><strong>Names are not case sensitive, keywords included:</strong> <code>cAll</code> is the keyword <code>call</code> and <code>oR</code> is <code>or</code>, so a variable or a function is not given such a name.</li><li><code>True</code> and <code>False</code> are <code>1</code> and <code>0</code>.</li></ul>
 <h2 id="2-lists">2. Lists<a class="anchor" href="#2-lists">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ring_lists.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Ring in 15 minutes, part 2: lists (the only collection), pairs, nested lists</span>
 

@@ -11,7 +11,7 @@ lead: Copy and paste is how programs share data on a computer. This lesson puts 
 - `Clear`,
 - why a program that tests the clipboard puts back what it found.
 
-The clipboard belongs to the whole computer: every program can read and replace it. The tutorial [A text editor](tut-13-editor.html) used the edit commands of a text box; this lesson uses the clipboard itself, which also copies to and from other programs.
+The clipboard belongs to the whole computer: every program can read and replace it. The tutorial [A small text editor](tut-13-editor.html) used the edit commands of a text box; this lesson uses the clipboard itself, which also copies to and from other programs.
 
 ## The program
 

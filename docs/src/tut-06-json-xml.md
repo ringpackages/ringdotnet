@@ -14,7 +14,7 @@ lead: Programs exchange data as text in a structure. JSON and XML are the two co
 **JSON** looks like Ring lists and objects:
 
 ```text
-{"name":"Ring","year":2016,"tags":["fast","small"],"author":{"first":"Mahmoud"}}
+{"name":"Ring","year":2016,"tags":["fast","small"],"author":{"first":"Ann"}}
 ```
 
 - `{ }` an object of *properties*, `[ ]` an array, texts in quotes, numbers without.

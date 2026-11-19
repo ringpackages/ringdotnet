@@ -30,13 +30,17 @@ lead: The Ring process hosts the .NET runtime and talks to it through a small ma
 
 1. finds the installed .NET runtime and starts it **inside the Ring process** with `hostfxr` (no separate process, no IPC),
 2. loads `RingDotNet.Bridge.dll`, a small C# assembly,
-3. keeps one entry point: `dotnet_request(operation, data)`.
+3. keeps one entry point for requests: `dotnet_invoke(request)`. (The extension also has the functions for callbacks and for releasing objects, below.)
 
 The bridge uses reflection. A Ring call such as `oSB.Append(", ")` becomes a request `call [handle, "Append", ", "]`; the bridge finds the right overload from the argument types, invokes it, and returns the result.
 
 ## Handles
 
 .NET objects never leave .NET. Ring holds a **handle** (a number) inside a `DotNetObject`, and the bridge keeps the real object in a table. The generated wrapper classes are `DotNetObject`s with typed methods, so `oSB.Append(...)` and `oSB.callMethod("Append",[...])` do the same thing.
+
+### Releasing objects
+
+A handle keeps its object alive, so handles must be released. Each wrapper object holds a **managed pointer** (a Ring pointer with a function that runs when Ring drops the value). When the wrapper is dropped, the pointer queues the handle, and the queued handles are released in groups of 32, so a program that makes thousands of objects does not grow without end. `release()` releases one handle at once, and `dnFlush()` releases the queued ones now (the tutorial [Memory and the garbage collector](tut-98-memory.html)).
 
 ## The wire format
 

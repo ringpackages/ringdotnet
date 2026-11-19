@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -338,6 +338,8 @@ using {
 <p>While developing, set the environment variable <code>RINGDOTNET_TRACE=1</code> and the error text includes the .NET stack trace, which shows exactly where it happened.</p>
 <h2 id="good-habits">Good habits<a class="anchor" href="#good-habits">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Do</th><th>Do not</th></tr></thead><tbody><tr><td>check with <code>Exists</code>, <code>TryParse</code>, <code>IsNullOrWhiteSpace</code> first</td><td>wrap the whole program in one <code>try</code></td></tr><tr><td>catch where you can <em>do</em> something about it</td><td>catch and ignore</td></tr><tr><td>show a friendly message, log the technical one</td><td>show <code>cCatchError</code> to end users</td></tr><tr><td>close what you open</td><td>leave files open</td></tr></tbody></table></div>
+<h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
+<ul><li>a .NET exception is a Ring error, and <code>try</code> / <code>catch</code> handles it,</li><li><code>cCatchError</code> starts with the name of the exception, which tells the kind of problem,</li><li>ask first (<code>Exists</code>, <code>TryParse</code>) when you can,</li><li><code>raise("text")</code> makes your own error,</li><li>clean up after the <code>try</code> block.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Write <code>readNumber(cText)</code> that returns the number, or <code>-1</code> if the text is not a number, using <code>TryParse</code>.</li><li>Read a file that may not exist: print <code>missing</code> if it does not, the number of lines if it does. Do it twice: once with <code>Exists</code>, once with <code>try</code>.</li><li>Write <code>divide(a,b)</code> that raises <code>"Division by zero"</code> when <code>b</code> is 0, and catch it.</li><li>Cause a <code>DirectoryNotFoundException</code>: write a file into a folder that does not exist. Read the message.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

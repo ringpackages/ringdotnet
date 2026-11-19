@@ -11,7 +11,7 @@ func main
 	? "A Ring list as JSON : " + oJson.Serialize([1,"two",[3,4]])
 
 	# JSON: read a document you received
-	cJson = '{"name":"Ring","year":2016,"tags":["fast","small"],"author":{"first":"Mahmoud","country":"Egypt"}}'
+	cJson = '{"name":"Ring","year":2016,"tags":["fast","small"],"author":{"first":"Ann","country":"Egypt"}}'
 	oDocument = new JsonDocument().Parse(cJson)
 	oRoot = oDocument.RootElement
 	? "The name            : " + oRoot.GetProperty("name").GetString()

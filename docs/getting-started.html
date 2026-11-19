@@ -46,8 +46,6 @@
 <h4>Tutorials: Text and data formats</h4>
 <a href="tut-29-regex.html">Regular expressions</a>
 <a href="tut-129-formatting.html">Formatting numbers and dates</a>
-<a href="tut-144-mailmerge.html">Mail merge</a>
-<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <a href="tut-52-unicode.html">Unicode and encodings</a>
 <a href="tut-132-text-encodings.html">Text files and encodings</a>
 <a href="tut-97-comparers.html">Comparing text</a>
@@ -63,6 +61,8 @@
 <a href="tut-77-xslt.html">XSLT</a>
 <a href="tut-47-markdown.html">Markdown to HTML</a>
 <a href="tut-66-spelling.html">A spell checker</a>
+<a href="tut-144-mailmerge.html">Mail merge</a>
+<a href="tut-152-highlighter.html">A syntax highlighter</a>
 <h4>Tutorials: Numbers, dates and money</h4>
 <a href="tut-101-number-types.html">Number types</a>
 <a href="tut-126-rounding.html">Rounding and the Math class</a>
@@ -90,6 +90,8 @@
 <a href="tut-54-expression.html">An expression calculator</a>
 <h4>Tutorials: Files and streams</h4>
 <a href="tut-59-paths.html">Paths and the environment</a>
+<a href="tut-123-file-info.html">File information</a>
+<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-56-streams.html">Streams and compression</a>
 <a href="tut-45-binary.html">Binary files</a>
 <a href="tut-130-random-access.html">Random access and file locks</a>
@@ -97,8 +99,6 @@
 <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>
 <a href="tut-96-tar.html">Tar archives</a>
 <a href="tut-112-globbing.html">File patterns (globbing)</a>
-<a href="tut-123-file-info.html">File information</a>
-<a href="tut-124-disks.html">Disks and free space</a>
 <a href="tut-122-watch-folder.html">Watching a folder</a>
 <a href="tut-21-log-analyzer.html">A log analyzer</a>
 <a href="tut-31-duplicates.html">Duplicate files</a>
@@ -230,14 +230,14 @@
 <h1>Getting started</h1><p class="lead">Install the package, run your first .NET call from Ring, and learn the four startup modes.</p>
 <p>New to Ring? The appendix has a <a href="ring-intro.html">Quick introduction to Ring</a> (about 15 minutes); read it first if you have never written a Ring program.</p>
 <h2 id="requirements">Requirements<a class="anchor" href="#requirements">#</a></h2>
-<div class="tablewrap"><table><thead><tr><th>You need</th><th>Why</th></tr></thead><tbody><tr><td><strong>Ring</strong> 1.27 or newer</td><td>The language. The package is a normal Ring package.</td></tr><tr><td><strong>.NET 6 or newer</strong> (tested with .NET 9)</td><td>The runtime that RingDotNet hosts inside the Ring process.</td></tr><tr><td><strong>Windows Desktop runtime</strong></td><td>Only for Windows Forms and WPF programs (it is part of the .NET Desktop runtime installer).</td></tr><tr><td><strong>ASP.NET Core runtime</strong></td><td>Only for web programs (<code>"RingDotNet.Web"</code>).</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>You need</th><th>Why</th></tr></thead><tbody><tr><td><strong>Ring</strong> 1.28 or newer</td><td>The language. The package is a normal Ring package.</td></tr><tr><td><strong>.NET 6 or newer</strong> (tested with .NET 9)</td><td>The runtime that RingDotNet hosts inside the Ring process.</td></tr><tr><td><strong>Windows Desktop runtime</strong></td><td>Only for Windows Forms and WPF programs (it is part of the .NET Desktop runtime installer).</td></tr><tr><td><strong>ASP.NET Core runtime</strong></td><td>Only for web programs (<code>"RingDotNet.Web"</code>).</td></tr></tbody></table></div>
 <div class="callout note"><span class="t">Note</span><p>The package is built and tested on Windows with Ring 1.28 and .NET 9. The C extension and the managed bridge are portable; the Windows Forms and WPF parts are Windows-only by nature.</p></div>
 <h2 id="install">Install<a class="anchor" href="#install">#</a></h2>
 <p>Install the package with <strong>RingPM</strong>, the Ring package manager, in one step:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ringpm install ringdotnet from ringpackages</code></pre></div>
 <p>That is all. The package is one zip file (<code>extensions/ringdotnet.zip</code>): RingPM copies it and its <code>setup.ring</code> extracts it into your Ring folder, which is much faster than installing thousands of files one by one. It brings the library, the extension (<code>ring_dotnet.dll</code>), the managed assemblies, the samples and the applications, so every program can start with:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span></code></pre></div>
-<p>You do not need to set a path or copy files. To test the installation, run a sample:</p>
+<p>You do not need to set a path or copy files. To test the installation, run a sample from the Ring folder:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring samples/UsingDotNet/introduction/test00_first.ring</code></pre></div>
 <h2 id="linux-and-macos">Linux and macOS<a class="anchor" href="#linux-and-macos">#</a></h2>
 <p>The package works on Linux (tested on Ubuntu 24.04, x64, with .NET 9) and should work on macOS. The extension is a C library, so it is <strong>built once</strong> for your system; the managed files are the same on every system and are installed in <code>ring/bin</code> by the package.</p>
@@ -316,13 +316,14 @@ oCount = <span class="f">uiLabel</span>(oForm,<span class="s">"0 clicks"</span>,
 	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
 	<span class="f">dnAssert</span>(<span class="s">"three clicks"</span>,oCount.Text,<span class="s">"3 clicks"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/forms-02_button_click.png" alt="The click counter" loading="lazy"><figcaption>samples/UsingDotNet/Forms/02_button_click.ring — a form, a label and a button</figcaption></figure>
+<p>Run it with <code>ring samples/UsingDotNet/Forms/02_button_click.ring</code> (Windows). The tutorial <a href="tut-11-first-window.html">Your first window</a> explains each line.</p>
 <h2 id="run-the-tests">Run the tests<a class="anchor" href="#run-the-tests">#</a></h2>
 <p>Every feature has a test, and every sample and application can test itself:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe          # runs tests, samples and applications
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>sh samples/UsingDotNet/tests/run.sh ring.exe          # runs tests, samples and applications (add --quick for a short run)
 ring samples/UsingDotNet/applications/Calculator/main.ring --selftest   # drives the form and prints SELFTEST OK</code></pre></div>
 <p>Read <a href="testing.html">Testing</a> for how the self tests work.</p>
 <h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
-<ul><li><a href="tutorials.html">Tutorials</a>: lessons grouped by topic; start with the chapter <strong>The basics</strong>.</li><li><a href="concepts.html">Core concepts</a>: how .NET names, overloads, properties, enums and events look in Ring.</li><li><a href="winforms.html">Windows Forms</a> and the <a href="gallery-apps.html">applications</a>.</li><li><a href="aspnet.html">ASP.NET Core</a> and <a href="ef.html">Entity Framework Core</a> for servers and databases.</li><li><a href="gotchas.html">Rules and limits</a> before you write a long program.</li></ul>
+<ul><li><a href="tutorials.html">Tutorials</a>: lessons grouped by topic; start with the chapter <strong>The basics</strong>. The program of each lesson is in <code>samples/UsingDotNet/tutorials</code>.</li><li><a href="concepts.html">Core concepts</a>: how .NET names, overloads, properties, enums and events look in Ring.</li><li><a href="winforms.html">Windows Forms</a> and the <a href="gallery-apps.html">applications</a>.</li><li><a href="aspnet.html">ASP.NET Core</a> and <a href="ef.html">Entity Framework Core</a> for servers and databases.</li><li><a href="gotchas.html">Rules and limits</a> before you write a long program.</li></ul>
 <div class="pager"><a href="index.html"><small>Previous</small>Overview</a><a class="next" href="how-it-works.html"><small>Next</small>How it works</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

@@ -104,7 +104,7 @@ A **collection** holds many items. .NET has a list (`List`), a dictionary (`Dict
 | **Runtime** | What is needed to **run** .NET programs. RingDotNet needs the runtime (and the desktop or ASP.NET runtime for windows and web). |
 | **NuGet** | The package store of .NET. A NuGet package is a set of `.dll` files that you can wrap and use. |
 | **BCL** | The *base class library*: the part of .NET that every program has (`System`, `System.IO`, `System.Text`...). |
-| **Windows Forms / WPF** | Two ways to build windows. The tutorial [Your first window](tut-11-first-window.html) and [15](tut-15-wpf.html). |
+| **Windows Forms / WPF** | Two ways to build windows. The tutorial [Your first window](tut-11-first-window.html) and [WPF](tut-15-wpf.html). |
 | **ASP.NET Core** | The web framework. The tutorial [A web service with a database](tut-16-web-service.html). |
 | **Entity Framework** | The database library. The tutorial [Databases step by step](tut-17-databases.html). |
 

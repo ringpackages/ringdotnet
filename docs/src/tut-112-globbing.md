@@ -69,4 +69,4 @@ By default a matcher **ignores case**: `*.ring` also finds `B.RING`. The constru
 
 ## Next
 
-[File information](tut-123-file-info.html)
+[Watching a folder](tut-122-watch-folder.html)

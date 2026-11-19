@@ -114,7 +114,7 @@ Events work like Windows Forms events: `setClickEvent`, `setValueChangedEvent`, 
 
 ![WPF calculator](img/shots/app-WpfCalculator.png "samples/UsingDotNet/applications/WpfCalculator")
 
-More: [WPF samples](gallery-wpf.html) — all 10 with screenshots and source.
+More: [WPF samples](gallery-wpf.html) — every one with a screenshot and the source.
 
 ## Where to go next
 
