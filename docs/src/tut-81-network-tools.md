@@ -49,7 +49,7 @@ The last step starts a `TcpListener` on port 0 (the system chooses a free port) 
 
 > [!WARNING] Only test ports of computers that are yours or that you have permission to test. Scanning other people's computers can be a crime and is always rude. This tutorial only touches `127.0.0.1`.
 
-> [!NOTE] The `catch` in `portIsOpen` also catches Ring programming mistakes (a wrong method name, for example), which then look like "port closed". While you develop, print `cCatchError` in the `catch` block.
+> [!NOTE] The `catch` in `portIsOpen` also catches errors in the Ring code (a misspelled method name, for example), which then look like "port closed". While you develop, print `cCatchError` in the `catch` block.
 
 ## What you learned
 

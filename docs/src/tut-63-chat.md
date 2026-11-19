@@ -43,7 +43,7 @@ A Ring text is a list of bytes, so `cPartial += char(nByte)` rebuilds UTF-8 text
 
 The two windows live in the same program only to make the tutorial easy to run; the classes would work the same in different programs on different computers. Give the server's address instead of `127.0.0.1`.
 
-> [!WARNING] Two Ring details that cost time while writing this lesson: `for x in object.method()` calls the method *again for every item*, so a method that consumes data must be assigned to a variable first; and a variable named `oR` is read as the keyword `or`.
+> [!NOTE] Two details of Ring used in this lesson: `for x in object.method()` calls the method *again for every item*, so a method that consumes data must be assigned to a variable first; and a variable named `oR` is read as the keyword `or`.
 
 ### Testing
 

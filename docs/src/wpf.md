@@ -33,7 +33,7 @@ WPF has classes with the same names as Windows Forms and `System.Drawing` classe
 
 The others keep their name: `Window`, `Grid`, `StackPanel`, `Canvas`, `Slider`, `Ellipse`, `Thickness`...
 
-> [!WARNING] A global variable named like an attribute (`x`, `width`) breaks `obj.X` in Ring. Keep program state in functions, as in the examples.
+> [!NOTE] A global variable named like an attribute (`x`, `width`) is read before `obj.X` in Ring. Keep program state in functions, as in the examples.
 
 ## The helpers
 

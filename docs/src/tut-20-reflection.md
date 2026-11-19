@@ -38,7 +38,7 @@ Its properties say what it is: `FullName`, `Namespace`, `IsClass`, `BaseType`, `
 
 `GetProperties(NULL)` and `GetMethods(NULL)` return arrays of `PropertyInfo` and `MethodInfo`; `toList()` turns an array into a Ring list. Each has a `Name`. A `PropertyInfo` has `PropertyType` and `CanWrite`; a `MethodInfo` has `GetParameters()`, whose items have `ParameterType` and `Name`.
 
-A method name appears **once per overload**, so the program collects *distinct* names. `StringBuilder.Append` has 20 versions with one parameter alone: one per type that can be appended. This is why Ring can offer only one `Append(value)`: the bridge looks at your value and calls the right version.
+A method name appears **once per overload**, so the program collects *distinct* names. `StringBuilder.Append` has 20 versions with one parameter alone: one per type that can be appended. This is why Ring offers one `Append(value)`: the bridge looks at your value and calls the right version.
 
 ### Enums
 

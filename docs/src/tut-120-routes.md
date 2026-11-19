@@ -50,7 +50,7 @@ Defaults are important for `{page=1}`: the matcher needs them in its dictionary,
 
 ### Many routes
 
-A program has a list of routes and uses the **first one that matches**, as in step 4. So the order is part of the program: put the most specific routes first and the general ones last. `/users/42` goes to `users/{id}`, `/users/42/orders/7` to the route with orders, and `/about` to `{page}`. Notice `/users`: it does not fit `users/{id}` (the id is missing), so it falls through to `{page}` and shows a page called *users*. That may be what you want or a surprise; a route `users` listed before `{page}` makes the choice clear. When no route matches, the answer is *404 Not Found*.
+A program has a list of routes and uses the **first one that matches**, as in step 4. So the order is part of the program: put the most specific routes first and the general ones last. `/users/42` goes to `users/{id}`, `/users/42/orders/7` to the route with orders, and `/about` to `{page}`. Notice `/users`: it does not fit `users/{id}` (the id is missing), so it falls through to `{page}` and shows a page called *users*. A route `users` listed before `{page}` makes the choice explicit. When no route matches, the answer is *404 Not Found*.
 
 ### What a template does not do
 

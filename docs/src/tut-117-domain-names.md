@@ -32,7 +32,7 @@ The system of domain names (DNS) was made for the letters `a` to `z`, the digits
 
 ### Invalid names
 
-A label is at most 63 characters, it must not be empty (`empty..label`), and it must not start or end with a hyphen. `GetAscii` raises an error for these, so the program uses `try` / `catch` (the tutorial [When things go wrong](tut-07-errors.html)) to answer *valid* or *not valid*. A space is allowed by the default mapper, which is a surprise; with `UseStd3AsciiRules = True` the mapper follows the strict rules (letters, digits and hyphens only) and refuses it. For names that come from a user, use the strict mapper.
+A label is at most 63 characters, it must not be empty (`empty..label`), and it must not start or end with a hyphen. `GetAscii` raises an error for these, so the program uses `try` / `catch` (the tutorial [When things go wrong](tut-07-errors.html)) to answer *valid* or *not valid*. The default mapper allows a space; with `UseStd3AsciiRules = True` the mapper follows the strict rules (letters, digits and hyphens only) and refuses it. For names that come from a user, use the strict mapper.
 
 ### Look-alike letters
 

@@ -15,7 +15,7 @@ lead: Ring already has good text functions. This lesson shows when to use Ring's
 
 A Ring text is a .NET `string` as soon as you pass it to a .NET method. A .NET method that returns a string gives you a Ring text.
 
-One rule is important: **a .NET string is not an object in Ring**, it is just a Ring text. That means you cannot call a .NET *instance* method such as `Trim()` on it. For those jobs Ring has its own functions: `trim()`, `upper()`, `lower()`, `substr()`, `left()`. Use **Ring's functions for the basics**, and .NET for what Ring does not have. The *static* methods of the class `String` (`Join`, `Format`...) work fine because they take the text as an argument.
+One rule is important: **a .NET string is not an object in Ring**, it is just a Ring text. That means a .NET *instance* method such as `Trim()` is not called on it. For those jobs Ring has its own functions: `trim()`, `upper()`, `lower()`, `substr()`, `left()`. Use **Ring's functions for the basics**, and .NET for what Ring does not include. The *static* methods of the class `String` (`Join`, `Format`...) work fine because they take the text as an argument.
 
 ## The program
 

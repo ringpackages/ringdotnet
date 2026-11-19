@@ -43,11 +43,11 @@ func main
 
 ### Names inside braces belong to the object first
 
-In `oForm { Text = cTitle }` Ring looks for `Text` and `cTitle` as members of `oForm` before it looks for variables. A variable named like a member of the object (`text`, `width`, `count`...) is then not what you expect. Use prefixed names (`cText`, `nWidth`) for your variables.
+In `oForm { Text = cTitle }` Ring looks for `Text` and `cTitle` as members of `oForm` before it looks for variables. A variable named like a member of the object (`text`, `width`, `count`...) is then read as that member. Use prefixed names (`cText`, `nWidth`) for your variables.
 
 ### Put the program in functions
 
-In Ring a **global variable named like an attribute** (`x`, `width`, `text`...) makes `obj.x` fail, and a function that assigns a name that exists as a global changes the global. Write `func main` and keep only what event code needs global.
+In Ring a **global variable named like an attribute** (`x`, `width`, `text`...) is read first when `obj.x` is evaluated, and a function that assigns a name that exists as a global changes that global. Write `func main` and keep only what event code needs global.
 
 ### Keywords are not available as names
 
@@ -59,24 +59,24 @@ Do not define your own functions named like built-ins the library uses (`isNumbe
 
 A `func` at the top of a file takes the rest of the file as its body. Put the main code first (or put it in `func main` and call it at the end).
 
-### `new StringBuilder()` needs `NULL`
+### `new StringBuilder(NULL)` for the parameterless constructor
 
-Ring checks the number of arguments of `init()`. The classes whose `init` takes a value (`StringBuilder`, `Random`, `Version`) therefore need `NULL` for the parameterless constructor: `new StringBuilder(NULL)`, `new Random(NULL)`. With a value it is as usual: `new StringBuilder("Hello")`, `new Random(42)`.
+Ring checks the number of arguments of `init()`. The classes whose `init` takes a value (`StringBuilder`, `Random`, `Version`) therefore use `NULL` for the parameterless constructor: `new StringBuilder(NULL)`, `new Random(NULL)`. With a value it is as usual: `new StringBuilder("Hello")`, `new Random(42)`.
 
 ### A variable name that starts like a keyword
 
-Ring names are not case sensitive and the words `or`, `if`, `to`, `in`, `do`... are keywords. `oR = new StreamReader(...)` is read as `or = ...` and gives a syntax error. Use longer names (`oReader`, `oRd`).
+Ring names are not case sensitive and the words `or`, `if`, `to`, `in`, `do`... are keywords. `oR = new StreamReader(...)` is read as `or = ...`, so such names are written longer (`oReader`, `oRd`).
 
 ### Using objects during definition: `x = new Class().Method(x)`
 
 This is a **Ring feature** (since Ring 1.19, [Using objects during definition](https://ring-lang.github.io/doc1.28/oop.html#using-objects-during-definition)): in an assignment `x = new Class(...)`, the new object is stored in `x` *first*, so that it can be used while the rest of the expression is evaluated. Then the rest of the expression runs (a method call, an operator) and its result is stored in `x` again. This makes it possible to use the object (for example with an overloaded operator) during its own definition, but it means that the variable you are assigning already holds the **new object** when the arguments are evaluated:
 
 ```ring
-cText = new Regex("a").Replace(cText,"b")       # cText is already the Regex object: no method matches the 2 arguments
+cText = new Regex("a").Replace(cText,"b")       # cText already holds the Regex object: no method takes the 2 arguments
 cResult = new Regex("a").Replace(cText,"b")     # works: a different variable
 ```
 
-Write the result to a **different** variable (the tutorial [A project: Markdown to HTML](tut-47-markdown.html)).
+Write the result to a **different** variable (see the tutorial [A project: Markdown to HTML](tut-47-markdown.html)).
 
 ### A list of `[text, value]` pairs passed alone is read as named arguments
 
@@ -101,11 +101,11 @@ next
 
 ### Put the `using` block before the first .NET call
 
-The runtime mode (desktop, web, both) is chosen by the `using { }` block (or by `dnUseDesktop()`, `dnUseWeb()`, `dnUseAll()`) and must come **before any other .NET call**: the first call starts the runtime and the mode can not change afterwards. If a program needs both Windows Forms/WPF and ASP.NET Core, name both in the first `using` block.
+The runtime mode (desktop, web, both) is chosen by the `using { }` block (or by `dnUseDesktop()`, `dnUseWeb()`, `dnUseAll()`) and must come **before any other .NET call**: the first call starts the runtime and the mode does not change afterwards. If a program needs both Windows Forms/WPF and ASP.NET Core, name both in the first `using` block.
 
 ### Callbacks run on the Ring thread only
 
-Events from timers on other threads (`System.Threading.Timer`, `Task.Run(...)`) can not run Ring code; they print a message on stderr and do nothing. Use the Windows Forms `Timer` (`uiTimer`) or wait for tasks on the Ring thread. The web server queues requests for the same reason.
+Events from timers on other threads (`System.Threading.Timer`, `Task.Run(...)`) do not run Ring code; they print a message on stderr instead. Use the Windows Forms `Timer` (`uiTimer`) or wait for tasks on the Ring thread. The web server queues requests for the same reason.
 
 ### Value types are returned by value
 
@@ -128,7 +128,7 @@ Events from timers on other threads (`System.Threading.Timer`, `Task.Run(...)`) 
 | Not supported | Why / what to do |
 |---|---|
 | Declaring .NET classes or interfaces in Ring | Ring is not compiled to .NET. Write them in C#, build a DLL and [wrap it](own-assemblies.html). |
-| .NET members named like some Ring words (`Get`, `And`, `Or`, `Not`, `Next`, `End`, `If`, `For`, `New`, `Load`, `Call`, `Put`, `Give`, `See`) | Ring does not accept these after a dot (others, such as `From`, `To`, `Set`, `Step`, `In`, `On`, `Off`, are fine). A method gets a `_` at the end (`Next_`, `Call_`); a property is read with `getProp("Name")` and `setProp("Name", value)`; a method that kept its name is called with `callMethod`. |
+| .NET members named like some Ring words (`Get`, `And`, `Or`, `Not`, `Next`, `End`, `If`, `For`, `New`, `Load`, `Call`, `Put`, `Give`, `See`) | Ring reserves these after a dot (others, such as `From`, `To`, `Set`, `Step`, `In`, `On`, `Off`, are fine). A method gets a `_` at the end (`Next_`, `Call_`); a property is read with `getProp("Name")` and `setProp("Name", value)`; a method that kept its name is called with `callMethod`. |
 | Ring code on .NET threads | One Ring thread. Use callbacks only during calls, or queue work as the web server does. |
 | `ref` struct and pointer parameters, `Span<T>` | The bridge converts values, not memory. Use arrays and strings. |
 | Lambdas and expression trees written in Ring | Callbacks give delegates; EF queries are data ([Entity Framework](ef.html)). |

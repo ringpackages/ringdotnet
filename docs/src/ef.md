@@ -5,7 +5,7 @@ lead: Tables, rows, relations, migrations, transactions, expression-tree queries
 
 ## The idea
 
-Ring cannot declare .NET classes, so a Ring program **describes the model with data**: a list of tables, each with a list of columns. EF Core works on that model in two ways:
+A Ring program **describes the model with data**, because the classes of a model are .NET classes: a list of tables, each with a list of columns. EF Core works on that model in two ways:
 
 | Class | Rows are | Best for |
 |---|---|---|

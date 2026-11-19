@@ -74,7 +74,7 @@ An error raised inside a callback (`raise(...)`) travels back through .NET and c
 
 > [!WARNING] **Code in a callback sees only global variables.** It runs later, outside the function that created it. `nLetters` and `nChanges` are global in the program. A local variable of `main` would be unknown to the callback.
 
-> [!WARNING] **Callbacks run on the Ring thread, during a call.** A callback that .NET tries to run from another thread (a thread-pool timer, a task) is ignored with a message on `stderr`. Use Windows Forms timers (`uiTimer`) for repeating work, and wait for tasks on the Ring thread.
+> [!NOTE] **Callbacks run on the Ring thread, during a call.** A callback that .NET invokes from another thread (a thread-pool timer, a task) is not run; a message is written on `stderr`. Use Windows Forms timers (`uiTimer`) for repeating work, and wait for tasks on the Ring thread.
 
 ## What you learned
 

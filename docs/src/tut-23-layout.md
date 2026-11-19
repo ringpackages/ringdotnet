@@ -8,7 +8,7 @@ lead: Make a window that looks right at every size, with a draggable split bar, 
 - the layout tools: `Dock`, `SplitContainer`, `TabControl`, `TableLayoutPanel`,
 - `DataGridView` showing a `DataTable` through a `DataView`,
 - connecting controls with events,
-- two layout details that cost time if you do not know them.
+- two layout details that are worth knowing before you start.
 
 ## Layout in Windows Forms
 

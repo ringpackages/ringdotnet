@@ -103,7 +103,7 @@ oResult = new Task().FromResult("done")
 ? oResult.getProp("Result")                      # the Result of a Task<T>
 ```
 
-> [!WARNING] .NET threads can **not** run Ring code. A callback invoked from a pool thread prints a message on stderr and does nothing. Use tasks for pure .NET work (HTTP, files, hashing), then `Wait()` for them on the Ring thread.
+> [!NOTE] Ring code runs on the Ring thread only. A callback invoked from a pool thread prints a message on stderr instead. Use tasks for pure .NET work (HTTP, files, hashing), then `Wait()` for them on the Ring thread.
 
 ## A bigger example
 

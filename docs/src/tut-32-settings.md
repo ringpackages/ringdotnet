@@ -44,7 +44,7 @@ A program normally keeps its settings in a file *inside its own folder* under `A
 
 Everything about settings is in one Ring class, `Settings`, so the rest of the program only says `oSettings.getValue("name")` and `oSettings.setValue("fontSize",14)`. The class keeps a list of `[key, value]` pairs: its starting content *is* the list of **defaults**, so the keys that exist are defined in one place.
 
-> [!NOTE] The method that reads the file is called `readFile`, not `load`: `load` is a Ring keyword and cannot be a name.
+> [!NOTE] The method that reads the file is called `readFile`, not `load`: `load` is a Ring keyword, so it is not used as a name.
 
 ### Saving
 

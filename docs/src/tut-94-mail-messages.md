@@ -31,7 +31,7 @@ lead: Build an e-mail in a program — check addresses, set the sender and the r
 
 ### Properties named like Ring words
 
-`From` and `To` are words of the Ring language (`from` is used in `class X from Y`, `to` in `for i = 1 to 10`). Ring accepts them as the name of an attribute or a method **after a dot**, so `oMessage.From = ...` and `oMessage.To.Add(...)` work like any other property. Ring does not accept some other words there (`get`, `and`, `or`, `not`, `next`, `end`, `if`, `for`, `new`, `load`, `call`, `put`, `give`, `see`); a .NET method with such a name gets a `_` at the end (`Next_`), and a property with such a name is read with `getProp` and `setProp` ([Core concepts](concepts.html), *Plain objects*).
+`From` and `To` are words of the Ring language (`from` is used in `class X from Y`, `to` in `for i = 1 to 10`). Ring accepts them as the name of an attribute or a method **after a dot**, so `oMessage.From = ...` and `oMessage.To.Add(...)` work like any other property. Some other words are reserved there (`get`, `and`, `or`, `not`, `next`, `end`, `if`, `for`, `new`, `load`, `call`, `put`, `give`, `see`); a .NET method with such a name gets a `_` at the end (`Next_`), and a property with such a name is read with `getProp` and `setProp` ([Core concepts](concepts.html), *Plain objects*).
 
 ### Text and HTML together
 

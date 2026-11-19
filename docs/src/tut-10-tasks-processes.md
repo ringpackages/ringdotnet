@@ -29,7 +29,7 @@ A `Task` represents work that happens "in the background" or in the future. `Tas
 
 ### The rule: Ring runs on one thread
 
-> [!WARNING] .NET can do many things at once on many *threads*. **Ring code runs on one thread only.** A Ring callback that .NET tries to run from another thread is ignored. So use tasks for waiting and for pure .NET work (HTTP, files, hashing), and keep your Ring code on the Ring thread. Timers of Windows Forms (`uiTimer`) are safe: they tick on the Ring thread.
+> [!NOTE] .NET can do many things at once on many *threads*. **Ring code runs on one thread only.** A Ring callback that .NET invokes from another thread is not run. So use tasks for waiting and for pure .NET work (HTTP, files, hashing), and keep your Ring code on the Ring thread. Timers of Windows Forms (`uiTimer`) are safe: they tick on the Ring thread.
 
 ### The environment
 

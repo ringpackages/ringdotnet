@@ -198,7 +198,7 @@
 <article>
 <h1>Entity Framework Core</h1><p class="lead">Tables, rows, relations, migrations, transactions, expression-tree queries and real entity classes — a Ring program describes the model with data and EF Core does the rest.</p>
 <h2 id="the-idea">The idea<a class="anchor" href="#the-idea">#</a></h2>
-<p>Ring cannot declare .NET classes, so a Ring program <strong>describes the model with data</strong>: a list of tables, each with a list of columns. EF Core works on that model in two ways:</p>
+<p>A Ring program <strong>describes the model with data</strong>, because the classes of a model are .NET classes: a list of tables, each with a list of columns. EF Core works on that model in two ways:</p>
 <div class="tablewrap"><table><thead><tr><th>Class</th><th>Rows are</th><th>Best for</th></tr></thead><tbody><tr><td><code>RingDatabase</code></td><td>lists of <code>[name, value]</code> pairs</td><td>scripts, tools, small apps — the simplest API</td></tr><tr><td><code>RingEntityDb</code></td><td>real .NET objects (classes generated from the schema) with navigation properties</td><td>change tracking, <code>Include</code>, an object-oriented style</td></tr></tbody></table></div>
 <p>Both support SQLite (bundled), an in-memory database, and SQL Server, PostgreSQL and MySQL when their EF Core package is available.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>

@@ -53,7 +53,7 @@ Names such as `Path`, `File`, `Directory`, `Console`, `Environment` and `Convert
 
 ## Naming rules
 
-Ring has no method overloading, so a .NET method name that has **several overloads** becomes **one Ring method with one parameter**; you choose the overload with the value you pass (see *Named arguments* below). A name with a single form keeps the .NET parameters.
+A Ring method has one name and one parameter list, so a .NET method name that has **several overloads** becomes **one Ring method with one parameter**; you choose the overload with the value you pass (see *Named arguments* below). A name with a single form keeps the .NET parameters.
 
 | .NET | Ring | Rule |
 |---|---|---|
@@ -70,7 +70,7 @@ The bridge still **picks the real overload from the argument types**: whole numb
 
 ## Named arguments
 
-Ring has no optional or overloaded parameters, but it has a simple replacement: a **list of `:name = value` pairs**. When a method has overloads with different numbers of parameters, its plain name takes **one parameter** and looks at what you pass:
+Optional and overloaded parameters are written in Ring as a **list of `:name = value` pairs**. When a method has overloads with different numbers of parameters, its plain name takes **one parameter** and looks at what you pass:
 
 | You pass | What happens |
 |---|---|
@@ -97,7 +97,7 @@ oDate = dnNew("DateTime",[ :year = 2024, :month = 12, :day = 25 ])
 
 Rules and limits:
 
-- **`NULL` for no arguments.** Ring needs the right number of arguments, so on an overloaded method call the parameterless form with `NULL`: `oTask.Wait(NULL)`, `oList.Sort(NULL)`. A method that has no overloads still takes no argument: `oTimer.Start()`. The same rule holds for **constructors**: Ring cannot call `init()` with a different number of arguments, so a class whose `init` takes one value (`StringBuilder`, `Random`, `Version`) creates the parameterless object with `NULL`: `new StringBuilder(NULL)`, `new Random(NULL)`, `new Version(NULL)`. Other constructors: `New_([ :name = value ])` or `dnNew("Class",[ :name = value ])`. The function index and the class files show which is which.
+- **`NULL` for no arguments.** A Ring call passes the number of arguments the method declares, so on an overloaded method the parameterless form is called with `NULL`: `oTask.Wait(NULL)`, `oList.Sort(NULL)`. A method that has no overloads still takes no argument: `oTimer.Start()`. The same rule holds for **constructors**: `init()` has one parameter list, so a class whose `init` takes one value (`StringBuilder`, `Random`, `Version`) creates the parameterless object with `NULL`: `new StringBuilder(NULL)`, `new Random(NULL)`, `new Version(NULL)`. Other constructors: `New_([ :name = value ])` or `dnNew("Class",[ :name = value ])`. The function index and the class files show which is which.
 - **A name whose overloads all have the same number of parameters** (`Math.Max(a,b)`) stays positional. The bridge picks among same-arity overloads by the types of the values.
 - **`ToString` and `ToList` keep their plain forms**, because every object already has `toString()` / `toList()`. The forms of `ToString` with parameters are `Format`.
 - A method whose Ring name would clash with the getter or setter of a property (the static `GetValue(property)` of a WPF element next to a property `Value`) gets an underscore at the end: `GetValue_(property)`.
@@ -242,7 +242,7 @@ When no class exists for a type, or when you want the generic style, every wrapp
 | `typeName()` | full .NET type name |
 | `toList()` | copy an array or collection into a Ring list |
 | `isNull()` | true for the .NET null |
-| `release()` | release the handle at once (Ring does it for you when the object is dropped; the object can not be used after this) |
+| `release()` | release the handle at once (Ring does it for you when the object is dropped; the object is not used after this) |
 
 ## Where to go next
 

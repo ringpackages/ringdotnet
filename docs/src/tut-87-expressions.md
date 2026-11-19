@@ -44,7 +44,7 @@ The factory methods have several forms, so they take a list of named values ([Co
 
 `ToString()` prints the tree as code: `(a, b) => ((a + b) * 10)`; `NodeType` names the kind of the top node (`Add`). `Lambda([ :body = …, :parameters = [oA, oB] ])` ties a body to its parameters, and `Compile(NULL)` turns the tree into a real function of the runtime. The result is a `Func<double, double, double>`; call it with `callMethod("DynamicInvoke",[[2, 3.5]])` — the list inside the list is the array of arguments. Numbers come back as Ring numbers.
 
-> [!NOTE] Ring cannot call such a typed function directly, so `DynamicInvoke` is used. Each call crosses the bridge, so the compiled function is *not* faster than Ring for a single call; the gain is for trees that run inside .NET (a LINQ filter over a million rows, an EF query) or that are called very often from .NET code.
+> [!NOTE] A typed function like this is called with `DynamicInvoke`. Each call crosses the bridge, so the compiled function is *not* faster than Ring for a single call; the gain is for trees that run inside .NET (a LINQ filter over a million rows, an EF query) or that are called very often from .NET code.
 
 ### Built from data
 

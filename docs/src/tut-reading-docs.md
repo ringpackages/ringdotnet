@@ -51,7 +51,7 @@ Console.WriteLine(text);
 
 ### Overloads: one name, different parameters
 
-C# lets the same method name have several versions (*overloads*) with different parameters. Ring does not. RingDotNet handles it like this:
+C# lets the same method name have several versions (*overloads*) with different parameters. A Ring method has one parameter list, and RingDotNet maps the overloads like this:
 
 - a name with several forms becomes **one method that takes one value**: `NULL` for the form without parameters, a value for the form with one parameter, and
 - a list of **named arguments** for the others: `oMath.Round([ :value = 3.14159, :digits = 2 ])`. The names are the parameter names that you read in the documentation.
