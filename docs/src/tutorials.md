@@ -150,6 +150,8 @@ Paths, file information and disks, streams, binary files and random access, comp
 <a class="card" href="tut-56-streams.html"><div class="ic">📁</div><b>Streams and compression</b><span>MemoryStream, StreamWriter, GZip, and one pattern for memory and files.</span></a>
 <a class="card" href="tut-45-binary.html"><div class="ic">📁</div><b>Binary files</b><span>BinaryWriter and BinaryReader, a file format, a hex dump, little endian.</span></a>
 <a class="card" href="tut-130-random-access.html"><div class="ic">📁</div><b>Random access and file locks</b><span>Fixed-size records, Seek, changing a record in place, SetLength and FileShare.</span></a>
+<a class="card" href="tut-157-copy-progress.html"><div class="ic">📁</div><b>Copying a big file</b><span>Read and write in pieces with a byte buffer, progress, cancel and a checksum.</span></a>
+<a class="card" href="tut-159-file-types.html"><div class="ic">📁</div><b>What kind of file is it?</b><span>Magic numbers, a signature table, text or binary, and names that tell a lie.</span></a>
 <a class="card" href="tut-88-compression.html"><div class="ic">📁</div><b>Compression</b><span>GZip, Deflate and Brotli streams, sizes, round trips and a .gz file.</span></a>
 <a class="card" href="tut-108-zip-in-memory.html"><div class="ic">📁</div><b>ZIP archives in memory</b><span>ZipArchive on a MemoryStream: entries, levels and updates.</span></a>
 <a class="card" href="tut-96-tar.html"><div class="ic">📁</div><b>Tar archives</b><span>Create, list, read and unpack tar files.</span></a>
@@ -190,6 +192,7 @@ IP addresses and networks, TCP and UDP sockets, WebSockets, HttpClient and REST,
 <a class="card" href="tut-81-network-tools.html"><div class="ic">🌐</div><b>Network tools</b><span>IPAddress, Dns, Ping, interfaces and a port check, all on this computer.</span></a>
 <a class="card" href="tut-102-ip-networks.html"><div class="ic">🌐</div><b>IP networks</b><span>CIDR, IPNetwork.Contains and a private-address allow list.</span></a>
 <a class="card" href="tut-25-sockets.html"><div class="ic">🌐</div><b>Sockets</b><span>A TCP server and client that talk line by line.</span></a>
+<a class="card" href="tut-158-framing.html"><div class="ic">🌐</div><b>Messages on a TCP stream</b><span>A length prefix, reading exactly n bytes, partial reads and a maximum length.</span></a>
 <a class="card" href="tut-91-udp.html"><div class="ic">🌐</div><b>UDP</b><span>Datagrams between sockets, answers, time limits and lost messages.</span></a>
 <a class="card" href="tut-156-websockets.html"><div class="ic">🌐</div><b>WebSockets</b><span>A connection that stays open: HttpListener and ClientWebSocket, text and binary messages, parts and closing.</span></a>
 <a class="card" href="tut-84-http-client.html"><div class="ic">🌐</div><b>HttpClient in depth</b><span>Headers, status codes, EnsureSuccessStatusCode, cancelling and saving a download.</span></a>

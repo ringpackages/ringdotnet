@@ -65,4 +65,4 @@ A stream keeps some bytes in memory before it gives them to the system. `Flush` 
 
 ## Next
 
-[Compression](tut-88-compression.html)
+[Copying a big file with progress](tut-157-copy-progress.html)

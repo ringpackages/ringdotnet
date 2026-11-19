@@ -1,0 +1,19 @@
+1. the source file has 3000000 bytes
+
+2. copy with a progress report at each quarter:
+   26 percent (786432 of 3000000 bytes)
+   50 percent (1507328 of 3000000 bytes)
+   76 percent (2293760 of 3000000 bytes)
+   100 percent (3000000 of 3000000 bytes)
+   copied 3000000 bytes
+
+3. the copy is complete: sizes yes, checksums yes
+
+4. cancel after 1,000,000 bytes:
+   26 percent (786432 of 3000000 bytes)
+   stopped at 1048576 bytes; the half copy is deleted: yes
+
+5. the number of Read calls for the 3,000,000 bytes:
+   buffer of     4096 bytes: 733 calls
+   buffer of    65536 bytes: 46 calls
+   buffer of  1048576 bytes: 3 calls

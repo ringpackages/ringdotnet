@@ -1,0 +1,18 @@
+1. connected
+
+2. the length as four bytes:
+        0 -> 00 00 00 00
+        5 -> 00 00 00 05
+      300 -> 00 00 01 2C
+    40000 -> 00 00 9C 40
+   decoded again: 40000
+
+3. messages through the stream:
+   sent     5 bytes, received     5 bytes; the same: yes
+   sent     4 bytes, received     4 bytes; the same: yes
+   sent     0 bytes, received     0 bytes; the same: yes
+   sent 40000 bytes, received 40000 bytes; the same: yes
+
+4. three messages written together are read as: one, two, three
+
+5. a message that claims 50,000,000 bytes (the limit is 1,000): (refused: 50000000 bytes is more than 1000)

@@ -1,0 +1,22 @@
+1. what each file is:
+   animation.gif GIF picture           image/gif
+   archive.zip   ZIP archive           application/zip
+   data.bin      unknown binary data   application/octet-stream
+   document.pdf  PDF document          application/pdf
+   empty.dat     empty file
+   packed.gz     GZip data             application/gzip
+   photo.jpg     JPEG picture          image/jpeg
+   picture.png   PNG picture           image/png
+   program.exe   Windows program       application/x-msdownload
+   readme.txt    text                  text/plain
+
+2. names that tell a lie:
+   notes.txt   THE NAME SAYS text BUT THE BYTES SAY PNG picture
+   photo2.jpg  THE NAME SAYS JPEG picture BUT THE BYTES SAY text
+   photo.jpg   the name fits the content (JPEG picture)
+
+3. an upload check: is the file a PNG, a JPEG or a GIF picture?
+   notes.txt     yes
+   photo.jpg     yes
+   animation.gif yes
+   program.exe   no
