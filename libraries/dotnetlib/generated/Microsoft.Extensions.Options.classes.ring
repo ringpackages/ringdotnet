@@ -41,7 +41,8 @@ Class IStartupValidator from DotNetObject
 		return self
 
 	Func Validate 
-		dnRequest("call",[new DotNetObject(nHandle),"Validate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Validate"])
 		return self
 
 
@@ -59,7 +60,8 @@ Class Options from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options'),"Create",P1])
@@ -83,7 +85,8 @@ Class OptionsMonitorExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func OnChange P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Options.OptionsMonitorExtensions, Microsoft.Extensions.Options'),"OnChange",P1,P2])
@@ -122,7 +125,8 @@ Class ValidateOptionsResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Fail P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"Fail",P1])
@@ -195,29 +199,35 @@ Class ValidateOptionsResultBuilder from Object
 		return self
 
 	Func AddError P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AddError",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AddError",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AddError",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddError",P1])
 		return self
 
 	Func AddResult P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddResult",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddResult",P1])
 		return self
 
 	Func AddResults P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddResults",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddResults",P1])
 		return self
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 

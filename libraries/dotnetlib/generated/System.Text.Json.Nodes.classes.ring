@@ -45,55 +45,68 @@ Class JsonNode from Object
 		return self
 
 	Func AsArray 
-		return dnRequest("call",[new DotNetObject(nHandle),"AsArray"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsArray"])
 
 	Func AsObject 
-		return dnRequest("call",[new DotNetObject(nHandle),"AsObject"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsObject"])
 
 	Func AsValue 
-		return dnRequest("call",[new DotNetObject(nHandle),"AsValue"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsValue"])
 
 	Func GetPath 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPath"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPath"])
 
 	Func GetValue 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue"])
 
 	Func DeepClone 
-		return dnRequest("call",[new DotNetObject(nHandle),"DeepClone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DeepClone"])
 
 	Func GetValueKind 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValueKind"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValueKind"])
 
 	Func GetPropertyName 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyName"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPropertyName"])
 
 	Func GetElementIndex 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetElementIndex"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetElementIndex"])
 
 	Func ReplaceWith P1
-		dnRequest("call",[new DotNetObject(nHandle),"ReplaceWith",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReplaceWith",P1])
 		return self
 
 	Func ToJsonString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToJsonString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToJsonString",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ToJsonString"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ToJsonString"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToJsonString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToJsonString",P1])
 
 	Func WriteTo P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteTo",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteTo",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func DeepEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"DeepEquals",P1,P2])
@@ -111,10 +124,12 @@ Class JsonNode from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getOptions
@@ -217,35 +232,44 @@ Class JsonArray from JsonNode
 		return self
 
 	Func GetValues 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValues"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValues"])
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -307,48 +331,59 @@ Class JsonObject from JsonNode
 		return self
 
 	Func TryGetPropertyValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetPropertyValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetPropertyValue",P1])
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func GetAt P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAt",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAt",P1])
 
 	Func SetAt P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetAt",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetAt",P1])
 			return self
 		ok
 		raise("DotNet Error: SetAt does not take one argument: use named arguments, SetAt([ :parameter = value, ... ])")
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2,P3])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Create P1
@@ -376,7 +411,8 @@ Class JsonValue from JsonNode
 		return self
 
 	Func TryGetValue 
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue"])
 
 	Func Create P1
 		if dnIsNamed(P1)

@@ -225,7 +225,8 @@ Class VisualStyleElement from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CreateElement P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms'),"CreateElement",P1,P2,P3])
@@ -277,7 +278,8 @@ Class VisualStyleInformation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getIsSupportedByOS
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms'),"IsSupportedByOS"])
@@ -405,103 +407,127 @@ Class VisualStyleRenderer from Object
 		return self
 
 	Func SetParameters P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetParameters",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetParameters",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetParameters",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetParameters",P1])
 		return self
 
 	Func DrawBackground P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawBackground",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawBackground",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawBackground does not take one argument: use named arguments, DrawBackground([ :parameter = value, ... ])")
 
 	Func DrawEdge P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"DrawEdge",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DrawEdge",P1,P2,P3,P4,P5])
 
 	Func DrawImage P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawImage",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawImage",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawImage does not take one argument: use named arguments, DrawImage([ :parameter = value, ... ])")
 
 	Func DrawParentBackground P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"DrawParentBackground",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawParentBackground",P1,P2,P3])
 		return self
 
 	Func DrawText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawText",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawText",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawText does not take one argument: use named arguments, DrawText([ :parameter = value, ... ])")
 
 	Func GetBackgroundContentRectangle P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBackgroundContentRectangle",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBackgroundContentRectangle",P1,P2])
 
 	Func GetBackgroundExtent P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBackgroundExtent",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBackgroundExtent",P1,P2])
 
 	Func GetBackgroundRegion P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBackgroundRegion",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBackgroundRegion",P1,P2])
 
 	Func GetBoolean P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBoolean",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBoolean",P1])
 
 	Func GetColor P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColor",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColor",P1])
 
 	Func GetEnumValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumValue",P1])
 
 	Func GetFilename P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFilename",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFilename",P1])
 
 	Func GetFont P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFont",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFont",P1,P2])
 
 	Func GetInteger P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInteger",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInteger",P1])
 
 	Func GetPartSize P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetPartSize",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetPartSize",P1])
 		ok
 		raise("DotNet Error: GetPartSize does not take one argument: use named arguments, GetPartSize([ :parameter = value, ... ])")
 
 	Func GetPoint P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPoint",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPoint",P1])
 
 	Func GetMargins P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMargins",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMargins",P1,P2])
 
 	Func GetString P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetString",P1])
 
 	Func GetTextExtent P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetTextExtent",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetTextExtent",P1])
 		ok
 		raise("DotNet Error: GetTextExtent does not take one argument: use named arguments, GetTextExtent([ :parameter = value, ... ])")
 
 	Func GetTextMetrics P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTextMetrics",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTextMetrics",P1])
 
 	Func HitTestBackground P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTestBackground",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HitTestBackground",P1])
 		ok
 		raise("DotNet Error: HitTestBackground does not take one argument: use named arguments, HitTestBackground([ :parameter = value, ... ])")
 
 	Func IsBackgroundPartiallyTransparent 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsBackgroundPartiallyTransparent"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsBackgroundPartiallyTransparent"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func IsElementDefined P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"IsElementDefined",P1])

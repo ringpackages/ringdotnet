@@ -356,11 +356,13 @@ Class IAddChild from DotNetObject
 		return self
 
 	Func AddChild P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddChild",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddChild",P1])
 		return self
 
 	Func AddText P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddText",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddText",P1])
 		return self
 
 
@@ -376,11 +378,13 @@ Class IComponentConnector from DotNetObject
 		return self
 
 	Func Connect P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Connect",P1,P2])
 		return self
 
 	Func InitializeComponent 
-		dnRequest("call",[new DotNetObject(nHandle),"InitializeComponent"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InitializeComponent"])
 		return self
 
 
@@ -396,15 +400,18 @@ Class INameScope from DotNetObject
 		return self
 
 	Func RegisterName P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"RegisterName",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RegisterName",P1,P2])
 		return self
 
 	Func UnregisterName P1
-		dnRequest("call",[new DotNetObject(nHandle),"UnregisterName",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"UnregisterName",P1])
 		return self
 
 	Func FindName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"FindName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindName",P1])
 
 
 Class INameScopeDictionary from DotNetObject
@@ -458,7 +465,8 @@ Class IQueryAmbient from DotNetObject
 		return self
 
 	Func IsAmbientPropertyAvailable P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsAmbientPropertyAvailable",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsAmbientPropertyAvailable",P1])
 
 
 Class IStyleConnector from DotNetObject
@@ -473,7 +481,8 @@ Class IStyleConnector from DotNetObject
 		return self
 
 	Func Connect P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Connect",P1,P2])
 		return self
 
 
@@ -510,7 +519,8 @@ Class IValueSerializerContext from DotNetObject
 		return self
 
 	Func GetValueSerializerFor P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValueSerializerFor",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValueSerializerFor",P1])
 
 
 Class IXamlTypeResolver from DotNetObject
@@ -525,7 +535,8 @@ Class IXamlTypeResolver from DotNetObject
 		return self
 
 	Func Resolve P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Resolve",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Resolve",P1])
 
 
 Class InternalTypeHelper from Object
@@ -540,7 +551,8 @@ Class InternalTypeHelper from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class MarkupExtension from Object
@@ -555,10 +567,12 @@ Class MarkupExtension from Object
 		return self
 
 	Func ProvideValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ProvideValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ProvideValue",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class MemberDefinition from Object
@@ -575,7 +589,8 @@ Class MemberDefinition from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -659,7 +674,8 @@ Class NamespaceMapEntry from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getXmlNamespace
 		return dnRequest("get",[self,"XmlNamespace"])
@@ -734,7 +750,8 @@ Class ParserContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func ToXmlParserContext P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.ParserContext, PresentationFramework'),"ToXmlParserContext",P1])
@@ -849,14 +866,17 @@ Class ServiceProviders from Object
 		return self
 
 	Func GetService P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetService",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetService",P1])
 
 	Func AddService P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddService",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddService",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class SetterTriggerConditionValueConverter from TypeConverter
@@ -921,22 +941,28 @@ Class ValueSerializer from Object
 		return self
 
 	Func CanConvertToString P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertToString",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CanConvertToString",P1,P2])
 
 	Func CanConvertFromString P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertFromString",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CanConvertFromString",P1,P2])
 
 	Func ConvertToString P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToString",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertToString",P1,P2])
 
 	Func ConvertFromString P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromString",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertFromString",P1,P2])
 
 	Func TypeReferences P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TypeReferences",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TypeReferences",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetSerializerFor P1
 		if dnIsNamed(P1)
@@ -973,7 +999,8 @@ Class XData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getText
 		return dnRequest("get",[self,"Text"])
@@ -1002,10 +1029,12 @@ Class XamlInstanceCreator from Object
 		return self
 
 	Func CreateObject 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateObject"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateObject"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class XamlReader from Object
@@ -1033,17 +1062,20 @@ Class XamlReader from Object
 		return self
 
 	Func LoadAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LoadAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LoadAsync",P1])
 
 	Func CancelAsync 
-		dnRequest("call",[new DotNetObject(nHandle),"CancelAsync"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelAsync"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		if dnIsNamed(P1)
@@ -1061,11 +1093,13 @@ Class XamlReader from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"GetWpfSchemaContext"])
 
 	Func setLoadCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LoadCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LoadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearLoadCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LoadCompleted"])
 		return self
 
 
@@ -1087,7 +1121,8 @@ Class XamlSetValueEventArgs from EventArgs
 		return self
 
 	Func CallBase 
-		dnRequest("call",[new DotNetObject(nHandle),"CallBase"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CallBase"])
 		return self
 
 	Func getMember
@@ -1141,24 +1176,28 @@ Class XamlTypeMapper from Object
 		return self
 
 	Func GetType P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetType",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetType",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 		ok
 		raise("DotNet Error: GetType does not take one argument: use named arguments, GetType([ :parameter = value, ... ])")
 
 	Func AddMappingProcessingInstruction P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddMappingProcessingInstruction",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddMappingProcessingInstruction",P1,P2,P3])
 		return self
 
 	Func SetAssemblyPath P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetAssemblyPath",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAssemblyPath",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getDefaultMapper
 		return dnRequest("get",[dnTypeCached('System.Windows.Markup.XamlTypeMapper, PresentationFramework'),"DefaultMapper"])
@@ -1179,7 +1218,8 @@ Class XamlWriter from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Save P1
 		if dnIsNamed(P1)
@@ -1205,7 +1245,8 @@ Class XmlAttributeProperties from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetXmlSpace P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XmlAttributeProperties, PresentationFramework'),"GetXmlSpace",P1])
@@ -1275,13 +1316,16 @@ Class XmlLanguage from Object
 		return self
 
 	Func GetEquivalentCulture 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEquivalentCulture"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEquivalentCulture"])
 
 	Func GetSpecificCulture 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSpecificCulture"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSpecificCulture"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetLanguage P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XmlLanguage, PresentationCore'),"GetLanguage",P1])
@@ -1378,59 +1422,75 @@ Class XmlnsDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetNamespace P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNamespace",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNamespace",P1])
 
 	Func GetNamespacePrefixes 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNamespacePrefixes"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNamespacePrefixes"])
 
 	Func Seal 
-		dnRequest("call",[new DotNetObject(nHandle),"Seal"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Seal"])
 		return self
 
 	Func LookupNamespace P1
-		return dnRequest("call",[new DotNetObject(nHandle),"LookupNamespace",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LookupNamespace",P1])
 
 	Func LookupPrefix P1
-		return dnRequest("call",[new DotNetObject(nHandle),"LookupPrefix",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LookupPrefix",P1])
 
 	Func DefaultNamespace 
-		return dnRequest("call",[new DotNetObject(nHandle),"DefaultNamespace"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DefaultNamespace"])
 
 	Func PushScope 
-		dnRequest("call",[new DotNetObject(nHandle),"PushScope"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PushScope"])
 		return self
 
 	Func PopScope 
-		dnRequest("call",[new DotNetObject(nHandle),"PopScope"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PopScope"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getIsFixedSize
@@ -1530,15 +1590,18 @@ Class ArrayExtension from MarkupExtension
 		return self
 
 	Func AddChild P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddChild",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddChild",P1])
 		return self
 
 	Func AddText P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddText",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddText",P1])
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func getType
 		return dnRequest("get",[self,"Type"])
@@ -1633,7 +1696,8 @@ Class PropertyDefinition from MemberDefinition
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func getType
 		return dnRequest("get",[self,"Type"])
@@ -1819,7 +1883,8 @@ Class TypeExtension from MarkupExtension
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func getTypeName
 		return dnRequest("get",[self,"TypeName"])

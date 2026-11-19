@@ -212,33 +212,42 @@ Class DataAdapter from Component
 		return self
 
 	Func ShouldSerializeAcceptChangesDuringFill 
-		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeAcceptChangesDuringFill"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeAcceptChangesDuringFill"])
 
 	Func ResetFillLoadOption 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetFillLoadOption"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetFillLoadOption"])
 		return self
 
 	Func ShouldSerializeFillLoadOption 
-		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeFillLoadOption"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerializeFillLoadOption"])
 
 	Func FillSchema P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FillSchema",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FillSchema",P1,P2])
 
 	Func Fill P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Fill",P1])
 
 	Func GetFillParameters 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFillParameters"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFillParameters"])
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func setFillErrorEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FillError",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FillError",dnCallback(P1)])
 		return self
 
 	Func clearFillErrorEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FillError"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FillError"])
 		return self
 
 	Func getAcceptChangesDuringFill
@@ -345,11 +354,12 @@ Class DataColumnMapping from MarshalByRefObject
 		return self
 
 	Func GetDataColumnBySchemaAction P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.Common.DataColumnMapping, System.Data.Common'),"GetDataColumnBySchemaAction",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataColumnBySchemaAction",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetDataColumnBySchemaAction",P1])
 		ok
 		raise("DotNet Error: GetDataColumnBySchemaAction does not take one argument: use named arguments, GetDataColumnBySchemaAction([ :parameter = value, ... ])")
 
@@ -395,48 +405,60 @@ Class DataColumnMappingCollection from MarshalByRefObject
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetByDataSetColumn P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetByDataSetColumn",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetByDataSetColumn",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfDataSetColumn P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfDataSetColumn",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfDataSetColumn",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func GetDataColumn P1,P2,P3,P4,P5,P6
@@ -446,10 +468,12 @@ Class DataColumnMappingCollection from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DataColumnMappingCollection, System.Data.Common'),"GetColumnMappingBySchemaAction",P1,P2,P3])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -508,13 +532,16 @@ Class DataTableMapping from MarshalByRefObject
 		return self
 
 	Func GetDataColumn P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataColumn",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDataColumn",P1,P2,P3,P4,P5])
 
 	Func GetColumnMappingBySchemaAction P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnMappingBySchemaAction",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnMappingBySchemaAction",P1,P2])
 
 	Func GetDataTableBySchemaAction P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataTableBySchemaAction",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDataTableBySchemaAction",P1,P2])
 
 	Func getColumnMappings
 		return dnRequest("get",[self,"ColumnMappings"])
@@ -564,58 +591,72 @@ Class DataTableMappingCollection from MarshalByRefObject
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetByDataSetTable P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetByDataSetTable",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetByDataSetTable",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfDataSetTable P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfDataSetTable",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfDataSetTable",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func GetTableMappingBySchemaAction P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DataTableMappingCollection, System.Data.Common'),"GetTableMappingBySchemaAction",P1,P2,P3,P4])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -642,76 +683,89 @@ Class DbBatch from Object
 		return self
 
 	Func ExecuteReader P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteReader",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExecuteReader",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteReader"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteReader",P1])
 
 	Func ExecuteReaderAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExecuteReaderAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteReaderAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteReaderAsync",P1])
 
 	Func ExecuteNonQuery 
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteNonQuery"])
 
 	Func ExecuteNonQueryAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExecuteNonQueryAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteNonQueryAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteNonQueryAsync",P1])
 
 	Func ExecuteScalar 
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteScalar"])
 
 	Func ExecuteScalarAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExecuteScalarAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteScalarAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteScalarAsync",P1])
 
 	Func Prepare 
-		dnRequest("call",[new DotNetObject(nHandle),"Prepare"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Prepare"])
 		return self
 
 	Func PrepareAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"PrepareAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"PrepareAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"PrepareAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"PrepareAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"PrepareAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PrepareAsync",P1])
 
 	Func Cancel 
-		dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Cancel"])
 		return self
 
 	Func CreateBatchCommand 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateBatchCommand"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateBatchCommand"])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBatchCommands
 		return dnRequest("get",[self,"BatchCommands"])
@@ -759,10 +813,12 @@ Class DbBatchCommand from Object
 		return self
 
 	Func CreateParameter 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateParameter"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCommandText
 		return dnRequest("get",[self,"CommandText"])
@@ -812,45 +868,57 @@ Class DbBatchCommandCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -902,10 +970,12 @@ Class DbColumn from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getAllowDBNull
 		return dnRequest("get",[self,"AllowDBNull"])
@@ -1067,69 +1137,80 @@ Class DbCommand from Component
 		return self
 
 	Func Cancel 
-		dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Cancel"])
 		return self
 
 	Func CreateParameter 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateParameter"])
 
 	Func ExecuteNonQuery 
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteNonQuery"])
 
 	Func ExecuteReader P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteReader",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExecuteReader",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteReader"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteReader",P1])
 
 	Func ExecuteNonQueryAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExecuteNonQueryAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteNonQueryAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteNonQueryAsync",P1])
 
 	Func ExecuteReaderAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExecuteReaderAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteReaderAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteReaderAsync",P1])
 
 	Func ExecuteScalarAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExecuteScalarAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteScalarAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteScalarAsync",P1])
 
 	Func ExecuteScalar 
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteScalar"])
 
 	Func Prepare 
-		dnRequest("call",[new DotNetObject(nHandle),"Prepare"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Prepare"])
 		return self
 
 	Func PrepareAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"PrepareAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"PrepareAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"PrepareAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"PrepareAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"PrepareAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PrepareAsync",P1])
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
 
 	Func getCommandText
 		return dnRequest("get",[self,"CommandText"])
@@ -1208,41 +1289,47 @@ Class DbCommandBuilder from Component
 		return self
 
 	Func GetInsertCommand P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetInsertCommand",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetInsertCommand",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetInsertCommand"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInsertCommand"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInsertCommand",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInsertCommand",P1])
 
 	Func GetUpdateCommand P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetUpdateCommand",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetUpdateCommand",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetUpdateCommand"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUpdateCommand"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUpdateCommand",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUpdateCommand",P1])
 
 	Func GetDeleteCommand P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDeleteCommand",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetDeleteCommand",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetDeleteCommand"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeleteCommand"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDeleteCommand",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDeleteCommand",P1])
 
 	Func QuoteIdentifier P1
-		return dnRequest("call",[new DotNetObject(nHandle),"QuoteIdentifier",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"QuoteIdentifier",P1])
 
 	Func RefreshSchema 
-		dnRequest("call",[new DotNetObject(nHandle),"RefreshSchema"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RefreshSchema"])
 		return self
 
 	Func UnquoteIdentifier P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UnquoteIdentifier",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"UnquoteIdentifier",P1])
 
 	Func getConflictOption
 		return dnRequest("get",[self,"ConflictOption"])
@@ -1321,90 +1408,106 @@ Class DbConnection from Component
 		return self
 
 	Func BeginTransaction P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginTransaction",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginTransaction",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginTransaction"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginTransaction",P1])
 
 	Func BeginTransactionAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginTransactionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginTransactionAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginTransactionAsync",P1])
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func CloseAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"CloseAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CloseAsync"])
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
 
 	Func ChangeDatabase P1
-		dnRequest("call",[new DotNetObject(nHandle),"ChangeDatabase",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ChangeDatabase",P1])
 		return self
 
 	Func ChangeDatabaseAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ChangeDatabaseAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ChangeDatabaseAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ChangeDatabaseAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ChangeDatabaseAsync",P1])
 
 	Func CreateBatch 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateBatch"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateBatch"])
 
 	Func CreateCommand 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateCommand"])
 
 	Func EnlistTransaction P1
-		dnRequest("call",[new DotNetObject(nHandle),"EnlistTransaction",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EnlistTransaction",P1])
 		return self
 
 	Func GetSchema P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetSchema",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetSchema",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetSchema"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchema"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchema",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchema",P1])
 
 	Func GetSchemaAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetSchemaAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetSchemaAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchemaAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchemaAsync",P1])
 
 	Func Open 
-		dnRequest("call",[new DotNetObject(nHandle),"Open"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Open"])
 		return self
 
 	Func OpenAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"OpenAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"OpenAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenAsync",P1])
 
 	Func setStateChangeEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"StateChange",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StateChange",dnCallback(P1)])
 		return self
 
 	Func clearStateChangeEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"StateChange"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StateChange"])
 		return self
 
 	Func getConnectionString
@@ -1504,30 +1607,38 @@ Class DbConnectionStringBuilder from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func EquivalentTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EquivalentTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EquivalentTo",P1])
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func ShouldSerialize P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerialize",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSerialize",P1])
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func AppendKeyValuePair P1
 		if dnIsNamed(P1)
@@ -1537,10 +1648,12 @@ Class DbConnectionStringBuilder from Object
 		raise("DotNet Error: AppendKeyValuePair does not take one argument: use named arguments, AppendKeyValuePair([ :parameter = value, ... ])")
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getBrowsableConnectionString
@@ -1607,165 +1720,208 @@ Class DbDataReader from MarshalByRefObject
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func CloseAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"CloseAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CloseAsync"])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
 
 	Func GetDataTypeName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataTypeName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDataTypeName",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func GetFieldType P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldType",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFieldType",P1])
 
 	Func GetName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetName",P1])
 
 	Func GetOrdinal P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetOrdinal",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOrdinal",P1])
 
 	Func GetSchemaTable 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaTable"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchemaTable"])
 
 	Func GetSchemaTableAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetSchemaTableAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetSchemaTableAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaTableAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchemaTableAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaTableAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchemaTableAsync",P1])
 
 	Func GetColumnSchemaAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetColumnSchemaAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetColumnSchemaAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetColumnSchemaAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnSchemaAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnSchemaAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnSchemaAsync",P1])
 
 	Func GetBoolean P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBoolean",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBoolean",P1])
 
 	Func GetByte P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetByte",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetByte",P1])
 
 	Func GetBytes P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBytes",P1,P2,P3,P4,P5])
 
 	Func GetChar P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChar",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChar",P1])
 
 	Func GetChars P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChars",P1,P2,P3,P4,P5])
 
 	Func GetData P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetData",P1])
 
 	Func GetDateTime P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTime",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDateTime",P1])
 
 	Func GetDecimal P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDecimal",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDecimal",P1])
 
 	Func GetDouble P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDouble",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDouble",P1])
 
 	Func GetFloat P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFloat",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFloat",P1])
 
 	Func GetGuid P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetGuid",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGuid",P1])
 
 	Func GetInt16 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInt16",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInt16",P1])
 
 	Func GetInt32 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInt32",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInt32",P1])
 
 	Func GetInt64 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInt64",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInt64",P1])
 
 	Func GetProviderSpecificFieldType P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProviderSpecificFieldType",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetProviderSpecificFieldType",P1])
 
 	Func GetProviderSpecificValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProviderSpecificValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetProviderSpecificValue",P1])
 
 	Func GetProviderSpecificValues P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProviderSpecificValues",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetProviderSpecificValues",P1])
 
 	Func GetString P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetString",P1])
 
 	Func GetStream P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStream",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetStream",P1])
 
 	Func GetTextReader P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTextReader",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTextReader",P1])
 
 	Func GetValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
 
 	Func GetFieldValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFieldValue",P1])
 
 	Func GetFieldValueAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFieldValueAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetFieldValueAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldValueAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFieldValueAsync",P1])
 
 	Func GetValues P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValues",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValues",P1])
 
 	Func IsDBNull P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsDBNull",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDBNull",P1])
 
 	Func IsDBNullAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsDBNullAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsDBNullAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsDBNullAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDBNullAsync",P1])
 
 	Func NextResult 
-		return dnRequest("call",[new DotNetObject(nHandle),"NextResult"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"NextResult"])
 
 	Func Read 
-		return dnRequest("call",[new DotNetObject(nHandle),"Read"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read"])
 
 	Func ReadAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadAsync",P1])
 
 	Func NextResultAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"NextResultAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"NextResultAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"NextResultAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"NextResultAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"NextResultAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"NextResultAsync",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getDepth
 		return dnRequest("get",[self,"Depth"])
@@ -1816,7 +1972,8 @@ Class DbDataReaderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetColumnSchema P1
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DbDataReaderExtensions, System.Data.Common'),"GetColumnSchema",P1])
@@ -1839,76 +1996,100 @@ Class DbDataRecord from Object
 		return self
 
 	Func GetBoolean P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBoolean",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBoolean",P1])
 
 	Func GetByte P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetByte",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetByte",P1])
 
 	Func GetBytes P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBytes",P1,P2,P3,P4,P5])
 
 	Func GetChar P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChar",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChar",P1])
 
 	Func GetChars P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChars",P1,P2,P3,P4,P5])
 
 	Func GetData P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetData",P1])
 
 	Func GetDataTypeName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataTypeName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDataTypeName",P1])
 
 	Func GetDateTime P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTime",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDateTime",P1])
 
 	Func GetDecimal P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDecimal",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDecimal",P1])
 
 	Func GetDouble P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDouble",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDouble",P1])
 
 	Func GetFieldType P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldType",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFieldType",P1])
 
 	Func GetFloat P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFloat",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFloat",P1])
 
 	Func GetGuid P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetGuid",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGuid",P1])
 
 	Func GetInt16 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInt16",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInt16",P1])
 
 	Func GetInt32 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInt32",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInt32",P1])
 
 	Func GetInt64 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInt64",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInt64",P1])
 
 	Func GetName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetName",P1])
 
 	Func GetOrdinal P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetOrdinal",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOrdinal",P1])
 
 	Func GetString P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetString",P1])
 
 	Func GetValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
 
 	Func GetValues P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValues",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValues",P1])
 
 	Func IsDBNull P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsDBNull",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDBNull",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getFieldCount
 		return dnRequest("get",[self,"FieldCount"])
@@ -1931,41 +2112,49 @@ Class DbDataSource from Object
 		return self
 
 	Func CreateConnection 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateConnection"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateConnection"])
 
 	Func OpenConnection 
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenConnection"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenConnection"])
 
 	Func OpenConnectionAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenConnectionAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"OpenConnectionAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"OpenConnectionAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenConnectionAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenConnectionAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenConnectionAsync",P1])
 
 	Func CreateCommand P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateCommand",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateCommand",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateCommand"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateCommand",P1])
 
 	Func CreateBatch 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateBatch"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateBatch"])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getConnectionString
 		return dnRequest("get",[self,"ConnectionString"])
@@ -1986,10 +2175,12 @@ Class DbDataSourceEnumerator from Object
 		return self
 
 	Func GetDataSources 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataSources"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDataSources"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class DbEnumerator from Object
@@ -2023,14 +2214,17 @@ Class DbEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
@@ -2057,7 +2251,8 @@ Class DbMetaDataCollectionNames from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMetaDataCollections
 		return dnRequest("get",[dnTypeCached('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common'),"MetaDataCollections"])
@@ -2145,7 +2340,8 @@ Class DbMetaDataColumnNames from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCollectionName
 		return dnRequest("get",[dnTypeCached('System.Data.Common.DbMetaDataColumnNames, System.Data.Common'),"CollectionName"])
@@ -2427,7 +2623,8 @@ Class DbParameter from MarshalByRefObject
 		return self
 
 	Func ResetDbType 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetDbType"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetDbType"])
 		return self
 
 	Func getDbType
@@ -2526,46 +2723,58 @@ Class DbParameterCollection from MarshalByRefObject
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -2611,7 +2820,8 @@ Class DbProviderFactories from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func TryGetFactory P1
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common'),"TryGetFactory",P1])
@@ -2650,37 +2860,48 @@ Class DbProviderFactory from Object
 		return self
 
 	Func CreateBatch 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateBatch"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateBatch"])
 
 	Func CreateBatchCommand 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateBatchCommand"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateBatchCommand"])
 
 	Func CreateCommand 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateCommand"])
 
 	Func CreateCommandBuilder 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommandBuilder"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateCommandBuilder"])
 
 	Func CreateConnection 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateConnection"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateConnection"])
 
 	Func CreateConnectionStringBuilder 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateConnectionStringBuilder"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateConnectionStringBuilder"])
 
 	Func CreateDataAdapter 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataAdapter"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateDataAdapter"])
 
 	Func CreateParameter 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateParameter"])
 
 	Func CreateDataSourceEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataSourceEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateDataSourceEnumerator"])
 
 	Func CreateDataSource P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataSource",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateDataSource",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCanCreateBatch
 		return dnRequest("get",[self,"CanCreateBatch"])
@@ -2723,60 +2944,69 @@ Class DbTransaction from MarshalByRefObject
 		return self
 
 	Func Commit 
-		dnRequest("call",[new DotNetObject(nHandle),"Commit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Commit"])
 		return self
 
 	Func CommitAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CommitAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"CommitAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CommitAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
 
 	Func Rollback P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Rollback",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Rollback",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Rollback"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Rollback"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Rollback",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Rollback",P1])
 		return self
 
 	Func RollbackAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RollbackAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"RollbackAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RollbackAsync",P1])
 
 	Func SaveAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SaveAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"SaveAsync",P1])
 
 	Func ReleaseAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReleaseAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReleaseAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReleaseAsync",P1])
 
 	Func Save P1
-		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Save",P1])
 		return self
 
 	Func getConnection
@@ -2810,7 +3040,8 @@ Class IDbColumnSchemaGenerator from DotNetObject
 		return self
 
 	Func GetColumnSchema 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnSchema"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnSchema"])
 
 
 Class RowUpdatedEventArgs from EventArgs
@@ -2836,11 +3067,12 @@ Class RowUpdatedEventArgs from EventArgs
 		return self
 
 	Func CopyToRows P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"CopyToRows",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyToRows",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"CopyToRows",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyToRows",P1])
 		return self
 
 	Func getCommand
@@ -2984,7 +3216,8 @@ Class SchemaTableColumn from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getColumnName
 		return dnRequest("get",[dnTypeCached('System.Data.Common.SchemaTableColumn, System.Data.Common'),"ColumnName"])
@@ -3116,7 +3349,8 @@ Class SchemaTableOptionalColumn from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getProviderSpecificDataType
 		return dnRequest("get",[dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"ProviderSpecificDataType"])
@@ -3222,22 +3456,25 @@ Class DbDataAdapter from DataAdapter
 		return self
 
 	Func FillSchema P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FillSchema",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FillSchema",P1])
 		ok
 		raise("DotNet Error: FillSchema does not take one argument: use named arguments, FillSchema([ :parameter = value, ... ])")
 
 	Func Fill P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Fill",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Fill",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Fill",P1])
 
 	Func Update P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Update",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Update",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getDeleteCommand
 		return dnRequest("get",[self,"DeleteCommand"])

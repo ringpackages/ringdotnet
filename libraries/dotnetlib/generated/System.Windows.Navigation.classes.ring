@@ -103,7 +103,8 @@ Class BaseUriHelper from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetBaseUri P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.BaseUriHelper, PresentationCore'),"GetBaseUri",P1])
@@ -129,11 +130,13 @@ Class CustomContentState from Object
 		return self
 
 	Func Replay P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Replay",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Replay",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getJournalEntryName
 		return dnRequest("get",[self,"JournalEntryName"])
@@ -189,7 +192,8 @@ Class IProvideCustomContentState from DotNetObject
 		return self
 
 	Func GetContentState 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetContentState"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetContentState"])
 
 
 Class JournalEntry from DependencyObject
@@ -210,7 +214,8 @@ Class JournalEntry from DependencyObject
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
 		return self
 
 	Func GetName_ P1
@@ -285,13 +290,16 @@ Class JournalEntryListConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Convert",P1,P2,P3,P4])
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertBack",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertBack",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class JournalEntryUnifiedViewConverter from Object
@@ -321,13 +329,16 @@ Class JournalEntryUnifiedViewConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Convert",P1,P2,P3,P4])
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertBack",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertBack",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetJournalEntryPosition P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework'),"GetJournalEntryPosition",P1])
@@ -597,94 +608,116 @@ Class NavigationService from Object
 		return self
 
 	Func AddBackEntry P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddBackEntry",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddBackEntry",P1])
 		return self
 
 	Func RemoveBackEntry 
-		return dnRequest("call",[new DotNetObject(nHandle),"RemoveBackEntry"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveBackEntry"])
 
 	Func Navigate P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Navigate",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Navigate",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Navigate",P1])
 
 	Func GoForward 
-		dnRequest("call",[new DotNetObject(nHandle),"GoForward"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GoForward"])
 		return self
 
 	Func GoBack 
-		dnRequest("call",[new DotNetObject(nHandle),"GoBack"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GoBack"])
 		return self
 
 	Func StopLoading 
-		dnRequest("call",[new DotNetObject(nHandle),"StopLoading"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"StopLoading"])
 		return self
 
 	Func Refresh 
-		dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Refresh"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetNavigationService P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.NavigationService, PresentationFramework'),"GetNavigationService",P1])
 
 	Func setNavigationFailedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationFailed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NavigationFailed",dnCallback(P1)])
 		return self
 
 	Func clearNavigationFailedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationFailed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NavigationFailed"])
 		return self
 
 	Func setNavigatingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Navigating",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Navigating",dnCallback(P1)])
 		return self
 
 	Func clearNavigatingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigating"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Navigating"])
 		return self
 
 	Func setNavigatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Navigated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Navigated",dnCallback(P1)])
 		return self
 
 	Func clearNavigatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Navigated"])
 		return self
 
 	Func setNavigationProgressEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationProgress",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NavigationProgress",dnCallback(P1)])
 		return self
 
 	Func clearNavigationProgressEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationProgress"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NavigationProgress"])
 		return self
 
 	Func setLoadCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LoadCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LoadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearLoadCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LoadCompleted"])
 		return self
 
 	Func setFragmentNavigationEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FragmentNavigation",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FragmentNavigation",dnCallback(P1)])
 		return self
 
 	Func clearFragmentNavigationEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FragmentNavigation"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FragmentNavigation"])
 		return self
 
 	Func setNavigationStoppedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationStopped",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NavigationStopped",dnCallback(P1)])
 		return self
 
 	Func clearNavigationStoppedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationStopped"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NavigationStopped"])
 		return self
 
 	Func getSource
@@ -762,88 +795,109 @@ Class NavigationWindow from Window
 		return self
 
 	Func Navigate P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Navigate",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Navigate",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Navigate",P1])
 
 	Func GoForward 
-		dnRequest("call",[new DotNetObject(nHandle),"GoForward"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GoForward"])
 		return self
 
 	Func GoBack 
-		dnRequest("call",[new DotNetObject(nHandle),"GoBack"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GoBack"])
 		return self
 
 	Func StopLoading 
-		dnRequest("call",[new DotNetObject(nHandle),"StopLoading"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"StopLoading"])
 		return self
 
 	Func Refresh 
-		dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Refresh"])
 		return self
 
 	Func AddBackEntry P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddBackEntry",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddBackEntry",P1])
 		return self
 
 	Func RemoveBackEntry 
-		return dnRequest("call",[new DotNetObject(nHandle),"RemoveBackEntry"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveBackEntry"])
 
 	Func setNavigatingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Navigating",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Navigating",dnCallback(P1)])
 		return self
 
 	Func clearNavigatingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigating"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Navigating"])
 		return self
 
 	Func setNavigationProgressEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationProgress",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NavigationProgress",dnCallback(P1)])
 		return self
 
 	Func clearNavigationProgressEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationProgress"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NavigationProgress"])
 		return self
 
 	Func setNavigationFailedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationFailed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NavigationFailed",dnCallback(P1)])
 		return self
 
 	Func clearNavigationFailedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationFailed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NavigationFailed"])
 		return self
 
 	Func setNavigatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Navigated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Navigated",dnCallback(P1)])
 		return self
 
 	Func clearNavigatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Navigated"])
 		return self
 
 	Func setLoadCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LoadCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LoadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearLoadCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LoadCompleted"])
 		return self
 
 	Func setNavigationStoppedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NavigationStopped",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NavigationStopped",dnCallback(P1)])
 		return self
 
 	Func clearNavigationStoppedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NavigationStopped"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NavigationStopped"])
 		return self
 
 	Func setFragmentNavigationEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FragmentNavigation",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FragmentNavigation",dnCallback(P1)])
 		return self
 
 	Func clearFragmentNavigationEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FragmentNavigation"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FragmentNavigation"])
 		return self
 
 	Func getSandboxExternalContent

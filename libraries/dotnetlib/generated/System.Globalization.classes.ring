@@ -205,118 +205,148 @@ Class Calendar from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func AddMilliseconds P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddMilliseconds",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddMilliseconds",P1,P2])
 
 	Func AddDays P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddDays",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddDays",P1,P2])
 
 	Func AddHours P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddHours",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddHours",P1,P2])
 
 	Func AddMinutes P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddMinutes",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddMinutes",P1,P2])
 
 	Func AddMonths P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddMonths",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddMonths",P1,P2])
 
 	Func AddSeconds P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddSeconds",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddSeconds",P1,P2])
 
 	Func AddWeeks P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddWeeks",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddWeeks",P1,P2])
 
 	Func AddYears P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddYears",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddYears",P1,P2])
 
 	Func GetDayOfMonth P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDayOfMonth",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDayOfMonth",P1])
 
 	Func GetDayOfWeek P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDayOfWeek",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDayOfWeek",P1])
 
 	Func GetDayOfYear P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDayOfYear",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDayOfYear",P1])
 
 	Func GetDaysInMonth P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDaysInMonth",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetDaysInMonth",P1])
 		ok
 		raise("DotNet Error: GetDaysInMonth does not take one argument: use named arguments, GetDaysInMonth([ :parameter = value, ... ])")
 
 	Func GetDaysInYear P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDaysInYear",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetDaysInYear",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDaysInYear",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDaysInYear",P1])
 
 	Func GetEra P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEra",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEra",P1])
 
 	Func GetHour P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHour",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHour",P1])
 
 	Func GetMilliseconds P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMilliseconds",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMilliseconds",P1])
 
 	Func GetMinute P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMinute",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMinute",P1])
 
 	Func GetMonth P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMonth",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMonth",P1])
 
 	Func GetMonthsInYear P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetMonthsInYear",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetMonthsInYear",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMonthsInYear",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMonthsInYear",P1])
 
 	Func GetSecond P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSecond",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSecond",P1])
 
 	Func GetWeekOfYear P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetWeekOfYear",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetWeekOfYear",P1,P2,P3])
 
 	Func GetYear P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetYear",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetYear",P1])
 
 	Func IsLeapDay P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsLeapDay",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsLeapDay",P1])
 		ok
 		raise("DotNet Error: IsLeapDay does not take one argument: use named arguments, IsLeapDay([ :parameter = value, ... ])")
 
 	Func IsLeapMonth P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsLeapMonth",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsLeapMonth",P1])
 		ok
 		raise("DotNet Error: IsLeapMonth does not take one argument: use named arguments, IsLeapMonth([ :parameter = value, ... ])")
 
 	Func GetLeapMonth P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetLeapMonth",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetLeapMonth",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetLeapMonth",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLeapMonth",P1])
 
 	Func IsLeapYear P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsLeapYear",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsLeapYear",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsLeapYear",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsLeapYear",P1])
 
 	Func ToDateTime P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToDateTime",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToDateTime",P1])
 		ok
 		raise("DotNet Error: ToDateTime does not take one argument: use named arguments, ToDateTime([ :parameter = value, ... ])")
 
 	Func ToFourDigitYear P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToFourDigitYear",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToFourDigitYear",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib'),"ReadOnly",P1])
@@ -377,7 +407,8 @@ Class CharUnicodeInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetDecimalDigitValue P1
 		if dnIsNamed(P1)
@@ -420,50 +451,58 @@ Class CompareInfo from Object
 		return self
 
 	Func Compare P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Compare",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Compare",P1])
 		ok
 		raise("DotNet Error: Compare does not take one argument: use named arguments, Compare([ :parameter = value, ... ])")
 
 	Func IsPrefix P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsPrefix",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsPrefix",P1])
 		ok
 		raise("DotNet Error: IsPrefix does not take one argument: use named arguments, IsPrefix([ :parameter = value, ... ])")
 
 	Func IsSuffix P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsSuffix",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsSuffix",P1])
 		ok
 		raise("DotNet Error: IsSuffix does not take one argument: use named arguments, IsSuffix([ :parameter = value, ... ])")
 
 	Func IndexOf P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 		ok
 		raise("DotNet Error: IndexOf does not take one argument: use named arguments, IndexOf([ :parameter = value, ... ])")
 
 	Func LastIndexOf P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"LastIndexOf",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LastIndexOf",P1])
 		ok
 		raise("DotNet Error: LastIndexOf does not take one argument: use named arguments, LastIndexOf([ :parameter = value, ... ])")
 
 	Func GetSortKey P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetSortKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetSortKey",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSortKey",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSortKey",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHashCode P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHashCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 		ok
 		raise("DotNet Error: GetHashCode does not take one argument: use named arguments, GetHashCode([ :parameter = value, ... ])")
 
@@ -552,20 +591,25 @@ Class CultureInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetFormat P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFormat",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFormat",P1])
 
 	Func ClearCachedData 
-		dnRequest("call",[new DotNetObject(nHandle),"ClearCachedData"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearCachedData"])
 		return self
 
 	Func GetConsoleFallbackUICulture 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetConsoleFallbackUICulture"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetConsoleFallbackUICulture"])
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func CreateSpecificCulture P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"CreateSpecificCulture",P1])
@@ -808,50 +852,63 @@ Class DateTimeFormatInfo from Object
 		return self
 
 	Func GetFormat P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFormat",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFormat",P1])
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func GetEra P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEra",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEra",P1])
 
 	Func GetEraName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEraName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEraName",P1])
 
 	Func GetAbbreviatedEraName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAbbreviatedEraName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAbbreviatedEraName",P1])
 
 	Func GetAbbreviatedDayName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAbbreviatedDayName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAbbreviatedDayName",P1])
 
 	Func GetShortestDayName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetShortestDayName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetShortestDayName",P1])
 
 	Func GetAllDateTimePatterns P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAllDateTimePatterns",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetAllDateTimePatterns",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetAllDateTimePatterns"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAllDateTimePatterns"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAllDateTimePatterns",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAllDateTimePatterns",P1])
 
 	Func GetDayName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDayName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDayName",P1])
 
 	Func GetAbbreviatedMonthName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAbbreviatedMonthName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAbbreviatedMonthName",P1])
 
 	Func GetMonthName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMonthName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMonthName",P1])
 
 	Func SetAllDateTimePatterns P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetAllDateTimePatterns",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAllDateTimePatterns",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetInstance P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"GetInstance",P1])
@@ -1066,7 +1123,8 @@ Class DaylightTime from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getStart
 		return dnRequest("get",[self,"Start"])
@@ -1096,7 +1154,8 @@ Class GlobalizationExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetStringComparer P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.GlobalizationExtensions, System.Private.CoreLib'),"GetStringComparer",P1,P2])
@@ -1114,7 +1173,8 @@ Class ISOWeek from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetWeekOfYear P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.ISOWeek, System.Private.CoreLib'),"GetWeekOfYear",P1])
@@ -1163,19 +1223,22 @@ Class IdnMapping from Object
 		return self
 
 	Func GetAscii P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAscii",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetAscii",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAscii",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAscii",P1])
 
 	Func GetUnicode P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetUnicode",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetUnicode",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUnicode",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUnicode",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAllowUnassigned
 		return dnRequest("get",[self,"AllowUnassigned"])
@@ -1248,13 +1311,16 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func GetFormat P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFormat",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFormat",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetInstance P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"GetInstance",P1])
@@ -1499,7 +1565,8 @@ Class RegionInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -1601,7 +1668,8 @@ Class SortKey from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.SortKey, System.Private.CoreLib'),"Compare",P1,P2])
@@ -1636,7 +1704,8 @@ Class SortVersion from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getFullVersion
 		return dnRequest("get",[self,"FullVersion"])
@@ -1699,13 +1768,15 @@ Class StringInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func SubstringByTextElements P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"SubstringByTextElements",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SubstringByTextElements",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"SubstringByTextElements",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"SubstringByTextElements",P1])
 
 	Func GetNextTextElement P1
 		if dnIsNamed(P1)
@@ -1757,17 +1828,21 @@ Class TextElementEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
 
 	Func GetTextElement 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTextElement"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTextElement"])
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
@@ -1804,19 +1879,24 @@ Class TextInfo from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func ToLower P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToLower",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToLower",P1])
 
 	Func ToUpper P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToUpper",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToUpper",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func ToTitleCase P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToTitleCase",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToTitleCase",P1])
 
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.TextInfo, System.Private.CoreLib'),"ReadOnly",P1])
@@ -1889,13 +1969,16 @@ Class EastAsianLunisolarCalendar from Calendar
 		return self
 
 	Func GetSexagenaryYear P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSexagenaryYear",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSexagenaryYear",P1])
 
 	Func GetCelestialStem P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCelestialStem",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCelestialStem",P1])
 
 	Func GetTerrestrialBranch P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTerrestrialBranch",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTerrestrialBranch",P1])
 
 
 Class GregorianCalendar from Calendar

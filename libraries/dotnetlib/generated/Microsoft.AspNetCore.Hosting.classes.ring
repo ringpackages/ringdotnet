@@ -157,31 +157,39 @@ Class DelegateStartup from DotNetObject
 		return self
 
 	Func Configure P1
-		dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Configure",P1])
 		return self
 
 	Func CreateServiceProvider P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateServiceProvider",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateServiceProvider",P1])
 
 	Func ConfigureContainer P1
-		dnRequest("call",[new DotNetObject(nHandle),"ConfigureContainer",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureContainer",P1])
 		return self
 
 	Func ConfigureServices P1
-		dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureServices",P1])
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 
 
 Class HostingAbstractionsWebHostBuilderExtensions from Object
@@ -196,7 +204,8 @@ Class HostingAbstractionsWebHostBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseConfiguration P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseConfiguration",P1,P2])
@@ -247,7 +256,8 @@ Class HostingEnvironmentExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class IHostingStartup from DotNetObject
@@ -262,7 +272,8 @@ Class IHostingStartup from DotNetObject
 		return self
 
 	Func Configure P1
-		dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Configure",P1])
 		return self
 
 
@@ -278,10 +289,12 @@ Class IStartup from DotNetObject
 		return self
 
 	Func ConfigureServices P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureServices",P1])
 
 	Func Configure P1
-		dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Configure",P1])
 		return self
 
 
@@ -297,7 +310,8 @@ Class IStartupFilter from DotNetObject
 		return self
 
 	Func Configure P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Configure",P1])
 
 
 Class IWebHost from DotNetObject
@@ -315,26 +329,29 @@ Class IWebHost from DotNetObject
 		return self
 
 	Func Start 
-		dnRequest("call",[new DotNetObject(nHandle),"Start"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Start"])
 		return self
 
 	Func StartAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"StartAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"StartAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"StartAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"StartAsync",P1])
 
 	Func StopAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"StopAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"StopAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"StopAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"StopAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"StopAsync",P1])
 
 	Func getServerFeatures
 		return dnRequest("get",[self,"ServerFeatures"])
@@ -361,19 +378,24 @@ Class IWebHostBuilder from DotNetObject
 		return self
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
 
 	Func ConfigureAppConfiguration P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureAppConfiguration",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureAppConfiguration",P1])
 
 	Func ConfigureServices P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureServices",P1])
 
 	Func GetSetting P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSetting",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSetting",P1])
 
 	Func UseSetting P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"UseSetting",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"UseSetting",P1,P2])
 
 
 Class IWebHostEnvironment from DotNetObject
@@ -417,7 +439,8 @@ Class KestrelServerOptionsSystemdExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseSystemd P1
 		if dnIsNamed(P1)
@@ -438,7 +461,8 @@ Class ListenOptionsConnectionLoggingExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseConnectionLogging P1
 		if dnIsNamed(P1)
@@ -459,7 +483,8 @@ Class ListenOptionsHttpsExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseHttps P1
 		if dnIsNamed(P1)
@@ -480,18 +505,22 @@ Class StartupBase from Object
 		return self
 
 	Func Configure P1
-		dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Configure",P1])
 		return self
 
 	Func ConfigureServices P1
-		dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureServices",P1])
 		return self
 
 	Func CreateServiceProvider P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateServiceProvider",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateServiceProvider",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class WebHostBuilder from Object
@@ -519,22 +548,28 @@ Class WebHostBuilder from Object
 		return self
 
 	Func GetSetting P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSetting",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSetting",P1])
 
 	Func UseSetting P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"UseSetting",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"UseSetting",P1,P2])
 
 	Func ConfigureServices P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureServices",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureServices",P1])
 
 	Func ConfigureAppConfiguration P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureAppConfiguration",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureAppConfiguration",P1])
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class WebHostBuilderContext from Object
@@ -565,7 +600,8 @@ Class WebHostBuilderContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getHostingEnvironment
 		return dnRequest("get",[self,"HostingEnvironment"])
@@ -594,7 +630,8 @@ Class WebHostBuilderExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Configure P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"Configure",P1,P2])
@@ -630,7 +667,8 @@ Class WebHostBuilderHttpSysExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseHttpSys P1
 		if dnIsNamed(P1)
@@ -651,7 +689,8 @@ Class WebHostBuilderIISExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseIIS P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions, Microsoft.AspNetCore.Server.IIS'),"UseIIS",P1])
@@ -669,7 +708,8 @@ Class WebHostBuilderKestrelExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseKestrelHttpsConfiguration P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrelHttpsConfiguration",P1])
@@ -699,7 +739,8 @@ Class WebHostBuilderNamedPipeExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseNamedPipes P1
 		if dnIsNamed(P1)
@@ -720,7 +761,8 @@ Class WebHostBuilderQuicExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseQuic P1
 		if dnIsNamed(P1)
@@ -741,7 +783,8 @@ Class WebHostBuilderSocketExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UseSockets P1
 		if dnIsNamed(P1)
@@ -780,7 +823,8 @@ Class WebHostDefaults from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getApplicationKey
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"ApplicationKey"])
@@ -897,7 +941,8 @@ Class WebHostExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func StopAsync P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"StopAsync",P1,P2])

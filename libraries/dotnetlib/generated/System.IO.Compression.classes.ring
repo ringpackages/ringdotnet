@@ -98,7 +98,8 @@ Class BrotliCompressionOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getQuality
 		return dnRequest("get",[self,"Quality"])
@@ -133,7 +134,8 @@ Class BrotliDecoder from ValueType
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 
@@ -182,7 +184,8 @@ Class BrotliEncoder from ValueType
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetMaxCompressedLength P1
@@ -257,8 +260,9 @@ Class DeflateStream from Stream
 		return self
 
 	Func WriteAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteAsync",P1])
 		ok
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
@@ -334,7 +338,8 @@ Class ZLibCompressionOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCompressionLevel
 		return dnRequest("get",[self,"CompressionLevel"])
@@ -421,20 +426,24 @@ Class ZipArchive from Object
 		return self
 
 	Func CreateEntry P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateEntry",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateEntry",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntry",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateEntry",P1])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetEntry P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEntry",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEntry",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getComment
 		return dnRequest("get",[self,"Comment"])
@@ -479,14 +488,17 @@ Class ZipArchiveEntry from Object
 		return self
 
 	Func Delete 
-		dnRequest("call",[new DotNetObject(nHandle),"Delete"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Delete"])
 		return self
 
 	Func Open 
-		return dnRequest("call",[new DotNetObject(nHandle),"Open"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Open"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getArchive
 		return dnRequest("get",[self,"Archive"])
@@ -564,7 +576,8 @@ Class ZipFile from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func OpenRead P1
 		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"OpenRead",P1])
@@ -602,7 +615,8 @@ Class ZipFileExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CreateEntryFromFile P1
 		if dnIsNamed(P1)

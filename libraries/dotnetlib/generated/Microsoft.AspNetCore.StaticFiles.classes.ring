@@ -61,10 +61,12 @@ Class DefaultFilesMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class DirectoryBrowserMiddleware from Object
@@ -96,10 +98,12 @@ Class DirectoryBrowserMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class FileExtensionContentTypeProvider from Object
@@ -149,10 +153,12 @@ Class FileExtensionContentTypeProvider from Object
 		return self
 
 	Func TryGetContentType P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetContentType",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetContentType",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMappings
 		return dnRequest("get",[self,"Mappings"])
@@ -175,10 +181,12 @@ Class HtmlDirectoryFormatter from Object
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateContentAsync",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GenerateContentAsync",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class IContentTypeProvider from DotNetObject
@@ -193,7 +201,8 @@ Class IContentTypeProvider from DotNetObject
 		return self
 
 	Func TryGetContentType P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetContentType",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetContentType",P1])
 
 
 Class IDirectoryFormatter from DotNetObject
@@ -208,7 +217,8 @@ Class IDirectoryFormatter from DotNetObject
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateContentAsync",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GenerateContentAsync",P1,P2])
 
 
 Class StaticFileMiddleware from Object
@@ -225,10 +235,12 @@ Class StaticFileMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class StaticFileResponseContext from Object
@@ -248,7 +260,8 @@ Class StaticFileResponseContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getContext
 		return dnRequest("get",[self,"Context"])

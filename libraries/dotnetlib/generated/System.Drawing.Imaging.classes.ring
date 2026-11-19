@@ -133,7 +133,8 @@ Class BitmapData from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getWidth
 		return dnRequest("get",[self,"Width"])
@@ -192,11 +193,13 @@ Class CachedBitmap from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class ColorMap from Object
@@ -227,7 +230,8 @@ Class ColorMap from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getOldColor
 		return dnRequest("get",[self,"OldColor"])
@@ -315,7 +319,8 @@ Class ColorMatrix from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMatrix00
 		return dnRequest("get",[self,"Matrix00"])
@@ -510,7 +515,8 @@ Class ColorPalette from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CreateOptimalPalette P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ColorPalette, System.Drawing.Common'),"CreateOptimalPalette",P1,P2,P3])
@@ -557,7 +563,8 @@ Class ImagingEncoder from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getGuid
 		return dnRequest("get",[self,"Guid"])
@@ -678,14 +685,17 @@ Class EncoderParameter from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getEncoder
 		return dnRequest("get",[self,"Encoder"])
@@ -760,11 +770,13 @@ Class EncoderParameters from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getParam
 		return dnRequest("get",[self,"Param"])
@@ -793,7 +805,8 @@ Class FrameDimension from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getGuid
 		return dnRequest("get",[self,"Guid"])
@@ -845,204 +858,228 @@ Class ImageAttributes from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func SetColorMatrix P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetColorMatrix",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetColorMatrix",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetColorMatrix",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetColorMatrix",P1])
 		return self
 
 	Func ClearColorMatrix P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearColorMatrix",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ClearColorMatrix",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ClearColorMatrix"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ClearColorMatrix"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearColorMatrix",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearColorMatrix",P1])
 		return self
 
 	Func SetColorMatrices P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetColorMatrices",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetColorMatrices",P1])
 			return self
 		ok
 		raise("DotNet Error: SetColorMatrices does not take one argument: use named arguments, SetColorMatrices([ :parameter = value, ... ])")
 
 	Func SetThreshold P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetThreshold",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetThreshold",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetThreshold",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetThreshold",P1])
 		return self
 
 	Func ClearThreshold P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearThreshold",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ClearThreshold",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ClearThreshold"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ClearThreshold"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearThreshold",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearThreshold",P1])
 		return self
 
 	Func SetGamma P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetGamma",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetGamma",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetGamma",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetGamma",P1])
 		return self
 
 	Func ClearGamma P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearGamma",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ClearGamma",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ClearGamma"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ClearGamma"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearGamma",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearGamma",P1])
 		return self
 
 	Func SetNoOp P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetNoOp",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetNoOp",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"SetNoOp"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"SetNoOp"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetNoOp",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetNoOp",P1])
 		return self
 
 	Func ClearNoOp P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearNoOp",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ClearNoOp",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ClearNoOp"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ClearNoOp"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearNoOp",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearNoOp",P1])
 		return self
 
 	Func SetColorKey P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetColorKey",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetColorKey",P1])
 			return self
 		ok
 		raise("DotNet Error: SetColorKey does not take one argument: use named arguments, SetColorKey([ :parameter = value, ... ])")
 
 	Func ClearColorKey P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearColorKey",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ClearColorKey",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ClearColorKey"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ClearColorKey"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearColorKey",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearColorKey",P1])
 		return self
 
 	Func SetOutputChannel P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetOutputChannel",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetOutputChannel",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetOutputChannel",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetOutputChannel",P1])
 		return self
 
 	Func ClearOutputChannel P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearOutputChannel",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ClearOutputChannel",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ClearOutputChannel"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ClearOutputChannel"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearOutputChannel",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearOutputChannel",P1])
 		return self
 
 	Func SetOutputChannelColorProfile P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetOutputChannelColorProfile",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetOutputChannelColorProfile",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetOutputChannelColorProfile",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetOutputChannelColorProfile",P1])
 		return self
 
 	Func ClearOutputChannelColorProfile P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearOutputChannelColorProfile",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ClearOutputChannelColorProfile",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ClearOutputChannelColorProfile"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ClearOutputChannelColorProfile"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearOutputChannelColorProfile",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearOutputChannelColorProfile",P1])
 		return self
 
 	Func SetRemapTable P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetRemapTable",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetRemapTable",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetRemapTable",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetRemapTable",P1])
 		return self
 
 	Func ClearRemapTable P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearRemapTable",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ClearRemapTable",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ClearRemapTable"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ClearRemapTable"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearRemapTable",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearRemapTable",P1])
 		return self
 
 	Func SetBrushRemapTable P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetBrushRemapTable",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetBrushRemapTable",P1])
 		return self
 
 	Func ClearBrushRemapTable 
-		dnRequest("call",[new DotNetObject(nHandle),"ClearBrushRemapTable"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearBrushRemapTable"])
 		return self
 
 	Func SetWrapMode P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetWrapMode",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetWrapMode",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetWrapMode",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetWrapMode",P1])
 		return self
 
 	Func GetAdjustedPalette P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GetAdjustedPalette",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GetAdjustedPalette",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class ImageCodecInfo from Object
@@ -1069,7 +1106,8 @@ Class ImageCodecInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetImageDecoders 
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common'),"GetImageDecoders"])
@@ -1196,7 +1234,8 @@ Class ImageFormat from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getGuid
 		return dnRequest("get",[self,"Guid"])
@@ -1310,10 +1349,12 @@ Class MetaHeader from Object
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getType
 		return dnRequest("get",[self,"Type"])
@@ -1394,23 +1435,26 @@ Class Metafile from Image
 		return self
 
 	Func PlayRecord P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"PlayRecord",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PlayRecord",P1,P2,P3,P4])
 		return self
 
 	Func GetMetafileHeader P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetMetafileHeader",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetMetafileHeader",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetMetafileHeader"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMetafileHeader"])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1])
 
 	Func GetHenhmetafile 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHenhmetafile"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHenhmetafile"])
 
 
 Class MetafileHeader from Object
@@ -1436,34 +1480,44 @@ Class MetafileHeader from Object
 		return self
 
 	Func IsWmf 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsWmf"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsWmf"])
 
 	Func IsWmfPlaceable 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsWmfPlaceable"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsWmfPlaceable"])
 
 	Func IsEmf 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEmf"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEmf"])
 
 	Func IsEmfOrEmfPlus 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEmfOrEmfPlus"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEmfOrEmfPlus"])
 
 	Func IsEmfPlus 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEmfPlus"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEmfPlus"])
 
 	Func IsEmfPlusDual 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEmfPlusDual"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEmfPlusDual"])
 
 	Func IsEmfPlusOnly 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEmfPlusOnly"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEmfPlusOnly"])
 
 	Func IsDisplay 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsDisplay"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDisplay"])
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getType
 		return dnRequest("get",[self,"Type"])
@@ -1543,10 +1597,12 @@ Class PropertyItem from Object
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getId
 		return dnRequest("get",[self,"Id"])
@@ -1612,7 +1668,8 @@ Class WmfPlaceableFileHeader from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getKey
 		return dnRequest("get",[self,"Key"])

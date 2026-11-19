@@ -171,25 +171,32 @@ Class AuthorizationBuilder from Object
 		return self
 
 	Func SetInvokeHandlersAfterFailure P1
-		return dnRequest("call",[new DotNetObject(nHandle),"SetInvokeHandlersAfterFailure",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"SetInvokeHandlersAfterFailure",P1])
 
 	Func SetDefaultPolicy P1
-		return dnRequest("call",[new DotNetObject(nHandle),"SetDefaultPolicy",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"SetDefaultPolicy",P1])
 
 	Func SetFallbackPolicy P1
-		return dnRequest("call",[new DotNetObject(nHandle),"SetFallbackPolicy",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"SetFallbackPolicy",P1])
 
 	Func AddPolicy P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddPolicy",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddPolicy",P1,P2])
 
 	Func AddDefaultPolicy P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddDefaultPolicy",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddDefaultPolicy",P1,P2])
 
 	Func AddFallbackPolicy P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddFallbackPolicy",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddFallbackPolicy",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getServices
 		return dnRequest("get",[self,"Services"])
@@ -214,7 +221,8 @@ Class AuthorizationFailure from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func ExplicitFail 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization'),"ExplicitFail"])
@@ -258,7 +266,8 @@ Class AuthorizationFailureReason from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMessage
 		return dnRequest("get",[self,"Message"])
@@ -295,23 +304,26 @@ Class AuthorizationHandlerContext from Object
 		return self
 
 	Func Fail P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Fail",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Fail",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Fail"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Fail"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Fail",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Fail",P1])
 		return self
 
 	Func Succeed P1
-		dnRequest("call",[new DotNetObject(nHandle),"Succeed",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Succeed",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRequirements
 		return dnRequest("get",[self,"Requirements"])
@@ -385,10 +397,12 @@ Class AuthorizationMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class AuthorizationOptions from Object
@@ -420,14 +434,17 @@ Class AuthorizationOptions from Object
 		return self
 
 	Func AddPolicy P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddPolicy",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddPolicy",P1,P2])
 		return self
 
 	Func GetPolicy P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPolicy",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPolicy",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getInvokeHandlersAfterFailure
 		return dnRequest("get",[self,"InvokeHandlersAfterFailure"])
@@ -468,7 +485,8 @@ Class AuthorizationPolicy from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Combine P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"Combine",P1])
@@ -509,37 +527,47 @@ Class AuthorizationPolicyBuilder from Object
 		return self
 
 	Func AddAuthenticationSchemes P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AddAuthenticationSchemes",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddAuthenticationSchemes",P1])
 
 	Func AddRequirements P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AddRequirements",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddRequirements",P1])
 
 	Func Combine P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Combine",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Combine",P1])
 
 	Func RequireClaim P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"RequireClaim",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RequireClaim",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"RequireClaim",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RequireClaim",P1])
 
 	Func RequireRole P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RequireRole",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RequireRole",P1])
 
 	Func RequireUserName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RequireUserName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RequireUserName",P1])
 
 	Func RequireAuthenticatedUser 
-		return dnRequest("call",[new DotNetObject(nHandle),"RequireAuthenticatedUser"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RequireAuthenticatedUser"])
 
 	Func RequireAssertion P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RequireAssertion",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RequireAssertion",P1])
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRequirements
 		return dnRequest("get",[self,"Requirements"])
@@ -571,7 +599,8 @@ Class AuthorizationResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Success 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"Success"])
@@ -610,7 +639,8 @@ Class AuthorizationServiceExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func AuthorizeAsync P1
 		if dnIsNamed(P1)
@@ -644,10 +674,12 @@ Class DefaultAuthorizationEvaluator from Object
 		return self
 
 	Func Evaluate P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Evaluate",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Evaluate",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class DefaultAuthorizationHandlerContextFactory from Object
@@ -675,10 +707,12 @@ Class DefaultAuthorizationHandlerContextFactory from Object
 		return self
 
 	Func CreateContext P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateContext",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateContext",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class DefaultAuthorizationHandlerProvider from Object
@@ -695,10 +729,12 @@ Class DefaultAuthorizationHandlerProvider from Object
 		return self
 
 	Func GetHandlersAsync P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHandlersAsync",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHandlersAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class DefaultAuthorizationPolicyProvider from Object
@@ -717,16 +753,20 @@ Class DefaultAuthorizationPolicyProvider from Object
 		return self
 
 	Func GetDefaultPolicyAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultPolicyAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultPolicyAsync"])
 
 	Func GetFallbackPolicyAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFallbackPolicyAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFallbackPolicyAsync"])
 
 	Func GetPolicyAsync P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPolicyAsync",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPolicyAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAllowsCachingPolicies
 		return dnRequest("get",[self,"AllowsCachingPolicies"])
@@ -749,10 +789,12 @@ Class DefaultAuthorizationService from Object
 		return self
 
 	Func AuthorizeAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AuthorizeAsync",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthorizeAsync",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class IAllowAnonymous from DotNetObject
@@ -779,7 +821,8 @@ Class IAuthorizationEvaluator from DotNetObject
 		return self
 
 	Func Evaluate P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Evaluate",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Evaluate",P1])
 
 
 Class IAuthorizationHandler from DotNetObject
@@ -794,7 +837,8 @@ Class IAuthorizationHandler from DotNetObject
 		return self
 
 	Func HandleAsync P1
-		return dnRequest("call",[new DotNetObject(nHandle),"HandleAsync",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HandleAsync",P1])
 
 
 Class IAuthorizationHandlerContextFactory from DotNetObject
@@ -809,7 +853,8 @@ Class IAuthorizationHandlerContextFactory from DotNetObject
 		return self
 
 	Func CreateContext P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateContext",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateContext",P1,P2,P3])
 
 
 Class IAuthorizationHandlerProvider from DotNetObject
@@ -824,7 +869,8 @@ Class IAuthorizationHandlerProvider from DotNetObject
 		return self
 
 	Func GetHandlersAsync P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHandlersAsync",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHandlersAsync",P1])
 
 
 Class IAuthorizationMiddlewareResultHandler from DotNetObject
@@ -839,7 +885,8 @@ Class IAuthorizationMiddlewareResultHandler from DotNetObject
 		return self
 
 	Func HandleAsync P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"HandleAsync",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HandleAsync",P1,P2,P3,P4])
 
 
 Class IAuthorizationPolicyProvider from DotNetObject
@@ -856,13 +903,16 @@ Class IAuthorizationPolicyProvider from DotNetObject
 		return self
 
 	Func GetPolicyAsync P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPolicyAsync",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPolicyAsync",P1])
 
 	Func GetDefaultPolicyAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultPolicyAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultPolicyAsync"])
 
 	Func GetFallbackPolicyAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFallbackPolicyAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFallbackPolicyAsync"])
 
 	Func getAllowsCachingPolicies
 		return dnRequest("get",[self,"AllowsCachingPolicies"])
@@ -895,7 +945,8 @@ Class IAuthorizationRequirementData from DotNetObject
 		return self
 
 	Func GetRequirements 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRequirements"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequirements"])
 
 
 Class IAuthorizationService from DotNetObject
@@ -910,7 +961,8 @@ Class IAuthorizationService from DotNetObject
 		return self
 
 	Func AuthorizeAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AuthorizeAsync",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthorizeAsync",P1,P2,P3])
 
 
 Class IAuthorizeData from DotNetObject

@@ -370,7 +370,8 @@ Class Authorization from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMessage
 		return dnRequest("get",[self,"Message"])
@@ -465,7 +466,8 @@ Class Cookie from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getComment
 		return dnRequest("get",[self,"Comment"])
@@ -595,31 +597,39 @@ Class CookieCollection from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getIsReadOnly
 		return dnRequest("get",[self,"IsReadOnly"])
@@ -699,28 +709,34 @@ Class CookieContainer from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func GetCookies P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCookies",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCookies",P1])
 
 	Func GetAllCookies 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAllCookies"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAllCookies"])
 
 	Func GetCookieHeader P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCookieHeader",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCookieHeader",P1])
 
 	Func SetCookies P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetCookies",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetCookies",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCapacity
 		return dnRequest("get",[self,"Capacity"])
@@ -796,30 +812,35 @@ Class CredentialCache from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 			return self
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Remove P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Remove",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Remove",P1])
 			return self
 		ok
 		raise("DotNet Error: Remove does not take one argument: use named arguments, Remove([ :parameter = value, ... ])")
 
 	Func GetCredential P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCredential",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCredential",P1])
 		ok
 		raise("DotNet Error: GetCredential does not take one argument: use named arguments, GetCredential([ :parameter = value, ... ])")
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getDefaultCredentials
 		return dnRequest("get",[dnTypeCached('System.Net.CredentialCache, System.Net.Primitives'),"DefaultCredentials"])
@@ -846,7 +867,8 @@ Class Dns from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHostName 
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostName"])
@@ -990,13 +1012,16 @@ Class EndPoint from Object
 		return self
 
 	Func Serialize 
-		return dnRequest("call",[new DotNetObject(nHandle),"Serialize"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Serialize"])
 
 	Func Create P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAddressFamily
 		return dnRequest("get",[self,"AddressFamily"])
@@ -1043,35 +1068,44 @@ Class HttpListener from Object
 		return self
 
 	Func GetContextAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetContextAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetContextAsync"])
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Start 
-		dnRequest("call",[new DotNetObject(nHandle),"Start"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Start"])
 		return self
 
 	Func Stop 
-		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Stop"])
 		return self
 
 	Func Abort 
-		dnRequest("call",[new DotNetObject(nHandle),"Abort"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Abort"])
 		return self
 
 	Func GetContext 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetContext"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetContext"])
 
 	Func BeginGetContext P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginGetContext",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginGetContext",P1,P2])
 
 	Func EndGetContext P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EndGetContext",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndGetContext",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAuthenticationSchemeSelectorDelegate
 		return dnRequest("get",[self,"AuthenticationSchemeSelectorDelegate"])
@@ -1178,50 +1212,63 @@ Class HttpListenerBasicIdentity from DotNetObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func AddClaim P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddClaim",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddClaim",P1])
 		return self
 
 	Func AddClaims P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddClaims",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddClaims",P1])
 		return self
 
 	Func TryRemoveClaim P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryRemoveClaim",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryRemoveClaim",P1])
 
 	Func RemoveClaim P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveClaim",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveClaim",P1])
 		return self
 
 	Func FindAll P1
-		return dnRequest("call",[new DotNetObject(nHandle),"FindAll",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindAll",P1])
 
 	Func FindFirst P1
-		return dnRequest("call",[new DotNetObject(nHandle),"FindFirst",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindFirst",P1])
 
 	Func HasClaim P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasClaim",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HasClaim",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"HasClaim",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HasClaim",P1])
 
 	Func WriteTo P1
-		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteTo",P1])
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 
 	Func getPassword
 		return dnRequest("get",[self,"Password"])
@@ -1303,13 +1350,15 @@ Class HttpListenerContext from Object
 		return self
 
 	Func AcceptWebSocketAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AcceptWebSocketAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptWebSocketAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRequest
 		return dnRequest("get",[self,"Request"])
@@ -1346,28 +1395,35 @@ Class HttpListenerPrefixCollection from Object
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -1430,19 +1486,24 @@ Class HttpListenerRequest from Object
 		return self
 
 	Func GetClientCertificate 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetClientCertificate"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetClientCertificate"])
 
 	Func BeginGetClientCertificate P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginGetClientCertificate",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginGetClientCertificate",P1,P2])
 
 	Func GetClientCertificateAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetClientCertificateAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetClientCertificateAsync"])
 
 	Func EndGetClientCertificate P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EndGetClientCertificate",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndGetClientCertificate",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAcceptTypes
 		return dnRequest("get",[self,"AcceptTypes"])
@@ -1644,46 +1705,55 @@ Class HttpListenerResponse from Object
 		return self
 
 	Func AddHeader P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddHeader",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddHeader",P1,P2])
 		return self
 
 	Func AppendHeader P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AppendHeader",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AppendHeader",P1,P2])
 		return self
 
 	Func AppendCookie P1
-		dnRequest("call",[new DotNetObject(nHandle),"AppendCookie",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AppendCookie",P1])
 		return self
 
 	Func Redirect P1
-		dnRequest("call",[new DotNetObject(nHandle),"Redirect",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Redirect",P1])
 		return self
 
 	Func SetCookie P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetCookie",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetCookie",P1])
 		return self
 
 	Func CopyFrom P1
-		dnRequest("call",[new DotNetObject(nHandle),"CopyFrom",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyFrom",P1])
 		return self
 
 	Func Abort 
-		dnRequest("call",[new DotNetObject(nHandle),"Abort"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Abort"])
 		return self
 
 	Func Close P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Close",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Close",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Close"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 		ok
 		raise("DotNet Error: Close does not take one argument: use named arguments, Close([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getHeaders
 		return dnRequest("get",[self,"Headers"])
@@ -1788,7 +1858,8 @@ Class HttpListenerTimeoutManager from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getEntityBody
 		return dnRequest("get",[self,"EntityBody"])
@@ -1851,7 +1922,8 @@ Class HttpVersion from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getUnknown
 		return dnRequest("get",[dnTypeCached('System.Net.HttpVersion, System.Net.Primitives'),"Unknown"])
@@ -1899,10 +1971,12 @@ Class IAuthenticationModule from DotNetObject
 		return self
 
 	Func Authenticate P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Authenticate",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Authenticate",P1,P2,P3])
 
 	Func PreAuthenticate P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PreAuthenticate",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PreAuthenticate",P1,P2])
 
 	Func getCanPreAuthenticate
 		return dnRequest("get",[self,"CanPreAuthenticate"])
@@ -1929,7 +2003,8 @@ Class ICredentialPolicy from DotNetObject
 		return self
 
 	Func ShouldSendCredential P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSendCredential",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShouldSendCredential",P1,P2,P3,P4])
 
 
 Class ICredentials from DotNetObject
@@ -1944,7 +2019,8 @@ Class ICredentials from DotNetObject
 		return self
 
 	Func GetCredential P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCredential",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCredential",P1,P2])
 
 
 Class ICredentialsByHost from DotNetObject
@@ -1959,7 +2035,8 @@ Class ICredentialsByHost from DotNetObject
 		return self
 
 	Func GetCredential P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCredential",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCredential",P1,P2,P3])
 
 
 Class IPAddress from Object
@@ -2006,16 +2083,20 @@ Class IPAddress from Object
 		return self
 
 	Func GetAddressBytes 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAddressBytes"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAddressBytes"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func MapToIPv6 
-		return dnRequest("call",[new DotNetObject(nHandle),"MapToIPv6"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MapToIPv6"])
 
 	Func MapToIPv4 
-		return dnRequest("call",[new DotNetObject(nHandle),"MapToIPv4"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MapToIPv4"])
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Net.IPAddress, System.Net.Primitives'),"TryParse",P1])
@@ -2160,7 +2241,8 @@ Class IPHostEntry from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getHostName
 		return dnRequest("get",[self,"HostName"])
@@ -2232,7 +2314,8 @@ Class IPNetwork from ValueType
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.IPNetwork, System.Net.Primitives'),"Parse",P1])
@@ -2267,10 +2350,12 @@ Class IWebProxy from DotNetObject
 		return self
 
 	Func GetProxy P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProxy",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetProxy",P1])
 
 	Func IsBypassed P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsBypassed",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsBypassed",P1])
 
 	Func getCredentials
 		return dnRequest("get",[self,"Credentials"])
@@ -2292,14 +2377,17 @@ Class IWebProxyScript from DotNetObject
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Load_ P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Load",P1,P2,P3])
 
 	Func Run P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Run",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Run",P1,P2])
 
 
 Class IWebRequestCreate from DotNetObject
@@ -2314,7 +2402,8 @@ Class IWebRequestCreate from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
 
 
 Class NetworkCredential from Object
@@ -2367,13 +2456,15 @@ Class NetworkCredential from Object
 		return self
 
 	Func GetCredential P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCredential",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCredential",P1])
 		ok
 		raise("DotNet Error: GetCredential does not take one argument: use named arguments, GetCredential([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getUserName
 		return dnRequest("get",[self,"UserName"])
@@ -2469,7 +2560,8 @@ Class PathList from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class ServicePoint from Object
@@ -2500,14 +2592,17 @@ Class ServicePoint from Object
 		return self
 
 	Func CloseConnectionGroup P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CloseConnectionGroup",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CloseConnectionGroup",P1])
 
 	Func SetTcpKeepAlive P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetTcpKeepAlive",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetTcpKeepAlive",P1,P2,P3])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBindIPEndPointDelegate
 		return dnRequest("get",[self,"BindIPEndPointDelegate"])
@@ -2640,16 +2735,19 @@ Class SocketAddress from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetMaximumAddressSize P1
 		return dnRequest("call",[dnTypeCached('System.Net.SocketAddress, System.Net.Primitives'),"GetMaximumAddressSize",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getFamily
@@ -2684,10 +2782,12 @@ Class TransportContext from Object
 		return self
 
 	Func GetChannelBinding P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChannelBinding",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChannelBinding",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class UploadDataCompletedEventArgs from AsyncCompletedEventArgs
@@ -2849,255 +2949,307 @@ Class WebClient from Component
 		return self
 
 	Func DownloadData P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DownloadData",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DownloadData",P1])
 
 	Func DownloadFile P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DownloadFile",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DownloadFile",P1,P2])
 		return self
 
 	Func OpenRead P1
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenRead",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenRead",P1])
 
 	Func OpenWrite P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenWrite",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"OpenWrite",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenWrite",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenWrite",P1])
 
 	Func UploadData P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"UploadData",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadData",P1])
 		ok
 		raise("DotNet Error: UploadData does not take one argument: use named arguments, UploadData([ :parameter = value, ... ])")
 
 	Func UploadFile P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"UploadFile",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadFile",P1])
 		ok
 		raise("DotNet Error: UploadFile does not take one argument: use named arguments, UploadFile([ :parameter = value, ... ])")
 
 	Func UploadValues P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"UploadValues",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadValues",P1])
 		ok
 		raise("DotNet Error: UploadValues does not take one argument: use named arguments, UploadValues([ :parameter = value, ... ])")
 
 	Func UploadString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"UploadString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadString",P1])
 		ok
 		raise("DotNet Error: UploadString does not take one argument: use named arguments, UploadString([ :parameter = value, ... ])")
 
 	Func DownloadString P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DownloadString",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DownloadString",P1])
 
 	Func OpenReadAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"OpenReadAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"OpenReadAsync",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"OpenReadAsync",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OpenReadAsync",P1])
 		return self
 
 	Func OpenWriteAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"OpenWriteAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"OpenWriteAsync",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"OpenWriteAsync",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OpenWriteAsync",P1])
 		return self
 
 	Func DownloadStringAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DownloadStringAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DownloadStringAsync",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DownloadStringAsync",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DownloadStringAsync",P1])
 		return self
 
 	Func DownloadDataAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DownloadDataAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DownloadDataAsync",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DownloadDataAsync",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DownloadDataAsync",P1])
 		return self
 
 	Func DownloadFileAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DownloadFileAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DownloadFileAsync",P1])
 			return self
 		ok
 		raise("DotNet Error: DownloadFileAsync does not take one argument: use named arguments, DownloadFileAsync([ :parameter = value, ... ])")
 
 	Func UploadStringAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"UploadStringAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadStringAsync",P1])
 			return self
 		ok
 		raise("DotNet Error: UploadStringAsync does not take one argument: use named arguments, UploadStringAsync([ :parameter = value, ... ])")
 
 	Func UploadDataAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"UploadDataAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadDataAsync",P1])
 			return self
 		ok
 		raise("DotNet Error: UploadDataAsync does not take one argument: use named arguments, UploadDataAsync([ :parameter = value, ... ])")
 
 	Func UploadFileAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"UploadFileAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadFileAsync",P1])
 			return self
 		ok
 		raise("DotNet Error: UploadFileAsync does not take one argument: use named arguments, UploadFileAsync([ :parameter = value, ... ])")
 
 	Func UploadValuesAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"UploadValuesAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadValuesAsync",P1])
 			return self
 		ok
 		raise("DotNet Error: UploadValuesAsync does not take one argument: use named arguments, UploadValuesAsync([ :parameter = value, ... ])")
 
 	Func CancelAsync 
-		dnRequest("call",[new DotNetObject(nHandle),"CancelAsync"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelAsync"])
 		return self
 
 	Func DownloadStringTaskAsync P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DownloadStringTaskAsync",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DownloadStringTaskAsync",P1])
 
 	Func OpenReadTaskAsync P1
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenReadTaskAsync",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenReadTaskAsync",P1])
 
 	Func OpenWriteTaskAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenWriteTaskAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"OpenWriteTaskAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenWriteTaskAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenWriteTaskAsync",P1])
 
 	Func UploadStringTaskAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"UploadStringTaskAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadStringTaskAsync",P1])
 		ok
 		raise("DotNet Error: UploadStringTaskAsync does not take one argument: use named arguments, UploadStringTaskAsync([ :parameter = value, ... ])")
 
 	Func DownloadDataTaskAsync P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DownloadDataTaskAsync",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DownloadDataTaskAsync",P1])
 
 	Func DownloadFileTaskAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DownloadFileTaskAsync",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DownloadFileTaskAsync",P1,P2])
 
 	Func UploadDataTaskAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"UploadDataTaskAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadDataTaskAsync",P1])
 		ok
 		raise("DotNet Error: UploadDataTaskAsync does not take one argument: use named arguments, UploadDataTaskAsync([ :parameter = value, ... ])")
 
 	Func UploadFileTaskAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"UploadFileTaskAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadFileTaskAsync",P1])
 		ok
 		raise("DotNet Error: UploadFileTaskAsync does not take one argument: use named arguments, UploadFileTaskAsync([ :parameter = value, ... ])")
 
 	Func UploadValuesTaskAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"UploadValuesTaskAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UploadValuesTaskAsync",P1])
 		ok
 		raise("DotNet Error: UploadValuesTaskAsync does not take one argument: use named arguments, UploadValuesTaskAsync([ :parameter = value, ... ])")
 
 	Func setDownloadStringCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadStringCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadStringCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadStringCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadStringCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadStringCompleted"])
 		return self
 
 	Func setDownloadDataCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadDataCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadDataCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadDataCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadDataCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadDataCompleted"])
 		return self
 
 	Func setDownloadFileCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadFileCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadFileCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDownloadFileCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadFileCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadFileCompleted"])
 		return self
 
 	Func setUploadStringCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UploadStringCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UploadStringCompleted",dnCallback(P1)])
 		return self
 
 	Func clearUploadStringCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadStringCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UploadStringCompleted"])
 		return self
 
 	Func setUploadDataCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UploadDataCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UploadDataCompleted",dnCallback(P1)])
 		return self
 
 	Func clearUploadDataCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadDataCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UploadDataCompleted"])
 		return self
 
 	Func setUploadFileCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UploadFileCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UploadFileCompleted",dnCallback(P1)])
 		return self
 
 	Func clearUploadFileCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadFileCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UploadFileCompleted"])
 		return self
 
 	Func setUploadValuesCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UploadValuesCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UploadValuesCompleted",dnCallback(P1)])
 		return self
 
 	Func clearUploadValuesCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadValuesCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UploadValuesCompleted"])
 		return self
 
 	Func setOpenReadCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"OpenReadCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"OpenReadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearOpenReadCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"OpenReadCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"OpenReadCompleted"])
 		return self
 
 	Func setOpenWriteCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"OpenWriteCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"OpenWriteCompleted",dnCallback(P1)])
 		return self
 
 	Func clearOpenWriteCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"OpenWriteCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"OpenWriteCompleted"])
 		return self
 
 	Func setDownloadProgressChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadProgressChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DownloadProgressChanged",dnCallback(P1)])
 		return self
 
 	Func clearDownloadProgressChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DownloadProgressChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DownloadProgressChanged"])
 		return self
 
 	Func setUploadProgressChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UploadProgressChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UploadProgressChanged",dnCallback(P1)])
 		return self
 
 	Func clearUploadProgressChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UploadProgressChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UploadProgressChanged"])
 		return self
 
 	Func setWriteStreamClosedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"WriteStreamClosed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"WriteStreamClosed",dnCallback(P1)])
 		return self
 
 	Func clearWriteStreamClosedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"WriteStreamClosed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"WriteStreamClosed"])
 		return self
 
 	Func getEncoding
@@ -3208,7 +3360,8 @@ Class WebHeaderCollection from NameValueCollection
 		return self
 
 	Func ToByteArray 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToByteArray"])
 
 	Func IsRestricted P1
 		if dnIsNamed(P1)
@@ -3269,13 +3422,16 @@ Class WebProxy from Object
 		return self
 
 	Func GetProxy P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProxy",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetProxy",P1])
 
 	Func IsBypassed P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsBypassed",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsBypassed",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetDefaultProxy 
 		return dnRequest("call",[dnTypeCached('System.Net.WebProxy, System.Net.WebProxy'),"GetDefaultProxy"])
@@ -3351,31 +3507,40 @@ Class WebRequest from MarshalByRefObject
 		return self
 
 	Func GetRequestStream 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRequestStream"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequestStream"])
 
 	Func GetResponse 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetResponse"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetResponse"])
 
 	Func BeginGetResponse P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginGetResponse",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginGetResponse",P1,P2])
 
 	Func EndGetResponse P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EndGetResponse",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndGetResponse",P1])
 
 	Func BeginGetRequestStream P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginGetRequestStream",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginGetRequestStream",P1,P2])
 
 	Func EndGetRequestStream P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EndGetRequestStream",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndGetRequestStream",P1])
 
 	Func GetRequestStreamAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRequestStreamAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRequestStreamAsync"])
 
 	Func GetResponseAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetResponseAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetResponseAsync"])
 
 	Func Abort 
-		dnRequest("call",[new DotNetObject(nHandle),"Abort"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Abort"])
 		return self
 
 	Func Create P1
@@ -3517,7 +3682,8 @@ Class WebRequestMethods from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class WebResponse from MarshalByRefObject
@@ -3540,15 +3706,18 @@ Class WebResponse from MarshalByRefObject
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetResponseStream 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetResponseStream"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetResponseStream"])
 
 	Func getContentLength
 		return dnRequest("get",[self,"ContentLength"])
@@ -3607,7 +3776,8 @@ Class WebUtility from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func HtmlEncode P1
 		if dnIsNamed(P1)
@@ -3939,11 +4109,12 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func AddRange P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AddRange",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AddRange",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func getAccept
@@ -4216,7 +4387,8 @@ Class HttpWebResponse from WebResponse
 		return self
 
 	Func GetResponseHeader P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetResponseHeader",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetResponseHeader",P1])
 
 	Func setContentLength P1
 		raise("DotNet Error: ContentLength is a read-only property")

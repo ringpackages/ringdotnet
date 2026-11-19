@@ -168,11 +168,13 @@ Class ConcurrentExclusiveSchedulerPair from Object
 		return self
 
 	Func Complete 
-		dnRequest("call",[new DotNetObject(nHandle),"Complete"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Complete"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCompletion
 		return dnRequest("get",[self,"Completion"])
@@ -205,7 +207,8 @@ Class Parallel from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Invoke P1
 		if dnIsNamed(P1)
@@ -297,15 +300,18 @@ Class ParallelLoopState from Object
 		return self
 
 	Func Stop 
-		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Stop"])
 		return self
 
 	Func Break_ 
-		dnRequest("call",[new DotNetObject(nHandle),"Break"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Break"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getShouldExitCurrentIteration
 		return dnRequest("get",[self,"ShouldExitCurrentIteration"])
@@ -361,7 +367,8 @@ Class ParallelOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTaskScheduler
 		return dnRequest("get",[self,"TaskScheduler"])
@@ -425,63 +432,72 @@ Class Task from Object
 		return self
 
 	Func Start P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Start",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Start",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Start"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Start"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Start",P1])
 		return self
 
 	Func RunSynchronously P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"RunSynchronously",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RunSynchronously",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"RunSynchronously"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"RunSynchronously"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"RunSynchronously",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RunSynchronously",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetAwaiter 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAwaiter"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAwaiter"])
 
 	Func ConfigureAwait P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureAwait",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureAwait",P1])
 
 	Func Wait P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Wait",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Wait",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Wait"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Wait"])
 		return self
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Wait",P1])
 
 	Func WaitAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WaitAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"WaitAsync",P1])
 
 	Func ContinueWith P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ContinueWith",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ContinueWith",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContinueWith",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Yield 
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Yield"])
@@ -617,7 +633,8 @@ Class TaskAsyncEnumerableExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func ConfigureAwait P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"ConfigureAwait",P1,P2])
@@ -679,49 +696,58 @@ Class TaskCompletionSource from Object
 		return self
 
 	Func SetException P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetException",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetException",P1])
 		return self
 
 	Func TrySetException P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TrySetException",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrySetException",P1])
 
 	Func SetResult 
-		dnRequest("call",[new DotNetObject(nHandle),"SetResult"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetResult"])
 		return self
 
 	Func TrySetResult 
-		return dnRequest("call",[new DotNetObject(nHandle),"TrySetResult"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrySetResult"])
 
 	Func SetCanceled P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetCanceled",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetCanceled",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"SetCanceled"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"SetCanceled"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetCanceled",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetCanceled",P1])
 		return self
 
 	Func TrySetCanceled P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"TrySetCanceled",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrySetCanceled",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"TrySetCanceled"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"TrySetCanceled"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"TrySetCanceled",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrySetCanceled",P1])
 
 	Func SetFromTask P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetFromTask",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetFromTask",P1])
 		return self
 
 	Func TrySetFromTask P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TrySetFromTask",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TrySetFromTask",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTask
 		return dnRequest("get",[self,"Task"])
@@ -742,7 +768,8 @@ Class TaskExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Unwrap P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskExtensions, System.Private.CoreLib'),"Unwrap",P1])
@@ -798,31 +825,36 @@ Class TaskFactory from Object
 		return self
 
 	Func StartNew P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartNew",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"StartNew",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"StartNew",P1])
 
 	Func FromAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FromAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FromAsync",P1])
 		ok
 		raise("DotNet Error: FromAsync does not take one argument: use named arguments, FromAsync([ :parameter = value, ... ])")
 
 	Func ContinueWhenAll P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ContinueWhenAll",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ContinueWhenAll",P1])
 		ok
 		raise("DotNet Error: ContinueWhenAll does not take one argument: use named arguments, ContinueWhenAll([ :parameter = value, ... ])")
 
 	Func ContinueWhenAny P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ContinueWhenAny",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ContinueWhenAny",P1])
 		ok
 		raise("DotNet Error: ContinueWhenAny does not take one argument: use named arguments, ContinueWhenAny([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCancellationToken
 		return dnRequest("get",[self,"CancellationToken"])
@@ -866,7 +898,8 @@ Class TaskScheduler from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func FromCurrentSynchronizationContext 
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskScheduler, System.Private.CoreLib'),"FromCurrentSynchronizationContext"])
@@ -916,7 +949,8 @@ Class TaskToAsyncResult from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Begin P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"Begin",P1,P2,P3])
@@ -946,7 +980,8 @@ Class UnobservedTaskExceptionEventArgs from EventArgs
 		return self
 
 	Func SetObserved 
-		dnRequest("call",[new DotNetObject(nHandle),"SetObserved"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetObserved"])
 		return self
 
 	Func getObserved
@@ -1010,16 +1045,20 @@ Class ValueTask from ValueType
 		return self
 
 	Func AsTask 
-		return dnRequest("call",[new DotNetObject(nHandle),"AsTask"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AsTask"])
 
 	Func Preserve 
-		return dnRequest("call",[new DotNetObject(nHandle),"Preserve"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Preserve"])
 
 	Func GetAwaiter 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAwaiter"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAwaiter"])
 
 	Func ConfigureAwait P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ConfigureAwait",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureAwait",P1])
 
 	Func FromResult P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"FromResult",P1])

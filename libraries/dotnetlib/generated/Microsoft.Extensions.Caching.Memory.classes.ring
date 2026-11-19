@@ -77,7 +77,8 @@ Class CacheEntryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func SetPriority P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"SetPriority",P1,P2])
@@ -119,7 +120,8 @@ Class CacheExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Get_ P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"Get",P1,P2])
@@ -240,17 +242,21 @@ Class IMemoryCache from DotNetObject
 		return self
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
 
 	Func CreateEntry P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntry",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateEntry",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func GetCurrentStatistics 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentStatistics"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentStatistics"])
 
 
 Class MemoryCache from Object
@@ -285,32 +291,40 @@ Class MemoryCache from Object
 		return self
 
 	Func CreateEntry P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntry",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateEntry",P1])
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func GetCurrentStatistics 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentStatistics"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentStatistics"])
 
 	Func Compact P1
-		dnRequest("call",[new DotNetObject(nHandle),"Compact",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Compact",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -337,7 +351,8 @@ Class MemoryCacheEntryExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func SetPriority P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"SetPriority",P1,P2])
@@ -394,7 +409,8 @@ Class MemoryCacheEntryOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAbsoluteExpiration
 		return dnRequest("get",[self,"AbsoluteExpiration"])
@@ -477,7 +493,8 @@ Class MemoryCacheOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getClock
 		return dnRequest("get",[self,"Clock"])
@@ -559,7 +576,8 @@ Class MemoryCacheStatistics from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCurrentEntryCount
 		return dnRequest("get",[self,"CurrentEntryCount"])
@@ -618,7 +636,8 @@ Class PostEvictionCallbackRegistration from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getEvictionCallback
 		return dnRequest("get",[self,"EvictionCallback"])

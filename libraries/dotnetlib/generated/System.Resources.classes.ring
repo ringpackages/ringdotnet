@@ -35,11 +35,13 @@ Class IResourceReader from DotNetObject
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 
 Class ResourceManager from Object
@@ -77,32 +79,38 @@ Class ResourceManager from Object
 		return self
 
 	Func ReleaseAllResources 
-		dnRequest("call",[new DotNetObject(nHandle),"ReleaseAllResources"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReleaseAllResources"])
 		return self
 
 	Func GetResourceSet P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetResourceSet",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetResourceSet",P1,P2,P3])
 
 	Func GetString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetString",P1])
 
 	Func GetObject P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetObject",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetObject",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetObject",P1])
 
 	Func GetStream P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStream",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetStream",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStream",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetStream",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CreateFileBasedResourceManager P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib'),"CreateFileBasedResourceManager",P1,P2,P3])
@@ -153,21 +161,26 @@ Class ResourceReader from Object
 		return self
 
 	Func GetResourceData P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetResourceData",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetResourceData",P1])
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class ResourceSet from Object
@@ -184,35 +197,43 @@ Class ResourceSet from Object
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetDefaultReader 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultReader"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultReader"])
 
 	Func GetDefaultWriter 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultWriter"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDefaultWriter"])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func GetString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetString",P1])
 
 	Func GetObject P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetObject",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetObject",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetObject",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 

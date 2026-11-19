@@ -246,7 +246,8 @@ Class CodeIdentifier from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func MakePascal P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"MakePascal",P1])
@@ -305,42 +306,53 @@ Class CodeIdentifiers from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func MakeRightCase P1
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeRightCase",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MakeRightCase",P1])
 
 	Func MakeUnique P1
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnique",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MakeUnique",P1])
 
 	Func AddReserved P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddReserved",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddReserved",P1])
 		return self
 
 	Func RemoveReserved P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveReserved",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveReserved",P1])
 		return self
 
 	Func AddUnique P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddUnique",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddUnique",P1,P2])
 
 	Func IsInUse P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsInUse",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsInUse",P1])
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func ToArray P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToArray",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getUseCamelCasing
 		return dnRequest("get",[self,"UseCamelCasing"])
@@ -362,14 +374,17 @@ Class IXmlSerializable from DotNetObject
 		return self
 
 	Func GetSchema 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchema"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchema"])
 
 	Func ReadXml P1
-		dnRequest("call",[new DotNetObject(nHandle),"ReadXml",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReadXml",P1])
 		return self
 
 	Func WriteXml P1
-		dnRequest("call",[new DotNetObject(nHandle),"WriteXml",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteXml",P1])
 		return self
 
 
@@ -420,7 +435,8 @@ Class ImportContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTypeIdentifiers
 		return dnRequest("get",[self,"TypeIdentifiers"])
@@ -453,7 +469,8 @@ Class SchemaImporter from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class SoapAttributeOverrides from Object
@@ -481,17 +498,20 @@ Class SoapAttributeOverrides from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 			return self
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 
 Class SoapAttributes from Object
@@ -546,7 +566,8 @@ Class SoapAttributes from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSoapType
 		return dnRequest("get",[self,"SoapType"])
@@ -636,27 +657,32 @@ Class SoapReflectionImporter from Object
 		return self
 
 	Func IncludeTypes P1
-		dnRequest("call",[new DotNetObject(nHandle),"IncludeTypes",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"IncludeTypes",P1])
 		return self
 
 	Func IncludeType P1
-		dnRequest("call",[new DotNetObject(nHandle),"IncludeType",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"IncludeType",P1])
 		return self
 
 	Func ImportTypeMapping P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ImportTypeMapping",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ImportTypeMapping",P1])
 
 	Func ImportMembersMapping P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportMembersMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ImportMembersMapping",P1])
 		ok
 		raise("DotNet Error: ImportMembersMapping does not take one argument: use named arguments, ImportMembersMapping([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class SoapSchemaMember from Object
@@ -687,7 +713,8 @@ Class SoapSchemaMember from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMemberType
 		return dnRequest("get",[self,"MemberType"])
@@ -758,31 +785,39 @@ Class XmlAnyElementAttributes from CollectionBase
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 
@@ -811,31 +846,39 @@ Class XmlArrayItemAttributes from CollectionBase
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 
@@ -912,17 +955,20 @@ Class XmlAttributeOverrides from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 			return self
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 
 Class XmlAttributes from Object
@@ -985,7 +1031,8 @@ Class XmlAttributes from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getXmlElements
 		return dnRequest("get",[self,"XmlElements"])
@@ -1165,31 +1212,39 @@ Class XmlElementAttributes from CollectionBase
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 
@@ -1257,11 +1312,13 @@ Class XmlMapping from Object
 		return self
 
 	Func SetKey P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetKey",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetKey",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getElementName
 		return dnRequest("get",[self,"ElementName"])
@@ -1303,7 +1360,8 @@ Class XmlMemberMapping from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAny
 		return dnRequest("get",[self,"Any"])
@@ -1471,27 +1529,32 @@ Class XmlReflectionImporter from Object
 		return self
 
 	Func IncludeTypes P1
-		dnRequest("call",[new DotNetObject(nHandle),"IncludeTypes",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"IncludeTypes",P1])
 		return self
 
 	Func IncludeType P1
-		dnRequest("call",[new DotNetObject(nHandle),"IncludeType",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"IncludeType",P1])
 		return self
 
 	Func ImportTypeMapping P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ImportTypeMapping",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ImportTypeMapping",P1])
 
 	Func ImportMembersMapping P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportMembersMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ImportMembersMapping",P1])
 		ok
 		raise("DotNet Error: ImportMembersMapping does not take one argument: use named arguments, ImportMembersMapping([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class XmlReflectionMember from Object
@@ -1526,7 +1589,8 @@ Class XmlReflectionMember from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMemberType
 		return dnRequest("get",[self,"MemberType"])
@@ -1587,14 +1651,17 @@ Class XmlSchemaEnumerator from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
@@ -1617,22 +1684,26 @@ Class XmlSchemaExporter from Object
 		return self
 
 	Func ExportTypeMapping P1
-		dnRequest("call",[new DotNetObject(nHandle),"ExportTypeMapping",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ExportTypeMapping",P1])
 		return self
 
 	Func ExportMembersMapping P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ExportMembersMapping",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExportMembersMapping",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ExportMembersMapping",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ExportMembersMapping",P1])
 		return self
 
 	Func ExportAnyType P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExportAnyType",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExportAnyType",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class XmlSchemas from CollectionBase
@@ -1662,51 +1733,63 @@ Class XmlSchemas from CollectionBase
 		return self
 
 	Func GetSchemas P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemas",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSchemas",P1])
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddReference P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddReference",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddReference",P1])
 		return self
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Find P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1,P2])
 
 	Func Compile P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Compile",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Compile",P1,P2])
 		return self
 
 	Func IsDataSet P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSchemas, System.Private.Xml'),"IsDataSet",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getIsCompiled
@@ -1728,7 +1811,8 @@ Class XmlSerializationGeneratedCode from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class XmlSerializer from Object
@@ -1760,23 +1844,27 @@ Class XmlSerializer from Object
 		return self
 
 	Func Serialize P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Serialize",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Serialize",P1])
 			return self
 		ok
 		raise("DotNet Error: Serialize does not take one argument: use named arguments, Serialize([ :parameter = value, ... ])")
 
 	Func Deserialize P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Deserialize",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Deserialize",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Deserialize",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Deserialize",P1])
 
 	Func CanDeserialize P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanDeserialize",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CanDeserialize",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func FromMappings P1
 		if dnIsNamed(P1)
@@ -1794,35 +1882,43 @@ Class XmlSerializer from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1])
 
 	Func setUnknownNodeEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UnknownNode",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UnknownNode",dnCallback(P1)])
 		return self
 
 	Func clearUnknownNodeEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UnknownNode"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UnknownNode"])
 		return self
 
 	Func setUnknownAttributeEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UnknownAttribute",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UnknownAttribute",dnCallback(P1)])
 		return self
 
 	Func clearUnknownAttributeEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UnknownAttribute"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UnknownAttribute"])
 		return self
 
 	Func setUnknownElementEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UnknownElement",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UnknownElement",dnCallback(P1)])
 		return self
 
 	Func clearUnknownElementEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UnknownElement"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UnknownElement"])
 		return self
 
 	Func setUnreferencedObjectEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UnreferencedObject",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UnreferencedObject",dnCallback(P1)])
 		return self
 
 	Func clearUnreferencedObjectEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UnreferencedObject"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UnreferencedObject"])
 		return self
 
 
@@ -1851,13 +1947,15 @@ Class XmlSerializerFactory from Object
 		return self
 
 	Func CreateSerializer P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSerializer",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateSerializer",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSerializer",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateSerializer",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class XmlSerializerImplementation from Object
@@ -1878,13 +1976,16 @@ Class XmlSerializerImplementation from Object
 		return self
 
 	Func CanSerialize P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanSerialize",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CanSerialize",P1])
 
 	Func GetSerializer P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSerializer",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSerializer",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getReader
 		return dnRequest("get",[self,"Reader"])
@@ -1964,14 +2065,17 @@ Class XmlSerializerNamespaces from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
 		return self
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -1995,7 +2099,8 @@ Class XmlMembersMapping from XmlMapping
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getTypeName
 		return dnRequest("get",[self,"TypeName"])
@@ -2042,28 +2147,33 @@ Class XmlSchemaImporter from SchemaImporter
 		return self
 
 	Func ImportDerivedTypeMapping P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportDerivedTypeMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ImportDerivedTypeMapping",P1])
 		ok
 		raise("DotNet Error: ImportDerivedTypeMapping does not take one argument: use named arguments, ImportDerivedTypeMapping([ :parameter = value, ... ])")
 
 	Func ImportSchemaType P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportSchemaType",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ImportSchemaType",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportSchemaType",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ImportSchemaType",P1])
 
 	Func ImportTypeMapping P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ImportTypeMapping",P1])
 
 	Func ImportMembersMapping P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportMembersMapping",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ImportMembersMapping",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ImportMembersMapping",P1])
 
 	Func ImportAnyType P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportAnyType",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ImportAnyType",P1,P2])
 
 
 Class XmlSerializationReader from XmlSerializationGeneratedCode

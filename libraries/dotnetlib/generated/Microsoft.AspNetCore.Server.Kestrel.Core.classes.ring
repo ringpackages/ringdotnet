@@ -75,7 +75,8 @@ Class Http2Limits from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMaxStreamsPerConnection
 		return dnRequest("get",[self,"MaxStreamsPerConnection"])
@@ -161,7 +162,8 @@ Class Http3Limits from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMaxRequestHeaderFieldSize
 		return dnRequest("get",[self,"MaxRequestHeaderFieldSize"])
@@ -188,17 +190,21 @@ Class KestrelServer from Object
 		return self
 
 	Func StartAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"StartAsync",P1,P2])
 
 	Func StopAsync P1
-		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"StopAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getFeatures
 		return dnRequest("get",[self,"Features"])
@@ -253,7 +259,8 @@ Class KestrelServerLimits from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMaxResponseBufferSize
 		return dnRequest("get",[self,"MaxResponseBufferSize"])
@@ -390,72 +397,82 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ConfigureEndpointDefaults P1
-		dnRequest("call",[new DotNetObject(nHandle),"ConfigureEndpointDefaults",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureEndpointDefaults",P1])
 		return self
 
 	Func ConfigureHttpsDefaults P1
-		dnRequest("call",[new DotNetObject(nHandle),"ConfigureHttpsDefaults",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ConfigureHttpsDefaults",P1])
 		return self
 
 	Func Configure P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Configure",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Configure",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"Configure"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"Configure"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Configure",P1])
 
 	Func Listen P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Listen",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Listen",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Listen",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Listen",P1])
 		return self
 
 	Func ListenLocalhost P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenLocalhost",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ListenLocalhost",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ListenLocalhost",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ListenLocalhost",P1])
 		return self
 
 	Func ListenAnyIP P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenAnyIP",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ListenAnyIP",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ListenAnyIP",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ListenAnyIP",P1])
 		return self
 
 	Func ListenUnixSocket P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenUnixSocket",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ListenUnixSocket",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ListenUnixSocket",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ListenUnixSocket",P1])
 		return self
 
 	Func ListenHandle P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenHandle",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ListenHandle",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ListenHandle",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ListenHandle",P1])
 		return self
 
 	Func ListenNamedPipe P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenNamedPipe",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ListenNamedPipe",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ListenNamedPipe",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ListenNamedPipe",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAllowHostHeaderOverride
 		return dnRequest("get",[self,"AllowHostHeaderOverride"])
@@ -563,13 +580,16 @@ Class ListenOptions from Object
 		return self
 
 	Func Use P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Use",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Use",P1])
 
 	Func Build 
-		return dnRequest("call",[new DotNetObject(nHandle),"Build"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Build"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getEndPoint
 		return dnRequest("get",[self,"EndPoint"])
@@ -645,7 +665,8 @@ Class MinDataRate from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBytesPerSecond
 		return dnRequest("get",[self,"BytesPerSecond"])

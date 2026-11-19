@@ -35,7 +35,8 @@ Class HttpRequestMultipartExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetMultipartBoundary P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.HttpRequestMultipartExtensions, Microsoft.AspNetCore.Http.Extensions'),"GetMultipartBoundary",P1])
@@ -86,17 +87,21 @@ Class QueryBuilder from Object
 		return self
 
 	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1,P2])
 		return self
 
 	Func ToQueryString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToQueryString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToQueryString"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 
 Class StreamCopyOperation from Object
@@ -111,7 +116,8 @@ Class StreamCopyOperation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CopyToAsync P1
 		if dnIsNamed(P1)
@@ -132,7 +138,8 @@ Class UriHelper from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func BuildRelative P1
 		if dnIsNamed(P1)

@@ -422,10 +422,11 @@ Class Camera from Animatable
 		return self
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func getTransform
 		return dnRequest("get",[self,"Transform"])
@@ -486,10 +487,12 @@ Class GeneralTransform2DTo3D from Freezable
 		return self
 
 	Func TryTransform P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryTransform",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryTransform",P1])
 
 	Func Transform P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Transform",P1])
 
 
 Class GeneralTransform3D from Animatable
@@ -506,19 +509,23 @@ Class GeneralTransform3D from Animatable
 		return self
 
 	Func TryTransform P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryTransform",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryTransform",P1])
 
 	Func Transform P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Transform",P1])
 
 	Func TransformBounds P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TransformBounds",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TransformBounds",P1])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func getInverse
 		return dnRequest("get",[self,"Inverse"])
@@ -574,42 +581,53 @@ Class GeneralTransform3DCollection from Animatable
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -631,13 +649,16 @@ Class GeneralTransform3DTo2D from Freezable
 		return self
 
 	Func TryTransform P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryTransform",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryTransform",P1])
 
 	Func Transform P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Transform",P1])
 
 	Func TransformBounds P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TransformBounds",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TransformBounds",P1])
 
 
 Class Geometry3D from Animatable
@@ -672,7 +693,8 @@ Class HitTestParameters3D from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class Material from Animatable
@@ -687,10 +709,11 @@ Class Material from Animatable
 		return self
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 
 Class MaterialCollection from Animatable
@@ -740,42 +763,53 @@ Class MaterialCollection from Animatable
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -852,78 +886,95 @@ Class Matrix3D from ValueType
 		return self
 
 	Func SetIdentity 
-		dnRequest("call",[new DotNetObject(nHandle),"SetIdentity"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetIdentity"])
 		return self
 
 	Func Prepend P1
-		dnRequest("call",[new DotNetObject(nHandle),"Prepend",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Prepend",P1])
 		return self
 
 	Func Append P1
-		dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Append",P1])
 		return self
 
 	Func Rotate P1
-		dnRequest("call",[new DotNetObject(nHandle),"Rotate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Rotate",P1])
 		return self
 
 	Func RotatePrepend P1
-		dnRequest("call",[new DotNetObject(nHandle),"RotatePrepend",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RotatePrepend",P1])
 		return self
 
 	Func RotateAt P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"RotateAt",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RotateAt",P1,P2])
 		return self
 
 	Func RotateAtPrepend P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"RotateAtPrepend",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RotateAtPrepend",P1,P2])
 		return self
 
 	Func Scale P1
-		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Scale",P1])
 		return self
 
 	Func ScalePrepend P1
-		dnRequest("call",[new DotNetObject(nHandle),"ScalePrepend",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ScalePrepend",P1])
 		return self
 
 	Func ScaleAt P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ScaleAt",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ScaleAt",P1,P2])
 		return self
 
 	Func ScaleAtPrepend P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ScaleAtPrepend",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ScaleAtPrepend",P1,P2])
 		return self
 
 	Func Translate P1
-		dnRequest("call",[new DotNetObject(nHandle),"Translate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1])
 		return self
 
 	Func TranslatePrepend P1
-		dnRequest("call",[new DotNetObject(nHandle),"TranslatePrepend",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"TranslatePrepend",P1])
 		return self
 
 	Func Transform P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Transform",P1])
 
 	Func Invert 
-		dnRequest("call",[new DotNetObject(nHandle),"Invert"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Invert"])
 		return self
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func Multiply P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"Multiply",P1,P2])
@@ -1112,10 +1163,11 @@ Class Model3D from Animatable
 		return self
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func getBounds
 		return dnRequest("get",[self,"Bounds"])
@@ -1184,42 +1236,53 @@ Class Model3DCollection from Animatable
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -1319,23 +1382,26 @@ Class Point3D from ValueType
 		return self
 
 	Func Offset P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Offset",P1,P2,P3])
 		return self
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore'),"Add",P1,P2])
@@ -1418,51 +1484,63 @@ Class Point3DCollection from Freezable
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point3DCollection, PresentationCore'),"Parse",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -1572,23 +1650,26 @@ Class Point4D from ValueType
 		return self
 
 	Func Offset P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Offset",P1,P2,P3,P4])
 		return self
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore'),"Add",P1,P2])
@@ -1711,31 +1792,36 @@ Class WpfQuaternion from ValueType
 		return self
 
 	Func Conjugate 
-		dnRequest("call",[new DotNetObject(nHandle),"Conjugate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Conjugate"])
 		return self
 
 	Func Invert 
-		dnRequest("call",[new DotNetObject(nHandle),"Invert"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Invert"])
 		return self
 
 	Func Normalize 
-		dnRequest("call",[new DotNetObject(nHandle),"Normalize"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Normalize"])
 		return self
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Add",P1,P2])
@@ -1929,58 +2015,65 @@ Class Rect3D from ValueType
 		return self
 
 	Func Contains P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Contains",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IntersectsWith P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IntersectsWith",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IntersectsWith",P1])
 
 	Func Intersect P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Intersect",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Intersect",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Intersect",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Intersect",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Intersect",P1])
 		return self
 
 	Func Union P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Union",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Union",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Union",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Union",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Union",P1])
 		return self
 
 	Func Offset P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Offset",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Offset",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Offset",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Offset",P1])
 		return self
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Parse",P1])
@@ -2093,10 +2186,11 @@ Class Rotation3D from Animatable
 		return self
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func getIdentity
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Media3D.Rotation3D, PresentationCore'),"Identity"])
@@ -2156,19 +2250,21 @@ Class Size3D from ValueType
 		return self
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Size3D, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Size3D, PresentationCore'),"Parse",P1])
@@ -2279,42 +2375,53 @@ Class Transform3DCollection from Animatable
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -2375,27 +2482,31 @@ Class Vector3D from ValueType
 		return self
 
 	Func Normalize 
-		dnRequest("call",[new DotNetObject(nHandle),"Normalize"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Normalize"])
 		return self
 
 	Func Negate 
-		dnRequest("call",[new DotNetObject(nHandle),"Negate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Negate"])
 		return self
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func AngleBetween P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"AngleBetween",P1,P2])
@@ -2502,51 +2613,63 @@ Class Vector3DCollection from Freezable
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore'),"Parse",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -2647,10 +2770,11 @@ Class Viewport3DVisual from Visual
 		return self
 
 	Func HitTest P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HitTest",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HitTest",P1])
 
 	Func getParent
 		return dnRequest("get",[self,"Parent"])
@@ -2768,36 +2892,44 @@ Class Visual3D from DependencyObject
 		return self
 
 	Func IsAncestorOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsAncestorOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsAncestorOf",P1])
 
 	Func IsDescendantOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsDescendantOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDescendantOf",P1])
 
 	Func FindCommonVisualAncestor P1
-		return dnRequest("call",[new DotNetObject(nHandle),"FindCommonVisualAncestor",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindCommonVisualAncestor",P1])
 
 	Func TransformToAncestor P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TransformToAncestor",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TransformToAncestor",P1])
 
 	Func TransformToDescendant P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TransformToDescendant",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TransformToDescendant",P1])
 
 	Func ApplyAnimationClock P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyAnimationClock",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ApplyAnimationClock",P1])
 			return self
 		ok
 		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
 	Func BeginAnimation P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAnimation",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginAnimation",P1])
 			return self
 		ok
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAnimationBaseValue",P1])
 
 	Func getTransform
 		return dnRequest("get",[self,"Transform"])
@@ -2833,45 +2965,57 @@ Class Visual3DCollection from Object
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -3926,7 +4070,8 @@ Class Transform3D from GeneralTransform3D
 		return self
 
 	Func GetValue_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
 
 	Func getIsAffine
 		return dnRequest("get",[self,"IsAffine"])

@@ -2507,39 +2507,50 @@ Class AccessibleObject from StandardOleMarshalObject
 		return self
 
 	Func GetChild P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChild",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChild",P1])
 
 	Func GetChildCount 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChildCount"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildCount"])
 
 	Func GetFocused 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFocused"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFocused"])
 
 	Func GetHelpTopic 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHelpTopic"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHelpTopic"])
 
 	Func GetSelected 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSelected"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSelected"])
 
 	Func HitTest P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HitTest",P1,P2])
 
 	Func DoDefaultAction 
-		dnRequest("call",[new DotNetObject(nHandle),"DoDefaultAction"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DoDefaultAction"])
 		return self
 
 	Func Navigate P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Navigate",P1])
 
 	Func Select P1
-		dnRequest("call",[new DotNetObject(nHandle),"Select",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Select",P1])
 		return self
 
 	Func RaiseAutomationNotification P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RaiseAutomationNotification",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RaiseAutomationNotification",P1,P2,P3])
 
 	Func RaiseLiveRegionChanged 
-		return dnRequest("call",[new DotNetObject(nHandle),"RaiseLiveRegionChanged"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RaiseLiveRegionChanged"])
 
 	Func getBounds
 		return dnRequest("get",[self,"Bounds"])
@@ -2634,7 +2645,8 @@ Class AmbientProperties from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBackColor
 		return dnRequest("get",[self,"BackColor"])
@@ -2702,7 +2714,8 @@ Class Application from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func SetColorMode P1
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetColorMode",P1])
@@ -3040,22 +3053,27 @@ Class ApplicationContext from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func ExitThread 
-		dnRequest("call",[new DotNetObject(nHandle),"ExitThread"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ExitThread"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setThreadExitEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ThreadExit",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ThreadExit",dnCallback(P1)])
 		return self
 
 	Func clearThreadExitEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ThreadExit"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ThreadExit"])
 		return self
 
 	Func getMainForm
@@ -3103,57 +3121,72 @@ Class AutoCompleteStringCollection from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CollectionChanged"])
 		return self
 
 	Func getCount
@@ -3211,11 +3244,13 @@ Class BaseCollection from MarshalByRefObject
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -3257,11 +3292,13 @@ Class BindableComponent from Component
 		return self
 
 	Func setBindingContextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BindingContextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BindingContextChanged",dnCallback(P1)])
 		return self
 
 	Func clearBindingContextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BindingContextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BindingContextChanged"])
 		return self
 
 	Func getBindingContext
@@ -3322,38 +3359,47 @@ Class Binding from Object
 		return self
 
 	Func ReadValue 
-		dnRequest("call",[new DotNetObject(nHandle),"ReadValue"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReadValue"])
 		return self
 
 	Func WriteValue 
-		dnRequest("call",[new DotNetObject(nHandle),"WriteValue"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteValue"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setBindingCompleteEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BindingComplete",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BindingComplete",dnCallback(P1)])
 		return self
 
 	Func clearBindingCompleteEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BindingComplete"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BindingComplete"])
 		return self
 
 	Func setParseEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Parse",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Parse",dnCallback(P1)])
 		return self
 
 	Func clearParseEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Parse"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Parse"])
 		return self
 
 	Func setFormatEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Format",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Format",dnCallback(P1)])
 		return self
 
 	Func clearFormatEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Format"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Format"])
 		return self
 
 	Func getDataSource
@@ -3540,27 +3586,32 @@ Class BindingContext from Object
 		return self
 
 	Func Contains P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Contains",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UpdateBinding P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.BindingContext, System.Windows.Forms'),"UpdateBinding",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CollectionChanged"])
 		return self
 
 	Func getIsReadOnly
@@ -3588,73 +3639,91 @@ Class BindingManagerBase from Object
 		return self
 
 	Func GetItemProperties 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemProperties"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemProperties"])
 
 	Func CancelCurrentEdit 
-		dnRequest("call",[new DotNetObject(nHandle),"CancelCurrentEdit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelCurrentEdit"])
 		return self
 
 	Func EndCurrentEdit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndCurrentEdit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndCurrentEdit"])
 		return self
 
 	Func AddNew 
-		dnRequest("call",[new DotNetObject(nHandle),"AddNew"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddNew"])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func SuspendBinding 
-		dnRequest("call",[new DotNetObject(nHandle),"SuspendBinding"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SuspendBinding"])
 		return self
 
 	Func ResumeBinding 
-		dnRequest("call",[new DotNetObject(nHandle),"ResumeBinding"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResumeBinding"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setBindingCompleteEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BindingComplete",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BindingComplete",dnCallback(P1)])
 		return self
 
 	Func clearBindingCompleteEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BindingComplete"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BindingComplete"])
 		return self
 
 	Func setCurrentChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentChanged"])
 		return self
 
 	Func setCurrentItemChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentItemChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentItemChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentItemChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentItemChanged"])
 		return self
 
 	Func setDataErrorEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataError",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataError",dnCallback(P1)])
 		return self
 
 	Func clearDataErrorEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataError"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataError"])
 		return self
 
 	Func setPositionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"PositionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PositionChanged",dnCallback(P1)])
 		return self
 
 	Func clearPositionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"PositionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PositionChanged"])
 		return self
 
 	Func getBindings
@@ -3851,197 +3920,247 @@ Class BindingSource from Component
 		return self
 
 	Func GetRelatedCurrencyManager P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRelatedCurrencyManager",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRelatedCurrencyManager",P1])
 
 	Func CancelEdit 
-		dnRequest("call",[new DotNetObject(nHandle),"CancelEdit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelEdit"])
 		return self
 
 	Func EndEdit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndEdit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndEdit"])
 		return self
 
 	Func Find P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1,P2])
 
 	Func MoveFirst 
-		dnRequest("call",[new DotNetObject(nHandle),"MoveFirst"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MoveFirst"])
 		return self
 
 	Func MoveLast 
-		dnRequest("call",[new DotNetObject(nHandle),"MoveLast"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MoveLast"])
 		return self
 
 	Func MoveNext 
-		dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
 		return self
 
 	Func MovePrevious 
-		dnRequest("call",[new DotNetObject(nHandle),"MovePrevious"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MovePrevious"])
 		return self
 
 	Func RemoveCurrent 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveCurrent"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveCurrent"])
 		return self
 
 	Func ResetAllowNew 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetAllowNew"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetAllowNew"])
 		return self
 
 	Func ResetBindings P1
-		dnRequest("call",[new DotNetObject(nHandle),"ResetBindings",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetBindings",P1])
 		return self
 
 	Func ResetCurrentItem 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetCurrentItem"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetCurrentItem"])
 		return self
 
 	Func ResetItem P1
-		dnRequest("call",[new DotNetObject(nHandle),"ResetItem",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetItem",P1])
 		return self
 
 	Func ResumeBinding 
-		dnRequest("call",[new DotNetObject(nHandle),"ResumeBinding"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResumeBinding"])
 		return self
 
 	Func SuspendBinding 
-		dnRequest("call",[new DotNetObject(nHandle),"SuspendBinding"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SuspendBinding"])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func GetListName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetListName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetListName",P1])
 
 	Func GetItemProperties P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemProperties",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemProperties",P1])
 
 	Func AddNew 
-		return dnRequest("call",[new DotNetObject(nHandle),"AddNew"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddNew"])
 
 	Func ApplySort P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplySort",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ApplySort",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ApplySort",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ApplySort",P1])
 		return self
 
 	Func RemoveSort 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveSort"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveSort"])
 		return self
 
 	Func RemoveFilter 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveFilter"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveFilter"])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func setAddingNewEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AddingNew",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AddingNew",dnCallback(P1)])
 		return self
 
 	Func clearAddingNewEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AddingNew"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AddingNew"])
 		return self
 
 	Func setBindingCompleteEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BindingComplete",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BindingComplete",dnCallback(P1)])
 		return self
 
 	Func clearBindingCompleteEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BindingComplete"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BindingComplete"])
 		return self
 
 	Func setDataErrorEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataError",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataError",dnCallback(P1)])
 		return self
 
 	Func clearDataErrorEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataError"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataError"])
 		return self
 
 	Func setDataSourceChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataSourceChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataSourceChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataSourceChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataSourceChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataSourceChanged"])
 		return self
 
 	Func setDataMemberChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataMemberChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataMemberChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataMemberChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataMemberChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataMemberChanged"])
 		return self
 
 	Func setCurrentChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentChanged"])
 		return self
 
 	Func setCurrentItemChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentItemChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentItemChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentItemChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentItemChanged"])
 		return self
 
 	Func setListChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ListChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ListChanged",dnCallback(P1)])
 		return self
 
 	Func clearListChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ListChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ListChanged"])
 		return self
 
 	Func setPositionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"PositionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PositionChanged",dnCallback(P1)])
 		return self
 
 	Func clearPositionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"PositionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PositionChanged"])
 		return self
 
 	Func getCurrencyManager
@@ -4228,7 +4347,8 @@ Class ButtonRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func IsBackgroundPartiallyTransparent P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"IsBackgroundPartiallyTransparent",P1])
@@ -4295,7 +4415,8 @@ Class CheckBoxRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func IsBackgroundPartiallyTransparent P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"IsBackgroundPartiallyTransparent",P1])
@@ -4334,7 +4455,8 @@ Class Clipboard from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func SetDataObject P1
 		if dnIsNamed(P1)
@@ -4497,11 +4619,13 @@ Class ColumnHeader from Component
 		return self
 
 	Func AutoResize P1
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResize",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResize",P1])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func getDisplayIndex
 		return dnRequest("get",[self,"DisplayIndex"])
@@ -4720,7 +4844,8 @@ Class ComboBoxRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func DrawTextBox P1
 		if dnIsNamed(P1)
@@ -4754,24 +4879,28 @@ Class CommonDialog from Component
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
 		return self
 
 	Func ShowDialog P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ShowDialog",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ShowDialog",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ShowDialog"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShowDialog",P1])
 
 	Func setHelpRequestEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"HelpRequest",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"HelpRequest",dnCallback(P1)])
 		return self
 
 	Func clearHelpRequestEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"HelpRequest"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"HelpRequest"])
 		return self
 
 	Func getTag
@@ -4931,208 +5060,253 @@ Class Control from Component
 		return self
 
 	Func ResetBindings 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetBindings"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetBindings"])
 		return self
 
 	Func GetPreferredSize_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPreferredSize",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPreferredSize",P1])
 
 	Func BeginInvoke P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginInvoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginInvoke",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInvoke",P1])
 
 	Func BringToFront 
-		dnRequest("call",[new DotNetObject(nHandle),"BringToFront"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BringToFront"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CreateGraphics 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateGraphics"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateGraphics"])
 
 	Func CreateControl 
-		dnRequest("call",[new DotNetObject(nHandle),"CreateControl"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CreateControl"])
 		return self
 
 	Func DoDragDrop P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"DoDragDrop",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DoDragDrop",P1])
 		ok
 		raise("DotNet Error: DoDragDrop does not take one argument: use named arguments, DoDragDrop([ :parameter = value, ... ])")
 
 	Func DrawToBitmap P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawToBitmap",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawToBitmap",P1,P2])
 		return self
 
 	Func EndInvoke P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EndInvoke",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndInvoke",P1])
 
 	Func FindForm 
-		return dnRequest("call",[new DotNetObject(nHandle),"FindForm"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindForm"])
 
 	Func Focus 
-		return dnRequest("call",[new DotNetObject(nHandle),"Focus"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Focus"])
 
 	Func GetChildAtPoint P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChildAtPoint",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetChildAtPoint",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChildAtPoint",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildAtPoint",P1])
 
 	Func GetContainerControl 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetContainerControl"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetContainerControl"])
 
 	Func GetNextControl P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextControl",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNextControl",P1,P2])
 
 	Func Hide 
-		dnRequest("call",[new DotNetObject(nHandle),"Hide"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Hide"])
 		return self
 
 	Func Invalidate P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Invalidate",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Invalidate",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Invalidate"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Invalidate"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Invalidate",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Invalidate",P1])
 		return self
 
 	Func Invoke P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Invoke",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Invoke",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Invoke",P1])
 		return self
 
 	Func LogicalToDeviceUnits P1
-		return dnRequest("call",[new DotNetObject(nHandle),"LogicalToDeviceUnits",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LogicalToDeviceUnits",P1])
 
 	Func ScaleBitmapLogicalToDevice P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ScaleBitmapLogicalToDevice",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ScaleBitmapLogicalToDevice",P1])
 
 	Func PerformLayout P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"PerformLayout",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"PerformLayout",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"PerformLayout"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"PerformLayout"])
 		return self
 		ok
 		raise("DotNet Error: PerformLayout does not take one argument: use named arguments, PerformLayout([ :parameter = value, ... ])")
 
 	Func PointToClient P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PointToClient",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PointToClient",P1])
 
 	Func PointToScreen P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PointToScreen",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PointToScreen",P1])
 
 	Func PreProcessMessage P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PreProcessMessage",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PreProcessMessage",P1])
 
 	Func PreProcessControlMessage P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PreProcessControlMessage",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PreProcessControlMessage",P1])
 
 	Func ResetBackColor 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetBackColor"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetBackColor"])
 		return self
 
 	Func ResetCursor 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetCursor"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetCursor"])
 		return self
 
 	Func ResetFont 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetFont"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetFont"])
 		return self
 
 	Func ResetForeColor 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetForeColor"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetForeColor"])
 		return self
 
 	Func ResetRightToLeft 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetRightToLeft"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetRightToLeft"])
 		return self
 
 	Func RectangleToClient P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RectangleToClient",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RectangleToClient",P1])
 
 	Func RectangleToScreen P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RectangleToScreen",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RectangleToScreen",P1])
 
 	Func Refresh 
-		dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Refresh"])
 		return self
 
 	Func ResetText 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetText"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetText"])
 		return self
 
 	Func ResumeLayout P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ResumeLayout",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ResumeLayout",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ResumeLayout"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ResumeLayout"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ResumeLayout",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResumeLayout",P1])
 		return self
 
 	Func Scale P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Scale",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Scale",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Scale",P1])
 		return self
 
 	Func Select 
-		dnRequest("call",[new DotNetObject(nHandle),"Select"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Select"])
 		return self
 
 	Func SelectNextControl P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectNextControl",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"SelectNextControl",P1,P2,P3,P4,P5])
 
 	Func SendToBack 
-		dnRequest("call",[new DotNetObject(nHandle),"SendToBack"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SendToBack"])
 		return self
 
 	Func SetBounds_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetBounds",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetBounds",P1])
 			return self
 		ok
 		raise("DotNet Error: SetBounds does not take one argument: use named arguments, SetBounds([ :parameter = value, ... ])")
 
 	Func Show 
-		dnRequest("call",[new DotNetObject(nHandle),"Show"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Show"])
 		return self
 
 	Func SuspendLayout 
-		dnRequest("call",[new DotNetObject(nHandle),"SuspendLayout"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SuspendLayout"])
 		return self
 
 	Func Update 
-		dnRequest("call",[new DotNetObject(nHandle),"Update"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Update"])
 		return self
 
 	Func ResetImeMode 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetImeMode"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetImeMode"])
 		return self
 
 	Func InvokeAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"InvokeAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InvokeAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"InvokeAsync",P1])
 
 	Func FromChildHandle P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms'),"FromChildHandle",P1])
@@ -5147,563 +5321,703 @@ Class Control from Component
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms'),"IsMnemonic",P1,P2])
 
 	Func setAutoSizeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AutoSizeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AutoSizeChanged",dnCallback(P1)])
 		return self
 
 	Func clearAutoSizeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AutoSizeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AutoSizeChanged"])
 		return self
 
 	Func setBackColorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BackColorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BackColorChanged",dnCallback(P1)])
 		return self
 
 	Func clearBackColorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BackColorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BackColorChanged"])
 		return self
 
 	Func setBackgroundImageChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BackgroundImageChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BackgroundImageChanged",dnCallback(P1)])
 		return self
 
 	Func clearBackgroundImageChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BackgroundImageChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BackgroundImageChanged"])
 		return self
 
 	Func setBackgroundImageLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BackgroundImageLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BackgroundImageLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearBackgroundImageLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BackgroundImageLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BackgroundImageLayoutChanged"])
 		return self
 
 	Func setBindingContextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BindingContextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BindingContextChanged",dnCallback(P1)])
 		return self
 
 	Func clearBindingContextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BindingContextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BindingContextChanged"])
 		return self
 
 	Func setCausesValidationChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CausesValidationChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CausesValidationChanged",dnCallback(P1)])
 		return self
 
 	Func clearCausesValidationChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CausesValidationChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CausesValidationChanged"])
 		return self
 
 	Func setClientSizeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ClientSizeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ClientSizeChanged",dnCallback(P1)])
 		return self
 
 	Func clearClientSizeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ClientSizeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ClientSizeChanged"])
 		return self
 
 	Func setContextMenuStripChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ContextMenuStripChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ContextMenuStripChanged",dnCallback(P1)])
 		return self
 
 	Func clearContextMenuStripChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ContextMenuStripChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ContextMenuStripChanged"])
 		return self
 
 	Func setCursorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CursorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CursorChanged",dnCallback(P1)])
 		return self
 
 	Func clearCursorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CursorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CursorChanged"])
 		return self
 
 	Func setDockChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DockChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DockChanged",dnCallback(P1)])
 		return self
 
 	Func clearDockChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DockChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DockChanged"])
 		return self
 
 	Func setEnabledChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"EnabledChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"EnabledChanged",dnCallback(P1)])
 		return self
 
 	Func clearEnabledChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"EnabledChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"EnabledChanged"])
 		return self
 
 	Func setFontChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FontChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FontChanged",dnCallback(P1)])
 		return self
 
 	Func clearFontChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FontChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FontChanged"])
 		return self
 
 	Func setForeColorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ForeColorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ForeColorChanged",dnCallback(P1)])
 		return self
 
 	Func clearForeColorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ForeColorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ForeColorChanged"])
 		return self
 
 	Func setLocationChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LocationChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LocationChanged",dnCallback(P1)])
 		return self
 
 	Func clearLocationChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LocationChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LocationChanged"])
 		return self
 
 	Func setMarginChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MarginChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MarginChanged",dnCallback(P1)])
 		return self
 
 	Func clearMarginChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MarginChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MarginChanged"])
 		return self
 
 	Func setRegionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RegionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RegionChanged",dnCallback(P1)])
 		return self
 
 	Func clearRegionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RegionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RegionChanged"])
 		return self
 
 	Func setRightToLeftChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftChanged"])
 		return self
 
 	Func setSizeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SizeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SizeChanged",dnCallback(P1)])
 		return self
 
 	Func clearSizeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SizeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SizeChanged"])
 		return self
 
 	Func setTabIndexChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TabIndexChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TabIndexChanged",dnCallback(P1)])
 		return self
 
 	Func clearTabIndexChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TabIndexChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TabIndexChanged"])
 		return self
 
 	Func setTabStopChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TabStopChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TabStopChanged",dnCallback(P1)])
 		return self
 
 	Func clearTabStopChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TabStopChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TabStopChanged"])
 		return self
 
 	Func setTextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TextChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TextChanged"])
 		return self
 
 	Func setVisibleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"VisibleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"VisibleChanged",dnCallback(P1)])
 		return self
 
 	Func clearVisibleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"VisibleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"VisibleChanged"])
 		return self
 
 	Func setClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Click"])
 		return self
 
 	Func setControlAddedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ControlAdded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ControlAdded",dnCallback(P1)])
 		return self
 
 	Func clearControlAddedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ControlAdded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ControlAdded"])
 		return self
 
 	Func setControlRemovedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ControlRemoved",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ControlRemoved",dnCallback(P1)])
 		return self
 
 	Func clearControlRemovedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ControlRemoved"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ControlRemoved"])
 		return self
 
 	Func setDataContextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataContextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataContextChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataContextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataContextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataContextChanged"])
 		return self
 
 	Func setDragDropEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragDrop",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragDrop",dnCallback(P1)])
 		return self
 
 	Func clearDragDropEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragDrop"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragDrop"])
 		return self
 
 	Func setDragEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragEnter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragEnter",dnCallback(P1)])
 		return self
 
 	Func clearDragEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragEnter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragEnter"])
 		return self
 
 	Func setDragOverEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragOver",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragOver",dnCallback(P1)])
 		return self
 
 	Func clearDragOverEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragOver"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragOver"])
 		return self
 
 	Func setDragLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragLeave",dnCallback(P1)])
 		return self
 
 	Func clearDragLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragLeave"])
 		return self
 
 	Func setGiveFeedbackEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"GiveFeedback",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"GiveFeedback",dnCallback(P1)])
 		return self
 
 	Func clearGiveFeedbackEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"GiveFeedback"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"GiveFeedback"])
 		return self
 
 	Func setHandleCreatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"HandleCreated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"HandleCreated",dnCallback(P1)])
 		return self
 
 	Func clearHandleCreatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"HandleCreated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"HandleCreated"])
 		return self
 
 	Func setHandleDestroyedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"HandleDestroyed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"HandleDestroyed",dnCallback(P1)])
 		return self
 
 	Func clearHandleDestroyedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"HandleDestroyed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"HandleDestroyed"])
 		return self
 
 	Func setHelpRequestedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"HelpRequested",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"HelpRequested",dnCallback(P1)])
 		return self
 
 	Func clearHelpRequestedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"HelpRequested"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"HelpRequested"])
 		return self
 
 	Func setInvalidatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Invalidated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Invalidated",dnCallback(P1)])
 		return self
 
 	Func clearInvalidatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Invalidated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Invalidated"])
 		return self
 
 	Func setPaddingChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"PaddingChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PaddingChanged",dnCallback(P1)])
 		return self
 
 	Func clearPaddingChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"PaddingChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PaddingChanged"])
 		return self
 
 	Func setPaintEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Paint",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Paint",dnCallback(P1)])
 		return self
 
 	Func clearPaintEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Paint"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Paint"])
 		return self
 
 	Func setQueryContinueDragEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"QueryContinueDrag",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"QueryContinueDrag",dnCallback(P1)])
 		return self
 
 	Func clearQueryContinueDragEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"QueryContinueDrag"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"QueryContinueDrag"])
 		return self
 
 	Func setQueryAccessibilityHelpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"QueryAccessibilityHelp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"QueryAccessibilityHelp",dnCallback(P1)])
 		return self
 
 	Func clearQueryAccessibilityHelpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"QueryAccessibilityHelp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"QueryAccessibilityHelp"])
 		return self
 
 	Func setDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DoubleClick"])
 		return self
 
 	Func setEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Enter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Enter",dnCallback(P1)])
 		return self
 
 	Func clearEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Enter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Enter"])
 		return self
 
 	Func setGotFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"GotFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"GotFocus",dnCallback(P1)])
 		return self
 
 	Func clearGotFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"GotFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"GotFocus"])
 		return self
 
 	Func setKeyDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"KeyDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"KeyDown",dnCallback(P1)])
 		return self
 
 	Func clearKeyDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"KeyDown"])
 		return self
 
 	Func setKeyPressEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"KeyPress",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"KeyPress",dnCallback(P1)])
 		return self
 
 	Func clearKeyPressEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyPress"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"KeyPress"])
 		return self
 
 	Func setKeyUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"KeyUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"KeyUp",dnCallback(P1)])
 		return self
 
 	Func clearKeyUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"KeyUp"])
 		return self
 
 	Func setLayoutEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Layout",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Layout",dnCallback(P1)])
 		return self
 
 	Func clearLayoutEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Layout"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Layout"])
 		return self
 
 	Func setLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Leave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Leave",dnCallback(P1)])
 		return self
 
 	Func clearLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Leave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Leave"])
 		return self
 
 	Func setLostFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LostFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LostFocus",dnCallback(P1)])
 		return self
 
 	Func clearLostFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LostFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LostFocus"])
 		return self
 
 	Func setMouseClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseClick",dnCallback(P1)])
 		return self
 
 	Func clearMouseClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseClick"])
 		return self
 
 	Func setMouseDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearMouseDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseDoubleClick"])
 		return self
 
 	Func setMouseCaptureChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseCaptureChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseCaptureChanged",dnCallback(P1)])
 		return self
 
 	Func clearMouseCaptureChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseCaptureChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseCaptureChanged"])
 		return self
 
 	Func setMouseDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseDown"])
 		return self
 
 	Func setMouseEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseEnter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseEnter",dnCallback(P1)])
 		return self
 
 	Func clearMouseEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseEnter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseEnter"])
 		return self
 
 	Func setMouseLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseLeave",dnCallback(P1)])
 		return self
 
 	Func clearMouseLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseLeave"])
 		return self
 
 	Func setDpiChangedBeforeParentEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DpiChangedBeforeParent",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DpiChangedBeforeParent",dnCallback(P1)])
 		return self
 
 	Func clearDpiChangedBeforeParentEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DpiChangedBeforeParent"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DpiChangedBeforeParent"])
 		return self
 
 	Func setDpiChangedAfterParentEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DpiChangedAfterParent",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DpiChangedAfterParent",dnCallback(P1)])
 		return self
 
 	Func clearDpiChangedAfterParentEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DpiChangedAfterParent"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DpiChangedAfterParent"])
 		return self
 
 	Func setMouseHoverEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseHover",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseHover",dnCallback(P1)])
 		return self
 
 	Func clearMouseHoverEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseHover"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseHover"])
 		return self
 
 	Func setMouseMoveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseMove",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseMove",dnCallback(P1)])
 		return self
 
 	Func clearMouseMoveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseMove"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseMove"])
 		return self
 
 	Func setMouseUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseUp"])
 		return self
 
 	Func setMouseWheelEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseWheel",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseWheel",dnCallback(P1)])
 		return self
 
 	Func clearMouseWheelEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseWheel"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseWheel"])
 		return self
 
 	Func setMoveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Move",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Move",dnCallback(P1)])
 		return self
 
 	Func clearMoveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Move"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Move"])
 		return self
 
 	Func setPreviewKeyDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"PreviewKeyDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PreviewKeyDown",dnCallback(P1)])
 		return self
 
 	Func clearPreviewKeyDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"PreviewKeyDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PreviewKeyDown"])
 		return self
 
 	Func setResizeEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Resize",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Resize",dnCallback(P1)])
 		return self
 
 	Func clearResizeEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Resize"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Resize"])
 		return self
 
 	Func setChangeUICuesEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ChangeUICues",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ChangeUICues",dnCallback(P1)])
 		return self
 
 	Func clearChangeUICuesEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ChangeUICues"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ChangeUICues"])
 		return self
 
 	Func setStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"StyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"StyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StyleChanged"])
 		return self
 
 	Func setSystemColorsChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SystemColorsChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SystemColorsChanged",dnCallback(P1)])
 		return self
 
 	Func clearSystemColorsChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SystemColorsChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SystemColorsChanged"])
 		return self
 
 	Func setValidatingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Validating",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Validating",dnCallback(P1)])
 		return self
 
 	Func clearValidatingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Validating"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Validating"])
 		return self
 
 	Func setValidatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Validated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Validated",dnCallback(P1)])
 		return self
 
 	Func clearValidatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Validated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Validated"])
 		return self
 
 	Func setParentChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ParentChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ParentChanged",dnCallback(P1)])
 		return self
 
 	Func clearParentChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ParentChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ParentChanged"])
 		return self
 
 	Func setImeModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ImeModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ImeModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearImeModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ImeModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ImeModeChanged"])
 		return self
 
 	Func getAccessibilityObject
@@ -6276,7 +6590,8 @@ Class ControlPaint from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CreateHBitmap16Bit P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"CreateHBitmap16Bit",P1,P2])
@@ -6507,7 +6822,8 @@ Class CreateParams from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getClassName
 		return dnRequest("get",[self,"ClassName"])
@@ -6624,22 +6940,27 @@ Class Cursor from Object
 		return self
 
 	Func CopyHandle 
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyHandle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CopyHandle"])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Draw P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Draw",P1,P2])
 		return self
 
 	Func DrawStretched P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawStretched",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawStretched",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Hide 
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms'),"Hide"])
@@ -6762,7 +7083,8 @@ Class Cursors from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAppStarting
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms'),"AppStarting"])
@@ -6967,7 +7289,8 @@ Class DataFormats from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetFormat P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms'),"GetFormat",P1])
@@ -7130,7 +7453,8 @@ Class DataGridViewAdvancedBorderStyle from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAll
 		return dnRequest("get",[self,"All"])
@@ -7348,15 +7672,18 @@ Class DataGridViewCellPaintingEventArgs from HandledEventArgs
 		return self
 
 	Func Paint P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Paint",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Paint",P1,P2])
 		return self
 
 	Func PaintBackground P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"PaintBackground",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintBackground",P1,P2])
 		return self
 
 	Func PaintContent P1
-		dnRequest("call",[new DotNetObject(nHandle),"PaintContent",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintContent",P1])
 		return self
 
 	Func getGraphics
@@ -7523,14 +7850,17 @@ Class DataGridViewCellStyle from Object
 		return self
 
 	Func ApplyStyle P1
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyStyle",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyStyle",P1])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAlignment
 		return dnRequest("get",[self,"Alignment"])
@@ -7874,7 +8204,8 @@ Class DataGridViewElement from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getState
 		return dnRequest("get",[self,"State"])
@@ -7928,107 +8259,133 @@ Class DataGridViewRowCollection from Object
 		return self
 
 	Func SharedRow P1
-		return dnRequest("call",[new DotNetObject(nHandle),"SharedRow",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"SharedRow",P1])
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"Add"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"Add"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddCopy P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AddCopy",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddCopy",P1])
 
 	Func AddCopies P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddCopies",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddCopies",P1,P2])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetFirstRow P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFirstRow",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetFirstRow",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstRow",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFirstRow",P1])
 
 	Func GetLastRow P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetLastRow",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLastRow",P1])
 
 	Func GetNextRow P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNextRow",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetNextRow",P1])
 		ok
 		raise("DotNet Error: GetNextRow does not take one argument: use named arguments, GetNextRow([ :parameter = value, ... ])")
 
 	Func GetPreviousRow P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetPreviousRow",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetPreviousRow",P1])
 		ok
 		raise("DotNet Error: GetPreviousRow does not take one argument: use named arguments, GetPreviousRow([ :parameter = value, ... ])")
 
 	Func GetRowCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRowCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRowCount",P1])
 
 	Func GetRowsHeight P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRowsHeight",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRowsHeight",P1])
 
 	Func GetRowState P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRowState",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRowState",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func InsertCopy P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"InsertCopy",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertCopy",P1,P2])
 		return self
 
 	Func InsertCopies P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"InsertCopies",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertCopies",P1,P2,P3])
 		return self
 
 	Func InsertRange P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"InsertRange",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InsertRange",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CollectionChanged"])
 		return self
 
 	Func getCount
@@ -8212,23 +8569,28 @@ Class DataGridViewRowPostPaintEventArgs from EventArgs
 		return self
 
 	Func DrawFocus P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawFocus",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawFocus",P1,P2])
 		return self
 
 	Func PaintCells P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"PaintCells",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintCells",P1,P2])
 		return self
 
 	Func PaintCellsBackground P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"PaintCellsBackground",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintCellsBackground",P1,P2])
 		return self
 
 	Func PaintCellsContent P1
-		dnRequest("call",[new DotNetObject(nHandle),"PaintCellsContent",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintCellsContent",P1])
 		return self
 
 	Func PaintHeader P1
-		dnRequest("call",[new DotNetObject(nHandle),"PaintHeader",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintHeader",P1])
 		return self
 
 	Func getGraphics
@@ -8312,23 +8674,28 @@ Class DataGridViewRowPrePaintEventArgs from HandledEventArgs
 		return self
 
 	Func DrawFocus P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawFocus",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawFocus",P1,P2])
 		return self
 
 	Func PaintCells P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"PaintCells",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintCells",P1,P2])
 		return self
 
 	Func PaintCellsBackground P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"PaintCellsBackground",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintCellsBackground",P1,P2])
 		return self
 
 	Func PaintCellsContent P1
-		dnRequest("call",[new DotNetObject(nHandle),"PaintCellsContent",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintCellsContent",P1])
 		return self
 
 	Func PaintHeader P1
-		dnRequest("call",[new DotNetObject(nHandle),"PaintHeader",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PaintHeader",P1])
 		return self
 
 	Func getGraphics
@@ -8584,92 +8951,109 @@ Class DataObject from Object
 		return self
 
 	Func GetData P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetData",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetData",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetData",P1])
 
 	Func GetDataPresent P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetDataPresent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDataPresent",P1])
 
 	Func GetFormats P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFormats",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetFormats",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetFormats"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFormats"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFormats",P1])
 
 	Func SetData P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetData",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetData",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetData",P1])
 		return self
 
 	Func ContainsAudio 
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsAudio"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsAudio"])
 
 	Func ContainsFileDropList 
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsFileDropList"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsFileDropList"])
 
 	Func ContainsImage 
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsImage"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsImage"])
 
 	Func ContainsText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ContainsText",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ContainsText",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ContainsText"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsText"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsText",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsText",P1])
 
 	Func GetAudioStream 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAudioStream"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAudioStream"])
 
 	Func GetFileDropList 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileDropList"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFileDropList"])
 
 	Func GetImage 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetImage"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetImage"])
 
 	Func GetText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetText",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetText",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetText"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetText"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetText",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetText",P1])
 
 	Func SetAudio P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetAudio",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAudio",P1])
 		return self
 
 	Func SetFileDropList P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetFileDropList",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetFileDropList",P1])
 		return self
 
 	Func SetImage P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetImage",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetImage",P1])
 		return self
 
 	Func SetText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetText",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetText",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetText",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetText",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class DateBoldEventArgs from EventArgs
@@ -8900,15 +9284,18 @@ Class DrawItemEventArgs from EventArgs
 		return self
 
 	Func DrawBackground 
-		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawBackground"])
 		return self
 
 	Func DrawFocusRectangle 
-		dnRequest("call",[new DotNetObject(nHandle),"DrawFocusRectangle"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawFocusRectangle"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func getGraphics
@@ -8978,19 +9365,21 @@ Class DrawListViewColumnHeaderEventArgs from EventArgs
 		return self
 
 	Func DrawBackground 
-		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawBackground"])
 		return self
 
 	Func DrawText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawText",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawText",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawText",P1])
 		return self
 
 	Func getGraphics
@@ -9070,23 +9459,26 @@ Class DrawListViewItemEventArgs from EventArgs
 		return self
 
 	Func DrawBackground 
-		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawBackground"])
 		return self
 
 	Func DrawFocusRectangle 
-		dnRequest("call",[new DotNetObject(nHandle),"DrawFocusRectangle"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawFocusRectangle"])
 		return self
 
 	Func DrawText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawText",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawText",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawText",P1])
 		return self
 
 	Func getGraphics
@@ -9151,23 +9543,26 @@ Class DrawListViewSubItemEventArgs from EventArgs
 		return self
 
 	Func DrawBackground 
-		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawBackground"])
 		return self
 
 	Func DrawFocusRectangle P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawFocusRectangle",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawFocusRectangle",P1])
 		return self
 
 	Func DrawText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawText",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawText",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawText",P1])
 		return self
 
 	Func getGraphics
@@ -9247,23 +9642,26 @@ Class DrawToolTipEventArgs from EventArgs
 		return self
 
 	Func DrawBackground 
-		dnRequest("call",[new DotNetObject(nHandle),"DrawBackground"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawBackground"])
 		return self
 
 	Func DrawText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawText",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawText",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawText",P1])
 		return self
 
 	Func DrawBorder 
-		dnRequest("call",[new DotNetObject(nHandle),"DrawBorder"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawBorder"])
 		return self
 
 	Func getGraphics
@@ -9409,47 +9807,59 @@ Class ErrorProvider from Component
 		return self
 
 	Func BindToDataAndErrors P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BindToDataAndErrors",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BindToDataAndErrors",P1,P2])
 		return self
 
 	Func UpdateBinding 
-		dnRequest("call",[new DotNetObject(nHandle),"UpdateBinding"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateBinding"])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func CanExtend P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanExtend",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CanExtend",P1])
 
 	Func GetError P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetError",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetError",P1])
 
 	Func GetIconAlignment P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetIconAlignment",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIconAlignment",P1])
 
 	Func GetIconPadding P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetIconPadding",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetIconPadding",P1])
 
 	Func SetError P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetError",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetError",P1,P2])
 		return self
 
 	Func SetIconAlignment P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetIconAlignment",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetIconAlignment",P1,P2])
 		return self
 
 	Func SetIconPadding P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetIconPadding",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetIconPadding",P1,P2])
 		return self
 
 	Func setRightToLeftChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftChanged"])
 		return self
 
 	Func getBlinkStyle
@@ -9527,25 +9937,28 @@ Class FeatureSupport from Object
 		return self
 
 	Func IsPresent P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"IsPresent",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsPresent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsPresent",P1])
 
 	Func GetVersionPresent P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"GetVersionPresent",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetVersionPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetVersionPresent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetVersionPresent",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetVersionPresent",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class FileDialogCustomPlace from Object
@@ -9565,7 +9978,8 @@ Class FileDialogCustomPlace from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getPath
 		return dnRequest("get",[self,"Path"])
@@ -9609,54 +10023,69 @@ Class FileDialogCustomPlacesCollection from DotNetObject
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -9684,7 +10113,8 @@ Class FlatButtonAppearance from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBorderSize
 		return dnRequest("get",[self,"BorderSize"])
@@ -9791,7 +10221,8 @@ Class FormCollection from ReadOnlyCollectionBase
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 
 Class GiveFeedbackEventArgs from EventArgs
@@ -9885,10 +10316,12 @@ Class GridItem from Object
 		return self
 
 	Func Select 
-		return dnRequest("call",[new DotNetObject(nHandle),"Select"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Select"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTag
 		return dnRequest("get",[self,"Tag"])
@@ -9962,13 +10395,16 @@ Class GridItemCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -9998,7 +10434,8 @@ Class GroupBoxRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func IsBackgroundPartiallyTransparent P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"IsBackgroundPartiallyTransparent",P1])
@@ -10034,7 +10471,8 @@ Class Help from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func ShowHelp P1
 		if dnIsNamed(P1)
@@ -10110,38 +10548,48 @@ Class HelpProvider from Component
 		return self
 
 	Func CanExtend P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanExtend",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CanExtend",P1])
 
 	Func GetHelpKeyword P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHelpKeyword",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHelpKeyword",P1])
 
 	Func GetHelpNavigator P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHelpNavigator",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHelpNavigator",P1])
 
 	Func GetHelpString P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHelpString",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHelpString",P1])
 
 	Func GetShowHelp P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetShowHelp",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetShowHelp",P1])
 
 	Func SetHelpString P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetHelpString",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHelpString",P1,P2])
 		return self
 
 	Func SetHelpKeyword P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetHelpKeyword",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHelpKeyword",P1,P2])
 		return self
 
 	Func SetHelpNavigator P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetHelpNavigator",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHelpNavigator",P1,P2])
 		return self
 
 	Func SetShowHelp P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetShowHelp",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetShowHelp",P1,P2])
 		return self
 
 	Func ResetShowHelp P1
-		dnRequest("call",[new DotNetObject(nHandle),"ResetShowHelp",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetShowHelp",P1])
 		return self
 
 	Func getHelpNamespace
@@ -10193,127 +10641,159 @@ Class HtmlDocument from Object
 		return self
 
 	Func Write P1
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1])
 		return self
 
 	Func ExecCommand P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ExecCommand",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ExecCommand",P1,P2,P3])
 		return self
 
 	Func Focus 
-		dnRequest("call",[new DotNetObject(nHandle),"Focus"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Focus"])
 		return self
 
 	Func GetElementById P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetElementById",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetElementById",P1])
 
 	Func GetElementFromPoint P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetElementFromPoint",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetElementFromPoint",P1])
 
 	Func GetElementsByTagName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetElementsByTagName",P1])
 
 	Func OpenNew P1
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenNew",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenNew",P1])
 
 	Func CreateElement P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateElement",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateElement",P1])
 
 	Func InvokeScript P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"InvokeScript",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InvokeScript",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeScript",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"InvokeScript",P1])
 
 	Func AttachEventHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AttachEventHandler",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AttachEventHandler",P1,P2])
 		return self
 
 	Func DetachEventHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DetachEventHandler",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DetachEventHandler",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Click"])
 		return self
 
 	Func setContextMenuShowingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ContextMenuShowing",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ContextMenuShowing",dnCallback(P1)])
 		return self
 
 	Func clearContextMenuShowingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ContextMenuShowing"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ContextMenuShowing"])
 		return self
 
 	Func setFocusingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Focusing",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Focusing",dnCallback(P1)])
 		return self
 
 	Func clearFocusingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Focusing"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Focusing"])
 		return self
 
 	Func setLosingFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LosingFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LosingFocus",dnCallback(P1)])
 		return self
 
 	Func clearLosingFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LosingFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LosingFocus"])
 		return self
 
 	Func setMouseDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseDown"])
 		return self
 
 	Func setMouseLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseLeave",dnCallback(P1)])
 		return self
 
 	Func clearMouseLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseLeave"])
 		return self
 
 	Func setMouseMoveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseMove",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseMove",dnCallback(P1)])
 		return self
 
 	Func clearMouseMoveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseMove"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseMove"])
 		return self
 
 	Func setMouseOverEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseOver",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseOver",dnCallback(P1)])
 		return self
 
 	Func clearMouseOverEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseOver"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseOver"])
 		return self
 
 	Func setMouseUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseUp"])
 		return self
 
 	Func setStopEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Stop",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Stop",dnCallback(P1)])
 		return self
 
 	Func clearStopEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Stop"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Stop"])
 		return self
 
 	Func getActiveElement
@@ -10490,204 +10970,255 @@ Class HtmlElement from Object
 		return self
 
 	Func AppendChild P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendChild",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendChild",P1])
 
 	Func AttachEventHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AttachEventHandler",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AttachEventHandler",P1,P2])
 		return self
 
 	Func DetachEventHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DetachEventHandler",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DetachEventHandler",P1,P2])
 		return self
 
 	Func Focus 
-		dnRequest("call",[new DotNetObject(nHandle),"Focus"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Focus"])
 		return self
 
 	Func GetAttribute P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAttribute",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAttribute",P1])
 
 	Func GetElementsByTagName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetElementsByTagName",P1])
 
 	Func InsertAdjacentElement P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"InsertAdjacentElement",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"InsertAdjacentElement",P1,P2])
 
 	Func InvokeMember P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"InvokeMember",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InvokeMember",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"InvokeMember",P1])
 
 	Func RemoveFocus 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveFocus"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveFocus"])
 		return self
 
 	Func RaiseEvent P1
-		dnRequest("call",[new DotNetObject(nHandle),"RaiseEvent",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RaiseEvent",P1])
 		return self
 
 	Func ScrollIntoView P1
-		dnRequest("call",[new DotNetObject(nHandle),"ScrollIntoView",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ScrollIntoView",P1])
 		return self
 
 	Func SetAttribute P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetAttribute",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAttribute",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Click"])
 		return self
 
 	Func setDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DoubleClick"])
 		return self
 
 	Func setDragEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Drag",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Drag",dnCallback(P1)])
 		return self
 
 	Func clearDragEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Drag"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Drag"])
 		return self
 
 	Func setDragEndEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragEnd",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragEnd",dnCallback(P1)])
 		return self
 
 	Func clearDragEndEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragEnd"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragEnd"])
 		return self
 
 	Func setDragLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragLeave",dnCallback(P1)])
 		return self
 
 	Func clearDragLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragLeave"])
 		return self
 
 	Func setDragOverEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragOver",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragOver",dnCallback(P1)])
 		return self
 
 	Func clearDragOverEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragOver"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragOver"])
 		return self
 
 	Func setFocusingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Focusing",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Focusing",dnCallback(P1)])
 		return self
 
 	Func clearFocusingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Focusing"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Focusing"])
 		return self
 
 	Func setGotFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"GotFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"GotFocus",dnCallback(P1)])
 		return self
 
 	Func clearGotFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"GotFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"GotFocus"])
 		return self
 
 	Func setLosingFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LosingFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LosingFocus",dnCallback(P1)])
 		return self
 
 	Func clearLosingFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LosingFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LosingFocus"])
 		return self
 
 	Func setLostFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LostFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LostFocus",dnCallback(P1)])
 		return self
 
 	Func clearLostFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LostFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LostFocus"])
 		return self
 
 	Func setKeyDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"KeyDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"KeyDown",dnCallback(P1)])
 		return self
 
 	Func clearKeyDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"KeyDown"])
 		return self
 
 	Func setKeyPressEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"KeyPress",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"KeyPress",dnCallback(P1)])
 		return self
 
 	Func clearKeyPressEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyPress"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"KeyPress"])
 		return self
 
 	Func setKeyUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"KeyUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"KeyUp",dnCallback(P1)])
 		return self
 
 	Func clearKeyUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"KeyUp"])
 		return self
 
 	Func setMouseMoveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseMove",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseMove",dnCallback(P1)])
 		return self
 
 	Func clearMouseMoveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseMove"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseMove"])
 		return self
 
 	Func setMouseDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseDown"])
 		return self
 
 	Func setMouseOverEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseOver",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseOver",dnCallback(P1)])
 		return self
 
 	Func clearMouseOverEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseOver"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseOver"])
 		return self
 
 	Func setMouseUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseUp"])
 		return self
 
 	Func setMouseEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseEnter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseEnter",dnCallback(P1)])
 		return self
 
 	Func clearMouseEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseEnter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseEnter"])
 		return self
 
 	Func setMouseLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseLeave",dnCallback(P1)])
 		return self
 
 	Func clearMouseLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseLeave"])
 		return self
 
 	Func getAll
@@ -10860,16 +11391,20 @@ Class HtmlElementCollection from Object
 		return self
 
 	Func GetElementsByName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetElementsByName",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -11041,23 +11576,28 @@ Class HtmlHistory from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Back P1
-		dnRequest("call",[new DotNetObject(nHandle),"Back",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Back",P1])
 		return self
 
 	Func Forward P1
-		dnRequest("call",[new DotNetObject(nHandle),"Forward",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Forward",P1])
 		return self
 
 	Func Go P1
-		dnRequest("call",[new DotNetObject(nHandle),"Go",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Go",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getLength
 		return dnRequest("get",[self,"Length"])
@@ -11098,126 +11638,155 @@ Class HtmlWindow from Object
 		return self
 
 	Func Alert P1
-		dnRequest("call",[new DotNetObject(nHandle),"Alert",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Alert",P1])
 		return self
 
 	Func AttachEventHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AttachEventHandler",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AttachEventHandler",P1,P2])
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Confirm P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Confirm",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Confirm",P1])
 
 	Func DetachEventHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DetachEventHandler",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DetachEventHandler",P1,P2])
 		return self
 
 	Func Focus 
-		dnRequest("call",[new DotNetObject(nHandle),"Focus"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Focus"])
 		return self
 
 	Func MoveTo P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"MoveTo",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MoveTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MoveTo",P1])
 		return self
 
 	Func Navigate P1
-		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Navigate",P1])
 		return self
 
 	Func Open P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Open",P1,P2,P3,P4])
 
 	Func OpenNew P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenNew",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenNew",P1,P2])
 
 	Func Prompt P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Prompt",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Prompt",P1,P2])
 
 	Func RemoveFocus 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveFocus"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveFocus"])
 		return self
 
 	Func ResizeTo P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ResizeTo",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ResizeTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ResizeTo",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResizeTo",P1])
 		return self
 
 	Func ScrollTo P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ScrollTo",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ScrollTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ScrollTo",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ScrollTo",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setErrorEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Error",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Error",dnCallback(P1)])
 		return self
 
 	Func clearErrorEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Error"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Error"])
 		return self
 
 	Func setGotFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"GotFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"GotFocus",dnCallback(P1)])
 		return self
 
 	Func clearGotFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"GotFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"GotFocus"])
 		return self
 
 	Func setLoadEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Load",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Load",dnCallback(P1)])
 		return self
 
 	Func clearLoadEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Load"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Load"])
 		return self
 
 	Func setLostFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LostFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LostFocus",dnCallback(P1)])
 		return self
 
 	Func clearLostFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LostFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LostFocus"])
 		return self
 
 	Func setResizeEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Resize",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Resize",dnCallback(P1)])
 		return self
 
 	Func clearResizeEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Resize"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Resize"])
 		return self
 
 	Func setScrollEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Scroll",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Scroll",dnCallback(P1)])
 		return self
 
 	Func clearScrollEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Scroll"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Scroll"])
 		return self
 
 	Func setUnloadEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Unload",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Unload",dnCallback(P1)])
 		return self
 
 	Func clearUnloadEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Unload"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Unload"])
 		return self
 
 	Func getDocument
@@ -11316,13 +11885,16 @@ Class HtmlWindowCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -11373,11 +11945,13 @@ Class IButtonControl from DotNetObject
 		return self
 
 	Func NotifyDefault P1
-		dnRequest("call",[new DotNetObject(nHandle),"NotifyDefault",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"NotifyDefault",P1])
 		return self
 
 	Func PerformClick 
-		dnRequest("call",[new DotNetObject(nHandle),"PerformClick"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PerformClick"])
 		return self
 
 	Func getDialogResult
@@ -11400,7 +11974,8 @@ Class ICommandExecutor from DotNetObject
 		return self
 
 	Func Execute 
-		dnRequest("call",[new DotNetObject(nHandle),"Execute"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Execute"])
 		return self
 
 
@@ -11416,10 +11991,12 @@ Class IComponentEditorPageSite from DotNetObject
 		return self
 
 	Func GetControl 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetControl"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetControl"])
 
 	Func SetDirty 
-		dnRequest("call",[new DotNetObject(nHandle),"SetDirty"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetDirty"])
 		return self
 
 
@@ -11437,7 +12014,8 @@ Class IContainerControl from DotNetObject
 		return self
 
 	Func ActivateControl P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ActivateControl",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ActivateControl",P1])
 
 	Func getActiveControl
 		return dnRequest("get",[self,"ActiveControl"])
@@ -11461,7 +12039,8 @@ Class ICurrencyManagerProvider from DotNetObject
 		return self
 
 	Func GetRelatedCurrencyManager P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRelatedCurrencyManager",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRelatedCurrencyManager",P1])
 
 	Func getCurrencyManager
 		return dnRequest("get",[self,"CurrencyManager"])
@@ -11482,7 +12061,8 @@ Class IDataGridColumnStyleEditingNotificationService from DotNetObject
 		return self
 
 	Func ColumnStartedEditing P1
-		dnRequest("call",[new DotNetObject(nHandle),"ColumnStartedEditing",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ColumnStartedEditing",P1])
 		return self
 
 
@@ -11501,10 +12081,12 @@ Class IDataGridViewEditingCell from DotNetObject
 		return self
 
 	Func GetEditingCellFormattedValue_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingCellFormattedValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEditingCellFormattedValue",P1])
 
 	Func PrepareEditingCellForEdit P1
-		dnRequest("call",[new DotNetObject(nHandle),"PrepareEditingCellForEdit",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PrepareEditingCellForEdit",P1])
 		return self
 
 	Func getEditingCellFormattedValue
@@ -11541,17 +12123,21 @@ Class IDataGridViewEditingControl from DotNetObject
 		return self
 
 	Func ApplyCellStyleToEditingControl P1
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyCellStyleToEditingControl",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyCellStyleToEditingControl",P1])
 		return self
 
 	Func EditingControlWantsInputKey P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EditingControlWantsInputKey",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EditingControlWantsInputKey",P1,P2])
 
 	Func GetEditingControlFormattedValue_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingControlFormattedValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEditingControlFormattedValue",P1])
 
 	Func PrepareEditingControlForEdit P1
-		dnRequest("call",[new DotNetObject(nHandle),"PrepareEditingControlForEdit",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PrepareEditingControlForEdit",P1])
 		return self
 
 	Func getEditingControlDataGridView
@@ -11607,32 +12193,36 @@ Class IDataObject from DotNetObject
 		return self
 
 	Func GetData P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetData",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetData",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetData",P1])
 
 	Func GetDataPresent P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetDataPresent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDataPresent",P1])
 
 	Func GetFormats P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFormats",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetFormats",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetFormats"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFormats"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFormats",P1])
 
 	Func SetData P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetData",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetData",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetData",P1])
 		return self
 
 
@@ -11648,19 +12238,23 @@ Class IDropTarget from DotNetObject
 		return self
 
 	Func OnDragEnter P1
-		dnRequest("call",[new DotNetObject(nHandle),"OnDragEnter",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDragEnter",P1])
 		return self
 
 	Func OnDragLeave P1
-		dnRequest("call",[new DotNetObject(nHandle),"OnDragLeave",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDragLeave",P1])
 		return self
 
 	Func OnDragDrop P1
-		dnRequest("call",[new DotNetObject(nHandle),"OnDragDrop",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDragDrop",P1])
 		return self
 
 	Func OnDragOver P1
-		dnRequest("call",[new DotNetObject(nHandle),"OnDragOver",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnDragOver",P1])
 		return self
 
 
@@ -11676,13 +12270,15 @@ Class IFeatureSupport from DotNetObject
 		return self
 
 	Func IsPresent P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsPresent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsPresent",P1])
 
 	Func GetVersionPresent P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetVersionPresent",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetVersionPresent",P1])
 
 
 Class IFileReaderService from DotNetObject
@@ -11697,7 +12293,8 @@ Class IFileReaderService from DotNetObject
 		return self
 
 	Func OpenFileFromSource P1
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenFileFromSource",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenFileFromSource",P1])
 
 
 Class IMessageFilter from DotNetObject
@@ -11712,7 +12309,8 @@ Class IMessageFilter from DotNetObject
 		return self
 
 	Func PreFilterMessage P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PreFilterMessage",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PreFilterMessage",P1])
 
 
 Class IWin32Window from DotNetObject
@@ -11747,11 +12345,13 @@ Class IWindowTarget from DotNetObject
 		return self
 
 	Func OnHandleChange P1
-		dnRequest("call",[new DotNetObject(nHandle),"OnHandleChange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnHandleChange",P1])
 		return self
 
 	Func OnMessage P1
-		return dnRequest("call",[new DotNetObject(nHandle),"OnMessage",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnMessage",P1])
 
 
 Class ImageIndexConverter from Int32Converter
@@ -11858,18 +12458,21 @@ Class ImageList from Component
 		return self
 
 	Func Draw P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Draw",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Draw",P1])
 			return self
 		ok
 		raise("DotNet Error: Draw does not take one argument: use named arguments, Draw([ :parameter = value, ... ])")
 
 	Func setRecreateHandleEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RecreateHandle",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RecreateHandle",dnCallback(P1)])
 		return self
 
 	Func clearRecreateHandleEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RecreateHandle"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RecreateHandle"])
 		return self
 
 	Func getColorDepth
@@ -11938,15 +12541,18 @@ Class ImageListStreamer from Object
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class ImeContext from Object
@@ -11961,7 +12567,8 @@ Class ImeContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Disable P1
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ImeContext, System.Windows.Forms'),"Disable",P1])
@@ -12045,7 +12652,8 @@ Class InputLanguage from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func FromCulture P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"FromCulture",P1])
@@ -12172,17 +12780,21 @@ Class InputLanguageCollection from ReadOnlyCollectionBase
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 
 Class InvalidateEventArgs from EventArgs
@@ -12466,7 +13078,8 @@ Class KeysConverter from TypeConverter
 		return self
 
 	Func Compare P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Compare",P1,P2])
 
 
 Class LabelEditEventArgs from EventArgs
@@ -12571,7 +13184,8 @@ Class LayoutSettings from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getLayoutEngine
 		return dnRequest("get",[self,"LayoutEngine"])
@@ -12806,7 +13420,8 @@ Class ListBindingHelper from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetList P1
 		if dnIsNamed(P1)
@@ -12889,7 +13504,8 @@ Class ListViewGroup from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getHeader
 		return dnRequest("get",[self,"Header"])
@@ -12995,52 +13611,65 @@ Class ListViewGroupCollection from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -13090,7 +13719,8 @@ Class ListViewHitTestInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getLocation
 		return dnRequest("get",[self,"Location"])
@@ -13128,10 +13758,12 @@ Class ListViewInsertionMark from Object
 		return self
 
 	Func NearestIndex P1
-		return dnRequest("call",[new DotNetObject(nHandle),"NearestIndex",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"NearestIndex",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAppearsAfterItem
 		return dnRequest("get",[self,"AppearsAfterItem"])
@@ -13229,31 +13861,39 @@ Class ListViewItem from Object
 		return self
 
 	Func BeginEdit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginEdit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginEdit"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func EnsureVisible 
-		dnRequest("call",[new DotNetObject(nHandle),"EnsureVisible"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureVisible"])
 		return self
 
 	Func FindNearestItem P1
-		return dnRequest("call",[new DotNetObject(nHandle),"FindNearestItem",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindNearestItem",P1])
 
 	Func GetBounds_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBounds",P1])
 
 	Func GetSubItemAt P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSubItemAt",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSubItemAt",P1,P2])
 
 	Func Remove 
-		dnRequest("call",[new DotNetObject(nHandle),"Remove"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBackColor
 		return dnRequest("get",[self,"BackColor"])
@@ -13644,7 +14284,8 @@ Class Message from ValueType
 		return self
 
 	Func GetLParam_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetLParam",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLParam",P1])
 
 	Func Create P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Message, System.Windows.Forms.Primitives'),"Create",P1,P2,P3,P4])
@@ -13697,7 +14338,8 @@ Class MessageBox from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Show P1
 		if dnIsNamed(P1)
@@ -13790,22 +14432,27 @@ Class NativeWindow from MarshalByRefObject
 		return self
 
 	Func AssignHandle P1
-		dnRequest("call",[new DotNetObject(nHandle),"AssignHandle",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AssignHandle",P1])
 		return self
 
 	Func CreateHandle P1
-		dnRequest("call",[new DotNetObject(nHandle),"CreateHandle",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CreateHandle",P1])
 		return self
 
 	Func DefWndProc P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DefWndProc",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DefWndProc",P1])
 
 	Func DestroyHandle 
-		dnRequest("call",[new DotNetObject(nHandle),"DestroyHandle"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DestroyHandle"])
 		return self
 
 	Func ReleaseHandle 
-		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHandle"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReleaseHandle"])
 		return self
 
 	Func FromHandle P1
@@ -13946,91 +14593,112 @@ Class NotifyIcon from Component
 		return self
 
 	Func ShowBalloonTip P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ShowBalloonTip",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ShowBalloonTip",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ShowBalloonTip",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ShowBalloonTip",P1])
 		return self
 
 	Func setBalloonTipClickedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BalloonTipClicked",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BalloonTipClicked",dnCallback(P1)])
 		return self
 
 	Func clearBalloonTipClickedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BalloonTipClicked"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BalloonTipClicked"])
 		return self
 
 	Func setBalloonTipClosedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BalloonTipClosed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BalloonTipClosed",dnCallback(P1)])
 		return self
 
 	Func clearBalloonTipClosedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BalloonTipClosed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BalloonTipClosed"])
 		return self
 
 	Func setBalloonTipShownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BalloonTipShown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BalloonTipShown",dnCallback(P1)])
 		return self
 
 	Func clearBalloonTipShownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BalloonTipShown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BalloonTipShown"])
 		return self
 
 	Func setClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Click"])
 		return self
 
 	Func setDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DoubleClick"])
 		return self
 
 	Func setMouseClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseClick",dnCallback(P1)])
 		return self
 
 	Func clearMouseClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseClick"])
 		return self
 
 	Func setMouseDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearMouseDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseDoubleClick"])
 		return self
 
 	Func setMouseDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseDown"])
 		return self
 
 	Func setMouseMoveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseMove",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseMove",dnCallback(P1)])
 		return self
 
 	Func clearMouseMoveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseMove"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseMove"])
 		return self
 
 	Func setMouseUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseUp"])
 		return self
 
 	Func getBalloonTipText
@@ -14107,7 +14775,8 @@ Class NumericUpDownAcceleration from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSeconds
 		return dnRequest("get",[self,"Seconds"])
@@ -14152,29 +14821,36 @@ Class NumericUpDownAccelerationCollection from MarshalByRefObject
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -14230,7 +14906,8 @@ Class OwnerDrawPropertyBag from MarshalByRefObject
 		return self
 
 	Func IsEmpty 
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEmpty"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEmpty"])
 
 	Func Copy P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.OwnerDrawPropertyBag, System.Windows.Forms'),"Copy",P1])
@@ -14419,7 +15096,8 @@ Class PaintEventArgs from EventArgs
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func getClipRectangle
@@ -14497,7 +15175,8 @@ Class PowerStatus from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getPowerLineStatus
 		return dnRequest("get",[self,"PowerLineStatus"])
@@ -14715,7 +15394,8 @@ Class ProfessionalColorTable from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getUseSystemColors
 		return dnRequest("get",[self,"UseSystemColors"])
@@ -15137,7 +15817,8 @@ Class ProfessionalColors from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getButtonSelectedHighlight
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"ButtonSelectedHighlight"])
@@ -15498,7 +16179,8 @@ Class ProgressBarRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func DrawHorizontalBar P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms'),"DrawHorizontalBar",P1,P2])
@@ -15768,7 +16450,8 @@ Class RadioButtonRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func IsBackgroundPartiallyTransparent P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"IsBackgroundPartiallyTransparent",P1])
@@ -15845,7 +16528,8 @@ Class Screen from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func FromPoint P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"FromPoint",P1])
@@ -15922,7 +16606,8 @@ Class ScrollBarRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func DrawArrowButton P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms'),"DrawArrowButton",P1,P2,P3])
@@ -16011,7 +16696,8 @@ Class ScrollEventArgs from EventArgs
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func getType
 		return dnRequest("get",[self,"Type"])
@@ -16059,7 +16745,8 @@ Class ScrollProperties from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getEnabled
 		return dnRequest("get",[self,"Enabled"])
@@ -16259,7 +16946,8 @@ Class SelectionRange from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getEnd
 		return dnRequest("get",[self,"End"])
@@ -16313,7 +17001,8 @@ Class SendKeys from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Send P1
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.SendKeys, System.Windows.Forms'),"Send",P1])
@@ -16535,7 +17224,8 @@ Class SystemInformation from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetVerticalScrollBarWidthForDpi P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"GetVerticalScrollBarWidthForDpi",P1])
@@ -17266,7 +17956,8 @@ Class TabRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func DrawTabItem P1
 		if dnIsNamed(P1)
@@ -17362,7 +18053,8 @@ Class TableLayoutStyle from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSizeType
 		return dnRequest("get",[self,"SizeType"])
@@ -17386,24 +18078,30 @@ Class TableLayoutStyleCollection from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -17427,11 +18125,13 @@ Class TaskDialog from Object
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func ShowDialogAsync P1
 		if dnIsNamed(P1)
@@ -17479,56 +18179,71 @@ Class TaskDialogButtonCollection from DotNetObject
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -17553,7 +18268,8 @@ Class TaskDialogControl from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTag
 		return dnRequest("get",[self,"Tag"])
@@ -17595,11 +18311,13 @@ Class TaskDialogIcon from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getIconHandle
 		return dnRequest("get",[self,"IconHandle"])
@@ -17733,42 +18451,52 @@ Class TaskDialogPage from Object
 		return self
 
 	Func Navigate P1
-		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Navigate",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setCreatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Created",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Created",dnCallback(P1)])
 		return self
 
 	Func clearCreatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Created"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Created"])
 		return self
 
 	Func setDestroyedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Destroyed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Destroyed",dnCallback(P1)])
 		return self
 
 	Func clearDestroyedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Destroyed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Destroyed"])
 		return self
 
 	Func setHelpRequestEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"HelpRequest",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"HelpRequest",dnCallback(P1)])
 		return self
 
 	Func clearHelpRequestEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"HelpRequest"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"HelpRequest"])
 		return self
 
 	Func setLinkClickedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LinkClicked",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LinkClicked",dnCallback(P1)])
 		return self
 
 	Func clearLinkClickedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LinkClicked"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LinkClicked"])
 		return self
 
 	Func getButtons
@@ -17917,53 +18645,68 @@ Class TaskDialogRadioButtonCollection from DotNetObject
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -17987,7 +18730,8 @@ Class TextBoxRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func DrawTextBox P1
 		if dnIsNamed(P1)
@@ -18015,7 +18759,8 @@ Class TextRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func DrawText P1
 		if dnIsNamed(P1)
@@ -18080,19 +18825,23 @@ Class FormsTimer from Component
 		return self
 
 	Func Start 
-		dnRequest("call",[new DotNetObject(nHandle),"Start"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Start"])
 		return self
 
 	Func Stop 
-		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Stop"])
 		return self
 
 	Func setTickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Tick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Tick",dnCallback(P1)])
 		return self
 
 	Func clearTickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Tick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Tick"])
 		return self
 
 	Func getTag
@@ -18276,61 +19025,79 @@ Class ToolStripDropDownItemAccessibleObject from DotNetObject
 		return self
 
 	Func DoDefaultAction 
-		dnRequest("call",[new DotNetObject(nHandle),"DoDefaultAction"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DoDefaultAction"])
 		return self
 
 	Func GetChild P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChild",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChild",P1])
 
 	Func GetChildCount 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChildCount"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildCount"])
 
 	Func GetHelpTopic 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHelpTopic"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHelpTopic"])
 
 	Func Navigate P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Navigate",P1])
 
 	Func AddState P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddState",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddState",P1])
 		return self
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
 
 	Func GetFocused 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFocused"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFocused"])
 
 	Func GetSelected 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSelected"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSelected"])
 
 	Func HitTest P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HitTest",P1,P2])
 
 	Func Select P1
-		dnRequest("call",[new DotNetObject(nHandle),"Select",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Select",P1])
 		return self
 
 	Func RaiseAutomationNotification P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RaiseAutomationNotification",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RaiseAutomationNotification",P1,P2,P3])
 
 	Func RaiseLiveRegionChanged 
-		return dnRequest("call",[new DotNetObject(nHandle),"RaiseLiveRegionChanged"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RaiseLiveRegionChanged"])
 
 	Func GetLifetimeService 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetLifetimeService"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLifetimeService"])
 
 	Func InitializeLifetimeService 
-		return dnRequest("call",[new DotNetObject(nHandle),"InitializeLifetimeService"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"InitializeLifetimeService"])
 
 	Func GetType 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 
 	Func getRole
 		return dnRequest("get",[self,"Role"])
@@ -18431,52 +19198,65 @@ Class ToolStripItemCollection from ArrangedElementCollection
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func Find P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1,P2])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func RemoveByKey P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveByKey",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveByKey",P1])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 
 Class ToolStripItemEventArgs from EventArgs
@@ -18553,7 +19333,8 @@ Class ToolStripManager from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func FindToolStrip P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"FindToolStrip",P1])
@@ -18679,7 +19460,8 @@ Class ToolStripPanelRow from Component
 		return self
 
 	Func CanMove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanMove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CanMove",P1])
 
 	Func getBounds
 		return dnRequest("get",[self,"Bounds"])
@@ -18809,249 +19591,310 @@ Class ToolStripRenderer from Object
 		return self
 
 	Func DrawArrow P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawArrow",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawArrow",P1])
 		return self
 
 	Func DrawToolStripBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawToolStripBackground",P1])
 		return self
 
 	Func DrawGrip P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawGrip",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawGrip",P1])
 		return self
 
 	Func DrawItemBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawItemBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawItemBackground",P1])
 		return self
 
 	Func DrawImageMargin P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawImageMargin",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawImageMargin",P1])
 		return self
 
 	Func DrawLabelBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawLabelBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawLabelBackground",P1])
 		return self
 
 	Func DrawButtonBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawButtonBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawButtonBackground",P1])
 		return self
 
 	Func DrawToolStripBorder P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripBorder",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawToolStripBorder",P1])
 		return self
 
 	Func DrawDropDownButtonBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawDropDownButtonBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawDropDownButtonBackground",P1])
 		return self
 
 	Func DrawOverflowButtonBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawOverflowButtonBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawOverflowButtonBackground",P1])
 		return self
 
 	Func DrawItemImage P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawItemImage",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawItemImage",P1])
 		return self
 
 	Func DrawItemCheck P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawItemCheck",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawItemCheck",P1])
 		return self
 
 	Func DrawItemText P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawItemText",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawItemText",P1])
 		return self
 
 	Func DrawMenuItemBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawMenuItemBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawMenuItemBackground",P1])
 		return self
 
 	Func DrawSplitButton P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawSplitButton",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawSplitButton",P1])
 		return self
 
 	Func DrawToolStripStatusLabelBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripStatusLabelBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawToolStripStatusLabelBackground",P1])
 		return self
 
 	Func DrawStatusStripSizingGrip P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawStatusStripSizingGrip",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawStatusStripSizingGrip",P1])
 		return self
 
 	Func DrawSeparator P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawSeparator",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawSeparator",P1])
 		return self
 
 	Func DrawToolStripPanelBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripPanelBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawToolStripPanelBackground",P1])
 		return self
 
 	Func DrawToolStripContentPanelBackground P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawToolStripContentPanelBackground",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawToolStripContentPanelBackground",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CreateDisabledImage P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripRenderer, System.Windows.Forms'),"CreateDisabledImage",P1])
 
 	Func setRenderArrowEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderArrow",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderArrow",dnCallback(P1)])
 		return self
 
 	Func clearRenderArrowEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderArrow"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderArrow"])
 		return self
 
 	Func setRenderToolStripBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderToolStripBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderToolStripBackground"])
 		return self
 
 	Func setRenderToolStripPanelBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripPanelBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderToolStripPanelBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripPanelBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripPanelBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderToolStripPanelBackground"])
 		return self
 
 	Func setRenderToolStripContentPanelBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripContentPanelBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderToolStripContentPanelBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripContentPanelBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripContentPanelBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderToolStripContentPanelBackground"])
 		return self
 
 	Func setRenderToolStripBorderEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripBorder",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderToolStripBorder",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripBorderEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripBorder"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderToolStripBorder"])
 		return self
 
 	Func setRenderButtonBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderButtonBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderButtonBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderButtonBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderButtonBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderButtonBackground"])
 		return self
 
 	Func setRenderDropDownButtonBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderDropDownButtonBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderDropDownButtonBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderDropDownButtonBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderDropDownButtonBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderDropDownButtonBackground"])
 		return self
 
 	Func setRenderOverflowButtonBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderOverflowButtonBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderOverflowButtonBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderOverflowButtonBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderOverflowButtonBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderOverflowButtonBackground"])
 		return self
 
 	Func setRenderGripEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderGrip",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderGrip",dnCallback(P1)])
 		return self
 
 	Func clearRenderGripEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderGrip"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderGrip"])
 		return self
 
 	Func setRenderItemBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderItemBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderItemBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderItemBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderItemBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderItemBackground"])
 		return self
 
 	Func setRenderItemImageEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderItemImage",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderItemImage",dnCallback(P1)])
 		return self
 
 	Func clearRenderItemImageEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderItemImage"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderItemImage"])
 		return self
 
 	Func setRenderItemCheckEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderItemCheck",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderItemCheck",dnCallback(P1)])
 		return self
 
 	Func clearRenderItemCheckEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderItemCheck"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderItemCheck"])
 		return self
 
 	Func setRenderItemTextEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderItemText",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderItemText",dnCallback(P1)])
 		return self
 
 	Func clearRenderItemTextEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderItemText"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderItemText"])
 		return self
 
 	Func setRenderImageMarginEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderImageMargin",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderImageMargin",dnCallback(P1)])
 		return self
 
 	Func clearRenderImageMarginEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderImageMargin"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderImageMargin"])
 		return self
 
 	Func setRenderLabelBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderLabelBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderLabelBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderLabelBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderLabelBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderLabelBackground"])
 		return self
 
 	Func setRenderMenuItemBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderMenuItemBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderMenuItemBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderMenuItemBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderMenuItemBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderMenuItemBackground"])
 		return self
 
 	Func setRenderToolStripStatusLabelBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderToolStripStatusLabelBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderToolStripStatusLabelBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderToolStripStatusLabelBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderToolStripStatusLabelBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderToolStripStatusLabelBackground"])
 		return self
 
 	Func setRenderStatusStripSizingGripEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderStatusStripSizingGrip",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderStatusStripSizingGrip",dnCallback(P1)])
 		return self
 
 	Func clearRenderStatusStripSizingGripEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderStatusStripSizingGrip"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderStatusStripSizingGrip"])
 		return self
 
 	Func setRenderSplitButtonBackgroundEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderSplitButtonBackground",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderSplitButtonBackground",dnCallback(P1)])
 		return self
 
 	Func clearRenderSplitButtonBackgroundEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderSplitButtonBackground"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderSplitButtonBackground"])
 		return self
 
 	Func setRenderSeparatorEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RenderSeparator",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RenderSeparator",dnCallback(P1)])
 		return self
 
 	Func clearRenderSeparatorEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RenderSeparator"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RenderSeparator"])
 		return self
 
 
@@ -19117,44 +19960,54 @@ Class ToolTip from Component
 		return self
 
 	Func CanExtend P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanExtend",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CanExtend",P1])
 
 	Func GetToolTip P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetToolTip",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetToolTip",P1])
 
 	Func RemoveAll 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAll"])
 		return self
 
 	Func SetToolTip P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetToolTip",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetToolTip",P1,P2])
 		return self
 
 	Func Show P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Show",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Show",P1])
 			return self
 		ok
 		raise("DotNet Error: Show does not take one argument: use named arguments, Show([ :parameter = value, ... ])")
 
 	Func Hide P1
-		dnRequest("call",[new DotNetObject(nHandle),"Hide",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Hide",P1])
 		return self
 
 	Func setDrawEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Draw",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Draw",dnCallback(P1)])
 		return self
 
 	Func clearDrawEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Draw"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Draw"])
 		return self
 
 	Func setPopupEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Popup",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Popup",dnCallback(P1)])
 		return self
 
 	Func clearPopupEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Popup"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Popup"])
 		return self
 
 	Func getActive
@@ -19284,7 +20137,8 @@ Class TrackBarRenderer from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func DrawHorizontalTrack P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms'),"DrawHorizontalTrack",P1,P2])
@@ -19424,49 +20278,59 @@ Class TreeNode from MarshalByRefObject
 		return self
 
 	Func BeginEdit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginEdit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginEdit"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func Collapse P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Collapse",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Collapse",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Collapse"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Collapse"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Collapse",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Collapse",P1])
 		return self
 
 	Func EndEdit P1
-		dnRequest("call",[new DotNetObject(nHandle),"EndEdit",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndEdit",P1])
 		return self
 
 	Func EnsureVisible 
-		dnRequest("call",[new DotNetObject(nHandle),"EnsureVisible"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureVisible"])
 		return self
 
 	Func Expand 
-		dnRequest("call",[new DotNetObject(nHandle),"Expand"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Expand"])
 		return self
 
 	Func ExpandAll 
-		dnRequest("call",[new DotNetObject(nHandle),"ExpandAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ExpandAll"])
 		return self
 
 	Func GetNodeCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNodeCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNodeCount",P1])
 
 	Func Remove 
-		dnRequest("call",[new DotNetObject(nHandle),"Remove"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove"])
 		return self
 
 	Func Toggle 
-		dnRequest("call",[new DotNetObject(nHandle),"Toggle"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Toggle"])
 		return self
 
 	Func FromHandle P1,P2
@@ -19701,67 +20565,84 @@ Class TreeNodeCollection from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Find P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1,P2])
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
 
 	Func Insert P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Insert",P1])
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func RemoveByKey P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveByKey",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveByKey",P1])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -19914,7 +20795,8 @@ Class TreeViewHitTestInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getLocation
 		return dnRequest("get",[self,"Location"])
@@ -20166,11 +21048,13 @@ Class WebBrowserSiteBase from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class WindowsFormsSection from Object
@@ -20200,7 +21084,8 @@ Class WindowsFormsSection from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getJitDebugging
 		return dnRequest("get",[self,"JitDebugging"])
@@ -20237,7 +21122,8 @@ Class WindowsFormsSynchronizationContext from SynchronizationContext
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Uninstall 
@@ -20268,56 +21154,70 @@ Class ControlCollection from ArrangedElementCollection
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Find P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1,P2])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func RemoveByKey P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveByKey",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveByKey",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func GetChildIndex P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChildIndex",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetChildIndex",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChildIndex",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChildIndex",P1])
 
 	Func SetChildIndex P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetChildIndex",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetChildIndex",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getOwner
 		return dnRequest("get",[self,"Owner"])
@@ -20358,49 +21258,62 @@ Class ListBoxObjectCollection from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -20433,38 +21346,48 @@ Class ListBoxSelectedObjectCollection from Object
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Add P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -20497,49 +21420,62 @@ Class ComboBoxObjectCollection from Object
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -20572,67 +21508,84 @@ Class ListViewItemCollection from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Find P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1,P2])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
 
 	Func Insert P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Insert",P1])
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func RemoveByKey P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveByKey",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveByKey",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -20665,58 +21618,72 @@ Class ColumnHeaderCollection from Object
 		return self
 
 	Func RemoveByKey P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveByKey",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveByKey",P1])
 		return self
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Insert",P1])
 			return self
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -20748,33 +21715,42 @@ Class SelectedListViewItemCollection from Object
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -20808,10 +21784,12 @@ Class DataGridViewHitTestInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func getColumnIndex
 		return dnRequest("get",[self,"ColumnIndex"])
@@ -20903,11 +21881,13 @@ Class ListViewSubItem from Object
 		return self
 
 	Func ResetStyle 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetStyle"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetStyle"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBackColor
 		return dnRequest("get",[self,"BackColor"])
@@ -20975,62 +21955,77 @@ Class ListViewSubItemCollection from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AddRange",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AddRange",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func RemoveByKey P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveByKey",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveByKey",P1])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -21063,63 +22058,78 @@ Class TabPageCollection from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
 
 	Func Insert P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Insert",P1])
 			return self
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func RemoveByKey P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveByKey",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveByKey",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -21152,62 +22162,78 @@ Class ImageCollection from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func AddStrip P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AddStrip",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AddStrip",P1])
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func IndexOfKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOfKey",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func RemoveByKey P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveByKey",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveByKey",P1])
 		return self
 
 	Func SetKeyName P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetKeyName",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetKeyName",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getKeys
@@ -21250,26 +22276,33 @@ Class CheckedItemCollection from Object
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCount
@@ -21300,23 +22333,29 @@ Class CheckedIndexCollection from Object
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -21348,45 +22387,54 @@ Class AxHost from Control
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
 		return self
 
 	Func ShowAboutBox 
-		dnRequest("call",[new DotNetObject(nHandle),"ShowAboutBox"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ShowAboutBox"])
 		return self
 
 	Func DoVerb P1
-		dnRequest("call",[new DotNetObject(nHandle),"DoVerb",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DoVerb",P1])
 		return self
 
 	Func InvokeEditMode 
-		dnRequest("call",[new DotNetObject(nHandle),"InvokeEditMode"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InvokeEditMode"])
 		return self
 
 	Func GetOcx 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetOcx"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOcx"])
 
 	Func HasPropertyPages 
-		return dnRequest("call",[new DotNetObject(nHandle),"HasPropertyPages"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HasPropertyPages"])
 
 	Func MakeDirty 
-		dnRequest("call",[new DotNetObject(nHandle),"MakeDirty"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MakeDirty"])
 		return self
 
 	Func ShowPropertyPages P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ShowPropertyPages",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ShowPropertyPages",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ShowPropertyPages"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ShowPropertyPages"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ShowPropertyPages",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ShowPropertyPages",P1])
 		return self
 
 	Func getEditMode
@@ -21428,22 +22476,27 @@ Class BindingsCollection from BaseCollection
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func setCollectionChangingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanging",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CollectionChanging",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanging"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CollectionChanging"])
 		return self
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CollectionChanged"])
 		return self
 
 
@@ -21475,27 +22528,33 @@ Class ButtonBase from Control
 		return self
 
 	Func setCommandCanExecuteChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CommandCanExecuteChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CommandCanExecuteChanged",dnCallback(P1)])
 		return self
 
 	Func clearCommandCanExecuteChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CommandCanExecuteChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CommandCanExecuteChanged"])
 		return self
 
 	Func setCommandChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CommandChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CommandChanged",dnCallback(P1)])
 		return self
 
 	Func clearCommandChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CommandChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CommandChanged"])
 		return self
 
 	Func setCommandParameterChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CommandParameterChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CommandParameterChanged",dnCallback(P1)])
 		return self
 
 	Func clearCommandParameterChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CommandParameterChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CommandParameterChanged"])
 		return self
 
 	Func getAutoEllipsis
@@ -21753,31 +22812,38 @@ Class CurrencyManager from BindingManagerBase
 		return self
 
 	Func Refresh 
-		dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Refresh"])
 		return self
 
 	Func setItemChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearItemChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemChanged"])
 		return self
 
 	Func setListChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ListChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ListChanged",dnCallback(P1)])
 		return self
 
 	Func clearListChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ListChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ListChanged"])
 		return self
 
 	Func setMetaDataChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MetaDataChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MetaDataChanged",dnCallback(P1)])
 		return self
 
 	Func clearMetaDataChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MetaDataChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MetaDataChanged"])
 		return self
 
 	Func getList
@@ -21884,1114 +22950,1382 @@ Class DataGridView from Control
 		return self
 
 	Func AdjustColumnHeaderBorderStyle P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AdjustColumnHeaderBorderStyle",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AdjustColumnHeaderBorderStyle",P1,P2,P3,P4])
 
 	Func AreAllCellsSelected P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AreAllCellsSelected",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AreAllCellsSelected",P1])
 
 	Func AutoResizeColumn P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AutoResizeColumn",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AutoResizeColumn",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumn",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeColumn",P1])
 		return self
 
 	Func AutoResizeColumnHeadersHeight P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AutoResizeColumnHeadersHeight",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AutoResizeColumnHeadersHeight",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumnHeadersHeight"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeColumnHeadersHeight"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumnHeadersHeight",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeColumnHeadersHeight",P1])
 		return self
 
 	Func AutoResizeColumns P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AutoResizeColumns",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AutoResizeColumns",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumns"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeColumns"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumns",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeColumns",P1])
 		return self
 
 	Func AutoResizeRow P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AutoResizeRow",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AutoResizeRow",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRow",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeRow",P1])
 		return self
 
 	Func AutoResizeRowHeadersWidth P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AutoResizeRowHeadersWidth",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AutoResizeRowHeadersWidth",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRowHeadersWidth",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeRowHeadersWidth",P1])
 		return self
 
 	Func AutoResizeRows P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AutoResizeRows",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AutoResizeRows",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRows"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeRows"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRows",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeRows",P1])
 		return self
 
 	Func BeginEdit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginEdit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginEdit",P1])
 
 	Func CancelEdit 
-		return dnRequest("call",[new DotNetObject(nHandle),"CancelEdit"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CancelEdit"])
 
 	Func ClearSelection 
-		dnRequest("call",[new DotNetObject(nHandle),"ClearSelection"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearSelection"])
 		return self
 
 	Func CommitEdit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitEdit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CommitEdit",P1])
 
 	Func DisplayedColumnCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DisplayedColumnCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisplayedColumnCount",P1])
 
 	Func DisplayedRowCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DisplayedRowCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisplayedRowCount",P1])
 
 	Func EndEdit P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"EndEdit",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EndEdit",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"EndEdit"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"EndEdit"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"EndEdit",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndEdit",P1])
 
 	Func GetCellCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCellCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCellCount",P1])
 
 	Func GetCellDisplayRectangle P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCellDisplayRectangle",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCellDisplayRectangle",P1,P2,P3])
 
 	Func GetClipboardContent 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetClipboardContent"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetClipboardContent"])
 
 	Func GetColumnDisplayRectangle P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnDisplayRectangle",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnDisplayRectangle",P1,P2])
 
 	Func GetRowDisplayRectangle P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRowDisplayRectangle",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRowDisplayRectangle",P1,P2])
 
 	Func HitTest P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HitTest",P1,P2])
 
 	Func InvalidateCell P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"InvalidateCell",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InvalidateCell",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"InvalidateCell",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InvalidateCell",P1])
 		return self
 
 	Func InvalidateColumn P1
-		dnRequest("call",[new DotNetObject(nHandle),"InvalidateColumn",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InvalidateColumn",P1])
 		return self
 
 	Func InvalidateRow P1
-		dnRequest("call",[new DotNetObject(nHandle),"InvalidateRow",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InvalidateRow",P1])
 		return self
 
 	Func NotifyCurrentCellDirty P1
-		dnRequest("call",[new DotNetObject(nHandle),"NotifyCurrentCellDirty",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"NotifyCurrentCellDirty",P1])
 		return self
 
 	Func RefreshEdit 
-		return dnRequest("call",[new DotNetObject(nHandle),"RefreshEdit"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RefreshEdit"])
 
 	Func SelectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SelectAll"])
 		return self
 
 	Func Sort P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Sort",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Sort",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Sort",P1])
 		return self
 
 	Func UpdateCellErrorText P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"UpdateCellErrorText",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateCellErrorText",P1,P2])
 		return self
 
 	Func UpdateCellValue P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"UpdateCellValue",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateCellValue",P1,P2])
 		return self
 
 	Func UpdateRowErrorText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"UpdateRowErrorText",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"UpdateRowErrorText",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"UpdateRowErrorText",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateRowErrorText",P1])
 		return self
 
 	Func UpdateRowHeightInfo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"UpdateRowHeightInfo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateRowHeightInfo",P1,P2])
 		return self
 
 	Func setAllowUserToAddRowsChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AllowUserToAddRowsChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AllowUserToAddRowsChanged",dnCallback(P1)])
 		return self
 
 	Func clearAllowUserToAddRowsChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AllowUserToAddRowsChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AllowUserToAddRowsChanged"])
 		return self
 
 	Func setAllowUserToDeleteRowsChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AllowUserToDeleteRowsChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AllowUserToDeleteRowsChanged",dnCallback(P1)])
 		return self
 
 	Func clearAllowUserToDeleteRowsChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AllowUserToDeleteRowsChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AllowUserToDeleteRowsChanged"])
 		return self
 
 	Func setAllowUserToOrderColumnsChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AllowUserToOrderColumnsChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AllowUserToOrderColumnsChanged",dnCallback(P1)])
 		return self
 
 	Func clearAllowUserToOrderColumnsChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AllowUserToOrderColumnsChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AllowUserToOrderColumnsChanged"])
 		return self
 
 	Func setAllowUserToResizeColumnsChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AllowUserToResizeColumnsChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AllowUserToResizeColumnsChanged",dnCallback(P1)])
 		return self
 
 	Func clearAllowUserToResizeColumnsChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AllowUserToResizeColumnsChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AllowUserToResizeColumnsChanged"])
 		return self
 
 	Func setAllowUserToResizeRowsChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AllowUserToResizeRowsChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AllowUserToResizeRowsChanged",dnCallback(P1)])
 		return self
 
 	Func clearAllowUserToResizeRowsChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AllowUserToResizeRowsChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AllowUserToResizeRowsChanged"])
 		return self
 
 	Func setAlternatingRowsDefaultCellStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AlternatingRowsDefaultCellStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AlternatingRowsDefaultCellStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearAlternatingRowsDefaultCellStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AlternatingRowsDefaultCellStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AlternatingRowsDefaultCellStyleChanged"])
 		return self
 
 	Func setAutoGenerateColumnsChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AutoGenerateColumnsChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AutoGenerateColumnsChanged",dnCallback(P1)])
 		return self
 
 	Func clearAutoGenerateColumnsChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AutoGenerateColumnsChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AutoGenerateColumnsChanged"])
 		return self
 
 	Func setAutoSizeColumnsModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AutoSizeColumnsModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AutoSizeColumnsModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearAutoSizeColumnsModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AutoSizeColumnsModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AutoSizeColumnsModeChanged"])
 		return self
 
 	Func setAutoSizeRowsModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AutoSizeRowsModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AutoSizeRowsModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearAutoSizeRowsModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AutoSizeRowsModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AutoSizeRowsModeChanged"])
 		return self
 
 	Func setBackgroundColorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BackgroundColorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BackgroundColorChanged",dnCallback(P1)])
 		return self
 
 	Func clearBackgroundColorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BackgroundColorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BackgroundColorChanged"])
 		return self
 
 	Func setBorderStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BorderStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BorderStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearBorderStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BorderStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BorderStyleChanged"])
 		return self
 
 	Func setCellBorderStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellBorderStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellBorderStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearCellBorderStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellBorderStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellBorderStyleChanged"])
 		return self
 
 	Func setColumnHeadersBorderStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeadersBorderStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnHeadersBorderStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeadersBorderStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeadersBorderStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnHeadersBorderStyleChanged"])
 		return self
 
 	Func setColumnHeadersDefaultCellStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeadersDefaultCellStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnHeadersDefaultCellStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeadersDefaultCellStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeadersDefaultCellStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnHeadersDefaultCellStyleChanged"])
 		return self
 
 	Func setColumnHeadersHeightChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeadersHeightChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnHeadersHeightChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeadersHeightChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeadersHeightChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnHeadersHeightChanged"])
 		return self
 
 	Func setColumnHeadersHeightSizeModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeadersHeightSizeModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnHeadersHeightSizeModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeadersHeightSizeModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeadersHeightSizeModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnHeadersHeightSizeModeChanged"])
 		return self
 
 	Func setDataMemberChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataMemberChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataMemberChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataMemberChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataMemberChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataMemberChanged"])
 		return self
 
 	Func setDataSourceChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataSourceChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataSourceChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataSourceChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataSourceChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataSourceChanged"])
 		return self
 
 	Func setDefaultCellStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DefaultCellStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DefaultCellStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearDefaultCellStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DefaultCellStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DefaultCellStyleChanged"])
 		return self
 
 	Func setEditModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"EditModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"EditModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearEditModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"EditModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"EditModeChanged"])
 		return self
 
 	Func setGridColorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"GridColorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"GridColorChanged",dnCallback(P1)])
 		return self
 
 	Func clearGridColorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"GridColorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"GridColorChanged"])
 		return self
 
 	Func setMultiSelectChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MultiSelectChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MultiSelectChanged",dnCallback(P1)])
 		return self
 
 	Func clearMultiSelectChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MultiSelectChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MultiSelectChanged"])
 		return self
 
 	Func setReadOnlyChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ReadOnlyChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ReadOnlyChanged",dnCallback(P1)])
 		return self
 
 	Func clearReadOnlyChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ReadOnlyChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ReadOnlyChanged"])
 		return self
 
 	Func setRowHeadersBorderStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeadersBorderStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeadersBorderStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowHeadersBorderStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeadersBorderStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeadersBorderStyleChanged"])
 		return self
 
 	Func setRowHeadersDefaultCellStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeadersDefaultCellStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeadersDefaultCellStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowHeadersDefaultCellStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeadersDefaultCellStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeadersDefaultCellStyleChanged"])
 		return self
 
 	Func setRowHeadersWidthChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeadersWidthChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeadersWidthChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowHeadersWidthChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeadersWidthChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeadersWidthChanged"])
 		return self
 
 	Func setRowHeadersWidthSizeModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeadersWidthSizeModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeadersWidthSizeModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowHeadersWidthSizeModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeadersWidthSizeModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeadersWidthSizeModeChanged"])
 		return self
 
 	Func setRowsDefaultCellStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowsDefaultCellStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowsDefaultCellStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowsDefaultCellStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowsDefaultCellStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowsDefaultCellStyleChanged"])
 		return self
 
 	Func setAutoSizeColumnModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AutoSizeColumnModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AutoSizeColumnModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearAutoSizeColumnModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AutoSizeColumnModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AutoSizeColumnModeChanged"])
 		return self
 
 	Func setCancelRowEditEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CancelRowEdit",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CancelRowEdit",dnCallback(P1)])
 		return self
 
 	Func clearCancelRowEditEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CancelRowEdit"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CancelRowEdit"])
 		return self
 
 	Func setCellBeginEditEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellBeginEdit",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellBeginEdit",dnCallback(P1)])
 		return self
 
 	Func clearCellBeginEditEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellBeginEdit"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellBeginEdit"])
 		return self
 
 	Func setCellClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellClick",dnCallback(P1)])
 		return self
 
 	Func clearCellClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellClick"])
 		return self
 
 	Func setCellContentClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellContentClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellContentClick",dnCallback(P1)])
 		return self
 
 	Func clearCellContentClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellContentClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellContentClick"])
 		return self
 
 	Func setCellContentDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellContentDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellContentDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearCellContentDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellContentDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellContentDoubleClick"])
 		return self
 
 	Func setCellContextMenuStripChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellContextMenuStripChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellContextMenuStripChanged",dnCallback(P1)])
 		return self
 
 	Func clearCellContextMenuStripChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellContextMenuStripChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellContextMenuStripChanged"])
 		return self
 
 	Func setCellContextMenuStripNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellContextMenuStripNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellContextMenuStripNeeded",dnCallback(P1)])
 		return self
 
 	Func clearCellContextMenuStripNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellContextMenuStripNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellContextMenuStripNeeded"])
 		return self
 
 	Func setCellDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearCellDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellDoubleClick"])
 		return self
 
 	Func setCellEndEditEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellEndEdit",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellEndEdit",dnCallback(P1)])
 		return self
 
 	Func clearCellEndEditEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellEndEdit"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellEndEdit"])
 		return self
 
 	Func setCellEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellEnter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellEnter",dnCallback(P1)])
 		return self
 
 	Func clearCellEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellEnter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellEnter"])
 		return self
 
 	Func setCellErrorTextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellErrorTextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellErrorTextChanged",dnCallback(P1)])
 		return self
 
 	Func clearCellErrorTextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellErrorTextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellErrorTextChanged"])
 		return self
 
 	Func setCellErrorTextNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellErrorTextNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellErrorTextNeeded",dnCallback(P1)])
 		return self
 
 	Func clearCellErrorTextNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellErrorTextNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellErrorTextNeeded"])
 		return self
 
 	Func setCellFormattingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellFormatting",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellFormatting",dnCallback(P1)])
 		return self
 
 	Func clearCellFormattingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellFormatting"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellFormatting"])
 		return self
 
 	Func setCellLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellLeave",dnCallback(P1)])
 		return self
 
 	Func clearCellLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellLeave"])
 		return self
 
 	Func setCellMouseClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellMouseClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellMouseClick",dnCallback(P1)])
 		return self
 
 	Func clearCellMouseClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellMouseClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellMouseClick"])
 		return self
 
 	Func setCellMouseDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellMouseDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellMouseDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearCellMouseDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellMouseDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellMouseDoubleClick"])
 		return self
 
 	Func setCellMouseDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellMouseDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellMouseDown",dnCallback(P1)])
 		return self
 
 	Func clearCellMouseDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellMouseDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellMouseDown"])
 		return self
 
 	Func setCellMouseEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellMouseEnter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellMouseEnter",dnCallback(P1)])
 		return self
 
 	Func clearCellMouseEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellMouseEnter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellMouseEnter"])
 		return self
 
 	Func setCellMouseLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellMouseLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellMouseLeave",dnCallback(P1)])
 		return self
 
 	Func clearCellMouseLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellMouseLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellMouseLeave"])
 		return self
 
 	Func setCellMouseMoveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellMouseMove",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellMouseMove",dnCallback(P1)])
 		return self
 
 	Func clearCellMouseMoveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellMouseMove"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellMouseMove"])
 		return self
 
 	Func setCellMouseUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellMouseUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellMouseUp",dnCallback(P1)])
 		return self
 
 	Func clearCellMouseUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellMouseUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellMouseUp"])
 		return self
 
 	Func setCellPaintingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellPainting",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellPainting",dnCallback(P1)])
 		return self
 
 	Func clearCellPaintingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellPainting"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellPainting"])
 		return self
 
 	Func setCellParsingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellParsing",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellParsing",dnCallback(P1)])
 		return self
 
 	Func clearCellParsingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellParsing"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellParsing"])
 		return self
 
 	Func setCellStateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellStateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearCellStateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellStateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellStateChanged"])
 		return self
 
 	Func setCellStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearCellStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellStyleChanged"])
 		return self
 
 	Func setCellStyleContentChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellStyleContentChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellStyleContentChanged",dnCallback(P1)])
 		return self
 
 	Func clearCellStyleContentChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellStyleContentChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellStyleContentChanged"])
 		return self
 
 	Func setCellToolTipTextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellToolTipTextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellToolTipTextChanged",dnCallback(P1)])
 		return self
 
 	Func clearCellToolTipTextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellToolTipTextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellToolTipTextChanged"])
 		return self
 
 	Func setCellToolTipTextNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellToolTipTextNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellToolTipTextNeeded",dnCallback(P1)])
 		return self
 
 	Func clearCellToolTipTextNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellToolTipTextNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellToolTipTextNeeded"])
 		return self
 
 	Func setCellValidatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellValidated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellValidated",dnCallback(P1)])
 		return self
 
 	Func clearCellValidatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellValidated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellValidated"])
 		return self
 
 	Func setCellValidatingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellValidating",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellValidating",dnCallback(P1)])
 		return self
 
 	Func clearCellValidatingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellValidating"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellValidating"])
 		return self
 
 	Func setCellValueChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellValueChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearCellValueChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellValueChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellValueChanged"])
 		return self
 
 	Func setCellValueNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellValueNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellValueNeeded",dnCallback(P1)])
 		return self
 
 	Func clearCellValueNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellValueNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellValueNeeded"])
 		return self
 
 	Func setCellValuePushedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellValuePushed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellValuePushed",dnCallback(P1)])
 		return self
 
 	Func clearCellValuePushedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellValuePushed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellValuePushed"])
 		return self
 
 	Func setColumnAddedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnAdded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnAdded",dnCallback(P1)])
 		return self
 
 	Func clearColumnAddedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnAdded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnAdded"])
 		return self
 
 	Func setColumnContextMenuStripChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnContextMenuStripChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnContextMenuStripChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnContextMenuStripChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnContextMenuStripChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnContextMenuStripChanged"])
 		return self
 
 	Func setColumnDataPropertyNameChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnDataPropertyNameChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnDataPropertyNameChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnDataPropertyNameChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnDataPropertyNameChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnDataPropertyNameChanged"])
 		return self
 
 	Func setColumnDefaultCellStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnDefaultCellStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnDefaultCellStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnDefaultCellStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnDefaultCellStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnDefaultCellStyleChanged"])
 		return self
 
 	Func setColumnDisplayIndexChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnDisplayIndexChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnDisplayIndexChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnDisplayIndexChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnDisplayIndexChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnDisplayIndexChanged"])
 		return self
 
 	Func setColumnDividerDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnDividerDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnDividerDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearColumnDividerDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnDividerDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnDividerDoubleClick"])
 		return self
 
 	Func setColumnDividerWidthChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnDividerWidthChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnDividerWidthChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnDividerWidthChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnDividerWidthChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnDividerWidthChanged"])
 		return self
 
 	Func setColumnHeaderMouseClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeaderMouseClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnHeaderMouseClick",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeaderMouseClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeaderMouseClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnHeaderMouseClick"])
 		return self
 
 	Func setColumnHeaderMouseDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeaderMouseDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnHeaderMouseDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeaderMouseDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeaderMouseDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnHeaderMouseDoubleClick"])
 		return self
 
 	Func setColumnHeaderCellChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnHeaderCellChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnHeaderCellChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnHeaderCellChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnHeaderCellChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnHeaderCellChanged"])
 		return self
 
 	Func setColumnMinimumWidthChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnMinimumWidthChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnMinimumWidthChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnMinimumWidthChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnMinimumWidthChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnMinimumWidthChanged"])
 		return self
 
 	Func setColumnNameChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnNameChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnNameChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnNameChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnNameChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnNameChanged"])
 		return self
 
 	Func setColumnRemovedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnRemoved",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnRemoved",dnCallback(P1)])
 		return self
 
 	Func clearColumnRemovedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnRemoved"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnRemoved"])
 		return self
 
 	Func setColumnSortModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnSortModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnSortModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnSortModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnSortModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnSortModeChanged"])
 		return self
 
 	Func setColumnStateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnStateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnStateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnStateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnStateChanged"])
 		return self
 
 	Func setColumnToolTipTextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnToolTipTextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnToolTipTextChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnToolTipTextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnToolTipTextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnToolTipTextChanged"])
 		return self
 
 	Func setColumnWidthChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnWidthChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnWidthChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnWidthChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnWidthChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnWidthChanged"])
 		return self
 
 	Func setCurrentCellChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentCellChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentCellChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentCellChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentCellChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentCellChanged"])
 		return self
 
 	Func setCurrentCellDirtyStateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CurrentCellDirtyStateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CurrentCellDirtyStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearCurrentCellDirtyStateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CurrentCellDirtyStateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CurrentCellDirtyStateChanged"])
 		return self
 
 	Func setDataBindingCompleteEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataBindingComplete",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataBindingComplete",dnCallback(P1)])
 		return self
 
 	Func clearDataBindingCompleteEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataBindingComplete"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataBindingComplete"])
 		return self
 
 	Func setDataErrorEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataError",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataError",dnCallback(P1)])
 		return self
 
 	Func clearDataErrorEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataError"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataError"])
 		return self
 
 	Func setDefaultValuesNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DefaultValuesNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DefaultValuesNeeded",dnCallback(P1)])
 		return self
 
 	Func clearDefaultValuesNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DefaultValuesNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DefaultValuesNeeded"])
 		return self
 
 	Func setEditingControlShowingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"EditingControlShowing",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"EditingControlShowing",dnCallback(P1)])
 		return self
 
 	Func clearEditingControlShowingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"EditingControlShowing"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"EditingControlShowing"])
 		return self
 
 	Func setNewRowNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NewRowNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NewRowNeeded",dnCallback(P1)])
 		return self
 
 	Func clearNewRowNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NewRowNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NewRowNeeded"])
 		return self
 
 	Func setRowContextMenuStripChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowContextMenuStripChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowContextMenuStripChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowContextMenuStripChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowContextMenuStripChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowContextMenuStripChanged"])
 		return self
 
 	Func setRowContextMenuStripNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowContextMenuStripNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowContextMenuStripNeeded",dnCallback(P1)])
 		return self
 
 	Func clearRowContextMenuStripNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowContextMenuStripNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowContextMenuStripNeeded"])
 		return self
 
 	Func setRowDefaultCellStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowDefaultCellStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowDefaultCellStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowDefaultCellStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowDefaultCellStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowDefaultCellStyleChanged"])
 		return self
 
 	Func setRowDirtyStateNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowDirtyStateNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowDirtyStateNeeded",dnCallback(P1)])
 		return self
 
 	Func clearRowDirtyStateNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowDirtyStateNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowDirtyStateNeeded"])
 		return self
 
 	Func setRowDividerDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowDividerDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowDividerDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearRowDividerDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowDividerDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowDividerDoubleClick"])
 		return self
 
 	Func setRowDividerHeightChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowDividerHeightChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowDividerHeightChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowDividerHeightChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowDividerHeightChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowDividerHeightChanged"])
 		return self
 
 	Func setRowEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowEnter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowEnter",dnCallback(P1)])
 		return self
 
 	Func clearRowEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowEnter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowEnter"])
 		return self
 
 	Func setRowErrorTextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowErrorTextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowErrorTextChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowErrorTextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowErrorTextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowErrorTextChanged"])
 		return self
 
 	Func setRowErrorTextNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowErrorTextNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowErrorTextNeeded",dnCallback(P1)])
 		return self
 
 	Func clearRowErrorTextNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowErrorTextNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowErrorTextNeeded"])
 		return self
 
 	Func setRowHeaderMouseClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeaderMouseClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeaderMouseClick",dnCallback(P1)])
 		return self
 
 	Func clearRowHeaderMouseClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeaderMouseClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeaderMouseClick"])
 		return self
 
 	Func setRowHeaderMouseDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeaderMouseDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeaderMouseDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearRowHeaderMouseDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeaderMouseDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeaderMouseDoubleClick"])
 		return self
 
 	Func setRowHeaderCellChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeaderCellChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeaderCellChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowHeaderCellChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeaderCellChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeaderCellChanged"])
 		return self
 
 	Func setRowHeightChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeightChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeightChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowHeightChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeightChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeightChanged"])
 		return self
 
 	Func setRowHeightInfoNeededEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeightInfoNeeded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeightInfoNeeded",dnCallback(P1)])
 		return self
 
 	Func clearRowHeightInfoNeededEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeightInfoNeeded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeightInfoNeeded"])
 		return self
 
 	Func setRowHeightInfoPushedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowHeightInfoPushed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowHeightInfoPushed",dnCallback(P1)])
 		return self
 
 	Func clearRowHeightInfoPushedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowHeightInfoPushed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowHeightInfoPushed"])
 		return self
 
 	Func setRowLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowLeave",dnCallback(P1)])
 		return self
 
 	Func clearRowLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowLeave"])
 		return self
 
 	Func setRowMinimumHeightChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowMinimumHeightChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowMinimumHeightChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowMinimumHeightChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowMinimumHeightChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowMinimumHeightChanged"])
 		return self
 
 	Func setRowPostPaintEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowPostPaint",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowPostPaint",dnCallback(P1)])
 		return self
 
 	Func clearRowPostPaintEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowPostPaint"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowPostPaint"])
 		return self
 
 	Func setRowPrePaintEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowPrePaint",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowPrePaint",dnCallback(P1)])
 		return self
 
 	Func clearRowPrePaintEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowPrePaint"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowPrePaint"])
 		return self
 
 	Func setRowsAddedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowsAdded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowsAdded",dnCallback(P1)])
 		return self
 
 	Func clearRowsAddedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowsAdded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowsAdded"])
 		return self
 
 	Func setRowsRemovedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowsRemoved",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowsRemoved",dnCallback(P1)])
 		return self
 
 	Func clearRowsRemovedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowsRemoved"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowsRemoved"])
 		return self
 
 	Func setRowStateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowStateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearRowStateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowStateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowStateChanged"])
 		return self
 
 	Func setRowUnsharedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowUnshared",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowUnshared",dnCallback(P1)])
 		return self
 
 	Func clearRowUnsharedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowUnshared"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowUnshared"])
 		return self
 
 	Func setRowValidatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowValidated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowValidated",dnCallback(P1)])
 		return self
 
 	Func clearRowValidatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowValidated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowValidated"])
 		return self
 
 	Func setRowValidatingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RowValidating",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RowValidating",dnCallback(P1)])
 		return self
 
 	Func clearRowValidatingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RowValidating"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RowValidating"])
 		return self
 
 	Func setScrollEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Scroll",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Scroll",dnCallback(P1)])
 		return self
 
 	Func clearScrollEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Scroll"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Scroll"])
 		return self
 
 	Func setSelectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectionChanged"])
 		return self
 
 	Func setSortCompareEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SortCompare",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SortCompare",dnCallback(P1)])
 		return self
 
 	Func clearSortCompareEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SortCompare"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SortCompare"])
 		return self
 
 	Func setSortedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Sorted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Sorted",dnCallback(P1)])
 		return self
 
 	Func clearSortedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Sorted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Sorted"])
 		return self
 
 	Func setUserAddedRowEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UserAddedRow",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UserAddedRow",dnCallback(P1)])
 		return self
 
 	Func clearUserAddedRowEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UserAddedRow"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UserAddedRow"])
 		return self
 
 	Func setUserDeletedRowEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UserDeletedRow",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UserDeletedRow",dnCallback(P1)])
 		return self
 
 	Func clearUserDeletedRowEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UserDeletedRow"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UserDeletedRow"])
 		return self
 
 	Func setUserDeletingRowEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"UserDeletingRow",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"UserDeletingRow",dnCallback(P1)])
 		return self
 
 	Func clearUserDeletingRowEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"UserDeletingRow"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"UserDeletingRow"])
 		return self
 
 	Func getAdjustedTopLeftHeaderBorderStyle
@@ -23496,10 +24830,12 @@ Class DataGridViewBand from DataGridViewElement
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func getContextMenuStrip
@@ -23634,50 +24970,64 @@ Class DataGridViewCell from DataGridViewElement
 		return self
 
 	Func AdjustCellBorderStyle P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"AdjustCellBorderStyle",P1,P2,P3,P4,P5,P6])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AdjustCellBorderStyle",P1,P2,P3,P4,P5,P6])
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func DetachEditingControl 
-		dnRequest("call",[new DotNetObject(nHandle),"DetachEditingControl"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DetachEditingControl"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetContentBounds_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetContentBounds",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetContentBounds",P1])
 
 	Func GetEditedFormattedValue_ P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEditedFormattedValue",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEditedFormattedValue",P1,P2])
 
 	Func GetInheritedContextMenuStrip P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInheritedContextMenuStrip",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInheritedContextMenuStrip",P1])
 
 	Func GetInheritedState_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInheritedState",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInheritedState",P1])
 
 	Func GetInheritedStyle_ P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInheritedStyle",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetInheritedStyle",P1,P2,P3])
 
 	Func InitializeEditingControl P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"InitializeEditingControl",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InitializeEditingControl",P1,P2,P3])
 		return self
 
 	Func KeyEntersEditMode P1
-		return dnRequest("call",[new DotNetObject(nHandle),"KeyEntersEditMode",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"KeyEntersEditMode",P1])
 
 	Func ParseFormattedValue P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ParseFormattedValue",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ParseFormattedValue",P1,P2,P3,P4])
 
 	Func PositionEditingControl P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dnRequest("call",[new DotNetObject(nHandle),"PositionEditingControl",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PositionEditingControl",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		return self
 
 	Func PositionEditingPanel P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"PositionEditingPanel",P1,P2,P3,P4,P5,P6,P7])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PositionEditingPanel",P1,P2,P3,P4,P5,P6,P7])
 
 	Func MeasureTextHeight P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"MeasureTextHeight",P1,P2,P3,P4,P5])
@@ -23901,47 +25251,59 @@ Class DataGridViewCellCollection from BaseCollection
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CollectionChanged"])
 		return self
 
 
@@ -24143,67 +25505,84 @@ Class DataGridViewColumnCollection from BaseCollection
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddRange",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func GetColumnCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnCount",P1])
 
 	Func GetColumnsWidth P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnsWidth",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnsWidth",P1])
 
 	Func GetFirstColumn P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFirstColumn",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetFirstColumn",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstColumn",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFirstColumn",P1])
 
 	Func GetLastColumn P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetLastColumn",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLastColumn",P1,P2])
 
 	Func GetNextColumn P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextColumn",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNextColumn",P1,P2,P3])
 
 	Func GetPreviousColumn P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPreviousColumn",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPreviousColumn",P1,P2,P3])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func setCollectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CollectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CollectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearCollectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CollectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CollectionChanged"])
 		return self
 
 
@@ -24256,18 +25635,22 @@ Class DataGridViewSelectedCellCollection from BaseCollection
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 
 Class DataGridViewSelectedColumnCollection from BaseCollection
@@ -24282,18 +25665,22 @@ Class DataGridViewSelectedColumnCollection from BaseCollection
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 
 Class DataGridViewSelectedRowCollection from BaseCollection
@@ -24308,18 +25695,22 @@ Class DataGridViewSelectedRowCollection from BaseCollection
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 
 Class DateTimePicker from Control
@@ -24369,43 +25760,53 @@ Class DateTimePicker from Control
 		return self
 
 	Func setFormatChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormatChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormatChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormatChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormatChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormatChanged"])
 		return self
 
 	Func setCloseUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CloseUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CloseUp",dnCallback(P1)])
 		return self
 
 	Func clearCloseUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CloseUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CloseUp"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged"])
 		return self
 
 	Func setValueChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ValueChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearValueChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ValueChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ValueChanged"])
 		return self
 
 	Func setDropDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDown",dnCallback(P1)])
 		return self
 
 	Func clearDropDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDown"])
 		return self
 
 	Func getCalendarForeColor
@@ -24586,11 +25987,13 @@ Class FileDialog from CommonDialog
 		return self
 
 	Func setFileOkEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FileOk",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FileOk",dnCallback(P1)])
 		return self
 
 	Func clearFileOkEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FileOk"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FileOk"])
 		return self
 
 	Func getAddExtension
@@ -24761,11 +26164,13 @@ Class FlowLayoutSettings from LayoutSettings
 		return self
 
 	Func SetFlowBreak P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetFlowBreak",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetFlowBreak",P1,P2])
 		return self
 
 	Func GetFlowBreak P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFlowBreak",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFlowBreak",P1])
 
 	Func getFlowDirection
 		return dnRequest("get",[self,"FlowDirection"])
@@ -24960,11 +26365,13 @@ Class FontDialog from CommonDialog
 		return self
 
 	Func setApplyEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Apply",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Apply",dnCallback(P1)])
 		return self
 
 	Func clearApplyEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Apply"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Apply"])
 		return self
 
 	Func getAllowSimulations
@@ -25215,11 +26622,13 @@ Class Label from Control
 		return self
 
 	Func setTextAlignChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TextAlignChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TextAlignChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextAlignChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TextAlignChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TextAlignChanged"])
 		return self
 
 	Func getAutoEllipsis
@@ -25340,70 +26749,87 @@ Class ListControl from Control
 		return self
 
 	Func GetItemText P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemText",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemText",P1])
 
 	Func setDataSourceChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DataSourceChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DataSourceChanged",dnCallback(P1)])
 		return self
 
 	Func clearDataSourceChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DataSourceChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DataSourceChanged"])
 		return self
 
 	Func setDisplayMemberChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DisplayMemberChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DisplayMemberChanged",dnCallback(P1)])
 		return self
 
 	Func clearDisplayMemberChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DisplayMemberChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DisplayMemberChanged"])
 		return self
 
 	Func setFormatEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Format",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Format",dnCallback(P1)])
 		return self
 
 	Func clearFormatEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Format"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Format"])
 		return self
 
 	Func setFormatInfoChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormatInfoChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormatInfoChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormatInfoChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormatInfoChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormatInfoChanged"])
 		return self
 
 	Func setFormatStringChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormatStringChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormatStringChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormatStringChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormatStringChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormatStringChanged"])
 		return self
 
 	Func setFormattingEnabledChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormattingEnabledChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormattingEnabledChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormattingEnabledChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormattingEnabledChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormattingEnabledChanged"])
 		return self
 
 	Func setValueMemberChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ValueMemberChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ValueMemberChanged",dnCallback(P1)])
 		return self
 
 	Func clearValueMemberChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ValueMemberChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ValueMemberChanged"])
 		return self
 
 	Func setSelectedValueChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedValueChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedValueChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedValueChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedValueChanged"])
 		return self
 
 	Func getDataSource
@@ -25553,258 +26979,318 @@ Class ListView from Control
 		return self
 
 	Func ArrangeIcons P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ArrangeIcons",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ArrangeIcons",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ArrangeIcons"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ArrangeIcons"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ArrangeIcons",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ArrangeIcons",P1])
 		return self
 
 	Func AutoResizeColumns P1
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumns",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeColumns",P1])
 		return self
 
 	Func AutoResizeColumn P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumn",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AutoResizeColumn",P1,P2])
 		return self
 
 	Func BeginUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginUpdate"])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func EndUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"EndUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndUpdate"])
 		return self
 
 	Func EnsureVisible P1
-		dnRequest("call",[new DotNetObject(nHandle),"EnsureVisible",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureVisible",P1])
 		return self
 
 	Func FindItemWithText P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindItemWithText",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindItemWithText",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FindItemWithText",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindItemWithText",P1])
 
 	Func FindNearestItem P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindNearestItem",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindNearestItem",P1])
 		ok
 		raise("DotNet Error: FindNearestItem does not take one argument: use named arguments, FindNearestItem([ :parameter = value, ... ])")
 
 	Func GetItemAt P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemAt",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemAt",P1,P2])
 
 	Func GetItemRect P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetItemRect",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetItemRect",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemRect",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemRect",P1])
 
 	Func HitTest P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HitTest",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HitTest",P1])
 
 	Func RedrawItems P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"RedrawItems",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RedrawItems",P1,P2,P3])
 		return self
 
 	Func Sort 
-		dnRequest("call",[new DotNetObject(nHandle),"Sort"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Sort"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged"])
 		return self
 
 	Func setAfterLabelEditEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AfterLabelEdit",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AfterLabelEdit",dnCallback(P1)])
 		return self
 
 	Func clearAfterLabelEditEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterLabelEdit"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AfterLabelEdit"])
 		return self
 
 	Func setBeforeLabelEditEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeLabelEdit",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BeforeLabelEdit",dnCallback(P1)])
 		return self
 
 	Func clearBeforeLabelEditEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeLabelEdit"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BeforeLabelEdit"])
 		return self
 
 	Func setCacheVirtualItemsEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CacheVirtualItems",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CacheVirtualItems",dnCallback(P1)])
 		return self
 
 	Func clearCacheVirtualItemsEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CacheVirtualItems"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CacheVirtualItems"])
 		return self
 
 	Func setColumnClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnClick",dnCallback(P1)])
 		return self
 
 	Func clearColumnClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnClick"])
 		return self
 
 	Func setGroupTaskLinkClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"GroupTaskLinkClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"GroupTaskLinkClick",dnCallback(P1)])
 		return self
 
 	Func clearGroupTaskLinkClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"GroupTaskLinkClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"GroupTaskLinkClick"])
 		return self
 
 	Func setColumnReorderedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnReordered",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnReordered",dnCallback(P1)])
 		return self
 
 	Func clearColumnReorderedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnReordered"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnReordered"])
 		return self
 
 	Func setColumnWidthChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnWidthChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnWidthChanged",dnCallback(P1)])
 		return self
 
 	Func clearColumnWidthChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnWidthChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnWidthChanged"])
 		return self
 
 	Func setColumnWidthChangingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ColumnWidthChanging",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ColumnWidthChanging",dnCallback(P1)])
 		return self
 
 	Func clearColumnWidthChangingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ColumnWidthChanging"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ColumnWidthChanging"])
 		return self
 
 	Func setDrawColumnHeaderEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DrawColumnHeader",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DrawColumnHeader",dnCallback(P1)])
 		return self
 
 	Func clearDrawColumnHeaderEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawColumnHeader"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DrawColumnHeader"])
 		return self
 
 	Func setDrawItemEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DrawItem",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DrawItem",dnCallback(P1)])
 		return self
 
 	Func clearDrawItemEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawItem"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DrawItem"])
 		return self
 
 	Func setDrawSubItemEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DrawSubItem",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DrawSubItem",dnCallback(P1)])
 		return self
 
 	Func clearDrawSubItemEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawSubItem"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DrawSubItem"])
 		return self
 
 	Func setItemActivateEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemActivate",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemActivate",dnCallback(P1)])
 		return self
 
 	Func clearItemActivateEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemActivate"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemActivate"])
 		return self
 
 	Func setItemCheckEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemCheck",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemCheck",dnCallback(P1)])
 		return self
 
 	Func clearItemCheckEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemCheck"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemCheck"])
 		return self
 
 	Func setItemCheckedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemChecked",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemChecked",dnCallback(P1)])
 		return self
 
 	Func clearItemCheckedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemChecked"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemChecked"])
 		return self
 
 	Func setItemDragEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemDrag",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemDrag",dnCallback(P1)])
 		return self
 
 	Func clearItemDragEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemDrag"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemDrag"])
 		return self
 
 	Func setItemMouseHoverEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemMouseHover",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemMouseHover",dnCallback(P1)])
 		return self
 
 	Func clearItemMouseHoverEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemMouseHover"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemMouseHover"])
 		return self
 
 	Func setItemSelectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemSelectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemSelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearItemSelectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemSelectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemSelectionChanged"])
 		return self
 
 	Func setGroupCollapsedStateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"GroupCollapsedStateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"GroupCollapsedStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearGroupCollapsedStateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"GroupCollapsedStateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"GroupCollapsedStateChanged"])
 		return self
 
 	Func setRetrieveVirtualItemEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RetrieveVirtualItem",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RetrieveVirtualItem",dnCallback(P1)])
 		return self
 
 	Func clearRetrieveVirtualItemEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RetrieveVirtualItem"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RetrieveVirtualItem"])
 		return self
 
 	Func setSearchForVirtualItemEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SearchForVirtualItem",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SearchForVirtualItem",dnCallback(P1)])
 		return self
 
 	Func clearSearchForVirtualItemEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SearchForVirtualItem"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SearchForVirtualItem"])
 		return self
 
 	Func setSelectedIndexChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedIndexChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedIndexChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedIndexChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged"])
 		return self
 
 	Func setVirtualItemsSelectionRangeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"VirtualItemsSelectionRangeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"VirtualItemsSelectionRangeChanged",dnCallback(P1)])
 		return self
 
 	Func clearVirtualItemsSelectionRangeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"VirtualItemsSelectionRangeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"VirtualItemsSelectionRangeChanged"])
 		return self
 
 	Func getActivation
@@ -26146,7 +27632,8 @@ Class MdiClient from Control
 		return self
 
 	Func LayoutMdi P1
-		dnRequest("call",[new DotNetObject(nHandle),"LayoutMdi",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"LayoutMdi",P1])
 		return self
 
 	Func getMdiChildren
@@ -26204,88 +27691,109 @@ Class MonthCalendar from Control
 		return self
 
 	Func AddAnnuallyBoldedDate P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddAnnuallyBoldedDate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddAnnuallyBoldedDate",P1])
 		return self
 
 	Func AddBoldedDate P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddBoldedDate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddBoldedDate",P1])
 		return self
 
 	Func AddMonthlyBoldedDate P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddMonthlyBoldedDate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddMonthlyBoldedDate",P1])
 		return self
 
 	Func GetDisplayRange P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDisplayRange",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDisplayRange",P1])
 
 	Func HitTest P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HitTest",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HitTest",P1])
 
 	Func RemoveAllAnnuallyBoldedDates 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAllAnnuallyBoldedDates"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAllAnnuallyBoldedDates"])
 		return self
 
 	Func RemoveAllBoldedDates 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAllBoldedDates"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAllBoldedDates"])
 		return self
 
 	Func RemoveAllMonthlyBoldedDates 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAllMonthlyBoldedDates"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAllMonthlyBoldedDates"])
 		return self
 
 	Func RemoveAnnuallyBoldedDate P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAnnuallyBoldedDate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAnnuallyBoldedDate",P1])
 		return self
 
 	Func RemoveBoldedDate P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveBoldedDate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveBoldedDate",P1])
 		return self
 
 	Func RemoveMonthlyBoldedDate P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveMonthlyBoldedDate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveMonthlyBoldedDate",P1])
 		return self
 
 	Func SetCalendarDimensions_ P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetCalendarDimensions",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetCalendarDimensions",P1,P2])
 		return self
 
 	Func SetDate P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetDate",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetDate",P1])
 		return self
 
 	Func SetSelectionRange_ P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetSelectionRange",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetSelectionRange",P1,P2])
 		return self
 
 	Func UpdateBoldedDates 
-		dnRequest("call",[new DotNetObject(nHandle),"UpdateBoldedDates"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateBoldedDates"])
 		return self
 
 	Func setDateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DateChanged",dnCallback(P1)])
 		return self
 
 	Func clearDateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DateChanged"])
 		return self
 
 	Func setDateSelectedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DateSelected",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DateSelected",dnCallback(P1)])
 		return self
 
 	Func clearDateSelectedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DateSelected"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DateSelected"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged"])
 		return self
 
 	Func getAnnuallyBoldedDates
@@ -26457,19 +27965,21 @@ Class OSFeature from FeatureSupport
 		return self
 
 	Func GetVersionPresent P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetVersionPresent",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetVersionPresent",P1])
 
 	Func IsPresent P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms'),"IsPresent",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsPresent",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsPresent",P1])
 		ok
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms'),"IsPresent",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsPresent",P1])
 
 	Func getFeature
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms'),"Feature"])
@@ -26637,55 +28147,64 @@ Class PictureBox from Control
 		return self
 
 	Func CancelAsync 
-		dnRequest("call",[new DotNetObject(nHandle),"CancelAsync"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CancelAsync"])
 		return self
 
 	Func Load_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Load",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Load"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Load"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Load",P1])
 		return self
 
 	Func LoadAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LoadAsync",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"LoadAsync"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"LoadAsync"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"LoadAsync",P1])
 		return self
 
 	Func setLoadCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LoadCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LoadCompleted",dnCallback(P1)])
 		return self
 
 	Func clearLoadCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LoadCompleted"])
 		return self
 
 	Func setLoadProgressChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LoadProgressChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LoadProgressChanged",dnCallback(P1)])
 		return self
 
 	Func clearLoadProgressChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LoadProgressChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LoadProgressChanged"])
 		return self
 
 	Func setSizeModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SizeModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SizeModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearSizeModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SizeModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SizeModeChanged"])
 		return self
 
 	Func getBorderStyle
@@ -26877,15 +28396,18 @@ Class PrintPreviewControl from Control
 		return self
 
 	Func InvalidatePreview 
-		dnRequest("call",[new DotNetObject(nHandle),"InvalidatePreview"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InvalidatePreview"])
 		return self
 
 	Func setStartPageChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"StartPageChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StartPageChanged",dnCallback(P1)])
 		return self
 
 	Func clearStartPageChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"StartPageChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StartPageChanged"])
 		return self
 
 	Func getUseAntiAlias
@@ -26971,19 +28493,23 @@ Class ProgressBar from Control
 		return self
 
 	Func Increment P1
-		dnRequest("call",[new DotNetObject(nHandle),"Increment",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Increment",P1])
 		return self
 
 	Func PerformStep 
-		dnRequest("call",[new DotNetObject(nHandle),"PerformStep"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PerformStep"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged"])
 		return self
 
 	Func getStyle
@@ -27134,19 +28660,23 @@ Class ScrollBar from Control
 		return self
 
 	Func setScrollEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Scroll",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Scroll",dnCallback(P1)])
 		return self
 
 	Func clearScrollEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Scroll"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Scroll"])
 		return self
 
 	Func setValueChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ValueChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearValueChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ValueChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ValueChanged"])
 		return self
 
 	Func getLargeChange
@@ -27225,19 +28755,23 @@ Class ScrollableControl from Control
 		return self
 
 	Func ScrollControlIntoView P1
-		dnRequest("call",[new DotNetObject(nHandle),"ScrollControlIntoView",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ScrollControlIntoView",P1])
 		return self
 
 	Func SetAutoScrollMargin_ P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetAutoScrollMargin",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAutoScrollMargin",P1,P2])
 		return self
 
 	Func setScrollEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Scroll",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Scroll",dnCallback(P1)])
 		return self
 
 	Func clearScrollEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Scroll"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Scroll"])
 		return self
 
 	Func getAutoScroll
@@ -27317,19 +28851,23 @@ Class Splitter from Control
 		return self
 
 	Func setSplitterMovingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SplitterMoving",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SplitterMoving",dnCallback(P1)])
 		return self
 
 	Func clearSplitterMovingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SplitterMoving"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SplitterMoving"])
 		return self
 
 	Func setSplitterMovedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SplitterMoved",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SplitterMoved",dnCallback(P1)])
 		return self
 
 	Func clearSplitterMovedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SplitterMoved"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SplitterMoved"])
 		return self
 
 	Func getBorderStyle
@@ -27402,73 +28940,91 @@ Class TabControl from Control
 		return self
 
 	Func DeselectTab P1
-		dnRequest("call",[new DotNetObject(nHandle),"DeselectTab",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DeselectTab",P1])
 		return self
 
 	Func GetControl P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetControl",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetControl",P1])
 
 	Func GetTabRect P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTabRect",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTabRect",P1])
 
 	Func SelectTab P1
-		dnRequest("call",[new DotNetObject(nHandle),"SelectTab",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SelectTab",P1])
 		return self
 
 	Func setDrawItemEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DrawItem",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DrawItem",dnCallback(P1)])
 		return self
 
 	Func clearDrawItemEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawItem"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DrawItem"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged"])
 		return self
 
 	Func setSelectedIndexChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedIndexChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedIndexChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedIndexChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged"])
 		return self
 
 	Func setSelectingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Selecting",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Selecting",dnCallback(P1)])
 		return self
 
 	Func clearSelectingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Selecting"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Selecting"])
 		return self
 
 	Func setSelectedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Selected",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Selected",dnCallback(P1)])
 		return self
 
 	Func clearSelectedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Selected"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Selected"])
 		return self
 
 	Func setDeselectingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Deselecting",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Deselecting",dnCallback(P1)])
 		return self
 
 	Func clearDeselectingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Deselecting"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Deselecting"])
 		return self
 
 	Func setDeselectedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Deselected",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Deselected",dnCallback(P1)])
 		return self
 
 	Func clearDeselectedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Deselected"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Deselected"])
 		return self
 
 	Func getAlignment
@@ -27622,18 +29178,22 @@ Class TableLayoutColumnStyleCollection from TableLayoutStyleCollection
 		return self
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 
 Class TableLayoutControlCollection from ControlCollection
@@ -27652,11 +29212,12 @@ Class TableLayoutControlCollection from ControlCollection
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func getContainer
@@ -27678,18 +29239,22 @@ Class TableLayoutRowStyleCollection from TableLayoutStyleCollection
 		return self
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 
 Class TableLayoutSettings from LayoutSettings
@@ -27710,38 +29275,48 @@ Class TableLayoutSettings from LayoutSettings
 		return self
 
 	Func GetColumnSpan P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnSpan",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnSpan",P1])
 
 	Func SetColumnSpan P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetColumnSpan",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetColumnSpan",P1,P2])
 		return self
 
 	Func GetRowSpan P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRowSpan",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRowSpan",P1])
 
 	Func SetRowSpan P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetRowSpan",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetRowSpan",P1,P2])
 		return self
 
 	Func GetRow P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRow",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRow",P1])
 
 	Func SetRow P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetRow",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetRow",P1,P2])
 		return self
 
 	Func GetCellPosition P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCellPosition",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCellPosition",P1])
 
 	Func SetCellPosition P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetCellPosition",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetCellPosition",P1,P2])
 		return self
 
 	Func GetColumn P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumn",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumn",P1])
 
 	Func SetColumn P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetColumn",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetColumn",P1,P2])
 		return self
 
 	Func getColumnCount
@@ -27839,15 +29414,18 @@ Class TaskDialogButton from TaskDialogControl
 		return self
 
 	Func PerformClick 
-		dnRequest("call",[new DotNetObject(nHandle),"PerformClick"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PerformClick"])
 		return self
 
 	Func setClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Click"])
 		return self
 
 	Func getAllowCloseDialog
@@ -28000,11 +29578,13 @@ Class TaskDialogExpander from TaskDialogControl
 		return self
 
 	Func setExpandedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ExpandedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ExpandedChanged",dnCallback(P1)])
 		return self
 
 	Func clearExpandedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ExpandedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ExpandedChanged"])
 		return self
 
 	Func getText
@@ -28240,11 +29820,13 @@ Class TaskDialogRadioButton from TaskDialogControl
 		return self
 
 	Func setCheckedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CheckedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CheckedChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CheckedChanged"])
 		return self
 
 	Func getEnabled
@@ -28317,11 +29899,13 @@ Class TaskDialogVerificationCheckBox from TaskDialogControl
 		return self
 
 	Func setCheckedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CheckedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CheckedChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CheckedChanged"])
 		return self
 
 	Func getText
@@ -28368,120 +29952,149 @@ Class TextBoxBase from Control
 		return self
 
 	Func AppendText P1
-		dnRequest("call",[new DotNetObject(nHandle),"AppendText",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AppendText",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func ClearUndo 
-		dnRequest("call",[new DotNetObject(nHandle),"ClearUndo"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearUndo"])
 		return self
 
 	Func Copy 
-		dnRequest("call",[new DotNetObject(nHandle),"Copy"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Copy"])
 		return self
 
 	Func Cut 
-		dnRequest("call",[new DotNetObject(nHandle),"Cut"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Cut"])
 		return self
 
 	Func Paste 
-		dnRequest("call",[new DotNetObject(nHandle),"Paste"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Paste"])
 		return self
 
 	Func GetCharFromPosition P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCharFromPosition",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCharFromPosition",P1])
 
 	Func GetCharIndexFromPosition P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCharIndexFromPosition",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCharIndexFromPosition",P1])
 
 	Func GetLineFromCharIndex P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetLineFromCharIndex",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLineFromCharIndex",P1])
 
 	Func GetPositionFromCharIndex P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionFromCharIndex",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPositionFromCharIndex",P1])
 
 	Func GetFirstCharIndexFromLine P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstCharIndexFromLine",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFirstCharIndexFromLine",P1])
 
 	Func GetFirstCharIndexOfCurrentLine 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstCharIndexOfCurrentLine"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFirstCharIndexOfCurrentLine"])
 
 	Func ScrollToCaret 
-		dnRequest("call",[new DotNetObject(nHandle),"ScrollToCaret"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ScrollToCaret"])
 		return self
 
 	Func DeselectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"DeselectAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DeselectAll"])
 		return self
 
 	Func Select P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Select",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Select"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Select"])
 		return self
 		ok
 		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
 
 	Func SelectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SelectAll"])
 		return self
 
 	Func Undo 
-		dnRequest("call",[new DotNetObject(nHandle),"Undo"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Undo"])
 		return self
 
 	Func setAcceptsTabChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AcceptsTabChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AcceptsTabChanged",dnCallback(P1)])
 		return self
 
 	Func clearAcceptsTabChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AcceptsTabChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AcceptsTabChanged"])
 		return self
 
 	Func setBorderStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BorderStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BorderStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearBorderStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BorderStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BorderStyleChanged"])
 		return self
 
 	Func setHideSelectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"HideSelectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"HideSelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearHideSelectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"HideSelectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"HideSelectionChanged"])
 		return self
 
 	Func setModifiedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ModifiedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ModifiedChanged",dnCallback(P1)])
 		return self
 
 	Func clearModifiedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ModifiedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ModifiedChanged"])
 		return self
 
 	Func setMultilineChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MultilineChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MultilineChanged",dnCallback(P1)])
 		return self
 
 	Func clearMultilineChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MultilineChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MultilineChanged"])
 		return self
 
 	Func setReadOnlyChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ReadOnlyChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ReadOnlyChanged",dnCallback(P1)])
 		return self
 
 	Func clearReadOnlyChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ReadOnlyChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ReadOnlyChanged"])
 		return self
 
 	Func getAcceptsTab
@@ -28700,311 +30313,386 @@ Class ToolStripItem from BindableComponent
 		return self
 
 	Func DoDragDrop P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"DoDragDrop",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DoDragDrop",P1])
 		ok
 		raise("DotNet Error: DoDragDrop does not take one argument: use named arguments, DoDragDrop([ :parameter = value, ... ])")
 
 	Func GetCurrentParent 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentParent"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCurrentParent"])
 
 	Func GetPreferredSize P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPreferredSize",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPreferredSize",P1])
 
 	Func Invalidate P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Invalidate",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Invalidate",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Invalidate"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Invalidate"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Invalidate",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Invalidate",P1])
 		return self
 
 	Func PerformClick 
-		dnRequest("call",[new DotNetObject(nHandle),"PerformClick"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PerformClick"])
 		return self
 
 	Func Select 
-		dnRequest("call",[new DotNetObject(nHandle),"Select"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Select"])
 		return self
 
 	Func ResetBackColor 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetBackColor"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetBackColor"])
 		return self
 
 	Func ResetDisplayStyle 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetDisplayStyle"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetDisplayStyle"])
 		return self
 
 	Func ResetForeColor 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetForeColor"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetForeColor"])
 		return self
 
 	Func ResetFont 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetFont"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetFont"])
 		return self
 
 	Func ResetImage 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetImage"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetImage"])
 		return self
 
 	Func ResetMargin 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetMargin"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetMargin"])
 		return self
 
 	Func ResetPadding 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetPadding"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetPadding"])
 		return self
 
 	Func ResetRightToLeft 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetRightToLeft"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetRightToLeft"])
 		return self
 
 	Func ResetTextDirection 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetTextDirection"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetTextDirection"])
 		return self
 
 	Func setAvailableChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AvailableChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AvailableChanged",dnCallback(P1)])
 		return self
 
 	Func clearAvailableChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AvailableChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AvailableChanged"])
 		return self
 
 	Func setCommandCanExecuteChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CommandCanExecuteChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CommandCanExecuteChanged",dnCallback(P1)])
 		return self
 
 	Func clearCommandCanExecuteChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CommandCanExecuteChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CommandCanExecuteChanged"])
 		return self
 
 	Func setCommandChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CommandChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CommandChanged",dnCallback(P1)])
 		return self
 
 	Func clearCommandChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CommandChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CommandChanged"])
 		return self
 
 	Func setCommandParameterChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CommandParameterChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CommandParameterChanged",dnCallback(P1)])
 		return self
 
 	Func clearCommandParameterChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CommandParameterChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CommandParameterChanged"])
 		return self
 
 	Func setBackColorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BackColorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BackColorChanged",dnCallback(P1)])
 		return self
 
 	Func clearBackColorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BackColorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BackColorChanged"])
 		return self
 
 	Func setClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Click",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Click",dnCallback(P1)])
 		return self
 
 	Func clearClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Click"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Click"])
 		return self
 
 	Func setDisplayStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DisplayStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DisplayStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearDisplayStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DisplayStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DisplayStyleChanged"])
 		return self
 
 	Func setDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DoubleClick"])
 		return self
 
 	Func setDragDropEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragDrop",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragDrop",dnCallback(P1)])
 		return self
 
 	Func clearDragDropEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragDrop"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragDrop"])
 		return self
 
 	Func setDragEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragEnter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragEnter",dnCallback(P1)])
 		return self
 
 	Func clearDragEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragEnter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragEnter"])
 		return self
 
 	Func setDragOverEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragOver",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragOver",dnCallback(P1)])
 		return self
 
 	Func clearDragOverEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragOver"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragOver"])
 		return self
 
 	Func setDragLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DragLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DragLeave",dnCallback(P1)])
 		return self
 
 	Func clearDragLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DragLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DragLeave"])
 		return self
 
 	Func setEnabledChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"EnabledChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"EnabledChanged",dnCallback(P1)])
 		return self
 
 	Func clearEnabledChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"EnabledChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"EnabledChanged"])
 		return self
 
 	Func setForeColorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ForeColorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ForeColorChanged",dnCallback(P1)])
 		return self
 
 	Func clearForeColorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ForeColorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ForeColorChanged"])
 		return self
 
 	Func setGiveFeedbackEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"GiveFeedback",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"GiveFeedback",dnCallback(P1)])
 		return self
 
 	Func clearGiveFeedbackEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"GiveFeedback"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"GiveFeedback"])
 		return self
 
 	Func setLocationChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LocationChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LocationChanged",dnCallback(P1)])
 		return self
 
 	Func clearLocationChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LocationChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LocationChanged"])
 		return self
 
 	Func setMouseDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseDown",dnCallback(P1)])
 		return self
 
 	Func clearMouseDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseDown"])
 		return self
 
 	Func setMouseEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseEnter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseEnter",dnCallback(P1)])
 		return self
 
 	Func clearMouseEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseEnter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseEnter"])
 		return self
 
 	Func setMouseLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseLeave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseLeave",dnCallback(P1)])
 		return self
 
 	Func clearMouseLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseLeave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseLeave"])
 		return self
 
 	Func setMouseHoverEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseHover",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseHover",dnCallback(P1)])
 		return self
 
 	Func clearMouseHoverEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseHover"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseHover"])
 		return self
 
 	Func setMouseMoveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseMove",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseMove",dnCallback(P1)])
 		return self
 
 	Func clearMouseMoveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseMove"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseMove"])
 		return self
 
 	Func setMouseUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MouseUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MouseUp",dnCallback(P1)])
 		return self
 
 	Func clearMouseUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MouseUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MouseUp"])
 		return self
 
 	Func setOwnerChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"OwnerChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"OwnerChanged",dnCallback(P1)])
 		return self
 
 	Func clearOwnerChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"OwnerChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"OwnerChanged"])
 		return self
 
 	Func setPaintEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Paint",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Paint",dnCallback(P1)])
 		return self
 
 	Func clearPaintEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Paint"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Paint"])
 		return self
 
 	Func setQueryContinueDragEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"QueryContinueDrag",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"QueryContinueDrag",dnCallback(P1)])
 		return self
 
 	Func clearQueryContinueDragEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"QueryContinueDrag"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"QueryContinueDrag"])
 		return self
 
 	Func setQueryAccessibilityHelpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"QueryAccessibilityHelp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"QueryAccessibilityHelp",dnCallback(P1)])
 		return self
 
 	Func clearQueryAccessibilityHelpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"QueryAccessibilityHelp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"QueryAccessibilityHelp"])
 		return self
 
 	Func setRightToLeftChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftChanged"])
 		return self
 
 	Func setSelectedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedChanged"])
 		return self
 
 	Func setTextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TextChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TextChanged"])
 		return self
 
 	Func setVisibleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"VisibleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"VisibleChanged",dnCallback(P1)])
 		return self
 
 	Func clearVisibleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"VisibleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"VisibleChanged"])
 		return self
 
 	Func getAccessibilityObject
@@ -29646,39 +31334,48 @@ Class TrackBar from Control
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
 		return self
 
 	Func SetRange P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetRange",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetRange",P1,P2])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged"])
 		return self
 
 	Func setScrollEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Scroll",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Scroll",dnCallback(P1)])
 		return self
 
 	Func clearScrollEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Scroll"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Scroll"])
 		return self
 
 	Func setValueChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ValueChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearValueChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ValueChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ValueChanged"])
 		return self
 
 	Func getLargeChange
@@ -29822,166 +31519,206 @@ Class TreeView from Control
 		return self
 
 	Func BeginUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginUpdate"])
 		return self
 
 	Func CollapseAll 
-		dnRequest("call",[new DotNetObject(nHandle),"CollapseAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CollapseAll"])
 		return self
 
 	Func EndUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"EndUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndUpdate"])
 		return self
 
 	Func ExpandAll 
-		dnRequest("call",[new DotNetObject(nHandle),"ExpandAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ExpandAll"])
 		return self
 
 	Func HitTest P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"HitTest",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HitTest",P1])
 
 	Func GetNodeCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNodeCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNodeCount",P1])
 
 	Func GetNodeAt P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNodeAt",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetNodeAt",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNodeAt",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNodeAt",P1])
 
 	Func Sort 
-		dnRequest("call",[new DotNetObject(nHandle),"Sort"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Sort"])
 		return self
 
 	Func setBeforeLabelEditEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeLabelEdit",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BeforeLabelEdit",dnCallback(P1)])
 		return self
 
 	Func clearBeforeLabelEditEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeLabelEdit"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BeforeLabelEdit"])
 		return self
 
 	Func setAfterLabelEditEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AfterLabelEdit",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AfterLabelEdit",dnCallback(P1)])
 		return self
 
 	Func clearAfterLabelEditEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterLabelEdit"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AfterLabelEdit"])
 		return self
 
 	Func setBeforeCheckEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeCheck",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BeforeCheck",dnCallback(P1)])
 		return self
 
 	Func clearBeforeCheckEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeCheck"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BeforeCheck"])
 		return self
 
 	Func setAfterCheckEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AfterCheck",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AfterCheck",dnCallback(P1)])
 		return self
 
 	Func clearAfterCheckEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterCheck"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AfterCheck"])
 		return self
 
 	Func setBeforeCollapseEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeCollapse",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BeforeCollapse",dnCallback(P1)])
 		return self
 
 	Func clearBeforeCollapseEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeCollapse"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BeforeCollapse"])
 		return self
 
 	Func setAfterCollapseEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AfterCollapse",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AfterCollapse",dnCallback(P1)])
 		return self
 
 	Func clearAfterCollapseEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterCollapse"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AfterCollapse"])
 		return self
 
 	Func setBeforeExpandEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeExpand",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BeforeExpand",dnCallback(P1)])
 		return self
 
 	Func clearBeforeExpandEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeExpand"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BeforeExpand"])
 		return self
 
 	Func setAfterExpandEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AfterExpand",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AfterExpand",dnCallback(P1)])
 		return self
 
 	Func clearAfterExpandEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterExpand"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AfterExpand"])
 		return self
 
 	Func setDrawNodeEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DrawNode",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DrawNode",dnCallback(P1)])
 		return self
 
 	Func clearDrawNodeEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawNode"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DrawNode"])
 		return self
 
 	Func setItemDragEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemDrag",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemDrag",dnCallback(P1)])
 		return self
 
 	Func clearItemDragEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemDrag"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemDrag"])
 		return self
 
 	Func setNodeMouseHoverEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NodeMouseHover",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NodeMouseHover",dnCallback(P1)])
 		return self
 
 	Func clearNodeMouseHoverEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeMouseHover"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NodeMouseHover"])
 		return self
 
 	Func setBeforeSelectEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BeforeSelect",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BeforeSelect",dnCallback(P1)])
 		return self
 
 	Func clearBeforeSelectEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BeforeSelect"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BeforeSelect"])
 		return self
 
 	Func setAfterSelectEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AfterSelect",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AfterSelect",dnCallback(P1)])
 		return self
 
 	Func clearAfterSelectEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AfterSelect"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AfterSelect"])
 		return self
 
 	Func setNodeMouseClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NodeMouseClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NodeMouseClick",dnCallback(P1)])
 		return self
 
 	Func clearNodeMouseClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeMouseClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NodeMouseClick"])
 		return self
 
 	Func setNodeMouseDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NodeMouseDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NodeMouseDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearNodeMouseDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NodeMouseDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NodeMouseDoubleClick"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged"])
 		return self
 
 	Func getBorderStyle
@@ -30284,10 +32021,11 @@ Class CheckedListBoxObjectCollection from ListBoxObjectCollection
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 
 Class Button from ButtonBase
@@ -30318,11 +32056,13 @@ Class Button from ButtonBase
 		return self
 
 	Func NotifyDefault P1
-		dnRequest("call",[new DotNetObject(nHandle),"NotifyDefault",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"NotifyDefault",P1])
 		return self
 
 	Func PerformClick 
-		dnRequest("call",[new DotNetObject(nHandle),"PerformClick"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PerformClick"])
 		return self
 
 	Func getAutoSizeMode
@@ -30372,27 +32112,33 @@ Class CheckBox from ButtonBase
 		return self
 
 	Func setAppearanceChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AppearanceChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AppearanceChanged",dnCallback(P1)])
 		return self
 
 	Func clearAppearanceChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AppearanceChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AppearanceChanged"])
 		return self
 
 	Func setCheckedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CheckedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CheckedChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CheckedChanged"])
 		return self
 
 	Func setCheckStateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CheckStateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CheckStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckStateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckStateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CheckStateChanged"])
 		return self
 
 	Func getAppearance
@@ -30484,105 +32230,128 @@ Class ComboBox from ListControl
 		return self
 
 	Func BeginUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginUpdate"])
 		return self
 
 	Func EndUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"EndUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndUpdate"])
 		return self
 
 	Func FindString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FindString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindString",P1])
 
 	Func FindStringExact P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindStringExact",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindStringExact",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FindStringExact",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindStringExact",P1])
 
 	Func GetItemHeight_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemHeight",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemHeight",P1])
 
 	Func Select P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Select",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Select"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Select"])
 		return self
 		ok
 		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
 
 	Func SelectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SelectAll"])
 		return self
 
 	Func setDrawItemEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DrawItem",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DrawItem",dnCallback(P1)])
 		return self
 
 	Func clearDrawItemEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawItem"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DrawItem"])
 		return self
 
 	Func setDropDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDown",dnCallback(P1)])
 		return self
 
 	Func clearDropDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDown"])
 		return self
 
 	Func setMeasureItemEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MeasureItem",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MeasureItem",dnCallback(P1)])
 		return self
 
 	Func clearMeasureItemEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MeasureItem"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MeasureItem"])
 		return self
 
 	Func setSelectedIndexChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedIndexChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedIndexChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedIndexChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged"])
 		return self
 
 	Func setSelectionChangeCommittedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionChangeCommitted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectionChangeCommitted",dnCallback(P1)])
 		return self
 
 	Func clearSelectionChangeCommittedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionChangeCommitted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectionChangeCommitted"])
 		return self
 
 	Func setDropDownStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDownStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearDropDownStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDownStyleChanged"])
 		return self
 
 	Func setTextUpdateEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TextUpdate",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TextUpdate",dnCallback(P1)])
 		return self
 
 	Func clearTextUpdateEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TextUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TextUpdate"])
 		return self
 
 	Func setDropDownClosedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownClosed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDownClosed",dnCallback(P1)])
 		return self
 
 	Func clearDropDownClosedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownClosed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDownClosed"])
 		return self
 
 	Func getAutoCompleteMode
@@ -30756,33 +32525,38 @@ Class ContainerControl from ScrollableControl
 		return self
 
 	Func PerformAutoScale 
-		dnRequest("call",[new DotNetObject(nHandle),"PerformAutoScale"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PerformAutoScale"])
 		return self
 
 	Func Validate P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Validate",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Validate",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"Validate"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"Validate"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Validate",P1])
 
 	Func ValidateChildren P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ValidateChildren",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ValidateChildren",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ValidateChildren"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateChildren"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidateChildren",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateChildren",P1])
 
 	Func setAutoValidateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AutoValidateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AutoValidateChanged",dnCallback(P1)])
 		return self
 
 	Func clearAutoValidateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AutoValidateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AutoValidateChanged"])
 		return self
 
 	Func getAutoScaleDimensions
@@ -30844,22 +32618,26 @@ Class ControlBindingsCollection from BindingsCollection
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func RemoveAt P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveAt",P1])
 		return self
 
 	Func getBindableComponent
@@ -30980,10 +32758,12 @@ Class DataGridViewCheckBoxCell from DataGridViewCell
 		return self
 
 	Func GetEditingCellFormattedValue_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingCellFormattedValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEditingCellFormattedValue",P1])
 
 	Func PrepareEditingCellForEdit P1
-		dnRequest("call",[new DotNetObject(nHandle),"PrepareEditingCellForEdit",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PrepareEditingCellForEdit",P1])
 		return self
 
 	Func getEditingCellFormattedValue
@@ -31100,14 +32880,17 @@ Class DataGridViewColumn from DataGridViewBand
 		return self
 
 	Func GetPreferredWidth P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPreferredWidth",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPreferredWidth",P1,P2])
 
 	Func setDisposedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Disposed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Disposed",dnCallback(P1)])
 		return self
 
 	Func clearDisposedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Disposed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Disposed"])
 		return self
 
 	Func getAutoSizeMode
@@ -31587,30 +33370,37 @@ Class DataGridViewRow from DataGridViewBand
 		return self
 
 	Func AdjustRowHeaderBorderStyle P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"AdjustRowHeaderBorderStyle",P1,P2,P3,P4,P5,P6])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AdjustRowHeaderBorderStyle",P1,P2,P3,P4,P5,P6])
 
 	Func CreateCells P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"CreateCells",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateCells",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"CreateCells",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CreateCells",P1])
 		return self
 
 	Func GetContextMenuStrip_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetContextMenuStrip",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetContextMenuStrip",P1])
 
 	Func GetErrorText_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetErrorText",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetErrorText",P1])
 
 	Func GetPreferredHeight P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPreferredHeight",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPreferredHeight",P1,P2,P3])
 
 	Func GetState_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetState",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetState",P1])
 
 	Func SetValues P1
-		return dnRequest("call",[new DotNetObject(nHandle),"SetValues",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"SetValues",P1])
 
 	Func getAccessibilityObject
 		return dnRequest("get",[self,"AccessibilityObject"])
@@ -31790,11 +33580,13 @@ Class LinkLabel from Label
 		return self
 
 	Func setLinkClickedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LinkClicked",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LinkClicked",dnCallback(P1)])
 		return self
 
 	Func clearLinkClickedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LinkClicked"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LinkClicked"])
 		return self
 
 	Func getActiveLinkColor
@@ -31901,70 +33693,86 @@ Class ListBox from ListControl
 		return self
 
 	Func BeginUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginUpdate"])
 		return self
 
 	Func ClearSelected 
-		dnRequest("call",[new DotNetObject(nHandle),"ClearSelected"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearSelected"])
 		return self
 
 	Func EndUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"EndUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndUpdate"])
 		return self
 
 	Func FindString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FindString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindString",P1])
 
 	Func FindStringExact P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindStringExact",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindStringExact",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FindStringExact",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindStringExact",P1])
 
 	Func GetItemHeight_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemHeight",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemHeight",P1])
 
 	Func GetItemRectangle P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemRectangle",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemRectangle",P1])
 
 	Func GetSelected P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSelected",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSelected",P1])
 
 	Func IndexFromPoint P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexFromPoint",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IndexFromPoint",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexFromPoint",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexFromPoint",P1])
 
 	Func SetSelected P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetSelected",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetSelected",P1,P2])
 		return self
 
 	Func setDrawItemEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DrawItem",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DrawItem",dnCallback(P1)])
 		return self
 
 	Func clearDrawItemEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DrawItem"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DrawItem"])
 		return self
 
 	Func setMeasureItemEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MeasureItem",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MeasureItem",dnCallback(P1)])
 		return self
 
 	Func clearMeasureItemEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MeasureItem"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MeasureItem"])
 		return self
 
 	Func setSelectedIndexChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedIndexChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedIndexChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedIndexChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged"])
 		return self
 
 	Func getBorderStyle
@@ -32184,46 +33992,57 @@ Class MaskedTextBox from TextBoxBase
 		return self
 
 	Func ValidateText 
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidateText"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateText"])
 
 	Func setIsOverwriteModeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"IsOverwriteModeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"IsOverwriteModeChanged",dnCallback(P1)])
 		return self
 
 	Func clearIsOverwriteModeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"IsOverwriteModeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"IsOverwriteModeChanged"])
 		return self
 
 	Func setMaskChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MaskChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MaskChanged",dnCallback(P1)])
 		return self
 
 	Func clearMaskChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MaskChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MaskChanged"])
 		return self
 
 	Func setMaskInputRejectedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MaskInputRejected",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MaskInputRejected",dnCallback(P1)])
 		return self
 
 	Func clearMaskInputRejectedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MaskInputRejected"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MaskInputRejected"])
 		return self
 
 	Func setTextAlignChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TextAlignChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TextAlignChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextAlignChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TextAlignChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TextAlignChanged"])
 		return self
 
 	Func setTypeValidationCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TypeValidationCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TypeValidationCompleted",dnCallback(P1)])
 		return self
 
 	Func clearTypeValidationCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TypeValidationCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TypeValidationCompleted"])
 		return self
 
 	Func getAllowPromptAsInput
@@ -32417,7 +34236,8 @@ Class OpenFileDialog from FileDialog
 		return self
 
 	Func OpenFile 
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenFile"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenFile"])
 
 	Func getMultiselect
 		return dnRequest("get",[self,"Multiselect"])
@@ -32539,23 +34359,28 @@ Class RadioButton from ButtonBase
 		return self
 
 	Func PerformClick 
-		dnRequest("call",[new DotNetObject(nHandle),"PerformClick"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PerformClick"])
 		return self
 
 	Func setAppearanceChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AppearanceChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AppearanceChanged",dnCallback(P1)])
 		return self
 
 	Func clearAppearanceChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AppearanceChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AppearanceChanged"])
 		return self
 
 	Func setCheckedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CheckedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CheckedChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CheckedChanged"])
 		return self
 
 	Func getAutoCheck
@@ -32640,100 +34465,120 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func CanPaste P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanPaste",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CanPaste",P1])
 
 	Func Find P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Find",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Find",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Find",P1])
 
 	Func LoadFile P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"LoadFile",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LoadFile",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"LoadFile",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"LoadFile",P1])
 		return self
 
 	Func Paste P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Paste",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Paste",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Paste"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Paste"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Paste",P1])
 		return self
 
 	Func Redo 
-		dnRequest("call",[new DotNetObject(nHandle),"Redo"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Redo"])
 		return self
 
 	Func SaveFile P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SaveFile",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SaveFile",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SaveFile",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SaveFile",P1])
 		return self
 
 	Func setContentsResizedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ContentsResized",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ContentsResized",dnCallback(P1)])
 		return self
 
 	Func clearContentsResizedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ContentsResized"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ContentsResized"])
 		return self
 
 	Func setHScrollEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"HScroll",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"HScroll",dnCallback(P1)])
 		return self
 
 	Func clearHScrollEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"HScroll"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"HScroll"])
 		return self
 
 	Func setLinkClickedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LinkClicked",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LinkClicked",dnCallback(P1)])
 		return self
 
 	Func clearLinkClickedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LinkClicked"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LinkClicked"])
 		return self
 
 	Func setImeChangeEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ImeChange",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ImeChange",dnCallback(P1)])
 		return self
 
 	Func clearImeChangeEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ImeChange"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ImeChange"])
 		return self
 
 	Func setProtectedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Protected",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Protected",dnCallback(P1)])
 		return self
 
 	Func clearProtectedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Protected"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Protected"])
 		return self
 
 	Func setSelectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectionChanged"])
 		return self
 
 	Func setVScrollEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"VScroll",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"VScroll",dnCallback(P1)])
 		return self
 
 	Func clearVScrollEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"VScroll"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"VScroll"])
 		return self
 
 	Func getAutoWordSelection
@@ -32952,7 +34797,8 @@ Class SaveFileDialog from FileDialog
 		return self
 
 	Func OpenFile 
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenFile"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenFile"])
 
 	Func getCheckWriteAccess
 		return dnRequest("get",[self,"CheckWriteAccess"])
@@ -33073,23 +34919,26 @@ Class TextBox from TextBoxBase
 		return self
 
 	Func Paste P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Paste",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Paste",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Paste"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Paste"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Paste",P1])
 		return self
 
 	Func setTextAlignChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TextAlignChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TextAlignChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextAlignChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TextAlignChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TextAlignChanged"])
 		return self
 
 	Func getAcceptsReturn
@@ -33232,88 +35081,109 @@ Class ToolStrip from ScrollableControl
 		return self
 
 	Func GetNextItem P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextItem",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNextItem",P1,P2])
 
 	Func GetItemAt P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetItemAt",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetItemAt",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemAt",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemAt",P1])
 
 	Func ResetMinimumSize 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetMinimumSize"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetMinimumSize"])
 		return self
 
 	Func setBeginDragEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BeginDrag",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BeginDrag",dnCallback(P1)])
 		return self
 
 	Func clearBeginDragEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BeginDrag"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BeginDrag"])
 		return self
 
 	Func setEndDragEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"EndDrag",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"EndDrag",dnCallback(P1)])
 		return self
 
 	Func clearEndDragEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"EndDrag"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"EndDrag"])
 		return self
 
 	Func setItemAddedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemAdded",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemAdded",dnCallback(P1)])
 		return self
 
 	Func clearItemAddedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemAdded"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemAdded"])
 		return self
 
 	Func setItemClickedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemClicked",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemClicked",dnCallback(P1)])
 		return self
 
 	Func clearItemClickedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemClicked"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemClicked"])
 		return self
 
 	Func setItemRemovedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemRemoved",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemRemoved",dnCallback(P1)])
 		return self
 
 	Func clearItemRemovedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemRemoved"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemRemoved"])
 		return self
 
 	Func setLayoutCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LayoutCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LayoutCompleted",dnCallback(P1)])
 		return self
 
 	Func clearLayoutCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LayoutCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LayoutCompleted"])
 		return self
 
 	Func setLayoutStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LayoutStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LayoutStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearLayoutStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LayoutStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LayoutStyleChanged"])
 		return self
 
 	Func setPaintGripEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"PaintGrip",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PaintGrip",dnCallback(P1)])
 		return self
 
 	Func clearPaintGripEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"PaintGrip"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PaintGrip"])
 		return self
 
 	Func setRendererChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RendererChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RendererChanged",dnCallback(P1)])
 		return self
 
 	Func clearRendererChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RendererChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RendererChanged"])
 		return self
 
 	Func getAllowClickThrough
@@ -33520,19 +35390,23 @@ Class ToolStripButton from ToolStripItem
 		return self
 
 	Func setCheckedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CheckedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CheckedChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CheckedChanged"])
 		return self
 
 	Func setCheckStateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CheckStateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CheckStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckStateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckStateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CheckStateChanged"])
 		return self
 
 	Func getCheckOnClick
@@ -33591,79 +35465,98 @@ Class ToolStripControlHost from ToolStripItem
 		return self
 
 	Func Focus 
-		dnRequest("call",[new DotNetObject(nHandle),"Focus"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Focus"])
 		return self
 
 	Func setEnterEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Enter",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Enter",dnCallback(P1)])
 		return self
 
 	Func clearEnterEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Enter"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Enter"])
 		return self
 
 	Func setGotFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"GotFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"GotFocus",dnCallback(P1)])
 		return self
 
 	Func clearGotFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"GotFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"GotFocus"])
 		return self
 
 	Func setLeaveEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Leave",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Leave",dnCallback(P1)])
 		return self
 
 	Func clearLeaveEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Leave"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Leave"])
 		return self
 
 	Func setLostFocusEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"LostFocus",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"LostFocus",dnCallback(P1)])
 		return self
 
 	Func clearLostFocusEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"LostFocus"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"LostFocus"])
 		return self
 
 	Func setKeyDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"KeyDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"KeyDown",dnCallback(P1)])
 		return self
 
 	Func clearKeyDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"KeyDown"])
 		return self
 
 	Func setKeyPressEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"KeyPress",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"KeyPress",dnCallback(P1)])
 		return self
 
 	Func clearKeyPressEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyPress"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"KeyPress"])
 		return self
 
 	Func setKeyUpEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"KeyUp",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"KeyUp",dnCallback(P1)])
 		return self
 
 	Func clearKeyUpEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"KeyUp"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"KeyUp"])
 		return self
 
 	Func setValidatingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Validating",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Validating",dnCallback(P1)])
 		return self
 
 	Func clearValidatingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Validating"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Validating"])
 		return self
 
 	Func setValidatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Validated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Validated",dnCallback(P1)])
 		return self
 
 	Func clearValidatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Validated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Validated"])
 		return self
 
 	Func getCausesValidation
@@ -33711,43 +35604,53 @@ Class ToolStripDropDownItem from ToolStripItem
 		return self
 
 	Func HideDropDown 
-		dnRequest("call",[new DotNetObject(nHandle),"HideDropDown"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"HideDropDown"])
 		return self
 
 	Func ShowDropDown 
-		dnRequest("call",[new DotNetObject(nHandle),"ShowDropDown"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ShowDropDown"])
 		return self
 
 	Func setDropDownClosedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownClosed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDownClosed",dnCallback(P1)])
 		return self
 
 	Func clearDropDownClosedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownClosed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDownClosed"])
 		return self
 
 	Func setDropDownOpeningEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownOpening",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDownOpening",dnCallback(P1)])
 		return self
 
 	Func clearDropDownOpeningEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownOpening"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDownOpening"])
 		return self
 
 	Func setDropDownOpenedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownOpened",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDownOpened",dnCallback(P1)])
 		return self
 
 	Func clearDropDownOpenedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownOpened"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDownOpened"])
 		return self
 
 	Func setDropDownItemClickedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownItemClicked",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDownItemClicked",dnCallback(P1)])
 		return self
 
 	Func clearDropDownItemClickedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownItemClicked"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDownItemClicked"])
 		return self
 
 	Func getDropDown
@@ -33974,153 +35877,188 @@ Class WebBrowser from WebBrowserBase
 		return self
 
 	Func GoBack 
-		return dnRequest("call",[new DotNetObject(nHandle),"GoBack"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GoBack"])
 
 	Func GoForward 
-		return dnRequest("call",[new DotNetObject(nHandle),"GoForward"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GoForward"])
 
 	Func GoHome 
-		dnRequest("call",[new DotNetObject(nHandle),"GoHome"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GoHome"])
 		return self
 
 	Func GoSearch 
-		dnRequest("call",[new DotNetObject(nHandle),"GoSearch"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GoSearch"])
 		return self
 
 	Func Navigate P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Navigate",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Navigate",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Navigate",P1])
 		return self
 
 	Func Print 
-		dnRequest("call",[new DotNetObject(nHandle),"Print"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Print"])
 		return self
 
 	Func Refresh P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Refresh",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Refresh",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Refresh"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Refresh",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Refresh",P1])
 		return self
 
 	Func ShowPageSetupDialog 
-		dnRequest("call",[new DotNetObject(nHandle),"ShowPageSetupDialog"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ShowPageSetupDialog"])
 		return self
 
 	Func ShowPrintDialog 
-		dnRequest("call",[new DotNetObject(nHandle),"ShowPrintDialog"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ShowPrintDialog"])
 		return self
 
 	Func ShowPrintPreviewDialog 
-		dnRequest("call",[new DotNetObject(nHandle),"ShowPrintPreviewDialog"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ShowPrintPreviewDialog"])
 		return self
 
 	Func ShowPropertiesDialog 
-		dnRequest("call",[new DotNetObject(nHandle),"ShowPropertiesDialog"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ShowPropertiesDialog"])
 		return self
 
 	Func ShowSaveAsDialog 
-		dnRequest("call",[new DotNetObject(nHandle),"ShowSaveAsDialog"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ShowSaveAsDialog"])
 		return self
 
 	Func Stop 
-		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Stop"])
 		return self
 
 	Func setCanGoBackChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CanGoBackChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CanGoBackChanged",dnCallback(P1)])
 		return self
 
 	Func clearCanGoBackChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CanGoBackChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CanGoBackChanged"])
 		return self
 
 	Func setCanGoForwardChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CanGoForwardChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CanGoForwardChanged",dnCallback(P1)])
 		return self
 
 	Func clearCanGoForwardChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CanGoForwardChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CanGoForwardChanged"])
 		return self
 
 	Func setDocumentCompletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DocumentCompleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DocumentCompleted",dnCallback(P1)])
 		return self
 
 	Func clearDocumentCompletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DocumentCompleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DocumentCompleted"])
 		return self
 
 	Func setDocumentTitleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DocumentTitleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DocumentTitleChanged",dnCallback(P1)])
 		return self
 
 	Func clearDocumentTitleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DocumentTitleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DocumentTitleChanged"])
 		return self
 
 	Func setEncryptionLevelChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"EncryptionLevelChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"EncryptionLevelChanged",dnCallback(P1)])
 		return self
 
 	Func clearEncryptionLevelChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"EncryptionLevelChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"EncryptionLevelChanged"])
 		return self
 
 	Func setFileDownloadEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FileDownload",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FileDownload",dnCallback(P1)])
 		return self
 
 	Func clearFileDownloadEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FileDownload"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FileDownload"])
 		return self
 
 	Func setNavigatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Navigated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Navigated",dnCallback(P1)])
 		return self
 
 	Func clearNavigatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Navigated"])
 		return self
 
 	Func setNavigatingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Navigating",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Navigating",dnCallback(P1)])
 		return self
 
 	Func clearNavigatingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Navigating"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Navigating"])
 		return self
 
 	Func setNewWindowEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"NewWindow",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"NewWindow",dnCallback(P1)])
 		return self
 
 	Func clearNewWindowEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"NewWindow"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"NewWindow"])
 		return self
 
 	Func setProgressChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ProgressChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ProgressChanged",dnCallback(P1)])
 		return self
 
 	Func clearProgressChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ProgressChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ProgressChanged"])
 		return self
 
 	Func setStatusTextChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"StatusTextChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StatusTextChanged",dnCallback(P1)])
 		return self
 
 	Func clearStatusTextChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"StatusTextChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StatusTextChanged"])
 		return self
 
 	Func getAllowNavigation
@@ -34316,26 +36254,32 @@ Class BindingNavigator from ToolStrip
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
 		return self
 
 	Func AddStandardItems 
-		dnRequest("call",[new DotNetObject(nHandle),"AddStandardItems"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddStandardItems"])
 		return self
 
 	Func Validate 
-		return dnRequest("call",[new DotNetObject(nHandle),"Validate"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Validate"])
 
 	Func setRefreshItemsEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RefreshItems",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RefreshItems",dnCallback(P1)])
 		return self
 
 	Func clearRefreshItemsEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RefreshItems"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RefreshItems"])
 		return self
 
 	Func getBindingSource
@@ -34440,25 +36384,31 @@ Class CheckedListBox from ListBox
 		return self
 
 	Func GetItemCheckState P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemCheckState",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemCheckState",P1])
 
 	Func GetItemChecked P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemChecked",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemChecked",P1])
 
 	Func SetItemCheckState P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetItemCheckState",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetItemCheckState",P1,P2])
 		return self
 
 	Func SetItemChecked P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetItemChecked",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetItemChecked",P1,P2])
 		return self
 
 	Func setItemCheckEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ItemCheck",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ItemCheck",dnCallback(P1)])
 		return self
 
 	Func clearItemCheckEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ItemCheck"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ItemCheck"])
 		return self
 
 	Func getCheckOnClick
@@ -34810,17 +36760,21 @@ Class DataGridViewComboBoxEditingControl from ComboBox
 		return self
 
 	Func ApplyCellStyleToEditingControl P1
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyCellStyleToEditingControl",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyCellStyleToEditingControl",P1])
 		return self
 
 	Func EditingControlWantsInputKey P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EditingControlWantsInputKey",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EditingControlWantsInputKey",P1,P2])
 
 	Func GetEditingControlFormattedValue_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingControlFormattedValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEditingControlFormattedValue",P1])
 
 	Func PrepareEditingControlForEdit P1
-		dnRequest("call",[new DotNetObject(nHandle),"PrepareEditingControlForEdit",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PrepareEditingControlForEdit",P1])
 		return self
 
 	Func getEditingControlDataGridView
@@ -35123,17 +37077,21 @@ Class DataGridViewTextBoxEditingControl from TextBox
 		return self
 
 	Func ApplyCellStyleToEditingControl P1
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyCellStyleToEditingControl",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyCellStyleToEditingControl",P1])
 		return self
 
 	Func EditingControlWantsInputKey P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EditingControlWantsInputKey",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EditingControlWantsInputKey",P1,P2])
 
 	Func GetEditingControlFormattedValue_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingControlFormattedValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEditingControlFormattedValue",P1])
 
 	Func PrepareEditingControlForEdit P1
-		dnRequest("call",[new DotNetObject(nHandle),"PrepareEditingControlForEdit",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PrepareEditingControlForEdit",P1])
 		return self
 
 	Func getEditingControlDataGridView
@@ -35205,10 +37163,12 @@ Class FlowLayoutPanel from Panel
 		return self
 
 	Func GetFlowBreak P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFlowBreak",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFlowBreak",P1])
 
 	Func SetFlowBreak P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetFlowBreak",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetFlowBreak",P1,P2])
 		return self
 
 	Func getFlowDirection
@@ -35295,273 +37255,334 @@ Class Form from ContainerControl
 		return self
 
 	Func Activate 
-		dnRequest("call",[new DotNetObject(nHandle),"Activate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Activate"])
 		return self
 
 	Func AddOwnedForm P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddOwnedForm",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddOwnedForm",P1])
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func LayoutMdi P1
-		dnRequest("call",[new DotNetObject(nHandle),"LayoutMdi",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"LayoutMdi",P1])
 		return self
 
 	Func RemoveOwnedForm P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveOwnedForm",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveOwnedForm",P1])
 		return self
 
 	Func SetDesktopBounds_ P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"SetDesktopBounds",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetDesktopBounds",P1,P2,P3,P4])
 		return self
 
 	Func SetDesktopLocation_ P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetDesktopLocation",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetDesktopLocation",P1,P2])
 		return self
 
 	Func Show P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Show",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Show",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Show"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Show"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Show",P1])
 		return self
 
 	Func ShowAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ShowAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ShowAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ShowAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ShowAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ShowAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShowAsync",P1])
 
 	Func ShowDialog P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ShowDialog",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ShowDialog",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ShowDialog"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShowDialog",P1])
 
 	Func ShowDialogAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ShowDialogAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ShowDialogAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ShowDialogAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ShowDialogAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialogAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShowDialogAsync",P1])
 
 	Func GetAutoScaleSize P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Form, System.Windows.Forms'),"GetAutoScaleSize",P1])
 
 	Func setHelpButtonClickedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"HelpButtonClicked",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"HelpButtonClicked",dnCallback(P1)])
 		return self
 
 	Func clearHelpButtonClickedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"HelpButtonClicked"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"HelpButtonClicked"])
 		return self
 
 	Func setMaximizedBoundsChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MaximizedBoundsChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MaximizedBoundsChanged",dnCallback(P1)])
 		return self
 
 	Func clearMaximizedBoundsChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MaximizedBoundsChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MaximizedBoundsChanged"])
 		return self
 
 	Func setMaximumSizeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MaximumSizeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MaximumSizeChanged",dnCallback(P1)])
 		return self
 
 	Func clearMaximumSizeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MaximumSizeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MaximumSizeChanged"])
 		return self
 
 	Func setMinimumSizeChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MinimumSizeChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MinimumSizeChanged",dnCallback(P1)])
 		return self
 
 	Func clearMinimumSizeChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MinimumSizeChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MinimumSizeChanged"])
 		return self
 
 	Func setActivatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Activated",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Activated",dnCallback(P1)])
 		return self
 
 	Func clearActivatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Activated"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Activated"])
 		return self
 
 	Func setClosingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Closing",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Closing",dnCallback(P1)])
 		return self
 
 	Func clearClosingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Closing"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Closing"])
 		return self
 
 	Func setClosedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Closed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Closed",dnCallback(P1)])
 		return self
 
 	Func clearClosedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Closed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Closed"])
 		return self
 
 	Func setDeactivateEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Deactivate",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Deactivate",dnCallback(P1)])
 		return self
 
 	Func clearDeactivateEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Deactivate"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Deactivate"])
 		return self
 
 	Func setFormClosingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormClosing",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormClosing",dnCallback(P1)])
 		return self
 
 	Func clearFormClosingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormClosing"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormClosing"])
 		return self
 
 	Func setFormBorderColorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormBorderColorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormBorderColorChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormBorderColorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormBorderColorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormBorderColorChanged"])
 		return self
 
 	Func setFormCaptionBackColorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormCaptionBackColorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormCaptionBackColorChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormCaptionBackColorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormCaptionBackColorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormCaptionBackColorChanged"])
 		return self
 
 	Func setFormCaptionTextColorChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormCaptionTextColorChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormCaptionTextColorChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormCaptionTextColorChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormCaptionTextColorChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormCaptionTextColorChanged"])
 		return self
 
 	Func setFormCornerPreferenceChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormCornerPreferenceChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormCornerPreferenceChanged",dnCallback(P1)])
 		return self
 
 	Func clearFormCornerPreferenceChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormCornerPreferenceChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormCornerPreferenceChanged"])
 		return self
 
 	Func setFormClosedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"FormClosed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"FormClosed",dnCallback(P1)])
 		return self
 
 	Func clearFormClosedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"FormClosed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"FormClosed"])
 		return self
 
 	Func setLoadEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Load",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Load",dnCallback(P1)])
 		return self
 
 	Func clearLoadEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Load"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Load"])
 		return self
 
 	Func setMdiChildActivateEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MdiChildActivate",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MdiChildActivate",dnCallback(P1)])
 		return self
 
 	Func clearMdiChildActivateEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MdiChildActivate"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MdiChildActivate"])
 		return self
 
 	Func setMenuCompleteEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MenuComplete",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MenuComplete",dnCallback(P1)])
 		return self
 
 	Func clearMenuCompleteEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MenuComplete"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MenuComplete"])
 		return self
 
 	Func setMenuStartEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MenuStart",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MenuStart",dnCallback(P1)])
 		return self
 
 	Func clearMenuStartEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MenuStart"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MenuStart"])
 		return self
 
 	Func setInputLanguageChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"InputLanguageChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"InputLanguageChanged",dnCallback(P1)])
 		return self
 
 	Func clearInputLanguageChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"InputLanguageChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"InputLanguageChanged"])
 		return self
 
 	Func setInputLanguageChangingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"InputLanguageChanging",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"InputLanguageChanging",dnCallback(P1)])
 		return self
 
 	Func clearInputLanguageChangingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"InputLanguageChanging"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"InputLanguageChanging"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged"])
 		return self
 
 	Func setShownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Shown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Shown",dnCallback(P1)])
 		return self
 
 	Func clearShownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Shown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Shown"])
 		return self
 
 	Func setDpiChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DpiChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DpiChanged",dnCallback(P1)])
 		return self
 
 	Func clearDpiChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DpiChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DpiChanged"])
 		return self
 
 	Func setResizeBeginEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ResizeBegin",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ResizeBegin",dnCallback(P1)])
 		return self
 
 	Func clearResizeBeginEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ResizeBegin"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ResizeBegin"])
 		return self
 
 	Func setResizeEndEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ResizeEnd",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ResizeEnd",dnCallback(P1)])
 		return self
 
 	Func clearResizeEndEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ResizeEnd"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ResizeEnd"])
 		return self
 
 	Func getAcceptButton
@@ -35885,19 +37906,23 @@ Class MenuStrip from ToolStrip
 		return self
 
 	Func setMenuActivateEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MenuActivate",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MenuActivate",dnCallback(P1)])
 		return self
 
 	Func clearMenuActivateEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MenuActivate"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MenuActivate"])
 		return self
 
 	Func setMenuDeactivateEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MenuDeactivate",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MenuDeactivate",dnCallback(P1)])
 		return self
 
 	Func clearMenuDeactivateEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MenuDeactivate"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MenuDeactivate"])
 		return self
 
 	Func getMdiWindowListItem
@@ -35968,59 +37993,73 @@ Class PropertyGrid from ContainerControl
 		return self
 
 	Func CollapseAllGridItems 
-		dnRequest("call",[new DotNetObject(nHandle),"CollapseAllGridItems"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CollapseAllGridItems"])
 		return self
 
 	Func ExpandAllGridItems 
-		dnRequest("call",[new DotNetObject(nHandle),"ExpandAllGridItems"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ExpandAllGridItems"])
 		return self
 
 	Func RefreshTabs P1
-		dnRequest("call",[new DotNetObject(nHandle),"RefreshTabs",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RefreshTabs",P1])
 		return self
 
 	Func ResetSelectedProperty 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetSelectedProperty"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetSelectedProperty"])
 		return self
 
 	Func setPropertyValueChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"PropertyValueChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PropertyValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyValueChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"PropertyValueChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PropertyValueChanged"])
 		return self
 
 	Func setPropertyTabChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"PropertyTabChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PropertyTabChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertyTabChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"PropertyTabChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PropertyTabChanged"])
 		return self
 
 	Func setPropertySortChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"PropertySortChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PropertySortChanged",dnCallback(P1)])
 		return self
 
 	Func clearPropertySortChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"PropertySortChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PropertySortChanged"])
 		return self
 
 	Func setSelectedGridItemChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedGridItemChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedGridItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedGridItemChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedGridItemChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedGridItemChanged"])
 		return self
 
 	Func setSelectedObjectsChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedObjectsChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedObjectsChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedObjectsChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedObjectsChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedObjectsChanged"])
 		return self
 
 	Func getBrowsableAttributes
@@ -36297,35 +38336,43 @@ Class SplitContainer from ContainerControl
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
 		return self
 
 	Func OnSplitterMoving P1
-		dnRequest("call",[new DotNetObject(nHandle),"OnSplitterMoving",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnSplitterMoving",P1])
 		return self
 
 	Func OnSplitterMoved P1
-		dnRequest("call",[new DotNetObject(nHandle),"OnSplitterMoved",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnSplitterMoved",P1])
 		return self
 
 	Func setSplitterMovingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SplitterMoving",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SplitterMoving",dnCallback(P1)])
 		return self
 
 	Func clearSplitterMovingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SplitterMoving"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SplitterMoving"])
 		return self
 
 	Func setSplitterMovedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SplitterMoved",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SplitterMoved",dnCallback(P1)])
 		return self
 
 	Func clearSplitterMovedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SplitterMoved"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SplitterMoved"])
 		return self
 
 	Func getBorderStyle
@@ -36593,58 +38640,74 @@ Class TableLayoutPanel from Panel
 		return self
 
 	Func GetColumnSpan P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnSpan",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnSpan",P1])
 
 	Func SetColumnSpan P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetColumnSpan",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetColumnSpan",P1,P2])
 		return self
 
 	Func GetRowSpan P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRowSpan",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRowSpan",P1])
 
 	Func SetRowSpan P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetRowSpan",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetRowSpan",P1,P2])
 		return self
 
 	Func GetRow P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRow",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRow",P1])
 
 	Func SetRow P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetRow",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetRow",P1,P2])
 		return self
 
 	Func GetCellPosition P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCellPosition",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCellPosition",P1])
 
 	Func SetCellPosition P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetCellPosition",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetCellPosition",P1,P2])
 		return self
 
 	Func GetColumn P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumn",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumn",P1])
 
 	Func SetColumn P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetColumn",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetColumn",P1,P2])
 		return self
 
 	Func GetControlFromPosition P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetControlFromPosition",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetControlFromPosition",P1,P2])
 
 	Func GetPositionFromControl P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionFromControl",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPositionFromControl",P1])
 
 	Func GetColumnWidths 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnWidths"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetColumnWidths"])
 
 	Func GetRowHeights 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRowHeights"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRowHeights"])
 
 	Func setCellPaintEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CellPaint",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CellPaint",dnCallback(P1)])
 		return self
 
 	Func clearCellPaintEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CellPaint"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CellPaint"])
 		return self
 
 	Func getLayoutSettings
@@ -36760,81 +38823,98 @@ Class ToolStripComboBox from ToolStripControlHost
 		return self
 
 	Func BeginUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginUpdate"])
 		return self
 
 	Func EndUpdate 
-		dnRequest("call",[new DotNetObject(nHandle),"EndUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndUpdate"])
 		return self
 
 	Func FindString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FindString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindString",P1])
 
 	Func FindStringExact P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindStringExact",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FindStringExact",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FindStringExact",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindStringExact",P1])
 
 	Func GetItemHeight P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemHeight",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetItemHeight",P1])
 
 	Func Select P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Select",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Select"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Select"])
 		return self
 		ok
 		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
 
 	Func SelectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SelectAll"])
 		return self
 
 	Func setDropDownEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDown",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDown",dnCallback(P1)])
 		return self
 
 	Func clearDropDownEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDown"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDown"])
 		return self
 
 	Func setDropDownClosedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownClosed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDownClosed",dnCallback(P1)])
 		return self
 
 	Func clearDropDownClosedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownClosed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDownClosed"])
 		return self
 
 	Func setDropDownStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DropDownStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DropDownStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearDropDownStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DropDownStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DropDownStyleChanged"])
 		return self
 
 	Func setSelectedIndexChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedIndexChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedIndexChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedIndexChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedIndexChanged"])
 		return self
 
 	Func setTextUpdateEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TextUpdate",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TextUpdate",dnCallback(P1)])
 		return self
 
 	Func clearTextUpdateEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TextUpdate"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TextUpdate"])
 		return self
 
 	Func getAutoCompleteCustomSource
@@ -37090,19 +39170,23 @@ Class ToolStripContentPanel from Panel
 		return self
 
 	Func setLoadEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Load",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Load",dnCallback(P1)])
 		return self
 
 	Func clearLoadEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Load"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Load"])
 		return self
 
 	Func setRendererChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RendererChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RendererChanged",dnCallback(P1)])
 		return self
 
 	Func clearRendererChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RendererChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RendererChanged"])
 		return self
 
 	Func getRenderer
@@ -37153,59 +39237,69 @@ Class ToolStripDropDown from ToolStrip
 		return self
 
 	Func Close P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Close",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Close",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Close"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Close",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close",P1])
 		return self
 
 	Func Show P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Show",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Show",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Show"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Show"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Show",P1])
 		return self
 
 	Func setClosedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Closed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Closed",dnCallback(P1)])
 		return self
 
 	Func clearClosedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Closed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Closed"])
 		return self
 
 	Func setClosingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Closing",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Closing",dnCallback(P1)])
 		return self
 
 	Func clearClosingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Closing"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Closing"])
 		return self
 
 	Func setOpeningEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Opening",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Opening",dnCallback(P1)])
 		return self
 
 	Func clearOpeningEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Opening"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Opening"])
 		return self
 
 	Func setOpenedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Opened",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Opened",dnCallback(P1)])
 		return self
 
 	Func clearOpenedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Opened"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Opened"])
 		return self
 
 	Func getAllowTransparency
@@ -37364,19 +39458,23 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 		return self
 
 	Func setCheckedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CheckedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CheckedChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CheckedChanged"])
 		return self
 
 	Func setCheckStateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"CheckStateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"CheckStateChanged",dnCallback(P1)])
 		return self
 
 	Func clearCheckStateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"CheckStateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"CheckStateChanged"])
 		return self
 
 	Func getChecked
@@ -37460,30 +39558,36 @@ Class ToolStripPanel from ContainerControl
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
 		return self
 
 	Func Join P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Join",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Join",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Join",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Join",P1])
 		return self
 
 	Func PointToRow P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PointToRow",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PointToRow",P1])
 
 	Func setRendererChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RendererChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RendererChanged",dnCallback(P1)])
 		return self
 
 	Func clearRendererChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RendererChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RendererChanged"])
 		return self
 
 	Func getRowMargin
@@ -37582,19 +39686,23 @@ Class ToolStripProgressBar from ToolStripControlHost
 		return self
 
 	Func Increment P1
-		dnRequest("call",[new DotNetObject(nHandle),"Increment",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Increment",P1])
 		return self
 
 	Func PerformStep 
-		dnRequest("call",[new DotNetObject(nHandle),"PerformStep"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PerformStep"])
 		return self
 
 	Func setRightToLeftLayoutChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged",dnCallback(P1)])
 		return self
 
 	Func clearRightToLeftLayoutChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"RightToLeftLayoutChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"RightToLeftLayoutChanged"])
 		return self
 
 	Func getProgressBar
@@ -37708,39 +39816,48 @@ Class ToolStripSplitButton from ToolStripDropDownItem
 		return self
 
 	Func OnButtonDoubleClick P1
-		dnRequest("call",[new DotNetObject(nHandle),"OnButtonDoubleClick",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnButtonDoubleClick",P1])
 		return self
 
 	Func PerformButtonClick 
-		dnRequest("call",[new DotNetObject(nHandle),"PerformButtonClick"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"PerformButtonClick"])
 		return self
 
 	Func ResetDropDownButtonWidth 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetDropDownButtonWidth"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetDropDownButtonWidth"])
 		return self
 
 	Func setButtonClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ButtonClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ButtonClick",dnCallback(P1)])
 		return self
 
 	Func clearButtonClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ButtonClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ButtonClick"])
 		return self
 
 	Func setButtonDoubleClickEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ButtonDoubleClick",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ButtonDoubleClick",dnCallback(P1)])
 		return self
 
 	Func clearButtonDoubleClickEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ButtonDoubleClick"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ButtonDoubleClick"])
 		return self
 
 	Func setDefaultItemChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DefaultItemChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DefaultItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearDefaultItemChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DefaultItemChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DefaultItemChanged"])
 		return self
 
 	Func getButtonBounds
@@ -37946,128 +40063,159 @@ Class ToolStripTextBox from ToolStripControlHost
 		return self
 
 	Func AppendText P1
-		dnRequest("call",[new DotNetObject(nHandle),"AppendText",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AppendText",P1])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func ClearUndo 
-		dnRequest("call",[new DotNetObject(nHandle),"ClearUndo"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ClearUndo"])
 		return self
 
 	Func Copy 
-		dnRequest("call",[new DotNetObject(nHandle),"Copy"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Copy"])
 		return self
 
 	Func Cut 
-		dnRequest("call",[new DotNetObject(nHandle),"Cut"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Cut"])
 		return self
 
 	Func DeselectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"DeselectAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DeselectAll"])
 		return self
 
 	Func GetCharFromPosition P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCharFromPosition",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCharFromPosition",P1])
 
 	Func GetCharIndexFromPosition P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCharIndexFromPosition",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCharIndexFromPosition",P1])
 
 	Func GetFirstCharIndexFromLine P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstCharIndexFromLine",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFirstCharIndexFromLine",P1])
 
 	Func GetFirstCharIndexOfCurrentLine 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstCharIndexOfCurrentLine"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFirstCharIndexOfCurrentLine"])
 
 	Func GetLineFromCharIndex P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetLineFromCharIndex",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLineFromCharIndex",P1])
 
 	Func GetPositionFromCharIndex P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionFromCharIndex",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPositionFromCharIndex",P1])
 
 	Func Paste 
-		dnRequest("call",[new DotNetObject(nHandle),"Paste"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Paste"])
 		return self
 
 	Func ScrollToCaret 
-		dnRequest("call",[new DotNetObject(nHandle),"ScrollToCaret"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ScrollToCaret"])
 		return self
 
 	Func Select P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Select",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Select"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Select"])
 		return self
 		ok
 		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
 
 	Func SelectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SelectAll"])
 		return self
 
 	Func Undo 
-		dnRequest("call",[new DotNetObject(nHandle),"Undo"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Undo"])
 		return self
 
 	Func setAcceptsTabChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"AcceptsTabChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"AcceptsTabChanged",dnCallback(P1)])
 		return self
 
 	Func clearAcceptsTabChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"AcceptsTabChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"AcceptsTabChanged"])
 		return self
 
 	Func setBorderStyleChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BorderStyleChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BorderStyleChanged",dnCallback(P1)])
 		return self
 
 	Func clearBorderStyleChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BorderStyleChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BorderStyleChanged"])
 		return self
 
 	Func setHideSelectionChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"HideSelectionChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"HideSelectionChanged",dnCallback(P1)])
 		return self
 
 	Func clearHideSelectionChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"HideSelectionChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"HideSelectionChanged"])
 		return self
 
 	Func setModifiedChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ModifiedChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ModifiedChanged",dnCallback(P1)])
 		return self
 
 	Func clearModifiedChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ModifiedChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ModifiedChanged"])
 		return self
 
 	Func setMultilineChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"MultilineChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"MultilineChanged",dnCallback(P1)])
 		return self
 
 	Func clearMultilineChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"MultilineChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"MultilineChanged"])
 		return self
 
 	Func setReadOnlyChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ReadOnlyChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ReadOnlyChanged",dnCallback(P1)])
 		return self
 
 	Func clearReadOnlyChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ReadOnlyChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ReadOnlyChanged"])
 		return self
 
 	Func setTextBoxTextAlignChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"TextBoxTextAlignChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"TextBoxTextAlignChanged",dnCallback(P1)])
 		return self
 
 	Func clearTextBoxTextAlignChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"TextBoxTextAlignChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"TextBoxTextAlignChanged"])
 		return self
 
 	Func getTextBox
@@ -38241,22 +40389,25 @@ Class UpDownBase from ContainerControl
 		return self
 
 	Func DownButton 
-		dnRequest("call",[new DotNetObject(nHandle),"DownButton"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DownButton"])
 		return self
 
 	Func Select P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Select",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Select"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Select"])
 		return self
 		ok
 		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
 
 	Func UpButton 
-		dnRequest("call",[new DotNetObject(nHandle),"UpButton"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"UpButton"])
 		return self
 
 	Func getBorderStyle
@@ -38329,11 +40480,13 @@ Class UserControl from ContainerControl
 		return self
 
 	Func setLoadEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Load",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Load",dnCallback(P1)])
 		return self
 
 	Func clearLoadEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Load"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Load"])
 		return self
 
 	Func getAutoSizeMode
@@ -38407,11 +40560,13 @@ Class DomainUpDown from UpDownBase
 		return self
 
 	Func setSelectedItemChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"SelectedItemChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"SelectedItemChanged",dnCallback(P1)])
 		return self
 
 	Func clearSelectedItemChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"SelectedItemChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"SelectedItemChanged"])
 		return self
 
 	Func getItems
@@ -38483,19 +40638,23 @@ Class NumericUpDown from UpDownBase
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
 		return self
 
 	Func setValueChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ValueChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ValueChanged",dnCallback(P1)])
 		return self
 
 	Func clearValueChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ValueChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ValueChanged"])
 		return self
 
 	Func getAccelerations

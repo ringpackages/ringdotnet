@@ -533,7 +533,8 @@ Class XmlAtomicValue from XPathItem
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 
 Class XmlSchemaCollectionEnumerator from Object
@@ -550,10 +551,12 @@ Class XmlSchemaCollectionEnumerator from Object
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
@@ -589,7 +592,8 @@ Class XmlSchemaCompilationSettings from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getEnableUpaCheck
 		return dnRequest("get",[self,"EnableUpaCheck"])
@@ -616,19 +620,23 @@ Class XmlSchemaDatatype from Object
 		return self
 
 	Func ParseValue P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ParseValue",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ParseValue",P1,P2,P3])
 
 	Func ChangeType P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ChangeType",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ChangeType",P1])
 		ok
 		raise("DotNet Error: ChangeType does not take one argument: use named arguments, ChangeType([ :parameter = value, ... ])")
 
 	Func IsDerivedFrom P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsDerivedFrom",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDerivedFrom",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getValueType
 		return dnRequest("get",[self,"ValueType"])
@@ -683,13 +691,15 @@ Class XmlSchemaInference from Object
 		return self
 
 	Func InferSchema P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"InferSchema",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InferSchema",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"InferSchema",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"InferSchema",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getOccurrence
 		return dnRequest("get",[self,"Occurrence"])
@@ -740,7 +750,8 @@ Class XmlSchemaInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getValidity
 		return dnRequest("get",[self,"Validity"])
@@ -817,7 +828,8 @@ Class XmlSchemaObject from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getLineNumber
 		return dnRequest("get",[self,"LineNumber"])
@@ -900,31 +912,39 @@ Class XmlSchemaObjectCollection from CollectionBase
 		return self
 
 	Func Add P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 
 	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Insert",P1,P2])
 		return self
 
 	Func IndexOf P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IndexOf",P1])
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Remove P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 		return self
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 
@@ -942,14 +962,17 @@ Class XmlSchemaObjectEnumerator from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
 		return self
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
@@ -974,16 +997,20 @@ Class XmlSchemaObjectTable from Object
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -1058,50 +1085,61 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Add",P1])
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1])
 
 	Func RemoveRecursive P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RemoveRecursive",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RemoveRecursive",P1])
 
 	Func Contains P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Compile 
-		dnRequest("call",[new DotNetObject(nHandle),"Compile"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Compile"])
 		return self
 
 	Func Reprocess P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Reprocess",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Reprocess",P1])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Schemas P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Schemas",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Schemas",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"Schemas"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"Schemas"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Schemas",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Schemas",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setValidationEventHandlerEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ValidationEventHandler",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ValidationEventHandler",dnCallback(P1)])
 		return self
 
 	Func clearValidationEventHandlerEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ValidationEventHandler"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ValidationEventHandler"])
 		return self
 
 	Func getNameTable
@@ -1171,76 +1209,92 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func AddSchema P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddSchema",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddSchema",P1])
 		return self
 
 	Func Initialize P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Initialize",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Initialize",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Initialize"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Initialize"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Initialize",P1])
 		return self
 
 	Func ValidateElement P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ValidateElement",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ValidateElement",P1])
 			return self
 		ok
 		raise("DotNet Error: ValidateElement does not take one argument: use named arguments, ValidateElement([ :parameter = value, ... ])")
 
 	Func ValidateAttribute P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidateAttribute",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateAttribute",P1,P2,P3,P4])
 
 	Func GetUnspecifiedDefaultAttributes P1
-		dnRequest("call",[new DotNetObject(nHandle),"GetUnspecifiedDefaultAttributes",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GetUnspecifiedDefaultAttributes",P1])
 		return self
 
 	Func ValidateEndOfAttributes P1
-		dnRequest("call",[new DotNetObject(nHandle),"ValidateEndOfAttributes",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateEndOfAttributes",P1])
 		return self
 
 	Func ValidateText P1
-		dnRequest("call",[new DotNetObject(nHandle),"ValidateText",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateText",P1])
 		return self
 
 	Func ValidateWhitespace P1
-		dnRequest("call",[new DotNetObject(nHandle),"ValidateWhitespace",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateWhitespace",P1])
 		return self
 
 	Func ValidateEndElement P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ValidateEndElement",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ValidateEndElement",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidateEndElement",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateEndElement",P1])
 
 	Func SkipToEndElement P1
-		dnRequest("call",[new DotNetObject(nHandle),"SkipToEndElement",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SkipToEndElement",P1])
 		return self
 
 	Func EndValidation 
-		dnRequest("call",[new DotNetObject(nHandle),"EndValidation"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndValidation"])
 		return self
 
 	Func GetExpectedParticles 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetExpectedParticles"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetExpectedParticles"])
 
 	Func GetExpectedAttributes 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetExpectedAttributes"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetExpectedAttributes"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setValidationEventHandlerEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"ValidationEventHandler",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"ValidationEventHandler",dnCallback(P1)])
 		return self
 
 	Func clearValidationEventHandlerEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"ValidationEventHandler"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"ValidationEventHandler"])
 		return self
 
 	Func setXmlResolver P1
@@ -1314,19 +1368,21 @@ Class XmlSchema from XmlSchemaObject
 		return self
 
 	Func Write P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Write",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Write",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1])
 		return self
 
 	Func Compile P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Compile",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Compile",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Compile",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Compile",P1])
 		return self
 
 	Func Read P1,P2

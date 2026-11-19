@@ -30,7 +30,8 @@ Class Registry from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetValue P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"GetValue",P1,P2,P3])
@@ -97,84 +98,99 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func Flush 
-		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Flush"])
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func CreateSubKey P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSubKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateSubKey",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubKey",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateSubKey",P1])
 
 	Func DeleteSubKey P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteSubKey",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DeleteSubKey",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKey",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DeleteSubKey",P1])
 		return self
 
 	Func DeleteSubKeyTree P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteSubKeyTree",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DeleteSubKeyTree",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKeyTree",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DeleteSubKeyTree",P1])
 		return self
 
 	Func DeleteValue P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteValue",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DeleteValue",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DeleteValue",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DeleteValue",P1])
 		return self
 
 	Func OpenSubKey P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenSubKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"OpenSubKey",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenSubKey",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenSubKey",P1])
 
 	Func GetAccessControl P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAccessControl",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetAccessControl",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetAccessControl"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAccessControl"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAccessControl",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetAccessControl",P1])
 
 	Func SetAccessControl P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetAccessControl",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetAccessControl",P1])
 		return self
 
 	Func GetSubKeyNames 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSubKeyNames"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSubKeyNames"])
 
 	Func GetValueNames 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValueNames"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValueNames"])
 
 	Func GetValue P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetValue",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetValue",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
 
 	Func GetValueKind P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValueKind",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValueKind",P1])
 
 	Func SetValue P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetValue",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetValue",P1])
 			return self
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")

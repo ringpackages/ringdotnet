@@ -148,7 +148,8 @@ Class CipherSuitesPolicy from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAllowedCipherSuites
 		return dnRequest("get",[self,"AllowedCipherSuites"])
@@ -181,14 +182,17 @@ Class NegotiateAuthentication from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetOutgoingBlob P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetOutgoingBlob",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetOutgoingBlob",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getIsAuthenticated
 		return dnRequest("get",[self,"IsAuthenticated"])
@@ -280,7 +284,8 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getPackage
 		return dnRequest("get",[self,"Package"])
@@ -363,7 +368,8 @@ Class NegotiateAuthenticationServerOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getPackage
 		return dnRequest("get",[self,"Package"])
@@ -494,7 +500,8 @@ Class SslCertificateTrust from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CreateForX509Store P1
 		if dnIsNamed(P1)
@@ -548,7 +555,8 @@ Class SslClientAuthenticationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAllowRenegotiation
 		return dnRequest("get",[self,"AllowRenegotiation"])
@@ -741,7 +749,8 @@ Class SslServerAuthenticationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAllowRenegotiation
 		return dnRequest("get",[self,"AllowRenegotiation"])
@@ -850,7 +859,8 @@ Class SslStreamCertificateContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -903,65 +913,73 @@ Class NegotiateStream from AuthenticatedStream
 		return self
 
 	Func BeginAuthenticateAsClient P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginAuthenticateAsClient",P1])
 		ok
 		raise("DotNet Error: BeginAuthenticateAsClient does not take one argument: use named arguments, BeginAuthenticateAsClient([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsClient P1
-		dnRequest("call",[new DotNetObject(nHandle),"EndAuthenticateAsClient",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndAuthenticateAsClient",P1])
 		return self
 
 	Func AuthenticateAsServer P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsServer",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AuthenticateAsServer",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsServer"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsServer",P1])
 		return self
 
 	Func BeginAuthenticateAsServer P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAuthenticateAsServer",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginAuthenticateAsServer",P1])
 		ok
 		raise("DotNet Error: BeginAuthenticateAsServer does not take one argument: use named arguments, BeginAuthenticateAsServer([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsServer P1
-		dnRequest("call",[new DotNetObject(nHandle),"EndAuthenticateAsServer",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndAuthenticateAsServer",P1])
 		return self
 
 	Func AuthenticateAsClient P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsClient",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AuthenticateAsClient",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsClient"])
 		return self
 		ok
 		raise("DotNet Error: AuthenticateAsClient does not take one argument: use named arguments, AuthenticateAsClient([ :parameter = value, ... ])")
 
 	Func AuthenticateAsClientAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AuthenticateAsClientAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsClientAsync"])
 		ok
 		raise("DotNet Error: AuthenticateAsClientAsync does not take one argument: use named arguments, AuthenticateAsClientAsync([ :parameter = value, ... ])")
 
 	Func AuthenticateAsServerAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AuthenticateAsServerAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsServerAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsServerAsync",P1])
 
 	Func getImpersonationLevel
 		return dnRequest("get",[self,"ImpersonationLevel"])
@@ -1020,71 +1038,82 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func BeginAuthenticateAsClient P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAuthenticateAsClient",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginAuthenticateAsClient",P1])
 		ok
 		raise("DotNet Error: BeginAuthenticateAsClient does not take one argument: use named arguments, BeginAuthenticateAsClient([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsClient P1
-		dnRequest("call",[new DotNetObject(nHandle),"EndAuthenticateAsClient",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndAuthenticateAsClient",P1])
 		return self
 
 	Func BeginAuthenticateAsServer P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAuthenticateAsServer",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginAuthenticateAsServer",P1])
 		ok
 		raise("DotNet Error: BeginAuthenticateAsServer does not take one argument: use named arguments, BeginAuthenticateAsServer([ :parameter = value, ... ])")
 
 	Func EndAuthenticateAsServer P1
-		dnRequest("call",[new DotNetObject(nHandle),"EndAuthenticateAsServer",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndAuthenticateAsServer",P1])
 		return self
 
 	Func AuthenticateAsClient P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsClient",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AuthenticateAsClient",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClient",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsClient",P1])
 		return self
 
 	Func AuthenticateAsServer P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsServer",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AuthenticateAsServer",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServer",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsServer",P1])
 		return self
 
 	Func AuthenticateAsClientAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AuthenticateAsClientAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsClientAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsClientAsync",P1])
 
 	Func AuthenticateAsServerAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AuthenticateAsServerAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AuthenticateAsServerAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AuthenticateAsServerAsync",P1])
 
 	Func ShutdownAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"ShutdownAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ShutdownAsync"])
 
 	Func NegotiateClientCertificateAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"NegotiateClientCertificateAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"NegotiateClientCertificateAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"NegotiateClientCertificateAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"NegotiateClientCertificateAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"NegotiateClientCertificateAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"NegotiateClientCertificateAsync",P1])
 
 	Func Write P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Write",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Write",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1])
 		return self
 
 	Func getTransportContext

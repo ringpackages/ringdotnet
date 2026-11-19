@@ -803,10 +803,12 @@ Class CollectionResultExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func Print P1
-		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Print",P1])
 		return self
 
 	Func getProjectionBindingExpression
@@ -842,10 +844,12 @@ Class CompiledQueryCacheKeyGenerator from Object
 		return self
 
 	Func GenerateCacheKey P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateCacheKey",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GenerateCacheKey",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class CompiledQueryCacheKeyGeneratorDependencies from Object
@@ -866,7 +870,8 @@ Class CompiledQueryCacheKeyGeneratorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getModel
 		return dnRequest("get",[self,"Model"])
@@ -939,7 +944,8 @@ Class EntityMaterializerSourceParameters from ValueType
 		return self
 
 	Func Deconstruct 
-		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Deconstruct"])
 
 	Func getStructuralType
 		return dnRequest("get",[self,"StructuralType"])
@@ -982,22 +988,28 @@ Class EnumerableExpression from ExpressionsExpression
 		return self
 
 	Func ApplySelector P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ApplySelector",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ApplySelector",P1])
 
 	Func ApplyDistinct 
-		return dnRequest("call",[new DotNetObject(nHandle),"ApplyDistinct"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyDistinct"])
 
 	Func ApplyPredicate P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ApplyPredicate",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyPredicate",P1])
 
 	Func ApplyOrdering P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ApplyOrdering",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyOrdering",P1])
 
 	Func AppendOrdering P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendOrdering",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendOrdering",P1])
 
 	Func Print P1
-		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Print",P1])
 		return self
 
 	Func getSelector
@@ -1039,10 +1051,12 @@ Class EvaluatableExpressionFilter from Object
 		return self
 
 	Func IsEvaluatableExpression P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEvaluatableExpression",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEvaluatableExpression",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class EvaluatableExpressionFilterDependencies from Object
@@ -1061,7 +1075,8 @@ Class EvaluatableExpressionFilterDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getPlugins
 		return dnRequest("get",[self,"Plugins"])
@@ -1085,19 +1100,21 @@ Class ExpressionEqualityComparer from Object
 		return self
 
 	Func GetHashCode P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHashCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getInstance
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionEqualityComparer, Microsoft.EntityFrameworkCore'),"Instance"])
@@ -1118,7 +1135,8 @@ Class EfExpressionExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func InferTypeMapping P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionExtensions, Microsoft.EntityFrameworkCore.Relational'),"InferTypeMapping",P1])
@@ -1149,48 +1167,57 @@ Class ExpressionPrinter from ExpressionVisitor
 		return self
 
 	Func AppendLine P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLine",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AppendLine",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"AppendLine"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendLine"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendLine",P1])
 
 	Func AppendLines P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLines",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AppendLines",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLines",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendLines",P1])
 
 	Func Indent 
-		return dnRequest("call",[new DotNetObject(nHandle),"Indent"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Indent"])
 
 	Func Append P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Append",P1])
 
 	Func PrintExpression P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"PrintExpression",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"PrintExpression",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"PrintExpression",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PrintExpression",P1])
 
 	Func PrintExpressionDebug P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PrintExpressionDebug",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PrintExpressionDebug",P1])
 
 	Func GenerateBinaryOperator P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateBinaryOperator",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GenerateBinaryOperator",P1])
 
 	Func VisitCollection P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"VisitCollection",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"VisitCollection",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"VisitCollection",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"VisitCollection",P1])
 		return self
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 	Func Print P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"Print",P1])
@@ -1216,10 +1243,12 @@ Class GroupByShaperExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func Print P1
-		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Print",P1])
 		return self
 
 	Func getKeySelector
@@ -1247,7 +1276,8 @@ Class IAggregateMethodCallTranslator from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2,P3,P4])
 
 
 Class IAggregateMethodCallTranslatorPlugin from DotNetObject
@@ -1282,7 +1312,8 @@ Class IAggregateMethodCallTranslatorProvider from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2,P3,P4,P5])
 
 
 Class IAsyncQueryProvider from DotNetObject
@@ -1297,10 +1328,11 @@ Class IAsyncQueryProvider from DotNetObject
 		return self
 
 	Func ExecuteAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ExecuteAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExecuteAsync",P1])
 
 
 Class ICompiledQueryCacheKeyGenerator from DotNetObject
@@ -1315,7 +1347,8 @@ Class ICompiledQueryCacheKeyGenerator from DotNetObject
 		return self
 
 	Func GenerateCacheKey P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateCacheKey",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GenerateCacheKey",P1,P2])
 
 
 Class IEntityMaterializerSource from DotNetObject
@@ -1330,16 +1363,19 @@ Class IEntityMaterializerSource from DotNetObject
 		return self
 
 	Func CreateMaterializeExpression P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateMaterializeExpression",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateMaterializeExpression",P1])
 		ok
 		raise("DotNet Error: CreateMaterializeExpression does not take one argument: use named arguments, CreateMaterializeExpression([ :parameter = value, ... ])")
 
 	Func GetMaterializer P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMaterializer",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMaterializer",P1])
 
 	Func GetEmptyMaterializer P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEmptyMaterializer",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEmptyMaterializer",P1])
 
 
 Class IEvaluatableExpressionFilter from DotNetObject
@@ -1354,7 +1390,8 @@ Class IEvaluatableExpressionFilter from DotNetObject
 		return self
 
 	Func IsEvaluatableExpression P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEvaluatableExpression",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEvaluatableExpression",P1,P2])
 
 
 Class IEvaluatableExpressionFilterPlugin from DotNetObject
@@ -1369,7 +1406,8 @@ Class IEvaluatableExpressionFilterPlugin from DotNetObject
 		return self
 
 	Func IsEvaluatableExpression P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEvaluatableExpression",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEvaluatableExpression",P1])
 
 
 Class ILiftableConstantFactory from DotNetObject
@@ -1384,7 +1422,8 @@ Class ILiftableConstantFactory from DotNetObject
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateLiftableConstant",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateLiftableConstant",P1,P2,P3,P4])
 
 
 Class ILiftableConstantProcessor from DotNetObject
@@ -1401,10 +1440,12 @@ Class ILiftableConstantProcessor from DotNetObject
 		return self
 
 	Func InlineConstants P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"InlineConstants",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"InlineConstants",P1,P2])
 
 	Func LiftConstants P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LiftConstants",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LiftConstants",P1,P2,P3])
 
 	Func getLiftedConstants
 		return dnRequest("get",[self,"LiftedConstants"])
@@ -1425,7 +1466,8 @@ Class IMemberTranslator from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2,P3,P4])
 
 
 Class IMemberTranslatorPlugin from DotNetObject
@@ -1460,7 +1502,8 @@ Class IMemberTranslatorProvider from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2,P3,P4])
 
 
 Class IMethodCallTranslator from DotNetObject
@@ -1475,7 +1518,8 @@ Class IMethodCallTranslator from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2,P3,P4])
 
 
 Class IMethodCallTranslatorPlugin from DotNetObject
@@ -1510,7 +1554,8 @@ Class IMethodCallTranslatorProvider from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2,P3,P4,P5])
 
 
 Class INavigationExpansionExtensibilityHelper from DotNetObject
@@ -1525,14 +1570,17 @@ Class INavigationExpansionExtensibilityHelper from DotNetObject
 		return self
 
 	Func CreateQueryRoot P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateQueryRoot",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateQueryRoot",P1,P2])
 
 	Func ValidateQueryRootCreation P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ValidateQueryRootCreation",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateQueryRootCreation",P1,P2])
 		return self
 
 	Func AreQueryRootsCompatible P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AreQueryRootsCompatible",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AreQueryRootsCompatible",P1,P2])
 
 
 Class IPrintableExpression from DotNetObject
@@ -1547,7 +1595,8 @@ Class IPrintableExpression from DotNetObject
 		return self
 
 	Func Print P1
-		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Print",P1])
 		return self
 
 
@@ -1563,10 +1612,12 @@ Class IQueryCompilationContextFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
 
 	Func CreatePrecompiled P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatePrecompiled",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreatePrecompiled",P1,P2])
 
 
 Class IQueryContextFactory from DotNetObject
@@ -1581,7 +1632,8 @@ Class IQueryContextFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create"])
 
 
 Class IQuerySqlGeneratorFactory from DotNetObject
@@ -1596,7 +1648,8 @@ Class IQuerySqlGeneratorFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create"])
 
 
 Class IQueryTranslationPostprocessorFactory from DotNetObject
@@ -1611,7 +1664,8 @@ Class IQueryTranslationPostprocessorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
 
 
 Class IQueryTranslationPreprocessorFactory from DotNetObject
@@ -1626,7 +1680,8 @@ Class IQueryTranslationPreprocessorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
 
 
 Class IQueryableMethodTranslatingExpressionVisitorFactory from DotNetObject
@@ -1641,7 +1696,8 @@ Class IQueryableMethodTranslatingExpressionVisitorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
 
 
 Class IQueryingEnumerable from DotNetObject
@@ -1656,7 +1712,8 @@ Class IQueryingEnumerable from DotNetObject
 		return self
 
 	Func ToQueryString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToQueryString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToQueryString"])
 
 
 Class IRelationalLiftableConstantFactory from DotNetObject
@@ -1671,7 +1728,8 @@ Class IRelationalLiftableConstantFactory from DotNetObject
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateLiftableConstant",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateLiftableConstant",P1,P2,P3,P4])
 
 
 Class IRelationalParameterBasedSqlProcessorFactory from DotNetObject
@@ -1686,7 +1744,8 @@ Class IRelationalParameterBasedSqlProcessorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
 
 
 Class IRelationalQueryStringFactory from DotNetObject
@@ -1701,7 +1760,8 @@ Class IRelationalQueryStringFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
 
 
 Class IRelationalQuotableExpression from DotNetObject
@@ -1716,7 +1776,8 @@ Class IRelationalQuotableExpression from DotNetObject
 		return self
 
 	Func Quote 
-		return dnRequest("call",[new DotNetObject(nHandle),"Quote"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Quote"])
 
 
 Class IRelationalSqlTranslatingExpressionVisitorFactory from DotNetObject
@@ -1731,7 +1792,8 @@ Class IRelationalSqlTranslatingExpressionVisitorFactory from DotNetObject
 		return self
 
 	Func Create P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1,P2])
 
 
 Class IShapedQueryCompilingExpressionVisitorFactory from DotNetObject
@@ -1746,7 +1808,8 @@ Class IShapedQueryCompilingExpressionVisitorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1])
 
 
 Class ISqlAliasManagerFactory from DotNetObject
@@ -1761,7 +1824,8 @@ Class ISqlAliasManagerFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create"])
 
 
 Class ISqlExpressionFactory from DotNetObject
@@ -1776,148 +1840,180 @@ Class ISqlExpressionFactory from DotNetObject
 		return self
 
 	Func ApplyTypeMapping P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ApplyTypeMapping",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyTypeMapping",P1,P2])
 
 	Func ApplyDefaultTypeMapping P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ApplyDefaultTypeMapping",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyDefaultTypeMapping",P1])
 
 	Func MakeUnary P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeUnary",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MakeUnary",P1])
 		ok
 		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
 	Func MakeBinary P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeBinary",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MakeBinary",P1])
 		ok
 		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
 	Func Equal P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equal",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equal",P1,P2])
 
 	Func NotEqual P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"NotEqual",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"NotEqual",P1,P2])
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GreaterThan",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GreaterThan",P1,P2])
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GreaterThanOrEqual",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GreaterThanOrEqual",P1,P2])
 
 	Func LessThan P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LessThan",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LessThan",P1,P2])
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LessThanOrEqual",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LessThanOrEqual",P1,P2])
 
 	Func AndAlso P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AndAlso",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AndAlso",P1,P2])
 
 	Func OrElse P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"OrElse",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OrElse",P1,P2])
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Subtract P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Subtract",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Subtract",P1])
 		ok
 		raise("DotNet Error: Subtract does not take one argument: use named arguments, Subtract([ :parameter = value, ... ])")
 
 	Func Multiply P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Multiply",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Multiply",P1])
 		ok
 		raise("DotNet Error: Multiply does not take one argument: use named arguments, Multiply([ :parameter = value, ... ])")
 
 	Func Divide P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Divide",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Divide",P1])
 		ok
 		raise("DotNet Error: Divide does not take one argument: use named arguments, Divide([ :parameter = value, ... ])")
 
 	Func Modulo P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Modulo",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Modulo",P1])
 		ok
 		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
 
 	Func And_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"And",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"And",P1])
 		ok
 		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
 
 	Func Or_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Or",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Or",P1])
 		ok
 		raise("DotNet Error: Or does not take one argument: use named arguments, Or([ :parameter = value, ... ])")
 
 	Func Coalesce P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Coalesce",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Coalesce",P1])
 		ok
 		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
 
 	Func IsNotNull P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsNotNull",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsNotNull",P1])
 
 	Func Convert P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Convert",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Convert",P1])
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func Not_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Not",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Not",P1])
 
 	Func Negate P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Negate",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Negate",P1])
 
 	Func Case_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Case",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Case",P1])
 		ok
 		raise("DotNet Error: Case does not take one argument: use named arguments, Case([ :parameter = value, ... ])")
 
 	Func Function_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Function",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Function",P1])
 		ok
 		raise("DotNet Error: Function does not take one argument: use named arguments, Function([ :parameter = value, ... ])")
 
 	Func NiladicFunction P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"NiladicFunction",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"NiladicFunction",P1])
 		ok
 		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
 	Func Exists P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Exists",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Exists",P1])
 
 	Func In P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"In",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"In",P1,P2])
 
 	Func Like P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Like",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Like",P1])
 		ok
 		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
 	Func Constant P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Constant",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Constant",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Constant",P1])
 
 	Func Fragment P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Fragment",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Fragment",P1])
 
 
 Class IncludeExpression from ExpressionsExpression
@@ -1954,7 +2050,8 @@ Class IncludeExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func getEntityExpression
 		return dnRequest("get",[self,"EntityExpression"])
@@ -2002,23 +2099,29 @@ Class JsonQueryExpression from ExpressionsExpression
 		return self
 
 	Func BindProperty P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BindProperty",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BindProperty",P1])
 
 	Func BindNavigation P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BindNavigation",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BindNavigation",P1])
 
 	Func BindCollectionElement P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BindCollectionElement",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BindCollectionElement",P1])
 
 	Func MakeNullable 
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeNullable"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MakeNullable"])
 
 	Func Print P1
-		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Print",P1])
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func getEntityType
 		return dnRequest("get",[self,"EntityType"])
@@ -2075,10 +2178,12 @@ Class LiftableConstantExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func Print P1
-		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Print",P1])
 		return self
 
 	Func getOriginalExpression
@@ -2125,7 +2230,8 @@ Class LiftableConstantExpressionDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class LiftableConstantExpressionHelpers from Object
@@ -2140,7 +2246,8 @@ Class LiftableConstantExpressionHelpers from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func IsLiteral P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionHelpers, Microsoft.EntityFrameworkCore'),"IsLiteral",P1])
@@ -2186,10 +2293,12 @@ Class LiftableConstantFactory from Object
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateLiftableConstant",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateLiftableConstant",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getDependencies
 		return dnRequest("get",[self,"Dependencies"])
@@ -2214,13 +2323,16 @@ Class LiftableConstantProcessor from ExpressionVisitor
 		return self
 
 	Func InlineConstants P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"InlineConstants",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"InlineConstants",P1,P2])
 
 	Func LiftConstants P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LiftConstants",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LiftConstants",P1,P2,P3])
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 	Func getLiftedConstants
 		return dnRequest("get",[self,"LiftedConstants"])
@@ -2246,7 +2358,8 @@ Class MaterializeCollectionNavigationExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getSubquery
 		return dnRequest("get",[self,"Subquery"])
@@ -2277,10 +2390,12 @@ Class MaterializerLiftableConstantContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Deconstruct 
-		return dnRequest("call",[new DotNetObject(nHandle),"Deconstruct"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Deconstruct"])
 
 	Func getDependencies
 		return dnRequest("get",[self,"Dependencies"])
@@ -2304,17 +2419,21 @@ Class NavigationExpansionExtensibilityHelper from Object
 		return self
 
 	Func CreateQueryRoot P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateQueryRoot",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateQueryRoot",P1,P2])
 
 	Func ValidateQueryRootCreation P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ValidateQueryRootCreation",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ValidateQueryRootCreation",P1,P2])
 		return self
 
 	Func AreQueryRootsCompatible P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AreQueryRootsCompatible",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AreQueryRootsCompatible",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class NavigationExpansionExtensibilityHelperDependencies from Object
@@ -2342,7 +2461,8 @@ Class NavigationExpansionExtensibilityHelperDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class NonQueryExpression from ExpressionsExpression
@@ -2377,10 +2497,12 @@ Class NonQueryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func Print P1
-		dnRequest("call",[new DotNetObject(nHandle),"Print",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Print",P1])
 		return self
 
 	Func getExpression
@@ -2444,7 +2566,8 @@ Class EfPathSegment from ValueType
 		return self
 
 	Func Quote 
-		return dnRequest("call",[new DotNetObject(nHandle),"Quote"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Quote"])
 
 	Func getPropertyName
 		return dnRequest("get",[self,"PropertyName"])
@@ -2522,13 +2645,16 @@ Class ProjectionMember from Object
 		return self
 
 	Func Append P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Append",P1])
 
 	Func Prepend P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Prepend",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Prepend",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getLast
 		return dnRequest("get",[self,"Last"])
@@ -2585,20 +2711,25 @@ Class QueryCompilationContext from Object
 		return self
 
 	Func AddTag P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddTag",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddTag",P1])
 		return self
 
 	Func CreateQueryExecutor P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateQueryExecutor",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateQueryExecutor",P1])
 
 	Func CreateQueryExecutorExpression P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateQueryExecutorExpression",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateQueryExecutorExpression",P1])
 
 	Func RegisterRuntimeParameter P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RegisterRuntimeParameter",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RegisterRuntimeParameter",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getParametersToConstantize
 		return dnRequest("get",[self,"ParametersToConstantize"])
@@ -2738,7 +2869,8 @@ Class QueryCompilationContextDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getContext
 		return dnRequest("get",[self,"Context"])
@@ -2856,33 +2988,39 @@ Class QueryContext from Object
 		return self
 
 	Func SetNavigationIsLoaded P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetNavigationIsLoaded",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetNavigationIsLoaded",P1,P2])
 		return self
 
 	Func AddParameter P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddParameter",P1,P2])
 		return self
 
 	Func InitializeStateManager P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"InitializeStateManager",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"InitializeStateManager",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"InitializeStateManager"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"InitializeStateManager"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"InitializeStateManager",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"InitializeStateManager",P1])
 		return self
 
 	Func TryGetEntry P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetEntry",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetEntry",P1,P2,P3])
 
 	Func StartTracking P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"StartTracking",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"StartTracking",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getContext
 		return dnRequest("get",[self,"Context"])
@@ -2956,7 +3094,8 @@ Class QueryContextDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCurrentContext
 		return dnRequest("get",[self,"CurrentContext"])
@@ -3022,7 +3161,8 @@ Class QueryRootExpression from ExpressionsExpression
 		return self
 
 	Func DetachQueryProvider 
-		return dnRequest("call",[new DotNetObject(nHandle),"DetachQueryProvider"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DetachQueryProvider"])
 
 	Func getQueryProvider
 		return dnRequest("get",[self,"QueryProvider"])
@@ -3051,7 +3191,8 @@ Class QueryRootProcessor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 
 Class QuerySqlGeneratorDependencies from Object
@@ -3071,7 +3212,8 @@ Class QuerySqlGeneratorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRelationalCommandBuilderFactory
 		return dnRequest("get",[self,"RelationalCommandBuilderFactory"])
@@ -3102,10 +3244,12 @@ Class QueryTranslationPostprocessor from Object
 		return self
 
 	Func Process P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Process",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Process",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class QueryTranslationPostprocessorDependencies from Object
@@ -3133,7 +3277,8 @@ Class QueryTranslationPostprocessorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class QueryTranslationPreprocessor from Object
@@ -3150,13 +3295,16 @@ Class QueryTranslationPreprocessor from Object
 		return self
 
 	Func Process P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Process",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Process",P1])
 
 	Func NormalizeQueryableMethod P1
-		return dnRequest("call",[new DotNetObject(nHandle),"NormalizeQueryableMethod",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"NormalizeQueryableMethod",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class QueryTranslationPreprocessorDependencies from Object
@@ -3177,7 +3325,8 @@ Class QueryTranslationPreprocessorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTypeMappingSource
 		return dnRequest("get",[self,"TypeMappingSource"])
@@ -3215,13 +3364,16 @@ Class QueryableMethodTranslatingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Translate P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1])
 
 	Func TranslateSubquery P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TranslateSubquery",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TranslateSubquery",P1])
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 	Func getTranslationErrorDetails
 		return dnRequest("get",[self,"TranslationErrorDetails"])
@@ -3255,7 +3407,8 @@ Class QueryableMethodTranslatingExpressionVisitorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class QueryableMethods from Object
@@ -3328,7 +3481,8 @@ Class QueryableMethods from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func IsAverageWithoutSelector P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"IsAverageWithoutSelector",P1])
@@ -3711,10 +3865,12 @@ Class RelationalAggregateMethodCallTranslatorProvider from Object
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class RelationalAggregateMethodCallTranslatorProviderDependencies from Object
@@ -3735,7 +3891,8 @@ Class RelationalAggregateMethodCallTranslatorProviderDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSqlExpressionFactory
 		return dnRequest("get",[self,"SqlExpressionFactory"])
@@ -3783,7 +3940,8 @@ Class RelationalCollectionShaperExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2,P3,P4])
 
 	Func getParentIdentifier
 		return dnRequest("get",[self,"ParentIdentifier"])
@@ -3856,7 +4014,8 @@ Class RelationalCompiledQueryCacheKeyGeneratorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getContextOptions
 		return dnRequest("get",[self,"ContextOptions"])
@@ -3891,7 +4050,8 @@ Class RelationalEvaluatableExpressionFilterDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class RelationalExpressionQuotingUtilities from Object
@@ -3906,7 +4066,8 @@ Class RelationalExpressionQuotingUtilities from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func QuoteOrNull P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalExpressionQuotingUtilities, Microsoft.EntityFrameworkCore.Relational'),"QuoteOrNull",P1])
@@ -3943,7 +4104,8 @@ Class RelationalGroupByResultExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2,P3])
 
 	Func getKeyIdentifier
 		return dnRequest("get",[self,"KeyIdentifier"])
@@ -3995,7 +4157,8 @@ Class RelationalLiftableConstantExpressionDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class RelationalMemberTranslatorProvider from Object
@@ -4012,10 +4175,12 @@ Class RelationalMemberTranslatorProvider from Object
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2,P3,P4])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class RelationalMemberTranslatorProviderDependencies from Object
@@ -4035,7 +4200,8 @@ Class RelationalMemberTranslatorProviderDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSqlExpressionFactory
 		return dnRequest("get",[self,"SqlExpressionFactory"])
@@ -4066,10 +4232,12 @@ Class RelationalMethodCallTranslatorProvider from Object
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class RelationalMethodCallTranslatorProviderDependencies from Object
@@ -4090,7 +4258,8 @@ Class RelationalMethodCallTranslatorProviderDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSqlExpressionFactory
 		return dnRequest("get",[self,"SqlExpressionFactory"])
@@ -4128,10 +4297,12 @@ Class RelationalParameterBasedSqlProcessor from Object
 		return self
 
 	Func Optimize P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Optimize",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Optimize",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class RelationalParameterBasedSqlProcessorDependencies from Object
@@ -4152,7 +4323,8 @@ Class RelationalParameterBasedSqlProcessorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSqlExpressionFactory
 		return dnRequest("get",[self,"SqlExpressionFactory"])
@@ -4193,7 +4365,8 @@ Class RelationalParameterBasedSqlProcessorParameters from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getUseRelationalNulls
 		return dnRequest("get",[self,"UseRelationalNulls"])
@@ -4226,7 +4399,8 @@ Class RelationalQueryCompilationContextDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSqlAliasManagerFactory
 		return dnRequest("get",[self,"SqlAliasManagerFactory"])
@@ -4253,7 +4427,8 @@ Class RelationalQueryContextDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRelationalConnection
 		return dnRequest("get",[self,"RelationalConnection"])
@@ -4287,7 +4462,8 @@ Class RelationalQueryTranslationPostprocessorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSqlExpressionFactory
 		return dnRequest("get",[self,"SqlExpressionFactory"])
@@ -4320,7 +4496,8 @@ Class RelationalQueryTranslationPreprocessorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRelationalTypeMappingSource
 		return dnRequest("get",[self,"RelationalTypeMappingSource"])
@@ -4349,7 +4526,8 @@ Class RelationalQueryableMethodTranslatingExpressionVisitorDependencies from Obj
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRelationalSqlTranslatingExpressionVisitorFactory
 		return dnRequest("get",[self,"RelationalSqlTranslatingExpressionVisitorFactory"])
@@ -4398,7 +4576,8 @@ Class RelationalShapedQueryCompilingExpressionVisitorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getQuerySqlGeneratorFactory
 		return dnRequest("get",[self,"QuerySqlGeneratorFactory"])
@@ -4444,7 +4623,8 @@ Class RelationalSplitCollectionShaperExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2,P3,P4])
 
 	Func getParentIdentifier
 		return dnRequest("get",[self,"ParentIdentifier"])
@@ -4505,28 +4685,34 @@ Class RelationalSqlTranslatingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Translate P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Translate",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Translate",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1])
 
 	Func TranslateProjection P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"TranslateProjection",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TranslateProjection",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"TranslateProjection",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TranslateProjection",P1])
 
 	Func TryBindMember P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryBindMember",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryBindMember",P1,P2])
 
 	Func GenerateGreatest P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateGreatest",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GenerateGreatest",P1,P2])
 
 	Func GenerateLeast P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateLeast",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GenerateLeast",P1,P2])
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 	Func ParameterValueExtractor P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"ParameterValueExtractor",P1,P2,P3,P4])
@@ -4562,7 +4748,8 @@ Class RelationalSqlTranslatingExpressionVisitorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSqlExpressionFactory
 		return dnRequest("get",[self,"SqlExpressionFactory"])
@@ -4620,10 +4807,12 @@ Class RelationalSqlTranslatingExpressionVisitorFactory from Object
 		return self
 
 	Func Create P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class RelationalTypeMappingPostprocessor from ExpressionVisitor
@@ -4640,10 +4829,12 @@ Class RelationalTypeMappingPostprocessor from ExpressionVisitor
 		return self
 
 	Func Process P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Process",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Process",P1])
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 
 Class ReplacingExpressionVisitor from ExpressionVisitor
@@ -4660,7 +4851,8 @@ Class ReplacingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 	Func Replace P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ReplacingExpressionVisitor, Microsoft.EntityFrameworkCore'),"Replace",P1,P2,P3])
@@ -4678,7 +4870,8 @@ Class ShapedQueryCompilingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 	Func SingleAsync P1
 		if dnIsNamed(P1)
@@ -4720,7 +4913,8 @@ Class ShapedQueryCompilingExpressionVisitorDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getEntityMaterializerSource
 		return dnRequest("get",[self,"EntityMaterializerSource"])
@@ -4804,16 +4998,20 @@ Class ShapedQueryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func UpdateQueryExpression P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateQueryExpression",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateQueryExpression",P1])
 
 	Func UpdateShaperExpression P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateShaperExpression",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateShaperExpression",P1])
 
 	Func UpdateResultCardinality P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateResultCardinality",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateResultCardinality",P1])
 
 	Func getQueryExpression
 		return dnRequest("get",[self,"QueryExpression"])
@@ -4859,13 +5057,16 @@ Class SqlAliasManager from Object
 		return self
 
 	Func GenerateTableAlias P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateTableAlias",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GenerateTableAlias",P1])
 
 	Func PostprocessAliases P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PostprocessAliases",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PostprocessAliases",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class SqlAliasManagerFactory from Object
@@ -4893,10 +5094,12 @@ Class SqlAliasManagerFactory from Object
 		return self
 
 	Func Create 
-		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class SqlExpressionFactory from Object
@@ -4913,151 +5116,184 @@ Class SqlExpressionFactory from Object
 		return self
 
 	Func ApplyDefaultTypeMapping P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ApplyDefaultTypeMapping",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyDefaultTypeMapping",P1])
 
 	Func ApplyTypeMapping P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ApplyTypeMapping",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyTypeMapping",P1,P2])
 
 	Func MakeBinary P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeBinary",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MakeBinary",P1])
 		ok
 		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
 	Func Equal P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equal",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equal",P1,P2])
 
 	Func NotEqual P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"NotEqual",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"NotEqual",P1,P2])
 
 	Func GreaterThan P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GreaterThan",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GreaterThan",P1,P2])
 
 	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GreaterThanOrEqual",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GreaterThanOrEqual",P1,P2])
 
 	Func LessThan P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LessThan",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LessThan",P1,P2])
 
 	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LessThanOrEqual",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LessThanOrEqual",P1,P2])
 
 	Func AndAlso P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AndAlso",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AndAlso",P1,P2])
 
 	Func OrElse P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"OrElse",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OrElse",P1,P2])
 
 	Func Add P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Add",P1])
 		ok
 		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Subtract P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Subtract",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Subtract",P1])
 		ok
 		raise("DotNet Error: Subtract does not take one argument: use named arguments, Subtract([ :parameter = value, ... ])")
 
 	Func Multiply P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Multiply",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Multiply",P1])
 		ok
 		raise("DotNet Error: Multiply does not take one argument: use named arguments, Multiply([ :parameter = value, ... ])")
 
 	Func Divide P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Divide",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Divide",P1])
 		ok
 		raise("DotNet Error: Divide does not take one argument: use named arguments, Divide([ :parameter = value, ... ])")
 
 	Func Modulo P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Modulo",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Modulo",P1])
 		ok
 		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
 
 	Func And_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"And",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"And",P1])
 		ok
 		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
 
 	Func Or_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Or",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Or",P1])
 		ok
 		raise("DotNet Error: Or does not take one argument: use named arguments, Or([ :parameter = value, ... ])")
 
 	Func Coalesce P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Coalesce",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Coalesce",P1])
 		ok
 		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
 
 	Func MakeUnary P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeUnary",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MakeUnary",P1])
 		ok
 		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
 	Func IsNotNull P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsNotNull",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsNotNull",P1])
 
 	Func Convert P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Convert",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Convert",P1])
 		ok
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func Not_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Not",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Not",P1])
 
 	Func Negate P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Negate",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Negate",P1])
 
 	Func Case_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Case",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Case",P1])
 		ok
 		raise("DotNet Error: Case does not take one argument: use named arguments, Case([ :parameter = value, ... ])")
 
 	Func Function_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Function",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Function",P1])
 		ok
 		raise("DotNet Error: Function does not take one argument: use named arguments, Function([ :parameter = value, ... ])")
 
 	Func NiladicFunction P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"NiladicFunction",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"NiladicFunction",P1])
 		ok
 		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
 	Func Exists P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Exists",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Exists",P1])
 
 	Func In P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"In",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"In",P1,P2])
 
 	Func Like P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Like",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Like",P1])
 		ok
 		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
 	Func Fragment P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Fragment",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Fragment",P1])
 
 	Func Constant P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Constant",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Constant",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Constant",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class SqlExpressionFactoryDependencies from Object
@@ -5077,7 +5313,8 @@ Class SqlExpressionFactoryDependencies from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTypeMappingSource
 		return dnRequest("get",[self,"TypeMappingSource"])
@@ -5106,7 +5343,8 @@ Class SqlExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 
 Class SqlNullabilityProcessor from Object
@@ -5123,10 +5361,12 @@ Class SqlNullabilityProcessor from Object
 		return self
 
 	Func Process P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Process",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Process",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class SqlTreePruner from ExpressionVisitor
@@ -5154,10 +5394,12 @@ Class SqlTreePruner from ExpressionVisitor
 		return self
 
 	Func Prune P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Prune",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Prune",P1])
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 
 Class StructuralTypeProjectionExpression from ExpressionsExpression
@@ -5194,26 +5436,33 @@ Class StructuralTypeProjectionExpression from ExpressionsExpression
 		return self
 
 	Func MakeNullable 
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeNullable"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MakeNullable"])
 
 	Func UpdateEntityType P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateEntityType",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateEntityType",P1])
 
 	Func UpdateTableMap P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateTableMap",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateTableMap",P1])
 
 	Func BindProperty P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BindProperty",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BindProperty",P1])
 
 	Func BindComplexProperty P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BindComplexProperty",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BindComplexProperty",P1])
 
 	Func AddNavigationBinding P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddNavigationBinding",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddNavigationBinding",P1,P2])
 		return self
 
 	Func BindNavigation P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BindNavigation",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BindNavigation",P1])
 
 	Func getStructuralType
 		return dnRequest("get",[self,"StructuralType"])
@@ -5259,22 +5508,26 @@ Class StructuralTypeShaperExpression from ExpressionsExpression
 		return self
 
 	Func WithType P1
-		return dnRequest("call",[new DotNetObject(nHandle),"WithType",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"WithType",P1])
 
 	Func MakeNullable P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeNullable",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MakeNullable",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"MakeNullable"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"MakeNullable"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeNullable",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MakeNullable",P1])
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func DebuggerDisplay 
-		return dnRequest("call",[new DotNetObject(nHandle),"DebuggerDisplay"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DebuggerDisplay"])
 
 	Func CreateUnableToDiscriminateException P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore'),"CreateUnableToDiscriminateException",P1,P2])
@@ -5316,7 +5569,8 @@ Class TransparentIdentifierFactory from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Create P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.TransparentIdentifierFactory, Microsoft.EntityFrameworkCore'),"Create",P1,P2])
@@ -5353,7 +5607,8 @@ Class EntityQueryRootExpression from QueryRootExpression
 		return self
 
 	Func UpdateEntityType P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateEntityType",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"UpdateEntityType",P1])
 
 	Func getEntityType
 		return dnRequest("get",[self,"EntityType"])
@@ -5393,7 +5648,8 @@ Class InlineQueryRootExpression from QueryRootExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getValues
 		return dnRequest("get",[self,"Values"])
@@ -5453,7 +5709,8 @@ Class QuerySqlGenerator from SqlExpressionVisitor
 		return self
 
 	Func GetCommand P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCommand",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCommand",P1])
 
 
 Class RelationalCompiledQueryCacheKeyGenerator from CompiledQueryCacheKeyGenerator

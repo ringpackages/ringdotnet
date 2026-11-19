@@ -145,10 +145,12 @@ Class Margins from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getLeft
 		return dnRequest("get",[self,"Left"])
@@ -261,18 +263,22 @@ Class PageSettings from Object
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func CopyToHdevmode P1
-		dnRequest("call",[new DotNetObject(nHandle),"CopyToHdevmode",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyToHdevmode",P1])
 		return self
 
 	Func SetHdevmode P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetHdevmode",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHdevmode",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBounds
 		return dnRequest("get",[self,"Bounds"])
@@ -399,7 +405,8 @@ Class PaperSize from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getHeight
 		return dnRequest("get",[self,"Height"])
@@ -465,7 +472,8 @@ Class PaperSource from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getKind
 		return dnRequest("get",[self,"Kind"])
@@ -505,7 +513,8 @@ Class PreviewPageInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getImage
 		return dnRequest("get",[self,"Image"])
@@ -534,22 +543,27 @@ Class PrintController from Object
 		return self
 
 	Func OnStartPage P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"OnStartPage",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OnStartPage",P1,P2])
 
 	Func OnEndPage P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"OnEndPage",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnEndPage",P1,P2])
 		return self
 
 	Func OnStartPrint P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"OnStartPrint",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnStartPrint",P1,P2])
 		return self
 
 	Func OnEndPrint P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"OnEndPrint",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"OnEndPrint",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getIsPreview
 		return dnRequest("get",[self,"IsPreview"])
@@ -589,39 +603,48 @@ Class PrintDocument from Component
 		return self
 
 	Func Print 
-		dnRequest("call",[new DotNetObject(nHandle),"Print"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Print"])
 		return self
 
 	Func setBeginPrintEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"BeginPrint",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"BeginPrint",dnCallback(P1)])
 		return self
 
 	Func clearBeginPrintEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"BeginPrint"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"BeginPrint"])
 		return self
 
 	Func setEndPrintEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"EndPrint",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"EndPrint",dnCallback(P1)])
 		return self
 
 	Func clearEndPrintEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"EndPrint"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"EndPrint"])
 		return self
 
 	Func setPrintPageEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"PrintPage",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"PrintPage",dnCallback(P1)])
 		return self
 
 	Func clearPrintPageEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"PrintPage"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"PrintPage"])
 		return self
 
 	Func setQueryPageSettingsEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"QueryPageSettings",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"QueryPageSettings",dnCallback(P1)])
 		return self
 
 	Func clearQueryPageSettingsEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"QueryPageSettings"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"QueryPageSettings"])
 		return self
 
 	Func getDefaultPageSettings
@@ -781,7 +804,8 @@ Class PrinterResolution from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getKind
 		return dnRequest("get",[self,"Kind"])
@@ -854,42 +878,50 @@ Class PrinterSettings from Object
 		return self
 
 	Func IsDirectPrintingSupported P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsDirectPrintingSupported",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsDirectPrintingSupported",P1])
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func CreateMeasurementGraphics P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateMeasurementGraphics",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateMeasurementGraphics",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"CreateMeasurementGraphics"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateMeasurementGraphics"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateMeasurementGraphics",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateMeasurementGraphics",P1])
 
 	Func GetHdevmode P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHdevmode",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetHdevmode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetHdevmode"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHdevmode"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHdevmode",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHdevmode",P1])
 
 	Func GetHdevnames 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHdevnames"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHdevnames"])
 
 	Func SetHdevmode P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetHdevmode",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHdevmode",P1])
 		return self
 
 	Func SetHdevnames P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetHdevnames",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetHdevnames",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCanDuplex
 		return dnRequest("get",[self,"CanDuplex"])
@@ -1053,7 +1085,8 @@ Class PrinterUnitConvert from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Convert P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common'),"Convert",P1,P2,P3])
@@ -1086,7 +1119,8 @@ Class PreviewPrintController from PrintController
 		return self
 
 	Func GetPreviewPageInfo 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPreviewPageInfo"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPreviewPageInfo"])
 
 	Func getUseAntiAlias
 		return dnRequest("get",[self,"UseAntiAlias"])

@@ -250,10 +250,12 @@ Class CatchBlock from Object
 		return self
 
 	Func Update P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getVariable
 		return dnRequest("get",[self,"Variable"])
@@ -296,13 +298,16 @@ Class ElementInit from Object
 		return self
 
 	Func GetArgument P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetArgument",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetArgument",P1])
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAddMethod
 		return dnRequest("get",[self,"AddMethod"])
@@ -339,19 +344,24 @@ Class ExpressionsExpression from Object
 		return self
 
 	Func Reduce 
-		return dnRequest("call",[new DotNetObject(nHandle),"Reduce"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Reduce"])
 
 	Func ReduceAndCheck 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceAndCheck"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReduceAndCheck"])
 
 	Func ReduceExtensions 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReduceExtensions"])
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Assign P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Assign",P1,P2])
@@ -978,19 +988,22 @@ Class ExpressionVisitor from Object
 		return self
 
 	Func Visit P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.ExpressionVisitor, System.Linq.Expressions'),"Visit",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Visit",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Visit",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 	Func VisitAndConvert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VisitAndConvert",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"VisitAndConvert",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class IArgumentProvider from DotNetObject
@@ -1007,7 +1020,8 @@ Class IArgumentProvider from DotNetObject
 		return self
 
 	Func GetArgument P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetArgument",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetArgument",P1])
 
 	Func getArgumentCount
 		return dnRequest("get",[self,"ArgumentCount"])
@@ -1030,10 +1044,12 @@ Class IDynamicExpression from DotNetObject
 		return self
 
 	Func Rewrite P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Rewrite",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Rewrite",P1])
 
 	Func CreateCallSite 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateCallSite"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateCallSite"])
 
 	Func getDelegateType
 		return dnRequest("get",[self,"DelegateType"])
@@ -1057,10 +1073,12 @@ Class LabelTarget from Object
 		return self
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -1090,7 +1108,8 @@ Class MemberBinding from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBindingType
 		return dnRequest("get",[self,"BindingType"])
@@ -1120,10 +1139,12 @@ Class SwitchCase from Object
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTestValues
 		return dnRequest("get",[self,"TestValues"])
@@ -1155,7 +1176,8 @@ Class SymbolDocumentInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getFileName
 		return dnRequest("get",[self,"FileName"])
@@ -1201,7 +1223,8 @@ Class BinaryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2,P3])
 
 	Func getRight
 		return dnRequest("get",[self,"Right"])
@@ -1256,7 +1279,8 @@ Class BlockExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func getExpressions
 		return dnRequest("get",[self,"Expressions"])
@@ -1293,7 +1317,8 @@ Class ConditionalExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2,P3])
 
 	Func getTest
 		return dnRequest("get",[self,"Test"])
@@ -1417,7 +1442,8 @@ Class DynamicExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func Dynamic P1
 		if dnIsNamed(P1)
@@ -1475,7 +1501,8 @@ Class DynamicExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Visit",P1])
 
 
 Class GotoExpression from ExpressionsExpression
@@ -1494,7 +1521,8 @@ Class GotoExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func getValue
 		return dnRequest("get",[self,"Value"])
@@ -1532,10 +1560,12 @@ Class IndexExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func GetArgument P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetArgument",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetArgument",P1])
 
 	Func getObject
 		return dnRequest("get",[self,"Object"])
@@ -1578,10 +1608,12 @@ Class InvocationExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func GetArgument P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetArgument",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetArgument",P1])
 
 	Func getExpression
 		return dnRequest("get",[self,"Expression"])
@@ -1617,7 +1649,8 @@ Class LabelExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func getTarget
 		return dnRequest("get",[self,"Target"])
@@ -1652,13 +1685,14 @@ Class LambdaExpression from ExpressionsExpression
 		return self
 
 	Func Compile P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Compile",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Compile",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"Compile"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"Compile"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Compile",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Compile",P1])
 
 	Func getParameters
 		return dnRequest("get",[self,"Parameters"])
@@ -1718,7 +1752,8 @@ Class ListInitExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func getNewExpression
 		return dnRequest("get",[self,"NewExpression"])
@@ -1749,7 +1784,8 @@ Class LoopExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2,P3])
 
 	Func getBody
 		return dnRequest("get",[self,"Body"])
@@ -1784,7 +1820,8 @@ Class MemberAssignment from MemberBinding
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getExpression
 		return dnRequest("get",[self,"Expression"])
@@ -1808,7 +1845,8 @@ Class MemberExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getMember
 		return dnRequest("get",[self,"Member"])
@@ -1838,7 +1876,8 @@ Class MemberInitExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func getNewExpression
 		return dnRequest("get",[self,"NewExpression"])
@@ -1867,7 +1906,8 @@ Class MemberListBinding from MemberBinding
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getInitializers
 		return dnRequest("get",[self,"Initializers"])
@@ -1890,7 +1930,8 @@ Class MemberMemberBinding from MemberBinding
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getBindings
 		return dnRequest("get",[self,"Bindings"])
@@ -1916,10 +1957,12 @@ Class MethodCallExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2])
 
 	Func GetArgument P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetArgument",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetArgument",P1])
 
 	Func getMethod
 		return dnRequest("get",[self,"Method"])
@@ -1960,7 +2003,8 @@ Class NewArrayExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getExpressions
 		return dnRequest("get",[self,"Expressions"])
@@ -1986,10 +2030,12 @@ Class NewExpression from ExpressionsExpression
 		return self
 
 	Func GetArgument P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetArgument",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetArgument",P1])
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getConstructor
 		return dnRequest("get",[self,"Constructor"])
@@ -2057,7 +2103,8 @@ Class RuntimeVariablesExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getVariables
 		return dnRequest("get",[self,"Variables"])
@@ -2083,7 +2130,8 @@ Class SwitchExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2,P3])
 
 	Func getSwitchValue
 		return dnRequest("get",[self,"SwitchValue"])
@@ -2127,7 +2175,8 @@ Class TryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1,P2,P3,P4])
 
 	Func getBody
 		return dnRequest("get",[self,"Body"])
@@ -2169,7 +2218,8 @@ Class TypeBinaryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getExpression
 		return dnRequest("get",[self,"Expression"])
@@ -2201,7 +2251,8 @@ Class UnaryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Update",P1])
 
 	Func getOperand
 		return dnRequest("get",[self,"Operand"])

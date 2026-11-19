@@ -77,7 +77,8 @@ Class ContentDisposition from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getDispositionType
 		return dnRequest("get",[self,"DispositionType"])
@@ -186,7 +187,8 @@ Class ContentType from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBoundary
 		return dnRequest("get",[self,"Boundary"])
@@ -238,7 +240,8 @@ Class DispositionTypeNames from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getInline
 		return dnRequest("get",[dnTypeCached('System.Net.Mime.DispositionTypeNames, System.Net.Mail'),"Inline"])
@@ -265,6 +268,7 @@ Class MediaTypeNames from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 

@@ -173,7 +173,8 @@ Class Ascii from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func IsValid P1
 		return dnRequest("call",[dnTypeCached('System.Text.Ascii, System.Private.CoreLib'),"IsValid",P1])
@@ -194,7 +195,8 @@ Class CompositeFormat from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Text.CompositeFormat, System.Private.CoreLib'),"Parse",P1])
@@ -227,26 +229,31 @@ Class Decoder from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
 		return self
 
 	Func GetCharCount P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCharCount",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCharCount",P1])
 		ok
 		raise("DotNet Error: GetCharCount does not take one argument: use named arguments, GetCharCount([ :parameter = value, ... ])")
 
 	Func GetChars P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChars",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetChars",P1])
 		ok
 		raise("DotNet Error: GetChars does not take one argument: use named arguments, GetChars([ :parameter = value, ... ])")
 
 	Func Convert P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3,P4,P5,P6,P7])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Convert",P1,P2,P3,P4,P5,P6,P7])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getFallback
 		return dnRequest("get",[self,"Fallback"])
@@ -278,10 +285,12 @@ Class DecoderFallback from Object
 		return self
 
 	Func CreateFallbackBuffer 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateFallbackBuffer"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateFallbackBuffer"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMaxCharCount
 		return dnRequest("get",[self,"MaxCharCount"])
@@ -316,20 +325,25 @@ Class DecoderFallbackBuffer from Object
 		return self
 
 	Func Fallback P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Fallback",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Fallback",P1,P2])
 
 	Func GetNextChar 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextChar"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNextChar"])
 
 	Func MovePrevious 
-		return dnRequest("call",[new DotNetObject(nHandle),"MovePrevious"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MovePrevious"])
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRemaining
 		return dnRequest("get",[self,"Remaining"])
@@ -353,20 +367,25 @@ Class Encoder from Object
 		return self
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
 		return self
 
 	Func GetByteCount P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetByteCount",P1,P2,P3,P4])
 
 	Func GetBytes P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3,P4,P5,P6])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBytes",P1,P2,P3,P4,P5,P6])
 
 	Func Convert P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3,P4,P5,P6,P7])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Convert",P1,P2,P3,P4,P5,P6,P7])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getFallback
 		return dnRequest("get",[self,"Fallback"])
@@ -398,10 +417,12 @@ Class EncoderFallback from Object
 		return self
 
 	Func CreateFallbackBuffer 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateFallbackBuffer"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateFallbackBuffer"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMaxCharCount
 		return dnRequest("get",[self,"MaxCharCount"])
@@ -436,23 +457,28 @@ Class EncoderFallbackBuffer from Object
 		return self
 
 	Func Fallback P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Fallback",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Fallback",P1])
 		ok
 		raise("DotNet Error: Fallback does not take one argument: use named arguments, Fallback([ :parameter = value, ... ])")
 
 	Func GetNextChar 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextChar"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNextChar"])
 
 	Func MovePrevious 
-		return dnRequest("call",[new DotNetObject(nHandle),"MovePrevious"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MovePrevious"])
 
 	Func Reset 
-		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Reset"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRemaining
 		return dnRequest("get",[self,"Remaining"])
@@ -497,64 +523,77 @@ Class Encoding from Object
 		return self
 
 	Func GetPreamble_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPreamble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPreamble"])
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func GetByteCount P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetByteCount",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetByteCount",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetByteCount",P1])
 
 	Func GetBytes P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetBytes",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetBytes",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBytes",P1])
 
 	Func GetCharCount P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCharCount",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetCharCount",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCharCount",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCharCount",P1])
 
 	Func GetChars P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChars",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetChars",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChars",P1])
 
 	Func IsAlwaysNormalized P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsAlwaysNormalized",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsAlwaysNormalized",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"IsAlwaysNormalized"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"IsAlwaysNormalized"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsAlwaysNormalized",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsAlwaysNormalized",P1])
 
 	Func GetDecoder 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDecoder"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDecoder"])
 
 	Func GetEncoder 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoder"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEncoder"])
 
 	Func GetMaxByteCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxByteCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMaxByteCount",P1])
 
 	Func GetMaxCharCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxCharCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetMaxCharCount",P1])
 
 	Func GetString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetString",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetString",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Convert P1
 		if dnIsNamed(P1)
@@ -740,10 +779,12 @@ Class EncodingInfo from Object
 		return self
 
 	Func GetEncoding 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoding"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEncoding"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCodePage
 		return dnRequest("get",[self,"CodePage"])
@@ -776,16 +817,19 @@ Class EncodingProvider from Object
 		return self
 
 	Func GetEncoding P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetEncoding",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetEncoding",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoding",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEncoding",P1])
 
 	Func GetEncodings 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEncodings"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEncodings"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class Rune from ValueType
@@ -841,7 +885,8 @@ Class Rune from ValueType
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func GetRuneAt P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"GetRuneAt",P1,P2])
@@ -1005,71 +1050,86 @@ Class StringBuilder from Object
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCapacity",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnsureCapacity",P1])
 
 	Func Format P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToString",P1])
 		ok
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func Clear 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 
 	Func GetChunks 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChunks"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetChunks"])
 
 	Func Append P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Append",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Append",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Append",P1])
 
 	Func AppendLine P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLine",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AppendLine",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"AppendLine"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendLine"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendLine",P1])
 
 	Func CopyTo P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2,P3,P4])
 		return self
 
 	Func Insert P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Insert",P1])
 		ok
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Remove P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Remove",P1,P2])
 
 	Func AppendJoin P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendJoin",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendJoin",P1,P2])
 
 	Func AppendFormat P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendFormat",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"AppendFormat",P1])
 		ok
 		raise("DotNet Error: AppendFormat does not take one argument: use named arguments, AppendFormat([ :parameter = value, ... ])")
 
 	Func Replace P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Replace",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Replace",P1])
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
@@ -1120,10 +1180,12 @@ Class StringRuneEnumerator from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func MoveNext 
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveNext"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MoveNext"])
 
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])

@@ -204,84 +204,108 @@ Class BinaryReader from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func PeekChar 
-		return dnRequest("call",[new DotNetObject(nHandle),"PeekChar"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"PeekChar"])
 
 	Func Read P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Read",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Read",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"Read"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"Read"])
 		ok
 		raise("DotNet Error: Read does not take one argument: use named arguments, Read([ :parameter = value, ... ])")
 
 	Func ReadByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadByte"])
 
 	Func ReadSByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadSByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadSByte"])
 
 	Func ReadBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadBoolean"])
 
 	Func ReadChar 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadChar"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadChar"])
 
 	Func ReadInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadInt16"])
 
 	Func ReadUInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadUInt16"])
 
 	Func ReadInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadInt32"])
 
 	Func ReadUInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadUInt32"])
 
 	Func ReadInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadInt64"])
 
 	Func ReadUInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadUInt64"])
 
 	Func ReadHalf 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadHalf"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadHalf"])
 
 	Func ReadSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadSingle"])
 
 	Func ReadDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadDouble"])
 
 	Func ReadDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadDecimal"])
 
 	Func ReadString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadString"])
 
 	Func ReadChars P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadChars",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadChars",P1])
 
 	Func ReadBytes P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadBytes",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadBytes",P1])
 
 	Func Read7BitEncodedInt 
-		return dnRequest("call",[new DotNetObject(nHandle),"Read7BitEncodedInt"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read7BitEncodedInt"])
 
 	Func Read7BitEncodedInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"Read7BitEncodedInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read7BitEncodedInt64"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBaseStream
 		return dnRequest("get",[self,"BaseStream"])
@@ -322,41 +346,50 @@ Class BinaryWriter from Object
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
 
 	Func Flush 
-		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Flush"])
 		return self
 
 	Func Seek P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Seek",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Seek",P1,P2])
 
 	Func Write P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Write",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Write",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1])
 		return self
 
 	Func Write7BitEncodedInt P1
-		dnRequest("call",[new DotNetObject(nHandle),"Write7BitEncodedInt",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write7BitEncodedInt",P1])
 		return self
 
 	Func Write7BitEncodedInt64 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Write7BitEncodedInt64",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write7BitEncodedInt64",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getBaseStream
 		return dnRequest("get",[self,"BaseStream"])
@@ -383,7 +416,8 @@ Class Directory from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetParent P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetParent",P1])
@@ -540,7 +574,8 @@ Class DriveInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetDrives 
 		return dnRequest("call",[dnTypeCached('System.IO.DriveInfo, System.IO.FileSystem.DriveInfo'),"GetDrives"])
@@ -635,7 +670,8 @@ Class EnumerationOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRecurseSubdirectories
 		return dnRequest("get",[self,"RecurseSubdirectories"])
@@ -708,7 +744,8 @@ Class ErrorEventArgs from EventArgs
 		return self
 
 	Func GetException 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetException"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetException"])
 
 
 Class File from Object
@@ -723,7 +760,8 @@ Class File from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func OpenText P1
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenText",P1])
@@ -1007,7 +1045,8 @@ Class FileStreamOptions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMode
 		return dnRequest("get",[self,"Mode"])
@@ -1121,22 +1160,27 @@ Class FileSystemInfo from MarshalByRefObject
 		return self
 
 	Func GetObjectData P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"GetObjectData",P1,P2])
 		return self
 
 	Func Delete 
-		dnRequest("call",[new DotNetObject(nHandle),"Delete"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Delete"])
 		return self
 
 	Func CreateAsSymbolicLink P1
-		dnRequest("call",[new DotNetObject(nHandle),"CreateAsSymbolicLink",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CreateAsSymbolicLink",P1])
 		return self
 
 	Func ResolveLinkTarget P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ResolveLinkTarget",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ResolveLinkTarget",P1])
 
 	Func Refresh 
-		dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Refresh"])
 		return self
 
 	Func getFullName
@@ -1280,57 +1324,70 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func WaitForChanged P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitForChanged",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WaitForChanged",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitForChanged",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"WaitForChanged",P1])
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
 		return self
 
 	Func setChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Changed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Changed",dnCallback(P1)])
 		return self
 
 	Func clearChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Changed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Changed"])
 		return self
 
 	Func setCreatedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Created",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Created",dnCallback(P1)])
 		return self
 
 	Func clearCreatedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Created"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Created"])
 		return self
 
 	Func setDeletedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Deleted",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Deleted",dnCallback(P1)])
 		return self
 
 	Func clearDeletedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Deleted"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Deleted"])
 		return self
 
 	Func setErrorEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Error",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Error",dnCallback(P1)])
 		return self
 
 	Func clearErrorEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Error"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Error"])
 		return self
 
 	Func setRenamedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Renamed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Renamed",dnCallback(P1)])
 		return self
 
 	Func clearRenamedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Renamed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Renamed"])
 		return self
 
 	Func getNotifyFilter
@@ -1407,7 +1464,8 @@ Class Path from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func ChangeExtension P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"ChangeExtension",P1,P2])
@@ -1524,7 +1582,8 @@ Class RandomAccess from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetLength P1
 		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"GetLength",P1])
@@ -1579,103 +1638,125 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func CopyTo P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"CopyTo",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
 		return self
 
 	Func CopyToAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CopyToAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyToAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CopyToAsync",P1])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
 
 	Func Flush 
-		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Flush"])
 		return self
 
 	Func FlushAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FlushAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FlushAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"FlushAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FlushAsync",P1])
 
 	Func BeginRead P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginRead",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginRead",P1,P2,P3,P4,P5])
 
 	Func EndRead P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EndRead",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EndRead",P1])
 
 	Func ReadAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadAsync",P1])
 
 	Func ReadExactlyAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadExactlyAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadExactlyAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadExactlyAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadExactlyAsync",P1])
 
 	Func ReadAtLeastAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAtLeastAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadAtLeastAsync",P1])
 		ok
 		raise("DotNet Error: ReadAtLeastAsync does not take one argument: use named arguments, ReadAtLeastAsync([ :parameter = value, ... ])")
 
 	Func BeginWrite P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginWrite",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginWrite",P1,P2,P3,P4,P5])
 
 	Func EndWrite P1
-		dnRequest("call",[new DotNetObject(nHandle),"EndWrite",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndWrite",P1])
 		return self
 
 	Func WriteAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"WriteAsync",P1])
 
 	Func Seek P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Seek",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Seek",P1,P2])
 
 	Func SetLength P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetLength",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetLength",P1])
 		return self
 
 	Func Read P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read",P1,P2,P3])
 
 	Func ReadByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadByte"])
 
 	Func ReadExactly P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ReadExactly",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReadExactly",P1,P2,P3])
 		return self
 
 	Func Write P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1,P2,P3])
 		return self
 
 	Func WriteByte P1
-		dnRequest("call",[new DotNetObject(nHandle),"WriteByte",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteByte",P1])
 		return self
 
 	Func Synchronized P1
@@ -1750,63 +1831,74 @@ Class TextReader from MarshalByRefObject
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Peek 
-		return dnRequest("call",[new DotNetObject(nHandle),"Peek"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Peek"])
 
 	Func Read P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Read",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Read",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"Read"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"Read"])
 		ok
 		raise("DotNet Error: Read does not take one argument: use named arguments, Read([ :parameter = value, ... ])")
 
 	Func ReadToEnd 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadToEnd"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadToEnd"])
 
 	Func ReadBlock P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadBlock",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadBlock",P1,P2,P3])
 
 	Func ReadLine 
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadLine"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadLine"])
 
 	Func ReadLineAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadLineAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadLineAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ReadLineAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadLineAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadLineAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadLineAsync",P1])
 
 	Func ReadToEndAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadToEndAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadToEndAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ReadToEndAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadToEndAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadToEndAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadToEndAsync",P1])
 
 	Func ReadAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadAsync",P1])
 
 	Func ReadBlockAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadBlockAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReadBlockAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadBlockAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadBlockAsync",P1])
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.IO.TextReader, System.Private.CoreLib'),"Synchronized",P1])
@@ -1835,63 +1927,72 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func DisposeAsync 
-		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"DisposeAsync"])
 
 	Func Flush 
-		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Flush"])
 		return self
 
 	Func Write P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Write",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Write",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1])
 		return self
 
 	Func WriteLine P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteLine",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteLine",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"WriteLine"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"WriteLine"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteLine",P1])
 		return self
 
 	Func WriteAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteAsync",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"WriteAsync",P1])
 
 	Func WriteLineAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteLineAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"WriteLineAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"WriteLineAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"WriteLineAsync",P1])
 
 	Func FlushAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"FlushAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FlushAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"FlushAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FlushAsync",P1])
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.IO.TextWriter, System.Private.CoreLib'),"Synchronized",P1])
@@ -1958,64 +2059,83 @@ Class UnmanagedMemoryAccessor from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func ReadBoolean P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadBoolean",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadBoolean",P1])
 
 	Func ReadByte P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadByte",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadByte",P1])
 
 	Func ReadChar P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadChar",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadChar",P1])
 
 	Func ReadInt16 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt16",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadInt16",P1])
 
 	Func ReadInt32 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt32",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadInt32",P1])
 
 	Func ReadInt64 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadInt64",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadInt64",P1])
 
 	Func ReadDecimal P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadDecimal",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadDecimal",P1])
 
 	Func ReadSingle P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadSingle",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadSingle",P1])
 
 	Func ReadDouble P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadDouble",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadDouble",P1])
 
 	Func ReadSByte P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadSByte",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadSByte",P1])
 
 	Func ReadUInt16 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt16",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadUInt16",P1])
 
 	Func ReadUInt32 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt32",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadUInt32",P1])
 
 	Func ReadUInt64 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadUInt64",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadUInt64",P1])
 
 	Func Read P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read",P1])
 
 	Func ReadArray P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadArray",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReadArray",P1,P2,P3,P4])
 
 	Func Write P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1,P2])
 		return self
 
 	Func WriteArray P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"WriteArray",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteArray",P1,P2,P3,P4])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCapacity
 		return dnRequest("get",[self,"Capacity"])
@@ -2155,80 +2275,90 @@ Class DirectoryInfo from FileSystemInfo
 		return self
 
 	Func CreateSubdirectory P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubdirectory",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateSubdirectory",P1])
 
 	Func Create 
-		dnRequest("call",[new DotNetObject(nHandle),"Create"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Create"])
 		return self
 
 	Func GetFiles P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFiles",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetFiles",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetFiles"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFiles"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFiles",P1])
 
 	Func GetFileSystemInfos P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFileSystemInfos",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetFileSystemInfos",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFileSystemInfos"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFileSystemInfos",P1])
 
 	Func GetDirectories P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDirectories",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetDirectories",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetDirectories"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDirectories"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectories",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDirectories",P1])
 
 	Func EnumerateDirectories P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateDirectories",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnumerateDirectories",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateDirectories"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateDirectories",P1])
 
 	Func EnumerateFiles P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateFiles",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnumerateFiles",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFiles"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateFiles"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFiles",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateFiles",P1])
 
 	Func EnumerateFileSystemInfos P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnumerateFileSystemInfos",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateFileSystemInfos"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"EnumerateFileSystemInfos",P1])
 
 	Func MoveTo P1
-		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MoveTo",P1])
 		return self
 
 	Func Delete P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Delete",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Delete",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Delete"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Delete"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Delete",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Delete",P1])
 		return self
 
 	Func getParent
@@ -2263,55 +2393,67 @@ Class FileInfo from FileSystemInfo
 		return self
 
 	Func Open P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Open",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Open",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Open",P1])
 
 	Func OpenText 
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenText"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenText"])
 
 	Func CreateText 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateText"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateText"])
 
 	Func AppendText 
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendText"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"AppendText"])
 
 	Func CopyTo P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CopyTo",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyTo",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1])
 
 	Func Create 
-		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Create"])
 
 	Func OpenRead 
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenRead"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenRead"])
 
 	Func OpenWrite 
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenWrite"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"OpenWrite"])
 
 	Func MoveTo P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"MoveTo",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MoveTo",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MoveTo",P1])
 		return self
 
 	Func Replace P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Replace",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Replace",P1])
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Decrypt 
-		dnRequest("call",[new DotNetObject(nHandle),"Decrypt"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Decrypt"])
 		return self
 
 	Func Encrypt 
-		dnRequest("call",[new DotNetObject(nHandle),"Encrypt"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Encrypt"])
 		return self
 
 	Func getLength
@@ -2374,23 +2516,26 @@ Class FileStream from Stream
 		return self
 
 	Func Lock P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Lock",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Lock",P1,P2])
 		return self
 
 	Func Unlock P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Unlock",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Unlock",P1,P2])
 		return self
 
 	Func Flush P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Flush",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Flush",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Flush"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Flush"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Flush",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Flush",P1])
 		return self
 
 	Func getHandle
@@ -2465,16 +2610,20 @@ Class MemoryStream from Stream
 		return self
 
 	Func GetBuffer 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBuffer"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBuffer"])
 
 	Func TryGetBuffer 
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetBuffer"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetBuffer"])
 
 	Func ToArray 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArray"])
 
 	Func WriteTo P1
-		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"WriteTo",P1])
 		return self
 
 	Func getCapacity
@@ -2547,7 +2696,8 @@ Class StreamReader from TextReader
 		return self
 
 	Func DiscardBufferedData 
-		dnRequest("call",[new DotNetObject(nHandle),"DiscardBufferedData"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DiscardBufferedData"])
 		return self
 
 	Func getCurrentEncoding
@@ -2679,7 +2829,8 @@ Class StringWriter from TextWriter
 		return self
 
 	Func GetStringBuilder 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStringBuilder"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetStringBuilder"])
 
 
 Class UnmanagedMemoryStream from Stream

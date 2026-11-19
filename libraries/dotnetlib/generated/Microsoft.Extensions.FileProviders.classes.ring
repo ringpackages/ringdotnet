@@ -81,16 +81,20 @@ Class CompositeFileProvider from Object
 		return self
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileInfo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFileInfo",P1])
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectoryContents",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDirectoryContents",P1])
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Watch",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Watch",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getFileProviders
 		return dnRequest("get",[self,"FileProviders"])
@@ -128,16 +132,20 @@ Class EmbeddedFileProvider from Object
 		return self
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileInfo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFileInfo",P1])
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectoryContents",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDirectoryContents",P1])
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Watch",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Watch",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class IDirectoryContents from DotNetObject
@@ -179,7 +187,8 @@ Class IFileInfo from DotNetObject
 		return self
 
 	Func CreateReadStream 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateReadStream"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateReadStream"])
 
 	Func getExists
 		return dnRequest("get",[self,"Exists"])
@@ -230,13 +239,16 @@ Class IFileProvider from DotNetObject
 		return self
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileInfo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFileInfo",P1])
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectoryContents",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDirectoryContents",P1])
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Watch",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Watch",P1])
 
 
 Class ManifestEmbeddedFileProvider from Object
@@ -270,16 +282,20 @@ Class ManifestEmbeddedFileProvider from Object
 		return self
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectoryContents",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDirectoryContents",P1])
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileInfo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFileInfo",P1])
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Watch",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Watch",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAssembly
 		return dnRequest("get",[self,"Assembly"])
@@ -316,10 +332,12 @@ Class NotFoundDirectoryContents from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getExists
 		return dnRequest("get",[self,"Exists"])
@@ -355,10 +373,12 @@ Class NotFoundFileInfo from Object
 		return self
 
 	Func CreateReadStream 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateReadStream"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateReadStream"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getExists
 		return dnRequest("get",[self,"Exists"])
@@ -413,10 +433,12 @@ Class NullChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RegisterChangeCallback",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RegisterChangeCallback",P1,P2])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getHasChanged
 		return dnRequest("get",[self,"HasChanged"])
@@ -462,16 +484,20 @@ Class NullFileProvider from Object
 		return self
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectoryContents",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDirectoryContents",P1])
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileInfo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFileInfo",P1])
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Watch",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Watch",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class PhysicalFileProvider from Object
@@ -507,20 +533,25 @@ Class PhysicalFileProvider from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetFileInfo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileInfo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFileInfo",P1])
 
 	Func GetDirectoryContents P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectoryContents",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDirectoryContents",P1])
 
 	Func Watch P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Watch",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Watch",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getUsePollingFileWatcher
 		return dnRequest("get",[self,"UsePollingFileWatcher"])

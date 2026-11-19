@@ -83,31 +83,38 @@ Class TimersTimer from Component
 		return self
 
 	Func BeginInit 
-		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"BeginInit"])
 		return self
 
 	Func Close 
-		dnRequest("call",[new DotNetObject(nHandle),"Close"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Close"])
 		return self
 
 	Func EndInit 
-		dnRequest("call",[new DotNetObject(nHandle),"EndInit"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndInit"])
 		return self
 
 	Func Start 
-		dnRequest("call",[new DotNetObject(nHandle),"Start"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Start"])
 		return self
 
 	Func Stop 
-		dnRequest("call",[new DotNetObject(nHandle),"Stop"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Stop"])
 		return self
 
 	Func setElapsedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Elapsed",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Elapsed",dnCallback(P1)])
 		return self
 
 	Func clearElapsedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Elapsed"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Elapsed"])
 		return self
 
 	Func getAutoReset

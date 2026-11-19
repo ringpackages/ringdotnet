@@ -233,10 +233,12 @@ Class Brush from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 
@@ -394,7 +396,8 @@ Class Brushes from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTransparent
 		return dnRequest("get",[dnTypeCached('System.Drawing.Brushes, System.Drawing.Common'),"Transparent"])
@@ -1257,23 +1260,26 @@ Class BufferedGraphics from Object
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Render P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Render",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Render",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Render"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Render"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Render",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Render",P1])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getGraphics
 		return dnRequest("get",[self,"Graphics"])
@@ -1309,18 +1315,22 @@ Class BufferedGraphicsContext from Object
 		return self
 
 	Func Allocate P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Allocate",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Allocate",P1,P2])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Invalidate 
-		dnRequest("call",[new DotNetObject(nHandle),"Invalidate"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Invalidate"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getMaximumBuffer
 		return dnRequest("get",[self,"MaximumBuffer"])
@@ -1344,7 +1354,8 @@ Class BufferedGraphicsManager from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getCurrent
 		return dnRequest("get",[dnTypeCached('System.Drawing.BufferedGraphicsManager, System.Drawing.Common'),"Current"])
@@ -1593,19 +1604,24 @@ Class Color from ValueType
 		return self
 
 	Func GetBrightness 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBrightness"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBrightness"])
 
 	Func GetHue 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHue"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHue"])
 
 	Func GetSaturation 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSaturation"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetSaturation"])
 
 	Func ToArgb 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToArgb"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToArgb"])
 
 	Func ToKnownColor 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToKnownColor"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToKnownColor"])
 
 	Func FromArgb P1
 		if dnIsNamed(P1)
@@ -2544,7 +2560,8 @@ Class ColorTranslator from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func ToWin32 P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"ToWin32",P1])
@@ -2611,32 +2628,37 @@ Class Font from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetHeight_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHeight",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetHeight",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetHeight"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHeight"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHeight",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHeight",P1])
 
 	Func ToLogFont P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToLogFont",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ToLogFont",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ToLogFont"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ToLogFont"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToLogFont",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToLogFont",P1])
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func ToHfont 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToHfont"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToHfont"])
 
 	Func FromHfont P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromHfont",P1])
@@ -2807,26 +2829,33 @@ Class FontFamily from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetName_ P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetName",P1])
 
 	Func IsStyleAvailable P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsStyleAvailable",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsStyleAvailable",P1])
 
 	Func GetEmHeight P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEmHeight",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEmHeight",P1])
 
 	Func GetCellAscent P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCellAscent",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCellAscent",P1])
 
 	Func GetCellDescent P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCellDescent",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetCellDescent",P1])
 
 	Func GetLineSpacing P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetLineSpacing",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetLineSpacing",P1])
 
 	Func GetFamilies_ P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.FontFamily, System.Drawing.Common'),"GetFamilies",P1])
@@ -2894,334 +2923,393 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func ReleaseHdcInternal P1
-		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHdcInternal",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReleaseHdcInternal",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func GetHdc 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHdc"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHdc"])
 
 	Func ReleaseHdc P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ReleaseHdc",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReleaseHdc",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"ReleaseHdc"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"ReleaseHdc"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHdc",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReleaseHdc",P1])
 		return self
 
 	Func Flush P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Flush",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Flush",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Flush"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Flush"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Flush",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Flush",P1])
 		return self
 
 	Func SetClip_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SetClip",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SetClip",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SetClip",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetClip",P1])
 		return self
 
 	Func IntersectClip P1
-		dnRequest("call",[new DotNetObject(nHandle),"IntersectClip",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"IntersectClip",P1])
 		return self
 
 	Func ExcludeClip P1
-		dnRequest("call",[new DotNetObject(nHandle),"ExcludeClip",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ExcludeClip",P1])
 		return self
 
 	Func ResetClip 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetClip"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetClip"])
 		return self
 
 	Func TranslateClip P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"TranslateClip",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"TranslateClip",P1,P2])
 		return self
 
 	Func IsVisible P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsVisible",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsVisible",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsVisible",P1])
 
 	Func ResetTransform 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetTransform"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetTransform"])
 		return self
 
 	Func MultiplyTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"MultiplyTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MultiplyTransform",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MultiplyTransform",P1])
 		return self
 
 	Func TranslateTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"TranslateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TranslateTransform",P1])
 			return self
 		ok
 		raise("DotNet Error: TranslateTransform does not take one argument: use named arguments, TranslateTransform([ :parameter = value, ... ])")
 
 	Func ScaleTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ScaleTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ScaleTransform",P1])
 			return self
 		ok
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"RotateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RotateTransform",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RotateTransform",P1])
 		return self
 
 	Func DrawArc P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawArc",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawArc",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawArc does not take one argument: use named arguments, DrawArc([ :parameter = value, ... ])")
 
 	Func DrawBezier P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawBezier",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawBezier",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawBezier does not take one argument: use named arguments, DrawBezier([ :parameter = value, ... ])")
 
 	Func DrawRectangle P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawRectangle",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawRectangle",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawRectangle does not take one argument: use named arguments, DrawRectangle([ :parameter = value, ... ])")
 
 	Func DrawRoundedRectangle P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"DrawRoundedRectangle",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawRoundedRectangle",P1,P2,P3])
 		return self
 
 	Func DrawRectangles P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawRectangles",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawRectangles",P1,P2])
 		return self
 
 	Func DrawEllipse P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawEllipse",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawEllipse",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawEllipse does not take one argument: use named arguments, DrawEllipse([ :parameter = value, ... ])")
 
 	Func DrawPie P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawPie",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawPie",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawPie does not take one argument: use named arguments, DrawPie([ :parameter = value, ... ])")
 
 	Func DrawPolygon P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawPolygon",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawPolygon",P1,P2])
 		return self
 
 	Func DrawPath P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawPath",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawPath",P1,P2])
 		return self
 
 	Func DrawCurve P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawCurve",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawCurve",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawCurve does not take one argument: use named arguments, DrawCurve([ :parameter = value, ... ])")
 
 	Func DrawClosedCurve P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawClosedCurve",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawClosedCurve",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawClosedCurve does not take one argument: use named arguments, DrawClosedCurve([ :parameter = value, ... ])")
 
 	Func Clear P1
-		dnRequest("call",[new DotNetObject(nHandle),"Clear",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear",P1])
 		return self
 
 	Func FillRoundedRectangle P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"FillRoundedRectangle",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"FillRoundedRectangle",P1,P2,P3])
 		return self
 
 	Func FillRectangle P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"FillRectangle",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FillRectangle",P1])
 			return self
 		ok
 		raise("DotNet Error: FillRectangle does not take one argument: use named arguments, FillRectangle([ :parameter = value, ... ])")
 
 	Func FillRectangles P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"FillRectangles",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"FillRectangles",P1,P2])
 		return self
 
 	Func FillPolygon P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"FillPolygon",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FillPolygon",P1])
 			return self
 		ok
 		raise("DotNet Error: FillPolygon does not take one argument: use named arguments, FillPolygon([ :parameter = value, ... ])")
 
 	Func FillEllipse P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"FillEllipse",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FillEllipse",P1])
 			return self
 		ok
 		raise("DotNet Error: FillEllipse does not take one argument: use named arguments, FillEllipse([ :parameter = value, ... ])")
 
 	Func FillPie P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"FillPie",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FillPie",P1])
 			return self
 		ok
 		raise("DotNet Error: FillPie does not take one argument: use named arguments, FillPie([ :parameter = value, ... ])")
 
 	Func FillClosedCurve P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"FillClosedCurve",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"FillClosedCurve",P1])
 			return self
 		ok
 		raise("DotNet Error: FillClosedCurve does not take one argument: use named arguments, FillClosedCurve([ :parameter = value, ... ])")
 
 	Func DrawString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawString",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawString",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawString does not take one argument: use named arguments, DrawString([ :parameter = value, ... ])")
 
 	Func MeasureString P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"MeasureString",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MeasureString",P1])
 		ok
 		raise("DotNet Error: MeasureString does not take one argument: use named arguments, MeasureString([ :parameter = value, ... ])")
 
 	Func MeasureCharacterRanges P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"MeasureCharacterRanges",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"MeasureCharacterRanges",P1,P2,P3,P4])
 
 	Func DrawImage P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawImage",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawImage",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawImage does not take one argument: use named arguments, DrawImage([ :parameter = value, ... ])")
 
 	Func DrawImageUnscaled P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawImageUnscaled",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawImageUnscaled",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawImageUnscaled does not take one argument: use named arguments, DrawImageUnscaled([ :parameter = value, ... ])")
 
 	Func DrawImageUnscaledAndClipped P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawImageUnscaledAndClipped",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawImageUnscaledAndClipped",P1,P2])
 		return self
 
 	Func DrawLine P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawLine",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawLine",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawLine does not take one argument: use named arguments, DrawLine([ :parameter = value, ... ])")
 
 	Func DrawLines P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawLines",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawLines",P1,P2])
 		return self
 
 	Func CopyFromScreen P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"CopyFromScreen",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CopyFromScreen",P1])
 			return self
 		ok
 		raise("DotNet Error: CopyFromScreen does not take one argument: use named arguments, CopyFromScreen([ :parameter = value, ... ])")
 
 	Func EnumerateMetafile P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateMetafile",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"EnumerateMetafile",P1])
 			return self
 		ok
 		raise("DotNet Error: EnumerateMetafile does not take one argument: use named arguments, EnumerateMetafile([ :parameter = value, ... ])")
 
 	Func TransformPoints P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"TransformPoints",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"TransformPoints",P1,P2,P3])
 		return self
 
 	Func GetNearestColor P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNearestColor",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNearestColor",P1])
 
 	Func DrawBeziers P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawBeziers",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawBeziers",P1,P2])
 		return self
 
 	Func FillPath P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"FillPath",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"FillPath",P1,P2])
 		return self
 
 	Func FillRegion P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"FillRegion",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"FillRegion",P1,P2])
 		return self
 
 	Func DrawIcon P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawIcon",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"DrawIcon",P1])
 			return self
 		ok
 		raise("DotNet Error: DrawIcon does not take one argument: use named arguments, DrawIcon([ :parameter = value, ... ])")
 
 	Func DrawIconUnstretched P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawIconUnstretched",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawIconUnstretched",P1,P2])
 		return self
 
 	Func GetContextInfo 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetContextInfo"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetContextInfo"])
 
 	Func Save 
-		return dnRequest("call",[new DotNetObject(nHandle),"Save"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Save"])
 
 	Func Restore P1
-		dnRequest("call",[new DotNetObject(nHandle),"Restore",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Restore",P1])
 		return self
 
 	Func BeginContainer P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginContainer",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"BeginContainer",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"BeginContainer"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"BeginContainer"])
 		ok
 		raise("DotNet Error: BeginContainer does not take one argument: use named arguments, BeginContainer([ :parameter = value, ... ])")
 
 	Func EndContainer P1
-		dnRequest("call",[new DotNetObject(nHandle),"EndContainer",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"EndContainer",P1])
 		return self
 
 	Func AddMetafileComment P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddMetafileComment",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AddMetafileComment",P1])
 		return self
 
 	Func DrawCachedBitmap P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"DrawCachedBitmap",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DrawCachedBitmap",P1,P2,P3])
 		return self
 
 	Func FromHdc P1
@@ -3385,10 +3473,12 @@ Class IDeviceContext from DotNetObject
 		return self
 
 	Func GetHdc 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHdc"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHdc"])
 
 	Func ReleaseHdc 
-		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHdc"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReleaseHdc"])
 		return self
 
 
@@ -3426,17 +3516,21 @@ Class Icon from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func ToBitmap 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToBitmap"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToBitmap"])
 
 	Func Save P1
-		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Save",P1])
 		return self
 
 	Func ExtractAssociatedIcon P1
@@ -3528,57 +3622,70 @@ Class Image from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func Save P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Save",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Save",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Save",P1])
 		return self
 
 	Func SaveAdd P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"SaveAdd",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"SaveAdd",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"SaveAdd",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SaveAdd",P1])
 		return self
 
 	Func GetBounds P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBounds",P1])
 
 	Func GetThumbnailImage P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"GetThumbnailImage",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetThumbnailImage",P1,P2,P3,P4])
 
 	Func GetFrameCount P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFrameCount",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetFrameCount",P1])
 
 	Func GetPropertyItem P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyItem",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPropertyItem",P1])
 
 	Func SelectActiveFrame P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectActiveFrame",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"SelectActiveFrame",P1,P2])
 
 	Func SetPropertyItem P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetPropertyItem",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetPropertyItem",P1])
 		return self
 
 	Func RotateFlip P1
-		dnRequest("call",[new DotNetObject(nHandle),"RotateFlip",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RotateFlip",P1])
 		return self
 
 	Func RemovePropertyItem P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemovePropertyItem",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RemovePropertyItem",P1])
 		return self
 
 	Func GetEncoderParameterList P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoderParameterList",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEncoderParameterList",P1])
 
 	Func FromFile P1
 		if dnIsNamed(P1)
@@ -3709,7 +3816,8 @@ Class ImageAnimator from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func UpdateFrames P1
 		if dnIsNamed(P1)
@@ -3832,48 +3940,56 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func SetLineCap P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetLineCap",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetLineCap",P1,P2,P3])
 		return self
 
 	Func ResetTransform 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetTransform"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetTransform"])
 		return self
 
 	Func MultiplyTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"MultiplyTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MultiplyTransform",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MultiplyTransform",P1])
 		return self
 
 	Func TranslateTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"TranslateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TranslateTransform",P1])
 			return self
 		ok
 		raise("DotNet Error: TranslateTransform does not take one argument: use named arguments, TranslateTransform([ :parameter = value, ... ])")
 
 	Func ScaleTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ScaleTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ScaleTransform",P1])
 			return self
 		ok
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"RotateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RotateTransform",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RotateTransform",P1])
 		return self
 
 	Func getWidth
@@ -4149,7 +4265,8 @@ Class Pens from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTransparent
 		return dnRequest("get",[dnTypeCached('System.Drawing.Pens, System.Drawing.Common'),"Transparent"])
@@ -5032,11 +5149,12 @@ Class Point from ValueType
 		return self
 
 	Func Offset P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Offset",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Offset",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Offset",P1])
 		return self
 
 	Func Add P1,P2
@@ -5115,7 +5233,8 @@ Class PointF from ValueType
 		return self
 
 	Func ToVector2 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToVector2"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToVector2"])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.PointF, System.Drawing.Primitives'),"Add",P1,P2])
@@ -5192,40 +5311,45 @@ Class Rectangle from ValueType
 		return self
 
 	Func Contains P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Contains",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Inflate P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives'),"Inflate",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Inflate",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Inflate",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Inflate",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Inflate",P1])
 		return self
 
 	Func Intersect P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Drawing.Rectangle, System.Drawing.Primitives'),"Intersect",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Intersect",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Intersect",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Intersect",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Intersect",P1])
 		return self
 
 	Func IntersectsWith P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IntersectsWith",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IntersectsWith",P1])
 
 	Func Offset P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Offset",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Offset",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Offset",P1])
 		return self
 
 	Func FromLTRB P1,P2,P3,P4
@@ -5364,43 +5488,49 @@ Class RectangleF from ValueType
 		return self
 
 	Func ToVector4 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToVector4"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToVector4"])
 
 	Func Contains P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Contains",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Contains",P1])
 
 	Func Inflate P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives'),"Inflate",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Inflate",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Inflate",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Inflate",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Inflate",P1])
 		return self
 
 	Func Intersect P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives'),"Intersect",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Intersect",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Intersect",P1])
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Intersect",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Intersect",P1])
 		return self
 
 	Func IntersectsWith P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IntersectsWith",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IntersectsWith",P1])
 
 	Func Offset P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Offset",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Offset",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Offset",P1])
 		return self
 
 	Func FromLTRB P1,P2,P3,P4
@@ -5533,81 +5663,101 @@ Class Region from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func ReleaseHrgn P1
-		dnRequest("call",[new DotNetObject(nHandle),"ReleaseHrgn",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ReleaseHrgn",P1])
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func MakeInfinite 
-		dnRequest("call",[new DotNetObject(nHandle),"MakeInfinite"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MakeInfinite"])
 		return self
 
 	Func MakeEmpty 
-		dnRequest("call",[new DotNetObject(nHandle),"MakeEmpty"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MakeEmpty"])
 		return self
 
 	Func Intersect P1
-		dnRequest("call",[new DotNetObject(nHandle),"Intersect",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Intersect",P1])
 		return self
 
 	Func Union P1
-		dnRequest("call",[new DotNetObject(nHandle),"Union",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Union",P1])
 		return self
 
 	Func Xor P1
-		dnRequest("call",[new DotNetObject(nHandle),"Xor",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Xor",P1])
 		return self
 
 	Func Exclude P1
-		dnRequest("call",[new DotNetObject(nHandle),"Exclude",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Exclude",P1])
 		return self
 
 	Func Complement P1
-		dnRequest("call",[new DotNetObject(nHandle),"Complement",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Complement",P1])
 		return self
 
 	Func Translate P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Translate",P1,P2])
 		return self
 
 	Func Transform P1
-		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Transform",P1])
 		return self
 
 	Func GetBounds P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetBounds",P1])
 
 	Func GetHrgn P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHrgn",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHrgn",P1])
 
 	Func IsEmpty P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEmpty",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsEmpty",P1])
 
 	Func IsInfinite P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsInfinite",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsInfinite",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetRegionData 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRegionData"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRegionData"])
 
 	Func IsVisible P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsVisible",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsVisible",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsVisible",P1])
 
 	Func GetRegionScans P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRegionScans",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetRegionScans",P1])
 
 	Func FromHrgn P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Region, System.Drawing.Common'),"FromHrgn",P1])
@@ -5722,13 +5872,16 @@ Class SizeF from ValueType
 		return self
 
 	Func ToVector2 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToVector2"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToVector2"])
 
 	Func ToPointF 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToPointF"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToPointF"])
 
 	Func ToSize 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSize"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSize"])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.SizeF, System.Drawing.Primitives'),"Add",P1,P2])
@@ -5818,25 +5971,31 @@ Class StringFormat from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Dispose"])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func SetMeasurableCharacterRanges P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetMeasurableCharacterRanges",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetMeasurableCharacterRanges",P1])
 		return self
 
 	Func SetTabStops P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetTabStops",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetTabStops",P1,P2])
 		return self
 
 	Func GetTabStops 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTabStops"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTabStops"])
 
 	Func SetDigitSubstitution P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetDigitSubstitution",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetDigitSubstitution",P1,P2])
 		return self
 
 	Func getFormatFlags
@@ -5945,7 +6104,8 @@ Class SystemBrushes from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func FromSystemColor P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.SystemBrushes, System.Drawing.Common'),"FromSystemColor",P1])
@@ -6196,7 +6356,8 @@ Class SystemColors from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getActiveBorder
 		return dnRequest("get",[dnTypeCached('System.Drawing.SystemColors, System.Drawing.Primitives'),"ActiveBorder"])
@@ -6425,7 +6586,8 @@ Class SystemFonts from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetFontByName P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common'),"GetFontByName",P1])
@@ -6502,7 +6664,8 @@ Class SystemIcons from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetStockIcon P1
 		if dnIsNamed(P1)
@@ -6617,7 +6780,8 @@ Class SystemPens from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func FromSystemColor P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.SystemPens, System.Drawing.Common'),"FromSystemColor",P1])
@@ -6850,73 +7014,84 @@ Class Bitmap from Image
 		return self
 
 	Func GetHbitmap P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHbitmap",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetHbitmap",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetHbitmap"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHbitmap"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHbitmap",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHbitmap",P1])
 
 	Func GetHicon 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHicon"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHicon"])
 
 	Func Clone P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Clone",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Clone",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 		ok
 		raise("DotNet Error: Clone does not take one argument: use named arguments, Clone([ :parameter = value, ... ])")
 
 	Func MakeTransparent P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"MakeTransparent",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MakeTransparent",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"MakeTransparent"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"MakeTransparent"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"MakeTransparent",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MakeTransparent",P1])
 		return self
 
 	Func LockBits P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"LockBits",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LockBits",P1])
 		ok
 		raise("DotNet Error: LockBits does not take one argument: use named arguments, LockBits([ :parameter = value, ... ])")
 
 	Func UnlockBits P1
-		dnRequest("call",[new DotNetObject(nHandle),"UnlockBits",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"UnlockBits",P1])
 		return self
 
 	Func GetPixel P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPixel",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetPixel",P1,P2])
 
 	Func SetPixel P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetPixel",P1,P2,P3])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetPixel",P1,P2,P3])
 		return self
 
 	Func SetResolution P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetResolution",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetResolution",P1,P2])
 		return self
 
 	Func ApplyEffect P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyEffect",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ApplyEffect",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyEffect",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ApplyEffect",P1])
 		return self
 
 	Func ConvertFormat P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertFormat",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ConvertFormat",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ConvertFormat",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ConvertFormat",P1])
 		return self
 
 	Func FromHicon P1
@@ -6982,37 +7157,42 @@ Class TextureBrush from Brush
 		return self
 
 	Func ResetTransform 
-		dnRequest("call",[new DotNetObject(nHandle),"ResetTransform"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"ResetTransform"])
 		return self
 
 	Func MultiplyTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"MultiplyTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"MultiplyTransform",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"MultiplyTransform",P1])
 		return self
 
 	Func TranslateTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"TranslateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TranslateTransform",P1])
 			return self
 		ok
 		raise("DotNet Error: TranslateTransform does not take one argument: use named arguments, TranslateTransform([ :parameter = value, ... ])")
 
 	Func ScaleTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"ScaleTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ScaleTransform",P1])
 			return self
 		ok
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"RotateTransform",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"RotateTransform",P1])
 			return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"RotateTransform",P1])
 		return self
 
 	Func getTransform

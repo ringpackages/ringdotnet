@@ -181,37 +181,45 @@ Class CaseInsensitiveValueComparer from DotNetObject
 		return self
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHashCode P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHashCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
 
 	Func Snapshot P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Snapshot",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Snapshot",P1])
 
 	Func ExtractEqualsBody P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractEqualsBody",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExtractEqualsBody",P1,P2])
 
 	Func ExtractHashCodeBody P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractHashCodeBody",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExtractHashCodeBody",P1])
 
 	Func ExtractSnapshotBody P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractSnapshotBody",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExtractSnapshotBody",P1])
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToString"])
 
 	Func getObjectEqualsExpression
 		return dnRequest("get",[self,"ObjectEqualsExpression"])
@@ -272,99 +280,123 @@ Class ChangeTracker from Object
 		return self
 
 	Func Entries 
-		return dnRequest("call",[new DotNetObject(nHandle),"Entries"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Entries"])
 
 	Func HasChanges 
-		return dnRequest("call",[new DotNetObject(nHandle),"HasChanges"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"HasChanges"])
 
 	Func DetectChanges 
-		dnRequest("call",[new DotNetObject(nHandle),"DetectChanges"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DetectChanges"])
 		return self
 
 	Func AcceptAllChanges 
-		dnRequest("call",[new DotNetObject(nHandle),"AcceptAllChanges"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"AcceptAllChanges"])
 		return self
 
 	Func TrackGraph P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"TrackGraph",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TrackGraph",P1])
 			return self
 		ok
 		raise("DotNet Error: TrackGraph does not take one argument: use named arguments, TrackGraph([ :parameter = value, ... ])")
 
 	Func CascadeChanges 
-		dnRequest("call",[new DotNetObject(nHandle),"CascadeChanges"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CascadeChanges"])
 		return self
 
 	Func Clear 
-		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Clear"])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func setTrackingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Tracking",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Tracking",dnCallback(P1)])
 		return self
 
 	Func clearTrackingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Tracking"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Tracking"])
 		return self
 
 	Func setTrackedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"Tracked",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"Tracked",dnCallback(P1)])
 		return self
 
 	Func clearTrackedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"Tracked"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"Tracked"])
 		return self
 
 	Func setStateChangingEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"StateChanging",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StateChanging",dnCallback(P1)])
 		return self
 
 	Func clearStateChangingEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"StateChanging"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StateChanging"])
 		return self
 
 	Func setStateChangedEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"StateChanged",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"StateChanged",dnCallback(P1)])
 		return self
 
 	Func clearStateChangedEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"StateChanged"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"StateChanged"])
 		return self
 
 	Func setDetectingEntityChangesEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DetectingEntityChanges",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DetectingEntityChanges",dnCallback(P1)])
 		return self
 
 	Func clearDetectingEntityChangesEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DetectingEntityChanges"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DetectingEntityChanges"])
 		return self
 
 	Func setDetectedEntityChangesEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DetectedEntityChanges",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DetectedEntityChanges",dnCallback(P1)])
 		return self
 
 	Func clearDetectedEntityChangesEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DetectedEntityChanges"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DetectedEntityChanges"])
 		return self
 
 	Func setDetectingAllChangesEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DetectingAllChanges",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DetectingAllChanges",dnCallback(P1)])
 		return self
 
 	Func clearDetectingAllChangesEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DetectingAllChanges"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DetectingAllChanges"])
 		return self
 
 	Func setDetectedAllChangesEvent P1
-		dnRequest("setevent",[new DotNetObject(nHandle),"DetectedAllChanges",dnCallback(P1)])
+		dn_nTarget = nHandle
+		dnRequest("setevent",[new DotNetObject(dn_nTarget),"DetectedAllChanges",dnCallback(P1)])
 		return self
 
 	Func clearDetectedAllChangesEvent
-		dnRequest("clearevent",[new DotNetObject(nHandle),"DetectedAllChanges"])
+		dn_nTarget = nHandle
+		dnRequest("clearevent",[new DotNetObject(dn_nTarget),"DetectedAllChanges"])
 		return self
 
 	Func getAutoDetectChangesEnabled
@@ -491,54 +523,66 @@ Class EntityEntry from Object
 		return self
 
 	Func DetectChanges 
-		dnRequest("call",[new DotNetObject(nHandle),"DetectChanges"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"DetectChanges"])
 		return self
 
 	Func Member P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Member",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Member",P1])
 
 	Func Navigation P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Navigation",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Navigation",P1])
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Property",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Property",P1])
 
 	Func ComplexProperty P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperty",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ComplexProperty",P1])
 
 	Func Reference P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Reference",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Reference",P1])
 
 	Func Collection P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Collection",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Collection",P1])
 
 	Func GetDatabaseValues 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDatabaseValues"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDatabaseValues"])
 
 	Func GetDatabaseValuesAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDatabaseValuesAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetDatabaseValuesAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetDatabaseValuesAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDatabaseValuesAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDatabaseValuesAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetDatabaseValuesAsync",P1])
 
 	Func Reload 
-		dnRequest("call",[new DotNetObject(nHandle),"Reload"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Reload"])
 		return self
 
 	Func ReloadAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReloadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"ReloadAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"ReloadAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"ReloadAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReloadAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ReloadAsync",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getEntity
 		return dnRequest("get",[self,"Entity"])
@@ -666,10 +710,12 @@ Class EntityEntryGraphNode from Object
 		return self
 
 	Func CreateNode P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateNode",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateNode",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getSourceEntry
 		return dnRequest("get",[self,"SourceEntry"])
@@ -702,16 +748,18 @@ Class IDependentKeyValueFactory from DotNetObject
 		return self
 
 	Func CreatePrincipalEquatableKey P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreatePrincipalEquatableKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreatePrincipalEquatableKey",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatePrincipalEquatableKey",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreatePrincipalEquatableKey",P1])
 
 	Func CreateDependentEquatableKey P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateDependentEquatableKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateDependentEquatableKey",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateDependentEquatableKey",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateDependentEquatableKey",P1])
 
 
 Class IEntityEntryGraphIterator from DotNetObject
@@ -726,12 +774,14 @@ Class IEntityEntryGraphIterator from DotNetObject
 		return self
 
 	Func TraverseGraph P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"TraverseGraph",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"TraverseGraph",P1,P2])
 		return self
 
 	Func TraverseGraphAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"TraverseGraphAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"TraverseGraphAsync",P1])
 		ok
 		raise("DotNet Error: TraverseGraphAsync does not take one argument: use named arguments, TraverseGraphAsync([ :parameter = value, ... ])")
 
@@ -748,10 +798,11 @@ Class IPrincipalKeyValueFactory from DotNetObject
 		return self
 
 	Func CreateEquatableKey P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateEquatableKey",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"CreateEquatableKey",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateEquatableKey",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateEquatableKey",P1])
 
 
 Class MemberEntry from Object
@@ -771,7 +822,8 @@ Class MemberEntry from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getIsModified
 		return dnRequest("get",[self,"IsModified"])
@@ -815,29 +867,37 @@ Class PropertyValues from Object
 		return self
 
 	Func ToObject 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToObject"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToObject"])
 
 	Func SetValues P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetValues",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetValues",P1])
 		return self
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func GetValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetValue",P1])
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getProperties
@@ -872,34 +932,41 @@ Class ValueComparer from Object
 		return self
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetHashCode P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHashCode",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetHashCode",P1])
 
 	Func Snapshot P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Snapshot",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Snapshot",P1])
 
 	Func ExtractEqualsBody P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractEqualsBody",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExtractEqualsBody",P1,P2])
 
 	Func ExtractHashCodeBody P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractHashCodeBody",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExtractHashCodeBody",P1])
 
 	Func ExtractSnapshotBody P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractSnapshotBody",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ExtractSnapshotBody",P1])
 
 	Func GetType_ 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetType"])
 
 	Func GetGenericSnapshotMethod P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"GetGenericSnapshotMethod",P1])
@@ -962,7 +1029,8 @@ Class ValueComparerExtensions from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func IsDefault P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore'),"IsDefault",P1])
@@ -985,10 +1053,12 @@ Class ComplexPropertyEntry from MemberEntry
 		return self
 
 	Func Property P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Property",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Property",P1])
 
 	Func ComplexProperty P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperty",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ComplexProperty",P1])
 
 	Func getProperties
 		return dnRequest("get",[self,"Properties"])
@@ -1170,28 +1240,31 @@ Class NavigationEntry from MemberEntry
 		return self
 
 	Func Load_ P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
+			dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Load",P1])
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Load"])
+			dnRequest("call",[new DotNetObject(dn_nTarget),"Load"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Load",P1])
 		return self
 
 	Func LoadAsync P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"LoadAsync",P1])
 		ok
 		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync"])
+			return dnRequest("call",[new DotNetObject(dn_nTarget),"LoadAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"LoadAsync",P1])
 
 	Func Query 
-		return dnRequest("call",[new DotNetObject(nHandle),"Query"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Query"])
 
 	Func getIsLoaded
 		return dnRequest("get",[self,"IsLoaded"])
@@ -1246,7 +1319,8 @@ Class CollectionEntry from NavigationEntry
 		return self
 
 	Func FindEntry P1
-		return dnRequest("call",[new DotNetObject(nHandle),"FindEntry",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FindEntry",P1])
 
 
 Class ReferenceEntry from NavigationEntry

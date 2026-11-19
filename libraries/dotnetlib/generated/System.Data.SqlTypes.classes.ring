@@ -165,19 +165,22 @@ Class SqlBinary from ValueType
 		return self
 
 	Func ToSqlGuid 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlGuid"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlGuid"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Add",P1,P2])
@@ -207,7 +210,8 @@ Class SqlBinary from ValueType
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"WrapBytes",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getIsNull
 		return dnRequest("get",[self,"IsNull"])
@@ -286,43 +290,54 @@ Class SqlBoolean from ValueType
 		return self
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlByte"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Parse",P1])
@@ -466,43 +481,54 @@ Class SqlByte from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBoolean"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Parse",P1])
@@ -642,34 +668,42 @@ Class SqlBytes from Object
 		return self
 
 	Func SetNull 
-		dnRequest("call",[new DotNetObject(nHandle),"SetNull"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetNull"])
 		return self
 
 	Func SetLength P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetLength",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetLength",P1])
 		return self
 
 	Func Read P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read",P1,P2,P3,P4])
 
 	Func Write P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1,P2,P3,P4])
 		return self
 
 	Func ToSqlBinary 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBinary"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBinary"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBytes, System.Data.Common'),"GetXsdType",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getIsNull
@@ -765,34 +799,42 @@ Class SqlChars from Object
 		return self
 
 	Func SetNull 
-		dnRequest("call",[new DotNetObject(nHandle),"SetNull"])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetNull"])
 		return self
 
 	Func SetLength P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetLength",P1])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"SetLength",P1])
 		return self
 
 	Func Read P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Read",P1,P2,P3,P4])
 
 	Func Write P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3,P4])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"Write",P1,P2,P3,P4])
 		return self
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlChars, System.Data.Common'),"GetXsdType",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func SetItem P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"set_Item",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"set_Item",P1,P2])
 		return self
 
 	Func getIsNull
@@ -884,19 +926,22 @@ Class SqlDateTime from ValueType
 		return self
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Parse",P1])
@@ -1040,46 +1085,58 @@ Class SqlDecimal from ValueType
 		return self
 
 	Func ToDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToDouble"])
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlByte"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlMoney"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Parse",P1])
@@ -1262,43 +1319,54 @@ Class SqlDouble from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlByte"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Parse",P1])
@@ -1415,25 +1483,30 @@ Class SqlGuid from ValueType
 		return self
 
 	Func ToByteArray 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToByteArray"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func ToSqlBinary 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBinary"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBinary"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"Parse",P1])
@@ -1523,43 +1596,54 @@ Class SqlInt16 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlByte"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDouble"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Parse",P1])
@@ -1697,43 +1781,54 @@ Class SqlInt32 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlByte"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt16"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Parse",P1])
@@ -1871,43 +1966,54 @@ Class SqlInt64 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlByte"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt32"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Parse",P1])
@@ -2045,58 +2151,74 @@ Class SqlMoney from ValueType
 		return self
 
 	Func ToDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToDecimal"])
 
 	Func ToInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToInt64"])
 
 	Func ToInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToInt32"])
 
 	Func ToDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToDouble"])
 
 	Func GetTdsValue 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTdsValue"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetTdsValue"])
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlByte"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt64"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlSingle"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Parse",P1])
@@ -2219,43 +2341,54 @@ Class SqlSingle from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlByte"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDecimal"])
 
 	Func ToSqlString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlString"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlString"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Parse",P1])
@@ -2382,58 +2515,74 @@ Class SqlString from ValueType
 		return self
 
 	Func GetUnicodeBytes 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUnicodeBytes"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUnicodeBytes"])
 
 	Func GetNonUnicodeBytes 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNonUnicodeBytes"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetNonUnicodeBytes"])
 
 	Func Clone 
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Clone"])
 
 	Func ToSqlBoolean 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlBoolean"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlBoolean"])
 
 	Func ToSqlByte 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlByte"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlByte"])
 
 	Func ToSqlDateTime 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDateTime"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDateTime"])
 
 	Func ToSqlDouble 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDouble"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDouble"])
 
 	Func ToSqlInt16 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt16"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt16"])
 
 	Func ToSqlInt32 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt32"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt32"])
 
 	Func ToSqlInt64 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlInt64"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlInt64"])
 
 	Func ToSqlMoney 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlMoney"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlMoney"])
 
 	Func ToSqlDecimal 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlDecimal"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlDecimal"])
 
 	Func ToSqlSingle 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlSingle"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlSingle"])
 
 	Func ToSqlGuid 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToSqlGuid"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ToSqlGuid"])
 
 	Func CompareTo P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CompareTo",P1])
 
 	Func Equals P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Equals",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Equals",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Concat P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Concat",P1,P2])
@@ -2586,10 +2735,12 @@ Class SqlXml from Object
 		return self
 
 	Func CreateReader 
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateReader"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"CreateReader"])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlXml, System.Data.Common'),"GetXsdType",P1])

@@ -70,7 +70,8 @@ Class Capture from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getIndex
 		return dnRequest("get",[self,"Index"])
@@ -114,17 +115,21 @@ Class CaptureCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getIsReadOnly
 		return dnRequest("get",[self,"IsReadOnly"])
@@ -170,23 +175,29 @@ Class GroupCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func TryGetValue P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TryGetValue",P1])
 
 	Func ContainsKey P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"ContainsKey",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getIsReadOnly
 		return dnRequest("get",[self,"IsReadOnly"])
@@ -242,17 +253,21 @@ Class MatchCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetEnumerator"])
 
 	Func CopyTo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
+		dn_nTarget = nHandle
+		dnRequest("call",[new DotNetObject(dn_nTarget),"CopyTo",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func Item P1
-		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"get_Item",P1])
 
 	Func getIsReadOnly
 		return dnRequest("get",[self,"IsReadOnly"])
@@ -314,73 +329,84 @@ Class Regex from Object
 		return self
 
 	Func GetGroupNames 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetGroupNames"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGroupNames"])
 
 	Func GetGroupNumbers 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetGroupNumbers"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetGroupNumbers"])
 
 	Func GroupNameFromNumber P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GroupNameFromNumber",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GroupNameFromNumber",P1])
 
 	Func GroupNumberFromName P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GroupNumberFromName",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GroupNumberFromName",P1])
 
 	Func Count P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Count",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Count",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Count",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Count",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Count",P1])
 
 	Func IsMatch P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"IsMatch",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsMatch",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"IsMatch",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsMatch",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsMatch",P1])
 
 	Func Match P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Match",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Match",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Match",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Match",P1])
 
 	Func Matches P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Matches",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Matches",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Matches",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Matches",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Matches",P1])
 
 	Func Replace P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Replace",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Replace",P1])
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Split P1
+		dn_nTarget = nHandle
 		if dnIsNamed(P1)
 			if nHandle = 0
 				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1])
 			ok
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Split",P1])
+			return dnRequest("callnamed",[new DotNetObject(dn_nTarget),"Split",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1])
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Split",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CompileToAssembly P1
 		if dnIsNamed(P1)
@@ -439,7 +465,8 @@ Class RegexRunner from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func CharInClass P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions'),"CharInClass",P1,P2])
@@ -457,7 +484,8 @@ Class RegexRunnerFactory from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class Group from Capture
@@ -512,10 +540,12 @@ Class Match from Group
 		return self
 
 	Func NextMatch 
-		return dnRequest("call",[new DotNetObject(nHandle),"NextMatch"])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"NextMatch"])
 
 	Func Result P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Result",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Result",P1])
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Match, System.Text.RegularExpressions'),"Synchronized",P1])

@@ -102,7 +102,8 @@ Class AttributeRouteInfo from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getTemplate
 		return dnRequest("get",[self,"Template"])
@@ -154,13 +155,16 @@ Class DynamicRouteValueTransformer from Object
 		return self
 
 	Func TransformAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TransformAsync",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"TransformAsync",P1,P2])
 
 	Func FilterAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FilterAsync",P1,P2,P3])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"FilterAsync",P1,P2,P3])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getState
 		return dnRequest("get",[self,"State"])
@@ -263,7 +267,8 @@ Class IUrlHelperFactory from DotNetObject
 		return self
 
 	Func GetUrlHelper P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUrlHelper",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUrlHelper",P1])
 
 
 Class KnownRouteValueConstraint from Object
@@ -280,10 +285,12 @@ Class KnownRouteValueConstraint from Object
 		return self
 
 	Func Match P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Match",P1,P2,P3,P4,P5])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Match",P1,P2,P3,P4,P5])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class UrlActionContext from Object
@@ -318,7 +325,8 @@ Class UrlActionContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getAction
 		return dnRequest("get",[self,"Action"])
@@ -377,22 +385,28 @@ Class UrlHelperBase from Object
 		return self
 
 	Func IsLocalUrl P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsLocalUrl",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"IsLocalUrl",P1])
 
 	Func Content P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Content",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Content",P1])
 
 	Func Link P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Link",P1,P2])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Link",P1,P2])
 
 	Func Action P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Action",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Action",P1])
 
 	Func RouteUrl P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RouteUrl",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"RouteUrl",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getActionContext
 		return dnRequest("get",[self,"ActionContext"])
@@ -426,10 +440,12 @@ Class UrlHelperFactory from Object
 		return self
 
 	Func GetUrlHelper P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUrlHelper",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"GetUrlHelper",P1])
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 
 Class UrlRouteContext from Object
@@ -463,7 +479,8 @@ Class UrlRouteContext from Object
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
+		dn_nTarget = nHandle
+		return dnRequest("call",[new DotNetObject(dn_nTarget),"Equals",P1])
 
 	Func getRouteName
 		return dnRequest("get",[self,"RouteName"])
