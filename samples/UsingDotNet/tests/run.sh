@@ -51,6 +51,7 @@ rungroup
 if [ "$QUICK" = "0" ]; then
 	# 2. tutorials: the ones with a window test run themselves (--selftest), the others just have to run without an error
 	for f in "$ROOT"/docs/tutorials/*.ring; do
+		[ -f "$f" ] || continue          # (the documentation is not part of an installed package)
 		if grep -q -e "uiTest(" -e "wpfTest(" -e "wpfSelfTest()" "$f"; then KIND=s; else KIND=n; fi
 		echo "$KIND|$ROOT/docs/tutorials|$(basename "$f")|tutorial $(basename "$f")" >> "$LIST"
 	done
