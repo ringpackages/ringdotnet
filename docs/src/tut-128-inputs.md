@@ -67,4 +67,4 @@ The test sets `oNights.Value = 7` as a user would move the slider, and the chang
 
 ## Next
 
-[Layout and richer controls](tut-23-layout.html)
+[The keyboard in a form](tut-146-keyboard.html)

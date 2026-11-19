@@ -1,0 +1,30 @@
+1. the files have 7 and 8 lines
+
+2. the length of the longest common subsequence: 6
+
+3. the whole diff:
+     title: Tea
+   - water: 200 ml
+   + water: 250 ml
+     tea: 2 g
+   + milk: 20 ml
+     heat: 90 C
+     wait: 3 min
+     serve: hot
+     enjoy
+
+4. kept 6, added 2, deleted 1
+   similarity: 80 percent
+
+5. changes with 1 line of context:
+     title: Tea
+   - water: 200 ml
+   + water: 250 ml
+     tea: 2 g
+   + milk: 20 ml
+     heat: 90 C
+   ...
+
+6. identical files: similarity 100 percent; nothing in common: 0 percent
+
+7. 'serve' moved to the top: similarity 85 percent (the moved line is deleted at one place and added at another)

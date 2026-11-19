@@ -1,0 +1,25 @@
+1. the template has these fields: name, order, amount, city, date, shop
+   the data has 3 rows and the columns: name, order, amount, city, date
+
+2. the first letter:
+   | Dear Ann,
+   | Your order A-101 of 1,234.50 is ready.
+   | It will be sent to Cairo on 9 March 2030.
+   | Thank you, [shop?]
+
+3. all the letters, the first line of each:
+   1. Dear Ann,
+   2. Dear Bob,
+   3. Dear Cy,
+
+4. check before sending:
+   row 1 (Ann): missing shop
+   row 2 (Bob): missing shop
+   row 3 (Cy): missing city, shop
+
+5. after the repair:
+   problems: 0
+   | Dear Cy,
+   | Your order A-103 of 19.99 is ready.
+   | It will be sent to Giza on 11 March 2030.
+   | Thank you, The Tea House

@@ -67,6 +67,6 @@ Two files cannot have one name. Step 5 uses a rule that turns `report final (cop
 3. Save the log as a text file and write `undoFromFile(path)`.
 4. Add a *dry run* switch that prints the plan and does not call `applyPlan`.
 
-## Where to go next
+## Next
 
-This was the last tutorial of the chapter **Files and streams**. The next chapter is **Processes and performance**: it starts with [Asking the computer](tut-74-system.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.
+[A project: compare two files](tut-145-diff.html)

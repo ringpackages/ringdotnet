@@ -53,6 +53,7 @@ SHOTS = [
     ("g140_wpf_menu.ring", "g140", "\twpfTest(", "\twpfFind(oWindow,'more').IsExpanded = True\n\twpfFind(oWindow,'speed').SelectedIndex = 1\n", 1300, "wpf"),
     ("g142_grid.ring", "g142", None, "", 2500, "forms"),
     ("g143_quiz.ring", "g143", "\tuiTest(", "\tplay(1)\n\tplay(0)\n\taAnswers[3].Checked = True\n", 2500, "forms"),
+    ("g146_keyboard.ring", "g146", "\tuiTest(", "\toName.Text = 'ann'\n\toAge.Text = '12'\n\taccept()\n", 2500, "forms"),
 ]
 
 

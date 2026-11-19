@@ -72,4 +72,4 @@ A letter that is not a format raises `System.FormatException`, not a wrong text.
 
 ## Next
 
-[Unicode and encodings](tut-52-unicode.html)
+[A project: mail merge](tut-144-mailmerge.html)

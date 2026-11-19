@@ -83,6 +83,7 @@ Regular expressions, Unicode and encodings, comparing and escaping text, URLs an
 <div class="cards">
 <a class="card" href="tut-29-regex.html"><div class="ic">🔤</div><b>Regular expressions in depth</b><span>Patterns, groups, replace, split, greedy and lazy, validation.</span></a>
 <a class="card" href="tut-129-formatting.html"><div class="ic">🔤</div><b>Formatting numbers and dates</b><span>Format strings: decimals, thousands, percent, patterns, alignment, dates and durations.</span></a>
+<a class="card" href="tut-144-mailmerge.html"><div class="ic">🔤</div><b>Project: mail merge</b><span>A template with fields, CSV data, Regex.Replace with a callback and a check for missing data.</span></a>
 <a class="card" href="tut-52-unicode.html"><div class="ic">🔤</div><b>Unicode and encodings</b><span>Bytes, code points and letters; UTF-8, UTF-16 and mojibake.</span></a>
 <a class="card" href="tut-132-text-encodings.html"><div class="ic">🔤</div><b>Text files and encodings</b><span>The bytes of a text, the BOM, reading Latin-1 and UTF-16 files, strict UTF-8 and line endings.</span></a>
 <a class="card" href="tut-97-comparers.html"><div class="ic">🔤</div><b>Comparing text</b><span>Ordinal and culture comparison, StringComparer, and the Turkish i.</span></a>
@@ -157,6 +158,7 @@ Paths, streams, binary files, compression (GZip, ZIP, tar), file patterns, and p
 <a class="card" href="tut-31-duplicates.html"><div class="ic">📁</div><b>Project: duplicate files</b><span>Folders, content hashes and a dictionary find the copies.</span></a>
 <a class="card" href="tut-46-backup.html"><div class="ic">📁</div><b>Project: a backup tool</b><span>Zip by date, keep the newest few, restore and verify.</span></a>
 <a class="card" href="tut-141-renamer.html"><div class="ic">📁</div><b>Project: rename many files</b><span>Rules, a preview, conflict checks, renaming and undo with a log.</span></a>
+<a class="card" href="tut-145-diff.html"><div class="ic">📁</div><b>Project: compare two files</b><span>The longest common subsequence, a diff with context, and a similarity in percent.</span></a>
 </div>
 
 ## Processes and performance
@@ -234,6 +236,7 @@ Windows with controls, layout, dialogs and menus, timers, drawing, images and ch
 <a class="card" href="tut-11-first-window.html"><div class="ic">🪟</div><b>Your first window</b><span>A form, a label, a button, an event — with and without the helper functions.</span></a>
 <a class="card" href="tut-12-controls.html"><div class="ic">🪟</div><b>A form with many controls</b><span>Text boxes, number box, combo box, check box, list box and validation.</span></a>
 <a class="card" href="tut-128-inputs.html"><div class="ic">🪟</div><b>More input controls</b><span>Date picker, track bar, radio buttons, tool tips and the error marker.</span></a>
+<a class="card" href="tut-146-keyboard.html"><div class="ic">🪟</div><b>The keyboard in a form</b><span>KeyPress filters, Enter and Escape buttons, tab order, access keys and test keys.</span></a>
 <a class="card" href="tut-23-layout.html"><div class="ic">🪟</div><b>Layout and richer controls</b><span>Split bars, tabs, table layout, and a data grid with a filter.</span></a>
 <a class="card" href="tut-134-listview.html"><div class="ic">🪟</div><b>A list with columns</b><span>ListView details: columns, check boxes, sorting by a header, removing checked rows.</span></a>
 <a class="card" href="tut-142-grid.html"><div class="ic">🪟</div><b>Editing a grid</b><span>DataGridView with text, check box and combo box columns, cell events and totals.</span></a>
