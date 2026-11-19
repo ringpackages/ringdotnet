@@ -1,0 +1,42 @@
+1. the files:
+   IMG 0042 holiday.JPG
+   IMG 0043 holiday.JPG
+   IMG 0050 Beach Trip.jpg
+   notes.md
+   report final (copy).TXT
+   report final.txt
+
+2. rule: replace the spaces with underscores, and write the name in lower case
+   IMG 0042 holiday.JPG      -> img_0042_holiday.jpg
+   IMG 0043 holiday.JPG      -> img_0043_holiday.jpg
+   IMG 0050 Beach Trip.jpg   -> img_0050_beach_trip.jpg
+   notes.md                  -> notes.md
+   report final (copy).TXT   -> report_final_(copy).txt
+   report final.txt          -> report_final.txt
+
+3. rule: remove the word final (a regular expression: spaces and the word) and write lower case
+   IMG 0042 holiday.JPG      -> img 0042 holiday.jpg
+   IMG 0043 holiday.JPG      -> img 0043 holiday.jpg
+   IMG 0050 Beach Trip.jpg   -> img 0050 beach trip.jpg
+   notes.md                  -> notes.md
+   report final (copy).TXT   -> report (copy).txt
+   report final.txt          -> report.txt
+
+4. rule: numbering, 'holiday-01.jpg' for the files that have the word holiday
+   IMG 0042 holiday.JPG      -> holiday-01.jpg
+   IMG 0043 holiday.JPG      -> holiday-02.jpg
+
+5. a rule that makes two files have the same name (copy removed, lower case):
+   problem: two files would be named report final.txt
+   the tool renames nothing when there is a problem: yes
+
+6. the rule of step 2: 0 problems
+   renamed 5 files; now the folder has:
+   img_0042_holiday.jpg
+   img_0043_holiday.jpg
+   img_0050_beach_trip.jpg
+   notes.md
+   report_final.txt
+   report_final_(copy).txt
+
+7. after undo the folder has the first names again: yes

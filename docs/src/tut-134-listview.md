@@ -64,4 +64,4 @@ The signs `<` and `>` compare **numbers** in Ring; with text they raise an error
 
 ## Next
 
-[A small text editor](tut-13-editor.html)
+[Editing a grid](tut-142-grid.html)

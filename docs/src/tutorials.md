@@ -156,6 +156,7 @@ Paths, streams, binary files, compression (GZip, ZIP, tar), file patterns, and p
 <a class="card" href="tut-21-log-analyzer.html"><div class="ic">📁</div><b>Project: a log analyzer</b><span>Files, regular expressions, dictionaries, LINQ and a JSON report in one program.</span></a>
 <a class="card" href="tut-31-duplicates.html"><div class="ic">📁</div><b>Project: duplicate files</b><span>Folders, content hashes and a dictionary find the copies.</span></a>
 <a class="card" href="tut-46-backup.html"><div class="ic">📁</div><b>Project: a backup tool</b><span>Zip by date, keep the newest few, restore and verify.</span></a>
+<a class="card" href="tut-141-renamer.html"><div class="ic">📁</div><b>Project: rename many files</b><span>Rules, a preview, conflict checks, renaming and undo with a log.</span></a>
 </div>
 
 ## Processes and performance
@@ -235,6 +236,7 @@ Windows with controls, layout, dialogs and menus, timers, drawing, images and ch
 <a class="card" href="tut-128-inputs.html"><div class="ic">🪟</div><b>More input controls</b><span>Date picker, track bar, radio buttons, tool tips and the error marker.</span></a>
 <a class="card" href="tut-23-layout.html"><div class="ic">🪟</div><b>Layout and richer controls</b><span>Split bars, tabs, table layout, and a data grid with a filter.</span></a>
 <a class="card" href="tut-134-listview.html"><div class="ic">🪟</div><b>A list with columns</b><span>ListView details: columns, check boxes, sorting by a header, removing checked rows.</span></a>
+<a class="card" href="tut-142-grid.html"><div class="ic">🪟</div><b>Editing a grid</b><span>DataGridView with text, check box and combo box columns, cell events and totals.</span></a>
 <a class="card" href="tut-13-editor.html"><div class="ic">🪟</div><b>A small text editor</b><span>Menus, a status bar, open and save, dock layout.</span></a>
 <a class="card" href="tut-133-richtext.html"><div class="ic">🪟</div><b>Formatted text</b><span>RichTextBox: bold and colored words, find and mark, save and load RTF.</span></a>
 <a class="card" href="tut-127-clipboard.html"><div class="ic">🪟</div><b>The clipboard</b><span>Text, a table for a spreadsheet, a picture, and leaving the clipboard as it was.</span></a>
@@ -269,6 +271,7 @@ Complete programs: a to-do list, Tic-Tac-Toe, a command runner, an address book 
 <div class="cards">
 <a class="card" href="tut-24-todo.html"><div class="ic">🧩</div><b>Project: a to-do list</b><span>A complete window application that remembers its tasks in a JSON file.</span></a>
 <a class="card" href="tut-35-tictactoe.html"><div class="ic">🧩</div><b>Project: Tic-Tac-Toe</b><span>Rules and state in testable functions, nine buttons from a loop.</span></a>
+<a class="card" href="tut-143-quiz.html"><div class="ic">🧩</div><b>Project: a quiz</b><span>Questions as data, radio buttons, one button with two jobs, a score and best scores.</span></a>
 <a class="card" href="tut-37-runner.html"><div class="ic">🧩</div><b>Project: a command runner</b><span>A window around a command-line tool: output, errors, exit codes.</span></a>
 <a class="card" href="tut-48-addressbook.html"><div class="ic">🧩</div><b>Project: an address book</b><span>A window, a data grid and a database that stay consistent; search as you type.</span></a>
 <a class="card" href="tut-60-sorting.html"><div class="ic">🧩</div><b>Watching sorting algorithms</b><span>Bubble, selection and insertion sort animated, with counters.</span></a>
