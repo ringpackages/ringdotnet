@@ -366,7 +366,7 @@ cNextName = <span class="s">""</span>
 	<span class="f">dnAssert</span>(<span class="s">"shown in the window"</span>,oShow.Text,<span class="s">"Bob"</span> + nl + <span class="s">"44 years old"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g40-main.png" alt="The main window" loading="lazy"><figcaption>The main window shows the profile</figcaption></figure>
 <figure class="shot"><img src="img/shots/tut-g40-dialog.png" alt="The dialog" loading="lazy"><figcaption>The dialog: name, age, OK and Cancel</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (4 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="a-function-that-asks">A function that asks<a class="anchor" href="#a-function-that-asks">#</a></h3>
 <p><code>askProfile(name, age)</code> builds the dialog, shows it, and <strong>returns</strong> <code>[name, age]</code> or <code>""</code>. The rest of the program does not know that a window was involved: <code>editProfile</code> calls it, checks <code>islist(aAnswer)</code>, and uses the answer. A <em>dialog function</em> hides the window behind a plain call, which also makes the logic easy to follow and to test.</p>

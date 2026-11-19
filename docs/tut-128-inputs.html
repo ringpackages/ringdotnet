@@ -402,7 +402,7 @@ oBook = <span class="s">""</span>
 	oDate.Value = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2030</span>,<span class="n">12</span>,<span class="n">31</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the last day"</span>,oDate.Value.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>),<span class="s">"2030-12-31"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g128.png" alt="The booking form" loading="lazy"><figcaption>The booking form</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (10 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-date-picker">The date picker<a class="anchor" href="#the-date-picker">#</a></h3>
 <p><code>DateTimePicker.Value</code> is a <code>DateTime</code>. <code>MinDate</code> and <code>MaxDate</code> limit what the user can choose (here the year 2030), and the value is always kept inside them. <code>Format = "Short"</code> shows the date in the short form of the user's culture; <code>Long</code>, <code>Time</code> and <code>Custom</code> (with <code>CustomFormat</code>) are the others. To make a date the program uses <code>dnNew("DateTime",[ :year = 2030, :month = 5, :day = 10 ])</code>, and to show it <code>Value.Format("d MMMM yyyy")</code> (the tutorial <a href="tut-103-dates-and-times.html">Dates and times</a>).</p>

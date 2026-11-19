@@ -313,7 +313,7 @@ nClicks = <span class="n">0</span>
 	oForm.Controls.<span class="f">Item</span>(<span class="n">2</span>).<span class="f">PerformClick</span>()
 	<span class="f">dnAssert</span>(<span class="s">"reset"</span>,oLabel.Text,<span class="s">"The button was not clicked yet"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g01c-clicked.png" alt="The counter after three clicks" loading="lazy"><figcaption>Step 3: after three clicks</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (2 checks)</code></pre></div>
+
 <h3 id="the-important-rule-events-see-only-globals">The important rule: events see only globals<a class="anchor" href="#the-important-rule-events-see-only-globals">#</a></h3>
 <p><code>"clicked()"</code> is a <strong>text</strong> of Ring code. Ring runs it later, when the user clicks, <em>outside</em> the place where it was written. At that moment the local variables of <code>main</code> are gone. Therefore:</p>
 <div class="callout warn"><span class="t">Warning</span><p>The code of an event can only use <strong>global variables</strong>. Create the controls and the data of the program as globals at the top of the file (<code>oLabel = ""</code>, <code>nClicks = 0</code>), then fill them inside <code>func main</code>.</p></div>

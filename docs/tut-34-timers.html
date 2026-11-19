@@ -349,7 +349,7 @@ lRunning = <span class="k">False</span>
 	<span class="f">dnAssert</span>(<span class="s">"the job finished"</span>,oInfo.Text,<span class="s">"Finished"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the bar is full"</span>,oBar.Value,<span class="n">100</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g34.png" alt="The window with the stopwatch running and the job at 60 percent" loading="lazy"><figcaption>The stopwatch shows 0:02.5 while the job is at 60%</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (4 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-timer">The timer<a class="anchor" href="#the-timer">#</a></h3>
 <p><code>uiTimer(50,"showTime()")</code> creates a Windows Forms <code>Timer</code> that calls <code>showTime()</code> every 50 milliseconds once it is started. This timer raises its <code>Tick</code> event <strong>on the Ring thread, inside the message loop</strong>, so the code can use Ring variables and controls freely. (The <code>System.Threading.Timer</code> of .NET ticks on another thread: Ring code cannot run there.)</p>

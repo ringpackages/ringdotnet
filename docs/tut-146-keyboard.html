@@ -345,7 +345,7 @@ lClosed = <span class="k">False</span>
 	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{ESC}"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"escape closed the form"</span>,lClosed,<span class="k">True</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g146.png" alt="The keyboard form" loading="lazy"><figcaption>The form after OK was pressed</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (8 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="only-digits">Only digits<a class="anchor" href="#only-digits">#</a></h3>
 <p><code>KeyPress</code> runs for each character that the user types, <strong>before</strong> it reaches the box. The event argument (<code>aDotNetArgs[2]</code>, passed to <code>filterKey</code>) has <code>KeyChar</code>, the character, and <code>Handled</code>: when the function sets <code>Handled = True</code> the character is thrown away. The function accepts the digits (codes 48 to 57) and the Backspace key (code 8) and refuses all the rest. This filter works for typing; text that is <em>pasted</em> does not go through <code>KeyPress</code>, so a real program also checks the value at the end (the <code>Validating</code> event, or the check in the OK button).</p>

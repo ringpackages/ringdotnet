@@ -314,7 +314,7 @@ nShown = <span class="n">0</span>                        <span class="c"># how m
 	<span class="c"># the menu item runs the same function</span>
 	oMenu.Items.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">PerformClick</span>()
 	<span class="f">dnAssert</span>(<span class="s">"the menu item Open"</span>,nShown,<span class="n">2</span>)</code></pre></div>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (9 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-icon">The icon<a class="anchor" href="#the-icon">#</a></h3>
 <p>A <code>NotifyIcon</code> needs an <code>Icon</code>: a small picture. <code>new SystemIcons().Application</code> is the standard application icon; a program with its own icon loads it from an <code>.ico</code> file. <code>Text</code> is the tip that appears when the mouse rests on the icon (at most 63 characters), and <code>Visible = True</code> puts the icon in the tray. An icon that is not visible is not shown at all.</p>

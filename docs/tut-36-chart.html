@@ -349,7 +349,7 @@ oCanvas = <span class="s">""</span>
 	<span class="f">dnAssert</span>(<span class="s">"the file was saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="k">True</span>)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g36.png" alt="The chart" loading="lazy"><figcaption>Sales per month</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (7 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-scale">The scale<a class="anchor" href="#the-scale">#</a></h3>
 <p>The biggest value is 25. If 25 touched the top of the chart the axis would read 0, 6.25, 12.5... Ugly. <code>niceMax</code> finds a <strong>round</strong> number at or above the maximum: 25 → 30, 8 → 8, 120 → 150. It takes the power of ten below the value (<code>10</code> for 25), tries the factors <code>1, 1.5, 2, 3, 4, 5, 6, 8, 10</code> and returns the first product that is big enough. The axis then runs 0, 7.5, 15, 22.5, 30. (Ring prints <code>7.5</code> as <code>7.50</code>; use rounding or a format if you want <code>7.5</code>.)</p>

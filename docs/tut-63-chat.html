@@ -443,7 +443,7 @@ oTimer = <span class="s">""</span>
 		oWriter.<span class="f">Dispose</span>()
 		oSocket.<span class="f">Close</span>()</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g64.png" alt="The chat" loading="lazy"><figcaption>Two clients and one server in one program; the title shows the port that the server chose</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (5 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="never-wait-in-a-window-program">Never wait in a window program<a class="anchor" href="#never-wait-in-a-window-program">#</a></h3>
 <p><code>StreamReader.ReadLine()</code> waits until a whole line arrives. In a window program that means the window freezes: it cannot repaint or answer clicks. Ring has one thread, so waiting is not allowed. The solution has two parts:</p>

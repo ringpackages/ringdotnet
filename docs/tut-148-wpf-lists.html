@@ -382,7 +382,7 @@ oWindow = <span class="s">""</span>
 	<span class="f">dnAssert</span>(<span class="s">"empty"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text,<span class="s">"0 items"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"no chips"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>).Children.Count,<span class="n">0</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g148.png" alt="The list window" loading="lazy"><figcaption>A list with the buttons that the program made</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (14 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-items-collection">The Items collection<a class="anchor" href="#the-items-collection">#</a></h3>
 <p><code>listBox().Items</code> is the list of the items of a <code>ListBox</code>. <code>Add(text)</code> adds an item at the end, <code>Insert(index, item)</code> puts one at a place, <code>RemoveAt(index)</code> removes one, <code>Clear()</code> removes all, and <code>Count</code> and <code>Item(index)</code> read it. The items here are texts, but a list can hold any object. <code>Insert</code> has two values in a fixed order, so it is called with two plain values and not with names.</p>

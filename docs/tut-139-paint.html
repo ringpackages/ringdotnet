@@ -383,7 +383,7 @@ nStrokes = <span class="n">0</span>
 	<span class="f">dnAssert</span>(<span class="s">"white after clear"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">100</span>).Name,<span class="s">"ffffffff"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"no strokes after clear"</span>,nStrokes,<span class="n">0</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g139.png" alt="The paint program" loading="lazy"><figcaption>The paint program with a few strokes</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (10 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-three-events">The three events<a class="anchor" href="#the-three-events">#</a></h3>
 <p><code>setMouseDownEvent</code>, <code>setMouseMoveEvent</code> and <code>setMouseUpEvent</code> of the picture box run Ring code. The code has the event arguments in <code>aDotNetArgs[2]</code>: <code>aDotNetArgs[2].X</code> and <code>.Y</code> are the place of the pointer in pixels from the top left corner of the picture box. The code passes them to functions (<code>mouseDown(x, y)</code>), and the <strong>functions</strong> do the work. This is the whole design: the events only translate, so a test can call <code>mouseDown(50, 100)</code> without a mouse.</p>

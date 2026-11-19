@@ -360,7 +360,7 @@ nActions = <span class="n">0</span>
 	<span class="c"># the shortcut keys are properties of the items</span>
 	<span class="f">dnAssert</span>(<span class="s">"a shortcut key (a combination of flags: C and Control)"</span>,oForm.MainMenuStrip.Items.<span class="f">Item</span>(<span class="n">1</span>).DropDownItems.<span class="f">Item</span>(<span class="n">1</span>).ShortcutKeys,<span class="s">"C, Control"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g41.png" alt="The window with a menu bar, a toolbar and a status bar" loading="lazy"><figcaption>Menu bar, toolbar, the text and the status bar</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (7 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-menu-bar">The menu bar<a class="anchor" href="#the-menu-bar">#</a></h3>
 <p><code>uiMenu</code> builds the bar from a list: <code>[title, [ [item, code, shortcut], ... ]]</code>. The <em>code</em> is the Ring code to run (a function call), <code>"-"</code> is a separator, and the optional <em>shortcut</em> is the .NET text of the <code>Keys</code> enum: <code>"Control, N"</code>, <code>"Control, A"</code>, <code>"Alt, F4"</code>. The shortcut also appears next to the item in the menu, and works even when the menu is closed.</p>

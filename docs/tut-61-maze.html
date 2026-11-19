@@ -447,7 +447,7 @@ nSeed = <span class="n">2024</span>
 	newMaze()
 	<span class="f">dnAssert</span>(<span class="s">"a new maze has no path yet"</span>,len(aPath),<span class="n">0</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g62.png" alt="The maze window" loading="lazy"><figcaption>A 21 x 13 maze: green is the start, red the exit, orange the shortest way</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (6 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-grid">The grid<a class="anchor" href="#the-grid">#</a></h3>
 <p>The maze is <code>C_ROWS</code> rows of <code>C_COLUMNS</code> cells. <code>aOpen[row][column]</code> is a text with the open sides of the cell: <code>"N"</code>, <code>"E"</code>, <code>"S"</code> and <code>"W"</code> in any order (for example <code>"NE"</code>). A cell that has no letter is closed on all sides. Walls are drawn for every side that is <strong>not</strong> in the text.</p>

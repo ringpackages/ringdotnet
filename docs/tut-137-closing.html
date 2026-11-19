@@ -326,7 +326,7 @@ lClosed = <span class="k">False</span>
 	<span class="f">dnAssert</span>(<span class="s">"saved on Yes"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile),<span class="s">"my notes, changed"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the form closed"</span>,lClosed,<span class="k">True</span>)
 	<span class="f">dnAssert</span>(<span class="s">"no changes left"</span>,lChanged,<span class="k">False</span>)</code></pre></div>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (9 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="remember-the-changes">Remember the changes<a class="anchor" href="#remember-the-changes">#</a></h3>
 <p>The text box has the event <code>TextChanged</code>; its code sets the global <code>lChanged</code> to true and writes a message in the status label. <code>saveNow</code> writes the file and sets <code>lChanged</code> to false. The program asks about changes only when <code>lChanged</code> is true, so a user who did not change anything is never asked.</p>

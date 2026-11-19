@@ -328,7 +328,7 @@ cApplied = <span class="s">""</span>
 	<span class="f">dnAssert</span>(<span class="s">"a new tool window"</span>,nToolOpened,<span class="n">2</span>)
 	<span class="f">dnAssert</span>(<span class="s">"two windows again"</span>,openForms(),<span class="n">2</span>)
 	<span class="c"># the form of this test is closed by uiTest after this code: the owned tool window closes with its owner</span></code></pre></div>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (11 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="show-with-an-owner">Show with an owner<a class="anchor" href="#show-with-an-owner">#</a></h3>
 <p><code>oTool.Show(oForm)</code> opens the tool window and <strong>returns at once</strong>, so the main window can still be used. The argument is the <strong>owner</strong>: an owned window always stays in front of its owner, is minimized and restored with it, and is closed with it. Without an owner (<code>Show(NULL)</code>) the two windows are separate. The test reads <code>oTool.Owner.Text</code> and gets the title of the main window.</p>

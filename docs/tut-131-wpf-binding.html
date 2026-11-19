@@ -312,7 +312,7 @@ oWindow = <span class="s">""</span>
 	oColors.SelectedIndex = <span class="n">1</span>
 	<span class="f">dnAssert</span>(<span class="s">"the chosen item"</span>,oChosen.Text,<span class="s">"Green"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g131.png" alt="The binding window" loading="lazy"><figcaption>The binding window</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (12 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="a-binding">A binding<a class="anchor" href="#a-binding">#</a></h3>
 <p><code>{Binding ElementName=amount, Path=Value}</code> means: *take the property <code>Value</code> of the element named <code>amount</code>*. It is written as the value of a property in XAML. The element needs an <code>x:Name</code>, and the property that has the binding follows it from then on, at the start and at each change. The Ring program only creates the window; moving the slider changes the text box, the progress bar and the text <em>without</em> any Ring event.</p>

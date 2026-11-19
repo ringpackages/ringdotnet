@@ -392,7 +392,7 @@ oSum = <span class="s">""</span>
 	rowChanged(<span class="n">3</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the new row, calculated"</span>,cellText(<span class="n">3</span>,<span class="s">"Total"</span>),<span class="s">"1"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g142.png" alt="The order grid" loading="lazy"><figcaption>The order grid with its totals</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (12 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="columns-with-types">Columns with types<a class="anchor" href="#columns-with-types">#</a></h3>
 <p>Each column is an object that is added to <code>oGrid.Columns</code>. A <strong>text box column</strong> lets the user type; a <strong>check box column</strong> shows a check box in each cell; a <strong>combo box column</strong> shows a drop-down list with the items you add to the column (<code>Items.Add</code>). <code>Name</code> is how the program finds the column, <code>HeaderText</code> is the title, and <code>ReadOnly = True</code> makes the column not editable: the <em>Total</em> column is only filled by the program.</p>

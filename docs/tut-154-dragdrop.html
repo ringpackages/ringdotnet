@@ -377,7 +377,7 @@ oFilesList = <span class="s">""</span>
 	<span class="f">dnAssert</span>(<span class="s">"two files"</span>,oFilesList.Items.Count,<span class="n">2</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the first name"</span>,oFilesList.Items.<span class="f">Item</span>(<span class="n">0</span>),<span class="s">"report.txt"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the files status"</span>,oStatus.Text,<span class="s">"2 files dropped"</span>)</code></pre></div>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (12 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-source-starts-the-drag">The source starts the drag<a class="anchor" href="#the-source-starts-the-drag">#</a></h3>
 <p>The <code>MouseDown</code> event of the fruit list runs <code>beginDrag(x, y)</code>. <code>IndexFromPoint</code> finds the item under the mouse, and <code>DoDragDrop([ :data = item, :allowedEffects = "Copy, Move" ])</code> starts the operation: the mouse now carries the data, and <strong>the call waits</strong> until the user drops or cancels. Its result is the effect that the target chose. When it is <code>Move</code> the item is taken out of the source; for <code>Copy</code> it stays.</p>

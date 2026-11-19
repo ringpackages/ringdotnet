@@ -478,7 +478,10 @@ def directive(cmd):
         # {{output:samples/UsingDotNet/introduction/test03_collections.ring}} : the real output of a program (run now)
         rel = cmd.split(":", 1)[1].strip()
         parts = rel.split()
-        return code_block(run_ring(parts[0], parts[1:]), "output", "Output")
+        text = run_ring(parts[0], parts[1:])
+        if re.fullmatch(r"SELFTEST OK \(\d+ checks\)", text.strip()):
+            return ""          # a program that only reports its own checks has no output worth showing
+        return code_block(text, "output", "Output")
     if cmd.startswith("functions:"):
         return functions(cmd.split(":", 1)[1].strip())
     if cmd.startswith("stats"):

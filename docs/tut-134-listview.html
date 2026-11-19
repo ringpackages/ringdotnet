@@ -378,7 +378,7 @@ lAscending = <span class="k">True</span>
 	removeChecked()
 	<span class="f">dnAssert</span>(<span class="s">"three left"</span>,oStatus.Text,<span class="s">"3 tasks, 0 checked"</span>)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g134.png" alt="The task list" loading="lazy"><figcaption>The task list</figcaption></figure>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (8 checks)</code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="columns-and-rows">Columns and rows<a class="anchor" href="#columns-and-rows">#</a></h3>
 <p><code>View = "Details"</code> shows the columns. <code>Columns.Add([ :text = "Task", :width = 220 ])</code> adds a column with a title. A row is <code>new ListViewItem().New_([ :text = cName ])</code>: its text is the first cell, and <code>SubItems.Add(text)</code> adds the others. <code>Items.Add(item)</code> puts the row into the list. <code>Items.Item(0)</code> is the first row (counted from 0) and <code>SubItems.Item(2)</code> its third cell. <code>CheckBoxes = True</code> puts a check box in front of each row, and <code>Checked</code> is true when it is on.</p>
