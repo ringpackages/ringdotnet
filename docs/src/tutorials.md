@@ -142,6 +142,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-94-mail-messages.html"><div class="ic">94</div><b>E-mail messages</b><span>MailAddress, MailMessage, recipients and text plus HTML views.</span></a>
 <a class="card" href="tut-95-claims.html"><div class="ic">95</div><b>Identities and claims</b><span>Claims, identities, roles and a permission check.</span></a>
 <a class="card" href="tut-96-tar.html"><div class="ic">96</div><b>Tar archives</b><span>Create, list, read and unpack tar files.</span></a>
+<a class="card" href="tut-97-comparers.html"><div class="ic">97</div><b>Comparing text</b><span>Ordinal and culture comparison, StringComparer, and the Turkish i.</span></a>
+<a class="card" href="tut-98-memory.html"><div class="ic">98</div><b>Memory and the garbage collector</b><span>GC, weak references, generations and release().</span></a>
+<a class="card" href="tut-99-vectors.html"><div class="ic">99</div><b>Vectors and matrices</b><span>Vector3, dot and cross products, Matrix3x2 transformations.</span></a>
 </div>
 
 ## Learning path

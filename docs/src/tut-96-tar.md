@@ -62,6 +62,6 @@ Reading is *sequential*: a tar file has no index, so to find `notes/b.txt` the r
 3. Write a function that adds one more file to an archive with `TarWriter`.
 4. Make an archive with an empty folder and look at how it is listed.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 97: Comparing text](tut-97-comparers.html)

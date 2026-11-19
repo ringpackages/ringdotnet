@@ -1,0 +1,19 @@
+1. 'apple' = 'APPLE'
+   ordinal:                0
+   ordinal, ignore case:    1
+   invariant culture, ignore case: 1
+
+2. Compare('a','b') is negative: 1
+   Compare('b','a') is positive: 1
+
+3. ordinal order:  Apple Banana Cherry apple banana cherry 
+   culture order:  apple Apple banana Banana cherry Cherry 
+   ignore case:    apple Apple banana Banana cherry Cherry    (equal words can come in any order)
+
+4. the key 'ANN' finds the key 'Ann': 1
+   a plain dictionary does not: 0
+
+5. 2 words stay in the set: Apple Pear 
+
+6. 'title' in capitals, invariant culture: TITLE
+   'title' in capitals, Turkish culture:   TİTLE

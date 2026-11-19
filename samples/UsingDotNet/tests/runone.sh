@@ -18,8 +18,15 @@ case "$KIND" in
 		;;
 	s)
 		OUT=$(cd "$DIR" && timeout 120 "$RING" "$FILE" --selftest 2>&1)
+		RETRY=""
+		# Windows can fail to create a window when many windows are created at once (Win32Exception): try that program once more
+		if echo "$OUT" | grep -q "Win32Exception"; then
+			sleep 2
+			OUT=$(cd "$DIR" && timeout 120 "$RING" "$FILE" --selftest 2>&1)
+			RETRY=" (second try: the system could not create a window the first time)"
+		fi
 		if echo "$OUT" | grep -q "SELFTEST OK" && ! echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "^Line [0-9]* DotNet Error" -e "FAIL"; then
-			printf '%s\n' "ok      $LABEL  $(echo "$OUT" | grep SELFTEST)"
+			printf '%s\n' "ok      $LABEL  $(echo "$OUT" | grep SELFTEST)$RETRY"
 		else
 			printf '%s\n' "FAILED  $LABEL" "$(echo "$OUT" | head -5)"
 		fi

@@ -1,0 +1,18 @@
+1. a = (3, 4, 0), length of a = 5, squared length = 25
+
+2. a + b = (4, 6, 3)
+   a - b = (2, 2, -3)
+   a * 2 = (6, 8, 0)
+   -a    = (-3, -4, 0)
+
+3. x . y = 0 (a right angle), a . b = 11
+   x cross y = (0, 0, 1) (the z axis)
+
+4. distance from a to b = 4.12
+   a with length 1 = (0.60, 0.80, 0)
+
+5. the middle of a and b = (2, 3, 1.50)
+
+6. the point (1, 0) turned by 90 degrees is (0, 1)
+   moved by (10, 5): (11, 5)
+   turned and then moved: (10, 6)

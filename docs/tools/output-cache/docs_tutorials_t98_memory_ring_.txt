@@ -1,0 +1,12 @@
+1. the program uses memory: 1
+   the number of generations: 3   (0 = new objects, 1 = in between, 2 = old objects)
+
+2. a list with room for 10 million bytes grew the memory by at least 9 MB: 1
+   after release and a collection the memory is smaller again: 1
+
+3. GC.Collect() ran a collection: 1
+
+4. the weak reference is alive while we hold the object: 1
+   after release and a collection: alive = 0
+
+5. generation of a new object: 0, after one collection: 1 (it survived, so it moved up)
