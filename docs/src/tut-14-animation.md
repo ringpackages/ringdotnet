@@ -79,4 +79,4 @@ A test cannot wait for animation. `selfTest` stops the timer, calls `step()` thr
 
 ## Next
 
-[Images](tut-22-images.html)
+[Drawing with the mouse](tut-139-paint.html)

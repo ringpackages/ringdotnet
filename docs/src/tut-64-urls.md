@@ -71,4 +71,4 @@ Base64 writes **any bytes** with 64 safe characters (letters, digits, `+`, `/`).
 
 ## Next
 
-[International domain names](tut-117-domain-names.html)
+[Bytes as text: Base64 and hexadecimal](tut-138-base64-hex.html)

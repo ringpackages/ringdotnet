@@ -1,0 +1,29 @@
+1. Base64 of 'Ring + .NET':
+   UmluZyArIC5ORVQ=   (11 bytes -> 16 characters)
+   decoded again: Ring + .NET   same as before: yes
+
+2. the padding for 1, 2 and 3 bytes:
+   a     YQ==      (1 bytes)
+   ab    YWI=      (2 bytes)
+   abc   YWJj      (3 bytes)
+   abcd  YWJjZA==  (4 bytes)
+
+3. all 256 byte values: 256 bytes -> 344 characters, back again the same: yes
+
+4. the bytes 251 255:
+   standard Base64: +/8=
+   for URLs:        -_8   (+ becomes -, / becomes _, and the = is dropped)
+   decoded again:   yes
+
+5. hexadecimal of 'Ring + .NET': 52696E67202B202E4E4554   (11 bytes -> 22 characters)
+   decoded again: Ring + .NET
+   the hexadecimal of the bytes 0, 15, 16 and 255: 000F10FF
+
+6. wrong input:
+   Base64 'not base64!': System.FormatException
+   hexadecimal 'ABC' (odd length): System.FormatException
+
+7. a data URI: data:text/plain;base64,SGVsbG8=
+
+8. the SHA-256 hash of 'abc' in hexadecimal:
+   BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD

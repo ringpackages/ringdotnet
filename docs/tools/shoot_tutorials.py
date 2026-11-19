@@ -49,6 +49,8 @@ SHOTS = [
     ("g131_wpf_binding.ring", "g131", "\twpfTest(", "\twpfFind(oWindow,'amount').Value = 75\n\twpfFind(oWindow,'colors').SelectedIndex = 1\n", 1300, "wpf"),
     ("g133_richtext.ring", "g133", "\tuiTest(", "\tselectWord('bold')\n\ttoggleBold()\n\tselectWord('red')\n\tmakeRed()\n\toFind.Text = 'ring'\n\tfindAll()\n", 2500, "forms"),
     ("g134_listview.ring", "g134", None, "", 2500, "forms"),
+    ("g139_paint.ring", "g139", "\tuiTest(", "\tmouseDown(40,60)\n\tfor n = 1 to 20\n\t\tmouseMove(40 + n * 8,60 + floor(40 * sin(n / 3)))\n\tnext\n\tmouseUp()\n\tsetColor('Red')\n\tnPenSize = 12\n\tmouseDown(120,200)\n\tmouseUp()\n\tsetColor('Blue')\n\tnPenSize = 4\n\tmouseDown(250,220)\n\tmouseMove(330,150)\n\tmouseMove(400,230)\n\tmouseUp()\n", 2500, "forms"),
+    ("g140_wpf_menu.ring", "g140", "\twpfTest(", "\twpfFind(oWindow,'more').IsExpanded = True\n\twpfFind(oWindow,'speed').SelectedIndex = 1\n", 1300, "wpf"),
 ]
 
 

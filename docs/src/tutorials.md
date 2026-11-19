@@ -89,6 +89,7 @@ Regular expressions, Unicode and encodings, comparing and escaping text, URLs an
 <a class="card" href="tut-104-text-readers-writers.html"><div class="ic">🔤</div><b>Text readers and writers</b><span>StringWriter, StringReader, capturing Console output, String.Format.</span></a>
 <a class="card" href="tut-86-escaping.html"><div class="ic">🔤</div><b>Escaping</b><span>The right encoding for HTML, URLs, JavaScript, JSON, XML, regular expressions and SQL.</span></a>
 <a class="card" href="tut-64-urls.html"><div class="ic">🔤</div><b>URLs and encodings</b><span>Uri, query strings, percent-encoding, relative addresses and Base64.</span></a>
+<a class="card" href="tut-138-base64-hex.html"><div class="ic">🔤</div><b>Bytes as text: Base64 and hex</b><span>Base64, the URL-safe form, hexadecimal, padding, wrong input and data URIs.</span></a>
 <a class="card" href="tut-117-domain-names.html"><div class="ic">🔤</div><b>International domain names</b><span>Punycode, IdnMapping and look-alike letters (homograph attacks).</span></a>
 <a class="card" href="tut-121-mime-types.html"><div class="ic">🔤</div><b>MIME types</b><span>File extensions, Content-Type, Accept and content negotiation.</span></a>
 <a class="card" href="tut-100-json-writer.html"><div class="ic">🔤</div><b>Writing JSON as a stream</b><span>Utf8JsonWriter, indentation, escaping and JsonSerializer options.</span></a>
@@ -242,6 +243,7 @@ Windows with controls, layout, dialogs and menus, timers, drawing, images and ch
 <a class="card" href="tut-41-menus.html"><div class="ic">🪟</div><b>Menus, toolbars, shortcuts</b><span>Write each action once and reach it from a menu, a toolbar, a context menu and a key.</span></a>
 <a class="card" href="tut-34-timers.html"><div class="ic">🪟</div><b>Timers and progress</b><span>A stopwatch, a progress bar, and a long job in small steps.</span></a>
 <a class="card" href="tut-14-animation.html"><div class="ic">🪟</div><b>Drawing and animation</b><span>A canvas, a timer and the keyboard: a bouncing ball and a paddle.</span></a>
+<a class="card" href="tut-139-paint.html"><div class="ic">🪟</div><b>Drawing with the mouse</b><span>MouseDown, MouseMove and MouseUp: a paint program with colors, pen sizes and a test.</span></a>
 <a class="card" href="tut-22-images.html"><div class="ic">🪟</div><b>Images</b><span>Draw, read and change pixels, make a gray copy, resize and save PNG files.</span></a>
 <a class="card" href="tut-125-screenshot.html"><div class="ic">🪟</div><b>Screens and pictures of windows</b><span>Screen, CopyFromScreen, DrawToBitmap, and checking a window by its pixels.</span></a>
 <a class="card" href="tut-36-chart.html"><div class="ic">🪟</div><b>A chart</b><span>Scaling values to pixels, a round axis, bars, labels, saving, testing pixels.</span></a>
@@ -256,6 +258,7 @@ XAML windows, layout and styles, and animation (Windows only).
 <a class="card" href="tut-15-wpf.html"><div class="ic">🎨</div><b>WPF</b><span>XAML windows, finding elements, events and data binding.</span></a>
 <a class="card" href="tut-38-wpf-layout.html"><div class="ic">🎨</div><b>WPF layout and styles</b><span>Grid rows and columns, one Style for all buttons, a keypad.</span></a>
 <a class="card" href="tut-131-wpf-binding.html"><div class="ic">🎨</div><b>WPF data binding</b><span>Controls that follow each other in XAML: slider, text box, check box and list.</span></a>
+<a class="card" href="tut-140-wpf-menu.html"><div class="ic">🎨</div><b>WPF menus and tabs</b><span>Menu, checkable items, TabControl, ComboBox, DatePicker and Expander in XAML.</span></a>
 <a class="card" href="tut-70-wpf-animation.html"><div class="ic">🎨</div><b>WPF animation</b><span>Move, fade and rotate with DoubleAnimation, easing and AutoReverse.</span></a>
 </div>
 

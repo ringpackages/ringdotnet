@@ -63,4 +63,4 @@ The test acts like the user: it sets the slider value, types into the text box, 
 
 ## Next
 
-[WPF animation](tut-70-wpf-animation.html)
+[WPF menus and tabs](tut-140-wpf-menu.html)
