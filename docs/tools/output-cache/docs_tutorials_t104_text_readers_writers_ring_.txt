@@ -1,0 +1,20 @@
+1. the writer collected three lines of text:
+   first line
+   second line
+   third line
+
+2. reading line by line:
+   1: alpha
+   2: beta
+   3: gamma
+   ReadToEnd gives the whole text: 12 apples
+
+3. the same report function with two kinds of writer:
+   to a string: name: Ann | age: 31 | 
+   to a file:   name: Bob | age: 28 | 
+
+4. captured, not shown on the screen: hidden message 1 | hidden message 2 | 
+
+5. Ann bought 3 items for 12.50
+   alignment: [left    |   right]
+   padded numbers: 00042 255.0 25%

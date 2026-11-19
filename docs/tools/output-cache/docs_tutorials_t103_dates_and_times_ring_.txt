@@ -1,0 +1,21 @@
+1. a date:  2024-02-28, Wednesday, day 59 of the year
+   2 days later: 2024-03-01   (2024 is a leap year: February has 29 days)
+   a time: 22:30, 3 hours later: 01:30   (it goes round the clock: no date to move to)
+
+2. from the start to the end: 2 days, 9 hours, 30 minutes
+   in total: 57.50 hours, 3450 minutes
+   135 minutes is 02:15:00 (hours:minutes:seconds)
+
+3. Cairo  2024-06-15 12:00 +03:00
+   London 2024-06-15 10:00 +01:00
+   they are the same moment: 1, in UTC: 09:00
+
+4. 31 January + 1 month: 2024-02-29   (29 February)
+   31 March + 1 month:   2024-04-30   (30 April)
+   29 February 2024 + 1 year: 2025-02-28
+
+5. born 1990-08-15, on 2024-06-15 the age is 33
+   days between the two dates: 12358
+
+6. '03/04/2024' read as day/month/year: 2024-04-03 (the 3rd of April)
+   '31/04/2024' is a date: 0   (April has 30 days)

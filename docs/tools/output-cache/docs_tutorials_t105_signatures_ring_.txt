@@ -1,0 +1,13 @@
+1. a key pair was made on the curve nistP256, key size 256 bits
+
+2. the signature has 64 bytes
+   it is different every time you sign (a random number is part of it), so the program does not print it
+
+3. the original message:       1
+   the message changed (100 to 900): 0
+   a second signature of the same message is also valid: 1, but different from the first: 1
+
+4. verified with another key: 0
+
+5. the receiver has only the public key and can verify the message: 1
+   the receiver can sign with it: 0   (there is no private key)

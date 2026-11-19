@@ -63,6 +63,6 @@ The same type works for IPv6: `2001:db8::/32` holds every address that starts wi
 3. Use the list in [tutorial 55](tut-55-miniweb.html) so that only addresses of `127.0.0.0/8` can see the page.
 4. Print the first and last address of `192.168.1.64/26`.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 103: Dates and times](tut-103-dates-and-times.html)

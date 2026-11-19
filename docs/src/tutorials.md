@@ -148,6 +148,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-100-json-writer.html"><div class="ic">100</div><b>Writing JSON as a stream</b><span>Utf8JsonWriter, indentation, escaping and JsonSerializer options.</span></a>
 <a class="card" href="tut-101-number-types.html"><div class="ic">101</div><b>Number types</b><span>Limits, checked conversion, TryParse, Int128 and floating point.</span></a>
 <a class="card" href="tut-102-ip-networks.html"><div class="ic">102</div><b>IP networks</b><span>CIDR, IPNetwork.Contains and a private-address allow list.</span></a>
+<a class="card" href="tut-103-dates-and-times.html"><div class="ic">103</div><b>Dates and times</b><span>DateOnly, TimeOnly, DateTimeOffset, TimeSpan and month-end rules.</span></a>
+<a class="card" href="tut-104-text-readers-writers.html"><div class="ic">104</div><b>Text readers and writers</b><span>StringWriter, StringReader, capturing Console output, String.Format.</span></a>
+<a class="card" href="tut-105-signatures.html"><div class="ic">105</div><b>Digital signatures</b><span>ECDsa keys, signing, verifying and sharing the public key.</span></a>
 </div>
 
 ## Learning path
