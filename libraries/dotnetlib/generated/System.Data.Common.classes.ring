@@ -301,16 +301,30 @@ Class DataColumnMapping from MarshalByRefObject
 	DataSetColumn
 	SourceColumn
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datacolumnmapping'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.Common.DataColumnMapping, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.Common.DataColumnMapping, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DataColumnMapping, System.Data.Common',P1)
 			return self
@@ -350,11 +364,21 @@ Class DataColumnMappingCollection from MarshalByRefObject
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datacolumnmappingcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.Common.DataColumnMappingCollection, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Data.Common.DataColumnMappingCollection, System.Data.Common',[])
 		return self
@@ -430,16 +454,30 @@ Class DataTableMapping from MarshalByRefObject
 	DataSetTable
 	SourceTable
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datatablemapping'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.Common.DataTableMapping, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.Common.DataTableMapping, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DataTableMapping, System.Data.Common',P1)
 			return self
@@ -485,11 +523,21 @@ Class DataTableMappingCollection from MarshalByRefObject
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datatablemappingcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.Common.DataTableMappingCollection, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Data.Common.DataTableMappingCollection, System.Data.Common',[])
 		return self
@@ -1385,16 +1433,30 @@ Class DbConnectionStringBuilder from Object
 	Keys
 	Values
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbconnectionstringbuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.Common.DbConnectionStringBuilder, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.Common.DbConnectionStringBuilder, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.Common.DbConnectionStringBuilder, System.Data.Common',P1)
 			return self

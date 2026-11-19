@@ -99,16 +99,30 @@ Class FileExtensionContentTypeProvider from Object
 
 	Mappings
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fileextensioncontenttypeprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',P1)
 			return self

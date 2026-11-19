@@ -252,11 +252,21 @@ Class NegotiateAuthenticationClientOptions from Object
 	RequireMutualAuthentication
 	AllowedImpersonationLevel
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'negotiateauthenticationclientoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationClientOptions, System.Net.Security',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationClientOptions, System.Net.Security',[])
 		return self
@@ -322,11 +332,21 @@ Class NegotiateAuthenticationServerOptions from Object
 	Policy
 	RequiredImpersonationLevel
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'negotiateauthenticationserveroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationServerOptions, System.Net.Security',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationServerOptions, System.Net.Security',[])
 		return self
@@ -384,16 +404,30 @@ Class SslApplicationProtocol from ValueType
 	Http2
 	Http11
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sslapplicationprotocol'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Security.SslApplicationProtocol, System.Net.Security',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Security.SslApplicationProtocol, System.Net.Security',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslApplicationProtocol, System.Net.Security',P1)
 			return self
@@ -472,11 +506,21 @@ Class SslClientAuthenticationOptions from Object
 	CipherSuitesPolicy
 	CertificateChainPolicy
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sslclientauthenticationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Security.SslClientAuthenticationOptions, System.Net.Security',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.SslClientAuthenticationOptions, System.Net.Security',[])
 		return self
@@ -581,16 +625,30 @@ Class SslClientHelloInfo from ValueType
 	ServerName
 	SslProtocols
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sslclienthelloinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Security.SslClientHelloInfo, System.Net.Security',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Security.SslClientHelloInfo, System.Net.Security',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Security.SslClientHelloInfo, System.Net.Security',P1)
 			return self
@@ -631,11 +689,21 @@ Class SslServerAuthenticationOptions from Object
 	CipherSuitesPolicy
 	CertificateChainPolicy
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sslserverauthenticationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Security.SslServerAuthenticationOptions, System.Net.Security',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Security.SslServerAuthenticationOptions, System.Net.Security',[])
 		return self

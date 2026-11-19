@@ -333,11 +333,21 @@ Class DefaultSessionFeature from Object
 
 	Session
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultsessionfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.DefaultSessionFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.DefaultSessionFeature, Microsoft.AspNetCore.Http',[])
 		return self
@@ -358,16 +368,30 @@ Class FeatureCollection from Object
 	Revision
 	IsReadOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'featurecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',P1)
 			return self
@@ -504,11 +528,21 @@ Class FormOptions from Object
 	DefaultMultipartBoundaryLengthLimit
 	DefaultMultipartBodyLengthLimit
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',[])
 		return self
@@ -619,11 +653,21 @@ Class HttpConnectionFeature from Object
 	RemoteIpAddress
 	RemotePort
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpconnectionfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpConnectionFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpConnectionFeature, Microsoft.AspNetCore.Http',[])
 		return self
@@ -679,11 +723,21 @@ Class HttpRequestFeature from Object
 	Headers
 	Body
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestFeature, Microsoft.AspNetCore.Http',[])
 		return self
@@ -759,11 +813,21 @@ Class HttpRequestIdentifierFeature from Object
 
 	TraceIdentifier
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestidentifierfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestIdentifierFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestIdentifierFeature, Microsoft.AspNetCore.Http',[])
 		return self
@@ -783,11 +847,21 @@ Class HttpRequestLifetimeFeature from Object
 
 	RequestAborted
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestlifetimefeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestLifetimeFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestLifetimeFeature, Microsoft.AspNetCore.Http',[])
 		return self
@@ -815,11 +889,21 @@ Class HttpResponseFeature from Object
 	Body
 	HasStarted
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpresponsefeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpResponseFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpResponseFeature, Microsoft.AspNetCore.Http',[])
 		return self
@@ -1869,11 +1953,21 @@ Class ItemsFeature from Object
 
 	Items
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'itemsfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ItemsFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ItemsFeature, Microsoft.AspNetCore.Http',[])
 		return self
@@ -2030,11 +2124,21 @@ Class RouteValuesFeature from Object
 
 	RouteValues
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routevaluesfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RouteValuesFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RouteValuesFeature, Microsoft.AspNetCore.Http',[])
 		return self
@@ -2054,11 +2158,21 @@ Class ServiceProvidersFeature from Object
 
 	RequestServices
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'serviceprovidersfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ServiceProvidersFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ServiceProvidersFeature, Microsoft.AspNetCore.Http',[])
 		return self
@@ -2078,11 +2192,21 @@ Class TlsConnectionFeature from Object
 
 	ClientCertificate
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tlsconnectionfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.TlsConnectionFeature, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.TlsConnectionFeature, Microsoft.AspNetCore.Http',[])
 		return self

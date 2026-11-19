@@ -1108,16 +1108,30 @@ Class BitmapImage from BitmapSource
 	CreateOptionsProperty
 	CacheOptionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bitmapimage'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.BitmapImage, PresentationCore',P1)
 			return self
@@ -1276,11 +1290,21 @@ Class BmpBitmapDecoder from BitmapDecoder
 
 Class BmpBitmapEncoder from BitmapEncoder
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bmpbitmapencoder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.BmpBitmapEncoder, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BmpBitmapEncoder, PresentationCore',[])
 		return self
@@ -1309,16 +1333,30 @@ Class ColorConvertedBitmap from BitmapSource
 	DestinationColorContextProperty
 	DestinationFormatProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colorconvertedbitmap'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',P1)
 			return self
@@ -1398,16 +1436,30 @@ Class CroppedBitmap from BitmapSource
 	SourceProperty
 	SourceRectProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'croppedbitmap'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',P1)
 			return self
@@ -1465,16 +1517,30 @@ Class FormatConvertedBitmap from BitmapSource
 	DestinationPaletteProperty
 	AlphaThresholdProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formatconvertedbitmap'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',P1)
 			return self
@@ -1561,11 +1627,21 @@ Class GifBitmapDecoder from BitmapDecoder
 
 Class GifBitmapEncoder from BitmapEncoder
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gifbitmapencoder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.GifBitmapEncoder, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.GifBitmapEncoder, PresentationCore',[])
 		return self
@@ -1616,11 +1692,21 @@ Class JpegBitmapEncoder from BitmapEncoder
 	FlipHorizontal
 	FlipVertical
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jpegbitmapencoder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.JpegBitmapEncoder, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.JpegBitmapEncoder, PresentationCore',[])
 		return self
@@ -1689,11 +1775,21 @@ Class PngBitmapEncoder from BitmapEncoder
 
 	Interlace
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pngbitmapencoder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.PngBitmapEncoder, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.PngBitmapEncoder, PresentationCore',[])
 		return self
@@ -1742,11 +1838,21 @@ Class TiffBitmapEncoder from BitmapEncoder
 
 	Compression
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tiffbitmapencoder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.TiffBitmapEncoder, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.TiffBitmapEncoder, PresentationCore',[])
 		return self
@@ -1766,16 +1872,30 @@ Class TransformedBitmap from BitmapSource
 	SourceProperty
 	TransformProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transformedbitmap'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',P1)
 			return self
@@ -1855,11 +1975,21 @@ Class WmpBitmapEncoder from BitmapEncoder
 	AlphaDataDiscardLevel
 	IgnoreOverlap
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wmpbitmapencoder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Imaging.WmpBitmapEncoder, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.WmpBitmapEncoder, PresentationCore',[])
 		return self

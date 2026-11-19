@@ -10,7 +10,7 @@ After `using { "Namespace" }` every public type of that namespace is a Ring clas
 ```ring
 using { "System.Text" }
 
-oSB = new StringBuilder("Hello")        # use parentheses: Ring calls init() only with them
+oSB = new StringBuilder("Hello")        # with arguments: parentheses (Ring calls init() only with them)
 oSB.Append(", Ring").Append("!")        # methods that return a wrapped class return that class
 ? oSB.ToString()
 ? oSB.Length                            # properties and fields are attributes
@@ -20,7 +20,7 @@ new Console().WriteLine("Hi")           # static members are called on an instan
 
 {{output:samples/UsingDotNet/introduction/test02_simple.ring}}
 
-> [!NOTE] Always write `new StringBuilder(...)` **with parentheses**. In Ring, `new X` without them does not call the constructor.
+> [!NOTE] **With arguments, write the parentheses**: `new StringBuilder("Hello")`. Ring calls `init()` only when they are there. A class that needs no argument can be written with or without them, `new MemoryStream` or `new MemoryStream()`: Ring runs the code of the class body in both cases, and the class makes its default .NET object there. A few classes have a first constructor parameter that you may leave out (`StringBuilder`, `Random`, `Version`): for them write `new StringBuilder` (the default object) or `new StringBuilder("text")`; `new StringBuilder()` with empty parentheses is an error ("less number of parameters").
 
 Inheritance is real: `Button` derives from `ButtonBase`, `Control` and so on, so a method defined on the base class works on every derived object.
 

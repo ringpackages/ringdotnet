@@ -119,11 +119,21 @@ Class JsonDocumentOptions from ValueType
 	MaxDepth
 	AllowTrailingCommas
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsondocumentoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.JsonDocumentOptions, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonDocumentOptions, System.Text.Json',[])
 		return self
@@ -154,11 +164,21 @@ Class JsonElement from ValueType
 
 	ValueKind
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonelement'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.JsonElement, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonElement, System.Text.Json',[])
 		return self
@@ -308,11 +328,21 @@ Class JsonEncodedText from ValueType
 	EncodedUtf8Bytes
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonencodedtext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.JsonEncodedText, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonEncodedText, System.Text.Json',[])
 		return self
@@ -394,11 +424,21 @@ Class JsonProperty from ValueType
 	Value
 	Name
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonproperty'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.JsonProperty, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonProperty, System.Text.Json',[])
 		return self
@@ -430,11 +470,21 @@ Class JsonReaderOptions from ValueType
 	AllowTrailingCommas
 	AllowMultipleValues
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonreaderoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.JsonReaderOptions, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonReaderOptions, System.Text.Json',[])
 		return self
@@ -472,16 +522,30 @@ Class JsonReaderState from ValueType
 
 	Options
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonreaderstate'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.JsonReaderState, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.Json.JsonReaderState, System.Text.Json',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.JsonReaderState, System.Text.Json',P1)
 			return self
@@ -610,16 +674,30 @@ Class JsonSerializerOptions from Object
 	Default
 	Web
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonserializeroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.JsonSerializerOptions, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.Json.JsonSerializerOptions, System.Text.Json',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.JsonSerializerOptions, System.Text.Json',P1)
 			return self
@@ -882,11 +960,21 @@ Class JsonWriterOptions from ValueType
 	SkipValidation
 	NewLine
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonwriteroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.JsonWriterOptions, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.JsonWriterOptions, System.Text.Json',[])
 		return self

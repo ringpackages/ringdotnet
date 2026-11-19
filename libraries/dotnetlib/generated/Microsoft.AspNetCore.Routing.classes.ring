@@ -1131,11 +1131,21 @@ Class LinkOptions from Object
 	LowercaseQueryStrings
 	AppendTrailingSlash
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linkoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.LinkOptions, Microsoft.AspNetCore.Routing.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.LinkOptions, Microsoft.AspNetCore.Routing.Abstractions',[])
 		return self
@@ -1434,11 +1444,21 @@ Class RouteCollection from Object
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteCollection, Microsoft.AspNetCore.Routing',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteCollection, Microsoft.AspNetCore.Routing',[])
 		return self
@@ -1554,16 +1574,30 @@ Class RouteData from Object
 	Routers
 	Values
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routedata'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',P1)
 			return self
@@ -1677,11 +1711,21 @@ Class RouteGroupContext from Object
 	FinallyConventions
 	ApplicationServices
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routegroupcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteGroupContext, Microsoft.AspNetCore.Routing',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteGroupContext, Microsoft.AspNetCore.Routing',[])
 		return self
@@ -1746,11 +1790,21 @@ Class RouteHandlerOptions from Object
 
 	ThrowOnBadRequest
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routehandleroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteHandlerOptions, Microsoft.AspNetCore.Routing',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteHandlerOptions, Microsoft.AspNetCore.Routing',[])
 		return self
@@ -1813,11 +1867,21 @@ Class RouteOptions from Object
 
 	ConstraintMap
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routeoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteOptions, Microsoft.AspNetCore.Components',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteOptions, Microsoft.AspNetCore.Components',[])
 		return self
@@ -1865,16 +1929,30 @@ Class RouteValueDictionary from Object
 	Keys
 	Values
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routevaluedictionary'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',P1)
 			return self
@@ -1951,11 +2029,21 @@ Class RouteValueEqualityComparer from Object
 
 	Default
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routevalueequalitycomparer'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components',[])
 		return self
@@ -1988,11 +2076,21 @@ Class RouteValuesAddress from Object
 	ExplicitValues
 	AmbientValues
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routevaluesaddress'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValuesAddress, Microsoft.AspNetCore.Routing',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValuesAddress, Microsoft.AspNetCore.Routing',[])
 		return self
@@ -2026,11 +2124,21 @@ Class RoutingFeature from Object
 
 	RouteData
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routingfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RoutingFeature, Microsoft.AspNetCore.Routing',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RoutingFeature, Microsoft.AspNetCore.Routing',[])
 		return self
@@ -2070,11 +2178,21 @@ Class SuppressLinkGenerationMetadata from Object
 
 	SuppressLinkGeneration
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'suppresslinkgenerationmetadata'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.SuppressLinkGenerationMetadata, Microsoft.AspNetCore.Routing',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.SuppressLinkGenerationMetadata, Microsoft.AspNetCore.Routing',[])
 		return self
@@ -2093,11 +2211,21 @@ Class SuppressMatchingMetadata from Object
 
 	SuppressMatching
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'suppressmatchingmetadata'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.SuppressMatchingMetadata, Microsoft.AspNetCore.Routing',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.SuppressMatchingMetadata, Microsoft.AspNetCore.Routing',[])
 		return self

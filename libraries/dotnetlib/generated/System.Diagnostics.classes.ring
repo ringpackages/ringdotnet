@@ -626,11 +626,21 @@ Class ActivityChangedEventArgs from ValueType
 	Previous
 	Current
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitychangedeventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ActivityChangedEventArgs, System.Diagnostics.DiagnosticSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityChangedEventArgs, System.Diagnostics.DiagnosticSource',[])
 		return self
@@ -658,16 +668,30 @@ Class ActivityContext from ValueType
 	TraceState
 	IsRemote
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitycontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',P1)
 			return self
@@ -725,16 +749,30 @@ Class ActivityEvent from ValueType
 	Timestamp
 	Tags
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activityevent'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',P1)
 			return self
@@ -773,16 +811,30 @@ Class ActivityLink from ValueType
 	Context
 	Tags
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitylink'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',P1)
 			return self
@@ -819,11 +871,21 @@ Class ActivityListener from Object
 	SampleUsingParentId
 	Sample
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitylistener'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ActivityListener, System.Diagnostics.DiagnosticSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityListener, System.Diagnostics.DiagnosticSource',[])
 		return self
@@ -955,11 +1017,21 @@ Class ActivitySource from Object
 
 Class ActivitySpanId from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activityspanid'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource',[])
 		return self
@@ -978,16 +1050,30 @@ Class ActivityTagsCollection from Object
 	IsReadOnly
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitytagscollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',P1)
 			return self
@@ -1067,11 +1153,21 @@ Class ActivityTagsCollection from Object
 
 Class ActivityTraceId from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'activitytraceid'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource',[])
 		return self
@@ -1259,11 +1355,21 @@ Class Debug from Object
 
 Class DebugProvider from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'debugprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.DebugProvider, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.DebugProvider, System.Private.CoreLib',[])
 		return self
@@ -1781,11 +1887,21 @@ Class Process from Component
 	MainWindowTitle
 	Responding
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'process'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.Process, System.Diagnostics.Process',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.Process, System.Diagnostics.Process',[])
 		return self
@@ -2341,16 +2457,30 @@ Class ProcessStartInfo from Object
 	Verbs
 	UseShellExecute
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'processstartinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',P1)
 			return self
@@ -2689,16 +2819,30 @@ Class StackFrame from Object
 
 	OFFSET_UNKNOWN
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stackframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.StackFrame, System.Private.CoreLib',P1)
 			return self
@@ -2775,16 +2919,30 @@ Class StackTrace from Object
 	FrameCount
 	METHODS_TO_SKIP
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stacktrace'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.StackTrace, System.Private.CoreLib',P1)
 			return self
@@ -2827,11 +2985,21 @@ Class Stopwatch from Object
 	Frequency
 	IsHighResolution
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stopwatch'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.Stopwatch, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.Stopwatch, System.Private.CoreLib',[])
 		return self
@@ -2972,11 +3140,21 @@ Class TagList from ValueType
 	Count
 	IsReadOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taglist'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.TagList, System.Diagnostics.DiagnosticSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.TagList, System.Diagnostics.DiagnosticSource',[])
 		return self
@@ -3205,11 +3383,21 @@ Class TraceEventCache from Object
 	Callstack
 	LogicalOperationStack
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'traceeventcache'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.TraceEventCache, System.Diagnostics.TraceSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.TraceEventCache, System.Diagnostics.TraceSource',[])
 		return self
@@ -3593,11 +3781,21 @@ Class DefaultTraceListener from TraceListener
 	AssertUiEnabled
 	LogFileName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaulttracelistener'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.DefaultTraceListener, System.Diagnostics.TraceSource',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Diagnostics.DefaultTraceListener, System.Diagnostics.TraceSource',[])
 		return self
@@ -3745,16 +3943,30 @@ Class TextWriterTraceListener from TraceListener
 
 	Writer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'textwritertracelistener'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
 			return self
@@ -3837,16 +4049,30 @@ Class TraceSwitch from Switch_
 
 Class ConsoleTraceListener from TextWriterTraceListener
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'consoletracelistener'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
 			return self

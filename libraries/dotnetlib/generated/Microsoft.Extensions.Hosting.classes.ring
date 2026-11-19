@@ -191,11 +191,21 @@ Class ConsoleLifetimeOptions from Object
 
 	SuppressStatusMessages
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'consolelifetimeoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Hosting.ConsoleLifetimeOptions, Microsoft.Extensions.Hosting',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.ConsoleLifetimeOptions, Microsoft.Extensions.Hosting',[])
 		return self
@@ -333,16 +343,30 @@ Class HostApplicationBuilder from Object
 	Logging
 	Metrics
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostapplicationbuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',P1)
 			return self
@@ -408,11 +432,21 @@ Class HostApplicationBuilderSettings from Object
 	ApplicationName
 	ContentRootPath
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostapplicationbuildersettings'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilderSettings, Microsoft.Extensions.Hosting',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilderSettings, Microsoft.Extensions.Hosting',[])
 		return self
@@ -467,11 +501,21 @@ Class HostBuilder from Object
 
 	Properties
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostbuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostBuilder, Microsoft.Extensions.Hosting',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostBuilder, Microsoft.Extensions.Hosting',[])
 		return self
@@ -613,11 +657,21 @@ Class HostOptions from Object
 	ServicesStopConcurrently
 	BackgroundServiceExceptionBehavior
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostOptions, Microsoft.Extensions.Hosting',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostOptions, Microsoft.Extensions.Hosting',[])
 		return self
@@ -1085,11 +1139,21 @@ Class WebHostBuilderOptions from Object
 
 	SuppressEnvironmentConfiguration
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webhostbuilderoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Hosting.WebHostBuilderOptions, Microsoft.AspNetCore.Hosting',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.WebHostBuilderOptions, Microsoft.AspNetCore.Hosting',[])
 		return self

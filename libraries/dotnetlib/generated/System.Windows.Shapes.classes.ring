@@ -234,11 +234,21 @@ Class Shape from FrameworkElement
 
 Class Ellipse from Shape
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ellipse'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Shapes.Ellipse, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Shapes.Ellipse, PresentationFramework',[])
 		return self
@@ -255,11 +265,21 @@ Class Line from Shape
 	X2Property
 	Y2Property
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'line'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Shapes.Line, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Shapes.Line, PresentationFramework',[])
 		return self
@@ -322,11 +342,21 @@ Class WpfPath from Shape
 	Data
 	DataProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfpath'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Shapes.Path, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Shapes.Path, PresentationFramework',[])
 		return self
@@ -352,11 +382,21 @@ Class Polygon from Shape
 	PointsProperty
 	FillRuleProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'polygon'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Shapes.Polygon, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Shapes.Polygon, PresentationFramework',[])
 		return self
@@ -395,11 +435,21 @@ Class Polyline from Shape
 	PointsProperty
 	FillRuleProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'polyline'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Shapes.Polyline, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Shapes.Polyline, PresentationFramework',[])
 		return self
@@ -438,11 +488,21 @@ Class WpfRectangle from Shape
 	RadiusXProperty
 	RadiusYProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfrectangle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Shapes.Rectangle, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Shapes.Rectangle, PresentationFramework',[])
 		return self

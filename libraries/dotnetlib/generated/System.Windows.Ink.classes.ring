@@ -186,11 +186,21 @@ Class DrawingAttributes from Object
 	MaxHeight
 	MaxWidth
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'drawingattributes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Ink.DrawingAttributes, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Ink.DrawingAttributes, PresentationCore',[])
 		return self
@@ -375,16 +385,30 @@ Class GestureRecognizer from DependencyObject
 
 	IsRecognizerAvailable
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gesturerecognizer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Ink.GestureRecognizer, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Ink.GestureRecognizer, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.GestureRecognizer, PresentationCore',P1)
 			return self
@@ -670,16 +694,30 @@ Class StrokeCollection from DotNetObject
 	Count
 	InkSerializedFormat
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'strokecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Ink.StrokeCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Ink.StrokeCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Ink.StrokeCollection, PresentationCore',P1)
 			return self

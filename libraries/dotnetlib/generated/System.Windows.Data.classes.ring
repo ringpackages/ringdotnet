@@ -351,11 +351,21 @@ Class BindingGroup from DependencyObject
 	HasValidationError
 	ValidationErrors
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindinggroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.BindingGroup, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.BindingGroup, PresentationFramework',[])
 		return self
@@ -565,11 +575,21 @@ Class CollectionContainer from DependencyObject
 	Collection
 	CollectionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'collectioncontainer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.CollectionContainer, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.CollectionContainer, PresentationFramework',[])
 		return self
@@ -917,11 +937,21 @@ Class CollectionViewSource from DependencyObject
 	IsLiveGroupingRequestedProperty
 	IsLiveGroupingProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'collectionviewsource'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.CollectionViewSource, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.CollectionViewSource, PresentationFramework',[])
 		return self
@@ -1134,16 +1164,30 @@ Class CompositeCollection from Object
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'compositecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.CompositeCollection, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Data.CompositeCollection, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.CompositeCollection, PresentationFramework',P1)
 			return self
@@ -1382,16 +1426,30 @@ Class PropertyGroupDescription from DotNetObject
 	CompareNameAscending
 	CompareNameDescending
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertygroupdescription'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.PropertyGroupDescription, PresentationFramework',P1)
 			return self
@@ -1488,16 +1546,30 @@ Class RelativeSource from MarkupExtension
 	PreviousData
 	TemplatedParent
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relativesource'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.RelativeSource, PresentationFramework',P1)
 			return self
@@ -1557,16 +1629,30 @@ Class XmlNamespaceMapping from Object
 	Prefix
 	Uri
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlnamespacemapping'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',P1)
 			return self
@@ -1601,11 +1687,21 @@ Class XmlNamespaceMappingCollection from XmlNamespaceManager
 	Count
 	IsReadOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlnamespacemappingcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMappingCollection, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMappingCollection, PresentationFramework',[])
 		return self
@@ -1670,16 +1766,30 @@ Class WpfBinding from BindingBase
 	DoNothing
 	IndexerName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfbinding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.Binding, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Data.Binding, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Data.Binding, PresentationFramework',P1)
 			return self
@@ -2370,11 +2480,21 @@ Class MultiBinding from BindingBase
 	ValidatesOnDataErrors
 	ValidatesOnNotifyDataErrors
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multibinding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.MultiBinding, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.MultiBinding, PresentationFramework',[])
 		return self
@@ -2517,11 +2637,21 @@ Class ObjectDataProvider from DataSourceProvider
 	MethodParameters
 	IsAsynchronous
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'objectdataprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.ObjectDataProvider, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.ObjectDataProvider, PresentationFramework',[])
 		return self
@@ -2583,11 +2713,21 @@ Class PriorityBinding from BindingBase
 
 	Bindings
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'prioritybinding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.PriorityBinding, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.PriorityBinding, PresentationFramework',[])
 		return self
@@ -2644,11 +2784,21 @@ Class XmlDataProvider from DataSourceProvider
 	IsAsynchronous
 	XmlSerializer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmldataprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Data.XmlDataProvider, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Data.XmlDataProvider, PresentationFramework',[])
 		return self

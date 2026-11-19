@@ -364,16 +364,30 @@ Class DataColumn from MarshalByValueComponent
 	Unique
 	ColumnMapping
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datacolumn'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.DataColumn, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.DataColumn, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataColumn, System.Data.Common',P1)
 			return self
@@ -1075,16 +1089,30 @@ Class DataSet from MarshalByValueComponent
 	Relations
 	Tables
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dataset'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.DataSet, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.DataSet, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataSet, System.Data.Common',P1)
 			return self
@@ -1342,16 +1370,30 @@ Class DataTable from MarshalByValueComponent
 	Namespace
 	Prefix
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datatable'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.DataTable, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.DataTable, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataTable, System.Data.Common',P1)
 			return self
@@ -1794,16 +1836,30 @@ Class DataView from MarshalByValueComponent
 	Sort
 	Table
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dataview'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.DataView, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.DataView, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataView, System.Data.Common',P1)
 			return self
@@ -1952,16 +2008,30 @@ Class DataViewManager from MarshalByValueComponent
 	DataViewSettings
 	DataViewSettingCollectionString
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dataviewmanager'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.DataViewManager, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.DataViewManager, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.DataViewManager, System.Data.Common',P1)
 			return self
@@ -2912,11 +2982,21 @@ Class InternalDataCollectionBase from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'internaldatacollectionbase'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.InternalDataCollectionBase, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Data.InternalDataCollectionBase, System.Data.Common',[])
 		return self
@@ -2985,11 +3065,21 @@ Class MergeFailedEventArgs from EventArgs
 
 Class PropertyCollection from Hashtable
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertycollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.PropertyCollection, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Data.PropertyCollection, System.Data.Common',[])
 		return self

@@ -88,16 +88,30 @@ Class Blend from Object
 	Factors
 	Positions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'blend'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Drawing2D.Blend, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Drawing2D.Blend, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.Blend, System.Drawing.Common',P1)
 			return self
@@ -132,16 +146,30 @@ Class ColorBlend from Object
 	Colors
 	Positions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colorblend'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',P1)
 			return self
@@ -261,16 +289,30 @@ Class GraphicsPath from MarshalByRefObject
 	PathTypes
 	PathPoints
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'graphicspath'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',P1)
 			return self
@@ -749,16 +791,30 @@ Class Matrix from MarshalByRefObject
 	IsInvertible
 	IsIdentity
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrix'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',P1)
 			return self
@@ -884,11 +940,21 @@ Class PathData from Object
 	Points
 	Types
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pathdata'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Drawing2D.PathData, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Drawing2D.PathData, System.Drawing.Common',[])
 		return self

@@ -139,11 +139,21 @@ Class JsonNodeOptions from ValueType
 
 	PropertyNameCaseInsensitive
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonnodeoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.Nodes.JsonNodeOptions, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.Json.Nodes.JsonNodeOptions, System.Text.Json',[])
 		return self
@@ -160,16 +170,30 @@ Class JsonArray from JsonNode
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonarray'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.Nodes.JsonArray, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.Json.Nodes.JsonArray, System.Text.Json',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.Nodes.JsonArray, System.Text.Json',P1)
 			return self
@@ -229,16 +253,30 @@ Class JsonObject from JsonNode
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonobject'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Json.Nodes.JsonObject, System.Text.Json',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.Json.Nodes.JsonObject, System.Text.Json',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Json.Nodes.JsonObject, System.Text.Json',P1)
 			return self

@@ -728,11 +728,21 @@ Class DatabaseDependencies from Object
 
 Class DatabaseProviderDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'databaseproviderdependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DatabaseProviderDependencies, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DatabaseProviderDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -1884,16 +1894,30 @@ Class MaterializationContext from ValueType
 	Context
 	GetValueBufferMethod
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'materializationcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -1958,11 +1982,21 @@ Class NonRetryingExecutionStrategy from Object
 
 Class ParameterNameGenerator from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'parameternamegenerator'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ParameterNameGenerator, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ParameterNameGenerator, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -1980,11 +2014,21 @@ Class ParameterNameGenerator from Object
 
 Class ParameterNameGeneratorDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'parameternamegeneratordependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ParameterNameGeneratorDependencies, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ParameterNameGeneratorDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -2320,16 +2364,30 @@ Class RelationalCommandParameterObject from ValueType
 	DetailedErrorsEnabled
 	CommandSource
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relationalcommandparameterobject'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',P1)
 			return self
@@ -2636,11 +2694,21 @@ Class RelationalDataReader from Object
 	DbCommand
 	CommandId
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relationaldatareader'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalDataReader, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalDataReader, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -3085,11 +3153,21 @@ Class RelationalSqlGenerationHelper from Object
 
 Class RelationalSqlGenerationHelperDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relationalsqlgenerationhelperdependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalSqlGenerationHelperDependencies, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalSqlGenerationHelperDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -3251,16 +3329,30 @@ Class RelationalTypeMappingInfo from ValueType
 	JsonValueReaderWriter
 	ElementTypeMapping
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relationaltypemappinginfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',P1)
 			return self
@@ -3443,16 +3535,30 @@ Class TypeMappingInfo from ValueType
 	ClrType
 	JsonValueReaderWriter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'typemappinginfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -3666,16 +3772,30 @@ Class ValueBuffer from ValueType
 	IsEmpty
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'valuebuffer'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',P1)
 			return self

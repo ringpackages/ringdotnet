@@ -1096,11 +1096,21 @@ Class MigrationExecutionState from Object
 	DatabaseLock
 	Transaction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'migrationexecutionstate'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationExecutionState, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationExecutionState, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -1167,11 +1177,21 @@ Class MigrationsAnnotationProvider from Object
 
 Class MigrationsAnnotationProviderDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'migrationsannotationproviderdependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsAnnotationProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsAnnotationProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		return self

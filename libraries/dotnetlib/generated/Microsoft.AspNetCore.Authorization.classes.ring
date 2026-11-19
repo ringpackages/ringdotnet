@@ -385,11 +385,21 @@ Class AuthorizationOptions from Object
 	DefaultPolicy
 	FallbackPolicy
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authorizationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationOptions, Microsoft.AspNetCore.Authorization',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationOptions, Microsoft.AspNetCore.Authorization',[])
 		return self
@@ -590,11 +600,21 @@ Class AuthorizationServiceExtensions from Object
 
 Class DefaultAuthorizationEvaluator from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultauthorizationevaluator'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationEvaluator, Microsoft.AspNetCore.Authorization',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationEvaluator, Microsoft.AspNetCore.Authorization',[])
 		return self
@@ -608,11 +628,21 @@ Class DefaultAuthorizationEvaluator from Object
 
 Class DefaultAuthorizationHandlerContextFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultauthorizationhandlercontextfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationHandlerContextFactory, Microsoft.AspNetCore.Authorization',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.DefaultAuthorizationHandlerContextFactory, Microsoft.AspNetCore.Authorization',[])
 		return self

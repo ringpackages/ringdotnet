@@ -167,7 +167,7 @@
 <p>After <code>using { "Namespace" }</code> every public type of that namespace is a Ring class with the <strong>same short name</strong> and the same members:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"System.Text"</span> }
 
-oSB = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"Hello"</span>)        <span class="c"># use parentheses: Ring calls init() only with them</span>
+oSB = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"Hello"</span>)        <span class="c"># with arguments: parentheses (Ring calls init() only with them)</span>
 oSB.<span class="f">Append</span>(<span class="s">", Ring"</span>).<span class="f">Append</span>(<span class="s">"!"</span>)        <span class="c"># methods that return a wrapped class return that class</span>
 ? oSB.<span class="f">ToString</span>()
 ? oSB.Length                            <span class="c"># properties and fields are attributes</span>
@@ -185,7 +185,7 @@ a\b
 file.txt
 1
 1</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>Always write <code>new StringBuilder(...)</code> <strong>with parentheses</strong>. In Ring, <code>new X</code> without them does not call the constructor.</p></div>
+<div class="callout note"><span class="t">Note</span><p><strong>With arguments, write the parentheses</strong>: <code>new StringBuilder("Hello")</code>. Ring calls <code>init()</code> only when they are there. A class that needs no argument can be written with or without them, <code>new MemoryStream</code> or <code>new MemoryStream()</code>: Ring runs the code of the class body in both cases, and the class makes its default .NET object there. A few classes have a first constructor parameter that you may leave out (<code>StringBuilder</code>, <code>Random</code>, <code>Version</code>): for them write <code>new StringBuilder</code> (the default object) or <code>new StringBuilder("text")</code>; <code>new StringBuilder()</code> with empty parentheses is an error ("less number of parameters").</p></div>
 <p>Inheritance is real: <code>Button</code> derives from <code>ButtonBase</code>, <code>Control</code> and so on, so a method defined on the base class works on every derived object.</p>
 <h2 id="short-names-for-static-classes">Short names for static classes<a class="anchor" href="#short-names-for-static-classes">#</a></h2>
 <p>A class such as <code>Math</code>, <code>Path</code> or <code>File</code> has only static members, so <code>new Math()</code> just makes an object that gives access to them. If you prefer the .NET style, make that object once at the top of the program and give it the name of the class:</p>

@@ -420,16 +420,30 @@ Class ActionContext from Object
 	ModelState
 	RouteData
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'actioncontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			return self
@@ -503,11 +517,21 @@ Class ApiBehaviorOptions from Object
 	SuppressMapClientErrors
 	ClientErrorMapping
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'apibehavioroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiBehaviorOptions, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiBehaviorOptions, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -568,11 +592,21 @@ Class ApiDescriptionActionData from Object
 
 	GroupName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'apidescriptionactiondata'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiDescriptionActionData, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiDescriptionActionData, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -596,11 +630,21 @@ Class CacheProfile from Object
 	VaryByHeader
 	VaryByQueryKeys
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cacheprofile'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CacheProfile, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CacheProfile, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -649,11 +693,21 @@ Class ClientErrorData from Object
 	Link
 	Title
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'clienterrordata'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ClientErrorData, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ClientErrorData, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -1089,11 +1143,21 @@ Class CookieTempDataProviderOptions from Object
 
 	Cookie
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cookietempdataprovideroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CookieTempDataProviderOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CookieTempDataProviderOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		return self
@@ -1277,11 +1341,21 @@ Class JsonOptions from Object
 	AllowInputFormatterExceptionMessages
 	JsonSerializerOptions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jsonoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonOptions, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonOptions, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -1334,11 +1408,21 @@ Class MvcOptions from Object
 	MaxModelBindingRecursionDepth
 	MaxIAsyncEnumerableBufferLimit
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mvcoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcOptions, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcOptions, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -1538,11 +1622,21 @@ Class MvcViewOptions from Object
 	ViewEngines
 	ClientModelValidatorProviders
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mvcviewoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcViewOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcViewOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		return self
@@ -1579,11 +1673,21 @@ Class ProblemDetails from Object
 	Instance
 	Extensions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'problemdetails'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
@@ -1639,16 +1743,30 @@ Class ProblemDetails from Object
 
 Class SerializableError from ObjectDictionary
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'serializableerror'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',P1)
 			return self
@@ -1707,16 +1825,30 @@ Class UrlHelperExtensions from Object
 
 Class ValidationProblemDetails from HttpValidationProblemDetails
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'validationproblemdetails'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',P1)
 			return self
@@ -1855,16 +1987,30 @@ Class ChallengeResult from ActionResult
 	AuthenticationSchemes
 	Properties
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'challengeresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			return self
@@ -1897,11 +2043,21 @@ Class ContentResult from ActionResult
 	ContentType
 	StatusCode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'contentresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ContentResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ContentResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -2012,16 +2168,30 @@ Class ControllerContext from ActionContext
 
 	ValueProviderFactories
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'controllercontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',P1)
 			return self
@@ -2043,11 +2213,21 @@ Class ControllerContext from ActionContext
 
 Class EmptyResult from ActionResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'emptyresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.EmptyResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.EmptyResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -2109,16 +2289,30 @@ Class ForbidResult from ActionResult
 	AuthenticationSchemes
 	Properties
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'forbidresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			return self
@@ -2326,11 +2520,21 @@ Class PartialViewResult from ActionResult
 	ViewEngine
 	ContentType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'partialviewresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.PartialViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.PartialViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		return self
@@ -2746,16 +2950,30 @@ Class SignOutResult from ActionResult
 	AuthenticationSchemes
 	Properties
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'signoutresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			return self
@@ -2813,11 +3031,21 @@ Class ViewComponentResult from ActionResult
 	TempData
 	ContentType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'viewcomponentresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewComponentResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewComponentResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		return self
@@ -2888,11 +3116,21 @@ Class ViewResult from ActionResult
 	ViewEngine
 	ContentType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'viewresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ViewResult, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		return self
@@ -3044,16 +3282,30 @@ Class AcceptedResult from ObjectResult
 
 	Location
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'acceptedresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			return self
@@ -3087,11 +3339,21 @@ Class BadRequestObjectResult from ObjectResult
 
 Class BadRequestResult from StatusCodeResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'badrequestresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.BadRequestResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.BadRequestResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -3111,11 +3373,21 @@ Class ConflictObjectResult from ObjectResult
 
 Class ConflictResult from StatusCodeResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'conflictresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ConflictResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ConflictResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -3219,16 +3491,30 @@ Class CreatedResult from ObjectResult
 
 	Location
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'createdresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',P1)
 			return self
@@ -3292,11 +3578,21 @@ Class FileStreamResult from FileResult
 
 Class NoContentResult from StatusCodeResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nocontentresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NoContentResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NoContentResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -3316,11 +3612,21 @@ Class NotFoundObjectResult from ObjectResult
 
 Class NotFoundResult from StatusCodeResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'notfoundresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NotFoundResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.NotFoundResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -3340,11 +3646,21 @@ Class OkObjectResult from ObjectResult
 
 Class OkResult from StatusCodeResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'okresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.OkResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.OkResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -3385,11 +3701,21 @@ Class UnauthorizedObjectResult from ObjectResult
 
 Class UnauthorizedResult from StatusCodeResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unauthorizedresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnauthorizedResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnauthorizedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -3409,11 +3735,21 @@ Class UnprocessableEntityObjectResult from ObjectResult
 
 Class UnprocessableEntityResult from StatusCodeResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unprocessableentityresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnprocessableEntityResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnprocessableEntityResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -3421,11 +3757,21 @@ Class UnprocessableEntityResult from StatusCodeResult
 
 Class UnsupportedMediaTypeResult from StatusCodeResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unsupportedmediatyperesult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnsupportedMediaTypeResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.UnsupportedMediaTypeResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -3462,11 +3808,21 @@ Class VirtualFileResult from FileResult
 
 Class AntiforgeryValidationFailedResult from BadRequestResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'antiforgeryvalidationfailedresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AntiforgeryValidationFailedResult, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AntiforgeryValidationFailedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self

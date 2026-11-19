@@ -76,16 +76,30 @@ Class BigInteger from ValueType
 	One
 	MinusOne
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'biginteger'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Numerics.BigInteger, System.Runtime.Numerics',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Numerics.BigInteger, System.Runtime.Numerics',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.BigInteger, System.Runtime.Numerics',P1)
 			return self
@@ -346,16 +360,30 @@ Class Complex from ValueType
 	NaN
 	Infinity
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'complex'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Numerics.Complex, System.Runtime.Numerics',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Numerics.Complex, System.Runtime.Numerics',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Complex, System.Runtime.Numerics',P1)
 			return self
@@ -584,16 +612,30 @@ Class Matrix3x2 from ValueType
 	M32
 	Identity
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrix3x2'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Numerics.Matrix3x2, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Numerics.Matrix3x2, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Matrix3x2, System.Private.CoreLib',P1)
 			return self
@@ -734,16 +776,30 @@ Class Matrix4x4 from ValueType
 	M44
 	Identity
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrix4x4'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Numerics.Matrix4x4, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Numerics.Matrix4x4, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Matrix4x4, System.Private.CoreLib',P1)
 			return self
@@ -1024,16 +1080,30 @@ Class Plane from ValueType
 	Normal
 	D
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'plane'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Numerics.Plane, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Numerics.Plane, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Plane, System.Private.CoreLib',P1)
 			return self
@@ -1088,16 +1158,30 @@ Class Quaternion from ValueType
 	Zero
 	Identity
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quaternion'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Numerics.Quaternion, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Numerics.Quaternion, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Quaternion, System.Private.CoreLib',P1)
 			return self
@@ -1586,16 +1670,30 @@ Class Vector2 from ValueType
 	UnitY
 	Zero
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector2'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Numerics.Vector2, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Numerics.Vector2, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Vector2, System.Private.CoreLib',P1)
 			return self
@@ -1872,16 +1970,30 @@ Class Vector3 from ValueType
 	UnitZ
 	Zero
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Numerics.Vector3, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Numerics.Vector3, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Vector3, System.Private.CoreLib',P1)
 			return self
@@ -2176,16 +2288,30 @@ Class Vector4 from ValueType
 	UnitW
 	Zero
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector4'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Numerics.Vector4, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Numerics.Vector4, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Numerics.Vector4, System.Private.CoreLib',P1)
 			return self

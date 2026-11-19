@@ -361,11 +361,21 @@ Class MemoryCacheEntryOptions from Object
 	Priority
 	Size
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memorycacheentryoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions, Microsoft.Extensions.Caching.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions, Microsoft.Extensions.Caching.Abstractions',[])
 		return self
@@ -431,11 +441,21 @@ Class MemoryCacheOptions from Object
 	TrackLinkedCacheEntries
 	TrackStatistics
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memorycacheoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheOptions, Microsoft.Extensions.Caching.Memory',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheOptions, Microsoft.Extensions.Caching.Memory',[])
 		return self
@@ -500,11 +520,21 @@ Class MemoryCacheStatistics from Object
 	TotalMisses
 	TotalHits
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memorycachestatistics'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheStatistics, Microsoft.Extensions.Caching.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheStatistics, Microsoft.Extensions.Caching.Abstractions',[])
 		return self
@@ -546,11 +576,21 @@ Class PostEvictionCallbackRegistration from Object
 	EvictionCallback
 	State
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'postevictioncallbackregistration'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration, Microsoft.Extensions.Caching.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration, Microsoft.Extensions.Caching.Abstractions',[])
 		return self
@@ -575,11 +615,21 @@ Class PostEvictionCallbackRegistration from Object
 
 Class MemoryDistributedCacheOptions from MemoryCacheOptions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memorydistributedcacheoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryDistributedCacheOptions, Microsoft.Extensions.Caching.Memory',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryDistributedCacheOptions, Microsoft.Extensions.Caching.Memory',[])
 		return self

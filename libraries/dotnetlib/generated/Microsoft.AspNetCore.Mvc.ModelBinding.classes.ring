@@ -375,16 +375,30 @@ Class BindingInfo from Object
 	EmptyBodyBehavior
 	ServiceKey
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindinginfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			return self
@@ -602,16 +616,30 @@ Class CompositeValueProvider from DotNetObject
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'compositevalueprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',P1)
 			return self
@@ -707,11 +735,21 @@ Class CompositeValueProvider from DotNetObject
 
 Class EmptyModelMetadataProvider from DotNetObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'emptymodelmetadataprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -752,16 +790,30 @@ Class EnumGroupAndName from ValueType
 	Group
 	Name
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'enumgroupandname'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			return self
@@ -809,11 +861,21 @@ Class FormFileValueProvider from Object
 
 Class FormFileValueProviderFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formfilevalueproviderfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormFileValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormFileValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -827,11 +889,21 @@ Class FormFileValueProviderFactory from Object
 
 Class FormValueProviderFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formvalueproviderfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.FormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -1086,11 +1158,21 @@ Class IValueProviderFactory from DotNetObject
 
 Class JQueryFormValueProviderFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jqueryformvalueproviderfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryFormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryFormValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -1104,11 +1186,21 @@ Class JQueryFormValueProviderFactory from Object
 
 Class JQueryQueryStringValueProviderFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'jqueryquerystringvalueproviderfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryQueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.JQueryQueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -1202,11 +1294,21 @@ Class ModelBinderFactoryContext from Object
 	Metadata
 	CacheToken
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelbinderfactorycontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactoryContext, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactoryContext, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -1461,11 +1563,21 @@ Class ModelBindingResult from ValueType
 	Model
 	IsModelSet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelbindingresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
@@ -1535,11 +1647,21 @@ Class ModelErrorCollection from DotNetObject
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelerrorcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelErrorCollection, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelErrorCollection, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
@@ -2148,16 +2270,30 @@ Class ModelStateDictionary from Object
 	ValidationState
 	DefaultMaxAllowedErrors
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelstatedictionary'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			return self
@@ -2467,11 +2603,21 @@ Class PrefixContainer from Object
 
 Class QueryStringValueProviderFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'querystringvalueproviderfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.QueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.QueryStringValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -2485,11 +2631,21 @@ Class QueryStringValueProviderFactory from Object
 
 Class RouteValueProviderFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routevalueproviderfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProviderFactory, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -2542,11 +2698,21 @@ Class UnsupportedContentTypeFilter from Object
 
 	Order
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unsupportedcontenttypefilter'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -2630,16 +2796,30 @@ Class ValueProviderResult from ValueType
 	Length
 	None
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'valueproviderresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',P1)
 			return self
@@ -2712,11 +2892,21 @@ Class DefaultModelBindingContext from ModelBindingContext
 
 	OriginalValueProvider
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultmodelbindingcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.DefaultModelBindingContext, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.DefaultModelBindingContext, Microsoft.AspNetCore.Mvc.Core',[])
 		return self

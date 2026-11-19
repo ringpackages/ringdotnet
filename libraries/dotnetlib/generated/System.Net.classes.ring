@@ -417,16 +417,30 @@ Class Cookie from Object
 	Value
 	Version
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cookie'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Cookie, System.Net.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Cookie, System.Net.Primitives',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Cookie, System.Net.Primitives',P1)
 			return self
@@ -546,11 +560,21 @@ Class CookieCollection from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cookiecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.CookieCollection, System.Net.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.CookieCollection, System.Net.Primitives',[])
 		return self
@@ -617,16 +641,30 @@ Class CookieContainer from Object
 	DefaultPerDomainCookieLimit
 	DefaultCookieLengthLimit
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cookiecontainer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.CookieContainer, System.Net.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.CookieContainer, System.Net.Primitives',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.CookieContainer, System.Net.Primitives',P1)
 			return self
@@ -713,11 +751,21 @@ Class CredentialCache from Object
 	DefaultCredentials
 	DefaultNetworkCredentials
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'credentialcache'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.CredentialCache, System.Net.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.CredentialCache, System.Net.Primitives',[])
 		return self
@@ -942,11 +990,21 @@ Class HttpListener from Object
 	TimeoutManager
 	IsSupported
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httplistener'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.HttpListener, System.Net.HttpListener',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.HttpListener, System.Net.HttpListener',[])
 		return self
@@ -2030,11 +2088,21 @@ Class IPHostEntry from Object
 	Aliases
 	AddressList
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'iphostentry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.IPHostEntry, System.Net.NameResolution',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.IPHostEntry, System.Net.NameResolution',[])
 		return self
@@ -2069,16 +2137,30 @@ Class IPNetwork from ValueType
 	BaseAddress
 	PrefixLength
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ipnetwork'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.IPNetwork, System.Net.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.IPNetwork, System.Net.Primitives',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.IPNetwork, System.Net.Primitives',P1)
 			return self
@@ -2180,16 +2262,30 @@ Class NetworkCredential from Object
 	SecurePassword
 	Domain
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'networkcredential'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.NetworkCredential, System.Net.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.NetworkCredential, System.Net.Primitives',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.NetworkCredential, System.Net.Primitives',P1)
 			return self
@@ -2279,11 +2375,21 @@ Class OpenWriteCompletedEventArgs from AsyncCompletedEventArgs
 
 Class PathList from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pathlist'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.PathList, System.Net.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.PathList, System.Net.Primitives',[])
 		return self
@@ -2634,11 +2740,21 @@ Class WebClient from Component
 	AllowReadStreamBuffering
 	AllowWriteStreamBuffering
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webclient'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.WebClient, System.Net.WebClient',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WebClient, System.Net.WebClient',[])
 		return self
@@ -2980,11 +3096,21 @@ Class WebClient from Component
 
 Class WebHeaderCollection from NameValueCollection
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webheadercollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection',[])
 		return self
@@ -3008,16 +3134,30 @@ Class WebProxy from Object
 	Credentials
 	UseDefaultCredentials
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webproxy'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.WebProxy, System.Net.WebProxy',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.WebProxy, System.Net.WebProxy',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebProxy, System.Net.WebProxy',P1)
 			return self
@@ -3395,11 +3535,21 @@ Class WriteStreamClosedEventArgs from EventArgs
 
 	Error
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'writestreamclosedeventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.WriteStreamClosedEventArgs, System.Net.WebClient',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WriteStreamClosedEventArgs, System.Net.WebClient',[])
 		return self
@@ -3927,11 +4077,21 @@ Class HttpWebResponse from WebResponse
 	StatusDescription
 	CharacterSet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpwebresponse'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.HttpWebResponse, System.Net.Requests',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.HttpWebResponse, System.Net.Requests',[])
 		return self

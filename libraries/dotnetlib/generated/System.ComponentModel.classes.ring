@@ -633,16 +633,30 @@ Class AddingNewEventArgs from EventArgs
 
 	NewObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'addingneweventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',P1)
 			return self
@@ -816,16 +830,30 @@ Class CancelEventArgs from EventArgs
 
 	Cancel
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'canceleventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.CancelEventArgs, System.ComponentModel',P1)
 			return self
@@ -877,11 +905,21 @@ Class Component from MarshalByRefObject
 	Site
 	Container
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'component'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.Component, System.ComponentModel.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Component, System.ComponentModel.Primitives',[])
 		return self
@@ -953,16 +991,30 @@ Class ComponentEditor from Object
 
 Class ComponentResourceManager from ResourceManager
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'componentresourcemanager'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',P1)
 			return self
@@ -990,11 +1042,21 @@ Class Container from Object
 
 	Components
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'container'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.Container, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Container, System.ComponentModel.TypeConverter',[])
 		return self
@@ -1222,11 +1284,21 @@ Class EventDescriptorCollection from Object
 
 Class EventHandlerList from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'eventhandlerlist'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.EventHandlerList, System.ComponentModel.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.EventHandlerList, System.ComponentModel.Primitives',[])
 		return self
@@ -1262,16 +1334,30 @@ Class HandledEventArgs from EventArgs
 
 	Handled
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'handledeventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',P1)
 			return self
@@ -2086,11 +2172,21 @@ Class LicenseContext from Object
 
 	UsageMode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'licensecontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.LicenseContext, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.LicenseContext, System.ComponentModel.TypeConverter',[])
 		return self
@@ -2281,16 +2377,30 @@ Class ListSortDescriptionCollection from Object
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listsortdescriptioncollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',P1)
 			return self
@@ -2335,11 +2445,21 @@ Class MarshalByValueComponent from Object
 	Container
 	DesignMode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'marshalbyvaluecomponent'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.MarshalByValueComponent, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.MarshalByValueComponent, System.ComponentModel.TypeConverter',[])
 		return self
@@ -2938,11 +3058,21 @@ Class SyntaxCheck from Object
 
 Class TypeConverter from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'typeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.TypeConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.TypeConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3322,11 +3452,21 @@ Class BackgroundWorker from Component
 	WorkerReportsProgress
 	WorkerSupportsCancellation
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'backgroundworker'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.BackgroundWorker, System.ComponentModel.EventBasedAsync',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.BackgroundWorker, System.ComponentModel.EventBasedAsync',[])
 		return self
@@ -3419,11 +3559,21 @@ Class BaseNumberConverter from TypeConverter
 
 Class BooleanConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'booleanconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.BooleanConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.BooleanConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3431,11 +3581,21 @@ Class BooleanConverter from TypeConverter
 
 Class CharConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'charconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.CharConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.CharConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3443,11 +3603,21 @@ Class CharConverter from TypeConverter
 
 Class CollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'collectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.CollectionConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.CollectionConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3455,11 +3625,21 @@ Class CollectionConverter from TypeConverter
 
 Class CultureInfoConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cultureinfoconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.CultureInfoConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.CultureInfoConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3467,11 +3647,21 @@ Class CultureInfoConverter from TypeConverter
 
 Class DateOnlyConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dateonlyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.DateOnlyConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DateOnlyConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3479,11 +3669,21 @@ Class DateOnlyConverter from TypeConverter
 
 Class DateTimeConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.DateTimeConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DateTimeConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3491,11 +3691,21 @@ Class DateTimeConverter from TypeConverter
 
 Class DateTimeOffsetConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimeoffsetconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.DateTimeOffsetConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DateTimeOffsetConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3584,11 +3794,21 @@ Class EventDescriptor from MemberDescriptor
 
 Class ExpandableObjectConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'expandableobjectconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.ExpandableObjectConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.ExpandableObjectConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3596,11 +3816,21 @@ Class ExpandableObjectConverter from TypeConverter
 
 Class GuidConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'guidconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.GuidConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.GuidConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3608,11 +3838,21 @@ Class GuidConverter from TypeConverter
 
 Class LicFileLicenseProvider from LicenseProvider
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'licfilelicenseprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.LicFileLicenseProvider, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.LicFileLicenseProvider, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3620,11 +3860,21 @@ Class LicFileLicenseProvider from LicenseProvider
 
 Class MultilineStringConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multilinestringconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.MultilineStringConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.MultilineStringConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3823,11 +4073,21 @@ Class RunWorkerCompletedEventArgs from AsyncCompletedEventArgs
 
 Class StringConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.StringConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.StringConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3835,11 +4095,21 @@ Class StringConverter from TypeConverter
 
 Class TimeOnlyConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'timeonlyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.TimeOnlyConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.TimeOnlyConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3847,11 +4117,21 @@ Class TimeOnlyConverter from TypeConverter
 
 Class TimeSpanConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'timespanconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.TimeSpanConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.TimeSpanConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3870,11 +4150,21 @@ Class TypeListConverter from TypeConverter
 
 Class VersionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'versionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.VersionConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.VersionConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3882,11 +4172,21 @@ Class VersionConverter from TypeConverter
 
 Class ArrayConverter from CollectionConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'arrayconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.ArrayConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.ArrayConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3894,11 +4194,21 @@ Class ArrayConverter from CollectionConverter
 
 Class ByteConverter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'byteconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.ByteConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.ByteConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3918,11 +4228,21 @@ Class ComponentConverter from ReferenceConverter
 
 Class DecimalConverter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decimalconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.DecimalConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DecimalConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3930,11 +4250,21 @@ Class DecimalConverter from BaseNumberConverter
 
 Class DoubleConverter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doubleconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.DoubleConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.DoubleConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3942,11 +4272,21 @@ Class DoubleConverter from BaseNumberConverter
 
 Class HalfConverter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'halfconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.HalfConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.HalfConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3954,11 +4294,21 @@ Class HalfConverter from BaseNumberConverter
 
 Class Int128Converter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int128converter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.Int128Converter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int128Converter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3966,11 +4316,21 @@ Class Int128Converter from BaseNumberConverter
 
 Class Int16Converter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int16converter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.Int16Converter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int16Converter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3978,11 +4338,21 @@ Class Int16Converter from BaseNumberConverter
 
 Class Int32Converter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32converter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.Int32Converter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int32Converter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -3990,11 +4360,21 @@ Class Int32Converter from BaseNumberConverter
 
 Class Int64Converter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int64converter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.Int64Converter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.Int64Converter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -4002,11 +4382,21 @@ Class Int64Converter from BaseNumberConverter
 
 Class SByteConverter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sbyteconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.SByteConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.SByteConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -4014,11 +4404,21 @@ Class SByteConverter from BaseNumberConverter
 
 Class SingleConverter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'singleconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.SingleConverter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.SingleConverter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -4026,11 +4426,21 @@ Class SingleConverter from BaseNumberConverter
 
 Class UInt128Converter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint128converter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.UInt128Converter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt128Converter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -4038,11 +4448,21 @@ Class UInt128Converter from BaseNumberConverter
 
 Class UInt16Converter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint16converter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.UInt16Converter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt16Converter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -4050,11 +4470,21 @@ Class UInt16Converter from BaseNumberConverter
 
 Class UInt32Converter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint32converter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.UInt32Converter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt32Converter, System.ComponentModel.TypeConverter',[])
 		return self
@@ -4062,11 +4492,21 @@ Class UInt32Converter from BaseNumberConverter
 
 Class UInt64Converter from BaseNumberConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint64converter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ComponentModel.UInt64Converter, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ComponentModel.UInt64Converter, System.ComponentModel.TypeConverter',[])
 		return self

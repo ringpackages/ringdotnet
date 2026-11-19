@@ -444,11 +444,21 @@ Class ContainerUIElement3D from UIElement3D
 
 	Children
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'containeruielement3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.ContainerUIElement3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.ContainerUIElement3D, PresentationCore',[])
 		return self
@@ -515,16 +525,30 @@ Class GeneralTransform3DCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'generaltransform3dcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',P1)
 			return self
@@ -656,16 +680,30 @@ Class MaterialCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'materialcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',P1)
 			return self
@@ -747,16 +785,30 @@ Class Matrix3D from ValueType
 	M44
 	Identity
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrix3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Matrix3D, PresentationCore',P1)
 			return self
@@ -990,11 +1042,21 @@ Class Matrix3D from ValueType
 
 Class Matrix3DConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrix3dconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3DConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3DConverter, PresentationCore',[])
 		return self
@@ -1044,16 +1106,30 @@ Class Model3DCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'model3dcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',P1)
 			return self
@@ -1116,11 +1192,21 @@ Class ModelUIElement3D from UIElement3D
 	Model
 	ModelProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modeluielement3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.ModelUIElement3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.ModelUIElement3D, PresentationCore',[])
 		return self
@@ -1145,16 +1231,30 @@ Class Point3D from ValueType
 	Y
 	Z
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Point3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point3D, PresentationCore',P1)
 			return self
@@ -1223,16 +1323,30 @@ Class Point3DCollection from Freezable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3dcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',P1)
 			return self
@@ -1301,11 +1415,21 @@ Class Point3DCollection from Freezable
 
 Class Point3DCollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3dcollectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DCollectionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DCollectionConverter, PresentationCore',[])
 		return self
@@ -1313,11 +1437,21 @@ Class Point3DCollectionConverter from TypeConverter
 
 Class Point3DConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3dconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DConverter, PresentationCore',[])
 		return self
@@ -1330,16 +1464,30 @@ Class Point4D from ValueType
 	Z
 	W
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point4d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Point4D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point4D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point4D, PresentationCore',P1)
 			return self
@@ -1413,11 +1561,21 @@ Class Point4D from ValueType
 
 Class Point4DConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point4dconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Point4DConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point4DConverter, PresentationCore',[])
 		return self
@@ -1435,16 +1593,30 @@ Class WpfQuaternion from ValueType
 	W
 	Identity
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfquaternion'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Quaternion, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Quaternion, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Quaternion, PresentationCore',P1)
 			return self
@@ -1562,11 +1734,21 @@ Class WpfQuaternion from ValueType
 
 Class QuaternionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quaternionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.QuaternionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.QuaternionConverter, PresentationCore',[])
 		return self
@@ -1618,16 +1800,30 @@ Class Rect3D from ValueType
 	Z
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rect3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Rect3D, PresentationCore',P1)
 			return self
@@ -1767,11 +1963,21 @@ Class Rect3D from ValueType
 
 Class Rect3DConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rect3dconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3DConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3DConverter, PresentationCore',[])
 		return self
@@ -1810,16 +2016,30 @@ Class Size3D from ValueType
 	Z
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'size3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Size3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Size3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Size3D, PresentationCore',P1)
 			return self
@@ -1885,11 +2105,21 @@ Class Size3D from ValueType
 
 Class Size3DConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'size3dconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Size3DConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Size3DConverter, PresentationCore',[])
 		return self
@@ -1899,16 +2129,30 @@ Class Transform3DCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transform3dcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',P1)
 			return self
@@ -1974,16 +2218,30 @@ Class Vector3D from ValueType
 	Y
 	Z
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Vector3D, PresentationCore',P1)
 			return self
@@ -2080,16 +2338,30 @@ Class Vector3DCollection from Freezable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3dcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',P1)
 			return self
@@ -2158,11 +2430,21 @@ Class Vector3DCollection from Freezable
 
 Class Vector3DCollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3dcollectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DCollectionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DCollectionConverter, PresentationCore',[])
 		return self
@@ -2170,11 +2452,21 @@ Class Vector3DCollectionConverter from TypeConverter
 
 Class Vector3DConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3dconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DConverter, PresentationCore',[])
 		return self
@@ -2198,11 +2490,21 @@ Class Viewport3DVisual from Visual
 	CameraProperty
 	ViewportProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'viewport3dvisual'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Viewport3DVisual, PresentationCore',[])
 		return self
@@ -2447,16 +2749,30 @@ Class AxisAngleRotation3D from Rotation3D
 	AxisProperty
 	AngleProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'axisanglerotation3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',P1)
 			return self
@@ -2504,16 +2820,30 @@ Class DiffuseMaterial from Material
 	AmbientColorProperty
 	BrushProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'diffusematerial'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',P1)
 			return self
@@ -2572,16 +2902,30 @@ Class EmissiveMaterial from Material
 	ColorProperty
 	BrushProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'emissivematerial'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',P1)
 			return self
@@ -2625,11 +2969,21 @@ Class GeneralTransform3DGroup from GeneralTransform3D
 	Children
 	ChildrenProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'generaltransform3dgroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.GeneralTransform3DGroup, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.GeneralTransform3DGroup, PresentationCore',[])
 		return self
@@ -2657,16 +3011,30 @@ Class GeometryModel3D from Model3D
 	MaterialProperty
 	BackMaterialProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'geometrymodel3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',P1)
 			return self
@@ -2750,11 +3118,21 @@ Class MaterialGroup from Material
 	Children
 	ChildrenProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'materialgroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.MaterialGroup, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MaterialGroup, PresentationCore',[])
 		return self
@@ -2780,16 +3158,30 @@ Class MatrixCamera from Camera
 	ViewMatrixProperty
 	ProjectionMatrixProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixcamera'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',P1)
 			return self
@@ -2839,11 +3231,21 @@ Class MeshGeometry3D from Geometry3D
 	TextureCoordinatesProperty
 	TriangleIndicesProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'meshgeometry3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MeshGeometry3D, PresentationCore',[])
 		return self
@@ -2906,11 +3308,21 @@ Class Model3DGroup from Model3D
 	Children
 	ChildrenProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'model3dgroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Model3DGroup, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Model3DGroup, PresentationCore',[])
 		return self
@@ -2935,11 +3347,21 @@ Class ModelVisual3D from Visual3D
 	Content
 	ContentProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelvisual3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.ModelVisual3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.ModelVisual3D, PresentationCore',[])
 		return self
@@ -3059,16 +3481,30 @@ Class QuaternionRotation3D from Rotation3D
 	Quaternion
 	QuaternionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quaternionrotation3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',P1)
 			return self
@@ -3191,16 +3627,30 @@ Class SpecularMaterial from Material
 	BrushProperty
 	SpecularPowerProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'specularmaterial'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',P1)
 			return self
@@ -3297,11 +3747,21 @@ Class Viewport2DVisual3D from Visual3D
 	IsVisualHostMaterialProperty
 	CacheModeProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'viewport2dvisual3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Viewport2DVisual3D, PresentationCore',[])
 		return self
@@ -3385,16 +3845,30 @@ Class AffineTransform3D from Transform3D
 
 Class AmbientLight from Light
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ambientlight'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.AmbientLight, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.AmbientLight, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.AmbientLight, PresentationCore',P1)
 			return self
@@ -3412,16 +3886,30 @@ Class DirectionalLight from Light
 	Direction
 	DirectionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'directionallight'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',P1)
 			return self
@@ -3452,16 +3940,30 @@ Class MatrixTransform3D from Transform3D
 	Matrix
 	MatrixProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixtransform3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',P1)
 			return self
@@ -3492,16 +3994,30 @@ Class OrthographicCamera from ProjectionCamera
 	Width
 	WidthProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'orthographiccamera'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',P1)
 			return self
@@ -3532,16 +4048,30 @@ Class PerspectiveCamera from ProjectionCamera
 	FieldOfView
 	FieldOfViewProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'perspectivecamera'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',P1)
 			return self
@@ -3659,11 +4189,21 @@ Class Transform3DGroup from Transform3D
 	Children
 	ChildrenProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transform3dgroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.Transform3DGroup, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Transform3DGroup, PresentationCore',[])
 		return self
@@ -3684,16 +4224,30 @@ Class Transform3DGroup from Transform3D
 
 Class PointLight from PointLightBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointlight'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.PointLight, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.PointLight, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.PointLight, PresentationCore',P1)
 			return self
@@ -3717,16 +4271,30 @@ Class RotateTransform3D from AffineTransform3D
 	CenterZProperty
 	RotationProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rotatetransform3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',P1)
 			return self
@@ -3806,16 +4374,30 @@ Class ScaleTransform3D from AffineTransform3D
 	CenterYProperty
 	CenterZProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'scaletransform3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',P1)
 			return self
@@ -3915,16 +4497,30 @@ Class SpotLight from PointLightBase
 	OuterConeAngleProperty
 	InnerConeAngleProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'spotlight'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.SpotLight, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.SpotLight, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.SpotLight, PresentationCore',P1)
 			return self
@@ -3985,16 +4581,30 @@ Class TranslateTransform3D from AffineTransform3D
 	OffsetYProperty
 	OffsetZProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'translatetransform3d'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',P1)
 			return self

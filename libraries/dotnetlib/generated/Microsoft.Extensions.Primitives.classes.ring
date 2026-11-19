@@ -201,16 +201,30 @@ Class StringSegment from ValueType
 	HasValue
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringsegment'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',P1)
 			return self
@@ -380,16 +394,30 @@ Class StringSegmentComparer from Object
 
 Class StringTokenizer from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringtokenizer'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',P1)
 			return self
@@ -410,16 +438,30 @@ Class StringValues from ValueType
 	Count
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringvalues'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',P1)
 			return self

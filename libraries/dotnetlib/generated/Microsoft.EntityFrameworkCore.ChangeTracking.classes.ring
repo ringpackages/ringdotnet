@@ -158,11 +158,21 @@ Class CaseInsensitiveValueComparer from DotNetObject
 	SnapshotExpression
 	ConstructorExpression
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'caseinsensitivevaluecomparer'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.CaseInsensitiveValueComparer, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.CaseInsensitiveValueComparer, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -402,11 +412,21 @@ Class ChangeTracker from Object
 
 Class DetectChangesEventArgs from EventArgs
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'detectchangeseventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.DetectChangesEventArgs, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.DetectChangesEventArgs, Microsoft.EntityFrameworkCore',[])
 		return self

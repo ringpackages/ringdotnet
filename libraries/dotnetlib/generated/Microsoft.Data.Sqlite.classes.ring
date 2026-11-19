@@ -79,16 +79,30 @@ Class SqliteBlob from Stream
 
 Class SqliteCommand from DbCommand
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlitecommand'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',P1)
 			return self
@@ -106,16 +120,30 @@ Class SqliteConnection from DbConnection
 	Handle
 	DefaultTimeout
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqliteconnection'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',P1)
 			return self
@@ -209,16 +237,30 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 	DefaultTimeout
 	Pooling
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqliteconnectionstringbuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',P1)
 			return self
@@ -335,16 +377,30 @@ Class SqliteParameter from DbParameter
 
 	SqliteType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqliteparameter'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',P1)
 			return self

@@ -5,9 +5,9 @@ lead: The things that surprise people the first time, why they happen, and what 
 
 ## Ring gotchas
 
-### Use parentheses with `new`
+### Use parentheses with `new` when you pass arguments
 
-`new StringBuilder("x")` — **with** parentheses. Without them Ring does not call `init()`.
+`new StringBuilder("x")` — **with** parentheses, because Ring calls `init()` only then. A class without arguments works both ways (`new MemoryStream`, `new MemoryStream()`). For `StringBuilder`, `Random` and `Version`, which take an optional first argument, write `new StringBuilder` or `new StringBuilder("x")`, not `new StringBuilder()`.
 
 ### Strings and numbers
 

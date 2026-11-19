@@ -51,7 +51,7 @@ Like RingQt's classes, the .NET types are wrapped by generated Ring classes (`li
 load "dotnet.ring"
 dnImport("System.Text")                 # load the generated classes of a namespace
 
-oSB = new StringBuilder("Hello")        # use parentheses: Ring calls init() only with them
+oSB = new StringBuilder("Hello")        # with arguments: parentheses (Ring calls init() only with them); without arguments: new StringBuilder
 oSB.Append(", Ring").Append("!")        # methods that return a generated class return that class
 ? oSB.ToString()
 ? oSB.Length                            # properties and fields are attributes: oObj.Length, oObj.Text = "x"

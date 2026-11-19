@@ -989,11 +989,21 @@ Class WpfApplication from DispatcherObject
 	Current
 	ResourceAssembly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfapplication'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Application, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Application, PresentationFramework',[])
 		return self
@@ -1383,16 +1393,30 @@ Class WpfClipboard from Object
 
 Class ColorConvertedBitmapExtension from MarkupExtension
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colorconvertedbitmapextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ColorConvertedBitmapExtension, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.ColorConvertedBitmapExtension, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ColorConvertedBitmapExtension, PresentationFramework',P1)
 			return self
@@ -1412,16 +1436,30 @@ Class Condition from Object
 	Value
 	SourceName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'condition'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Condition, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Condition, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Condition, PresentationFramework',P1)
 			return self
@@ -1478,11 +1516,21 @@ Class ConditionCollection from DotNetObject
 	IsSealed
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'conditioncollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ConditionCollection, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.ConditionCollection, PresentationFramework',[])
 		return self
@@ -1662,11 +1710,21 @@ Class CornerRadius from ValueType
 
 Class CornerRadiusConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cornerradiusconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.CornerRadiusConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.CornerRadiusConverter, PresentationFramework',[])
 		return self
@@ -1674,11 +1732,21 @@ Class CornerRadiusConverter from TypeConverter
 
 Class CultureInfoIetfLanguageTagConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cultureinfoietflanguagetagconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.CultureInfoIetfLanguageTagConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.CultureInfoIetfLanguageTagConverter, PresentationCore',[])
 		return self
@@ -1899,16 +1967,30 @@ Class WpfDataObject from Object
 	PastingEvent
 	SettingDataEvent
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfdataobject'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DataObject, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.DataObject, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DataObject, PresentationCore',P1)
 			return self
@@ -2067,11 +2149,21 @@ Class DeferrableContent from Object
 
 Class DeferrableContentConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'deferrablecontentconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DeferrableContentConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.DeferrableContentConverter, PresentationFramework',[])
 		return self
@@ -2082,11 +2174,21 @@ Class DependencyObject from DispatcherObject
 	DependencyObjectType
 	IsSealed
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dependencyobject'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DependencyObject, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.DependencyObject, WindowsBase',[])
 		return self
@@ -2308,16 +2410,30 @@ Class DependencyPropertyChangedEventArgs from ValueType
 	OldValue
 	NewValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dependencypropertychangedeventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',P1)
 			return self
@@ -2396,11 +2512,21 @@ Class DependencyPropertyKey from Object
 
 Class DialogResultConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dialogresultconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DialogResultConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.DialogResultConverter, PresentationFramework',[])
 		return self
@@ -2414,16 +2540,30 @@ Class DpiScale from ValueType
 	PixelsPerInchX
 	PixelsPerInchY
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dpiscale'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DpiScale, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.DpiScale, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DpiScale, PresentationCore',P1)
 			return self
@@ -2671,16 +2811,30 @@ Class Duration from ValueType
 	Automatic
 	Forever
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'duration'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Duration, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Duration, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Duration, PresentationCore',P1)
 			return self
@@ -2740,11 +2894,21 @@ Class Duration from ValueType
 
 Class DurationConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'durationconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DurationConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.DurationConverter, PresentationCore',[])
 		return self
@@ -2754,16 +2918,30 @@ Class DynamicResourceExtension from MarkupExtension
 
 	ResourceKey
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dynamicresourceextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DynamicResourceExtension, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.DynamicResourceExtension, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DynamicResourceExtension, PresentationFramework',P1)
 			return self
@@ -2785,11 +2963,21 @@ Class DynamicResourceExtension from MarkupExtension
 
 Class DynamicResourceExtensionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dynamicresourceextensionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DynamicResourceExtensionConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.DynamicResourceExtensionConverter, PresentationFramework',[])
 		return self
@@ -2827,11 +3015,21 @@ Class EventManager from Object
 
 Class EventPrivateKey from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'eventprivatekey'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.EventPrivateKey, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.EventPrivateKey, PresentationCore',[])
 		return self
@@ -2908,11 +3106,21 @@ Class Expression from Object
 
 Class ExpressionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'expressionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ExpressionConverter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.ExpressionConverter, WindowsBase',[])
 		return self
@@ -2928,16 +3136,30 @@ Class FigureLength from ValueType
 	Value
 	FigureUnitType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'figurelength'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FigureLength, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.FigureLength, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.FigureLength, PresentationFramework',P1)
 			return self
@@ -2994,11 +3216,21 @@ Class FigureLength from ValueType
 
 Class FigureLengthConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'figurelengthconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FigureLengthConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FigureLengthConverter, PresentationFramework',[])
 		return self
@@ -3006,11 +3238,21 @@ Class FigureLengthConverter from TypeConverter
 
 Class FontSizeConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontsizeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FontSizeConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FontSizeConverter, PresentationFramework',[])
 		return self
@@ -3018,11 +3260,21 @@ Class FontSizeConverter from TypeConverter
 
 Class FontStretch from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontstretch'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FontStretch, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FontStretch, PresentationCore',[])
 		return self
@@ -3039,11 +3291,21 @@ Class FontStretch from ValueType
 
 Class FontStretchConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontstretchconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FontStretchConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FontStretchConverter, PresentationCore',[])
 		return self
@@ -3136,11 +3398,21 @@ Class FontStretches from Object
 
 Class FontStyle from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontstyle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FontStyle, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FontStyle, PresentationCore',[])
 		return self
@@ -3148,11 +3420,21 @@ Class FontStyle from ValueType
 
 Class FontStyleConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontstyleconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FontStyleConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FontStyleConverter, PresentationCore',[])
 		return self
@@ -3196,11 +3478,21 @@ Class FontStyles from Object
 
 Class FontWeight from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontweight'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FontWeight, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FontWeight, PresentationCore',[])
 		return self
@@ -3217,11 +3509,21 @@ Class FontWeight from ValueType
 
 Class FontWeightConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontweightconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FontWeightConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FontWeightConverter, PresentationCore',[])
 		return self
@@ -3403,16 +3705,30 @@ Class FrameworkElementFactory from Object
 	FirstChild
 	NextSibling
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'frameworkelementfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FrameworkElementFactory, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.FrameworkElementFactory, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.FrameworkElementFactory, PresentationFramework',P1)
 			return self
@@ -3646,11 +3962,21 @@ Class GridLength from ValueType
 
 Class GridLengthConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gridlengthconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.GridLengthConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.GridLengthConverter, PresentationFramework',[])
 		return self
@@ -4298,16 +4624,30 @@ Class Int32Rect from ValueType
 	HasArea
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32rect'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Int32Rect, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Int32Rect, WindowsBase',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Int32Rect, WindowsBase',P1)
 			return self
@@ -4386,11 +4726,21 @@ Class Int32Rect from ValueType
 
 Class Int32RectConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32rectconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Int32RectConverter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Int32RectConverter, WindowsBase',[])
 		return self
@@ -4398,11 +4748,21 @@ Class Int32RectConverter from TypeConverter
 
 Class KeySplineConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keysplineconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.KeySplineConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.KeySplineConverter, PresentationCore',[])
 		return self
@@ -4410,11 +4770,21 @@ Class KeySplineConverter from TypeConverter
 
 Class KeyTimeConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keytimeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.KeyTimeConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.KeyTimeConverter, PresentationCore',[])
 		return self
@@ -4422,11 +4792,21 @@ Class KeyTimeConverter from TypeConverter
 
 Class LengthConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'lengthconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.LengthConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.LengthConverter, PresentationFramework',[])
 		return self
@@ -4437,11 +4817,21 @@ Class LocalValueEntry from ValueType
 	Property
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'localvalueentry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.LocalValueEntry, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.LocalValueEntry, WindowsBase',[])
 		return self
@@ -4464,11 +4854,21 @@ Class LocalValueEnumerator from ValueType
 	Current
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'localvalueenumerator'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.LocalValueEnumerator, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.LocalValueEnumerator, WindowsBase',[])
 		return self
@@ -4591,11 +4991,21 @@ Class NameScope from Object
 	Values
 	NameScopeProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'namescope'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.NameScope, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.NameScope, WindowsBase',[])
 		return self
@@ -4689,11 +5099,21 @@ Class NameScope from Object
 
 Class NullableBoolConverter from NullableConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nullableboolconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.NullableBoolConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.NullableBoolConverter, PresentationFramework',[])
 		return self
@@ -4761,11 +5181,21 @@ Class WpfPoint from ValueType
 
 Class PointConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.PointConverter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.PointConverter, WindowsBase',[])
 		return self
@@ -4840,16 +5270,30 @@ Class PropertyMetadata from Object
 	PropertyChangedCallback
 	CoerceValueCallback
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertymetadata'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.PropertyMetadata, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.PropertyMetadata, WindowsBase',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.PropertyMetadata, WindowsBase',P1)
 			return self
@@ -4931,11 +5375,21 @@ Class PropertyPath from Object
 
 Class PropertyPathConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertypathconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.PropertyPathConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.PropertyPathConverter, PresentationFramework',[])
 		return self
@@ -5167,11 +5621,21 @@ Class Rect from ValueType
 
 Class RectConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rectconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.RectConverter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.RectConverter, WindowsBase',[])
 		return self
@@ -5189,11 +5653,21 @@ Class ResourceDictionary from Object
 	Values
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'resourcedictionary'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ResourceDictionary, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.ResourceDictionary, PresentationFramework',[])
 		return self
@@ -5379,16 +5853,30 @@ Class RoutedEventArgs from EventArgs
 	Source
 	OriginalSource
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routedeventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.RoutedEventArgs, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.RoutedEventArgs, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.RoutedEventArgs, PresentationCore',P1)
 			return self
@@ -5433,11 +5921,21 @@ Class RoutedEventHandlerInfo from ValueType
 	Handler
 	InvokeHandledEventsToo
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routedeventhandlerinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.RoutedEventHandlerInfo, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.RoutedEventHandlerInfo, PresentationCore',[])
 		return self
@@ -5501,11 +5999,21 @@ Class SetterBaseCollection from DotNetObject
 	IsSealed
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'setterbasecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.SetterBaseCollection, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.SetterBaseCollection, PresentationFramework',[])
 		return self
@@ -5681,11 +6189,21 @@ Class SizeChangedInfo from Object
 
 Class SizeConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sizeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.SizeConverter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.SizeConverter, WindowsBase',[])
 		return self
@@ -5753,16 +6271,30 @@ Class StaticResourceExtension from MarkupExtension
 
 	ResourceKey
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'staticresourceextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.StaticResourceExtension, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.StaticResourceExtension, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.StaticResourceExtension, PresentationFramework',P1)
 			return self
@@ -5784,11 +6316,21 @@ Class StaticResourceExtension from MarkupExtension
 
 Class StrokeCollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'strokecollectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.StrokeCollectionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.StrokeCollectionConverter, PresentationCore',[])
 		return self
@@ -5803,16 +6345,30 @@ Class Style from DispatcherObject
 	Setters
 	Resources
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'style'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Style, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Style, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Style, PresentationFramework',P1)
 			return self
@@ -9242,11 +9798,21 @@ Class SystemParameters from Object
 
 Class TemplateBindingExpressionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'templatebindingexpressionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.TemplateBindingExpressionConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.TemplateBindingExpressionConverter, PresentationFramework',[])
 		return self
@@ -9258,16 +9824,30 @@ Class TemplateBindingExtension from MarkupExtension
 	Converter
 	ConverterParameter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'templatebindingextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.TemplateBindingExtension, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.TemplateBindingExtension, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TemplateBindingExtension, PresentationFramework',P1)
 			return self
@@ -9303,11 +9883,21 @@ Class TemplateBindingExtension from MarkupExtension
 
 Class TemplateBindingExtensionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'templatebindingextensionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.TemplateBindingExtensionConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.TemplateBindingExtensionConverter, PresentationFramework',[])
 		return self
@@ -9329,11 +9919,21 @@ Class TemplateContent from Object
 
 Class TemplateContentLoader from DotNetObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'templatecontentloader'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.TemplateContentLoader, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.TemplateContentLoader, PresentationFramework',[])
 		return self
@@ -9370,16 +9970,30 @@ Class TextDecoration from Animatable
 	PenThicknessUnitProperty
 	LocationProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'textdecoration'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.TextDecoration, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.TextDecoration, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TextDecoration, PresentationCore',P1)
 			return self
@@ -9461,16 +10075,30 @@ Class TextDecorationCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'textdecorationcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.TextDecorationCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.TextDecorationCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TextDecorationCollection, PresentationCore',P1)
 			return self
@@ -9533,11 +10161,21 @@ Class TextDecorationCollection from Animatable
 
 Class TextDecorationCollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'textdecorationcollectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.TextDecorationCollectionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.TextDecorationCollectionConverter, PresentationCore',[])
 		return self
@@ -9602,16 +10240,30 @@ Class ThemeDictionaryExtension from MarkupExtension
 
 	AssemblyName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'themedictionaryextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ThemeDictionaryExtension, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.ThemeDictionaryExtension, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ThemeDictionaryExtension, PresentationFramework',P1)
 			return self
@@ -9639,16 +10291,30 @@ Class ThemeMode from ValueType
 	Dark
 	System
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thememode'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ThemeMode, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.ThemeMode, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ThemeMode, PresentationFramework',P1)
 			return self
@@ -9693,11 +10359,21 @@ Class ThemeMode from ValueType
 
 Class ThemeModeConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thememodeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ThemeModeConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.ThemeModeConverter, PresentationFramework',[])
 		return self
@@ -9762,11 +10438,21 @@ Class Thickness from ValueType
 
 Class ThicknessConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thicknessconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ThicknessConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.ThicknessConverter, PresentationFramework',[])
 		return self
@@ -9777,16 +10463,30 @@ Class TriggerActionCollection from Object
 	Count
 	IsReadOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'triggeractioncollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.TriggerActionCollection, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.TriggerActionCollection, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.TriggerActionCollection, PresentationFramework',P1)
 			return self
@@ -10097,11 +10797,21 @@ Class UIElement from Visual
 	ManipulationBoundaryFeedbackEvent
 	ManipulationCompletedEvent
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uielement'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.UIElement, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.UIElement, PresentationCore',[])
 		return self
@@ -13184,11 +13894,21 @@ Class ValueSource from ValueType
 	IsCoerced
 	IsCurrent
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'valuesource'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ValueSource, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.ValueSource, PresentationFramework',[])
 		return self
@@ -13316,11 +14036,21 @@ Class WpfVector from ValueType
 
 Class VectorConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vectorconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.VectorConverter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.VectorConverter, WindowsBase',[])
 		return self
@@ -13415,11 +14145,21 @@ Class Window from ContentControl
 	TopmostProperty
 	ShowActivatedProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'window'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Window, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Window, PresentationFramework',[])
 		return self
@@ -13752,11 +14492,21 @@ Class WindowCollection from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'windowcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.WindowCollection, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.WindowCollection, PresentationFramework',[])
 		return self
@@ -13798,16 +14548,30 @@ Class ComponentResourceKey from ResourceKey
 	TypeInTargetAssembly
 	ResourceId
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'componentresourcekey'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ComponentResourceKey, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.ComponentResourceKey, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.ComponentResourceKey, PresentationFramework',P1)
 			return self
@@ -13958,11 +14722,21 @@ Class ContentElement from DependencyObject
 	FocusableProperty
 	AllowDropProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'contentelement'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.ContentElement, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.ContentElement, PresentationCore',[])
 		return self
@@ -15273,16 +16047,30 @@ Class DataTemplate from FrameworkTemplate
 	Triggers
 	DataTemplateKey
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datatemplate'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DataTemplate, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.DataTemplate, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DataTemplate, PresentationFramework',P1)
 			return self
@@ -15390,16 +16178,30 @@ Class EventSetter from SetterBase
 	Handler
 	HandledEventsToo
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'eventsetter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.EventSetter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.EventSetter, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.EventSetter, PresentationFramework',P1)
 			return self
@@ -15523,11 +16325,21 @@ Class FrameworkElement from UIElement
 	ContextMenuOpeningEvent
 	ContextMenuClosingEvent
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'frameworkelement'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FrameworkElement, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FrameworkElement, PresentationFramework',[])
 		return self
@@ -16317,16 +17129,30 @@ Class Setter from SetterBase
 	Value
 	TargetName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'setter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Setter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Setter, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Setter, PresentationFramework',P1)
 			return self
@@ -16541,16 +17367,30 @@ Class UIPropertyMetadata from PropertyMetadata
 
 	IsAnimationProhibited
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uipropertymetadata'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.UIPropertyMetadata, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.UIPropertyMetadata, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.UIPropertyMetadata, PresentationCore',P1)
 			return self
@@ -16575,11 +17415,21 @@ Class VisualState from DependencyObject
 	Name
 	Storyboard
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'visualstate'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.VisualState, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.VisualState, PresentationFramework',[])
 		return self
@@ -16606,11 +17456,21 @@ Class VisualStateGroup from DependencyObject
 	Transitions
 	CurrentState
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'visualstategroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.VisualStateGroup, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.VisualStateGroup, PresentationFramework',[])
 		return self
@@ -16662,11 +17522,21 @@ Class VisualStateManager from DependencyObject
 	CustomVisualStateManagerProperty
 	VisualStateGroupsProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'visualstatemanager'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.VisualStateManager, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.VisualStateManager, PresentationFramework',[])
 		return self
@@ -16708,11 +17578,21 @@ Class VisualTransition from DependencyObject
 	GeneratedDuration
 	GeneratedEasingFunction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'visualtransition'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.VisualTransition, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.VisualTransition, PresentationFramework',[])
 		return self
@@ -16838,16 +17718,30 @@ Class DataObjectSettingDataEventArgs from DataObjectEventArgs
 
 Class DataTemplateKey from TemplateKey
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datatemplatekey'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DataTemplateKey, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.DataTemplateKey, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.DataTemplateKey, PresentationFramework',P1)
 			return self
@@ -16866,11 +17760,21 @@ Class DataTrigger from TriggerBase
 	Value
 	Setters
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datatrigger'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.DataTrigger, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.DataTrigger, PresentationFramework',[])
 		return self
@@ -16913,16 +17817,30 @@ Class EventTrigger from TriggerBase
 	SourceName
 	Actions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'eventtrigger'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.EventTrigger, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.EventTrigger, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.EventTrigger, PresentationFramework',P1)
 			return self
@@ -16998,11 +17916,21 @@ Class FrameworkContentElement from ContentElement
 	ContextMenuOpeningEvent
 	ContextMenuClosingEvent
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'frameworkcontentelement'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FrameworkContentElement, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.FrameworkContentElement, PresentationFramework',[])
 		return self
@@ -17379,16 +18307,30 @@ Class FrameworkPropertyMetadata from UIPropertyMetadata
 	SubPropertiesDoNotAffectRender
 	IsDataBindingAllowed
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'frameworkpropertymetadata'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.FrameworkPropertyMetadata, PresentationFramework',P1)
 			return self
@@ -17502,16 +18444,30 @@ Class HierarchicalDataTemplate from DataTemplate
 	AlternationCount
 	ItemBindingGroup
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hierarchicaldatatemplate'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.HierarchicalDataTemplate, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.HierarchicalDataTemplate, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.HierarchicalDataTemplate, PresentationFramework',P1)
 			return self
@@ -17585,11 +18541,21 @@ Class MultiDataTrigger from TriggerBase
 	Conditions
 	Setters
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multidatatrigger'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.MultiDataTrigger, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.MultiDataTrigger, PresentationFramework',[])
 		return self
@@ -17612,11 +18578,21 @@ Class MultiTrigger from TriggerBase
 	Conditions
 	Setters
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multitrigger'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.MultiTrigger, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.MultiTrigger, PresentationFramework',[])
 		return self
@@ -17641,11 +18617,21 @@ Class Trigger from TriggerBase
 	SourceName
 	Setters
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'trigger'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Trigger, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Trigger, PresentationFramework',[])
 		return self

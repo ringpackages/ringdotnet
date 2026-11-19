@@ -130,16 +130,30 @@ Class XslCompiledTransform from Object
 
 	OutputSettings
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xslcompiledtransform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',P1)
 			return self
@@ -180,11 +194,21 @@ Class XslTransform from Object
 
 	XmlResolver
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xsltransform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Xsl.XslTransform, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Xsl.XslTransform, System.Private.Xml',[])
 		return self
@@ -213,11 +237,21 @@ Class XslTransform from Object
 
 Class XsltArgumentList from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xsltargumentlist'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Xsl.XsltArgumentList, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Xsl.XsltArgumentList, System.Private.Xml',[])
 		return self
@@ -315,16 +349,30 @@ Class XsltSettings from Object
 	Default
 	TrustedXslt
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xsltsettings'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Xsl.XsltSettings, System.Private.Xml',P1)
 			return self

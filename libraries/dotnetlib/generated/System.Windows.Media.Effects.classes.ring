@@ -101,16 +101,30 @@ Class BitmapEffectCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bitmapeffectcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',P1)
 			return self
@@ -178,16 +192,30 @@ Class BitmapEffectInput from Animatable
 	AreaToApplyEffectUnitsProperty
 	AreaToApplyEffectProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bitmapeffectinput'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',P1)
 			return self
@@ -274,11 +302,21 @@ Class PixelShader from Animatable
 	UriSourceProperty
 	ShaderRenderModeProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pixelshader'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.PixelShader, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.PixelShader, PresentationCore',[])
 		return self
@@ -335,11 +373,21 @@ Class BevelBitmapEffect from BitmapEffect
 	SmoothnessProperty
 	EdgeProfileProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bevelbitmapeffect'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BevelBitmapEffect, PresentationCore',[])
 		return self
@@ -415,11 +463,21 @@ Class BitmapEffectGroup from BitmapEffect
 	Children
 	ChildrenProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bitmapeffectgroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectGroup, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectGroup, PresentationCore',[])
 		return self
@@ -445,11 +503,21 @@ Class BlurBitmapEffect from BitmapEffect
 	RadiusProperty
 	KernelTypeProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'blurbitmapeffect'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.BlurBitmapEffect, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BlurBitmapEffect, PresentationCore',[])
 		return self
@@ -490,11 +558,21 @@ Class BlurEffect from Effect
 	KernelTypeProperty
 	RenderingBiasProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'blureffect'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.BlurEffect, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BlurEffect, PresentationCore',[])
 		return self
@@ -554,11 +632,21 @@ Class DropShadowBitmapEffect from BitmapEffect
 	OpacityProperty
 	SoftnessProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dropshadowbitmapeffect'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.DropShadowBitmapEffect, PresentationCore',[])
 		return self
@@ -657,11 +745,21 @@ Class DropShadowEffect from Effect
 	BlurRadiusProperty
 	RenderingBiasProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dropshadoweffect'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.DropShadowEffect, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.DropShadowEffect, PresentationCore',[])
 		return self
@@ -752,11 +850,21 @@ Class EmbossBitmapEffect from BitmapEffect
 	LightAngleProperty
 	ReliefProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'embossbitmapeffect'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.EmbossBitmapEffect, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.EmbossBitmapEffect, PresentationCore',[])
 		return self
@@ -799,11 +907,21 @@ Class OuterGlowBitmapEffect from BitmapEffect
 	NoiseProperty
 	OpacityProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'outerglowbitmapeffect'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.OuterGlowBitmapEffect, PresentationCore',[])
 		return self

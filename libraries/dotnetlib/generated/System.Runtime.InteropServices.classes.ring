@@ -205,16 +205,30 @@ Func DotNetNew_VariantWrapper
 
 Class ArrayWithOffset from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'arraywithoffset'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.ArrayWithOffset, System.Private.CoreLib',P1)
 			return self
@@ -260,16 +274,30 @@ Class CLong from ValueType
 
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'clong'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Runtime.InteropServices.CLong, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.CLong, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.CLong, System.Private.CoreLib',P1)
 			return self
@@ -292,16 +320,30 @@ Class CULong from ValueType
 
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'culong'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Runtime.InteropServices.CULong, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.CULong, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.CULong, System.Private.CoreLib',P1)
 			return self
@@ -524,11 +566,21 @@ Class GCHandle from ValueType
 	Target
 	IsAllocated
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gchandle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib',[])
 		return self
@@ -635,16 +687,30 @@ Class HandleRef from ValueType
 	Wrapper
 	Handle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'handleref'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.HandleRef, System.Private.CoreLib',P1)
 			return self
@@ -1232,16 +1298,30 @@ Class NFloat from ValueType
 	Tau
 	NegativeZero
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nfloat'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Runtime.InteropServices.NFloat, System.Private.CoreLib',P1)
 			return self
@@ -1690,11 +1770,21 @@ Class OSPlatform from ValueType
 	OSX
 	Windows
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'osplatform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',[])
 		return self

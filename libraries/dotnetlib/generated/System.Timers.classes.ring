@@ -38,16 +38,30 @@ Class TimersTimer from Component
 	Interval
 	SynchronizingObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'timerstimer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Timers.Timer, System.ComponentModel.TypeConverter',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Timers.Timer, System.ComponentModel.TypeConverter',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Timers.Timer, System.ComponentModel.TypeConverter',P1)
 			return self

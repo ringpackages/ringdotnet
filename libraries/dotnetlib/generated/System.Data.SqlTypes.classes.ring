@@ -121,16 +121,30 @@ Class SqlBinary from ValueType
 	Length
 	Null
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlbinary'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlBinary, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBinary, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlBinary, System.Data.Common',P1)
 			return self
@@ -221,16 +235,30 @@ Class SqlBoolean from ValueType
 	Zero
 	One
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlboolean'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlBoolean, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBoolean, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlBoolean, System.Data.Common',P1)
 			return self
@@ -380,16 +408,30 @@ Class SqlByte from ValueType
 	MinValue
 	MaxValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlbyte'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlByte, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlByte, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlByte, System.Data.Common',P1)
 			return self
@@ -535,16 +577,30 @@ Class SqlBytes from Object
 	Stream
 	Null
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlbytes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlBytes, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBytes, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlBytes, System.Data.Common',P1)
 			return self
@@ -637,16 +693,30 @@ Class SqlChars from Object
 	Storage
 	Null
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlchars'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlChars, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlChars, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlChars, System.Data.Common',P1)
 			return self
@@ -735,16 +805,30 @@ Class SqlDateTime from ValueType
 	MaxValue
 	Null
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqldatetime'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlDateTime, System.Data.Common',P1)
 			return self
@@ -870,16 +954,30 @@ Class SqlDecimal from ValueType
 	MinValue
 	MaxValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqldecimal'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlDecimal, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDecimal, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlDecimal, System.Data.Common',P1)
 			return self
@@ -1071,16 +1169,30 @@ Class SqlDouble from ValueType
 	MinValue
 	MaxValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqldouble'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlDouble, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDouble, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlDouble, System.Data.Common',P1)
 			return self
@@ -1203,16 +1315,30 @@ Class SqlGuid from ValueType
 	Value
 	Null
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlguid'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlGuid, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlGuid, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlGuid, System.Data.Common',P1)
 			return self
@@ -1290,16 +1416,30 @@ Class SqlInt16 from ValueType
 	MinValue
 	MaxValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlint16'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlInt16, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt16, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlInt16, System.Data.Common',P1)
 			return self
@@ -1443,16 +1583,30 @@ Class SqlInt32 from ValueType
 	MinValue
 	MaxValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlint32'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlInt32, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt32, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlInt32, System.Data.Common',P1)
 			return self
@@ -1596,16 +1750,30 @@ Class SqlInt64 from ValueType
 	MinValue
 	MaxValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlint64'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlInt64, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt64, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlInt64, System.Data.Common',P1)
 			return self
@@ -1749,16 +1917,30 @@ Class SqlMoney from ValueType
 	MinValue
 	MaxValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlmoney'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlMoney, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlMoney, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlMoney, System.Data.Common',P1)
 			return self
@@ -1902,16 +2084,30 @@ Class SqlSingle from ValueType
 	MinValue
 	MaxValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlsingle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlSingle, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlSingle, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlSingle, System.Data.Common',P1)
 			return self
@@ -2044,16 +2240,30 @@ Class SqlString from ValueType
 	BinarySort
 	BinarySort2
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlstring'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlString, System.Data.Common',P1)
 			return self
@@ -2227,16 +2437,30 @@ Class SqlXml from Object
 	Value
 	Null
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlxml'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Data.SqlTypes.SqlXml, System.Data.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlXml, System.Data.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlXml, System.Data.Common',P1)
 			return self

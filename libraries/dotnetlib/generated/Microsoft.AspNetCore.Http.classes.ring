@@ -490,11 +490,21 @@ Class BindingAddress from Object
 	UnixPipePath
 	NamedPipeName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindingaddress'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http',[])
 		return self
@@ -643,11 +653,21 @@ Class CookieBuilder from Object
 	IsEssential
 	Extensions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cookiebuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.CookieBuilder, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.CookieBuilder, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
@@ -743,16 +763,30 @@ Class CookieOptions from Object
 	IsEssential
 	Extensions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cookieoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.CookieOptions, Microsoft.AspNetCore.Http.Features',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.CookieOptions, Microsoft.AspNetCore.Http.Features',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.CookieOptions, Microsoft.AspNetCore.Http.Features',P1)
 			return self
@@ -920,11 +954,21 @@ Class EndpointFilterFactoryContext from Object
 	MethodInfo
 	ApplicationServices
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'endpointfilterfactorycontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.EndpointFilterFactoryContext, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.EndpointFilterFactoryContext, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
@@ -1198,11 +1242,21 @@ Class FormFileCollection from DotNetObject
 	Capacity
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formfilecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.FormFileCollection, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.FormFileCollection, Microsoft.AspNetCore.Http',[])
 		return self
@@ -1390,16 +1444,30 @@ Class FragmentString from ValueType
 	HasValue
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fragmentstring'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',P1)
 			return self
@@ -1444,16 +1512,30 @@ Class HeaderDictionary from Object
 	Keys
 	Values
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'headerdictionary'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.HeaderDictionary, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HeaderDictionary, Microsoft.AspNetCore.Http',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HeaderDictionary, Microsoft.AspNetCore.Http',P1)
 			return self
@@ -1596,16 +1678,30 @@ Class HostString from ValueType
 	Host
 	Port
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hoststring'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',P1)
 			return self
@@ -1757,11 +1853,21 @@ Class HttpContextAccessor from Object
 
 	HttpContext
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpcontextaccessor'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.HttpContextAccessor, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HttpContextAccessor, Microsoft.AspNetCore.Http',[])
 		return self
@@ -2355,16 +2461,30 @@ Class HttpValidationProblemDetails from ProblemDetails
 
 	Errors
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpvalidationproblemdetails'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.HttpValidationProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HttpValidationProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HttpValidationProblemDetails, Microsoft.AspNetCore.Http.Abstractions',P1)
 			return self
@@ -3729,16 +3849,30 @@ Class PathString from ValueType
 	HasValue
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pathstring'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',P1)
 			return self
@@ -3797,11 +3931,21 @@ Class ProblemDetailsContext from Object
 	ProblemDetails
 	Exception
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'problemdetailscontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProblemDetailsContext, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProblemDetailsContext, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
@@ -3842,11 +3986,21 @@ Class ProblemDetailsOptions from Object
 
 	CustomizeProblemDetails
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'problemdetailsoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProblemDetailsOptions, Microsoft.AspNetCore.Http.Extensions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProblemDetailsOptions, Microsoft.AspNetCore.Http.Extensions',[])
 		return self
@@ -3920,16 +4074,30 @@ Class QueryCollection from Object
 	Keys
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'querycollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http',P1)
 			return self
@@ -3981,16 +4149,30 @@ Class QueryString from ValueType
 	HasValue
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'querystring'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',P1)
 			return self
@@ -4073,11 +4255,21 @@ Class RequestDelegateFactoryOptions from Object
 	DisableInferBodyFromParameters
 	EndpointBuilder
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'requestdelegatefactoryoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.RequestDelegateFactoryOptions, Microsoft.AspNetCore.Http.Extensions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.RequestDelegateFactoryOptions, Microsoft.AspNetCore.Http.Extensions',[])
 		return self
@@ -4125,11 +4317,21 @@ Class RequestDelegateMetadataResult from Object
 
 	EndpointMetadata
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'requestdelegatemetadataresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.RequestDelegateMetadataResult, Microsoft.AspNetCore.Http.Extensions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.RequestDelegateMetadataResult, Microsoft.AspNetCore.Http.Extensions',[])
 		return self
@@ -5369,11 +5571,21 @@ Class WebSocketAcceptContext from Object
 	DisableServerContextTakeover
 	ServerMaxWindowBits
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'websocketacceptcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.WebSocketAcceptContext, Microsoft.AspNetCore.Http.Features',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.WebSocketAcceptContext, Microsoft.AspNetCore.Http.Features',[])
 		return self
@@ -5480,16 +5692,30 @@ Class DefaultHttpContext from HttpContext
 	ServiceScopeFactory
 	HttpContext
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaulthttpcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.DefaultHttpContext, Microsoft.AspNetCore.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.DefaultHttpContext, Microsoft.AspNetCore.Http',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.DefaultHttpContext, Microsoft.AspNetCore.Http',P1)
 			return self

@@ -854,11 +854,21 @@ Class IUtf8SpanFormattable from DotNetObject
 
 Class Object from DotNetObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'object'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Object, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Object, System.Private.CoreLib',[])
 		return self
@@ -2993,11 +3003,21 @@ Class EventArgs from Object
 
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'eventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.EventArgs, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.EventArgs, System.Private.CoreLib',[])
 		return self
@@ -3798,6 +3818,10 @@ Class Random from Object
 
 	Shared
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'random'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Random, System.Private.CoreLib',[])
+	ok
+
 	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -3805,13 +3829,22 @@ Class Random from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			nHandle = dnCreate('System.Random, System.Private.CoreLib',[])
+			if nHandle = 0
+				nHandle = dnCreate('System.Random, System.Private.CoreLib',[])
+			ok
 			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Random, System.Private.CoreLib',[P1])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Random, System.Private.CoreLib',P1)
 			return self
@@ -4902,16 +4935,30 @@ Class UriBuilder from Object
 	Fragment
 	Uri
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uribuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.UriBuilder, System.Private.Uri',P1)
 			return self
@@ -5033,6 +5080,10 @@ Class Version from Object
 	MajorRevision
 	MinorRevision
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'version'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Version, System.Private.CoreLib',[])
+	ok
+
 	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -5040,13 +5091,22 @@ Class Version from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			nHandle = dnCreate('System.Version, System.Private.CoreLib',[])
+			if nHandle = 0
+				nHandle = dnCreate('System.Version, System.Private.CoreLib',[])
+			ok
 			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Version, System.Private.CoreLib',[P1])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Version, System.Private.CoreLib',P1)
 			return self
@@ -5502,11 +5562,21 @@ Class Boolean from ValueType
 	TrueString
 	FalseString
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'boolean'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Boolean, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Boolean, System.Private.CoreLib',[])
 		return self
@@ -5547,11 +5617,21 @@ Class Byte from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'byte'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Byte, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Byte, System.Private.CoreLib',[])
 		return self
@@ -5649,11 +5729,21 @@ Class Char from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'char'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Char, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Char, System.Private.CoreLib',[])
 		return self
@@ -5881,16 +5971,30 @@ Class ConsoleKeyInfo from ValueType
 	Key
 	Modifiers
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'consolekeyinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ConsoleKeyInfo, System.Console',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.ConsoleKeyInfo, System.Console',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.ConsoleKeyInfo, System.Console',P1)
 			return self
@@ -6435,16 +6539,30 @@ Class DateTimeOffset from ValueType
 	MaxValue
 	UnixEpoch
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimeoffset'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.DateTimeOffset, System.Private.CoreLib',P1)
 			return self
@@ -6724,16 +6842,30 @@ Class Decimal from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decimal'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Decimal, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Decimal, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Decimal, System.Private.CoreLib',P1)
 			return self
@@ -6960,11 +7092,21 @@ Class Double from ValueType
 	Pi
 	Tau
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'double'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Double, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Double, System.Private.CoreLib',[])
 		return self
@@ -7400,11 +7542,21 @@ Class Enum from ValueType
 
 Class FileStyleUriParser from UriParser
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'filestyleuriparser'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.FileStyleUriParser, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.FileStyleUriParser, System.Private.Uri',[])
 		return self
@@ -7412,11 +7564,21 @@ Class FileStyleUriParser from UriParser
 
 Class FtpStyleUriParser from UriParser
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ftpstyleuriparser'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.FtpStyleUriParser, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.FtpStyleUriParser, System.Private.Uri',[])
 		return self
@@ -7429,11 +7591,21 @@ Class GCGenerationInfo from ValueType
 	SizeAfterBytes
 	FragmentationAfterBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gcgenerationinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.GCGenerationInfo, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.GCGenerationInfo, System.Private.CoreLib',[])
 		return self
@@ -7482,11 +7654,21 @@ Class GCMemoryInfo from ValueType
 	PauseTimePercentage
 	GenerationInfo
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gcmemoryinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.GCMemoryInfo, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.GCMemoryInfo, System.Private.CoreLib',[])
 		return self
@@ -7602,11 +7784,21 @@ Class GenericUriParser from UriParser
 
 Class GopherStyleUriParser from UriParser
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gopherstyleuriparser'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.GopherStyleUriParser, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.GopherStyleUriParser, System.Private.Uri',[])
 		return self
@@ -7619,16 +7811,30 @@ Class Guid from ValueType
 	AllBitsSet
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'guid'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Guid, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Guid, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Guid, System.Private.CoreLib',P1)
 			return self
@@ -7730,11 +7936,21 @@ Class Half from ValueType
 	Zero
 	NegativeOne
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'half'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Half, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Half, System.Private.CoreLib',[])
 		return self
@@ -8111,11 +8327,21 @@ Class Half from ValueType
 
 Class HashCode from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hashcode'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.HashCode, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.HashCode, System.Private.CoreLib',[])
 		return self
@@ -8140,11 +8366,21 @@ Class HashCode from ValueType
 
 Class HttpStyleUriParser from UriParser
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpstyleuriparser'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.HttpStyleUriParser, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.HttpStyleUriParser, System.Private.Uri',[])
 		return self
@@ -8156,16 +8392,30 @@ Class Index from ValueType
 	IsFromEnd
 	Start
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'index'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Index, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Index, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Index, System.Private.CoreLib',P1)
 			return self
@@ -8216,16 +8466,30 @@ Class Int128 from ValueType
 	Zero
 	NegativeOne
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int128'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Int128, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Int128, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Int128, System.Private.CoreLib',P1)
 			return self
@@ -8363,11 +8627,21 @@ Class Int16 from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int16'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Int16, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Int16, System.Private.CoreLib',[])
 		return self
@@ -8483,11 +8757,21 @@ Class Int32 from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Int32, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Int32, System.Private.CoreLib',[])
 		return self
@@ -8606,11 +8890,21 @@ Class Int64 from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int64'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Int64, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Int64, System.Private.CoreLib',[])
 		return self
@@ -8731,16 +9025,30 @@ Class IntPtr from ValueType
 	MinValue
 	Zero
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'intptr'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IntPtr, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.IntPtr, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IntPtr, System.Private.CoreLib',P1)
 			return self
@@ -8884,11 +9192,21 @@ Class IntPtr from ValueType
 
 Class LdapStyleUriParser from UriParser
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ldapstyleuriparser'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.LdapStyleUriParser, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.LdapStyleUriParser, System.Private.Uri',[])
 		return self
@@ -8899,11 +9217,21 @@ Class ModuleHandle from ValueType
 	MDStreamVersion
 	EmptyHandle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modulehandle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ModuleHandle, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ModuleHandle, System.Private.CoreLib',[])
 		return self
@@ -8950,11 +9278,21 @@ Class ModuleHandle from ValueType
 
 Class NetPipeStyleUriParser from UriParser
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'netpipestyleuriparser'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.NetPipeStyleUriParser, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.NetPipeStyleUriParser, System.Private.Uri',[])
 		return self
@@ -8962,11 +9300,21 @@ Class NetPipeStyleUriParser from UriParser
 
 Class NetTcpStyleUriParser from UriParser
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nettcpstyleuriparser'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.NetTcpStyleUriParser, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.NetTcpStyleUriParser, System.Private.Uri',[])
 		return self
@@ -8974,11 +9322,21 @@ Class NetTcpStyleUriParser from UriParser
 
 Class NewsStyleUriParser from UriParser
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'newsstyleuriparser'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.NewsStyleUriParser, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.NewsStyleUriParser, System.Private.Uri',[])
 		return self
@@ -9000,16 +9358,30 @@ Class Range from ValueType
 	Start
 	All
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'range'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Range, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Range, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Range, System.Private.CoreLib',P1)
 			return self
@@ -9089,11 +9461,21 @@ Class RuntimeFieldHandle from ValueType
 
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'runtimefieldhandle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.RuntimeFieldHandle, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.RuntimeFieldHandle, System.Private.CoreLib',[])
 		return self
@@ -9119,11 +9501,21 @@ Class RuntimeMethodHandle from ValueType
 
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'runtimemethodhandle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.RuntimeMethodHandle, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.RuntimeMethodHandle, System.Private.CoreLib',[])
 		return self
@@ -9152,11 +9544,21 @@ Class RuntimeTypeHandle from ValueType
 
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'runtimetypehandle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.RuntimeTypeHandle, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.RuntimeTypeHandle, System.Private.CoreLib',[])
 		return self
@@ -9186,11 +9588,21 @@ Class SByte from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sbyte'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.SByte, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.SByte, System.Private.CoreLib',[])
 		return self
@@ -9314,11 +9726,21 @@ Class Single from ValueType
 	Pi
 	Tau
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'single'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Single, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Single, System.Private.CoreLib',[])
 		return self
@@ -9684,16 +10106,30 @@ Class TimeOnly from ValueType
 	MinValue
 	MaxValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'timeonly'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.TimeOnly, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.TimeOnly, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.TimeOnly, System.Private.CoreLib',P1)
 			return self
@@ -9866,16 +10302,30 @@ Class TimeSpan from ValueType
 	MinutesPerDay
 	HoursPerDay
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'timespan'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.TimeSpan, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.TimeSpan, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.TimeSpan, System.Private.CoreLib',P1)
 			return self
@@ -10234,16 +10684,30 @@ Class UInt128 from ValueType
 	One
 	Zero
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint128'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.UInt128, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.UInt128, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.UInt128, System.Private.CoreLib',P1)
 			return self
@@ -10357,11 +10821,21 @@ Class UInt16 from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint16'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.UInt16, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.UInt16, System.Private.CoreLib',[])
 		return self
@@ -10459,11 +10933,21 @@ Class UInt32 from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint32'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.UInt32, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.UInt32, System.Private.CoreLib',[])
 		return self
@@ -10564,11 +11048,21 @@ Class UInt64 from ValueType
 	MaxValue
 	MinValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uint64'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.UInt64, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.UInt64, System.Private.CoreLib',[])
 		return self
@@ -10671,16 +11165,30 @@ Class UIntPtr from ValueType
 	MinValue
 	Zero
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uintptr'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.UIntPtr, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.UIntPtr, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.UIntPtr, System.Private.CoreLib',P1)
 			return self
@@ -10835,11 +11343,21 @@ Class UriCreationOptions from ValueType
 
 	DangerousDisablePathAndQueryCanonicalization
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'uricreationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.UriCreationOptions, System.Private.Uri',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.UriCreationOptions, System.Private.Uri',[])
 		return self
@@ -10854,11 +11372,21 @@ Class UriCreationOptions from ValueType
 
 Class ValueTuple from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'valuetuple'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.ValueTuple, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.ValueTuple, System.Private.CoreLib',[])
 		return self
@@ -10878,11 +11406,21 @@ Class ValueTuple from ValueType
 
 Class Void from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'void'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Void, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Void, System.Private.CoreLib',[])
 		return self

@@ -152,16 +152,30 @@ Class ArrayList from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'arraylist'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.ArrayList, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.ArrayList, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.ArrayList, System.Private.CoreLib',P1)
 			return self
@@ -472,16 +486,30 @@ Class CaseInsensitiveComparer from Object
 	Default
 	DefaultInvariant
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'caseinsensitivecomparer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric',P1)
 			return self
@@ -628,16 +656,30 @@ Class DictionaryEntry from ValueType
 	Key
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dictionaryentry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.DictionaryEntry, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.DictionaryEntry, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.DictionaryEntry, System.Private.CoreLib',P1)
 			return self
@@ -677,16 +719,30 @@ Class Hashtable from Object
 	SyncRoot
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hashtable'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Hashtable, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.Hashtable, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Hashtable, System.Private.CoreLib',P1)
 			return self
@@ -1098,11 +1154,21 @@ Class ListDictionaryInternal from Object
 	SyncRoot
 	Values
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listdictionaryinternal'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.ListDictionaryInternal, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Collections.ListDictionaryInternal, System.Private.CoreLib',[])
 		return self
@@ -1188,16 +1254,30 @@ Class Queue from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'queue'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Queue, System.Collections.NonGeneric',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.Queue, System.Collections.NonGeneric',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Queue, System.Collections.NonGeneric',P1)
 			return self
@@ -1304,16 +1384,30 @@ Class SortedList from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sortedlist'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.SortedList, System.Collections.NonGeneric',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.SortedList, System.Collections.NonGeneric',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.SortedList, System.Collections.NonGeneric',P1)
 			return self
@@ -1455,16 +1549,30 @@ Class Stack from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stack'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Stack, System.Collections.NonGeneric',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.Stack, System.Collections.NonGeneric',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Stack, System.Collections.NonGeneric',P1)
 			return self

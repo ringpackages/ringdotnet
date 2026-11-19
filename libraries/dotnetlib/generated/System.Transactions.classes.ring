@@ -348,11 +348,21 @@ Class TransactionEventArgs from EventArgs
 
 	Transaction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transactioneventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Transactions.TransactionEventArgs, System.Transactions.Local',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Transactions.TransactionEventArgs, System.Transactions.Local',[])
 		return self
@@ -517,11 +527,21 @@ Class TransactionOptions from ValueType
 	Timeout
 	IsolationLevel
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transactionoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Transactions.TransactionOptions, System.Transactions.Local',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Transactions.TransactionOptions, System.Transactions.Local',[])
 		return self
@@ -543,16 +563,30 @@ Class TransactionOptions from ValueType
 
 Class TransactionScope from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transactionscope'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Transactions.TransactionScope, System.Transactions.Local',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Transactions.TransactionScope, System.Transactions.Local',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Transactions.TransactionScope, System.Transactions.Local',P1)
 			return self
@@ -578,16 +612,30 @@ Class TransactionScope from Object
 
 Class CommittableTransaction from Transaction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'committabletransaction'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Transactions.CommittableTransaction, System.Transactions.Local',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Transactions.CommittableTransaction, System.Transactions.Local',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Transactions.CommittableTransaction, System.Transactions.Local',P1)
 			return self

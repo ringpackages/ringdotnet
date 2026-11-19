@@ -52,11 +52,21 @@ Class Http2Limits from Object
 	KeepAlivePingDelay
 	KeepAlivePingTimeout
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'http2limits'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http2Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http2Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		return self
@@ -125,11 +135,21 @@ Class Http3Limits from Object
 
 	MaxRequestHeaderFieldSize
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'http3limits'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http3Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http3Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		return self
@@ -202,11 +222,21 @@ Class KestrelServerLimits from Object
 	MinRequestBodyDataRate
 	MinResponseDataRate
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'kestrelserverlimits'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		return self
@@ -326,11 +356,21 @@ Class KestrelServerOptions from Object
 	Limits
 	ConfigurationLoader
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'kestrelserveroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions, Microsoft.AspNetCore.Server.Kestrel.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		return self

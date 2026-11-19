@@ -9763,11 +9763,21 @@ Class KeyComparer from Object
 
 Class LazyLoaderParameterBindingFactoryDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'lazyloaderparameterbindingfactorydependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.LazyLoaderParameterBindingFactoryDependencies, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.LazyLoaderParameterBindingFactoryDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -9782,16 +9792,30 @@ Class MemberIdentity from ValueType
 	MemberInfo
 	None
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memberidentity'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.MemberIdentity, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.MemberIdentity, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.MemberIdentity, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -9868,16 +9892,30 @@ Class ParameterBindingInfo from ValueType
 	MaterializationContextExpression
 	ServiceInstances
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'parameterbindinginfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.ParameterBindingInfo, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.ParameterBindingInfo, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.ParameterBindingInfo, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -9925,11 +9963,21 @@ Class ParameterBindingInfo from ValueType
 
 Class RelationalAdHocMapperDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relationaladhocmapperdependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RelationalAdHocMapperDependencies, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RelationalAdHocMapperDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -10442,11 +10490,21 @@ Class RelationalAnnotationProvider from Object
 
 Class RelationalAnnotationProviderDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relationalannotationproviderdependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -10825,16 +10883,30 @@ Class RuntimeModel from RuntimeAnnotatableBase
 	ModelId
 	DebugView
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'runtimemodel'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RuntimeModel, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RuntimeModel, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Metadata.RuntimeModel, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -11275,11 +11347,21 @@ Class ServiceParameterBindingFactory from Object
 
 Class SimpleModelFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'simplemodelfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.SimpleModelFactory, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.SimpleModelFactory, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -11297,11 +11379,21 @@ Class StoreObjectIdentifier from ValueType
 	Name
 	Schema
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'storeobjectidentifier'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',[])
 		return self

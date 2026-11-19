@@ -562,11 +562,21 @@ Class XmlSchemaCompilationSettings from Object
 
 	EnableUpaCheck
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacompilationsettings'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaCompilationSettings, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaCompilationSettings, System.Private.Xml',[])
 		return self
@@ -642,11 +652,21 @@ Class XmlSchemaInference from Object
 	Occurrence
 	TypeInference
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemainference'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInference, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInference, System.Private.Xml',[])
 		return self
@@ -686,11 +706,21 @@ Class XmlSchemaInfo from Object
 	SchemaAttribute
 	ContentType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemainfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInfo, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInfo, System.Private.Xml',[])
 		return self
@@ -812,16 +842,30 @@ Class XmlSchemaObject from Object
 
 Class XmlSchemaObjectCollection from CollectionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaobjectcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',P1)
 			return self
@@ -947,16 +991,30 @@ Class XmlSchemaSet from Object
 	GlobalAttributes
 	GlobalTypes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaset'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',P1)
 			return self
@@ -1200,11 +1258,21 @@ Class XmlSchema from XmlSchemaObject
 	Namespace
 	InstanceNamespace
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschema'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchema, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchema, System.Private.Xml',[])
 		return self
@@ -1357,11 +1425,21 @@ Class XmlSchemaAnnotated from XmlSchemaObject
 	Annotation
 	UnhandledAttributes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaannotated'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotated, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotated, System.Private.Xml',[])
 		return self
@@ -1394,11 +1472,21 @@ Class XmlSchemaAnnotation from XmlSchemaObject
 	Items
 	UnhandledAttributes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaannotation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotation, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnnotation, System.Private.Xml',[])
 		return self
@@ -1429,11 +1517,21 @@ Class XmlSchemaAppInfo from XmlSchemaObject
 	Source
 	Markup
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaappinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAppInfo, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAppInfo, System.Private.Xml',[])
 		return self
@@ -1459,11 +1557,21 @@ Class XmlSchemaDocumentation from XmlSchemaObject
 	Language
 	Markup
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemadocumentation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaDocumentation, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaDocumentation, System.Private.Xml',[])
 		return self
@@ -1539,11 +1647,21 @@ Class XmlSchemaAnyAttribute from XmlSchemaAnnotated
 	Namespace
 	ProcessContents
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaanyattribute'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnyAttribute, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAnyAttribute, System.Private.Xml',[])
 		return self
@@ -1577,11 +1695,21 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 	AttributeType
 	AttributeSchemaType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaattribute'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttribute, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttribute, System.Private.Xml',[])
 		return self
@@ -1669,11 +1797,21 @@ Class XmlSchemaAttributeGroup from XmlSchemaAnnotated
 	QualifiedName
 	RedefinedAttributeGroup
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaattributegroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroup, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroup, System.Private.Xml',[])
 		return self
@@ -1715,11 +1853,21 @@ Class XmlSchemaAttributeGroupRef from XmlSchemaAnnotated
 
 	RefName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaattributegroupref'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroupRef, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAttributeGroupRef, System.Private.Xml',[])
 		return self
@@ -1797,11 +1945,21 @@ Class XmlSchemaGroup from XmlSchemaAnnotated
 	Particle
 	QualifiedName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemagroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroup, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroup, System.Private.Xml',[])
 		return self
@@ -1834,11 +1992,21 @@ Class XmlSchemaIdentityConstraint from XmlSchemaAnnotated
 	Fields
 	QualifiedName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaidentityconstraint'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaIdentityConstraint, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaIdentityConstraint, System.Private.Xml',[])
 		return self
@@ -1875,11 +2043,21 @@ Class XmlSchemaImport from XmlSchemaExternal
 	Namespace
 	Annotation
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaimport'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaImport, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaImport, System.Private.Xml',[])
 		return self
@@ -1903,11 +2081,21 @@ Class XmlSchemaInclude from XmlSchemaExternal
 
 	Annotation
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemainclude'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInclude, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInclude, System.Private.Xml',[])
 		return self
@@ -1926,11 +2114,21 @@ Class XmlSchemaNotation from XmlSchemaAnnotated
 	Public
 	System
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemanotation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaNotation, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaNotation, System.Private.Xml',[])
 		return self
@@ -2008,11 +2206,21 @@ Class XmlSchemaRedefine from XmlSchemaExternal
 	SchemaTypes
 	Groups
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaredefine'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaRedefine, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaRedefine, System.Private.Xml',[])
 		return self
@@ -2066,11 +2274,21 @@ Class XmlSchemaType from XmlSchemaAnnotated
 	IsMixed
 	TypeCode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschematype'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaType, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaType, System.Private.Xml',[])
 		return self
@@ -2152,11 +2370,21 @@ Class XmlSchemaXPath from XmlSchemaAnnotated
 
 	XPath
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaxpath'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaXPath, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaXPath, System.Private.Xml',[])
 		return self
@@ -2174,11 +2402,21 @@ Class XmlSchemaAny from XmlSchemaParticle
 	Namespace
 	ProcessContents
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaany'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAny, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAny, System.Private.Xml',[])
 		return self
@@ -2202,11 +2440,21 @@ Class XmlSchemaComplexContent from XmlSchemaContentModel
 
 	IsMixed
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacomplexcontent'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContent, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContent, System.Private.Xml',[])
 		return self
@@ -2226,11 +2474,21 @@ Class XmlSchemaComplexContentExtension from XmlSchemaContent
 	Attributes
 	AnyAttribute
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacomplexcontentextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentExtension, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentExtension, System.Private.Xml',[])
 		return self
@@ -2270,11 +2528,21 @@ Class XmlSchemaComplexContentRestriction from XmlSchemaContent
 	Attributes
 	AnyAttribute
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacomplexcontentrestriction'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentRestriction, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexContentRestriction, System.Private.Xml',[])
 		return self
@@ -2321,11 +2589,21 @@ Class XmlSchemaComplexType from XmlSchemaType
 	AttributeUses
 	AttributeWildcard
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemacomplextype'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexType, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaComplexType, System.Private.Xml',[])
 		return self
@@ -2423,11 +2701,21 @@ Class XmlSchemaElement from XmlSchemaParticle
 	BlockResolved
 	FinalResolved
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaelement'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaElement, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaElement, System.Private.Xml',[])
 		return self
@@ -2555,11 +2843,21 @@ Class XmlSchemaElement from XmlSchemaParticle
 
 Class XmlSchemaEnumerationFacet from XmlSchemaFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaenumerationfacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaEnumerationFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaEnumerationFacet, System.Private.Xml',[])
 		return self
@@ -2589,11 +2887,21 @@ Class XmlSchemaGroupRef from XmlSchemaParticle
 	RefName
 	Particle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemagroupref'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroupRef, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaGroupRef, System.Private.Xml',[])
 		return self
@@ -2614,11 +2922,21 @@ Class XmlSchemaGroupRef from XmlSchemaParticle
 
 Class XmlSchemaKey from XmlSchemaIdentityConstraint
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemakey'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKey, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKey, System.Private.Xml',[])
 		return self
@@ -2628,11 +2946,21 @@ Class XmlSchemaKeyref from XmlSchemaIdentityConstraint
 
 	Refer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemakeyref'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKeyref, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaKeyref, System.Private.Xml',[])
 		return self
@@ -2647,11 +2975,21 @@ Class XmlSchemaKeyref from XmlSchemaIdentityConstraint
 
 Class XmlSchemaMaxExclusiveFacet from XmlSchemaFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemamaxexclusivefacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxExclusiveFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxExclusiveFacet, System.Private.Xml',[])
 		return self
@@ -2659,11 +2997,21 @@ Class XmlSchemaMaxExclusiveFacet from XmlSchemaFacet
 
 Class XmlSchemaMaxInclusiveFacet from XmlSchemaFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemamaxinclusivefacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxInclusiveFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxInclusiveFacet, System.Private.Xml',[])
 		return self
@@ -2671,11 +3019,21 @@ Class XmlSchemaMaxInclusiveFacet from XmlSchemaFacet
 
 Class XmlSchemaMinExclusiveFacet from XmlSchemaFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaminexclusivefacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinExclusiveFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinExclusiveFacet, System.Private.Xml',[])
 		return self
@@ -2683,11 +3041,21 @@ Class XmlSchemaMinExclusiveFacet from XmlSchemaFacet
 
 Class XmlSchemaMinInclusiveFacet from XmlSchemaFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemamininclusivefacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinInclusiveFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinInclusiveFacet, System.Private.Xml',[])
 		return self
@@ -2706,11 +3074,21 @@ Class XmlSchemaNumericFacet from XmlSchemaFacet
 
 Class XmlSchemaPatternFacet from XmlSchemaFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemapatternfacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaPatternFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaPatternFacet, System.Private.Xml',[])
 		return self
@@ -2718,11 +3096,21 @@ Class XmlSchemaPatternFacet from XmlSchemaFacet
 
 Class XmlSchemaSimpleContent from XmlSchemaContentModel
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimplecontent'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContent, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContent, System.Private.Xml',[])
 		return self
@@ -2734,11 +3122,21 @@ Class XmlSchemaSimpleContentExtension from XmlSchemaContent
 	Attributes
 	AnyAttribute
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimplecontentextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentExtension, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentExtension, System.Private.Xml',[])
 		return self
@@ -2772,11 +3170,21 @@ Class XmlSchemaSimpleContentRestriction from XmlSchemaContent
 	Attributes
 	AnyAttribute
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimplecontentrestriction'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentRestriction, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleContentRestriction, System.Private.Xml',[])
 		return self
@@ -2819,11 +3227,21 @@ Class XmlSchemaSimpleType from XmlSchemaType
 
 	Content
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimpletype'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleType, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleType, System.Private.Xml',[])
 		return self
@@ -2842,11 +3260,21 @@ Class XmlSchemaSimpleTypeList from XmlSchemaSimpleTypeContent
 	ItemType
 	BaseItemType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimpletypelist'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeList, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeList, System.Private.Xml',[])
 		return self
@@ -2879,11 +3307,21 @@ Class XmlSchemaSimpleTypeRestriction from XmlSchemaSimpleTypeContent
 	BaseType
 	Facets
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimpletyperestriction'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeRestriction, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeRestriction, System.Private.Xml',[])
 		return self
@@ -2915,11 +3353,21 @@ Class XmlSchemaSimpleTypeUnion from XmlSchemaSimpleTypeContent
 	MemberTypes
 	BaseMemberTypes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasimpletypeunion'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeUnion, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSimpleTypeUnion, System.Private.Xml',[])
 		return self
@@ -2946,11 +3394,21 @@ Class XmlSchemaSimpleTypeUnion from XmlSchemaSimpleTypeContent
 
 Class XmlSchemaUnique from XmlSchemaIdentityConstraint
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaunique'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaUnique, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaUnique, System.Private.Xml',[])
 		return self
@@ -2958,11 +3416,21 @@ Class XmlSchemaUnique from XmlSchemaIdentityConstraint
 
 Class XmlSchemaWhiteSpaceFacet from XmlSchemaFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemawhitespacefacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaWhiteSpaceFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaWhiteSpaceFacet, System.Private.Xml',[])
 		return self
@@ -2970,11 +3438,21 @@ Class XmlSchemaWhiteSpaceFacet from XmlSchemaFacet
 
 Class XmlSchemaAll from XmlSchemaGroupBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaall'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAll, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaAll, System.Private.Xml',[])
 		return self
@@ -2982,11 +3460,21 @@ Class XmlSchemaAll from XmlSchemaGroupBase
 
 Class XmlSchemaChoice from XmlSchemaGroupBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemachoice'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaChoice, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaChoice, System.Private.Xml',[])
 		return self
@@ -2994,11 +3482,21 @@ Class XmlSchemaChoice from XmlSchemaGroupBase
 
 Class XmlSchemaFractionDigitsFacet from XmlSchemaNumericFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemafractiondigitsfacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaFractionDigitsFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaFractionDigitsFacet, System.Private.Xml',[])
 		return self
@@ -3006,11 +3504,21 @@ Class XmlSchemaFractionDigitsFacet from XmlSchemaNumericFacet
 
 Class XmlSchemaLengthFacet from XmlSchemaNumericFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemalengthfacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaLengthFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaLengthFacet, System.Private.Xml',[])
 		return self
@@ -3018,11 +3526,21 @@ Class XmlSchemaLengthFacet from XmlSchemaNumericFacet
 
 Class XmlSchemaMaxLengthFacet from XmlSchemaNumericFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemamaxlengthfacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxLengthFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMaxLengthFacet, System.Private.Xml',[])
 		return self
@@ -3030,11 +3548,21 @@ Class XmlSchemaMaxLengthFacet from XmlSchemaNumericFacet
 
 Class XmlSchemaMinLengthFacet from XmlSchemaNumericFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemaminlengthfacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinLengthFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaMinLengthFacet, System.Private.Xml',[])
 		return self
@@ -3042,11 +3570,21 @@ Class XmlSchemaMinLengthFacet from XmlSchemaNumericFacet
 
 Class XmlSchemaSequence from XmlSchemaGroupBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemasequence'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSequence, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSequence, System.Private.Xml',[])
 		return self
@@ -3054,11 +3592,21 @@ Class XmlSchemaSequence from XmlSchemaGroupBase
 
 Class XmlSchemaTotalDigitsFacet from XmlSchemaNumericFacet
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschematotaldigitsfacet'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Schema.XmlSchemaTotalDigitsFacet, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaTotalDigitsFacet, System.Private.Xml',[])
 		return self

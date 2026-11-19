@@ -1283,11 +1283,21 @@ Class BufferedGraphicsContext from Object
 
 	MaximumBuffer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bufferedgraphicscontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.BufferedGraphicsContext, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.BufferedGraphicsContext, System.Drawing.Common',[])
 		return self
@@ -1341,16 +1351,30 @@ Class CharacterRange from ValueType
 	First
 	Length
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'characterrange'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.CharacterRange, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.CharacterRange, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.CharacterRange, System.Drawing.Common',P1)
 			return self
@@ -1532,11 +1556,21 @@ Class Color from ValueType
 	YellowGreen
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'color'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Color, System.Drawing.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Color, System.Drawing.Primitives',[])
 		return self
@@ -2692,11 +2726,21 @@ Class Font from MarshalByRefObject
 
 Class FontConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.FontConverter, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.FontConverter, System.Drawing.Common',[])
 		return self
@@ -3396,11 +3440,21 @@ Class Icon from MarshalByRefObject
 
 Class IconConverter from ExpandableObjectConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'iconconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.IconConverter, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.IconConverter, System.Drawing.Common',[])
 		return self
@@ -3640,11 +3694,21 @@ Class ImageAnimator from Object
 
 Class ImageConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imageconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.ImageConverter, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.ImageConverter, System.Drawing.Common',[])
 		return self
@@ -3652,11 +3716,21 @@ Class ImageConverter from TypeConverter
 
 Class ImageFormatConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imageformatconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.ImageFormatConverter, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.ImageFormatConverter, System.Drawing.Common',[])
 		return self
@@ -5341,16 +5415,30 @@ Class RectangleF from ValueType
 
 Class Region from MarshalByRefObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'region'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Region, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Region, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Region, System.Drawing.Common',P1)
 			return self
@@ -5595,16 +5683,30 @@ Class StringFormat from MarshalByRefObject
 	GenericDefault
 	GenericTypographic
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringformat'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.StringFormat, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.StringFormat, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.StringFormat, System.Drawing.Common',P1)
 			return self

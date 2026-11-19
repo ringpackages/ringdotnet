@@ -164,8 +164,8 @@
 <article>
 <h1>Gotchas &amp; limits</h1><p class="lead">The things that surprise people the first time, why they happen, and what to do — plus what RingDotNet does not support.</p>
 <h2 id="ring-gotchas">Ring gotchas<a class="anchor" href="#ring-gotchas">#</a></h2>
-<h3 id="use-parentheses-with-new">Use parentheses with <code>new</code><a class="anchor" href="#use-parentheses-with-new">#</a></h3>
-<p><code>new StringBuilder("x")</code> — <strong>with</strong> parentheses. Without them Ring does not call <code>init()</code>.</p>
+<h3 id="use-parentheses-with-new-when-you-pass-arguments">Use parentheses with <code>new</code> when you pass arguments<a class="anchor" href="#use-parentheses-with-new-when-you-pass-arguments">#</a></h3>
+<p><code>new StringBuilder("x")</code> — <strong>with</strong> parentheses, because Ring calls <code>init()</code> only then. A class without arguments works both ways (<code>new MemoryStream</code>, <code>new MemoryStream()</code>). For <code>StringBuilder</code>, <code>Random</code> and <code>Version</code>, which take an optional first argument, write <code>new StringBuilder</code> or <code>new StringBuilder("x")</code>, not <code>new StringBuilder()</code>.</p>
 <h3 id="strings-and-numbers">Strings and numbers<a class="anchor" href="#strings-and-numbers">#</a></h3>
 <p><code>"text" + number</code> works. <code>number + "text"</code> is an error. Write <code>string(n) + " items"</code>.</p>
 <h3 id="do-not-call-a-method-on-a-new-object-on-the-right-of-an-attribute-assignment">Do not call a method on a new object on the right of an attribute assignment<a class="anchor" href="#do-not-call-a-method-on-a-new-object-on-the-right-of-an-attribute-assignment">#</a></h3>

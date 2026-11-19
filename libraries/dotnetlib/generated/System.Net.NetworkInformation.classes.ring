@@ -1493,11 +1493,21 @@ Class NetworkAvailabilityEventArgs from EventArgs
 
 Class NetworkChange from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'networkchange'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation',[])
 		return self
@@ -1666,11 +1676,21 @@ Class PhysicalAddress from Object
 
 Class Ping from Component
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ping'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.NetworkInformation.Ping, System.Net.Ping',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.NetworkInformation.Ping, System.Net.Ping',[])
 		return self
@@ -1731,16 +1751,30 @@ Class PingOptions from Object
 	Ttl
 	DontFragment
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pingoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.NetworkInformation.PingOptions, System.Net.Ping',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.NetworkInformation.PingOptions, System.Net.Ping',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.NetworkInformation.PingOptions, System.Net.Ping',P1)
 			return self

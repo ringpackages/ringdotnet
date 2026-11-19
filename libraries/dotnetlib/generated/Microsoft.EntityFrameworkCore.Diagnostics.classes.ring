@@ -4489,16 +4489,30 @@ Class IdentityResolutionInterceptionData from ValueType
 
 	Context
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'identityresolutioninterceptiondata'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.IdentityResolutionInterceptionData, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.IdentityResolutionInterceptionData, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.IdentityResolutionInterceptionData, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -4519,11 +4533,21 @@ Class IdentityResolutionInterceptionData from ValueType
 
 Class IgnoringIdentityResolutionInterceptor from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ignoringidentityresolutioninterceptor'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.IgnoringIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.IgnoringIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -4540,16 +4564,30 @@ Class InstantiationBindingInterceptionData from ValueType
 
 	TypeBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'instantiationbindinginterceptiondata'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.InstantiationBindingInterceptionData, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.InstantiationBindingInterceptionData, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.InstantiationBindingInterceptionData, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -4572,11 +4610,21 @@ Class InterceptionResult from ValueType
 
 	IsSuppressed
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'interceptionresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -5284,16 +5332,30 @@ Class MaterializationInterceptionData from ValueType
 	EntityType
 	QueryTrackingBehavior
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'materializationinterceptiondata'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -7450,16 +7512,30 @@ Class SqliteEventId from Object
 
 Class UpdatingIdentityResolutionInterceptor from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'updatingidentityresolutioninterceptor'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -7483,11 +7559,21 @@ Class WarningsConfiguration from Object
 
 	DefaultBehavior
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'warningsconfiguration'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.WarningsConfiguration, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.WarningsConfiguration, Microsoft.EntityFrameworkCore',[])
 		return self

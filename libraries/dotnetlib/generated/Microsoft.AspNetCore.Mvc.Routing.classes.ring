@@ -79,11 +79,21 @@ Class AttributeRouteInfo from Object
 	SuppressLinkGeneration
 	SuppressPathMatching
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'attributerouteinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.AttributeRouteInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.AttributeRouteInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
@@ -275,11 +285,21 @@ Class UrlActionContext from Object
 	Host
 	Fragment
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'urlactioncontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
@@ -369,11 +389,21 @@ Class UrlHelperBase from Object
 
 Class UrlHelperFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'urlhelperfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlHelperFactory, Microsoft.AspNetCore.Mvc.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlHelperFactory, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
@@ -393,11 +423,21 @@ Class UrlRouteContext from Object
 	Host
 	Fragment
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'urlroutecontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlRouteContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlRouteContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self

@@ -687,16 +687,30 @@ Class AsyncServiceScope from ValueType
 
 	ServiceProvider
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'asyncservicescope'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.AsyncServiceScope, Microsoft.Extensions.DependencyInjection.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.AsyncServiceScope, Microsoft.Extensions.DependencyInjection.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.DependencyInjection.AsyncServiceScope, Microsoft.Extensions.DependencyInjection.Abstractions',P1)
 			return self
@@ -982,16 +996,30 @@ Class DataProtectionServiceCollectionExtensions from Object
 
 Class DefaultServiceProviderFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultserviceproviderfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory, Microsoft.Extensions.DependencyInjection',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory, Microsoft.Extensions.DependencyInjection',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory, Microsoft.Extensions.DependencyInjection',P1)
 			return self
@@ -2692,11 +2720,21 @@ Class ServiceCollection from Object
 	Count
 	IsReadOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'servicecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.ServiceCollection, Microsoft.Extensions.DependencyInjection.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.ServiceCollection, Microsoft.Extensions.DependencyInjection.Abstractions',[])
 		return self
@@ -3059,11 +3097,21 @@ Class ServiceProviderOptions from Object
 	ValidateScopes
 	ValidateOnBuild
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'serviceprovideroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.ServiceProviderOptions, Microsoft.Extensions.DependencyInjection',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.ServiceProviderOptions, Microsoft.Extensions.DependencyInjection',[])
 		return self

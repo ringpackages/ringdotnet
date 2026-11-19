@@ -857,16 +857,30 @@ Class AsnEncodedDataCollection from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'asnencodeddatacollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.AsnEncodedDataCollection, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.AsnEncodedDataCollection, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AsnEncodedDataCollection, System.Security.Cryptography',P1)
 			return self
@@ -1606,11 +1620,21 @@ Class CngKeyCreationParameters from Object
 	Provider
 	UIPolicy
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cngkeycreationparameters'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.CngKeyCreationParameters, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.CngKeyCreationParameters, System.Security.Cryptography',[])
 		return self
@@ -1672,16 +1696,30 @@ Class CngProperty from ValueType
 	Name
 	Options
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cngproperty'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.CngProperty, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.CngProperty, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CngProperty, System.Security.Cryptography',P1)
 			return self
@@ -1713,11 +1751,21 @@ Class CngPropertyCollection from DotNetObject
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cngpropertycollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.CngPropertyCollection, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.CngPropertyCollection, System.Security.Cryptography',[])
 		return self
@@ -1891,11 +1939,21 @@ Class CryptoConfig from Object
 
 	AllowOnlyFipsAlgorithms
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cryptoconfig'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',[])
 		return self
@@ -2121,16 +2179,30 @@ Class CspParameters from Object
 	KeyContainerName
 	KeyNumber
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cspparameters'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.CspParameters, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.CspParameters, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.CspParameters, System.Security.Cryptography',P1)
 			return self
@@ -2206,11 +2278,21 @@ Class DSAParameters from ValueType
 	Seed
 	Counter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dsaparameters'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.DSAParameters, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSAParameters, System.Security.Cryptography',[])
 		return self
@@ -2315,11 +2397,21 @@ Class ECCurve from ValueType
 	Polynomial
 	Prime
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'eccurve'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.ECCurve, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECCurve, System.Security.Cryptography',[])
 		return self
@@ -2477,11 +2569,21 @@ Class ECParameters from ValueType
 	D
 	Curve
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ecparameters'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.ECParameters, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECParameters, System.Security.Cryptography',[])
 		return self
@@ -2517,11 +2619,21 @@ Class ECPoint from ValueType
 	X
 	Y
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ecpoint'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.ECPoint, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECPoint, System.Security.Cryptography',[])
 		return self
@@ -2548,16 +2660,30 @@ Class FromBase64Transform from Object
 	CanTransformMultipleBlocks
 	CanReuseTransform
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'frombase64transform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.FromBase64Transform, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.FromBase64Transform, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.FromBase64Transform, System.Security.Cryptography',P1)
 			return self
@@ -2751,16 +2877,30 @@ Class HashAlgorithmName from ValueType
 	SHA3_384
 	SHA3_512
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hashalgorithmname'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',P1)
 			return self
@@ -3276,16 +3416,30 @@ Class Oid from Object
 	Value
 	FriendlyName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'oid'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.Oid, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.Oid, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.Oid, System.Security.Cryptography',P1)
 			return self
@@ -3327,11 +3481,21 @@ Class OidCollection from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'oidcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.OidCollection, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.OidCollection, System.Security.Cryptography',[])
 		return self
@@ -3461,11 +3625,21 @@ Class PemFields from ValueType
 	Base64Data
 	DecodedDataLength
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pemfields'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.PemFields, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.PemFields, System.Security.Cryptography',[])
 		return self
@@ -3594,11 +3768,21 @@ Class RSAParameters from ValueType
 	P
 	Q
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsaparameters'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSAParameters, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAParameters, System.Security.Cryptography',[])
 		return self
@@ -3781,16 +3965,30 @@ Class SafeEvpPKeyHandle from SafeHandle
 
 	OpenSslVersion
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'safeevppkeyhandle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',P1)
 			return self
@@ -3825,11 +4023,21 @@ Class Shake128 from Object
 
 	IsSupported
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'shake128'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.Shake128, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.Shake128, System.Security.Cryptography',[])
 		return self
@@ -3881,11 +4089,21 @@ Class Shake256 from Object
 
 	IsSupported
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'shake256'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.Shake256, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.Shake256, System.Security.Cryptography',[])
 		return self
@@ -3940,16 +4158,30 @@ Class SignatureDescription from Object
 	FormatterAlgorithm
 	DeformatterAlgorithm
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'signaturedescription'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.SignatureDescription, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.SignatureDescription, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.SignatureDescription, System.Security.Cryptography',P1)
 			return self
@@ -4185,11 +4417,21 @@ Class ToBase64Transform from Object
 	CanTransformMultipleBlocks
 	CanReuseTransform
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tobase64transform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.ToBase64Transform, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.ToBase64Transform, System.Security.Cryptography',[])
 		return self
@@ -4338,16 +4580,30 @@ Class DSA from AsymmetricAlgorithm
 
 Class DSASignatureDeformatter from AsymmetricSignatureDeformatter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dsasignaturedeformatter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.DSASignatureDeformatter, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSASignatureDeformatter, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSASignatureDeformatter, System.Security.Cryptography',P1)
 			return self
@@ -4362,16 +4618,30 @@ Class DSASignatureDeformatter from AsymmetricSignatureDeformatter
 
 Class DSASignatureFormatter from AsymmetricSignatureFormatter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dsasignatureformatter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.DSASignatureFormatter, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSASignatureFormatter, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSASignatureFormatter, System.Security.Cryptography',P1)
 			return self
@@ -4520,11 +4790,21 @@ Class PKCS1MaskGenerationMethod from MaskGenerationMethod
 
 	HashName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pkcs1maskgenerationmethod'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.PKCS1MaskGenerationMethod, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.PKCS1MaskGenerationMethod, System.Security.Cryptography',[])
 		return self
@@ -4692,16 +4972,30 @@ Class RSA from AsymmetricAlgorithm
 
 Class RSAOAEPKeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsaoaepkeyexchangedeformatter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter, System.Security.Cryptography',P1)
 			return self
@@ -4719,16 +5013,30 @@ Class RSAOAEPKeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 	Parameter
 	Rng
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsaoaepkeyexchangeformatter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeFormatter, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeFormatter, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOAEPKeyExchangeFormatter, System.Security.Cryptography',P1)
 			return self
@@ -4759,16 +5067,30 @@ Class RSAPKCS1KeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 
 	RNG
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsapkcs1keyexchangedeformatter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter, System.Security.Cryptography',P1)
 			return self
@@ -4792,16 +5114,30 @@ Class RSAPKCS1KeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 
 	Rng
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsapkcs1keyexchangeformatter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',P1)
 			return self
@@ -4823,16 +5159,30 @@ Class RSAPKCS1KeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 
 Class RSAPKCS1SignatureDeformatter from AsymmetricSignatureDeformatter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsapkcs1signaturedeformatter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureDeformatter, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureDeformatter, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1SignatureDeformatter, System.Security.Cryptography',P1)
 			return self
@@ -4847,16 +5197,30 @@ Class RSAPKCS1SignatureDeformatter from AsymmetricSignatureDeformatter
 
 Class RSAPKCS1SignatureFormatter from AsymmetricSignatureFormatter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsapkcs1signatureformatter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureFormatter, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureFormatter, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1SignatureFormatter, System.Security.Cryptography',P1)
 			return self
@@ -5259,16 +5623,30 @@ Class TripleDES from SymmetricAlgorithm
 
 Class AesCng from Aes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'aescng'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.AesCng, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.AesCng, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.AesCng, System.Security.Cryptography',P1)
 			return self
@@ -5285,16 +5663,30 @@ Class DSACng from DSA
 
 	Key
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dsacng'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.DSACng, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSACng, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSACng, System.Security.Cryptography',P1)
 			return self
@@ -5320,16 +5712,30 @@ Class DSACryptoServiceProvider from DSA
 	PublicOnly
 	UseMachineKeyStore
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dsacryptoserviceprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',P1)
 			return self
@@ -5392,16 +5798,30 @@ Class DSACryptoServiceProvider from DSA
 
 Class DSAOpenSsl from DSA
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dsaopenssl'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.DSAOpenSsl, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSAOpenSsl, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.DSAOpenSsl, System.Security.Cryptography',P1)
 			return self
@@ -5546,16 +5966,30 @@ Class RSACng from RSA
 
 	Key
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsacng'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSACng, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSACng, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSACng, System.Security.Cryptography',P1)
 			return self
@@ -5581,16 +6015,30 @@ Class RSACryptoServiceProvider from RSA
 	PublicOnly
 	UseMachineKeyStore
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsacryptoserviceprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',P1)
 			return self
@@ -5653,16 +6101,30 @@ Class RSACryptoServiceProvider from RSA
 
 Class RSAOpenSsl from RSA
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rsaopenssl'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.RSAOpenSsl, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAOpenSsl, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOpenSsl, System.Security.Cryptography',P1)
 			return self
@@ -5680,16 +6142,30 @@ Class RSAOpenSsl from RSA
 
 Class TripleDESCng from TripleDES
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tripledescng'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',P1)
 			return self
@@ -5714,16 +6190,30 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 	UseSecretAgreementAsHmacKey
 	Key
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ecdiffiehellmancng'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanCng, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanCng, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDiffieHellmanCng, System.Security.Cryptography',P1)
 			return self
@@ -5810,16 +6300,30 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 
 Class ECDiffieHellmanOpenSsl from ECDiffieHellman
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ecdiffiehellmanopenssl'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanOpenSsl, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanOpenSsl, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDiffieHellmanOpenSsl, System.Security.Cryptography',P1)
 			return self
@@ -5840,16 +6344,30 @@ Class ECDsaCng from ECDsa
 	HashAlgorithm
 	Key
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ecdsacng'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.ECDsaCng, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECDsaCng, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDsaCng, System.Security.Cryptography',P1)
 			return self
@@ -5891,16 +6409,30 @@ Class ECDsaCng from ECDsa
 
 Class ECDsaOpenSsl from ECDsa
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ecdsaopenssl'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.ECDsaOpenSsl, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECDsaOpenSsl, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.ECDsaOpenSsl, System.Security.Cryptography',P1)
 			return self
@@ -5921,16 +6453,30 @@ Class HMACMD5 from HMAC
 	HashSizeInBits
 	HashSizeInBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hmacmd5'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.HMACMD5, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACMD5, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACMD5, System.Security.Cryptography',P1)
 			return self
@@ -5969,16 +6515,30 @@ Class HMACSHA1 from HMAC
 	HashSizeInBits
 	HashSizeInBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hmacsha1'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',P1)
 			return self
@@ -6017,16 +6577,30 @@ Class HMACSHA256 from HMAC
 	HashSizeInBits
 	HashSizeInBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hmacsha256'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',P1)
 			return self
@@ -6066,16 +6640,30 @@ Class HMACSHA384 from HMAC
 	HashSizeInBits
 	HashSizeInBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hmacsha384'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',P1)
 			return self
@@ -6122,16 +6710,30 @@ Class HMACSHA3_256 from HMAC
 	HashSizeInBits
 	HashSizeInBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hmacsha3_256'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',P1)
 			return self
@@ -6177,16 +6779,30 @@ Class HMACSHA3_384 from HMAC
 	HashSizeInBits
 	HashSizeInBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hmacsha3_384'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',P1)
 			return self
@@ -6232,16 +6848,30 @@ Class HMACSHA3_512 from HMAC
 	HashSizeInBits
 	HashSizeInBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hmacsha3_512'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',P1)
 			return self
@@ -6287,16 +6917,30 @@ Class HMACSHA512 from HMAC
 	HashSizeInBits
 	HashSizeInBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hmacsha512'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',P1)
 			return self

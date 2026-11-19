@@ -890,16 +890,30 @@ Class EntityMaterializerSourceParameters from ValueType
 	InstanceName
 	QueryTrackingBehavior
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'entitymaterializersourceparameters'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -1091,11 +1105,21 @@ Class EfExpressionExtensions from Object
 
 Class ExpressionPrinter from ExpressionVisitor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'expressionprinter'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -2010,11 +2034,21 @@ Class LiftableConstantExpression from ExpressionsExpression
 
 Class LiftableConstantExpressionDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'liftableconstantexpressiondependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionDependencies, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -2203,11 +2237,21 @@ Class NavigationExpansionExtensibilityHelper from Object
 
 Class NavigationExpansionExtensibilityHelperDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'navigationexpansionextensibilityhelperdependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.NavigationExpansionExtensibilityHelperDependencies, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.NavigationExpansionExtensibilityHelperDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -2267,16 +2311,30 @@ Class EfPathSegment from ValueType
 	PropertyName
 	ArrayIndex
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'efpathsegment'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',P1)
 			return self
@@ -2342,11 +2400,21 @@ Class ProjectionMember from Object
 
 	Last
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'projectionmember'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ProjectionMember, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ProjectionMember, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -2923,11 +2991,21 @@ Class QueryTranslationPostprocessor from Object
 
 Class QueryTranslationPostprocessorDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'querytranslationpostprocessordependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryTranslationPostprocessorDependencies, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryTranslationPostprocessorDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -3027,11 +3105,21 @@ Class QueryableMethodTranslatingExpressionVisitor from ExpressionVisitor
 
 Class QueryableMethodTranslatingExpressionVisitorDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'queryablemethodtranslatingexpressionvisitordependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -3641,11 +3729,21 @@ Class RelationalCompiledQueryCacheKeyGeneratorDependencies from Object
 
 Class RelationalEvaluatableExpressionFilterDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relationalevaluatableexpressionfilterdependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalEvaluatableExpressionFilterDependencies, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalEvaluatableExpressionFilterDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -3729,11 +3827,21 @@ Class RelationalGroupByResultExpression from ExpressionsExpression
 
 Class RelationalLiftableConstantExpressionDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relationalliftableconstantexpressiondependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalLiftableConstantExpressionDependencies, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalLiftableConstantExpressionDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -4537,11 +4645,21 @@ Class ShapedQueryExpression from ExpressionsExpression
 
 Class SqlAliasManager from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlaliasmanager'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.SqlAliasManager, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.SqlAliasManager, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -4558,11 +4676,21 @@ Class SqlAliasManager from Object
 
 Class SqlAliasManagerFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqlaliasmanagerfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.SqlAliasManagerFactory, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.SqlAliasManagerFactory, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
@@ -4799,11 +4927,21 @@ Class SqlNullabilityProcessor from Object
 
 Class SqlTreePruner from ExpressionVisitor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sqltreepruner'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.SqlTreePruner, Microsoft.EntityFrameworkCore.Relational',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.SqlTreePruner, Microsoft.EntityFrameworkCore.Relational',[])
 		return self

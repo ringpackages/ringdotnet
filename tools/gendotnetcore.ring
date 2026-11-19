@@ -324,6 +324,28 @@ func buildPlan cTypeName, nForceInit
 	next
 	cCode = ""
 
+	# The code of the class body runs for "new X" (no parentheses, so no call to init) and for "new X()": it makes the default object
+	# (only for this class: a class that inherits from it, like a user class, has its own init). init then keeps it.
+	# When init takes one parameter (forced by the manifest, so that new StringBuilder("text") works) and the type also has a
+	# parameterless constructor, new X(value) makes the default object too, and init replaces it (an extra object, only for a few classes).
+	lDefaultRegion = false
+	if lCreate and nInit = 0
+		lDefaultRegion = true
+	ok
+	if lCreate and nInit = 1
+		for aCtor in aCtors
+			if len(aCtor) = 0
+				lDefaultRegion = true
+				exit
+			ok
+		next
+	ok
+	if lDefaultRegion
+		cCode += "	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = '%CLASS%'          # new X without parentheses: the default object" + nl
+		cCode += "		nHandle = dnCreate('" + cTypeName + "',[])" + nl
+		cCode += "	ok" + nl + nl
+	ok
+
 	# Constructors: init uses the overload with fewer parameters, New_N the others
 	cCode += "	Func init " + paraList(maxz(nInit)) + nl
 	cCode += "		if nDotNetWrapHandle != 0" + nl
@@ -331,17 +353,29 @@ func buildPlan cTypeName, nForceInit
 	cCode += "			nDotNetWrapHandle = 0" + nl
 	cCode += "			return self" + nl
 	cCode += "		ok" + nl
+	if lCreate and lDefaultRegion and nInit = 0
+		cCode += "		if nHandle != 0          # made by the class body" + nl
+		cCode += "			return self" + nl
+		cCode += "		ok" + nl
+	ok
 	if lCreate
 		# init has one parameter and the type also has a parameterless constructor: init(NULL) (an empty text) calls that one
 		for aCtor in aCtors
 			if (nInit = 1) and (len(aCtor) = 0)
 				cCode += "		if isstring(P1) and P1 = " + '""' + nl
-				cCode += "			nHandle = dnCreate('" + cTypeName + "',[])" + nl
+				cCode += "			if nHandle = 0" + nl
+				cCode += "				nHandle = dnCreate('" + cTypeName + "',[])" + nl
+				cCode += "			ok" + nl
 				cCode += "			return self" + nl
 				cCode += "		ok" + nl
 				exit
 			ok
 		next
+		if lDefaultRegion
+			cCode += "		if nHandle != 0          # the default object made for the class body is not needed" + nl
+			cCode += "			dnRequest(" + '"release"' + ",[nHandle])" + nl
+			cCode += "		ok" + nl
+		ok
 		cCode += "		nHandle = dnCreate('" + cTypeName + "',[" + paraList(nInit) + "])" + nl
 	ok
 	cCode += "		return self" + nl + nl
@@ -356,6 +390,12 @@ func buildPlan cTypeName, nForceInit
 	next
 	if lOtherCtor
 		cCode += "	Func New_ P1" + nl
+		if lDefaultRegion
+			cCode += "		if nHandle != 0          # the default object made for the class body is not needed" + nl
+			cCode += "			dnRequest(" + '"release"' + ",[nHandle])" + nl
+			cCode += "			nHandle = 0" + nl
+			cCode += "		ok" + nl
+		ok
 		cCode += "		if dnIsNamed(P1)" + nl
 		cCode += "			nHandle = dnCreateNamed('" + cTypeName + "',P1)" + nl
 		cCode += "			return self" + nl
@@ -798,7 +838,7 @@ func genClass cTypeName, cClass, nForceInit
 	if cAttrs != ""
 		cCode += cAttrs + nl
 	ok
-	cCode += aPlan[5]
+	cCode += substr(aPlan[5],"%CLASS%",lower(cClass))
 	for aBlock in aPlan[7]
 		lInherited = false
 		if len(aBasePlan) > 0

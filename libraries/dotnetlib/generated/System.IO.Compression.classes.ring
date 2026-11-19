@@ -75,11 +75,21 @@ Class BrotliCompressionOptions from Object
 
 	Quality
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'brotlicompressionoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.Compression.BrotliCompressionOptions, System.IO.Compression.Brotli',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.Compression.BrotliCompressionOptions, System.IO.Compression.Brotli',[])
 		return self
@@ -97,11 +107,21 @@ Class BrotliCompressionOptions from Object
 
 Class BrotliDecoder from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'brotlidecoder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.Compression.BrotliDecoder, System.IO.Compression.Brotli',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.Compression.BrotliDecoder, System.IO.Compression.Brotli',[])
 		return self
@@ -113,16 +133,30 @@ Class BrotliDecoder from ValueType
 
 Class BrotliEncoder from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'brotliencoder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',P1)
 			return self
@@ -249,11 +283,21 @@ Class ZLibCompressionOptions from Object
 	CompressionLevel
 	CompressionStrategy
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'zlibcompressionoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.Compression.ZLibCompressionOptions, System.IO.Compression',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.Compression.ZLibCompressionOptions, System.IO.Compression',[])
 		return self

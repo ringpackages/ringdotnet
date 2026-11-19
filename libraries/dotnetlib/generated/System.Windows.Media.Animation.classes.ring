@@ -1383,11 +1383,21 @@ Class BeginStoryboard from TriggerAction
 	Name
 	StoryboardProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'beginstoryboard'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BeginStoryboard, PresentationFramework',[])
 		return self
@@ -1481,11 +1491,21 @@ Class BooleanKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'booleankeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BooleanKeyFrameCollection, PresentationCore',[])
 		return self
@@ -1627,11 +1647,21 @@ Class ByteKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bytekeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteKeyFrameCollection, PresentationCore',[])
 		return self
@@ -1773,11 +1803,21 @@ Class CharKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'charkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CharKeyFrameCollection, PresentationCore',[])
 		return self
@@ -2163,11 +2203,21 @@ Class ColorKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colorkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorKeyFrameCollection, PresentationCore',[])
 		return self
@@ -2329,11 +2379,21 @@ Class DecimalKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decimalkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalKeyFrameCollection, PresentationCore',[])
 		return self
@@ -2475,11 +2535,21 @@ Class DoubleKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doublekeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleKeyFrameCollection, PresentationCore',[])
 		return self
@@ -2763,11 +2833,21 @@ Class Int16KeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int16keyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16KeyFrameCollection, PresentationCore',[])
 		return self
@@ -2909,11 +2989,21 @@ Class Int32KeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32keyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32KeyFrameCollection, PresentationCore',[])
 		return self
@@ -3055,11 +3145,21 @@ Class Int64KeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int64keyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64KeyFrameCollection, PresentationCore',[])
 		return self
@@ -3145,16 +3245,30 @@ Class KeySpline from Freezable
 	ControlPoint1
 	ControlPoint2
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keyspline'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.KeySpline, PresentationCore',P1)
 			return self
@@ -3198,11 +3312,21 @@ Class KeyTime from ValueType
 	Uniform
 	Paced
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keytime'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.KeyTime, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.KeyTime, PresentationCore',[])
 		return self
@@ -3317,11 +3441,21 @@ Class MatrixKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.MatrixKeyFrameCollection, PresentationCore',[])
 		return self
@@ -3463,11 +3597,21 @@ Class ObjectKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'objectkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ObjectKeyFrameCollection, PresentationCore',[])
 		return self
@@ -3609,11 +3753,21 @@ Class Point3DKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3dkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DKeyFrameCollection, PresentationCore',[])
 		return self
@@ -3755,11 +3909,21 @@ Class PointKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointKeyFrameCollection, PresentationCore',[])
 		return self
@@ -3901,11 +4065,21 @@ Class QuaternionKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quaternionkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionKeyFrameCollection, PresentationCore',[])
 		return self
@@ -4047,11 +4221,21 @@ Class RectKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rectkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectKeyFrameCollection, PresentationCore',[])
 		return self
@@ -4140,16 +4324,30 @@ Class RepeatBehavior from ValueType
 	Duration
 	Forever
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'repeatbehavior'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',P1)
 			return self
@@ -4209,11 +4407,21 @@ Class RepeatBehavior from ValueType
 
 Class RepeatBehaviorConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'repeatbehaviorconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehaviorConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehaviorConverter, PresentationCore',[])
 		return self
@@ -4280,11 +4488,21 @@ Class Rotation3DKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rotation3dkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DKeyFrameCollection, PresentationCore',[])
 		return self
@@ -4426,11 +4644,21 @@ Class SingleKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'singlekeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleKeyFrameCollection, PresentationCore',[])
 		return self
@@ -4572,11 +4800,21 @@ Class SizeKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sizekeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeKeyFrameCollection, PresentationCore',[])
 		return self
@@ -4718,11 +4956,21 @@ Class StringKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.StringKeyFrameCollection, PresentationCore',[])
 		return self
@@ -4864,11 +5112,21 @@ Class ThicknessKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thicknesskeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessKeyFrameCollection, PresentationFramework',[])
 		return self
@@ -5010,11 +5268,21 @@ Class Vector3DKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3dkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DKeyFrameCollection, PresentationCore',[])
 		return self
@@ -5156,11 +5424,21 @@ Class VectorKeyFrameCollection from Freezable
 	IsReadOnly
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vectorkeyframecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorKeyFrameCollection, PresentationCore',[])
 		return self
@@ -5260,11 +5538,21 @@ Class BackEase from EasingFunctionBase
 	Amplitude
 	AmplitudeProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'backease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.BackEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BackEase, PresentationCore',[])
 		return self
@@ -5290,11 +5578,21 @@ Class BounceEase from EasingFunctionBase
 	BouncesProperty
 	BouncinessProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bounceease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.BounceEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BounceEase, PresentationCore',[])
 		return self
@@ -5328,11 +5626,21 @@ Class BounceEase from EasingFunctionBase
 
 Class CircleEase from EasingFunctionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'circleease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.CircleEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CircleEase, PresentationCore',[])
 		return self
@@ -5359,11 +5667,21 @@ Class ClockGroup from Clock
 
 Class CubicEase from EasingFunctionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cubicease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.CubicEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CubicEase, PresentationCore',[])
 		return self
@@ -5371,16 +5689,30 @@ Class CubicEase from EasingFunctionBase
 
 Class DiscreteBooleanKeyFrame from BooleanKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretebooleankeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',P1)
 			return self
@@ -5395,16 +5727,30 @@ Class DiscreteBooleanKeyFrame from BooleanKeyFrame
 
 Class DiscreteByteKeyFrame from ByteKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretebytekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',P1)
 			return self
@@ -5419,16 +5765,30 @@ Class DiscreteByteKeyFrame from ByteKeyFrame
 
 Class DiscreteCharKeyFrame from CharKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretecharkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',P1)
 			return self
@@ -5443,16 +5803,30 @@ Class DiscreteCharKeyFrame from CharKeyFrame
 
 Class DiscreteColorKeyFrame from ColorKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretecolorkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',P1)
 			return self
@@ -5467,16 +5841,30 @@ Class DiscreteColorKeyFrame from ColorKeyFrame
 
 Class DiscreteDecimalKeyFrame from DecimalKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretedecimalkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',P1)
 			return self
@@ -5491,16 +5879,30 @@ Class DiscreteDecimalKeyFrame from DecimalKeyFrame
 
 Class DiscreteDoubleKeyFrame from DoubleKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretedoublekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',P1)
 			return self
@@ -5515,16 +5917,30 @@ Class DiscreteDoubleKeyFrame from DoubleKeyFrame
 
 Class DiscreteInt16KeyFrame from Int16KeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreteint16keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',P1)
 			return self
@@ -5539,16 +5955,30 @@ Class DiscreteInt16KeyFrame from Int16KeyFrame
 
 Class DiscreteInt32KeyFrame from Int32KeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreteint32keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',P1)
 			return self
@@ -5563,16 +5993,30 @@ Class DiscreteInt32KeyFrame from Int32KeyFrame
 
 Class DiscreteInt64KeyFrame from Int64KeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreteint64keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',P1)
 			return self
@@ -5587,16 +6031,30 @@ Class DiscreteInt64KeyFrame from Int64KeyFrame
 
 Class DiscreteMatrixKeyFrame from MatrixKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretematrixkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',P1)
 			return self
@@ -5611,16 +6069,30 @@ Class DiscreteMatrixKeyFrame from MatrixKeyFrame
 
 Class DiscreteObjectKeyFrame from ObjectKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreteobjectkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',P1)
 			return self
@@ -5635,16 +6107,30 @@ Class DiscreteObjectKeyFrame from ObjectKeyFrame
 
 Class DiscretePoint3DKeyFrame from Point3DKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretepoint3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',P1)
 			return self
@@ -5659,16 +6145,30 @@ Class DiscretePoint3DKeyFrame from Point3DKeyFrame
 
 Class DiscretePointKeyFrame from PointKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretepointkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',P1)
 			return self
@@ -5683,16 +6183,30 @@ Class DiscretePointKeyFrame from PointKeyFrame
 
 Class DiscreteQuaternionKeyFrame from QuaternionKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretequaternionkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',P1)
 			return self
@@ -5707,16 +6221,30 @@ Class DiscreteQuaternionKeyFrame from QuaternionKeyFrame
 
 Class DiscreteRectKeyFrame from RectKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreterectkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',P1)
 			return self
@@ -5731,16 +6259,30 @@ Class DiscreteRectKeyFrame from RectKeyFrame
 
 Class DiscreteRotation3DKeyFrame from Rotation3DKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discreterotation3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',P1)
 			return self
@@ -5755,16 +6297,30 @@ Class DiscreteRotation3DKeyFrame from Rotation3DKeyFrame
 
 Class DiscreteSingleKeyFrame from SingleKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretesinglekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',P1)
 			return self
@@ -5779,16 +6335,30 @@ Class DiscreteSingleKeyFrame from SingleKeyFrame
 
 Class DiscreteSizeKeyFrame from SizeKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretesizekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',P1)
 			return self
@@ -5803,16 +6373,30 @@ Class DiscreteSizeKeyFrame from SizeKeyFrame
 
 Class DiscreteStringKeyFrame from StringKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretestringkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',P1)
 			return self
@@ -5827,16 +6411,30 @@ Class DiscreteStringKeyFrame from StringKeyFrame
 
 Class DiscreteThicknessKeyFrame from ThicknessKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretethicknesskeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',P1)
 			return self
@@ -5851,16 +6449,30 @@ Class DiscreteThicknessKeyFrame from ThicknessKeyFrame
 
 Class DiscreteVector3DKeyFrame from Vector3DKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretevector3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',P1)
 			return self
@@ -5875,16 +6487,30 @@ Class DiscreteVector3DKeyFrame from Vector3DKeyFrame
 
 Class DiscreteVectorKeyFrame from VectorKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'discretevectorkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',P1)
 			return self
@@ -5902,16 +6528,30 @@ Class EasingByteKeyFrame from ByteKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingbytekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',P1)
 			return self
@@ -5942,16 +6582,30 @@ Class EasingColorKeyFrame from ColorKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingcolorkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',P1)
 			return self
@@ -5982,16 +6636,30 @@ Class EasingDecimalKeyFrame from DecimalKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingdecimalkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',P1)
 			return self
@@ -6022,16 +6690,30 @@ Class EasingDoubleKeyFrame from DoubleKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingdoublekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',P1)
 			return self
@@ -6062,16 +6744,30 @@ Class EasingInt16KeyFrame from Int16KeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingint16keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',P1)
 			return self
@@ -6102,16 +6798,30 @@ Class EasingInt32KeyFrame from Int32KeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingint32keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',P1)
 			return self
@@ -6142,16 +6852,30 @@ Class EasingInt64KeyFrame from Int64KeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingint64keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',P1)
 			return self
@@ -6182,16 +6906,30 @@ Class EasingPoint3DKeyFrame from Point3DKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingpoint3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',P1)
 			return self
@@ -6222,16 +6960,30 @@ Class EasingPointKeyFrame from PointKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingpointkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',P1)
 			return self
@@ -6264,16 +7016,30 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 	UseShortestPathProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingquaternionkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',P1)
 			return self
@@ -6317,16 +7083,30 @@ Class EasingRectKeyFrame from RectKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingrectkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',P1)
 			return self
@@ -6357,16 +7137,30 @@ Class EasingRotation3DKeyFrame from Rotation3DKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingrotation3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',P1)
 			return self
@@ -6397,16 +7191,30 @@ Class EasingSingleKeyFrame from SingleKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingsinglekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',P1)
 			return self
@@ -6437,16 +7245,30 @@ Class EasingSizeKeyFrame from SizeKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingsizekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',P1)
 			return self
@@ -6477,16 +7299,30 @@ Class EasingThicknessKeyFrame from ThicknessKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingthicknesskeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',P1)
 			return self
@@ -6517,16 +7353,30 @@ Class EasingVector3DKeyFrame from Vector3DKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingvector3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',P1)
 			return self
@@ -6557,16 +7407,30 @@ Class EasingVectorKeyFrame from VectorKeyFrame
 	EasingFunction
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'easingvectorkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',P1)
 			return self
@@ -6599,11 +7463,21 @@ Class ElasticEase from EasingFunctionBase
 	OscillationsProperty
 	SpringinessProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'elasticease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ElasticEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ElasticEase, PresentationCore',[])
 		return self
@@ -6640,11 +7514,21 @@ Class ExponentialEase from EasingFunctionBase
 	Exponent
 	ExponentProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'exponentialease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ExponentialEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ExponentialEase, PresentationCore',[])
 		return self
@@ -6665,16 +7549,30 @@ Class ExponentialEase from EasingFunctionBase
 
 Class LinearByteKeyFrame from ByteKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearbytekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',P1)
 			return self
@@ -6689,16 +7587,30 @@ Class LinearByteKeyFrame from ByteKeyFrame
 
 Class LinearColorKeyFrame from ColorKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearcolorkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',P1)
 			return self
@@ -6713,16 +7625,30 @@ Class LinearColorKeyFrame from ColorKeyFrame
 
 Class LinearDecimalKeyFrame from DecimalKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'lineardecimalkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',P1)
 			return self
@@ -6737,16 +7663,30 @@ Class LinearDecimalKeyFrame from DecimalKeyFrame
 
 Class LinearDoubleKeyFrame from DoubleKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'lineardoublekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',P1)
 			return self
@@ -6761,16 +7701,30 @@ Class LinearDoubleKeyFrame from DoubleKeyFrame
 
 Class LinearInt16KeyFrame from Int16KeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearint16keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',P1)
 			return self
@@ -6785,16 +7739,30 @@ Class LinearInt16KeyFrame from Int16KeyFrame
 
 Class LinearInt32KeyFrame from Int32KeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearint32keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',P1)
 			return self
@@ -6809,16 +7777,30 @@ Class LinearInt32KeyFrame from Int32KeyFrame
 
 Class LinearInt64KeyFrame from Int64KeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearint64keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',P1)
 			return self
@@ -6833,16 +7815,30 @@ Class LinearInt64KeyFrame from Int64KeyFrame
 
 Class LinearPoint3DKeyFrame from Point3DKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearpoint3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',P1)
 			return self
@@ -6857,16 +7853,30 @@ Class LinearPoint3DKeyFrame from Point3DKeyFrame
 
 Class LinearPointKeyFrame from PointKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearpointkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',P1)
 			return self
@@ -6884,16 +7894,30 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 	UseShortestPath
 	UseShortestPathProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearquaternionkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',P1)
 			return self
@@ -6921,16 +7945,30 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 
 Class LinearRectKeyFrame from RectKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearrectkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',P1)
 			return self
@@ -6945,16 +7983,30 @@ Class LinearRectKeyFrame from RectKeyFrame
 
 Class LinearRotation3DKeyFrame from Rotation3DKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearrotation3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',P1)
 			return self
@@ -6969,16 +8021,30 @@ Class LinearRotation3DKeyFrame from Rotation3DKeyFrame
 
 Class LinearSingleKeyFrame from SingleKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearsinglekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',P1)
 			return self
@@ -6993,16 +8059,30 @@ Class LinearSingleKeyFrame from SingleKeyFrame
 
 Class LinearSizeKeyFrame from SizeKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearsizekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',P1)
 			return self
@@ -7017,16 +8097,30 @@ Class LinearSizeKeyFrame from SizeKeyFrame
 
 Class LinearThicknessKeyFrame from ThicknessKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearthicknesskeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',P1)
 			return self
@@ -7041,16 +8135,30 @@ Class LinearThicknessKeyFrame from ThicknessKeyFrame
 
 Class LinearVector3DKeyFrame from Vector3DKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearvector3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',P1)
 			return self
@@ -7065,16 +8173,30 @@ Class LinearVector3DKeyFrame from Vector3DKeyFrame
 
 Class LinearVectorKeyFrame from VectorKeyFrame
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linearvectorkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',P1)
 			return self
@@ -7089,11 +8211,21 @@ Class LinearVectorKeyFrame from VectorKeyFrame
 
 Class PauseStoryboard from ControllableStoryboardAction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pausestoryboard'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.PauseStoryboard, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PauseStoryboard, PresentationFramework',[])
 		return self
@@ -7104,11 +8236,21 @@ Class PowerEase from EasingFunctionBase
 	Power
 	PowerProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'powerease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.PowerEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PowerEase, PresentationCore',[])
 		return self
@@ -7129,11 +8271,21 @@ Class PowerEase from EasingFunctionBase
 
 Class QuadraticEase from EasingFunctionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quadraticease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.QuadraticEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuadraticEase, PresentationCore',[])
 		return self
@@ -7141,11 +8293,21 @@ Class QuadraticEase from EasingFunctionBase
 
 Class QuarticEase from EasingFunctionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quarticease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.QuarticEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuarticEase, PresentationCore',[])
 		return self
@@ -7153,11 +8315,21 @@ Class QuarticEase from EasingFunctionBase
 
 Class QuinticEase from EasingFunctionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quinticease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.QuinticEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuinticEase, PresentationCore',[])
 		return self
@@ -7165,11 +8337,21 @@ Class QuinticEase from EasingFunctionBase
 
 Class RemoveStoryboard from ControllableStoryboardAction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'removestoryboard'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.RemoveStoryboard, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RemoveStoryboard, PresentationFramework',[])
 		return self
@@ -7177,11 +8359,21 @@ Class RemoveStoryboard from ControllableStoryboardAction
 
 Class ResumeStoryboard from ControllableStoryboardAction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'resumestoryboard'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ResumeStoryboard, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ResumeStoryboard, PresentationFramework',[])
 		return self
@@ -7192,11 +8384,21 @@ Class SeekStoryboard from ControllableStoryboardAction
 	Offset
 	Origin
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'seekstoryboard'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SeekStoryboard, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SeekStoryboard, PresentationFramework',[])
 		return self
@@ -7223,11 +8425,21 @@ Class SetStoryboardSpeedRatio from ControllableStoryboardAction
 
 	SpeedRatio
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'setstoryboardspeedratio'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SetStoryboardSpeedRatio, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SetStoryboardSpeedRatio, PresentationFramework',[])
 		return self
@@ -7242,11 +8454,21 @@ Class SetStoryboardSpeedRatio from ControllableStoryboardAction
 
 Class SineEase from EasingFunctionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sineease'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SineEase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SineEase, PresentationCore',[])
 		return self
@@ -7254,11 +8476,21 @@ Class SineEase from EasingFunctionBase
 
 Class SkipStoryboardToFill from ControllableStoryboardAction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'skipstoryboardtofill'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SkipStoryboardToFill, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SkipStoryboardToFill, PresentationFramework',[])
 		return self
@@ -7269,16 +8501,30 @@ Class SplineByteKeyFrame from ByteKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinebytekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',P1)
 			return self
@@ -7309,16 +8555,30 @@ Class SplineColorKeyFrame from ColorKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinecolorkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',P1)
 			return self
@@ -7349,16 +8609,30 @@ Class SplineDecimalKeyFrame from DecimalKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinedecimalkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',P1)
 			return self
@@ -7389,16 +8663,30 @@ Class SplineDoubleKeyFrame from DoubleKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinedoublekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',P1)
 			return self
@@ -7429,16 +8717,30 @@ Class SplineInt16KeyFrame from Int16KeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splineint16keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',P1)
 			return self
@@ -7469,16 +8771,30 @@ Class SplineInt32KeyFrame from Int32KeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splineint32keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',P1)
 			return self
@@ -7509,16 +8825,30 @@ Class SplineInt64KeyFrame from Int64KeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splineint64keyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',P1)
 			return self
@@ -7549,16 +8879,30 @@ Class SplinePoint3DKeyFrame from Point3DKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinepoint3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',P1)
 			return self
@@ -7589,16 +8933,30 @@ Class SplinePointKeyFrame from PointKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinepointkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',P1)
 			return self
@@ -7631,16 +8989,30 @@ Class SplineQuaternionKeyFrame from QuaternionKeyFrame
 	UseShortestPathProperty
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinequaternionkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',P1)
 			return self
@@ -7684,16 +9056,30 @@ Class SplineRectKeyFrame from RectKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinerectkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',P1)
 			return self
@@ -7724,16 +9110,30 @@ Class SplineRotation3DKeyFrame from Rotation3DKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinerotation3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',P1)
 			return self
@@ -7764,16 +9164,30 @@ Class SplineSingleKeyFrame from SingleKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinesinglekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',P1)
 			return self
@@ -7804,16 +9218,30 @@ Class SplineSizeKeyFrame from SizeKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinesizekeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',P1)
 			return self
@@ -7844,16 +9272,30 @@ Class SplineThicknessKeyFrame from ThicknessKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinethicknesskeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',P1)
 			return self
@@ -7884,16 +9326,30 @@ Class SplineVector3DKeyFrame from Vector3DKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinevector3dkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',P1)
 			return self
@@ -7924,16 +9380,30 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 	KeySpline
 	KeySplineProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splinevectorkeyframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',P1)
 			return self
@@ -7961,11 +9431,21 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 
 Class StopStoryboard from ControllableStoryboardAction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stopstoryboard'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.StopStoryboard, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.StopStoryboard, PresentationFramework',[])
 		return self
@@ -8185,16 +9665,30 @@ Class TimelineCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'timelinecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.TimelineCollection, PresentationCore',P1)
 			return self
@@ -8448,16 +9942,30 @@ Class ParallelTimeline from TimelineGroup
 	SlipBehavior
 	SlipBehaviorProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'paralleltimeline'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',P1)
 			return self
@@ -8608,11 +10116,21 @@ Class BooleanAnimationUsingKeyFrames from BooleanAnimationBase
 
 	KeyFrames
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'booleananimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.BooleanAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.BooleanAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -8641,16 +10159,30 @@ Class ByteAnimation from ByteAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'byteanimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ByteAnimation, PresentationCore',P1)
 			return self
@@ -8735,11 +10267,21 @@ Class ByteAnimationUsingKeyFrames from ByteAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'byteanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -8773,11 +10315,21 @@ Class CharAnimationUsingKeyFrames from CharAnimationBase
 
 	KeyFrames
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'charanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.CharAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.CharAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -8806,16 +10358,30 @@ Class ColorAnimation from ColorAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'coloranimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ColorAnimation, PresentationCore',P1)
 			return self
@@ -8900,11 +10466,21 @@ Class ColorAnimationUsingKeyFrames from ColorAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'coloranimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -8947,16 +10523,30 @@ Class DecimalAnimation from DecimalAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decimalanimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',P1)
 			return self
@@ -9041,11 +10631,21 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decimalanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -9088,16 +10688,30 @@ Class DoubleAnimation from DoubleAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doubleanimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',P1)
 			return self
@@ -9182,11 +10796,21 @@ Class DoubleAnimationUsingKeyFrames from DoubleAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doubleanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -9225,11 +10849,21 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 	PathGeometryProperty
 	SourceProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doubleanimationusingpath'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimationUsingPath, PresentationCore',[])
 		return self
@@ -9288,16 +10922,30 @@ Class Int16Animation from Int16AnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int16animation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int16Animation, PresentationCore',P1)
 			return self
@@ -9382,11 +11030,21 @@ Class Int16AnimationUsingKeyFrames from Int16AnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int16animationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Int16AnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16AnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -9429,16 +11087,30 @@ Class Int32Animation from Int32AnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32animation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int32Animation, PresentationCore',P1)
 			return self
@@ -9523,11 +11195,21 @@ Class Int32AnimationUsingKeyFrames from Int32AnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32animationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Int32AnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32AnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -9570,16 +11252,30 @@ Class Int64Animation from Int64AnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int64animation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int64Animation, PresentationCore',P1)
 			return self
@@ -9664,11 +11360,21 @@ Class Int64AnimationUsingKeyFrames from Int64AnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int64animationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Int64AnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64AnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -9702,11 +11408,21 @@ Class MatrixAnimationUsingKeyFrames from MatrixAnimationBase
 
 	KeyFrames
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -9734,11 +11450,21 @@ Class MatrixAnimationUsingPath from MatrixAnimationBase
 	IsOffsetCumulativeProperty
 	PathGeometryProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixanimationusingpath'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.MatrixAnimationUsingPath, PresentationCore',[])
 		return self
@@ -9807,11 +11533,21 @@ Class ObjectAnimationUsingKeyFrames from ObjectAnimationBase
 
 	KeyFrames
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'objectanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ObjectAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ObjectAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -9840,16 +11576,30 @@ Class Point3DAnimation from Point3DAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3danimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',P1)
 			return self
@@ -9934,11 +11684,21 @@ Class Point3DAnimationUsingKeyFrames from Point3DAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'point3danimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -9981,16 +11741,30 @@ Class PointAnimation from PointAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointanimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.PointAnimation, PresentationCore',P1)
 			return self
@@ -10075,11 +11849,21 @@ Class PointAnimationUsingKeyFrames from PointAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -10116,11 +11900,21 @@ Class PointAnimationUsingPath from PointAnimationBase
 	IsCumulative
 	PathGeometryProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointanimationusingpath'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimationUsingPath, PresentationCore',[])
 		return self
@@ -10168,16 +11962,30 @@ Class QuaternionAnimation from QuaternionAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quaternionanimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',P1)
 			return self
@@ -10275,11 +12083,21 @@ Class QuaternionAnimationUsingKeyFrames from QuaternionAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quaternionanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -10322,16 +12140,30 @@ Class RectAnimation from RectAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rectanimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.RectAnimation, PresentationCore',P1)
 			return self
@@ -10416,11 +12248,21 @@ Class RectAnimationUsingKeyFrames from RectAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rectanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -10463,16 +12305,30 @@ Class Rotation3DAnimation from Rotation3DAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rotation3danimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',P1)
 			return self
@@ -10557,11 +12413,21 @@ Class Rotation3DAnimationUsingKeyFrames from Rotation3DAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rotation3danimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -10604,16 +12470,30 @@ Class SingleAnimation from SingleAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'singleanimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SingleAnimation, PresentationCore',P1)
 			return self
@@ -10698,11 +12578,21 @@ Class SingleAnimationUsingKeyFrames from SingleAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'singleanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -10745,16 +12635,30 @@ Class SizeAnimation from SizeAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sizeanimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.SizeAnimation, PresentationCore',P1)
 			return self
@@ -10839,11 +12743,21 @@ Class SizeAnimationUsingKeyFrames from SizeAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sizeanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -10879,11 +12793,21 @@ Class Storyboard from ParallelTimeline
 	TargetNameProperty
 	TargetPropertyProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'storyboard'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Storyboard, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Storyboard, PresentationFramework',[])
 		return self
@@ -11079,11 +13003,21 @@ Class StringAnimationUsingKeyFrames from StringAnimationBase
 
 	KeyFrames
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.StringAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.StringAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -11112,16 +13046,30 @@ Class ThicknessAnimation from ThicknessAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thicknessanimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',P1)
 			return self
@@ -11206,11 +13154,21 @@ Class ThicknessAnimationUsingKeyFrames from ThicknessAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thicknessanimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimationUsingKeyFrames, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimationUsingKeyFrames, PresentationFramework',[])
 		return self
@@ -11253,16 +13211,30 @@ Class Vector3DAnimation from Vector3DAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3danimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',P1)
 			return self
@@ -11347,11 +13319,21 @@ Class Vector3DAnimationUsingKeyFrames from Vector3DAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vector3danimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimationUsingKeyFrames, PresentationCore',[])
 		return self
@@ -11394,16 +13376,30 @@ Class VectorAnimation from VectorAnimationBase
 	ByProperty
 	EasingFunctionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vectoranimation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Animation.VectorAnimation, PresentationCore',P1)
 			return self
@@ -11488,11 +13484,21 @@ Class VectorAnimationUsingKeyFrames from VectorAnimationBase
 	IsAdditive
 	IsCumulative
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vectoranimationusingkeyframes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimationUsingKeyFrames, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimationUsingKeyFrames, PresentationCore',[])
 		return self

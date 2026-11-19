@@ -541,16 +541,30 @@ Class AssemblyName from Object
 	KeyPair
 	FullName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'assemblyname'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Reflection.AssemblyName, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Reflection.AssemblyName, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Reflection.AssemblyName, System.Private.CoreLib',P1)
 			return self
@@ -688,11 +702,21 @@ Class AssemblyName from Object
 
 Class AssemblyNameProxy from MarshalByRefObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'assemblynameproxy'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Reflection.AssemblyNameProxy, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Reflection.AssemblyNameProxy, System.Private.CoreLib',[])
 		return self
@@ -844,16 +868,30 @@ Class CustomAttributeNamedArgument from ValueType
 	MemberName
 	IsField
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'customattributenamedargument'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Reflection.CustomAttributeNamedArgument, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Reflection.CustomAttributeNamedArgument, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Reflection.CustomAttributeNamedArgument, System.Private.CoreLib',P1)
 			return self
@@ -895,16 +933,30 @@ Class CustomAttributeTypedArgument from ValueType
 	ArgumentType
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'customattributetypedargument'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Reflection.CustomAttributeTypedArgument, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Reflection.CustomAttributeTypedArgument, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Reflection.CustomAttributeTypedArgument, System.Private.CoreLib',P1)
 			return self
@@ -1086,11 +1138,21 @@ Class InterfaceMapping from ValueType
 	TargetMethods
 	InterfaceMethods
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'interfacemapping'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Reflection.InterfaceMapping, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Reflection.InterfaceMapping, System.Private.CoreLib',[])
 		return self
@@ -1642,11 +1704,21 @@ Class NullabilityInfo from Object
 
 Class NullabilityInfoContext from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nullabilityinfocontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Reflection.NullabilityInfoContext, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Reflection.NullabilityInfoContext, System.Private.CoreLib',[])
 		return self
@@ -1804,16 +1876,30 @@ Class ParameterInfo from Object
 
 Class ParameterModifier from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'parametermodifier'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Reflection.ParameterModifier, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Reflection.ParameterModifier, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Reflection.ParameterModifier, System.Private.CoreLib',P1)
 			return self

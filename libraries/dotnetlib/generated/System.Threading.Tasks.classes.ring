@@ -125,16 +125,30 @@ Class ConcurrentExclusiveSchedulerPair from Object
 	ConcurrentScheduler
 	ExclusiveScheduler
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'concurrentexclusiveschedulerpair'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',P1)
 			return self
@@ -223,11 +237,21 @@ Class ParallelLoopResult from ValueType
 	IsCompleted
 	LowestBreakIteration
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'parallelloopresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.Tasks.ParallelLoopResult, System.Threading.Tasks.Parallel',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.Tasks.ParallelLoopResult, System.Threading.Tasks.Parallel',[])
 		return self
@@ -302,11 +326,21 @@ Class ParallelOptions from Object
 	MaxDegreeOfParallelism
 	CancellationToken
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'paralleloptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.Tasks.ParallelOptions, System.Threading.Tasks.Parallel',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.Tasks.ParallelOptions, System.Threading.Tasks.Parallel',[])
 		return self
@@ -582,16 +616,30 @@ Class TaskCompletionSource from Object
 
 	Task
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskcompletionsource'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',P1)
 			return self
@@ -679,16 +727,30 @@ Class TaskFactory from Object
 	CreationOptions
 	ContinuationOptions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',P1)
 			return self
@@ -866,16 +928,30 @@ Class ValueTask from ValueType
 	IsCanceled
 	CompletedTask
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'valuetask'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.Tasks.ValueTask, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.Tasks.ValueTask, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Tasks.ValueTask, System.Private.CoreLib',P1)
 			return self

@@ -34,16 +34,30 @@ Class ContentDisposition from Object
 	ReadDate
 	Size
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'contentdisposition'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Mime.ContentDisposition, System.Net.Mail',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Mime.ContentDisposition, System.Net.Mail',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mime.ContentDisposition, System.Net.Mail',P1)
 			return self
@@ -122,16 +136,30 @@ Class ContentType from Object
 	Name
 	Parameters
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'contenttype'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Mime.ContentType, System.Net.Mail',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Mime.ContentType, System.Net.Mail',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Mime.ContentType, System.Net.Mail',P1)
 			return self

@@ -69,16 +69,30 @@ Class BitVector32 from ValueType
 
 	Data
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bitvector32'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Specialized.BitVector32, System.Collections.Specialized',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.BitVector32, System.Collections.Specialized',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.BitVector32, System.Collections.Specialized',P1)
 			return self
@@ -130,11 +144,21 @@ Class BitVector32 from ValueType
 
 Class CollectionsUtil from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'collectionsutil'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric',[])
 		return self
@@ -165,16 +189,30 @@ Class HybridDictionary from Object
 	SyncRoot
 	Values
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hybriddictionary'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Specialized.HybridDictionary, System.Collections.Specialized',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.HybridDictionary, System.Collections.Specialized',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.HybridDictionary, System.Collections.Specialized',P1)
 			return self
@@ -300,16 +338,30 @@ Class ListDictionary from Object
 	SyncRoot
 	Values
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listdictionary'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Specialized.ListDictionary, System.Collections.Specialized',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.ListDictionary, System.Collections.Specialized',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.ListDictionary, System.Collections.Specialized',P1)
 			return self
@@ -443,16 +495,30 @@ Class OrderedDictionary from Object
 	Keys
 	Values
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ordereddictionary'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Specialized.OrderedDictionary, System.Collections.Specialized',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.OrderedDictionary, System.Collections.Specialized',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.OrderedDictionary, System.Collections.Specialized',P1)
 			return self
@@ -543,11 +609,21 @@ Class StringCollection from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Specialized.StringCollection, System.Collections.Specialized',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Collections.Specialized.StringCollection, System.Collections.Specialized',[])
 		return self
@@ -631,11 +707,21 @@ Class SpecializedStringDictionary from Object
 	SyncRoot
 	Values
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'specializedstringdictionary'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Specialized.StringDictionary, System.Collections.Specialized',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Collections.Specialized.StringDictionary, System.Collections.Specialized',[])
 		return self
@@ -739,16 +825,30 @@ Class NameValueCollection from NameObjectCollectionBase
 
 	AllKeys
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'namevaluecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',P1)
 			return self

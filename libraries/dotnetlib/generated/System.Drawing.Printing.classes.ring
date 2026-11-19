@@ -102,16 +102,30 @@ Class Margins from Object
 	Top
 	Bottom
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'margins'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.Margins, System.Drawing.Common',P1)
 			return self
@@ -160,11 +174,21 @@ Class Margins from Object
 
 Class MarginsConverter from ExpandableObjectConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'marginsconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.MarginsConverter, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.MarginsConverter, System.Drawing.Common',[])
 		return self
@@ -184,16 +208,30 @@ Class PageSettings from Object
 	PrinterResolution
 	PrinterSettings
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pagesettings'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.PageSettings, System.Drawing.Common',P1)
 			return self
@@ -301,16 +339,30 @@ Class PaperSize from Object
 	RawKind
 	Width
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'papersize'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Printing.PaperSize, System.Drawing.Common',P1)
 			return self
@@ -366,11 +418,21 @@ Class PaperSource from Object
 	RawKind
 	SourceName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'papersource'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.PaperSource, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PaperSource, System.Drawing.Common',[])
 		return self
@@ -474,11 +536,21 @@ Class PrintDocument from Component
 	PrintController
 	PrinterSettings
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printdocument'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.PrintDocument, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrintDocument, System.Drawing.Common',[])
 		return self
@@ -559,11 +631,21 @@ Class PrintEventArgs from CancelEventArgs
 
 	PrintAction
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printeventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.PrintEventArgs, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrintEventArgs, System.Drawing.Common',[])
 		return self
@@ -638,11 +720,21 @@ Class PrinterResolution from Object
 	X
 	Y
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printerresolution'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.PrinterResolution, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrinterResolution, System.Drawing.Common',[])
 		return self
@@ -698,11 +790,21 @@ Class PrinterSettings from Object
 	ToPage
 	InstalledPrinters
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printersettings'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.PrinterSettings, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PrinterSettings, System.Drawing.Common',[])
 		return self
@@ -916,11 +1018,21 @@ Class PreviewPrintController from PrintController
 
 	UseAntiAlias
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'previewprintcontroller'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.PreviewPrintController, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.PreviewPrintController, System.Drawing.Common',[])
 		return self
@@ -959,11 +1071,21 @@ Class QueryPageSettingsEventArgs from PrintEventArgs
 
 Class StandardPrintController from PrintController
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'standardprintcontroller'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Printing.StandardPrintController, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Printing.StandardPrintController, System.Drawing.Common',[])
 		return self

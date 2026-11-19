@@ -505,11 +505,21 @@ Class AuthenticationFeature from Object
 	OriginalPathBase
 	OriginalPath
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationfeature'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationFeature, Microsoft.AspNetCore.Authentication.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationFeature, Microsoft.AspNetCore.Authentication.Core',[])
 		return self
@@ -647,11 +657,21 @@ Class AuthenticationOptions from Object
 	DefaultForbidScheme
 	RequireAuthenticatedSignIn
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationOptions, Microsoft.AspNetCore.Authentication.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationOptions, Microsoft.AspNetCore.Authentication.Abstractions',[])
 		return self
@@ -735,16 +755,30 @@ Class AuthenticationProperties from Object
 	ExpiresUtc
 	AllowRefresh
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationproperties'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',P1)
 			return self
@@ -917,11 +951,21 @@ Class AuthenticationSchemeOptions from Object
 	ForwardDefaultSelector
 	TimeProvider
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationschemeoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, Microsoft.AspNetCore.Authentication',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, Microsoft.AspNetCore.Authentication',[])
 		return self
@@ -1185,11 +1229,21 @@ Class AuthenticationToken from Object
 	Name
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'authenticationtoken'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationToken, Microsoft.AspNetCore.Authentication.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationToken, Microsoft.AspNetCore.Authentication.Abstractions',[])
 		return self
@@ -1567,11 +1621,21 @@ Class JsonDocumentAuthExtensions from Object
 
 Class NoopClaimsTransformation from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'noopclaimstransformation'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.NoopClaimsTransformation, Microsoft.AspNetCore.Authentication.Core',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.NoopClaimsTransformation, Microsoft.AspNetCore.Authentication.Core',[])
 		return self
@@ -1692,11 +1756,21 @@ Class PropertiesSerializer from Object
 
 	Default
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertiesserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication',[])
 		return self
@@ -1730,11 +1804,21 @@ Class RemoteAuthenticationEvents from Object
 	OnRemoteFailure
 	OnTicketReceived
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'remoteauthenticationevents'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationEvents, Microsoft.AspNetCore.Authentication',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationEvents, Microsoft.AspNetCore.Authentication',[])
 		return self
@@ -1866,11 +1950,21 @@ Class RemoteFailureContext from DotNetObject
 
 Class RequestPathBaseCookieBuilder from CookieBuilder
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'requestpathbasecookiebuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RequestPathBaseCookieBuilder, Microsoft.AspNetCore.Authentication',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RequestPathBaseCookieBuilder, Microsoft.AspNetCore.Authentication',[])
 		return self
@@ -2023,11 +2117,21 @@ Class TicketSerializer from Object
 
 	Default
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ticketserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.TicketSerializer, Microsoft.AspNetCore.Authentication',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.TicketSerializer, Microsoft.AspNetCore.Authentication',[])
 		return self
@@ -2060,11 +2164,21 @@ Class HandleRequestResult from AuthenticateResult
 	Handled
 	Skipped
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'handlerequestresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',[])
 		return self
@@ -2102,11 +2216,21 @@ Class HandleRequestResult from AuthenticateResult
 
 Class PolicySchemeOptions from AuthenticationSchemeOptions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'policyschemeoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeOptions, Microsoft.AspNetCore.Authentication',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeOptions, Microsoft.AspNetCore.Authentication',[])
 		return self
@@ -2126,11 +2250,21 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 	SaveTokens
 	CorrelationCookie
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'remoteauthenticationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions, Microsoft.AspNetCore.Authentication',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions, Microsoft.AspNetCore.Authentication',[])
 		return self

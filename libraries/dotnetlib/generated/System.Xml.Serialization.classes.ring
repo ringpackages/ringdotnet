@@ -223,11 +223,21 @@ Func DotNetNew_XmlTypeMapping
 
 Class CodeIdentifier from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'codeidentifier'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifier, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifier, System.Private.Xml',[])
 		return self
@@ -249,16 +259,30 @@ Class CodeIdentifiers from Object
 
 	UseCamelCasing
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'codeidentifiers'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',P1)
 			return self
@@ -419,11 +443,21 @@ Class SchemaImporter from Object
 
 Class SoapAttributeOverrides from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'soapattributeoverrides'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.SoapAttributeOverrides, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapAttributeOverrides, System.Private.Xml',[])
 		return self
@@ -451,16 +485,30 @@ Class SoapAttributes from Object
 	SoapAttribute
 	SoapDefaultValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'soapattributes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.SoapAttributes, System.Private.Xml',P1)
 			return self
@@ -520,16 +568,30 @@ Class SoapAttributes from Object
 
 Class SoapReflectionImporter from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'soapreflectionimporter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',P1)
 			return self
@@ -570,11 +632,21 @@ Class SoapSchemaMember from Object
 	MemberType
 	MemberName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'soapschemamember'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.SoapSchemaMember, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapSchemaMember, System.Private.Xml',[])
 		return self
@@ -626,11 +698,21 @@ Class UnreferencedObjectEventArgs from EventArgs
 
 Class XmlAnyElementAttributes from CollectionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlanyelementattributes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlAnyElementAttributes, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlAnyElementAttributes, System.Private.Xml',[])
 		return self
@@ -666,11 +748,21 @@ Class XmlAnyElementAttributes from CollectionBase
 
 Class XmlArrayItemAttributes from CollectionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlarrayitemattributes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlArrayItemAttributes, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlArrayItemAttributes, System.Private.Xml',[])
 		return self
@@ -753,11 +845,21 @@ Class XmlAttributeEventArgs from EventArgs
 
 Class XmlAttributeOverrides from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlattributeoverrides'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlAttributeOverrides, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlAttributeOverrides, System.Private.Xml',[])
 		return self
@@ -793,16 +895,30 @@ Class XmlAttributes from Object
 	XmlChoiceIdentifier
 	Xmlns
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlattributes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlAttributes, System.Private.Xml',P1)
 			return self
@@ -919,11 +1035,21 @@ Class XmlDeserializationEvents from ValueType
 	OnUnknownElement
 	OnUnreferencedObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmldeserializationevents'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlDeserializationEvents, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlDeserializationEvents, System.Private.Xml',[])
 		return self
@@ -959,11 +1085,21 @@ Class XmlDeserializationEvents from ValueType
 
 Class XmlElementAttributes from CollectionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlelementattributes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlElementAttributes, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlElementAttributes, System.Private.Xml',[])
 		return self
@@ -1228,16 +1364,30 @@ Class XmlNodeEventArgs from EventArgs
 
 Class XmlReflectionImporter from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlreflectionimporter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',P1)
 			return self
@@ -1282,11 +1432,21 @@ Class XmlReflectionMember from Object
 	IsReturnValue
 	OverrideIsNullable
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlreflectionmember'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionMember, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionMember, System.Private.Xml',[])
 		return self
@@ -1401,11 +1561,21 @@ Class XmlSchemas from CollectionBase
 
 	IsCompiled
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlschemas'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlSchemas, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSchemas, System.Private.Xml',[])
 		return self
@@ -1571,11 +1741,21 @@ Class XmlSerializer from Object
 
 Class XmlSerializerFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlserializerfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerFactory, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerFactory, System.Private.Xml',[])
 		return self
@@ -1650,16 +1830,30 @@ Class XmlSerializerNamespaces from Object
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlserializernamespaces'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',P1)
 			return self

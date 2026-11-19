@@ -271,11 +271,21 @@ Func DotNetNew_XamlSetTypeConverterEventArgs
 
 Class ComponentResourceKeyConverter from ExpressionConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'componentresourcekeyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.ComponentResourceKeyConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.ComponentResourceKeyConverter, PresentationFramework',[])
 		return self
@@ -283,11 +293,21 @@ Class ComponentResourceKeyConverter from ExpressionConverter
 
 Class DependencyPropertyConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dependencypropertyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.DependencyPropertyConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.DependencyPropertyConverter, PresentationFramework',[])
 		return self
@@ -295,11 +315,21 @@ Class DependencyPropertyConverter from TypeConverter
 
 Class EventSetterHandlerConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'eventsetterhandlerconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.EventSetterHandlerConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.EventSetterHandlerConverter, PresentationFramework',[])
 		return self
@@ -535,11 +565,21 @@ Class MemberDefinition from Object
 
 Class NameReferenceConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'namereferenceconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.NameReferenceConverter, System.Xaml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.NameReferenceConverter, System.Xaml',[])
 		return self
@@ -551,16 +591,30 @@ Class NamespaceMapEntry from Object
 	AssemblyName
 	ClrNamespace
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'namespacemapentry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',P1)
 			return self
@@ -605,16 +659,30 @@ Class ParserContext from Object
 	XamlTypeMapper
 	BaseUri
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'parsercontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.ParserContext, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Markup.ParserContext, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.ParserContext, PresentationFramework',P1)
 			return self
@@ -669,11 +737,21 @@ Class ParserContext from Object
 
 Class ResourceReferenceExpressionConverter from ExpressionConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'resourcereferenceexpressionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.ResourceReferenceExpressionConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.ResourceReferenceExpressionConverter, PresentationFramework',[])
 		return self
@@ -681,11 +759,21 @@ Class ResourceReferenceExpressionConverter from ExpressionConverter
 
 Class RoutedEventConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routedeventconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.RoutedEventConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.RoutedEventConverter, PresentationFramework',[])
 		return self
@@ -693,11 +781,21 @@ Class RoutedEventConverter from TypeConverter
 
 Class ServiceProviders from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'serviceproviders'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.ServiceProviders, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.ServiceProviders, WindowsBase',[])
 		return self
@@ -715,11 +813,21 @@ Class ServiceProviders from Object
 
 Class SetterTriggerConditionValueConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'settertriggerconditionvalueconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.SetterTriggerConditionValueConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.SetterTriggerConditionValueConverter, PresentationFramework',[])
 		return self
@@ -727,11 +835,21 @@ Class SetterTriggerConditionValueConverter from TypeConverter
 
 Class TemplateKeyConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'templatekeyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.TemplateKeyConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.TemplateKeyConverter, PresentationFramework',[])
 		return self
@@ -777,11 +895,21 @@ Class XData from Object
 	Text
 	XmlReader
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xdata'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.XData, System.Xaml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.XData, System.Xaml',[])
 		return self
@@ -823,11 +951,21 @@ Class XamlInstanceCreator from Object
 
 Class XamlReader from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xamlreader'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.XamlReader, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.XamlReader, PresentationFramework',[])
 		return self
@@ -1091,11 +1229,21 @@ Class XmlLanguage from Object
 
 Class XmlLanguageConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmllanguageconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.XmlLanguageConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.XmlLanguageConverter, PresentationCore',[])
 		return self
@@ -1112,16 +1260,30 @@ Class XmlnsDictionary from Object
 	SyncRoot
 	Sealed
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlnsdictionary'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.XmlnsDictionary, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Markup.XmlnsDictionary, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.XmlnsDictionary, PresentationFramework',P1)
 			return self
@@ -1243,16 +1405,30 @@ Class ArrayExtension from MarkupExtension
 	Type
 	Items
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'arrayextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.ArrayExtension, System.Xaml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Markup.ArrayExtension, System.Xaml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.ArrayExtension, System.Xaml',P1)
 			return self
@@ -1291,11 +1467,21 @@ Class ArrayExtension from MarkupExtension
 
 Class DateTimeValueSerializer from ValueSerializer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimevalueserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.DateTimeValueSerializer, System.Xaml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.DateTimeValueSerializer, System.Xaml',[])
 		return self
@@ -1303,11 +1489,21 @@ Class DateTimeValueSerializer from ValueSerializer
 
 Class NullExtension from MarkupExtension
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nullextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.NullExtension, System.Xaml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.NullExtension, System.Xaml',[])
 		return self
@@ -1319,11 +1515,21 @@ Class PropertyDefinition from MemberDefinition
 	Modifier
 	Attributes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertydefinition'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.PropertyDefinition, System.Xaml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Markup.PropertyDefinition, System.Xaml',[])
 		return self
@@ -1356,16 +1562,30 @@ Class Reference from MarkupExtension
 
 	Name
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'reference'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.Reference, System.Xaml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Markup.Reference, System.Xaml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.Reference, System.Xaml',P1)
 			return self
@@ -1390,16 +1610,30 @@ Class StaticExtension from MarkupExtension
 	Member
 	MemberType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'staticextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.StaticExtension, System.Xaml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Markup.StaticExtension, System.Xaml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.StaticExtension, System.Xaml',P1)
 			return self
@@ -1430,16 +1664,30 @@ Class TypeExtension from MarkupExtension
 
 	Type
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'typeextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Markup.TypeExtension, System.Xaml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Markup.TypeExtension, System.Xaml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Markup.TypeExtension, System.Xaml',P1)
 			return self

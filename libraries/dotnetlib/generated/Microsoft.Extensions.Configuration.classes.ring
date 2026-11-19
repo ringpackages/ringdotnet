@@ -226,11 +226,21 @@ Class BinderOptions from Object
 	BindNonPublicProperties
 	ErrorOnUnknownConfiguration
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'binderoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Configuration.BinderOptions, Microsoft.Extensions.Configuration.Binder',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.BinderOptions, Microsoft.Extensions.Configuration.Binder',[])
 		return self
@@ -322,11 +332,21 @@ Class ChainedConfigurationSource from Object
 	Configuration
 	ShouldDisposeConfiguration
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'chainedconfigurationsource'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Configuration.ChainedConfigurationSource, Microsoft.Extensions.Configuration',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ChainedConfigurationSource, Microsoft.Extensions.Configuration',[])
 		return self
@@ -410,11 +430,21 @@ Class ConfigurationBuilder from Object
 	Sources
 	Properties
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationbuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationBuilder, Microsoft.Extensions.Configuration',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationBuilder, Microsoft.Extensions.Configuration',[])
 		return self
@@ -448,16 +478,30 @@ Class ConfigurationDebugViewContext from ValueType
 	Value
 	ConfigurationProvider
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationdebugviewcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',P1)
 			return self
@@ -530,11 +574,21 @@ Class ConfigurationKeyComparer from Object
 
 	Instance
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationkeycomparer'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationKeyComparer, Microsoft.Extensions.Configuration',[])
 		return self
@@ -556,11 +610,21 @@ Class ConfigurationManager from Object
 
 	Sources
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationmanager'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationManager, Microsoft.Extensions.Configuration',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationManager, Microsoft.Extensions.Configuration',[])
 		return self
@@ -659,11 +723,21 @@ Class ConfigurationReloadToken from Object
 	ActiveChangeCallbacks
 	HasChanged
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'configurationreloadtoken'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationReloadToken, Microsoft.Extensions.Configuration',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationReloadToken, Microsoft.Extensions.Configuration',[])
 		return self
@@ -941,11 +1015,21 @@ Class FileLoadExceptionContext from Object
 	Exception
 	Ignore
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fileloadexceptioncontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Configuration.FileLoadExceptionContext, Microsoft.Extensions.Configuration.FileExtensions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.FileLoadExceptionContext, Microsoft.Extensions.Configuration.FileExtensions',[])
 		return self

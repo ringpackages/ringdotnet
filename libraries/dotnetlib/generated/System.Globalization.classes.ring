@@ -777,11 +777,21 @@ Class DateTimeFormatInfo from Object
 	InvariantInfo
 	CurrentInfo
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimeformatinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',[])
 		return self
@@ -1115,11 +1125,21 @@ Class IdnMapping from Object
 	AllowUnassigned
 	UseStd3AsciiRules
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'idnmapping'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.IdnMapping, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.IdnMapping, System.Private.CoreLib',[])
 		return self
@@ -1187,11 +1207,21 @@ Class NumberFormatInfo from Object
 	InvariantInfo
 	CurrentInfo
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'numberformatinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.NumberFormatInfo, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.NumberFormatInfo, System.Private.CoreLib',[])
 		return self
@@ -1600,16 +1630,30 @@ Class StringInfo from Object
 	String
 	LengthInTextElements
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.StringInfo, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Globalization.StringInfo, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.StringInfo, System.Private.CoreLib',P1)
 			return self
@@ -1823,16 +1867,30 @@ Class GregorianCalendar from Calendar
 	CalendarType
 	ADEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gregoriancalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.GregorianCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Globalization.GregorianCalendar, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Globalization.GregorianCalendar, System.Private.CoreLib',P1)
 			return self
@@ -1862,11 +1920,21 @@ Class HebrewCalendar from Calendar
 
 	HebrewEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hebrewcalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.HebrewCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.HebrewCalendar, System.Private.CoreLib',[])
 		return self
@@ -1883,11 +1951,21 @@ Class HijriCalendar from Calendar
 	HijriAdjustment
 	HijriEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hijricalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.HijriCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.HijriCalendar, System.Private.CoreLib',[])
 		return self
@@ -1908,11 +1986,21 @@ Class HijriCalendar from Calendar
 
 Class JapaneseCalendar from Calendar
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'japanesecalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.JapaneseCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.JapaneseCalendar, System.Private.CoreLib',[])
 		return self
@@ -1922,11 +2010,21 @@ Class JulianCalendar from Calendar
 
 	JulianEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'juliancalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.JulianCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.JulianCalendar, System.Private.CoreLib',[])
 		return self
@@ -1942,11 +2040,21 @@ Class KoreanCalendar from Calendar
 
 	KoreanEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'koreancalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.KoreanCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.KoreanCalendar, System.Private.CoreLib',[])
 		return self
@@ -1962,11 +2070,21 @@ Class PersianCalendar from Calendar
 
 	PersianEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'persiancalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.PersianCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.PersianCalendar, System.Private.CoreLib',[])
 		return self
@@ -1980,11 +2098,21 @@ Class PersianCalendar from Calendar
 
 Class TaiwanCalendar from Calendar
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taiwancalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.TaiwanCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.TaiwanCalendar, System.Private.CoreLib',[])
 		return self
@@ -1994,11 +2122,21 @@ Class ThaiBuddhistCalendar from Calendar
 
 	ThaiBuddhistEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'thaibuddhistcalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',[])
 		return self
@@ -2014,11 +2152,21 @@ Class UmAlQuraCalendar from Calendar
 
 	UmAlQuraEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'umalquracalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',[])
 		return self
@@ -2034,11 +2182,21 @@ Class ChineseLunisolarCalendar from EastAsianLunisolarCalendar
 
 	ChineseEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'chineselunisolarcalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',[])
 		return self
@@ -2054,11 +2212,21 @@ Class JapaneseLunisolarCalendar from EastAsianLunisolarCalendar
 
 	JapaneseEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'japaneselunisolarcalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',[])
 		return self
@@ -2074,11 +2242,21 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 
 	GregorianEra
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'koreanlunisolarcalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',[])
 		return self
@@ -2092,11 +2270,21 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 
 Class TaiwanLunisolarCalendar from EastAsianLunisolarCalendar
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taiwanlunisolarcalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Globalization.TaiwanLunisolarCalendar, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Globalization.TaiwanLunisolarCalendar, System.Private.CoreLib',[])
 		return self

@@ -37,7 +37,7 @@ ring t01_first_look.ring
 
 `new StringBuilder("Hello")` creates an object. `GetType()` is a method that every .NET object has; it returns an object that *describes* the type. Its properties `FullName`, `Namespace` and `IsClass` tell you what you are holding: a class called `System.Text.StringBuilder` in the namespace `System.Text`.
 
-> [!NOTE] Always write the parentheses: `new StringBuilder("Hello")`. In Ring, `new X` without them does not run the constructor.
+> [!NOTE] When you pass a value, write the parentheses: `new StringBuilder("Hello")`. In Ring, `init()` runs only with them. Without a value both `new StringBuilder` and `new MemoryStream()` are fine, but `new StringBuilder()` with empty parentheses is an error; see [Core concepts](concepts.html).
 
 ### 3. Properties and methods
 

@@ -313,11 +313,21 @@ Class CertificateRequest from Object
 
 Class CertificateRevocationListBuilder from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'certificaterevocationlistbuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography',[])
 		return self
@@ -418,16 +428,30 @@ Class Pkcs12LoaderLimits from Object
 	Defaults
 	DangerousNoLimits
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pkcs12loaderlimits'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',P1)
 			return self
@@ -638,11 +662,21 @@ Class RSACertificateExtensions from Object
 
 Class SubjectAlternativeNameBuilder from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'subjectalternativenamebuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.SubjectAlternativeNameBuilder, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.SubjectAlternativeNameBuilder, System.Security.Cryptography',[])
 		return self
@@ -726,11 +760,21 @@ Class X500DistinguishedName from AsnEncodedData
 
 Class X500DistinguishedNameBuilder from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x500distinguishednamebuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedNameBuilder, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedNameBuilder, System.Security.Cryptography',[])
 		return self
@@ -823,16 +867,30 @@ Class X509Certificate from Object
 	Subject
 	SerialNumberBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509certificate'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',P1)
 			return self
@@ -997,16 +1055,30 @@ Class X509Certificate2Enumerator from Object
 
 Class X509CertificateCollection from CollectionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509certificatecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',P1)
 			return self
@@ -1103,16 +1175,30 @@ Class X509Chain from Object
 	ChainContext
 	SafeHandle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509chain'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',P1)
 			return self
@@ -1299,11 +1385,21 @@ Class X509ChainPolicy from Object
 	VerificationTime
 	UrlRetrievalTimeout
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509chainpolicy'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainPolicy, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainPolicy, System.Security.Cryptography',[])
 		return self
@@ -1404,11 +1500,21 @@ Class X509ChainStatus from ValueType
 	Status
 	StatusInformation
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509chainstatus'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainStatus, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ChainStatus, System.Security.Cryptography',[])
 		return self
@@ -1467,11 +1573,21 @@ Class X509ExtensionCollection from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509extensioncollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ExtensionCollection, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509ExtensionCollection, System.Security.Cryptography',[])
 		return self
@@ -1582,16 +1698,30 @@ Class X509Store from Object
 	Certificates
 	IsOpen
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509store'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',P1)
 			return self
@@ -1667,16 +1797,30 @@ Class X509Store from Object
 
 Class X509AuthorityInformationAccessExtension from X509Extension
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509authorityinformationaccessextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',P1)
 			return self
@@ -1705,16 +1849,30 @@ Class X509AuthorityKeyIdentifierExtension from X509Extension
 	RawIssuer
 	SerialNumber
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509authoritykeyidentifierextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',P1)
 			return self
@@ -1769,16 +1927,30 @@ Class X509BasicConstraintsExtension from X509Extension
 	HasPathLengthConstraint
 	PathLengthConstraint
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509basicconstraintsextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',P1)
 			return self
@@ -1846,16 +2018,30 @@ Class X509Certificate2 from X509Certificate
 	Thumbprint
 	Version
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509certificate2'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',P1)
 			return self
@@ -2011,16 +2197,30 @@ Class X509Certificate2 from X509Certificate
 
 Class X509Certificate2Collection from X509CertificateCollection
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509certificate2collection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',P1)
 			return self
@@ -2068,16 +2268,30 @@ Class X509EnhancedKeyUsageExtension from X509Extension
 
 	EnhancedKeyUsages
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509enhancedkeyusageextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',P1)
 			return self
@@ -2100,16 +2314,30 @@ Class X509KeyUsageExtension from X509Extension
 
 	KeyUsages
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509keyusageextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',P1)
 			return self
@@ -2130,16 +2358,30 @@ Class X509KeyUsageExtension from X509Extension
 
 Class X509SubjectAlternativeNameExtension from X509Extension
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509subjectalternativenameextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',P1)
 			return self
@@ -2163,16 +2405,30 @@ Class X509SubjectKeyIdentifierExtension from X509Extension
 	SubjectKeyIdentifier
 	SubjectKeyIdentifierBytes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'x509subjectkeyidentifierextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',P1)
 			return self

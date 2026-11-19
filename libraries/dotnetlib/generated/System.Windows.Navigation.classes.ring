@@ -257,11 +257,21 @@ Class JournalEntry from DependencyObject
 
 Class JournalEntryListConverter from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'journalentrylistconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Navigation.JournalEntryListConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Navigation.JournalEntryListConverter, PresentationFramework',[])
 		return self
@@ -280,11 +290,21 @@ Class JournalEntryUnifiedViewConverter from Object
 
 	JournalEntryPositionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'journalentryunifiedviewconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Navigation.JournalEntryUnifiedViewConverter, PresentationFramework',[])
 		return self
@@ -703,11 +723,21 @@ Class NavigationWindow from Window
 	CanGoForwardProperty
 	SourceProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'navigationwindow'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Navigation.NavigationWindow, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Navigation.NavigationWindow, PresentationFramework',[])
 		return self

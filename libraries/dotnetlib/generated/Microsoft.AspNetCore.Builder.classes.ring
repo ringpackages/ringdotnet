@@ -1079,11 +1079,21 @@ Class CookiePolicyOptions from Object
 	OnAppendCookie
 	OnDeleteCookie
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cookiepolicyoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.CookiePolicyOptions, Microsoft.AspNetCore.CookiePolicy',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.CookiePolicyOptions, Microsoft.AspNetCore.CookiePolicy',[])
 		return self
@@ -1215,16 +1225,30 @@ Class DefaultFilesOptions from DotNetObject
 	FileProvider
 	RedirectToAppendTrailingSlash
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'defaultfilesoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DefaultFilesOptions, Microsoft.AspNetCore.StaticFiles',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DefaultFilesOptions, Microsoft.AspNetCore.StaticFiles',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.DefaultFilesOptions, Microsoft.AspNetCore.StaticFiles',P1)
 			return self
@@ -1302,11 +1326,21 @@ Class DeveloperExceptionPageOptions from Object
 	SourceCodeLineCount
 	FileProvider
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'developerexceptionpageoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DeveloperExceptionPageOptions, Microsoft.AspNetCore.Diagnostics',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DeveloperExceptionPageOptions, Microsoft.AspNetCore.Diagnostics',[])
 		return self
@@ -1356,16 +1390,30 @@ Class DirectoryBrowserOptions from DotNetObject
 	FileProvider
 	RedirectToAppendTrailingSlash
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'directorybrowseroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DirectoryBrowserOptions, Microsoft.AspNetCore.StaticFiles',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DirectoryBrowserOptions, Microsoft.AspNetCore.StaticFiles',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.DirectoryBrowserOptions, Microsoft.AspNetCore.StaticFiles',P1)
 			return self
@@ -1566,11 +1614,21 @@ Class ExceptionHandlerOptions from Object
 	AllowStatusCode404Response
 	StatusCodeSelector
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'exceptionhandleroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.ExceptionHandlerOptions, Microsoft.AspNetCore.Diagnostics',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.ExceptionHandlerOptions, Microsoft.AspNetCore.Diagnostics',[])
 		return self
@@ -1673,11 +1731,21 @@ Class FileServerOptions from DotNetObject
 	FileProvider
 	RedirectToAppendTrailingSlash
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fileserveroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.FileServerOptions, Microsoft.AspNetCore.StaticFiles',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.FileServerOptions, Microsoft.AspNetCore.StaticFiles',[])
 		return self
@@ -1785,11 +1853,21 @@ Class ForwardedHeadersOptions from Object
 	AllowedHosts
 	RequireHeaderSymmetry
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'forwardedheadersoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.ForwardedHeadersOptions, Microsoft.AspNetCore.HttpOverrides',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.ForwardedHeadersOptions, Microsoft.AspNetCore.HttpOverrides',[])
 		return self
@@ -2066,11 +2144,21 @@ Class HttpMethodOverrideOptions from Object
 
 	FormFieldName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpmethodoverrideoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.HttpMethodOverrideOptions, Microsoft.AspNetCore.HttpOverrides',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.HttpMethodOverrideOptions, Microsoft.AspNetCore.HttpOverrides',[])
 		return self
@@ -2255,11 +2343,21 @@ Class IISOptions from Object
 	AuthenticationDisplayName
 	ForwardClientCertificate
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'iisoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.IISOptions, Microsoft.AspNetCore.Server.IISIntegration',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.IISOptions, Microsoft.AspNetCore.Server.IISIntegration',[])
 		return self
@@ -2297,11 +2395,21 @@ Class IISServerOptions from Object
 	MaxRequestBodyBufferSize
 	MaxRequestBodySize
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'iisserveroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.IISServerOptions, Microsoft.AspNetCore.Server.IIS',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.IISServerOptions, Microsoft.AspNetCore.Server.IIS',[])
 		return self
@@ -2690,11 +2798,21 @@ Class RequestLocalizationOptions from Object
 	SupportedUICultures
 	RequestCultureProviders
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'requestlocalizationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.RequestLocalizationOptions, Microsoft.AspNetCore.Localization',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.RequestLocalizationOptions, Microsoft.AspNetCore.Localization',[])
 		return self
@@ -3085,11 +3203,21 @@ Class SessionOptions from Object
 	IdleTimeout
 	IOTimeout
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'sessionoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.SessionOptions, Microsoft.AspNetCore.Session',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.SessionOptions, Microsoft.AspNetCore.Session',[])
 		return self
@@ -3171,16 +3299,30 @@ Class StaticFileOptions from DotNetObject
 	FileProvider
 	RedirectToAppendTrailingSlash
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'staticfileoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.StaticFileOptions, Microsoft.AspNetCore.StaticFiles',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.StaticFileOptions, Microsoft.AspNetCore.StaticFiles',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.Builder.StaticFileOptions, Microsoft.AspNetCore.StaticFiles',P1)
 			return self
@@ -3321,11 +3463,21 @@ Class StatusCodePagesOptions from Object
 
 	HandleAsync
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'statuscodepagesoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.StatusCodePagesOptions, Microsoft.AspNetCore.Diagnostics',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.StatusCodePagesOptions, Microsoft.AspNetCore.Diagnostics',[])
 		return self
@@ -3619,11 +3771,21 @@ Class WebApplicationOptions from Object
 	ContentRootPath
 	WebRootPath
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webapplicationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WebApplicationOptions, Microsoft.AspNetCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WebApplicationOptions, Microsoft.AspNetCore',[])
 		return self
@@ -3694,11 +3856,21 @@ Class WebSocketOptions from Object
 	ReceiveBufferSize
 	AllowedOrigins
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'websocketoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WebSocketOptions, Microsoft.AspNetCore.WebSockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WebSocketOptions, Microsoft.AspNetCore.WebSockets',[])
 		return self
@@ -3758,11 +3930,21 @@ Class WelcomePageOptions from Object
 
 	Path
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'welcomepageoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WelcomePageOptions, Microsoft.AspNetCore.Diagnostics',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WelcomePageOptions, Microsoft.AspNetCore.Diagnostics',[])
 		return self

@@ -206,16 +206,30 @@ Class EventId from ValueType
 	Id
 	Name
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'eventid'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Logging.EventId, Microsoft.Extensions.Logging.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Logging.EventId, Microsoft.Extensions.Logging.Abstractions',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Logging.EventId, Microsoft.Extensions.Logging.Abstractions',P1)
 			return self
@@ -406,11 +420,21 @@ Class LogDefineOptions from Object
 
 	SkipEnabledCheck
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'logdefineoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Logging.LogDefineOptions, Microsoft.Extensions.Logging.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Logging.LogDefineOptions, Microsoft.Extensions.Logging.Abstractions',[])
 		return self
@@ -494,11 +518,21 @@ Class LoggerExtensions from Object
 
 Class LoggerExternalScopeProvider from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'loggerexternalscopeprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerExternalScopeProvider, Microsoft.Extensions.Logging.Abstractions',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerExternalScopeProvider, Microsoft.Extensions.Logging.Abstractions',[])
 		return self
@@ -516,16 +550,30 @@ Class LoggerExternalScopeProvider from Object
 
 Class LoggerFactory from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'loggerfactory'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerFactory, Microsoft.Extensions.Logging',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerFactory, Microsoft.Extensions.Logging',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.Extensions.Logging.LoggerFactory, Microsoft.Extensions.Logging',P1)
 			return self
@@ -579,11 +627,21 @@ Class LoggerFactoryOptions from Object
 
 	ActivityTrackingOptions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'loggerfactoryoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerFactoryOptions, Microsoft.Extensions.Logging',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerFactoryOptions, Microsoft.Extensions.Logging',[])
 		return self
@@ -605,11 +663,21 @@ Class LoggerFilterOptions from Object
 	MinLevel
 	Rules
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'loggerfilteroptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerFilterOptions, Microsoft.Extensions.Logging',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerFilterOptions, Microsoft.Extensions.Logging',[])
 		return self

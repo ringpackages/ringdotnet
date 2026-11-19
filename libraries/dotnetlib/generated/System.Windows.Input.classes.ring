@@ -759,16 +759,30 @@ Class AccessKeyPressedEventArgs from RoutedEventArgs
 	Target
 	Key
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'accesskeypressedeventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',P1)
 			return self
@@ -1038,16 +1052,30 @@ Class CommandBinding from Object
 
 	Command
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'commandbinding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.CommandBinding, PresentationCore',P1)
 			return self
@@ -1110,16 +1138,30 @@ Class CommandBindingCollection from Object
 	IsReadOnly
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'commandbindingcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.CommandBindingCollection, PresentationCore',P1)
 			return self
@@ -1210,11 +1252,21 @@ Class CommandBindingCollection from Object
 
 Class CommandConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'commandconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.CommandConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.CommandConverter, PresentationFramework',[])
 		return self
@@ -1552,11 +1604,21 @@ Class WpfCursor from Object
 
 Class WpfCursorConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfcursorconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.CursorConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.CursorConverter, PresentationCore',[])
 		return self
@@ -1984,11 +2046,21 @@ Class InertiaExpansionBehavior from Object
 	DesiredExpansion
 	InitialRadius
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inertiaexpansionbehavior'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InertiaExpansionBehavior, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InertiaExpansionBehavior, PresentationCore',[])
 		return self
@@ -2031,11 +2103,21 @@ Class InertiaRotationBehavior from Object
 	DesiredDeceleration
 	DesiredRotation
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inertiarotationbehavior'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InertiaRotationBehavior, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InertiaRotationBehavior, PresentationCore',[])
 		return self
@@ -2071,11 +2153,21 @@ Class InertiaTranslationBehavior from Object
 	DesiredDeceleration
 	DesiredDisplacement
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inertiatranslationbehavior'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InertiaTranslationBehavior, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InertiaTranslationBehavior, PresentationCore',[])
 		return self
@@ -2179,16 +2271,30 @@ Class InputBindingCollection from Object
 	SyncRoot
 	IsReadOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputbindingcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputBindingCollection, PresentationCore',P1)
 			return self
@@ -2355,16 +2461,30 @@ Class InputGestureCollection from Object
 	IsReadOnly
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputgesturecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputGestureCollection, PresentationCore',P1)
 			return self
@@ -2951,11 +3071,21 @@ Class InputScope from Object
 	RegularExpression
 	PhraseList
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscope'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InputScope, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScope, PresentationCore',[])
 		return self
@@ -2992,11 +3122,21 @@ Class InputScope from Object
 
 Class InputScopeConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscopeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InputScopeConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeConverter, PresentationCore',[])
 		return self
@@ -3006,16 +3146,30 @@ Class InputScopeName from Object
 
 	NameValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscopename'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputScopeName, PresentationCore',P1)
 			return self
@@ -3048,11 +3202,21 @@ Class InputScopeName from Object
 
 Class InputScopeNameConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscopenameconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InputScopeNameConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeNameConverter, PresentationCore',[])
 		return self
@@ -3062,16 +3226,30 @@ Class InputScopePhrase from Object
 
 	Name
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inputscopephrase'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.InputScopePhrase, PresentationCore',P1)
 			return self
@@ -3104,11 +3282,21 @@ Class InputScopePhrase from Object
 
 Class KeyConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.KeyConverter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyConverter, WindowsBase',[])
 		return self
@@ -3116,11 +3304,21 @@ Class KeyConverter from TypeConverter
 
 Class KeyGestureConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keygestureconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.KeyGestureConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyGestureConverter, PresentationCore',[])
 		return self
@@ -3128,11 +3326,21 @@ Class KeyGestureConverter from TypeConverter
 
 Class KeyGestureValueSerializer from ValueSerializer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keygesturevalueserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.KeyGestureValueSerializer, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyGestureValueSerializer, PresentationCore',[])
 		return self
@@ -3160,11 +3368,21 @@ Class KeyInterop from Object
 
 Class KeyValueSerializer from ValueSerializer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keyvalueserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.KeyValueSerializer, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.KeyValueSerializer, WindowsBase',[])
 		return self
@@ -3589,16 +3807,30 @@ Class ManipulationPivot from Object
 	Center
 	Radius
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'manipulationpivot'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.ManipulationPivot, PresentationCore',P1)
 			return self
@@ -3850,11 +4082,21 @@ Class MediaCommands from Object
 
 Class ModifierKeysConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modifierkeysconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.ModifierKeysConverter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.ModifierKeysConverter, WindowsBase',[])
 		return self
@@ -3865,11 +4107,21 @@ Class ModifierKeysConverter from TypeConverter
 
 Class ModifierKeysValueSerializer from ValueSerializer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modifierkeysvalueserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.ModifierKeysValueSerializer, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.ModifierKeysValueSerializer, WindowsBase',[])
 		return self
@@ -4211,11 +4463,21 @@ Class Mouse from Object
 
 Class MouseActionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mouseactionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.MouseActionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseActionConverter, PresentationCore',[])
 		return self
@@ -4223,11 +4485,21 @@ Class MouseActionConverter from TypeConverter
 
 Class MouseActionValueSerializer from ValueSerializer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mouseactionvalueserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.MouseActionValueSerializer, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseActionValueSerializer, PresentationCore',[])
 		return self
@@ -4235,11 +4507,21 @@ Class MouseActionValueSerializer from ValueSerializer
 
 Class MouseGestureConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mousegestureconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.MouseGestureConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGestureConverter, PresentationCore',[])
 		return self
@@ -4247,11 +4529,21 @@ Class MouseGestureConverter from TypeConverter
 
 Class MouseGestureValueSerializer from ValueSerializer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mousegesturevalueserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.MouseGestureValueSerializer, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGestureValueSerializer, PresentationCore',[])
 		return self
@@ -4416,16 +4708,30 @@ Class RoutedCommand from Object
 	OwnerType
 	InputGestures
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routedcommand'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.RoutedCommand, PresentationCore',P1)
 			return self
@@ -5084,16 +5390,30 @@ Class StylusPoint from ValueType
 	MaxXY
 	MinXY
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'styluspoint'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPoint, PresentationCore',P1)
 			return self
@@ -5172,16 +5492,30 @@ Class StylusPointCollection from DotNetObject
 	Description
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'styluspointcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointCollection, PresentationCore',P1)
 			return self
@@ -5278,16 +5612,30 @@ Class StylusPointDescription from Object
 
 	PropertyCount
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'styluspointdescription'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.StylusPointDescription, PresentationCore',P1)
 			return self
@@ -5561,11 +5909,21 @@ Class TabletDeviceCollection from Object
 	SyncRoot
 	IsSynchronized
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tabletdevicecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.TabletDeviceCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.TabletDeviceCollection, PresentationCore',[])
 		return self
@@ -5887,11 +6245,21 @@ Class TouchPointCollection from DotNetObject
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'touchpointcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.TouchPointCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Input.TouchPointCollection, PresentationCore',[])
 		return self
@@ -6025,16 +6393,30 @@ Class KeyBinding from InputBinding
 	ModifiersProperty
 	KeyProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keybinding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.KeyBinding, PresentationCore',P1)
 			return self
@@ -6536,16 +6918,30 @@ Class MouseBinding from InputBinding
 	MouseAction
 	MouseActionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mousebinding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseBinding, PresentationCore',P1)
 			return self
@@ -6742,16 +7138,30 @@ Class MouseGesture from InputGesture
 	MouseAction
 	Modifiers
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mousegesture'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.MouseGesture, PresentationCore',P1)
 			return self
@@ -6805,16 +7215,30 @@ Class RoutedUICommand from RoutedCommand
 
 	Text
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'routeduicommand'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Input.RoutedUICommand, PresentationCore',P1)
 			return self

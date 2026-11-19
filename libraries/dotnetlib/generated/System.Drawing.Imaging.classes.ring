@@ -110,11 +110,21 @@ Class BitmapData from Object
 	Scan0
 	Reserved
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bitmapdata'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Imaging.BitmapData, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Imaging.BitmapData, System.Drawing.Common',[])
 		return self
@@ -189,11 +199,21 @@ Class ColorMap from Object
 	OldColor
 	NewColor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colormap'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Imaging.ColorMap, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Imaging.ColorMap, System.Drawing.Common',[])
 		return self
@@ -244,16 +264,30 @@ Class ColorMatrix from Object
 	Matrix43
 	Matrix44
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colormatrix'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',P1)
 			return self
@@ -659,16 +693,30 @@ Class EncoderParameters from Object
 
 	Param
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'encoderparameters'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Imaging.EncoderParameters, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Drawing.Imaging.EncoderParameters, System.Drawing.Common',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Drawing.Imaging.EncoderParameters, System.Drawing.Common',P1)
 			return self
@@ -741,11 +789,21 @@ Class FrameDimension from Object
 
 Class ImageAttributes from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imageattributes'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Imaging.ImageAttributes, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Imaging.ImageAttributes, System.Drawing.Common',[])
 		return self
@@ -1188,11 +1246,21 @@ Class MetaHeader from Object
 	MaxRecord
 	NoParameters
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'metaheader'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Imaging.MetaHeader, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Imaging.MetaHeader, System.Drawing.Common',[])
 		return self
@@ -1470,11 +1538,21 @@ Class WmfPlaceableFileHeader from Object
 	Reserved
 	Checksum
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wmfplaceablefileheader'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Imaging.WmfPlaceableFileHeader, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Imaging.WmfPlaceableFileHeader, System.Drawing.Common',[])
 		return self

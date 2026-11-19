@@ -260,16 +260,30 @@ Class FileBufferingWriteStream from Stream
 
 	MemoryThreshold
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'filebufferingwritestream'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',P1)
 			return self
@@ -623,11 +637,21 @@ Class KeyValueAccumulator from ValueType
 	KeyCount
 	ValueCount
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keyvalueaccumulator'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.KeyValueAccumulator, Microsoft.AspNetCore.WebUtilities',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.KeyValueAccumulator, Microsoft.AspNetCore.WebUtilities',[])
 		return self
@@ -741,11 +765,21 @@ Class MultipartSection from Object
 	Body
 	BaseStreamOffset
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multipartsection'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartSection, Microsoft.AspNetCore.WebUtilities',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartSection, Microsoft.AspNetCore.WebUtilities',[])
 		return self
@@ -858,16 +892,30 @@ Class QueryHelpers from Object
 
 Class QueryStringEnumerable from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'querystringenumerable'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',P1)
 			return self

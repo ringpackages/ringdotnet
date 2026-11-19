@@ -446,11 +446,21 @@ Class AnnotatableBase from Object
 
 	IsReadOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'annotatablebase'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.AnnotatableBase, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.AnnotatableBase, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -549,16 +559,30 @@ Class Annotation from Object
 
 Class ConcurrencyDetectorCriticalSectionDisposer from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'concurrencydetectorcriticalsectiondisposer'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -600,11 +624,21 @@ Class CoreOptionsExtension from Object
 	Seeder
 	AsyncSeeder
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'coreoptionsextension'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.CoreOptionsExtension, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.CoreOptionsExtension, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -1005,16 +1039,30 @@ Class DbSetProperty from ValueType
 	Type
 	Setter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbsetproperty'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -1678,11 +1726,21 @@ Class IndentedStringBuilder from Object
 	IndentCount
 	Length
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'indentedstringbuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.IndentedStringBuilder, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.IndentedStringBuilder, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -1829,11 +1887,21 @@ Class ModelCacheKeyFactory from Object
 
 Class ModelCacheKeyFactoryDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelcachekeyfactorydependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKeyFactoryDependencies, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKeyFactoryDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -1863,11 +1931,21 @@ Class ModelCustomizer from Object
 
 Class ModelCustomizerDependencies from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'modelcustomizerdependencies'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCustomizerDependencies, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCustomizerDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -2415,11 +2493,21 @@ Class EfRelationalPropertyExtensions from Object
 
 Class RuntimeAnnotatableBase from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'runtimeannotatablebase'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RuntimeAnnotatableBase, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RuntimeAnnotatableBase, Microsoft.EntityFrameworkCore',[])
 		return self
@@ -2522,16 +2610,30 @@ Class ServiceCharacteristics from ValueType
 	Lifetime
 	MultipleRegistrations
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'servicecharacteristics'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',P1)
 			return self
@@ -2794,11 +2896,21 @@ Class Uniquifier from Object
 
 Class Annotatable from AnnotatableBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'annotatable'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.Annotatable, Microsoft.EntityFrameworkCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.Annotatable, Microsoft.EntityFrameworkCore',[])
 		return self

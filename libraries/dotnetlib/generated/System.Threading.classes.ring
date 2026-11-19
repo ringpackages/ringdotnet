@@ -259,11 +259,21 @@ Func DotNetNew_ManualResetEvent
 
 Class AsyncFlowControl from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'asyncflowcontrol'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.AsyncFlowControl, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.AsyncFlowControl, System.Private.CoreLib',[])
 		return self
@@ -362,16 +372,30 @@ Class CancellationToken from ValueType
 	WaitHandle
 	None
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cancellationtoken'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.CancellationToken, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.CancellationToken, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.CancellationToken, System.Private.CoreLib',P1)
 			return self
@@ -425,11 +449,21 @@ Class CancellationTokenRegistration from ValueType
 
 	Token
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cancellationtokenregistration'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.CancellationTokenRegistration, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.CancellationTokenRegistration, System.Private.CoreLib',[])
 		return self
@@ -456,16 +490,30 @@ Class CancellationTokenSource from Object
 	IsCancellationRequested
 	Token
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cancellationtokensource'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.CancellationTokenSource, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.CancellationTokenSource, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.CancellationTokenSource, System.Private.CoreLib',P1)
 			return self
@@ -705,16 +753,30 @@ Class ExecutionContext from Object
 
 Class HostExecutionContext from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostexecutioncontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.HostExecutionContext, System.Threading',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.HostExecutionContext, System.Threading',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.HostExecutionContext, System.Threading',P1)
 			return self
@@ -747,11 +809,21 @@ Class HostExecutionContext from Object
 
 Class HostExecutionContextManager from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostexecutioncontextmanager'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.HostExecutionContextManager, System.Threading',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.HostExecutionContextManager, System.Threading',[])
 		return self
@@ -869,11 +941,21 @@ Class Lock from Object
 
 	IsHeldByCurrentThread
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'lock'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.Lock, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.Lock, System.Private.CoreLib',[])
 		return self
@@ -910,11 +992,21 @@ Class Lock from Object
 
 Class LockCookie from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'lockcookie'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.LockCookie, System.Threading',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.LockCookie, System.Threading',[])
 		return self
@@ -926,16 +1018,30 @@ Class ManualResetEventSlim from Object
 	IsSet
 	SpinCount
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'manualreseteventslim'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.ManualResetEventSlim, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.ManualResetEventSlim, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.ManualResetEventSlim, System.Private.CoreLib',P1)
 			return self
@@ -1056,11 +1162,21 @@ Class NativeOverlapped from ValueType
 	OffsetHigh
 	EventHandle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nativeoverlapped'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.NativeOverlapped, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.NativeOverlapped, System.Private.CoreLib',[])
 		return self
@@ -1109,16 +1225,30 @@ Class Overlapped from Object
 	EventHandle
 	EventHandleIntPtr
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'overlapped'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.Overlapped, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.Overlapped, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Overlapped, System.Private.CoreLib',P1)
 			return self
@@ -1258,11 +1388,21 @@ Class ReaderWriterLock from DotNetObject
 	IsWriterLockHeld
 	WriterSeqNum
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'readerwriterlock'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.ReaderWriterLock, System.Threading',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.ReaderWriterLock, System.Threading',[])
 		return self
@@ -1343,16 +1483,30 @@ Class ReaderWriterLockSlim from Object
 	WaitingUpgradeCount
 	WaitingWriteCount
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'readerwriterlockslim'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.ReaderWriterLockSlim, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.ReaderWriterLockSlim, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.ReaderWriterLockSlim, System.Private.CoreLib',P1)
 			return self
@@ -1557,16 +1711,30 @@ Class SpinLock from ValueType
 	IsHeldByCurrentThread
 	IsThreadOwnerTrackingEnabled
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'spinlock'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.SpinLock, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.SpinLock, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.SpinLock, System.Private.CoreLib',P1)
 			return self
@@ -1623,11 +1791,21 @@ Class SpinWait from ValueType
 	Count
 	NextSpinWillYield
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'spinwait'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.SpinWait, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.SpinWait, System.Private.CoreLib',[])
 		return self
@@ -1672,11 +1850,21 @@ Class SynchronizationContext from Object
 
 	Current
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'synchronizationcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.SynchronizationContext, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Threading.SynchronizationContext, System.Private.CoreLib',[])
 		return self
@@ -2359,16 +2547,30 @@ Class EventWaitHandle from WaitHandle
 
 Class Mutex from WaitHandle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mutex'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Threading.Mutex, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Threading.Mutex, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Threading.Mutex, System.Private.CoreLib',P1)
 			return self

@@ -451,11 +451,21 @@ Class DispatcherOperation from Object
 
 Class DispatcherPriorityAwaitable from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatcherpriorityawaitable'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Threading.DispatcherPriorityAwaitable, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherPriorityAwaitable, WindowsBase',[])
 		return self
@@ -468,11 +478,21 @@ Class DispatcherPriorityAwaiter from ValueType
 
 	IsCompleted
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatcherpriorityawaiter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Threading.DispatcherPriorityAwaiter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherPriorityAwaiter, WindowsBase',[])
 		return self
@@ -494,11 +514,21 @@ Class DispatcherPriorityAwaiter from ValueType
 
 Class DispatcherProcessingDisabled from ValueType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatcherprocessingdisabled'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Threading.DispatcherProcessingDisabled, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherProcessingDisabled, WindowsBase',[])
 		return self
@@ -510,16 +540,30 @@ Class DispatcherProcessingDisabled from ValueType
 
 Class DispatcherSynchronizationContext from SynchronizationContext
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatchersynchronizationcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',P1)
 			return self
@@ -539,16 +583,30 @@ Class DispatcherTimer from Object
 	Interval
 	Tag
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatchertimer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherTimer, WindowsBase',P1)
 			return self
@@ -609,16 +667,30 @@ Class DispatcherTimer from Object
 
 Class DispatcherFrame from DispatcherObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatcherframe'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Threading.DispatcherFrame, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherFrame, WindowsBase',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherFrame, WindowsBase',P1)
 			return self

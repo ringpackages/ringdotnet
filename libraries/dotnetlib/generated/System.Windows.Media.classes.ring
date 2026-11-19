@@ -850,11 +850,21 @@ Class WpfBrush from Animatable
 
 Class BrushConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'brushconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.BrushConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.BrushConverter, PresentationCore',[])
 		return self
@@ -1875,11 +1885,21 @@ Class CacheMode from Animatable
 
 Class CacheModeConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cachemodeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.CacheModeConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.CacheModeConverter, PresentationCore',[])
 		return self
@@ -1896,16 +1916,30 @@ Class CharacterMetrics from Object
 	TopSideBearing
 	BottomSideBearing
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'charactermetrics'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.CharacterMetrics, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.CharacterMetrics, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.CharacterMetrics, PresentationCore',P1)
 			return self
@@ -2063,11 +2097,21 @@ Class WpfColor from ValueType
 	ScG
 	ScB
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfcolor'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Color, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Color, PresentationCore',[])
 		return self
@@ -2212,11 +2256,21 @@ Class ColorContext from Object
 
 Class ColorConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colorconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.ColorConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.ColorConverter, PresentationCore',[])
 		return self
@@ -3289,16 +3343,30 @@ Class DashStyle from Animatable
 	OffsetProperty
 	DashesProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dashstyle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.DashStyle, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.DashStyle, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.DashStyle, PresentationCore',P1)
 			return self
@@ -3391,16 +3459,30 @@ Class DoubleCollection from Freezable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doublecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.DoubleCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.DoubleCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.DoubleCollection, PresentationCore',P1)
 			return self
@@ -3469,11 +3551,21 @@ Class DoubleCollection from Freezable
 
 Class DoubleCollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'doublecollectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.DoubleCollectionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.DoubleCollectionConverter, PresentationCore',[])
 		return self
@@ -3502,16 +3594,30 @@ Class DrawingCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'drawingcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.DrawingCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.DrawingCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.DrawingCollection, PresentationCore',P1)
 			return self
@@ -3708,11 +3814,21 @@ Class FamilyTypeface from Object
 	DeviceFontName
 	DeviceFontCharacterMetrics
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'familytypeface'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.FamilyTypeface, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.FamilyTypeface, PresentationCore',[])
 		return self
@@ -3875,11 +3991,21 @@ Class FontEmbeddingManager from Object
 
 	GlyphTypefaceUris
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontembeddingmanager'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.FontEmbeddingManager, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.FontEmbeddingManager, PresentationCore',[])
 		return self
@@ -3911,16 +4037,30 @@ Class WpfFontFamily from Object
 	Baseline
 	LineSpacing
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpffontfamily'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.FontFamily, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.FontFamily, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.FontFamily, PresentationCore',P1)
 			return self
@@ -3985,11 +4125,21 @@ Class WpfFontFamily from Object
 
 Class FontFamilyConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontfamilyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.FontFamilyConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.FontFamilyConverter, PresentationCore',[])
 		return self
@@ -4002,11 +4152,21 @@ Class FontFamilyMap from Object
 	Scale
 	Language
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontfamilymap'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.FontFamilyMap, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.FontFamilyMap, PresentationCore',[])
 		return self
@@ -4113,11 +4273,21 @@ Class FontFamilyMapCollection from Object
 
 Class FontFamilyValueSerializer from ValueSerializer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontfamilyvalueserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.FontFamilyValueSerializer, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.FontFamilyValueSerializer, PresentationCore',[])
 		return self
@@ -4460,16 +4630,30 @@ Class GeneralTransformCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'generaltransformcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GeneralTransformCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.GeneralTransformCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.GeneralTransformCollection, PresentationCore',P1)
 			return self
@@ -4666,16 +4850,30 @@ Class GeometryCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'geometrycollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GeometryCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.GeometryCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.GeometryCollection, PresentationCore',P1)
 			return self
@@ -4735,11 +4933,21 @@ Class GeometryCollection from Animatable
 
 Class GeometryConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'geometryconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GeometryConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.GeometryConverter, PresentationCore',[])
 		return self
@@ -4763,16 +4971,30 @@ Class GlyphRun from Object
 	Language
 	DeviceFontName
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'glyphrun'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GlyphRun, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.GlyphRun, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.GlyphRun, PresentationCore',P1)
 			return self
@@ -4955,16 +5177,30 @@ Class GlyphTypeface from Object
 	StyleSimulations
 	GlyphCount
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'glyphtypeface'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GlyphTypeface, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.GlyphTypeface, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.GlyphTypeface, PresentationCore',P1)
 			return self
@@ -5232,16 +5468,30 @@ Class GradientStop from Animatable
 	ColorProperty
 	OffsetProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gradientstop'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GradientStop, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.GradientStop, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.GradientStop, PresentationCore',P1)
 			return self
@@ -5290,16 +5540,30 @@ Class GradientStopCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'gradientstopcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GradientStopCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.GradientStopCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.GradientStopCollection, PresentationCore',P1)
 			return self
@@ -5373,16 +5637,30 @@ Class GuidelineSet from Animatable
 	GuidelinesXProperty
 	GuidelinesYProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'guidelineset'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GuidelineSet, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.GuidelineSet, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.GuidelineSet, PresentationCore',P1)
 			return self
@@ -5509,11 +5787,21 @@ Class ImageSource from Animatable
 
 Class ImageSourceConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imagesourceconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.ImageSourceConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.ImageSourceConverter, PresentationCore',[])
 		return self
@@ -5521,11 +5809,21 @@ Class ImageSourceConverter from TypeConverter
 
 Class ImageSourceValueSerializer from ValueSerializer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imagesourcevalueserializer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.ImageSourceValueSerializer, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.ImageSourceValueSerializer, PresentationCore',[])
 		return self
@@ -5535,16 +5833,30 @@ Class Int32Collection from Freezable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32collection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Int32Collection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Int32Collection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Int32Collection, PresentationCore',P1)
 			return self
@@ -5613,11 +5925,21 @@ Class Int32Collection from Freezable
 
 Class Int32CollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'int32collectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Int32CollectionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.Int32CollectionConverter, PresentationCore',[])
 		return self
@@ -5717,16 +6039,30 @@ Class WpfMatrix from ValueType
 	OffsetY
 	Identity
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfmatrix'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Matrix, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Matrix, WindowsBase',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Matrix, WindowsBase',P1)
 			return self
@@ -5892,11 +6228,21 @@ Class WpfMatrix from ValueType
 
 Class MatrixConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.MatrixConverter, WindowsBase',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.MatrixConverter, WindowsBase',[])
 		return self
@@ -5933,11 +6279,21 @@ Class MediaPlayer from Animatable
 	SpeedRatio
 	Clock
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mediaplayer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.MediaPlayer, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.MediaPlayer, PresentationCore',[])
 		return self
@@ -6151,16 +6507,30 @@ Class MediaTimeline from Timeline
 	Source
 	SourceProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mediatimeline'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.MediaTimeline, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.MediaTimeline, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.MediaTimeline, PresentationCore',P1)
 			return self
@@ -6195,16 +6565,30 @@ Class NumberSubstitution from Object
 	CultureOverrideProperty
 	SubstitutionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'numbersubstitution'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.NumberSubstitution, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.NumberSubstitution, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.NumberSubstitution, PresentationCore',P1)
 			return self
@@ -6291,16 +6675,30 @@ Class PathFigure from Animatable
 	SegmentsProperty
 	IsClosedProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pathfigure'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PathFigure, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.PathFigure, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.PathFigure, PresentationCore',P1)
 			return self
@@ -6387,16 +6785,30 @@ Class PathFigureCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pathfigurecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PathFigureCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.PathFigureCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.PathFigureCollection, PresentationCore',P1)
 			return self
@@ -6465,11 +6877,21 @@ Class PathFigureCollection from Animatable
 
 Class PathFigureCollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pathfigurecollectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PathFigureCollectionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.PathFigureCollectionConverter, PresentationCore',[])
 		return self
@@ -6521,16 +6943,30 @@ Class PathSegmentCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pathsegmentcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PathSegmentCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.PathSegmentCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.PathSegmentCollection, PresentationCore',P1)
 			return self
@@ -6607,16 +7043,30 @@ Class WpfPen from Animatable
 	MiterLimitProperty
 	DashStyleProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpfpen'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.Pen, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.Pen, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.Pen, PresentationCore',P1)
 			return self
@@ -6738,11 +7188,21 @@ Class PixelFormat from ValueType
 	BitsPerPixel
 	Masks
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pixelformat'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PixelFormat, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.PixelFormat, PresentationCore',[])
 		return self
@@ -6773,11 +7233,21 @@ Class PixelFormatChannelMask from ValueType
 
 	Mask
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pixelformatchannelmask'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PixelFormatChannelMask, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.PixelFormatChannelMask, PresentationCore',[])
 		return self
@@ -6800,11 +7270,21 @@ Class PixelFormatChannelMask from ValueType
 
 Class PixelFormatConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pixelformatconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PixelFormatConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.PixelFormatConverter, PresentationCore',[])
 		return self
@@ -7011,16 +7491,30 @@ Class PointCollection from Freezable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PointCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.PointCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.PointCollection, PresentationCore',P1)
 			return self
@@ -7089,11 +7583,21 @@ Class PointCollection from Freezable
 
 Class PointCollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pointcollectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PointCollectionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.PointCollectionConverter, PresentationCore',[])
 		return self
@@ -7280,11 +7784,21 @@ Class RenderingEventArgs from EventArgs
 
 Class RequestCachePolicyConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'requestcachepolicyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.RequestCachePolicyConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.RequestCachePolicyConverter, PresentationCore',[])
 		return self
@@ -7350,16 +7864,30 @@ Class TextEffect from Animatable
 	PositionStartProperty
 	PositionCountProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'texteffect'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.TextEffect, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.TextEffect, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.TextEffect, PresentationCore',P1)
 			return self
@@ -7441,16 +7969,30 @@ Class TextEffectCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'texteffectcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.TextEffectCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.TextEffectCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.TextEffectCollection, PresentationCore',P1)
 			return self
@@ -7569,16 +8111,30 @@ Class TransformCollection from Animatable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transformcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.TransformCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.TransformCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.TransformCollection, PresentationCore',P1)
 			return self
@@ -7638,11 +8194,21 @@ Class TransformCollection from Animatable
 
 Class TransformConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transformconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.TransformConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.TransformConverter, PresentationCore',[])
 		return self
@@ -7774,16 +8340,30 @@ Class VectorCollection from Freezable
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vectorcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.VectorCollection, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.VectorCollection, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.VectorCollection, PresentationCore',P1)
 			return self
@@ -7852,11 +8432,21 @@ Class VectorCollection from Freezable
 
 Class VectorCollectionConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vectorcollectionconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.VectorCollectionConverter, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.VectorCollectionConverter, PresentationCore',[])
 		return self
@@ -8086,16 +8676,30 @@ Class ArcSegment from PathSegment
 	IsLargeArcProperty
 	SweepDirectionProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'arcsegment'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.ArcSegment, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.ArcSegment, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.ArcSegment, PresentationCore',P1)
 			return self
@@ -8182,16 +8786,30 @@ Class BezierSegment from PathSegment
 	Point2Property
 	Point3Property
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'beziersegment'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.BezierSegment, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.BezierSegment, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.BezierSegment, PresentationCore',P1)
 			return self
@@ -8252,16 +8870,30 @@ Class BitmapCache from CacheMode
 	SnapsToDevicePixelsProperty
 	EnableClearTypeProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bitmapcache'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.BitmapCache, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.BitmapCache, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.BitmapCache, PresentationCore',P1)
 			return self
@@ -8322,16 +8954,30 @@ Class BitmapCacheBrush from WpfBrush
 	BitmapCacheProperty
 	AutoLayoutContentProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bitmapcachebrush'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.BitmapCacheBrush, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.BitmapCacheBrush, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.BitmapCacheBrush, PresentationCore',P1)
 			return self
@@ -8392,16 +9038,30 @@ Class CombinedGeometry from Geometry
 	Geometry1Property
 	Geometry2Property
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'combinedgeometry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.CombinedGeometry, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.CombinedGeometry, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.CombinedGeometry, PresentationCore',P1)
 			return self
@@ -8471,11 +9131,21 @@ Class ContainerVisual from Visual
 	Offset
 	DescendantBounds
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'containervisual'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.ContainerVisual, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.ContainerVisual, PresentationCore',[])
 		return self
@@ -8607,11 +9277,21 @@ Class DrawingGroup from Drawing
 	BitmapEffectProperty
 	BitmapEffectInputProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'drawinggroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.DrawingGroup, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.DrawingGroup, PresentationCore',[])
 		return self
@@ -8732,16 +9412,30 @@ Class DrawingImage from ImageSource
 	Drawing
 	DrawingProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'drawingimage'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.DrawingImage, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.DrawingImage, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.DrawingImage, PresentationCore',P1)
 			return self
@@ -8776,16 +9470,30 @@ Class EllipseGeometry from Geometry
 	RadiusYProperty
 	CenterProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ellipsegeometry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.EllipseGeometry, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.EllipseGeometry, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.EllipseGeometry, PresentationCore',P1)
 			return self
@@ -8842,11 +9550,21 @@ Class GeneralTransformGroup from GeneralTransform
 	Children
 	ChildrenProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'generaltransformgroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GeneralTransformGroup, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.GeneralTransformGroup, PresentationCore',[])
 		return self
@@ -8874,16 +9592,30 @@ Class GeometryDrawing from Drawing
 	PenProperty
 	GeometryProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'geometrydrawing'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GeometryDrawing, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.GeometryDrawing, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.GeometryDrawing, PresentationCore',P1)
 			return self
@@ -8942,11 +9674,21 @@ Class GeometryGroup from Geometry
 	FillRuleProperty
 	ChildrenProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'geometrygroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GeometryGroup, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.GeometryGroup, PresentationCore',[])
 		return self
@@ -9025,16 +9767,30 @@ Class GlyphRunDrawing from Drawing
 	GlyphRunProperty
 	ForegroundBrushProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'glyphrundrawing'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.GlyphRunDrawing, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.GlyphRunDrawing, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.GlyphRunDrawing, PresentationCore',P1)
 			return self
@@ -9152,16 +9908,30 @@ Class ImageDrawing from Drawing
 	ImageSourceProperty
 	RectProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imagedrawing'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.ImageDrawing, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.ImageDrawing, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.ImageDrawing, PresentationCore',P1)
 			return self
@@ -9207,16 +9977,30 @@ Class LineGeometry from Geometry
 	StartPointProperty
 	EndPointProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linegeometry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.LineGeometry, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.LineGeometry, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.LineGeometry, PresentationCore',P1)
 			return self
@@ -9260,16 +10044,30 @@ Class LineSegment from PathSegment
 	Point
 	PointProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linesegment'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.LineSegment, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.LineSegment, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.LineSegment, PresentationCore',P1)
 			return self
@@ -9302,16 +10100,30 @@ Class PathGeometry from Geometry
 	FillRuleProperty
 	FiguresProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pathgeometry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PathGeometry, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.PathGeometry, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.PathGeometry, PresentationCore',P1)
 			return self
@@ -9409,16 +10221,30 @@ Class PolyBezierSegment from PathSegment
 	Points
 	PointsProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'polybeziersegment'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PolyBezierSegment, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.PolyBezierSegment, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.PolyBezierSegment, PresentationCore',P1)
 			return self
@@ -9449,16 +10275,30 @@ Class PolyLineSegment from PathSegment
 	Points
 	PointsProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'polylinesegment'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PolyLineSegment, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.PolyLineSegment, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.PolyLineSegment, PresentationCore',P1)
 			return self
@@ -9489,16 +10329,30 @@ Class PolyQuadraticBezierSegment from PathSegment
 	Points
 	PointsProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'polyquadraticbeziersegment'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore',P1)
 			return self
@@ -9531,16 +10385,30 @@ Class QuadraticBezierSegment from PathSegment
 	Point1Property
 	Point2Property
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'quadraticbeziersegment'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.QuadraticBezierSegment, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.QuadraticBezierSegment, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.QuadraticBezierSegment, PresentationCore',P1)
 			return self
@@ -9588,16 +10456,30 @@ Class RectangleGeometry from Geometry
 	RadiusYProperty
 	RectProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rectanglegeometry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.RectangleGeometry, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.RectangleGeometry, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.RectangleGeometry, PresentationCore',P1)
 			return self
@@ -9654,16 +10536,30 @@ Class SolidColorBrush from WpfBrush
 	Color
 	ColorProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'solidcolorbrush'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.SolidColorBrush, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.SolidColorBrush, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.SolidColorBrush, PresentationCore',P1)
 			return self
@@ -9697,11 +10593,21 @@ Class StreamGeometry from Geometry
 	FillRule
 	FillRuleProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'streamgeometry'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.StreamGeometry, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.StreamGeometry, PresentationCore',[])
 		return self
@@ -9895,11 +10801,21 @@ Class VideoDrawing from Drawing
 	PlayerProperty
 	RectProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'videodrawing'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.VideoDrawing, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.VideoDrawing, PresentationCore',[])
 		return self
@@ -9967,16 +10883,30 @@ Class DrawingBrush from TileBrush
 	Drawing
 	DrawingProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'drawingbrush'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.DrawingBrush, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.DrawingBrush, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.DrawingBrush, PresentationCore',P1)
 			return self
@@ -10006,11 +10936,21 @@ Class DrawingVisual from ContainerVisual
 
 	Drawing
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'drawingvisual'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.DrawingVisual, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.DrawingVisual, PresentationCore',[])
 		return self
@@ -10027,11 +10967,21 @@ Class DrawingVisual from ContainerVisual
 
 Class HostVisual from ContainerVisual
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hostvisual'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.HostVisual, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.HostVisual, PresentationCore',[])
 		return self
@@ -10042,16 +10992,30 @@ Class ImageBrush from TileBrush
 	ImageSource
 	ImageSourceProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imagebrush'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.ImageBrush, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.ImageBrush, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.ImageBrush, PresentationCore',P1)
 			return self
@@ -10084,16 +11048,30 @@ Class WpfLinearGradientBrush from GradientBrush
 	StartPointProperty
 	EndPointProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'wpflineargradientbrush'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.LinearGradientBrush, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.LinearGradientBrush, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.LinearGradientBrush, PresentationCore',P1)
 			return self
@@ -10137,16 +11115,30 @@ Class MatrixTransform from Transform
 	Matrix
 	MatrixProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'matrixtransform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.MatrixTransform, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.MatrixTransform, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.MatrixTransform, PresentationCore',P1)
 			return self
@@ -10183,16 +11175,30 @@ Class RadialGradientBrush from GradientBrush
 	RadiusYProperty
 	GradientOriginProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'radialgradientbrush'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.RadialGradientBrush, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.RadialGradientBrush, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.RadialGradientBrush, PresentationCore',P1)
 			return self
@@ -10266,16 +11272,30 @@ Class RotateTransform from Transform
 	CenterXProperty
 	CenterYProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rotatetransform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.RotateTransform, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.RotateTransform, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.RotateTransform, PresentationCore',P1)
 			return self
@@ -10338,16 +11358,30 @@ Class ScaleTransform from Transform
 	CenterXProperty
 	CenterYProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'scaletransform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.ScaleTransform, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.ScaleTransform, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.ScaleTransform, PresentationCore',P1)
 			return self
@@ -10423,16 +11457,30 @@ Class SkewTransform from Transform
 	CenterXProperty
 	CenterYProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'skewtransform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.SkewTransform, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.SkewTransform, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.SkewTransform, PresentationCore',P1)
 			return self
@@ -10502,11 +11550,21 @@ Class TransformGroup from Transform
 	Children
 	ChildrenProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'transformgroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.TransformGroup, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Media.TransformGroup, PresentationCore',[])
 		return self
@@ -10532,16 +11590,30 @@ Class TranslateTransform from Transform
 	XProperty
 	YProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'translatetransform'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.TranslateTransform, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.TranslateTransform, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.TranslateTransform, PresentationCore',P1)
 			return self
@@ -10587,16 +11659,30 @@ Class VisualBrush from TileBrush
 	VisualProperty
 	AutoLayoutContentProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'visualbrush'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Media.VisualBrush, PresentationCore',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Media.VisualBrush, PresentationCore',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Media.VisualBrush, PresentationCore',P1)
 			return self

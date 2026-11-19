@@ -734,16 +734,30 @@ Class ClaimsIdentity from Object
 	DefaultNameClaimType
 	DefaultRoleClaimType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'claimsidentity'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Claims.ClaimsIdentity, System.Security.Claims',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Claims.ClaimsIdentity, System.Security.Claims',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Claims.ClaimsIdentity, System.Security.Claims',P1)
 			return self
@@ -877,16 +891,30 @@ Class ClaimsPrincipal from Object
 	ClaimsPrincipalSelector
 	Current
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'claimsprincipal'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Security.Claims.ClaimsPrincipal, System.Security.Claims',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Security.Claims.ClaimsPrincipal, System.Security.Claims',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Security.Claims.ClaimsPrincipal, System.Security.Claims',P1)
 			return self

@@ -2484,11 +2484,21 @@ Class AccessibleObject from StandardOleMarshalObject
 	State
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'accessibleobject'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.AccessibleObject, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.AccessibleObject, System.Windows.Forms',[])
 		return self
@@ -2598,11 +2608,21 @@ Class AmbientProperties from Object
 	Font
 	ForeColor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ambientproperties'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.AmbientProperties, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.AmbientProperties, System.Windows.Forms',[])
 		return self
@@ -2970,16 +2990,30 @@ Class ApplicationContext from Object
 	MainForm
 	Tag
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'applicationcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ApplicationContext, System.Windows.Forms',P1)
 			return self
@@ -3032,11 +3066,21 @@ Class AutoCompleteStringCollection from Object
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'autocompletestringcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.AutoCompleteStringCollection, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.AutoCompleteStringCollection, System.Windows.Forms',[])
 		return self
@@ -3127,11 +3171,21 @@ Class BaseCollection from MarshalByRefObject
 	IsSynchronized
 	SyncRoot
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'basecollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.BaseCollection, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BaseCollection, System.Windows.Forms',[])
 		return self
@@ -3432,11 +3486,21 @@ Class BindingContext from Object
 
 	IsReadOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindingcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.BindingContext, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingContext, System.Windows.Forms',[])
 		return self
@@ -3616,16 +3680,30 @@ Class BindingMemberInfo from ValueType
 	BindingField
 	BindingMember
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindingmemberinfo'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',P1)
 			return self
@@ -3686,16 +3764,30 @@ Class BindingSource from Component
 	SupportsAdvancedSorting
 	SupportsFiltering
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindingsource'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingSource, System.Windows.Forms',P1)
 			return self
@@ -4304,16 +4396,30 @@ Class ColumnHeader from Component
 	Tag
 	Width
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'columnheader'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnHeader, System.Windows.Forms',P1)
 			return self
@@ -4409,11 +4515,21 @@ Class ColumnHeader from Component
 
 Class ColumnHeaderConverter from ExpandableObjectConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'columnheaderconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ColumnHeaderConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnHeaderConverter, System.Windows.Forms',[])
 		return self
@@ -4691,16 +4807,30 @@ Class Control from Component
 	MouseButtons
 	MousePosition
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'control'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Control, System.Windows.Forms',P1)
 			return self
@@ -6261,11 +6391,21 @@ Class CreateParams from Object
 	Parent
 	Param
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'createparams'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.CreateParams, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CreateParams, System.Windows.Forms',[])
 		return self
@@ -6457,11 +6597,21 @@ Class Cursor from Object
 
 Class CursorConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'cursorconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.CursorConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CursorConverter, System.Windows.Forms',[])
 		return self
@@ -6851,11 +7001,21 @@ Class DataGridViewAdvancedBorderStyle from Object
 	Right
 	Top
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewadvancedborderstyle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewAdvancedBorderStyle, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewAdvancedBorderStyle, System.Windows.Forms',[])
 		return self
@@ -7195,16 +7355,30 @@ Class DataGridViewCellStyle from Object
 	Tag
 	WrapMode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcellstyle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',P1)
 			return self
@@ -7364,11 +7538,21 @@ Class DataGridViewCellStyleContentChangedEventArgs from EventArgs
 
 Class DataGridViewCellStyleConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcellstyleconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyleConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyleConverter, System.Windows.Forms',[])
 		return self
@@ -7522,11 +7706,21 @@ Class DataGridViewElement from Object
 	State
 	DataGridView
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewelement'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewElement, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewElement, System.Windows.Forms',[])
 		return self
@@ -8176,16 +8370,30 @@ Class DataGridViewSortCompareEventArgs from HandledEventArgs
 
 Class DataObject from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dataobject'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataObject, System.Windows.Forms',P1)
 			return self
@@ -8956,16 +9164,30 @@ Class ErrorProvider from Component
 	BlinkRate
 	Icon
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'errorprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ErrorProvider, System.Windows.Forms',P1)
 			return self
@@ -9152,11 +9374,21 @@ Class FileDialogCustomPlacesCollection from DotNetObject
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'filedialogcustomplacescollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.FileDialogCustomPlacesCollection, System.Windows.Forms.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FileDialogCustomPlacesCollection, System.Windows.Forms.Primitives',[])
 		return self
@@ -9316,11 +9548,21 @@ Class FormClosingEventArgs from CancelEventArgs
 
 Class FormCollection from ReadOnlyCollectionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.FormCollection, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FormCollection, System.Windows.Forms',[])
 		return self
@@ -9611,11 +9853,21 @@ Class HelpProvider from Component
 	HelpNamespace
 	Tag
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'helpprovider'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.HelpProvider, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.HelpProvider, System.Windows.Forms',[])
 		return self
@@ -11243,11 +11495,21 @@ Class IWindowTarget from DotNetObject
 
 Class ImageIndexConverter from Int32Converter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imageindexconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ImageIndexConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageIndexConverter, System.Windows.Forms',[])
 		return self
@@ -11255,11 +11517,21 @@ Class ImageIndexConverter from Int32Converter
 
 Class ImageKeyConverter from StringConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imagekeyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ImageKeyConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageKeyConverter, System.Windows.Forms',[])
 		return self
@@ -11276,16 +11548,30 @@ Class ImageList from Component
 	Tag
 	TransparentColor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imagelist'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ImageList, System.Windows.Forms',P1)
 			return self
@@ -11429,11 +11715,21 @@ Class ImeModeConversion from ValueType
 	ImeModeConversionBits
 	IsCurrentConversionTableSupported
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'imemodeconversion'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ImeModeConversion, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ImeModeConversion, System.Windows.Forms',[])
 		return self
@@ -11846,11 +12142,21 @@ Class KeyPressEventArgs from EventArgs
 
 Class KeysConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'keysconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.KeysConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.KeysConverter, System.Windows.Forms',[])
 		return self
@@ -11968,16 +12274,30 @@ Class LinkArea from ValueType
 	Length
 	IsEmpty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linkarea'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.LinkArea, System.Windows.Forms',P1)
 			return self
@@ -12058,11 +12378,21 @@ Class LinkClickedEventArgs from EventArgs
 
 Class LinkConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linkconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.LinkConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkConverter, System.Windows.Forms',[])
 		return self
@@ -12109,11 +12439,21 @@ Class LinkLabelLinkClickedEventArgs from EventArgs
 
 Class ListBindingConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listbindingconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ListBindingConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListBindingConverter, System.Windows.Forms',[])
 		return self
@@ -12170,16 +12510,30 @@ Class ListViewGroup from Object
 	Name
 	Tag
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewgroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewGroup, System.Windows.Forms',P1)
 			return self
@@ -12483,16 +12837,30 @@ Class ListViewItem from Object
 	ToolTipText
 	UseItemStyleForSubItems
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewitem'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem, System.Windows.Forms',P1)
 			return self
@@ -12683,11 +13051,21 @@ Class ListViewItem from Object
 
 Class ListViewItemConverter from ExpandableObjectConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewitemconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ListViewItemConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItemConverter, System.Windows.Forms',[])
 		return self
@@ -12871,11 +13249,21 @@ Class Message from ValueType
 	LParam
 	Result
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'message'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.Message, System.Windows.Forms.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Message, System.Windows.Forms.Primitives',[])
 		return self
@@ -13001,11 +13389,21 @@ Class NativeWindow from MarshalByRefObject
 
 	Handle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nativewindow'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.NativeWindow, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NativeWindow, System.Windows.Forms',[])
 		return self
@@ -13117,16 +13515,30 @@ Class NotifyIcon from Component
 	Visible
 	Tag
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'notifyicon'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.NotifyIcon, System.Windows.Forms',P1)
 			return self
@@ -13320,11 +13732,21 @@ Class NumericUpDownAccelerationCollection from MarshalByRefObject
 	Count
 	IsReadOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'numericupdownaccelerationcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.NumericUpDownAccelerationCollection, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NumericUpDownAccelerationCollection, System.Windows.Forms',[])
 		return self
@@ -13369,11 +13791,21 @@ Class NumericUpDownAccelerationCollection from MarshalByRefObject
 
 Class OpacityConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'opacityconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.OpacityConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.OpacityConverter, System.Windows.Forms',[])
 		return self
@@ -13433,16 +13865,30 @@ Class Padding from ValueType
 	Size
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'padding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',P1)
 			return self
@@ -13522,11 +13968,21 @@ Class Padding from ValueType
 
 Class PaddingConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'paddingconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.PaddingConverter, System.Windows.Forms.Primitives',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PaddingConverter, System.Windows.Forms.Primitives',[])
 		return self
@@ -13810,11 +14266,21 @@ Class ProfessionalColorTable from Object
 	OverflowButtonGradientMiddle
 	OverflowButtonGradientEnd
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'professionalcolortable'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ProfessionalColorTable, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ProfessionalColorTable, System.Windows.Forms',[])
 		return self
@@ -14698,16 +15164,30 @@ Class QueryAccessibilityHelpEventArgs from EventArgs
 	HelpString
 	HelpKeyword
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'queryaccessibilityhelpeventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',P1)
 			return self
@@ -14780,16 +15260,30 @@ Class QuestionEventArgs from EventArgs
 
 	Response
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'questioneventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',P1)
 			return self
@@ -15256,16 +15750,30 @@ Class SelectionRange from Object
 
 	Start
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'selectionrange'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.SelectionRange, System.Windows.Forms',P1)
 			return self
@@ -15297,11 +15805,21 @@ Class SelectionRange from Object
 
 Class SelectionRangeConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'selectionrangeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.SelectionRangeConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SelectionRangeConverter, System.Windows.Forms',[])
 		return self
@@ -16286,16 +16804,30 @@ Class TableLayoutPanelCellPosition from ValueType
 	Row
 	Column
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tablelayoutpanelcellposition'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',P1)
 			return self
@@ -16427,11 +16959,21 @@ Class TaskDialogButtonCollection from DotNetObject
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogbuttoncollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogButtonCollection, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButtonCollection, System.Windows.Forms',[])
 		return self
@@ -16663,11 +17205,21 @@ Class TaskDialogPage from Object
 	EnableLinks
 	BoundDialog
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogpage'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogPage, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogPage, System.Windows.Forms',[])
 		return self
@@ -16834,11 +17386,21 @@ Class TaskDialogRadioButtonCollection from DotNetObject
 
 	Count
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogradiobuttoncollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButtonCollection, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButtonCollection, System.Windows.Forms',[])
 		return self
@@ -16962,16 +17524,30 @@ Class FormsTimer from Component
 	Enabled
 	Interval
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'formstimer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.Timer, System.Windows.Forms',P1)
 			return self
@@ -17949,16 +18525,30 @@ Class ToolTip from Component
 	UseAnimation
 	UseFading
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tooltip'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolTip, System.Windows.Forms',P1)
 			return self
@@ -18234,16 +18824,30 @@ Class TreeNode from MarshalByRefObject
 	Name
 	TreeView
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treenode'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TreeNode, System.Windows.Forms',P1)
 			return self
@@ -18610,11 +19214,21 @@ Class TreeNodeCollection from Object
 
 Class TreeNodeConverter from TypeConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treenodeconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TreeNodeConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNodeConverter, System.Windows.Forms',[])
 		return self
@@ -18969,11 +19583,21 @@ Class WindowsFormsSection from Object
 
 	JitDebugging
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'windowsformssection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSection, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSection, System.Windows.Forms',[])
 		return self
@@ -18993,11 +19617,21 @@ Class WindowsFormsSynchronizationContext from SynchronizationContext
 
 	AutoInstall
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'windowsformssynchronizationcontext'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',[])
 		return self
@@ -19608,16 +20242,30 @@ Class ListViewSubItem from Object
 	Text
 	Name
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewsubitem'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',P1)
 			return self
@@ -20330,11 +20978,21 @@ Class ColorDialog from CommonDialog
 	ShowHelp
 	SolidColorOnly
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'colordialog'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ColorDialog, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ColorDialog, System.Windows.Forms',[])
 		return self
@@ -20393,16 +21051,30 @@ Class ColumnStyle from TableLayoutStyle
 
 	Width
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'columnstyle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ColumnStyle, System.Windows.Forms',P1)
 			return self
@@ -20543,11 +21215,21 @@ Class DataGridView from Control
 	VerticalScrollingOffset
 	VirtualMode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridview'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridView, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridView, System.Windows.Forms',[])
 		return self
@@ -22994,11 +23676,21 @@ Class DateTimePicker from Control
 	MinDateTime
 	MaxDateTime
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datetimepicker'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DateTimePicker, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DateTimePicker, System.Windows.Forms',[])
 		return self
@@ -23432,11 +24124,21 @@ Class FolderBrowserDialog from CommonDialog
 	Description
 	UseDescriptionForTitle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'folderbrowserdialog'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms',[])
 		return self
@@ -23557,11 +24259,21 @@ Class FontDialog from CommonDialog
 	ShowEffects
 	ShowHelp
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fontdialog'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.FontDialog, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FontDialog, System.Windows.Forms',[])
 		return self
@@ -23686,11 +24398,21 @@ Class GroupBox from Control
 	FlatStyle
 	UseCompatibleTextRendering
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'groupbox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.GroupBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.GroupBox, System.Windows.Forms',[])
 		return self
@@ -23779,11 +24501,21 @@ Class Label from Control
 	UseCompatibleTextRendering
 	UseMnemonic
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'label'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.Label, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Label, System.Windows.Forms',[])
 		return self
@@ -24101,11 +24833,21 @@ Class ListView from Control
 	VirtualListSize
 	VirtualMode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listview'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ListView, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListView, System.Windows.Forms',[])
 		return self
@@ -24654,11 +25396,21 @@ Class ListView from Control
 
 Class ListViewItemStateImageIndexConverter from ImageIndexConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listviewitemstateimageindexconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ListViewItemStateImageIndexConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItemStateImageIndexConverter, System.Windows.Forms',[])
 		return self
@@ -24668,11 +25420,21 @@ Class MdiClient from Control
 
 	MdiChildren
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mdiclient'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.MdiClient, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MdiClient, System.Windows.Forms',[])
 		return self
@@ -24713,11 +25475,21 @@ Class MonthCalendar from Control
 	TitleForeColor
 	TrailingForeColor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'monthcalendar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.MonthCalendar, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MonthCalendar, System.Windows.Forms',[])
 		return self
@@ -25022,11 +25794,21 @@ Class PageSetupDialog from CommonDialog
 	ShowHelp
 	ShowNetwork
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pagesetupdialog'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.PageSetupDialog, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PageSetupDialog, System.Windows.Forms',[])
 		return self
@@ -25119,11 +25901,21 @@ Class PictureBox from Control
 	SizeMode
 	WaitOnLoad
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'picturebox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.PictureBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PictureBox, System.Windows.Forms',[])
 		return self
@@ -25243,11 +26035,21 @@ Class PrintDialog from CommonDialog
 	ShowNetwork
 	UseEXDialog
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printdialog'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.PrintDialog, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintDialog, System.Windows.Forms',[])
 		return self
@@ -25333,11 +26135,21 @@ Class PrintPreviewControl from Control
 	Columns
 	StartPage
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printpreviewcontrol'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.PrintPreviewControl, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintPreviewControl, System.Windows.Forms',[])
 		return self
@@ -25414,11 +26226,21 @@ Class ProgressBar from Control
 	Step
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'progressbar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ProgressBar, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ProgressBar, System.Windows.Forms',[])
 		return self
@@ -25491,11 +26313,21 @@ Class ProgressBar from Control
 
 Class PropertyManager from BindingManagerBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertymanager'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.PropertyManager, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PropertyManager, System.Windows.Forms',[])
 		return self
@@ -25505,16 +26337,30 @@ Class RowStyle from TableLayoutStyle
 
 	Height
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rowstyle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.RowStyle, System.Windows.Forms',P1)
 			return self
@@ -25620,11 +26466,21 @@ Class ScrollableControl from Control
 	VerticalScroll
 	DockPadding
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'scrollablecontrol'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ScrollableControl, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ScrollableControl, System.Windows.Forms',[])
 		return self
@@ -25699,11 +26555,21 @@ Class Splitter from Control
 	MinSize
 	SplitPosition
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splitter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.Splitter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Splitter, System.Windows.Forms',[])
 		return self
@@ -25771,11 +26637,21 @@ Class TabControl from Control
 	TabCount
 	TabPages
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tabcontrol'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TabControl, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TabControl, System.Windows.Forms',[])
 		return self
@@ -26168,16 +27044,30 @@ Class TaskDialogButton from TaskDialogControl
 	Help
 	TryAgain
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogbutton'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',P1)
 			return self
@@ -26308,16 +27198,30 @@ Class TaskDialogExpander from TaskDialogControl
 	Expanded
 	Position
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogexpander'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',P1)
 			return self
@@ -26378,16 +27282,30 @@ Class TaskDialogFootnote from TaskDialogControl
 	Text
 	Icon
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogfootnote'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',P1)
 			return self
@@ -26422,16 +27340,30 @@ Class TaskDialogProgressBar from TaskDialogControl
 	Value
 	MarqueeSpeed
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogprogressbar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',P1)
 			return self
@@ -26485,16 +27417,30 @@ Class TaskDialogRadioButton from TaskDialogControl
 	Text
 	Checked
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogradiobutton'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',P1)
 			return self
@@ -26541,16 +27487,30 @@ Class TaskDialogVerificationCheckBox from TaskDialogControl
 	Text
 	Checked
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogverificationcheckbox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',P1)
 			return self
@@ -27743,16 +28703,30 @@ Class ToolStripProfessionalRenderer from ToolStripRenderer
 	ColorTable
 	RoundedEdges
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripprofessionalrenderer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',P1)
 			return self
@@ -27800,11 +28774,21 @@ Class ToolStripSeparatorRenderEventArgs from ToolStripItemRenderEventArgs
 
 Class ToolStripSystemRenderer from ToolStripRenderer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripsystemrenderer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripSystemRenderer, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSystemRenderer, System.Windows.Forms',[])
 		return self
@@ -27822,11 +28806,21 @@ Class TrackBar from Control
 	TickFrequency
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'trackbar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TrackBar, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TrackBar, System.Windows.Forms',[])
 		return self
@@ -27983,11 +28977,21 @@ Class TreeView from Control
 	TopNode
 	VisibleCount
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treeview'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TreeView, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeView, System.Windows.Forms',[])
 		return self
@@ -28359,11 +29363,21 @@ Class TreeView from Control
 
 Class TreeViewImageIndexConverter from ImageIndexConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treeviewimageindexconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TreeViewImageIndexConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewImageIndexConverter, System.Windows.Forms',[])
 		return self
@@ -28371,11 +29385,21 @@ Class TreeViewImageIndexConverter from ImageIndexConverter
 
 Class TreeViewImageKeyConverter from ImageKeyConverter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'treeviewimagekeyconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TreeViewImageKeyConverter, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeViewImageKeyConverter, System.Windows.Forms',[])
 		return self
@@ -28435,11 +29459,21 @@ Class Button from ButtonBase
 	AutoSizeMode
 	DialogResult
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'button'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.Button, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Button, System.Windows.Forms',[])
 		return self
@@ -28476,11 +29510,21 @@ Class CheckBox from ButtonBase
 	CheckState
 	ThreeState
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'checkbox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.CheckBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CheckBox, System.Windows.Forms',[])
 		return self
@@ -28575,11 +29619,21 @@ Class ComboBox from ListControl
 	Sorted
 	DropDownStyle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'combobox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ComboBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ComboBox, System.Windows.Forms',[])
 		return self
@@ -28834,11 +29888,21 @@ Class ContainerControl from ScrollableControl
 	CurrentAutoScaleDimensions
 	ParentForm
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'containercontrol'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ContainerControl, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ContainerControl, System.Windows.Forms',[])
 		return self
@@ -28973,11 +30037,21 @@ Class DataGridViewButtonCell from DataGridViewCell
 	FlatStyle
 	UseColumnTextForButtonValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewbuttoncell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonCell, System.Windows.Forms',[])
 		return self
@@ -29010,16 +30084,30 @@ Class DataGridViewCheckBoxCell from DataGridViewCell
 	ThreeState
 	TrueValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcheckboxcell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',P1)
 			return self
@@ -29109,16 +30197,30 @@ Class DataGridViewColumn from DataGridViewBand
 	ValueType
 	Width
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcolumn'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',P1)
 			return self
@@ -29299,11 +30401,21 @@ Class DataGridViewComboBoxCell from DataGridViewCell
 	Sorted
 	ValueMember
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcomboboxcell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxCell, System.Windows.Forms',[])
 		return self
@@ -29390,11 +30502,21 @@ Class DataGridViewComboBoxCell from DataGridViewCell
 
 Class DataGridViewHeaderCell from DataGridViewCell
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewheadercell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewHeaderCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewHeaderCell, System.Windows.Forms',[])
 		return self
@@ -29406,16 +30528,30 @@ Class DataGridViewImageCell from DataGridViewCell
 	ImageLayout
 	ValueIsIcon
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewimagecell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',P1)
 			return self
@@ -29459,11 +30595,21 @@ Class DataGridViewLinkCell from DataGridViewCell
 	UseColumnTextForLinkValue
 	VisitedLinkColor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewlinkcell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkCell, System.Windows.Forms',[])
 		return self
@@ -29533,11 +30679,21 @@ Class DataGridViewRow from DataGridViewBand
 	IsNewRow
 	MinimumHeight
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewrow'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewRow, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRow, System.Windows.Forms',[])
 		return self
@@ -29652,11 +30808,21 @@ Class DataGridViewTextBoxCell from DataGridViewCell
 
 	MaxInputLength
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewtextboxcell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxCell, System.Windows.Forms',[])
 		return self
@@ -29674,11 +30840,21 @@ Class DataGridViewTextBoxCell from DataGridViewCell
 
 Class HScrollBar from ScrollBar
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hscrollbar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.HScrollBar, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.HScrollBar, System.Windows.Forms',[])
 		return self
@@ -29695,11 +30871,21 @@ Class LinkLabel from Label
 	LinkVisited
 	VisitedLinkColor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linklabel'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.LinkLabel, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.LinkLabel, System.Windows.Forms',[])
 		return self
@@ -29793,11 +30979,21 @@ Class ListBox from ListControl
 	NoMatches
 	DefaultItemHeight
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listbox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ListBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ListBox, System.Windows.Forms',[])
 		return self
@@ -30043,16 +31239,30 @@ Class MaskedTextBox from TextBoxBase
 	UseSystemPasswordChar
 	ValidatingType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'maskedtextbox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',P1)
 			return self
@@ -30275,11 +31485,21 @@ Class OpenFileDialog from FileDialog
 	SafeFileName
 	SafeFileNames
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'openfiledialog'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.OpenFileDialog, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.OpenFileDialog, System.Windows.Forms',[])
 		return self
@@ -30340,11 +31560,21 @@ Class Panel from ScrollableControl
 	AutoSizeMode
 	BorderStyle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'panel'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.Panel, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Panel, System.Windows.Forms',[])
 		return self
@@ -30371,11 +31601,21 @@ Class RadioButton from ButtonBase
 	CheckAlign
 	Checked
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'radiobutton'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.RadioButton, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.RadioButton, System.Windows.Forms',[])
 		return self
@@ -30459,11 +31699,21 @@ Class RichTextBox from TextBoxBase
 	UndoActionName
 	ZoomFactor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'richtextbox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.RichTextBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.RichTextBox, System.Windows.Forms',[])
 		return self
@@ -30758,11 +32008,21 @@ Class SaveFileDialog from FileDialog
 	ExpandedMode
 	OverwritePrompt
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'savefiledialog'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.SaveFileDialog, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SaveFileDialog, System.Windows.Forms',[])
 		return self
@@ -30803,16 +32063,30 @@ Class TaskDialogCommandLinkButton from TaskDialogButton
 
 	DescriptionText
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogcommandlinkbutton'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',P1)
 			return self
@@ -30845,11 +32119,21 @@ Class TextBox from TextBoxBase
 	UseSystemPasswordChar
 	PlaceholderText
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'textbox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TextBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TextBox, System.Windows.Forms',[])
 		return self
@@ -30971,16 +32255,30 @@ Class ToolStrip from ScrollableControl
 	ShowItemToolTips
 	TextDirection
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstrip'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStrip, System.Windows.Forms',P1)
 			return self
@@ -31238,16 +32536,30 @@ Class ToolStripButton from ToolStripItem
 	Checked
 	CheckState
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripbutton'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripButton, System.Windows.Forms',P1)
 			return self
@@ -31526,16 +32838,30 @@ Class ToolStripLabel from ToolStripItem
 	LinkVisited
 	VisitedLinkColor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstriplabel'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',P1)
 			return self
@@ -31592,11 +32918,21 @@ Class ToolStripLabel from ToolStripItem
 
 Class ToolStripSeparator from ToolStripItem
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripseparator'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripSeparator, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSeparator, System.Windows.Forms',[])
 		return self
@@ -31604,11 +32940,21 @@ Class ToolStripSeparator from ToolStripItem
 
 Class VScrollBar from ScrollBar
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'vscrollbar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.VScrollBar, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.VScrollBar, System.Windows.Forms',[])
 		return self
@@ -31638,11 +32984,21 @@ Class WebBrowser from WebBrowserBase
 	Version
 	ScrollBarsEnabled
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'webbrowser'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.WebBrowser, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.WebBrowser, System.Windows.Forms',[])
 		return self
@@ -31947,16 +33303,30 @@ Class BindingNavigator from ToolStrip
 	CountItem
 	CountItemFormat
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bindingnavigator'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.BindingNavigator, System.Windows.Forms',P1)
 			return self
@@ -32070,11 +33440,21 @@ Class CheckedListBox from ListBox
 	ThreeDCheckBoxes
 	UseCompatibleTextRendering
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'checkedlistbox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.CheckedListBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.CheckedListBox, System.Windows.Forms',[])
 		return self
@@ -32141,11 +33521,21 @@ Class DataGridViewButtonColumn from DataGridViewColumn
 	Text
 	UseColumnTextForButtonValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewbuttoncolumn'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms',[])
 		return self
@@ -32180,16 +33570,30 @@ Class DataGridViewCheckBoxColumn from DataGridViewColumn
 	ThreeState
 	TrueValue
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcheckboxcolumn'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',P1)
 			return self
@@ -32241,11 +33645,21 @@ Class DataGridViewColumnHeaderCell from DataGridViewHeaderCell
 
 	SortGlyphDirection
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcolumnheadercell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnHeaderCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnHeaderCell, System.Windows.Forms',[])
 		return self
@@ -32272,11 +33686,21 @@ Class DataGridViewComboBoxColumn from DataGridViewColumn
 	MaxDropDownItems
 	Sorted
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcomboboxcolumn'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms',[])
 		return self
@@ -32367,11 +33791,21 @@ Class DataGridViewComboBoxEditingControl from ComboBox
 	EditingPanelCursor
 	RepositionEditingControlOnValueChange
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewcomboboxeditingcontrol'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxEditingControl, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewComboBoxEditingControl, System.Windows.Forms',[])
 		return self
@@ -32439,16 +33873,30 @@ Class DataGridViewImageColumn from DataGridViewColumn
 	ImageLayout
 	ValuesAreIcons
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewimagecolumn'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',P1)
 			return self
@@ -32506,11 +33954,21 @@ Class DataGridViewLinkColumn from DataGridViewColumn
 	UseColumnTextForLinkValue
 	VisitedLinkColor
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewlinkcolumn'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkColumn, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewLinkColumn, System.Windows.Forms',[])
 		return self
@@ -32567,11 +34025,21 @@ Class DataGridViewLinkColumn from DataGridViewColumn
 
 Class DataGridViewRowHeaderCell from DataGridViewHeaderCell
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewrowheadercell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowHeaderCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewRowHeaderCell, System.Windows.Forms',[])
 		return self
@@ -32581,11 +34049,21 @@ Class DataGridViewTextBoxColumn from DataGridViewColumn
 
 	MaxInputLength
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewtextboxcolumn'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms',[])
 		return self
@@ -32607,11 +34085,21 @@ Class DataGridViewTextBoxEditingControl from TextBox
 	EditingPanelCursor
 	RepositionEditingControlOnValueChange
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewtextboxeditingcontrol'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxEditingControl, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTextBoxEditingControl, System.Windows.Forms',[])
 		return self
@@ -32676,11 +34164,21 @@ Class FlowLayoutPanel from Panel
 	FlowDirection
 	WrapContents
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'flowlayoutpanel'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms',[])
 		return self
@@ -32753,11 +34251,21 @@ Class Form from ContainerControl
 	WindowState
 	ActiveForm
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'form'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.Form, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.Form, System.Windows.Forms',[])
 		return self
@@ -33330,11 +34838,21 @@ Class MenuStrip from ToolStrip
 
 	MdiWindowListItem
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'menustrip'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.MenuStrip, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.MenuStrip, System.Windows.Forms',[])
 		return self
@@ -33400,11 +34918,21 @@ Class PropertyGrid from ContainerControl
 	ViewBorderColor
 	UseCompatibleTextRendering
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'propertygrid'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.PropertyGrid, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PropertyGrid, System.Windows.Forms',[])
 		return self
@@ -33716,11 +35244,21 @@ Class SplitContainer from ContainerControl
 	SplitterRectangle
 	SplitterWidth
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'splitcontainer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.SplitContainer, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.SplitContainer, System.Windows.Forms',[])
 		return self
@@ -33870,11 +35408,21 @@ Class StatusStrip from ToolStrip
 	SizingGrip
 	SizeGripBounds
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'statusstrip'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.StatusStrip, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.StatusStrip, System.Windows.Forms',[])
 		return self
@@ -33900,16 +35448,30 @@ Class TabPage from Panel
 	UseVisualStyleBackColor
 	ToolTipText
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tabpage'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.TabPage, System.Windows.Forms',P1)
 			return self
@@ -33963,11 +35525,21 @@ Class TableLayoutPanel from Panel
 	RowStyles
 	ColumnStyles
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tablelayoutpanel'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanel, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanel, System.Windows.Forms',[])
 		return self
@@ -34097,16 +35669,30 @@ Class ToolStripComboBox from ToolStripControlHost
 	SelectionStart
 	Sorted
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripcombobox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',P1)
 			return self
@@ -34340,11 +35926,21 @@ Class ToolStripContainer from ContainerControl
 	TopToolStripPanel
 	TopToolStripPanelVisible
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripcontainer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripContainer, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripContainer, System.Windows.Forms',[])
 		return self
@@ -34413,11 +36009,21 @@ Class ToolStripContentPanel from Panel
 	Renderer
 	RenderMode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripcontentpanel'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripContentPanel, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripContentPanel, System.Windows.Forms',[])
 		return self
@@ -34463,11 +36069,21 @@ Class ToolStripDropDown from ToolStrip
 	OwnerItem
 	TopLevel
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripdropdown'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDown, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDown, System.Windows.Forms',[])
 		return self
@@ -34581,16 +36197,30 @@ Class ToolStripDropDownButton from ToolStripDropDownItem
 
 	ShowDropDownArrow
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripdropdownbutton'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',P1)
 			return self
@@ -34620,16 +36250,30 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 	ShowShortcutKeys
 	IsMdiWindowListEntry
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripmenuitem'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',P1)
 			return self
@@ -34715,11 +36359,21 @@ Class ToolStripPanel from ContainerControl
 	RenderMode
 	Rows
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstrippanel'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripPanel, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripPanel, System.Windows.Forms',[])
 		return self
@@ -34804,16 +36458,30 @@ Class ToolStripProgressBar from ToolStripControlHost
 	Style
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripprogressbar'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',P1)
 			return self
@@ -34909,16 +36577,30 @@ Class ToolStripSplitButton from ToolStripDropDownItem
 	DropDownButtonWidth
 	SplitterBounds
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripsplitbutton'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',P1)
 			return self
@@ -35030,16 +36712,30 @@ Class ToolStripStatusLabel from ToolStripLabel
 	Spring
 	LiveSetting
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripstatuslabel'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',P1)
 			return self
@@ -35105,16 +36801,30 @@ Class ToolStripTextBox from ToolStripControlHost
 	TextBoxTextAlign
 	WordWrap
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstriptextbox'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',P1)
 			return self
@@ -35486,11 +37196,21 @@ Class UserControl from ContainerControl
 	AutoSizeMode
 	BorderStyle
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'usercontrol'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.UserControl, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.UserControl, System.Windows.Forms',[])
 		return self
@@ -35520,11 +37240,21 @@ Class UserControl from ContainerControl
 
 Class DataGridViewTopLeftHeaderCell from DataGridViewColumnHeaderCell
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'datagridviewtopleftheadercell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DataGridViewTopLeftHeaderCell, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewTopLeftHeaderCell, System.Windows.Forms',[])
 		return self
@@ -35538,11 +37268,21 @@ Class DomainUpDown from UpDownBase
 	Sorted
 	Wrap
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'domainupdown'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.DomainUpDown, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.DomainUpDown, System.Windows.Forms',[])
 		return self
@@ -35601,11 +37341,21 @@ Class NumericUpDown from UpDownBase
 	ThousandsSeparator
 	Value
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'numericupdown'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.NumericUpDown, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.NumericUpDown, System.Windows.Forms',[])
 		return self
@@ -35688,11 +37438,21 @@ Class PrintPreviewDialog from Form
 	Document
 	PrintPreviewControl
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'printpreviewdialog'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms',[])
 		return self
@@ -35735,11 +37495,21 @@ Class ToolStripDropDownMenu from ToolStripDropDown
 	ShowImageMargin
 	ShowCheckMargin
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'toolstripdropdownmenu'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownMenu, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownMenu, System.Windows.Forms',[])
 		return self
@@ -35786,16 +37556,30 @@ Class ContextMenuStrip from ToolStripDropDownMenu
 
 	SourceControl
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'contextmenustrip'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',P1)
 			return self

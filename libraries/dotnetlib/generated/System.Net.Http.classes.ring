@@ -350,16 +350,30 @@ Class HttpRequestMessage from Object
 	Properties
 	Options
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestmessage'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpRequestMessage, System.Net.Http',P1)
 			return self
@@ -434,11 +448,21 @@ Class HttpRequestMessage from Object
 
 Class HttpRequestOptions from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httprequestoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Http.HttpRequestOptions, System.Net.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpRequestOptions, System.Net.Http',[])
 		return self
@@ -465,16 +489,30 @@ Class HttpResponseMessage from Object
 	RequestMessage
 	IsSuccessStatusCode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpresponsemessage'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Http.HttpResponseMessage, System.Net.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Http.HttpResponseMessage, System.Net.Http',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpResponseMessage, System.Net.Http',P1)
 			return self
@@ -669,16 +707,30 @@ Class HttpClient from HttpMessageInvoker
 	MaxResponseContentBufferSize
 	DefaultProxy
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpclient'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.HttpClient, System.Net.Http',P1)
 			return self
@@ -831,11 +883,21 @@ Class HttpClientHandler from HttpMessageHandler
 	Properties
 	DangerousAcceptAnyServerCertificateValidator
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'httpclienthandler'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Http.HttpClientHandler, System.Net.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.HttpClientHandler, System.Net.Http',[])
 		return self
@@ -1014,16 +1076,30 @@ Class MultipartContent from HttpContent
 
 	HeaderEncodingSelector
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multipartcontent'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.MultipartContent, System.Net.Http',P1)
 			return self
@@ -1098,11 +1174,21 @@ Class SocketsHttpHandler from HttpMessageHandler
 	MeterFactory
 	IsSupported
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketshttphandler'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Http.SocketsHttpHandler, System.Net.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Http.SocketsHttpHandler, System.Net.Http',[])
 		return self
@@ -1386,16 +1472,30 @@ Class MessageProcessingHandler from DelegatingHandler
 
 Class MultipartFormDataContent from MultipartContent
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'multipartformdatacontent'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Http.MultipartFormDataContent, System.Net.Http',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Http.MultipartFormDataContent, System.Net.Http',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Http.MultipartFormDataContent, System.Net.Http',P1)
 			return self

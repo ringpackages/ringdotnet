@@ -96,11 +96,21 @@ Class ValidateOptionsResult from Object
 	Skip
 	Success
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'validateoptionsresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options',[])
 		return self
@@ -156,11 +166,21 @@ Class ValidateOptionsResult from Object
 
 Class ValidateOptionsResultBuilder from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'validateoptionsresultbuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('Microsoft.Extensions.Options.ValidateOptionsResultBuilder, Microsoft.Extensions.Options',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('Microsoft.Extensions.Options.ValidateOptionsResultBuilder, Microsoft.Extensions.Options',[])
 		return self

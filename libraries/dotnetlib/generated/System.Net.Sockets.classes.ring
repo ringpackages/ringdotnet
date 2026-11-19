@@ -112,11 +112,21 @@ Class IPPacketInformation from ValueType
 	Address
 	Interface
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'ippacketinformation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Sockets.IPPacketInformation, System.Net.Sockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.IPPacketInformation, System.Net.Sockets',[])
 		return self
@@ -318,16 +328,30 @@ Class SafeSocketHandle from DotNetObject
 	IsInvalid
 	IsClosed
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'safesockethandle'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',P1)
 			return self
@@ -989,16 +1013,30 @@ Class SocketAsyncEventArgs from EventArgs
 	SocketFlags
 	UserToken
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketasynceventargs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',P1)
 			return self
@@ -1157,11 +1195,21 @@ Class SocketInformation from ValueType
 	ProtocolInformation
 	Options
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketinformation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Sockets.SocketInformation, System.Net.Sockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketInformation, System.Net.Sockets',[])
 		return self
@@ -1186,11 +1234,21 @@ Class SocketReceiveFromResult from ValueType
 	ReceivedBytes
 	RemoteEndPoint
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketreceivefromresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Sockets.SocketReceiveFromResult, System.Net.Sockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketReceiveFromResult, System.Net.Sockets',[])
 		return self
@@ -1217,11 +1275,21 @@ Class SocketReceiveMessageFromResult from ValueType
 	RemoteEndPoint
 	PacketInformation
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'socketreceivemessagefromresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Sockets.SocketReceiveMessageFromResult, System.Net.Sockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketReceiveMessageFromResult, System.Net.Sockets',[])
 		return self
@@ -1315,16 +1383,30 @@ Class TcpClient from Object
 	LingerState
 	NoDelay
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tcpclient'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.TcpClient, System.Net.Sockets',P1)
 			return self
@@ -1566,16 +1648,30 @@ Class UdpClient from Object
 	EnableBroadcast
 	ExclusiveAddressUse
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'udpclient'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.UdpClient, System.Net.Sockets',P1)
 			return self
@@ -1719,16 +1815,30 @@ Class UdpReceiveResult from ValueType
 	Buffer
 	RemoteEndPoint
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'udpreceiveresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',P1)
 			return self

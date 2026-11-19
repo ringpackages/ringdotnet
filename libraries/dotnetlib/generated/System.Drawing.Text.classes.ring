@@ -45,11 +45,21 @@ Class FontCollection from Object
 
 Class InstalledFontCollection from FontCollection
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'installedfontcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Text.InstalledFontCollection, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Text.InstalledFontCollection, System.Drawing.Common',[])
 		return self
@@ -57,11 +67,21 @@ Class InstalledFontCollection from FontCollection
 
 Class PrivateFontCollection from FontCollection
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'privatefontcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Drawing.Text.PrivateFontCollection, System.Drawing.Common',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Drawing.Text.PrivateFontCollection, System.Drawing.Common',[])
 		return self

@@ -310,11 +310,21 @@ Class IXmlNamespaceResolver from DotNetObject
 
 Class XmlConvert from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlconvert'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.XmlConvert, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlConvert, System.Private.Xml',[])
 		return self
@@ -442,16 +452,30 @@ Class XmlConvert from Object
 
 Class XmlImplementation from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlimplementation'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlImplementation, System.Private.Xml',P1)
 			return self
@@ -1043,16 +1067,30 @@ Class XmlQualifiedName from Object
 	IsEmpty
 	Empty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlqualifiedname'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlQualifiedName, System.Private.Xml',P1)
 			return self
@@ -1626,11 +1664,21 @@ Class XmlReaderSettings from Object
 	ValidationFlags
 	Schemas
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlreadersettings'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.XmlReaderSettings, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlReaderSettings, System.Private.Xml',[])
 		return self
@@ -2133,11 +2181,21 @@ Class XmlWriterSettings from Object
 	OutputMethod
 	DoNotEscapeUriAttributes
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlwritersettings'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.XmlWriterSettings, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlWriterSettings, System.Private.Xml',[])
 		return self
@@ -2259,11 +2317,21 @@ Class XmlWriterSettings from Object
 
 Class NameTable from XmlNameTable
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'nametable'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.NameTable, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.NameTable, System.Private.Xml',[])
 		return self
@@ -2342,16 +2410,30 @@ Class XmlDocument from XmlNode
 	NameTable
 	PreserveWhitespace
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmldocument'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Xml.XmlDocument, System.Private.Xml',P1)
 			return self
@@ -2828,11 +2910,21 @@ Class XmlUrlResolver from XmlResolver
 	Proxy
 	CachePolicy
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'xmlurlresolver'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Xml.XmlUrlResolver, System.Private.Xml',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Xml.XmlUrlResolver, System.Private.Xml',[])
 		return self

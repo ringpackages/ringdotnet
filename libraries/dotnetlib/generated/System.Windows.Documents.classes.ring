@@ -423,11 +423,21 @@ Class AdornerDecorator from Decorator
 
 	AdornerLayer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'adornerdecorator'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.AdornerDecorator, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.AdornerDecorator, PresentationFramework',[])
 		return self
@@ -765,11 +775,21 @@ Class DocumentReference from FrameworkElement
 	Source
 	SourceProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'documentreference'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.DocumentReference, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.DocumentReference, PresentationFramework',[])
 		return self
@@ -1239,11 +1259,21 @@ Class FixedDocument from FrameworkContentElement
 	PrintTicket
 	PrintTicketProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fixeddocument'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.FixedDocument, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.FixedDocument, PresentationFramework',[])
 		return self
@@ -1281,11 +1311,21 @@ Class FixedDocumentSequence from FrameworkContentElement
 	PrintTicket
 	PrintTicketProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fixeddocumentsequence'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.FixedDocumentSequence, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.FixedDocumentSequence, PresentationFramework',[])
 		return self
@@ -1333,11 +1373,21 @@ Class FixedPage from FrameworkElement
 	BleedBoxProperty
 	NavigateUriProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'fixedpage'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.FixedPage, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.FixedPage, PresentationFramework',[])
 		return self
@@ -1525,16 +1575,30 @@ Class FlowDocument from FrameworkContentElement
 	PagePaddingProperty
 	IsHyphenationEnabledProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'flowdocument'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.FlowDocument, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.FlowDocument, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.FlowDocument, PresentationFramework',P1)
 			return self
@@ -2053,11 +2117,21 @@ Class Glyphs from FrameworkElement
 	BidiLevelProperty
 	DeviceFontNameProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'glyphs'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Glyphs, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.Glyphs, PresentationFramework',[])
 		return self
@@ -2330,11 +2404,21 @@ Class LinkTarget from Object
 
 	Name
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linktarget'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.LinkTarget, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.LinkTarget, PresentationFramework',[])
 		return self
@@ -2352,11 +2436,21 @@ Class LinkTarget from Object
 
 Class LinkTargetCollection from CollectionBase
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linktargetcollection'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.LinkTargetCollection, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.LinkTargetCollection, PresentationFramework',[])
 		return self
@@ -2482,11 +2576,21 @@ Class PageContent from FrameworkElement
 	Child
 	SourceProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'pagecontent'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.PageContent, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.PageContent, PresentationFramework',[])
 		return self
@@ -2727,11 +2831,21 @@ Class TableColumn from FrameworkContentElement
 	WidthProperty
 	BackgroundProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tablecolumn'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.TableColumn, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.TableColumn, PresentationFramework',[])
 		return self
@@ -4365,11 +4479,21 @@ Class Typography from Object
 
 Class ZoomPercentageConverter from Object
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'zoompercentageconverter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.ZoomPercentageConverter, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.ZoomPercentageConverter, PresentationFramework',[])
 		return self
@@ -4828,16 +4952,30 @@ Class ListItem from TextElement
 	LineHeightProperty
 	LineStackingStrategyProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listitem'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.ListItem, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.ListItem, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.ListItem, PresentationFramework',P1)
 			return self
@@ -5009,16 +5147,30 @@ Class TableCell from TextElement
 	ColumnSpanProperty
 	RowSpanProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tablecell'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.TableCell, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.TableCell, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.TableCell, PresentationFramework',P1)
 			return self
@@ -5158,11 +5310,21 @@ Class TableRow from TextElement
 
 	Cells
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tablerow'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.TableRow, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.TableRow, PresentationFramework',[])
 		return self
@@ -5181,11 +5343,21 @@ Class TableRowGroup from TextElement
 
 	Rows
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'tablerowgroup'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.TableRowGroup, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.TableRowGroup, PresentationFramework',[])
 		return self
@@ -5468,16 +5640,30 @@ Class BlockUIContainer from Block
 
 	Child
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'blockuicontainer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.BlockUIContainer, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.BlockUIContainer, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.BlockUIContainer, PresentationFramework',P1)
 			return self
@@ -5501,16 +5687,30 @@ Class InlineUIContainer from Inline
 
 	Child
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'inlineuicontainer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.InlineUIContainer, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.InlineUIContainer, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.InlineUIContainer, PresentationFramework',P1)
 			return self
@@ -5532,16 +5732,30 @@ Class InlineUIContainer from Inline
 
 Class LineBreak from Inline
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'linebreak'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.LineBreak, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.LineBreak, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.LineBreak, PresentationFramework',P1)
 			return self
@@ -5564,16 +5778,30 @@ Class List from Block
 	MarkerOffsetProperty
 	StartIndexProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'list'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.List, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.List, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.List, PresentationFramework',P1)
 			return self
@@ -5647,16 +5875,30 @@ Class Paragraph from Block
 	KeepWithNextProperty
 	KeepTogetherProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'paragraph'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Paragraph, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Paragraph, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Paragraph, PresentationFramework',P1)
 			return self
@@ -5761,16 +6003,30 @@ Class Run from Inline
 	Text
 	TextProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'run'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Run, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Run, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Run, PresentationFramework',P1)
 			return self
@@ -5804,16 +6060,30 @@ Class Section from Block
 	HasTrailingParagraphBreakOnPaste
 	Blocks
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'section'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Section, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Section, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Section, PresentationFramework',P1)
 			return self
@@ -5846,16 +6116,30 @@ Class Span from Inline
 
 	Inlines
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'span'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Span, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Span, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Span, PresentationFramework',P1)
 			return self
@@ -5884,11 +6168,21 @@ Class Table from Block
 	CellSpacing
 	CellSpacingProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'table'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Table, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Windows.Documents.Table, PresentationFramework',[])
 		return self
@@ -5924,16 +6218,30 @@ Class Table from Block
 
 Class Bold from Span
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'bold'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Bold, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Bold, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Bold, PresentationFramework',P1)
 			return self
@@ -5965,16 +6273,30 @@ Class Figure from AnchoredBlock
 	WidthProperty
 	HeightProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'figure'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Figure, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Figure, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Figure, PresentationFramework',P1)
 			return self
@@ -6098,16 +6420,30 @@ Class Floater from AnchoredBlock
 	HorizontalAlignmentProperty
 	WidthProperty
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'floater'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Floater, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Floater, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Floater, PresentationFramework',P1)
 			return self
@@ -6161,16 +6497,30 @@ Class Hyperlink from Span
 	RequestNavigateEvent
 	ClickEvent
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'hyperlink'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Hyperlink, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Hyperlink, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Hyperlink, PresentationFramework',P1)
 			return self
@@ -6276,16 +6626,30 @@ Class Hyperlink from Span
 
 Class Italic from Span
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'italic'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Italic, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Italic, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Italic, PresentationFramework',P1)
 			return self
@@ -6300,16 +6664,30 @@ Class Italic from Span
 
 Class Underline from Span
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'underline'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Windows.Documents.Underline, PresentationFramework',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Underline, PresentationFramework',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Windows.Documents.Underline, PresentationFramework',P1)
 			return self

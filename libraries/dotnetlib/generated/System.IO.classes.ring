@@ -599,11 +599,21 @@ Class EnumerationOptions from Object
 	MaxRecursionDepth
 	ReturnSpecialDirectories
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'enumerationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.EnumerationOptions, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.EnumerationOptions, System.Private.CoreLib',[])
 		return self
@@ -955,11 +965,21 @@ Class FileStreamOptions from Object
 	BufferSize
 	UnixCreateMode
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'filestreamoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.FileStreamOptions, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.FileStreamOptions, System.Private.CoreLib',[])
 		return self
@@ -1192,16 +1212,30 @@ Class FileSystemWatcher from Component
 	Path
 	SynchronizingObject
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'filesystemwatcher'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',P1)
 			return self
@@ -1967,11 +2001,21 @@ Class WaitForChangedResult from ValueType
 	OldName
 	TimedOut
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'waitforchangedresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.WaitForChangedResult, System.IO.FileSystem.Watcher',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.IO.WaitForChangedResult, System.IO.FileSystem.Watcher',[])
 		return self
@@ -2319,16 +2363,30 @@ Class MemoryStream from Stream
 
 	Capacity
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'memorystream'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.MemoryStream, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.IO.MemoryStream, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.MemoryStream, System.Private.CoreLib',P1)
 			return self
@@ -2498,16 +2556,30 @@ Class StringReader from TextReader
 
 Class StringWriter from TextWriter
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringwriter'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.IO.StringWriter, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.IO.StringWriter, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.IO.StringWriter, System.Private.CoreLib',P1)
 			return self

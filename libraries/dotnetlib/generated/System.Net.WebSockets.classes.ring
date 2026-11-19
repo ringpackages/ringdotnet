@@ -179,16 +179,30 @@ Class ValueWebSocketReceiveResult from ValueType
 	EndOfMessage
 	MessageType
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'valuewebsocketreceiveresult'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',P1)
 			return self
@@ -421,11 +435,21 @@ Class WebSocketCreationOptions from Object
 	KeepAliveTimeout
 	DangerousDeflateOptions
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'websocketcreationoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.WebSockets.WebSocketCreationOptions, System.Net.WebSockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.WebSocketCreationOptions, System.Net.WebSockets',[])
 		return self
@@ -476,11 +500,21 @@ Class WebSocketDeflateOptions from Object
 	ServerMaxWindowBits
 	ServerContextTakeover
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'websocketdeflateoptions'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.WebSockets.WebSocketDeflateOptions, System.Net.WebSockets',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.WebSocketDeflateOptions, System.Net.WebSockets',[])
 		return self
@@ -586,11 +620,21 @@ Class ClientWebSocket from WebSocket
 	HttpStatusCode
 	HttpResponseHeaders
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'clientwebsocket'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Net.WebSockets.ClientWebSocket, System.Net.WebSockets.Client',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Net.WebSockets.ClientWebSocket, System.Net.WebSockets.Client',[])
 		return self

@@ -786,16 +786,30 @@ Class Rune from ValueType
 	Value
 	ReplacementChar
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'rune'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.Rune, System.Private.CoreLib',P1)
 			return self
@@ -925,6 +939,10 @@ Class StringBuilder from Object
 	MaxCapacity
 	Length
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringbuilder'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[])
+	ok
+
 	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -932,13 +950,22 @@ Class StringBuilder from Object
 			return self
 		ok
 		if isstring(P1) and P1 = ""
-			nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[])
+			if nHandle = 0
+				nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[])
+			ok
 			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[P1])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.StringBuilder, System.Private.CoreLib',P1)
 			return self
@@ -1043,11 +1070,21 @@ Class StringRuneEnumerator from ValueType
 
 	Current
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'stringruneenumerator'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.StringRuneEnumerator, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.StringRuneEnumerator, System.Private.CoreLib',[])
 		return self
@@ -1067,11 +1104,21 @@ Class StringRuneEnumerator from ValueType
 
 Class ASCIIEncoding from Encoding
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'asciiencoding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.ASCIIEncoding, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.ASCIIEncoding, System.Private.CoreLib',[])
 		return self
@@ -1079,11 +1126,21 @@ Class ASCIIEncoding from Encoding
 
 Class DecoderExceptionFallback from DecoderFallback
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decoderexceptionfallback'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.DecoderExceptionFallback, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.DecoderExceptionFallback, System.Private.CoreLib',[])
 		return self
@@ -1091,11 +1148,21 @@ Class DecoderExceptionFallback from DecoderFallback
 
 Class DecoderExceptionFallbackBuffer from DecoderFallbackBuffer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decoderexceptionfallbackbuffer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.DecoderExceptionFallbackBuffer, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.DecoderExceptionFallbackBuffer, System.Private.CoreLib',[])
 		return self
@@ -1105,16 +1172,30 @@ Class DecoderReplacementFallback from DecoderFallback
 
 	DefaultString
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'decoderreplacementfallback'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.DecoderReplacementFallback, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.DecoderReplacementFallback, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.DecoderReplacementFallback, System.Private.CoreLib',P1)
 			return self
@@ -1147,11 +1228,21 @@ Class DecoderReplacementFallbackBuffer from DecoderFallbackBuffer
 
 Class EncoderExceptionFallback from EncoderFallback
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'encoderexceptionfallback'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.EncoderExceptionFallback, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.EncoderExceptionFallback, System.Private.CoreLib',[])
 		return self
@@ -1159,11 +1250,21 @@ Class EncoderExceptionFallback from EncoderFallback
 
 Class EncoderExceptionFallbackBuffer from EncoderFallbackBuffer
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'encoderexceptionfallbackbuffer'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.EncoderExceptionFallbackBuffer, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
+		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
 		ok
 		nHandle = dnCreate('System.Text.EncoderExceptionFallbackBuffer, System.Private.CoreLib',[])
 		return self
@@ -1173,16 +1274,30 @@ Class EncoderReplacementFallback from EncoderFallback
 
 	DefaultString
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'encoderreplacementfallback'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.EncoderReplacementFallback, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.EncoderReplacementFallback, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.EncoderReplacementFallback, System.Private.CoreLib',P1)
 			return self
@@ -1215,16 +1330,30 @@ Class EncoderReplacementFallbackBuffer from EncoderFallbackBuffer
 
 Class UTF32Encoding from Encoding
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'utf32encoding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF32Encoding, System.Private.CoreLib',P1)
 			return self
@@ -1239,16 +1368,30 @@ Class UTF32Encoding from Encoding
 
 Class UTF7Encoding from Encoding
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'utf7encoding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.UTF7Encoding, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.UTF7Encoding, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF7Encoding, System.Private.CoreLib',P1)
 			return self
@@ -1263,16 +1406,30 @@ Class UTF7Encoding from Encoding
 
 Class UTF8Encoding from Encoding
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'utf8encoding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.UTF8Encoding, System.Private.CoreLib',P1)
 			return self
@@ -1289,16 +1446,30 @@ Class UnicodeEncoding from Encoding
 
 	CharSize
 
+	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'unicodeencoding'          # new X without parentheses: the default object
+		nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[])
+	ok
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		if nHandle != 0          # made by the class body
+			return self
+		ok
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+		ok
 		nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[])
 		return self
 
 	Func New_ P1
+		if nHandle != 0          # the default object made for the class body is not needed
+			dnRequest("release",[nHandle])
+			nHandle = 0
+		ok
 		if dnIsNamed(P1)
 			nHandle = dnCreateNamed('System.Text.UnicodeEncoding, System.Private.CoreLib',P1)
 			return self
