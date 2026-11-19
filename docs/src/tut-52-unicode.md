@@ -17,7 +17,7 @@ lead: Why len() of a text is not the number of letters you see, what UTF-8 and U
 - A **code point** is the number Unicode gives to a character (`é` is 233, an emoji is 128512).
 - A **text element** is what you see as one letter. It can be several code points: `e` plus a combining accent looks like `é`.
 
-An **encoding** turns text into bytes. **UTF-8** uses 1 byte for English letters and up to 4 for others; it is the standard for files and the web. **UTF-16** is what .NET uses inside. A Ring text holds UTF-8 bytes, so `len()` counts **bytes**.
+An **encoding** turns text into bytes. **UTF-8** uses 1 byte for English letters and up to 4 for others; it is the standard for files and the web. **UTF-16** is what .NET uses inside. A Ring text is a sequence of bytes (the text of a program and of most files is UTF-8), so `len()` counts **bytes**.
 
 ## The program
 

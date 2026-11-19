@@ -8,7 +8,7 @@ lead: A complete small application — add, tick and remove tasks, see how many 
 - planning a small application: data, window, behaviour, saving,
 - a `CheckedListBox`,
 - saving to JSON and loading it again,
-- a trap: lists of pairs and named arguments,
+- a rule: a list of pairs that is passed alone is read as named arguments,
 - keeping a window and its data in step.
 
 ## The design
@@ -64,7 +64,7 @@ The checks of this program are in a separate file, `selftest/ch12_todo.ring`:
 
 - design first: data, window, behaviour, saving,
 - `CheckedListBox`, events after a click,
-- JSON for saving, with the *pair list* trap in mind,
+- JSON for saving, with the rule for lists of pairs in mind,
 - a flag to avoid saving while loading,
 - tests that use their own file.
 

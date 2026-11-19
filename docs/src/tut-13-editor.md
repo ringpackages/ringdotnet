@@ -1,6 +1,6 @@
 ---
 title: "A small text editor"
-lead: Build a real tool in about eighty lines — a menu, a text area that fills the window, a status bar, open and save with file dialogs, and the layout rule that surprises everyone once.
+lead: Build a real tool in about eighty lines — a menu, a text area that fills the window, a status bar, open and save with file dialogs, and the rule for the order of docked controls.
 ---
 
 ## What you will learn

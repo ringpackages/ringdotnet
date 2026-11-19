@@ -14,7 +14,7 @@ lead: The same number can be written as 1234.5678, 1,234.57, 123,456.8 % or 4D2.
 - patterns for durations (`TimeSpan`),
 - why the program uses the **invariant culture**.
 
-The tutorial [Cultures](tut-33-cultures.html) showed that the same format gives different texts in different countries. This lesson is about the formats themselves.
+The tutorial [Cultures](tut-33-cultures.html) shows that the same format gives different texts in different countries. This lesson is about the formats themselves.
 
 ## The program
 

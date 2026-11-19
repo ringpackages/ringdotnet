@@ -237,7 +237,7 @@
 <article>
 <h1>A project: a to-do list that remembers</h1><p class="lead">A complete small application — add, tick and remove tasks, see how many are done, and find them again the next time the program starts. Windows Forms, JSON and files together.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li>planning a small application: data, window, behaviour, saving,</li><li>a <code>CheckedListBox</code>,</li><li>saving to JSON and loading it again,</li><li>a trap: lists of pairs and named arguments,</li><li>keeping a window and its data in step.</li></ul>
+<ul><li>planning a small application: data, window, behaviour, saving,</li><li>a <code>CheckedListBox</code>,</li><li>saving to JSON and loading it again,</li><li>a rule: a list of pairs that is passed alone is read as named arguments,</li><li>keeping a window and its data in step.</li></ul>
 <h2 id="the-design">The design<a class="anchor" href="#the-design">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Part</th><th>Decision</th></tr></thead><tbody><tr><td><strong>Data</strong></td><td>the tasks live in the list control itself; each has a text and a done flag</td></tr><tr><td><strong>Window</strong></td><td>a text box and <em>Add</em> / <em>Remove</em> buttons on top, the list in the middle, a status line at the bottom</td></tr><tr><td><strong>Behaviour</strong></td><td><em>Add</em> ignores blank text; clicking an item ticks it; the status says "n of m done"</td></tr><tr><td><strong>Saving</strong></td><td>after every change the tasks are written to a JSON file; at start-up the file is read</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
@@ -389,7 +389,7 @@ lLoading = <span class="k">False</span>
 	<span class="f">dnAssert</span>(<span class="s">"removed"</span>,oTasks.Items.Count,<span class="n">1</span>)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>design first: data, window, behaviour, saving,</li><li><code>CheckedListBox</code>, events after a click,</li><li>JSON for saving, with the <em>pair list</em> trap in mind,</li><li>a flag to avoid saving while loading,</li><li>tests that use their own file.</li></ul>
+<ul><li>design first: data, window, behaviour, saving,</li><li><code>CheckedListBox</code>, events after a click,</li><li>JSON for saving, with the rule for lists of pairs in mind,</li><li>a flag to avoid saving while loading,</li><li>tests that use their own file.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Show the done tasks in gray (use <code>DrawItem</code>, or simply move done tasks to the bottom).</li><li>Add <strong>Clear done</strong> that removes all ticked tasks.</li><li>Save to the user's documents folder (<code>Environment.GetFolderPath("MyDocuments")</code>).</li><li>Add a due date to each task and sort by it.</li></ol>
 <p>The full-size version is the <a href="gallery-apps.html#todo-list">TodoList</a> application.</p>
