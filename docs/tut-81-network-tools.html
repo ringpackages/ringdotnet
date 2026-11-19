@@ -246,6 +246,7 @@ using {
 	<span class="s">"System.Net"</span>
 	<span class="s">"System.Net.Sockets"</span>
 	<span class="s">"System.Net.NetworkInformation"</span>
+	<span class="s">"System.Threading"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
@@ -294,16 +295,17 @@ using {
 	oListener.<span class="f">Stop</span>()
 	? <span class="s">"   after Stop the same port is open = "</span> + yesNo(portIsOpen(<span class="s">"127.0.0.1"</span>,nOpenPort))
 
-<span class="c"># true when a TCP connection to the address and port is accepted within half a second</span>
+<span class="c"># true when a TCP connection to the address and port is accepted within half a second. ConnectAsync starts the connection and gives a task;</span>
+<span class="c"># a refused connection makes the task *faulted* (IsFaulted), which is the answer "closed" - no error has to be caught.</span>
 <span class="k">func</span> <span class="f">portIsOpen</span> cAddress, nPort
 	oClient = <span class="k">new</span> <span class="t">TcpClient</span>()
-	lOpen = <span class="k">False</span>
-	<span class="k">try</span>
-		oTask = oClient.<span class="f">ConnectAsync</span>([ :host = cAddress, :port = nPort ])
-		lOpen = oTask.<span class="f">Wait</span>(<span class="n">500</span>) <span class="k">and</span> oClient.Connected
-	<span class="k">catch</span>
-		lOpen = <span class="k">False</span>                          <span class="c"># refused or failed: the error is the answer</span>
-	<span class="k">done</span>
+	oTask = oClient.<span class="f">ConnectAsync</span>([ :host = cAddress, :port = nPort ])
+	nWaited = <span class="n">0</span>
+	<span class="k">while</span> <span class="k">not</span> oTask.IsCompleted <span class="k">and</span> nWaited &lt; <span class="n">50</span>
+		<span class="k">new</span> <span class="t">Thread</span>().<span class="f">Sleep</span>(<span class="n">10</span>)
+		nWaited++
+	<span class="k">end</span>
+	lOpen = oTask.IsCompleted <span class="k">and</span> <span class="k">not</span> oTask.IsFaulted <span class="k">and</span> oClient.Connected
 	oClient.<span class="f">Dispose</span>()
 	<span class="k">return</span> lOpen
 
@@ -340,9 +342,8 @@ using {
 <h3 id="interfaces">Interfaces<a class="anchor" href="#interfaces">#</a></h3>
 <p><code>NetworkInterface.GetAllNetworkInterfaces()</code> lists the network cards (and virtual ones). <code>NetworkInterfaceType</code> is a text: <code>Ethernet</code>, <code>Wireless80211</code>, <code>Loopback</code>... Their addresses and speeds are properties too; this lesson only counts them, because the details are about <em>your</em> computer.</p>
 <h3 id="is-the-port-open">Is the port open?<a class="anchor" href="#is-the-port-open">#</a></h3>
-<p>The last step starts a <code>TcpListener</code> on port 0 (the system chooses a free port) and checks it with <code>portIsOpen</code>: <code>ConnectAsync([ :host = address, :port = port ])</code> starts the connection, <code>Task.Wait(500)</code> waits at most half a second, and a refused connection raises an error that the <code>try</code> turns into <em>no</em>. While the listener runs the answer is <em>yes</em>; after <code>Stop()</code> it is <em>no</em>. This is the whole idea of a port scanner — and the reason for the rules below.</p>
+<p>The last step starts a <code>TcpListener</code> on port 0 (the system chooses a free port) and checks it with <code>portIsOpen</code>: <code>ConnectAsync([ :host = address, :port = port ])</code> starts the connection, the program waits at most half a second for the task to complete (<code>IsCompleted</code>), and a refused connection makes the task <em>faulted</em> (<code>IsFaulted</code>), which is the answer <em>no</em>. While the listener runs the answer is <em>yes</em>; after <code>Stop()</code> it is <em>no</em>. This is the whole idea of a port scanner — and the reason for the rules below.</p>
 <div class="callout warn"><span class="t">Warning</span><p>Only test ports of computers that are yours or that you have permission to test. Scanning other people's computers can be a crime and is always rude. This tutorial only touches <code>127.0.0.1</code>.</p></div>
-<div class="callout note"><span class="t">Note</span><p>The <code>catch</code> in <code>portIsOpen</code> also catches errors in the Ring code (a misspelled method name, for example), which then look like "port closed". While you develop, print <code>cCatchError</code> in the <code>catch</code> block.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li><code>IPAddress</code>, <code>IPEndPoint</code>,</li><li><code>out</code> parameters come back as a list,</li><li><code>Dns</code>, <code>Ping</code>, <code>NetworkInterface</code>,</li><li>a connection test with a time limit.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

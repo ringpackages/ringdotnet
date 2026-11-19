@@ -45,11 +45,10 @@ An `IPEndPoint` is an address plus a port. It is made with `new IPEndPoint(addre
 
 ### Is the port open?
 
-The last step starts a `TcpListener` on port 0 (the system chooses a free port) and checks it with `portIsOpen`: `ConnectAsync([ :host = address, :port = port ])` starts the connection, `Task.Wait(500)` waits at most half a second, and a refused connection raises an error that the `try` turns into *no*. While the listener runs the answer is *yes*; after `Stop()` it is *no*. This is the whole idea of a port scanner — and the reason for the rules below.
+The last step starts a `TcpListener` on port 0 (the system chooses a free port) and checks it with `portIsOpen`: `ConnectAsync([ :host = address, :port = port ])` starts the connection, the program waits at most half a second for the task to complete (`IsCompleted`), and a refused connection makes the task *faulted* (`IsFaulted`), which is the answer *no*. While the listener runs the answer is *yes*; after `Stop()` it is *no*. This is the whole idea of a port scanner — and the reason for the rules below.
 
 > [!WARNING] Only test ports of computers that are yours or that you have permission to test. Scanning other people's computers can be a crime and is always rude. This tutorial only touches `127.0.0.1`.
 
-> [!NOTE] The `catch` in `portIsOpen` also catches errors in the Ring code (a misspelled method name, for example), which then look like "port closed". While you develop, print `cCatchError` in the `catch` block.
 
 ## What you learned
 

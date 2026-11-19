@@ -239,10 +239,10 @@
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li>the three streams of a program: <strong>standard input</strong>, <strong>standard output</strong> and <strong>standard error</strong>,</li><li>sending lines to a program and closing its input,</li><li>chaining programs: the output of one is the input of another,</li><li>environment variables and the working folder of the new program,</li><li>exit codes: <code>0</code> means success,</li><li><code>WaitForExit(ms)</code> as a time limit and <code>Kill</code>.</li></ul>
 <p>The tutorial <a href="tut-10-tasks-processes.html">Time, tasks and other programs</a> started programs and the tutorial <a href="tut-37-runner.html">A project: a command runner</a> showed their output in a window. This lesson adds the input side and the control of the new program.</p>
-<div class="callout note"><span class="t">Note</span><p>The examples use the Windows commands <code>sort</code>, <code>find</code> and <code>cmd</code>. On Linux and macOS use <code>sort</code>, <code>grep</code> and <code>sh -c</code>; the Ring code stays the same.</p></div>
+<div class="callout note"><span class="t">Note</span><p>The program chooses the commands for the system with <code>isWindows()</code>: <code>sort</code>, <code>find</code> and <code>cmd /c</code> on Windows, <code>sort</code>, <code>grep</code> and <code>sh -c</code> on Linux and macOS. The output shown is from Windows.</p></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_feed_programs.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># working with other programs - feeding standard input, environment variables, errors and exit codes, a time limit and Kill</span>
-<span class="c">#   (the examples use the Windows commands sort, find and cmd; on Linux and macOS use sort, grep and sh)</span>
+<span class="c">#   (the commands are chosen for the system: sort, find and cmd on Windows; sort, grep and sh on Linux and macOS)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
@@ -250,7 +250,27 @@ using {
 	<span class="s">"System.Diagnostics"</span>
 }
 
+<span class="c"># the shell of this system (set in main, used by shellArgs)</span>
+cShell = <span class="s">""</span>
+cShellOption = <span class="s">""</span>
+
 <span class="k">func</span> <span class="f">main</span>
+	<span class="c"># the program that keeps the lines with an "e", and the shell, for this system</span>
+	cFilter = <span class="s">"grep"</span>
+	cFilterArgs = <span class="s">"e"</span>
+	cShell = <span class="s">"sh"</span>
+	cShellOption = <span class="s">"-c"</span>
+	cDirError = <span class="s">"ls this_folder_does_not_exist"</span>
+	cWait = <span class="s">"sleep 5"</span>
+	<span class="k">if</span> isWindows()
+		cFilter = <span class="s">"find"</span>
+		cFilterArgs = <span class="s">'"e"'</span>
+		cShell = <span class="s">"cmd.exe"</span>
+		cShellOption = <span class="s">"/c"</span>
+		cDirError = <span class="s">"dir this_folder_does_not_exist"</span>
+		cWait = <span class="s">"ping -n 6 127.0.0.1 &gt; nul"</span>
+	<span class="k">ok</span>
+
 	<span class="c"># 1. Standard input: send lines to a program that reads its input, close the input, and read what it answers.</span>
 	<span class="c">#    The program "sort" reads lines and prints them sorted.</span>
 	oSort = startProgram(<span class="s">"sort"</span>,<span class="s">""</span>,<span class="k">True</span>)
@@ -270,7 +290,7 @@ using {
 	oFirst.StandardInput.<span class="f">Close</span>()
 	cText = oFirst.StandardOutput.<span class="f">ReadToEnd</span>()
 	oFirst.<span class="f">WaitForExit</span>(<span class="k">NULL</span>)
-	oSecond = startProgram(<span class="s">"find"</span>,<span class="s">'"e"'</span>,<span class="k">True</span>)
+	oSecond = startProgram(cFilter,cFilterArgs,<span class="k">True</span>)
 	oSecond.StandardInput.<span class="f">Write</span>(cText)
 	oSecond.StandardInput.<span class="f">Close</span>()
 	cFound = oSecond.StandardOutput.<span class="f">ReadToEnd</span>()
@@ -280,7 +300,11 @@ using {
 	<span class="c"># 3. Environment variables and the working folder of the new program are set before it starts.</span>
 	<span class="c">#    (a variable first: a "new" on the right side of an assignment to a property loses the assignment, see Gotchas)</span>
 	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>()
-	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().<span class="f">New_</span>([ :fileName = <span class="s">"cmd.exe"</span>, :arguments = <span class="s">"/c echo %GREETING%"</span> ])
+	cEcho = <span class="s">"echo %GREETING%"</span>
+	<span class="k">if</span> <span class="k">not</span> isWindows()
+		cEcho = <span class="s">"echo $GREETING"</span>
+	<span class="k">ok</span>
+	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().<span class="f">New_</span>([ :fileName = cShell, :arguments = shellArgs(cEcho) ])
 	oInfo {
 		UseShellExecute = <span class="k">False</span>
 		RedirectStandardOutput = <span class="k">True</span>
@@ -294,21 +318,25 @@ using {
 	? nl + <span class="s">"3. the child read the variable that the parent set: "</span> + chomp(cGreeting)
 
 	<span class="c"># 4. Errors: a program writes errors to a SECOND stream (standard error) and ends with an exit code. 0 means success.</span>
-	oFail = startProgram(<span class="s">"cmd.exe"</span>,<span class="s">"/c dir this_folder_does_not_exist"</span>,<span class="k">True</span>)
+	oFail = startProgram(cShell,shellArgs(cDirError),<span class="k">True</span>)
 	cError = oFail.StandardError.<span class="f">ReadToEnd</span>()
 	oFail.<span class="f">WaitForExit</span>(<span class="k">NULL</span>)
 	? nl + <span class="s">"4. a failing command: exit code "</span> + oFail.ExitCode + <span class="s">", standard error says '"</span> + chomp(cError) + <span class="s">"'"</span>
-	oGood = startProgram(<span class="s">"cmd.exe"</span>,<span class="s">"/c exit 0"</span>,<span class="k">True</span>)
+	oGood = startProgram(cShell,shellArgs(<span class="s">"exit 0"</span>),<span class="k">True</span>)
 	oGood.<span class="f">WaitForExit</span>(<span class="k">NULL</span>)
 	? <span class="s">"   a command that succeeds has exit code "</span> + oGood.ExitCode
 
 	<span class="c"># 5. A time limit and Kill: WaitForExit(ms) answers false when the program is still running; Kill stops it.</span>
-	oSlow = startProgram(<span class="s">"cmd.exe"</span>,<span class="s">"/c ping -n 6 127.0.0.1 &gt; nul"</span>,<span class="k">False</span>)
+	oSlow = startProgram(cShell,shellArgs(cWait),<span class="k">False</span>)
 	lFinished = oSlow.<span class="f">WaitForExit</span>(<span class="n">300</span>)
 	? nl + <span class="s">"5. waited 300 ms for a program that runs about 5 seconds: finished = "</span> + yesNo(lFinished)
 	oSlow.<span class="f">Kill</span>(<span class="k">NULL</span>)
 	oSlow.<span class="f">WaitForExit</span>(<span class="k">NULL</span>)
 	? <span class="s">"   after Kill it has exited: "</span> + yesNo(oSlow.HasExited)
+
+<span class="c"># the arguments that make the shell run a command: cmd /c "command" or sh -c "command"</span>
+<span class="k">func</span> <span class="f">shellArgs</span> cCommand
+	<span class="k">return</span> cShellOption + <span class="s">' "'</span> + cCommand + <span class="s">'"'</span>
 
 <span class="c"># start a program; lRedirect = True gives the program's three streams to this program (input, output, error)</span>
 <span class="k">func</span> <span class="f">startProgram</span> cFile, cArguments, lRedirect

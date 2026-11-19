@@ -17,7 +17,12 @@ func main
 		runChild()
 		return
 	ok
-	runParent()
+	# a NAMED memory map is a Windows feature (on Linux and macOS .NET maps files only); the file part runs everywhere
+	if isWindows()
+		runParent()
+	else
+		? "Named shared memory is available on Windows only; this part is skipped."
+	ok
 	editFileInPlace()
 
 # ---------------------------------------------------------------- two programs, one block of memory

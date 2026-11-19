@@ -23,6 +23,8 @@ Compare the tools of the last tutorials: a **named pipe** (the tutorial [Two pro
 
 {{output:samples/UsingDotNet/tutorials/ch06_shared_memory.ring}}
 
+> [!NOTE] A memory-mapped file with a **name** (the first part of the program) is a Windows feature. On Linux and macOS .NET maps files only, so the program prints a message and runs the last part, the file edited in place.
+
 ## How it works
 
 ### One name, two programs

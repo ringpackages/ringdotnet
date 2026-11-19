@@ -14,7 +14,7 @@ lead: A program can start other programs, send them text on their standard input
 
 The tutorial [Time, tasks and other programs](tut-10-tasks-processes.html) started programs and the tutorial [A project: a command runner](tut-37-runner.html) showed their output in a window. This lesson adds the input side and the control of the new program.
 
-> [!NOTE] The examples use the Windows commands `sort`, `find` and `cmd`. On Linux and macOS use `sort`, `grep` and `sh -c`; the Ring code stays the same.
+> [!NOTE] The program chooses the commands for the system with `isWindows()`: `sort`, `find` and `cmd /c` on Windows, `sort`, `grep` and `sh -c` on Linux and macOS. The output shown is from Windows.
 
 ## The program
 

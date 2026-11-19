@@ -47,7 +47,7 @@ A `Task` represents work that happens "in the background" or in the future. `Tas
 
 `Process.Start([ :startInfo = oInfo ])` starts it; `StandardOutput.ReadToEnd()` reads all its output; `WaitForExit(NULL)` waits for the end; `ExitCode` is `0` when the program succeeded.
 
-This is how a Ring program uses any command-line tool: `git`, `ping`, `ffmpeg`, `dotnet`.
+The program starts the shell of the system with a command: `cmd /c "echo ..."` on Windows and `sh -c "echo ..."` on Linux and macOS (`isWindows()` chooses). This is how a Ring program uses any command-line tool: `git`, `ping`, `ffmpeg`, `dotnet`.
 
 ## What you learned
 
@@ -59,7 +59,7 @@ This is how a Ring program uses any command-line tool: `git`, `ping`, `ffmpeg`, 
 ## Exercises
 
 1. Measure how long it takes to compute 100000 square roots in a Ring loop.
-2. Run `cmd /c dir` and count the lines in its output.
+2. Run `cmd /c dir` (`sh -c ls` on Linux and macOS) and count the lines in its output.
 3. Print the three biggest environment variables by length (`GetEnvironmentVariables()`).
 4. Start `notepad.exe` with a `Process`, wait 3 seconds and close it with `Kill()`.
 

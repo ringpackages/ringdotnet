@@ -27,6 +27,25 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* A path or message made of pieces: written into a buffer of nSize bytes and cut when it is longer (the last argument is NULL) */
+#include <stdarg.h>
+static void DnCat(char *cOut, size_t nSize, ...)
+{
+	va_list oArgs;
+	const char *cPiece;
+	size_t nLen = 0, nPiece;
+	if (nSize == 0) { return; }
+	va_start(oArgs,nSize);
+	while ((cPiece = va_arg(oArgs,const char *)) != NULL) {
+		nPiece = strlen(cPiece);
+		if (nPiece > nSize - 1 - nLen) { nPiece = nSize - 1 - nLen; }
+		memcpy(cOut + nLen,cPiece,nPiece);
+		nLen += nPiece;
+	}
+	va_end(oArgs);
+	cOut[nLen] = 0;
+}
+
 #ifdef _WIN32
 	#include <windows.h>
 	typedef wchar_t dn_char;
@@ -76,7 +95,7 @@ static char g_cError[DN_PATHSIZE] = "" ;
 
 static void ringdotnet_seterror ( const char *cMsg, const char *cDetail )
 {
-	snprintf(g_cError,DN_PATHSIZE,"%s%s%s",cMsg,cDetail ? ": " : "",cDetail ? cDetail : "");
+	DnCat(g_cError,DN_PATHSIZE,cMsg,cDetail ? ": " : "",cDetail ? cDetail : "",NULL);
 }
 
 /* Folder that contains this extension library (the bridge is deployed next to it) */
@@ -96,7 +115,7 @@ static int ringdotnet_modulefolder ( char *cFolder, size_t nSize )
 	if ( ! dladdr((void *) ringdotnet_modulefolder,&oInfo) || ! oInfo.dli_fname ) {
 		return 0 ;
 	}
-	snprintf(cFolder,nSize,"%s",oInfo.dli_fname);
+	DnCat(cFolder,nSize,oInfo.dli_fname,NULL);
 #endif
 	p = strrchr(cFolder,'/');
 	p2 = strrchr(cFolder,'\\');
@@ -118,7 +137,7 @@ static void ringdotnet_tochar ( const char *cSrc, dn_char *cDest, size_t nSize )
 		cDest[0] = 0 ;
 	}
 #else
-	snprintf(cDest,nSize,"%s",cSrc);
+	DnCat(cDest,nSize,cSrc,NULL);
 #endif
 }
 
@@ -150,13 +169,13 @@ static int ringdotnet_vercmp ( const char *a, const char *b )
 static int ringdotnet_findinroot ( const char *cRoot, char *cOut, size_t nSize )
 {
 	char cBest[128] = "", cDir[DN_PATHSIZE] ;
-	snprintf(cDir,DN_PATHSIZE,"%s/host/fxr",cRoot);
+	DnCat(cDir,DN_PATHSIZE,cRoot,"/host/fxr",NULL);
 #ifdef _WIN32
 	{
 		WIN32_FIND_DATAA oData ;
 		char cPattern[DN_PATHSIZE] ;
 		HANDLE hFind ;
-		snprintf(cPattern,DN_PATHSIZE,"%s/*",cDir);
+		DnCat(cPattern,DN_PATHSIZE,cDir,"/*",NULL);
 		hFind = FindFirstFileA(cPattern,&oData);
 		if ( hFind == INVALID_HANDLE_VALUE ) {
 			return 0 ;
@@ -164,7 +183,7 @@ static int ringdotnet_findinroot ( const char *cRoot, char *cOut, size_t nSize )
 		do {
 			if ( (oData.cFileName[0] >= '0') && (oData.cFileName[0] <= '9') ) {
 				if ( (cBest[0] == 0) || (ringdotnet_vercmp(oData.cFileName,cBest) > 0) ) {
-					snprintf(cBest,sizeof(cBest),"%s",oData.cFileName);
+					DnCat(cBest,sizeof(cBest),oData.cFileName,NULL);
 				}
 			}
 		} while ( FindNextFileA(hFind,&oData) );
@@ -173,7 +192,7 @@ static int ringdotnet_findinroot ( const char *cRoot, char *cOut, size_t nSize )
 	if ( cBest[0] == 0 ) {
 		return 0 ;
 	}
-	snprintf(cOut,nSize,"%s/%s/hostfxr.dll",cDir,cBest);
+	DnCat(cOut,nSize,cDir,"/",cBest,"/hostfxr.dll",NULL);
 #else
 	{
 		DIR *pDir = opendir(cDir);
@@ -184,7 +203,7 @@ static int ringdotnet_findinroot ( const char *cRoot, char *cOut, size_t nSize )
 		while ( (pEntry = readdir(pDir)) != NULL ) {
 			if ( (pEntry->d_name[0] >= '0') && (pEntry->d_name[0] <= '9') ) {
 				if ( (cBest[0] == 0) || (ringdotnet_vercmp(pEntry->d_name,cBest) > 0) ) {
-					snprintf(cBest,sizeof(cBest),"%s",pEntry->d_name);
+					DnCat(cBest,sizeof(cBest),pEntry->d_name,NULL);
 				}
 			}
 		}
@@ -193,9 +212,9 @@ static int ringdotnet_findinroot ( const char *cRoot, char *cOut, size_t nSize )
 			return 0 ;
 		}
 	#ifdef __APPLE__
-		snprintf(cOut,nSize,"%s/%s/libhostfxr.dylib",cDir,cBest);
+		DnCat(cOut,nSize,cDir,"/",cBest,"/libhostfxr.dylib",NULL);
 	#else
-		snprintf(cOut,nSize,"%s/%s/libhostfxr.so",cDir,cBest);
+		DnCat(cOut,nSize,cDir,"/",cBest,"/libhostfxr.so",NULL);
 	#endif
 	}
 #endif
@@ -213,7 +232,7 @@ static int ringdotnet_findhostfxr ( char *cOut, size_t nSize )
 	cRoot = getenv("ProgramFiles");
 	if ( cRoot ) {
 		char cTemp[DN_PATHSIZE] ;
-		snprintf(cTemp,DN_PATHSIZE,"%s/dotnet",cRoot);
+		DnCat(cTemp,DN_PATHSIZE,cRoot,"/dotnet",NULL);
 		if ( ringdotnet_findinroot(cTemp,cOut,nSize) ) {
 			return 1 ;
 		}
@@ -291,15 +310,15 @@ static int ringdotnet_startruntime ( const char *cMode )
 		ringdotnet_seterror("Can't locate the ring_dotnet library folder",NULL);
 		return 0 ;
 	}
-	snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_BRIDGE_ASSEMBLY);
+	DnCat(cPath,DN_PATHSIZE,cFolder,"/",DN_BRIDGE_ASSEMBLY,NULL);
 	if ( ! ringdotnet_fileexists(cPath) ) {
 		/* On Linux and macOS the library is in ring/lib and the package files (the bridge, the other assemblies) are in ring/bin */
-		snprintf(cPath,DN_PATHSIZE,"%s/../bin/%s",cFolder,DN_BRIDGE_ASSEMBLY);
+		DnCat(cPath,DN_PATHSIZE,cFolder,"/../bin/",DN_BRIDGE_ASSEMBLY,NULL);
 		if ( ringdotnet_fileexists(cPath) ) {
-			snprintf(cPath,DN_PATHSIZE,"%s/../bin",cFolder);
-			snprintf(cFolder,DN_PATHSIZE,"%s",cPath);
+			DnCat(cPath,DN_PATHSIZE,cFolder,"/../bin",NULL);
+			DnCat(cFolder,DN_PATHSIZE,cPath,NULL);
 		}
-		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_BRIDGE_ASSEMBLY);
+		DnCat(cPath,DN_PATHSIZE,cFolder,"/",DN_BRIDGE_ASSEMBLY,NULL);
 	}
 	if ( ! ringdotnet_fileexists(cPath) ) {
 		ringdotnet_seterror("Bridge assembly not found",cPath);
@@ -326,15 +345,15 @@ static int ringdotnet_startruntime ( const char *cMode )
 		return 0 ;
 	}
 	if ( cMode && ((strcmp(cMode,"desktop") == 0) || (strcmp(cMode,"all") == 0)) ) {
-		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,(strcmp(cMode,"all") == 0) ? DN_ALL_CONFIG : DN_DESKTOP_CONFIG);
+		DnCat(cPath,DN_PATHSIZE,cFolder,"/",(strcmp(cMode,"all") == 0) ? DN_ALL_CONFIG : DN_DESKTOP_CONFIG,NULL);
 	#ifdef _WIN32
 		/* Windows Forms needs the thread that runs the UI to be an STA thread */
 		CoInitializeEx(NULL,COINIT_APARTMENTTHREADED);
 	#endif
 	} else if ( cMode && (strcmp(cMode,"web") == 0) ) {
-		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_WEB_CONFIG);
+		DnCat(cPath,DN_PATHSIZE,cFolder,"/",DN_WEB_CONFIG,NULL);
 	} else {
-		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_BRIDGE_CONFIG);
+		DnCat(cPath,DN_PATHSIZE,cFolder,"/",DN_BRIDGE_CONFIG,NULL);
 	}
 	ringdotnet_tochar(cPath,wConfig,DN_PATHSIZE);
 	nRC = pInit(wConfig,NULL,&pHandle);
@@ -354,7 +373,7 @@ static int ringdotnet_startruntime ( const char *cMode )
 		return 0 ;
 	}
 	pLoad = (dn_loadassembly_fn) pLoader ;
-	snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_BRIDGE_ASSEMBLY);
+	DnCat(cPath,DN_PATHSIZE,cFolder,"/",DN_BRIDGE_ASSEMBLY,NULL);
 	ringdotnet_tochar(cPath,wPath,DN_PATHSIZE);
 	nRC = pLoad(wPath,DN_STR(DN_BRIDGE_TYPE),DN_STR("Invoke"),DN_UNMANAGEDCALLERSONLY,NULL,&pFn);
 	if ( (nRC < 0) || (! pFn) ) {

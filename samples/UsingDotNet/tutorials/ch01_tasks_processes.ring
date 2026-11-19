@@ -33,9 +33,15 @@ func main
 	? "Current folder is known   : " + (len(oEnvironment.CurrentDirectory) > 0)
 
 	# Running another program and reading what it prints
+	cShell = "sh"
+	cShellOption = "-c"
+	if isWindows()
+		cShell = "cmd"
+		cShellOption = "/c"
+	ok
 	oInfo = new ProcessStartInfo() {
-		FileName = "cmd"
-		Arguments = "/c echo hello from another program"
+		FileName = cShell                              # cmd /c on Windows, sh -c on Linux and macOS
+		Arguments = cShellOption + ' "echo hello from another program"'
 		RedirectStandardOutput = True
 		UseShellExecute = False
 		CreateNoWindow = True

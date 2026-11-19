@@ -274,9 +274,15 @@ using {
 	? <span class="s">"Current folder is known   : "</span> + (len(oEnvironment.CurrentDirectory) &gt; <span class="n">0</span>)
 
 	<span class="c"># Running another program and reading what it prints</span>
+	cShell = <span class="s">"sh"</span>
+	cShellOption = <span class="s">"-c"</span>
+	<span class="k">if</span> isWindows()
+		cShell = <span class="s">"cmd"</span>
+		cShellOption = <span class="s">"/c"</span>
+	<span class="k">ok</span>
 	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>() {
-		FileName = <span class="s">"cmd"</span>
-		Arguments = <span class="s">"/c echo hello from another program"</span>
+		FileName = cShell                              <span class="c"># cmd /c on Windows, sh -c on Linux and macOS</span>
+		Arguments = cShellOption + <span class="s">' "echo hello from another program"'</span>
 		RedirectStandardOutput = <span class="k">True</span>
 		UseShellExecute = <span class="k">False</span>
 		CreateNoWindow = <span class="k">True</span>
@@ -316,11 +322,11 @@ Its exit code            : 0</code></pre></div>
 <p><code>ProcessStartInfo</code> describes <em>what</em> to run: <code>FileName</code>, <code>Arguments</code>, and:</p>
 <div class="tablewrap"><table><thead><tr><th>Property</th><th>Meaning</th></tr></thead><tbody><tr><td><code>RedirectStandardOutput = True</code></td><td>you read what the program prints</td></tr><tr><td><code>UseShellExecute = False</code></td><td>run it directly (needed to redirect)</td></tr><tr><td><code>CreateNoWindow = True</code></td><td>no console window</td></tr></tbody></table></div>
 <p><code>Process.Start([ :startInfo = oInfo ])</code> starts it; <code>StandardOutput.ReadToEnd()</code> reads all its output; <code>WaitForExit(NULL)</code> waits for the end; <code>ExitCode</code> is <code>0</code> when the program succeeded.</p>
-<p>This is how a Ring program uses any command-line tool: <code>git</code>, <code>ping</code>, <code>ffmpeg</code>, <code>dotnet</code>.</p>
+<p>The program starts the shell of the system with a command: <code>cmd /c "echo ..."</code> on Windows and <code>sh -c "echo ..."</code> on Linux and macOS (<code>isWindows()</code> chooses). This is how a Ring program uses any command-line tool: <code>git</code>, <code>ping</code>, <code>ffmpeg</code>, <code>dotnet</code>.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>time measuring and waiting,</li><li>tasks and their results,</li><li>the Ring-thread rule,</li><li>the environment and starting other programs.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Measure how long it takes to compute 100000 square roots in a Ring loop.</li><li>Run <code>cmd /c dir</code> and count the lines in its output.</li><li>Print the three biggest environment variables by length (<code>GetEnvironmentVariables()</code>).</li><li>Start <code>notepad.exe</code> with a <code>Process</code>, wait 3 seconds and close it with <code>Kill()</code>.</li></ol>
+<ol><li>Measure how long it takes to compute 100000 square roots in a Ring loop.</li><li>Run <code>cmd /c dir</code> (<code>sh -c ls</code> on Linux and macOS) and count the lines in its output.</li><li>Print the three biggest environment variables by length (<code>GetEnvironmentVariables()</code>).</li><li>Start <code>notepad.exe</code> with a <code>Process</code>, wait 3 seconds and close it with <code>Kill()</code>.</li></ol>
 <h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
 <p>This was the last tutorial of the chapter <strong>The basics</strong>. The next chapter is <strong>Text and data formats</strong>: it starts with <a href="tut-29-regex.html">Regular expressions in depth</a>. The <a href="tutorials.html">Tutorials</a> page lists all the chapters, and you can start any of them.</p>
 <div class="pager"><a href="tut-09-http.html"><small>Previous</small>HTTP</a><a class="next" href="tut-29-regex.html"><small>Next</small>Regular expressions</a></div>

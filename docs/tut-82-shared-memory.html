@@ -261,7 +261,12 @@ C_NAME = <span class="s">"ringdotnet_tutorial82"</span>
 		runChild()
 		<span class="k">return</span>
 	<span class="k">ok</span>
-	runParent()
+	<span class="c"># a NAMED memory map is a Windows feature (on Linux and macOS .NET maps files only); the file part runs everywhere</span>
+	<span class="k">if</span> isWindows()
+		runParent()
+	<span class="k">else</span>
+		? <span class="s">"Named shared memory is available on Windows only; this part is skipped."</span>
+	<span class="k">ok</span>
 	editFileInPlace()
 
 <span class="c"># ---------------------------------------------------------------- two programs, one block of memory</span>
@@ -366,6 +371,7 @@ C_NAME = <span class="s">"ringdotnet_tutorial82"</span>
    the text of the child at position 300: Hello from the child
 
 5. a file of 12 bytes: the second number was 20, now it is 99; the first is 10 and the third 30</code></pre></div>
+<div class="callout note"><span class="t">Note</span><p>A memory-mapped file with a <strong>name</strong> (the first part of the program) is a Windows feature. On Linux and macOS .NET maps files only, so the program prints a message and runs the last part, the file edited in place.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="one-name-two-programs">One name, two programs<a class="anchor" href="#one-name-two-programs">#</a></h3>
 <p>The parent calls <code>MemoryMappedFile.CreateNew([ :mapName = "...", :capacity = 4096 ])</code>: a block of 4,096 bytes with a name. The child (a second copy of the same program, started with <code>--child</code> as in <a href="tut-79-processes-talk.html">Two programs talking</a>) calls <code>OpenExisting(name)</code> and gets <em>the same block</em>. Nothing is copied.</p>
