@@ -239,8 +239,16 @@ func uiNumber  nValue
 func uiSelfTest
 	return find(sysargv,"--selftest") > 0
 
+# A form that runs as a test is invisible and not in the taskbar (set the environment variable RINGDOTNET_SHOW to see it)
+func uiQuiet  oForm
+	if uiSelfTest() and sysget("RINGDOTNET_SHOW") = ""
+		oForm.ShowInTaskbar = False
+		oForm.Opacity = 0
+	ok
+
 # Show the form and run the message loop. When running as a test the form closes itself after 30 seconds.
 func uiRun  oForm
+	uiQuiet(oForm)
 	if uiSelfTest()
 		ui_oGuard = uiTimer(30000,"? 'SELFTEST TIMEOUT' oForm.Close()")
 		ui_oGuard.Start()
@@ -253,6 +261,7 @@ func uiTest  oForm, cCode
 	if not uiSelfTest()
 		return
 	ok
+	uiQuiet(oForm)
 	oForm.setShownEvent(cCode + nl + "oForm.Close()")
 
 # Print the result of a test run: "SELFTEST OK" or the failures (call after uiRun)

@@ -18,13 +18,13 @@ sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe
 
 and prints `0 failed` when everything passes. It needs the package `bin` folder on the PATH; the script adds it for you.
 
-The whole run takes about ten minutes (the windows have to open and close). While you work, run the **quick tier**, which is only the tests and the console samples and takes about a minute:
+Programs run four at a time, and the windows of the programs that run themselves are invisible and not in the taskbar, so the whole run takes about three minutes and does not take over your screen. While you work, run the **quick tier**, which is only the tests and the console samples and takes about 25 seconds:
 
 ```bash
 sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe --quick
 ```
 
-Run everything before a commit.
+Options: `--jobs N` runs N programs at the same time (`--jobs 1` runs them one after the other, which is easier to read when something fails), and `--show` keeps the windows visible so you can watch them (or set the environment variable `RINGDOTNET_SHOW`). Run everything before a commit.
 
 | Test file | Covers |
 |---|---|

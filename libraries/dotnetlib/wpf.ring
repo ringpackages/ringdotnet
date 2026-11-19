@@ -69,8 +69,16 @@ func wpfButton  cText, cClickCode
 func wpfSelfTest
 	return find(sysargv,"--selftest") > 0
 
+# A window that runs as a test is invisible and not in the taskbar (set the environment variable RINGDOTNET_SHOW to see it)
+func wpfQuiet  oWindow
+	if wpfSelfTest() and sysget("RINGDOTNET_SHOW") = ""
+		oWindow.ShowInTaskbar = False
+		oWindow.Opacity = 0
+	ok
+
 # Show the window and run the message loop until it is closed (modal; works more than once in a program)
 func wpfRun  oWindow
+	wpfQuiet(oWindow)
 	oWindow.ShowDialog()
 
 # The automatic part of a program: when running as a test, cCode runs once the window is rendered and the window closes afterwards
@@ -78,6 +86,7 @@ func wpfTest  oWindow, cCode
 	if not wpfSelfTest()
 		return
 	ok
+	wpfQuiet(oWindow)
 	oWindow.setContentRenderedEvent(cCode + nl + "oWindow.Close()")
 
 # Print the result of a test run ("SELFTEST OK" or "SELFTEST FAILED")
