@@ -21,7 +21,7 @@ A client sends a **request**: a *method* (`GET` to read, `POST` to send data, `D
 
 {{output:samples/UsingDotNet/tutorials/ch01_http.ring}}
 
-> [!NOTE] The port number is chosen by Windows, so it differs on every run.
+> [!NOTE] The port number is chosen by the system, so it differs on every run.
 
 ## How it works
 

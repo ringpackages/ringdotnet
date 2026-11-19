@@ -255,7 +255,7 @@ cUrl = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># 1. A web server: a Ring function answers each address</span>
-	oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://127.0.0.1:0"</span>)          <span class="c"># port 0: Windows picks a free port</span>
+	oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://127.0.0.1:0"</span>)          <span class="c"># port 0: the system picks a free port</span>
 	oServer.<span class="f">onGet</span>(<span class="s">"/hello"</span>,<span class="s">"hello"</span>)
 	oServer.<span class="f">onGet</span>(<span class="s">"/time"</span>,<span class="s">"clock"</span>)
 	oServer.<span class="f">onPost</span>(<span class="s">"/echo"</span>,<span class="s">"echo"</span>)
@@ -305,7 +305,7 @@ GET /hello  -&gt; OK Hello from a Ring handler
 GET /time   -&gt; OK {"hour":12,"minute":30}
 POST /echo  -&gt; Created you sent: some data
 GET /nothing-&gt; NotFound Not found: GET /nothing</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>The port number is chosen by Windows, so it differs on every run.</p></div>
+<div class="callout note"><span class="t">Note</span><p>The port number is chosen by the system, so it differs on every run.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-server">The server<a class="anchor" href="#the-server">#</a></h3>
 <p><code>using { ..., "RingDotNet.Web" }</code> (first!) starts the ASP.NET Core runtime. <code>new WebServer("http://127.0.0.1:0")</code> starts a server on your computer (<code>127.0.0.1</code> is "this computer"); port <code>0</code> means "any free port", and <code>oServer.url()</code> tells you which one.</p>

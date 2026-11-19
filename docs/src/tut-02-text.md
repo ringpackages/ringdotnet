@@ -33,12 +33,12 @@ One rule is important: **a .NET string is not an object in Ring**, it is just a 
 
 | Call | Result |
 |---|---|
-| `oString.Join("-",aWords)` | all the words with `-` between them |
+| `oString.Join([ :separator = "-", :value = aWords ])` | all the words with `-` between them |
 | `oString.Format([ :format = "{0} has {1} items", :arg0 = "The list", :arg1 = 3 ])` | `{0}`, `{1}` are replaced by the arguments |
 | `oString.IsNullOrWhiteSpace("   ")` | true for empty or blank text |
-| `oString.Compare("apple","banana")` | `-1` if the first sorts before the second, `0` if equal, `1` if after |
+| `oString.Compare([ :strA = "apple", :strB = "banana" ])` | `-1` if the first sorts before the second, `0` if equal, `1` if after |
 
-`String.Format` exists in several forms, so in Ring it is one method that takes a list of named values: the pattern (`format`) and the values (`arg0`, `arg1`).
+`Join`, `Format` and `Compare` exist in several forms, so in Ring each is one method that takes a list of named values (the names are the parameter names in the .NET documentation): for `Format` the pattern (`format`) and the values (`arg0`, `arg1`).
 
 ### Title case needs a culture
 

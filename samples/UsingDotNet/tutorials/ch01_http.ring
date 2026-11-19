@@ -12,7 +12,7 @@ cUrl = ""
 
 func main
 	# 1. A web server: a Ring function answers each address
-	oServer = new WebServer("http://127.0.0.1:0")          # port 0: Windows picks a free port
+	oServer = new WebServer("http://127.0.0.1:0")          # port 0: the system picks a free port
 	oServer.onGet("/hello","hello")
 	oServer.onGet("/time","clock")
 	oServer.onPost("/echo","echo")

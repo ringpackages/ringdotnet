@@ -29,7 +29,7 @@ A `Task` represents work that happens "in the background" or in the future. `Tas
 
 ### The rule: Ring runs on one thread
 
-> [!NOTE] .NET can do many things at once on many *threads*. **Ring code runs on one thread only.** A Ring callback that .NET invokes from another thread is not run. So use tasks for waiting and for pure .NET work (HTTP, files, hashing), and keep your Ring code on the Ring thread. Timers of Windows Forms (`uiTimer`) are safe: they tick on the Ring thread.
+> [!NOTE] .NET can do many things at once on many *threads*. **Ring code runs on one thread only.** A callback that .NET wants to start from another thread has to be handed to the Ring thread: the web server does it with `serveOne()` (see [HTTP](tut-09-http.html)), and the timers of Windows Forms (`uiTimer`) already tick on the Ring thread. So use tasks for waiting and for pure .NET work (HTTP, files, hashing), and keep your Ring code on the Ring thread.
 
 ### The environment
 
@@ -61,7 +61,7 @@ The program starts the shell of the system with a command: `cmd /c "echo ..."` o
 1. Measure how long it takes to compute 100000 square roots in a Ring loop.
 2. Run `cmd /c dir` (`sh -c ls` on Linux and macOS) and count the lines in its output.
 3. Print the three biggest environment variables by length (`GetEnvironmentVariables()`).
-4. Start `notepad.exe` with a `Process`, wait 3 seconds and close it with `Kill()`.
+4. Start `notepad.exe` (on Windows) with a `Process`, wait 3 seconds and close it with `Kill()`.
 
 ## Where to go next
 

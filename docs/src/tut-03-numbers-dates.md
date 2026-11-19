@@ -53,6 +53,8 @@ oDate = new DateTime(2024,12,25).AddHours(18).AddMinutes(30)       # 18:30: a me
 
 Properties: `Year`, `Month`, `Day`, `DayOfWeek` (a text like `Wednesday`). **Dates never change**: `AddDays(10)` returns a *new* date. That is why you can chain: `oDate.AddDays(10).AddHours(-3)`.
 
+`Parse` turns a text into a date. It is a static method, so the program calls it on a date that is made only to reach it (`new DateTime(2000,1,1).Parse("2024-07-04")`); the result is a new date. `ParseExact` takes the format as well.
+
 ### TimeSpan
 
 The difference between two dates is a `TimeSpan`: `Subtract` gives it, and it has `Days`, `Hours` and `TotalHours` (the whole span in hours, with decimals).

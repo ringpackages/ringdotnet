@@ -35,7 +35,7 @@ Never build a path by joining texts with `/` or `\`. `Path.Combine([a,b])` uses 
 
 ### Ask before you act
 
-`Directory.Exists(cFolder)` and `File.Exists(cFile)` return true or false. `Directory.Delete([ :path = cFolder, :recursive = True ])` deletes a folder and everything in it. `True` for `recursive` is the *named argument* of the version that takes two parameters.
+`Directory.Exists(cFolder)` and `File.Exists(cFile)` return true or false. `Directory.Delete([ :path = cFolder, :recursive = True ])` deletes a folder and everything in it. `Delete` has a version with one parameter (an empty folder only) and one with two; the list of *named arguments* chooses the second.
 
 ### Reading and writing
 
@@ -43,8 +43,8 @@ Never build a path by joining texts with `/` or `\`. `Path.Combine([a,b])` uses 
 |---|---|
 | the whole file as one text | `File.ReadAllText(path)` |
 | the lines as a collection | `File.ReadAllLines(path).toList()` |
-| write (overwrites) | `File.WriteAllText(path, text)` |
-| add at the end | `File.AppendAllText(path, text)` |
+| write (overwrites) | `File.WriteAllText([ :path = p, :contents = text ])` |
+| add at the end | `File.AppendAllText([ :path = p, :contents = text ])` |
 
 `windowsnl()` is Ring's line break for Windows (carriage return plus line feed).
 
@@ -54,7 +54,7 @@ Never build a path by joining texts with `/` or `\`. `Path.Combine([a,b])` uses 
 
 ### Information, copy, list
 
-`FileInfo` gives `Name`, `Length` (the size in bytes), dates. `File.Copy(from, to)`, `Directory.GetFiles(folder)` and `File.Delete(path)` do what they say.
+`FileInfo` gives `Name`, `Length` (the size in bytes), dates. `File.Copy([ :sourceFileName = from, :destFileName = to ])`, `Directory.GetFiles(folder)` and `File.Delete(path)` do what they say. `Write` and `Copy` have several versions, so they take a list of named values, like `Round` in the last lesson.
 
 ### Zip
 
