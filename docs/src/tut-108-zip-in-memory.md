@@ -60,6 +60,6 @@ An entry name is just text, and a bad archive can contain `../../etc/passwd`. A 
 3. Compare the five levels for a real text file and a JPEG picture.
 4. Add a comment to an entry (`Comment`) and read it back.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 109: Caching](tut-109-memory-cache.html)

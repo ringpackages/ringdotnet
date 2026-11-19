@@ -1,0 +1,14 @@
+1. App:Name = Demo, App:Port = 8080
+   App:Features:1 = export
+   a key that does not exist is null: 1
+
+2. the port as a number: 8080 (+1 = 8081), debug as a yes or no: 0, Retries (not set, default 3): 3
+
+3. the section Database has:
+   Host = localhost
+   Timeout = 30
+
+4. after the memory source: App:Port = 9090 (was 8080), App:Name = Demo (not changed), App:Extra = only in memory
+
+5. the environment variable RDN111_Database__Host changes Database:Host to: db.example.com
+   Database:Timeout is still from the file: 30

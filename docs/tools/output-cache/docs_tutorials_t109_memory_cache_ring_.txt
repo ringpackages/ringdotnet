@@ -1,0 +1,14 @@
+1. found: 1, value: Ann
+   a key that was never stored: found = 0
+   entries in the cache: 1
+
+2. right after storing, the price is there:  1
+   after 900 ms (the limit was 500 ms):   0
+
+3. read every 300 ms with sliding time of 1000 ms: 1 1 1 1 (it stays: 1 = found)
+   not read for 1500 ms: found = 0
+
+4. the report was made 1 time(s) for two requests: report #1 / report #1
+
+5. after Remove, user:1 is found: 0
+   after Clear, entries: 0

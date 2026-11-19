@@ -154,6 +154,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-106-arrays.html"><div class="ic">106</div><b>Arrays</b><span>Typed arrays, Array.Sort, BinarySearch, Copy and two dimensions.</span></a>
 <a class="card" href="tut-107-sets.html"><div class="ic">107</div><b>Sets</b><span>HashSet: union, intersection, difference and removing duplicates.</span></a>
 <a class="card" href="tut-108-zip-in-memory.html"><div class="ic">108</div><b>ZIP archives in memory</b><span>ZipArchive on a MemoryStream: entries, levels and updates.</span></a>
+<a class="card" href="tut-109-memory-cache.html"><div class="ic">109</div><b>Caching</b><span>MemoryCache, absolute and sliding expiration, GetOrCreate.</span></a>
+<a class="card" href="tut-110-dependency-injection.html"><div class="ic">110</div><b>Dependency injection</b><span>The service container, three lifetimes and scopes.</span></a>
+<a class="card" href="tut-111-configuration.html"><div class="ic">111</div><b>Configuration</b><span>JSON, memory and environment sources; the last one wins.</span></a>
 </div>
 
 ## Learning path
