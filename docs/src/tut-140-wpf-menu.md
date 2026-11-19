@@ -17,11 +17,11 @@ The tutorial [WPF layout and styles](tut-38-wpf-layout.html) used a `Grid`; this
 
 ## The program
 
-{{file:docs/tutorials/g140_wpf_menu.ring}}
+{{file:samples/UsingDotNet/tutorials/g140_wpf_menu.ring}}
 
 ![The window with the menu and the tabs](img/shots/tut-g140.png "The window with the menu and the tabs")
 
-{{output:docs/tutorials/g140_wpf_menu.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g140_wpf_menu.ring --selftest}}
 
 ## How it works
 

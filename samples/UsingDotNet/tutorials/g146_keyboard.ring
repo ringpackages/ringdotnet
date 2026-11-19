@@ -52,7 +52,10 @@ func main
 # The argument of KeyPress has KeyChar (the character) and Handled. Digits and the Backspace key are accepted; everything else is refused.
 func filterKey oArgs
 	cChar = oArgs.KeyChar
-	nCode = ascii(cChar)
+	nCode = 0
+	if len(cChar) = 1
+		nCode = ascii(cChar)                              # a character of the keyboard layout that is not in ASCII (a letter of another
+	ok                                                    # language) arrives as a text of more bytes: it has the code 0 and is refused
 	lDigit = nCode >= 48 and nCode <= 57
 	lBackspace = nCode = 8
 	if not lDigit and not lBackspace
@@ -86,9 +89,10 @@ func selfTest
 	oForm.ActiveControl = oAge
 	uiSendKeys(oForm,"{ENTER}")
 	dnAssert("an empty name",oResult.Text,"Please fill in both boxes")
+	oName.Text = "Ann"                                   # (letters typed by a test depend on the keyboard layout of the computer, so it is set)
 	oForm.ActiveControl = oName
-	uiSendKeys(oForm,"ann{ENTER}")           # the test keys are lower case letters
-	dnAssert("the result",oResult.Text,"ann is 12 years old")
+	uiSendKeys(oForm,"{ENTER}")
+	dnAssert("the result",oResult.Text,"Ann is 12 years old")
 
 	# the tab order: Tab goes name -> age -> OK
 	oForm.ActiveControl = oName

@@ -232,7 +232,7 @@
 <ul><li>a <strong>checksum</strong>: the SHA-256 hash of the bytes of a file,</li><li>a list in the format of the programs <code>sha256sum</code> and <code>shasum</code>,</li><li>finding all the files of a folder and its subfolders, with relative paths,</li><li><strong>verify</strong>: <em>OK</em>, <em>CHANGED</em>, <em>MISSING</em> and <em>NEW</em>,</li><li>why the list itself needs a checksum that is kept somewhere else.</li></ul>
 <p>The tutorial <a href="tut-31-duplicates.html">A project: find duplicate files</a> used hashes to find files with the same content. Here the hash proves that a file is the <strong>same as it was</strong>.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t147_checksums.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: check that files did not change - a checksum list in the format of sha256sum, and a verify that finds changed, missing and new files</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t147_checksums.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: check that files did not change - a checksum list in the format of sha256sum, and a verify that finds changed, missing and new files</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

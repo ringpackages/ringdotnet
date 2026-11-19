@@ -16,9 +16,9 @@ The tutorial [More data structures](tut-92-data-structures.html) showed `SortedS
 
 ## The program
 
-{{file:docs/tutorials/t107_sets.ring}}
+{{file:samples/UsingDotNet/tutorials/t107_sets.ring}}
 
-{{output:docs/tutorials/t107_sets.ring}}
+{{output:samples/UsingDotNet/tutorials/t107_sets.ring}}
 
 ## How it works
 

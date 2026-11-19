@@ -233,7 +233,7 @@
 <h2 id="one-moment-many-calendars">One moment, many calendars<a class="anchor" href="#one-moment-many-calendars">#</a></h2>
 <p>A .NET <code>DateTime</code> always stores a <strong>Gregorian</strong> date. A <strong>calendar object</strong> is a translator: you give it the <code>DateTime</code> and ask for the year, month and day <em>as that calendar counts them</em>. The classes you need are <code>UmAlQuraCalendar</code> (the Hijri calendar used in Saudi Arabia), <code>HijriCalendar</code>, <code>PersianCalendar</code>, <code>HebrewCalendar</code>, <code>JapaneseCalendar</code>, <code>ThaiBuddhistCalendar</code> and <code>GregorianCalendar</code>. All are in the namespace <code>System.Globalization</code>, so the program starts with <code>using { "System", "System.Globalization" }</code>.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t76_calendars.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># other calendars - Hijri (Umm al-Qura), Persian, Hebrew, Japanese and Thai Buddhist dates with System.Globalization</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t76_calendars.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># other calendars - Hijri (Umm al-Qura), Persian, Hebrew, Japanese and Thai Buddhist dates with System.Globalization</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

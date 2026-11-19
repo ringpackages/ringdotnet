@@ -26,9 +26,9 @@ The ready-made Ring classes are `StringStack` and `StringQueue` (see [Collection
 
 ## The program
 
-{{file:docs/tutorials/t59_undo.ring}}
+{{file:samples/UsingDotNet/tutorials/t59_undo.ring}}
 
-{{output:docs/tutorials/t59_undo.ring}}
+{{output:samples/UsingDotNet/tutorials/t59_undo.ring}}
 
 ## How it works
 

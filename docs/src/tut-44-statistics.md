@@ -13,9 +13,9 @@ lead: Mean, median, mode, standard deviation, a histogram, prime numbers and an 
 
 ## The program
 
-{{file:docs/tutorials/t44_statistics.ring}}
+{{file:samples/UsingDotNet/tutorials/t44_statistics.ring}}
 
-{{output:docs/tutorials/t44_statistics.ring}}
+{{output:samples/UsingDotNet/tutorials/t44_statistics.ring}}
 
 ## The statistics
 

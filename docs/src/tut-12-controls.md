@@ -24,13 +24,13 @@ lead: Build a registration form with text boxes, a number box, a combo box, a ch
 
 ## The program
 
-{{file:docs/tutorials/g02_registration.ring}}
+{{file:samples/UsingDotNet/tutorials/g02_registration.ring}}
 
 ![The form, empty](img/shots/tut-g02.png "The registration form")
 
 ![The form after two people were registered](img/shots/tut-g02-filled.png "After registering Ann and Bob")
 
-{{output:docs/tutorials/g02_registration.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g02_registration.ring --selftest}}
 
 ## How it works
 

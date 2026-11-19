@@ -16,9 +16,9 @@ The tutorial [Dates and times](tut-103-dates-and-times.html) and the tutorial [C
 
 ## The program
 
-{{file:docs/tutorials/t135_workdays.ring}}
+{{file:samples/UsingDotNet/tutorials/t135_workdays.ring}}
 
-{{output:docs/tutorials/t135_workdays.ring}}
+{{output:samples/UsingDotNet/tutorials/t135_workdays.ring}}
 
 ## How it works
 

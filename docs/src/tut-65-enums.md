@@ -16,9 +16,9 @@ An **enum** is a type with a fixed set of named values: `DayOfWeek` (`Sunday` â€
 
 ## The program
 
-{{file:docs/tutorials/t65_enums.ring}}
+{{file:samples/UsingDotNet/tutorials/t65_enums.ring}}
 
-{{output:docs/tutorials/t65_enums.ring}}
+{{output:samples/UsingDotNet/tutorials/t65_enums.ring}}
 
 ## How it works
 

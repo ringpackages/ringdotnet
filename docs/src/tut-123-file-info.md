@@ -16,9 +16,9 @@ The tutorial [Files and folders](tut-05-files.html) read and wrote the content o
 
 ## The program
 
-{{file:docs/tutorials/t123_file_info.ring}}
+{{file:samples/UsingDotNet/tutorials/t123_file_info.ring}}
 
-{{output:docs/tutorials/t123_file_info.ring}}
+{{output:samples/UsingDotNet/tutorials/t123_file_info.ring}}
 
 ## How it works
 

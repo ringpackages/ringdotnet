@@ -19,9 +19,9 @@ UTC (*coordinated universal time*) is the same everywhere and has no daylight sa
 
 ## The program
 
-{{file:docs/tutorials/t68_timezones.ring}}
+{{file:samples/UsingDotNet/tutorials/t68_timezones.ring}}
 
-{{output:docs/tutorials/t68_timezones.ring}}
+{{output:samples/UsingDotNet/tutorials/t68_timezones.ring}}
 
 ## How it works
 

@@ -22,9 +22,9 @@ If the step does not get closer to the stop, the function calls itself until the
 
 ## The program
 
-{{file:docs/tutorials/t75_recursion.ring}}
+{{file:samples/UsingDotNet/tutorials/t75_recursion.ring}}
 
-{{output:docs/tutorials/t75_recursion.ring}}
+{{output:samples/UsingDotNet/tutorials/t75_recursion.ring}}
 
 ## How it works
 

@@ -23,9 +23,9 @@ lead: Read and write text files, build paths the right way, get information abou
 
 ## The program
 
-{{file:docs/tutorials/t05_files.ring}}
+{{file:samples/UsingDotNet/tutorials/t05_files.ring}}
 
-{{output:docs/tutorials/t05_files.ring}}
+{{output:samples/UsingDotNet/tutorials/t05_files.ring}}
 
 ## How it works
 

@@ -232,10 +232,11 @@
 <ul><li><code>Clipboard.SetText</code>, <code>GetText</code> and <code>ContainsText</code>,</li><li>a <strong>table</strong> that a spreadsheet pastes as cells (tabs and new lines),</li><li><code>SetImage</code>, <code>ContainsImage</code> and <code>GetImage</code>,</li><li><code>Clear</code>,</li><li>why a program that tests the clipboard puts back what it found.</li></ul>
 <p>The clipboard belongs to the whole computer: every program can read and replace it. The tutorial <a href="tut-13-editor.html">A text editor</a> used the edit commands of a text box; this lesson uses the clipboard itself, which also copies to and from other programs.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g127_clipboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the clipboard - text, a table for a spreadsheet, a picture, and leaving the clipboard as the user had it</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g127_clipboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the clipboard - text, a table for a spreadsheet, a picture, and leaving the clipboard as the user had it</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Threading.Tasks"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
 
@@ -275,8 +276,9 @@ cBefore = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">pasteText</span>
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
-	<span class="k">if</span> oClipboard.<span class="f">ContainsText</span>(<span class="k">NULL</span>)
-		oEdit.Text = oClipboard.<span class="f">GetText</span>(<span class="k">NULL</span>)
+	cText = readText()
+	<span class="k">if</span> cText != <span class="s">""</span>
+		oEdit.Text = cText
 		oStatus.Text = <span class="s">"Pasted"</span>
 	<span class="k">else</span>
 		oStatus.Text = <span class="s">"The clipboard has no text"</span>
@@ -299,6 +301,31 @@ cBefore = <span class="s">""</span>
 	oClipboard.<span class="f">SetImage</span>(oPicture.Image)
 	oStatus.Text = <span class="s">"Copied a picture of "</span> + oPicture.Image.Width + <span class="s">" x "</span> + oPicture.Image.Height + <span class="s">" pixels"</span>
 
+<span class="c"># The clipboard belongs to the whole computer, and another program (a clipboard manager, for example) can have it open for a moment:</span>
+<span class="c"># a read then gives nothing. Reading again a few times, with a short pause, is the usual answer; the result is "" when there is no text.</span>
+<span class="k">func</span> <span class="f">readText</span>
+	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
+	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">20</span>
+		<span class="k">if</span> oClipboard.<span class="f">ContainsText</span>(<span class="k">NULL</span>)
+			cText = oClipboard.<span class="f">GetText</span>(<span class="k">NULL</span>)
+			<span class="k">if</span> cText != <span class="s">""</span>
+				<span class="k">return</span> cText
+			<span class="k">ok</span>
+		<span class="k">ok</span>
+		<span class="k">new</span> <span class="t">Task</span>().<span class="f">Delay</span>(<span class="n">50</span>).<span class="f">Wait</span>(<span class="k">NULL</span>)
+	<span class="k">next</span>
+	<span class="k">return</span> <span class="s">""</span>
+
+<span class="k">func</span> <span class="f">waitForImage</span>
+	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
+	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">20</span>
+		<span class="k">if</span> oClipboard.<span class="f">ContainsImage</span>()
+			<span class="k">return</span> <span class="k">True</span>
+		<span class="k">ok</span>
+		<span class="k">new</span> <span class="t">Task</span>().<span class="f">Delay</span>(<span class="n">50</span>).<span class="f">Wait</span>(<span class="k">NULL</span>)
+	<span class="k">next</span>
+	<span class="k">return</span> <span class="k">False</span>
+
 <span class="k">func</span> <span class="f">clearClipboard</span>
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	oClipboard.<span class="f">Clear</span>()
@@ -316,9 +343,7 @@ cBefore = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
-	<span class="k">if</span> oClipboard.<span class="f">ContainsText</span>(<span class="k">NULL</span>)
-		cBefore = oClipboard.<span class="f">GetText</span>(<span class="k">NULL</span>)                  <span class="c"># keep what the user had on the clipboard</span>
-	<span class="k">ok</span>
+	cBefore = readText()                                    <span class="c"># keep what the user had on the clipboard</span>
 
 	<span class="c"># text: copy, change the box, paste</span>
 	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
@@ -329,12 +354,12 @@ cBefore = <span class="s">""</span>
 
 	<span class="c"># the table: tabs between the cells, a new line after each row</span>
 	oForm.Controls.<span class="f">Item</span>(<span class="n">3</span>).<span class="f">PerformClick</span>()
-	cTable = oClipboard.<span class="f">GetText</span>(<span class="k">NULL</span>)
+	cTable = readText()
 	<span class="f">dnAssert</span>(<span class="s">"table text"</span>,substr(cTable,char(<span class="n">9</span>),<span class="s">"|"</span>),<span class="s">"Item|Price"</span> + nl + <span class="s">"Tea|2.50"</span> + nl + <span class="s">"Coffee|3.20"</span> + nl + <span class="s">"Juice|4.00"</span> + nl)
 
 	<span class="c"># the picture</span>
 	oForm.Controls.<span class="f">Item</span>(<span class="n">4</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"has image"</span>,oClipboard.<span class="f">ContainsImage</span>(),<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"has image"</span>,waitForImage(),<span class="k">True</span>)
 	<span class="f">dnAssert</span>(<span class="s">"image size"</span>,oClipboard.<span class="f">GetImage</span>().Width,<span class="n">120</span>)
 
 	<span class="c"># clear: nothing left, and pasting says so</span>
@@ -351,6 +376,7 @@ cBefore = <span class="s">""</span>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="text">Text<a class="anchor" href="#text">#</a></h3>
 <p><code>SetText(text)</code> puts a text on the clipboard. <code>GetText(NULL)</code> reads the text (the method has more than one form, so it takes <code>NULL</code> when there is nothing to choose). Before reading, <code>ContainsText(NULL)</code> says whether there is text at all: the clipboard can hold a picture, a list of files or nothing. The program shows <em>The clipboard has no text</em> when pasting is not possible instead of showing an empty box.</p>
+<p>The clipboard belongs to the whole computer, and another program (a clipboard manager, for example) can have it open for a moment, so a read can answer <em>nothing</em> although there is text. <code>readText</code> therefore asks again, up to twenty times with a pause of 50 milliseconds, and returns an empty text only when there is really none. The same is done for the picture (<code>waitForImage</code>). A test that reads the clipboard needs this; a program that reads it for a user can show an error after the tries.</p>
 <h3 id="a-table">A table<a class="anchor" href="#a-table">#</a></h3>
 <p>A spreadsheet (Excel, LibreOffice, Google Sheets) pastes text as a <strong>table</strong> when the columns are separated by a tab (<code>char(9)</code>) and the rows by a new line. <code>copyTable</code> builds this text from a Ring list of rows, and nothing else is needed: paste it into a spreadsheet and the cells appear. The same text pasted into a plain text box shows the tabs as spaces.</p>
 <h3 id="a-picture">A picture<a class="anchor" href="#a-picture">#</a></h3>

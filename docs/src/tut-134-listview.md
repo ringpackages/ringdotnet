@@ -17,11 +17,11 @@ The tutorial [A folder browser](tut-42-browser.html) filled a `ListView` with fi
 
 ## The program
 
-{{file:docs/tutorials/g134_listview.ring}}
+{{file:samples/UsingDotNet/tutorials/g134_listview.ring}}
 
 ![The task list](img/shots/tut-g134.png "The task list")
 
-{{output:docs/tutorials/g134_listview.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g134_listview.ring --selftest}}
 
 ## How it works
 

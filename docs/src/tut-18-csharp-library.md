@@ -18,13 +18,13 @@ lead: Someone wrote a library in C# — a colleague, or a NuGet package. This le
 
 ## The C# library
 
-You do not have to write C#, but reading a little helps. This library is in `docs/tutorials/Greeter`:
+You do not have to write C#, but reading a little helps. This library is in `samples/UsingDotNet/tutorials/Greeter`:
 
-{{file:docs/tutorials/Greeter/Greeter.cs}}
+{{file:samples/UsingDotNet/tutorials/Greeter/Greeter.cs}}
 
 The project file lists what to build:
 
-{{file:docs/tutorials/Greeter/Greeter.csproj}}
+{{file:samples/UsingDotNet/tutorials/Greeter/Greeter.csproj}}
 
 To build it you need the **.NET SDK** (`dotnet --version` prints its version):
 
@@ -34,9 +34,9 @@ dotnet build Greeter -c Release -o Greeter/bin
 
 ## The Ring program
 
-{{file:docs/tutorials/l01_use_library.ring}}
+{{file:samples/UsingDotNet/tutorials/l01_use_library.ring}}
 
-{{output:docs/tutorials/l01_use_library.ring}}
+{{output:samples/UsingDotNet/tutorials/l01_use_library.ring}}
 
 ## How C# members look in Ring
 

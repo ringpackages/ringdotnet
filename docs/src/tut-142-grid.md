@@ -17,11 +17,11 @@ The tutorial [Layout and richer controls](tut-23-layout.html) showed a grid that
 
 ## The program
 
-{{file:docs/tutorials/g142_grid.ring}}
+{{file:samples/UsingDotNet/tutorials/g142_grid.ring}}
 
 ![The order grid](img/shots/tut-g142.png "The order grid with its totals")
 
-{{output:docs/tutorials/g142_grid.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g142_grid.ring --selftest}}
 
 ## How it works
 

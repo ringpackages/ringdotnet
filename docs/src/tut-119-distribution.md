@@ -16,9 +16,9 @@ lead: A program that works on your computer is not finished until it works on so
 
 ## The program
 
-{{file:docs/tutorials/t119_distribution.ring}}
+{{file:samples/UsingDotNet/tutorials/t119_distribution.ring}}
 
-{{output:docs/tutorials/t119_distribution.ring}}
+{{output:samples/UsingDotNet/tutorials/t119_distribution.ring}}
 
 This program is the self check. It is a good start for your own program: put its checks in a function at the start, and call it when the program starts.
 

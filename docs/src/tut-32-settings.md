@@ -34,9 +34,9 @@ A program normally keeps its settings in a file *inside its own folder* under `A
 
 ## The program
 
-{{file:docs/tutorials/t32_settings.ring}}
+{{file:samples/UsingDotNet/tutorials/t32_settings.ring}}
 
-{{output:docs/tutorials/t32_settings.ring}}
+{{output:samples/UsingDotNet/tutorials/t32_settings.ring}}
 
 ## How it works
 

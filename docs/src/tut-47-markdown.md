@@ -17,9 +17,9 @@ lead: Write a small converter from the Markdown that people like to type into th
 
 ## The program
 
-{{file:docs/tutorials/t47_markdown.ring}}
+{{file:samples/UsingDotNet/tutorials/t47_markdown.ring}}
 
-{{output:docs/tutorials/t47_markdown.ring}}
+{{output:samples/UsingDotNet/tutorials/t47_markdown.ring}}
 
 ## How it works
 

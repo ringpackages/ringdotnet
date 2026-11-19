@@ -232,7 +232,7 @@
 <ul><li>how names with Arabic, German, Chinese... letters travel as <strong>Punycode</strong> (<code>xn--</code>),</li><li><code>IdnMapping</code>: <code>GetAscii</code>, <code>GetUnicode</code>, <code>UseStd3AsciiRules</code>,</li><li><code>Uri.Host</code> and <code>Uri.IdnHost</code>,</li><li>what makes a name invalid,</li><li><strong>homograph attacks</strong> with look-alike letters,</li><li>a check of the <strong>alphabets</strong> in each part of a name.</li></ul>
 <p>The tutorial <a href="tut-64-urls.html">URLs and encodings</a> took URLs apart and the tutorial <a href="tut-52-unicode.html">Unicode and encodings</a> looked at Unicode text. This lesson is where the two meet — and where it becomes a security question.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t117_domain_names.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># international domain names - Punycode with IdnMapping, Uri.IdnHost, invalid names, and look-alike letters (homograph attacks)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t117_domain_names.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># international domain names - Punycode with IdnMapping, Uri.IdnHost, invalid names, and look-alike letters (homograph attacks)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

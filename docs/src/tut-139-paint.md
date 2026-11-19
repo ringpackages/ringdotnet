@@ -16,11 +16,11 @@ The tutorial [Drawing and animation](tut-14-animation.html) drew with a timer an
 
 ## The program
 
-{{file:docs/tutorials/g139_paint.ring}}
+{{file:samples/UsingDotNet/tutorials/g139_paint.ring}}
 
 ![The paint program](img/shots/tut-g139.png "The paint program with a few strokes")
 
-{{output:docs/tutorials/g139_paint.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g139_paint.ring --selftest}}
 
 ## How it works
 

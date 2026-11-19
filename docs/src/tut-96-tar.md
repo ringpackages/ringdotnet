@@ -23,9 +23,9 @@ Linux programs combine the last two: a `.tar.gz` (or `.tgz`) file is a tar archi
 
 ## The program
 
-{{file:docs/tutorials/t96_tar.ring}}
+{{file:samples/UsingDotNet/tutorials/t96_tar.ring}}
 
-{{output:docs/tutorials/t96_tar.ring}}
+{{output:samples/UsingDotNet/tutorials/t96_tar.ring}}
 
 ## How it works
 

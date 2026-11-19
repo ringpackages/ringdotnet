@@ -16,9 +16,9 @@ The tutorial [Collections and LINQ](tut-04-collections.html) used `List` and `Di
 
 ## The program
 
-{{file:docs/tutorials/t92_data_structures.ring}}
+{{file:samples/UsingDotNet/tutorials/t92_data_structures.ring}}
 
-{{output:docs/tutorials/t92_data_structures.ring}}
+{{output:samples/UsingDotNet/tutorials/t92_data_structures.ring}}
 
 ## How it works
 

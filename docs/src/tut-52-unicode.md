@@ -21,9 +21,9 @@ An **encoding** turns text into bytes. **UTF-8** uses 1 byte for English letters
 
 ## The program
 
-{{file:docs/tutorials/t53_unicode.ring}}
+{{file:samples/UsingDotNet/tutorials/t53_unicode.ring}}
 
-{{output:docs/tutorials/t53_unicode.ring}}
+{{output:samples/UsingDotNet/tutorials/t53_unicode.ring}}
 
 ## How it works
 

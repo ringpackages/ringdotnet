@@ -22,9 +22,9 @@ lead: Serve real HTML pages from Ring: a home page, an about page and a guestboo
 
 ## The program
 
-{{file:docs/tutorials/g26_website.ring}}
+{{file:samples/UsingDotNet/tutorials/g26_website.ring}}
 
-{{output:docs/tutorials/g26_website.ring}}
+{{output:samples/UsingDotNet/tutorials/g26_website.ring}}
 
 To run it as a real site:
 

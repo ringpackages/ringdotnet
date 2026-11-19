@@ -17,11 +17,11 @@ The tutorial [Drawing and animation](tut-14-animation.html) used `KeyDown` for a
 
 ## The program
 
-{{file:docs/tutorials/g146_keyboard.ring}}
+{{file:samples/UsingDotNet/tutorials/g146_keyboard.ring}}
 
 ![The keyboard form](img/shots/tut-g146.png "The form after OK was pressed")
 
-{{output:docs/tutorials/g146_keyboard.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g146_keyboard.ring --selftest}}
 
 ## How it works
 
@@ -51,7 +51,7 @@ The `Enter` event of a box (not the key!) runs when the box gets the focus; `Sel
 
 ### Typing keys in a test
 
-`uiSendKeys(oForm, "1a2-3")` posts the keys to the focused control of **this form** through the real key processing, so `KeyPress`, `MaxLength`, `AcceptButton` and `Tab` work as they do for a user, and the keys can never reach another program. The test types the letters and the minus sign between the digits, and only `123` stays; two characters were refused (`nRejected` counts them: `a` and `-`). A fourth digit is stopped by `MaxLength`, and Backspace works because the filter lets it through. The keys that the helper types are lower case.
+`uiSendKeys(oForm, "1a2-3")` posts the keys to the focused control of **this form** through the real key processing, so `KeyPress`, `MaxLength`, `AcceptButton` and `Tab` work as they do for a user, and the keys can never reach another program. The test types the letters and the minus sign between the digits, and only `123` stays; two characters were refused (`nRejected` counts them: the letter and the minus sign). A fourth digit is stopped by `MaxLength`, and Backspace works because the filter lets it through. The letters that a test types depend on the **keyboard layout** of the computer: the key *A* gives `ش` on an Arabic layout. That character is not ASCII, so it arrives as a text of two bytes, and `filterKey` gives it the code 0 and refuses it, like any other character that is not a digit. For the same reason the test sets the name with `Text` and types only digits and the keys `{ENTER}`, `{TAB}`, `{ESC}` and `{BACKSPACE}`, which do not depend on the layout.
 
 ## What you learned
 

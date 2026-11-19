@@ -24,11 +24,11 @@ Both work from Ring with the same ideas: objects, properties, events.
 
 ## The program
 
-{{file:docs/tutorials/g05_wpf.ring}}
+{{file:samples/UsingDotNet/tutorials/g05_wpf.ring}}
 
 ![The window after Greet and after moving the slider](img/shots/tut-g05-greeted.png "After pressing Greet and moving the slider")
 
-{{output:docs/tutorials/g05_wpf.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g05_wpf.ring --selftest}}
 
 ## How it works
 

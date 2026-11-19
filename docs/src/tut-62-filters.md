@@ -14,13 +14,13 @@ lead: A picture is a table of numbers. This lesson holds the pixels in Ring list
 
 ## The program
 
-{{file:docs/tutorials/g63_filters.ring}}
+{{file:samples/UsingDotNet/tutorials/g63_filters.ring}}
 
 ![The filter lab with sepia](img/shots/tut-g63.png "Sepia: the original on the left, the filtered picture on the right")
 
 ![The filter lab with edges](img/shots/tut-g63-edges.png "Edges: flat areas are black, the outlines are light")
 
-{{output:docs/tutorials/g63_filters.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g63_filters.ring --selftest}}
 
 ## How it works
 

@@ -11,13 +11,13 @@ lead: Meet objects, types, properties, methods, static members, structs, collect
 
 ## Before you start
 
-You need Ring and the RingDotNet package. Open a terminal in `docs/tutorials`. If something does not work, read [Getting started](getting-started.html). If Ring is new to you, read the [Quick introduction to Ring](ring-intro.html) in the appendix first.
+You need Ring and the RingDotNet package. Open a terminal in `samples/UsingDotNet/tutorials`. If something does not work, read [Getting started](getting-started.html). If Ring is new to you, read the [Quick introduction to Ring](ring-intro.html) in the appendix first.
 
 ## The program
 
 Read the program first; the explanations follow. The line `using { ... }` brings classes in. `func main` is where Ring starts.
 
-{{file:docs/tutorials/t01_first_look.ring}}
+{{file:samples/UsingDotNet/tutorials/t01_first_look.ring}}
 
 Run it:
 
@@ -25,7 +25,7 @@ Run it:
 ring t01_first_look.ring
 ```
 
-{{output:docs/tutorials/t01_first_look.ring}}
+{{output:samples/UsingDotNet/tutorials/t01_first_look.ring}}
 
 ## How it works, step by step
 

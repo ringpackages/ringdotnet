@@ -18,11 +18,11 @@ The server listens on a port. Each client connects and sends lines such as `Alic
 
 ## The program
 
-{{file:docs/tutorials/g64_chat.ring}}
+{{file:samples/UsingDotNet/tutorials/g64_chat.ring}}
 
 ![The chat](img/shots/tut-g64.png "Two clients and one server in one program; the title shows the port that the server chose")
 
-{{output:docs/tutorials/g64_chat.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g64_chat.ring --selftest}}
 
 ## How it works
 

@@ -232,7 +232,7 @@
 <ul><li>the Registry as a <strong>tree of keys</strong> with <strong>values</strong>,</li><li><code>HKEY_CURRENT_USER</code> and why it is the safe place to write,</li><li><code>CreateSubKey</code>, <code>OpenSubKey</code>, <code>SetValue</code>, <code>GetValue</code>,</li><li>the value kinds: <code>String</code>, <code>DWord</code>, <code>QWord</code>, <code>MultiString</code>, <code>ExpandString</code>, <code>Binary</code>,</li><li>listing values and sub-keys, deleting them,</li><li>the rules for a program that writes to the Registry.</li></ul>
 <p>The tutorial <a href="tut-32-settings.html">Settings</a> saved settings in a file. On Windows, programs often use the Registry for the same job, and a program that works <em>with</em> Windows (file types, start-up, system settings) must.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t118_registry.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the Windows Registry - keys and values in HKEY_CURRENT_USER, value types, listing, a settings class, and deleting what you made</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t118_registry.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the Windows Registry - keys and values in HKEY_CURRENT_USER, value types, listing, a settings class, and deleting what you made</span>
 <span class="c"># (Windows only: anywhere else the program says so and stops)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {

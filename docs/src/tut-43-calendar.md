@@ -16,9 +16,9 @@ Imagine adding one month to 31 January by hand. Is it 31 February? Does the answ
 
 ## The program
 
-{{file:docs/tutorials/t43_calendar.ring}}
+{{file:samples/UsingDotNet/tutorials/t43_calendar.ring}}
 
-{{output:docs/tutorials/t43_calendar.ring}}
+{{output:samples/UsingDotNet/tutorials/t43_calendar.ring}}
 
 ## How it works
 

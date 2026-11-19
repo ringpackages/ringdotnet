@@ -18,9 +18,9 @@ lead: Programs get faster when you measure, not when you guess. This lesson time
 
 ## The program
 
-{{file:docs/tutorials/t54_speed.ring}}
+{{file:samples/UsingDotNet/tutorials/t54_speed.ring}}
 
-{{output:docs/tutorials/t54_speed.ring}}
+{{output:samples/UsingDotNet/tutorials/t54_speed.ring}}
 
 ## How it works
 

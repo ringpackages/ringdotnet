@@ -13,9 +13,9 @@ lead: Guid gives unique identifiers without a central counter, and Version compa
 
 ## The program
 
-{{file:docs/tutorials/t93_identifiers.ring}}
+{{file:samples/UsingDotNet/tutorials/t93_identifiers.ring}}
 
-{{output:docs/tutorials/t93_identifiers.ring}}
+{{output:samples/UsingDotNet/tutorials/t93_identifiers.ring}}
 
 ## How it works
 

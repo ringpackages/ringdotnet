@@ -27,9 +27,9 @@ RingDotNet uses **Entity Framework Core** with **SQLite**, a database in one fil
 
 ## Part 1: tables, rows, searches
 
-{{file:docs/tutorials/e01_library.ring}}
+{{file:samples/UsingDotNet/tutorials/e01_library.ring}}
 
-{{output:docs/tutorials/e01_library.ring}}
+{{output:samples/UsingDotNet/tutorials/e01_library.ring}}
 
 ### Step by step
 
@@ -57,9 +57,9 @@ RingDotNet uses **Entity Framework Core** with **SQLite**, a database in one fil
 
 ## Part 2: relations, queries, transactions, files
 
-{{file:docs/tutorials/e02_library_queries.ring}}
+{{file:samples/UsingDotNet/tutorials/e02_library_queries.ring}}
 
-{{output:docs/tutorials/e02_library_queries.ring}}
+{{output:samples/UsingDotNet/tutorials/e02_library_queries.ring}}
 
 ### Relations
 

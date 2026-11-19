@@ -17,9 +17,9 @@ A .NET `DateTime` always stores a **Gregorian** date. A **calendar object** is a
 
 ## The program
 
-{{file:docs/tutorials/t76_calendars.ring}}
+{{file:samples/UsingDotNet/tutorials/t76_calendars.ring}}
 
-{{output:docs/tutorials/t76_calendars.ring}}
+{{output:samples/UsingDotNet/tutorials/t76_calendars.ring}}
 
 ## How it works
 

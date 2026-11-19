@@ -20,11 +20,11 @@ lead: Draw shapes and text on a canvas, move them with a timer and control them 
 
 ## The program
 
-{{file:docs/tutorials/g04_bounce.ring}}
+{{file:samples/UsingDotNet/tutorials/g04_bounce.ring}}
 
 ![The bouncing ball and the paddle](img/shots/tut-g04.png "The ball bounces; Left and Right move the paddle")
 
-{{output:docs/tutorials/g04_bounce.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g04_bounce.ring --selftest}}
 
 ## How it works
 

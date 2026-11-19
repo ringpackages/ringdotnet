@@ -16,9 +16,9 @@ The tutorial [Paths and the environment](tut-59-paths.html) gave the special fol
 
 ## The program
 
-{{file:docs/tutorials/t124_disks.ring}}
+{{file:samples/UsingDotNet/tutorials/t124_disks.ring}}
 
-{{output:docs/tutorials/t124_disks.ring}}
+{{output:samples/UsingDotNet/tutorials/t124_disks.ring}}
 
 ## How it works
 

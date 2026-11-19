@@ -232,7 +232,7 @@
 <ul><li><code>StringWriter</code> and <code>StringReader</code>,</li><li>the base classes <code>TextWriter</code> and <code>TextReader</code>, and why a function should take one,</li><li>reading line by line with <code>ReadLine</code> and <code>Peek</code>,</li><li><code>Console.SetOut</code> to capture output,</li><li>composite formatting with <code>String.Format</code> (<code>{0}</code>, alignment, formats).</li></ul>
 <p>The tutorial <a href="tut-05-files.html">Files and folders</a> wrote and read files and the tutorial <a href="tut-56-streams.html">Streams and compression</a> explained streams. A <strong>string</strong> can be a stream too, and that is very useful.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t104_text_readers_writers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># text readers and writers - StringWriter and StringReader, TextWriter in functions, and capturing Console output</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t104_text_readers_writers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># text readers and writers - StringWriter and StringReader, TextWriter in functions, and capturing Console output</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
@@ -322,7 +322,7 @@ using {
 
 5. Ann bought 3 items for 12.50
    alignment: [left    |   right]
-   padded numbers: 00042 255.0 25%</code></pre></div>
+   padded numbers: 00042 255.0 0.25</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="stringwriter">StringWriter<a class="anchor" href="#stringwriter">#</a></h3>
 <p>A <code>StringWriter</code> has the same methods as a <code>StreamWriter</code> (<code>Write</code>, <code>WriteLine</code>), but it collects the text in memory; <code>ToString()</code> gives it back. Use it to build a longer text piece by piece, and above all as a <strong>test double</strong> for a file or the console. <code>WriteLine(NULL)</code> ends the current line without adding text. (Windows ends a line with two characters, <code>CR LF</code>, and Linux with one, <code>LF</code>; the program removes <code>char(13)</code> so the output is the same everywhere.)</p>

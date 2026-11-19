@@ -17,9 +17,9 @@ A client sends a **request**: a *method* (`GET` to read, `POST` to send data, `D
 
 ## The program
 
-{{file:docs/tutorials/t09_http.ring}}
+{{file:samples/UsingDotNet/tutorials/t09_http.ring}}
 
-{{output:docs/tutorials/t09_http.ring}}
+{{output:samples/UsingDotNet/tutorials/t09_http.ring}}
 
 > [!NOTE] The port number is chosen by Windows, so it differs on every run.
 

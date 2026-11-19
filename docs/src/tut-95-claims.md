@@ -15,9 +15,9 @@ ASP.NET Core uses exactly these classes for every login, so what you learn here 
 
 ## The program
 
-{{file:docs/tutorials/t95_claims.ring}}
+{{file:samples/UsingDotNet/tutorials/t95_claims.ring}}
 
-{{output:docs/tutorials/t95_claims.ring}}
+{{output:samples/UsingDotNet/tutorials/t95_claims.ring}}
 
 ## How it works
 

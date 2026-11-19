@@ -15,9 +15,9 @@ The tutorial [Drawing and animation](tut-14-animation.html) moved shapes with Ri
 
 ## The program
 
-{{file:docs/tutorials/t99_vectors.ring}}
+{{file:samples/UsingDotNet/tutorials/t99_vectors.ring}}
 
-{{output:docs/tutorials/t99_vectors.ring}}
+{{output:samples/UsingDotNet/tutorials/t99_vectors.ring}}
 
 ## How it works
 

@@ -7,8 +7,8 @@ samples/UsingDotNet/tests/UserLib/obj/
 samples/UsingDotNet/tests/UserLib/generated/
 bin/runtimes/
 docs/tools/api-data/
-docs/tutorials/Greeter/bin/
-docs/tutorials/Greeter/obj/
-docs/tutorials/Greeter/classes/
-docs/tutorials/addressbook.db
+samples/UsingDotNet/tutorials/Greeter/bin/
+samples/UsingDotNet/tutorials/Greeter/obj/
+samples/UsingDotNet/tutorials/Greeter/classes/
+samples/UsingDotNet/tutorials/addressbook.db
 docs/pdf/

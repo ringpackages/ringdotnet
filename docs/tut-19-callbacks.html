@@ -235,7 +235,7 @@
 <div class="tablewrap"><table><thead><tr><th>Method</th><th>The part it does not know</th></tr></thead><tbody><tr><td><code>List.Sort</code></td><td>how to compare two items</td></tr><tr><td><code>List.FindAll</code></td><td>which items to keep</td></tr><tr><td><code>List.ForEach</code></td><td>what to do with each item</td></tr><tr><td>an event such as <code>Click</code></td><td>what to do when it happens</td></tr></tbody></table></div>
 <p>You give it a <strong>callback</strong>: code that .NET <em>calls back</em> when it needs the answer. In .NET the type of such a thing is a <strong>delegate</strong> (<code>Action</code>, <code>Func</code>, <code>Predicate</code>, <code>Comparison</code>, <code>EventHandler</code>...). In Ring you create one with <code>dnCallback(...)</code>.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t19_callbacks.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># callbacks and events - giving Ring code to .NET</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t19_callbacks.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># callbacks and events - giving Ring code to .NET</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Collections.Generic"</span>

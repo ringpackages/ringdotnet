@@ -16,9 +16,9 @@ The tutorial [Speed — measure first](tut-53-speed.html) measured how fast call
 
 ## The program
 
-{{file:docs/tutorials/t109_memory_cache.ring}}
+{{file:samples/UsingDotNet/tutorials/t109_memory_cache.ring}}
 
-{{output:docs/tutorials/t109_memory_cache.ring}}
+{{output:samples/UsingDotNet/tutorials/t109_memory_cache.ring}}
 
 ## How it works
 

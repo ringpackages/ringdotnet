@@ -19,9 +19,9 @@ A **named mutex** is a lock with a name. The first program that gets it holds it
 
 ## The program
 
-{{file:docs/tutorials/t79_processes_talk.ring}}
+{{file:samples/UsingDotNet/tutorials/t79_processes_talk.ring}}
 
-{{output:docs/tutorials/t79_processes_talk.ring}}
+{{output:samples/UsingDotNet/tutorials/t79_processes_talk.ring}}
 
 ## How it works
 

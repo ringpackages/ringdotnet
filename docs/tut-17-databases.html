@@ -234,7 +234,7 @@
 <div class="tablewrap"><table><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>table</strong></td><td>a list of rows of the same shape (like a spreadsheet sheet)</td></tr><tr><td><strong>column</strong></td><td>one field of every row (<code>Title</code>, <code>Year</code>)</td></tr><tr><td><strong>row</strong></td><td>one record</td></tr><tr><td><strong>key</strong></td><td>a column that identifies a row (<code>Id</code>); the database numbers it for you</td></tr><tr><td><strong>foreign key</strong></td><td>a column that holds the key of a row in <em>another</em> table (<code>AuthorId</code>)</td></tr><tr><td><strong>SQL</strong></td><td>the language of databases; you only need a little of it</td></tr></tbody></table></div>
 <p>RingDotNet uses <strong>Entity Framework Core</strong> with <strong>SQLite</strong>, a database in one file (or in memory). You describe the tables as Ring data; there is no SQL to write for normal work.</p>
 <h2 id="part-1-tables-rows-searches">Part 1: tables, rows, searches<a class="anchor" href="#part-1-tables-rows-searches">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/e01_library.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># databases step by step - a library catalog with Entity Framework Core</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/e01_library.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># databases step by step - a library catalog with Entity Framework Core</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using { <span class="s">"RingDotNet.Data"</span> }
 
@@ -318,7 +318,7 @@ STEP 6: a duplicate author is refused
 <p><strong>Step 5 — change and delete.</strong> <code>update(table, key, values)</code> changes columns of one row; <code>remove(table, key)</code> deletes it.</p>
 <p><strong>Step 6 — mistakes are errors.</strong> The database refuses a duplicate in a <code>unique</code> column and a foreign key that points to nothing. Catch the error with <code>try</code>/<code>catch</code>.</p>
 <h2 id="part-2-relations-queries-transactions-files">Part 2: relations, queries, transactions, files<a class="anchor" href="#part-2-relations-queries-transactions-files">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/e02_library_queries.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the tutorial "Databases step by step", part 2: relations, queries, transactions and a file database</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/e02_library_queries.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the tutorial "Databases step by step", part 2: relations, queries, transactions and a file database</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.IO"</span>

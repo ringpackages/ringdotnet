@@ -26,9 +26,9 @@ You give it a **callback**: code that .NET *calls back* when it needs the answer
 
 ## The program
 
-{{file:docs/tutorials/t19_callbacks.ring}}
+{{file:samples/UsingDotNet/tutorials/t19_callbacks.ring}}
 
-{{output:docs/tutorials/t19_callbacks.ring}}
+{{output:samples/UsingDotNet/tutorials/t19_callbacks.ring}}
 
 ## How it works
 

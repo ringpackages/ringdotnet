@@ -234,7 +234,7 @@
 <p>Every HTTP request stands alone: the server does not know that the request for <code>/profile</code> comes from the person who logged in a minute ago. The solution is a <strong>session</strong>:</p>
 <ol><li>the user logs in with a name and password,</li><li>the server creates a long random <strong>token</strong> and remembers <code>token → user</code>,</li><li>it sends the token to the browser in a <strong>cookie</strong> (<code>Set-Cookie</code>),</li><li>the browser sends the cookie back with every later request (<code>Cookie</code>),</li><li>the server finds the user by the token.</li></ol>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g49_login.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># login, sessions and cookies - a web site that knows who you are</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g49_login.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># login, sessions and cookies - a web site that knows who you are</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

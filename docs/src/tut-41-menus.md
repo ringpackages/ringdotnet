@@ -16,11 +16,11 @@ A user may reach "make upper case" from the **Text** menu, a toolbar button, the
 
 ## The program
 
-{{file:docs/tutorials/g41_menus.ring}}
+{{file:samples/UsingDotNet/tutorials/g41_menus.ring}}
 
 ![The window with a menu bar, a toolbar and a status bar](img/shots/tut-g41.png "Menu bar, toolbar, the text and the status bar")
 
-{{output:docs/tutorials/g41_menus.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g41_menus.ring --selftest}}
 
 ## How it works
 

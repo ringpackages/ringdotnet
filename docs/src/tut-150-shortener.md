@@ -16,9 +16,9 @@ The tutorial [A web service with a database](tut-16-web-service.html) and the tu
 
 ## The program
 
-{{file:docs/tutorials/t150_shortener.ring}}
+{{file:samples/UsingDotNet/tutorials/t150_shortener.ring}}
 
-{{output:docs/tutorials/t150_shortener.ring}}
+{{output:samples/UsingDotNet/tutorials/t150_shortener.ring}}
 
 ## How it works
 

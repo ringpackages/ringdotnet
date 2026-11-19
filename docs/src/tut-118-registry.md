@@ -16,9 +16,9 @@ The tutorial [Settings](tut-32-settings.html) saved settings in a file. On Windo
 
 ## The program
 
-{{file:docs/tutorials/t118_registry.ring}}
+{{file:samples/UsingDotNet/tutorials/t118_registry.ring}}
 
-{{output:docs/tutorials/t118_registry.ring}}
+{{output:samples/UsingDotNet/tutorials/t118_registry.ring}}
 
 ## How it works
 

@@ -17,4 +17,4 @@
 
 5. Ann bought 3 items for 12.50
    alignment: [left    |   right]
-   padded numbers: 00042 255.0 25%
+   padded numbers: 00042 255.0 0.25

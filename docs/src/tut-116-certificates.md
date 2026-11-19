@@ -16,9 +16,9 @@ The tutorial [Digital signatures](tut-105-signatures.html) signed data with a ba
 
 ## The program
 
-{{file:docs/tutorials/t116_certificates.ring}}
+{{file:samples/UsingDotNet/tutorials/t116_certificates.ring}}
 
-{{output:docs/tutorials/t116_certificates.ring}}
+{{output:samples/UsingDotNet/tutorials/t116_certificates.ring}}
 
 ## How it works
 

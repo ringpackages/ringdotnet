@@ -17,11 +17,11 @@ Almost every tool has a command-line version: `git`, `ping`, `dotnet`, `ffmpeg`,
 
 ## The program
 
-{{file:docs/tutorials/g37_runner.ring}}
+{{file:samples/UsingDotNet/tutorials/g37_runner.ring}}
 
 ![The command runner after running echo](img/shots/tut-g37.png "The command runner")
 
-{{output:docs/tutorials/g37_runner.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g37_runner.ring --selftest}}
 
 ## How it works
 

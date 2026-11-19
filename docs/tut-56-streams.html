@@ -235,7 +235,7 @@
 <div class="tablewrap"><table><thead><tr><th>Class</th><th>Source or target</th></tr></thead><tbody><tr><td><code>MemoryStream</code></td><td>memory</td></tr><tr><td><code>FileStream</code></td><td>a file (<code>File.Create</code>, <code>File.OpenRead</code>)</td></tr><tr><td><code>NetworkStream</code></td><td>a socket (the tutorial <a href="tut-25-sockets.html">Sockets</a>)</td></tr><tr><td><code>GZipStream</code></td><td><em>wraps</em> another stream and compresses or decompresses what passes</td></tr><tr><td><code>StreamWriter</code> / <code>StreamReader</code></td><td>turn text into bytes and back</td></tr></tbody></table></div>
 <p>Because they wrap each other you can stack them: text → <code>StreamWriter</code> → <code>GZipStream</code> → <code>FileStream</code> → disk.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t57_streams.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># streams and compression - the same data in memory, in a file, and squeezed with GZip</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t57_streams.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># streams and compression - the same data in memory, in a file, and squeezed with GZip</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

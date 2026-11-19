@@ -15,9 +15,9 @@ The tutorial [JSON and XML](tut-06-json-xml.html) read and wrote JSON as a tree 
 
 ## The program
 
-{{file:docs/tutorials/t100_json_writer.ring}}
+{{file:samples/UsingDotNet/tutorials/t100_json_writer.ring}}
 
-{{output:docs/tutorials/t100_json_writer.ring}}
+{{output:samples/UsingDotNet/tutorials/t100_json_writer.ring}}
 
 ## How it works
 

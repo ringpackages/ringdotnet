@@ -233,7 +233,7 @@
 <p>A web program (the tutorial <a href="tut-16-web-service.html">A web service with a database</a>) uses limiters to answer <em>429 Too Many Requests</em>, a client that calls an API (the tutorial <a href="tut-84-http-client.html">HttpClient in depth</a>) uses one to stay below the limit of the server, and a program that sends mail uses one so that it is not marked as spam.</p>
 <div class="callout note"><span class="t">Note</span><p><code>System.Threading.RateLimiting</code> is part of the ASP.NET Core runtime, so the program has <code>"RingDotNet.Web"</code> in its <code>using { }</code> (<a href="getting-started.html">Getting started</a>). The namespace has no generated Ring classes: the objects are made with <code>dnNew(type, [options])</code> and used with <code>callMethod</code> and <code>getProp</code> (<a href="concepts.html">Core concepts</a>).</p></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t114_rate_limiting.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># rate limiting - a token bucket, a concurrency limiter with leases, statistics, and one limiter for each client</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t114_rate_limiting.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># rate limiting - a token bucket, a concurrency limiter with leases, statistics, and one limiter for each client</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

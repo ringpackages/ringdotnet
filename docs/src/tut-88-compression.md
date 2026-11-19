@@ -16,9 +16,9 @@ The tutorial [Files and folders](tut-05-files.html) made a ZIP archive of files.
 
 ## The program
 
-{{file:docs/tutorials/t88_compression.ring}}
+{{file:samples/UsingDotNet/tutorials/t88_compression.ring}}
 
-{{output:docs/tutorials/t88_compression.ring}}
+{{output:samples/UsingDotNet/tutorials/t88_compression.ring}}
 
 ## How it works
 

@@ -18,13 +18,13 @@ A **modal** window blocks the window behind it until it is closed: the user must
 
 ## The program
 
-{{file:docs/tutorials/g40_dialog.ring}}
+{{file:samples/UsingDotNet/tutorials/g40_dialog.ring}}
 
 ![The main window](img/shots/tut-g40-main.png "The main window shows the profile")
 
 ![The dialog](img/shots/tut-g40-dialog.png "The dialog: name, age, OK and Cancel")
 
-{{output:docs/tutorials/g40_dialog.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g40_dialog.ring --selftest}}
 
 ## How it works
 

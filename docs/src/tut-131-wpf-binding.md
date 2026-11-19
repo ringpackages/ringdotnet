@@ -16,11 +16,11 @@ The tutorial [WPF](tut-15-wpf.html) made one binding in code, and the tutorial [
 
 ## The program
 
-{{file:docs/tutorials/g131_wpf_binding.ring}}
+{{file:samples/UsingDotNet/tutorials/g131_wpf_binding.ring}}
 
 ![The binding window](img/shots/tut-g131.png "The binding window")
 
-{{output:docs/tutorials/g131_wpf_binding.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g131_wpf_binding.ring --selftest}}
 
 ## How it works
 

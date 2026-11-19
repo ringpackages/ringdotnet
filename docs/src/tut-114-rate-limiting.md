@@ -18,9 +18,9 @@ A web program (the tutorial [A web service with a database](tut-16-web-service.h
 
 ## The program
 
-{{file:docs/tutorials/t114_rate_limiting.ring}}
+{{file:samples/UsingDotNet/tutorials/t114_rate_limiting.ring}}
 
-{{output:docs/tutorials/t114_rate_limiting.ring}}
+{{output:samples/UsingDotNet/tutorials/t114_rate_limiting.ring}}
 
 ## How it works
 

@@ -24,9 +24,9 @@ Every HTTP request stands alone: the server does not know that the request for `
 
 ## The program
 
-{{file:docs/tutorials/g49_login.ring}}
+{{file:samples/UsingDotNet/tutorials/g49_login.ring}}
 
-{{output:docs/tutorials/g49_login.ring}}
+{{output:samples/UsingDotNet/tutorials/g49_login.ring}}
 
 ## How it works
 

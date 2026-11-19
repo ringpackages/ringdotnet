@@ -17,9 +17,9 @@ The tutorial [Unicode and encodings](tut-52-unicode.html) explained characters, 
 
 ## The program
 
-{{file:docs/tutorials/t132_text_encodings.ring}}
+{{file:samples/UsingDotNet/tutorials/t132_text_encodings.ring}}
 
-{{output:docs/tutorials/t132_text_encodings.ring}}
+{{output:samples/UsingDotNet/tutorials/t132_text_encodings.ring}}
 
 ## How it works
 

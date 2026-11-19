@@ -232,7 +232,7 @@
 <ul><li><strong>Base64</strong>: 3 bytes become 4 characters, and <code>=</code> fills the end,</li><li>the <strong>padding</strong> and the size of the result,</li><li>sending <em>all</em> 256 byte values through text,</li><li>the <strong>URL-safe</strong> form (<code>-</code> and <code>_</code>, no <code>=</code>),</li><li><strong>hexadecimal</strong> with <code>Convert.ToHexString</code> and <code>FromHexString</code>,</li><li>the errors of wrong input,</li><li><strong>data URIs</strong>, and a hash written in hexadecimal.</li></ul>
 <p>The tutorial <a href="tut-64-urls.html">URLs and encodings</a> used Base64 for one purpose. This lesson looks at the encodings themselves.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t138_base64_hex.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># bytes as text - Base64, Base64 for URLs and hexadecimal: encoding and decoding, the size of the result, line breaks, and data URIs</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t138_base64_hex.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># bytes as text - Base64, Base64 for URLs and hexadecimal: encoding and decoding, the size of the result, line breaks, and data URIs</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

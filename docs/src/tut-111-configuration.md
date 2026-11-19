@@ -18,9 +18,9 @@ The tutorial [Settings](tut-32-settings.html) saved the settings of a program in
 
 ## The program
 
-{{file:docs/tutorials/t111_configuration.ring}}
+{{file:samples/UsingDotNet/tutorials/t111_configuration.ring}}
 
-{{output:docs/tutorials/t111_configuration.ring}}
+{{output:samples/UsingDotNet/tutorials/t111_configuration.ring}}
 
 ## How it works
 

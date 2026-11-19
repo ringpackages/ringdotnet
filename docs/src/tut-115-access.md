@@ -27,9 +27,9 @@ The tutorial [Databases step by step](tut-17-databases.html) used SQLite and the
 
 ## The program
 
-{{file:docs/tutorials/t115_access.ring}}
+{{file:samples/UsingDotNet/tutorials/t115_access.ring}}
 
-{{output:docs/tutorials/t115_access.ring}}
+{{output:samples/UsingDotNet/tutorials/t115_access.ring}}
 
 ## How it works
 

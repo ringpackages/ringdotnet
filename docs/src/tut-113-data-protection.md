@@ -18,9 +18,9 @@ The tutorial [Hashing and encryption](tut-08-security.html) and the tutorial [Pr
 
 ## The program
 
-{{file:docs/tutorials/t113_data_protection.ring}}
+{{file:samples/UsingDotNet/tutorials/t113_data_protection.ring}}
 
-{{output:docs/tutorials/t113_data_protection.ring}}
+{{output:samples/UsingDotNet/tutorials/t113_data_protection.ring}}
 
 ## How it works
 

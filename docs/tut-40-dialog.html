@@ -233,7 +233,7 @@
 <h2 id="modal-and-modeless">Modal and modeless<a class="anchor" href="#modal-and-modeless">#</a></h2>
 <p>A <strong>modal</strong> window blocks the window behind it until it is closed: the user must answer first. That is what you want when the program needs an answer <em>now</em> — a file name, a choice, a few settings. <code>form.ShowDialog()</code> shows a window modally and <strong>waits</strong>: the line after it runs only after the dialog closed, and it returns <em>how</em> it was closed (<code>"OK"</code> or <code>"Cancel"</code>). A <strong>modeless</strong> window (<code>Show()</code>) lets the user continue working elsewhere.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g40_dialog.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># your own dialog - a modal form that asks for data and gives it back</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g40_dialog.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># your own dialog - a modal form that asks for data and gives it back</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>

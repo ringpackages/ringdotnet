@@ -232,7 +232,7 @@
 <ul><li>a <strong>claim</strong>: a type and a value,</li><li><code>ClaimsIdentity</code> (claims from one source) and <code>ClaimsPrincipal</code> (the user),</li><li><code>FindFirst</code>, <code>FindAll</code> and <code>HasClaim</code>,</li><li>roles and <code>IsInRole</code>,</li><li>a permission check where the rules are data.</li></ul>
 <p>ASP.NET Core uses exactly these classes for every login, so what you learn here is what a web program (the tutorial <a href="tut-16-web-service.html">A web service with a database</a>) receives after the user signed in. The tutorial <a href="tut-49-login.html">Login, sessions and cookies</a> made a login with a password hash; this lesson is about what happens <em>after</em> the login.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t95_claims.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># identities and claims - ClaimsIdentity, ClaimsPrincipal, roles, claim types and a simple permission check</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t95_claims.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># identities and claims - ClaimsIdentity, ClaimsPrincipal, roles, claim types and a simple permission check</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

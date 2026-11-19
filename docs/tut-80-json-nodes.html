@@ -232,7 +232,7 @@
 <ul><li>parsing JSON into a tree you can edit (<code>JsonNode</code>, <code>JsonObject</code>, <code>JsonArray</code>),</li><li>reading with <code>Item("key")</code> and <code>Item(index)</code>,</li><li><code>SetItem</code>, <code>Add</code>, <code>Remove</code> on objects and <code>Add</code> on arrays,</li><li>building a document from Ring values,</li><li>merging two documents,</li><li><code>DeepClone</code> and <code>DeepEquals</code>.</li></ul>
 <p>These classes are in <code>System.Text.Json.Nodes</code>. The tutorial <a href="tut-06-json-xml.html">JSON and XML</a> read JSON with <code>JsonDocument</code>; that class is fast but read-only. Use the nodes when you need to <strong>change</strong> JSON: configuration files, request bodies, data you assemble.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t80_json_nodes.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># JSON as a tree you can change - JsonNode, JsonObject and JsonArray (System.Text.Json.Nodes)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t80_json_nodes.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># JSON as a tree you can change - JsonNode, JsonObject and JsonArray (System.Text.Json.Nodes)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

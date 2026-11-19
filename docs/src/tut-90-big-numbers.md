@@ -14,9 +14,9 @@ lead: A Ring number is a double, so whole numbers are exact only up to about nin
 
 ## The program
 
-{{file:docs/tutorials/t90_big_numbers.ring}}
+{{file:samples/UsingDotNet/tutorials/t90_big_numbers.ring}}
 
-{{output:docs/tutorials/t90_big_numbers.ring}}
+{{output:samples/UsingDotNet/tutorials/t90_big_numbers.ring}}
 
 ## How it works
 

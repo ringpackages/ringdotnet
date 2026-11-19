@@ -233,7 +233,7 @@
 <h2 id="the-idea">The idea<a class="anchor" href="#the-idea">#</a></h2>
 <p>The server listens on a port. Each client connects and sends lines such as <code>Alice: Hello</code>. The server sends <strong>every</strong> line it receives to <strong>all</strong> clients, including the sender, so everybody sees the same conversation in the same order. The protocol is the simplest possible: one message per line, the sender's name at the start. The tutorial <a href="tut-25-sockets.html">Sockets</a> explains sockets; here they are used in a window program.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g64_chat.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a chat over TCP - a server that relays lines, two clients, and a timer that polls the sockets</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g64_chat.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a chat over TCP - a server that relays lines, two clients, and a timer that polls the sockets</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

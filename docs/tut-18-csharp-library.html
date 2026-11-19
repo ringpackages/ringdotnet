@@ -233,8 +233,8 @@
 <h2 id="the-steps">The steps<a class="anchor" href="#the-steps">#</a></h2>
 <ol><li><strong>Get the library</strong> as a <code>.dll</code> (build it, or copy it from a NuGet package).</li><li><strong>Wrap it</strong>: <code>ring wrapassembly.ring Library.dll classes</code> writes a Ring class for every public C# class.</li><li><strong>Load it</strong>: <code>dnLoad("Library.dll")</code> and <code>dnImportFrom("classes/","Namespace")</code>.</li><li><strong>Use it</strong>: <code>new ClassName()</code>, exactly like the built-in classes.</li></ol>
 <h2 id="the-c-library">The C# library<a class="anchor" href="#the-c-library">#</a></h2>
-<p>You do not have to write C#, but reading a little helps. This library is in <code>docs/tutorials/Greeter</code>:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/Greeter/Greeter.cs</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">using</span> System;
+<p>You do not have to write C#, but reading a little helps. This library is in <code>samples/UsingDotNet/tutorials/Greeter</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/Greeter/Greeter.cs</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">using</span> System;
 
 <span class="k">namespace</span> Tutorial.Greetings
 {
@@ -285,7 +285,7 @@
 	}
 }</code></pre></div>
 <p>The project file lists what to build:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/Greeter/Greeter.csproj</span><button class="copy" type="button">Copy</button></div><pre><code>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/Greeter/Greeter.csproj</span><button class="copy" type="button">Copy</button></div><pre><code>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
   &lt;PropertyGroup&gt;
     &lt;TargetFramework&gt;net9.0&lt;/TargetFramework&gt;
     &lt;AssemblyName&gt;Greeter&lt;/AssemblyName&gt;
@@ -295,7 +295,7 @@
 <p>To build it you need the <strong>.NET SDK</strong> (<code>dotnet --version</code> prints its version):</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>dotnet build Greeter -c Release -o Greeter/bin</code></pre></div>
 <h2 id="the-ring-program">The Ring program<a class="anchor" href="#the-ring-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/l01_use_library.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># using a library written in C# - build it, wrap it, call it</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/l01_use_library.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># using a library written in C# - build it, wrap it, call it</span>
 <span class="c">#   (the library is in the folder Greeter: Greeter.cs and Greeter.csproj)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 

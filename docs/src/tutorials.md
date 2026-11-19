@@ -5,10 +5,10 @@ lead: Step-by-step lessons for people who are new to .NET. Each one explains the
 
 ## How to use the tutorials
 
-Every tutorial has a program in the folder `docs/tutorials`. Read the explanation, run the program, change it, and do the **exercises** at the end. The programs are real: they are tested together with the rest of the package, so the output you see here is the output you will get.
+Every tutorial has a program in the folder `samples/UsingDotNet/tutorials`. Read the explanation, run the program, change it, and do the **exercises** at the end. The programs are real: they are tested together with the rest of the package, so the output you see here is the output you will get.
 
 ```bash
-cd docs/tutorials
+cd samples/UsingDotNet/tutorials
 ring t01_first_look.ring            # a console tutorial
 ring g01c_counter.ring              # a window
 ring g01c_counter.ring --selftest   # the same program checks itself and closes

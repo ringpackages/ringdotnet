@@ -16,9 +16,9 @@ The tutorial [Sockets](tut-25-sockets.html) used TCP: a connection, then a strea
 
 ## The program
 
-{{file:docs/tutorials/t91_udp.ring}}
+{{file:samples/UsingDotNet/tutorials/t91_udp.ring}}
 
-{{output:docs/tutorials/t91_udp.ring}}
+{{output:samples/UsingDotNet/tutorials/t91_udp.ring}}
 
 ## How it works
 

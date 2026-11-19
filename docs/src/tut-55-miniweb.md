@@ -17,9 +17,9 @@ lead: Real web frameworks map addresses like /users/ali to functions and fill te
 
 ## The program
 
-{{file:docs/tutorials/t56_miniweb.ring}}
+{{file:samples/UsingDotNet/tutorials/t56_miniweb.ring}}
 
-{{output:docs/tutorials/t56_miniweb.ring}}
+{{output:samples/UsingDotNet/tutorials/t56_miniweb.ring}}
 
 ## How it works
 

@@ -25,9 +25,9 @@ A **hash** is a fingerprint. The same input always gives the same hash; a tiny c
 
 ## The program
 
-{{file:docs/tutorials/t08_security.ring}}
+{{file:samples/UsingDotNet/tutorials/t08_security.ring}}
 
-{{output:docs/tutorials/t08_security.ring}}
+{{output:samples/UsingDotNet/tutorials/t08_security.ring}}
 
 > [!NOTE] The random values (the salt, the token) change on every run, so your output will differ in those lines.
 

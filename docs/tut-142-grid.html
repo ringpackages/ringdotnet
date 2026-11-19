@@ -232,7 +232,7 @@
 <ul><li>columns with <strong>types</strong>: <code>DataGridViewTextBoxColumn</code>, <code>...CheckBoxColumn</code>, <code>...ComboBoxColumn</code>,</li><li>adding rows with the values of the cells (<code>Rows.Add</code>),</li><li>reading and writing a cell: <code>Rows.Item(row).Cells.Item(column).Value</code>,</li><li>the <strong>CellValueChanged</strong> event and <code>RowIndex</code>,</li><li>committing a check box or a combo box change at once,</li><li>a <strong>read-only</strong> column that the program fills,</li><li>a number that arrives as text, and a text that is not a number.</li></ul>
 <p>The tutorial <a href="tut-23-layout.html">Layout and richer controls</a> showed a grid that is bound to a <code>DataTable</code>. Here the grid is <em>unbound</em>: it holds its own cells, and the program works with them directly.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g142_grid.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># editing a grid - DataGridView with typed columns (text, check box, combo box), a read-only total, cell events and a grand total</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g142_grid.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># editing a grid - DataGridView with typed columns (text, check box, combo box), a read-only total, cell events and a grand total</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

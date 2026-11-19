@@ -15,9 +15,9 @@ The tutorial [Files and folders](tut-05-files.html) wrote and read files and the
 
 ## The program
 
-{{file:docs/tutorials/t104_text_readers_writers.ring}}
+{{file:samples/UsingDotNet/tutorials/t104_text_readers_writers.ring}}
 
-{{output:docs/tutorials/t104_text_readers_writers.ring}}
+{{output:samples/UsingDotNet/tutorials/t104_text_readers_writers.ring}}
 
 ## How it works
 

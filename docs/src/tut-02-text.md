@@ -19,9 +19,9 @@ One rule is important: **a .NET string is not an object in Ring**, it is just a 
 
 ## The program
 
-{{file:docs/tutorials/t02_text.ring}}
+{{file:samples/UsingDotNet/tutorials/t02_text.ring}}
 
-{{output:docs/tutorials/t02_text.ring}}
+{{output:samples/UsingDotNet/tutorials/t02_text.ring}}
 
 ## How it works
 

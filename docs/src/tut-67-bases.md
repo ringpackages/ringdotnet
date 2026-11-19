@@ -26,9 +26,9 @@ Computers store bits, so base 2 is what they use; but it is long to read. **One 
 
 ## The program
 
-{{file:docs/tutorials/t67_bases.ring}}
+{{file:samples/UsingDotNet/tutorials/t67_bases.ring}}
 
-{{output:docs/tutorials/t67_bases.ring}}
+{{output:samples/UsingDotNet/tutorials/t67_bases.ring}}
 
 ## How it works
 

@@ -24,9 +24,9 @@ The tutorial [Databases step by step](tut-17-databases.html) used `RingDatabase`
 
 ## Part 1: objects
 
-{{file:docs/tutorials/e03_entities.ring}}
+{{file:samples/UsingDotNet/tutorials/e03_entities.ring}}
 
-{{output:docs/tutorials/e03_entities.ring}}
+{{output:samples/UsingDotNet/tutorials/e03_entities.ring}}
 
 ### How it works
 
@@ -44,9 +44,9 @@ The tutorial [Databases step by step](tut-17-databases.html) used `RingDatabase`
 
 You shipped version 1 of a program. Users have data. In version 2 you need a `Phone` column and a `Notes` table. If you only change the schema in the program, the *old file still has the old tables*: new code meets old data. A **migration** brings the file up to date.
 
-{{file:docs/tutorials/e04_migrations.ring}}
+{{file:samples/UsingDotNet/tutorials/e04_migrations.ring}}
 
-{{output:docs/tutorials/e04_migrations.ring}}
+{{output:samples/UsingDotNet/tutorials/e04_migrations.ring}}
 
 ### How it works
 

@@ -16,11 +16,11 @@ The tutorial [Reflection](tut-20-reflection.html) asked a *type* what it can do.
 
 ## The program
 
-{{file:docs/tutorials/g151_inspector.ring}}
+{{file:samples/UsingDotNet/tutorials/g151_inspector.ring}}
 
 ![The inspector](img/shots/tut-g151.png "The inspector showing a Uri")
 
-{{output:docs/tutorials/g151_inspector.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g151_inspector.ring --selftest}}
 
 ## How it works
 

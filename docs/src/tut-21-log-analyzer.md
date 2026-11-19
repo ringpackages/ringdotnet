@@ -32,9 +32,9 @@ The program makes its own sample log first, so that you can run it anywhere.
 
 ## The program
 
-{{file:docs/tutorials/t21_log_analyzer.ring}}
+{{file:samples/UsingDotNet/tutorials/t21_log_analyzer.ring}}
 
-{{output:docs/tutorials/t21_log_analyzer.ring}}
+{{output:samples/UsingDotNet/tutorials/t21_log_analyzer.ring}}
 
 ## How it works
 

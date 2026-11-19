@@ -18,9 +18,9 @@ Whenever a job says "find the part of the text that looks like...", a regular ex
 
 ## The program
 
-{{file:docs/tutorials/t29_regex.ring}}
+{{file:samples/UsingDotNet/tutorials/t29_regex.ring}}
 
-{{output:docs/tutorials/t29_regex.ring}}
+{{output:samples/UsingDotNet/tutorials/t29_regex.ring}}
 
 ## The building blocks
 

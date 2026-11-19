@@ -16,9 +16,9 @@ These classes are in `System.Text.Json.Nodes`. The tutorial [JSON and XML](tut-0
 
 ## The program
 
-{{file:docs/tutorials/t80_json_nodes.ring}}
+{{file:samples/UsingDotNet/tutorials/t80_json_nodes.ring}}
 
-{{output:docs/tutorials/t80_json_nodes.ring}}
+{{output:samples/UsingDotNet/tutorials/t80_json_nodes.ring}}
 
 ## How it works
 

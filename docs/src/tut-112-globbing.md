@@ -18,9 +18,9 @@ The tutorial [Files and folders](tut-05-files.html) listed the files of a folder
 
 ## The program
 
-{{file:docs/tutorials/t112_globbing.ring}}
+{{file:samples/UsingDotNet/tutorials/t112_globbing.ring}}
 
-{{output:docs/tutorials/t112_globbing.ring}}
+{{output:samples/UsingDotNet/tutorials/t112_globbing.ring}}
 
 ## How it works
 

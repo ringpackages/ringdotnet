@@ -17,9 +17,9 @@ The tutorial [URLs and encodings](tut-64-urls.html) used Base64 for one purpose.
 
 ## The program
 
-{{file:docs/tutorials/t138_base64_hex.ring}}
+{{file:samples/UsingDotNet/tutorials/t138_base64_hex.ring}}
 
-{{output:docs/tutorials/t138_base64_hex.ring}}
+{{output:samples/UsingDotNet/tutorials/t138_base64_hex.ring}}
 
 ## How it works
 

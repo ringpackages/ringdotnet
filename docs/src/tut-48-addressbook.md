@@ -25,11 +25,11 @@ The golden rule: **the database changes first, then the grid is reloaded**. The 
 
 ## The program
 
-{{file:docs/tutorials/g48_addressbook.ring}}
+{{file:samples/UsingDotNet/tutorials/g48_addressbook.ring}}
 
 ![The address book](img/shots/tut-g48.png "Four contacts; the first is chosen and its fields are filled")
 
-{{output:docs/tutorials/g48_addressbook.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g48_addressbook.ring --selftest}}
 
 ## How it works
 

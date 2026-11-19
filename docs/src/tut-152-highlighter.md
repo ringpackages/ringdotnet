@@ -17,9 +17,9 @@ The tutorial [Regular expressions in depth](tut-29-regex.html) explained groups 
 
 ## The program
 
-{{file:docs/tutorials/t152_highlighter.ring}}
+{{file:samples/UsingDotNet/tutorials/t152_highlighter.ring}}
 
-{{output:docs/tutorials/t152_highlighter.ring}}
+{{output:samples/UsingDotNet/tutorials/t152_highlighter.ring}}
 
 ## How it works
 

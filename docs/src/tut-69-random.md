@@ -14,9 +14,9 @@ lead: Dice, cards, loot tables and unique ids all need random numbers — but no
 
 ## The program
 
-{{file:docs/tutorials/t69_random.ring}}
+{{file:samples/UsingDotNet/tutorials/t69_random.ring}}
 
-{{output:docs/tutorials/t69_random.ring}}
+{{output:samples/UsingDotNet/tutorials/t69_random.ring}}
 
 ## How it works
 

@@ -232,7 +232,7 @@
 <ul><li>the <strong>KeyPress</strong> event: <code>KeyChar</code> and <code>Handled</code>,</li><li><code>MaxLength</code>,</li><li><code>AcceptButton</code> and <code>CancelButton</code>: the buttons of the Enter and Escape keys,</li><li>the <strong>tab order</strong> (<code>TabIndex</code>),</li><li><strong>access keys</strong>: the <code>&amp;</code> in a label,</li><li>selecting all the text when a box gets the focus (<code>Enter</code> event, <code>SelectAll</code>),</li><li>typing keys in a test with <code>uiSendKeys</code>.</li></ul>
 <p>The tutorial <a href="tut-14-animation.html">Drawing and animation</a> used <code>KeyDown</code> for a game. A data form uses the keyboard in other ways.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g146_keyboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the keyboard in a form - KeyPress to allow only digits, the Enter and Escape buttons, the tab order, the access keys and select-all</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g146_keyboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the keyboard in a form - KeyPress to allow only digits, the Enter and Escape buttons, the tab order, the access keys and select-all</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
@@ -286,7 +286,10 @@ lClosed = <span class="k">False</span>
 <span class="c"># The argument of KeyPress has KeyChar (the character) and Handled. Digits and the Backspace key are accepted; everything else is refused.</span>
 <span class="k">func</span> <span class="f">filterKey</span> oArgs
 	cChar = oArgs.KeyChar
-	nCode = ascii(cChar)
+	nCode = <span class="n">0</span>
+	<span class="k">if</span> len(cChar) = <span class="n">1</span>
+		nCode = ascii(cChar)                              <span class="c"># a character of the keyboard layout that is not in ASCII (a letter of another</span>
+	<span class="k">ok</span>                                                    <span class="c"># language) arrives as a text of more bytes: it has the code 0 and is refused</span>
 	lDigit = nCode &gt;= <span class="n">48</span> <span class="k">and</span> nCode &lt;= <span class="n">57</span>
 	lBackspace = nCode = <span class="n">8</span>
 	<span class="k">if</span> <span class="k">not</span> lDigit <span class="k">and</span> <span class="k">not</span> lBackspace
@@ -320,9 +323,10 @@ lClosed = <span class="k">False</span>
 	oForm.ActiveControl = oAge
 	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{ENTER}"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"an empty name"</span>,oResult.Text,<span class="s">"Please fill in both boxes"</span>)
+	oName.Text = <span class="s">"Ann"</span>                                   <span class="c"># (letters typed by a test depend on the keyboard layout of the computer, so it is set)</span>
 	oForm.ActiveControl = oName
-	<span class="f">uiSendKeys</span>(oForm,<span class="s">"ann{ENTER}"</span>)           <span class="c"># the test keys are lower case letters</span>
-	<span class="f">dnAssert</span>(<span class="s">"the result"</span>,oResult.Text,<span class="s">"ann is 12 years old"</span>)
+	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{ENTER}"</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the result"</span>,oResult.Text,<span class="s">"Ann is 12 years old"</span>)
 
 	<span class="c"># the tab order: Tab goes name -&gt; age -&gt; OK</span>
 	oForm.ActiveControl = oName
@@ -348,7 +352,7 @@ lClosed = <span class="k">False</span>
 <h3 id="select-all-on-entering">Select all on entering<a class="anchor" href="#select-all-on-entering">#</a></h3>
 <p>The <code>Enter</code> event of a box (not the key!) runs when the box gets the focus; <code>SelectAll()</code> selects its text, so the user can type over it. Many programs do this for every text box.</p>
 <h3 id="typing-keys-in-a-test">Typing keys in a test<a class="anchor" href="#typing-keys-in-a-test">#</a></h3>
-<p><code>uiSendKeys(oForm, "1a2-3")</code> posts the keys to the focused control of <strong>this form</strong> through the real key processing, so <code>KeyPress</code>, <code>MaxLength</code>, <code>AcceptButton</code> and <code>Tab</code> work as they do for a user, and the keys can never reach another program. The test types the letters and the minus sign between the digits, and only <code>123</code> stays; two characters were refused (<code>nRejected</code> counts them: <code>a</code> and <code>-</code>). A fourth digit is stopped by <code>MaxLength</code>, and Backspace works because the filter lets it through. The keys that the helper types are lower case.</p>
+<p><code>uiSendKeys(oForm, "1a2-3")</code> posts the keys to the focused control of <strong>this form</strong> through the real key processing, so <code>KeyPress</code>, <code>MaxLength</code>, <code>AcceptButton</code> and <code>Tab</code> work as they do for a user, and the keys can never reach another program. The test types the letters and the minus sign between the digits, and only <code>123</code> stays; two characters were refused (<code>nRejected</code> counts them: the letter and the minus sign). A fourth digit is stopped by <code>MaxLength</code>, and Backspace works because the filter lets it through. The letters that a test types depend on the <strong>keyboard layout</strong> of the computer: the key <em>A</em> gives <code>ش</code> on an Arabic layout. That character is not ASCII, so it arrives as a text of two bytes, and <code>filterKey</code> gives it the code 0 and refuses it, like any other character that is not a digit. For the same reason the test sets the name with <code>Text</code> and types only digits and the keys <code>{ENTER}</code>, <code>{TAB}</code>, <code>{ESC}</code> and <code>{BACKSPACE}</code>, which do not depend on the layout.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>filtering the characters of a box,</li><li>Enter and Escape buttons,</li><li>the tab order and access keys,</li><li>select-all on entering,</li><li>testing with real key presses.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

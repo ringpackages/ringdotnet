@@ -232,7 +232,7 @@
 <ul><li>a web service with <code>POST /shorten</code>, <code>GET /stats</code> and a <strong>catch-all</strong> handler (<code>notFound</code>),</li><li><strong>base 62</strong> codes made from a counter,</li><li>the <strong>redirect</strong>: status <code>302 Found</code> and the header <code>Location</code>,</li><li>a client that does <strong>not</strong> follow redirects, so a test can see them,</li><li>answering <strong>400</strong> and <strong>404</strong>,</li><li>why a redirecting service must check where it redirects.</li></ul>
 <p>The tutorial <a href="tut-16-web-service.html">A web service with a database</a> and the tutorial <a href="tut-120-routes.html">Route templates</a> made services and routes. This project is a small complete one.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t150_shortener.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: a link shortener - a web service that makes short codes, redirects with 302, counts the visits and refuses bad addresses</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t150_shortener.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: a link shortener - a web service that makes short codes, redirects with 302, counts the visits and refuses bad addresses</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

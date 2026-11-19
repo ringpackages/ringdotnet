@@ -27,9 +27,9 @@ Spreadsheets, databases and many programs read and write it.
 
 ## The program
 
-{{file:docs/tutorials/t30_tables.ring}}
+{{file:samples/UsingDotNet/tutorials/t30_tables.ring}}
 
-{{output:docs/tutorials/t30_tables.ring}}
+{{output:samples/UsingDotNet/tutorials/t30_tables.ring}}
 
 ## How it works
 

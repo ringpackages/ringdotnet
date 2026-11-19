@@ -23,9 +23,9 @@ The **query** holds `name=value` pairs separated by `&`. The **fragment** (after
 
 ## The program
 
-{{file:docs/tutorials/t64_urls.ring}}
+{{file:samples/UsingDotNet/tutorials/t64_urls.ring}}
 
-{{output:docs/tutorials/t64_urls.ring}}
+{{output:samples/UsingDotNet/tutorials/t64_urls.ring}}
 
 ## How it works
 

@@ -233,7 +233,7 @@
 <h2 id="why">Why<a class="anchor" href="#why">#</a></h2>
 <p>If two threads add to one <code>List</code> at the same moment, the list can lose an item or break. The concurrent collections do each step (add, remove, "add if missing") as <strong>one indivisible step</strong>. They are the tool for a producer that adds work and a consumer that takes it. The program in this lesson uses one thread, so that its output is always the same; the <em>calls</em> are the same as in a program with many threads. (The tutorial <a href="tut-83-tasks-waiting.html">Tasks that wait</a> shows tasks.)</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t89_concurrent_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># collections for many threads - ConcurrentQueue, ConcurrentStack, BlockingCollection and ConcurrentDictionary</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t89_concurrent_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># collections for many threads - ConcurrentQueue, ConcurrentStack, BlockingCollection and ConcurrentDictionary</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

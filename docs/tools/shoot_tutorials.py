@@ -6,7 +6,7 @@ import subprocess
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DOCS = os.path.dirname(HERE)
-TUT = os.path.join(DOCS, "tutorials")
+TUT = os.path.join(os.path.dirname(DOCS), "samples", "UsingDotNet", "tutorials")
 OUT = os.path.join(DOCS, "img", "shots")
 
 # (program, shot name, marker line (the injected code goes before it), injected code, delay ms, kind)

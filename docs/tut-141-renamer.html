@@ -232,7 +232,7 @@
 <ul><li>a <strong>rule</strong> as data and one function that applies a list of rules,</li><li>splitting a name from its <strong>extension</strong>,</li><li>a <strong>preview</strong> before any change,</li><li><strong>conflict</strong> checks: the same new name for two files, an empty name,</li><li><code>File.Move</code> to rename, and a <strong>log</strong> that makes <strong>undo</strong> possible,</li><li>why the folder order of files must be sorted,</li><li>a project made of small functions that a test can call.</li></ul>
 <p>The tutorial <a href="tut-46-backup.html">A project: a backup tool</a> did something to files that is easy to repeat. Renaming is different: a wrong rule damages the names, so the tool works in careful steps.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t141_renamer.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: rename many files - rules (replace, regular expression, case, numbering), a preview, conflict checks and undo</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t141_renamer.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: rename many files - rules (replace, regular expression, case, numbering), a preview, conflict checks and undo</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

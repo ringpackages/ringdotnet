@@ -18,9 +18,9 @@ The tutorial [A web service with a database](tut-16-web-service.html) and the tu
 
 ## The program
 
-{{file:docs/tutorials/t120_routes.ring}}
+{{file:samples/UsingDotNet/tutorials/t120_routes.ring}}
 
-{{output:docs/tutorials/t120_routes.ring}}
+{{output:samples/UsingDotNet/tutorials/t120_routes.ring}}
 
 ## How it works
 

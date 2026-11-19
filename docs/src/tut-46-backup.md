@@ -22,9 +22,9 @@ lead: Copy a folder into a zip file named by date, keep only the newest few, and
 
 ## The program
 
-{{file:docs/tutorials/t46_backup.ring}}
+{{file:samples/UsingDotNet/tutorials/t46_backup.ring}}
 
-{{output:docs/tutorials/t46_backup.ring}}
+{{output:samples/UsingDotNet/tutorials/t46_backup.ring}}
 
 ## How it works
 

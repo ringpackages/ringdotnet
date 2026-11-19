@@ -15,17 +15,19 @@ The clipboard belongs to the whole computer: every program can read and replace 
 
 ## The program
 
-{{file:docs/tutorials/g127_clipboard.ring}}
+{{file:samples/UsingDotNet/tutorials/g127_clipboard.ring}}
 
 ![The clipboard form](img/shots/tut-g127.png "The clipboard form")
 
-{{output:docs/tutorials/g127_clipboard.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g127_clipboard.ring --selftest}}
 
 ## How it works
 
 ### Text
 
 `SetText(text)` puts a text on the clipboard. `GetText(NULL)` reads the text (the method has more than one form, so it takes `NULL` when there is nothing to choose). Before reading, `ContainsText(NULL)` says whether there is text at all: the clipboard can hold a picture, a list of files or nothing. The program shows *The clipboard has no text* when pasting is not possible instead of showing an empty box.
+
+The clipboard belongs to the whole computer, and another program (a clipboard manager, for example) can have it open for a moment, so a read can answer *nothing* although there is text. `readText` therefore asks again, up to twenty times with a pause of 50 milliseconds, and returns an empty text only when there is really none. The same is done for the picture (`waitForImage`). A test that reads the clipboard needs this; a program that reads it for a user can show an error after the tries.
 
 ### A table
 

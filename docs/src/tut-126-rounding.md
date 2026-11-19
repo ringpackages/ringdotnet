@@ -19,9 +19,9 @@ The tutorial [Numbers, dates, times](tut-03-numbers-dates.html) used the basic f
 
 ## The program
 
-{{file:docs/tutorials/t126_rounding.ring}}
+{{file:samples/UsingDotNet/tutorials/t126_rounding.ring}}
 
-{{output:docs/tutorials/t126_rounding.ring}}
+{{output:samples/UsingDotNet/tutorials/t126_rounding.ring}}
 
 ## How it works
 

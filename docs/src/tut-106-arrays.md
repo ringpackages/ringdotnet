@@ -16,9 +16,9 @@ The tutorial [Collections and LINQ](tut-04-collections.html) used lists and dict
 
 ## The program
 
-{{file:docs/tutorials/t106_arrays.ring}}
+{{file:samples/UsingDotNet/tutorials/t106_arrays.ring}}
 
-{{output:docs/tutorials/t106_arrays.ring}}
+{{output:samples/UsingDotNet/tutorials/t106_arrays.ring}}
 
 ## How it works
 

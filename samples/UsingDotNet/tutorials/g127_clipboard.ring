@@ -2,6 +2,7 @@
 load "dotnet.ring"
 using {
 	"System.Drawing"
+	"System.Threading.Tasks"
 	"System.Windows.Forms"
 }
 
@@ -41,8 +42,9 @@ func copyText
 
 func pasteText
 	oClipboard = new Clipboard()
-	if oClipboard.ContainsText(NULL)
-		oEdit.Text = oClipboard.GetText(NULL)
+	cText = readText()
+	if cText != ""
+		oEdit.Text = cText
 		oStatus.Text = "Pasted"
 	else
 		oStatus.Text = "The clipboard has no text"
@@ -65,6 +67,31 @@ func copyPicture
 	oClipboard.SetImage(oPicture.Image)
 	oStatus.Text = "Copied a picture of " + oPicture.Image.Width + " x " + oPicture.Image.Height + " pixels"
 
+# The clipboard belongs to the whole computer, and another program (a clipboard manager, for example) can have it open for a moment:
+# a read then gives nothing. Reading again a few times, with a short pause, is the usual answer; the result is "" when there is no text.
+func readText
+	oClipboard = new Clipboard()
+	for nTry = 1 to 20
+		if oClipboard.ContainsText(NULL)
+			cText = oClipboard.GetText(NULL)
+			if cText != ""
+				return cText
+			ok
+		ok
+		new Task().Delay(50).Wait(NULL)
+	next
+	return ""
+
+func waitForImage
+	oClipboard = new Clipboard()
+	for nTry = 1 to 20
+		if oClipboard.ContainsImage()
+			return True
+		ok
+		new Task().Delay(50).Wait(NULL)
+	next
+	return False
+
 func clearClipboard
 	oClipboard = new Clipboard()
 	oClipboard.Clear()
@@ -82,9 +109,7 @@ func makePicture
 
 func selfTest
 	oClipboard = new Clipboard()
-	if oClipboard.ContainsText(NULL)
-		cBefore = oClipboard.GetText(NULL)                  # keep what the user had on the clipboard
-	ok
+	cBefore = readText()                                    # keep what the user had on the clipboard
 
 	# text: copy, change the box, paste
 	oForm.Controls.Item(1).PerformClick()
@@ -95,12 +120,12 @@ func selfTest
 
 	# the table: tabs between the cells, a new line after each row
 	oForm.Controls.Item(3).PerformClick()
-	cTable = oClipboard.GetText(NULL)
+	cTable = readText()
 	dnAssert("table text",substr(cTable,char(9),"|"),"Item|Price" + nl + "Tea|2.50" + nl + "Coffee|3.20" + nl + "Juice|4.00" + nl)
 
 	# the picture
 	oForm.Controls.Item(4).PerformClick()
-	dnAssert("has image",oClipboard.ContainsImage(),True)
+	dnAssert("has image",waitForImage(),True)
 	dnAssert("image size",oClipboard.GetImage().Width,120)
 
 	# clear: nothing left, and pasting says so

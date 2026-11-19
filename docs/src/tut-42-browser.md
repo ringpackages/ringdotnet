@@ -20,11 +20,11 @@ lead: A tree of folders on the left, the files of the chosen folder on the right
 
 ## The program
 
-{{file:docs/tutorials/g42_browser.ring}}
+{{file:samples/UsingDotNet/tutorials/g42_browser.ring}}
 
 ![The folder browser](img/shots/tut-g42.png "Folders on the left, the files of Projects > Ring on the right")
 
-{{output:docs/tutorials/g42_browser.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/g42_browser.ring --selftest}}
 
 ## How it works
 
