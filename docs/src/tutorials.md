@@ -38,7 +38,7 @@ The tutorials are grouped by **topic**. Read **The basics** first, in order; aft
 | [Networking and the web](#networking-and-the-web) | IP addresses and networks, TCP and UDP sockets, HttpClient and REST, web services and small web sites, route templates, a link shortener, and e-mail messages. |
 | [Security](#security) | Hashing, encryption and signing, certificates, protecting data, logins and sessions, identities and claims, and rate limiting. |
 | [Databases and services](#databases-and-services) | SQL and Entity Framework, reports, Microsoft Access, and the services of an application: settings and configuration, caching and dependency injection. |
-| [Windows Forms](#windows-forms) | Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, dialogs and more than one window, menus, timers, drawing, images and charts (Windows only). |
+| [Windows Forms](#windows-forms) | Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, drag and drop, dialogs, more than one window and a tray icon, printing, menus, timers, drawing, images and charts (Windows only). |
 | [WPF](#wpf) | XAML windows, layout and styles, data binding, menus and tabs, lists and dynamic content, and animation (Windows only). |
 | [Projects with windows](#projects-with-windows) | Complete programs: a to-do list, Tic-Tac-Toe, a quiz, a command runner, an address book with a database, a sorting lab, a maze, an image filter lab and a chat (Windows only). |
 | [Libraries, testing and release](#libraries-testing-and-release) | Giving Ring code to .NET (callbacks and events), exploring code with reflection and building it with expression trees, an object inspector, using a library written in C#, testing, and giving your program to others. |
@@ -233,7 +233,7 @@ SQL and Entity Framework, reports, Microsoft Access, and the services of an appl
 
 ## Windows Forms
 
-Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, dialogs and more than one window, menus, timers, drawing, images and charts (Windows only).
+Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, drag and drop, dialogs, more than one window and a tray icon, printing, menus, timers, drawing, images and charts (Windows only).
 
 <div class="cards">
 <a class="card" href="tut-11-first-window.html"><div class="ic">🪟</div><b>Your first window</b><span>A form, a label, a button, an event — with and without the helper functions.</span></a>
@@ -246,15 +246,18 @@ Windows with controls, the keyboard and the mouse, layout, lists and grids, form
 <a class="card" href="tut-13-editor.html"><div class="ic">🪟</div><b>A small text editor</b><span>Menus, a status bar, open and save, dock layout.</span></a>
 <a class="card" href="tut-133-richtext.html"><div class="ic">🪟</div><b>Formatted text</b><span>RichTextBox: bold and colored words, find and mark, save and load RTF.</span></a>
 <a class="card" href="tut-127-clipboard.html"><div class="ic">🪟</div><b>The clipboard</b><span>Text, a table for a spreadsheet, a picture, and leaving the clipboard as it was.</span></a>
+<a class="card" href="tut-154-dragdrop.html"><div class="ic">🪟</div><b>Drag and drop</b><span>DoDragDrop, AllowDrop and DragDrop, move or copy with Ctrl, dropped files, and a test without a mouse.</span></a>
 <a class="card" href="tut-40-dialog.html"><div class="ic">🪟</div><b>Your own dialog</b><span>A modal form that asks for data, validates it and returns it; tested with a timer.</span></a>
 <a class="card" href="tut-137-closing.html"><div class="ic">🪟</div><b>Closing a window</b><span>FormClosing and Cancel: ask to save changes, and a question that a test can answer.</span></a>
 <a class="card" href="tut-149-windows.html"><div class="ic">🪟</div><b>More than one window</b><span>Show with an owner, one copy of a tool window, talking windows and OpenForms.</span></a>
+<a class="card" href="tut-155-tray.html"><div class="ic">🪟</div><b>A tray icon</b><span>NotifyIcon with a menu, hiding the window to the tray, and a balloon message.</span></a>
 <a class="card" href="tut-41-menus.html"><div class="ic">🪟</div><b>Menus, toolbars, shortcuts</b><span>Write each action once and reach it from a menu, a toolbar, a context menu and a key.</span></a>
 <a class="card" href="tut-34-timers.html"><div class="ic">🪟</div><b>Timers and progress</b><span>A stopwatch, a progress bar, and a long job in small steps.</span></a>
 <a class="card" href="tut-14-animation.html"><div class="ic">🪟</div><b>Drawing and animation</b><span>A canvas, a timer and the keyboard: a bouncing ball and a paddle.</span></a>
 <a class="card" href="tut-139-paint.html"><div class="ic">🪟</div><b>Drawing with the mouse</b><span>MouseDown, MouseMove and MouseUp: a paint program with colors, pen sizes and a test.</span></a>
 <a class="card" href="tut-22-images.html"><div class="ic">🪟</div><b>Images</b><span>Draw, read and change pixels, make a gray copy, resize and save PNG files.</span></a>
 <a class="card" href="tut-125-screenshot.html"><div class="ic">🪟</div><b>Screens and pictures of windows</b><span>Screen, CopyFromScreen, DrawToBitmap, and checking a window by its pixels.</span></a>
+<a class="card" href="tut-153-printing.html"><div class="ic">🪟</div><b>Printing</b><span>PrintDocument and PrintPage: a report on several pages, margins, landscape and a preview without a printer.</span></a>
 <a class="card" href="tut-36-chart.html"><div class="ic">🪟</div><b>A chart</b><span>Scaling values to pixels, a round axis, bars, labels, saving, testing pixels.</span></a>
 <a class="card" href="tut-42-browser.html"><div class="ic">🪟</div><b>A folder browser</b><span>TreeView, ListView, recursion and the Tag property: a small Explorer.</span></a>
 </div>

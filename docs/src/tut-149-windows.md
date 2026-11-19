@@ -63,4 +63,4 @@ When the **main** window closes, its owned windows close with it, and the progra
 
 ## Next
 
-[Menus, toolbars and shortcuts](tut-41-menus.html)
+[A tray icon](tut-155-tray.html)

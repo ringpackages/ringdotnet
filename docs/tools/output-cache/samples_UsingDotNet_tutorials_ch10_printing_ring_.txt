@@ -1,0 +1,12 @@
+1. the report has 100 rows
+
+2. paper: 827 x 1169 hundredths of an inch
+
+3. the report needed 2 pages; rows on each page: 57, 43
+
+4. the preview has 2 pages; the first as a bitmap is 827 x 1169 pixels
+   a pixel in the margin is ffffffff, and the page has black pixels: yes
+   the first page was saved as a picture: yes
+   the last page has less on it than the first: yes
+
+5. in landscape: 3 pages instead of 2; rows on each page: 36, 36, 28

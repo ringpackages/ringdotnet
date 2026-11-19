@@ -59,4 +59,4 @@ A `Bitmap` and a `Graphics` hold system resources, so the program calls `Dispose
 
 ## Next
 
-[A chart](tut-36-chart.html)
+[Printing](tut-153-printing.html)

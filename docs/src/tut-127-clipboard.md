@@ -63,4 +63,4 @@ The test of this program uses the real clipboard, so it first saves the text tha
 
 ## Next
 
-[Your own dialog](tut-40-dialog.html)
+[Drag and drop](tut-154-dragdrop.html)
