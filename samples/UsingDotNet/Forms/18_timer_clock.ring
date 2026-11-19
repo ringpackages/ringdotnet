@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Clock",260,100)
 oClock = uiLabel(oForm,"",10,20,240,50)
 oClock {
@@ -17,9 +16,7 @@ oTimer = uiTimer(1000,"tick()")
 tick()
 oTimer.Start()
 
-uiTest(oForm,"dnAssert('time format',len(oClock.Text),8) dnAssert('colons',substr(oClock.Text,':') > 0,1)")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 

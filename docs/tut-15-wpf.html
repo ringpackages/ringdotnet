@@ -294,16 +294,7 @@ oNameBox = <span class="s">""</span>
 	<span class="c"># 5. Events can also change other elements: the circle follows the slider</span>
 	oSlider.<span class="f">setValueChangedEvent</span>(<span class="s">"oShape.Width = oSlider.Value oShape.Height = oSlider.Value"</span>)
 
-	<span class="f">wpfTest</span>(oWindow,<span class="s">"selfTest()"</span>)
-	<span class="f">wpfRun</span>(oWindow)
-	<span class="f">wpfEnd</span>()
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">wpfFind</span>(oWindow,<span class="s">"greet"</span>).<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_</span>([ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))
-	<span class="f">dnAssert</span>(<span class="s">"greeting"</span>,oGreet.Text,<span class="s">"Hello, Ring!"</span>)
-	oSlider.Value = <span class="n">100</span>
-	<span class="f">dnAssert</span>(<span class="s">"binding"</span>,oValue.Text,<span class="s">"100"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the circle follows the slider"</span>,oShape.Width,<span class="n">100</span>)</code></pre></div>
+	<span class="f">wpfRun</span>(oWindow)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g05-greeted.png" alt="The window after Greet and after moving the slider" loading="lazy"><figcaption>After pressing Greet and moving the slider</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
@@ -323,7 +314,7 @@ oBinding.Source = oSlider                       <span class="c"># whose property
 oValue.<span class="f">SetBinding</span>(oValue.TextProperty,oBinding) <span class="c"># the Text of this block follows it</span></code></pre></div>
 <p>Move the slider and the text changes by itself. In the test: <code>oSlider.Value = 100</code>, then the text is <code>100</code>.</p>
 <h3 id="running">Running<a class="anchor" href="#running">#</a></h3>
-<p><code>wpfRun(oWindow)</code> shows the window and waits. <code>wpfTest</code> and <code>wpfEnd</code> are the self-test helpers, like <code>uiTest</code> and <code>uiEnd</code>.</p>
+<p><code>wpfRun(oWindow)</code> shows the window and waits. The checks of the program are in <code>selftest/&lt;program&gt;.ring</code>, as for Windows Forms.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>WPF windows can be described in XAML,</li><li><code>wpfXaml</code>, <code>wpfFind</code>, <code>wpfRun</code>,</li><li>events work as before,</li><li>bindings keep elements in sync without code.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

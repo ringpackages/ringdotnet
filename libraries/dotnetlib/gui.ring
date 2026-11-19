@@ -8,7 +8,7 @@
 	uiButton(oForm,"OK",10,50,80,28,"uiMessage('Hello ' + oEdit.Text,'Hi')")
 	uiRun(oForm)
 
-	Programs can run themselves as a test: ring app.ring --selftest (see uiTest and uiEnd). In a test the form is invisible, a message
+	Programs can run themselves as a test: ring app.ring --selftest (the checks are in selftest/<program>.ring, loaded by uiRun; see also uiTest and uiEnd). In a test the form is invisible, a message
 	box prints its text, and the form is closed when the test code ends (so the form is kept in the global variable oForm).
 */
 
@@ -258,15 +258,24 @@ func uiQuiet  oForm
 		oForm.Opacity = 0
 	ok
 
-# Show the form and run the message loop. When running as a test the form closes itself after 30 seconds.
+# Show the form and run the message loop. When running as a test (--selftest) the form closes itself after 30 seconds, and the checks
+# in selftest/<program>.ring next to the program run once the form is shown (see dnLoadSelfTest); the result is printed at the end.
 func uiRun  oForm
 	uiQuiet(oForm)
+	lChecks = False
 	if uiSelfTest()
 		ui_oGuard = uiTimer(30000,"? 'SELFTEST TIMEOUT' oForm.Close()")
 		ui_oGuard.Start()
+		lChecks = dnLoadSelfTest()
+		if lChecks
+			uiTest(oForm,"selfTest()")
+		ok
 	ok
 	new Application().EnableVisualStyles()
 	new Application().Run(oForm)
+	if lChecks
+		uiEnd()
+	ok
 
 # The automatic part of an application: when running as a test, cCode runs once the form is shown and the form closes afterwards.
 # The form must be in the global variable oForm (the code that closes it is oForm.Close()).

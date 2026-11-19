@@ -279,9 +279,7 @@ oTimer = <span class="s">""</span>
 	<span class="c"># the timer asks the server and the clients if something has arrived (Ring has one thread: nothing waits)</span>
 	oTimer = <span class="f">uiTimer</span>(<span class="n">100</span>,<span class="s">"pump()"</span>)
 	oTimer.<span class="f">Start</span>()
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 	oTimer.<span class="f">Stop</span>()
 	<span class="k">for</span> oClient <span class="k">in</span> aClients
 		oClient.<span class="f">close</span>()
@@ -305,33 +303,6 @@ oTimer = <span class="s">""</span>
 			aLogs[nIndex].<span class="f">AppendText</span>(cLine + windowsnl())
 		<span class="k">next</span>
 	<span class="k">next</span>
-
-<span class="c"># wait (at most about a second) until the logs have changed: network messages arrive a little later</span>
-<span class="k">func</span> <span class="f">waitForText</span> cText
-	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">50</span>
-		pump()
-		<span class="k">if</span> substr(aLogs[<span class="n">1</span>].Text,cText) &gt; <span class="n">0</span> <span class="k">and</span> substr(aLogs[<span class="n">2</span>].Text,cText) &gt; <span class="n">0</span>
-			<span class="k">return</span> <span class="k">True</span>
-		<span class="k">ok</span>
-		<span class="k">new</span> <span class="t">Thread</span>().<span class="f">Sleep</span>(<span class="n">20</span>)
-	<span class="k">next</span>
-	<span class="k">return</span> <span class="k">False</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oTimer.<span class="f">Stop</span>()
-	aInputs[<span class="n">1</span>].Text = <span class="s">"Hello Bob"</span>
-	sendFrom(<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"Bob received Alice's line"</span>,waitForText(<span class="s">"Alice: Hello Bob"</span>),<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"Alice sees her own line too"</span>,substr(aLogs[<span class="n">1</span>].Text,<span class="s">"Alice: Hello Bob"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
-	aInputs[<span class="n">2</span>].Text = <span class="s">"Hi Alice"</span>
-	sendFrom(<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"both windows show Bob's line"</span>,waitForText(<span class="s">"Bob: Hi Alice"</span>),<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the server has two clients"</span>,oServer.<span class="f">count</span>(),<span class="n">2</span>)
-	aInputs[<span class="n">1</span>].Text = <span class="s">"   "</span>
-	sendFrom(<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"an empty line is not sent"</span>,len(aClients[<span class="n">1</span>].<span class="f">sent</span>()),<span class="n">1</span>)
-
-<span class="c"># ---------------------------------------------------------------- reading lines without waiting</span>
 
 <span class="c"># A StreamReader waits (blocks) when no data has arrived, and the window would freeze. This reader asks first: it takes only the bytes</span>
 <span class="c"># that are already there (DataAvailable), builds lines from them, and keeps an unfinished line for the next call.</span>

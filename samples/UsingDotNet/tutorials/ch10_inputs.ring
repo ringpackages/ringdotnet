@@ -88,9 +88,7 @@ func main
 	oErrors = new ErrorProvider()
 
 	showPrice()
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 # the price of one night in each room, and a discount for a long stay
 func roomPrice
@@ -132,30 +130,3 @@ func book
 	ok
 	oErrors.SetError(oName,"")                        # an empty message removes the marker
 	oResult.Text = "Booked for " + cName + ": arrival " + oDate.Value.Format("d MMMM yyyy") + ", " + total()
-
-func selfTest
-	# the starting state
-	dnAssert("price at the start",oPrice.Text,"3 nights, Single: 210 (a week or more: 10 percent off)")
-
-	# a track bar and a radio button change the price
-	oNights.Value = 7
-	dnAssert("track bar label",oNightsLabel.Text,"7")
-	dnAssert("a week is cheaper",total(),441)                  # 7 x 70 = 490, 10 percent off
-	oDouble.Checked = True
-	dnAssert("only one room",oSingle.Checked,False)
-	dnAssert("double for a week",total(),693)
-
-	# without a name there is an error marker, and no booking
-	oBook.PerformClick()
-	dnAssert("error message",oErrors.GetError(oName),"Please type a name")
-	dnAssert("no booking yet",oResult.Text,"")
-
-	# with a name the marker goes away
-	oName.Text = "Ann"
-	oBook.PerformClick()
-	dnAssert("no error",oErrors.GetError(oName),"")
-	dnAssert("booked",oResult.Text,"Booked for Ann: arrival 10 May 2030, 693")
-
-	# the date picker keeps its limits
-	oDate.Value = new DateTime(2030,12,31)
-	dnAssert("the last day",oDate.Value.Format("yyyy-MM-dd"),"2030-12-31")

@@ -66,7 +66,7 @@ Move the slider and the text changes by itself. In the test: `oSlider.Value = 10
 
 ### Running
 
-`wpfRun(oWindow)` shows the window and waits. `wpfTest` and `wpfEnd` are the self-test helpers, like `uiTest` and `uiEnd`.
+`wpfRun(oWindow)` shows the window and waits. The checks of the program are in `selftest/<program>.ring`, as for Windows Forms.
 
 ## What you learned
 

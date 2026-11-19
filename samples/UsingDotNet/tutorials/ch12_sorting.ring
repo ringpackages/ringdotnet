@@ -33,9 +33,7 @@ func main
 	oInfo = uiLabel(oForm,"",10,C_HEIGHT + 55,400,22)
 	oTimer = uiTimer(15,"showStep()")
 	shuffle()
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 # a small random number generator with a fixed start, so that every run shows the same bars
 func nextRandom nLimit
@@ -161,39 +159,3 @@ func draw
 		oCanvas.fillRect((nI - 1) * C_BAR + 1,C_HEIGHT - nHeight,C_BAR - 2,nHeight,cColor)
 	next
 	oCanvas.show()
-
-func isSorted
-	for nI = 1 to len(aValues) - 1
-		if aValues[nI] > aValues[nI + 1]
-			return False
-		ok
-	next
-	return True
-
-func selfTest
-	oTimer.Stop()
-	dnAssert("the bars start shuffled",isSorted(),False)
-	for nAlgorithm = 0 to 2
-		shuffle()
-		oAlgorithm.SelectedIndex = nAlgorithm
-		startSorting()
-		oTimer.Stop()
-		while nStep < len(aSteps)
-			showStep()
-		end
-		showStep()
-		dnAssert("algorithm " + nAlgorithm + " sorts",isSorted(),True)
-		dnAssert("algorithm " + nAlgorithm + " compared",nCompares > 0,True)
-	next
-	# the same start gives the same work: selection sort makes at most n-1 swaps
-	shuffle()
-	oAlgorithm.SelectedIndex = 1
-	startSorting()
-	oTimer.Stop()
-	nSwapsPlanned = 0
-	for aStep in aSteps
-		if aStep[1] = "swap"
-			nSwapsPlanned++
-		ok
-	next
-	dnAssert("selection sort swaps at most n-1 times",nSwapsPlanned <= C_COUNT - 1,True)

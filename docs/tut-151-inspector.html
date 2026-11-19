@@ -287,9 +287,7 @@ cTempFile = <span class="s">""</span>
 
 	oChoice.SelectedIndex = <span class="n">0</span>
 	inspect(<span class="n">1</span>)                                           <span class="c"># the first object is shown at the start</span>
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cTempFile)
 
 <span class="c"># Fill the list with the properties of the object. GetType() gives the Type of any object, and the Type lists its properties; each</span>
@@ -340,40 +338,7 @@ cTempFile = <span class="s">""</span>
 			<span class="k">ok</span>
 		<span class="k">next</span>
 	<span class="k">next</span>
-	<span class="k">return</span> aRows
-
-<span class="c"># the value of a property that the list shows, found by the name of the property</span>
-<span class="k">func</span> <span class="f">valueOf</span> cName
-	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oList.Items.Count - <span class="n">1</span>
-		<span class="k">if</span> oList.Items.<span class="f">Item</span>(i).Text = cName
-			<span class="k">return</span> oList.Items.<span class="f">Item</span>(i).SubItems.<span class="f">Item</span>(<span class="n">2</span>).Text
-		<span class="k">ok</span>
-	<span class="k">next</span>
-	<span class="k">return</span> <span class="s">"(not in the list)"</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># the Uri</span>
-	<span class="f">dnAssert</span>(<span class="s">"the host"</span>,valueOf(<span class="s">"Host"</span>),<span class="s">"example.com"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the port"</span>,valueOf(<span class="s">"Port"</span>),<span class="s">"8080"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the scheme"</span>,valueOf(<span class="s">"Scheme"</span>),<span class="s">"https"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the fragment"</span>,valueOf(<span class="s">"Fragment"</span>),<span class="s">"#top"</span>)
-
-	<span class="c"># a DateTime: choose it in the combo box (the event fills the list again)</span>
-	oChoice.SelectedIndex = <span class="n">1</span>
-	<span class="f">dnAssert</span>(<span class="s">"the year"</span>,valueOf(<span class="s">"Year"</span>),<span class="s">"2030"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the day of the week"</span>,valueOf(<span class="s">"DayOfWeek"</span>),<span class="s">"Saturday"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the hour"</span>,valueOf(<span class="s">"Hour"</span>),<span class="s">"14"</span>)
-
-	<span class="c"># a FileInfo of a real file</span>
-	oChoice.SelectedIndex = <span class="n">2</span>
-	<span class="f">dnAssert</span>(<span class="s">"the name"</span>,valueOf(<span class="s">"Name"</span>),<span class="s">"ringdotnet-inspect.txt"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the length"</span>,valueOf(<span class="s">"Length"</span>),<span class="s">"16"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"it exists"</span>,valueOf(<span class="s">"Exists"</span>),<span class="s">"1"</span>)
-
-	<span class="c"># a StringBuilder: the property Chars is an indexer and is not listed</span>
-	oChoice.SelectedIndex = <span class="n">3</span>
-	<span class="f">dnAssert</span>(<span class="s">"the length of the text"</span>,valueOf(<span class="s">"Length"</span>),<span class="s">"5"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"an indexer is skipped"</span>,valueOf(<span class="s">"Chars"</span>),<span class="s">"(not in the list)"</span>)</code></pre></div>
+	<span class="k">return</span> aRows</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g151.png" alt="The inspector" loading="lazy"><figcaption>The inspector showing a Uri</figcaption></figure>
 
 <div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>

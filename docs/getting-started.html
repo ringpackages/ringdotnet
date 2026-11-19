@@ -302,27 +302,18 @@ using {
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-
 nClicks = <span class="n">0</span>
 oForm = <span class="f">uiForm</span>(<span class="s">"Click counter"</span>,<span class="n">260</span>,<span class="n">130</span>)
 oCount = <span class="f">uiLabel</span>(oForm,<span class="s">"0 clicks"</span>,<span class="n">20</span>,<span class="n">15</span>,<span class="n">220</span>,<span class="n">24</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span>,<span class="n">20</span>,<span class="n">50</span>,<span class="n">100</span>,<span class="n">32</span>,<span class="s">"clicked()"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">clicked</span>
 	nClicks++
-	oCount.Text = <span class="s">""</span> + nClicks + <span class="s">" clicks"</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"three clicks"</span>,oCount.Text,<span class="s">"3 clicks"</span>)</code></pre></div>
+	oCount.Text = <span class="s">""</span> + nClicks + <span class="s">" clicks"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/forms-02_button_click.png" alt="The click counter" loading="lazy"><figcaption>samples/UsingDotNet/Forms/02_button_click.ring — a form, a label and a button</figcaption></figure>
 <p>Run it with <code>ring samples/UsingDotNet/Forms/02_button_click.ring</code> (Windows). The tutorial <a href="tut-11-first-window.html">Your first window</a> explains each line.</p>
 <h2 id="run-the-tests">Run the tests<a class="anchor" href="#run-the-tests">#</a></h2>

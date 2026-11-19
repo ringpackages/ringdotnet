@@ -12,7 +12,6 @@ using {
 	"System"
 }
 
-
 cLog = ""
 oWindow = wpfWindow("Choices",320,220)
 oPanel = new StackPanel()
@@ -31,6 +30,4 @@ for cName in ["Small","Medium","Large"]
 	aRadios + oRadio
 next
 
-wpfTest(oWindow,"oCheck.IsChecked = True oCheck.IsChecked = False dnAssert('events',cLog,'on off ') aRadios[2].IsChecked = True aRadios[3].IsChecked = True dnAssert('exclusive',aRadios[2].IsChecked,0) dnAssert('selected',aRadios[3].IsChecked,1)")
 wpfRun(oWindow)
-wpfEnd()

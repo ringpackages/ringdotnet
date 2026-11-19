@@ -50,13 +50,4 @@ func main
 	# 5. Events can also change other elements: the circle follows the slider
 	oSlider.setValueChangedEvent("oShape.Width = oSlider.Value oShape.Height = oSlider.Value")
 
-	wpfTest(oWindow,"selfTest()")
 	wpfRun(oWindow)
-	wpfEnd()
-
-func selfTest
-	wpfFind(oWindow,"greet").RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new WpfButtonBase().ClickEvent ]))
-	dnAssert("greeting",oGreet.Text,"Hello, Ring!")
-	oSlider.Value = 100
-	dnAssert("binding",oValue.Text,"100")
-	dnAssert("the circle follows the slider",oShape.Width,100)

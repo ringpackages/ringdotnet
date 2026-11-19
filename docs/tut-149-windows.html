@@ -263,9 +263,7 @@ cApplied = <span class="s">""</span>
 	<span class="f">uiButton</span>(oForm,<span class="s">"Open the tool window"</span>,<span class="n">20</span>,<span class="n">60</span>,<span class="n">170</span>,<span class="n">32</span>,<span class="s">"openTool()"</span>)
 	oForm.<span class="f">setFormClosedEvent</span>(<span class="s">"cApplied += '[main closed]'"</span>)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># Open the tool window. A program should not open a second copy: if it is open, the function brings it to the front.</span>
 <span class="k">func</span> <span class="f">openTool</span>
@@ -299,35 +297,7 @@ cApplied = <span class="s">""</span>
 
 <span class="c"># the number of the open windows of the program</span>
 <span class="k">func</span> <span class="f">openForms</span>
-	<span class="k">return</span> <span class="k">new</span> <span class="t">Application</span>().OpenForms.Count
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"one window at the start"</span>,openForms(),<span class="n">1</span>)
-
-	<span class="c"># open the tool window: two windows, and the tool has the main window as owner</span>
-	openTool()
-	<span class="f">dnAssert</span>(<span class="s">"two windows"</span>,openForms(),<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the owner"</span>,oTool.Owner.Text,<span class="s">"Main window"</span>)
-
-	<span class="c"># a second click on the button does not make a second window</span>
-	openTool()
-	<span class="f">dnAssert</span>(<span class="s">"still two windows"</span>,openForms(),<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"one tool window was made"</span>,nToolOpened,<span class="n">1</span>)
-
-	<span class="c"># the tool talks to the main window</span>
-	oToolBox.Text = <span class="s">"blue"</span>
-	applyTool()
-	<span class="f">dnAssert</span>(<span class="s">"the main window shows it"</span>,oShown.Text,<span class="s">"Applied: blue"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the tool says so"</span>,oToolStatus.Text,<span class="s">"Sent to the main window"</span>)
-
-	<span class="c"># closing the tool: the main window stays; the tool can be opened again (a new window)</span>
-	oTool.<span class="f">Close</span>()
-	<span class="f">dnAssert</span>(<span class="s">"the tool closed"</span>,cApplied,<span class="s">"[tool closed]"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"one window again"</span>,openForms(),<span class="n">1</span>)
-	openTool()
-	<span class="f">dnAssert</span>(<span class="s">"a new tool window"</span>,nToolOpened,<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"two windows again"</span>,openForms(),<span class="n">2</span>)
-	<span class="c"># the form of this test is closed by uiTest after this code: the owned tool window closes with its owner</span></code></pre></div>
+	<span class="k">return</span> <span class="k">new</span> <span class="t">Application</span>().OpenForms.Count</code></pre></div>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="show-with-an-owner">Show with an owner<a class="anchor" href="#show-with-an-owner">#</a></h3>
@@ -341,7 +311,7 @@ cApplied = <span class="s">""</span>
 <h3 id="closing">Closing<a class="anchor" href="#closing">#</a></h3>
 <p><code>setFormClosedEvent</code> runs after a window closed. The tool window uses it to clear the flag, so the next click opens a <em>new</em> window. The code only sets a flag: assigning another value to <code>oTool</code> inside the event would destroy the object while one of its own methods is running, and Ring refuses (<em>Trying to destroy the object using the self reference</em>). The next <code>openTool</code> makes a new window and puts it in <code>oTool</code>, and the old object is released then.</p>
 <p>When the <strong>main</strong> window closes, its owned windows close with it, and the program ends when the last window is closed (the message loop runs on the main window).</p>
-<div class="callout note"><span class="t">Note</span><p>The main window of a test program has to be in the variable <code>oForm</code>, because <code>uiTest</code> closes <code>oForm</code> when the test code ends.</p></div>
+<div class="callout note"><span class="t">Note</span><p>The main window of a test program has to be in the variable <code>oForm</code>, because the test closes <code>oForm</code> when the test code ends.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li><code>Show(owner)</code> for a window that stays open,</li><li>opening one copy,</li><li>windows that call functions that change each other's controls,</li><li><code>OpenForms</code>,</li><li>closing and the clean up of a window object.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

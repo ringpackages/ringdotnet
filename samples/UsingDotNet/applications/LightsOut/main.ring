@@ -28,9 +28,7 @@ oInfo = uiLabel(oForm,"",10,305,290,24)
 uiButton(oForm,"New game",10,335,100,30,"newGame()")
 newGame()
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 
@@ -78,20 +76,3 @@ func newGame
 	next
 	nPresses = 0
 	showLights()
-
-func selfTest
-	aLights = list(C_SIZE * C_SIZE)
-	showLights()
-	aCells[13].PerformClick()
-	dnAssert("center flips 5 lights",aLights[13] + aLights[8] + aLights[18] + aLights[12] + aLights[14],5)
-	dnAssert("others stay off",aLights[1] + aLights[25],0)
-	aCells[13].PerformClick()
-	dnAssert("pressing twice undoes it",aLights[13] + aLights[8],0)
-	dnAssert("win message",left(oInfo.Text,10),"All lights")
-	aLights = list(C_SIZE * C_SIZE)
-	aCells[1].PerformClick()
-	dnAssert("corner flips 3 lights",aLights[1] + aLights[2] + aLights[6],3)
-	dnAssert("button color on",aCells[1].BackColor.Name,"Gold")
-	dnAssert("button color off",aCells[25].BackColor.Name,"DimGray")
-	newGame()
-	dnAssert("new game resets the counter",nPresses,0)

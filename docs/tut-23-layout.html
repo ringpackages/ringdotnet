@@ -330,9 +330,7 @@ aCustomers = [[<span class="s">"Ann"</span>,<span class="s">"Cairo"</span>],[<sp
 	oList.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"customerChosen()"</span>)
 	oList.SelectedIndex = <span class="n">0</span>
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># a label and a value in one row of the table</span>
 <span class="k">func</span> <span class="f">addRow</span> oTable, nRow, cTitle
@@ -360,15 +358,7 @@ aCustomers = [[<span class="s">"Ann"</span>,<span class="s">"Cairo"</span>],[<sp
 	oNameValue.Text = cName
 	oCityValue.Text = aCustomers[nIndex][<span class="n">2</span>]
 	oView.RowFilter = <span class="s">"Customer = '"</span> + cName + <span class="s">"'"</span>          <span class="c"># the grid shows only this customer's rows</span>
-	oCountValue.Text = <span class="s">""</span> + oView.Count
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oList.SelectedIndex = <span class="n">2</span>
-	<span class="f">dnAssert</span>(<span class="s">"details follow the list"</span>,oNameValue.Text,<span class="s">"Cy"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the city"</span>,oCityValue.Text,<span class="s">"Tokyo"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"Cy has three orders"</span>,oGrid.Rows.Count,<span class="n">3</span>)
-	oList.SelectedIndex = <span class="n">1</span>
-	<span class="f">dnAssert</span>(<span class="s">"Bob has one order"</span>,oGrid.Rows.Count,<span class="n">1</span>)</code></pre></div>
+	oCountValue.Text = <span class="s">""</span> + oView.Count</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g23.png" alt="The Details tab" loading="lazy"><figcaption>The Details tab: name, city and number of orders of the chosen customer</figcaption></figure>
 <figure class="shot"><img src="img/shots/tut-g23-orders.png" alt="The Orders tab" loading="lazy"><figcaption>The Orders tab: a data grid showing only Cy's orders</figcaption></figure>
 

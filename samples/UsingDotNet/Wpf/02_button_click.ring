@@ -12,7 +12,6 @@ using {
 	"System"
 }
 
-
 nClicks = 0
 oWindow = wpfWindow("Click counter",300,150)
 oPanel = new StackPanel()
@@ -24,18 +23,10 @@ oPanel {
 	Children.Add(oButton)
 }
 
-wpfTest(oWindow,"selfTest()")
 wpfRun(oWindow)
-wpfEnd()
 
 # --------------------------------------------------------------------------
 
 func clicked
 	nClicks++
 	oInfo.Content = "" + nClicks + " clicks"
-
-func selfTest
-	oEvent = dnNew("RoutedEventArgs",[ :routedEvent = new WpfButtonBase().ClickEvent ])
-	oButton.RaiseEvent(oEvent)
-	oButton.RaiseEvent(oEvent)
-	dnAssert("two clicks",oInfo.Content,"2 clicks")

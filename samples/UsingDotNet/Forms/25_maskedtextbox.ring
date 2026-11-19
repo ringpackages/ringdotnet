@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Masked input",300,130)
 uiLabel(oForm,"Phone",15,18,50,22)
 oPhone = new MaskedTextBox() {
@@ -23,6 +22,4 @@ oDate = new MaskedTextBox() {
 }
 oForm.Controls.Add(oDate)
 
-uiTest(oForm,"oPhone.Text = '5551234567' dnAssert('phone',oPhone.Text,'(555) 123-4567') dnAssert('complete',oPhone.MaskCompleted,1) dnAssert('date incomplete',oDate.MaskCompleted,0)")
 uiRun(oForm)
-uiEnd()

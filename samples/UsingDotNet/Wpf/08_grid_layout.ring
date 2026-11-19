@@ -12,15 +12,12 @@ using {
 	"System"
 }
 
-
 oWindow = wpfWindow("Grid",360,200)
 oGrid = new Grid()
 oWindow.Content = oGrid
 fillGrid()
 
-wpfTest(oWindow,"selfTest()")
 wpfRun(oWindow)
-wpfEnd()
 
 # --------------------------------------------------------------------------
 
@@ -41,10 +38,3 @@ func fillGrid
 			oGrid.SetColumn(oCell,nColumn)
 		next
 	next
-
-func selfTest
-	dnAssert("9 cells",oGrid.Children.Count,9)
-	dnAssert("3 rows",oGrid.RowDefinitions.Count,3)
-	oFifth = oGrid.Children.Item(4)
-	dnAssert("attached row",oGrid.GetRow(oFifth),1)
-	dnAssert("attached column",oGrid.GetColumn(oFifth),1)

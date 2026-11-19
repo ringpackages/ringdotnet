@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Context menu",300,140)
 oPanel = uiPanel(oForm,15,15,265,70)
 oPanel.BackColor = uiColor("Lavender")
@@ -19,6 +18,4 @@ next
 oPanel.ContextMenuStrip = oMenu
 uiLabel(oForm,"Right-click the panel",15,95,265,24)
 
-uiTest(oForm,"oMenu.Items.Item(2).PerformClick() dnAssert('panel is blue',oPanel.BackColor.Name,'Blue')")
 uiRun(oForm)
-uiEnd()

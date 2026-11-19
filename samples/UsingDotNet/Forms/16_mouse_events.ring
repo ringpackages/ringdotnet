@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Mouse",320,160)
 oArea = uiPanel(oForm,10,10,300,100)
 oArea {
@@ -19,9 +18,7 @@ oArea {
 	setMouseDownEvent("pressed(aDotNetArgs[2].Button,aDotNetArgs[2].X,aDotNetArgs[2].Y)")
 }
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 
@@ -30,9 +27,3 @@ func moved nX, nY
 
 func pressed cButton, nX, nY
 	oInfo.Text = cButton + " button at " + nX + "," + nY
-
-func selfTest
-	moved(12,34)
-	dnAssert("move text",oInfo.Text,"x=12 y=34")
-	pressed("Right",5,6)
-	dnAssert("press text",oInfo.Text,"Right button at 5,6")

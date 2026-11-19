@@ -12,7 +12,6 @@ using {
 	"System"
 }
 
-
 cLast = ""
 oWindow = wpfWindow("Menu and tabs",360,240)
 oDock = new DockPanel()
@@ -38,16 +37,6 @@ for cName in ["First","Second"]
 next
 oDock.Children.Add(oTabs)
 
-wpfTest(oWindow,"selfTest()")
 wpfRun(oWindow)
-wpfEnd()
 
 # --------------------------------------------------------------------------
-
-func selfTest
-	oEvent = dnNew("RoutedEventArgs",[ :routedEvent = new MenuItem().ClickEvent ])
-	oOpen.RaiseEvent(oEvent)
-	dnAssert("menu item click",cLast,"open")
-	oTabs.SelectedIndex = 1
-	dnAssert("second tab selected",oTabs.SelectedIndex,1)
-	dnAssert("tabs",oTabs.Items.Count,2)

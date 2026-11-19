@@ -12,7 +12,6 @@ using {
 	"System"
 }
 
-
 oWindow = wpfWindow("Hello WPF",320,160)
 oPanel = new StackPanel()
 oWindow.Content = oPanel
@@ -23,6 +22,4 @@ oText = new TextBlock() {
 }
 oPanel.Children.Add(oText)
 
-wpfTest(oWindow,"dnAssert('title',oWindow.Title,'Hello WPF') dnAssert('text',oText.Text,'Hello from Ring and WPF!') dnAssert('size',oWindow.Width,320)")
 wpfRun(oWindow)
-wpfEnd()

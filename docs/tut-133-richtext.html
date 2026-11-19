@@ -274,20 +274,7 @@ oFind = <span class="s">""</span>
 	oForm.Controls.<span class="f">Add</span>(oRich)
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">"Select some text, then click a button"</span>,<span class="n">15</span>,<span class="n">292</span>,<span class="n">480</span>,<span class="n">24</span>)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
-
-<span class="c"># Selection: SelectionStart is the first character (counted from 0) and SelectionLength how many. Everything that is set through</span>
-<span class="c"># SelectionFont or SelectionColor applies to the selected part only.</span>
-<span class="k">func</span> <span class="f">selectWord</span> cWord
-	nStart = oRich.<span class="f">Find</span>(cWord)                      <span class="c"># the place of the first match, or -1</span>
-	<span class="k">if</span> nStart &lt; <span class="n">0</span>
-		oStatus.Text = <span class="s">"'"</span> + cWord + <span class="s">"' was not found"</span>
-		<span class="k">return</span> <span class="k">False</span>
-	<span class="k">ok</span>
-	oRich.<span class="f">Select</span>([ :start = nStart, :length = len(cWord) ])
-	<span class="k">return</span> <span class="k">True</span>
 
 <span class="c"># the font of the selection: uiFont(family, size, bold). The same family and size, only the bold changes.</span>
 <span class="k">func</span> <span class="f">setBold</span> lBold
@@ -329,48 +316,7 @@ oFind = <span class="s">""</span>
 		nStart = nPlace + len(cWord)
 	<span class="k">end</span>
 	oRich.<span class="f">Select</span>([ :start = <span class="n">0</span>, :length = <span class="n">0</span> ])
-	oStatus.Text = <span class="s">"Found "</span> + nCount + <span class="s">" times"</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># finding and selecting a word</span>
-	<span class="f">dnAssert</span>(<span class="s">"find a word"</span>,oRich.<span class="f">Find</span>(<span class="s">"Ring"</span>),<span class="n">0</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a missing word"</span>,oRich.<span class="f">Find</span>(<span class="s">"zebra"</span>),-<span class="n">1</span>)
-
-	<span class="c"># bold: select "bold" and click the button</span>
-	selectWord(<span class="s">"bold"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the selection"</span>,oRich.SelectedText,<span class="s">"bold"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"not bold before"</span>,oRich.SelectionFont.Bold,<span class="k">False</span>)
-	oBold.<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"bold after"</span>,oRich.SelectionFont.Bold,<span class="k">True</span>)
-	oBold.<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"bold off again"</span>,oRich.SelectionFont.Bold,<span class="k">False</span>)
-	oBold.<span class="f">PerformClick</span>()
-
-	<span class="c"># color: another word</span>
-	selectWord(<span class="s">"red"</span>)
-	makeRed()
-	<span class="f">dnAssert</span>(<span class="s">"the color"</span>,oRich.SelectionColor.Name,<span class="s">"Red"</span>)
-
-	<span class="c"># the text itself is unchanged by the formatting, but the RTF text has the codes</span>
-	<span class="f">dnAssert</span>(<span class="s">"the plain text is the same"</span>,left(oRich.Text,<span class="n">15</span>),<span class="s">"Ring talks to ."</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the RTF has the bold code"</span>,substr(oRich.Rtf,<span class="s">"\b"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the RTF has a color table"</span>,substr(oRich.Rtf,<span class="s">"\colortbl"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
-
-	<span class="c"># find all: by default the search does not care about upper and lower case, so "ring" finds "Ring" and "ring" (the option MatchCase</span>
-	<span class="c"># in findAll would find one)</span>
-	oFind.Text = <span class="s">"ring"</span>
-	findAll()
-	<span class="f">dnAssert</span>(<span class="s">"find all"</span>,oStatus.Text,<span class="s">"Found 2 times"</span>)
-
-	<span class="c"># save as RTF and load it again into a second box: the formatting stays</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([ <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-rich.rtf"</span> ])
-	oRich.<span class="f">SaveFile</span>([ :path = cFile, :fileType = <span class="s">"RichText"</span> ])
-	oOther = <span class="k">new</span> <span class="t">RichTextBox</span>()
-	oOther.<span class="f">LoadFile</span>([ :path = cFile, :fileType = <span class="s">"RichText"</span> ])
-	<span class="f">dnAssert</span>(<span class="s">"the same text"</span>,oOther.Text,oRich.Text)
-	oOther.<span class="f">Select</span>([ :start = oOther.<span class="f">Find</span>(<span class="s">"bold"</span>), :length = <span class="n">4</span> ])
-	<span class="f">dnAssert</span>(<span class="s">"the bold is saved"</span>,oOther.SelectionFont.Bold,<span class="k">True</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>
+	oStatus.Text = <span class="s">"Found "</span> + nCount + <span class="s">" times"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g133.png" alt="The rich text window" loading="lazy"><figcaption>Bold and red words, and the marked matches</figcaption></figure>
 
 <div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>

@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 using { "System.Data" }
 oTable = new DataTable()
 oTable.Columns.Add([ :columnName = "Name", :type = "System.String" ])
@@ -25,15 +24,6 @@ oGrid = new DataGridView() {
 }
 oForm.Controls.Add(oGrid)
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
-
-func selfTest
-	dnAssert("three rows",oGrid.Rows.Count,3)
-	dnAssert("two columns",oGrid.Columns.Count,2)
-	dnAssert("cell value",oGrid.Rows.Item(1).Cells.Item(0).Value,"Bob")
-	oGrid.Sort([ :dataGridViewColumn = oGrid.Columns.Item(1), :direction = "Descending" ])
-	dnAssert("sorted by age",oGrid.Rows.Item(0).Cells.Item(0).Value,"Cy")

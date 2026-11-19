@@ -286,9 +286,7 @@ cScoreFile = <span class="s">""</span>
 	oNext = <span class="f">uiButton</span>(oForm,<span class="s">"Check"</span>,<span class="n">15</span>,<span class="n">235</span>,<span class="n">120</span>,<span class="n">32</span>,<span class="s">"nextStep()"</span>)
 
 	showQuestion(<span class="n">1</span>)
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 	cleanUp()
 
 <span class="k">func</span> <span class="f">showQuestion</span> n
@@ -385,45 +383,7 @@ cScoreFile = <span class="s">""</span>
 <span class="k">func</span> <span class="f">cleanUp</span>
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cScoreFile)
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cScoreFile)
-	<span class="k">ok</span>
-
-<span class="c"># the test plays: it chooses the answers like a user and clicks the button</span>
-<span class="k">func</span> <span class="f">play</span> nAnswer
-	<span class="k">if</span> nAnswer &gt; <span class="n">0</span>
-		aAnswers[nAnswer].Checked = <span class="k">True</span>
-	<span class="k">ok</span>
-	oNext.<span class="f">PerformClick</span>()
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	cleanUp()
-	<span class="f">dnAssert</span>(<span class="s">"the first question"</span>,oQuestion.Text,<span class="s">"Which language is used with this package?"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the progress"</span>,oProgress.Text,<span class="s">"Question 1 of 4"</span>)
-
-	<span class="c"># nothing chosen: the program asks for an answer and stays</span>
-	play(<span class="n">0</span>)
-	<span class="f">dnAssert</span>(<span class="s">"choose first"</span>,oFeedback.Text,<span class="s">"Choose an answer first"</span>)
-
-	<span class="c"># right answer</span>
-	play(<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"right"</span>,oFeedback.Text,<span class="s">"Right!"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the button says Next"</span>,oNext.Text,<span class="s">"Next"</span>)
-	play(<span class="n">0</span>)                                            <span class="c"># next question</span>
-
-	<span class="c"># wrong answer: the feedback says which is right</span>
-	<span class="f">dnAssert</span>(<span class="s">"question 2"</span>,oProgress.Text,<span class="s">"Question 2 of 4"</span>)
-	play(<span class="n">3</span>)
-	<span class="f">dnAssert</span>(<span class="s">"wrong"</span>,oFeedback.Text,<span class="s">"Not quite: the answer is A text of bytes"</span>)
-	play(<span class="n">0</span>)
-
-	<span class="c"># the other two right</span>
-	play(<span class="n">2</span>)
-	play(<span class="n">0</span>)
-	play(<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the last button"</span>,oNext.Text,<span class="s">"Result"</span>)
-	play(<span class="n">0</span>)
-
-	<span class="f">dnAssert</span>(<span class="s">"the score"</span>,oQuestion.Text,<span class="s">"Your score: 3 of 4"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the best scores"</span>,oFeedback.Text,<span class="s">"Best scores: 3"</span>)</code></pre></div>
+	<span class="k">ok</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g143.png" alt="The quiz" loading="lazy"><figcaption>A question of the quiz</figcaption></figure>
 
 <div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>

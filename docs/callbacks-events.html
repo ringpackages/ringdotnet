@@ -361,7 +361,6 @@ using {
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-
 oForm = <span class="f">uiForm</span>(<span class="s">"Mouse"</span>,<span class="n">320</span>,<span class="n">160</span>)
 oArea = <span class="f">uiPanel</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,<span class="n">300</span>,<span class="n">100</span>)
 oArea {
@@ -374,9 +373,7 @@ oArea {
 	setMouseDownEvent(<span class="s">"pressed(aDotNetArgs[2].Button,aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
 }
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -384,13 +381,7 @@ oArea {
 	oInfo.Text = <span class="s">"x="</span> + nX + <span class="s">" y="</span> + nY
 
 <span class="k">func</span> <span class="f">pressed</span> cButton, nX, nY
-	oInfo.Text = cButton + <span class="s">" button at "</span> + nX + <span class="s">","</span> + nY
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	moved(<span class="n">12</span>,<span class="n">34</span>)
-	<span class="f">dnAssert</span>(<span class="s">"move text"</span>,oInfo.Text,<span class="s">"x=12 y=34"</span>)
-	pressed(<span class="s">"Right"</span>,<span class="n">5</span>,<span class="n">6</span>)
-	<span class="f">dnAssert</span>(<span class="s">"press text"</span>,oInfo.Text,<span class="s">"Right button at 5,6"</span>)</code></pre></div></details>
+	oInfo.Text = cButton + <span class="s">" button at "</span> + nX + <span class="s">","</span> + nY</code></pre></div></details>
 <figure class="shot"><img src="img/shots/forms-16_mouse_events.png" alt="Mouse events" loading="lazy"><figcaption>samples/UsingDotNet/Forms/16_mouse_events.ring</figcaption></figure>
 <h3 id="timers">Timers<a class="anchor" href="#timers">#</a></h3>
 <p>Timers raise <code>Tick</code> on the Ring thread (Windows Forms timers do; <code>System.Threading.Timer</code> runs on a pool thread and cannot call Ring):</p>

@@ -254,19 +254,17 @@
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>TESTS: 2 passed, 0 failed</code></pre></div>
 <p>A failing assertion prints <code>FAIL: name expected &lt;9&gt; got &lt;3&gt;</code> and counts a failure. <code>dnTestSummary()</code> returns the number of failures.</p>
 <h2 id="programs-that-test-themselves">Programs that test themselves<a class="anchor" href="#programs-that-test-themselves">#</a></h2>
-<p>Add three lines to a Windows Forms program and it becomes its own test: with <code>--selftest</code> it shows the form, runs the test code, closes the form and prints the result.</p>
+<p>The checks of a window program are kept in a file of their own, so the program stays as short as the lesson that shows it. The program is the usual one:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm = <span class="f">uiForm</span>(<span class="s">"Click counter"</span>,<span class="n">260</span>,<span class="n">130</span>)
 ...
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)          <span class="c"># runs selfTest() once the form is shown, when --selftest is used</span>
-<span class="f">uiRun</span>(oForm)                        <span class="c"># shows the form; the form closes itself after the test</span>
-<span class="f">uiEnd</span>()                             <span class="c"># prints SELFTEST OK, or the failures</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div>
+<p>and next to it, in the folder <code>selftest</code>, the file with the same name (<code>selftest/main.ring</code>) holds the checks:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">func</span> <span class="f">selfTest</span>
 	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
 	<span class="f">dnAssert</span>(<span class="s">"one click"</span>,oCount.Text,<span class="s">"1 clicks"</span>)</code></pre></div>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring main.ring               # the normal program
 ring main.ring --selftest    # the test: prints SELFTEST OK</code></pre></div>
-<p>WPF programs use <code>wpfTest</code>, <code>wpfRun</code> and <code>wpfEnd</code>. <code>uiMessage()</code> prints instead of showing a dialog in a test, and <code>uiAsk()</code> answers yes unless <code>uiAnswer</code> says otherwise.</p>
+<p>With <code>--selftest</code>, <code>uiRun</code> loads that file, shows the form, runs <code>selfTest()</code> once the form is shown, closes the form and prints the result. The form must be in the global variable <code>oForm</code> (WPF: <code>oWindow</code>, with <code>wpfRun</code>). A program without a <code>selftest</code> file runs normally; the functions <code>uiTest(oForm, code)</code> and <code>uiEnd()</code> (<code>wpfTest</code>, <code>wpfEnd</code>) do the same steps by hand for a program that keeps its checks inside. <code>uiMessage()</code> prints instead of showing a dialog in a test, and <code>uiAsk()</code> answers yes unless <code>uiAnswer</code> says otherwise.</p>
 <h2 id="typing-keys-in-tests">Typing keys in tests<a class="anchor" href="#typing-keys-in-tests">#</a></h2>
 <p><code>uiSendKeys(oForm,"12{+}30{ENTER}")</code> types into the focused control of <strong>your own form</strong>. It posts window messages through the real Windows Forms key processing, so it behaves like a user and can never type into another program (which <code>SendKeys</code> could). Keys: <code>{LEFT} {RIGHT} {UP} {DOWN} {ENTER} {ESC} {BACKSPACE} {TAB} {DELETE}</code>, <code>{+}</code> for a plus sign.</p>
 <h2 id="testing-the-screenshots">Testing the screenshots<a class="anchor" href="#testing-the-screenshots">#</a></h2>

@@ -12,7 +12,6 @@ using {
 	"System"
 }
 
-
 cPicked = ""
 oWindow = wpfWindow("Lists",320,240)
 oPanel = new StackPanel()
@@ -30,6 +29,4 @@ oPanel {
 	Children.Add(oCombo)
 }
 
-wpfTest(oWindow,"oList.SelectedIndex = 1 dnAssert('list',cPicked,'list:Python') oCombo.SelectedIndex = 2 dnAssert('combo',cPicked,'combo:Lua') dnAssert('count',oList.Items.Count,3)")
 wpfRun(oWindow)
-wpfEnd()

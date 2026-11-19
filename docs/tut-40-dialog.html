@@ -271,9 +271,7 @@ cNextName = <span class="s">""</span>
 	<span class="f">uiButton</span>(oForm,<span class="s">"Edit profile..."</span>,<span class="n">20</span>,<span class="n">90</span>,<span class="n">130</span>,<span class="n">32</span>,<span class="s">"editProfile()"</span>)
 	showProfile()
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="k">func</span> <span class="f">showProfile</span>
 	oShow.Text = cName + nl + nAge + <span class="s">" years old"</span>
@@ -355,15 +353,7 @@ cNextName = <span class="s">""</span>
 		oAgeBox.Value = <span class="n">44</span>
 		oOk.<span class="f">PerformClick</span>()
 		oTimer.<span class="f">Stop</span>()
-	<span class="k">ok</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	cNextName = <span class="s">"Bob"</span>
-	nStep = <span class="n">0</span>
-	editProfile()
-	<span class="f">dnAssert</span>(<span class="s">"the answer was used"</span>,cName,<span class="s">"Bob"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the age was used"</span>,nAge,<span class="n">44</span>)
-	<span class="f">dnAssert</span>(<span class="s">"shown in the window"</span>,oShow.Text,<span class="s">"Bob"</span> + nl + <span class="s">"44 years old"</span>)</code></pre></div>
+	<span class="k">ok</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g40-main.png" alt="The main window" loading="lazy"><figcaption>The main window shows the profile</figcaption></figure>
 <figure class="shot"><img src="img/shots/tut-g40-dialog.png" alt="The dialog" loading="lazy"><figcaption>The dialog: name, age, OK and Cancel</figcaption></figure>
 

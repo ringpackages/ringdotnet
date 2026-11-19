@@ -297,9 +297,7 @@ cRoot = <span class="s">""</span>
 	oTree.<span class="f">setAfterSelectEvent</span>(<span class="s">"folderChosen()"</span>)
 	oTree.SelectedNode = oRootNode
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># A node for a folder, with a node for each subfolder below it. The Tag of a node remembers the full path.</span>
 <span class="k">func</span> <span class="f">addFolderNode</span> oNodes, cFolder
@@ -358,22 +356,7 @@ cRoot = <span class="s">""</span>
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> nTimes
 		cResult += cText
 	<span class="k">next</span>
-	<span class="k">return</span> cResult
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"the root node"</span>,oTree.Nodes.Count,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the root has three subfolders"</span>,oTree.Nodes.<span class="f">Item</span>(<span class="n">0</span>).Nodes.Count,<span class="n">3</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the root folder has one file"</span>,oList.Items.Count,<span class="n">1</span>)
-	<span class="c"># pick the folder Projects &gt; Ring</span>
-	oProjects = oTree.Nodes.<span class="f">Item</span>(<span class="n">0</span>).Nodes.<span class="f">Item</span>(<span class="n">2</span>)          <span class="c"># sorted: Documents, Pictures, Projects</span>
-	<span class="f">dnAssert</span>(<span class="s">"the node is Projects"</span>,oProjects.Text,<span class="s">"Projects"</span>)
-	oTree.SelectedNode = oProjects.Nodes.<span class="f">Item</span>(<span class="n">0</span>)
-	<span class="f">dnAssert</span>(<span class="s">"two files in Ring"</span>,oList.Items.Count,<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the first file"</span>,oList.Items.<span class="f">Item</span>(<span class="n">0</span>).Text,<span class="s">"main.ring"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the status shows the folder and the totals"</span>,substr(oStatus.Text,<span class="s">"2 files"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a size text"</span>,sizeText(<span class="n">1536</span>),<span class="s">"1.5 KB"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a small size"</span>,sizeText(<span class="n">300</span>),<span class="s">"300 B"</span>)
-	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cRoot, :recursive = <span class="k">True</span> ])</code></pre></div>
+	<span class="k">return</span> cResult</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g42.png" alt="The folder browser" loading="lazy"><figcaption>Folders on the left, the files of Projects &gt; Ring on the right</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

@@ -272,45 +272,7 @@ oWindow = <span class="s">""</span>
 	cXaml += <span class="s">'&lt;/StackPanel&gt;&lt;/Window&gt;'</span>
 	oWindow = <span class="f">wpfXaml</span>(cXaml)
 
-	<span class="f">wpfTest</span>(oWindow,<span class="s">"selfTest()"</span>)
-	<span class="f">wpfRun</span>(oWindow)
-	<span class="f">wpfEnd</span>()
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oSlider = <span class="f">wpfFind</span>(oWindow,<span class="s">"amount"</span>)
-	oBox = <span class="f">wpfFind</span>(oWindow,<span class="s">"box"</span>)
-	oBar = <span class="f">wpfFind</span>(oWindow,<span class="s">"bar"</span>)
-	oText = <span class="f">wpfFind</span>(oWindow,<span class="s">"text"</span>)
-	oSend = <span class="f">wpfFind</span>(oWindow,<span class="s">"send"</span>)
-	oAllow = <span class="f">wpfFind</span>(oWindow,<span class="s">"allow"</span>)
-	oColors = <span class="f">wpfFind</span>(oWindow,<span class="s">"colors"</span>)
-	oChosen = <span class="f">wpfFind</span>(oWindow,<span class="s">"chosen"</span>)
-
-	<span class="c"># the starting values follow the slider</span>
-	<span class="f">dnAssert</span>(<span class="s">"the text box shows the slider"</span>,oBox.Text,<span class="s">"20"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the bar shows the slider"</span>,oBar.Value,<span class="n">20</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the text shows the slider"</span>,oText.Text,<span class="s">"20 percent"</span>)
-
-	<span class="c"># moving the slider (the program does what the user does) changes the three of them</span>
-	oSlider.Value = <span class="n">75</span>
-	<span class="f">dnAssert</span>(<span class="s">"slider to text box"</span>,oBox.Text,<span class="s">"75"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"slider to bar"</span>,oBar.Value,<span class="n">75</span>)
-	<span class="f">dnAssert</span>(<span class="s">"slider to text"</span>,oText.Text,<span class="s">"75 percent"</span>)
-
-	<span class="c"># TwoWay: typing in the text box moves the slider</span>
-	oBox.Text = <span class="s">"40"</span>
-	<span class="f">dnAssert</span>(<span class="s">"text box to slider"</span>,oSlider.Value,<span class="n">40</span>)
-	<span class="f">dnAssert</span>(<span class="s">"and so to the bar"</span>,oBar.Value,<span class="n">40</span>)
-
-	<span class="c"># a check box switches the button on and off</span>
-	<span class="f">dnAssert</span>(<span class="s">"the button is on"</span>,oSend.IsEnabled,<span class="k">True</span>)
-	oAllow.IsChecked = <span class="k">False</span>
-	<span class="f">dnAssert</span>(<span class="s">"the button is off"</span>,oSend.IsEnabled,<span class="k">False</span>)
-
-	<span class="c"># a list: nothing chosen shows the fallback text, a choice shows the item</span>
-	<span class="f">dnAssert</span>(<span class="s">"fallback"</span>,oChosen.Text,<span class="s">"nothing chosen"</span>)
-	oColors.SelectedIndex = <span class="n">1</span>
-	<span class="f">dnAssert</span>(<span class="s">"the chosen item"</span>,oChosen.Text,<span class="s">"Green"</span>)</code></pre></div>
+	<span class="f">wpfRun</span>(oWindow)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g131.png" alt="The binding window" loading="lazy"><figcaption>The binding window</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

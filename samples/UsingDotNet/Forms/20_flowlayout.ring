@@ -6,16 +6,13 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Flow layout",300,200)
 oFlow = new FlowLayoutPanel()
 oFlow.Dock = "Fill"
 oForm.Controls.Add(oFlow)
 addButtons()
 
-uiTest(oForm,"dnAssert('12 buttons',oFlow.Controls.Count,12)")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 

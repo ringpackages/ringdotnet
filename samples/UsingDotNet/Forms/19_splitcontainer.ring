@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Split",420,240)
 oSplit = new SplitContainer()
 oSplit.Dock = "Fill"
@@ -25,6 +24,4 @@ oText = new TextBox() {
 oSplit.Panel2.Controls.Add(oText)
 oList.setSelectedIndexChangedEvent("oText.Text = 'You selected ' + oList.Text")
 
-uiTest(oForm,"oList.SelectedIndex = 1 dnAssert('right panel',oText.Text,'You selected Two') dnAssert('splitter',oSplit.SplitterDistance,140)")
 uiRun(oForm)
-uiEnd()

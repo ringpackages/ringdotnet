@@ -15,7 +15,6 @@ using {
 	"System.Windows.Media.Imaging"
 }
 
-
 oCanvas = new Canvas() {
 	Width = 200
 	Height = 120
@@ -40,11 +39,6 @@ oCanvas.SetTop(oCircle,30)
 oWindow = wpfWindow("Shapes",260,200)
 oWindow.Content = oCanvas
 
-wpfTest(oWindow,"selfTest()")
 wpfRun(oWindow)
-wpfEnd()
 
 # --------------------------------------------------------------------------
-
-func selfTest
-	dnAssert("rectangle",wpfPixel(oCanvas,200,120,40,30),"ff4682b4")

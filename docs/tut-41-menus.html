@@ -308,9 +308,7 @@ nActions = <span class="n">0</span>
 	oStatus.Items.<span class="f">Add</span>(oStatusLabel)
 	oForm.Controls.<span class="f">Add</span>(oStatus)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># ---------------------------------------------------------------- the actions: written once, reached from many places</span>
 
@@ -339,26 +337,7 @@ nActions = <span class="n">0</span>
 	<span class="k">if</span> lCondition
 		<span class="k">return</span> xYes
 	<span class="k">ok</span>
-	<span class="k">return</span> xNo
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># the same action from the menu, the toolbar and the context menu</span>
-	oText.Text = <span class="s">"hello menus"</span>
-	oForm.MainMenuStrip.Items.<span class="f">Item</span>(<span class="n">2</span>).DropDownItems.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">PerformClick</span>()       <span class="c"># Text &gt; Upper case</span>
-	<span class="f">dnAssert</span>(<span class="s">"the menu item ran the action"</span>,oText.Text,<span class="s">"HELLO MENUS"</span>)
-	oText.Text = <span class="s">"second"</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).Items.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">PerformClick</span>()                           <span class="c"># the toolbar (the 2nd control added): button "Upper"</span>
-	<span class="f">dnAssert</span>(<span class="s">"the toolbar button ran the same action"</span>,oText.Text,<span class="s">"SECOND"</span>)
-	oText.Text = <span class="s">"third"</span>
-	oText.ContextMenuStrip.Items.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()                           <span class="c"># the context menu "Upper case"</span>
-	<span class="f">dnAssert</span>(<span class="s">"the context menu too"</span>,oText.Text,<span class="s">"THIRD"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"three actions were reported"</span>,nActions,<span class="n">3</span>)
-	<span class="c"># the ticked item</span>
-	oWrapItem.Checked = <span class="k">False</span>
-	<span class="f">dnAssert</span>(<span class="s">"word wrap off"</span>,oText.WordWrap,<span class="k">False</span>)
-	<span class="f">dnAssert</span>(<span class="s">"and the status says so"</span>,oStatus.Items.<span class="f">Item</span>(<span class="n">0</span>).Text,<span class="s">"Word wrap is off"</span>)
-	<span class="c"># the shortcut keys are properties of the items</span>
-	<span class="f">dnAssert</span>(<span class="s">"a shortcut key (a combination of flags: C and Control)"</span>,oForm.MainMenuStrip.Items.<span class="f">Item</span>(<span class="n">1</span>).DropDownItems.<span class="f">Item</span>(<span class="n">1</span>).ShortcutKeys,<span class="s">"C, Control"</span>)</code></pre></div>
+	<span class="k">return</span> xNo</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g41.png" alt="The window with a menu bar, a toolbar and a status bar" loading="lazy"><figcaption>Menu bar, toolbar, the text and the status bar</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

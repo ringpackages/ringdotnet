@@ -86,9 +86,7 @@ func main
 	oList.setSelectedIndexChangedEvent("customerChosen()")
 	oList.SelectedIndex = 0
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 # a label and a value in one row of the table
 func addRow oTable, nRow, cTitle
@@ -117,11 +115,3 @@ func customerChosen
 	oCityValue.Text = aCustomers[nIndex][2]
 	oView.RowFilter = "Customer = '" + cName + "'"          # the grid shows only this customer's rows
 	oCountValue.Text = "" + oView.Count
-
-func selfTest
-	oList.SelectedIndex = 2
-	dnAssert("details follow the list",oNameValue.Text,"Cy")
-	dnAssert("the city",oCityValue.Text,"Tokyo")
-	dnAssert("Cy has three orders",oGrid.Rows.Count,3)
-	oList.SelectedIndex = 1
-	dnAssert("Bob has one order",oGrid.Rows.Count,1)

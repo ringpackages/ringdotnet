@@ -17,9 +17,7 @@ func main
 	uiButton(oForm,"Click me",20,55,120,32,"clicked()")      # the click calls the function clicked()
 	uiButton(oForm,"Reset",150,55,80,32,"resetCount()")
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 func clicked
 	nClicks++
@@ -28,12 +26,3 @@ func clicked
 func resetCount
 	nClicks = 0
 	oLabel.Text = "The button was not clicked yet"
-
-# The same program tests itself when it is started with --selftest
-func selfTest
-	oForm.Controls.Item(1).PerformClick()
-	oForm.Controls.Item(1).PerformClick()
-	oForm.Controls.Item(1).PerformClick()
-	dnAssert("three clicks",oLabel.Text,"Clicked 3 times")
-	oForm.Controls.Item(2).PerformClick()
-	dnAssert("reset",oLabel.Text,"The button was not clicked yet")

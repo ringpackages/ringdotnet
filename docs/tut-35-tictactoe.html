@@ -272,9 +272,7 @@ aButtons = []
 	<span class="k">next</span>
 	<span class="f">uiButton</span>(oForm,<span class="s">"New game"</span>,<span class="n">10</span>,<span class="n">332</span>,<span class="n">280</span>,<span class="n">30</span>,<span class="s">"newGame()"</span>)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># ---------------------------------------------------------------- THE LOGIC (no window code here: easy to test)</span>
 
@@ -330,24 +328,7 @@ aButtons = []
 	<span class="k">next</span>
 	oStatus.Text = <span class="s">"X to play"</span>
 
-<span class="c"># ---------------------------------------------------------------- THE TESTS: first the logic, then the window</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"an empty board has no winner"</span>,winnerOf([<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>]),<span class="s">""</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a row"</span>,winnerOf([<span class="s">"X"</span>,<span class="s">"X"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">"O"</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>]),<span class="s">"X"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a column"</span>,winnerOf([<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">""</span>,<span class="s">""</span>]),<span class="s">"O"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a diagonal"</span>,winnerOf([<span class="s">"X"</span>,<span class="s">"O"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">"X"</span>]),<span class="s">"X"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a full board without a winner"</span>,boardFull([<span class="s">"X"</span>,<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">"X"</span>,<span class="s">"O"</span>,<span class="s">"O"</span>,<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">"X"</span>]),<span class="k">True</span>)
-
-	<span class="c"># a game: X takes the top row while O plays elsewhere</span>
-	play(<span class="n">1</span>) play(<span class="n">4</span>) play(<span class="n">2</span>) play(<span class="n">5</span>) play(<span class="n">3</span>)
-	<span class="f">dnAssert</span>(<span class="s">"X wins"</span>,oStatus.Text,<span class="s">"X wins!"</span>)
-	play(<span class="n">9</span>)                                          <span class="c"># the game is over: ignored</span>
-	<span class="f">dnAssert</span>(<span class="s">"no more moves after the end"</span>,aBoard[<span class="n">9</span>],<span class="s">""</span>)
-	newGame()
-	<span class="f">dnAssert</span>(<span class="s">"a new game"</span>,oStatus.Text,<span class="s">"X to play"</span>)
-	play(<span class="n">1</span>) play(<span class="n">2</span>) play(<span class="n">3</span>) play(<span class="n">5</span>) play(<span class="n">4</span>) play(<span class="n">6</span>) play(<span class="n">8</span>) play(<span class="n">7</span>) play(<span class="n">9</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a draw"</span>,oStatus.Text,<span class="s">"A draw"</span>)</code></pre></div>
+<span class="c"># ---------------------------------------------------------------- THE TESTS: first the logic, then the window</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g35-won.png" alt="A game in progress, X has won" loading="lazy"><figcaption>X took the top row</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

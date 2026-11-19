@@ -152,13 +152,9 @@ Every control then reports the arrows as normal keys and the form handles them. 
 
 ## Self-testing programs
 
-Every sample and application can drive itself and check its results — the same program, no separate test harness:
+Every sample and application can drive itself and check its results. The checks are in the file `selftest/<program>.ring` next to the program, and `uiRun` runs them when the program starts with `--selftest`:
 
 ```ring
-uiTest(oForm,"selfTest()")        # when started with --selftest: run selfTest() once the form is shown
-uiRun(oForm)
-uiEnd()                            # prints SELFTEST OK, or the failures
-
 func selfTest
 	oForm.Controls.Item(1).PerformClick()
 	dnAssert("one click",oCount.Text,"1 clicks")

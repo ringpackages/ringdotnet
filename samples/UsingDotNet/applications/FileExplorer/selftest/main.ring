@@ -1,0 +1,31 @@
+# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+
+func selfTest
+	# a small folder tree in the temp folder
+	oPath = new Path()
+	cBase = oPath.Combine([oPath.GetTempPath(),"explorer_selftest"])
+	if new Directory().Exists(cBase)
+		new Directory().Delete([ :path = cBase, :recursive = True ])
+	ok
+	new Directory().CreateDirectory(oPath.Combine([cBase,"docs"]))
+	new Directory().CreateDirectory(oPath.Combine([cBase,"images/icons"]))
+	new File().WriteAllText([ :path = oPath.Combine([cBase,"readme.txt"]), :contents = "hello" ])
+	new File().WriteAllText([ :path = oPath.Combine([cBase,"docs/manual.txt"]), :contents = copy("x",2048) ])
+	setRoot(cBase)
+	dnAssert("root node",oTree.Nodes.Count,1)
+	dnAssert("two sub folders",oTree.Nodes.Item(0).Nodes.Count,2)
+	oTree.SelectedNode = oTree.Nodes.Item(0)
+	dnAssert("files of the root",oList.Items.Count,1)
+	dnAssert("file name",oList.Items.Item(0).Text,"readme.txt")
+	dnAssert("size text",oList.Items.Item(0).SubItems.Item(1).Text,"5 B")
+	oDocs = oTree.Nodes.Item(0).Nodes.Item(0)
+	oTree.SelectedNode = oDocs
+	dnAssert("the docs folder",oList.Items.Item(0).Text,"manual.txt")
+	dnAssert("2 KB file",oList.Items.Item(0).SubItems.Item(1).Text,"2 KB")
+	oImages = oTree.Nodes.Item(0).Nodes.Item(1)
+	dnAssert("placeholder child",oImages.Nodes.Item(0).Text,"...")
+	expandNode(oImages)
+	dnAssert("sub folder loaded on expand",oImages.Nodes.Item(0).Text,"icons")
+	dnAssert("status text",right(oStatusText.Text,9),"(1 files)")
+	dnAssert("sizes",sizeText(3 * 1048576),"3 MB")
+	new Directory().Delete([ :path = cBase, :recursive = True ])

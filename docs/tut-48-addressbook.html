@@ -309,9 +309,7 @@ oStatus = <span class="s">""</span>
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,<span class="n">372</span>,<span class="n">600</span>,<span class="n">22</span>)
 
 	reload()
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># ---------------------------------------------------------------- database -&gt; grid</span>
 
@@ -387,33 +385,7 @@ oStatus = <span class="s">""</span>
 <span class="k">func</span> <span class="f">clearFields</span>
 	oName.Text = <span class="s">""</span>
 	oPhone.Text = <span class="s">""</span>
-	oCity.Text = <span class="s">""</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="k">for</span> aPerson <span class="k">in</span> [[<span class="s">"Ann"</span>,<span class="s">"555-0101"</span>,<span class="s">"Cairo"</span>],[<span class="s">"Bob"</span>,<span class="s">"555-0102"</span>,<span class="s">"Oslo"</span>],[<span class="s">"Cy"</span>,<span class="s">"555-0103"</span>,<span class="s">"Cairo"</span>]]
-		oName.Text = aPerson[<span class="n">1</span>]
-		oPhone.Text = aPerson[<span class="n">2</span>]
-		oCity.Text = aPerson[<span class="n">3</span>]
-		addContact()
-	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"three contacts in the database"</span>,oDb.<span class="f">count</span>(<span class="s">"Contacts"</span>),<span class="n">3</span>)
-	<span class="f">dnAssert</span>(<span class="s">"three rows in the grid"</span>,oGrid.Rows.Count,<span class="n">3</span>)
-	oName.Text = <span class="s">""</span>
-	addContact()
-	<span class="f">dnAssert</span>(<span class="s">"a name is required"</span>,oStatus.Text,<span class="s">"  A contact needs a name"</span>)
-	oSearch.Text = <span class="s">"cairo"</span>
-	<span class="f">dnAssert</span>(<span class="s">"the search narrows the grid (case does not matter)"</span>,oGrid.Rows.Count,<span class="n">2</span>)
-	oSearch.Text = <span class="s">""</span>
-	oGrid.Rows.<span class="f">Item</span>(<span class="n">1</span>).Selected = <span class="k">True</span>
-	<span class="f">dnAssert</span>(<span class="s">"choosing a row fills the fields"</span>,oName.Text,<span class="s">"Bob"</span>)
-	oName.Text = <span class="s">"Robert"</span>
-	updateContact()
-	<span class="f">dnAssert</span>(<span class="s">"an update reaches the database"</span>,<span class="f">dbValue</span>(oDb.<span class="f">byKey</span>(<span class="s">"Contacts"</span>,<span class="n">2</span>),<span class="s">"Name"</span>),<span class="s">"Robert"</span>)
-	oGrid.Rows.<span class="f">Item</span>(<span class="n">1</span>).Selected = <span class="k">True</span>              <span class="c"># reload() cleared the selection: choose Robert again</span>
-	deleteContact()                                  <span class="c"># a test answers the question with yes</span>
-	<span class="f">dnAssert</span>(<span class="s">"a delete"</span>,oDb.<span class="f">count</span>(<span class="s">"Contacts"</span>),<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"Robert is gone"</span>,oDb.<span class="f">byKey</span>(<span class="s">"Contacts"</span>,<span class="n">2</span>),<span class="s">""</span>)
-	<span class="f">dnAssert</span>(<span class="s">"and the grid follows"</span>,oGrid.Rows.Count,<span class="n">2</span>)</code></pre></div>
+	oCity.Text = <span class="s">""</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g48.png" alt="The address book" loading="lazy"><figcaption>Four contacts; the first is chosen and its fields are filled</figcaption></figure>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>[question] Delete: Delete Robert?
 SELFTEST OK (9 checks)</code></pre></div>

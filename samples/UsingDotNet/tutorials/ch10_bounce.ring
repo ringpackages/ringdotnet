@@ -33,9 +33,7 @@ func main
 	oTimer = uiTimer(20,"step()")
 	oTimer.Start()
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 func step
 	nX += nDX
@@ -71,12 +69,3 @@ func keyPressed cKey
 		nPaddle = min(C_WIDTH - 80,nPaddle + 30)
 	ok
 	draw()
-
-func selfTest
-	oTimer.Stop()
-	nBefore = nX
-	step() step() step()
-	dnAssert("the ball moved",nX,nBefore + 3 * nDX)
-	keyPressed("Left")
-	dnAssert("the paddle moved",nPaddle,130)
-	dnAssert("the ball is orange",oCanvas.pixel(nX,nY),"ffffa500")

@@ -24,9 +24,7 @@ oFahrenheit.setTextChangedEvent("fromFahrenheit()")
 oKelvin.setTextChangedEvent("fromKelvin()")
 oCelsius.Text = "20"
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 
@@ -71,15 +69,3 @@ func fromKelvin
 	nValue = number(oKelvin.Text) - 273.15
 	show(oCelsius,nValue)
 	show(oFahrenheit,nValue * 9 / 5 + 32)
-
-func selfTest
-	dnAssert("20 C in F",oFahrenheit.Text,"68")
-	dnAssert("20 C in K",oKelvin.Text,"293.15")
-	oCelsius.Text = "100"
-	dnAssert("100 C in F",oFahrenheit.Text,"212")
-	oFahrenheit.Text = "32"
-	dnAssert("32 F in C",oCelsius.Text,"0")
-	oKelvin.Text = "0"
-	dnAssert("0 K in C",oCelsius.Text,"-273.15")
-	oCelsius.Text = "abc"
-	dnAssert("invalid text is ignored",oFahrenheit.Text,"-459.67")

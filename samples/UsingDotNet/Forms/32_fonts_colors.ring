@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Fonts and colors",360,230)
 nY = 10
 for cName in ["Segoe UI","Consolas","Georgia","Arial Black"]
@@ -20,6 +19,4 @@ oBold {
 	ForeColor = uiColor("DarkRed")
 }
 
-uiTest(oForm,"dnAssert('font name',oForm.Controls.Item(1).Font.Name,'Consolas') dnAssert('bold',oBold.Font.Bold,1) dnAssert('color',oBold.ForeColor.Name,'DarkRed')")
 uiRun(oForm)
-uiEnd()

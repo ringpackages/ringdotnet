@@ -270,9 +270,7 @@ oStatus = <span class="s">""</span>
 	}
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">"Type a command and press Run"</span>,<span class="n">10</span>,<span class="n">352</span>,<span class="n">538</span>,<span class="n">22</span>)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># Run "cmd /c &lt;command&gt;", wait for it, show everything it printed and its exit code</span>
 <span class="k">func</span> <span class="f">runCommand</span>
@@ -303,20 +301,7 @@ oStatus = <span class="s">""</span>
 	<span class="k">catch</span>
 		oOutput.Text = <span class="s">"Could not run the command: "</span> + cCatchError
 		oStatus.Text = <span class="s">"Failed"</span>
-	<span class="k">done</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oCommand.Text = <span class="s">"echo one &amp;&amp; echo two"</span>
-	runCommand()
-	<span class="f">dnAssert</span>(<span class="s">"the output has both lines"</span>,substr(oOutput.Text,<span class="s">"one"</span>) &gt; <span class="n">0</span> <span class="k">and</span> substr(oOutput.Text,<span class="s">"two"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the exit code is shown"</span>,substr(oStatus.Text,<span class="s">"Exit code 0"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
-	oCommand.Text = <span class="s">"dir c:\folder\that\does\not\exist"</span>
-	runCommand()
-	<span class="f">dnAssert</span>(<span class="s">"an error text appears"</span>,len(trim(oOutput.Text)) &gt; <span class="n">0</span>,<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the exit code is not 0"</span>,substr(oStatus.Text,<span class="s">"Exit code 0"</span>) = <span class="n">0</span>,<span class="k">True</span>)
-	oCommand.Text = <span class="s">"echo done"</span>
-	runCommand()
-	<span class="f">dnAssert</span>(<span class="s">"the status"</span>,substr(oStatus.Text,<span class="s">" ms"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div>
+	<span class="k">done</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g37.png" alt="The command runner after running echo" loading="lazy"><figcaption>The command runner</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

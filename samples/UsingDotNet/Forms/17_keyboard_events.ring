@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Keyboard",340,140)
 oForm.KeyPreview = True
 oLast = uiLabel(oForm,"Press a key",15,20,300,28)
@@ -17,9 +16,7 @@ oForm {
 	setKeyPressEvent("keyPress(aDotNetArgs[2].KeyChar)")
 }
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 
@@ -28,10 +25,3 @@ func keyDown cKey
 
 func keyPress cChar
 	oChars.Text += cChar
-
-func selfTest
-	keyDown("Enter")
-	keyPress("R")
-	keyPress("i")
-	dnAssert("key name",oLast.Text,"KeyDown: Enter")
-	dnAssert("typed characters",oChars.Text,"Ri")

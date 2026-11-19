@@ -12,7 +12,6 @@ using {
 	"System"
 }
 
-
 oWindow = wpfWindow("Binding",320,150)
 oPanel = new StackPanel()
 oWindow.Content = oPanel
@@ -30,6 +29,4 @@ oPanel {
 	Children.Add(oText)
 }
 
-wpfTest(oWindow,"oSlider.Value = 64 dnAssert('binding',oText.Text,'64')")
 wpfRun(oWindow)
-wpfEnd()

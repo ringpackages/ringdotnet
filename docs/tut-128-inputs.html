@@ -330,9 +330,7 @@ oBook = <span class="s">""</span>
 	oErrors = <span class="k">new</span> <span class="t">ErrorProvider</span>()
 
 	showPrice()
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># the price of one night in each room, and a discount for a long stay</span>
 <span class="k">func</span> <span class="f">roomPrice</span>
@@ -373,34 +371,7 @@ oBook = <span class="s">""</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
 	oErrors.<span class="f">SetError</span>(oName,<span class="s">""</span>)                        <span class="c"># an empty message removes the marker</span>
-	oResult.Text = <span class="s">"Booked for "</span> + cName + <span class="s">": arrival "</span> + oDate.Value.<span class="f">Format</span>(<span class="s">"d MMMM yyyy"</span>) + <span class="s">", "</span> + total()
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># the starting state</span>
-	<span class="f">dnAssert</span>(<span class="s">"price at the start"</span>,oPrice.Text,<span class="s">"3 nights, Single: 210 (a week or more: 10 percent off)"</span>)
-
-	<span class="c"># a track bar and a radio button change the price</span>
-	oNights.Value = <span class="n">7</span>
-	<span class="f">dnAssert</span>(<span class="s">"track bar label"</span>,oNightsLabel.Text,<span class="s">"7"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a week is cheaper"</span>,total(),<span class="n">441</span>)                  <span class="c"># 7 x 70 = 490, 10 percent off</span>
-	oDouble.Checked = <span class="k">True</span>
-	<span class="f">dnAssert</span>(<span class="s">"only one room"</span>,oSingle.Checked,<span class="k">False</span>)
-	<span class="f">dnAssert</span>(<span class="s">"double for a week"</span>,total(),<span class="n">693</span>)
-
-	<span class="c"># without a name there is an error marker, and no booking</span>
-	oBook.<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"error message"</span>,oErrors.<span class="f">GetError</span>(oName),<span class="s">"Please type a name"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"no booking yet"</span>,oResult.Text,<span class="s">""</span>)
-
-	<span class="c"># with a name the marker goes away</span>
-	oName.Text = <span class="s">"Ann"</span>
-	oBook.<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"no error"</span>,oErrors.<span class="f">GetError</span>(oName),<span class="s">""</span>)
-	<span class="f">dnAssert</span>(<span class="s">"booked"</span>,oResult.Text,<span class="s">"Booked for Ann: arrival 10 May 2030, 693"</span>)
-
-	<span class="c"># the date picker keeps its limits</span>
-	oDate.Value = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2030</span>,<span class="n">12</span>,<span class="n">31</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the last day"</span>,oDate.Value.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>),<span class="s">"2030-12-31"</span>)</code></pre></div>
+	oResult.Text = <span class="s">"Booked for "</span> + cName + <span class="s">": arrival "</span> + oDate.Value.<span class="f">Format</span>(<span class="s">"d MMMM yyyy"</span>) + <span class="s">", "</span> + total()</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g128.png" alt="The booking form" loading="lazy"><figcaption>The booking form</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

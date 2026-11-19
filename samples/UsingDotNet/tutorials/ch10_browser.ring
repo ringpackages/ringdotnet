@@ -54,9 +54,7 @@ func main
 	oTree.setAfterSelectEvent("folderChosen()")
 	oTree.SelectedNode = oRootNode
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 # A node for a folder, with a node for each subfolder below it. The Tag of a node remembers the full path.
 func addFolderNode oNodes, cFolder
@@ -116,18 +114,3 @@ func copies cText, nTimes
 		cResult += cText
 	next
 	return cResult
-
-func selfTest
-	dnAssert("the root node",oTree.Nodes.Count,1)
-	dnAssert("the root has three subfolders",oTree.Nodes.Item(0).Nodes.Count,3)
-	dnAssert("the root folder has one file",oList.Items.Count,1)
-	# pick the folder Projects > Ring
-	oProjects = oTree.Nodes.Item(0).Nodes.Item(2)          # sorted: Documents, Pictures, Projects
-	dnAssert("the node is Projects",oProjects.Text,"Projects")
-	oTree.SelectedNode = oProjects.Nodes.Item(0)
-	dnAssert("two files in Ring",oList.Items.Count,2)
-	dnAssert("the first file",oList.Items.Item(0).Text,"main.ring")
-	dnAssert("the status shows the folder and the totals",substr(oStatus.Text,"2 files") > 0,True)
-	dnAssert("a size text",sizeText(1536),"1.5 KB")
-	dnAssert("a small size",sizeText(300),"300 B")
-	new Directory().Delete([ :path = cRoot, :recursive = True ])

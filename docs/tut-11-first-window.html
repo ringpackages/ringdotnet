@@ -250,11 +250,9 @@ using {
 
 oForm = <span class="f">uiForm</span>(<span class="s">"My first window"</span>,<span class="n">320</span>,<span class="n">120</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"dnAssert('the title',oForm.Text,'My first window')"</span>)
-<span class="f">uiRun</span>(oForm)                         <span class="c"># show the window and wait until the user closes it</span>
-<span class="f">uiEnd</span>()</code></pre></div>
+<span class="f">uiRun</span>(oForm)                         <span class="c"># show the window and wait until the user closes it</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g01a.png" alt="The empty window" loading="lazy"><figcaption>Step 1: a window with a title</figcaption></figure>
-<ul><li>The <code>using { }</code> block comes <strong>first</strong>. Because it names <code>System.Windows.Forms</code>, it starts the Windows desktop runtime and makes the Ring thread suitable for windows (this is what <code>dnUseDesktop()</code> does).</li><li><code>uiForm("My first window",320,120)</code> makes a form with a title and a client area of 320 × 120 pixels, centred on the screen.</li><li><code>uiRun(oForm)</code> shows the window and waits. The program continues after the window is closed.</li><li><code>uiTest</code> and <code>uiEnd</code> make the program test itself when started with <code>--selftest</code>; you can ignore them for now.</li></ul>
+<ul><li>The <code>using { }</code> block comes <strong>first</strong>. Because it names <code>System.Windows.Forms</code>, it starts the Windows desktop runtime and makes the Ring thread suitable for windows (this is what <code>dnUseDesktop()</code> does).</li><li><code>uiForm("My first window",320,120)</code> makes a form with a title and a client area of 320 × 120 pixels, centred on the screen.</li><li><code>uiRun(oForm)</code> shows the window and waits. The program continues after the window is closed.</li></ul>
 <h2 id="step-2-a-label-and-a-button">Step 2: a label and a button<a class="anchor" href="#step-2-a-label-and-a-button">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_controls.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 2: a label and a button</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -267,9 +265,7 @@ oForm = <span class="f">uiForm</span>(<span class="s">"Click counter"</span>,<sp
 oLabel = <span class="f">uiLabel</span>(oForm,<span class="s">"The button was not clicked yet"</span>,<span class="n">20</span>,<span class="n">15</span>,<span class="n">280</span>,<span class="n">24</span>)      <span class="c"># parent, text, x, y, width, height</span>
 oButton = <span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span>,<span class="n">20</span>,<span class="n">55</span>,<span class="n">120</span>,<span class="n">32</span>,<span class="s">""</span>)                       <span class="c"># no code yet for the click</span>
 
-<span class="f">uiTest</span>(oForm,<span class="s">"dnAssert('the label',oLabel.Text,'The button was not clicked yet')"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div>
+<span class="f">uiRun</span>(oForm)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g01b.png" alt="A label and a button" loading="lazy"><figcaption>Step 2: controls</figcaption></figure>
 <p><code>uiLabel(parent, text, x, y, width, height)</code> and <code>uiButton(parent, text, x, y, width, height, code)</code> create a control and put it into the form. The position <code>x, y</code> is measured in pixels from the top-left corner of the form. The last argument of <code>uiButton</code> is the Ring code to run when the button is clicked; here it is empty, so the button does nothing yet.</p>
 <h2 id="step-3-the-button-does-something">Step 3: the button does something<a class="anchor" href="#step-3-the-button-does-something">#</a></h2>
@@ -292,9 +288,7 @@ nClicks = <span class="n">0</span>
 	<span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span>,<span class="n">20</span>,<span class="n">55</span>,<span class="n">120</span>,<span class="n">32</span>,<span class="s">"clicked()"</span>)      <span class="c"># the click calls the function clicked()</span>
 	<span class="f">uiButton</span>(oForm,<span class="s">"Reset"</span>,<span class="n">150</span>,<span class="n">55</span>,<span class="n">80</span>,<span class="n">32</span>,<span class="s">"resetCount()"</span>)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="k">func</span> <span class="f">clicked</span>
 	nClicks++
@@ -302,24 +296,14 @@ nClicks = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">resetCount</span>
 	nClicks = <span class="n">0</span>
-	oLabel.Text = <span class="s">"The button was not clicked yet"</span>
-
-<span class="c"># The same program tests itself when it is started with --selftest</span>
-<span class="k">func</span> <span class="f">selfTest</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"three clicks"</span>,oLabel.Text,<span class="s">"Clicked 3 times"</span>)
-	oForm.Controls.<span class="f">Item</span>(<span class="n">2</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"reset"</span>,oLabel.Text,<span class="s">"The button was not clicked yet"</span>)</code></pre></div>
+	oLabel.Text = <span class="s">"The button was not clicked yet"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g01c-clicked.png" alt="The counter after three clicks" loading="lazy"><figcaption>Step 3: after three clicks</figcaption></figure>
-
 <h3 id="the-important-rule-events-see-only-globals">The important rule: events see only globals<a class="anchor" href="#the-important-rule-events-see-only-globals">#</a></h3>
 <p><code>"clicked()"</code> is a <strong>text</strong> of Ring code. Ring runs it later, when the user clicks, <em>outside</em> the place where it was written. At that moment the local variables of <code>main</code> are gone. Therefore:</p>
 <div class="callout warn"><span class="t">Warning</span><p>The code of an event can only use <strong>global variables</strong>. Create the controls and the data of the program as globals at the top of the file (<code>oLabel = ""</code>, <code>nClicks = 0</code>), then fill them inside <code>func main</code>.</p></div>
 <p><code>clicked()</code> is an ordinary function. It changes the counter and writes the new text into the label (<code>oLabel.Text = ...</code>). Assigning to a <strong>property</strong> (<code>Text</code>) changes what you see.</p>
 <h3 id="the-program-tests-itself">The program tests itself<a class="anchor" href="#the-program-tests-itself">#</a></h3>
-<p><code>selfTest()</code> clicks the button three times with <code>PerformClick()</code> and checks the label with <code>dnAssert</code>. Run <code>ring ch10_counter.ring --selftest</code> and the window opens, clicks, checks and closes by itself; the output is the one above. The same idea tests every sample and application of the package.</p>
+<p>The checks of this program are in a separate file, <code>selftest/ch10_counter.ring</code>, so the program above stays short. Its function <code>selfTest()</code> clicks the button three times with <code>PerformClick()</code> and checks the label with <code>dnAssert</code>. Run <code>ring ch10_counter.ring --selftest</code> and the window opens, clicks, checks and closes by itself. The same idea tests every sample and application of the package (see <a href="testing.html">Testing</a>).</p>
 <h2 id="step-4-without-the-helpers">Step 4: without the helpers<a class="anchor" href="#step-4-without-the-helpers">#</a></h2>
 <p>The helpers are only short-cuts. This program builds the same window with the real classes, so you can see what is going on:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_plain.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do</span>

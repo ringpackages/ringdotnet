@@ -297,9 +297,7 @@ oSum = <span class="s">""</span>
 	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oGrid.Rows.Count - <span class="n">1</span>
 		rowChanged(i)
 	<span class="k">next</span>
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="k">func</span> <span class="f">addTextColumn</span> cName,cHeader,nWidth,lReadOnly
 	oColumn = <span class="k">new</span> <span class="t">DataGridViewTextBoxColumn</span>()
@@ -359,38 +357,7 @@ oSum = <span class="s">""</span>
 	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oGrid.Rows.Count - <span class="n">1</span>
 		nSum += cellNumber(i,<span class="s">"Total"</span>)
 	<span class="k">next</span>
-	oSum.Text = <span class="s">"Rows: "</span> + oGrid.Rows.Count + <span class="s">", the total is "</span> + nSum
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># the starting totals: 10 x 2.5 = 25; 4 x 6 + 5 (express) = 29, and 10 percent more for Large = 31.9; 3 x 4 = 12</span>
-	<span class="f">dnAssert</span>(<span class="s">"pens"</span>,cellText(<span class="n">0</span>,<span class="s">"Total"</span>),<span class="s">"25"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"paper"</span>,cellText(<span class="n">1</span>,<span class="s">"Total"</span>),<span class="s">"31.90"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"glue"</span>,cellText(<span class="n">2</span>,<span class="s">"Total"</span>),<span class="s">"12"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the sum"</span>,oSum.Text,<span class="s">"Rows: 3, the total is 68.90"</span>)
-
-	<span class="c"># the user types a new quantity in a cell: the total of the row and the sum follow</span>
-	oGrid.Rows.<span class="f">Item</span>(<span class="n">0</span>).Cells.<span class="f">Item</span>(<span class="s">"Qty"</span>).Value = <span class="n">20</span>
-	<span class="f">dnAssert</span>(<span class="s">"pens, 20"</span>,cellText(<span class="n">0</span>,<span class="s">"Total"</span>),<span class="s">"50"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the sum changed"</span>,oSum.Text,<span class="s">"Rows: 3, the total is 93.90"</span>)
-
-	<span class="c"># a check box: express adds 5</span>
-	oGrid.Rows.<span class="f">Item</span>(<span class="n">2</span>).Cells.<span class="f">Item</span>(<span class="s">"Express"</span>).Value = <span class="k">True</span>
-	<span class="f">dnAssert</span>(<span class="s">"glue, express"</span>,cellText(<span class="n">2</span>,<span class="s">"Total"</span>),<span class="s">"17"</span>)
-
-	<span class="c"># a combo box: the size Large adds 10 percent</span>
-	oGrid.Rows.<span class="f">Item</span>(<span class="n">0</span>).Cells.<span class="f">Item</span>(<span class="s">"Size"</span>).Value = <span class="s">"Large"</span>
-	<span class="f">dnAssert</span>(<span class="s">"pens, large"</span>,cellText(<span class="n">0</span>,<span class="s">"Total"</span>),<span class="s">"55"</span>)
-
-	<span class="c"># a wrong text counts as 0 and does not stop the program</span>
-	oGrid.Rows.<span class="f">Item</span>(<span class="n">1</span>).Cells.<span class="f">Item</span>(<span class="s">"Price"</span>).Value = <span class="s">"abc"</span>
-	<span class="f">dnAssert</span>(<span class="s">"a wrong price"</span>,cellText(<span class="n">1</span>,<span class="s">"Total"</span>),<span class="s">"5.50"</span>)
-
-	<span class="c"># a new row</span>
-	addRow()
-	<span class="f">dnAssert</span>(<span class="s">"four rows"</span>,oGrid.Rows.Count,<span class="n">4</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the new row"</span>,cellText(<span class="n">3</span>,<span class="s">"Total"</span>),<span class="s">""</span>)
-	rowChanged(<span class="n">3</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the new row, calculated"</span>,cellText(<span class="n">3</span>,<span class="s">"Total"</span>),<span class="s">"1"</span>)</code></pre></div>
+	oSum.Text = <span class="s">"Rows: "</span> + oGrid.Rows.Count + <span class="s">", the total is "</span> + nSum</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g142.png" alt="The order grid" loading="lazy"><figcaption>The order grid with its totals</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

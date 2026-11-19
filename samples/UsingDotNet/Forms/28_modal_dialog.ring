@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oDialog = ""	# globals of the dialog (the code of its events runs outside the function that builds it)
 oBox = ""
 oOk = ""
@@ -14,9 +13,7 @@ oForm = uiForm("Main window",320,140)
 oResult = uiLabel(oForm,"No name yet",20,70,280,24)
 uiButton(oForm,"Ask for a name...",20,20,150,32,"askName()")
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 
@@ -47,6 +44,3 @@ func askName
 	if cName != ""
 		oResult.Text = "Hello, " + cName + "!"
 	ok
-
-func selfTest
-	dnAssert("dialog returns the text",askNameDialog("Ring"),"Ring")

@@ -50,9 +50,7 @@ oNext = uiButton(oForm,"Next",335,5,55,26,"nextLevel()")
 uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")
 loadLevel(1)
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 
@@ -200,53 +198,3 @@ func draw
 		oInfo.Text = "Level " + nLevel + "   moves " + nMoves
 	ok
 	oCanvas.show()
-
-func selfTest
-	# real key presses with the Restart button focused
-	loadLevel(1)
-	oRestart.Focus()
-	if uiSendKeys(oForm,"{LEFT}")
-		dnAssert("the arrow key moves the player",nPlayerColumn,2)
-		uiSendKeys(oForm,"{RIGHT}")
-		dnAssert("the right arrow key too",nPlayerColumn,3)
-		uiSendKeys(oForm," ")
-		dnAssert("Space does not press the Restart button",nMoves,2)
-	ok
-	loadLevel(1)
-	dnAssert("player found",nPlayerColumn,3)
-	keyPressed("Left")
-	dnAssert("the target square is entered",tileAt(2,2),"+")
-	keyPressed("Left")
-	dnAssert("the wall stops the player",nPlayerColumn,2)
-	keyPressed("Right")
-	keyPressed("Right")
-	dnAssert("the box is pushed",tileAt(5,2),"$")
-	dnAssert("the target is visible again",tileAt(2,2),".")
-	dnAssert("moves counted",nMoves,3)
-	# push the box left onto the target: go around it
-	keyPressed("Down")
-	keyPressed("Right")
-	keyPressed("Right")
-	keyPressed("Up")
-	dnAssert("player is right of the box",tileAt(6,2),"@")
-	keyPressed("Left")
-	keyPressed("Left")
-	keyPressed("Left")
-	dnAssert("the box is on the target",tileAt(2,2),"*")
-	dnAssert("level solved",oInfo.Text,"Level 1 solved in 10 moves!")
-	# a box can not be pushed into a wall
-	loadLevel(2)
-	keyPressed("Down")
-	keyPressed("Down")
-	dnAssert("wall at the bottom",nPlayerRow,4)
-	nextLevel()
-	dnAssert("next level",nLevel,3)
-	nextLevel()
-	nextLevel()
-	dnAssert("levels wrap around",nLevel,2)
-	loadLevel(3)
-	dnAssert("the window grows with the level (9 rows)",oForm.ClientSize.Height,9 * C_CELL + 36)
-	dnAssert("the picture fits the level",oPicture.Height,9 * C_CELL)
-	dnAssert("the whole level is drawn (last row)",oCanvas.pixel(40,8 * C_CELL + 20) != "ff222222",1)
-	loadLevel(1)
-	dnAssert("a small level keeps a usable width",oForm.ClientSize.Width,400)

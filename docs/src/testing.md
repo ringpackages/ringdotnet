@@ -56,15 +56,17 @@ A failing assertion prints `FAIL: name expected <9> got <3>` and counts a failur
 
 ## Programs that test themselves
 
-Add three lines to a Windows Forms program and it becomes its own test: with `--selftest` it shows the form, runs the test code, closes the form and prints the result.
+The checks of a window program are kept in a file of their own, so the program stays as short as the lesson that shows it. The program is the usual one:
 
 ```ring
 oForm = uiForm("Click counter",260,130)
 ...
-uiTest(oForm,"selfTest()")          # runs selfTest() once the form is shown, when --selftest is used
-uiRun(oForm)                        # shows the form; the form closes itself after the test
-uiEnd()                             # prints SELFTEST OK, or the failures
+uiRun(oForm)
+```
 
+and next to it, in the folder `selftest`, the file with the same name (`selftest/main.ring`) holds the checks:
+
+```ring
 func selfTest
 	oForm.Controls.Item(1).PerformClick()
 	dnAssert("one click",oCount.Text,"1 clicks")
@@ -75,7 +77,7 @@ ring main.ring               # the normal program
 ring main.ring --selftest    # the test: prints SELFTEST OK
 ```
 
-WPF programs use `wpfTest`, `wpfRun` and `wpfEnd`. `uiMessage()` prints instead of showing a dialog in a test, and `uiAsk()` answers yes unless `uiAnswer` says otherwise.
+With `--selftest`, `uiRun` loads that file, shows the form, runs `selfTest()` once the form is shown, closes the form and prints the result. The form must be in the global variable `oForm` (WPF: `oWindow`, with `wpfRun`). A program without a `selftest` file runs normally; the functions `uiTest(oForm, code)` and `uiEnd()` (`wpfTest`, `wpfEnd`) do the same steps by hand for a program that keeps its checks inside. `uiMessage()` prints instead of showing a dialog in a test, and `uiAsk()` answers yes unless `uiAnswer` says otherwise.
 
 ## Typing keys in tests
 

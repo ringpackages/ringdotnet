@@ -1,0 +1,20 @@
+# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+
+func selfTest
+	dnAssert("rock beats scissors",compare(1,3),1)
+	dnAssert("scissors beat paper",compare(3,2),1)
+	dnAssert("paper beats rock",compare(2,1),1)
+	dnAssert("paper loses to scissors",compare(2,3),-1)
+	dnAssert("tie",compare(2,2),0)
+	playAgainst(1,3)
+	dnAssert("win recorded",nWins,1)
+	dnAssert("win message",left(oResult.Text,8),"You win!")
+	playAgainst(1,2)
+	dnAssert("loss recorded",nLosses,1)
+	playAgainst(3,3)
+	dnAssert("tie recorded",nTies,1)
+	dnAssert("history has 3 lines",oHistory.Items.Count,3)
+	dnAssert("score label",oScore.Text,"Wins 1   Losses 1   Ties 1")
+	# a real click plays against a random computer move
+	oForm.Controls.Item(1).PerformClick()
+	dnAssert("a click counts one game",nWins + nLosses + nTies,4)

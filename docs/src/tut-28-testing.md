@@ -74,7 +74,7 @@ dnAssert("an error was raised",lRaised,True)
 
 ### Windows that test themselves
 
-A window program can run its own test: add `uiTest(oForm,"selfTest()")` before `uiRun` and `uiEnd()` after it. When started with `--selftest` the window opens, runs `selfTest()` (which clicks buttons with `PerformClick()` and checks the labels), closes, and prints `SELFTEST OK`. The tutorials [Your first window](tut-11-first-window.html), [Drawing and animation](tut-14-animation.html), [Layout and richer controls](tut-23-layout.html) and [A project: a to-do list that remembers](tut-24-todo.html) all do this. `uiSendKeys(oForm,"12{+}30{ENTER}")` types into the form through the real key processing. See [Testing](testing.html) for the details and the `samples/UsingDotNet/tests/run.sh` script that runs everything.
+A window program can run its own test: put `func selfTest` in a file with the name of the program in a `selftest` folder next to it. When the program is started with `--selftest`, `uiRun` loads that file, the window opens, `selfTest()` runs (which clicks buttons with `PerformClick()` and checks the labels), closes, and prints `SELFTEST OK`. The tutorials [Your first window](tut-11-first-window.html), [Drawing and animation](tut-14-animation.html), [Layout and richer controls](tut-23-layout.html) and [A project: a to-do list that remembers](tut-24-todo.html) all have such a file. `uiSendKeys(oForm,"12{+}30{ENTER}")` types into the form through the real key processing. See [Testing](testing.html) for the details and the `samples/UsingDotNet/tests/run.sh` script that runs everything.
 
 ### Run them all
 

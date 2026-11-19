@@ -287,9 +287,7 @@ lClosed = <span class="k">False</span>
 	oName.<span class="f">setEnterEvent</span>(<span class="s">"oName.SelectAll()"</span>)
 	oAge.<span class="f">setEnterEvent</span>(<span class="s">"oAge.SelectAll()"</span>)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># The argument of KeyPress has KeyChar (the character) and Handled. Digits and the Backspace key are accepted; everything else is refused.</span>
 <span class="k">func</span> <span class="f">filterKey</span> oArgs
@@ -310,40 +308,7 @@ lClosed = <span class="k">False</span>
 		oResult.Text = <span class="s">"Please fill in both boxes"</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
-	oResult.Text = trim(oName.Text) + <span class="s">" is "</span> + oAge.Text + <span class="s">" years old"</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># the keys go to the box that has the focus, through the real key processing</span>
-	oForm.ActiveControl = oAge
-	<span class="f">uiSendKeys</span>(oForm,<span class="s">"1a2-3"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"only digits"</span>,oAge.Text,<span class="s">"123"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the other keys were refused"</span>,nRejected,<span class="n">2</span>)
-
-	<span class="c"># MaxLength: a fourth digit is not accepted</span>
-	<span class="f">uiSendKeys</span>(oForm,<span class="s">"9"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"at most three characters"</span>,oAge.Text,<span class="s">"123"</span>)
-
-	<span class="c"># Backspace works, because the filter lets it through</span>
-	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{BACKSPACE}"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"backspace"</span>,oAge.Text,<span class="s">"12"</span>)
-
-	<span class="c"># Enter presses the OK button (the AcceptButton) from any box: with the name empty the program asks for it</span>
-	oForm.ActiveControl = oAge
-	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{ENTER}"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"an empty name"</span>,oResult.Text,<span class="s">"Please fill in both boxes"</span>)
-	oName.Text = <span class="s">"Ann"</span>                                   <span class="c"># (letters typed by a test depend on the keyboard layout of the computer, so it is set)</span>
-	oForm.ActiveControl = oName
-	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{ENTER}"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the result"</span>,oResult.Text,<span class="s">"Ann is 12 years old"</span>)
-
-	<span class="c"># the tab order: Tab goes name -&gt; age -&gt; OK</span>
-	oForm.ActiveControl = oName
-	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{TAB}"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"tab to the age box"</span>,oForm.ActiveControl.TabIndex,<span class="n">2</span>)
-
-	<span class="c"># Escape presses the CancelButton: the form closes</span>
-	<span class="f">uiSendKeys</span>(oForm,<span class="s">"{ESC}"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"escape closed the form"</span>,lClosed,<span class="k">True</span>)</code></pre></div>
+	oResult.Text = trim(oName.Text) + <span class="s">" is "</span> + oAge.Text + <span class="s">" years old"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g146.png" alt="The keyboard form" loading="lazy"><figcaption>The form after OK was pressed</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

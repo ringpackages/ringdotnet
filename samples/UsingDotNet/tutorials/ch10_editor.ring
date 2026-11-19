@@ -38,9 +38,7 @@ func main
 	oStatus.Items.Add(oLabel)
 	oForm.Controls.Add(oStatus)
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 func textChanged
 	lChanged = True
@@ -81,17 +79,3 @@ func saveFile
 	cShortName = new Path().GetFileName(cFileName)
 	oForm.Text = "Tiny editor - " + cShortName
 	oStatus.Items.Item(0).Text = "Saved " + cFileName
-
-func selfTest
-	oEditor.Text = "Hello from the test"
-	dnAssert("the text changed",lChanged,True)
-	cTemp = new Path().Combine([new Path().GetTempPath(),"tutorial13.txt"])
-	cFileName = cTemp
-	saveFile()
-	dnAssert("saved",new File().ReadAllText(cTemp),"Hello from the test")
-	dnAssert("no longer changed",lChanged,False)
-	newFile()
-	dnAssert("new file is empty",oEditor.Text,"")
-	loadFile(cTemp)
-	dnAssert("opened again",oEditor.Text,"Hello from the test")
-	new File().Delete(cTemp)

@@ -32,9 +32,7 @@ uiButton(oForm,"Clear",100,385,80,32,"clearBoard()")
 oCount = uiLabel(oForm,"",190,392,160,22)
 showBoard()
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 
@@ -161,17 +159,3 @@ func findOne nColumn, aPlaced
 		ok
 	next
 	return false
-
-func selfTest
-	toggle(1,1)
-	toggle(2,2)
-	dnAssert("diagonal conflict",oInfo.Text,"Queens: 2/8   conflicts: 2")
-	dnAssert("conflicting queens are red",aSquares[squareOf(1,1)].ForeColor.Name,"Red")
-	toggle(2,2)
-	dnAssert("one queen is fine",oInfo.Text,"Queens: 1/8   conflicts: 0")
-	toggle(1,1)
-	dnAssert("queen removed",oInfo.Text,"Queens: 0/8   conflicts: 0")
-	solveIt()
-	dnAssert("solver finds a full solution",oInfo.Text,"Solved!")
-	dnAssert("a queen in every column",aSquares[squareOf(aQueens[1],1)].Text,"Q")
-	dnAssert("the number of solutions of the 8 queens problem",countSolutions(1,list(C_SIZE)),92)

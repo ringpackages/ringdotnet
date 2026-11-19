@@ -52,7 +52,7 @@ if [ "$QUICK" = "0" ]; then
 	# 2. tutorials: the ones with a window test run themselves (--selftest), the others just have to run without an error
 	for f in "$HERE"/../tutorials/*.ring; do
 		[ -f "$f" ] || continue
-		if grep -q -e "uiTest(" -e "wpfTest(" -e "wpfSelfTest()" "$f"; then KIND=s; else KIND=n; fi
+		if [ -f "$(dirname "$f")/selftest/$(basename "$f")" ] || grep -q -e "uiTest(" -e "wpfTest(" -e "wpfSelfTest()" "$f"; then KIND=s; else KIND=n; fi
 		echo "$KIND|$HERE/../tutorials|$(basename "$f")|tutorial $(basename "$f")" >> "$LIST"
 	done
 	rungroup

@@ -23,7 +23,6 @@ lead: Build a window in four small steps — an empty form, a label and a button
 - The `using { }` block comes **first**. Because it names `System.Windows.Forms`, it starts the Windows desktop runtime and makes the Ring thread suitable for windows (this is what `dnUseDesktop()` does).
 - `uiForm("My first window",320,120)` makes a form with a title and a client area of 320 × 120 pixels, centred on the screen.
 - `uiRun(oForm)` shows the window and waits. The program continues after the window is closed.
-- `uiTest` and `uiEnd` make the program test itself when started with `--selftest`; you can ignore them for now.
 
 ## Step 2: a label and a button
 
@@ -39,8 +38,6 @@ lead: Build a window in four small steps — an empty form, a label and a button
 
 ![The counter after three clicks](img/shots/tut-g01c-clicked.png "Step 3: after three clicks")
 
-{{output:samples/UsingDotNet/tutorials/ch10_counter.ring --selftest}}
-
 ### The important rule: events see only globals
 
 `"clicked()"` is a **text** of Ring code. Ring runs it later, when the user clicks, *outside* the place where it was written. At that moment the local variables of `main` are gone. Therefore:
@@ -51,7 +48,7 @@ lead: Build a window in four small steps — an empty form, a label and a button
 
 ### The program tests itself
 
-`selfTest()` clicks the button three times with `PerformClick()` and checks the label with `dnAssert`. Run `ring ch10_counter.ring --selftest` and the window opens, clicks, checks and closes by itself; the output is the one above. The same idea tests every sample and application of the package.
+The checks of this program are in a separate file, `selftest/ch10_counter.ring`, so the program above stays short. Its function `selfTest()` clicks the button three times with `PerformClick()` and checks the label with `dnAssert`. Run `ring ch10_counter.ring --selftest` and the window opens, clicks, checks and closes by itself. The same idea tests every sample and application of the package (see [Testing](testing.html)).
 
 ## Step 4: without the helpers
 

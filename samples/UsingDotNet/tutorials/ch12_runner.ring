@@ -27,9 +27,7 @@ func main
 	}
 	oStatus = uiLabel(oForm,"Type a command and press Run",10,352,538,22)
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 # Run "cmd /c <command>", wait for it, show everything it printed and its exit code
 func runCommand
@@ -61,16 +59,3 @@ func runCommand
 		oOutput.Text = "Could not run the command: " + cCatchError
 		oStatus.Text = "Failed"
 	done
-
-func selfTest
-	oCommand.Text = "echo one && echo two"
-	runCommand()
-	dnAssert("the output has both lines",substr(oOutput.Text,"one") > 0 and substr(oOutput.Text,"two") > 0,True)
-	dnAssert("the exit code is shown",substr(oStatus.Text,"Exit code 0") > 0,True)
-	oCommand.Text = "dir c:\folder\that\does\not\exist"
-	runCommand()
-	dnAssert("an error text appears",len(trim(oOutput.Text)) > 0,True)
-	dnAssert("the exit code is not 0",substr(oStatus.Text,"Exit code 0") = 0,True)
-	oCommand.Text = "echo done"
-	runCommand()
-	dnAssert("the status",substr(oStatus.Text," ms") > 0,True)

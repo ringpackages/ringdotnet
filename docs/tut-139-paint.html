@@ -283,9 +283,7 @@ nStrokes = <span class="n">0</span>
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">"Press the mouse button on the white area and move"</span>,<span class="n">10</span>,<span class="n">334</span>,<span class="n">430</span>,<span class="n">22</span>)
 
 	clearCanvas()
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="k">func</span> <span class="f">clearCanvas</span>
 	oGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oBitmap)
@@ -343,45 +341,7 @@ nStrokes = <span class="n">0</span>
 	oGraphics.<span class="f">DrawLine</span>([ :pen = oPen, :pt1 = <span class="k">new</span> <span class="t">Point</span>(nX1,nY1), :pt2 = <span class="k">new</span> <span class="t">Point</span>(nX2,nY2) ])
 	oPen.<span class="f">Dispose</span>()
 	oGraphics.<span class="f">Dispose</span>()
-	oPicture.<span class="f">Refresh</span>()                      <span class="c"># draw the picture box again</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># a new canvas is white</span>
-	<span class="f">dnAssert</span>(<span class="s">"white at the start"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">100</span>).Name,<span class="s">"ffffffff"</span>)
-
-	<span class="c"># a stroke from (50,100) to (150,100): the mouse goes down, moves in steps and goes up</span>
-	mouseDown(<span class="n">50</span>,<span class="n">100</span>)
-	<span class="k">for</span> nX = <span class="n">60</span> <span class="k">to</span> <span class="n">150</span> <span class="k">step</span> <span class="n">10</span>
-		mouseMove(nX,<span class="n">100</span>)
-	<span class="k">next</span>
-	mouseUp()
-	<span class="f">dnAssert</span>(<span class="s">"black in the middle"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">100</span>).Name,<span class="s">"ff000000"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"white above"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">80</span>).Name,<span class="s">"ffffffff"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"one stroke"</span>,nStrokes,<span class="n">1</span>)
-
-	<span class="c"># moving with the button up draws nothing</span>
-	mouseMove(<span class="n">200</span>,<span class="n">200</span>)
-	mouseMove(<span class="n">250</span>,<span class="n">200</span>)
-	<span class="f">dnAssert</span>(<span class="s">"no line without the button"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">225</span>,<span class="n">200</span>).Name,<span class="s">"ffffffff"</span>)
-
-	<span class="c"># a click without a move leaves a dot, in another color and a thick pen</span>
-	setColor(<span class="s">"Red"</span>)
-	nPenSize = <span class="n">12</span>
-	mouseDown(<span class="n">300</span>,<span class="n">150</span>)
-	mouseUp()
-	<span class="f">dnAssert</span>(<span class="s">"a red dot"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">300</span>,<span class="n">150</span>).Name,<span class="s">"ffff0000"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"two strokes"</span>,nStrokes,<span class="n">2</span>)
-
-	<span class="c"># the picture can be saved</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([ <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-paint.png"</span> ])
-	oBitmap.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
-	<span class="f">dnAssert</span>(<span class="s">"the file has data"</span>,<span class="k">new</span> <span class="t">FileInfo</span>(cFile).Length &gt; <span class="n">0</span>,<span class="k">True</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
-
-	<span class="c"># clear: white again</span>
-	clearCanvas()
-	<span class="f">dnAssert</span>(<span class="s">"white after clear"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">100</span>).Name,<span class="s">"ffffffff"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"no strokes after clear"</span>,nStrokes,<span class="n">0</span>)</code></pre></div>
+	oPicture.<span class="f">Refresh</span>()                      <span class="c"># draw the picture box again</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g139.png" alt="The paint program" loading="lazy"><figcaption>The paint program with a few strokes</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

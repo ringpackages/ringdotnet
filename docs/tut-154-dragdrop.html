@@ -284,9 +284,7 @@ oFilesList = <span class="s">""</span>
 	oFilesList.<span class="f">setDragDropEvent</span>(<span class="s">"dropFiles(aDotNetArgs[2])"</span>)
 
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">"Ready"</span>,<span class="n">15</span>,<span class="n">296</span>,<span class="n">485</span>,<span class="n">22</span>)
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># the start of a drag: the item under the mouse is the data. The result of DoDragDrop is the effect that the target chose: "Move" means</span>
 <span class="c"># that the item is taken from the source.</span>
@@ -333,50 +331,7 @@ oFilesList = <span class="s">""</span>
 	<span class="k">for</span> cPath <span class="k">in</span> oArgs.Data.<span class="f">GetData</span>(<span class="s">"FileDrop"</span>).<span class="f">toList</span>()
 		oFilesList.Items.<span class="f">Add</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cPath))
 	<span class="k">next</span>
-	oStatus.Text = <span class="s">""</span> + oFilesList.Items.Count + <span class="s">" files dropped"</span>
-
-<span class="c"># a drag made by the test: a DataObject with the data, and the arguments that .NET would give to the event</span>
-<span class="k">func</span> <span class="f">makeArgs</span> cFormat,xData,nKeys
-	oData = <span class="k">new</span> <span class="t">DataObject</span>().<span class="f">New_</span>([ :format = cFormat, :data = xData ])
-	<span class="k">return</span> <span class="k">new</span> <span class="t">DragEventArgs</span>(oData, nKeys, <span class="n">10</span>, <span class="n">10</span>, <span class="s">"Copy, Move"</span>, <span class="s">"None"</span>)
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"four fruits"</span>,oSource.Items.Count,<span class="n">4</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the basket accepts drops"</span>,oBasket.AllowDrop,<span class="k">True</span>)
-
-	<span class="c"># the mouse comes in with a text: without Ctrl the effect is Move, with Ctrl it is Copy</span>
-	oArgs = makeArgs(<span class="s">"Text"</span>,<span class="s">"apple"</span>,<span class="n">0</span>)
-	dragEnter(oArgs)
-	<span class="f">dnAssert</span>(<span class="s">"a move"</span>,oArgs.Effect,<span class="s">"Move"</span>)
-	oArgs = makeArgs(<span class="s">"Text"</span>,<span class="s">"apple"</span>,<span class="n">8</span>)
-	dragEnter(oArgs)
-	<span class="f">dnAssert</span>(<span class="s">"a copy with Ctrl"</span>,oArgs.Effect,<span class="s">"Copy"</span>)
-
-	<span class="c"># data that the target does not understand (a picture format): refused</span>
-	oArgs = makeArgs(<span class="s">"Bitmap"</span>,<span class="s">"not a text"</span>,<span class="n">0</span>)
-	dragEnter(oArgs)
-	<span class="f">dnAssert</span>(<span class="s">"refused"</span>,oArgs.Effect,<span class="s">"None"</span>)
-
-	<span class="c"># the drop: the text is in the basket</span>
-	oArgs = makeArgs(<span class="s">"Text"</span>,<span class="s">"banana"</span>,<span class="n">0</span>)
-	dragEnter(oArgs)
-	dragDrop(oArgs)
-	<span class="f">dnAssert</span>(<span class="s">"the basket has it"</span>,oBasket.Items.<span class="f">Item</span>(<span class="n">0</span>),<span class="s">"banana"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the status"</span>,oStatus.Text,<span class="s">"Dropped: banana (Move)"</span>)
-
-	<span class="c"># the same fruit again: not added twice, and the source is told that nothing was taken</span>
-	oArgs = makeArgs(<span class="s">"Text"</span>,<span class="s">"banana"</span>,<span class="n">0</span>)
-	dragEnter(oArgs)
-	dragDrop(oArgs)
-	<span class="f">dnAssert</span>(<span class="s">"not twice"</span>,oBasket.Items.Count,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"nothing taken"</span>,oArgs.Effect,<span class="s">"None"</span>)
-
-	<span class="c"># the drop of files</span>
-	oArgs = makeArgs(<span class="s">"FileDrop"</span>,[ <span class="s">"C:/work/report.txt"</span>,<span class="s">"C:/work/photo.png"</span> ],<span class="n">0</span>)
-	dropFiles(oArgs)
-	<span class="f">dnAssert</span>(<span class="s">"two files"</span>,oFilesList.Items.Count,<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the first name"</span>,oFilesList.Items.<span class="f">Item</span>(<span class="n">0</span>),<span class="s">"report.txt"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the files status"</span>,oStatus.Text,<span class="s">"2 files dropped"</span>)</code></pre></div>
+	oStatus.Text = <span class="s">""</span> + oFilesList.Items.Count + <span class="s">" files dropped"</span></code></pre></div>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-source-starts-the-drag">The source starts the drag<a class="anchor" href="#the-source-starts-the-drag">#</a></h3>

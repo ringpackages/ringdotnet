@@ -290,9 +290,7 @@ lLoading = <span class="k">False</span>
 	refreshStatus()
 
 	oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"saveTasks()"</span>)
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="k">func</span> <span class="f">addTask</span>
 	cText = trim(oNew.Text)
@@ -347,31 +345,7 @@ lLoading = <span class="k">False</span>
 		oTasks.Items.<span class="f">Add</span>([ :item = oTask.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">GetString</span>(), :isChecked = oTask.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">GetInt32</span>() = <span class="n">1</span> ])
 	<span class="k">next</span>
 	oDocument.<span class="f">Dispose</span>()
-	lLoading = <span class="k">False</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oNew.Text = <span class="s">"Buy milk"</span>
-	addTask()
-	oNew.Text = <span class="s">"Write the tutorial"</span>
-	addTask()
-	oNew.Text = <span class="s">"   "</span>
-	addTask()                                         <span class="c"># blank: ignored</span>
-	<span class="f">dnAssert</span>(<span class="s">"two tasks"</span>,oTasks.Items.Count,<span class="n">2</span>)
-	oTasks.<span class="f">SetItemChecked</span>(<span class="n">0</span>,<span class="k">True</span>)
-	saveTasks()
-	refreshStatus()
-	<span class="f">dnAssert</span>(<span class="s">"status"</span>,oStatus.Text,<span class="s">"  1 of 2 done"</span>)
-	<span class="c"># the file holds the tasks</span>
-	<span class="f">dnAssert</span>(<span class="s">"saved as JSON"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile),<span class="s">'[[1,"Buy milk"],[0,"Write the tutorial"]]'</span>)
-	<span class="c"># a second load shows the same tasks</span>
-	oTasks.Items.<span class="f">Clear</span>()
-	loadTasks()
-	<span class="f">dnAssert</span>(<span class="s">"loaded again"</span>,oTasks.Items.Count,<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the checked state"</span>,oTasks.<span class="f">GetItemChecked</span>(<span class="n">0</span>),<span class="k">True</span>)
-	oTasks.SelectedIndex = <span class="n">1</span>
-	removeTask()
-	<span class="f">dnAssert</span>(<span class="s">"removed"</span>,oTasks.Items.Count,<span class="n">1</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>
+	lLoading = <span class="k">False</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g24.png" alt="The to-do list" loading="lazy"><figcaption>Two of three tasks are done</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

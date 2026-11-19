@@ -45,9 +45,7 @@ func main
 	wpfFind(oWindow,"clear").setClickEvent("clearKeys()")
 	wpfFind(oWindow,"back").setClickEvent("backspace()")
 
-	wpfTest(oWindow,"selfTest()")
 	wpfRun(oWindow)
-	wpfEnd()
 
 func pressKey nDigit
 	if len(cEntered) < 12
@@ -71,20 +69,3 @@ func showEntered
 	else
 		oDisplay.Text = cEntered
 	ok
-
-func selfTest
-	clickKey("key4")
-	clickKey("key2")
-	dnAssert("two digits",oDisplay.Text,"42")
-	clickKey("back")
-	dnAssert("backspace",oDisplay.Text,"4")
-	clickKey("clear")
-	dnAssert("clear shows zero",oDisplay.Text,"0")
-	clickKey("key0")
-	clickKey("key7")
-	dnAssert("zero then seven",oDisplay.Text,"07")
-	# the style was applied to all buttons: the keys have the margin of the Style
-	dnAssert("the style: Margin of a key",wpfFind(oWindow,"key5").Margin.Left,4)
-
-func clickKey cName
-	wpfFind(oWindow,cName).RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new WpfButtonBase().ClickEvent ]))

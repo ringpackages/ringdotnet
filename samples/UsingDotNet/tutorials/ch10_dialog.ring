@@ -28,9 +28,7 @@ func main
 	uiButton(oForm,"Edit profile...",20,90,130,32,"editProfile()")
 	showProfile()
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 func showProfile
 	oShow.Text = cName + nl + nAge + " years old"
@@ -113,11 +111,3 @@ func driveDialog
 		oOk.PerformClick()
 		oTimer.Stop()
 	ok
-
-func selfTest
-	cNextName = "Bob"
-	nStep = 0
-	editProfile()
-	dnAssert("the answer was used",cName,"Bob")
-	dnAssert("the age was used",nAge,44)
-	dnAssert("shown in the window",oShow.Text,"Bob" + nl + "44 years old")

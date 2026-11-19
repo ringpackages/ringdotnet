@@ -278,9 +278,7 @@ nShown = <span class="n">0</span>                        <span class="c"># how m
 	<span class="c"># When the window closes the icon must be removed: it stays in the tray until the mouse moves over it if it is left there.</span>
 	oForm.<span class="f">setFormClosedEvent</span>(<span class="s">"oTray.Visible = False oTray.Dispose()"</span>)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># hide the window: it is not minimized, it is gone from the screen and the taskbar; only the icon remains</span>
 <span class="k">func</span> <span class="f">hideToTray</span>
@@ -293,27 +291,7 @@ nShown = <span class="n">0</span>                        <span class="c"># how m
 	nShown++
 	oForm.<span class="f">Show</span>(<span class="k">NULL</span>)
 	oForm.<span class="f">Activate</span>()
-	oStatus.Text = <span class="s">"Back from the tray "</span> + nShown + <span class="s">" time(s)"</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"the icon is visible"</span>,oTray.Visible,<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the tip"</span>,oTray.Text,<span class="s">"Tray demo (double-click to open)"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"two menu items"</span>,oMenu.Items.Count,<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the first menu item"</span>,oMenu.Items.<span class="f">Item</span>(<span class="n">0</span>).Text,<span class="s">"Open"</span>)
-
-	<span class="c"># hide: the window is not visible, the icon still is</span>
-	hideToTray()
-	<span class="f">dnAssert</span>(<span class="s">"the window is hidden"</span>,oForm.Visible,<span class="k">False</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the icon stays"</span>,oTray.Visible,<span class="k">True</span>)
-
-	<span class="c"># the double click (or the menu item Open) brings it back</span>
-	showFromTray()
-	<span class="f">dnAssert</span>(<span class="s">"the window is back"</span>,oForm.Visible,<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the status"</span>,oStatus.Text,<span class="s">"Back from the tray 1 time(s)"</span>)
-
-	<span class="c"># the menu item runs the same function</span>
-	oMenu.Items.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"the menu item Open"</span>,nShown,<span class="n">2</span>)</code></pre></div>
+	oStatus.Text = <span class="s">"Back from the tray "</span> + nShown + <span class="s">" time(s)"</span></code></pre></div>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-icon">The icon<a class="anchor" href="#the-icon">#</a></h3>

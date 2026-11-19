@@ -290,9 +290,7 @@ cEntered = <span class="s">""</span>
 	<span class="f">wpfFind</span>(oWindow,<span class="s">"clear"</span>).<span class="f">setClickEvent</span>(<span class="s">"clearKeys()"</span>)
 	<span class="f">wpfFind</span>(oWindow,<span class="s">"back"</span>).<span class="f">setClickEvent</span>(<span class="s">"backspace()"</span>)
 
-	<span class="f">wpfTest</span>(oWindow,<span class="s">"selfTest()"</span>)
 	<span class="f">wpfRun</span>(oWindow)
-	<span class="f">wpfEnd</span>()
 
 <span class="k">func</span> <span class="f">pressKey</span> nDigit
 	<span class="k">if</span> len(cEntered) &lt; <span class="n">12</span>
@@ -315,24 +313,7 @@ cEntered = <span class="s">""</span>
 		oDisplay.Text = <span class="s">"0"</span>
 	<span class="k">else</span>
 		oDisplay.Text = cEntered
-	<span class="k">ok</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	clickKey(<span class="s">"key4"</span>)
-	clickKey(<span class="s">"key2"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"two digits"</span>,oDisplay.Text,<span class="s">"42"</span>)
-	clickKey(<span class="s">"back"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"backspace"</span>,oDisplay.Text,<span class="s">"4"</span>)
-	clickKey(<span class="s">"clear"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"clear shows zero"</span>,oDisplay.Text,<span class="s">"0"</span>)
-	clickKey(<span class="s">"key0"</span>)
-	clickKey(<span class="s">"key7"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"zero then seven"</span>,oDisplay.Text,<span class="s">"07"</span>)
-	<span class="c"># the style was applied to all buttons: the keys have the margin of the Style</span>
-	<span class="f">dnAssert</span>(<span class="s">"the style: Margin of a key"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"key5"</span>).Margin.Left,<span class="n">4</span>)
-
-<span class="k">func</span> <span class="f">clickKey</span> cName
-	<span class="f">wpfFind</span>(oWindow,cName).<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_</span>([ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))</code></pre></div>
+	<span class="k">ok</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g38-typed.png" alt="The keypad" loading="lazy"><figcaption>After typing 4, 2, 7</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

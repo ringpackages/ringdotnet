@@ -271,9 +271,7 @@ oWindow = <span class="s">""</span>
 	<span class="f">wpfFind</span>(oWindow,<span class="s">"down"</span>).<span class="f">setClickEvent</span>(<span class="s">"moveItem(1)"</span>)
 	<span class="f">wpfFind</span>(oWindow,<span class="s">"clear"</span>).<span class="f">setClickEvent</span>(<span class="s">"clearItems()"</span>)
 
-	<span class="f">wpfTest</span>(oWindow,<span class="s">"selfTest()"</span>)
 	<span class="f">wpfRun</span>(oWindow)
-	<span class="f">wpfEnd</span>()
 
 <span class="k">func</span> <span class="f">listBox</span>
 	<span class="k">return</span> <span class="f">wpfFind</span>(oWindow,<span class="s">"list"</span>)
@@ -327,60 +325,7 @@ oWindow = <span class="s">""</span>
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">showItem</span> nIndex
-	<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text = <span class="s">"Item "</span> + (nIndex + <span class="n">1</span>) + <span class="s">": "</span> + listBox().Items.<span class="f">Item</span>(nIndex)
-
-<span class="c"># the items as one text, for the test</span>
-<span class="k">func</span> <span class="f">itemsText</span>
-	cText = <span class="s">""</span>
-	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> listBox().Items.Count - <span class="n">1</span>
-		<span class="k">if</span> cText != <span class="s">""</span>
-			cText += <span class="s">","</span>
-		<span class="k">ok</span>
-		cText += listBox().Items.<span class="f">Item</span>(i)
-	<span class="k">next</span>
-	<span class="k">return</span> cText
-
-<span class="k">func</span> <span class="f">clickButton</span> oButton
-	oButton.<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_</span>([ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># add three items through the text box and the Add button</span>
-	<span class="k">for</span> cText <span class="k">in</span> [ <span class="s">"tea"</span>,<span class="s">"coffee"</span>,<span class="s">"milk"</span> ]
-		<span class="f">wpfFind</span>(oWindow,<span class="s">"input"</span>).Text = cText
-		clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"add"</span>))
-	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"three items"</span>,itemsText(),<span class="s">"tea,coffee,milk"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the count"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text,<span class="s">"3 items"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the text box is empty again"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"input"</span>).Text,<span class="s">""</span>)
-	<span class="f">dnAssert</span>(<span class="s">"an empty text adds nothing"</span>,itemsText(),<span class="s">"tea,coffee,milk"</span>)
-
-	<span class="c"># a button was made for each item</span>
-	<span class="f">dnAssert</span>(<span class="s">"three chips"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>).Children.Count,<span class="n">3</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the chip text"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>).Children.<span class="f">Item</span>(<span class="n">1</span>).Content,<span class="s">"coffee"</span>)
-	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>).Children.<span class="f">Item</span>(<span class="n">2</span>))
-	<span class="f">dnAssert</span>(<span class="s">"a chip was clicked"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text,<span class="s">"Item 3: milk"</span>)
-
-	<span class="c"># selecting and moving: coffee down, then up twice</span>
-	listBox().SelectedIndex = <span class="n">1</span>
-	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"down"</span>))
-	<span class="f">dnAssert</span>(<span class="s">"coffee down"</span>,itemsText(),<span class="s">"tea,milk,coffee"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the selection follows"</span>,listBox().SelectedIndex,<span class="n">2</span>)
-	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"up"</span>))
-	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"up"</span>))
-	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"up"</span>))                       <span class="c"># the first place: nothing to do</span>
-	<span class="f">dnAssert</span>(<span class="s">"coffee up"</span>,itemsText(),<span class="s">"coffee,tea,milk"</span>)
-
-	<span class="c"># remove the selected item, and with nothing selected remove nothing</span>
-	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"remove"</span>))
-	<span class="f">dnAssert</span>(<span class="s">"removed"</span>,itemsText(),<span class="s">"tea,milk"</span>)
-	listBox().SelectedIndex = -<span class="n">1</span>
-	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"remove"</span>))
-	<span class="f">dnAssert</span>(<span class="s">"nothing selected, nothing removed"</span>,itemsText(),<span class="s">"tea,milk"</span>)
-
-	<span class="c"># clear</span>
-	clickButton(<span class="f">wpfFind</span>(oWindow,<span class="s">"clear"</span>))
-	<span class="f">dnAssert</span>(<span class="s">"empty"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text,<span class="s">"0 items"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"no chips"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>).Children.Count,<span class="n">0</span>)</code></pre></div>
+	<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text = <span class="s">"Item "</span> + (nIndex + <span class="n">1</span>) + <span class="s">": "</span> + listBox().Items.<span class="f">Item</span>(nIndex)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g148.png" alt="The list window" loading="lazy"><figcaption>A list with the buttons that the program made</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

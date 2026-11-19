@@ -279,9 +279,7 @@ lChanged = <span class="k">False</span>
 	oStatus.Items.<span class="f">Add</span>(oLabel)
 	oForm.Controls.<span class="f">Add</span>(oStatus)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="k">func</span> <span class="f">textChanged</span>
 	lChanged = <span class="k">True</span>
@@ -321,21 +319,7 @@ lChanged = <span class="k">False</span>
 	lChanged = <span class="k">False</span>
 	cShortName = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFileName)
 	oForm.Text = <span class="s">"Tiny editor - "</span> + cShortName
-	oStatus.Items.<span class="f">Item</span>(<span class="n">0</span>).Text = <span class="s">"Saved "</span> + cFileName
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oEditor.Text = <span class="s">"Hello from the test"</span>
-	<span class="f">dnAssert</span>(<span class="s">"the text changed"</span>,lChanged,<span class="k">True</span>)
-	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial13.txt"</span>])
-	cFileName = cTemp
-	saveFile()
-	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cTemp),<span class="s">"Hello from the test"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"no longer changed"</span>,lChanged,<span class="k">False</span>)
-	newFile()
-	<span class="f">dnAssert</span>(<span class="s">"new file is empty"</span>,oEditor.Text,<span class="s">""</span>)
-	loadFile(cTemp)
-	<span class="f">dnAssert</span>(<span class="s">"opened again"</span>,oEditor.Text,<span class="s">"Hello from the test"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cTemp)</code></pre></div>
+	oStatus.Items.<span class="f">Item</span>(<span class="n">0</span>).Text = <span class="s">"Saved "</span> + cFileName</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g03-text.png" alt="The editor with some text" loading="lazy"><figcaption>The tiny editor: menu on top, status bar at the bottom</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

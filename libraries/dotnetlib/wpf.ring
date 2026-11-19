@@ -81,10 +81,21 @@ func wpfQuiet  oWindow
 		oWindow.Opacity = 0
 	ok
 
-# Show the window and run the message loop until it is closed (modal; works more than once in a program)
+# Show the window and run the message loop until it is closed (modal; works more than once in a program). With --selftest the checks in
+# selftest/<program>.ring next to the program run once the window is rendered (see dnLoadSelfTest), and the result is printed at the end.
 func wpfRun  oWindow
 	wpfQuiet(oWindow)
+	lChecks = False
+	if wpfSelfTest()
+		lChecks = dnLoadSelfTest()
+		if lChecks
+			wpfTest(oWindow,"selfTest()")
+		ok
+	ok
 	oWindow.ShowDialog()
+	if lChecks
+		wpfEnd()
+	ok
 
 # The automatic part of a program: when running as a test, cCode runs once the window is rendered and the window closes afterwards.
 # The window must be in the global variable oWindow (the code that closes it is oWindow.Close()).

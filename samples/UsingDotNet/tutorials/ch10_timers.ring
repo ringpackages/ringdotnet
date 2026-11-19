@@ -40,9 +40,7 @@ func main
 	oClock = uiTimer(50,"showTime()")
 	oClock.Start()
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 # ---------------------------------------------------------------- the stopwatch
 
@@ -88,19 +86,3 @@ func jobStep
 	ok
 
 # ---------------------------------------------------------------- the test: stop the timers, call the steps by hand
-
-func selfTest
-	oClock.Stop()
-	toggleWatch()                                   # start
-	new Thread().Sleep(150)
-	toggleWatch()                                   # stop
-	showTime()
-	dnAssert("the stopwatch measured time",oWatch.ElapsedMilliseconds >= 100,True)
-	resetWatch()
-	dnAssert("reset",oTime.Text,"0:00.0")
-	startJob()
-	for nStep = 1 to 20
-		jobStep()
-	next
-	dnAssert("the job finished",oInfo.Text,"Finished")
-	dnAssert("the bar is full",oBar.Value,100)

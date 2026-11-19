@@ -26,9 +26,7 @@ oInfo = uiLabel(oForm,"",15,115,370,80)
 oPicker.setValueChangedEvent("fromDate()")
 fromDate()
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 
@@ -63,18 +61,3 @@ func fromJulian
 	aDate = calendarDate(nJulian)
 	oDate = new DateTime(aDate[1],aDate[2],aDate[3])
 	oPicker.Value = oDate
-
-func selfTest
-	dnAssert("Julian day of 2000-01-01",julianDay(2000,1,1),2451545)
-	dnAssert("Julian day of 1970-01-01",julianDay(1970,1,1),2440588)
-	aDate = calendarDate(2451545)
-	dnAssert("back to the date",aDate[1] * 10000 + aDate[2] * 100 + aDate[3],20000101)
-	dnAssert("leap day",calendarDate(julianDay(2024,2,29))[3],29)
-	oDate = new DateTime(2024,12,25)
-	oPicker.Value = oDate
-	dnAssert("picker converts the date",oJulian.Text,"2460670")
-	dnAssert("weekday shown",left(oInfo.Text,9),"Wednesday")
-	oJulian.Text = "2451545"
-	fromJulian()
-	dnAssert("julian to the picker",oPicker.Value.Year,2000)
-	dnAssert("the picker event updated the text",oJulian.Text,"2451545")

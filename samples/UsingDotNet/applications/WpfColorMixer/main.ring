@@ -62,9 +62,7 @@ func main
 	aSliders[1].Value = 200
 	aSliders[2].Value = 120
 	aSliders[3].Value = 40
-	wpfTest(oWindow,"selfTest()")
 	wpfRun(oWindow)
-	wpfEnd()
 
 func hex2 nValue
 	cText = upper(hex(floor(nValue)))
@@ -84,16 +82,3 @@ func mix
 	oBrush = wpfBrush(cColor)
 	oSwatch.Fill = oBrush
 	oCode.Content = cColor
-
-func selfTest
-	aSliders[1].Value = 255
-	aSliders[2].Value = 0
-	aSliders[3].Value = 0
-	dnAssert("red code",oCode.Content,"#FF0000")
-	dnAssert("value label",aValues[1].Content,"255")
-	aSliders[1].Value = 0
-	aSliders[2].Value = 128
-	aSliders[3].Value = 255
-	dnAssert("mixed code",oCode.Content,"#0080FF")
-	dnAssert("the swatch brush",oSwatch.Fill.Color.ToString(),"#FF0080FF")
-	dnAssert("the swatch is rendered with the color",wpfPixel(oSwatch,100,80,50,40),"ff0080ff")

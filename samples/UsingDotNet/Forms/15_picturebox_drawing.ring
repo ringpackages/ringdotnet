@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Drawing",320,240)
 oPicture = uiPictureBox(oForm,10,10,300,220)
 oCanvas = new UiCanvas(oPicture)
@@ -18,6 +17,4 @@ oCanvas.line(150,120,290,200,"Red",4)
 oCanvas.text("Drawn from Ring",150,10,"Black",12)
 oCanvas.show()
 
-uiTest(oForm,"dnAssert('rectangle',oCanvas.pixel(60,50),'ff4682b4') dnAssert('circle',oCanvas.pixel(200,70),'ffffa500') dnAssert('background',oCanvas.pixel(5,5),'ffffffff')")
 uiRun(oForm)
-uiEnd()

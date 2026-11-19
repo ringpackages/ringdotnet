@@ -276,9 +276,7 @@ lAscending = <span class="k">True</span>
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">170</span>,<span class="n">254</span>,<span class="n">330</span>,<span class="n">22</span>)
 
 	fillList()
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># the rows come from the Ring list aTasks: the list is the DATA and the ListView only shows it, so sorting means sorting the list</span>
 <span class="c"># and filling the view again</span>
@@ -344,39 +342,7 @@ lAscending = <span class="k">True</span>
 	<span class="k">return</span> nChecked
 
 <span class="k">func</span> <span class="f">showStatus</span>
-	oStatus.Text = <span class="s">""</span> + oList.Items.Count + <span class="s">" tasks, "</span> + checkedCount() + <span class="s">" checked"</span>
-
-<span class="k">func</span> <span class="f">firstColumn</span>
-	cText = <span class="s">""</span>
-	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oList.Items.Count - <span class="n">1</span>
-		<span class="k">if</span> cText != <span class="s">""</span>
-			cText += <span class="s">", "</span>
-		<span class="k">ok</span>
-		cText += oList.Items.<span class="f">Item</span>(i).Text
-	<span class="k">next</span>
-	<span class="k">return</span> cText
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"five rows"</span>,oList.Items.Count,<span class="n">5</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the cells of a row"</span>,oList.Items.<span class="f">Item</span>(<span class="n">1</span>).SubItems.<span class="f">Item</span>(<span class="n">2</span>).Text,<span class="s">"2030-03-11"</span>)
-
-	<span class="c"># sort by the task name (column 0), then again for the other direction</span>
-	sortBy(<span class="n">0</span>)
-	<span class="f">dnAssert</span>(<span class="s">"by name"</span>,firstColumn(),<span class="s">"Back up the files, Book the room, Buy tea, Call the bank, Write the report"</span>)
-	sortBy(<span class="n">0</span>)
-	<span class="f">dnAssert</span>(<span class="s">"by name, descending"</span>,left(firstColumn(),<span class="n">16</span>),<span class="s">"Write the report"</span>)
-
-	<span class="c"># sort by the due date (column 2): the text of a date in the form year-month-day sorts like the dates</span>
-	sortBy(<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"by date"</span>,oList.Items.<span class="f">Item</span>(<span class="n">0</span>).SubItems.<span class="f">Item</span>(<span class="n">2</span>).Text,<span class="s">"2030-03-09"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"by date, the last"</span>,oList.Items.<span class="f">Item</span>(<span class="n">4</span>).SubItems.<span class="f">Item</span>(<span class="n">2</span>).Text,<span class="s">"2030-03-20"</span>)
-
-	<span class="c"># check two rows and remove them</span>
-	oList.Items.<span class="f">Item</span>(<span class="n">0</span>).Checked = <span class="k">True</span>
-	oList.Items.<span class="f">Item</span>(<span class="n">1</span>).Checked = <span class="k">True</span>
-	<span class="f">dnAssert</span>(<span class="s">"two checked"</span>,oStatus.Text,<span class="s">"5 tasks, 2 checked"</span>)
-	removeChecked()
-	<span class="f">dnAssert</span>(<span class="s">"three left"</span>,oStatus.Text,<span class="s">"3 tasks, 0 checked"</span>)</code></pre></div>
+	oStatus.Text = <span class="s">""</span> + oList.Items.Count + <span class="s">" tasks, "</span> + checkedCount() + <span class="s">" checked"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g134.png" alt="The task list" loading="lazy"><figcaption>The task list</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

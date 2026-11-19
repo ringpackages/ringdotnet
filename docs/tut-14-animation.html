@@ -276,9 +276,7 @@ nScore = <span class="n">0</span>
 	oTimer = <span class="f">uiTimer</span>(<span class="n">20</span>,<span class="s">"step()"</span>)
 	oTimer.<span class="f">Start</span>()
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="k">func</span> <span class="k">step</span>
 	nX += nDX
@@ -313,16 +311,7 @@ nScore = <span class="n">0</span>
 	<span class="k">but</span> cKey = <span class="s">"Right"</span>
 		nPaddle = min(C_WIDTH - <span class="n">80</span>,nPaddle + <span class="n">30</span>)
 	<span class="k">ok</span>
-	draw()
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oTimer.<span class="f">Stop</span>()
-	nBefore = nX
-	<span class="k">step</span>() <span class="k">step</span>() <span class="k">step</span>()
-	<span class="f">dnAssert</span>(<span class="s">"the ball moved"</span>,nX,nBefore + <span class="n">3</span> * nDX)
-	keyPressed(<span class="s">"Left"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the paddle moved"</span>,nPaddle,<span class="n">130</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the ball is orange"</span>,oCanvas.<span class="f">pixel</span>(nX,nY),<span class="s">"ffffa500"</span>)</code></pre></div>
+	draw()</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g04.png" alt="The bouncing ball and the paddle" loading="lazy"><figcaption>The ball bounces; Left and Right move the paddle</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

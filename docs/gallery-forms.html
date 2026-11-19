@@ -245,58 +245,43 @@ using {
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-
 oForm = <span class="f">uiForm</span>(<span class="s">"Hello"</span>,<span class="n">300</span>,<span class="n">120</span>)
 oLabel = <span class="f">uiLabel</span>(oForm,<span class="s">"Hello from Ring and .NET!"</span>,<span class="n">20</span>,<span class="n">40</span>,<span class="n">260</span>,<span class="n">30</span>)
 oLabel.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">true</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"dnAssert('label text',oLabel.Text,'Hello from Ring and .NET!') dnAssert('form title',oForm.Text,'Hello')"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="button-click"><div class="pic"><img src="img/shots/forms-02_button_click.png" alt="Button click" loading="lazy"></div><div class="info"><h3>Button click</h3><p>A button that counts its clicks</p><div class="run"><code>ring samples/UsingDotNet/Forms/02_button_click.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A button that counts its clicks</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="button-click"><div class="pic"><img src="img/shots/forms-02_button_click.png" alt="Button click" loading="lazy"></div><div class="info"><h3>Button click</h3><p>A button that counts its clicks</p><div class="run"><code>ring samples/UsingDotNet/Forms/02_button_click.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A button that counts its clicks</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 nClicks = <span class="n">0</span>
 oForm = <span class="f">uiForm</span>(<span class="s">"Click counter"</span>,<span class="n">260</span>,<span class="n">130</span>)
 oCount = <span class="f">uiLabel</span>(oForm,<span class="s">"0 clicks"</span>,<span class="n">20</span>,<span class="n">15</span>,<span class="n">220</span>,<span class="n">24</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span>,<span class="n">20</span>,<span class="n">50</span>,<span class="n">100</span>,<span class="n">32</span>,<span class="s">"clicked()"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">clicked</span>
 	nClicks++
-	oCount.Text = <span class="s">""</span> + nClicks + <span class="s">" clicks"</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"three clicks"</span>,oCount.Text,<span class="s">"3 clicks"</span>)</code></pre></div></details></div></div><div class="item" id="textbox-echo"><div class="pic"><img src="img/shots/forms-03_textbox_echo.png" alt="Textbox echo" loading="lazy"></div><div class="info"><h3>Textbox echo</h3><p>Type in the text box: the label follows (TextChanged event)</p><div class="run"><code>ring samples/UsingDotNet/Forms/03_textbox_echo.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Type in the text box: the label follows (TextChanged event)</span>
+	oCount.Text = <span class="s">""</span> + nClicks + <span class="s">" clicks"</span></code></pre></div></details></div></div><div class="item" id="textbox-echo"><div class="pic"><img src="img/shots/forms-03_textbox_echo.png" alt="Textbox echo" loading="lazy"></div><div class="info"><h3>Textbox echo</h3><p>Type in the text box: the label follows (TextChanged event)</p><div class="run"><code>ring samples/UsingDotNet/Forms/03_textbox_echo.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Type in the text box: the label follows (TextChanged event)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Echo"</span>,<span class="n">320</span>,<span class="n">120</span>)
 oEdit = <span class="f">uiTextBox</span>(oForm,<span class="n">20</span>,<span class="n">15</span>,<span class="n">270</span>,<span class="n">26</span>)
 oEcho = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">20</span>,<span class="n">55</span>,<span class="n">270</span>,<span class="n">26</span>)
 oEdit.<span class="f">setTextChangedEvent</span>(<span class="s">"oEcho.Text = 'You typed: ' + oEdit.Text"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"oEdit.Text = 'Ring' dnAssert('echo',oEcho.Text,'You typed: Ring') oEdit.Text = '' dnAssert('empty',oEcho.Text,'You typed: ')"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="checkbox"><div class="pic"><img src="img/shots/forms-04_checkbox.png" alt="Checkbox" loading="lazy"></div><div class="info"><h3>Checkbox</h3><p>A check box changes a label</p><div class="run"><code>ring samples/UsingDotNet/Forms/04_checkbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A check box changes a label</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="checkbox"><div class="pic"><img src="img/shots/forms-04_checkbox.png" alt="Checkbox" loading="lazy"></div><div class="info"><h3>Checkbox</h3><p>A check box changes a label</p><div class="run"><code>ring samples/UsingDotNet/Forms/04_checkbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A check box changes a label</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
@@ -304,14 +289,11 @@ using {
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-
 oForm = <span class="f">uiForm</span>(<span class="s">"Check box"</span>,<span class="n">300</span>,<span class="n">120</span>)
 oCheck = <span class="f">uiCheckBox</span>(oForm,<span class="s">"Enable notifications"</span>,<span class="n">20</span>,<span class="n">15</span>,<span class="n">240</span>,<span class="n">24</span>,<span class="s">"changed()"</span>)
 oState = <span class="f">uiLabel</span>(oForm,<span class="s">"Notifications are off"</span>,<span class="n">20</span>,<span class="n">55</span>,<span class="n">240</span>,<span class="n">24</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -320,22 +302,13 @@ oState = <span class="f">uiLabel</span>(oForm,<span class="s">"Notifications are
 		oState.Text = <span class="s">"Notifications are on"</span>
 	<span class="k">else</span>
 		oState.Text = <span class="s">"Notifications are off"</span>
-	<span class="k">ok</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oCheck.Checked = <span class="k">True</span>
-	changed()
-	<span class="f">dnAssert</span>(<span class="s">"on"</span>,oState.Text,<span class="s">"Notifications are on"</span>)
-	oCheck.Checked = <span class="k">False</span>
-	changed()
-	<span class="f">dnAssert</span>(<span class="s">"off"</span>,oState.Text,<span class="s">"Notifications are off"</span>)</code></pre></div></details></div></div><div class="item" id="radio-buttons"><div class="pic"><img src="img/shots/forms-05_radio_buttons.png" alt="Radio buttons" loading="lazy"></div><div class="info"><h3>Radio buttons</h3><p>Radio buttons in a group box</p><div class="run"><code>ring samples/UsingDotNet/Forms/05_radio_buttons.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Radio buttons in a group box</span>
+	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="radio-buttons"><div class="pic"><img src="img/shots/forms-05_radio_buttons.png" alt="Radio buttons" loading="lazy"></div><div class="info"><h3>Radio buttons</h3><p>Radio buttons in a group box</p><div class="run"><code>ring samples/UsingDotNet/Forms/05_radio_buttons.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Radio buttons in a group box</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Radio buttons"</span>,<span class="n">300</span>,<span class="n">200</span>)
 oGroup = <span class="k">new</span> <span class="t">GroupBox</span>() {
@@ -360,9 +333,7 @@ nY = <span class="n">22</span>
 oChoice = <span class="f">uiLabel</span>(oForm,<span class="s">"Choose a size"</span>,<span class="n">15</span>,<span class="n">135</span>,<span class="n">260</span>,<span class="n">24</span>)
 aRadios[<span class="n">2</span>].Checked = <span class="k">True</span>
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -371,20 +342,13 @@ aRadios[<span class="n">2</span>].Checked = <span class="k">True</span>
 		<span class="k">if</span> oRadio.Checked
 			oChoice.Text = <span class="s">"You chose "</span> + oRadio.Text
 		<span class="k">ok</span>
-	<span class="k">next</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	aRadios[<span class="n">3</span>].Checked = <span class="k">True</span>
-	show()
-	<span class="f">dnAssert</span>(<span class="s">"large"</span>,oChoice.Text,<span class="s">"You chose Large"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"only one radio is checked"</span>,aRadios[<span class="n">2</span>].Checked + aRadios[<span class="n">3</span>].Checked + aRadios[<span class="n">1</span>].Checked,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="listbox"><div class="pic"><img src="img/shots/forms-06_listbox.png" alt="Listbox" loading="lazy"></div><div class="info"><h3>Listbox</h3><p>A list box: add, remove and the selected item</p><div class="run"><code>ring samples/UsingDotNet/Forms/06_listbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A list box: add, remove and the selected item</span>
+	<span class="k">next</span></code></pre></div></details></div></div><div class="item" id="listbox"><div class="pic"><img src="img/shots/forms-06_listbox.png" alt="Listbox" loading="lazy"></div><div class="info"><h3>Listbox</h3><p>A list box: add, remove and the selected item</p><div class="run"><code>ring samples/UsingDotNet/Forms/06_listbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A list box: add, remove and the selected item</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"List box"</span>,<span class="n">320</span>,<span class="n">260</span>)
 oEdit = <span class="f">uiTextBox</span>(oForm,<span class="n">15</span>,<span class="n">12</span>,<span class="n">160</span>,<span class="n">26</span>)
@@ -394,9 +358,7 @@ oList = <span class="f">uiListBox</span>(oForm,<span class="n">15</span>,<span c
 oSelected = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">15</span>,<span class="n">205</span>,<span class="n">290</span>,<span class="n">24</span>)
 oList.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"oSelected.Text = 'Selected: ' + oList.Text"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -409,41 +371,26 @@ oList.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"oSele
 <span class="k">func</span> <span class="f">removeItem</span>
 	<span class="k">if</span> oList.SelectedIndex &gt;= <span class="n">0</span>
 		oList.Items.<span class="f">RemoveAt</span>(oList.SelectedIndex)
-	<span class="k">ok</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="k">for</span> cName <span class="k">in</span> [<span class="s">"red"</span>,<span class="s">"green"</span>,<span class="s">"blue"</span>]
-		oEdit.Text = cName
-		addItem()
-	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"three items"</span>,oList.Items.Count,<span class="n">3</span>)
-	oList.SelectedIndex = <span class="n">1</span>
-	<span class="f">dnAssert</span>(<span class="s">"selected text"</span>,oSelected.Text,<span class="s">"Selected: green"</span>)
-	removeItem()
-	<span class="f">dnAssert</span>(<span class="s">"removed"</span>,oList.Items.Count,<span class="n">2</span>)</code></pre></div></details></div></div><div class="item" id="combobox"><div class="pic"><img src="img/shots/forms-07_combobox.png" alt="Combobox" loading="lazy"></div><div class="info"><h3>Combobox</h3><p>A drop-down list</p><div class="run"><code>ring samples/UsingDotNet/Forms/07_combobox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A drop-down list</span>
+	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="combobox"><div class="pic"><img src="img/shots/forms-07_combobox.png" alt="Combobox" loading="lazy"></div><div class="info"><h3>Combobox</h3><p>A drop-down list</p><div class="run"><code>ring samples/UsingDotNet/Forms/07_combobox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A drop-down list</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Combo box"</span>,<span class="n">300</span>,<span class="n">130</span>)
 oCombo = <span class="f">uiComboBox</span>(oForm,<span class="n">20</span>,<span class="n">20</span>,<span class="n">160</span>,[<span class="s">"Ring"</span>,<span class="s">"Python"</span>,<span class="s">"Lua"</span>,<span class="s">"C"</span>])
 oChoice = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">20</span>,<span class="n">65</span>,<span class="n">260</span>,<span class="n">24</span>)
 oCombo.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"oChoice.Text = 'Language: ' + oCombo.Text"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"oCombo.SelectedIndex = 2 dnAssert('item',oChoice.Text,'Language: Lua') dnAssert('count',oCombo.Items.Count,4)"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="numeric-trackbar"><div class="pic"><img src="img/shots/forms-08_numeric_trackbar.png" alt="Numeric trackbar" loading="lazy"></div><div class="info"><h3>Numeric trackbar</h3><p>A track bar and a numeric box that follow each other</p><div class="run"><code>ring samples/UsingDotNet/Forms/08_numeric_trackbar.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A track bar and a numeric box that follow each other</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="numeric-trackbar"><div class="pic"><img src="img/shots/forms-08_numeric_trackbar.png" alt="Numeric trackbar" loading="lazy"></div><div class="info"><h3>Numeric trackbar</h3><p>A track bar and a numeric box that follow each other</p><div class="run"><code>ring samples/UsingDotNet/Forms/08_numeric_trackbar.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A track bar and a numeric box that follow each other</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Slider"</span>,<span class="n">320</span>,<span class="n">130</span>)
 oBar = <span class="k">new</span> <span class="t">TrackBar</span>() {
@@ -461,16 +408,13 @@ oForm.Controls.<span class="f">Add</span>(oNumber)
 oBar.<span class="f">setValueChangedEvent</span>(<span class="s">"oNumber.Value = oBar.Value"</span>)
 oNumber.<span class="f">setValueChangedEvent</span>(<span class="s">"oBar.Value = oNumber.Value"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"oBar.Value = 40 dnAssert('number follows',number(oNumber.Value),40) oNumber.Value = 75 dnAssert('bar follows',oBar.Value,75)"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="progressbar-timer"><div class="pic"><img src="img/shots/forms-09_progressbar_timer.png" alt="Progressbar timer" loading="lazy"></div><div class="info"><h3>Progressbar timer</h3><p>A progress bar driven by a timer</p><div class="run"><code>ring samples/UsingDotNet/Forms/09_progressbar_timer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A progress bar driven by a timer</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="progressbar-timer"><div class="pic"><img src="img/shots/forms-09_progressbar_timer.png" alt="Progressbar timer" loading="lazy"></div><div class="info"><h3>Progressbar timer</h3><p>A progress bar driven by a timer</p><div class="run"><code>ring samples/UsingDotNet/Forms/09_progressbar_timer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A progress bar driven by a timer</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 nPercent = <span class="n">0</span>
 oForm = <span class="f">uiForm</span>(<span class="s">"Progress"</span>,<span class="n">320</span>,<span class="n">110</span>)
@@ -483,9 +427,7 @@ oText = <span class="f">uiLabel</span>(oForm,<span class="s">"0%"</span>,<span c
 oTimer = <span class="f">uiTimer</span>(<span class="n">100</span>,<span class="s">"advance()"</span>)
 oTimer.<span class="f">Start</span>()
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -496,22 +438,13 @@ oTimer.<span class="f">Start</span>()
 	<span class="k">if</span> nPercent &gt;= <span class="n">100</span>
 		oTimer.<span class="f">Stop</span>()
 		oText.Text = <span class="s">"Done"</span>
-	<span class="k">ok</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oTimer.<span class="f">Stop</span>()
-	<span class="k">for</span> x = <span class="n">1</span> <span class="k">to</span> <span class="n">10</span>
-		advance()
-	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"finished"</span>,oText.Text,<span class="s">"Done"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"full bar"</span>,oBar.Value,<span class="n">100</span>)</code></pre></div></details></div></div><div class="item" id="datetimepicker"><div class="pic"><img src="img/shots/forms-10_datetimepicker.png" alt="Datetimepicker" loading="lazy"></div><div class="info"><h3>Datetimepicker</h3><p>A date picker and the weekday of the chosen date</p><div class="run"><code>ring samples/UsingDotNet/Forms/10_datetimepicker.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A date picker and the weekday of the chosen date</span>
+	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="datetimepicker"><div class="pic"><img src="img/shots/forms-10_datetimepicker.png" alt="Datetimepicker" loading="lazy"></div><div class="info"><h3>Datetimepicker</h3><p>A date picker and the weekday of the chosen date</p><div class="run"><code>ring samples/UsingDotNet/Forms/10_datetimepicker.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A date picker and the weekday of the chosen date</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Date picker"</span>,<span class="n">330</span>,<span class="n">120</span>)
 oPicker = <span class="k">new</span> <span class="t">DateTimePicker</span>() {
@@ -523,26 +456,18 @@ oForm.Controls.<span class="f">Add</span>(oPicker)
 oDay = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">20</span>,<span class="n">65</span>,<span class="n">290</span>,<span class="n">24</span>)
 oPicker.<span class="f">setValueChangedEvent</span>(<span class="s">"showDay()"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">showDay</span>
-	oDay.Text = oPicker.Value.DayOfWeek + <span class="s">", day "</span> + oPicker.Value.DayOfYear + <span class="s">" of the year"</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>)
-	oPicker.Value = oDate
-	<span class="f">dnAssert</span>(<span class="s">"weekday"</span>,oDay.Text,<span class="s">"Wednesday, day 360 of the year"</span>)</code></pre></div></details></div></div><div class="item" id="menu-status"><div class="pic"><img src="img/shots/forms-11_menu_status.png" alt="Menu status" loading="lazy"></div><div class="info"><h3>Menu status</h3><p>A menu bar and a status bar</p><div class="run"><code>ring samples/UsingDotNet/Forms/11_menu_status.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A menu bar and a status bar</span>
+	oDay.Text = oPicker.Value.DayOfWeek + <span class="s">", day "</span> + oPicker.Value.DayOfYear + <span class="s">" of the year"</span></code></pre></div></details></div></div><div class="item" id="menu-status"><div class="pic"><img src="img/shots/forms-11_menu_status.png" alt="Menu status" loading="lazy"></div><div class="info"><h3>Menu status</h3><p>A menu bar and a status bar</p><div class="run"><code>ring samples/UsingDotNet/Forms/11_menu_status.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A menu bar and a status bar</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Menu"</span>,<span class="n">360</span>,<span class="n">200</span>)
 <span class="f">uiMenu</span>(oForm,[
@@ -555,27 +480,18 @@ oMessage.Text = <span class="s">"Ready"</span>
 oStatus.Items.<span class="f">Add</span>(oMessage)
 oForm.Controls.<span class="f">Add</span>(oStatus)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">say</span> cText
-	oMessage.Text = cText
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oMenuItem = oForm.MainMenuStrip.Items.<span class="f">Item</span>(<span class="n">0</span>).DropDownItems.<span class="f">Item</span>(<span class="n">1</span>)
-	oMenuItem.<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"menu click"</span>,oMessage.Text,<span class="s">"Open file"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"menu count"</span>,oForm.MainMenuStrip.Items.Count,<span class="n">2</span>)</code></pre></div></details></div></div><div class="item" id="tabcontrol"><div class="pic"><img src="img/shots/forms-12_tabcontrol.png" alt="Tabcontrol" loading="lazy"></div><div class="info"><h3>Tabcontrol</h3><p>Tabs with different content</p><div class="run"><code>ring samples/UsingDotNet/Forms/12_tabcontrol.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tabs with different content</span>
+	oMessage.Text = cText</code></pre></div></details></div></div><div class="item" id="tabcontrol"><div class="pic"><img src="img/shots/forms-12_tabcontrol.png" alt="Tabcontrol" loading="lazy"></div><div class="info"><h3>Tabcontrol</h3><p>Tabs with different content</p><div class="run"><code>ring samples/UsingDotNet/Forms/12_tabcontrol.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tabs with different content</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Tabs"</span>,<span class="n">360</span>,<span class="n">220</span>)
 oTabs = <span class="k">new</span> <span class="t">TabControl</span>()
@@ -589,16 +505,13 @@ oTabs.Dock = <span class="s">"Fill"</span>
 oForm.Controls.<span class="f">Add</span>(oTabs)
 oTabs.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"oForm.Text = 'Tabs - ' + oTabs.SelectedTab.Text"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"oTabs.SelectedIndex = 2 dnAssert('title follows the tab',oForm.Text,'Tabs - About') dnAssert('three tabs',oTabs.TabCount,3)"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="treeview"><div class="pic"><img src="img/shots/forms-13_treeview.png" alt="Treeview" loading="lazy"></div><div class="info"><h3>Treeview</h3><p>A tree of nodes with the selection event</p><div class="run"><code>ring samples/UsingDotNet/Forms/13_treeview.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A tree of nodes with the selection event</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="treeview"><div class="pic"><img src="img/shots/forms-13_treeview.png" alt="Treeview" loading="lazy"></div><div class="info"><h3>Treeview</h3><p>A tree of nodes with the selection event</p><div class="run"><code>ring samples/UsingDotNet/Forms/13_treeview.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A tree of nodes with the selection event</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Tree"</span>,<span class="n">320</span>,<span class="n">260</span>)
 oTree = <span class="k">new</span> <span class="t">TreeView</span>()
@@ -618,25 +531,15 @@ oForm.Controls.<span class="f">Add</span>(oTree)
 oTree.<span class="f">ExpandAll</span>()
 oTree.<span class="f">setAfterSelectEvent</span>(<span class="s">"oForm.Text = 'Selected: ' + oTree.SelectedNode.Text"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
-<span class="c"># --------------------------------------------------------------------------</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oNode = oCompiled.Nodes.<span class="f">Item</span>(<span class="n">1</span>)
-	oTree.SelectedNode = oNode
-	<span class="f">dnAssert</span>(<span class="s">"selected node"</span>,oForm.Text,<span class="s">"Selected: Go"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"root has two children"</span>,oRoot.Nodes.Count,<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"path"</span>,oTree.SelectedNode.FullPath,<span class="s">"Languages\Compiled\Go"</span>)</code></pre></div></details></div></div><div class="item" id="richtextbox"><div class="pic"><img src="img/shots/forms-14_richtextbox.png" alt="Richtextbox" loading="lazy"></div><div class="info"><h3>Richtextbox</h3><p>Formatting the selected text of a rich text box</p><div class="run"><code>ring samples/UsingDotNet/Forms/14_richtextbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Formatting the selected text of a rich text box</span>
+<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="richtextbox"><div class="pic"><img src="img/shots/forms-14_richtextbox.png" alt="Richtextbox" loading="lazy"></div><div class="info"><h3>Richtextbox</h3><p>Formatting the selected text of a rich text box</p><div class="run"><code>ring samples/UsingDotNet/Forms/14_richtextbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Formatting the selected text of a rich text box</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Rich text"</span>,<span class="n">420</span>,<span class="n">200</span>)
 oRich = <span class="k">new</span> <span class="t">RichTextBox</span>()
@@ -644,31 +547,15 @@ oRich.Dock = <span class="s">"Fill"</span>
 oForm.Controls.<span class="f">Add</span>(oRich)
 oRich.Text = <span class="s">"Ring and .NET make a good team"</span>
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
-<span class="c"># --------------------------------------------------------------------------</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oRich.<span class="f">Select</span>([ :start = <span class="n">0</span>, :length = <span class="n">4</span> ])
-	oRich.SelectionColor = <span class="f">uiColor</span>(<span class="s">"Red"</span>)
-	oBoldFont = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">true</span>)
-	oRich.SelectionFont = oBoldFont
-	oRich.<span class="f">Select</span>([ :start = <span class="n">9</span>, :length = <span class="n">4</span> ])
-	oRich.SelectionColor = <span class="f">uiColor</span>(<span class="s">"Blue"</span>)
-	oRich.<span class="f">Select</span>([ :start = <span class="n">0</span>, :length = <span class="n">0</span> ])
-	<span class="f">dnAssert</span>(<span class="s">"text is kept"</span>,oRich.Text,<span class="s">"Ring and .NET make a good team"</span>)
-	oRich.<span class="f">Select</span>([ :start = <span class="n">1</span>, :length = <span class="n">1</span> ])
-	<span class="f">dnAssert</span>(<span class="s">"first word is red"</span>,oRich.SelectionColor.Name,<span class="s">"Red"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"rtf has formatting"</span>,substr(oRich.Rtf,<span class="s">"\b"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="picturebox-drawing"><div class="pic"><img src="img/shots/forms-15_picturebox_drawing.png" alt="Picturebox drawing" loading="lazy"></div><div class="info"><h3>Picturebox drawing</h3><p>Draw shapes and text on a bitmap (UiCanvas)</p><div class="run"><code>ring samples/UsingDotNet/Forms/15_picturebox_drawing.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Draw shapes and text on a bitmap (UiCanvas)</span>
+<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="picturebox-drawing"><div class="pic"><img src="img/shots/forms-15_picturebox_drawing.png" alt="Picturebox drawing" loading="lazy"></div><div class="info"><h3>Picturebox drawing</h3><p>Draw shapes and text on a bitmap (UiCanvas)</p><div class="run"><code>ring samples/UsingDotNet/Forms/15_picturebox_drawing.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Draw shapes and text on a bitmap (UiCanvas)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Drawing"</span>,<span class="n">320</span>,<span class="n">240</span>)
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,<span class="n">300</span>,<span class="n">220</span>)
@@ -681,16 +568,13 @@ oCanvas.<span class="f">line</span>(<span class="n">150</span>,<span class="n">1
 oCanvas.<span class="f">text</span>(<span class="s">"Drawn from Ring"</span>,<span class="n">150</span>,<span class="n">10</span>,<span class="s">"Black"</span>,<span class="n">12</span>)
 oCanvas.<span class="f">show</span>()
 
-<span class="f">uiTest</span>(oForm,<span class="s">"dnAssert('rectangle',oCanvas.pixel(60,50),'ff4682b4') dnAssert('circle',oCanvas.pixel(200,70),'ffffa500') dnAssert('background',oCanvas.pixel(5,5),'ffffffff')"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="mouse-events"><div class="pic"><img src="img/shots/forms-16_mouse_events.png" alt="Mouse events" loading="lazy"></div><div class="info"><h3>Mouse events</h3><p>Mouse position and buttons</p><div class="run"><code>ring samples/UsingDotNet/Forms/16_mouse_events.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Mouse position and buttons</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="mouse-events"><div class="pic"><img src="img/shots/forms-16_mouse_events.png" alt="Mouse events" loading="lazy"></div><div class="info"><h3>Mouse events</h3><p>Mouse position and buttons</p><div class="run"><code>ring samples/UsingDotNet/Forms/16_mouse_events.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Mouse position and buttons</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Mouse"</span>,<span class="n">320</span>,<span class="n">160</span>)
 oArea = <span class="f">uiPanel</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,<span class="n">300</span>,<span class="n">100</span>)
@@ -704,9 +588,7 @@ oArea {
 	setMouseDownEvent(<span class="s">"pressed(aDotNetArgs[2].Button,aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
 }
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -714,20 +596,13 @@ oArea {
 	oInfo.Text = <span class="s">"x="</span> + nX + <span class="s">" y="</span> + nY
 
 <span class="k">func</span> <span class="f">pressed</span> cButton, nX, nY
-	oInfo.Text = cButton + <span class="s">" button at "</span> + nX + <span class="s">","</span> + nY
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	moved(<span class="n">12</span>,<span class="n">34</span>)
-	<span class="f">dnAssert</span>(<span class="s">"move text"</span>,oInfo.Text,<span class="s">"x=12 y=34"</span>)
-	pressed(<span class="s">"Right"</span>,<span class="n">5</span>,<span class="n">6</span>)
-	<span class="f">dnAssert</span>(<span class="s">"press text"</span>,oInfo.Text,<span class="s">"Right button at 5,6"</span>)</code></pre></div></details></div></div><div class="item" id="keyboard-events"><div class="pic"><img src="img/shots/forms-17_keyboard_events.png" alt="Keyboard events" loading="lazy"></div><div class="info"><h3>Keyboard events</h3><p>Key events: KeyDown and KeyPress</p><div class="run"><code>ring samples/UsingDotNet/Forms/17_keyboard_events.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Key events: KeyDown and KeyPress</span>
+	oInfo.Text = cButton + <span class="s">" button at "</span> + nX + <span class="s">","</span> + nY</code></pre></div></details></div></div><div class="item" id="keyboard-events"><div class="pic"><img src="img/shots/forms-17_keyboard_events.png" alt="Keyboard events" loading="lazy"></div><div class="info"><h3>Keyboard events</h3><p>Key events: KeyDown and KeyPress</p><div class="run"><code>ring samples/UsingDotNet/Forms/17_keyboard_events.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Key events: KeyDown and KeyPress</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Keyboard"</span>,<span class="n">340</span>,<span class="n">140</span>)
 oForm.KeyPreview = <span class="k">True</span>
@@ -739,9 +614,7 @@ oForm {
 	setKeyPressEvent(<span class="s">"keyPress(aDotNetArgs[2].KeyChar)"</span>)
 }
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -749,21 +622,13 @@ oForm {
 	oLast.Text = <span class="s">"KeyDown: "</span> + cKey
 
 <span class="k">func</span> <span class="f">keyPress</span> cChar
-	oChars.Text += cChar
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	keyDown(<span class="s">"Enter"</span>)
-	keyPress(<span class="s">"R"</span>)
-	keyPress(<span class="s">"i"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"key name"</span>,oLast.Text,<span class="s">"KeyDown: Enter"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"typed characters"</span>,oChars.Text,<span class="s">"Ri"</span>)</code></pre></div></details></div></div><div class="item" id="timer-clock"><div class="pic"><img src="img/shots/forms-18_timer_clock.png" alt="Timer clock" loading="lazy"></div><div class="info"><h3>Timer clock</h3><p>A digital clock with a timer</p><div class="run"><code>ring samples/UsingDotNet/Forms/18_timer_clock.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A digital clock with a timer</span>
+	oChars.Text += cChar</code></pre></div></details></div></div><div class="item" id="timer-clock"><div class="pic"><img src="img/shots/forms-18_timer_clock.png" alt="Timer clock" loading="lazy"></div><div class="info"><h3>Timer clock</h3><p>A digital clock with a timer</p><div class="run"><code>ring samples/UsingDotNet/Forms/18_timer_clock.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A digital clock with a timer</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Clock"</span>,<span class="n">260</span>,<span class="n">100</span>)
 oClock = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,<span class="n">20</span>,<span class="n">240</span>,<span class="n">50</span>)
@@ -775,9 +640,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 tick()
 oTimer.<span class="f">Start</span>()
 
-<span class="f">uiTest</span>(oForm,<span class="s">"dnAssert('time format',len(oClock.Text),8) dnAssert('colons',substr(oClock.Text,':') &gt; 0,1)"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -790,7 +653,6 @@ using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Split"</span>,<span class="n">420</span>,<span class="n">240</span>)
 oSplit = <span class="k">new</span> <span class="t">SplitContainer</span>()
@@ -810,9 +672,7 @@ oText = <span class="k">new</span> <span class="t">TextBox</span>() {
 oSplit.Panel2.Controls.<span class="f">Add</span>(oText)
 oList.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"oText.Text = 'You selected ' + oList.Text"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"oList.SelectedIndex = 1 dnAssert('right panel',oText.Text,'You selected Two') dnAssert('splitter',oSplit.SplitterDistance,140)"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="flowlayout"><div class="pic"><img src="img/shots/forms-20_flowlayout.png" alt="Flowlayout" loading="lazy"></div><div class="info"><h3>Flowlayout</h3><p>Buttons in a flow layout panel that wraps</p><div class="run"><code>ring samples/UsingDotNet/Forms/20_flowlayout.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Buttons in a flow layout panel that wraps</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="flowlayout"><div class="pic"><img src="img/shots/forms-20_flowlayout.png" alt="Flowlayout" loading="lazy"></div><div class="info"><h3>Flowlayout</h3><p>Buttons in a flow layout panel that wraps</p><div class="run"><code>ring samples/UsingDotNet/Forms/20_flowlayout.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Buttons in a flow layout panel that wraps</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
@@ -820,16 +680,13 @@ using {
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-
 oForm = <span class="f">uiForm</span>(<span class="s">"Flow layout"</span>,<span class="n">300</span>,<span class="n">200</span>)
 oFlow = <span class="k">new</span> <span class="t">FlowLayoutPanel</span>()
 oFlow.Dock = <span class="s">"Fill"</span>
 oForm.Controls.<span class="f">Add</span>(oFlow)
 addButtons()
 
-<span class="f">uiTest</span>(oForm,<span class="s">"dnAssert('12 buttons',oFlow.Controls.Count,12)"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -849,7 +706,6 @@ using {
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-
 oForm = <span class="f">uiForm</span>(<span class="s">"Table layout"</span>,<span class="n">300</span>,<span class="n">200</span>)
 oTable = <span class="k">new</span> <span class="t">TableLayoutPanel</span>() {
 	Dock = <span class="s">"Fill"</span>
@@ -868,16 +724,13 @@ oTable = <span class="k">new</span> <span class="t">TableLayoutPanel</span>() {
 <span class="k">next</span>
 oForm.Controls.<span class="f">Add</span>(oTable)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"dnAssert('9 cells',oTable.Controls.Count,9) dnAssert('cell position',oTable.GetRow(oTable.Controls.Item(5)),1)"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="toolbar"><div class="pic"><img src="img/shots/forms-22_toolbar.png" alt="Toolbar" loading="lazy"></div><div class="info"><h3>Toolbar</h3><p>A tool strip with buttons</p><div class="run"><code>ring samples/UsingDotNet/Forms/22_toolbar.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A tool strip with buttons</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="toolbar"><div class="pic"><img src="img/shots/forms-22_toolbar.png" alt="Toolbar" loading="lazy"></div><div class="info"><h3>Toolbar</h3><p>A tool strip with buttons</p><div class="run"><code>ring samples/UsingDotNet/Forms/22_toolbar.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A tool strip with buttons</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Toolbar"</span>,<span class="n">360</span>,<span class="n">160</span>)
 oBar = <span class="k">new</span> <span class="t">ToolStrip</span>()
@@ -891,16 +744,13 @@ oBar = <span class="k">new</span> <span class="t">ToolStrip</span>()
 oForm.Controls.<span class="f">Add</span>(oBar)
 oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">15</span>,<span class="n">50</span>,<span class="n">320</span>,<span class="n">24</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"oBar.Items.Item(1).PerformClick() dnAssert('toolbar click',oStatus.Text,'Clicked Open')"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="contextmenu"><div class="pic"><img src="img/shots/forms-23_contextmenu.png" alt="Contextmenu" loading="lazy"></div><div class="info"><h3>Contextmenu</h3><p>A context (right-click) menu</p><div class="run"><code>ring samples/UsingDotNet/Forms/23_contextmenu.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A context (right-click) menu</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="contextmenu"><div class="pic"><img src="img/shots/forms-23_contextmenu.png" alt="Contextmenu" loading="lazy"></div><div class="info"><h3>Contextmenu</h3><p>A context (right-click) menu</p><div class="run"><code>ring samples/UsingDotNet/Forms/23_contextmenu.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A context (right-click) menu</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Context menu"</span>,<span class="n">300</span>,<span class="n">140</span>)
 oPanel = <span class="f">uiPanel</span>(oForm,<span class="n">15</span>,<span class="n">15</span>,<span class="n">265</span>,<span class="n">70</span>)
@@ -914,16 +764,13 @@ oMenu = <span class="k">new</span> <span class="t">ContextMenuStrip</span>()
 oPanel.ContextMenuStrip = oMenu
 <span class="f">uiLabel</span>(oForm,<span class="s">"Right-click the panel"</span>,<span class="n">15</span>,<span class="n">95</span>,<span class="n">265</span>,<span class="n">24</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"oMenu.Items.Item(2).PerformClick() dnAssert('panel is blue',oPanel.BackColor.Name,'Blue')"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="tooltip-linklabel"><div class="pic"><img src="img/shots/forms-24_tooltip_linklabel.png" alt="Tooltip linklabel" loading="lazy"></div><div class="info"><h3>Tooltip linklabel</h3><p>A tooltip and a link label</p><div class="run"><code>ring samples/UsingDotNet/Forms/24_tooltip_linklabel.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A tooltip and a link label</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="tooltip-linklabel"><div class="pic"><img src="img/shots/forms-24_tooltip_linklabel.png" alt="Tooltip linklabel" loading="lazy"></div><div class="info"><h3>Tooltip linklabel</h3><p>A tooltip and a link label</p><div class="run"><code>ring samples/UsingDotNet/Forms/24_tooltip_linklabel.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A tooltip and a link label</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Tooltip and link"</span>,<span class="n">320</span>,<span class="n">140</span>)
 oButton = <span class="f">uiButton</span>(oForm,<span class="s">"Hover me"</span>,<span class="n">20</span>,<span class="n">20</span>,<span class="n">110</span>,<span class="n">32</span>,<span class="s">""</span>)
@@ -938,26 +785,18 @@ oLink = <span class="k">new</span> <span class="t">LinkLabel</span>() {
 oForm.Controls.<span class="f">Add</span>(oLink)
 oOpened = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">20</span>,<span class="n">105</span>,<span class="n">260</span>,<span class="n">24</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">linkClicked</span>
-	oOpened.Text = <span class="s">"link clicked"</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"tooltip"</span>,oTip.<span class="f">GetToolTip</span>(oButton),<span class="s">"This button only has a tooltip"</span>)
-	linkClicked()
-	<span class="f">dnAssert</span>(<span class="s">"link handler"</span>,oOpened.Text,<span class="s">"link clicked"</span>)</code></pre></div></details></div></div><div class="item" id="maskedtextbox"><div class="pic"><img src="img/shots/forms-25_maskedtextbox.png" alt="Maskedtextbox" loading="lazy"></div><div class="info"><h3>Maskedtextbox</h3><p>A masked text box for phone numbers and dates</p><div class="run"><code>ring samples/UsingDotNet/Forms/25_maskedtextbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A masked text box for phone numbers and dates</span>
+	oOpened.Text = <span class="s">"link clicked"</span></code></pre></div></details></div></div><div class="item" id="maskedtextbox"><div class="pic"><img src="img/shots/forms-25_maskedtextbox.png" alt="Maskedtextbox" loading="lazy"></div><div class="info"><h3>Maskedtextbox</h3><p>A masked text box for phone numbers and dates</p><div class="run"><code>ring samples/UsingDotNet/Forms/25_maskedtextbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A masked text box for phone numbers and dates</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Masked input"</span>,<span class="n">300</span>,<span class="n">130</span>)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Phone"</span>,<span class="n">15</span>,<span class="n">18</span>,<span class="n">50</span>,<span class="n">22</span>)
@@ -975,16 +814,13 @@ oDate = <span class="k">new</span> <span class="t">MaskedTextBox</span>() {
 }
 oForm.Controls.<span class="f">Add</span>(oDate)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"oPhone.Text = '5551234567' dnAssert('phone',oPhone.Text,'(555) 123-4567') dnAssert('complete',oPhone.MaskCompleted,1) dnAssert('date incomplete',oDate.MaskCompleted,0)"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div><div class="item" id="datagridview"><div class="pic"><img src="img/shots/forms-26_datagridview.png" alt="Datagridview" loading="lazy"></div><div class="info"><h3>Datagridview</h3><p>A data grid bound to a DataTable</p><div class="run"><code>ring samples/UsingDotNet/Forms/26_datagridview.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A data grid bound to a DataTable</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="datagridview"><div class="pic"><img src="img/shots/forms-26_datagridview.png" alt="Datagridview" loading="lazy"></div><div class="info"><h3>Datagridview</h3><p>A data grid bound to a DataTable</p><div class="run"><code>ring samples/UsingDotNet/Forms/26_datagridview.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A data grid bound to a DataTable</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 using { <span class="s">"System.Data"</span> }
 oTable = <span class="k">new</span> <span class="t">DataTable</span>()
@@ -1004,25 +840,15 @@ oGrid = <span class="k">new</span> <span class="t">DataGridView</span>() {
 }
 oForm.Controls.<span class="f">Add</span>(oGrid)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
-<span class="c"># --------------------------------------------------------------------------</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"three rows"</span>,oGrid.Rows.Count,<span class="n">3</span>)
-	<span class="f">dnAssert</span>(<span class="s">"two columns"</span>,oGrid.Columns.Count,<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"cell value"</span>,oGrid.Rows.<span class="f">Item</span>(<span class="n">1</span>).Cells.<span class="f">Item</span>(<span class="n">0</span>).Value,<span class="s">"Bob"</span>)
-	oGrid.<span class="f">Sort</span>([ :dataGridViewColumn = oGrid.Columns.<span class="f">Item</span>(<span class="n">1</span>), :direction = <span class="s">"Descending"</span> ])
-	<span class="f">dnAssert</span>(<span class="s">"sorted by age"</span>,oGrid.Rows.<span class="f">Item</span>(<span class="n">0</span>).Cells.<span class="f">Item</span>(<span class="n">0</span>).Value,<span class="s">"Cy"</span>)</code></pre></div></details></div></div><div class="item" id="form-events"><div class="pic"><img src="img/shots/forms-27_form_events.png" alt="Form events" loading="lazy"></div><div class="info"><h3>Form events</h3><p>The life of a form: Load, Shown, Resize and FormClosing events</p><div class="run"><code>ring samples/UsingDotNet/Forms/27_form_events.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The life of a form: Load, Shown, Resize and FormClosing events</span>
+<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="form-events"><div class="pic"><img src="img/shots/forms-27_form_events.png" alt="Form events" loading="lazy"></div><div class="info"><h3>Form events</h3><p>The life of a form: Load, Shown, Resize and FormClosing events</p><div class="run"><code>ring samples/UsingDotNet/Forms/27_form_events.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The life of a form: Load, Shown, Resize and FormClosing events</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 aLog = []
 oForm = <span class="f">uiForm</span>(<span class="s">"Form events"</span>,<span class="n">320</span>,<span class="n">120</span>)
@@ -1033,25 +859,17 @@ oForm {
 }
 <span class="f">uiLabel</span>(oForm,<span class="s">"Watch the events in the console"</span>,<span class="n">15</span>,<span class="n">20</span>,<span class="n">280</span>,<span class="n">24</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
 <span class="f">dnAssert</span>(<span class="s">"closing event ran"</span>,find(aLog,<span class="s">"FormClosing"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
-<span class="f">uiEnd</span>()
 <span class="k">return</span>
 
-<span class="c"># --------------------------------------------------------------------------</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"load event ran first"</span>,aLog[<span class="n">1</span>],<span class="s">"Load"</span>)
-	oForm.Width = <span class="n">400</span>
-	<span class="f">dnAssert</span>(<span class="s">"resize event ran"</span>,find(aLog,<span class="s">"Resize"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="modal-dialog"><div class="pic"><img src="img/shots/forms-28_modal_dialog.png" alt="Modal dialog" loading="lazy"></div><div class="info"><h3>Modal dialog</h3><p>A modal dialog form that returns a value</p><div class="run"><code>ring samples/UsingDotNet/Forms/28_modal_dialog.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A modal dialog form that returns a value</span>
+<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="modal-dialog"><div class="pic"><img src="img/shots/forms-28_modal_dialog.png" alt="Modal dialog" loading="lazy"></div><div class="info"><h3>Modal dialog</h3><p>A modal dialog form that returns a value</p><div class="run"><code>ring samples/UsingDotNet/Forms/28_modal_dialog.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A modal dialog form that returns a value</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oDialog = <span class="s">""</span>	<span class="c"># globals of the dialog (the code of its events runs outside the function that builds it)</span>
 oBox = <span class="s">""</span>
@@ -1060,9 +878,7 @@ oForm = <span class="f">uiForm</span>(<span class="s">"Main window"</span>,<span
 oResult = <span class="f">uiLabel</span>(oForm,<span class="s">"No name yet"</span>,<span class="n">20</span>,<span class="n">70</span>,<span class="n">280</span>,<span class="n">24</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Ask for a name..."</span>,<span class="n">20</span>,<span class="n">20</span>,<span class="n">150</span>,<span class="n">32</span>,<span class="s">"askName()"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -1092,17 +908,13 @@ oResult = <span class="f">uiLabel</span>(oForm,<span class="s">"No name yet"</sp
 	cName = askNameDialog(<span class="s">""</span>)
 	<span class="k">if</span> cName != <span class="s">""</span>
 		oResult.Text = <span class="s">"Hello, "</span> + cName + <span class="s">"!"</span>
-	<span class="k">ok</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">dnAssert</span>(<span class="s">"dialog returns the text"</span>,askNameDialog(<span class="s">"Ring"</span>),<span class="s">"Ring"</span>)</code></pre></div></details></div></div><div class="item" id="clipboard"><div class="pic"><img src="img/shots/forms-29_clipboard.png" alt="Clipboard" loading="lazy"></div><div class="info"><h3>Clipboard</h3><p>Copy text to the clipboard and read it back</p><div class="run"><code>ring samples/UsingDotNet/Forms/29_clipboard.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Copy text to the clipboard and read it back</span>
+	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="clipboard"><div class="pic"><img src="img/shots/forms-29_clipboard.png" alt="Clipboard" loading="lazy"></div><div class="info"><h3>Clipboard</h3><p>Copy text to the clipboard and read it back</p><div class="run"><code>ring samples/UsingDotNet/Forms/29_clipboard.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Copy text to the clipboard and read it back</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Clipboard"</span>,<span class="n">320</span>,<span class="n">130</span>)
 oEdit = <span class="f">uiTextBox</span>(oForm,<span class="n">15</span>,<span class="n">15</span>,<span class="n">280</span>,<span class="n">26</span>)
@@ -1111,9 +923,7 @@ oEdit.Text = <span class="s">"Copied from Ring"</span>
 <span class="f">uiButton</span>(oForm,<span class="s">"Paste"</span>,<span class="n">105</span>,<span class="n">55</span>,<span class="n">80</span>,<span class="n">30</span>,<span class="s">"pasteText()"</span>)
 oPasted = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">15</span>,<span class="n">95</span>,<span class="n">280</span>,<span class="n">24</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -1125,19 +935,13 @@ oPasted = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span c
 	<span class="c"># (a method call on a new object on the right side of an attribute assignment loses the assignment: use a variable)</span>
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	cText = oClipboard.<span class="f">GetText</span>(<span class="k">NULL</span>)
-	oPasted.Text = cText
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	oForm.Controls.<span class="f">Item</span>(<span class="n">2</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"clipboard round trip"</span>,oPasted.Text,<span class="s">"Copied from Ring"</span>)</code></pre></div></details></div></div><div class="item" id="scrollbars"><div class="pic"><img src="img/shots/forms-30_scrollbars.png" alt="Scrollbars" loading="lazy"></div><div class="info"><h3>Scrollbars</h3><p>Horizontal and vertical scroll bars</p><div class="run"><code>ring samples/UsingDotNet/Forms/30_scrollbars.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Horizontal and vertical scroll bars</span>
+	oPasted.Text = cText</code></pre></div></details></div></div><div class="item" id="scrollbars"><div class="pic"><img src="img/shots/forms-30_scrollbars.png" alt="Scrollbars" loading="lazy"></div><div class="info"><h3>Scrollbars</h3><p>Horizontal and vertical scroll bars</p><div class="run"><code>ring samples/UsingDotNet/Forms/30_scrollbars.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Horizontal and vertical scroll bars</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Scroll bars"</span>,<span class="n">320</span>,<span class="n">200</span>)
 oH = <span class="k">new</span> <span class="t">HScrollBar</span>() {
@@ -1156,9 +960,7 @@ oValues = <span class="f">uiLabel</span>(oForm,<span class="s">"H = 0, V = 0"</s
 oH.<span class="f">setValueChangedEvent</span>(<span class="s">"show()"</span>)
 oV.<span class="f">setValueChangedEvent</span>(<span class="s">"show()"</span>)
 
-<span class="f">uiTest</span>(oForm,<span class="s">"oH.Value = 30 oV.Value = 20 dnAssert('both values',oValues.Text,'H = 30, V = 20')"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
@@ -1170,7 +972,6 @@ using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Anchoring"</span>,<span class="n">360</span>,<span class="n">220</span>)
 oTop = <span class="f">uiLabel</span>(oForm,<span class="s">"Docked to the top"</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">360</span>,<span class="n">28</span>)
@@ -1187,25 +988,15 @@ oBox {
 oOk = <span class="f">uiButton</span>(oForm,<span class="s">"OK"</span>,<span class="n">270</span>,<span class="n">175</span>,<span class="n">75</span>,<span class="n">30</span>,<span class="s">""</span>)
 oOk.Anchor = <span class="s">"Bottom, Right"</span>
 
-<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()
 
-<span class="c"># --------------------------------------------------------------------------</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	nBefore = oBox.Height
-	oForm.ClientSize = <span class="k">new</span> <span class="t">Size</span>(<span class="n">460</span>,<span class="n">320</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the docked label stays on top"</span>,oTop.Top,<span class="n">0</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the text box grew"</span>,oBox.Height &gt; nBefore,<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the button moved right"</span>,oOk.Left &gt; <span class="n">270</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="fonts-colors"><div class="pic"><img src="img/shots/forms-32_fonts_colors.png" alt="Fonts colors" loading="lazy"></div><div class="info"><h3>Fonts colors</h3><p>Fonts, styles and colors</p><div class="run"><code>ring samples/UsingDotNet/Forms/32_fonts_colors.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Fonts, styles and colors</span>
+<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="fonts-colors"><div class="pic"><img src="img/shots/forms-32_fonts_colors.png" alt="Fonts colors" loading="lazy"></div><div class="info"><h3>Fonts colors</h3><p>Fonts, styles and colors</p><div class="run"><code>ring samples/UsingDotNet/Forms/32_fonts_colors.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Fonts, styles and colors</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
-
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Fonts and colors"</span>,<span class="n">360</span>,<span class="n">230</span>)
 nY = <span class="n">10</span>
@@ -1220,9 +1011,7 @@ oBold {
 	ForeColor = <span class="f">uiColor</span>(<span class="s">"DarkRed"</span>)
 }
 
-<span class="f">uiTest</span>(oForm,<span class="s">"dnAssert('font name',oForm.Controls.Item(1).Font.Name,'Consolas') dnAssert('bold',oBold.Font.Bold,1) dnAssert('color',oBold.ForeColor.Name,'DarkRed')"</span>)
-<span class="f">uiRun</span>(oForm)
-<span class="f">uiEnd</span>()</code></pre></div></details></div></div></div>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div></div>
 <div class="pager"><a href="winforms.html"><small>Previous</small>Windows Forms</a><a class="next" href="gallery-apps.html"><small>Next</small>Applications</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

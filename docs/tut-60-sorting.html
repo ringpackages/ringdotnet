@@ -274,9 +274,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 	oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,C_HEIGHT + <span class="n">55</span>,<span class="n">400</span>,<span class="n">22</span>)
 	oTimer = <span class="f">uiTimer</span>(<span class="n">15</span>,<span class="s">"showStep()"</span>)
 	shuffle()
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># a small random number generator with a fixed start, so that every run shows the same bars</span>
 <span class="k">func</span> <span class="f">nextRandom</span> nLimit
@@ -401,43 +399,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 		<span class="k">ok</span>
 		oCanvas.<span class="f">fillRect</span>((nI - <span class="n">1</span>) * C_BAR + <span class="n">1</span>,C_HEIGHT - nHeight,C_BAR - <span class="n">2</span>,nHeight,cColor)
 	<span class="k">next</span>
-	oCanvas.<span class="f">show</span>()
-
-<span class="k">func</span> <span class="f">isSorted</span>
-	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> len(aValues) - <span class="n">1</span>
-		<span class="k">if</span> aValues[nI] &gt; aValues[nI + <span class="n">1</span>]
-			<span class="k">return</span> <span class="k">False</span>
-		<span class="k">ok</span>
-	<span class="k">next</span>
-	<span class="k">return</span> <span class="k">True</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oTimer.<span class="f">Stop</span>()
-	<span class="f">dnAssert</span>(<span class="s">"the bars start shuffled"</span>,isSorted(),<span class="k">False</span>)
-	<span class="k">for</span> nAlgorithm = <span class="n">0</span> <span class="k">to</span> <span class="n">2</span>
-		shuffle()
-		oAlgorithm.SelectedIndex = nAlgorithm
-		startSorting()
-		oTimer.<span class="f">Stop</span>()
-		<span class="k">while</span> nStep &lt; len(aSteps)
-			showStep()
-		<span class="k">end</span>
-		showStep()
-		<span class="f">dnAssert</span>(<span class="s">"algorithm "</span> + nAlgorithm + <span class="s">" sorts"</span>,isSorted(),<span class="k">True</span>)
-		<span class="f">dnAssert</span>(<span class="s">"algorithm "</span> + nAlgorithm + <span class="s">" compared"</span>,nCompares &gt; <span class="n">0</span>,<span class="k">True</span>)
-	<span class="k">next</span>
-	<span class="c"># the same start gives the same work: selection sort makes at most n-1 swaps</span>
-	shuffle()
-	oAlgorithm.SelectedIndex = <span class="n">1</span>
-	startSorting()
-	oTimer.<span class="f">Stop</span>()
-	nSwapsPlanned = <span class="n">0</span>
-	<span class="k">for</span> aStep <span class="k">in</span> aSteps
-		<span class="k">if</span> aStep[<span class="n">1</span>] = <span class="s">"swap"</span>
-			nSwapsPlanned++
-		<span class="k">ok</span>
-	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"selection sort swaps at most n-1 times"</span>,nSwapsPlanned &lt;= C_COUNT - <span class="n">1</span>,<span class="k">True</span>)</code></pre></div>
+	oCanvas.<span class="f">show</span>()</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g61.png" alt="The sorting window" loading="lazy"><figcaption>Bubble sort after 260 steps: the highest bars are already at the right; the two red bars are the pair being compared</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

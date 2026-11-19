@@ -44,7 +44,7 @@ A window is made of controls, and the controls are variables. The tool window ca
 
 When the **main** window closes, its owned windows close with it, and the program ends when the last window is closed (the message loop runs on the main window).
 
-> [!NOTE] The main window of a test program has to be in the variable `oForm`, because `uiTest` closes `oForm` when the test code ends.
+> [!NOTE] The main window of a test program has to be in the variable `oForm`, because the test closes `oForm` when the test code ends.
 
 ## What you learned
 

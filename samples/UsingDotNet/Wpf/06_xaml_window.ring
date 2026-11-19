@@ -12,7 +12,6 @@ using {
 	"System"
 }
 
-
 cXaml = '<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="From XAML" Width="320" Height="180">'
 cXaml += '<StackPanel Margin="15"><TextBlock x:Name="message" FontSize="18" Text="Press the button"/>'
 cXaml += '<Button x:Name="press" Content="Press me" Margin="0,10,0,0"/></StackPanel></Window>'
@@ -21,14 +20,6 @@ oMessage = wpfFind(oWindow,"message")
 oPress = wpfFind(oWindow,"press")
 oPress.setClickEvent("oMessage.Text = 'The XAML button was pressed'")
 
-wpfTest(oWindow,"selfTest()")
 wpfRun(oWindow)
-wpfEnd()
 
 # --------------------------------------------------------------------------
-
-func selfTest
-	dnAssert("title from XAML",oWindow.Title,"From XAML")
-	oEvent = dnNew("RoutedEventArgs",[ :routedEvent = new WpfButtonBase().ClickEvent ])
-	oPress.RaiseEvent(oEvent)
-	dnAssert("event handler",oMessage.Text,"The XAML button was pressed")

@@ -21,9 +21,7 @@ func main
 	uiButton(oForm,"Open the tool window",20,60,170,32,"openTool()")
 	oForm.setFormClosedEvent("cApplied += '[main closed]'")
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 # Open the tool window. A program should not open a second copy: if it is open, the function brings it to the front.
 func openTool
@@ -58,31 +56,3 @@ func toolClosed
 # the number of the open windows of the program
 func openForms
 	return new Application().OpenForms.Count
-
-func selfTest
-	dnAssert("one window at the start",openForms(),1)
-
-	# open the tool window: two windows, and the tool has the main window as owner
-	openTool()
-	dnAssert("two windows",openForms(),2)
-	dnAssert("the owner",oTool.Owner.Text,"Main window")
-
-	# a second click on the button does not make a second window
-	openTool()
-	dnAssert("still two windows",openForms(),2)
-	dnAssert("one tool window was made",nToolOpened,1)
-
-	# the tool talks to the main window
-	oToolBox.Text = "blue"
-	applyTool()
-	dnAssert("the main window shows it",oShown.Text,"Applied: blue")
-	dnAssert("the tool says so",oToolStatus.Text,"Sent to the main window")
-
-	# closing the tool: the main window stays; the tool can be opened again (a new window)
-	oTool.Close()
-	dnAssert("the tool closed",cApplied,"[tool closed]")
-	dnAssert("one window again",openForms(),1)
-	openTool()
-	dnAssert("a new tool window",nToolOpened,2)
-	dnAssert("two windows again",openForms(),2)
-	# the form of this test is closed by uiTest after this code: the owned tool window closes with its owner

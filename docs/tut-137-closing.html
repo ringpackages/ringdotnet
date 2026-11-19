@@ -271,9 +271,7 @@ lClosed = <span class="k">False</span>
 	oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"onClosing()"</span>)             <span class="c"># runs BEFORE the form closes, and can stop it</span>
 	oForm.<span class="f">setFormClosedEvent</span>(<span class="s">"lClosed = True"</span>)           <span class="c"># runs AFTER the form closed: too late to stop it</span>
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 	cleanUp()
 
 <span class="k">func</span> <span class="f">saveNow</span>
@@ -304,28 +302,7 @@ lClosed = <span class="k">False</span>
 <span class="k">func</span> <span class="f">cleanUp</span>
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
-	<span class="k">ok</span>
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># no changes yet: closing would not ask anything</span>
-	<span class="f">dnAssert</span>(<span class="s">"no changes"</span>,lChanged,<span class="k">False</span>)
-
-	<span class="c"># a change, and the user answers Cancel: the form stays open</span>
-	oEdit.Text = <span class="s">"my notes, changed"</span>
-	<span class="f">dnAssert</span>(<span class="s">"the change is known"</span>,lChanged,<span class="k">True</span>)
-	cTestAnswer = <span class="s">"Cancel"</span>
-	oForm.<span class="f">Close</span>()
-	<span class="f">dnAssert</span>(<span class="s">"asked once"</span>,nCloseAttempts,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"not closed after Cancel"</span>,lClosed,<span class="k">False</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the file was not written"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="k">False</span>)
-
-	<span class="c"># the user answers Yes: the changes are saved, and the form closes (here the test form is closed by uiTest after this code)</span>
-	cTestAnswer = <span class="s">"Yes"</span>
-	oForm.<span class="f">Close</span>()
-	<span class="f">dnAssert</span>(<span class="s">"asked again"</span>,nCloseAttempts,<span class="n">2</span>)
-	<span class="f">dnAssert</span>(<span class="s">"saved on Yes"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile),<span class="s">"my notes, changed"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the form closed"</span>,lClosed,<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"no changes left"</span>,lChanged,<span class="k">False</span>)</code></pre></div>
+	<span class="k">ok</span></code></pre></div>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="remember-the-changes">Remember the changes<a class="anchor" href="#remember-the-changes">#</a></h3>

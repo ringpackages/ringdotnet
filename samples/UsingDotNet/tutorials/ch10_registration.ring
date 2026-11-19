@@ -42,9 +42,7 @@ func main
 	uiLabel(oForm,"Registered people",20,226,150,20)
 	oPeople = uiListBox(oForm,20,248,360,70)
 
-	uiTest(oForm,"selfTest()")
 	uiRun(oForm)
-	uiEnd()
 
 func register
 	cName = trim(oName.Text)
@@ -63,16 +61,3 @@ func register
 	oPeople.Items.Add(cLine)
 	oResult.Text = "Registered: " + cName
 	oName.Text = ""
-
-func selfTest
-	oForm.Controls.Item(7).PerformClick()                 # nothing typed yet
-	dnAssert("name is required",oResult.Text,"Please type a name")
-	oName.Text = "Ann"
-	oForm.Controls.Item(7).PerformClick()
-	dnAssert("country is required",oResult.Text,"Please choose a country")
-	oCountry.SelectedIndex = 1
-	oNewsletter.Checked = True
-	oForm.Controls.Item(7).PerformClick()
-	dnAssert("registered",oResult.Text,"Registered: Ann")
-	dnAssert("the list",oPeople.Items.Count,1)
-	dnAssert("the text",oPeople.Items.Item(0),"Ann, 30, Norway (newsletter)")

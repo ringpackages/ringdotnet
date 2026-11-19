@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Table layout",300,200)
 oTable = new TableLayoutPanel() {
 	Dock = "Fill"
@@ -25,6 +24,4 @@ for nRow = 1 to 3
 next
 oForm.Controls.Add(oTable)
 
-uiTest(oForm,"dnAssert('9 cells',oTable.Controls.Count,9) dnAssert('cell position',oTable.GetRow(oTable.Controls.Item(5)),1)")
 uiRun(oForm)
-uiEnd()

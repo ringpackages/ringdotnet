@@ -266,9 +266,7 @@ nSeed = <span class="n">2024</span>
 	<span class="f">uiButton</span>(oForm,<span class="s">"Solve"</span>,<span class="n">120</span>,C_ROWS * C_CELL + <span class="n">15</span>,<span class="n">100</span>,<span class="n">28</span>,<span class="s">"solve()"</span>)
 	oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,C_ROWS * C_CELL + <span class="n">52</span>,<span class="n">500</span>,<span class="n">22</span>)
 	newMaze()
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="k">func</span> <span class="f">nextRandom</span> nLimit
 	nSeed = (nSeed * <span class="n">1103515245</span> + <span class="n">12345</span>) % <span class="n">2147483648</span>
@@ -406,46 +404,7 @@ nSeed = <span class="n">2024</span>
 			<span class="k">ok</span>
 		<span class="k">next</span>
 	<span class="k">next</span>
-	oCanvas.<span class="f">show</span>()
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	<span class="c"># a perfect maze: C_COLUMNS * C_ROWS cells joined by exactly (cells - 1) openings</span>
-	nOpenings = <span class="n">0</span>
-	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> C_ROWS
-		<span class="k">for</span> nColumn = <span class="n">1</span> <span class="k">to</span> C_COLUMNS
-			nOpenings += len(aOpen[nRow][nColumn])
-		<span class="k">next</span>
-	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"a perfect maze has cells - 1 openings"</span>,nOpenings / <span class="n">2</span>,C_COLUMNS * C_ROWS - <span class="n">1</span>)
-	solve()
-	<span class="f">dnAssert</span>(<span class="s">"the path starts at the exit"</span>,aPath[<span class="n">1</span>][<span class="n">1</span>] = C_ROWS <span class="k">and</span> aPath[<span class="n">1</span>][<span class="n">2</span>] = C_COLUMNS,<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the path ends at the start"</span>,aPath[len(aPath)][<span class="n">1</span>] = <span class="n">1</span> <span class="k">and</span> aPath[len(aPath)][<span class="n">2</span>] = <span class="n">1</span>,<span class="k">True</span>)
-	lConnected = <span class="k">True</span>
-	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> len(aPath) - <span class="n">1</span>
-		<span class="k">if</span> fabs(aPath[nI][<span class="n">1</span>] - aPath[nI + <span class="n">1</span>][<span class="n">1</span>]) + fabs(aPath[nI][<span class="n">2</span>] - aPath[nI + <span class="n">1</span>][<span class="n">2</span>]) != <span class="n">1</span>
-			lConnected = <span class="k">False</span>
-		<span class="k">ok</span>
-	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"every step of the path moves to a neighbour cell"</span>,lConnected,<span class="k">True</span>)
-	lThroughOpenings = <span class="k">True</span>
-	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> len(aPath) - <span class="n">1</span>
-		aThis = aPath[nI]
-		aThat = aPath[nI + <span class="n">1</span>]
-		cSide = <span class="s">"N"</span>
-		<span class="k">if</span> aThat[<span class="n">1</span>] &gt; aThis[<span class="n">1</span>]
-			cSide = <span class="s">"S"</span>
-		<span class="k">but</span> aThat[<span class="n">2</span>] &gt; aThis[<span class="n">2</span>]
-			cSide = <span class="s">"E"</span>
-		<span class="k">but</span> aThat[<span class="n">2</span>] &lt; aThis[<span class="n">2</span>]
-			cSide = <span class="s">"W"</span>
-		<span class="k">ok</span>
-		<span class="k">if</span> substr(aOpen[aThis[<span class="n">1</span>]][aThis[<span class="n">2</span>]],cSide) = <span class="n">0</span>
-			lThroughOpenings = <span class="k">False</span>
-		<span class="k">ok</span>
-	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"the path never crosses a wall"</span>,lThroughOpenings,<span class="k">True</span>)
-	newMaze()
-	<span class="f">dnAssert</span>(<span class="s">"a new maze has no path yet"</span>,len(aPath),<span class="n">0</span>)</code></pre></div>
+	oCanvas.<span class="f">show</span>()</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g62.png" alt="The maze window" loading="lazy"><figcaption>A 21 x 13 maze: green is the start, red the exit, orange the shortest way</figcaption></figure>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>

@@ -7,6 +7,4 @@ using {
 
 oForm = uiForm("My first window",320,120)
 
-uiTest(oForm,"dnAssert('the title',oForm.Text,'My first window')")
 uiRun(oForm)                         # show the window and wait until the user closes it
-uiEnd()

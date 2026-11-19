@@ -269,9 +269,7 @@ cBefore = <span class="s">""</span>
 	oPicture.Image = makePicture()
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">"Ready"</span>,<span class="n">15</span>,<span class="n">235</span>,<span class="n">380</span>,<span class="n">24</span>)
 
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 <span class="c"># The clipboard is shared by all programs, so a program that uses it for its own work (a test, for example) puts back what it found.</span>
@@ -324,16 +322,6 @@ cBefore = <span class="s">""</span>
 	<span class="k">next</span>
 	<span class="k">return</span> <span class="s">""</span>
 
-<span class="k">func</span> <span class="f">waitForImage</span>
-	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
-	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">20</span>
-		<span class="k">if</span> oClipboard.<span class="f">ContainsImage</span>()
-			<span class="k">return</span> <span class="k">True</span>
-		<span class="k">ok</span>
-		<span class="k">new</span> <span class="t">Task</span>().<span class="f">Delay</span>(<span class="n">50</span>).<span class="f">Wait</span>(<span class="k">NULL</span>)
-	<span class="k">next</span>
-	<span class="k">return</span> <span class="k">False</span>
-
 <span class="k">func</span> <span class="f">clearClipboard</span>
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	oClipboard.<span class="f">Clear</span>()
@@ -347,38 +335,7 @@ cBefore = <span class="s">""</span>
 	oBrush = <span class="k">new</span> <span class="t">SolidBrush</span>(<span class="f">dnStatic</span>(<span class="s">"System.Drawing.Color"</span>,<span class="s">"FromArgb"</span>,[ <span class="n">255</span>, <span class="n">250</span>, <span class="n">210</span>, <span class="n">40</span> ]))
 	oGraphics.<span class="f">FillEllipse</span>([ :brush = oBrush, :rect = <span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">35</span>,<span class="n">15</span>,<span class="n">50</span>,<span class="n">50</span>) ])
 	oGraphics.<span class="f">Dispose</span>()
-	<span class="k">return</span> oBitmap
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
-	cBefore = readText()                                    <span class="c"># keep what the user had on the clipboard</span>
-
-	<span class="c"># text: copy, change the box, paste</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
-	oEdit.Text = <span class="s">"something else"</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">2</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"text round trip"</span>,oEdit.Text,<span class="s">"Copied from Ring"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"text status"</span>,oStatus.Text,<span class="s">"Pasted"</span>)
-
-	<span class="c"># the table: tabs between the cells, a new line after each row</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">3</span>).<span class="f">PerformClick</span>()
-	cTable = readText()
-	<span class="f">dnAssert</span>(<span class="s">"table text"</span>,substr(cTable,char(<span class="n">9</span>),<span class="s">"|"</span>),<span class="s">"Item|Price"</span> + nl + <span class="s">"Tea|2.50"</span> + nl + <span class="s">"Coffee|3.20"</span> + nl + <span class="s">"Juice|4.00"</span> + nl)
-
-	<span class="c"># the picture</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">4</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"has image"</span>,waitForImage(),<span class="k">True</span>)
-	<span class="f">dnAssert</span>(<span class="s">"image size"</span>,oClipboard.<span class="f">GetImage</span>().Width,<span class="n">120</span>)
-
-	<span class="c"># clear: nothing left, and pasting says so</span>
-	oForm.Controls.<span class="f">Item</span>(<span class="n">5</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"has no text"</span>,oClipboard.<span class="f">ContainsText</span>(<span class="k">NULL</span>),<span class="k">False</span>)
-	oForm.Controls.<span class="f">Item</span>(<span class="n">2</span>).<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"paste of nothing"</span>,oStatus.Text,<span class="s">"The clipboard has no text"</span>)
-
-	<span class="k">if</span> cBefore != <span class="s">""</span>
-		oClipboard.<span class="f">SetText</span>(cBefore)                         <span class="c"># put it back</span>
-	<span class="k">ok</span></code></pre></div>
+	<span class="k">return</span> oBitmap</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g127.png" alt="The clipboard form" loading="lazy"><figcaption>The clipboard form</figcaption></figure>
 
 <div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>

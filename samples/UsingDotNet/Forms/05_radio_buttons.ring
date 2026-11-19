@@ -6,7 +6,6 @@ using {
 	"System.Windows.Forms"
 }
 
-
 oForm = uiForm("Radio buttons",300,200)
 oGroup = new GroupBox() {
 	Text = "Size"
@@ -30,9 +29,7 @@ next
 oChoice = uiLabel(oForm,"Choose a size",15,135,260,24)
 aRadios[2].Checked = True
 
-uiTest(oForm,"selfTest()")
 uiRun(oForm)
-uiEnd()
 
 # --------------------------------------------------------------------------
 
@@ -42,9 +39,3 @@ func show
 			oChoice.Text = "You chose " + oRadio.Text
 		ok
 	next
-
-func selfTest
-	aRadios[3].Checked = True
-	show()
-	dnAssert("large",oChoice.Text,"You chose Large")
-	dnAssert("only one radio is checked",aRadios[2].Checked + aRadios[3].Checked + aRadios[1].Checked,True)

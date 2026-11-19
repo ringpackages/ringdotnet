@@ -276,9 +276,7 @@ nFile = <span class="n">0</span>
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
 	makeSource()
 	applyFilter(<span class="s">"Original"</span>)
-	<span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 	<span class="f">uiRun</span>(oForm)
-	<span class="f">uiEnd</span>()
 	<span class="k">try</span>
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])     <span class="c"># the pictures were only needed while the window was open</span>
 	<span class="k">catch</span>
@@ -454,35 +452,7 @@ nFile = <span class="n">0</span>
 	nFile++
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"image"</span> + nFile + <span class="s">".bmp"</span>])
 	saveBmp(aPixels,cFile)
-	oPicture.Image = <span class="f">dnNew</span>(<span class="s">"Bitmap"</span>,[ :filename = cFile ])
-
-<span class="k">func</span> <span class="f">selfTest</span>
-	applyFilter(<span class="s">"Gray"</span>)
-	lGray = <span class="k">True</span>
-	<span class="k">for</span> aRow <span class="k">in</span> aResult
-		<span class="k">for</span> aPixel <span class="k">in</span> aRow
-			<span class="k">if</span> aPixel[<span class="n">1</span>] != aPixel[<span class="n">2</span>] <span class="k">or</span> aPixel[<span class="n">2</span>] != aPixel[<span class="n">3</span>]
-				lGray = <span class="k">False</span>
-			<span class="k">ok</span>
-		<span class="k">next</span>
-	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"gray: red, green and blue are equal"</span>,lGray,<span class="k">True</span>)
-	applyFilter(<span class="s">"Invert"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"invert: the sky red channel"</span>,aResult[<span class="n">1</span>][<span class="n">1</span>][<span class="n">1</span>],<span class="n">255</span> - aSource[<span class="n">1</span>][<span class="n">1</span>][<span class="n">1</span>])
-	applyFilter(<span class="s">"Brighter"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"brighter never goes over 255"</span>,clamp(<span class="n">250</span> + <span class="n">40</span>),<span class="n">255</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the white sun cannot get brighter"</span>,aResult[<span class="n">1</span>][<span class="n">1</span>][<span class="n">3</span>] &lt;= <span class="n">255</span>,<span class="k">True</span>)
-	applyFilter(<span class="s">"Blur"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"blur keeps the size"</span>,len(aResult) = C_HEIGHT <span class="k">and</span> len(aResult[<span class="n">1</span>]) = C_WIDTH,<span class="k">True</span>)
-	applyFilter(<span class="s">"Edges"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"a flat area has no edge"</span>,aResult[<span class="n">85</span>][<span class="n">5</span>][<span class="n">1</span>],<span class="n">0</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the house wall has an edge"</span>,aResult[<span class="n">60</span>][<span class="n">20</span>][<span class="n">1</span>] &gt; <span class="n">0</span> <span class="k">or</span> aResult[<span class="n">60</span>][<span class="n">19</span>][<span class="n">1</span>] &gt; <span class="n">0</span>,<span class="k">True</span>)
-	applyFilter(<span class="s">"Original"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"original is unchanged"</span>,aResult[<span class="n">1</span>][<span class="n">1</span>][<span class="n">1</span>],aSource[<span class="n">1</span>][<span class="n">1</span>][<span class="n">1</span>])
-	<span class="f">dnAssert</span>(<span class="s">"the picture box shows a bitmap of the right size"</span>,oAfter.Image.Width = C_WIDTH <span class="k">and</span> oAfter.Image.Height = C_HEIGHT,<span class="k">True</span>)
-	oColor = oAfter.Image.<span class="f">GetPixel</span>(<span class="n">94</span>,<span class="n">22</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the sun was written to the file correctly (red)"</span>,oColor.R,<span class="n">255</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the sun was written to the file correctly (blue)"</span>,oColor.B,<span class="n">0</span>)</code></pre></div>
+	oPicture.Image = <span class="f">dnNew</span>(<span class="s">"Bitmap"</span>,[ :filename = cFile ])</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g63.png" alt="The filter lab with sepia" loading="lazy"><figcaption>Sepia: the original on the left, the filtered picture on the right</figcaption></figure>
 <figure class="shot"><img src="img/shots/tut-g63-edges.png" alt="The filter lab with edges" loading="lazy"><figcaption>Edges: flat areas are black, the outlines are light</figcaption></figure>
 

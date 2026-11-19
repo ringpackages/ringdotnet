@@ -461,3 +461,25 @@ func dnUseAll
 func dnUseData
 	dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Data.dll")
 	return 1
+
+# The checks of a program with a window are kept in a file of their own, so the sample stays a clean program: next to the program, the file
+# selftest/<name of the program>.ring defines func selfTest(). When the program runs with --selftest, uiRun() (or wpfRun()) loads that file,
+# runs selfTest() once the window is shown, closes the window and prints the result. Returns True when such a file was loaded.
+func dnLoadSelfTest
+	if len(sysargv) < 2
+		return False
+	ok
+	dn_cScript = substr(sysargv[2],"\\","/")
+	dn_nSlash = 0
+	for dn_nPos = len(dn_cScript) to 1 step -1
+		if dn_cScript[dn_nPos] = "/"
+			dn_nSlash = dn_nPos
+			exit
+		ok
+	next
+	dn_cFile = left(dn_cScript,dn_nSlash) + "selftest/" + substr(dn_cScript,dn_nSlash + 1)
+	if not fexists(dn_cFile)
+		return False
+	ok
+	eval(read(dn_cFile))
+	return True
