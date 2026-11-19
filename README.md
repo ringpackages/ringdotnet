@@ -19,6 +19,17 @@ oSB.callMethod("Append",[", Ring!"])
 ? oSB.getProp("Length")                         # 12
 ```
 
+## Learn and try
+
+* **Documentation:** `docs/index.html` (start with *Getting started*, then *Core concepts*).
+* **Tutorials:** step-by-step lessons grouped in chapters (the basics, text and data formats, numbers and dates, collections, files, processes, networking, security, databases, Windows Forms, WPF, projects, libraries and release). Each lesson has a program in `samples/UsingDotNet/tutorials`; the files are named by chapter, `chNN_name.ring` (`ch01_first_look.ring`, `ch05_watch_folder.ring`...), and a program that has a window can run its own test with `ring chNN_name.ring --selftest`. Run a program from its folder: `cd samples/UsingDotNet/tutorials` and `ring ch01_first_look.ring`.
+* **Samples:** `samples/UsingDotNet/introduction` (short programs for each area), `Forms` and `Wpf` (one small window program for each feature), `applications` (complete programs: calculators, an editor, games, a web API, a contacts book) and `tests` (the automated tests).
+
+```
+sh samples/UsingDotNet/tests/run.sh ring.exe          # everything (the tutorials and the samples with windows too)
+sh samples/UsingDotNet/tests/run.sh ring.exe --quick  # only the tests and the introduction samples
+```
+
 ## Namespaces
 
 The wrapped namespaces are listed in `tools/dotnetmanifest.ring` (a whole namespace with `:all = true`, or explicit types, closed generics and nested types). `tools/gendotnet.ring [namespace ...]` generates `libraries/dotnetlib/generated/<Namespace>.ring` plus one file per class, and `dnImport("Namespace")` loads them on demand, so a program only pays for what it uses. Class names are the short .NET names; when two namespaces have the same name, the later one gets the namespace as a prefix (`TimersTimer`). When an object of a type that has a generated class (but whose namespace was not imported) is returned, its namespace is imported automatically (`generated/classindex.ring`); a manifest `:uses` list also imports the namespaces a namespace normally returns (so `oProcess.StandardOutput.ReadToEnd()` works right after `dnImport("System.Diagnostics")`). Every object a method returns is wrapped by its runtime type (or the nearest base type that has a generated class) when that namespace was imported, otherwise it is a plain `DotNetObject` (use `callMethod`/`getProp`). The manifest `:prefer = ["Namespace.Type.Method=arity"]` chooses which overload gets the plain name.
@@ -73,7 +84,7 @@ new Console().WriteLine("Hi")
 ? new Math().Max(3,9)                   # static members are called on an instance
 ```
 
-Ring has no overloading, so a .NET method name with several overloads is **one Ring method with one parameter**: `Name(NULL)` calls the parameterless overload, `Name(value)` the overload with one parameter, and `Name([ :param = value ])` chooses the overload by the .NET parameter names (`Round([ :value = x, :digits = 2 ])`, `Next_([ :minValue = 1, :maxValue = 10 ])`). A `params` array takes a plain list (`Combine(["a","b","c"])`). `ToString()` keeps its parameterless form; its forms with parameters are `Format` (`oDate.Format("yyyy-MM-dd")`). Constructors: `init` is the parameterless or shortest one, the others are `New_([ :param = value ])` (or `dnNew("Class",[ :param = value ])`). A name whose overloads all have the same number of parameters (`Math.Max(a,b)`) stays positional.
+A Ring method has one parameter list, so a .NET method name with several overloads is **one Ring method with one parameter**: `Name(NULL)` calls the parameterless overload, `Name(value)` the overload with one parameter, and `Name([ :param = value ])` chooses the overload by the .NET parameter names (`Round([ :value = x, :digits = 2 ])`, `Next_([ :minValue = 1, :maxValue = 10 ])`). A `params` array takes a plain list (`Combine(["a","b","c"])`). `ToString()` keeps its parameterless form; its forms with parameters are `Format` (`oDate.Format("yyyy-MM-dd")`). Constructors: `init` is the parameterless or shortest one, the others are `New_([ :param = value ])` (or `dnNew("Class",[ :param = value ])`). A name whose overloads all have the same number of parameters (`Math.Max(a,b)`) stays positional.
 
 Types with classes: see the manifest. Among them the closed generic collections StringList, NumberList, ObjectList (`List<T>`), StringDictionary, NumberDictionary, ObjectDictionary (`Dictionary<string,T>`), StringSet, StringQueue, StringStack. Indexers become `Item(index)` / `SetItem(index,value)`; `toList()` copies a collection to a Ring list:
 
@@ -144,19 +155,19 @@ oForm { Height = 300  Text += "!" }
 
 `dnImport("System.Windows.Forms")` also loads `libraries/dotnetlib/gui.ring`: `uiForm()`, `uiButton()`, `uiLabel()`, `uiTextBox()`, `uiMemo()`, `uiListBox()`, `uiComboBox()`, `uiPanel()`, `uiPictureBox()`, `uiTimer()`, `uiMenu()`, dialogs (`uiMessage()`, `uiOpenFileName()`...) and a `UiCanvas` class for drawing. `applications/` has complete programs (Calculator, Notepad, games, ...) that run themselves with `--selftest`.
 
-## Ring gotchas when writing GUI programs
+## Ring rules for GUI programs
 
-* `"text" + number` works, `number + "text"` is an error (`string(n) + " items"`).
+* `"text" + number` works; `number + "text"` needs the number as text first (`string(n) + " items"`).
 * Do not call a method on a new object on the right side of an attribute assignment (`oForm.Text = new Path().GetFileName(f)`): the assignment is not made. Use a variable first (`oPath = new Path()` then `oForm.Text = oPath.GetFileName(f)`).
 * The code of an event runs outside the function that set it up: it can only use global variables (create them at the top of the program, then assign them in the function).
-* Put the program in functions (`func main`, or functions called from the top) so that loop variables and temporaries are local: in Ring a global variable named like an attribute (`x`, `width`...) makes `obj.x` fail, and a function that assigns a name that exists as a global changes the global. Keep global only what the code of events needs (the widgets and the state): the code of an event can see globals only.
-* Ring keywords can't be variable or function names, in any case: `oK` is `ok`, `step()` is `step`, `To`, `From`, `Load`... Do not define functions named like the built-ins the library uses (`isNumber`, `len`, ...).
-* Define the functions after the main code (a `func` at the top would swallow the rest of the file).
+* Put the program in functions (`func main`, or functions called from the top) so that loop variables and temporaries are local: in Ring a global variable named like an attribute (`x`, `width`...) is read before `obj.x` is evaluated, and a function that assigns a name that exists as a global changes the global. Keep global only what the code of events needs (the widgets and the state): the code of an event can see globals only.
+* Ring keywords are not used as variable or function names, in any letter case: `oK` is `ok`, `step()` is `step`, `To`, `From`, `Load`... Do not define functions named like the built-ins the library uses (`isNumber`, `len`, ...).
+* Define the functions after the main code (a `func` at the top takes the rest of the file as its body).
 * `dnNull()` is the .NET null (`oPictureBox.Image = dnNull()`).
 
 ## WPF
 
-A `using { "System.Windows" ... }` block (it starts the desktop mode with `dnUseDesktop()`) with `"System.Windows"` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `samples/UsingDotNet/tests/test_wpf.ring`, `samples/UsingDotNet/Wpf` (10 samples) and the applications WpfCalculator and WpfColorMixer. In Ring, a global variable named like an attribute (`x`) breaks `obj.X`.
+A `using { "System.Windows" ... }` block (it starts the desktop mode with `dnUseDesktop()`) with `"System.Windows"` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `samples/UsingDotNet/tests/test_wpf.ring`, `samples/UsingDotNet/Wpf` (10 samples) and the applications WpfCalculator and WpfColorMixer. In Ring, a global variable named like an attribute (`x`) is read before `obj.X`.
 
 ## Entity Framework Core
 
@@ -274,8 +285,8 @@ Generated desktop classes: Application, MessageBox, Form, Button, Label, TextBox
 Ring program ── dotnetlib (Ring)  ──  ring_dotnet.dll (C, hosts the CLR)  ──  RingDotNet.Bridge.dll (C#, reflection)
 ```
 
-* `extensions/ringdotnet/ring_dotnet.c` — three functions: `dotnet_start()`, `dotnet_invoke(cRequest)`, `dotnet_info()`. It finds `hostfxr` (`DOTNET_ROOT`, then the default install folder), starts the runtime with `RingDotNet.Bridge.runtimeconfig.json` and binds `Bridge.Invoke`.
-* `extensions/ringdotnet/bridge` — the managed bridge. .NET objects stay in a handle table; Ring only holds numeric handles. Overloads are chosen by argument count and convertibility (Ring numbers convert to any numeric type or enum, strings to enums/char/Guid/Type, lists to arrays).
+* `extensions/ringdotnet/ring_dotnet.c` — `dotnet_start()`, `dotnet_invoke(cRequest)`, `dotnet_info()`, the callback pair (`dotnet_callbackrequest`, `dotnet_callbackresult`) and the managed pointers that release .NET objects when Ring drops them (`dotnet_guard`, `dotnet_unguard`, `dotnet_pending`, `dotnet_flush`). It finds `hostfxr` (`DOTNET_ROOT`, then the default install folder), starts the runtime with `RingDotNet.Bridge.runtimeconfig.json` and binds `Bridge.Invoke`.
+* `extensions/ringdotnet/bridge` — the managed bridge. .NET objects stay in a handle table; Ring only holds numeric handles. Overloads are chosen by the values you pass (and by parameter names in a `[ :name = value ]` list); Ring numbers convert to any numeric type or enum, strings to enums/char/Guid/Type, lists to arrays.
 * `libraries/dotnetlib` — the Ring API (`functions.ring`, `classes.ring`) and the wire-format packing.
 
 Wire format: a sequence of `<tag><byte length>:<data>` items (`s` string, `n` number, `b` boolean, `z` null, `o` object handle, `l` list, `e` error).
@@ -302,10 +313,12 @@ Windows (clang): `extensions/ringdotnet/buildclang_win.bat`; Visual Studio: `bui
 
 System, System.Text(.Json/.Encodings/.RegularExpressions/.Unicode), System.IO(.Compression/.Pipes/.MemoryMappedFiles), System.Linq, System.Collections(.Generic/.Specialized/.Concurrent/.ObjectModel), System.Threading(.Tasks), System.Net(.Http/.Sockets/.NetworkInformation/.Mail/.WebSockets/.Security), System.Globalization, System.Security.(Cryptography/Principal/Claims/X509), System.Diagnostics, System.Xml(.Linq/.XPath/.Schema/.Serialization/.Xsl), System.Data(.Common/.SqlTypes), System.ComponentModel, System.Reflection, System.Runtime.InteropServices/Loader, System.Numerics, System.Timers, System.Formats.Tar, System.Resources, Microsoft.Win32, System.Drawing(.Drawing2D/.Imaging/.Text/.Printing) and System.Windows.Forms(.Layout/.VisualStyles). Not wrapped: other packages that are not part of the base runtime (use `wrapassembly.ring`).
 
-## Not yet supported (ideas)
+## Limits
 
-* Callbacks from other threads or after the call returned, generic methods, `ref`/`out` parameters, indexers
-* Automatic release of handles (use `release()`)
+* Ring code runs on one thread: a callback that .NET invokes from another thread is not run, and web handlers do not run in parallel (see *Rules and limits* in the documentation).
+* A class written in C# cannot be declared in Ring: write it in C#, build a DLL and wrap it (`tools/wrapassembly.ring`).
+* Windows Forms and WPF need Windows; everything else runs on Windows, Linux and macOS (macOS and arm64 are not tested yet).
+* .NET objects are released when Ring drops them (a managed pointer queues the handle, and the handles are released in groups); `release()` releases one at once.
 
 ## Packaging
 
@@ -314,3 +327,7 @@ The package installs from one zip file, `extensions/ringdotnet.zip` (`setup.ring
 ```
 python tools/makepackage.py
 ```
+
+## Version and changes
+
+The package version is in `package.ring`; the changes are in [CHANGELOG.md](CHANGELOG.md). The package is tested with Ring 1.28 and .NET 9.

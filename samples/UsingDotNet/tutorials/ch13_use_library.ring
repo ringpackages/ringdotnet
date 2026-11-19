@@ -14,7 +14,7 @@ if not fexists(cDll)
 ok
 
 # STEP 2. Make Ring classes for it. The generator is a Ring program of this package: tools/wrapassembly.ring
-chdir("../../tools")
+chdir("../../../tools")
 system(exefilename() + " wrapassembly.ring " + cDll + " " + cClasses + " > nul")
 chdir(cHere)
 
