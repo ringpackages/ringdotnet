@@ -24,6 +24,33 @@ new Console().WriteLine("Hi")           # static members are called on an instan
 
 Inheritance is real: `Button` derives from `ButtonBase`, `Control` and so on, so a method defined on the base class works on every derived object.
 
+## Short names for static classes
+
+A class such as `Math`, `Path` or `File` has only static members, so `new Math()` just makes an object that gives access to them. If you prefer the .NET style, make that object once at the top of the program and give it the name of the class:
+
+```ring
+load "dotnet.ring"
+using { "System" "System.IO" }
+
+Math = new Math()
+Path = new Path()
+
+func main
+	? Math.Max(3,9)                          # 9
+	? Path.Combine(["a","b"])                # a\b
+	? new Math().Min(3,9)                    # the class is still there: 3
+```
+
+The names of Ring variables are not case sensitive, so a variable `path` is the same name as `Path`, and a local variable with that name **hides** the object in its function:
+
+```ring
+func fileName
+	path = "C:/temp/x.txt"
+	return Path.GetFileName(path)            # Error (R13): Object is required (Path is now the text)
+```
+
+Names such as `Path`, `File`, `Directory`, `Console`, `Environment` and `Convert` are also the names that programs use for variables, so use this style only when you keep those names for the .NET classes. Only classes that have just static members suit it: `DateTime`, `String`, `Task` and `Process` also have instance members, and `new DateTime(...)` is how you make a value.
+
 ## Naming rules
 
 Ring has no method overloading, so a .NET method name that has **several overloads** becomes **one Ring method with one parameter**; you choose the overload with the value you pass (see *Named arguments* below). A name with a single form keeps the .NET parameters.
