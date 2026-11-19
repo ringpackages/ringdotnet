@@ -1,0 +1,41 @@
+1. the database file was created: 1
+   the connection is: Open
+
+2. tables: Customers, Orders
+   columns of Orders: Id (counter), CustomerId (integer), Total (currency), Ordered (datetime)
+
+3. rows: 4 customers, 6 orders
+
+4. the customers in Cairo, by name:
+   1: Ann (Cairo)
+   3: أحمد (Cairo)
+   the apostrophe and the Arabic name came back as they went in: 1, 1
+
+5. each order with its customer (INNER JOIN):
+   Ann           120.50   2024-01-15
+   Ann            80.00   2024-02-03
+   Bob O'Neil     45.25   2024-02-10
+   (Arabic)      300.00   2024-03-01
+   (Arabic)       19.99   2024-03-20
+   Ann            60.00   2024-04-02
+
+6. orders for each customer (customers with 2 orders or more):
+   (Arabic)    2 orders, total 319.99, average 160.00
+   Ann         3 orders, total 260.50, average 86.83
+
+7. the 2 biggest orders: 300.00, 120.50
+   the customers whose name starts with B: Bob O'Neil
+
+8. the total of each month (Month function):
+   month 1: 120.50
+   month 2: 125.25
+   month 3: 319.99
+   month 4: 60.00
+   orders after 15 February: 3
+
+9. the orders of Ann under 100 are raised by 10%: 2 rows
+   Dina has no orders and is deleted: 1 row
+
+10. the second statement failed: 1; the city of Ann is still Cairo
+
+11. the connection is closed; the file stays on the disk until the next run of the program deletes it

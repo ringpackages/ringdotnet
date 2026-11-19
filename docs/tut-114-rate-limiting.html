@@ -150,6 +150,7 @@
 <a href="tut-112-globbing.html">112. File patterns (globbing)</a>
 <a href="tut-113-data-protection.html">113. Protecting data</a>
 <a href="tut-114-rate-limiting.html" class="cur">114. Rate limiting</a>
+<a href="tut-115-access.html">115. Microsoft Access databases</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -316,9 +317,9 @@ cNs = <span class="s">"System.Threading.RateLimiting."</span>
 <ul><li>limiters answer yes or no at once with <code>AttemptAcquire</code>,</li><li>a token bucket allows bursts and limits the pace,</li><li>a concurrency limiter uses leases that must be disposed,</li><li>statistics and the retry time,</li><li>one limiter for each client.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Write <code>handleRequest(cClient)</code> that returns <em>200</em> or <em>429</em> and the retry seconds, using one bucket for each client name.</li><li>Use a <code>FixedWindowRateLimiter</code> (a window of 1 second, 5 permits) and make 10 requests with short pauses.</li><li>Combine a concurrency limiter with a token bucket: a request must pass both.</li><li>Print the statistics of every client after 100 random requests (<a href="tut-69-random.html">tutorial 69</a>).</li></ol>
-<h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
-<p>You have reached the end of the tutorials. Keep <a href="concepts.html">Core concepts</a>, the <a href="api.html">class reference</a> and <a href="gotchas.html">Gotchas &amp; limits</a> at hand, and read the <a href="gallery-apps.html">applications</a> for bigger programs.</p>
-<div class="pager"><a href="tut-113-data-protection.html"><small>Previous</small>113. Protecting data</a><a class="next" href="concepts.html"><small>Next</small>Core concepts</a></div>
+<h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
+<p><a href="tut-115-access.html">Tutorial 115: Microsoft Access databases</a></p>
+<div class="pager"><a href="tut-113-data-protection.html"><small>Previous</small>113. Protecting data</a><a class="next" href="tut-115-access.html"><small>Next</small>115. Microsoft Access databases</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>
 <aside class="toc" id="toc"></aside>
