@@ -47,11 +47,13 @@ func wpfColor  cColor
 
 # ---------------------------------------------------------------- quick controls
 
+# A Label (a content control, the class WpfLabel) with a text
 func wpfLabel  cText
 	wpf_oLabel = new WpfLabel()
 	wpf_oLabel.Content = cText
 	return wpf_oLabel
 
+# A TextBlock (a plain text) with a text
 func wpfText  cText
 	wpf_oText = new TextBlock()
 	wpf_oText.Text = cText
@@ -68,6 +70,7 @@ func wpfButton  cText, cClickCode
 
 # ---------------------------------------------------------------- running and testing
 
+# True when the program was started with --selftest: it drives itself and exits
 func wpfSelfTest
 	return find(sysargv,"--selftest") > 0
 

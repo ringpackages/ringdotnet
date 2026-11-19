@@ -8,6 +8,7 @@
 	arguments and returns the result).
 */
 
+# A query on a Ring list or a .NET collection: dnQuery(aList).Where("...").ToList()
 func dnQuery  xSource
 	return new DotNetQuery(xSource)
 

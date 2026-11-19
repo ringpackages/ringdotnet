@@ -22,6 +22,7 @@ func uiForm  cTitle, nWidth, nHeight
 	ui_oForm.StartPosition = "CenterScreen"
 	return ui_oForm
 
+# A label with a text, placed at (nX, nY) in the parent (a form or a container)
 func uiLabel  oParent, cText, nX, nY, nWidth, nHeight
 	ui_oLabel = new Label()
 	ui_oLabel.Text = cText
@@ -42,6 +43,7 @@ func uiButton  oParent, cText, nX, nY, nWidth, nHeight, cClickCode
 	oParent.Controls.Add(ui_oButton)
 	return ui_oButton
 
+# A one-line text box (uiMemo has several lines); read and write its Text
 func uiTextBox  oParent, nX, nY, nWidth, nHeight
 	ui_oText = new TextBox()
 	ui_oText.Location = new Point(nX,nY)
@@ -49,6 +51,7 @@ func uiTextBox  oParent, nX, nY, nWidth, nHeight
 	oParent.Controls.Add(ui_oText)
 	return ui_oText
 
+# A text box with several lines, scroll bars, Enter and Tab keys, and no word wrap
 func uiMemo  oParent, nX, nY, nWidth, nHeight
 	ui_oMemo = uiTextBox(oParent,nX,nY,nWidth,nHeight)
 	ui_oMemo.Multiline = 1
@@ -58,6 +61,7 @@ func uiMemo  oParent, nX, nY, nWidth, nHeight
 	ui_oMemo.WordWrap = 0
 	return ui_oMemo
 
+# A check box; cClickCode is Ring code run on a click ("" for none); Checked is its state
 func uiCheckBox  oParent, cText, nX, nY, nWidth, nHeight, cClickCode
 	ui_oCheck = new CheckBox()
 	ui_oCheck.Text = cText
@@ -69,6 +73,7 @@ func uiCheckBox  oParent, cText, nX, nY, nWidth, nHeight, cClickCode
 	oParent.Controls.Add(ui_oCheck)
 	return ui_oCheck
 
+# A list box: Items.Add(text) adds an item, SelectedIndex is the chosen one (-1 for none)
 func uiListBox  oParent, nX, nY, nWidth, nHeight
 	ui_oList = new ListBox()
 	ui_oList.Location = new Point(nX,nY)
@@ -76,6 +81,7 @@ func uiListBox  oParent, nX, nY, nWidth, nHeight
 	oParent.Controls.Add(ui_oList)
 	return ui_oList
 
+# A drop-down list that is filled from the Ring list aItems; the first item is chosen
 func uiComboBox  oParent, nX, nY, nWidth, aItems
 	ui_oCombo = new ComboBox()
 	ui_oCombo.Location = new Point(nX,nY)
@@ -90,6 +96,7 @@ func uiComboBox  oParent, nX, nY, nWidth, aItems
 	oParent.Controls.Add(ui_oCombo)
 	return ui_oCombo
 
+# A panel: a container for other controls (give it as the parent)
 func uiPanel  oParent, nX, nY, nWidth, nHeight
 	ui_oPanel = new Panel()
 	ui_oPanel.Location = new Point(nX,nY)
@@ -183,12 +190,15 @@ func uiSendKeys  oForm, cKeys
 
 # ---------------------------------------------------------------- colors, fonts, dialogs
 
+# A color from its red, green and blue parts (0 to 255)
 func uiRGB  nRed, nGreen, nBlue
 	return new Color().FromArgb([ :red = nRed, :green = nGreen, :blue = nBlue ])
 
+# A color from its name: uiColor("Red")
 func uiColor  cName
 	return new Color().FromName(cName)
 
+# A font of a family and size (lBold = true for bold): uiFont("Segoe UI",12,false)
 func uiFont  cName, nSize, lBold
 	if lBold
 		return new Font(cName,nSize).New_([ :familyName = cName, :emSize = nSize, :style = "Bold" ])
@@ -221,6 +231,7 @@ func uiOpenFileName  cTitle, cFilter
 	ok
 	return ""
 
+# Save file dialog: returns the file name or ""
 func uiSaveFileName  cTitle, cFilter
 	ui_oDialog = new SaveFileDialog()
 	ui_oDialog.Title = cTitle
