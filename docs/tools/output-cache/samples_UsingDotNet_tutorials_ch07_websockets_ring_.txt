@@ -1,0 +1,21 @@
+1. the server listens
+
+2. a request arrived for /chat, it is a WebSocket request: yes
+   client state: Open, server state: Open
+
+3. text messages:
+   the server received 'hello'
+   the client received 'HELLO'
+   the server received 'how are you?'
+   the client received 'HOW ARE YOU?'
+
+4. a binary message of 256 bytes: the server received 256 bytes, of type Binary, the same: yes
+
+5. a message of 20 bytes, a buffer of 8 bytes:
+   part 1: '01234567', last part: no
+   part 2: '89ABCDEF', last part: no
+   part 3: 'GHIJ', last part: yes
+   the whole message: 0123456789ABCDEFGHIJ
+
+6. the server received a message of type Close, status NormalClosure, description 'bye'
+   client state: Closed, server state: Closed

@@ -104,6 +104,7 @@ PAGES = [
     ("tut-102-ip-networks", "IP networks", "Tutorials: Networking and the web"),
     ("tut-25-sockets", "Sockets", "Tutorials: Networking and the web"),
     ("tut-91-udp", "UDP", "Tutorials: Networking and the web"),
+    ("tut-156-websockets", "WebSockets", "Tutorials: Networking and the web"),
     ("tut-84-http-client", "HttpClient in depth", "Tutorials: Networking and the web"),
     ("tut-39-rest-client", "A REST client", "Tutorials: Networking and the web"),
     ("tut-16-web-service", "A web service", "Tutorials: Networking and the web"),

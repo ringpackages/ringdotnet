@@ -35,7 +35,7 @@ The tutorials are grouped by **topic**. Read **The basics** first, in order; aft
 | [Collections and algorithms](#collections-and-algorithms) | Arrays, sets and other data structures, collections for many threads, enums and identifiers, undo and queues, recursion and an expression calculator. |
 | [Files and streams](#files-and-streams) | Paths, file information and disks, streams, binary files and random access, compression (GZip, ZIP, tar), file patterns, watching a folder, and projects that work on many files: a log analyzer, a duplicate finder, a backup tool, a file renamer, a file comparison and a checksum list. |
 | [Processes and performance](#processes-and-performance) | Asking the computer about itself, command-line tools, logging and tracing, starting and talking to other programs, tasks that wait, releasing resources, measuring speed and memory, and the Windows Registry. |
-| [Networking and the web](#networking-and-the-web) | IP addresses and networks, TCP and UDP sockets, HttpClient and REST, web services and small web sites, route templates, a link shortener, and e-mail messages. |
+| [Networking and the web](#networking-and-the-web) | IP addresses and networks, TCP and UDP sockets, WebSockets, HttpClient and REST, web services and small web sites, route templates, a link shortener, and e-mail messages. |
 | [Security](#security) | Hashing, encryption and signing, certificates, protecting data, logins and sessions, identities and claims, and rate limiting. |
 | [Databases and services](#databases-and-services) | SQL and Entity Framework, reports, Microsoft Access, and the services of an application: settings and configuration, caching and dependency injection. |
 | [Windows Forms](#windows-forms) | Windows with controls, the keyboard and the mouse, layout, lists and grids, formatted text, the clipboard, drag and drop, dialogs, more than one window and a tray icon, printing, menus, timers, drawing, images and charts (Windows only). |
@@ -184,13 +184,14 @@ Asking the computer about itself, command-line tools, logging and tracing, start
 
 ## Networking and the web
 
-IP addresses and networks, TCP and UDP sockets, HttpClient and REST, web services and small web sites, route templates, a link shortener, and e-mail messages.
+IP addresses and networks, TCP and UDP sockets, WebSockets, HttpClient and REST, web services and small web sites, route templates, a link shortener, and e-mail messages.
 
 <div class="cards">
 <a class="card" href="tut-81-network-tools.html"><div class="ic">🌐</div><b>Network tools</b><span>IPAddress, Dns, Ping, interfaces and a port check, all on this computer.</span></a>
 <a class="card" href="tut-102-ip-networks.html"><div class="ic">🌐</div><b>IP networks</b><span>CIDR, IPNetwork.Contains and a private-address allow list.</span></a>
 <a class="card" href="tut-25-sockets.html"><div class="ic">🌐</div><b>Sockets</b><span>A TCP server and client that talk line by line.</span></a>
 <a class="card" href="tut-91-udp.html"><div class="ic">🌐</div><b>UDP</b><span>Datagrams between sockets, answers, time limits and lost messages.</span></a>
+<a class="card" href="tut-156-websockets.html"><div class="ic">🌐</div><b>WebSockets</b><span>A connection that stays open: HttpListener and ClientWebSocket, text and binary messages, parts and closing.</span></a>
 <a class="card" href="tut-84-http-client.html"><div class="ic">🌐</div><b>HttpClient in depth</b><span>Headers, status codes, EnsureSuccessStatusCode, cancelling and saving a download.</span></a>
 <a class="card" href="tut-39-rest-client.html"><div class="ic">🌐</div><b>A REST client</b><span>GET and POST with JSON, status codes, timeouts and errors.</span></a>
 <a class="card" href="tut-16-web-service.html"><div class="ic">🌐</div><b>A web service with a database</b><span>JSON over HTTP, stored with Entity Framework.</span></a>
