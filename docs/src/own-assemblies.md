@@ -27,8 +27,8 @@ oCalc.callMethod("Add",[5])
 Generate Ring classes for every public type of the DLL:
 
 ```bash
-cd tools
-ring wrapassembly.ring path/to/MyLibrary.dll ../myclasses
+cd tools/dotnettools
+ring wrapassembly.ring path/to/MyLibrary.dll ../../myclasses
 ```
 
 This writes one loader per namespace and one file per class into `myclasses/`. Use them like any other wrapped namespace:
@@ -63,7 +63,7 @@ The generated classes support the same things as the built-in ones: real inherit
 A NuGet package is a set of DLL files. Copy the DLLs of the package (for example from `~/.nuget/packages/<name>/<version>/lib/net8.0/`) and the DLLs it depends on next to each other, then wrap and load as above:
 
 ```bash
-ring wrapassembly.ring Newtonsoft.Json.dll ../json
+ring wrapassembly.ring Newtonsoft.Json.dll ../../json
 ```
 
 ```ring

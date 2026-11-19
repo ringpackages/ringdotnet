@@ -1,5 +1,5 @@
 /*
-	The .NET namespaces that tools/gendotnet.ring wraps in Ring classes.
+	The .NET namespaces that tools/dotnettools/gendotnet.ring wraps in Ring classes.
 
 	Each entry:
 		:namespace   the .NET namespace (also the name used with dnImport("..."))

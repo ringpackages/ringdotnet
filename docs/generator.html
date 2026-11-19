@@ -236,7 +236,7 @@
 <article>
 <h1>Class generator</h1><p class="lead">How the wrapper classes are made, how to add namespaces, closed generic types and overload preferences, and how to regenerate them.</p>
 <h2 id="what-the-generator-does">What the generator does<a class="anchor" href="#what-the-generator-does">#</a></h2>
-<p><code>tools/gendotnet.ring</code> reads the <strong>manifest</strong> (<code>tools/dotnetmanifest.ring</code>), loads the assemblies, and uses reflection to write Ring source:</p>
+<p><code>tools/dotnettools/gendotnet.ring</code> reads the <strong>manifest</strong> (<code>tools/dotnettools/dotnetmanifest.ring</code>), loads the assemblies, and uses reflection to write Ring source:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span></span><button class="copy" type="button">Copy</button></div><pre><code>libraries/dotnetlib/generated/
 	System.ring                     # the namespace loader: imports, registrations
 	System.classes.ring             # all the classes of the namespace (one file: loading and installing thousands of small files is slow)
@@ -246,7 +246,7 @@
 	classindex.ring                 # [type, namespace] of every class: automatic imports</code></pre></div>
 <p>The class files are plain Ring: a <code>Class X from Base</code> with a method per .NET method, <code>getX</code>/<code>setX</code> for properties, <code>setXEvent</code> / <code>clearXEvent</code> for events and registration with <code>dnRegisterClass</code>. The files are generated: <strong>do not edit them</strong>.</p>
 <h2 id="regenerate">Regenerate<a class="anchor" href="#regenerate">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>cd tools
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>cd tools/dotnettools
 ring gendotnet.ring                       # every namespace of the manifest
 ring gendotnet.ring System.Text System.IO # only these</code></pre></div>
 <h2 id="the-manifest">The manifest<a class="anchor" href="#the-manifest">#</a></h2>
@@ -279,7 +279,7 @@ ring gendotnet.ring System.Text System.IO # only these</code></pre></div>
 		<span class="f">dnRequest</span>(<span class="s">"set"</span>,[<span class="k">self</span>,<span class="s">"Length"</span>,P1])</code></pre></div>
 <p>Ring calls <code>getLength()</code> when you read <code>oSB.Length</code>, and <code>setLength(value)</code> when you assign to it.</p>
 <h2 id="wrapping-your-own-assembly">Wrapping your own assembly<a class="anchor" href="#wrapping-your-own-assembly">#</a></h2>
-<p><code>tools/wrapassembly.ring</code> uses the same generator for a single DLL: <a href="own-assemblies.html">Your own assemblies</a>.</p>
+<p><code>tools/dotnettools/wrapassembly.ring</code> uses the same generator for a single DLL: <a href="own-assemblies.html">Your own assemblies</a>.</p>
 <h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
 <ul><li><a href="testing.html">Testing</a>: how the package and your own programs are tested.</li><li><a href="reference.html">Function index</a> and the <a href="api.html">Class reference</a>: what has been generated.</li></ul>
 <div class="pager"><a href="own-assemblies.html"><small>Previous</small>Your own assemblies</a><a class="next" href="testing.html"><small>Next</small>Testing</a></div>

@@ -6,7 +6,7 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 
 **Core**
 - The .NET runtime is hosted in the Ring process (`hostfxr`); a managed bridge calls any public member by reflection.
-- Generated Ring classes for the framework namespaces (and `tools/wrapassembly.ring` for your own assemblies), loaded on demand.
+- Generated Ring classes for the framework namespaces (and `tools/dotnettools/wrapassembly.ring` for your own assemblies), loaded on demand.
 - `using { "System" "System.Text" }` imports namespaces and starts the runtime mode that the names need (desktop, web, data).
 - `new Class` works without parentheses for classes that need no value; `new Class(args)` with parentheses when values are passed.
 - Overloaded methods are one Ring method: `Name(NULL)`, `Name(value)` or `Name([ :parameter = value ])`.

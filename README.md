@@ -32,7 +32,7 @@ sh samples/UsingDotNet/tests/run.sh ring.exe --quick  # only the tests and the i
 
 ## Namespaces
 
-The wrapped namespaces are listed in `tools/dotnetmanifest.ring` (a whole namespace with `:all = true`, or explicit types, closed generics and nested types). `tools/gendotnet.ring [namespace ...]` generates `libraries/dotnetlib/generated/<Namespace>.ring` plus one file per class, and `dnImport("Namespace")` loads them on demand, so a program only pays for what it uses. Class names are the short .NET names; when two namespaces have the same name, the later one gets the namespace as a prefix (`TimersTimer`). When an object of a type that has a generated class (but whose namespace was not imported) is returned, its namespace is imported automatically (`generated/classindex.ring`); a manifest `:uses` list also imports the namespaces a namespace normally returns (so `oProcess.StandardOutput.ReadToEnd()` works right after `dnImport("System.Diagnostics")`). Every object a method returns is wrapped by its runtime type (or the nearest base type that has a generated class) when that namespace was imported, otherwise it is a plain `DotNetObject` (use `callMethod`/`getProp`). The manifest `:prefer = ["Namespace.Type.Method=arity"]` chooses which overload gets the plain name.
+The wrapped namespaces are listed in `tools/dotnettools/dotnetmanifest.ring` (a whole namespace with `:all = true`, or explicit types, closed generics and nested types). `tools/dotnettools/gendotnet.ring [namespace ...]` generates `libraries/dotnetlib/generated/<Namespace>.ring` plus one file per class, and `dnImport("Namespace")` loads them on demand, so a program only pays for what it uses. Class names are the short .NET names; when two namespaces have the same name, the later one gets the namespace as a prefix (`TimersTimer`). When an object of a type that has a generated class (but whose namespace was not imported) is returned, its namespace is imported automatically (`generated/classindex.ring`); a manifest `:uses` list also imports the namespaces a namespace normally returns (so `oProcess.StandardOutput.ReadToEnd()` works right after `dnImport("System.Diagnostics")`). Every object a method returns is wrapped by its runtime type (or the nearest base type that has a generated class) when that namespace was imported, otherwise it is a plain `DotNetObject` (use `callMethod`/`getProp`). The manifest `:prefer = ["Namespace.Type.Method=arity"]` chooses which overload gets the plain name.
 
 Other rules: enums are strings in both directions (`oForm.WindowState = "Maximized"`, `oDate.DayOfWeek` returns `"Thursday"`); methods with `out`/`ref` parameters return a list `[result, out values...]` (`aR = oDict.TryGetValue("k")`); closed generic types without a class can be created with `dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])`.
 
@@ -41,8 +41,8 @@ Run `samples/UsingDotNet/tests/run.sh` (it needs `ring.dll` on the PATH) to exec
 ## Your own assemblies and NuGet packages
 
 ```
-cd tools
-ring wrapassembly.ring path/to/MyLibrary.dll ../myclasses
+cd tools/dotnettools
+ring wrapassembly.ring path/to/MyLibrary.dll ../../myclasses
 ```
 
 generates Ring classes (with inheritance, properties, events, enums as strings) for every public class of the assembly, one loader per namespace. Use them with:
@@ -99,7 +99,7 @@ oDict.SetItem("two","2")
 ? oDict.Item("two")
 ```
 
-Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to `aTypes` in `tools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
+Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to `aTypes` in `tools/dotnettools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
 
 ## Named arguments
 
@@ -277,7 +277,7 @@ oForm.getControls().Add(oButton)
 new Application().Run(oForm)
 ```
 
-Generated desktop classes: Application, MessageBox, Form, Button, Label, TextBox, CheckBox, ListBox, ControlCollection (add more in `tools/gendotnet.ring`). Events must be raised on the Ring thread (UI events are; timers and tasks are not).
+Generated desktop classes: Application, MessageBox, Form, Button, Label, TextBox, CheckBox, ListBox, ControlCollection (add more in `tools/dotnettools/gendotnet.ring`). Events must be raised on the Ring thread (UI events are; timers and tasks are not).
 
 ## Architecture
 
@@ -309,14 +309,14 @@ Return values: strings, numbers (all numeric types), booleans (1/0) and `null` m
 
 Windows (clang): `extensions/ringdotnet/buildclang_win.bat`; Visual Studio: `buildvc_x64.bat`; Linux: `buildgcc.sh`; macOS: `buildclang.sh`. The .NET SDK builds the bridge. Copy `ring_dotnet.dll` and the `RingDotNet.Bridge.*` files to the same folder (`ring/bin`).
 
-## Wrapped namespaces (see tools/dotnetmanifest.ring)
+## Wrapped namespaces (see tools/dotnettools/dotnetmanifest.ring)
 
 System, System.Text(.Json/.Encodings/.RegularExpressions/.Unicode), System.IO(.Compression/.Pipes/.MemoryMappedFiles), System.Linq, System.Collections(.Generic/.Specialized/.Concurrent/.ObjectModel), System.Threading(.Tasks), System.Net(.Http/.Sockets/.NetworkInformation/.Mail/.WebSockets/.Security), System.Globalization, System.Security.(Cryptography/Principal/Claims/X509), System.Diagnostics, System.Xml(.Linq/.XPath/.Schema/.Serialization/.Xsl), System.Data(.Common/.SqlTypes), System.ComponentModel, System.Reflection, System.Runtime.InteropServices/Loader, System.Numerics, System.Timers, System.Formats.Tar, System.Resources, Microsoft.Win32, System.Drawing(.Drawing2D/.Imaging/.Text/.Printing) and System.Windows.Forms(.Layout/.VisualStyles). Not wrapped: other packages that are not part of the base runtime (use `wrapassembly.ring`).
 
 ## Limits
 
 * Ring code runs on one thread: a callback that .NET invokes from another thread is not run, and web handlers do not run in parallel (see *Rules and limits* in the documentation).
-* A class written in C# cannot be declared in Ring: write it in C#, build a DLL and wrap it (`tools/wrapassembly.ring`).
+* A class written in C# cannot be declared in Ring: write it in C#, build a DLL and wrap it (`tools/dotnettools/wrapassembly.ring`).
 * Windows Forms and WPF need Windows; everything else runs on Windows, Linux and macOS (macOS and arm64 are not tested yet).
 * .NET objects are released when Ring drops them (a managed pointer queues the handle, and the handles are released in groups); `release()` releases one at once.
 
@@ -325,7 +325,7 @@ System, System.Text(.Json/.Encodings/.RegularExpressions/.Unicode), System.IO(.C
 The package installs from one zip file, `extensions/ringdotnet.zip` (`setup.ring` extracts it into the Ring folder and `uninstall.ring` removes it), like the RingQt6 package. After changing the library, the samples, the DLLs or the tests, rebuild the zip before you commit:
 
 ```
-python tools/makepackage.py
+python tools/dotnettools/makepackage.py
 ```
 
 ## Version and changes

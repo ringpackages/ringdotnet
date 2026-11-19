@@ -247,8 +247,8 @@ oCalc.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span clas
 ? <span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.Calculator"</span>,<span class="s">"Square"</span>,[<span class="n">7</span>]) <span class="c"># 49</span></code></pre></div>
 <h2 id="generated-classes">Generated classes<a class="anchor" href="#generated-classes">#</a></h2>
 <p>Generate Ring classes for every public type of the DLL:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>cd tools
-ring wrapassembly.ring path/to/MyLibrary.dll ../myclasses</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>cd tools/dotnettools
+ring wrapassembly.ring path/to/MyLibrary.dll ../../myclasses</code></pre></div>
 <p>This writes one loader per namespace and one file per class into <code>myclasses/</code>. Use them like any other wrapped namespace:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnLoad</span>(<span class="s">"path/to/MyLibrary.dll"</span>)
@@ -301,7 +301,7 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">void</span> <span class="t">Increment</span>() { Count++; }
 	}
 }</code></pre></div></details>
-<details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
+<details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/dotnettools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 
 cHere = currentdir()
@@ -311,7 +311,7 @@ cLib = cHere + <span class="s">"/UserLib/bin/UserLib.dll"</span>
 <span class="k">ok</span>
 cOut = cHere + <span class="s">"/UserLib/generated"</span>
 <span class="c"># the generator loads its files relative to the folder it runs from</span>
-chdir(<span class="s">"../../../tools"</span>)
+chdir(<span class="s">"../../../tools/dotnettools"</span>)
 system(exefilename() + <span class="s">" wrapassembly.ring "</span> + cLib + <span class="s">" "</span> + cOut + <span class="s">" &gt; nul"</span>)
 chdir(cHere)
 <span class="f">dnAssert</span>(<span class="s">"generated loader exists"</span>,fexists(cOut + <span class="s">"/MyCompany.Tools.ring"</span>),<span class="n">1</span>)
@@ -350,7 +350,7 @@ oCounter.<span class="f">Add</span>(<span class="n">2</span>)
 nFail = <span class="f">dnTestSummary</span>()</code></pre></div></details>
 <h2 id="nuget-packages">NuGet packages<a class="anchor" href="#nuget-packages">#</a></h2>
 <p>A NuGet package is a set of DLL files. Copy the DLLs of the package (for example from <code>~/.nuget/packages/&lt;name&gt;/&lt;version&gt;/lib/net8.0/</code>) and the DLLs it depends on next to each other, then wrap and load as above:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring wrapassembly.ring Newtonsoft.Json.dll ../json</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring wrapassembly.ring Newtonsoft.Json.dll ../../json</code></pre></div>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnLoad</span>(<span class="s">"Newtonsoft.Json.dll"</span>)
 <span class="f">dnImportFrom</span>(<span class="s">"json/"</span>,<span class="s">"Newtonsoft.Json"</span>)</code></pre></div>
 <p>Entity Framework Core is wrapped the same way — that is how its classes were generated.</p>

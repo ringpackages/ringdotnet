@@ -48,7 +48,7 @@ Values travel as a compact tagged text: `s5:Hello` (string), `n2:42` (number), `
 
 ## Generated wrapper classes
 
-`tools/gendotnet.ring` reads the **manifest** (`tools/dotnetmanifest.ring`) and uses reflection to write one Ring class per .NET class into `libraries/dotnetlib/generated/` (two files per namespace: a loader and the classes). These files are plain Ring source with real inheritance, properties (as attributes with `getX`/`setX`), events and enums. `using { "System.IO" }` loads one namespace on demand. A class index lets the library import the right namespace automatically when a returned object has a type that is not loaded yet.
+`tools/dotnettools/gendotnet.ring` reads the **manifest** (`tools/dotnettools/dotnetmanifest.ring`) and uses reflection to write one Ring class per .NET class into `libraries/dotnetlib/generated/` (two files per namespace: a loader and the classes). These files are plain Ring source with real inheritance, properties (as attributes with `getX`/`setX`), events and enums. `using { "System.IO" }` loads one namespace on demand. A class index lets the library import the right namespace automatically when a returned object has a type that is not loaded yet.
 
 ## Results are wrapped by their real type
 

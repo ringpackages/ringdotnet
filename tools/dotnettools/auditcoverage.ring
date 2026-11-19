@@ -1,7 +1,7 @@
 # Coverage audit: the public types of the shared .NET framework that have no generated Ring class
 #   ring auditcoverage.ring            prints the namespaces (of the manifest) with missing types, and totals
-# A type is "missing" when its namespace is in tools/dotnetmanifest.ring but classindex.ring has no class for it.
-load "../libraries/dotnetlib/dotnetlib.ring"
+# A type is "missing" when its namespace is in tools/dotnettools/dotnetmanifest.ring but classindex.ring has no class for it.
+load "../../libraries/dotnetlib/dotnetlib.ring"
 using { "System.IO" "System.Reflection" }
 load "dotnetmanifest.ring"
 

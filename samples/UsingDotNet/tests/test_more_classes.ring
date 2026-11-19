@@ -1,4 +1,4 @@
-# Classes added after the coverage audit (tools/auditcoverage.ring): DriveInfo, FileVersionInfo, WebProxy, PropertyChangedEventArgs,
+# Classes added after the coverage audit (tools/dotnettools/auditcoverage.ring): DriveInfo, FileVersionInfo, WebProxy, PropertyChangedEventArgs,
 # TransactionScope, expression trees
 load "dotnet.ring"
 

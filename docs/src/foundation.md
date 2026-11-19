@@ -24,7 +24,7 @@ Every namespace below has generated classes, loaded on demand with `using { "Nam
 
 Other namespaces and any DLL: [Your own assemblies](own-assemblies.html).
 
-> [!NOTE] `tools/auditcoverage.ring` compares the public types of the installed .NET framework with the generated classes. Enums need no class (they are texts), delegates are callbacks, and the rest is listed by the tool, so you can see what is not wrapped yet.
+> [!NOTE] `tools/dotnettools/auditcoverage.ring` compares the public types of the installed .NET framework with the generated classes. Enums need no class (they are texts), delegates are callbacks, and the rest is listed by the tool, so you can see what is not wrapped yet.
 
 ## Dates, strings, conversions, math
 

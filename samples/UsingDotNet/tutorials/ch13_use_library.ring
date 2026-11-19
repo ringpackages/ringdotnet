@@ -13,8 +13,8 @@ if not fexists(cDll)
 	system("dotnet build Greeter -c Release -o Greeter/bin -nologo -v q > nul")
 ok
 
-# STEP 2. Make Ring classes for it. The generator is a Ring program of this package: tools/wrapassembly.ring
-chdir("../../../tools")
+# STEP 2. Make Ring classes for it. The generator is a Ring program of this package: tools/dotnettools/wrapassembly.ring
+chdir("../../../tools/dotnettools")
 system(exefilename() + " wrapassembly.ring " + cDll + " " + cClasses + " > nul")
 chdir(cHere)
 

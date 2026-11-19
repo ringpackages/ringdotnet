@@ -5,7 +5,7 @@ lead: How the wrapper classes are made, how to add namespaces, closed generic ty
 
 ## What the generator does
 
-`tools/gendotnet.ring` reads the **manifest** (`tools/dotnetmanifest.ring`), loads the assemblies, and uses reflection to write Ring source:
+`tools/dotnettools/gendotnet.ring` reads the **manifest** (`tools/dotnettools/dotnetmanifest.ring`), loads the assemblies, and uses reflection to write Ring source:
 
 ```text
 libraries/dotnetlib/generated/
@@ -22,7 +22,7 @@ The class files are plain Ring: a `Class X from Base` with a method per .NET met
 ## Regenerate
 
 ```bash
-cd tools
+cd tools/dotnettools
 ring gendotnet.ring                       # every namespace of the manifest
 ring gendotnet.ring System.Text System.IO # only these
 ```
@@ -100,7 +100,7 @@ Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when
 
 ## Wrapping your own assembly
 
-`tools/wrapassembly.ring` uses the same generator for a single DLL: [Your own assemblies](own-assemblies.html).
+`tools/dotnettools/wrapassembly.ring` uses the same generator for a single DLL: [Your own assemblies](own-assemblies.html).
 
 ## Where to go next
 

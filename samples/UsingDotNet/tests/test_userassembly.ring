@@ -1,4 +1,4 @@
-# Your own assemblies: tools/wrapassembly.ring generates the classes, dnImportFrom() loads them
+# Your own assemblies: tools/dotnettools/wrapassembly.ring generates the classes, dnImportFrom() loads them
 load "dotnet.ring"
 
 cHere = currentdir()
@@ -8,7 +8,7 @@ if not fexists(cLib)
 ok
 cOut = cHere + "/UserLib/generated"
 # the generator loads its files relative to the folder it runs from
-chdir("../../../tools")
+chdir("../../../tools/dotnettools")
 system(exefilename() + " wrapassembly.ring " + cLib + " " + cOut + " > nul")
 chdir(cHere)
 dnAssert("generated loader exists",fexists(cOut + "/MyCompany.Tools.ring"),1)

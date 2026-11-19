@@ -5,14 +5,14 @@
 		ring gendotnet.ring                    generate every namespace of dotnetmanifest.ring
 		ring gendotnet.ring System.IO ...      generate only these namespaces
 
-	Output (per namespace): ../libraries/dotnetlib/generated/<Namespace>.ring (the loader used by dnImport)
-	                        ../libraries/dotnetlib/generated/<Namespace>/<ClassName>.ring
+	Output (per namespace): ../../libraries/dotnetlib/generated/<Namespace>.ring (the loader used by dnImport)
+	                        ../../libraries/dotnetlib/generated/<Namespace>/<ClassName>.ring
 */
 
 load "gendotnetcore.ring"
 load "dotnetmanifest.ring"
 
-C_OUTDIR = "../libraries/dotnetlib/generated/"
+C_OUTDIR = "../../libraries/dotnetlib/generated/"
 
 func main
 	aWanted = []

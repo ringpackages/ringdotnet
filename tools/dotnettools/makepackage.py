@@ -3,11 +3,11 @@
 
 RingPM copies this one zip into ring/extensions (one file instead of thousands) and setup.ring extracts it
 into the Ring folder. Run it again whenever the library, the samples, the DLLs or the tests change:
-    python tools/makepackage.py
+    python tools/dotnettools/makepackage.py
 """
 import os, subprocess, sys, zipfile
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PREFIXES = ("libraries/", "extensions/ringdotnet/", "samples/", "tools/", "bin/")
 MANIFEST = "extensions/ringdotnet/package-files.txt"      # the list of the files (used by uninstall.ring)
 

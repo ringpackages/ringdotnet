@@ -79,6 +79,7 @@ The classes are real Ring classes with the same method names as the .NET ones â€
 | `samples/UsingDotNet/Forms/` and `Wpf/` | One small window program for each feature |
 | `samples/UsingDotNet/applications/` | Complete programs |
 | `samples/UsingDotNet/tests/` | Automated tests (`run.sh`) |
-| `tools/` | The class generators (`gendotnet.ring`, `wrapassembly.ring`) and the manifest |
+| `tools/dotnettools/` | The class generators (`gendotnet.ring`, `wrapassembly.ring`), the manifest and the package script |
+| `tools/ring2exe/` | The library that `ring2exe` uses to give a program that uses .NET to other people |
 
 > [!TIP] New here? Read **Getting started**, then **Core concepts**, then the tutorial chapter **The basics**. Everything after that is a topic you can read in any order.
