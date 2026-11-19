@@ -149,3 +149,9 @@ Events from timers on other threads (`System.Threading.Timer`, `Task.Run(...)`) 
 | `The callback '...' was ignored` | a callback fired outside a call or from another thread. |
 
 Set `RINGDOTNET_TRACE=1` to see the .NET stack trace of an error.
+
+## Where to go next
+
+- [Function index](reference.html) and the [Class reference](api.html): look up a function or a class.
+- [Core concepts](concepts.html): the naming rules behind most of the points above.
+- [Quick introduction to Ring](ring-intro.html): if the problem is the language and not .NET.

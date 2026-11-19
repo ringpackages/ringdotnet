@@ -92,3 +92,8 @@ aTop = dnQuery(aSales).Where("xDotNetResult = aDotNetArgs[1] >= 100").OrderByDes
 | Aggregates | `Sum(code)`, `Average(code)`, `Min(code)`, `Max(code)` — an empty `""` means the value itself |
 
 > [!NOTE] The generic LINQ methods of `Enumerable` also work directly: the bridge infers the type arguments from the values you pass, and callbacks become `Func<object, ...>` delegates.
+
+## Where to go next
+
+- [Callbacks & events](callbacks-events.html): the code you pass to `Where`, `Select` and the other LINQ methods is a callback.
+- The tutorial chapter [Collections and algorithms](tutorials.html#collections-and-algorithms).

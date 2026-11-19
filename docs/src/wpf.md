@@ -115,3 +115,8 @@ Events work like Windows Forms events: `setClickEvent`, `setValueChangedEvent`, 
 ![WPF calculator](img/shots/app-WpfCalculator.png "samples/UsingDotNet/applications/WpfCalculator")
 
 More: [WPF samples](gallery-wpf.html) — all 10 with screenshots and source.
+
+## Where to go next
+
+- The tutorial chapter [WPF](tutorials.html#wpf).
+- [ASP.NET Core](aspnet.html): the guide for web programs.

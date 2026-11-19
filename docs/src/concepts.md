@@ -243,3 +243,9 @@ When no class exists for a type, or when you want the generic style, every wrapp
 | `toList()` | copy an array or collection into a Ring list |
 | `isNull()` | true for the .NET null |
 | `release()` | release the handle at once (Ring does it for you when the object is dropped; the object can not be used after this) |
+
+## Where to go next
+
+- [Core functions](core-api.html): every function of the bridge in one place.
+- [Collections & LINQ](collections-linq.html) and [Callbacks & events](callbacks-events.html): the two topics that need the most explanation.
+- [Gotchas & limits](gotchas.html): read it before a long program.

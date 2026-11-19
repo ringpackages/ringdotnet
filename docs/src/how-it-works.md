@@ -74,3 +74,8 @@ The runtime is configured with one of four `runtimeconfig.json` files: base (`Ri
 | `RingDotNet.Web.dll` | request queue and Kestrel host |
 | `RingDotNet.Data.dll` | `RingDb` and `RingTypedDb` (Entity Framework) |
 | `Microsoft.EntityFrameworkCore*.dll`, `e_sqlite3.dll` ... | Entity Framework Core and SQLite |
+
+## Where to go next
+
+- [Core concepts](concepts.html): how .NET names, overloads, properties and enums look in Ring.
+- [The basics](tutorials.html#the-basics): the first tutorial chapter, if you prefer to learn by writing programs.

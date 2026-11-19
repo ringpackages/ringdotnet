@@ -358,6 +358,8 @@ oArea {
 oTimer.<span class="f">Start</span>()</code></pre></div>
 <h2 id="calling-ring-from-net-code-you-wrote">Calling Ring from .NET code you wrote<a class="anchor" href="#calling-ring-from-net-code-you-wrote">#</a></h2>
 <p>Your own assembly can call Ring as well: when a parameter is typed <code>object</code>, the bridge passes the callback unchanged and your code can call <code>RingDotNet.Bridge.CallRing(callback, returnType, args)</code>. This is how the Entity Framework hooks (<code>onSaving</code>, <code>onLog</code>) and value converters are built — see <a href="ef-reference.html#hooks">Entity Framework reference</a>.</p>
+<h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
+<ul><li><a href="foundation.html">The .NET class library</a>: the classes you will call most often (text, dates, files, processes).</li><li>The tutorial chapter <a href="tutorials.html#windows-forms">Windows Forms</a> is full of event handlers.</li></ul>
 <div class="pager"><a href="collections-linq.html"><small>Previous</small>Collections & LINQ</a><a class="next" href="foundation.html"><small>Next</small>The .NET class library</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

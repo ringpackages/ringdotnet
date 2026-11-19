@@ -99,3 +99,8 @@ oTimer.Start()
 ## Calling Ring from .NET code you wrote
 
 Your own assembly can call Ring as well: when a parameter is typed `object`, the bridge passes the callback unchanged and your code can call `RingDotNet.Bridge.CallRing(callback, returnType, args)`. This is how the Entity Framework hooks (`onSaving`, `onLog`) and value converters are built — see [Entity Framework reference](ef-reference.html#hooks).
+
+## Where to go next
+
+- [The .NET class library](foundation.html): the classes you will call most often (text, dates, files, processes).
+- The tutorial chapter [Windows Forms](tutorials.html#windows-forms) is full of event handlers.

@@ -541,6 +541,8 @@ oResult = <span class="k">new</span> <span class="t">Task</span>().<span class="
 <div class="callout warn"><span class="t">Warning</span><p>.NET threads can <strong>not</strong> run Ring code. A callback invoked from a pool thread prints a message on stderr and does nothing. Use tasks for pure .NET work (HTTP, files, hashing), then <code>Wait()</code> for them on the Ring thread.</p></div>
 <h2 id="a-bigger-example">A bigger example<a class="anchor" href="#a-bigger-example">#</a></h2>
 <p><code>samples/UsingDotNet/introduction/test16_forms_app.ring</code> and <code>demo_todo.ring</code> combine collections, files, JSON and a form. For complete programs see <a href="gallery-apps.html">Applications</a>.</p>
+<h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
+<ul><li><a href="winforms.html">Windows Forms</a>: desktop windows.</li><li><a href="aspnet.html">ASP.NET Core</a> and <a href="ef.html">Entity Framework Core</a>: servers and databases.</li><li>The tutorial chapters <a href="tutorials.html#files-and-streams">Files and streams</a> and <a href="tutorials.html#text-and-data-formats">Text and data formats</a>.</li></ul>
 <div class="pager"><a href="callbacks-events.html"><small>Previous</small>Callbacks & events</a><a class="next" href="winforms.html"><small>Next</small>Windows Forms</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

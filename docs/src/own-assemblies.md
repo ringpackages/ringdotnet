@@ -82,3 +82,8 @@ Entity Framework Core is wrapped the same way — that is how its classes were g
 - Generated loaders use the names of the .NET classes. When a class name is also a name Ring or another namespace already uses, the generator can add a prefix — see [Class generator](generator.html).
 - Keep the DLL and its dependencies in one folder: assemblies are resolved next to the DLL you load.
 - The runtime mode matters: a DLL that needs Windows Forms requires the desktop mode first (a `using` block that names `System.Windows.Forms`, or `dnUseDesktop()`).
+
+## Where to go next
+
+- [Class generator](generator.html): how the wrapper classes are made, and how to make more.
+- The tutorial chapter [Libraries, testing and release](tutorials.html#libraries-testing-and-release).

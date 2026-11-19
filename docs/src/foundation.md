@@ -108,3 +108,9 @@ oResult = new Task().FromResult("done")
 ## A bigger example
 
 `samples/UsingDotNet/introduction/test16_forms_app.ring` and `demo_todo.ring` combine collections, files, JSON and a form. For complete programs see [Applications](gallery-apps.html).
+
+## Where to go next
+
+- [Windows Forms](winforms.html): desktop windows.
+- [ASP.NET Core](aspnet.html) and [Entity Framework Core](ef.html): servers and databases.
+- The tutorial chapters [Files and streams](tutorials.html#files-and-streams) and [Text and data formats](tutorials.html#text-and-data-formats).

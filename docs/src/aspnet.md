@@ -117,3 +117,8 @@ oQuery = new QueryString().Create([ :name = "name", :value = "ring dotnet" ])
 - MVC controllers and Razor pages **written in C#** — the web server is the Ring one.
 - Handlers that run in parallel (there is one Ring thread).
 - Calling Ring from middleware you wrote in .NET.
+
+## Where to go next
+
+- [Entity Framework Core](ef.html): the database side of a web program.
+- The tutorial chapters [Networking and the web](tutorials.html#networking-and-the-web) and [Security](tutorials.html#security).

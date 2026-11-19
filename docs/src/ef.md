@@ -144,3 +144,8 @@ oContext = oDb.context()
 ```
 
 The complete list of methods is in the [Entity Framework reference](ef-reference.html). A complete program: `samples/UsingDotNet/applications/Contacts` — a contacts book with a console menu.
+
+## Where to go next
+
+- [Entity Framework reference](ef-reference.html): every method and option.
+- The tutorial chapter [Databases and services](tutorials.html#databases-and-services).

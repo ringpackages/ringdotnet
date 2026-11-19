@@ -232,6 +232,8 @@ ring main.ring --selftest    # the test: prints SELFTEST OK</code></pre></div>
 <p><code>uiSendKeys(oForm,"12{+}30{ENTER}")</code> types into the focused control of <strong>your own form</strong>. It posts window messages through the real Windows Forms key processing, so it behaves like a user and can never type into another program (which <code>SendKeys</code> could). Keys: <code>{LEFT} {RIGHT} {UP} {DOWN} {ENTER} {ESC} {BACKSPACE} {TAB} {DELETE}</code>, <code>{+}</code> for a plus sign.</p>
 <h2 id="testing-the-screenshots">Testing the screenshots<a class="anchor" href="#testing-the-screenshots">#</a></h2>
 <p>The screenshots in this documentation are made by <code>docs/tools/shoot_all.sh</code>: it starts each sample, finds its window, captures it with <code>PrintWindow</code> and closes it.</p>
+<h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
+<ul><li><a href="gotchas.html">Gotchas &amp; limits</a>: the points to know before a long program.</li><li>The tutorial chapter <a href="tutorials.html#libraries-testing-and-release">Libraries, testing and release</a> shows tests in a real project.</li></ul>
 <div class="pager"><a href="generator.html"><small>Previous</small>Class generator</a><a class="next" href="gotchas.html"><small>Next</small>Gotchas & limits</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

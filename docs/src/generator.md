@@ -101,3 +101,8 @@ Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when
 ## Wrapping your own assembly
 
 `tools/wrapassembly.ring` uses the same generator for a single DLL: [Your own assemblies](own-assemblies.html).
+
+## Where to go next
+
+- [Testing](testing.html): how the package and your own programs are tested.
+- [Function index](reference.html) and the [Class reference](api.html): what has been generated.

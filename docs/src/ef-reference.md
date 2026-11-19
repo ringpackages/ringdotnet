@@ -161,3 +161,8 @@ A condition is `[column, op, value]` or a combination:
 - Migrations that alter or drop columns (use `execute` or `apply`).
 - Hooks, converters and `migrate()` in `RingEntityDb`.
 - The SQL Server, PostgreSQL and MySQL providers have not been tested.
+
+## Where to go next
+
+- [Your own assemblies](own-assemblies.html): use a library that is not part of .NET.
+- [Gotchas & limits](gotchas.html): what to check when something does not work.

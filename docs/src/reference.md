@@ -36,3 +36,8 @@ This page is generated from the comments in `libraries/dotnetlib/*.ring`. Search
 ## Generated classes
 
 The wrapper classes are generated; there is one file per class in `libraries/dotnetlib/generated/<Namespace>/`. The members of a class are the members of the .NET class (see the [.NET documentation](https://learn.microsoft.com/dotnet/api/)), named by the [rules](concepts.html#naming-rules). To see the Ring name of a method, open its class file or call `dnDescribe("Namespace.Type")`.
+
+## Where to go next
+
+- [Class reference](api.html): every wrapped class, one page for each namespace.
+- [Core concepts](concepts.html): how to read the names.

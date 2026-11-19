@@ -619,14 +619,15 @@ done</code></pre></div>
 <h2 id="ring-and-other-languages">Ring and other languages<a class="anchor" href="#ring-and-other-languages">#</a></h2>
 <p>Some differences from other popular languages, as facts:</p>
 <div class="tablewrap"><table><thead><tr><th>Often in other languages</th><th>In Ring</th></tr></thead><tbody><tr><td>declarations, types</td><td>none: the value has the type</td></tr><tr><td><code>==</code> to compare</td><td><code>=</code> (the context decides); <code>!=</code> for different</td></tr><tr><td>arrays from 0</td><td>lists from <strong>1</strong></td></tr><tr><td>integers and decimals</td><td>one number type, a double</td></tr><tr><td><code>"a" + 1</code> and <code>1 + "a"</code> the same</td><td>the left side decides</td></tr><tr><td>methods overloaded by parameters</td><td>one function per name, with a fixed number of parameters</td></tr><tr><td><code>{ }</code> blocks</td><td>words in the first style (<code>ok</code>, <code>next</code>, <code>end</code>, <code>off</code>, <code>done</code>); braces are allowed too</td></tr><tr><td><code>string</code> is characters</td><td>text is <strong>bytes</strong> (UTF-8)</td></tr><tr><td>references to objects</td><td>objects and lists are <strong>copied</strong> on assignment</td></tr><tr><td>keywords are not case sensitive</td><td><code>or</code>, <code>in</code>, <code>to</code>, <code>on</code>, <code>do</code>... also apply to names that spell them: <code>oR</code> is read as <code>or</code>, so a name like <code>oReader</code> is used instead</td></tr></tbody></table></div>
-<h2 id="what-comes-next">What comes next<a class="anchor" href="#what-comes-next">#</a></h2>
+<h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
 <p>A Ring program uses .NET with two lines:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using { <span class="s">"System"</span> <span class="s">"System.Text"</span> }
 
 oBuilder = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"Hello"</span>)
 ? oBuilder.<span class="f">Append</span>(<span class="s">", Ring!"</span>).<span class="f">ToString</span>()</code></pre></div>
-<p>Continue with <a href="getting-started.html">Getting started</a>, then <a href="concepts.html">Core concepts</a> (how .NET names, overloads, properties and enums look in Ring) and the <a href="tutorials.html">tutorials</a>. The points of Ring that matter when you use .NET are collected in <a href="gotchas.html">Gotchas &amp; limits</a>.</p>
+<p>Then:</p>
+<ul><li><a href="getting-started.html">Getting started</a>: install the package and run the first program.</li><li><a href="concepts.html">Core concepts</a>: how .NET names, overloads, properties and enums look in Ring.</li><li>The tutorial chapter <a href="tutorials.html#the-basics">The basics</a>: ten short lessons.</li><li><a href="gotchas.html">Gotchas &amp; limits</a>: the points of Ring that matter when you use .NET.</li></ul>
 <div class="pager"><a href="api.html"><small>Previous</small>Class reference</a><span></span></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

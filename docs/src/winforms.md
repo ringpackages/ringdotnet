@@ -171,3 +171,8 @@ func selfTest
 - [Forms samples](gallery-forms.html) — 32 short samples.
 - [Applications](gallery-apps.html) — @APPS@ complete programs.
 - [WPF](wpf.html) — the other desktop UI framework.
+
+## Where to go next
+
+- The tutorial chapter [Windows Forms](tutorials.html#windows-forms), and the chapter [Projects with windows](tutorials.html#projects-with-windows) for complete programs.
+- [Testing](testing.html): windows that test themselves.

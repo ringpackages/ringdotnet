@@ -105,3 +105,9 @@ dnTestSummary()                         # prints "TESTS: n passed, m failed"
 ```
 
 `nDotNetPass` and `nDotNetFail` hold the counters. See [Testing](testing.html).
+
+## Where to go next
+
+- [Collections & LINQ](collections-linq.html): lists, dictionaries and queries.
+- [Callbacks & events](callbacks-events.html): passing Ring code to .NET.
+- The tutorial chapter [The basics](tutorials.html#the-basics) uses these functions step by step.

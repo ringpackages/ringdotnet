@@ -89,7 +89,7 @@ Some differences from other popular languages, as facts:
 | references to objects | objects and lists are **copied** on assignment |
 | keywords are not case sensitive | `or`, `in`, `to`, `on`, `do`... also apply to names that spell them: `oR` is read as `or`, so a name like `oReader` is used instead |
 
-## What comes next
+## Where to go next
 
 A Ring program uses .NET with two lines:
 
@@ -101,4 +101,9 @@ oBuilder = new StringBuilder("Hello")
 ? oBuilder.Append(", Ring!").ToString()
 ```
 
-Continue with [Getting started](getting-started.html), then [Core concepts](concepts.html) (how .NET names, overloads, properties and enums look in Ring) and the [tutorials](tutorials.html). The points of Ring that matter when you use .NET are collected in [Gotchas & limits](gotchas.html).
+Then:
+
+- [Getting started](getting-started.html): install the package and run the first program.
+- [Core concepts](concepts.html): how .NET names, overloads, properties and enums look in Ring.
+- The tutorial chapter [The basics](tutorials.html#the-basics): ten short lessons.
+- [Gotchas & limits](gotchas.html): the points of Ring that matter when you use .NET.
