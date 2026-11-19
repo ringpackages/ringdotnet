@@ -13,11 +13,11 @@ lead: Sorting is the classic example of an algorithm. This lesson records the wo
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g61_sorting.ring}}
+{{file:samples/UsingDotNet/tutorials/ch12_sorting.ring}}
 
 ![The sorting window](img/shots/tut-g61.png "Bubble sort after 260 steps: the highest bars are already at the right; the two red bars are the pair being compared")
 
-{{output:samples/UsingDotNet/tutorials/g61_sorting.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch12_sorting.ring --selftest}}
 
 ## How it works
 

@@ -26,9 +26,9 @@ An **element** has a name and can contain text and other elements; an **attribut
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t72_xml.ring}}
+{{file:samples/UsingDotNet/tutorials/ch02_xml.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t72_xml.ring}}
+{{output:samples/UsingDotNet/tutorials/ch02_xml.ring}}
 
 ## How it works
 

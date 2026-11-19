@@ -17,11 +17,11 @@ The tutorial [Drawing and animation](tut-14-animation.html) used `KeyDown` for a
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g146_keyboard.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_keyboard.ring}}
 
 ![The keyboard form](img/shots/tut-g146.png "The form after OK was pressed")
 
-{{output:samples/UsingDotNet/tutorials/g146_keyboard.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_keyboard.ring --selftest}}
 
 ## How it works
 

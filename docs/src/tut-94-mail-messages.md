@@ -13,9 +13,9 @@ lead: Build an e-mail in a program — check addresses, set the sender and the r
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t94_mail_messages.ring}}
+{{file:samples/UsingDotNet/tutorials/ch07_mail_messages.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t94_mail_messages.ring}}
+{{output:samples/UsingDotNet/tutorials/ch07_mail_messages.ring}}
 
 ## How it works
 

@@ -233,7 +233,7 @@
 <h2 id="http-in-one-minute">HTTP in one minute<a class="anchor" href="#http-in-one-minute">#</a></h2>
 <p>A client sends a <strong>request</strong>: a <em>method</em> (<code>GET</code> to read, <code>POST</code> to send data, <code>DELETE</code> to remove), an <em>address</em>, optional data. The server sends a <strong>response</strong>: a <em>status code</em> (<code>200</code> OK, <code>201</code> Created, <code>404</code> Not Found, <code>500</code> error) and a body (text, HTML or JSON).</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t09_http.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># HTTP - a web server and a web client in one program</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch01_http.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># HTTP - a web server and a web client in one program</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Net.Http"</span>
@@ -291,7 +291,7 @@ cUrl = <span class="s">""</span>
 	oBody = oResponse.Content.<span class="f">ReadAsStringAsync</span>(<span class="k">NULL</span>)
 	oBody.<span class="f">Wait</span>(<span class="k">NULL</span>)
 	<span class="k">return</span> oResponse.StatusCode + <span class="s">" "</span> + oBody.<span class="f">getProp</span>(<span class="s">"Result"</span>)</code></pre></div>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>The server listens at http://127.0.0.1:57716
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>The server listens at http://127.0.0.1:50441
 
 GET /hello  -&gt; OK Hello from a Ring handler
 GET /time   -&gt; OK {"hour":12,"minute":30}

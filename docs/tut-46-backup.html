@@ -233,7 +233,7 @@
 <h2 id="the-design">The design<a class="anchor" href="#the-design">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Need</th><th>Decision</th></tr></thead><tbody><tr><td>a backup must not overwrite the previous one</td><td>every backup has its own file: <code>backup-&lt;date and time&gt;.zip</code></td></tr><tr><td>the files should be easy to find and to sort</td><td>the stamp is <code>year-month-day_hourminute</code>: sorting the <em>names</em> sorts by <em>time</em></td></tr><tr><td>disk space is limited</td><td>keep only the newest <em>N</em> (here 3) and delete the older ones</td></tr><tr><td>a backup that was never restored is not a backup</td><td>the program <strong>restores</strong> the newest one and checks it</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t46_backup.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - a backup tool (zip a folder, name by date, keep the newest few, restore)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_backup.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - a backup tool (zip a folder, name by date, keep the newest few, restore)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

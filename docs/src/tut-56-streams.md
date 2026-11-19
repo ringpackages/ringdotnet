@@ -27,9 +27,9 @@ Because they wrap each other you can stack them: text → `StreamWriter` → `GZ
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t57_streams.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_streams.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t57_streams.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_streams.ring}}
 
 ## How it works
 

@@ -26,19 +26,19 @@ A test is a small program that checks that another piece of code gives the right
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t28_testing.ring}}
+{{file:samples/UsingDotNet/tutorials/ch13_testing.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t28_testing.ring}}
+{{output:samples/UsingDotNet/tutorials/ch13_testing.ring}}
 
 ### When a test fails
 
 The program has a switch that breaks one test on purpose:
 
 ```bash
-ring t28_testing.ring --break
+ring ch13_testing.ring --break
 ```
 
-{{output:samples/UsingDotNet/tutorials/t28_testing.ring --break}}
+{{output:samples/UsingDotNet/tutorials/ch13_testing.ring --break}}
 
 A failure prints the name of the test, what was **expected** and what was **got**. `dnTestSummary()` prints the totals and returns the number of failures (use it to set an exit code in a script).
 

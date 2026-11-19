@@ -16,9 +16,9 @@ The tutorial [Your own dialog](tut-40-dialog.html) used a *modal* dialog: the ma
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g149_windows.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_windows.ring}}
 
-{{output:samples/UsingDotNet/tutorials/g149_windows.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_windows.ring --selftest}}
 
 ## How it works
 

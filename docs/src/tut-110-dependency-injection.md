@@ -16,9 +16,9 @@ Every ASP.NET Core program is built on this container, so what you learn here is
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t110_dependency_injection.ring}}
+{{file:samples/UsingDotNet/tutorials/ch09_dependency_injection.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t110_dependency_injection.ring}}
+{{output:samples/UsingDotNet/tutorials/ch09_dependency_injection.ring}}
 
 ## How it works
 

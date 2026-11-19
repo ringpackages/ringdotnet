@@ -1,6 +1,6 @@
 # a command-line tool - arguments, options, usage text and results
-#   ring t51_cli.ring                        runs a demonstration of several command lines
-#   ring t51_cli.ring file.txt --top 5       is a real use of the tool: the 5 most frequent words of file.txt
+#   ring ch06_cli.ring                        runs a demonstration of several command lines
+#   ring ch06_cli.ring file.txt --top 5       is a real use of the tool: the 5 most frequent words of file.txt
 load "dotnet.ring"
 using {
 	"System.IO"

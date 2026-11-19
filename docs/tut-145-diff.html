@@ -232,7 +232,7 @@
 <ul><li>the <strong>longest common subsequence</strong> (LCS) and how a table finds it,</li><li>building a <strong>diff</strong> from the table: keep, delete (<code>-</code>), add (<code>+</code>),</li><li>reading a text file as a list of lines (<code>ReadAllLines</code>),</li><li>showing only the changes with <strong>context</strong> lines,</li><li>a <strong>similarity</strong> in percent,</li><li>what a moved line looks like in a diff.</li></ul>
 <p>Version control, code review and the <em>compare</em> command of an editor all show a diff. The method is a classic algorithm, written in plain Ring.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t145_diff.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: compare two text files - the longest common subsequence of lines, a diff with + and -, changes with context, and a similarity</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_diff.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: compare two text files - the longest common subsequence of lines, a diff with + and -, changes with context, and a similarity</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

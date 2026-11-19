@@ -1,6 +1,6 @@
 # Watching a folder - FileSystemWatcher: waiting for files to be created, changed, renamed and deleted
-#   ring t122_watch_folder.ring            the parent: it watches a folder and starts a second copy of this program (the child) that changes it
-#   ring t122_watch_folder.ring --child    the child (the parent starts it, you do not)
+#   ring ch05_watch_folder.ring            the parent: it watches a folder and starts a second copy of this program (the child) that changes it
+#   ring ch05_watch_folder.ring --child    the child (the parent starts it, you do not)
 load "dotnet.ring"
 using {
 	"System"

@@ -27,11 +27,11 @@ The window can be resized and everything follows. The `Grid` is the most useful:
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g38_wpf_layout.ring}}
+{{file:samples/UsingDotNet/tutorials/ch11_wpf_layout.ring}}
 
 ![The keypad](img/shots/tut-g38-typed.png "After typing 4, 2, 7")
 
-{{output:samples/UsingDotNet/tutorials/g38_wpf_layout.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch11_wpf_layout.ring --selftest}}
 
 ## How it works
 

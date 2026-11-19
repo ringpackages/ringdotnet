@@ -232,7 +232,7 @@
 <ul><li>the difference between UDP (messages) and TCP (a stream),</li><li><code>UdpClient</code>: <code>Send</code>, <code>Receive</code>, <code>ReceiveAsync</code>, <code>Available</code>,</li><li>binding to a port, and reading the port the system chose,</li><li>answering the sender,</li><li>a time limit with <code>Task.Wait(ms)</code>,</li><li>why a program that uses UDP must expect lost messages.</li></ul>
 <p>The tutorial <a href="tut-25-sockets.html">Sockets</a> used TCP: a connection, then a stream of bytes. UDP has no connection. Everything in this lesson runs on <code>127.0.0.1</code>, so it works without a network.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t91_udp.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># UDP - datagrams between two sockets of this computer, Receive with a time limit, broadcast-style replies and lost data</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_udp.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># UDP - datagrams between two sockets of this computer, Receive with a time limit, broadcast-style replies and lost data</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

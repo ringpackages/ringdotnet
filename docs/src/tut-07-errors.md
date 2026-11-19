@@ -27,9 +27,9 @@ done
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t07_errors.ring}}
+{{file:samples/UsingDotNet/tutorials/ch01_errors.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t07_errors.ring}}
+{{output:samples/UsingDotNet/tutorials/ch01_errors.ring}}
 
 ## How it works
 

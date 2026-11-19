@@ -22,9 +22,9 @@ lead: HTTP is built on top of simpler connections called sockets. This lesson bu
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t25_sockets.ring}}
+{{file:samples/UsingDotNet/tutorials/ch07_sockets.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t25_sockets.ring}}
+{{output:samples/UsingDotNet/tutorials/ch07_sockets.ring}}
 
 ## How it works
 

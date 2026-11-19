@@ -16,9 +16,9 @@ Version control, code review and the *compare* command of an editor all show a d
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t145_diff.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_diff.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t145_diff.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_diff.ring}}
 
 ## How it works
 

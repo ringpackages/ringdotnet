@@ -232,7 +232,7 @@
 <ul><li>the <strong>FormClosing</strong> event, which runs <em>before</em> the window closes,</li><li>the event argument <code>Cancel</code> that keeps the window open,</li><li>a flag for <em>changes that are not saved</em> (<code>TextChanged</code>),</li><li>the three answers of the question: Yes (save), No (do not save), Cancel,</li><li>the <strong>FormClosed</strong> event, which runs after the close,</li><li>a test that answers the question itself.</li></ul>
 <p>Every editor, every form that has data, asks before it closes. This is the pattern.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g137_closing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># closing a window - the FormClosing event: asking to save changes, cancelling the close, and what runs after the form closed</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_closing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># closing a window - the FormClosing event: asking to save changes, cancelling the close, and what runs after the form closed</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.IO"</span>

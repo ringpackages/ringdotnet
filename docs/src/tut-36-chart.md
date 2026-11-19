@@ -22,11 +22,11 @@ A chart is a picture of numbers, and every point of the picture is computed:
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g36_chart.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_chart.ring}}
 
 ![The chart](img/shots/tut-g36.png "Sales per month")
 
-{{output:samples/UsingDotNet/tutorials/g36_chart.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_chart.ring --selftest}}
 
 ## How it works
 

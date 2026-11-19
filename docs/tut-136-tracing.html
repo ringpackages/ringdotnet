@@ -232,7 +232,7 @@
 <ul><li><code>Trace.WriteLine</code> and the <strong>listeners</strong> of <code>Trace</code>,</li><li>a listener that collects messages in memory (<code>StringWriter</code>) and one that writes a file,</li><li><code>Indent</code> and <code>Unindent</code>,</li><li><code>WriteLineIf</code> and a <strong>category</strong>,</li><li>adding and removing listeners without changing the code that writes messages,</li><li>how tracing differs from logging.</li></ul>
 <p>The tutorial <a href="tut-51-logging.html">Logging</a> wrote a log that the program owns. Tracing is for diagnosis: the program sends messages to a standard place, and what happens to them is decided outside the code that writes them.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t136_tracing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># tracing - Trace and listeners: messages with an indent, a listener that collects them in memory, a listener that writes a file, and levels</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_tracing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># tracing - Trace and listeners: messages with an indent, a listener that collects them in memory, a listener that writes a file, and levels</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

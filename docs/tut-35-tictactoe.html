@@ -234,7 +234,7 @@
 <div class="tablewrap"><table><thead><tr><th>Layer</th><th>Contains</th><th>Knows about windows?</th></tr></thead><tbody><tr><td><strong>State</strong></td><td><code>aBoard</code> (nine cells), <code>cTurn</code>, <code>lOver</code></td><td>no</td></tr><tr><td><strong>Rules</strong></td><td><code>winnerOf(aBoard)</code>, <code>boardFull(aBoard)</code></td><td>no</td></tr><tr><td><strong>Moves</strong></td><td><code>play(nCell)</code>, <code>newGame()</code></td><td>yes: they update the buttons and the status</td></tr><tr><td><strong>Window</strong></td><td>nine buttons, a label, <em>New game</em></td><td>yes</td></tr></tbody></table></div>
 <p>The rules take the board <strong>as a parameter</strong> and <em>return</em> an answer. They do not read or write buttons. That makes them easy to test and easy to reuse: the same <code>winnerOf</code> could drive a computer opponent.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g35_tictactoe.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - Tic-Tac-Toe (game logic in functions, nine buttons, a status line)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_tictactoe.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - Tic-Tac-Toe (game logic in functions, nine buttons, a status line)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>

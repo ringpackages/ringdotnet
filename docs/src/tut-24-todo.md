@@ -22,11 +22,11 @@ lead: A complete small application — add, tick and remove tasks, see how many 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g24_todo.ring}}
+{{file:samples/UsingDotNet/tutorials/ch12_todo.ring}}
 
 ![The to-do list](img/shots/tut-g24.png "Two of three tasks are done")
 
-{{output:samples/UsingDotNet/tutorials/g24_todo.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch12_todo.ring --selftest}}
 
 ## How it works
 

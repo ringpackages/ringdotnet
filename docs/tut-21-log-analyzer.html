@@ -239,7 +239,7 @@
 <ol><li>Read the file line by line.</li><li>Cut each line into <em>date, time, level, part, text</em> with a regular expression. Lines that do not match are skipped.</li><li>Count with a dictionary: lines per level, errors per part.</li><li>Collect the error texts and ask LINQ for the distinct ones, sorted.</li><li>Write a JSON report.</li></ol>
 <p>The program makes its own sample log first, so that you can run it anywhere.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t21_log_analyzer.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - analyze a log file (files, regular expressions, dictionaries, LINQ, JSON)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_log_analyzer.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - analyze a log file (files, regular expressions, dictionaries, LINQ, JSON)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

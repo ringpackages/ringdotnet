@@ -19,9 +19,9 @@ An **image** is a grid of **pixels**; each pixel has a **colour** made of red, g
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t22_images.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_images.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t22_images.ring}}
+{{output:samples/UsingDotNet/tutorials/ch10_images.ring}}
 
 The three pictures that the program saves:
 

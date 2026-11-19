@@ -233,7 +233,7 @@
 <h2 id="the-controls">The controls<a class="anchor" href="#the-controls">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Control</th><th>Shows</th><th>You use</th></tr></thead><tbody><tr><td><code>TreeView</code></td><td>a hierarchy</td><td><code>Nodes</code>, <code>Node.Nodes</code>, <code>SelectedNode</code>, event <code>AfterSelect</code></td></tr><tr><td><code>ListView</code></td><td>a list with columns</td><td><code>View = "Details"</code>, <code>Columns</code>, <code>Items</code>, <code>ListViewItem.SubItems</code></td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g42_browser.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a folder browser - a TreeView of folders, a ListView of files, and the details of a file</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_browser.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a folder browser - a TreeView of folders, a ListView of files, and the details of a file</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
@@ -370,7 +370,7 @@ cRoot = <span class="s">""</span>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (9 checks)</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="a-demo-folder">A demo folder<a class="anchor" href="#a-demo-folder">#</a></h3>
-<p><code>makeDemoFolder</code> creates folders and files in the temp folder, so the tutorial can show a result and be tested anywhere. Give the program a real folder as its first argument to browse it: <code>ring g42_browser.ring "C:\Users\you\Documents"</code>.</p>
+<p><code>makeDemoFolder</code> creates folders and files in the temp folder, so the tutorial can show a result and be tested anywhere. Give the program a real folder as its first argument to browse it: <code>ring ch10_browser.ring "C:\Users\you\Documents"</code>.</p>
 <h3 id="building-the-tree">Building the tree<a class="anchor" href="#building-the-tree">#</a></h3>
 <p><code>addFolderNode(nodes, folder)</code> makes one node for the folder and then calls <strong>itself</strong> for every subfolder: that is <em>recursion</em>, the natural way to walk a tree. Folders are sorted so the order is stable. The important line:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oNode.Tag = cFolder</code></pre></div>

@@ -18,9 +18,9 @@ The tutorial [Cultures](tut-33-cultures.html) showed that the same format gives 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t129_formatting.ring}}
+{{file:samples/UsingDotNet/tutorials/ch02_formatting.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t129_formatting.ring}}
+{{output:samples/UsingDotNet/tutorials/ch02_formatting.ring}}
 
 ## How it works
 

@@ -18,9 +18,9 @@ Two tables (the tutorial [Databases step by step](tut-17-databases.html) explain
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t73_sql_reports.ring}}
+{{file:samples/UsingDotNet/tutorials/ch09_sql_reports.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t73_sql_reports.ring}}
+{{output:samples/UsingDotNet/tutorials/ch09_sql_reports.ring}}
 
 ## How it works
 

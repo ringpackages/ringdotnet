@@ -232,7 +232,7 @@
 <ul><li><code>Utf8JsonWriter</code>: start and end of objects and arrays, properties and values,</li><li>indented and compact output (<code>JsonWriterOptions</code>),</li><li><code>Flush</code> and why the writer needs it,</li><li>the escaping that is done for you, and the errors for invalid structure,</li><li><code>JsonSerializer</code> and <code>JsonSerializerOptions</code> for objects and collections.</li></ul>
 <p>The tutorial <a href="tut-06-json-xml.html">JSON and XML</a> read and wrote JSON as a tree and the tutorial <a href="tut-80-json-nodes.html">JSON as a tree</a> built it from nodes. A tree is easy to change but it keeps the whole document in memory. A <strong>writer</strong> is the other style: you say what comes next, and it goes straight to a stream (a file, a network connection, a <code>MemoryStream</code>).</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t100_json_writer.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># writing JSON as a stream - Utf8JsonWriter, indentation, nesting, escaping, and JsonSerializer options</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_json_writer.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># writing JSON as a stream - Utf8JsonWriter, indentation, nesting, escaping, and JsonSerializer options</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

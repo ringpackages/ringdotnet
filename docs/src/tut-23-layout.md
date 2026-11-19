@@ -25,13 +25,13 @@ Placing controls with x and y numbers (as in [Your first window](tut-11-first-wi
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g23_layout.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_layout.ring}}
 
 ![The Details tab](img/shots/tut-g23.png "The Details tab: name, city and number of orders of the chosen customer")
 
 ![The Orders tab](img/shots/tut-g23-orders.png "The Orders tab: a data grid showing only Cy's orders")
 
-{{output:samples/UsingDotNet/tutorials/g23_layout.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_layout.ring --selftest}}
 
 ## How it works
 

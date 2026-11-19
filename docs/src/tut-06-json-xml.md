@@ -29,9 +29,9 @@ JSON is lighter and used by web services; XML is older and used in files and con
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t06_json_xml.ring}}
+{{file:samples/UsingDotNet/tutorials/ch01_json_xml.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t06_json_xml.ring}}
+{{output:samples/UsingDotNet/tutorials/ch01_json_xml.ring}}
 
 ## How it works
 

@@ -16,7 +16,7 @@ lead: Build a window in four small steps — an empty form, a label and a button
 
 ## Step 1: the smallest window
 
-{{file:samples/UsingDotNet/tutorials/g01a_window.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_window.ring}}
 
 ![The empty window](img/shots/tut-g01a.png "Step 1: a window with a title")
 
@@ -27,7 +27,7 @@ lead: Build a window in four small steps — an empty form, a label and a button
 
 ## Step 2: a label and a button
 
-{{file:samples/UsingDotNet/tutorials/g01b_controls.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_controls.ring}}
 
 ![A label and a button](img/shots/tut-g01b.png "Step 2: controls")
 
@@ -35,11 +35,11 @@ lead: Build a window in four small steps — an empty form, a label and a button
 
 ## Step 3: the button does something
 
-{{file:samples/UsingDotNet/tutorials/g01c_counter.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_counter.ring}}
 
 ![The counter after three clicks](img/shots/tut-g01c-clicked.png "Step 3: after three clicks")
 
-{{output:samples/UsingDotNet/tutorials/g01c_counter.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_counter.ring --selftest}}
 
 ### The important rule: events see only globals
 
@@ -51,13 +51,13 @@ lead: Build a window in four small steps — an empty form, a label and a button
 
 ### The program tests itself
 
-`selfTest()` clicks the button three times with `PerformClick()` and checks the label with `dnAssert`. Run `ring g01c_counter.ring --selftest` and the window opens, clicks, checks and closes by itself; the output is the one above. The same idea tests every sample and application of the package.
+`selfTest()` clicks the button three times with `PerformClick()` and checks the label with `dnAssert`. Run `ring ch10_counter.ring --selftest` and the window opens, clicks, checks and closes by itself; the output is the one above. The same idea tests every sample and application of the package.
 
 ## Step 4: without the helpers
 
 The helpers are only short-cuts. This program builds the same window with the real classes, so you can see what is going on:
 
-{{file:samples/UsingDotNet/tutorials/g01d_plain.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_plain.ring}}
 
 ![The same program without helpers](img/shots/tut-g01d.png "Step 4: the plain version")
 

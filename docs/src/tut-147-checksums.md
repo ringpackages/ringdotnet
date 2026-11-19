@@ -15,9 +15,9 @@ The tutorial [A project: find duplicate files](tut-31-duplicates.html) used hash
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t147_checksums.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_checksums.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t147_checksums.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_checksums.ring}}
 
 ## How it works
 

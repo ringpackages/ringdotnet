@@ -234,7 +234,7 @@
 <p>A Ring text is a .NET <code>string</code> as soon as you pass it to a .NET method. A .NET method that returns a string gives you a Ring text.</p>
 <p>One rule is important: <strong>a .NET string is not an object in Ring</strong>, it is just a Ring text. That means a .NET <em>instance</em> method such as <code>Trim()</code> is not called on it. For those jobs Ring has its own functions: <code>trim()</code>, <code>upper()</code>, <code>lower()</code>, <code>substr()</code>, <code>left()</code>. Use <strong>Ring's functions for the basics</strong>, and .NET for what Ring does not include. The <em>static</em> methods of the class <code>String</code> (<code>Join</code>, <code>Format</code>...) work fine because they take the text as an argument.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t02_text.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># working with text - Ring text functions, String helpers, StringBuilder, regular expressions, encodings</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch01_text.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># working with text - Ring text functions, String helpers, StringBuilder, regular expressions, encodings</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

@@ -15,11 +15,11 @@ The tutorial [A text editor](tut-13-editor.html) used a plain text box, where al
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g133_richtext.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_richtext.ring}}
 
 ![The rich text window](img/shots/tut-g133.png "Bold and red words, and the marked matches")
 
-{{output:samples/UsingDotNet/tutorials/g133_richtext.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_richtext.ring --selftest}}
 
 ## How it works
 

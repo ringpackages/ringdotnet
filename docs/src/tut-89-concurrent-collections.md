@@ -18,9 +18,9 @@ If two threads add to one `List` at the same moment, the list can lose an item o
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t89_concurrent_collections.ring}}
+{{file:samples/UsingDotNet/tutorials/ch04_concurrent_collections.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t89_concurrent_collections.ring}}
+{{output:samples/UsingDotNet/tutorials/ch04_concurrent_collections.ring}}
 
 ## How it works
 

@@ -16,9 +16,9 @@ The tutorial [Network tools](tut-81-network-tools.html) used `IPAddress` and `IP
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t102_ip_networks.ring}}
+{{file:samples/UsingDotNet/tutorials/ch07_ip_networks.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t102_ip_networks.ring}}
+{{output:samples/UsingDotNet/tutorials/ch07_ip_networks.ring}}
 
 ## How it works
 

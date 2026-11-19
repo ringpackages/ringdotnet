@@ -18,9 +18,9 @@ A **text** file is a list of characters (encoded as bytes). A **binary** file is
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t45_binary.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_binary.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t45_binary.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_binary.ring}}
 
 ## How it works
 

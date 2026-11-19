@@ -18,9 +18,9 @@ The tutorial [HTTP](tut-09-http.html) and the tutorial [HttpClient in depth](tut
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t121_mime_types.ring}}
+{{file:samples/UsingDotNet/tutorials/ch02_mime_types.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t121_mime_types.ring}}
+{{output:samples/UsingDotNet/tutorials/ch02_mime_types.ring}}
 
 ## How it works
 

@@ -18,9 +18,9 @@ The tutorial [Time, tasks and other programs](tut-10-tasks-processes.html) start
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t85_feed_programs.ring}}
+{{file:samples/UsingDotNet/tutorials/ch06_feed_programs.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t85_feed_programs.ring}}
+{{output:samples/UsingDotNet/tutorials/ch06_feed_programs.ring}}
 
 ## How it works
 

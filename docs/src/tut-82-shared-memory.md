@@ -19,9 +19,9 @@ Compare the tools of the last tutorials: a **named pipe** (the tutorial [Two pro
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t82_shared_memory.ring}}
+{{file:samples/UsingDotNet/tutorials/ch06_shared_memory.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t82_shared_memory.ring}}
+{{output:samples/UsingDotNet/tutorials/ch06_shared_memory.ring}}
 
 ## How it works
 

@@ -17,15 +17,15 @@ You need Ring and the RingDotNet package. Open a terminal in `samples/UsingDotNe
 
 Read the program first; the explanations follow. The line `using { ... }` brings classes in. `func main` is where Ring starts.
 
-{{file:samples/UsingDotNet/tutorials/t01_first_look.ring}}
+{{file:samples/UsingDotNet/tutorials/ch01_first_look.ring}}
 
 Run it:
 
 ```bash
-ring t01_first_look.ring
+ring ch01_first_look.ring
 ```
 
-{{output:samples/UsingDotNet/tutorials/t01_first_look.ring}}
+{{output:samples/UsingDotNet/tutorials/ch01_first_look.ring}}
 
 ## How it works, step by step
 

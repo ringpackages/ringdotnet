@@ -232,7 +232,7 @@
 <ul><li>the <strong>CIDR</strong> notation (<code>192.168.1.0/24</code>),</li><li><code>IPNetwork</code>: <code>TryParse</code>, <code>BaseAddress</code>, <code>PrefixLength</code>, <code>Contains</code>,</li><li>how many addresses a network has,</li><li>what a wrong network looks like,</li><li>an allow list for private addresses (RFC 1918),</li><li>IPv6.</li></ul>
 <p>The tutorial <a href="tut-81-network-tools.html">Network tools</a> used <code>IPAddress</code> and <code>IPEndPoint</code>. This lesson goes one level up: a <em>range</em> of addresses. A web program (the tutorial <a href="tut-16-web-service.html">A web service with a database</a>) uses it to allow or refuse a client by its address.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t102_ip_networks.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># IP networks - CIDR notation, the addresses of a subnet, "is this address in that network?" and a small allow list</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_ip_networks.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># IP networks - CIDR notation, the addresses of a subnet, "is this address in that network?" and a small allow list</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

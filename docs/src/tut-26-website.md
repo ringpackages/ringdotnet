@@ -22,14 +22,14 @@ lead: Serve real HTML pages from Ring: a home page, an about page and a guestboo
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g26_website.ring}}
+{{file:samples/UsingDotNet/tutorials/ch07_website.ring}}
 
-{{output:samples/UsingDotNet/tutorials/g26_website.ring}}
+{{output:samples/UsingDotNet/tutorials/ch07_website.ring}}
 
 To run it as a real site:
 
 ```bash
-ring g26_website.ring --serve
+ring ch07_website.ring --serve
 ```
 
 then open `http://localhost:5090/` in a browser.

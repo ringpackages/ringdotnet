@@ -17,9 +17,9 @@ The tutorial [A project: a backup tool](tut-46-backup.html) did something to fil
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t141_renamer.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_renamer.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t141_renamer.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_renamer.ring}}
 
 ## How it works
 

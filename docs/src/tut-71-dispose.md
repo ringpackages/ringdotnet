@@ -17,9 +17,9 @@ Memory is cleaned automatically, but some things are *lent* by the operating sys
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t71_dispose.ring}}
+{{file:samples/UsingDotNet/tutorials/ch06_dispose.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t71_dispose.ring}}
+{{output:samples/UsingDotNet/tutorials/ch06_dispose.ring}}
 
 ## How it works
 

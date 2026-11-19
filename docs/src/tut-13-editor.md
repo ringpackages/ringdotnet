@@ -14,11 +14,11 @@ lead: Build a real tool in about eighty lines — a menu, a text area that fills
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g03_editor.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_editor.ring}}
 
 ![The editor with some text](img/shots/tut-g03-text.png "The tiny editor: menu on top, status bar at the bottom")
 
-{{output:samples/UsingDotNet/tutorials/g03_editor.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_editor.ring --selftest}}
 
 ## How it works
 

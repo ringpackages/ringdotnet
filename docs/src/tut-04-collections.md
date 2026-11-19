@@ -23,9 +23,9 @@ Ring lists are flexible and fine for most programs. Use .NET collections when yo
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t04_collections.ring}}
+{{file:samples/UsingDotNet/tutorials/ch01_collections.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t04_collections.ring}}
+{{output:samples/UsingDotNet/tutorials/ch01_collections.ring}}
 
 ## How it works
 

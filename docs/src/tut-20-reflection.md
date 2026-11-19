@@ -17,9 +17,9 @@ lead: You do not have to guess what a class can do. A program can ask: this less
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t20_reflection.ring}}
+{{file:samples/UsingDotNet/tutorials/ch13_reflection.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t20_reflection.ring}}
+{{output:samples/UsingDotNet/tutorials/ch13_reflection.ring}}
 
 ## How it works
 

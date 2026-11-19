@@ -20,17 +20,17 @@ lead: A tree of folders on the left, the files of the chosen folder on the right
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g42_browser.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_browser.ring}}
 
 ![The folder browser](img/shots/tut-g42.png "Folders on the left, the files of Projects > Ring on the right")
 
-{{output:samples/UsingDotNet/tutorials/g42_browser.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_browser.ring --selftest}}
 
 ## How it works
 
 ### A demo folder
 
-`makeDemoFolder` creates folders and files in the temp folder, so the tutorial can show a result and be tested anywhere. Give the program a real folder as its first argument to browse it: `ring g42_browser.ring "C:\Users\you\Documents"`.
+`makeDemoFolder` creates folders and files in the temp folder, so the tutorial can show a result and be tested anywhere. Give the program a real folder as its first argument to browse it: `ring ch10_browser.ring "C:\Users\you\Documents"`.
 
 ### Building the tree
 

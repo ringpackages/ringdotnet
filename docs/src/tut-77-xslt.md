@@ -27,9 +27,9 @@ You have data in XML (the tutorial [XML in depth](tut-72-xml.html)) and you want
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t77_xslt.ring}}
+{{file:samples/UsingDotNet/tutorials/ch02_xslt.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t77_xslt.ring}}
+{{output:samples/UsingDotNet/tutorials/ch02_xslt.ring}}
 
 ## How it works
 

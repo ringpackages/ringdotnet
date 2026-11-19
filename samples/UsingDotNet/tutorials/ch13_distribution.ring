@@ -1,5 +1,5 @@
 # giving your program to others - a self check that a program made with Ring2EXE can run when it starts
-#   ring ring2exe.ring t119_distribution.ring -dist -dotnet        (the page explains the steps)
+#   ring ring2exe.ring ch13_distribution.ring -dist -dotnet        (the page explains the steps)
 load "dotnet.ring"
 using {
 	"System"

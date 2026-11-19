@@ -15,9 +15,9 @@ The tutorial [Hashing and encryption](tut-08-security.html) used hashes and encr
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t105_signatures.ring}}
+{{file:samples/UsingDotNet/tutorials/ch08_signatures.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t105_signatures.ring}}
+{{output:samples/UsingDotNet/tutorials/ch08_signatures.ring}}
 
 ## How it works
 

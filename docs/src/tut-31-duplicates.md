@@ -21,9 +21,9 @@ Two files are the same when their **content** is the same, whatever their names.
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t31_duplicates.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_duplicates.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t31_duplicates.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_duplicates.ring}}
 
 ## How it works
 

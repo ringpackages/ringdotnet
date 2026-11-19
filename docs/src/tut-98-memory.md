@@ -13,9 +13,9 @@ lead: .NET frees the memory of objects that nothing uses any more. This lesson l
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t98_memory.ring}}
+{{file:samples/UsingDotNet/tutorials/ch06_memory.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t98_memory.ring}}
+{{output:samples/UsingDotNet/tutorials/ch06_memory.ring}}
 
 ## How it works
 

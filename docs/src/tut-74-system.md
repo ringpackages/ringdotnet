@@ -13,9 +13,9 @@ lead: What system is this? How many processors? How much memory does my program 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t74_system.ring}}
+{{file:samples/UsingDotNet/tutorials/ch06_system.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t74_system.ring}}
+{{output:samples/UsingDotNet/tutorials/ch06_system.ring}}
 
 The output shows what is true on the computer where the page was made; the program prints *yes* and *no* for private details instead of the names themselves.
 

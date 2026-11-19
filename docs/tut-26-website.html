@@ -233,7 +233,7 @@
 <h2 id="the-site">The site<a class="anchor" href="#the-site">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Address</th><th>Page</th></tr></thead><tbody><tr><td><code>GET /</code></td><td>the home page</td></tr><tr><td><code>GET /about</code></td><td>an about page</td></tr><tr><td><code>GET /guestbook</code></td><td>the entries, and a form to add one</td></tr><tr><td><code>POST /guestbook</code></td><td>the form sends its fields here</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g26_website.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a small web site - HTML pages, a form, links and a guestbook (ASP.NET Core)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_website.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a small web site - HTML pages, a form, links and a guestbook (ASP.NET Core)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Net.Http"</span>
@@ -246,7 +246,7 @@ oClient = <span class="s">""</span>
 cUrl = <span class="s">""</span>
 aEntries = []                 <span class="c"># the guestbook: [name, message]</span>
 
-<span class="c"># Run it as a web site:   ring g26_website.ring --serve     then open http://localhost:5090/</span>
+<span class="c"># Run it as a web site:   ring ch07_website.ring --serve     then open http://localhost:5090/</span>
 <span class="k">func</span> <span class="f">main</span>
 	cAddress = <span class="s">"http://127.0.0.1:0"</span>
 	<span class="k">if</span> find(sysargv,<span class="s">"--serve"</span>) &gt; <span class="n">0</span>
@@ -355,7 +355,7 @@ POST /guestbook -&gt; BadRequest, page title 'Oops', 437 characters
 GET /guestbook  -&gt; OK, page title 'Guestbook', 665 characters
 entries stored  : 1</code></pre></div>
 <p>To run it as a real site:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring g26_website.ring --serve</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring ch07_website.ring --serve</code></pre></div>
 <p>then open <code>http://localhost:5090/</code> in a browser.</p>
 <figure class="shot"><img src="img/shots/tut-g26-home.png" alt="The home page" loading="lazy"><figcaption>GET /</figcaption></figure>
 <figure class="shot"><img src="img/shots/tut-g26-guestbook.png" alt="The guestbook after two entries" loading="lazy"><figcaption>GET /guestbook</figcaption></figure>

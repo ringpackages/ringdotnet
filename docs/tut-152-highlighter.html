@@ -232,7 +232,7 @@
 <ul><li><strong>tokens</strong>: comments, strings, numbers, words and the rest,</li><li>one regular expression with <strong>named groups</strong> and the alternatives in the right <strong>order</strong>,</li><li><code>Regex.Matches</code> and <code>Groups.Item(name).Success</code>,</li><li>keywords and names,</li><li>HTML output with <strong>escaped</strong> text,</li><li>a check: without the tags the text is the original,</li><li>what a pattern like this cannot do.</li></ul>
 <p>The tutorial <a href="tut-29-regex.html">Regular expressions in depth</a> explained groups and alternatives. This project uses them to read a language.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t152_highlighter.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: a syntax highlighter - one regular expression with named groups splits code into tokens, and each token becomes an HTML span</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_highlighter.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: a syntax highlighter - one regular expression with named groups splits code into tokens, and each token becomes an HTML span</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

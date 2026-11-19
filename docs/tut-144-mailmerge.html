@@ -232,7 +232,7 @@
 <ul><li>a template with <code>{name}</code> and <code>{name:format}</code> <strong>fields</strong>,</li><li>reading CSV text into rows, and keeping <strong>empty</strong> values,</li><li><code>Regex.Replace</code> with a <strong>callback</strong> (a function that .NET calls for each match),</li><li>groups of a match: the name and the format,</li><li>reusing the formats of the tutorial <a href="tut-129-formatting.html">Formatting numbers and dates</a>,</li><li>finding <strong>missing data</strong> before sending.</li></ul>
 <p>The same pattern makes e-mails, invoices and reports: a template, data, and a function that fills the holes.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t144_mailmerge.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: mail merge - a template with {fields}, rows of data, Regex.Replace with a callback, formats, missing fields and the letters</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_mailmerge.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: mail merge - a template with {fields}, rows of data, Regex.Replace with a callback, formats, missing fields and the letters</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

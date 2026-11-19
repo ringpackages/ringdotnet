@@ -233,7 +233,7 @@
 <h2 id="tasks-and-ring">Tasks and Ring<a class="anchor" href="#tasks-and-ring">#</a></h2>
 <p>In .NET a <strong>task</strong> is a promise: a piece of work that is running or waiting and will be <em>finished</em>, <em>failed</em> or <em>cancelled</em>. <code>HttpClient.GetAsync</code>, <code>File.ReadAllTextAsync</code> and <code>Process.WaitForExitAsync</code> all return tasks. Ring runs your code on one thread, and <strong>Ring code cannot run on other threads</strong> (<a href="concepts.html">Core concepts</a>), so you do not write the work of a task in Ring. You use the tasks that .NET provides, start several, and wait for them in Ring. <code>Task.Delay</code> is the simplest such task: it finishes after a time and does nothing else, which makes the rules visible.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t83_tasks_waiting.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># tasks that wait - Task.Delay, WhenAll, WhenAny, time limits and cancellation (System.Threading.Tasks)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_tasks_waiting.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># tasks that wait - Task.Delay, WhenAll, WhenAny, time limits and cancellation (System.Threading.Tasks)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

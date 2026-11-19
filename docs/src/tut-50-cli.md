@@ -13,9 +13,9 @@ lead: A real command-line program has arguments, options with values, a usage te
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t51_cli.ring}}
+{{file:samples/UsingDotNet/tutorials/ch06_cli.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t51_cli.ring}}
+{{output:samples/UsingDotNet/tutorials/ch06_cli.ring}}
 
 ## How it works
 

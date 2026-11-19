@@ -13,11 +13,11 @@ lead: Make a perfect maze with a stack, find the shortest way through it with a 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g62_maze.ring}}
+{{file:samples/UsingDotNet/tutorials/ch12_maze.ring}}
 
 ![The maze window](img/shots/tut-g62.png "A 21 x 13 maze: green is the start, red the exit, orange the shortest way")
 
-{{output:samples/UsingDotNet/tutorials/g62_maze.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch12_maze.ring --selftest}}
 
 ## How it works
 

@@ -237,7 +237,7 @@
 <h2 id="the-design">The design<a class="anchor" href="#the-design">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Rule</th><th>Why</th></tr></thead><tbody><tr><td>every setting has a <strong>default</strong></td><td>the first run, and a missing key, work</td></tr><tr><td>the file is <strong>JSON</strong>, readable by people</td><td>users and support can read and edit it</td></tr><tr><td>loading <strong>never fails the program</strong></td><td>a damaged file must not stop the application</td></tr><tr><td>saving happens when the user changes something</td><td>a crash does not lose the choices</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t32_settings.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># settings - defaults, a JSON file, loading, saving, and special folders</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_settings.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># settings - defaults, a JSON file, loading, saving, and special folders</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

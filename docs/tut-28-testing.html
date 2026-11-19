@@ -235,9 +235,9 @@
 <h2 id="make-code-testable">Make code testable<a class="anchor" href="#make-code-testable">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Do</th><th>Because</th></tr></thead><tbody><tr><td>small functions with one job</td><td>each can be tested alone</td></tr><tr><td><strong>return</strong> results instead of printing or showing them</td><td>a test can check a returned value</td></tr><tr><td>pass data <strong>in</strong> as parameters instead of reading globals</td><td>a test can try many inputs</td></tr><tr><td>keep window code thin: the logic is in functions</td><td>logic is easy to test, windows are not</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t28_testing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># testing your programs - small functions, dnAssert, expected errors, a test summary</span>
-<span class="c">#   ring t28_testing.ring            all tests pass</span>
-<span class="c">#   ring t28_testing.ring --break    one test fails on purpose, to show what a failure looks like</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_testing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># testing your programs - small functions, dnAssert, expected errors, a test summary</span>
+<span class="c">#   ring ch13_testing.ring            all tests pass</span>
+<span class="c">#   ring ch13_testing.ring --break    one test fails on purpose, to show what a failure looks like</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
@@ -322,7 +322,7 @@ using {
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>TESTS: 14 passed, 0 failed</code></pre></div>
 <h3 id="when-a-test-fails">When a test fails<a class="anchor" href="#when-a-test-fails">#</a></h3>
 <p>The program has a switch that breaks one test on purpose:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring t28_testing.ring --break</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring ch13_testing.ring --break</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>FAIL: 2 + 2 is 5 (wrong on purpose) expected &lt;5&gt; got &lt;4&gt;
 TESTS: 14 passed, 1 failed</code></pre></div>
 <p>A failure prints the name of the test, what was <strong>expected</strong> and what was <strong>got</strong>. <code>dnTestSummary()</code> prints the totals and returns the number of failures (use it to set an exit code in a script).</p>

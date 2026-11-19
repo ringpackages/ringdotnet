@@ -19,11 +19,11 @@ In languages with threads the usual answer is "do the work on another thread". R
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g34_timers.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_timers.ring}}
 
 ![The window with the stopwatch running and the job at 60 percent](img/shots/tut-g34.png "The stopwatch shows 0:02.5 while the job is at 60%")
 
-{{output:samples/UsingDotNet/tutorials/g34_timers.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_timers.ring --selftest}}
 
 ## How it works
 

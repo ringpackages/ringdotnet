@@ -233,7 +233,7 @@
 <p>The tutorial <a href="tut-08-security.html">Hashing and encryption</a> and the tutorial <a href="tut-78-crypto.html">Protecting and signing messages</a> used the cryptography classes directly: you choose the algorithm, the key and the mode, and every choice is a chance for a mistake. The Data Protection API is the <strong>high-level</strong> tool: you give it a text, it gives you a token.</p>
 <div class="callout note"><span class="t">Note</span><p>The API is part of the ASP.NET Core runtime, so the program has <code>"RingDotNet.Web"</code> in its <code>using { }</code> (<a href="getting-started.html">Getting started</a>).</p></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t113_data_protection.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># protecting data - the Data Protection API: purposes, tampering, keys on disk, and values that expire</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch08_data_protection.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># protecting data - the Data Protection API: purposes, tampering, keys on disk, and values that expire</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

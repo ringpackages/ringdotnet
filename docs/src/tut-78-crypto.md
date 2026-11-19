@@ -25,9 +25,9 @@ Use both for a protected message: **encrypt first, then compute the HMAC over th
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t78_crypto.ring}}
+{{file:samples/UsingDotNet/tutorials/ch08_crypto.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t78_crypto.ring}}
+{{output:samples/UsingDotNet/tutorials/ch08_crypto.ring}}
 
 ## How it works
 

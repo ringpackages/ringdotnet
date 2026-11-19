@@ -18,9 +18,9 @@ The tutorial [A REST client](tut-39-rest-client.html) made a first REST client; 
 
 The service is a small `WebServer` that runs in the same program (the client code is the same for a real service; only the address differs).
 
-{{file:samples/UsingDotNet/tutorials/t84_http_client.ring}}
+{{file:samples/UsingDotNet/tutorials/ch07_http_client.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t84_http_client.ring}}
+{{output:samples/UsingDotNet/tutorials/ch07_http_client.ring}}
 
 ## How it works
 

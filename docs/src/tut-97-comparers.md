@@ -15,9 +15,9 @@ The tutorial [Cultures](tut-33-cultures.html) formatted numbers and dates for a 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t97_comparers.ring}}
+{{file:samples/UsingDotNet/tutorials/ch02_comparers.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t97_comparers.ring}}
+{{output:samples/UsingDotNet/tutorials/ch02_comparers.ring}}
 
 ## How it works
 

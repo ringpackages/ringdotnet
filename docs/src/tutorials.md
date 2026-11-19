@@ -9,9 +9,9 @@ Every tutorial has a program in the folder `samples/UsingDotNet/tutorials`. Read
 
 ```bash
 cd samples/UsingDotNet/tutorials
-ring t01_first_look.ring            # a console tutorial
-ring g01c_counter.ring              # a window
-ring g01c_counter.ring --selftest   # the same program checks itself and closes
+ring ch01_first_look.ring            # a console tutorial
+ring ch10_counter.ring              # a window
+ring ch10_counter.ring --selftest   # the same program checks itself and closes
 ```
 
 > [!TIP] You do not need to know .NET to start. If you know Ring, you can follow every tutorial. The first two pages explain the .NET words that you will meet.

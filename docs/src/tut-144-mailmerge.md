@@ -16,9 +16,9 @@ The same pattern makes e-mails, invoices and reports: a template, data, and a fu
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t144_mailmerge.ring}}
+{{file:samples/UsingDotNet/tutorials/ch02_mailmerge.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t144_mailmerge.ring}}
+{{output:samples/UsingDotNet/tutorials/ch02_mailmerge.ring}}
 
 ## How it works
 

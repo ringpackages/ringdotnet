@@ -1,6 +1,6 @@
 # shared memory - a memory-mapped file seen by two programs, numbers and text in it, and a file that is edited in place
-#   ring t82_shared_memory.ring            the parent: it makes the memory and starts the child
-#   ring t82_shared_memory.ring --child    the child (the parent starts it)
+#   ring ch06_shared_memory.ring            the parent: it makes the memory and starts the child
+#   ring ch06_shared_memory.ring --child    the child (the parent starts it)
 load "dotnet.ring"
 using {
 	"System"

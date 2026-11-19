@@ -17,9 +17,9 @@ Computers store numbers in binary. Just as 1/3 cannot be written exactly in deci
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t58_money.ring}}
+{{file:samples/UsingDotNet/tutorials/ch03_money.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t58_money.ring}}
+{{output:samples/UsingDotNet/tutorials/ch03_money.ring}}
 
 ## How it works
 

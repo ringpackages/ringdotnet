@@ -13,9 +13,9 @@ lead: Programs that run without a person watching need a diary. This lesson writ
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t52_logging.ring}}
+{{file:samples/UsingDotNet/tutorials/ch06_logging.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t52_logging.ring}}
+{{output:samples/UsingDotNet/tutorials/ch06_logging.ring}}
 
 ## How it works
 

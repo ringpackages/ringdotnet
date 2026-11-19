@@ -1,5 +1,5 @@
 # images - create, draw, read pixels, resize, convert to gray and save (no window needed)
-#   ring t22_images.ring [output folder]
+#   ring ch10_images.ring [output folder]
 load "dotnet.ring"
 using {
 	"System"
@@ -10,7 +10,7 @@ using {
 
 func main
 	cFolder = new Path().GetTempPath()
-	if len(sysargv) >= 3
+	if len(sysargv) >= 3 and left(sysargv[3],2) != "--"           # an option such as --selftest is not a folder
 		cFolder = sysargv[3]
 		new Directory().CreateDirectory(cFolder)
 	ok
@@ -72,7 +72,7 @@ func main
 	oLoaded.Dispose()
 	oGray.Dispose()
 	oSmall.Dispose()
-	if len(sysargv) < 3
+	if not (len(sysargv) >= 3 and left(sysargv[3],2) != "--")      # no output folder was given: remove the files
 		new File().Delete(cPng)
 		new File().Delete(cGray)
 		new File().Delete(cSmall)

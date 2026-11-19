@@ -16,9 +16,9 @@ The tutorial [Numbers, dates and times](tut-03-numbers-dates.html) made `DateTim
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t103_dates_and_times.ring}}
+{{file:samples/UsingDotNet/tutorials/ch03_dates_and_times.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t103_dates_and_times.ring}}
+{{output:samples/UsingDotNet/tutorials/ch03_dates_and_times.ring}}
 
 ## How it works
 

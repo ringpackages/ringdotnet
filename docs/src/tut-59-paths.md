@@ -18,9 +18,9 @@ lead: Programs that work on every computer build paths with Path.Combine, ask th
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t60_paths.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_paths.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t60_paths.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_paths.ring}}
 
 ## How it works
 

@@ -18,9 +18,9 @@ In .NET a **task** is a promise: a piece of work that is running or waiting and 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t83_tasks_waiting.ring}}
+{{file:samples/UsingDotNet/tutorials/ch06_tasks_waiting.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t83_tasks_waiting.ring}}
+{{output:samples/UsingDotNet/tutorials/ch06_tasks_waiting.ring}}
 
 The output prints *yes* and *no* instead of the exact milliseconds, so that it is the same on every computer. When you try it yourself, print `ElapsedMilliseconds`.
 

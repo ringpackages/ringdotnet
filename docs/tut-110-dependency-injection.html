@@ -232,7 +232,7 @@
 <ul><li>what <strong>dependency injection</strong> (DI) is and why programs use it,</li><li><code>ServiceCollection</code> and the service provider,</li><li>the three <strong>lifetimes</strong>: singleton, transient, scoped,</li><li>scopes (<code>CreateScope</code>) and what <em>one request</em> means,</li><li>factories that ask the provider for other services,</li><li>the rules that avoid mistakes.</li></ul>
 <p>Every ASP.NET Core program is built on this container, so what you learn here is what a web program (the tutorial <a href="tut-16-web-service.html">A web service with a database</a>) is using inside.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t110_dependency_injection.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># dependency injection - a service container, the three lifetimes (singleton, transient, scoped) and services that need other services</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_dependency_injection.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># dependency injection - a service container, the three lifetimes (singleton, transient, scoped) and services that need other services</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

@@ -235,7 +235,7 @@
 <div class="tablewrap"><table><thead><tr><th>Layer</th><th>Holds</th></tr></thead><tbody><tr><td><strong>Database</strong> (<code>oDb</code>)</td><td>the truth: the contacts, stored in a SQLite file</td></tr><tr><td><strong>Grid data</strong> (<code>oTable</code>)</td><td>a copy of the rows that match the search, for display</td></tr><tr><td><strong>Window</strong></td><td>the grid, the search box, the fields and the buttons</td></tr></tbody></table></div>
 <p>The golden rule: <strong>the database changes first, then the grid is reloaded</strong>. The grid is never edited directly, so it can never disagree with the database.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g48_addressbook.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - an address book with a database (Windows Forms + Entity Framework + a data grid)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_addressbook.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - an address book with a database (Windows Forms + Entity Framework + a data grid)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Data"</span>

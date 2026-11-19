@@ -232,7 +232,7 @@
 <ul><li>what a cache is and when it helps,</li><li><code>MemoryCache</code>: <code>Set</code>, <code>TryGetValue</code>, <code>Remove</code>, <code>Clear</code>, <code>Count</code>,</li><li><strong>absolute</strong> and <strong>sliding</strong> expiration,</li><li><code>GetOrCreate</code>: make the value only when it is missing,</li><li>extension methods and <code>dnStatic</code>,</li><li>the rules that keep a cache safe.</li></ul>
 <p>The tutorial <a href="tut-53-speed.html">Speed — measure first</a> measured how fast calls are. The fastest call is the one you do not make: a result that was already calculated, fetched or read can be reused.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t109_memory_cache.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># caching - MemoryCache, absolute and sliding expiration, remove and update, and when a cache is a bad idea</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_memory_cache.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># caching - MemoryCache, absolute and sliding expiration, remove and update, and when a cache is a bad idea</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

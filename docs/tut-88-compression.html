@@ -232,7 +232,7 @@
 <ul><li>how a compression stream <strong>wraps</strong> another stream,</li><li><code>GZipStream</code>, <code>DeflateStream</code> and <code>BrotliStream</code>,</li><li>compressing and decompressing bytes in a <code>MemoryStream</code>,</li><li>why <code>Dispose</code> is needed to finish the data,</li><li>why random data does not shrink,</li><li>writing and reading a <code>.gz</code> file with <code>StreamWriter</code> and <code>StreamReader</code>.</li></ul>
 <p>The tutorial <a href="tut-05-files.html">Files and folders</a> made a ZIP archive of files. This lesson compresses <strong>data</strong> (one stream of bytes). GZip is the format of <code>.gz</code> files and of <code>Content-Encoding: gzip</code> on the web.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t88_compression.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># compression - GZip, Deflate and Brotli on streams, sizes, a round trip and a compressed file</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_compression.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># compression - GZip, Deflate and Brotli on streams, sizes, a round trip and a compressed file</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

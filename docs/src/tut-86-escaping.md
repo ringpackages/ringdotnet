@@ -30,9 +30,9 @@ A text has no meaning by itself; the **place** gives it one. `<b>` is just lette
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t86_escaping.ring}}
+{{file:samples/UsingDotNet/tutorials/ch02_escaping.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t86_escaping.ring}}
+{{output:samples/UsingDotNet/tutorials/ch02_escaping.ring}}
 
 ## How it works
 

@@ -28,9 +28,9 @@ The answers are JSON, and the **status code** tells whether it worked: `200` OK,
 
 For this tutorial the service is started in the same program, so that it needs no internet. The *client* code is exactly what you would write for a real service: only `cUrl` would be different.
 
-{{file:samples/UsingDotNet/tutorials/t39_rest_client.ring}}
+{{file:samples/UsingDotNet/tutorials/ch07_rest_client.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t39_rest_client.ring}}
+{{output:samples/UsingDotNet/tutorials/ch07_rest_client.ring}}
 
 ## How it works
 

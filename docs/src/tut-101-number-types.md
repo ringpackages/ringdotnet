@@ -17,9 +17,9 @@ The tutorial [Numbers, dates and times](tut-03-numbers-dates.html) used numbers 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t101_number_types.ring}}
+{{file:samples/UsingDotNet/tutorials/ch03_number_types.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t101_number_types.ring}}
+{{output:samples/UsingDotNet/tutorials/ch03_number_types.ring}}
 
 ## How it works
 

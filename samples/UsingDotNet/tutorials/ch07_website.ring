@@ -11,7 +11,7 @@ oClient = ""
 cUrl = ""
 aEntries = []                 # the guestbook: [name, message]
 
-# Run it as a web site:   ring g26_website.ring --serve     then open http://localhost:5090/
+# Run it as a web site:   ring ch07_website.ring --serve     then open http://localhost:5090/
 func main
 	cAddress = "http://127.0.0.1:0"
 	if find(sysargv,"--serve") > 0

@@ -231,7 +231,7 @@
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li>what the <strong>garbage collector</strong> (GC) does and why you rarely call it,</li><li><code>GC.GetTotalMemory</code>, <code>GC.Collect</code>, <code>GC.CollectionCount</code>,</li><li><code>WeakReference</code>: a pointer that does not keep an object alive,</li><li><strong>generations</strong> 0, 1 and 2,</li><li>handles: how Ring frees .NET objects for you (<code>dnFlush()</code> and <code>release()</code>).</li></ul>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t98_memory.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># memory and the garbage collector - how much memory .NET uses, GC.Collect, WeakReference, generations and a big array</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_memory.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># memory and the garbage collector - how much memory .NET uses, GC.Collect, WeakReference, generations and a big array</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

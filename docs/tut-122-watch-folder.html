@@ -232,9 +232,9 @@
 <ul><li>what a <code>FileSystemWatcher</code> reports: <strong>Created</strong>, <strong>Changed</strong>, <strong>Renamed</strong> and <strong>Deleted</strong>,</li><li>the folder, the <strong>filter</strong> (<code>*.txt</code>) and the subfolders,</li><li><code>WaitForChanged</code> with a time limit,</li><li>why a change that happens while the program is not waiting is not reported,</li><li>a child program that makes the changes (the pattern of the tutorial <a href="tut-79-processes-talk.html">Two programs talking</a>).</li></ul>
 <p>Programs that watch folders are everywhere: a build tool that starts when a file is saved, an editor that notices that a file was changed by another program, a program that processes the files that other programs drop into an <em>inbox</em> folder.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t122_watch_folder.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Watching a folder - FileSystemWatcher: waiting for files to be created, changed, renamed and deleted</span>
-<span class="c">#   ring t122_watch_folder.ring            the parent: it watches a folder and starts a second copy of this program (the child) that changes it</span>
-<span class="c">#   ring t122_watch_folder.ring --child    the child (the parent starts it, you do not)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_watch_folder.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Watching a folder - FileSystemWatcher: waiting for files to be created, changed, renamed and deleted</span>
+<span class="c">#   ring ch05_watch_folder.ring            the parent: it watches a folder and starts a second copy of this program (the child) that changes it</span>
+<span class="c">#   ring ch05_watch_folder.ring --child    the child (the parent starts it, you do not)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

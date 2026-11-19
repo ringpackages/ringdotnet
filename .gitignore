@@ -12,3 +12,6 @@ samples/UsingDotNet/tutorials/Greeter/obj/
 samples/UsingDotNet/tutorials/Greeter/classes/
 samples/UsingDotNet/tutorials/addressbook.db
 docs/pdf/
+samples/UsingDotNet/tutorials/--selftest/
+samples/UsingDotNet/tutorials/_b.bin
+samples/UsingDotNet/tutorials/addressbook.db-*

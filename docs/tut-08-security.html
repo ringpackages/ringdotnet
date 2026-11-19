@@ -235,7 +235,7 @@
 <div class="tablewrap"><table><thead><tr><th></th><th>Hashing</th><th>Encryption</th></tr></thead><tbody><tr><td>Direction</td><td>one way: you cannot get the data back</td><td>two ways: you can decrypt with the key</td></tr><tr><td>Result size</td><td>always the same (SHA-256: 32 bytes)</td><td>about the size of the data</td></tr><tr><td>Use</td><td>check that data is the same; store passwords</td><td>keep data secret</td></tr></tbody></table></div>
 <p>A <strong>hash</strong> is a fingerprint. The same input always gives the same hash; a tiny change gives a completely different hash.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t08_security.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># hashing and encryption basics - checksums, password hashes, random tokens, AES</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch01_security.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># hashing and encryption basics - checksums, password hashes, random tokens, AES</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
@@ -283,12 +283,12 @@ using {
 MD5 of 'abc'       : 900150983cd24fb0d6963f7d28e17f72  (old: do not use it for security)
 Changing one letter: a52d159f262b2c6d... is completely different
 
-Stored hash       : 43b8dbd2af420913896b38136bb03d70... (64 characters)
+Stored hash       : 96bfe623b61386cd2decc5387d3debb0... (64 characters)
 Right password    : 1
 Wrong password    : 0
 
 HMAC             : c431e4857a6b817f9eeaab86b00f78e2...
-Random token      : 9f7218a5a53e0397
+Random token      : 5482a7de9c6fff35
 
 Encrypted        : 32 bytes (the text had 25)
 Decrypted        : Ring talks to .NET crypto</code></pre></div>

@@ -15,9 +15,9 @@ Programs that watch folders are everywhere: a build tool that starts when a file
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t122_watch_folder.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_watch_folder.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t122_watch_folder.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_watch_folder.ring}}
 
 ## How it works
 

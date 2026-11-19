@@ -16,9 +16,9 @@ Every editor, every form that has data, asks before it closes. This is the patte
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g137_closing.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_closing.ring}}
 
-{{output:samples/UsingDotNet/tutorials/g137_closing.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_closing.ring --selftest}}
 
 ## How it works
 

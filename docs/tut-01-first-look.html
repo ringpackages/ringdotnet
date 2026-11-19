@@ -234,7 +234,7 @@
 <p>You need Ring and the RingDotNet package. Open a terminal in <code>samples/UsingDotNet/tutorials</code>. If something does not work, read <a href="getting-started.html">Getting started</a>. If Ring is new to you, read the <a href="ring-intro.html">Quick introduction to Ring</a> in the appendix first.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <p>Read the program first; the explanations follow. The line <code>using { ... }</code> brings classes in. <code>func main</code> is where Ring starts.</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t01_first_look.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a first look at .NET from Ring - runtime, types, objects, namespaces</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch01_first_look.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a first look at .NET from Ring - runtime, types, objects, namespaces</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
@@ -276,7 +276,7 @@ using {
 	oMissing = <span class="f">dnNull</span>()
 	? <span class="s">"Is it null?      : "</span> + oMissing.<span class="f">isNull</span>()</code></pre></div>
 <p>Run it:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring t01_first_look.ring</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring ch01_first_look.ring</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Runtime          : .NET 9.0.15
 Type of the object: System.Text.StringBuilder
 Namespace        : System.Text

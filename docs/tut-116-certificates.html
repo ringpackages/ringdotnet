@@ -232,7 +232,7 @@
 <ul><li>what a <strong>certificate</strong> is: public key, subject, issuer, validity, thumbprint,</li><li>making a <strong>self-signed</strong> certificate (<code>CertificateRequest</code>, <code>CreateSelfSigned</code>),</li><li><strong>extensions</strong> such as basic constraints,</li><li>exporting: <strong>PFX</strong> (with the private key and a password) and <strong>PEM / .cer</strong> (public only),</li><li>signing with the private key and verifying with the public certificate,</li><li>trust and the <strong>chain</strong>.</li></ul>
 <p>The tutorial <a href="tut-105-signatures.html">Digital signatures</a> signed data with a bare key pair. A certificate adds the answer to <em>"whose key is this?"</em>.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t116_certificates.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># certificates - a self-signed X.509 certificate, what it contains, export with and without the private key, and signing with it</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch08_certificates.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># certificates - a self-signed X.509 certificate, what it contains, export with and without the private key, and signing with it</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

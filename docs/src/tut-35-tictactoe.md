@@ -23,11 +23,11 @@ The rules take the board **as a parameter** and *return* an answer. They do not 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g35_tictactoe.ring}}
+{{file:samples/UsingDotNet/tutorials/ch12_tictactoe.ring}}
 
 ![A game in progress, X has won](img/shots/tut-g35-won.png "X took the top row")
 
-{{output:samples/UsingDotNet/tutorials/g35_tictactoe.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch12_tictactoe.ring --selftest}}
 
 ## How it works
 

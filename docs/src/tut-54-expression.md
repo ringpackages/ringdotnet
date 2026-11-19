@@ -27,9 +27,9 @@ primary    = number | "(" expression ")" | name "(" expression { "," expression 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t55_expression.ring}}
+{{file:samples/UsingDotNet/tutorials/ch04_expression.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t55_expression.ring}}
+{{output:samples/UsingDotNet/tutorials/ch04_expression.ring}}
 
 ## How it works
 

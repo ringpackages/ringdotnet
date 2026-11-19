@@ -232,7 +232,7 @@
 <ul><li>code as data: a tree of objects (<code>System.Linq.Expressions</code>),</li><li><code>Parameter</code>, <code>Add</code>, <code>Multiply</code>, <code>Constant</code>, <code>Condition</code>, <code>Call_</code>, <code>Lambda</code>,</li><li><code>ToString()</code> of a tree and <code>NodeType</code>,</li><li>compiling a tree (<code>Compile</code>) and calling the function,</li><li>building a tree from something the program receives at run time.</li></ul>
 <p>Entity Framework builds its queries the same way (the tutorial <a href="tut-27-entities.html">Entity objects and migrations</a>): a condition is first a <em>tree</em>, which can be turned into SQL, and only a compiled tree is a function you can run.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t87_expressions.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># building code while the program runs - expression trees (System.Linq.Expressions): build, show, compile and call</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_expressions.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># building code while the program runs - expression trees (System.Linq.Expressions): build, show, compile and call</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

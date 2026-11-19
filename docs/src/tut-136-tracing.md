@@ -16,9 +16,9 @@ The tutorial [Logging](tut-51-logging.html) wrote a log that the program owns. T
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t136_tracing.ring}}
+{{file:samples/UsingDotNet/tutorials/ch06_tracing.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t136_tracing.ring}}
+{{output:samples/UsingDotNet/tutorials/ch06_tracing.ring}}
 
 ## How it works
 

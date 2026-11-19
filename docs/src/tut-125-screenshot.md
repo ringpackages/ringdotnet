@@ -15,9 +15,9 @@ The tutorial [Images](tut-22-images.html) made pictures from nothing. Here the p
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t125_screenshot.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_screenshot.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t125_screenshot.ring}}
+{{output:samples/UsingDotNet/tutorials/ch10_screenshot.ring}}
 
 ## How it works
 

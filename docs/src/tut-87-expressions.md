@@ -15,9 +15,9 @@ Entity Framework builds its queries the same way (the tutorial [Entity objects a
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t87_expressions.ring}}
+{{file:samples/UsingDotNet/tutorials/ch13_expressions.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t87_expressions.ring}}
+{{output:samples/UsingDotNet/tutorials/ch13_expressions.ring}}
 
 ## How it works
 

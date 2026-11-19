@@ -22,9 +22,9 @@ A *REST-style* API uses the HTTP method to say what to do and the address to say
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g06_notes_service.ring}}
+{{file:samples/UsingDotNet/tutorials/ch07_notes_service.ring}}
 
-{{output:samples/UsingDotNet/tutorials/g06_notes_service.ring}}
+{{output:samples/UsingDotNet/tutorials/ch07_notes_service.ring}}
 
 ## How it works
 

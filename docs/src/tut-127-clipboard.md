@@ -15,11 +15,11 @@ The clipboard belongs to the whole computer: every program can read and replace 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g127_clipboard.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_clipboard.ring}}
 
 ![The clipboard form](img/shots/tut-g127.png "The clipboard form")
 
-{{output:samples/UsingDotNet/tutorials/g127_clipboard.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_clipboard.ring --selftest}}
 
 ## How it works
 

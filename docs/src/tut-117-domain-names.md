@@ -16,9 +16,9 @@ The tutorial [URLs and encodings](tut-64-urls.html) took URLs apart and the tuto
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t117_domain_names.ring}}
+{{file:samples/UsingDotNet/tutorials/ch02_domain_names.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t117_domain_names.ring}}
+{{output:samples/UsingDotNet/tutorials/ch02_domain_names.ring}}
 
 ## How it works
 

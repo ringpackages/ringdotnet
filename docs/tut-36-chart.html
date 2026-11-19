@@ -234,7 +234,7 @@
 <p>A chart is a picture of numbers, and every point of the picture is computed:</p>
 <ol><li>a <strong>plot area</strong>: left margin for the numbers, top margin for the title, bottom margin for the labels,</li><li>a <strong>scale</strong>: the biggest value (rounded up to a nice number) fills the height of the plot area,</li><li>for each value a <strong>bar</strong>: its height is <code>plotHeight × value / scaleMax</code>, its left edge is <code>left + slot × index</code>,</li><li>the <strong>text</strong>: title, numbers on the axis, value above each bar, label below.</li></ol>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g36_chart.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a chart - turn numbers into a bar chart with UiCanvas, show it in a window and save it as a PNG</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_chart.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a chart - turn numbers into a bar chart with UiCanvas, show it in a window and save it as a PNG</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

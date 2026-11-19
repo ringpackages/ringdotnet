@@ -16,9 +16,9 @@ The tutorial [Binary files](tut-45-binary.html) wrote and read a file from the f
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t130_random_access.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_random_access.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t130_random_access.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_random_access.ring}}
 
 ## How it works
 

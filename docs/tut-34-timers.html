@@ -234,7 +234,7 @@
 <p>A window program lives in a <strong>message loop</strong>: it waits for something to happen (a click, a key, a repaint), runs your code, and returns to waiting. While your code runs, <strong>nothing else happens</strong>: the window is not repainted, buttons do not react. A job that takes five seconds, run in one go, freezes the window for five seconds, and Windows may mark it "not responding".</p>
 <p>In languages with threads the usual answer is "do the work on another thread". Ring code runs on <strong>one thread</strong>, so the answer here is different: <strong>cut the job into small parts and do one part each time a timer ticks.</strong> Between the parts the message loop runs, the window repaints, the user can click <em>Cancel</em>.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g34_timers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># timers and progress - a stopwatch and a long job that keeps the window alive</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_timers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># timers and progress - a stopwatch and a long job that keeps the window alive</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

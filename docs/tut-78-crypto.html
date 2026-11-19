@@ -235,7 +235,7 @@
 <div class="tablewrap"><table><thead><tr><th>Problem</th><th>Tool</th><th>Key</th></tr></thead><tbody><tr><td>Nobody should <em>read</em> the message</td><td><strong>encryption</strong> (AES)</td><td>one <strong>secret key</strong>, shared by sender and receiver</td></tr><tr><td>Nobody should <em>change</em> it, and I want to know it is genuine</td><td><strong>HMAC</strong> (shared key) or a <strong>signature</strong> (RSA)</td><td>HMAC: the same shared key. Signature: a <strong>private</strong> key signs, the <strong>public</strong> key verifies.</td></tr></tbody></table></div>
 <p>Use both for a protected message: <strong>encrypt first, then compute the HMAC over the encrypted bytes</strong> (<em>encrypt-then-MAC</em>). The receiver checks the HMAC first, so a forged or damaged package is refused <em>before</em> any decryption work happens.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t78_crypto.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># protecting and signing messages - AES, HMAC (encrypt-then-MAC), a password-derived key and RSA signatures</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch08_crypto.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># protecting and signing messages - AES, HMAC (encrypt-then-MAC), a password-derived key and RSA signatures</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

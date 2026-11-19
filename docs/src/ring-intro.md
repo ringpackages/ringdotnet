@@ -5,10 +5,10 @@ lead: Ring is small and quick to learn. This page shows everything you need to r
 
 ## Who this page is for
 
-This is an appendix: the rest of the documentation does not depend on reading it in order. If you already write Ring, go back to [Getting started](getting-started.html). If you come from C#, Python, JavaScript or another language, read this page once: Ring differs from some languages in a few ways, and knowing them helps when you read Ring code and the messages that come from .NET. The five programs are in `samples/UsingDotNet/tutorials` (`r01_ring_basics.ring` … `r05_ring_errors_files.ring`); run one with:
+This is an appendix: the rest of the documentation does not depend on reading it in order. If you already write Ring, go back to [Getting started](getting-started.html). If you come from C#, Python, JavaScript or another language, read this page once: Ring differs from some languages in a few ways, and knowing them helps when you read Ring code and the messages that come from .NET. The five programs are in `samples/UsingDotNet/tutorials` (`ring_basics.ring` … `ring_errors_files.ring`); run one with:
 
 ```bash
-ring r01_ring_basics.ring
+ring ring_basics.ring
 ```
 
 > [!NOTE] This is a quick tour, not the manual. The Ring language documentation (<https://ring-lang.github.io/doc1.28/>) explains everything in depth.
@@ -17,9 +17,9 @@ ring r01_ring_basics.ring
 
 ## 1. Values, text and numbers
 
-{{file:samples/UsingDotNet/tutorials/r01_ring_basics.ring}}
+{{file:samples/UsingDotNet/tutorials/ring_basics.ring}}
 
-{{output:samples/UsingDotNet/tutorials/r01_ring_basics.ring}}
+{{output:samples/UsingDotNet/tutorials/ring_basics.ring}}
 
 What to remember:
 
@@ -32,9 +32,9 @@ What to remember:
 
 ## 2. Lists
 
-{{file:samples/UsingDotNet/tutorials/r02_ring_lists.ring}}
+{{file:samples/UsingDotNet/tutorials/ring_lists.ring}}
 
-{{output:samples/UsingDotNet/tutorials/r02_ring_lists.ring}}
+{{output:samples/UsingDotNet/tutorials/ring_lists.ring}}
 
 A **list** is the only collection. It can hold numbers, texts, lists and objects. A list of `[name, value]` pairs is a dictionary; `:name` is just the text `"name"`, and `aPerson[:name]` reads a value by key. This pair form is how this package passes **named arguments** to .NET: `[ :server = "x", :port = 80 ]` ([Core concepts](concepts.html)).
 
@@ -42,9 +42,9 @@ A **list** is the only collection. It can hold numbers, texts, lists and objects
 
 ## 3. Decisions, loops, functions
 
-{{file:samples/UsingDotNet/tutorials/r03_ring_flow.ring}}
+{{file:samples/UsingDotNet/tutorials/ring_flow.ring}}
 
-{{output:samples/UsingDotNet/tutorials/r03_ring_flow.ring}}
+{{output:samples/UsingDotNet/tutorials/ring_flow.ring}}
 
 - In the style used here, blocks end with a word: `ok` closes `if`, `next` closes `for`, `end` closes `while`, `off` closes `switch`. `but` is *else if*. (Braces are also allowed, see the note at the top.)
 - **A `func` continues until the next `func` or `class`**, so the code that starts your program goes *before* the functions, or inside `func main`, which Ring calls by itself at the end of the file.
@@ -53,9 +53,9 @@ A **list** is the only collection. It can hold numbers, texts, lists and objects
 
 ## 4. Classes and objects
 
-{{file:samples/UsingDotNet/tutorials/r04_ring_classes.ring}}
+{{file:samples/UsingDotNet/tutorials/ring_classes.ring}}
 
-{{output:samples/UsingDotNet/tutorials/r04_ring_classes.ring}}
+{{output:samples/UsingDotNet/tutorials/ring_classes.ring}}
 
 - `new Person("Ann",31)` makes an object and calls `init`. The braces `new Person(...) { city = "Oslo" }` set attributes while the object is made; this is the style used everywhere in this documentation (`oForm = new Form() { Text = "Hi" }`). The object is used with braces only if `init` ends with `return self`.
 - `class Student from Person` is inheritance; `super.init(...)` and `super.describe()` call the parent.
@@ -64,9 +64,9 @@ A **list** is the only collection. It can hold numbers, texts, lists and objects
 
 ## 5. Errors, files and other files
 
-{{file:samples/UsingDotNet/tutorials/r05_ring_errors_files.ring}}
+{{file:samples/UsingDotNet/tutorials/ring_errors_files.ring}}
 
-{{output:samples/UsingDotNet/tutorials/r05_ring_errors_files.ring}}
+{{output:samples/UsingDotNet/tutorials/ring_errors_files.ring}}
 
 - `try … catch … done` catches errors; the message is in `cCatchError`. `raise("text")` makes an error. This is how every .NET exception arrives in Ring (the tutorial [When things go wrong](tut-07-errors.html)).
 - `load "file.ring"` runs another file. The first line of every RingDotNet program is `load "dotnet.ring"`.

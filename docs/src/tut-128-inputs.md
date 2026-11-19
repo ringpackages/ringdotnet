@@ -16,11 +16,11 @@ The tutorial [A form with many controls](tut-12-controls.html) used text boxes, 
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g128_inputs.ring}}
+{{file:samples/UsingDotNet/tutorials/ch10_inputs.ring}}
 
 ![The booking form](img/shots/tut-g128.png "The booking form")
 
-{{output:samples/UsingDotNet/tutorials/g128_inputs.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch10_inputs.ring --selftest}}
 
 ## How it works
 

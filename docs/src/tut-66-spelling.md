@@ -13,9 +13,9 @@ lead: How does a program know that "brwn" probably means "brown"? This lesson ke
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t66_spelling.ring}}
+{{file:samples/UsingDotNet/tutorials/ch02_spelling.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t66_spelling.ring}}
+{{output:samples/UsingDotNet/tutorials/ch02_spelling.ring}}
 
 ## How it works
 

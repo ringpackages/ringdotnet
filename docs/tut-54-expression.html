@@ -239,7 +239,7 @@ unary      = "-" unary | primary
 primary    = number | "(" expression ")" | name "(" expression { "," expression } ")"</code></pre></div>
 <p><code>{ ... }</code> means "zero or more times", <code>[ ... ]</code> "optional". Parentheses return to the top rule, so <code>(1 + 2) * 3</code> works. <code>power</code> calls itself on the right side, which makes <code>2 ^ 3 ^ 2</code> mean <code>2 ^ (3 ^ 2)</code>.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t55_expression.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># an expression calculator - tokens, a recursive-descent parser, precedence and clear errors</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_expression.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># an expression calculator - tokens, a recursive-descent parser, precedence and clear errors</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

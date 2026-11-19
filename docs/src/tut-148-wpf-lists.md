@@ -16,11 +16,11 @@ The tutorial [WPF menus and tabs](tut-140-wpf-menu.html) wrote a fixed window in
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g148_wpf_lists.ring}}
+{{file:samples/UsingDotNet/tutorials/ch11_wpf_lists.ring}}
 
 ![The list window](img/shots/tut-g148.png "A list with the buttons that the program made")
 
-{{output:samples/UsingDotNet/tutorials/g148_wpf_lists.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch11_wpf_lists.ring --selftest}}
 
 ## How it works
 

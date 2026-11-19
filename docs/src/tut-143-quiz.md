@@ -16,11 +16,11 @@ This is the pattern of any wizard or exam program: a list of steps, a current st
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g143_quiz.ring}}
+{{file:samples/UsingDotNet/tutorials/ch12_quiz.ring}}
 
 ![The quiz](img/shots/tut-g143.png "A question of the quiz")
 
-{{output:samples/UsingDotNet/tutorials/g143_quiz.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch12_quiz.ring --selftest}}
 
 ## How it works
 

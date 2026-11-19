@@ -1,6 +1,6 @@
 # testing your programs - small functions, dnAssert, expected errors, a test summary
-#   ring t28_testing.ring            all tests pass
-#   ring t28_testing.ring --break    one test fails on purpose, to show what a failure looks like
+#   ring ch13_testing.ring            all tests pass
+#   ring ch13_testing.ring --break    one test fails on purpose, to show what a failure looks like
 load "dotnet.ring"
 using {
 	"System"

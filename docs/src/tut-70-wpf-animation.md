@@ -18,11 +18,11 @@ In the tutorial [Drawing and animation](tut-14-animation.html) a timer changes t
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/g70_wpf_animation.ring}}
+{{file:samples/UsingDotNet/tutorials/ch11_wpf_animation.ring}}
 
 ![The animation window](img/shots/tut-g70.png "A moment of the animation: the ball is half way, the blue box is fading, the green square is turning")
 
-{{output:samples/UsingDotNet/tutorials/g70_wpf_animation.ring --selftest}}
+{{output:samples/UsingDotNet/tutorials/ch11_wpf_animation.ring --selftest}}
 
 ## How it works
 

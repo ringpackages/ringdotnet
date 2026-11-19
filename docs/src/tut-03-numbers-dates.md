@@ -13,9 +13,9 @@ lead: Math functions, converting text to numbers without crashing, numbers of an
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t03_numbers_dates.ring}}
+{{file:samples/UsingDotNet/tutorials/ch01_numbers_dates.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t03_numbers_dates.ring}}
+{{output:samples/UsingDotNet/tutorials/ch01_numbers_dates.ring}}
 
 ## How it works
 

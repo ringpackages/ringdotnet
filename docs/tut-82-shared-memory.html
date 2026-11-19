@@ -234,9 +234,9 @@
 <p>A normal file is read and written through calls. A <strong>memory-mapped file</strong> is a file (or just a block of memory with a name) that the system shows to your program as ordinary memory: what one program writes into it, another program that mapped the same name sees at once. It is the fastest way for programs on one computer to share data, and it is also a comfortable way to work with a very big file without loading it.</p>
 <p>Compare the tools of the last tutorials: a <strong>named pipe</strong> (the tutorial <a href="tut-79-processes-talk.html">Two programs talking</a>) sends messages one after another; <strong>shared memory</strong> is a place both programs can read and write at any time.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t82_shared_memory.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># shared memory - a memory-mapped file seen by two programs, numbers and text in it, and a file that is edited in place</span>
-<span class="c">#   ring t82_shared_memory.ring            the parent: it makes the memory and starts the child</span>
-<span class="c">#   ring t82_shared_memory.ring --child    the child (the parent starts it)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_shared_memory.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># shared memory - a memory-mapped file seen by two programs, numbers and text in it, and a file that is edited in place</span>
+<span class="c">#   ring ch06_shared_memory.ring            the parent: it makes the memory and starts the child</span>
+<span class="c">#   ring ch06_shared_memory.ring --child    the child (the parent starts it)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

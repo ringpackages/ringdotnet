@@ -13,9 +13,9 @@ lead: Measure how long something takes, wait for background work, read the envir
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t10_tasks_processes.ring}}
+{{file:samples/UsingDotNet/tutorials/ch01_tasks_processes.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t10_tasks_processes.ring}}
+{{output:samples/UsingDotNet/tutorials/ch01_tasks_processes.ring}}
 
 ## How it works
 

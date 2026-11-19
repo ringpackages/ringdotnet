@@ -233,7 +233,7 @@
 <h2 id="resources">Resources<a class="anchor" href="#resources">#</a></h2>
 <p>Memory is cleaned automatically, but some things are <em>lent</em> by the operating system: open files, network connections, database connections, window handles. While you hold one, others may be unable to use it — a file that is open for writing cannot be deleted or moved, a connection counts against the limit of the server. <strong>You</strong> must give them back. In .NET the method is <code>Dispose()</code> (many classes also have <code>Close()</code>, which does the same).</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t71_dispose.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># releasing resources - files that stay locked, Dispose, and cleaning up even when an error happens</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_dispose.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># releasing resources - files that stay locked, Dispose, and cleaning up even when an error happens</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

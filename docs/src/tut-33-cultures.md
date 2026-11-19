@@ -23,9 +23,9 @@ Every `ToString` and `Parse` that you call without saying a culture uses the cul
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t33_cultures.ring}}
+{{file:samples/UsingDotNet/tutorials/ch03_cultures.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t33_cultures.ring}}
+{{output:samples/UsingDotNet/tutorials/ch03_cultures.ring}}
 
 ## How it works
 

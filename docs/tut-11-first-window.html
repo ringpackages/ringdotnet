@@ -233,7 +233,7 @@
 <h2 id="windows-forms-in-one-minute">Windows Forms in one minute<a class="anchor" href="#windows-forms-in-one-minute">#</a></h2>
 <p><strong>Windows Forms</strong> is the classic way to build desktop windows in .NET. A window is a <strong>Form</strong>. Things in it — labels, buttons, text boxes — are <strong>controls</strong>. A control is an object with properties (<code>Text</code>, <code>Location</code>, <code>Size</code>) and events (<code>Click</code>). The program runs a <strong>message loop</strong>: it waits for the user to do something, runs your code, and waits again until the window closes.</p>
 <h2 id="step-1-the-smallest-window">Step 1: the smallest window<a class="anchor" href="#step-1-the-smallest-window">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g01a_window.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 1: the smallest window</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_window.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 1: the smallest window</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
@@ -248,7 +248,7 @@ oForm = <span class="f">uiForm</span>(<span class="s">"My first window"</span>,<
 <figure class="shot"><img src="img/shots/tut-g01a.png" alt="The empty window" loading="lazy"><figcaption>Step 1: a window with a title</figcaption></figure>
 <ul><li>The <code>using { }</code> block comes <strong>first</strong>. Because it names <code>System.Windows.Forms</code>, it starts the Windows desktop runtime and makes the Ring thread suitable for windows (this is what <code>dnUseDesktop()</code> does).</li><li><code>uiForm("My first window",320,120)</code> makes a form with a title and a client area of 320 × 120 pixels, centred on the screen.</li><li><code>uiRun(oForm)</code> shows the window and waits. The program continues after the window is closed.</li><li><code>uiTest</code> and <code>uiEnd</code> make the program test itself when started with <code>--selftest</code>; you can ignore them for now.</li></ul>
 <h2 id="step-2-a-label-and-a-button">Step 2: a label and a button<a class="anchor" href="#step-2-a-label-and-a-button">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g01b_controls.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 2: a label and a button</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_controls.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 2: a label and a button</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
@@ -265,7 +265,7 @@ oButton = <span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span
 <figure class="shot"><img src="img/shots/tut-g01b.png" alt="A label and a button" loading="lazy"><figcaption>Step 2: controls</figcaption></figure>
 <p><code>uiLabel(parent, text, x, y, width, height)</code> and <code>uiButton(parent, text, x, y, width, height, code)</code> create a control and put it into the form. The position <code>x, y</code> is measured in pixels from the top-left corner of the form. The last argument of <code>uiButton</code> is the Ring code to run when the button is clicked; here it is empty, so the button does nothing yet.</p>
 <h2 id="step-3-the-button-does-something">Step 3: the button does something<a class="anchor" href="#step-3-the-button-does-something">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g01c_counter.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 3: the button does something - events and global variables</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_counter.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 3: the button does something - events and global variables</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>
@@ -311,10 +311,10 @@ nClicks = <span class="n">0</span>
 <div class="callout warn"><span class="t">Warning</span><p>The code of an event can only use <strong>global variables</strong>. Create the controls and the data of the program as globals at the top of the file (<code>oLabel = ""</code>, <code>nClicks = 0</code>), then fill them inside <code>func main</code>.</p></div>
 <p><code>clicked()</code> is an ordinary function. It changes the counter and writes the new text into the label (<code>oLabel.Text = ...</code>). Assigning to a <strong>property</strong> (<code>Text</code>) changes what you see.</p>
 <h3 id="the-program-tests-itself">The program tests itself<a class="anchor" href="#the-program-tests-itself">#</a></h3>
-<p><code>selfTest()</code> clicks the button three times with <code>PerformClick()</code> and checks the label with <code>dnAssert</code>. Run <code>ring g01c_counter.ring --selftest</code> and the window opens, clicks, checks and closes by itself; the output is the one above. The same idea tests every sample and application of the package.</p>
+<p><code>selfTest()</code> clicks the button three times with <code>PerformClick()</code> and checks the label with <code>dnAssert</code>. Run <code>ring ch10_counter.ring --selftest</code> and the window opens, clicks, checks and closes by itself; the output is the one above. The same idea tests every sample and application of the package.</p>
 <h2 id="step-4-without-the-helpers">Step 4: without the helpers<a class="anchor" href="#step-4-without-the-helpers">#</a></h2>
 <p>The helpers are only short-cuts. This program builds the same window with the real classes, so you can see what is going on:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/g01d_plain.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_plain.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Drawing"</span>

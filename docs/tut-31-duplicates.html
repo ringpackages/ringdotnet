@@ -234,7 +234,7 @@
 <p>Two files are the same when their <strong>content</strong> is the same, whatever their names. Comparing every pair of files byte by byte is slow. A <strong>hash</strong> (SHA-256) is a short fingerprint of the content: the same content always gives the same hash and different content (practically) never does. So:</p>
 <ol><li>compute the hash of every file,</li><li>put the files in a dictionary <strong>keyed by the hash</strong>,</li><li>every key with more than one file is a set of duplicates.</li></ol>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t31_duplicates.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - find duplicate files (folders, hashes, dictionaries)</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_duplicates.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - find duplicate files (folders, hashes, dictionaries)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

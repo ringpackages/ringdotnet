@@ -233,7 +233,7 @@
 <h2 id="enums">Enums<a class="anchor" href="#enums">#</a></h2>
 <p>An <strong>enum</strong> is a type with a fixed set of named values: <code>DayOfWeek</code> (<code>Sunday</code> … <code>Saturday</code>), <code>FileAttributes</code>, <code>StringComparison</code>, <code>Environment.SpecialFolder</code>. In C# you write <code>DayOfWeek.Friday</code>; behind the name there is a number. In Ring an enum value is simply <strong>the text of its name</strong>: you read <code>oDate.DayOfWeek</code> and get <code>"Friday"</code>, and when a method wants an enum you pass <code>"Friday"</code>. You never need the numbers.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/t65_enums.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># enums and flags - named choices from .NET as text, checking and parsing them, and combining options with bits</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_enums.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># enums and flags - named choices from .NET as text, checking and parsing them, and combining options with bits</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>

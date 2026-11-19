@@ -15,9 +15,9 @@ The tutorial [Files and folders](tut-05-files.html) made a ZIP file from a folde
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t108_zip_in_memory.ring}}
+{{file:samples/UsingDotNet/tutorials/ch05_zip_in_memory.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t108_zip_in_memory.ring}}
+{{output:samples/UsingDotNet/tutorials/ch05_zip_in_memory.ring}}
 
 ## How it works
 

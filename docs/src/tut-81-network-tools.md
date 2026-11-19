@@ -15,9 +15,9 @@ lead: IP addresses, names, ping, network interfaces and "is this port open?" —
 
 ## The program
 
-{{file:samples/UsingDotNet/tutorials/t81_network_tools.ring}}
+{{file:samples/UsingDotNet/tutorials/ch07_network_tools.ring}}
 
-{{output:samples/UsingDotNet/tutorials/t81_network_tools.ring}}
+{{output:samples/UsingDotNet/tutorials/ch07_network_tools.ring}}
 
 ## How it works
 
