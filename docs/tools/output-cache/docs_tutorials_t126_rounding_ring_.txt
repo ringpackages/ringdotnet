@@ -1,0 +1,41 @@
+1. Round of x.5 with the two modes:
+   value   ToEven   AwayFromZero
+   0.50    0        1
+   1.50    2        2
+   2.50    2        3
+   3.50    4        4
+   -0.50   0        -1
+   -1.50   -2       -2
+   -2.50   -2       -3
+
+2. Round with digits:
+   Round(3.14159, 2)             = 3.140
+   Round(0.125, 2): ToEven 0.120, AwayFromZero 0.130
+   Round(0.135, 2): ToEven 0.140, AwayFromZero 0.140
+
+3. Floor, Ceiling, Truncate:
+   value   Floor  Ceiling  Truncate
+   2.70    2      3        2
+   2.20    2      3        2
+   -2.20   -3     -2       -2
+   -2.70   -3     -2       -2
+   Floor goes down, Ceiling goes up, Truncate cuts the decimals (toward zero).
+
+4. division with a remainder:
+   17 / 5 = 3 remainder 2
+   -17 / 5 = -3 remainder -2  (the remainder has the sign of -17)
+
+5. Clamp, Sign, Abs:
+   Clamp(-5  , 0, 100) = 0
+   Clamp(40  , 0, 100) = 40
+   Clamp(250 , 0, 100) = 100
+   Sign(-8) = -1, Sign(0) = 0, Sign(8) = 1, Abs(-8) = 8
+
+6. powers and logarithms:
+   Pow(2, 10) = 1024, Sqrt(144) = 12, Cbrt(27) = 3
+   Log10(1000) = 3, Log2(1024) = 10, Log(E) = 1
+
+7. ten items of 0.125 each (one eighth of a unit):
+   rounded to cents with ToEven:       1.20   (the exact total is 1.25)
+   rounded to cents with AwayFromZero: 1.30
+   A shop uses ONE rule everywhere and rounds only the final amount, or the amount of each line, as the law of the country says.

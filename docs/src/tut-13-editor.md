@@ -72,4 +72,4 @@ The full-size version of this program is the [Notepad](gallery-apps.html#notepad
 
 ## Next
 
-[Your own dialog](tut-40-dialog.html)
+[The clipboard](tut-127-clipboard.html)

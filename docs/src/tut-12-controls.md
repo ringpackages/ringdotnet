@@ -88,4 +88,4 @@ The test finds the **Register** button with `oForm.Controls.Item(7)` — the sev
 
 ## Next
 
-[Layout and richer controls](tut-23-layout.html)
+[More input controls](tut-128-inputs.html)

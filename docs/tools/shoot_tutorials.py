@@ -44,6 +44,8 @@ SHOTS = [
     ("g64_chat.ring", "g64", "\toTimer.Start()", "\taInputs[1].Text = 'Hello Bob, are you there?'\n\tsendFrom(1)\n\twaitForText('are you there')\n\taInputs[2].Text = 'Yes, I am here!'\n\tsendFrom(2)\n\twaitForText('I am here')\n\taInputs[1].Text = 'Great, the chat works.'\n\tsendFrom(1)\n\twaitForText('chat works')\n\taInputs[2].Text = 'Type a message'\n", 2500, "forms"),
     ("g70_wpf_animation.ring", "g70", None, "", 1300, "wpf"),
     ("g63_filters.ring", "g63-edges", "\tuiTest(", "\tapplyFilter('Edges')\n", 2500, "forms"),
+    ("g127_clipboard.ring", "g127", "\tuiTest(", "\toStatus.Text = 'Copied a table of 4 rows'\n", 2500, "forms"),
+    ("g128_inputs.ring", "g128", None, "", 2500, "forms"),
 ]
 
 

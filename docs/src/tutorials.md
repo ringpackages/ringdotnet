@@ -103,6 +103,7 @@ The number types and their limits, big numbers, number systems, exact money, vec
 
 <div class="cards">
 <a class="card" href="tut-101-number-types.html"><div class="ic">🔢</div><b>Number types</b><span>Limits, checked conversion, TryParse, Int128 and floating point.</span></a>
+<a class="card" href="tut-126-rounding.html"><div class="ic">🔢</div><b>Rounding and the Math class</b><span>Round modes, Floor, Ceiling, Truncate, limits, and one rounding rule for money.</span></a>
 <a class="card" href="tut-90-big-numbers.html"><div class="ic">🔢</div><b>Big numbers</b><span>BigInteger for exact big whole numbers, and Complex numbers.</span></a>
 <a class="card" href="tut-67-bases.html"><div class="ic">🔢</div><b>Number systems and big numbers</b><span>Binary and hex, bits, the 2^53 limit and BigInteger.</span></a>
 <a class="card" href="tut-57-money.html"><div class="ic">🔢</div><b>Money</b><span>Why 0.1 + 0.2 is not 0.3: whole cents, rounding rules and fair splitting.</span></a>
@@ -225,8 +226,10 @@ Windows with controls, layout, dialogs and menus, timers, drawing, images and ch
 <div class="cards">
 <a class="card" href="tut-11-first-window.html"><div class="ic">🪟</div><b>Your first window</b><span>A form, a label, a button, an event — with and without the helper functions.</span></a>
 <a class="card" href="tut-12-controls.html"><div class="ic">🪟</div><b>A form with many controls</b><span>Text boxes, number box, combo box, check box, list box and validation.</span></a>
+<a class="card" href="tut-128-inputs.html"><div class="ic">🪟</div><b>More input controls</b><span>Date picker, track bar, radio buttons, tool tips and the error marker.</span></a>
 <a class="card" href="tut-23-layout.html"><div class="ic">🪟</div><b>Layout and richer controls</b><span>Split bars, tabs, table layout, and a data grid with a filter.</span></a>
 <a class="card" href="tut-13-editor.html"><div class="ic">🪟</div><b>A small text editor</b><span>Menus, a status bar, open and save, dock layout.</span></a>
+<a class="card" href="tut-127-clipboard.html"><div class="ic">🪟</div><b>The clipboard</b><span>Text, a table for a spreadsheet, a picture, and leaving the clipboard as it was.</span></a>
 <a class="card" href="tut-40-dialog.html"><div class="ic">🪟</div><b>Your own dialog</b><span>A modal form that asks for data, validates it and returns it; tested with a timer.</span></a>
 <a class="card" href="tut-41-menus.html"><div class="ic">🪟</div><b>Menus, toolbars, shortcuts</b><span>Write each action once and reach it from a menu, a toolbar, a context menu and a key.</span></a>
 <a class="card" href="tut-34-timers.html"><div class="ic">🪟</div><b>Timers and progress</b><span>A stopwatch, a progress bar, and a long job in small steps.</span></a>
