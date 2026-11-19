@@ -43,7 +43,7 @@ Console.WriteLine(text);
 | `list.Add("x")` (a method) | `oList.Add("x")` |
 | `button.Click += handler;` (an event) | `oButton.setClickEvent("handler()")` |
 | `DayOfWeek.Monday` (an enum) | `"Monday"` (a text) |
-| `Math.Round(x, 2)` | `oMath.Round([ :value = x, :digits = 2 ])` |
+| `Math.Round(x, 2)` | `new Math().Round([ :value = x, :digits = 2 ])` |
 | `int.TryParse(s, out n)` (an `out` parameter) | `aResult = new Int32().TryParse(cText)` → `[worked, number]` |
 | `null` (a method returned it) | `oObject.isNull()` |
 | `new DateTime(2024, 12, 25)` | `new DateTime(2024,12,25)` |
@@ -54,7 +54,7 @@ Console.WriteLine(text);
 C# lets the same method name have several versions (*overloads*) with different parameters. A Ring method has one parameter list, and RingDotNet maps the overloads like this:
 
 - a name with several forms becomes **one method that takes one value**: `NULL` for the form without parameters, a value for the form with one parameter, and
-- a list of **named arguments** for the others: `oMath.Round([ :value = 3.14159, :digits = 2 ])`. The names are the parameter names that you read in the documentation.
+- a list of **named arguments** for the others: `new Math().Round([ :value = 3.14159, :digits = 2 ])`. The names are the parameter names that you read in the documentation.
 
 The [class reference](api.html) shows, for every method, the **Ring calls** next to the **.NET overloads**, so you never have to guess. [Core concepts](concepts.html#naming-rules) lists the rules.
 
