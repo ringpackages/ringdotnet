@@ -116,6 +116,7 @@ The number types and their limits, big numbers, number systems, exact money, vec
 <a class="card" href="tut-68-timezones.html"><div class="ic">🔢</div><b>Time zones</b><span>UTC, local time, daylight saving, a meeting and a flight across zones.</span></a>
 <a class="card" href="tut-43-calendar.html"><div class="ic">🔢</div><b>Calendars and dates</b><span>Month tables, ages, business days, birthdays and safe date arithmetic.</span></a>
 <a class="card" href="tut-76-calendars.html"><div class="ic">🔢</div><b>Other calendars</b><span>Hijri, Persian, Hebrew, Japanese and Thai dates; Arabic names with ar-SA.</span></a>
+<a class="card" href="tut-135-workdays.html"><div class="ic">🔢</div><b>Working days</b><span>Business days, holidays, ISO weeks, quarters, month ends and ages.</span></a>
 <a class="card" href="tut-33-cultures.html"><div class="ic">🔢</div><b>Cultures</b><span>Formatting, parsing, sorting and case in different languages.</span></a>
 </div>
 
@@ -164,6 +165,7 @@ Asking the computer about itself, command-line tools and logging, starting and t
 <a class="card" href="tut-74-system.html"><div class="ic">⚙️</div><b>Asking the computer</b><span>The system, processors, memory, drives and the running programs.</span></a>
 <a class="card" href="tut-50-cli.html"><div class="ic">⚙️</div><b>A command-line tool</b><span>Arguments, options, usage text and exit codes.</span></a>
 <a class="card" href="tut-51-logging.html"><div class="ic">⚙️</div><b>Logging</b><span>Levels, timestamps, a log file and rotation.</span></a>
+<a class="card" href="tut-136-tracing.html"><div class="ic">⚙️</div><b>Tracing</b><span>Trace and listeners: memory and file listeners, indents, conditions and categories.</span></a>
 <a class="card" href="tut-85-feed-programs.html"><div class="ic">⚙️</div><b>Working with other programs</b><span>Standard input, chaining, environment, exit codes, time limits and Kill.</span></a>
 <a class="card" href="tut-79-processes-talk.html"><div class="ic">⚙️</div><b>Two programs talking</b><span>Named pipes between processes, Process.Start, and a mutex for one copy.</span></a>
 <a class="card" href="tut-82-shared-memory.html"><div class="ic">⚙️</div><b>Shared memory</b><span>Memory-mapped files shared by two programs, and a file edited in place.</span></a>
@@ -236,6 +238,7 @@ Windows with controls, layout, dialogs and menus, timers, drawing, images and ch
 <a class="card" href="tut-133-richtext.html"><div class="ic">🪟</div><b>Formatted text</b><span>RichTextBox: bold and colored words, find and mark, save and load RTF.</span></a>
 <a class="card" href="tut-127-clipboard.html"><div class="ic">🪟</div><b>The clipboard</b><span>Text, a table for a spreadsheet, a picture, and leaving the clipboard as it was.</span></a>
 <a class="card" href="tut-40-dialog.html"><div class="ic">🪟</div><b>Your own dialog</b><span>A modal form that asks for data, validates it and returns it; tested with a timer.</span></a>
+<a class="card" href="tut-137-closing.html"><div class="ic">🪟</div><b>Closing a window</b><span>FormClosing and Cancel: ask to save changes, and a question that a test can answer.</span></a>
 <a class="card" href="tut-41-menus.html"><div class="ic">🪟</div><b>Menus, toolbars, shortcuts</b><span>Write each action once and reach it from a menu, a toolbar, a context menu and a key.</span></a>
 <a class="card" href="tut-34-timers.html"><div class="ic">🪟</div><b>Timers and progress</b><span>A stopwatch, a progress bar, and a long job in small steps.</span></a>
 <a class="card" href="tut-14-animation.html"><div class="ic">🪟</div><b>Drawing and animation</b><span>A canvas, a timer and the keyboard: a bouncing ball and a paddle.</span></a>

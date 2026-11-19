@@ -1,0 +1,25 @@
+1. the memory listener has:
+   [program started]
+   [reading the settings]
+
+2. with Indent and Unindent:
+   [checking the files]
+   [    a.txt: ok]
+   [    b.txt: missing]
+   [        tried the backup folder]
+   [done]
+
+3. WriteLineIf and a category:
+   [the file is big: 5000 bytes]
+   [the file is big: 90000 bytes]
+   [database: slow query]
+
+4. the same message in memory and in the file:
+   memory: one message, two listeners
+   file:   one message, two listeners
+
+5. the memory listener still gets messages: yes
+
+6. messages with the time:
+   [step 1 started]
+   [step 2: after the pause, at least 100 ms: yes]
