@@ -45,7 +45,7 @@ Console.WriteLine(text);
 | `DayOfWeek.Monday` (an enum) | `"Monday"` (a text) |
 | `Math.Round(x, 2)` | `oMath.Round([ :value = x, :digits = 2 ])` |
 | `int.TryParse(s, out n)` (an `out` parameter) | `aResult = new Int32().TryParse(cText)` → `[worked, number]` |
-| `null` | `dnNull()` |
+| `null` (a method returned it) | `oObject.isNull()` |
 | `new DateTime(2024, 12, 25)` | `new DateTime(2024,12,25)` |
 | `new Point { X = 1, Y = 2 }` | `new Point(1,2)` |
 
@@ -73,7 +73,7 @@ oPath = new Path()
 
 ## When a class is not wrapped
 
-Everything in the base library and in Windows Forms, WPF, ASP.NET and Entity Framework is wrapped. Other packages can be wrapped in one command: [Your own assemblies](own-assemblies.html). Without wrapping, `dnType("Namespace.Type")` and `dnNew(...)` still reach any .NET type: [Core functions](core-api.html).
+Everything in the base library and in Windows Forms, WPF, ASP.NET and Entity Framework is wrapped. Other packages can be wrapped in one command: [Your own assemblies](own-assemblies.html). Without wrapping, a few generic functions still reach any .NET type; they are explained in [Core concepts](concepts.html#plain-objects) and used in the later chapters of the tutorials.
 
 ## Next
 

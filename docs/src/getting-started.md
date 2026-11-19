@@ -55,7 +55,7 @@ The build needs the Ring headers and library (`ring/language/include` and `ring/
 
 The `using { }` block opens the .NET namespaces, like `using System;` in C#. After it, every class of those namespaces is a Ring class with the same name: `new StringBuilder("Hello")`, `oSB.Append(...)`, `oSB.Length`, `new Math().Max(3,9)`. This is what you will use almost always.
 
-For a type that has no generated class you can also make **generic calls**: `dnType("System.Console").callMethod("WriteLine",["text"])`, `dnNew(...)`, `dnStatic(...)`. See [Core functions](core-api.html) and the sample `samples/UsingDotNet/introduction/test01_hello.ring`.
+Everything you write in the first tutorials is object code like this: `new` makes an object, the dot calls its methods and reads its properties, and braces `{ }` set several properties at once. For the few cases where there is no generated class, [Core concepts](concepts.html#plain-objects) shows the generic calls, and the sample `samples/UsingDotNet/introduction/test01_hello.ring` uses them.
 
 ## The startup modes
 
@@ -64,10 +64,10 @@ The first .NET call starts the runtime, and the runtime can be started in one **
 | The block names... | Mode that is started | Use it for |
 |---|---|---|
 | only `System...` namespaces | the base runtime | Console programs, files, networking, JSON, XML, reflection, LINQ |
-| `System.Windows*` or `System.Drawing*` | Windows Desktop runtime, Ring thread becomes STA (`dnUseDesktop()`) | Windows Forms, WPF |
-| `Microsoft.AspNetCore*` or `"RingDotNet.Web"` | ASP.NET Core runtime, loads the web server (`dnUseWeb()`) | `WebServer` ([ASP.NET Core](aspnet.html)) |
-| both of the two above | Desktop and ASP.NET Core together (`dnUseAll()`) | A GUI program that also serves HTTP |
-| `Microsoft.EntityFrameworkCore*` or `"RingDotNet.Data"` | loads the Entity Framework assemblies (`dnUseData()`) | `RingDatabase`, `RingEntityDb` ([Entity Framework](ef.html)) |
+| `System.Windows*` or `System.Drawing*` | Windows Desktop runtime, Ring thread becomes STA | Windows Forms, WPF |
+| `Microsoft.AspNetCore*` or `"RingDotNet.Web"` | ASP.NET Core runtime, loads the web server | `WebServer` ([ASP.NET Core](aspnet.html)) |
+| both of the two above | Desktop and ASP.NET Core together | A GUI program that also serves HTTP |
+| `Microsoft.EntityFrameworkCore*` or `"RingDotNet.Data"` | loads the Entity Framework assemblies | `RingDatabase`, `RingEntityDb` ([Entity Framework](ef.html)) |
 
 ```ring
 load "dotnet.ring"
@@ -79,7 +79,7 @@ using {
 
 `"RingDotNet.Web"` and `"RingDotNet.Data"` are not .NET namespaces: they name the helper classes of this package (`WebServer`; `RingDatabase`, `RingEntityDb`) so that you can ask for them in the same place.
 
-Put the `using` block **before any other .NET call**. If the mode is already started and the block asks for another one, the program stops with a message that says so. The functions `dnUseDesktop()`, `dnUseWeb()`, `dnUseAll()` and `dnUseData()` still exist, and the block is only a shorter way to call them ([Core functions](core-api.html)).
+Put the `using` block **before any other .NET call**. If the mode is already started and the block asks for another one, the program stops with a message that says so. (Programs that do not use `using` choose the mode with functions such as `dnUseDesktop()`: [Core functions](core-api.html).)
 
 ## Importing namespaces
 

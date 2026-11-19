@@ -85,7 +85,7 @@ Most types are classes. Two kinds of types are special:
 
 ## null
 
-**null** means "no object". A method that finds nothing may return null. In Ring `dnNull()` is the .NET null, and an object you got from .NET can be asked `oObject.isNull()`.
+**null** means "no object". A method that finds nothing may return null. An object that you got from .NET can be asked `oObject.isNull()`.
 
 ## Exceptions
 

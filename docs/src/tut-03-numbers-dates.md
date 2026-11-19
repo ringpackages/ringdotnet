@@ -44,11 +44,11 @@ A Ring number is a 64-bit floating point number: after about 15 digits it loses 
 
 ### DateTime
 
-A `DateTime` has a year, month, day, hour, minute and second. Two ways to create one:
+A `DateTime` has a year, month, day, hour, minute and second. Make a date from the year, month and day, and add the time to it:
 
 ```ring
-oDate = new DateTime(2024,12,25)                                              # year, month, day
-oDate = dnNew("DateTime",[ :year = 2024, :month = 12, :day = 25, :hour = 18, :minute = 30, :second = 0 ])
+oDate = new DateTime(2024,12,25)                         # year, month, day: midnight
+oDate = new DateTime(2024,12,25).AddHours(18).AddMinutes(30)       # 18:30: a method returns a new date, so the calls can be chained
 ```
 
 Properties: `Year`, `Month`, `Day`, `DayOfWeek` (a text like `Wednesday`). **Dates never change**: `AddDays(10)` returns a *new* date. That is why you can chain: `oDate.AddDays(10).AddHours(-3)`.

@@ -23,7 +23,7 @@ func main
 
 	# A task that has a result
 	oResult = new Task().FromResult("done")
-	? "Task result              : " + oResult.getProp("Result")
+	? "Task result              : " + oResult.Result
 
 	# The environment
 	oEnvironment = new Environment()

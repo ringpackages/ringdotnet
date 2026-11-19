@@ -75,7 +75,8 @@ aDotNetManifest = [
 	[ :namespace = "System.Net.Http",
 	  :uses = ["System.IO","System.Net","System.Threading.Tasks"],
 	  :assemblies = ["System.Net.Http"],
-	  :all = true ],
+	  :all = true,
+	  :types = [ ["System.Threading.Tasks.Task`1[[System.Net.Http.HttpResponseMessage]]","ResponseTask"] ] ],
 
 	[ :namespace = "System.Net.Sockets",
 	  :uses = ["System.IO","System.Net"],

@@ -25,7 +25,7 @@ lead: Measure how long something takes, wait for background work, read the envir
 
 ### Tasks
 
-A `Task` represents work that happens "in the background" or in the future. `Task.Delay(100)` is a task that completes after 100 ms. `IsCompleted` says whether it is done; `Wait(NULL)` blocks until it is. `Task.FromResult("done")` is a task that is already finished, with the result `done`, read with `getProp("Result")`.
+A `Task` represents work that happens "in the background" or in the future. `Task.Delay(100)` is a task that completes after 100 ms. `IsCompleted` says whether it is done; `Wait(NULL)` blocks until it is. `Task.FromResult("done")` is a task that is already finished, with the result `done`, read with its property `Result`.
 
 ### The rule: Ring runs on one thread
 

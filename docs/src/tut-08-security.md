@@ -1,13 +1,12 @@
 ---
 title: "Hashing and encryption"
-lead: Checksums that fingerprint data, password hashes that are safe to store, a key that proves a message was not changed, random tokens and real encryption with AES.
+lead: Checksums that fingerprint data, a key that proves a message was not changed, random tokens and real encryption with AES.
 ---
 
 ## What you will learn
 
 - the difference between **hashing** and **encryption**,
 - SHA-256 hashes,
-- storing passwords correctly with a salt and many rounds (PBKDF2),
 - HMAC and random tokens,
 - encrypting and decrypting text with AES.
 
@@ -29,7 +28,7 @@ A **hash** is a fingerprint. The same input always gives the same hash; a tiny c
 
 {{output:samples/UsingDotNet/tutorials/ch01_security.ring}}
 
-> [!NOTE] The random values (the salt, the token) change on every run, so your output will differ in those lines.
+> [!NOTE] The random token changes on every run, so your output will differ in that line.
 
 ## How it works
 
@@ -39,16 +38,11 @@ A **hash** is a fingerprint. The same input always gives the same hash; a tiny c
 
 ### Passwords
 
-Never store a password, and never store a plain hash of it either (attackers have tables of hashes of common passwords). Store a **salted, slow hash**:
-
-- a **salt** is random data mixed in, so two people with the same password get different hashes,
-- **many rounds** (`iterations`) make each guess slow for an attacker.
-
-`Rfc2898DeriveBytes` (PBKDF2) does both. To check a login you hash the typed password with the **same salt** and compare it with the stored hash. The program shows the right password matching and a wrong one failing. (Store the salt next to the hash.)
+Never store a password, and never store a plain hash of it either (attackers have tables of hashes of common passwords). A password needs a **salted, slow hash** (PBKDF2): a random *salt* so that two people with the same password get different hashes, and many *rounds* so that each guess is slow for an attacker. That needs a class whose constructor takes four values, and it is the subject of the tutorial [Login, sessions and cookies](tut-49-login.html) in the chapter **Security**.
 
 ### HMAC
 
-An HMAC is a hash that needs a secret key. If you and a server share the key, an HMAC on a message proves the message was not changed on the way.
+An HMAC is a hash that needs a secret key (`new HMACSHA256().New_([ :key = "secret key" ])`: the constructor that takes the key). If you and a server share the key, an HMAC on a message proves the message was not changed on the way.
 
 ### Random tokens
 
@@ -61,14 +55,13 @@ AES is the standard encryption. `Aes.Create(NULL)` makes an encryptor; `Generate
 ## What you learned
 
 - hashing is one way, encryption is two ways,
-- a password hash needs a salt and many rounds,
 - `RandomNumberGenerator` for secrets,
 - `NULL` selects a method's version without parameters.
 
 ## Exercises
 
 1. Write `checksum(cFile)` that returns the SHA-256 of a file's bytes (`File.ReadAllBytes`).
-2. Make a tiny "user store": a dictionary of `user → [salt, hash]` with `register` and `login` functions.
+2. Hash the same text with SHA-512 (`new SHA512().HashData(...)`) and compare the length of the result with SHA-256.
 3. Compute the HMAC of a message with two different keys. Are the results different?
 4. Encrypt a file's text with AES and write the cipher as Base64 text.
 

@@ -63,7 +63,7 @@ A `DateTime` is a *struct*: a small value. `new DateTime(2024,12,25)` is a date.
 
 ### 7. null
 
-`dnNull()` is the .NET `null`: "no object". `isNull()` checks it. Ring prints `1` for true.
+**null** is "no object". A method that finds nothing returns it: the type `Object` has no base type, so `oText.GetType().BaseType.BaseType` (the base type of the base type of a `StringBuilder`) is null. `isNull()` checks it. Ring prints `1` for true.
 
 ## What you learned
 
@@ -76,7 +76,7 @@ A `DateTime` is a *struct*: a small value. `new DateTime(2024,12,25)` is a date.
 | a static member | `new Math().Max(3,9)` |
 | a struct and an enum | `DateTime`, `DayOfWeek` |
 | a collection | `StringList` |
-| no object | `dnNull()` |
+| no object | `isNull()` |
 
 ## Exercises
 

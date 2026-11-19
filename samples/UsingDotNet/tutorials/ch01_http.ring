@@ -52,7 +52,7 @@ func fetch cMethod, cPath, cBody
 		ok
 	next
 	oTask.Wait(NULL)
-	oResponse = oTask.getProp("Result")
+	oResponse = oTask.Result
 	oBody = oResponse.Content.ReadAsStringAsync(NULL)
 	oBody.Wait(NULL)
-	return oResponse.StatusCode + " " + oBody.getProp("Result")
+	return oResponse.StatusCode + " " + oBody.Result

@@ -36,6 +36,6 @@ func main
 	oNames.Add("Bob")
 	? "A list of names  : " + oNames.Count + " items, first is " + oNames.Item(0)
 
-	# 7. null means "no object"
-	oMissing = dnNull()
+	# 7. null means "no object". The base type of StringBuilder is Object, and Object has no base type: the answer is null
+	oMissing = oText.GetType().BaseType.BaseType
 	? "Is it null?      : " + oMissing.isNull()

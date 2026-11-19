@@ -35,7 +35,7 @@ func main
 	? "Random 1..6       : " + oRandom.Next_([ :minValue = 1, :maxValue = 7 ]) + " (the same every run: the seed is 42)"
 
 	# Dates: DateTime is a struct with year, month, day, hour...
-	oDate = dnNew("DateTime",[ :year = 2024, :month = 12, :day = 25, :hour = 18, :minute = 30, :second = 0 ])
+	oDate = new DateTime(2024,12,25).AddHours(18).AddMinutes(30)          # a date, then 18:30 on that day
 	? "A date            : " + oDate.Format("dddd, dd MMMM yyyy HH:mm")
 	? "Year, month, day  : " + oDate.Year + ", " + oDate.Month + ", " + oDate.Day
 	? "Day of the week   : " + oDate.DayOfWeek
