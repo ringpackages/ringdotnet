@@ -64,6 +64,6 @@ The self test sends a line from Alice and calls `waitForText`, which pumps up to
 3. Send a private message with `/to Bob text`: the server must send it only to Bob.
 4. Close a client and make the server remove the dead connection from its list.
 
-## Next
+## Where to go next
 
-[Tutorial 64: URLs and encodings](tut-64-urls.html)
+This was the last tutorial of the chapter **Projects with windows**. The next chapter is **Libraries, testing and release**: it starts with [Tutorial 19: Callbacks and events](tut-19-callbacks.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

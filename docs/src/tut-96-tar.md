@@ -64,4 +64,4 @@ Reading is *sequential*: a tar file has no index, so to find `notes/b.txt` the r
 
 ## Next
 
-[Tutorial 97: Comparing text](tut-97-comparers.html)
+[Tutorial 112: File patterns (globbing)](tut-112-globbing.html)

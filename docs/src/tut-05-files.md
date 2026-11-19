@@ -80,4 +80,4 @@ A program that creates temporary files deletes them at the end. This tutorial's 
 
 ## Next
 
-[Tutorial 6: JSON and XML](tut-06-json-xml.html).
+[Tutorial 6: JSON and XML](tut-06-json-xml.html)

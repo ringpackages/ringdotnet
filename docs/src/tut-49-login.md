@@ -89,4 +89,4 @@ A browser keeps cookies by itself. The test client does it manually: after a log
 
 ## Next
 
-[Tutorial 50: A command-line tool](tut-50-cli.html)
+[Tutorial 95: Identities and claims](tut-95-claims.html)

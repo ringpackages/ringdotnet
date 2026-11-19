@@ -73,4 +73,4 @@ Read it as: from `aSales`, *where* the item is at least 100, *order by* the item
 
 ## Next
 
-[Tutorial 5: Files and folders](tut-05-files.html).
+[Tutorial 5: Files and folders](tut-05-files.html)

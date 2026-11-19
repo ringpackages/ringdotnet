@@ -62,4 +62,4 @@ Step 5 stacks a `StreamWriter` on a `GZipStream` on a file created with `File.Cr
 
 ## Next
 
-[Tutorial 57: Money](tut-57-money.html)
+[Tutorial 45: Binary files](tut-45-binary.html)

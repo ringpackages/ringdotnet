@@ -85,4 +85,4 @@ Chain them to go deep: `oRoot.GetProperty("author").GetProperty("first").GetStri
 
 ## Next
 
-[Tutorial 7: When things go wrong](tut-07-errors.html).
+[Tutorial 7: When things go wrong](tut-07-errors.html)

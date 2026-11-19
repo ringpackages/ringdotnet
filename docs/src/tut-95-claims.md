@@ -59,4 +59,4 @@ Step 4 keeps *what a role may do* in a Ring list (`:Editor = ["read", "write"]`,
 
 ## Next
 
-[Tutorial 96: Tar archives](tut-96-tar.html)
+[Tutorial 114: Rate limiting](tut-114-rate-limiting.html)

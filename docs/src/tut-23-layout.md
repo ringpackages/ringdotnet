@@ -77,4 +77,4 @@ A table with columns and rows. `oTable.Controls.Add([ :control = oTitle, :column
 
 ## Next
 
-[Tutorial 24: A project: a to-do list that remembers](tut-24-todo.html).
+[Tutorial 13: A text editor](tut-13-editor.html)

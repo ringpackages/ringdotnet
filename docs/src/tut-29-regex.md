@@ -86,4 +86,4 @@ Characters such as `.` `*` `+` `?` `(` `[` `\` have a meaning in a pattern. If y
 
 ## Next
 
-[Tutorial 30: Tabular data](tut-30-tables.html).
+[Tutorial 52: Unicode and encodings](tut-52-unicode.html)

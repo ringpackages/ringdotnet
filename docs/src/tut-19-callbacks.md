@@ -95,4 +95,4 @@ An error raised inside a callback (`raise(...)`) travels back through .NET and c
 
 ## Next
 
-[Tutorial 20: Exploring .NET with reflection](tut-20-reflection.html).
+[Tutorial 20: Reflection](tut-20-reflection.html)

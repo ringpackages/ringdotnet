@@ -77,6 +77,6 @@ You cannot take a picture in a test, but you can ask for **values**. In a self t
 3. Animate a color: `ColorAnimation` on `Fill.Color` of the ball.
 4. Add a slider that changes the speed (the `Duration`) of the ball.
 
-## Next
+## Where to go next
 
-[Tutorial 71: Releasing resources](tut-71-dispose.html)
+This was the last tutorial of the chapter **WPF**. The next chapter is **Projects with windows**: it starts with [Tutorial 24: A to-do list](tut-24-todo.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

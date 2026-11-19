@@ -65,6 +65,6 @@ A single bucket for the whole service lets one noisy client use up the allowance
 3. Combine a concurrency limiter with a token bucket: a request must pass both.
 4. Print the statistics of every client after 100 random requests ([tutorial 69](tut-69-random.html)).
 
-## Next
+## Where to go next
 
-[Tutorial 115: Microsoft Access databases](tut-115-access.html)
+This was the last tutorial of the chapter **Security**. The next chapter is **Databases and services**: it starts with [Tutorial 17: Databases](tut-17-databases.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

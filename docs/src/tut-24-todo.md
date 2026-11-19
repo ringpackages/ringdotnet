@@ -75,4 +75,4 @@ The full-size version is the [TodoList](gallery-apps.html#todo-list) application
 
 ## Next
 
-[Tutorial 25: Sockets](tut-25-sockets.html).
+[Tutorial 35: Tic-Tac-Toe](tut-35-tictactoe.html)

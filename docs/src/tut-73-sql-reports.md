@@ -73,4 +73,4 @@ The city is in `Customers` and the amount in `Orders`; the join lets you total b
 
 ## Next
 
-[Tutorial 74: Asking the computer](tut-74-system.html)
+[Tutorial 27: Entities, migrations](tut-27-entities.html)

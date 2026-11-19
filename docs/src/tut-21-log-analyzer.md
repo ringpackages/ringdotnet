@@ -83,4 +83,4 @@ A JSON object is simple text: the helper builds `{"lines":30,"errors":9,"differe
 
 ## Next
 
-[Tutorial 22: Images](tut-22-images.html).
+[Tutorial 31: Duplicate files](tut-31-duplicates.html)

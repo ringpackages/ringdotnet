@@ -66,6 +66,6 @@ A factory receives the provider as its first value, so it can ask for what it ne
 3. Register the same type twice and see which one `GetService` returns (the last one).
 4. Look up `GetServices` (many) and `GetRequiredService` (an error when missing) in the [class reference](api.html).
 
-## Next
+## Where to go next
 
-[Tutorial 111: Configuration](tut-111-configuration.html)
+This was the last tutorial of the chapter **Databases and services**. The next chapter is **Windows Forms**: it starts with [Tutorial 11: Your first window](tut-11-first-window.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

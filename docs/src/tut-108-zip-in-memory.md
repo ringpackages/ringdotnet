@@ -62,4 +62,4 @@ An entry name is just text, and a bad archive can contain `../../etc/passwd`. A 
 
 ## Next
 
-[Tutorial 109: Caching](tut-109-memory-cache.html)
+[Tutorial 96: Tar archives](tut-96-tar.html)

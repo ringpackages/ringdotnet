@@ -62,6 +62,6 @@ Run it twice and nothing breaks: new backups get new names, old ones are trimmed
 3. Put the list of folders to back up in a settings file ([tutorial 32](tut-32-settings.html)).
 4. Add a window with a *Back up now* button and a list of the backups.
 
-## Next
+## Where to go next
 
-[Tutorial 47: A project: Markdown to HTML](tut-47-markdown.html).
+This was the last tutorial of the chapter **Files and streams**. The next chapter is **Processes and performance**: it starts with [Tutorial 74: Asking the computer](tut-74-system.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

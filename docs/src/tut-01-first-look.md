@@ -87,4 +87,4 @@ A `DateTime` is a *struct*: a small value. `new DateTime(2024,12,25)` is a date.
 
 ## Next
 
-[Tutorial 2: Working with text](tut-02-text.html).
+[Tutorial 2: Working with text](tut-02-text.html)

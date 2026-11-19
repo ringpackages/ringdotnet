@@ -76,6 +76,6 @@ The test checks the tree (one root, three subfolders), selects a node by code (`
 
 The full-size version is the [FileExplorer](gallery-apps.html#file-explorer) application.
 
-## Next
+## Where to go next
 
-[Tutorial 43: Calendars and dates](tut-43-calendar.html).
+This was the last tutorial of the chapter **Windows Forms**. The next chapter is **WPF**: it starts with [Tutorial 15: WPF](tut-15-wpf.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

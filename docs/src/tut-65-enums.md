@@ -63,4 +63,4 @@ Read and write are `1 | 2 = 3`; adding run (`4`) gives `7`; removing write leave
 
 ## Next
 
-[Tutorial 66: A spell checker](tut-66-spelling.html)
+[Tutorial 93: Identifiers and versions](tut-93-identifiers.html)

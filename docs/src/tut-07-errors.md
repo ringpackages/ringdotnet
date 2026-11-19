@@ -79,4 +79,4 @@ While developing, set the environment variable `RINGDOTNET_TRACE=1` and the erro
 
 ## Next
 
-[Tutorial 8: Hashing and encryption](tut-08-security.html).
+[Tutorial 8: Hashing and encryption](tut-08-security.html)

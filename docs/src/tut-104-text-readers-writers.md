@@ -58,4 +58,4 @@ A `StringWriter` has the same methods as a `StreamWriter` (`Write`, `WriteLine`)
 
 ## Next
 
-[Tutorial 105: Digital signatures](tut-105-signatures.html)
+[Tutorial 86: Escaping](tut-86-escaping.html)

@@ -72,4 +72,4 @@ To remove the duplicates of a Ring list, add its items to a set and read the set
 
 ## Next
 
-[Tutorial 108: ZIP archives in memory](tut-108-zip-in-memory.html)
+[Tutorial 92: More data structures](tut-92-data-structures.html)

@@ -73,4 +73,4 @@ A template describes the **path**. It does not read the query string (`?page=2`,
 
 ## Next
 
-[Tutorial 121: MIME types](tut-121-mime-types.html)
+[Tutorial 94: E-mail messages](tut-94-mail-messages.html)

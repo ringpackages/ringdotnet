@@ -84,4 +84,4 @@ Move the slider and the text changes by itself. In the test: `oSlider.Value = 10
 
 ## Next
 
-[Tutorial 16: A web service with a database](tut-16-web-service.html).
+[Tutorial 38: WPF layout, styles](tut-38-wpf-layout.html)

@@ -116,6 +116,7 @@ Read [Testing](testing.html) for how the self tests work.
 
 ## Where to go next
 
+- [Tutorials](tutorials.html): lessons grouped by topic; start with the chapter **The basics**.
 - [Core concepts](concepts.html): how .NET names, overloads, properties, enums and events look in Ring.
 - [Windows Forms](winforms.html) and the [applications](gallery-apps.html).
 - [ASP.NET Core](aspnet.html) and [Entity Framework Core](ef.html) for servers and databases.

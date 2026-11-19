@@ -65,4 +65,4 @@ The same type works for IPv6: `2001:db8::/32` holds every address that starts wi
 
 ## Next
 
-[Tutorial 103: Dates and times](tut-103-dates-and-times.html)
+[Tutorial 25: Sockets](tut-25-sockets.html)

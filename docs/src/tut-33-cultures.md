@@ -65,6 +65,6 @@ Every `ToString` and `Parse` that you call without saying a culture uses the cul
 3. Sort the words `zebra apple Ärger Öl ananas` in German and in Swedish.
 4. Write a function `toData(nNumber)` that formats a number with the invariant culture, and `fromData(cText)` that reads it back. Test both.
 
-## Next
+## Where to go next
 
-[Tutorial 34: Timers and progress](tut-34-timers.html).
+This was the last tutorial of the chapter **Numbers, dates and money**. The next chapter is **Collections and algorithms**: it starts with [Tutorial 106: Arrays](tut-106-arrays.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

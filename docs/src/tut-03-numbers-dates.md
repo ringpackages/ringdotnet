@@ -79,4 +79,4 @@ The difference between two dates is a `TimeSpan`: `Subtract` gives it, and it ha
 
 ## Next
 
-[Tutorial 4: Collections and LINQ](tut-04-collections.html).
+[Tutorial 4: Collections and LINQ](tut-04-collections.html)

@@ -51,4 +51,4 @@ Steps 4 and 5 show that `é` can be one code point or two. They look the same, b
 
 ## Next
 
-[Tutorial 53: Speed — measure first](tut-53-speed.html)
+[Tutorial 97: Comparing text](tut-97-comparers.html)

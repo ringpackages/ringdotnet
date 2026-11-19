@@ -62,4 +62,4 @@ A matrix describes a transformation of space as a block of numbers. `Matrix3x2` 
 
 ## Next
 
-[Tutorial 100: Writing JSON as a stream](tut-100-json-writer.html)
+[Tutorial 69: Randomness](tut-69-random.html)

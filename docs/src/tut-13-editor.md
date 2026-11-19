@@ -72,4 +72,4 @@ The full-size version of this program is the [Notepad](gallery-apps.html#notepad
 
 ## Next
 
-[Tutorial 14: Drawing and animation](tut-14-animation.html).
+[Tutorial 40: Your own dialog](tut-40-dialog.html)

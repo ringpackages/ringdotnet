@@ -57,4 +57,4 @@ A `List<Version>` (made with `dnNewGeneric`) sorts itself with `Sort()`, which c
 
 ## Next
 
-[Tutorial 94: E-mail messages](tut-94-mail-messages.html)
+[Tutorial 58: Undo, redo and queues](tut-58-undo.html)

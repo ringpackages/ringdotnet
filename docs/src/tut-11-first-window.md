@@ -90,4 +90,4 @@ Note how the properties are written inside **braces**: `new Label() { Text = "..
 
 ## Next
 
-[Tutorial 12: A form with many controls](tut-12-controls.html).
+[Tutorial 12: Many controls](tut-12-controls.html)

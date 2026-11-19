@@ -67,4 +67,4 @@ The web server runs on .NET's own threads, but your Ring code may only run on th
 
 ## Next
 
-[Tutorial 10: Time, tasks and other programs](tut-10-tasks-processes.html).
+[Tutorial 10: Tasks and programs](tut-10-tasks-processes.html)

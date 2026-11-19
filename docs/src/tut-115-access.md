@@ -109,4 +109,4 @@ Close the connection (`Close()`, `Dispose()`) and call `OdbcConnection.ReleaseOb
 
 ## Next
 
-[Tutorial 116: Certificates](tut-116-certificates.html)
+[Tutorial 32: Settings](tut-32-settings.html)

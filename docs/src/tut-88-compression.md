@@ -61,4 +61,4 @@ Step 6 puts a `GZipStream` on a `FileStream` and a `StreamWriter` on the compres
 
 ## Next
 
-[Tutorial 89: Collections for many threads](tut-89-concurrent-collections.html)
+[Tutorial 108: ZIP archives in memory](tut-108-zip-in-memory.html)

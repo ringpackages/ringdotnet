@@ -56,6 +56,6 @@ A mail with HTML is shown badly by programs that only show text. The solution is
 3. Add an attachment (`Attachments.Add`) made from a file of [tutorial 5](tut-05-files.html) and print its name.
 4. Read about `MailMessage.Headers` and add the header `X-Mailer`.
 
-## Next
+## Where to go next
 
-[Tutorial 95: Identities and claims](tut-95-claims.html)
+This was the last tutorial of the chapter **Networking and the web**. The next chapter is **Security**: it starts with [Tutorial 78: Protecting and signing messages](tut-78-crypto.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

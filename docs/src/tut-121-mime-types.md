@@ -65,6 +65,6 @@ In real programs the negotiation also looks at the **language** (`Accept-Languag
 3. Write `isAllowedUpload(name)` that accepts only `image/png`, `image/jpeg` and `application/pdf`.
 4. Add `*/*;q=0` to an Accept header and see how it changes the answer.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 100: Writing JSON as a stream](tut-100-json-writer.html)

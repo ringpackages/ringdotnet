@@ -62,4 +62,4 @@ The invoice calculates the tax **once on the subtotal**. Rounding the tax of eac
 
 ## Next
 
-[Tutorial 58: Undo and redo](tut-58-undo.html)
+[Tutorial 99: Vectors and matrices](tut-99-vectors.html)

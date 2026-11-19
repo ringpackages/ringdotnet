@@ -69,4 +69,4 @@ Streams and readers/writers, `HttpClient`, sockets and listeners, `JsonDocument`
 
 ## Next
 
-[Tutorial 72: XML in depth](tut-72-xml.html)
+[Tutorial 53: Speed: measure first](tut-53-speed.html)

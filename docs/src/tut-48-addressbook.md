@@ -90,4 +90,4 @@ The test adds three contacts through the fields and the **Add** button, checks t
 
 ## Next
 
-[Tutorial 49: Login, sessions and cookies](tut-49-login.html).
+[Tutorial 60: Watching sorting algorithms](tut-60-sorting.html)

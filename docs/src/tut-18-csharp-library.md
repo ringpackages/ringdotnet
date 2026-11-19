@@ -80,4 +80,4 @@ A package is a set of `.dll` files. Download it (or copy it from `~/.nuget/packa
 
 ## Next
 
-[Tutorial 19: Callbacks and events](tut-19-callbacks.html) — Part 3 goes deeper into the ideas that you have used so far.
+[Tutorial 28: Testing](tut-28-testing.html)

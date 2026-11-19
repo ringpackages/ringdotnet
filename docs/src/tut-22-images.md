@@ -86,4 +86,4 @@ Draw the loaded image into a smaller rectangle of a new bitmap: `DrawImage(oLoad
 
 ## Next
 
-[Tutorial 23: Layout and richer controls](tut-23-layout.html).
+[Tutorial 36: A chart](tut-36-chart.html)

@@ -73,4 +73,4 @@ A modal dialog stops the test at `ShowDialog` — nobody will click. The trick i
 
 ## Next
 
-[Tutorial 41: Menus, toolbars and shortcuts](tut-41-menus.html).
+[Tutorial 41: Menus, toolbars, shortcuts](tut-41-menus.html)

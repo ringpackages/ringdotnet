@@ -61,4 +61,4 @@ A defence that browsers use: a name is shown in Unicode only when each part uses
 
 ## Next
 
-[Tutorial 118: The Windows Registry](tut-118-registry.html)
+[Tutorial 121: MIME types](tut-121-mime-types.html)

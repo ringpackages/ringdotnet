@@ -79,4 +79,4 @@ A test cannot wait for animation. `selfTest` stops the timer, calls `step()` thr
 
 ## Next
 
-[Tutorial 15: WPF](tut-15-wpf.html).
+[Tutorial 22: Images](tut-22-images.html)

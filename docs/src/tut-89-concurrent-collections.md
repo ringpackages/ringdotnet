@@ -63,4 +63,4 @@ A queue is *first in, first out*; a stack is *last in, first out*: pushes of 1, 
 
 ## Next
 
-[Tutorial 90: Big numbers](tut-90-big-numbers.html)
+[Tutorial 65: Enums and flags](tut-65-enums.html)

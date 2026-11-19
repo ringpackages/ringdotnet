@@ -78,4 +78,4 @@ Loop over the rows and build lines. Join the values with commas and the lines wi
 
 ## Next
 
-[Tutorial 31: A project: find duplicate files](tut-31-duplicates.html).
+[Tutorial 73: Reports with SQL](tut-73-sql-reports.html)

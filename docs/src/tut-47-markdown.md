@@ -70,4 +70,4 @@ Look at how the steps are written: each result goes to a **new variable** (`cSaf
 
 ## Next
 
-[Tutorial 48: A project: an address book with a database](tut-48-addressbook.html).
+[Tutorial 66: A spell checker](tut-66-spelling.html)

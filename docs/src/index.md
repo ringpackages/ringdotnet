@@ -34,6 +34,7 @@ The classes are real Ring classes with the same method names as the .NET ones â€
 ## What is inside
 
 <div class="cards">
+<a class="card" href="tutorials.html"><div class="ic">ğŸ“</div><b>Tutorials</b><span>Step-by-step lessons, grouped by topic: text, numbers, files, networking, security, databases, windows and more. Each one has a program with its real output.</span></a>
 <a class="card" href="concepts.html"><div class="ic">ğŸ”Œ</div><b>Simple syntax</b><span>oObj.Method(), oObj.Property = x, enums as strings, events with setClickEvent().</span></a>
 <a class="card" href="foundation.html"><div class="ic">ğŸ“š</div><b>The class library</b><span>Strings, dates, files, regex, networking, crypto, XML, JSON, reflection, LINQ and more.</span></a>
 <a class="card" href="callbacks-events.html"><div class="ic">ğŸ”</div><b>Callbacks and events</b><span>Pass Ring code wherever .NET expects a delegate, as RingQt does with events.</span></a>
@@ -55,6 +56,17 @@ The classes are real Ring classes with the same method names as the .NET ones â€
 <a class="card" href="gallery-wpf.html"><img src="img/shots/wpf-03_binding_slider.png" alt="WPF binding" style="max-width:100%;border-radius:8px"></a>
 </div>
 
+## How the documentation is organised
+
+| Part | What it is for |
+|---|---|
+| **Start** | [Overview](index.html), [Getting started](getting-started.html) (install, first program, the startup modes) and [How it works](how-it-works.html) |
+| **Tutorials** | learning by building programs. They are grouped into **chapters by topic** (the basics, text and data formats, numbers and dates, collections, files, processes, networking, security, databases, Windows Forms, WPF, projects, libraries and release). Read [The basics](tutorials.html#the-basics) first; then take the chapter you need |
+| **Guides** | how each area works and which functions and classes it has: the language bridge ([Core concepts](concepts.html) first), desktop programs, web and data, extending |
+| **Testing and limits** | how the package is tested, and the [gotchas and limits](gotchas.html) to read before a long program |
+| **Reference** | the [function index](reference.html) and the [class reference](api.html) with every wrapped class |
+| **Appendix** | a [quick introduction to Ring](ring-intro.html), for readers who are new to the language |
+
 ## How the package is organised
 
 | Folder | Contents |
@@ -67,4 +79,4 @@ The classes are real Ring classes with the same method names as the .NET ones â€
 | `samples/UsingDotNet/tests/` | Automated tests (`run.sh`) |
 | `tools/` | The class generators (`gendotnet.ring`, `wrapassembly.ring`) and the manifest |
 
-> [!TIP] New here? Read **Getting started**, then **Core concepts**. Everything after that is a topic you can read in any order.
+> [!TIP] New here? Read **Getting started**, then **Core concepts**, then the tutorial chapter **The basics**. Everything after that is a topic you can read in any order.

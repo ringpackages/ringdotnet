@@ -71,4 +71,4 @@ The reader and writer hold the file open. An open file cannot be deleted or repl
 
 ## Next
 
-[Tutorial 46: A project: a backup tool](tut-46-backup.html).
+[Tutorial 88: Compression](tut-88-compression.html)

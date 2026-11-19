@@ -67,4 +67,4 @@ Step 6 starts five delays and waits for them with one `WhenAll`: the total is ab
 
 ## Next
 
-[Tutorial 84: HttpClient in depth](tut-84-http-client.html)
+[Tutorial 71: Releasing resources](tut-71-dispose.html)

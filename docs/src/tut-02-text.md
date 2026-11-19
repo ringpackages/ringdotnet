@@ -84,4 +84,4 @@ A computer stores bytes, not letters. An *encoding* says how letters become byte
 
 ## Next
 
-[Tutorial 3: Numbers, dates and times](tut-03-numbers-dates.html).
+[Tutorial 3: Numbers, dates, times](tut-03-numbers-dates.html)

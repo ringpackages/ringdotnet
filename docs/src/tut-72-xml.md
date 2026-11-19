@@ -76,4 +76,4 @@ XML is strict: every tag must be closed and tags must nest. `Parse` raises an er
 
 ## Next
 
-[Tutorial 73: Reports with SQL](tut-73-sql-reports.html)
+[Tutorial 77: XSLT](tut-77-xslt.html)

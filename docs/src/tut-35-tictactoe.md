@@ -84,4 +84,4 @@ The [TicTacToe](gallery-apps.html#tic-tac-toe) application is the full-size vers
 
 ## Next
 
-[Tutorial 36: A chart](tut-36-chart.html).
+[Tutorial 37: A command runner](tut-37-runner.html)

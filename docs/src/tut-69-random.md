@@ -62,4 +62,4 @@ Because `Random` is a formula, a person who sees a few of its numbers can calcul
 
 ## Next
 
-[Tutorial 70: WPF animation](tut-70-wpf-animation.html)
+[Tutorial 44: Statistics, simulation](tut-44-statistics.html)

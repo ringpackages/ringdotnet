@@ -90,6 +90,6 @@ The same options work (`ring ring2exe.ring myprogram.ring -dist -dotnet`), and t
 3. Make the program print *"Install the .NET runtime 9.0 from dotnet.microsoft.com"* and stop when line 1 says no.
 4. Make a zip file of the folder with `ZipFile` ([tutorial 5](tut-05-files.html)) and check its size.
 
-## Next
+## Where to go next
 
-[Tutorial 120: Route templates](tut-120-routes.html)
+This was the last tutorial of the last chapter. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.

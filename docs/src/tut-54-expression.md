@@ -65,6 +65,6 @@ When something is wrong the parser stores a message in `cError` and the loops st
 2. Add variables: `x = 5` stores a value and later expressions can use `x`.
 3. Show the **position** of the error (the number of the token) in each message.
 
-## Next
+## Where to go next
 
-[Tutorial 55: A tiny web framework](tut-55-miniweb.html)
+This was the last tutorial of the chapter **Collections and algorithms**. The next chapter is **Files and streams**: it starts with [Tutorial 59: Paths and the environment](tut-59-paths.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

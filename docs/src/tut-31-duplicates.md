@@ -63,4 +63,4 @@ A real tool avoids hashing every file: files with different **sizes** cannot be 
 
 ## Next
 
-[Tutorial 32: Settings](tut-32-settings.html).
+[Tutorial 46: A backup tool](tut-46-backup.html)

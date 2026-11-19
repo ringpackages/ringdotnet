@@ -97,4 +97,4 @@ A test raises the click event on a key: `RaiseEvent(new RoutedEventArgs().New_([
 
 ## Next
 
-[Tutorial 39: A REST client](tut-39-rest-client.html).
+[Tutorial 70: WPF animation](tut-70-wpf-animation.html)

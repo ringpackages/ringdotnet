@@ -63,6 +63,6 @@ This is how a Ring program uses any command-line tool: `git`, `ping`, `ffmpeg`, 
 3. Print the three biggest environment variables by length (`GetEnvironmentVariables()`).
 4. Start `notepad.exe` with a `Process`, wait 3 seconds and close it with `Kill()`.
 
-## Next
+## Where to go next
 
-Part 2 builds programs with windows: [Tutorial 11: Your first window](tut-11-first-window.html).
+This was the last tutorial of the chapter **The basics**. The next chapter is **Text and data formats**: it starts with [Tutorial 29: Regular expressions](tut-29-regex.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

@@ -69,4 +69,4 @@ Every action calls `say(message)`, which writes into the status bar and counts t
 
 ## Next
 
-[Tutorial 42: A folder browser](tut-42-browser.html).
+[Tutorial 34: Timers and progress](tut-34-timers.html)

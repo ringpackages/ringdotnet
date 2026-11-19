@@ -60,4 +60,4 @@ In Turkish there are two letters `i`: the one with a dot and the one without. Th
 
 ## Next
 
-[Tutorial 98: Memory and the garbage collector](tut-98-memory.html)
+[Tutorial 104: Text readers and writers](tut-104-text-readers-writers.html)

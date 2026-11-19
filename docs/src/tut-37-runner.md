@@ -76,4 +76,4 @@ A `TextBox` with `Multiline`, `ReadOnly` (the user cannot type in it), a monospa
 
 ## Next
 
-[Tutorial 38: WPF layout and styles](tut-38-wpf-layout.html).
+[Tutorial 48: An address book](tut-48-addressbook.html)

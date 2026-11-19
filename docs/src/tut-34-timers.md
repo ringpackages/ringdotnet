@@ -65,4 +65,4 @@ A test cannot wait for ticks. `selfTest` stops the clock timer, calls `toggleWat
 
 ## Next
 
-[Tutorial 35: A project: Tic-Tac-Toe](tut-35-tictactoe.html).
+[Tutorial 14: Drawing and animation](tut-14-animation.html)

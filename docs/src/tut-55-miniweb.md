@@ -55,4 +55,4 @@ The `class Router` is at the end of the file. In Ring, functions written *after*
 
 ## Next
 
-[Tutorial 56: Streams and compression](tut-56-streams.html)
+[Tutorial 120: Route templates](tut-120-routes.html)

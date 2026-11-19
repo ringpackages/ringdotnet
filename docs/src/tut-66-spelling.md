@@ -61,6 +61,6 @@ The corner at the end is the answer. Each cell is computed from three neighbours
 3. Print the checked text with `[brackets]` around the unknown words.
 4. Suggest only words that start with the same letter, and measure how much faster it is ([tutorial 53](tut-53-speed.html)).
 
-## Next
+## Where to go next
 
-[Tutorial 67: Number systems and big numbers](tut-67-bases.html)
+This was the last tutorial of the chapter **Text and data formats**. The next chapter is **Numbers, dates and money**: it starts with [Tutorial 101: Number types](tut-101-number-types.html). The [Tutorials](tutorials.html) page lists all the chapters, and you can start any of them.

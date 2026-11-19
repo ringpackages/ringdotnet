@@ -88,4 +88,4 @@ The program also acts as a visitor: it fetches pages and posts a form with `Http
 
 ## Next
 
-[Tutorial 27: Entity objects and migrations](tut-27-entities.html).
+[Tutorial 55: A tiny web framework](tut-55-miniweb.html)

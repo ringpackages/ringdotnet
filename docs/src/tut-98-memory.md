@@ -63,4 +63,4 @@ The GC sorts objects by age, because most objects die young. Generation **0** ho
 
 ## Next
 
-[Tutorial 99: Vectors and matrices](tut-99-vectors.html)
+[Tutorial 118: The Windows Registry](tut-118-registry.html)
