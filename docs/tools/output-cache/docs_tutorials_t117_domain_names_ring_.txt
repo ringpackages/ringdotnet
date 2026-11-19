@@ -1,0 +1,28 @@
+1. German:  bücher.example  ->  xn--bcher-kva.example
+   Arabic:  the name with the word for 'site' ->  xn--4gbrim.example
+   back:    bücher.example  and the round trip is exact: 1
+   a name that is plain ASCII does not change: www.example.com
+
+2. Host: bücher.example   IdnHost (for DNS and certificates): xn--bcher-kva.example
+   an HTTP client sends the IdnHost; a certificate for this site names it in the Punycode form
+
+3. checking names (the second answer is with UseStd3AsciiRules):
+   good-name.example       valid: good-name.example        valid: good-name.example
+   -bad.example            not valid                       not valid
+   empty..label.example    not valid                       not valid
+   aaaaaaaaaaaaaaaaaaaa... not valid                       not valid
+   has space.example       valid: has space.example        not valid
+
+4. apple.com in two spellings:
+   Latin:      apple.com   apple.com
+   look-alike: аpple.com   xn--pple-43d.com
+   they look the same on the screen but they are different names: 1
+
+5. the alphabets in each part of the name (the parts are separated by dots):
+   apple.com                 Latin Latin       one alphabet in each part
+   xn--pple-43d.com          Cyrillic+Latin Latin MIXED in one part: suspicious
+   xn--bcher-kva.example     Latin Latin       one alphabet in each part
+   xn--4gbrim.example        Arabic Latin      one alphabet in each part
+   xn--domin-6ve.com         Latin+Cyrillic Latin MIXED in one part: suspicious
+
+6. what to show to a person: موقع.example (shown as written), xn--pple-43d.com (Punycode: mixed alphabets)

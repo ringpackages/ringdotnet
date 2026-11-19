@@ -161,6 +161,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-113-data-protection.html"><div class="ic">113</div><b>Protecting data</b><span>The Data Protection API: purposes, tampering, keys and expiring tokens.</span></a>
 <a class="card" href="tut-114-rate-limiting.html"><div class="ic">114</div><b>Rate limiting</b><span>Token bucket, concurrency limiter, leases and one limiter per client.</span></a>
 <a class="card" href="tut-115-access.html"><div class="ic">115</div><b>Microsoft Access databases</b><span>An .accdb file through ODBC: tables, parameters, joins, totals and transactions (Windows).</span></a>
+<a class="card" href="tut-116-certificates.html"><div class="ic">116</div><b>Certificates</b><span>Self-signed X.509 certificates, PFX and PEM, signing and trust.</span></a>
+<a class="card" href="tut-117-domain-names.html"><div class="ic">117</div><b>International domain names</b><span>Punycode, IdnMapping and look-alike letters (homograph attacks).</span></a>
+<a class="card" href="tut-118-registry.html"><div class="ic">118</div><b>The Windows Registry</b><span>Keys, values of every kind, listing and cleaning up (Windows).</span></a>
 </div>
 
 ## Learning path

@@ -107,6 +107,6 @@ Close the connection (`Close()`, `Dispose()`) and call `OdbcConnection.ReleaseOb
 3. Write `export(oConnection, cTable, cFile)` that writes a table as JSON ([tutorial 100](tut-100-json-writer.html)).
 4. Open an existing `.accdb` file of your own and list its tables and columns.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 116: Certificates](tut-116-certificates.html)
