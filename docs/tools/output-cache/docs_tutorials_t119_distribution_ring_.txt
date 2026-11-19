@@ -1,0 +1,8 @@
+Self check of RingDotNet
+
+1. the .NET runtime is version 6 or newer: 1
+2. the bridge assembly is in the program folder: 1
+   the folder has the runtime configuration files: 1
+3. SQLite works: 1
+4. the ASP.NET Core runtime is installed (needed only for web programs): 1
+5. a folder for the data of the program exists: 1

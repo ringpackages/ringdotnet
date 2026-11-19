@@ -1,0 +1,27 @@
+1. the templates and their parts:
+   users/{id}/orders/{orderId?}    id (required)  orderId (optional)  
+   products/{category}/{page=1}    category (required)  page (default 1)  
+   files/{*path}                   path (catch-all)  
+   items/{id:int}                  id (required)  
+
+2. users/{id}/orders/{orderId?} against some paths:
+   /users/42/orders/7          match   id = 42   orderId = 7   
+   /users/42/orders            match   id = 42   
+   /users/42                   no match
+   /users/42/orders/7/extra    no match
+   /USERS/5/ORDERS/9           match   id = 5   orderId = 9   
+
+3. products/{category}/{page=1}:
+   /products/shoes             match   category = shoes   page = 1   
+   /products/shoes/3           match   category = shoes   page = 3   
+
+   files/{*path} takes the rest of the path, with its slashes:
+   /files/readme.txt           match   path = readme.txt   
+   /files/docs/guide/intro.md  match   path = docs/guide/intro.md   
+
+4. which route handles which path:
+   /users/42               users/{id}  ->  show a user
+   /users/42/orders/7      users/{id}/orders/{orderId?}  ->  show the orders of a user
+   /files/a/b.png          files/{*path}  ->  send a file
+   /about                  {page}  ->  show a page
+   /users                  {page}  ->  show a page

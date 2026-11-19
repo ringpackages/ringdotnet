@@ -164,6 +164,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-116-certificates.html"><div class="ic">116</div><b>Certificates</b><span>Self-signed X.509 certificates, PFX and PEM, signing and trust.</span></a>
 <a class="card" href="tut-117-domain-names.html"><div class="ic">117</div><b>International domain names</b><span>Punycode, IdnMapping and look-alike letters (homograph attacks).</span></a>
 <a class="card" href="tut-118-registry.html"><div class="ic">118</div><b>The Windows Registry</b><span>Keys, values of every kind, listing and cleaning up (Windows).</span></a>
+<a class="card" href="tut-119-distribution.html"><div class="ic">119</div><b>Giving your program to others</b><span>Ring2EXE, what the other computer needs, a self check.</span></a>
+<a class="card" href="tut-120-routes.html"><div class="ic">120</div><b>Route templates</b><span>users/{id}, optional, default and catch-all parts, choosing a route.</span></a>
+<a class="card" href="tut-121-mime-types.html"><div class="ic">121</div><b>MIME types</b><span>File extensions, Content-Type, Accept and content negotiation.</span></a>
 </div>
 
 ## Learning path

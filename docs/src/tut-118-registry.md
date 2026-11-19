@@ -77,6 +77,6 @@ A `MultiString` needs a real `string[]`, so the program builds one from a `List<
 3. Count how many sub-keys `HKCU\Software` has.
 4. Write the position and size of a window of [tutorial 11](tut-11-first-window.html) when it closes and restore them at the next start.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 119: Giving your program to others](tut-119-distribution.html)

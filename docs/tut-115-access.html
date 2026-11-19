@@ -154,6 +154,9 @@
 <a href="tut-116-certificates.html">116. Certificates</a>
 <a href="tut-117-domain-names.html">117. International domain names</a>
 <a href="tut-118-registry.html">118. The Windows Registry</a>
+<a href="tut-119-distribution.html">119. Giving your program to others</a>
+<a href="tut-120-routes.html">120. Route templates</a>
+<a href="tut-121-mime-types.html">121. MIME types</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -511,7 +514,7 @@ using {
 <h3 id="reading-rows">Reading rows<a class="anchor" href="#reading-rows">#</a></h3>
 <p><code>ExecuteReader()</code> gives a reader; <code>Read()</code> moves to the next row and answers <em>false</em> at the end; <code>GetValue(n)</code> reads column n (0 is the first). <code>FieldCount</code>, <code>GetName</code> and <code>GetDataTypeName</code> describe the columns. Numbers and <code>CURRENCY</code> come back as Ring numbers, text as text and a <code>DATETIME</code> as a .NET <code>DateTime</code>, which the program formats with <code>Format("yyyy-MM-dd")</code>. A column without a value is a <strong>NULL</strong> (<code>System.DBNull</code>): test for it before you use the value, and remember that <code>COUNT(column)</code> does not count NULL values while <code>COUNT(*)</code> counts rows. Dispose the reader (<code>Dispose()</code>) before you run the next command on the same connection.</p>
 <h3 id="joins-and-totals">Joins and totals<a class="anchor" href="#joins-and-totals">#</a></h3>
-<p><code>INNER JOIN ... ON c.Id = o.CustomerId</code> puts the orders next to their customers. <code>GROUP BY</code> makes one row for each group with <code>COUNT</code>, <code>SUM</code> and <code>AVG</code>; <code>HAVING</code> filters the <strong>groups</strong> (where <code>WHERE</code> filters the <strong>rows</strong> before they are grouped). The result shows that customers with fewer than two orders are not listed. <code>SUM</code> of a currency column is exact, which is why money is <code>CURRENCY</code> and not a floating-point number (<a href="tut-58-money.html">tutorial 58</a>).</p>
+<p><code>INNER JOIN ... ON c.Id = o.CustomerId</code> puts the orders next to their customers. <code>GROUP BY</code> makes one row for each group with <code>COUNT</code>, <code>SUM</code> and <code>AVG</code>; <code>HAVING</code> filters the <strong>groups</strong> (where <code>WHERE</code> filters the <strong>rows</strong> before they are grouped). The result shows that customers with fewer than two orders are not listed. <code>SUM</code> of a currency column is exact, which is why money is <code>CURRENCY</code> and not a floating-point number (<a href="tut-57-money.html">tutorial 58</a>).</p>
 <h3 id="dates">Dates<a class="anchor" href="#dates">#</a></h3>
 <p>A <code>DateTime</code> object goes in as a parameter and the comparison <code>Ordered &gt; ?</code> works with real dates, so there is no need for the Access date literal <code>#2/15/2024#</code> (which also depends on the format of the computer). Access has date functions in SQL: <code>Year(d)</code>, <code>Month(d)</code>, <code>Day(d)</code>, <code>DateAdd</code>, <code>DateDiff</code> and <code>Format(d, "yyyy-mm")</code>.</p>
 <h3 id="transactions">Transactions<a class="anchor" href="#transactions">#</a></h3>

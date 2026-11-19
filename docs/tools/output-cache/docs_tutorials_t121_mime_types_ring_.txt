@@ -1,0 +1,33 @@
+1. file name -> content type:
+   index.html      text/html
+   logo.png        image/png
+   photo.JPG       image/jpeg
+   data.json       application/json
+   report.pdf      application/pdf
+   archive.zip     application/x-zip-compressed
+   notes.txt       text/plain
+   song.mp3        audio/mpeg
+   movie.mp4       video/mp4
+   style.css       text/css
+   app.js          text/javascript
+   unknown.xyz123  application/octet-stream  (not known)
+
+2. after adding .ring: text/x-ring
+   (a file with an unknown type is sent as application/octet-stream: 'some bytes, download them')
+
+3. text/html; charset=utf-8  ->  media type: text/html, charset: utf-8
+   with the headers library: type application, subtype json, quality 0.90
+
+4. the client sends: Accept: text/html, application/json;q=0.9, text/*;q=0.5, */*;q=0.1
+   text/html           quality 1
+   application/json    quality 0.90
+   text/*              quality 0.50
+   */*                 quality 0.10
+
+5. what the server sends:
+   offers application/json, text/csv  -> application/json  (matched application/json, quality 0.90)
+   offers text/csv, text/plain        -> text/csv  (matched text/*, quality 0.50)
+   offers image/png                   -> image/png  (matched */*, quality 0.10)
+   offers text/html, application/json -> text/html  (matched text/html, quality 1)
+
+6. Accept: application/json, the server offers text/csv: 406 Not Acceptable

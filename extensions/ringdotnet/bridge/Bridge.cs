@@ -293,9 +293,9 @@ namespace RingDotNet
 				case "version":
 					return RuntimeInformation.FrameworkDescription;
 				case "load":
-					return Assembly.LoadFrom(Str(a, 0)).FullName;
+					return Initialize(Assembly.LoadFrom(Str(a, 0))).FullName;
 				case "loadname":
-					return Assembly.Load(Str(a, 0)).FullName;
+					return Initialize(Assembly.Load(Str(a, 0))).FullName;
 				case "type":
 					return new TypeRef(ResolveType(Str(a, 0)));
 				case "new":
@@ -392,6 +392,13 @@ namespace RingDotNet
 				return ResolveType(name);
 			}
 			throw new ArgumentException("Expected a type at position " + (i + 1));
+		}
+
+		/* A loaded assembly runs its module initializer at once (RingDotNet.Data uses it to find the native SQLite library of the system) */
+		private static Assembly Initialize(Assembly assembly)
+		{
+			System.Runtime.CompilerServices.RuntimeHelpers.RunModuleConstructor(assembly.ManifestModule.ModuleHandle);
+			return assembly;
 		}
 
 		/* Find a type by name, loading the framework assembly named by the namespace when needed */

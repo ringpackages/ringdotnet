@@ -68,7 +68,7 @@ Searching with `LIKE` uses `%` and `_` through ODBC (in the Access program itsel
 
 ### Joins and totals
 
-`INNER JOIN ... ON c.Id = o.CustomerId` puts the orders next to their customers. `GROUP BY` makes one row for each group with `COUNT`, `SUM` and `AVG`; `HAVING` filters the **groups** (where `WHERE` filters the **rows** before they are grouped). The result shows that customers with fewer than two orders are not listed. `SUM` of a currency column is exact, which is why money is `CURRENCY` and not a floating-point number ([tutorial 58](tut-58-money.html)).
+`INNER JOIN ... ON c.Id = o.CustomerId` puts the orders next to their customers. `GROUP BY` makes one row for each group with `COUNT`, `SUM` and `AVG`; `HAVING` filters the **groups** (where `WHERE` filters the **rows** before they are grouped). The result shows that customers with fewer than two orders are not listed. `SUM` of a currency column is exact, which is why money is `CURRENCY` and not a floating-point number ([tutorial 58](tut-57-money.html)).
 
 ### Dates
 

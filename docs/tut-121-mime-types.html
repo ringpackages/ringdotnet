@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutorial 121: MIME types · RingDotNet</title>
+<meta name="description" content="A MIME type names the kind of a piece of data — text/html, image/png, application/json. A server sends it so that the browser knows what to do with the bytes, and a client sends a list of types it understands. This lesson maps file names to types, reads a Content-Type header, and chooses what to send for an Accept header.">
+<link rel="stylesheet" href="assets/style.css">
+<script>window.SITE_ROOT="";</script>
+<script src="assets/search-index.js"></script>
+<script src="assets/api-index.js"></script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="topbar">
+	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
+	<a class="brand" href="index.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<span class="spacer"></span>
+	<div class="search">
+		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+		<input id="q" type="search" placeholder="Search the docs  ( / )" autocomplete="off">
+		<div class="results" id="results"></div>
+	</div>
+	<button class="iconbtn" id="theme" aria-label="Theme">☾</button>
+</header>
+<nav class="sidebar">
+<h4>Start</h4>
+<a href="index.html">Overview</a>
+<a href="getting-started.html">Getting started</a>
+<a href="how-it-works.html">How it works</a>
+<h4>Tutorials: the class library</h4>
+<a href="tutorials.html">Tutorials home</a>
+<a href="tut-concepts.html">.NET for Ring programmers</a>
+<a href="tut-reading-docs.html">Reading the .NET docs</a>
+<a href="tut-01-first-look.html">1. A first look</a>
+<a href="tut-02-text.html">2. Working with text</a>
+<a href="tut-03-numbers-dates.html">3. Numbers, dates, times</a>
+<a href="tut-04-collections.html">4. Collections and LINQ</a>
+<a href="tut-05-files.html">5. Files and folders</a>
+<a href="tut-06-json-xml.html">6. JSON and XML</a>
+<a href="tut-07-errors.html">7. When things go wrong</a>
+<a href="tut-08-security.html">8. Hashing and encryption</a>
+<a href="tut-09-http.html">9. HTTP</a>
+<a href="tut-10-tasks-processes.html">10. Tasks and programs</a>
+<h4>Tutorials: windows, web, data</h4>
+<a href="tut-11-first-window.html">11. Your first window</a>
+<a href="tut-12-controls.html">12. Many controls</a>
+<a href="tut-13-editor.html">13. A text editor</a>
+<a href="tut-14-animation.html">14. Drawing and animation</a>
+<a href="tut-15-wpf.html">15. WPF</a>
+<a href="tut-16-web-service.html">16. A web service</a>
+<a href="tut-17-databases.html">17. Databases</a>
+<a href="tut-18-csharp-library.html">18. A C# library</a>
+<h4>Tutorials: going further</h4>
+<a href="tut-19-callbacks.html">19. Callbacks and events</a>
+<a href="tut-20-reflection.html">20. Reflection</a>
+<a href="tut-21-log-analyzer.html">21. A log analyzer</a>
+<a href="tut-22-images.html">22. Images</a>
+<a href="tut-23-layout.html">23. Layout and controls</a>
+<a href="tut-24-todo.html">24. A to-do list</a>
+<a href="tut-25-sockets.html">25. Sockets</a>
+<a href="tut-26-website.html">26. A small web site</a>
+<a href="tut-27-entities.html">27. Entities, migrations</a>
+<a href="tut-28-testing.html">28. Testing</a>
+<h4>Tutorials: more lessons</h4>
+<a href="tut-29-regex.html">29. Regular expressions</a>
+<a href="tut-30-tables.html">30. Tabular data</a>
+<a href="tut-31-duplicates.html">31. Duplicate files</a>
+<a href="tut-32-settings.html">32. Settings</a>
+<a href="tut-33-cultures.html">33. Cultures</a>
+<a href="tut-34-timers.html">34. Timers and progress</a>
+<a href="tut-35-tictactoe.html">35. Tic-Tac-Toe</a>
+<a href="tut-36-chart.html">36. A chart</a>
+<a href="tut-37-runner.html">37. A command runner</a>
+<a href="tut-38-wpf-layout.html">38. WPF layout, styles</a>
+<a href="tut-39-rest-client.html">39. A REST client</a>
+<h4>Tutorials: even more</h4>
+<a href="tut-40-dialog.html">40. Your own dialog</a>
+<a href="tut-41-menus.html">41. Menus, toolbars, shortcuts</a>
+<a href="tut-42-browser.html">42. A folder browser</a>
+<a href="tut-43-calendar.html">43. Calendars and dates</a>
+<a href="tut-44-statistics.html">44. Statistics, simulation</a>
+<a href="tut-45-binary.html">45. Binary files</a>
+<a href="tut-46-backup.html">46. A backup tool</a>
+<a href="tut-47-markdown.html">47. Markdown to HTML</a>
+<a href="tut-48-addressbook.html">48. An address book</a>
+<a href="tut-49-login.html">49. Login and sessions</a>
+<a href="tut-50-cli.html">50. A command-line tool</a>
+<a href="tut-51-logging.html">51. Logging</a>
+<a href="tut-52-unicode.html">52. Unicode and encodings</a>
+<a href="tut-53-speed.html">53. Speed: measure first</a>
+<a href="tut-54-expression.html">54. An expression calculator</a>
+<a href="tut-55-miniweb.html">55. A tiny web framework</a>
+<a href="tut-56-streams.html">56. Streams and compression</a>
+<a href="tut-57-money.html">57. Money</a>
+<a href="tut-58-undo.html">58. Undo, redo and queues</a>
+<a href="tut-59-paths.html">59. Paths and the environment</a>
+<a href="tut-60-sorting.html">60. Watching sorting algorithms</a>
+<a href="tut-61-maze.html">61. A maze</a>
+<a href="tut-62-filters.html">62. An image filter lab</a>
+<a href="tut-63-chat.html">63. A chat over TCP</a>
+<a href="tut-64-urls.html">64. URLs and encodings</a>
+<a href="tut-65-enums.html">65. Enums and flags</a>
+<a href="tut-66-spelling.html">66. A spell checker</a>
+<a href="tut-67-bases.html">67. Number systems and big numbers</a>
+<a href="tut-68-timezones.html">68. Time zones</a>
+<a href="tut-69-random.html">69. Randomness</a>
+<a href="tut-70-wpf-animation.html">70. WPF animation</a>
+<a href="tut-71-dispose.html">71. Releasing resources</a>
+<a href="tut-72-xml.html">72. XML in depth</a>
+<a href="tut-73-sql-reports.html">73. Reports with SQL</a>
+<a href="tut-74-system.html">74. Asking the computer</a>
+<a href="tut-75-recursion.html">75. Recursion</a>
+<a href="tut-76-calendars.html">76. Other calendars</a>
+<a href="tut-77-xslt.html">77. XSLT</a>
+<a href="tut-78-crypto.html">78. Protecting and signing messages</a>
+<a href="tut-79-processes-talk.html">79. Two programs talking</a>
+<a href="tut-80-json-nodes.html">80. JSON as a tree</a>
+<a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
+<a href="tut-85-feed-programs.html">85. Working with other programs</a>
+<a href="tut-86-escaping.html">86. Escaping</a>
+<a href="tut-87-expressions.html">87. Expression trees</a>
+<a href="tut-88-compression.html">88. Compression</a>
+<a href="tut-89-concurrent-collections.html">89. Collections for many threads</a>
+<a href="tut-90-big-numbers.html">90. Big numbers</a>
+<a href="tut-91-udp.html">91. UDP</a>
+<a href="tut-92-data-structures.html">92. More data structures</a>
+<a href="tut-93-identifiers.html">93. Identifiers and versions</a>
+<a href="tut-94-mail-messages.html">94. E-mail messages</a>
+<a href="tut-95-claims.html">95. Identities and claims</a>
+<a href="tut-96-tar.html">96. Tar archives</a>
+<a href="tut-97-comparers.html">97. Comparing text</a>
+<a href="tut-98-memory.html">98. Memory and the garbage collector</a>
+<a href="tut-99-vectors.html">99. Vectors and matrices</a>
+<a href="tut-100-json-writer.html">100. Writing JSON as a stream</a>
+<a href="tut-101-number-types.html">101. Number types</a>
+<a href="tut-102-ip-networks.html">102. IP networks</a>
+<a href="tut-103-dates-and-times.html">103. Dates and times</a>
+<a href="tut-104-text-readers-writers.html">104. Text readers and writers</a>
+<a href="tut-105-signatures.html">105. Digital signatures</a>
+<a href="tut-106-arrays.html">106. Arrays</a>
+<a href="tut-107-sets.html">107. Sets</a>
+<a href="tut-108-zip-in-memory.html">108. ZIP archives in memory</a>
+<a href="tut-109-memory-cache.html">109. Caching</a>
+<a href="tut-110-dependency-injection.html">110. Dependency injection</a>
+<a href="tut-111-configuration.html">111. Configuration</a>
+<a href="tut-112-globbing.html">112. File patterns (globbing)</a>
+<a href="tut-113-data-protection.html">113. Protecting data</a>
+<a href="tut-114-rate-limiting.html">114. Rate limiting</a>
+<a href="tut-115-access.html">115. Microsoft Access databases</a>
+<a href="tut-116-certificates.html">116. Certificates</a>
+<a href="tut-117-domain-names.html">117. International domain names</a>
+<a href="tut-118-registry.html">118. The Windows Registry</a>
+<a href="tut-119-distribution.html">119. Giving your program to others</a>
+<a href="tut-120-routes.html">120. Route templates</a>
+<a href="tut-121-mime-types.html" class="cur">121. MIME types</a>
+<h4>The language bridge</h4>
+<a href="concepts.html">Core concepts</a>
+<a href="core-api.html">Core functions</a>
+<a href="collections-linq.html">Collections & LINQ</a>
+<a href="callbacks-events.html">Callbacks & events</a>
+<a href="foundation.html">The .NET class library</a>
+<h4>Desktop</h4>
+<a href="winforms.html">Windows Forms</a>
+<a href="gallery-forms.html">Forms samples</a>
+<a href="gallery-apps.html">Applications</a>
+<a href="wpf.html">WPF</a>
+<a href="gallery-wpf.html">WPF samples</a>
+<h4>Web and data</h4>
+<a href="aspnet.html">ASP.NET Core</a>
+<a href="ef.html">Entity Framework Core</a>
+<a href="ef-reference.html">Entity Framework reference</a>
+<h4>Extending</h4>
+<a href="own-assemblies.html">Your own assemblies</a>
+<a href="generator.html">Class generator</a>
+<h4>Project</h4>
+<a href="testing.html">Testing</a>
+<a href="gotchas.html">Gotchas & limits</a>
+<a href="reference.html">Function index</a>
+<h4>Reference</h4>
+<a href="api.html">Class reference</a>
+<h4>Appendix</h4>
+<a href="ring-intro.html">Quick introduction to Ring</a>
+</nav>
+<main>
+<article>
+<h1>Tutorial 121: MIME types</h1><p class="lead">A MIME type names the kind of a piece of data — text/html, image/png, application/json. A server sends it so that the browser knows what to do with the bytes, and a client sends a list of types it understands. This lesson maps file names to types, reads a Content-Type header, and chooses what to send for an Accept header.</p>
+<h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
+<ul><li>what a <strong>MIME type</strong> (media type, content type) is,</li><li>mapping file extensions to types (<code>FileExtensionContentTypeProvider</code>),</li><li>adding a type of your own,</li><li>reading <code>Content-Type</code> (type, subtype, <code>charset</code>),</li><li>the <code>Accept</code> header, <strong>quality</strong> values and wildcards,</li><li><strong>content negotiation</strong> and the answer <em>406 Not Acceptable</em>.</li></ul>
+<p><a href="tut-09-http.html">Tutorial 9</a> and <a href="tut-84-http-client.html">tutorial 84</a> used HTTP from the client side and <a href="tut-55-miniweb.html">tutorial 55</a> from the server side. Whenever a body is sent, a type must say what it is.</p>
+<div class="callout note"><span class="t">Note</span><p>The content type classes (<code>Microsoft.AspNetCore.StaticFiles</code>, <code>Microsoft.Net.Http.Headers</code>) are part of the ASP.NET Core runtime, so the program has <code>"RingDotNet.Web"</code> in its <code>using { }</code> (<a href="getting-started.html">Getting started</a>).</p></div>
+<h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t121_mime_types.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 121: MIME types - file extensions to content types, reading a Content-Type header, and choosing what to send for an Accept header</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Net.Mime"</span>
+	<span class="s">"RingDotNet.Web"</span>                  <span class="c"># the content type classes of ASP.NET Core are part of its runtime: this line starts it</span>
+}
+
+cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
+
+<span class="k">func</span> <span class="f">main</span>
+	<span class="c"># A MIME type (media type, content type) names the KIND of a piece of data: text/html, image/png, application/json. A server sends it in</span>
+	<span class="c"># the Content-Type header so that the browser knows what to do with the bytes, and a client sends Accept to say what it understands.</span>
+
+	<span class="c"># 1. From a file name to a type. The provider knows the common extensions.</span>
+	oProvider = <span class="f">dnNew</span>(<span class="s">"Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider"</span>,[])
+	? <span class="s">"1. file name -&gt; content type:"</span>
+	<span class="k">for</span> cFile <span class="k">in</span> [<span class="s">"index.html"</span>,<span class="s">"logo.png"</span>,<span class="s">"photo.JPG"</span>,<span class="s">"data.json"</span>,<span class="s">"report.pdf"</span>,<span class="s">"archive.zip"</span>,<span class="s">"notes.txt"</span>,<span class="s">"song.mp3"</span>,<span class="s">"movie.mp4"</span>,<span class="s">"style.css"</span>,<span class="s">"app.js"</span>,<span class="s">"unknown.xyz123"</span>]
+		? <span class="s">"   "</span> + padRight(cFile,<span class="n">16</span>) + contentTypeOf(oProvider,cFile)
+	<span class="k">next</span>
+
+	<span class="c"># 2. The mapping can be extended: a type of your own for your own extension</span>
+	oProvider.<span class="f">getProp</span>(<span class="s">"Mappings"</span>).<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span class="s">".ring"</span>,<span class="s">"text/x-ring"</span>])
+	? nl + <span class="s">"2. after adding .ring: "</span> + contentTypeOf(oProvider,<span class="s">"program.ring"</span>)
+	? <span class="s">"   (a file with an unknown type is sent as application/octet-stream: 'some bytes, download them')"</span>
+
+	<span class="c"># 3. Reading a Content-Type header: the type, the subtype and the parameters (the charset says how text is encoded)</span>
+	oContentType = <span class="f">dnNew</span>(<span class="s">"ContentType"</span>,[<span class="s">"text/html; charset=utf-8"</span>])
+	? nl + <span class="s">"3. text/html; charset=utf-8  -&gt;  media type: "</span> + oContentType.MediaType + <span class="s">", charset: "</span> + oContentType.CharSet
+	oSplit = <span class="f">dnStatic</span>(cHeaders + <span class="s">"MediaTypeHeaderValue"</span>,<span class="s">"Parse"</span>,[<span class="s">"application/json; charset=utf-8; q=0.9"</span>])
+	? <span class="s">"   with the headers library: type "</span> + oSplit.<span class="f">getProp</span>(<span class="s">"Type"</span>).<span class="f">toString</span>() + <span class="s">", subtype "</span> + oSplit.<span class="f">getProp</span>(<span class="s">"SubType"</span>).<span class="f">toString</span>() + <span class="s">", quality "</span> + oSplit.<span class="f">getProp</span>(<span class="s">"Quality"</span>)
+
+	<span class="c"># 4. The Accept header lists what the client understands, with a QUALITY (q) from 0 to 1 for each: the higher, the better. */* means</span>
+	<span class="c">#    "anything"; text/* means "any text type". The default quality is 1.</span>
+	cAccept = <span class="s">"text/html, application/json;q=0.9, text/*;q=0.5, */*;q=0.1"</span>
+	? nl + <span class="s">"4. the client sends: Accept: "</span> + cAccept
+	aClient = parseAccept(cAccept)
+	<span class="k">for</span> aItem <span class="k">in</span> aClient
+		? <span class="s">"   "</span> + padRight(aItem[<span class="n">1</span>],<span class="n">20</span>) + <span class="s">"quality "</span> + aItem[<span class="n">2</span>]
+	<span class="k">next</span>
+
+	<span class="c"># 5. Content negotiation: the server offers some types and sends the one that the client likes best</span>
+	? nl + <span class="s">"5. what the server sends:"</span>
+	<span class="k">for</span> aOffer <span class="k">in</span> [ [<span class="s">"application/json"</span>,<span class="s">"text/csv"</span>], [<span class="s">"text/csv"</span>,<span class="s">"text/plain"</span>], [<span class="s">"image/png"</span>], [<span class="s">"text/html"</span>,<span class="s">"application/json"</span>] ]
+		? <span class="s">"   offers "</span> + padRight(joinList(aOffer),<span class="n">28</span>) + <span class="s">"-&gt; "</span> + negotiate(aClient,aOffer)
+	<span class="k">next</span>
+
+	<span class="c"># 6. A client that wants a JSON answer: Accept: application/json only. If the server has no JSON, the right answer is the status</span>
+	<span class="c">#    406 Not Acceptable, not a guess.</span>
+	aStrict = parseAccept(<span class="s">"application/json"</span>)
+	? nl + <span class="s">"6. Accept: application/json, the server offers text/csv: "</span> + negotiate(aStrict,[<span class="s">"text/csv"</span>])
+
+<span class="k">func</span> <span class="f">contentTypeOf</span> oProvider,cFile
+	aResult = oProvider.<span class="f">callMethod</span>(<span class="s">"TryGetContentType"</span>,[cFile])
+	<span class="k">if</span> aResult[<span class="n">1</span>]
+		<span class="k">return</span> aResult[<span class="n">2</span>]
+	<span class="k">ok</span>
+	<span class="k">return</span> <span class="s">"application/octet-stream  (not known)"</span>
+
+<span class="c"># the Accept header as a list of [type, quality], the best first (the sort is stable: types with the same quality keep their order)</span>
+<span class="k">func</span> <span class="f">parseAccept</span> cAccept
+	aItems = []
+	<span class="k">for</span> cPart <span class="k">in</span> str2list(substr(cAccept,<span class="s">","</span>,nl))
+		oValue = <span class="f">dnStatic</span>(cHeaders + <span class="s">"MediaTypeHeaderValue"</span>,<span class="s">"Parse"</span>,[trim(cPart)])
+		nQuality = oValue.<span class="f">getProp</span>(<span class="s">"Quality"</span>)
+		<span class="k">if</span> isObject(nQuality)
+			nQuality = <span class="n">1</span>                                        <span class="c"># no q parameter: quality 1</span>
+		<span class="k">ok</span>
+		aItems + [ oValue.<span class="f">getProp</span>(<span class="s">"MediaType"</span>).<span class="f">toString</span>(), nQuality ]
+	<span class="k">next</span>
+	nCount = len(aItems)
+	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> nCount - <span class="n">1</span>
+		<span class="k">for</span> j = <span class="n">1</span> <span class="k">to</span> nCount - i
+			<span class="k">if</span> aItems[j][<span class="n">2</span>] &lt; aItems[j + <span class="n">1</span>][<span class="n">2</span>]
+				aTemp = aItems[j]
+				aItems[j] = aItems[j + <span class="n">1</span>]
+				aItems[j + <span class="n">1</span>] = aTemp
+			<span class="k">ok</span>
+		<span class="k">next</span>
+	<span class="k">next</span>
+	<span class="k">return</span> aItems
+
+<span class="c"># does the pattern of the Accept header (text/html, text/*, */*) cover the type?</span>
+<span class="k">func</span> <span class="f">covers</span> cPattern,cType
+	<span class="k">if</span> cPattern = <span class="s">"*/*"</span> <span class="k">or</span> cPattern = cType
+		<span class="k">return</span> <span class="k">True</span>
+	<span class="k">ok</span>
+	nSlash = substr(cPattern,<span class="s">"/"</span>)
+	<span class="k">return</span> right(cPattern,<span class="n">2</span>) = <span class="s">"/*"</span> <span class="k">and</span> left(cType,nSlash) = left(cPattern,nSlash)
+
+<span class="c"># the offered type that the client likes best, or 406</span>
+<span class="k">func</span> <span class="f">negotiate</span> aClient,aOffers
+	<span class="k">for</span> aItem <span class="k">in</span> aClient
+		<span class="k">if</span> aItem[<span class="n">2</span>] &gt; <span class="n">0</span>
+			<span class="k">for</span> cOffer <span class="k">in</span> aOffers
+				<span class="k">if</span> covers(aItem[<span class="n">1</span>],cOffer)
+					<span class="k">return</span> cOffer + <span class="s">"  (matched "</span> + aItem[<span class="n">1</span>] + <span class="s">", quality "</span> + aItem[<span class="n">2</span>] + <span class="s">")"</span>
+				<span class="k">ok</span>
+			<span class="k">next</span>
+		<span class="k">ok</span>
+	<span class="k">next</span>
+	<span class="k">return</span> <span class="s">"406 Not Acceptable"</span>
+
+<span class="k">func</span> <span class="f">joinList</span> aList
+	cText = <span class="s">""</span>
+	<span class="k">for</span> item <span class="k">in</span> aList
+		<span class="k">if</span> cText != <span class="s">""</span>
+			cText += <span class="s">", "</span>
+		<span class="k">ok</span>
+		cText += <span class="s">""</span> + item
+	<span class="k">next</span>
+	<span class="k">return</span> cText
+
+<span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. file name -&gt; content type:
+   index.html      text/html
+   logo.png        image/png
+   photo.JPG       image/jpeg
+   data.json       application/json
+   report.pdf      application/pdf
+   archive.zip     application/x-zip-compressed
+   notes.txt       text/plain
+   song.mp3        audio/mpeg
+   movie.mp4       video/mp4
+   style.css       text/css
+   app.js          text/javascript
+   unknown.xyz123  application/octet-stream  (not known)
+
+2. after adding .ring: text/x-ring
+   (a file with an unknown type is sent as application/octet-stream: 'some bytes, download them')
+
+3. text/html; charset=utf-8  -&gt;  media type: text/html, charset: utf-8
+   with the headers library: type application, subtype json, quality 0.90
+
+4. the client sends: Accept: text/html, application/json;q=0.9, text/*;q=0.5, */*;q=0.1
+   text/html           quality 1
+   application/json    quality 0.90
+   text/*              quality 0.50
+   */*                 quality 0.10
+
+5. what the server sends:
+   offers application/json, text/csv  -&gt; application/json  (matched application/json, quality 0.90)
+   offers text/csv, text/plain        -&gt; text/csv  (matched text/*, quality 0.50)
+   offers image/png                   -&gt; image/png  (matched */*, quality 0.10)
+   offers text/html, application/json -&gt; text/html  (matched text/html, quality 1)
+
+6. Accept: application/json, the server offers text/csv: 406 Not Acceptable</code></pre></div>
+<h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
+<h3 id="type-and-subtype">Type and subtype<a class="anchor" href="#type-and-subtype">#</a></h3>
+<p>A MIME type has the form **<code>type/subtype</code>**: the type is the family (<code>text</code>, <code>image</code>, <code>audio</code>, <code>video</code>, <code>application</code>) and the subtype the exact format (<code>html</code>, <code>png</code>, <code>json</code>). After a semicolon come <strong>parameters</strong>: <code>text/html; charset=utf-8</code> says that the text is encoded in UTF-8 (<a href="tut-52-unicode.html">tutorial 52</a> explains encodings). A server that sends the wrong type causes real problems: a browser that receives a script as <code>text/plain</code> does not run it, and one that receives a page as <code>text/plain</code> shows the source.</p>
+<h3 id="from-a-file-name">From a file name<a class="anchor" href="#from-a-file-name">#</a></h3>
+<p><code>FileExtensionContentTypeProvider.TryGetContentType(name)</code> answers <code>[ found, type ]</code> (<a href="tut-81-network-tools.html">tutorial 81</a> explains the out value) from the <strong>extension</strong> of the file name, ignoring case (<code>photo.JPG</code> is <code>image/jpeg</code>). The table is built into the library: it knows the usual web, office, audio and video formats, and the exact text for some extensions changes between versions (for example, JavaScript is <code>text/javascript</code> today and was <code>application/javascript</code> before), so a test must not depend on it. For an extension that is not in the table, the <strong>right default</strong> is <code>application/octet-stream</code>: <em>some bytes — download them, do not show them</em>. Never guess <code>text/html</code>.</p>
+<p><code>Mappings</code> is a dictionary you can extend: <code>Add(".ring", "text/x-ring")</code> teaches the provider a type of your own. Do this once, at the start of the program.</p>
+<div class="callout warn"><span class="t">Warning</span><p>The extension is what the <strong>name</strong> says, not what the <strong>content</strong> is. A file called <code>photo.jpg</code> can hold anything. For files that users upload, do not trust the type that comes with them: check the first bytes of the file (the <em>magic numbers</em>, <a href="tut-45-binary.html">tutorial 45</a>) and send downloads with <code>Content-Disposition: attachment</code> and the header <code>X-Content-Type-Options: nosniff</code>.</p></div>
+<h3 id="reading-content-type">Reading Content-Type<a class="anchor" href="#reading-content-type">#</a></h3>
+<p><code>System.Net.Mime.ContentType</code> parses a header into <code>MediaType</code> and <code>CharSet</code>; the headers library <code>MediaTypeHeaderValue.Parse</code> gives <code>Type</code>, <code>SubType</code>, <code>Quality</code> and the parameters. Their <code>Type</code> and <code>SubType</code> are small structs (<code>StringSegment</code>) that are turned into text with <code>toString()</code>.</p>
+<h3 id="accept-and-quality">Accept and quality<a class="anchor" href="#accept-and-quality">#</a></h3>
+<p>The client's **<code>Accept</code><strong> header lists the types it understands, separated by commas, each with an optional </strong>quality** <code>q</code> from 0 to 1 (1 is the default; higher is better, and 0 means <em>never</em>). <code>*/*</code> means <em>anything</em> and <code>text/*</code> <em>any text type</em>. The program parses the header, gives each item its quality, and sorts them best first (a simple, stable sort, so types with the same quality keep their order: the client's order breaks ties).</p>
+<h3 id="content-negotiation">Content negotiation<a class="anchor" href="#content-negotiation">#</a></h3>
+<p>The server <strong>offers</strong> some types, and the best answer is the offered type that the client likes most: for each type of the Accept list, from best to worst, take the first offer that it covers. In step 5, a client that sends <code>text/html, application/json;q=0.9, text/*;q=0.5, */*;q=0.1</code> gets <code>application/json</code> when the server offers JSON and CSV, gets <code>text/csv</code> when it offers CSV and plain text (matched by <code>text/*</code>), and gets a PNG only through <code>*/*</code>. If <em>nothing</em> fits — a client that accepts only JSON and a server that has only CSV — the correct answer is <strong>406 Not Acceptable</strong>, so that the client sees at once that the types do not agree, instead of receiving data it cannot use.</p>
+<p>In real programs the negotiation also looks at the <strong>language</strong> (<code>Accept-Language</code>) and the <strong>encoding</strong> (<code>Accept-Encoding</code>: gzip, br, <a href="tut-88-compression.html">tutorial 88</a>), with the same quality rules.</p>
+<h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
+<ul><li><code>type/subtype</code> and parameters such as <code>charset</code>,</li><li><code>TryGetContentType</code>, the default <code>application/octet-stream</code>, and your own <code>Mappings</code>,</li><li>the extension is not the content,</li><li>the <code>Accept</code> list, quality and wildcards,</li><li>negotiation and <em>406 Not Acceptable</em>.</li></ul>
+<h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
+<ol><li>Make the web server of <a href="tut-55-miniweb.html">tutorial 55</a> send the right <code>Content-Type</code> for the files of a folder.</li><li>Parse <code>Accept-Language: ar, en;q=0.8, fr;q=0.5</code> with the same functions and choose a language from the list of the languages you have.</li><li>Write <code>isAllowedUpload(name)</code> that accepts only <code>image/png</code>, <code>image/jpeg</code> and <code>application/pdf</code>.</li><li>Add <code>*/*;q=0</code> to an Accept header and see how it changes the answer.</li></ol>
+<h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
+<p>You have reached the end of the tutorials. Keep <a href="concepts.html">Core concepts</a>, the <a href="api.html">class reference</a> and <a href="gotchas.html">Gotchas &amp; limits</a> at hand, and read the <a href="gallery-apps.html">applications</a> for bigger programs.</p>
+<div class="pager"><a href="tut-120-routes.html"><small>Previous</small>120. Route templates</a><a class="next" href="concepts.html"><small>Next</small>Core concepts</a></div>
+<footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
+</article>
+<aside class="toc" id="toc"></aside>
+</main>
+</body>
+</html>
