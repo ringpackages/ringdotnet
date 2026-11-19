@@ -474,7 +474,7 @@ namespace RingDotNet
 				}
 			} while (dot > 0);
 			/* types that live in an assembly whose name is not a prefix of their namespace */
-			foreach (string extra in new[] { "System.IO.Compression.Brotli", "System.Collections.NonGeneric", "Microsoft.Extensions.Configuration.Json", "Microsoft.Extensions.Configuration.EnvironmentVariables", "Microsoft.Extensions.Configuration.Binder", "Microsoft.Extensions.Configuration.CommandLine", "Microsoft.Extensions.Configuration.Ini", "Microsoft.Extensions.Configuration.Xml", "Microsoft.Extensions.Configuration.FileExtensions", "Microsoft.Extensions.FileProviders.Physical", "System.Net.Http.Json", "System.Linq.Expressions", "System.Collections.Concurrent", "System.Threading.Channels", "System.Numerics.Vectors" })
+			foreach (string extra in new[] { "System.IO.Compression.Brotli", "System.IO.FileSystem.DriveInfo", "System.IO.FileSystem.Watcher", "System.Collections.NonGeneric", "Microsoft.Extensions.Configuration.Json", "Microsoft.Extensions.Configuration.EnvironmentVariables", "Microsoft.Extensions.Configuration.Binder", "Microsoft.Extensions.Configuration.CommandLine", "Microsoft.Extensions.Configuration.Ini", "Microsoft.Extensions.Configuration.Xml", "Microsoft.Extensions.Configuration.FileExtensions", "Microsoft.Extensions.FileProviders.Physical", "System.Net.Http.Json", "System.Linq.Expressions", "System.Collections.Concurrent", "System.Threading.Channels", "System.Numerics.Vectors" })
 			{
 				try
 				{

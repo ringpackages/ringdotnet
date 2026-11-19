@@ -1,0 +1,13 @@
+1. the primary screen has a size: yes
+   the working area (without the taskbar) fits in the screen: yes
+   at least one screen: yes
+
+2. a picture of the top left corner of the screen: 120 x 80 pixels, saved: yes
+
+3. a picture of the panel: 240 x 120 pixels
+
+4. a pixel on the background: ffdc2828
+   a pixel inside the label:  ffffffff
+   (the color is shown as alpha, red, green and blue in hexadecimal)
+
+5. most of the panel is the red background: yes

@@ -1,0 +1,22 @@
+1. formatSize:
+   0               0 bytes
+   512             512 bytes
+   1024            1.0 KB
+   1536            1.5 KB
+   1048576         1.0 MB
+   1610612736      1.5 GB
+   5497558138880   5.0 TB
+
+2. the computer has drives: yes, ready to use: yes
+
+3. the drive of the temporary folder: ready yes, type Fixed
+
+4. the total size is more than the free space: yes
+   available for the user is not more than the free space: yes
+   the percentage of free space is between 0 and 100: yes
+
+5. will it fit?
+   1.0 MB        fits
+   4.9 PB        does not fit: 4.9 PB more is needed
+
+6. a drive with an impossible name: System.ArgumentException

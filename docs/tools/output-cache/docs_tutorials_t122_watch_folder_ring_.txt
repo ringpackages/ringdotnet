@@ -1,0 +1,11 @@
+1. a folder to watch was created
+2. watching: *.txt, subfolders: no
+3. the child was started
+
+4. what happened:
+   Created   note.txt
+   Changed   note.txt
+   Renamed   note.txt -> done.txt
+   Deleted   done.txt
+
+5. the folder was deleted; the child's exit code: 0

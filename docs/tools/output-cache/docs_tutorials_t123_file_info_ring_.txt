@@ -1,0 +1,21 @@
+1. name: report.txt, extension: .txt, exists: yes
+   name without extension: report, size: 18 bytes
+
+2. last written: 2024-03-15 09:30
+   older than a day: yes
+
+3. attributes: Archive
+   after SetAttributes: ReadOnly, IsReadOnly: yes
+
+4. writing failed: System.UnauthorizedAccessException
+   after removing the flag: new text
+
+5. second copy: System.IO.IOException
+   with overwrite = True: ok, size 8 bytes
+
+6. a temporary file: exists yes, size 0 bytes
+   after Delete: exists no
+
+7. in the folder:
+   copy.txt (8 bytes)
+   report.txt (8 bytes)

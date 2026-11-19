@@ -86,4 +86,4 @@ Draw the loaded image into a smaller rectangle of a new bitmap: `DrawImage(oLoad
 
 ## Next
 
-[A chart](tut-36-chart.html)
+[Screens and pictures of windows](tut-125-screenshot.html)

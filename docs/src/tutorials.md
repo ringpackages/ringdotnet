@@ -144,6 +144,9 @@ Paths, streams, binary files, compression (GZip, ZIP, tar), file patterns, and p
 <a class="card" href="tut-108-zip-in-memory.html"><div class="ic">📁</div><b>ZIP archives in memory</b><span>ZipArchive on a MemoryStream: entries, levels and updates.</span></a>
 <a class="card" href="tut-96-tar.html"><div class="ic">📁</div><b>Tar archives</b><span>Create, list, read and unpack tar files.</span></a>
 <a class="card" href="tut-112-globbing.html"><div class="ic">📁</div><b>File patterns (globbing)</b><span>**/*.ring, include and exclude rules, matching lists of paths.</span></a>
+<a class="card" href="tut-123-file-info.html"><div class="ic">📁</div><b>File information</b><span>FileInfo: size, times, attributes, read-only files, copying and temporary files.</span></a>
+<a class="card" href="tut-124-disks.html"><div class="ic">📁</div><b>Disks and free space</b><span>DriveInfo, the sizes of a disk, will it fit, and sizes for people.</span></a>
+<a class="card" href="tut-122-watch-folder.html"><div class="ic">📁</div><b>Watching a folder</b><span>FileSystemWatcher: created, changed, renamed and deleted files, with a child program.</span></a>
 <a class="card" href="tut-21-log-analyzer.html"><div class="ic">📁</div><b>Project: a log analyzer</b><span>Files, regular expressions, dictionaries, LINQ and a JSON report in one program.</span></a>
 <a class="card" href="tut-31-duplicates.html"><div class="ic">📁</div><b>Project: duplicate files</b><span>Folders, content hashes and a dictionary find the copies.</span></a>
 <a class="card" href="tut-46-backup.html"><div class="ic">📁</div><b>Project: a backup tool</b><span>Zip by date, keep the newest few, restore and verify.</span></a>
@@ -229,6 +232,7 @@ Windows with controls, layout, dialogs and menus, timers, drawing, images and ch
 <a class="card" href="tut-34-timers.html"><div class="ic">🪟</div><b>Timers and progress</b><span>A stopwatch, a progress bar, and a long job in small steps.</span></a>
 <a class="card" href="tut-14-animation.html"><div class="ic">🪟</div><b>Drawing and animation</b><span>A canvas, a timer and the keyboard: a bouncing ball and a paddle.</span></a>
 <a class="card" href="tut-22-images.html"><div class="ic">🪟</div><b>Images</b><span>Draw, read and change pixels, make a gray copy, resize and save PNG files.</span></a>
+<a class="card" href="tut-125-screenshot.html"><div class="ic">🪟</div><b>Screens and pictures of windows</b><span>Screen, CopyFromScreen, DrawToBitmap, and checking a window by its pixels.</span></a>
 <a class="card" href="tut-36-chart.html"><div class="ic">🪟</div><b>A chart</b><span>Scaling values to pixels, a round axis, bars, labels, saving, testing pixels.</span></a>
 <a class="card" href="tut-42-browser.html"><div class="ic">🪟</div><b>A folder browser</b><span>TreeView, ListView, recursion and the Tag property: a small Explorer.</span></a>
 </div>
