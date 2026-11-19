@@ -8,7 +8,8 @@
 	uiButton(oForm,"OK",10,50,80,28,"uiMessage('Hello ' + oEdit.Text,'Hi')")
 	uiRun(oForm)
 
-	Programs can run themselves as a test: ring app.ring --selftest (see uiTest and uiEnd).
+	Programs can run themselves as a test: ring app.ring --selftest (see uiTest and uiEnd). In a test the form is invisible, a message
+	box prints its text, and the form is closed when the test code ends (so the form is kept in the global variable oForm).
 */
 
 # ---------------------------------------------------------------- forms and controls
@@ -202,7 +203,7 @@ func uiMessage  cText, cTitle
 	ok
 	new MessageBox().Show([ :text = cText, :caption = cTitle ])
 
-# Yes/No question (a test answers "yes" unless uiAnswer is set)
+# Yes/No question: true for Yes (a test prints the question and answers yes)
 func uiAsk  cText, cTitle
 	if uiSelfTest()
 		? "[question] " + cTitle + ": " + cText
@@ -256,7 +257,8 @@ func uiRun  oForm
 	new Application().EnableVisualStyles()
 	new Application().Run(oForm)
 
-# The automatic part of an application: when running as a test, cCode runs once the form is shown and the form closes afterwards
+# The automatic part of an application: when running as a test, cCode runs once the form is shown and the form closes afterwards.
+# The form must be in the global variable oForm (the code that closes it is oForm.Close()).
 func uiTest  oForm, cCode
 	if not uiSelfTest()
 		return

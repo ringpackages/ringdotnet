@@ -1,9 +1,11 @@
 /*
-	WPF helpers (loaded by dnImport("System.Windows"))
+	WPF helpers (loaded with the namespace System.Windows)
 
-	dnUseDesktop()
-	dnImport("System.Windows")
-	dnImport("System.Windows.Controls")
+	load "dotnet.ring"
+	using {
+		"System.Windows"
+		"System.Windows.Controls"
+	}
 
 	oWindow = wpfWindow("Hello",300,200)
 	oPanel = new StackPanel()
@@ -81,7 +83,8 @@ func wpfRun  oWindow
 	wpfQuiet(oWindow)
 	oWindow.ShowDialog()
 
-# The automatic part of a program: when running as a test, cCode runs once the window is rendered and the window closes afterwards
+# The automatic part of a program: when running as a test, cCode runs once the window is rendered and the window closes afterwards.
+# The window must be in the global variable oWindow (the code that closes it is oWindow.Close()).
 func wpfTest  oWindow, cCode
 	if not wpfSelfTest()
 		return

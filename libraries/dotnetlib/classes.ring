@@ -1,5 +1,8 @@
 /*
 	DotNetLib - Classes
+
+	A .NET object stays in .NET. Ring holds a number (a handle) in a DotNetObject, and the managed bridge keeps the object in a table.
+	The generated classes (generated/) derive from DotNetObject and add the methods and properties of the .NET class.
 */
 
 # A reference to a .NET object (or to a .NET type when it came from dnType())
@@ -22,7 +25,7 @@ class DotNetObject
 	func isNull
 		return nHandle = 0
 
-	# Call a method: oObject.callMethod("Append", ["text"])
+	# Call a method by its name: oObject.callMethod("Append", ["text"]). It works for every .NET object, also when no class was generated.
 	func callMethod  cMethod, aParameters
 		if not islist(aParameters)
 			aParameters = []
@@ -50,7 +53,8 @@ class DotNetObject
 	func toList
 		return dnRequest("tolist",[self])
 
-	# Release the reference kept by the bridge (the object can't be used after this)
+	# Release the reference kept by the bridge now (the object is not used after this). Ring releases it by itself when the last
+	# variable that holds the object is gone (see oDotNetGuard); this is only needed to let go of a big object at once.
 	func release
 		if nHandle != 0
 			dotnet_unguard(oDotNetGuard)

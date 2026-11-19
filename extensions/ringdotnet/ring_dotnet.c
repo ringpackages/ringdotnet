@@ -3,10 +3,15 @@
 **  Hosts the .NET runtime (through hostfxr) inside the Ring process and forwards
 **  requests to the managed bridge (RingDotNet.Bridge.dll).
 **
-**  The extension is intentionally thin: it exports three functions
-**      dotnet_start()            start the runtime and load the bridge (once)
+**  The extension is intentionally thin. It has these functions:
+**      dotnet_start(cMode)       start the runtime and load the bridge (once; the mode is "", "desktop", "web" or "all")
 **      dotnet_invoke(cRequest)   send one request, get one response (binary-safe strings)
 **      dotnet_info()             path of the hostfxr library that was used
+**      dotnet_callbackrequest(), dotnet_callbackresult(cResult)
+**                                the request of a Ring callback that .NET runs, and its result
+**      dotnet_guard(nHandle), dotnet_unguard(pGuard), dotnet_pending(), dotnet_flush()
+**                                managed pointers: when Ring drops a .NET object, its handle is queued, and the queued
+**                                handles are released in groups
 **  The request/response wire format is described in bridge/Bridge.cs and is
 **  packed/unpacked by libraries/dotnetlib (Ring code).
 */

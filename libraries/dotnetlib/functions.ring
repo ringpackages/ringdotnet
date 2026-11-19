@@ -1,5 +1,11 @@
 /*
 	DotNetLib - Functions
+
+	The functions of this file are of two kinds:
+	  - the ones that a program calls: dnNew, dnStatic, dnType, dnCallback, dnImport, dnImportFrom, dnNull, dnBuffer, dnFlush, dnVersion,
+	    dnLoad, dnUseDesktop / dnUseWeb / dnUseAll / dnUseData, dnAssert ...
+	  - the ones that the library and the generated classes use: dnRequest and the packing of values, dnCreate, dnWrapObject ...
+
 	Wire format: items of <tag><byte length>:<data>  (see extensions/ringdotnet/bridge/Bridge.cs)
 */
 
@@ -211,8 +217,10 @@ func dnCreateNamed  cTypeName, aNamed
 func dnDescribe  cTypeName
 	return dnRequest("describe",[cTypeName])
 
-# Ring code callable from .NET: dnCallback("? aDotNetArgs[1]") or dnCallback("myfunc"),
-# then pass it where a delegate is expected. The code is compiled once into a function (the same code gives the same function).
+# Ring code callable from .NET: dnCallback("? aDotNetArgs[1]") or dnCallback("myfunc"), then pass it where a delegate is expected.
+# Code in a text reads the arguments from aDotNetArgs and sets xDotNetResult. The NAME of a function is called with the list of the
+# arguments (func myfunc aArgs) and its return value is the result. The code is compiled once into a function (the same code gives
+# the same function). A callback runs on the Ring thread, while a call from Ring is running (see the page "Rules and limits").
 func dnCallback  cCode
 	dn_nPos = find(aDotNetCallbacks,cCode,1)
 	if dn_nPos = 0
@@ -228,7 +236,8 @@ func dnCallback  cCode
 	ok
 	return new DotNetCallback(aDotNetCallbacks[dn_nPos][2])
 
-# Runs one Ring callback requested by .NET (called by the extension, don't call it directly)
+# Runs one Ring callback that .NET asked for (called by the extension: a program does not call it). The arguments are in aDotNetArgs,
+# and the answer is what the callback puts in xDotNetResult (or returns, for a callback that is a function name).
 func dnDispatchCallback
 	dn_aItems = dnUnpack(dotnet_callbackrequest())
 	aDotNetArgs = []
@@ -277,7 +286,7 @@ func dnFolderOf  cPath
 	next
 	return ""
 
-# Load the generated Ring classes of a .NET namespace: dnImport("System.IO")
+# Load the generated Ring classes of a .NET namespace: dnImport("System.IO"). using { "System.IO" } calls it for each name.
 func dnImport  cNamespace
 	if find(aDotNetImported,cNamespace) > 0
 		return true
@@ -318,7 +327,8 @@ func dnGenericName  cType, aArguments
 func dnNewGeneric  cType, aArguments, aParameters
 	return dnNew(dnGenericName(cType,aArguments),aParameters)
 
-# Simple test helpers: dnAssert("name",actual,expected) ... dnTestSummary()
+# Simple test helpers: dnAssert("name",actual,expected) ... dnTestSummary(). Numbers are compared with a small tolerance, texts exactly
+# (binary data too: a text can hold any byte). A failure prints one line: FAIL: name expected <..> got <..>
 func dnAssert  dn_cName, xActual, xExpected
 	if (isnumber(xActual) and isnumber(xExpected) and fabs(xActual - xExpected) < 0.000001) or (isstring(xActual) and isstring(xExpected) and xActual = xExpected)
 		nDotNetPass++
@@ -327,12 +337,14 @@ func dnAssert  dn_cName, xActual, xExpected
 		? "FAIL: " + dn_cName + " expected <" + dnShow(xExpected) + "> got <" + dnShow(xActual) + ">"
 	ok
 
+# A value for a message: a text or a number as it is, anything else as its type
 func dnShow  dn_xValue
 	if isstring(dn_xValue) or isnumber(dn_xValue)
 		return "" + dn_xValue
 	ok
 	return "(" + type(dn_xValue) + ")"
 
+# Print "TESTS: n passed, m failed" and return the number of failures
 func dnTestSummary
 	? "TESTS: " + nDotNetPass + " passed, " + nDotNetFail + " failed"
 	return nDotNetFail
@@ -359,7 +371,8 @@ func dnBuildIndexMap
 	next
 	aDotNetIndexMap["#built"] = "1"
 
-# A .NET object received from the bridge ("<handle>|<type>|<base type>|...") as the generated class of its type.
+# A .NET object received from the bridge ("<handle>|<type>|<base type>|...") as the generated class of its type. The new object owns the
+# handle: its managed pointer (a guard) releases the handle when Ring drops the object.
 # When no class is registered yet, the namespace of the first known type of the chain is imported automatically.
 # The answer for a chain of types is remembered (aDotNetWrapCache): most objects come from a few types.
 func dnWrapObject  cInfo
@@ -437,7 +450,7 @@ func dnUseWeb
 	dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Web.dll")
 	return 1
 
-# Windows Forms / WPF and ASP.NET Core together (used by the class generator)
+# Windows Forms / WPF and ASP.NET Core together (using { } starts it when the names of both are used). Call it before any other .NET call.
 func dnUseAll
 	dotnet_start("all")
 	cDotNetMode = "all"

@@ -5,7 +5,7 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 
-# Ring keywords can't be method names: add "_" at the end
+# Ring keywords are not used as method names: a method that has such a name gets "_" at the end
 aKeywords = split("if to or and not for foreach new func from next load else see while ok class return but end give bye exit try catch done switch on other off in loop package import private step do again call elseif put get set case def endfunc endclass endpackage endif endfor endwhile endswitch endtry function endfunction break continue this self super main init operator"," ")
 # The words that Ring accepts after a dot, as the name of an attribute or a method (o.From = x, o.Set(1)): they keep their names.
 # The others (get and or not next end if for new load call put give see ...) are a syntax error there: methods get "_", attributes are left out.

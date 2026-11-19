@@ -4,13 +4,16 @@
 **  The native extension (ring_dotnet.dll) hosts the runtime and calls Bridge.Invoke with one
 **  request. A request/response is a sequence of "items":   <tag><byte length>:<data>
 **
-**      s  string (UTF-8 bytes)         n  number (invariant decimal text)
-**      b  boolean ("1" or "0")         z  null (length 0)
-**      o  object handle (decimal id)   l  list (data = nested items)
+**      s  string (UTF-8 bytes, or any bytes: a byte[] is a string item)
+**      n  number (invariant decimal text)       d  double (the 8 bytes of the number)
+**      b  boolean ("1" or "0")                  z  null (length 0)
+**      o  object handle (decimal id)            l  list (data = nested items)
+**      c  Ring callback (Ring code, or the name of a Ring function; request only)
 **      e  error (message, response only)
 **
 **  A request is:  s<operation> item item ...      A response is exactly one item.
-**  Objects never cross the boundary: .NET objects live in a handle table and Ring holds the ids.
+**  Objects never cross the boundary: .NET objects live in a handle table and Ring holds the ids. A byte[] does cross it (as a
+**  copy, in both directions), except inside a ByteBuffer: that object holds a live byte[] for the methods that fill an array.
 */
 
 using System;

@@ -2,7 +2,7 @@
 	Entity Framework Core (with SQLite) for Ring programs.
 
 	load "dotnet.ring"
-	dnUseData()
+	using { "RingDotNet.Data" }			# loads the Entity Framework assemblies (the namespaces Microsoft.EntityFrameworkCore* do it too)
 
 	oDb = new RingDatabase("Data Source=people.db",[
 		["Customers",[ ["Id","int",1], ["Name","string",0], ["Age","int",0], ["City","string",0] ]]

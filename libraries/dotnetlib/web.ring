@@ -2,7 +2,7 @@
 	A web server for Ring programs (ASP.NET Core / Kestrel); the requests are handled by Ring functions.
 
 	load "dotnet.ring"
-	dnUseWeb()
+	using { "RingDotNet.Web" }			# starts the ASP.NET Core mode (the namespaces Microsoft.AspNetCore.* do it too)
 
 	oServer = new WebServer("http://localhost:5000")
 	oServer.onGet("/","home")
@@ -17,7 +17,9 @@
 	func echoApi oRequest
 		return [201,"text/plain","you sent: " + oRequest.body()]
 
-	A handler gets a RingRequest and returns: a text (200, text/html), [status, contentType, text], or webJson(list).
+	A handler gets a RingRequest (method(), path(), query("name"), body(), header("name"), form("name"), setHeader(name, value),
+	context() = the ASP.NET HttpContext) and returns: a text (200, text/html), [status, contentType, text], or webJson(list).
+	notFound("handler") answers the paths that no route has (a catch-all handler).
 	The server runs in .NET threads, the handlers run on the Ring thread: call serveOne(nMilliseconds) in your own loop
 	(for example next to a GUI) or run().
 */

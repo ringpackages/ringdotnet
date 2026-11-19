@@ -1,4 +1,5 @@
-# Item tags of the wire format shared with the managed bridge (see bridge/Bridge.cs)
+# Item tags of the wire format shared with the managed bridge (see bridge/Bridge.cs). Each item is <tag><size>:<data>.
+# A byte[] is a string item (a Ring text can hold any byte); a number that is not a whole number is a double item (the 8 bytes).
 C_DOTNET_STRING = "s"
 C_DOTNET_NUMBER = "n"
 C_DOTNET_BOOL   = "b"
