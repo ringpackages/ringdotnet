@@ -5,7 +5,6 @@ using {
 	"System.Net"
 	"System.Net.Sockets"
 	"System.Net.NetworkInformation"
-	"System.Threading"
 }
 
 func main
@@ -54,17 +53,16 @@ func main
 	oListener.Stop()
 	? "   after Stop the same port is open = " + yesNo(portIsOpen("127.0.0.1",nOpenPort))
 
-# true when a TCP connection to the address and port is accepted within half a second. ConnectAsync starts the connection and gives a task;
-# a refused connection makes the task *faulted* (IsFaulted), which is the answer "closed" - no error has to be caught.
+# true when a TCP connection to the address and port is accepted within half a second
 func portIsOpen cAddress, nPort
 	oClient = new TcpClient()
-	oTask = oClient.ConnectAsync([ :host = cAddress, :port = nPort ])
-	nWaited = 0
-	while not oTask.IsCompleted and nWaited < 50
-		new Thread().Sleep(10)
-		nWaited++
-	end
-	lOpen = oTask.IsCompleted and not oTask.IsFaulted and oClient.Connected
+	lOpen = False
+	try
+		oTask = oClient.ConnectAsync([ :host = cAddress, :port = nPort ])
+		lOpen = oTask.Wait(500) and oClient.Connected
+	catch
+		lOpen = False                          # refused or failed: the error is the answer
+	done
 	oClient.Dispose()
 	return lOpen
 
