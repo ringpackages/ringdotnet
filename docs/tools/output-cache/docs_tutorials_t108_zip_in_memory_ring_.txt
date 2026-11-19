@@ -1,0 +1,18 @@
+1. an archive with 3 files is in memory, it has bytes: 1
+
+2. the entries:
+   readme.txt            27 bytes, packed smaller than the original: 0
+   data/numbers.txt    5500 bytes, packed smaller than the original: 1
+   data/names.txt        10 bytes, packed smaller than the original: 0
+
+3. data/names.txt contains: Ann, Bob, Cy
+   GetEntry of a missing name is null: 1
+
+4. the same 5500 characters in an archive:
+   without compression the archive is bigger than the text: 1
+   fastest is much smaller than no compression:             1
+   smallest size is not bigger than fastest:                1
+
+5. after the update: readme.txt data/names.txt notes/new.txt 
+
+6. a safe name has no '..' part and does not start with '/': safe, unsafe, unsafe

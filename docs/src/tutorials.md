@@ -151,6 +151,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-103-dates-and-times.html"><div class="ic">103</div><b>Dates and times</b><span>DateOnly, TimeOnly, DateTimeOffset, TimeSpan and month-end rules.</span></a>
 <a class="card" href="tut-104-text-readers-writers.html"><div class="ic">104</div><b>Text readers and writers</b><span>StringWriter, StringReader, capturing Console output, String.Format.</span></a>
 <a class="card" href="tut-105-signatures.html"><div class="ic">105</div><b>Digital signatures</b><span>ECDsa keys, signing, verifying and sharing the public key.</span></a>
+<a class="card" href="tut-106-arrays.html"><div class="ic">106</div><b>Arrays</b><span>Typed arrays, Array.Sort, BinarySearch, Copy and two dimensions.</span></a>
+<a class="card" href="tut-107-sets.html"><div class="ic">107</div><b>Sets</b><span>HashSet: union, intersection, difference and removing duplicates.</span></a>
+<a class="card" href="tut-108-zip-in-memory.html"><div class="ic">108</div><b>ZIP archives in memory</b><span>ZipArchive on a MemoryStream: entries, levels and updates.</span></a>
 </div>
 
 ## Learning path

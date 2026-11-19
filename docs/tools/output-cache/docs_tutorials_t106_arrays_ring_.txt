@@ -1,0 +1,19 @@
+1. a list given to Array.Sort comes back unchanged: 42 7 19 3 25 (the bridge sorted its own copy)
+
+2. an Int32 array of 5 items: 42 7 19 3 25 
+   after Array.Sort:     3 7 19 25 42 
+   after Array.Reverse:  42 25 19 7 3 
+
+3. IndexOf(19) in the sorted array: 2   (0-based: Ring would say 3)
+   IndexOf(99): -1
+   BinarySearch(19): 2, BinarySearch(20): -4   (negative: not found; the complement 3 is where 20 would go, 0-based)
+
+4. copied into a bigger array: 3 7 19 25 42 0 0 0 
+   Array.Clear(array, 0, 3) sets 3 items to zero: 0 0 0 25 42 0 0 0 
+
+5. sorted words: apple fig pear 
+
+6. a 3 x 4 table (rank 2, 12 items, 3 rows, 4 columns):
+      0   1   2   3
+     10  11  12  13
+     20  21  22  23

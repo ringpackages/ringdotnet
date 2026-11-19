@@ -58,6 +58,6 @@ A signature made with one key does not verify with another key (step 4). Nobody 
 3. Change one byte of the signature and check that verification fails.
 4. Try the curve `nistP384` and look at the size of the signature.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 106: Arrays](tut-106-arrays.html)
