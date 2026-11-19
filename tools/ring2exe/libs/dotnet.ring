@@ -1,3 +1,13 @@
+# ring2exe: the runtime files of RingDotNet that are copied next to the program that is made (Ring2EXE -dotnet)
+#
+# Windows: the files are copied from ring/bin and keep their folders. System.Data.Odbc.dll is for programs that use Microsoft Access or
+#   another ODBC source (tutorial 115): it is small and harmless when it is not used. e_sqlite3.dll is the SQLite library of win-x64.
+# Linux and macOS: the files are copied from ring/lib (setup.ring puts the managed files there, next to libring_dotnet.so) into the lib
+#   folder of the program. The SQLite library is taken from the folder of ONE system and processor and is copied without its folder (the
+#   assembly finds it next to itself): runtimes/linux-x64 below; change it to runtimes/linux-arm64 for a program for arm64, and
+#   runtimes/osx-arm64 below to runtimes/osx-x64 for an Intel Mac.
+# The .NET runtime itself is not copied: the computer that runs the program needs the .NET runtime (and the ASP.NET Core runtime for
+#   programs that use the web, tutorial 16).
 aLibrary = [:name = :dotnet ,
 	 :title = "RingDotNet",
 	 :windowsfiles = [
@@ -33,6 +43,7 @@ aLibrary = [:name = :dotnet ,
 			"SQLitePCLRaw.core.dll",
 			"SQLitePCLRaw.provider.e_sqlite3.dll",
 			"System.Text.Json.dll",
+			"System.Data.Odbc.dll",
 			"e_sqlite3.dll"
 	 ],
 	 :linuxfiles = [
@@ -68,7 +79,7 @@ aLibrary = [:name = :dotnet ,
 		"SQLitePCLRaw.core.dll",
 		"SQLitePCLRaw.provider.e_sqlite3.dll",
 		"System.Text.Json.dll",
-		"libe_sqlite3.so"
+		"runtimes/linux-x64/native/libe_sqlite3.so"
 	 ],
 	 :macosxfiles = [
 		"libring_dotnet.dylib",
@@ -103,7 +114,7 @@ aLibrary = [:name = :dotnet ,
 		"SQLitePCLRaw.core.dll",
 		"SQLitePCLRaw.provider.e_sqlite3.dll",
 		"System.Text.Json.dll",
-		"libe_sqlite3.dylib"
+		"runtimes/osx-arm64/native/libe_sqlite3.dylib"
 	 ],
 	 :ubuntudep = "",
 	 :fedoradep = "",

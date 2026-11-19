@@ -14,6 +14,15 @@ func main
 			ok
 		next
 	ok
+	if not isWindows() and fexists(cList)
+		# the managed files that setup.ring copied to ring/lib
+		for cFile in aFiles
+			if isManagedFile(cFile)
+				remove("lib/" + substr(cFile,"bin/",""))
+			ok
+		next
+		OSDeleteFolder("lib/runtimes")
+	ok
 	OSDeleteFolder("libraries/dotnetlib")
 	OSDeleteFolder("samples/UsingDotNet")
 	OSDeleteFolder("extensions/ringdotnet")
@@ -22,6 +31,16 @@ func main
 		OSDeleteEmptyFolder(cFolder)
 	next
 	chdir(cDir)
+
+# a managed file of the package: a .dll or .json file in the bin folder itself (not in a sub folder), without the Windows libraries
+func isManagedFile cFile
+	if left(cFile,4) != "bin/" or substr(right(cFile,len(cFile) - 4),"/") > 0
+		return false
+	ok
+	if cFile = "bin/ring_dotnet.dll" or cFile = "bin/e_sqlite3.dll"
+		return false
+	ok
+	return right(cFile,4) = ".dll" or right(cFile,5) = ".json"
 
 func startsWith cText, cStart
 	return left(cText,len(cStart)) = cStart
