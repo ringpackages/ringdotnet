@@ -34,9 +34,9 @@ dotnet build Greeter -c Release -o Greeter/bin
 
 ## The Ring program
 
-{{file:samples/UsingDotNet/tutorials/ch13_l01_use_library.ring}}
+{{file:samples/UsingDotNet/tutorials/ch13_use_library.ring}}
 
-{{output:samples/UsingDotNet/tutorials/ch13_l01_use_library.ring}}
+{{output:samples/UsingDotNet/tutorials/ch13_use_library.ring}}
 
 ## How C# members look in Ring
 
