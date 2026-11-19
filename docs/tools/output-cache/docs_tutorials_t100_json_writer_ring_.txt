@@ -1,0 +1,23 @@
+1. the document:
+{
+  "name": "Ann",
+  "age": 31,
+  "active": true,
+  "manager": null,
+  "skills": [
+    "ring",
+    ".NET"
+  ],
+  "address": {
+    "city": "Cairo"
+  }
+}
+
+2. one line: [1,4,9]
+
+3. escaped: {"text":"a \u0022quoted\u0022 line\nand a \u003Ctag\u003E \u0026 more"}
+   an end without a start is an error: 1
+
+4. a list: [3,1,2]
+   a dictionary: {"ann":9.5,"bob":7}
+   indented: {   "ann": 9.5,   "bob": 7 }

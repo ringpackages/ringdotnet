@@ -1,0 +1,28 @@
+1. the limits:
+   Byte   0 .. 255
+   Int16  -32768 .. 32767
+   Int32  -2147483648 .. 2147483647
+   Int64  -9223372036854775808.00 .. 9223372036854775808.00
+   (a Ring number is exact only up to 9007199254740992: the Int64 limit is shown rounded)
+
+2. 200 as a Byte: 200
+   300 as a Byte: error (too big for a Byte)
+   -1 as a Byte: error (below zero)
+
+3. TryParse of Int32:
+   '42' -> 42
+   '-7' -> -7
+   '3000000000' is not an Int32 (wrong text or too big)
+   '12abc' is not an Int32 (wrong text or too big)
+   '' is not an Int32 (wrong text or too big)
+   '  15  ' -> 15
+
+4. 17 divided by 5: quotient 3, remainder 2
+   -17 divided by 5: quotient -3, remainder -2   (the remainder has the sign of the first number)
+
+5. the largest Int128: 170141183460469231731687303715884105727
+   the largest UInt128: 340282366920938463463374607431768211455
+
+6. Single: 16777216 + 1 = 16777216   (a Single cannot count past 16777216)
+   Double: 16777216 + 1 = 16777217
+   0.1 + 0.2 = 0.30, equal to 0.3: 0, close to 0.3: 1

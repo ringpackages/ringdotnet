@@ -60,6 +60,6 @@ A matrix describes a transformation of space as a block of numbers. `Matrix3x2` 
 3. Rotate the four corners of a square by 45 degrees and print them.
 4. Try *move first, then turn* and compare the result with step 6.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 100: Writing JSON as a stream](tut-100-json-writer.html)

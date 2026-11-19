@@ -1,0 +1,28 @@
+1. network: 192.168.1.0/24
+   base address: 192.168.1.0, prefix length: 24
+
+2. 192.168.1.77 is inside:  1
+   192.168.2.5 is inside:   0
+   192.168.1.255 is inside: 1   (the broadcast address is part of the range)
+
+3. addresses in a network:
+   10.0.0.0/8       16777216
+   172.16.0.0/12    1048576
+   192.168.0.0/16   65536
+   192.168.1.0/24   256
+   192.168.1.0/28   16
+   192.168.1.5/32   1
+
+4. 192.168.1.77/24 is a network: 0   (the last bits are not zero)
+   192.168.1.0/33 is a network: 0   (IPv4 has 32 bits)
+   192.168.1.0/24 is a network: 1
+
+5. which of these addresses are private:
+   10.4.4.4       private (10.0.0.0/8)
+   172.20.1.1     private (172.16.0.0/12)
+   172.32.0.1     not in the private ranges
+   192.168.200.9  private (192.168.0.0/16)
+   8.8.8.8        not in the private ranges
+   127.0.0.1      not in the private ranges
+
+6. 2001:db8:1::5 is in 2001:db8::/32: 1, 2001:db9::1: 0

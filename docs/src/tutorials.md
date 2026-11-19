@@ -145,6 +145,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-97-comparers.html"><div class="ic">97</div><b>Comparing text</b><span>Ordinal and culture comparison, StringComparer, and the Turkish i.</span></a>
 <a class="card" href="tut-98-memory.html"><div class="ic">98</div><b>Memory and the garbage collector</b><span>GC, weak references, generations and release().</span></a>
 <a class="card" href="tut-99-vectors.html"><div class="ic">99</div><b>Vectors and matrices</b><span>Vector3, dot and cross products, Matrix3x2 transformations.</span></a>
+<a class="card" href="tut-100-json-writer.html"><div class="ic">100</div><b>Writing JSON as a stream</b><span>Utf8JsonWriter, indentation, escaping and JsonSerializer options.</span></a>
+<a class="card" href="tut-101-number-types.html"><div class="ic">101</div><b>Number types</b><span>Limits, checked conversion, TryParse, Int128 and floating point.</span></a>
+<a class="card" href="tut-102-ip-networks.html"><div class="ic">102</div><b>IP networks</b><span>CIDR, IPNetwork.Contains and a private-address allow list.</span></a>
 </div>
 
 ## Learning path

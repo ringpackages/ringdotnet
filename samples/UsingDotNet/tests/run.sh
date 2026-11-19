@@ -28,12 +28,13 @@ RESULT=$(mktemp)
 trap 'rm -f "$LIST" "$RESULT"' EXIT
 
 # a group of programs: they run JOBS at a time and every result is printed as soon as the program ends
-# (the programs that use the clipboard run one after the other at the end of the group: the clipboard belongs to the whole desktop)
+# (the programs that use the clipboard or type keys run one after the other at the end of the group: the clipboard belongs to the whole desktop,
+# and keys go through the message loop of Windows, which does not like many windows at once)
 rungroup() {
 	SERIAL=$(mktemp)
 	PARALLEL=$(mktemp)
 	while IFS='|' read -r KIND DIR FILE LABEL; do
-		if [ "$FILE" = "main.ring" ]; then USES=$(grep -rl Clipboard "$DIR" 2>/dev/null); else USES=$(grep -l Clipboard "$DIR/$FILE" 2>/dev/null); fi
+		if [ "$FILE" = "main.ring" ]; then USES=$(grep -rlE "Clipboard|uiSendKeys|uiGameKeys|uiInputKeys" "$DIR" 2>/dev/null); else USES=$(grep -lE "Clipboard|uiSendKeys|uiGameKeys|uiInputKeys" "$DIR/$FILE" 2>/dev/null); fi
 		if [ -n "$USES" ]; then echo "$KIND|$DIR|$FILE|$LABEL" >> "$SERIAL"; else echo "$KIND|$DIR|$FILE|$LABEL" >> "$PARALLEL"; fi
 	done < "$LIST"
 	xargs -P "$JOBS" -I{} sh "$HERE/runone.sh" "{}" < "$PARALLEL" | tee -a "$RESULT"
