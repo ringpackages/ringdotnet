@@ -2486,7 +2486,7 @@ Class MaskedTextProvider from Object
 		ok
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
-	Func Set_ P1
+	Func Set P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Set",P1])
 
 	Func ToDisplayString 

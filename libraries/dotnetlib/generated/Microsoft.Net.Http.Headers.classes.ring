@@ -461,6 +461,8 @@ Class ContentDispositionHeaderValueIdentityExtensions from Object
 Class AspContentRangeHeaderValue from Object
 
 	Unit
+	From
+	To
 	Length
 	HasLength
 	HasRange
@@ -505,8 +507,14 @@ Class AspContentRangeHeaderValue from Object
 	Func getFrom
 		return dnRequest("get",[self,"From"])
 
+	Func setFrom P1
+		raise("DotNet Error: From is a read-only property")
+
 	Func getTo
 		return dnRequest("get",[self,"To"])
+
+	Func setTo P1
+		raise("DotNet Error: To is a read-only property")
 
 	Func getLength
 		return dnRequest("get",[self,"Length"])
@@ -699,6 +707,7 @@ Class HeaderNames from Object
 	ETag
 	Expires
 	Expect
+	From
 	GrpcAcceptEncoding
 	GrpcEncoding
 	GrpcMessage
@@ -998,6 +1007,9 @@ Class HeaderNames from Object
 
 	Func getFrom
 		return dnRequest("get",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"From"])
+
+	Func setFrom P1
+		raise("DotNet Error: From is a read-only property")
 
 	Func getGrpcAcceptEncoding
 		return dnRequest("get",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"GrpcAcceptEncoding"])
@@ -1788,6 +1800,9 @@ Class AspRangeHeaderValue from Object
 
 Class AspRangeItemHeaderValue from Object
 
+	From
+	To
+
 	Func init P1,P2
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -1803,8 +1818,14 @@ Class AspRangeItemHeaderValue from Object
 	Func getFrom
 		return dnRequest("get",[self,"From"])
 
+	Func setFrom P1
+		raise("DotNet Error: From is a read-only property")
+
 	Func getTo
 		return dnRequest("get",[self,"To"])
+
+	Func setTo P1
+		raise("DotNet Error: To is a read-only property")
 
 
 Class SetCookieHeaderValue from Object

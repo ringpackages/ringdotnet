@@ -16702,6 +16702,8 @@ Class VisualStateManager from DependencyObject
 
 Class VisualTransition from DependencyObject
 
+	From
+	To
 	Storyboard
 	GeneratedDuration
 	GeneratedEasingFunction

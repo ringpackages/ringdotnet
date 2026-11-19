@@ -123,7 +123,7 @@ Class Enlistment from Object
 		ok
 		return self
 
-	Func Done_ 
+	Func Done 
 		dnRequest("call",[new DotNetObject(nHandle),"Done"])
 		return self
 

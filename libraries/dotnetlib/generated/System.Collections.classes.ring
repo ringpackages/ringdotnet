@@ -383,7 +383,7 @@ Class BitArray from Object
 	Func Get_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Get",P1])
 
-	Func Set_ P1,P2
+	Func Set P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Set",P1,P2])
 		return self
 

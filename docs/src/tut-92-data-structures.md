@@ -10,7 +10,7 @@ lead: Lists and dictionaries are not always the best tool. This lesson shows fiv
 - `SortedDictionary`: keys in order,
 - `LinkedList`: cheap changes at both ends and next to a node,
 - `BitArray`: a million yes/no values in 125 KB, with logic operations,
-- the Ring words that need `callMethod` (`Set`, `Get`, `And`, `Or`).
+- the Ring words that need `callMethod` (`Get`, `And`, `Or`).
 
 [Tutorial 4](tut-04-collections.html) used `List` and `Dictionary`, and [tutorial 89](tut-89-concurrent-collections.html) the collections for many threads.
 
@@ -44,16 +44,16 @@ Each item is a **node** that knows its neighbours (`Next`, `Previous`). `AddFirs
 
 ### BitArray
 
-One bit for each item. A million yes/no values (a sieve of primes, which seats are free, which files were seen) take 125 KB instead of megabytes. `Set(index, value)` and `Get(index)` read and write one bit; `And`, `Or`, `Xor` and `Not` work on all the bits at once and **change the array they are called on**, so the program copies it first (`new BitArray(bits)`). In the output, `AND` has only the bit that both arrays have and `OR` has the bits of either.
+One bit for each item. A million yes/no values (a sieve of primes, which seats are free, which files were seen) take 125 KB instead of megabytes. `Set(index, value)` and `Get(index)` write and read one bit (`Get` is called with `callMethod`, see below); `And`, `Or`, `Xor` and `Not` work on all the bits at once and **change the array they are called on**, so the program copies it first (`new BitArray(bits)`). In the output, `AND` has only the bit that both arrays have and `OR` has the bits of either.
 
-> [!NOTE] `Set`, `Get`, `And` and `Or` are words that Ring keeps for itself (`Get` and `Set` for properties, `And` and `Or` for conditions), so they cannot be written as method names after a dot. `callMethod("Set", [...])` calls them.
+> [!NOTE] Ring accepts most of its own words as method names after a dot (`Set`, `From`, `To`, `Step`, `In`, `On`, `Off`), but not `Get`, `And` and `Or` (a statement `get x` reads input, and `and`, `or` are the operators of conditions). A .NET method with one of those names is called with `callMethod("Get", [...])`.
 
 ## What you learned
 
 - five collections and what each one is for,
 - the plain style (`callMethod`, `getProp`, `toList`) for closed generic types,
 - `BitArray` operations change their own array,
-- Ring words that must be called with `callMethod`.
+- the few Ring words that must be called with `callMethod`.
 
 ## Exercises
 

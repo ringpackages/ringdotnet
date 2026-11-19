@@ -25411,6 +25411,7 @@ Class ProgressBar from Control
 	Maximum
 	Minimum
 	RightToLeftLayout
+	Step
 	Value
 
 	Func init 
@@ -26156,6 +26157,7 @@ Class TaskDialogButton from TaskDialogControl
 	ShowShieldIcon
 	Visible
 	Text
+	OK
 	Cancel
 	Abort
 	Retry
@@ -26236,6 +26238,9 @@ Class TaskDialogButton from TaskDialogControl
 
 	Func getOK
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"OK"])
+
+	Func setOK P1
+		raise("DotNet Error: OK is a read-only property")
 
 	Func getCancel
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.TaskDialogButton, System.Windows.Forms'),"Cancel"])
@@ -34795,6 +34800,7 @@ Class ToolStripProgressBar from ToolStripControlHost
 	Maximum
 	Minimum
 	RightToLeftLayout
+	Step
 	Style
 	Value
 

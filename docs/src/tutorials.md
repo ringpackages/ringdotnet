@@ -139,6 +139,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-91-udp.html"><div class="ic">91</div><b>UDP</b><span>Datagrams between sockets, answers, time limits and lost messages.</span></a>
 <a class="card" href="tut-92-data-structures.html"><div class="ic">92</div><b>More data structures</b><span>PriorityQueue, SortedSet, SortedDictionary, LinkedList and BitArray.</span></a>
 <a class="card" href="tut-93-identifiers.html"><div class="ic">93</div><b>Identifiers and versions</b><span>Guid, Version, and sorting version numbers by number.</span></a>
+<a class="card" href="tut-94-mail-messages.html"><div class="ic">94</div><b>E-mail messages</b><span>MailAddress, MailMessage, recipients and text plus HTML views.</span></a>
+<a class="card" href="tut-95-claims.html"><div class="ic">95</div><b>Identities and claims</b><span>Claims, identities, roles and a permission check.</span></a>
+<a class="card" href="tut-96-tar.html"><div class="ic">96</div><b>Tar archives</b><span>Create, list, read and unpack tar files.</span></a>
 </div>
 
 ## Learning path

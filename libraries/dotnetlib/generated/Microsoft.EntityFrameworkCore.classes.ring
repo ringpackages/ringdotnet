@@ -389,7 +389,7 @@ Class DbContext from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContext, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
-	Func Set_ P1
+	Func Set P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Set",P1])
 		ok

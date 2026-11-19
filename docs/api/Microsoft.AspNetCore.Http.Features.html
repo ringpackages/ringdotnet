@@ -129,6 +129,9 @@
 <a href="../tut-91-udp.html">91. UDP</a>
 <a href="../tut-92-data-structures.html">92. More data structures</a>
 <a href="../tut-93-identifiers.html">93. Identifiers and versions</a>
+<a href="../tut-94-mail-messages.html">94. E-mail messages</a>
+<a href="../tut-95-claims.html">95. Identities and claims</a>
+<a href="../tut-96-tar.html">96. Tar archives</a>
 <h4>The language bridge</h4>
 <a href="../concepts.html">Core concepts</a>
 <a href="../core-api.html">Core functions</a>
@@ -175,7 +178,7 @@
 <p class="muted">Ring: <code>new FeatureCollection(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new FeatureCollection().New_([ :param = value ])</code> or <code>dnNew("FeatureCollection",[ :param = value ])</code>.</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Revision</code></td><td><code>int</code></td><td>read</td><td><code>o.Revision</code></td></tr><tr><td><code>IsReadOnly</code></td><td><code>bool</code></td><td>read</td><td><code>o.IsReadOnly</code></td></tr></tbody></table></div>
 <h4>Indexer</h4><p><code>o.Item(Type key)</code> → <code>object</code> · <code>o.SetItem(key,value)</code></p>
-<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Get</code></td><td><code>Get_()</code></td><td><code>TFeature Get&lt;TFeature&gt;()</code></td></tr><tr><td><code>GetEnumerator</code></td><td><code>GetEnumerator()</code></td><td><code>IEnumerator&lt;KeyValuePair&lt;Type, object&gt;&gt; GetEnumerator()</code></td></tr><tr><td><code>Set</code></td><td><code>Set_(p1)</code></td><td><code>void Set&lt;TFeature&gt;(TFeature instance)</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Get</code></td><td><code>Get_()</code></td><td><code>TFeature Get&lt;TFeature&gt;()</code></td></tr><tr><td><code>GetEnumerator</code></td><td><code>GetEnumerator()</code></td><td><code>IEnumerator&lt;KeyValuePair&lt;Type, object&gt;&gt; GetEnumerator()</code></td></tr><tr><td><code>Set</code></td><td><code>Set(p1)</code></td><td><code>void Set&lt;TFeature&gt;(TFeature instance)</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-FeatureCollectionExtensions"><summary><b>FeatureCollectionExtensions</b> <span class="muted">class static</span></summary>
 <div class="clsbody">
@@ -250,7 +253,7 @@
 <p class="muted">Implements: IEnumerable</p>
 <h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>IsReadOnly</code></td><td><code>bool</code></td><td>read</td><td><code>o.IsReadOnly</code></td></tr><tr><td><code>Revision</code></td><td><code>int</code></td><td>read</td><td><code>o.Revision</code></td></tr></tbody></table></div>
 <h4>Indexer</h4><p><code>o.Item(Type key)</code> → <code>object</code> · <code>o.SetItem(key,value)</code></p>
-<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Get</code></td><td><code>Get_()</code></td><td><code>TFeature Get&lt;TFeature&gt;()</code></td></tr><tr><td><code>Set</code></td><td><code>Set_(p1)</code></td><td><code>void Set&lt;TFeature&gt;(TFeature instance)</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Get</code></td><td><code>Get_()</code></td><td><code>TFeature Get&lt;TFeature&gt;()</code></td></tr><tr><td><code>Set</code></td><td><code>Set(p1)</code></td><td><code>void Set&lt;TFeature&gt;(TFeature instance)</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-IFormFeature"><summary><b>IFormFeature</b> <span class="muted">interface</span></summary>
 <div class="clsbody">

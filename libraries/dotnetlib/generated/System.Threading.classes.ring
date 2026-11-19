@@ -947,7 +947,7 @@ Class ManualResetEventSlim from Object
 		nHandle = dnCreate('System.Threading.ManualResetEventSlim, System.Private.CoreLib',[P1])
 		return self
 
-	Func Set_ 
+	Func Set 
 		dnRequest("call",[new DotNetObject(nHandle),"Set"])
 		return self
 
@@ -2347,7 +2347,7 @@ Class EventWaitHandle from WaitHandle
 	Func Reset 
 		return dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 
-	Func Set_ 
+	Func Set 
 		return dnRequest("call",[new DotNetObject(nHandle),"Set"])
 
 	Func OpenExisting P1

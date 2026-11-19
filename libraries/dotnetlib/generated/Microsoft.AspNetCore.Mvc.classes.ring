@@ -715,7 +715,7 @@ Class ControllerBase from Object
 	Func NoContent 
 		return dnRequest("call",[new DotNetObject(nHandle),"NoContent"])
 
-	Func Ok_ P1
+	Func Ok P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Ok",P1])
 		ok

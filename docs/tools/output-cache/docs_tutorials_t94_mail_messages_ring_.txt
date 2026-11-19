@@ -1,0 +1,15 @@
+1. display name: Ann Lee
+   user: ann.lee, host: example.com, address: ann.lee@example.com
+   'bob@example.com' is an address: 1
+   'bob@' is an address: 0
+   'bob@@example.com' is an address: 0
+   '@example.com' is an address: 0
+
+2. from: ann.lee@example.com
+   to: 2 people, cc: 1 person
+       <bob@example.com>
+      Carla <carla@example.com>
+   subject: Meeting on Friday
+   body is HTML: 0
+
+3. views: 2 (text/plain, text/html)

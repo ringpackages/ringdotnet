@@ -55,6 +55,6 @@ A `List<Version>` (made with `dnNewGeneric`) sorts itself with `Sort()`, which c
 3. Read the version of the bridge assembly (`RingDotNet.Bridge`) with reflection.
 4. Name a file with a Guid and write a function that finds such files again by their name pattern.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 94: E-mail messages](tut-94-mail-messages.html)

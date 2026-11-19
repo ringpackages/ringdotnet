@@ -7,6 +7,15 @@ load "../libraries/dotnetlib/dotnetlib.ring"
 
 # Ring keywords can't be method names: add "_" at the end
 aKeywords = split("if to or and not for foreach new func from next load else see while ok class return but end give bye exit try catch done switch on other off in loop package import private step do again call elseif put get set case def endfunc endclass endpackage endif endfor endwhile endswitch endtry function endfunction break continue this self super main init operator"," ")
+# The words that Ring accepts after a dot, as the name of an attribute or a method (o.From = x, o.Set(1)): they keep their names.
+# The others (get and or not next end if for new load call put give see ...) are a syntax error there: methods get "_", attributes are left out.
+aMemberOk = split("from to set step in on off other done ok"," ")
+aMemberKeywords = []
+for cWord in aKeywords
+	if find(aMemberOk,cWord) = 0
+		aMemberKeywords + cWord
+	ok
+next
 
 # true: the namespaces of the manifest :uses are not loaded together with a namespace (only the namespaces of base classes are):
 # a class of another namespace is loaded when an object of it comes back, or when the program names the namespace in using { }
@@ -213,7 +222,7 @@ func split cText, cSep
 	return str2list(substr(cText,cSep,nl))
 
 func ringName cName
-	if find(aKeywords,lower(cName)) > 0
+	if find(aMemberKeywords,lower(cName)) > 0
 		return cName + "_"
 	ok
 	return cName
@@ -308,7 +317,7 @@ func buildPlan cTypeName, nForceInit
 	aAttrList = []
 	for aMember in aMembers
 		cLowerName = lower(aMember[1])
-		if (find(aMethodNames,cLowerName) = 0) and (find(aAttrs,cLowerName) = 0) and (find(aKeywords,cLowerName) = 0) and (not substr(cReserved,"|" + cLowerName + "|"))
+		if (find(aMethodNames,cLowerName) = 0) and (find(aAttrs,cLowerName) = 0) and (find(aMemberKeywords,cLowerName) = 0) and (not substr(cReserved,"|" + cLowerName + "|"))
 			aAttrs + cLowerName
 			aAttrList + [cLowerName,aMember[1]]
 		ok

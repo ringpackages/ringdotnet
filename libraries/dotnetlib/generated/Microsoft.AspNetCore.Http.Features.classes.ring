@@ -385,7 +385,7 @@ Class FeatureCollection from Object
 	Func Get_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"Get"])
 
-	Func Set_ P1
+	Func Set P1
 		dnRequest("call",[new DotNetObject(nHandle),"Set",P1])
 		return self
 
@@ -925,7 +925,7 @@ Class IFeatureCollection from DotNetObject
 	Func Get_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"Get"])
 
-	Func Set_ P1
+	Func Set P1
 		dnRequest("call",[new DotNetObject(nHandle),"Set",P1])
 		return self
 

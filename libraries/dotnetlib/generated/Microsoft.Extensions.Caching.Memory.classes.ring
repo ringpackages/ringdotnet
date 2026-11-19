@@ -125,7 +125,7 @@ Class CacheExtensions from Object
 	Func TryGetValue P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"TryGetValue",P1,P2])
 
-	Func Set_ P1
+	Func Set P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"Set",P1])
 		ok

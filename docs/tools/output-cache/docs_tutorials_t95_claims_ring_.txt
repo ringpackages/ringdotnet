@@ -1,0 +1,19 @@
+1. authentication type: Password, authenticated: 1
+   claims: 4
+      Name = Ann
+      Email = ann@example.com
+      Role = Editor
+      Role = Reviewer
+
+2. email: ann@example.com
+   roles: Editor Reviewer 
+   has claim Role=Editor: 1, has claim Role=Admin: 0
+
+3. name: Ann
+   is Editor: 1, is Admin: 0
+
+4. permissions of the user:
+   read: 1
+   write: 1
+   comment: 1
+   delete: 0

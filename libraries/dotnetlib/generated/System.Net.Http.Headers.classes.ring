@@ -445,6 +445,8 @@ Class ContentDispositionHeaderValue from Object
 Class ContentRangeHeaderValue from Object
 
 	Unit
+	From
+	To
 	Length
 	HasLength
 	HasRange
@@ -489,8 +491,14 @@ Class ContentRangeHeaderValue from Object
 	Func getFrom
 		return dnRequest("get",[self,"From"])
 
+	Func setFrom P1
+		raise("DotNet Error: From is a read-only property")
+
 	Func getTo
 		return dnRequest("get",[self,"To"])
+
+	Func setTo P1
+		raise("DotNet Error: To is a read-only property")
 
 	Func getLength
 		return dnRequest("get",[self,"Length"])
@@ -958,6 +966,9 @@ Class RangeHeaderValue from Object
 
 Class RangeItemHeaderValue from Object
 
+	From
+	To
+
 	Func init P1,P2
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -973,8 +984,14 @@ Class RangeItemHeaderValue from Object
 	Func getFrom
 		return dnRequest("get",[self,"From"])
 
+	Func setFrom P1
+		raise("DotNet Error: From is a read-only property")
+
 	Func getTo
 		return dnRequest("get",[self,"To"])
+
+	Func setTo P1
+		raise("DotNet Error: To is a read-only property")
 
 
 Class RetryConditionHeaderValue from Object
@@ -1326,6 +1343,7 @@ Class HttpRequestHeaders from HttpHeaders
 	AcceptLanguage
 	Authorization
 	ExpectContinue
+	From
 	Host
 	IfMatch
 	IfModifiedSince

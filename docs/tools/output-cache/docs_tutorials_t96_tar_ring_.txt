@@ -1,0 +1,11 @@
+1. the tar file exists: 1, size is a multiple of 512 bytes: 1
+
+2. 4 entries (sorted here, because the order in a tar file is the order of the folder):
+   Directory       notes/            0 bytes
+   RegularFile     notes/a.txt       6 bytes
+   RegularFile     notes/b.txt       23 bytes
+   RegularFile     readme.txt        13 bytes
+
+3. text of notes/b.txt: Note B, a little longer
+
+4. unpacked: Read me first / Note A

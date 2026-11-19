@@ -2610,6 +2610,7 @@ Class IHeaderDictionary from DotNetObject
 	ETag
 	Expires
 	Expect
+	From
 	GrpcAcceptEncoding
 	GrpcEncoding
 	GrpcMessage
@@ -3585,7 +3586,7 @@ Class ISession from DotNetObject
 	Func TryGetValue P1
 		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1])
 
-	Func Set_ P1,P2
+	Func Set P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Set",P1,P2])
 		return self
 
@@ -4409,7 +4410,7 @@ Class Results from Object
 	Func NoContent 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"NoContent"])
 
-	Func Ok_ P1
+	Func Ok P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Ok",P1])
 		ok
@@ -5271,7 +5272,7 @@ Class TypedResults from Object
 	Func NoContent 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"NoContent"])
 
-	Func Ok_ P1
+	Func Ok P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Ok",P1])
 		ok

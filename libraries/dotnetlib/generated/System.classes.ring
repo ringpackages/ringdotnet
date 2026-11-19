@@ -2217,6 +2217,7 @@ Class CharEnumerator from Object
 
 Class Console from Object
 
+	In
 	InputEncoding
 	OutputEncoding
 	KeyAvailable

@@ -1818,7 +1818,7 @@ Class ISqlExpressionFactory from DotNetObject
 	Func Exists P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Exists",P1])
 
-	Func In_ P1,P2
+	Func In P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"In",P1,P2])
 
 	Func Like P1
@@ -4711,7 +4711,7 @@ Class SqlExpressionFactory from Object
 	Func Exists P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Exists",P1])
 
-	Func In_ P1,P2
+	Func In P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"In",P1,P2])
 
 	Func Like P1

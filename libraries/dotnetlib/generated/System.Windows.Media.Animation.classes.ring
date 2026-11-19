@@ -8630,6 +8630,8 @@ Class BooleanAnimationUsingKeyFrames from BooleanAnimationBase
 
 Class ByteAnimation from ByteAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -8793,6 +8795,8 @@ Class CharAnimationUsingKeyFrames from CharAnimationBase
 
 Class ColorAnimation from ColorAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -8932,6 +8936,8 @@ Class ColorAnimationUsingKeyFrames from ColorAnimationBase
 
 Class DecimalAnimation from DecimalAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -9071,6 +9077,8 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 
 Class DoubleAnimation from DoubleAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -9269,6 +9277,8 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 
 Class Int16Animation from Int16AnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -9408,6 +9418,8 @@ Class Int16AnimationUsingKeyFrames from Int16AnimationBase
 
 Class Int32Animation from Int32AnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -9547,6 +9559,8 @@ Class Int32AnimationUsingKeyFrames from Int32AnimationBase
 
 Class Int64Animation from Int64AnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -9815,6 +9829,8 @@ Class ObjectAnimationUsingKeyFrames from ObjectAnimationBase
 
 Class Point3DAnimation from Point3DAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -9954,6 +9970,8 @@ Class Point3DAnimationUsingKeyFrames from Point3DAnimationBase
 
 Class PointAnimation from PointAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -10138,6 +10156,8 @@ Class PointAnimationUsingPath from PointAnimationBase
 Class QuaternionAnimation from QuaternionAnimationBase
 
 	UseShortestPath
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -10291,6 +10311,8 @@ Class QuaternionAnimationUsingKeyFrames from QuaternionAnimationBase
 
 Class RectAnimation from RectAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -10430,6 +10452,8 @@ Class RectAnimationUsingKeyFrames from RectAnimationBase
 
 Class Rotation3DAnimation from Rotation3DAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -10569,6 +10593,8 @@ Class Rotation3DAnimationUsingKeyFrames from Rotation3DAnimationBase
 
 Class SingleAnimation from SingleAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -10708,6 +10734,8 @@ Class SingleAnimationUsingKeyFrames from SingleAnimationBase
 
 Class SizeAnimation from SizeAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -11073,6 +11101,8 @@ Class StringAnimationUsingKeyFrames from StringAnimationBase
 
 Class ThicknessAnimation from ThicknessAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -11212,6 +11242,8 @@ Class ThicknessAnimationUsingKeyFrames from ThicknessAnimationBase
 
 Class Vector3DAnimation from Vector3DAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive
@@ -11351,6 +11383,8 @@ Class Vector3DAnimationUsingKeyFrames from Vector3DAnimationBase
 
 Class VectorAnimation from VectorAnimationBase
 
+	From
+	To
 	By
 	EasingFunction
 	IsAdditive

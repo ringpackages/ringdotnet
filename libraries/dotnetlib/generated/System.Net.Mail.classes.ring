@@ -472,9 +472,11 @@ Class MailAddressCollection from DotNetObject
 
 Class MailMessage from Object
 
+	From
 	Sender
 	ReplyTo
 	ReplyToList
+	To
 	Bcc
 	CC
 	Priority
@@ -547,6 +549,9 @@ Class MailMessage from Object
 
 	Func getTo
 		return dnRequest("get",[self,"To"])
+
+	Func setTo P1
+		raise("DotNet Error: To is a read-only property")
 
 	Func getBcc
 		return dnRequest("get",[self,"Bcc"])
