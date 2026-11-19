@@ -1,10 +1,11 @@
 /*
-	DotNetQuery - a fluent LINQ wrapper (loaded by dnImport("System.Linq"))
+	DotNetQuery - a fluent LINQ wrapper (loaded with the namespace System.Linq: using { "System.Linq" })
 
 	oResult = dnQuery([5,3,8,1]).Where("xDotNetResult = aDotNetArgs[1] > 2").OrderBy("xDotNetResult = aDotNetArgs[1]").ToList()
 
 	The source is a Ring list or any .NET collection. The selector/predicate arguments are Ring code
-	(see dnCallback): aDotNetArgs[1] is the item, xDotNetResult the result.
+	(see dnCallback): aDotNetArgs[1] is the item, xDotNetResult the result. The name of a Ring function works too (it gets the list of
+	arguments and returns the result).
 */
 
 func dnQuery  xSource

@@ -8,7 +8,6 @@
 		:exclude     .NET type names that :all must skip
 		:types       extra or explicit types: [.NET type name, (optional) Ring class name, (optional) init() parameters]
 		             (closed generic types and nested types are listed here)
-		:prefer      ["Namespace.Type.Method=arity", ...]: the overload that gets the plain method name (the others are Name_N)
 		:uses        namespaces to import together with this one (their classes are returned by its methods)
 		:extra       Ring files (relative to the generated folder) that the namespace loader also loads
 		:prefix      prefix of the class names that clash with a class of another namespace (default: the last part of the namespace)
@@ -82,7 +81,6 @@ aDotNetManifest = [
 	  :uses = ["System.IO","System.Net"],
 	  :assemblies = ["System.Net.Sockets"],
 	  :all = true,
-	  :prefer = ["System.Net.Sockets.TcpClient.Connect=2","System.Net.Sockets.UdpClient.Connect=2","System.Net.Sockets.UdpClient.Send=2"],
 	  :types = [ ["System.Net.Sockets.TcpListener","TcpListener",2] ] ],
 
 	[ :namespace = "System.Net.NetworkInformation",
@@ -277,8 +275,7 @@ aDotNetManifest = [
 
 	[ :namespace = "System.Collections.Specialized",
 	  :assemblies = ["System.Collections.Specialized","System.Collections.NonGeneric","System.Collections"],
-	  :all = true,
-	  :prefer = ["System.Collections.Specialized.NameValueCollection.Add=2","System.Collections.Specialized.NameValueCollection.Set=2"] ],
+	  :all = true ],
 
 	[ :namespace = "System.Collections.Generic",
 	  :types = [
@@ -356,7 +353,6 @@ aDotNetManifest = [
 	  :uses = ["System.Drawing","System.ComponentModel","System.Collections","System.Collections.Specialized","System.IO"],
 	  :all = true,
 	  :extra = ["../gui.ring"],
-	  :prefer = ["System.Windows.Forms.Application.Run=1","System.Windows.Forms.MessageBox.Show=1"],
 	  :types = [
 		["System.Windows.Forms.Control+ControlCollection","ControlCollection"],
 		["System.Windows.Forms.ListBox+ObjectCollection","ListBoxObjectCollection"],
@@ -393,7 +389,6 @@ aDotNetManifest = [
 	  :prefix = "Wpf",
 	  :uses = ["System.Windows.Media","System.Windows.Input","System.Collections"],
 	  :extra = ["../wpf.ring"],
-	  :prefer = ["System.Windows.Application.Run=1","System.Windows.MessageBox.Show=1"],
 	  :types = [ ["System.Windows.Size","WpfSize",2], ["System.Windows.Point","WpfPoint",2], ["System.Windows.Rect","Rect",4],
 		["System.Windows.Thickness","Thickness",4], ["System.Windows.Vector","WpfVector",2], ["System.Windows.CornerRadius","CornerRadius",4],
 		["System.Windows.GridLength","GridLength",1], ["System.Windows.Window","Window",0] ],

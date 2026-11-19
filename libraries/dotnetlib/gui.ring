@@ -1,5 +1,5 @@
 /*
-	GUI helpers for Windows Forms programs (loaded by dnImport("System.Windows.Forms")).
+	GUI helpers for Windows Forms programs (loaded with the namespace System.Windows.Forms: using { "System.Windows.Forms" }).
 	They keep small applications short; everything they do can also be written with the plain classes.
 
 	oForm = uiForm("Title",400,300)

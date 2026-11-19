@@ -38,7 +38,6 @@ Each entry describes one namespace:
 | `:all` | `true` wraps every public class and struct of the namespace |
 | `:exclude` | type names that `:all` must skip |
 | `:types` | explicit or extra types: `[.NET name, Ring class name, init() parameter count]` — closed generic types and nested types go here |
-| `:prefer` | `["Namespace.Type.Method=arity"]` — the overload that gets the plain name |
 | `:uses` | namespaces imported together with this one (their classes are returned by its methods) |
 | `:extra` | Ring files the loader also loads (for example `linq.ring`) |
 | `:prefix` | prefix for class names that clash with another namespace (default: the last part of the namespace) |
@@ -68,18 +67,15 @@ When two namespaces contain a class with the same short name, the later one gets
 
 ## Overload rules
 
-The generator names overloads so that the **plain name** is the most useful one:
+The generator names the methods of a class like this:
 
-- the parameterless form wins when the type has one (`Cancel()`, `Wait()`, `Reverse()`), except `Write*` methods;
-- otherwise the shortest overload is the plain name;
-- overloads whose parameters are arrays (except `byte[]` / `char[]`), delegates, comparers or spans never decide the plain name;
-- a name with overloads of several parameter counts is one method that takes one parameter (`NULL`, a value, or a list of `:name = value`); the constructors other than `init` are `New_`;
-- `ToString()` keeps its parameterless form;
+- a name with overloads of **several parameter counts** is one method that takes one parameter: `NULL` calls the parameterless overload, a list of `:name = value` pairs chooses the overload by the parameter names, and any other value calls the overload with one parameter;
+- a name with **one parameter count** keeps its parameters (`Math.Max(a, b)`); the bridge picks among overloads with the same count by the types of the values;
+- the constructors other than `init` are `New_`;
+- `ToString()` keeps its parameterless form, and its forms with parameters are `Format`;
 - a method with optional parameters is available with every number of parameters from the required ones up;
 - a static and an instance method with the same name and arity are one method;
-- names that are Ring keywords get a trailing `_`.
-
-`:prefer` overrides the choice for a method.
+- names that are Ring keywords get a trailing `_`, and so does a method whose name would be the getter or setter of a property (`GetValue_`).
 
 ## How a wrapper class looks
 

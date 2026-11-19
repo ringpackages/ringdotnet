@@ -26,7 +26,6 @@ aTaken = []	# [lowercase Ring class name, .NET name]
 cClassPrefix = ""	# :prefix of the namespace being resolved (used for names that are already taken)
 cLastRegister = ""
 aPlanCache = []	# [.NET type name, plan] (see buildPlan)
-aPrefer = []	# "Type.Method=arity" choices collected from the manifest
 
 # Value of an optional key of a manifest entry
 func optValue aEntry, cKey, xDefault
@@ -442,8 +441,9 @@ func buildPlan cTypeName, nForceInit
 	next
 	aNames = ["init","new_"]	# New_ is the method of the constructors with parameters (a .NET method called New is not wrapped: use callMethod)
 	aSeen = []	# "static|name|arity"
-	# The plain name goes to the shortest overload that has parameters (and no array/delegate/comparer parameters);
-	# a method that only has a parameterless form keeps it; the other arities are Name_N
+	# The preferred arity of each name: the shortest overload that has parameters (and no array/delegate/comparer parameters), or 0 when
+	# the type has a parameterless form. A name with two or more arities becomes ONE dispatcher method (below): Name(NULL), Name(value),
+	# Name([ :param = value ]); the preferred arity is only used for the names that are not dispatchers.
 	aMin = []	# [name, preferred arity, is it from a simple overload]
 	for aMethod in aMethods
 		cKey = lower(aMethod[1])
@@ -472,25 +472,6 @@ func buildPlan cTypeName, nForceInit
 			nPos = find(aMin,lower(aMethod[1]),1)
 			if nPos > 0
 				aMin[nPos][2] = 0
-			ok
-		ok
-	next
-	# explicit choices of the manifest (:prefer = ["Type.Method=arity", ...])
-	for cPrefer in aPrefer
-		nEq = substr(cPrefer,"=")
-		cFull = left(cPrefer,nEq - 1)
-		nArityWanted = number(substr(cPrefer,nEq + 1))
-		nDot = 0
-		for x = len(cFull) to 1 step -1
-			if cFull[x] = "."
-				nDot = x
-				exit
-			ok
-		next
-		if left(cFull,nDot - 1) = aInfo[1]
-			nPos = find(aMin,lower(substr(cFull,nDot + 1)),1)
-			if nPos > 0
-				aMin[nPos][2] = nArityWanted
 			ok
 		ok
 	next
@@ -934,11 +915,6 @@ func genAll aWanted
 	next
 	aPlan = []
 	for aEntry in aDotNetManifest
-		for cPrefer in optValue(aEntry,"prefer",[])
-			aPrefer + cPrefer
-		next
-	next
-	for aEntry in aDotNetManifest
 		aPlan + resolveNamespace(aEntry)
 	next
 	# The index of all classes (type --> namespace): dnWrapObject imports a namespace when an object of its types is returned
@@ -948,7 +924,11 @@ func genAll aWanted
 			cIndex += 'aDotNetClassIndex + ["' + aType[4] + '","' + aItem[1] + '"]' + nl
 		next
 	next
-	write(C_OUTDIR + "classindex.ring",cIndex)
+	# Only a run for every namespace writes the index: a run for a few namespaces cannot see the types of the namespaces that need another
+	# runtime mode (Windows Forms, WPF, ASP.NET), so its index would be incomplete.
+	if len(aWanted) = 0
+		write(C_OUTDIR + "classindex.ring",cIndex)
+	ok
 	# Pass 2: generate the requested namespaces
 	for aItem in aPlan
 		if len(aWanted) = 0 or find(aWanted,aItem[1]) > 0
