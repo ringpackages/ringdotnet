@@ -77,4 +77,4 @@ A table with columns and rows. `oTable.Controls.Add([ :control = oTitle, :column
 
 ## Next
 
-[A small text editor](tut-13-editor.html)
+[A list with columns](tut-134-listview.html)

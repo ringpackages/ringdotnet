@@ -51,4 +51,4 @@ Steps 4 and 5 show that `é` can be one code point or two. They look the same, b
 
 ## Next
 
-[Comparing text](tut-97-comparers.html)
+[Text files and encodings](tut-132-text-encodings.html)

@@ -84,6 +84,7 @@ Regular expressions, Unicode and encodings, comparing and escaping text, URLs an
 <a class="card" href="tut-29-regex.html"><div class="ic">🔤</div><b>Regular expressions in depth</b><span>Patterns, groups, replace, split, greedy and lazy, validation.</span></a>
 <a class="card" href="tut-129-formatting.html"><div class="ic">🔤</div><b>Formatting numbers and dates</b><span>Format strings: decimals, thousands, percent, patterns, alignment, dates and durations.</span></a>
 <a class="card" href="tut-52-unicode.html"><div class="ic">🔤</div><b>Unicode and encodings</b><span>Bytes, code points and letters; UTF-8, UTF-16 and mojibake.</span></a>
+<a class="card" href="tut-132-text-encodings.html"><div class="ic">🔤</div><b>Text files and encodings</b><span>The bytes of a text, the BOM, reading Latin-1 and UTF-16 files, strict UTF-8 and line endings.</span></a>
 <a class="card" href="tut-97-comparers.html"><div class="ic">🔤</div><b>Comparing text</b><span>Ordinal and culture comparison, StringComparer, and the Turkish i.</span></a>
 <a class="card" href="tut-104-text-readers-writers.html"><div class="ic">🔤</div><b>Text readers and writers</b><span>StringWriter, StringReader, capturing Console output, String.Format.</span></a>
 <a class="card" href="tut-86-escaping.html"><div class="ic">🔤</div><b>Escaping</b><span>The right encoding for HTML, URLs, JavaScript, JSON, XML, regular expressions and SQL.</span></a>
@@ -230,7 +231,9 @@ Windows with controls, layout, dialogs and menus, timers, drawing, images and ch
 <a class="card" href="tut-12-controls.html"><div class="ic">🪟</div><b>A form with many controls</b><span>Text boxes, number box, combo box, check box, list box and validation.</span></a>
 <a class="card" href="tut-128-inputs.html"><div class="ic">🪟</div><b>More input controls</b><span>Date picker, track bar, radio buttons, tool tips and the error marker.</span></a>
 <a class="card" href="tut-23-layout.html"><div class="ic">🪟</div><b>Layout and richer controls</b><span>Split bars, tabs, table layout, and a data grid with a filter.</span></a>
+<a class="card" href="tut-134-listview.html"><div class="ic">🪟</div><b>A list with columns</b><span>ListView details: columns, check boxes, sorting by a header, removing checked rows.</span></a>
 <a class="card" href="tut-13-editor.html"><div class="ic">🪟</div><b>A small text editor</b><span>Menus, a status bar, open and save, dock layout.</span></a>
+<a class="card" href="tut-133-richtext.html"><div class="ic">🪟</div><b>Formatted text</b><span>RichTextBox: bold and colored words, find and mark, save and load RTF.</span></a>
 <a class="card" href="tut-127-clipboard.html"><div class="ic">🪟</div><b>The clipboard</b><span>Text, a table for a spreadsheet, a picture, and leaving the clipboard as it was.</span></a>
 <a class="card" href="tut-40-dialog.html"><div class="ic">🪟</div><b>Your own dialog</b><span>A modal form that asks for data, validates it and returns it; tested with a timer.</span></a>
 <a class="card" href="tut-41-menus.html"><div class="ic">🪟</div><b>Menus, toolbars, shortcuts</b><span>Write each action once and reach it from a menu, a toolbar, a context menu and a key.</span></a>

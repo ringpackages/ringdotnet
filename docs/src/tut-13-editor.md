@@ -72,4 +72,4 @@ The full-size version of this program is the [Notepad](gallery-apps.html#notepad
 
 ## Next
 
-[The clipboard](tut-127-clipboard.html)
+[Formatted text](tut-133-richtext.html)
