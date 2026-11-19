@@ -56,7 +56,7 @@ A dictionary maps a key to a number. To count you read the old value (0 if the k
 
 ### The report
 
-A JSON object is simple text: the helper builds `{"lines":30,"errors":9,"different":3}`. For real data, `JsonSerializer` and `webJson` (tutorial 16) do this for you.
+A JSON object is simple text: the helper builds `{"lines":30,"errors":9,"different":3}`. For real data, `JsonSerializer` and `webJson` (the tutorial [A web service with a database](tut-16-web-service.html)) do this for you.
 
 ### Habits that the program shows
 

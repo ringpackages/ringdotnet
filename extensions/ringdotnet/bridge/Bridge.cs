@@ -417,7 +417,8 @@ namespace RingDotNet
 			return assembly;
 		}
 
-		/* Find a type by name, loading the framework assembly named by the namespace when needed */
+		/* The type of a name: a plain name ("System.IO.File", "System.IO.File, System.Runtime") or a closed generic type; raises an error when
+		   there is no such type */
 		private static Type ResolveType(string name)
 		{
 			Type t = ResolveSimple(name);
@@ -437,7 +438,8 @@ namespace RingDotNet
 			return t;
 		}
 
-		/* Find a type by name, loading the framework assembly named by the namespace when needed */
+		/* The type of a name without generic arguments: the name is tried as it is, then in the assemblies of its namespace, which are
+		   loaded when needed; null when there is none */
 		private static Type ResolveSimple(string name)
 		{
 			Type t = null;

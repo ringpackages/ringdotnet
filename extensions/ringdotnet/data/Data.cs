@@ -1,8 +1,9 @@
 /*
 **  RingDotNet.Data - Entity Framework Core for Ring programs.
 **
-**  A Ring program cannot declare .NET classes, so the model is described with data (tables and columns) and the entities
+**  The classes of a model are .NET classes, so a Ring program describes the model with data (tables and columns) and the entities
 **  are EF Core "shared-type entities" (property bag dictionaries). Rows go to Ring as lists of [name, value] pairs.
+**  (RingTypedDb, in TypedData.cs, makes real .NET classes from the same description.)
 */
 
 using System;
@@ -74,7 +75,8 @@ namespace RingDotNet
 
 		/*
 		**  connection: a SQLite connection string, "Data Source=people.db" or "Data Source=:memory:"
-		**  schema:     [ [table, [ [column, type, isKey], ... ]], ... ]   types: int long double decimal string bool datetime bytes
+		**  schema:     [ [table, [ [column, type, isKey, options], ... ], options], ... ]   types: int long double decimal string bool datetime bytes
+**              (the options of a column and of a table are described in libraries/dotnetlib/data.ring)
 		*/
 		public static RingDb Create(string connection, object[] schema)
 		{

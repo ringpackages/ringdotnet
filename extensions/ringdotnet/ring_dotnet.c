@@ -384,7 +384,8 @@ static int ringdotnet_startruntime ( const char *cMode )
 	return 1 ;
 }
 
-/* dotnet_start([cMode]) --> 1   (cMode "desktop" adds Windows Forms / WPF, call it first) */
+/* dotnet_start([cMode]) --> 1   (cMode: "desktop" adds Windows Forms / WPF, "web" adds ASP.NET Core, "all" both. The runtime starts in one mode only,
+   so the mode must be chosen before the first .NET call: using { } does it from the names of the namespaces) */
 RING_FUNC(ring_dotnet_start)
 {
 	const char *cMode = NULL ;
@@ -399,7 +400,7 @@ RING_FUNC(ring_dotnet_start)
 		}
 		cMode = RING_API_GETSTRING(1);
 		if ( g_nStarted && ((strcmp(cMode,"desktop") == 0) || (strcmp(cMode,"web") == 0) || (strcmp(cMode,"all") == 0)) && (! g_nDesktop) ) {
-			RING_API_ERROR("dnUseDesktop() and dnUseWeb() must be called before any other .NET call");
+			RING_API_ERROR("The runtime mode (desktop, web or all) must be chosen before any other .NET call: put the using { } block first, or call dnUseDesktop(), dnUseWeb() or dnUseAll() first");
 			return ;
 		}
 	}
