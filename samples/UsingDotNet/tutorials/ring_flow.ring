@@ -56,7 +56,7 @@ func main
 func square nNumber
 	return nNumber * nNumber
 
-# Ring has no default parameters and no overloading: calling greet("Ann") with one value is an error ("less number of parameters").
+# A function has one parameter list: calling greet("Ann") with one value raises an error ("less number of parameters").
 func greet cName, cGreeting
 	return cGreeting + ", " + cName
 

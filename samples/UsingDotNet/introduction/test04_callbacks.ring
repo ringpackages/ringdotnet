@@ -1,3 +1,4 @@
+# Callbacks: Ring functions that .NET calls through delegates (Action, Comparison ...), made with dnCallback
 load "dotnet.ring"
 using { "System.Collections.Generic" }
 

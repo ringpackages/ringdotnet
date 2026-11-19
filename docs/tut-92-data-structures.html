@@ -294,7 +294,7 @@ using {
 	? <span class="s">"   after Remove(b): "</span> + list2str2(oList.<span class="f">toList</span>())
 
 	<span class="c"># 5. BitArray: one bit for each item, so a million yes/no values take 125 KB. Set, Get and the logic methods And, Or, Xor, Not.</span>
-	<span class="c">#    (Get, And and Or are words that Ring does not accept after a dot, so they are called with callMethod. And and Or change the array they are called on.)</span>
+	<span class="c">#    (Get, And and Or are reserved words after a dot, so they are called with callMethod. And and Or change the array they are called on.)</span>
 	oBits = <span class="f">dnNew</span>(<span class="s">"BitArray"</span>,[ :length = <span class="n">10</span> ])
 	oBits.<span class="f">Set</span>(<span class="n">1</span>,<span class="k">True</span>)
 	oBits.<span class="f">Set</span>(<span class="n">3</span>,<span class="k">True</span>)

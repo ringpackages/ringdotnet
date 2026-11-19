@@ -1,3 +1,4 @@
+# A Windows Forms Click event (the program closes itself)
 load "dotnet.ring"
 using { "System.Windows.Forms" }
 

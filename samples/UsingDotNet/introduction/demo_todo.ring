@@ -1,3 +1,4 @@
+# A to-do list in a window, with plain Windows Forms classes (run it with: ring demo_todo.ring)
 load "dotnet.ring"
 using {
 	"System.Drawing"

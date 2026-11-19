@@ -257,7 +257,7 @@ using {
 	aWords = str2list(substr(trim(cSentence),<span class="s">" "</span>,nl))
 	? <span class="s">"Ring words      : "</span> + len(aWords)
 
-	<span class="c"># .NET adds helpers that Ring does not have. String's static methods:</span>
+	<span class="c"># .NET adds more helpers. String's static methods:</span>
 	oString = <span class="k">new</span> <span class="t">String</span>()
 	? <span class="s">"Join            : "</span> + oString.<span class="f">Join</span>([ :separator = <span class="s">"-"</span>, :value = aWords ])
 	? <span class="s">"Format          : "</span> + oString.<span class="f">Format</span>([ :format = <span class="s">"{0} has {1} items"</span>, :arg0 = <span class="s">"The list"</span>, :arg1 = <span class="n">3</span> ])

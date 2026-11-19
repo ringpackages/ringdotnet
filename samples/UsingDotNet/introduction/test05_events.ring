@@ -1,3 +1,4 @@
+# Events: setXXXEvent(code) runs Ring code when a .NET event is raised
 load "dotnet.ring"
 using { "System.Collections.ObjectModel" }
 

@@ -485,7 +485,7 @@ nTotal = <span class="n">0</span>                          <span class="c"># a g
 <span class="k">func</span> <span class="f">square</span> nNumber
 	<span class="k">return</span> nNumber * nNumber
 
-<span class="c"># Ring has no default parameters and no overloading: calling greet("Ann") with one value is an error ("less number of parameters").</span>
+<span class="c"># A function has one parameter list: calling greet("Ann") with one value raises an error ("less number of parameters").</span>
 <span class="k">func</span> <span class="f">greet</span> cName, cGreeting
 	<span class="k">return</span> cGreeting + <span class="s">", "</span> + cName
 
@@ -514,7 +514,7 @@ Hello, Ann
 Hi, Bob
 min 2, max 9
 total (global) = 11</code></pre></div>
-<ul><li>In the style used here, blocks end with a word: <code>ok</code> closes <code>if</code>, <code>next</code> closes <code>for</code>, <code>end</code> closes <code>while</code>, <code>off</code> closes <code>switch</code>. <code>but</code> is <em>else if</em>. (Braces are also allowed, see the note at the top.)</li><li>**A <code>func</code> continues until the next <code>func</code> or <code>class</code>**, so the code that starts your program goes <em>before</em> the functions, or inside <code>func main</code>, which Ring calls by itself at the end of the file.</li><li>A Ring function takes a <strong>fixed number of parameters</strong>: there are no default values and no overloading, and a call with another number of values is an error. For overloaded .NET methods, RingDotNet therefore offers the <code>NULL</code> and named-argument forms (<a href="concepts.html">Core concepts</a>).</li><li>A variable at the top of the file is global; a variable made in a function is local.</li></ul>
+<ul><li>In the style used here, blocks end with a word: <code>ok</code> closes <code>if</code>, <code>next</code> closes <code>for</code>, <code>end</code> closes <code>while</code>, <code>off</code> closes <code>switch</code>. <code>but</code> is <em>else if</em>. (Braces are also allowed, see the note at the top.)</li><li>**A <code>func</code> continues until the next <code>func</code> or <code>class</code>**, so the code that starts your program goes <em>before</em> the functions, or inside <code>func main</code>, which Ring calls by itself at the end of the file.</li><li>A Ring function takes the <strong>parameters it declares</strong>: a call with another number of values raises an error. For overloaded .NET methods, RingDotNet therefore offers the <code>NULL</code> and named-argument forms (<a href="concepts.html">Core concepts</a>).</li><li>A variable at the top of the file is global; a variable made in a function is local.</li></ul>
 <h2 id="4-classes-and-objects">4. Classes and objects<a class="anchor" href="#4-classes-and-objects">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ring_classes.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Ring in 15 minutes, part 4: classes and objects (the code at the top comes first, the classes go LAST: a func or class continues until the next func or class)</span>
 

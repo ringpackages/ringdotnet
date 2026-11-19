@@ -51,7 +51,7 @@ A **list** is the only collection. It can hold numbers, texts, lists and objects
 
 - In the style used here, blocks end with a word: `ok` closes `if`, `next` closes `for`, `end` closes `while`, `off` closes `switch`. `but` is *else if*. (Braces are also allowed, see the note at the top.)
 - **A `func` continues until the next `func` or `class`**, so the code that starts your program goes *before* the functions, or inside `func main`, which Ring calls by itself at the end of the file.
-- A Ring function takes a **fixed number of parameters**: there are no default values and no overloading, and a call with another number of values is an error. For overloaded .NET methods, RingDotNet therefore offers the `NULL` and named-argument forms ([Core concepts](concepts.html)).
+- A Ring function takes the **parameters it declares**: a call with another number of values raises an error. For overloaded .NET methods, RingDotNet therefore offers the `NULL` and named-argument forms ([Core concepts](concepts.html)).
 - A variable at the top of the file is global; a variable made in a function is local.
 
 ## 4. Classes and objects

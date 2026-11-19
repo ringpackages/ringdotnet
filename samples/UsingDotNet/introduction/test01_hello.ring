@@ -1,3 +1,4 @@
+# The generic calls: dnType, dnStatic, getProp and callMethod work for every .NET type, with no generated class
 load "dotnet.ring"
 
 ? "Runtime : " + dnVersion()

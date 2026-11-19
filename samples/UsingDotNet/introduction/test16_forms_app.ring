@@ -1,3 +1,4 @@
+# A small Windows Forms application that drives itself
 load "dotnet.ring"
 using {
 	"System.Drawing"

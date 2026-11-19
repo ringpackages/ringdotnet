@@ -1121,7 +1121,7 @@ oPasted = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span c
 	oClipboard.<span class="f">SetText</span>(oEdit.Text)
 
 <span class="k">func</span> <span class="f">pasteText</span>
-	<span class="c"># (a method call on a new object can't be on the right side of an attribute assignment: use a variable)</span>
+	<span class="c"># (a method call on a new object on the right side of an attribute assignment loses the assignment: use a variable)</span>
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	cText = oClipboard.<span class="f">GetText</span>(<span class="k">NULL</span>)
 	oPasted.Text = cText

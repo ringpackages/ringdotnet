@@ -1,3 +1,4 @@
+# Collections of the .NET class library: dictionaries and the specialized and generic collections
 load "dotnet.ring"
 using {
 	"System.Collections"

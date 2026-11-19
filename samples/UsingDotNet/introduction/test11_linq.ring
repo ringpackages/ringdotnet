@@ -1,3 +1,4 @@
+# LINQ over Ring lists and strings: the conditions are Ring code
 load "dotnet.ring"
 using { "System.Linq" }
 

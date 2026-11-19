@@ -14,7 +14,7 @@ func main
 	aWords = str2list(substr(trim(cSentence)," ",nl))
 	? "Ring words      : " + len(aWords)
 
-	# .NET adds helpers that Ring does not have. String's static methods:
+	# .NET adds more helpers. String's static methods:
 	oString = new String()
 	? "Join            : " + oString.Join([ :separator = "-", :value = aWords ])
 	? "Format          : " + oString.Format([ :format = "{0} has {1} items", :arg0 = "The list", :arg1 = 3 ])

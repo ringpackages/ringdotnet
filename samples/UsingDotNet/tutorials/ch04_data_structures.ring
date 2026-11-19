@@ -53,7 +53,7 @@ func main
 	? "   after Remove(b): " + list2str2(oList.toList())
 
 	# 5. BitArray: one bit for each item, so a million yes/no values take 125 KB. Set, Get and the logic methods And, Or, Xor, Not.
-	#    (Get, And and Or are words that Ring does not accept after a dot, so they are called with callMethod. And and Or change the array they are called on.)
+	#    (Get, And and Or are reserved words after a dot, so they are called with callMethod. And and Or change the array they are called on.)
 	oBits = dnNew("BitArray",[ :length = 10 ])
 	oBits.Set(1,True)
 	oBits.Set(3,True)
