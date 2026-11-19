@@ -12,7 +12,7 @@ lead: Programs should remember how the user likes them. This lesson stores setti
 
 ## Where do settings live?
 
-Windows has a folder for every kind of file; .NET finds them with `Environment.GetFolderPath`:
+The system has a folder for every kind of file; .NET finds them with `Environment.GetFolderPath`:
 
 | Name | For |
 |---|---|
